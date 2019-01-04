@@ -1,12 +1,11 @@
 ---
-title: Ottimizzare gli algoritmi per Azure Machine Learning Studio | Microsoft Docs
+title: Ottimizzare gli algoritmi - Azure Machine Learning Studio | Microsoft Docs
 description: Spiega come scegliere il set di parametri ottimale per un algoritmo in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
@@ -16,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 57561c9841297b7ea2991bda1e94065a854597cd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314713"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269414"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio
 
 In questo argomento viene descritto come scegliere il set di iperparametri corretto per un algoritmo in Azure Machine Learning. Per la maggior parte degli algoritmi di Machine Learning è necessario impostare i parametri. Quando si esegue il training di un modello, è necessario specificare valori per questi parametri. L'efficacia del modello di cui è stato eseguito il training dipende dai parametri scelti per il modello. Il processo per trovare il set ottimale di parametri è noto come *selezione del modello*.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Ci sono vari modi per selezionare un modello. In Machine Learning, la convalida incrociata è uno dei metodi più diffusi per la selezione del modello ed è il meccanismo di selezione del modello predefinito in Azure Machine Learning. Poiché Azure Machine Learning supporta R e Python, è sempre possibile implementare i relativi meccanismi di selezione del modello tramite R o Python.
 
 Il processo per trovare il migliore set di parametri è costituito da quattro passaggi:
 
-1. **Definire lo spazio del parametro**: prima decidere i valori esatti dei parametri che si vogliono prendere in considerazione per l'algoritmo.
+1. **Definire lo spazio del parametro**: decidere prima i valori esatti dei parametri da prendere in considerazione per l'algoritmo.
 2. **Definire le impostazioni di convalida incrociata**: decidere come scegliere le riduzioni di convalida incrociata per il set di dati.
 3. **Definire la metrica**: decidere quale metrica usare per determinare il migliore set di parametri, ad esempio, l'accuratezza, l'errore quadratico medio, la precisione, il richiamo, o il punteggio f.
 4. **Eseguire il training, valutare e confrontare**: per ogni combinazione univoca dei valori dei parametri, la convalida incrociata viene eseguita e basata sulla metrica di errore definita dall'utente. Dopo valutazione e confronto, è possibile scegliere il modello con le prestazioni migliori.
@@ -43,7 +42,7 @@ Le figure seguenti illustrano come raggiungere l'obiettivo in Azure Machine Lear
 ![Trovare il miglior set di parametri](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>Definire lo spazio dei parametri
-Il set di parametri può essere definito nella fase di inizializzazione del modello. Il pannello dei parametri di tutti gli algoritmi di Machine Learning presenta due modalità di training: *parametro singolo* e *intervallo di parametri*. Scegliere la modalità intervallo di parametri. Nella modalità intervallo di parametri è possibile immettere più valori per ogni parametro. Nella casella di testo è possibile immettere valori delimitati da virgole.
+Il set di parametri può essere definito nella fase di inizializzazione del modello. Il riquadro dei parametri di tutti gli algoritmi di Machine Learning presenta due modalità di training: *parametro singolo* e *intervallo di parametri*. Scegliere la modalità intervallo di parametri. Nella modalità intervallo di parametri è possibile immettere più valori per ogni parametro. Nella casella di testo è possibile immettere valori delimitati da virgole.
 
 ![Albero delle decisioni a due classi con innalzamento, parametro singolo](./media/algorithm-parameters-optimize/fig2.png)
 

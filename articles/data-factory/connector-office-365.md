@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 82fb2241b5988bae9587807c03e7bec50e7c1677
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f76c1676e21e1abdc3f23e2e2c4a7f6f721fefdb
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955380"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386571"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiare dati da Office 365 in Azure tramite Data Factory (anteprima) 
 
@@ -34,7 +34,7 @@ Attualmente, nell'ambito di una singola attività di copia, è possibile solo **
 >- La sottoscrizione di Azure che contiene la data factory e l'archivio dati di sink deve essere nello stesso tenant Azure Active Directory (Azure AD) del tenant di Office 365.
 >- Assicurarsi che l'area di Azure Integration Runtime usata per l'attività di copia, nonché la destinazione, siano nella stessa area in cui si trova la cassetta postale degli utenti del tenant di Office 365. Per informazioni sulla modalità in cui viene determinata la posizione di Azure IR, vedere [questo articolo](concepts-integration-runtime.md#integration-runtime-location). Per un elenco delle aree di Office e delle corrispondenti aree di Azure supportate, fare riferimento a [questa tabella](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions).
 >-  Se si caricano i dati di Office 365 in **Archiviazione BLOB di Azure** come destinazione, assicurarsi che sia in uso l'**[autenticazione dell'entità servizio](connector-azure-blob-storage.md#service-principal-authentication)** quando si definisce il servizio collegato in Archiviazione BLOB di Azure e che non siano in uso le autenticazioni della [chiave dell'account](connector-azure-blob-storage.md#account-key-authentication), della [firma di accesso condiviso](connector-azure-blob-storage.md#shared-access-signature-authentication) o delle [identità gestite per le risorse di Azure](connector-azure-blob-storage.md#managed-identity).
->-  Se si caricano i dati di Office 365 in **Azure Data Lake Storage Gen1** come destinazione, assicurarsi che sia in uso l'[**autenticazione dell'entità servizio**](connector-azure-data-lake-store.md#using-service-principal-authentication) quando si definisce il servizio collegato in Azure Data Lake Storage Gen1 e che non sia in uso l'[autenticazione delle identità gestite per le risorse di Azure](connector-azure-data-lake-store.md#managed-identity).
+>-  Se si caricano i dati di Office 365 in **Azure Data Lake Storage Gen1** come destinazione, assicurarsi che sia in uso l'[**autenticazione dell'entità servizio**](connector-azure-data-lake-store.md#use-service-principal-authentication) quando si definisce il servizio collegato in Azure Data Lake Storage Gen1 e che non sia in uso l'[autenticazione delle identità gestite per le risorse di Azure](connector-azure-data-lake-store.md#managed-identity).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -77,14 +77,14 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Office 365 sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Office 365** | Sì |
-| office365TenantId | ID tenant di Azure a cui appartiene l'account di Office 365. | Sì |
-| servicePrincipalTenantId | Specificare le informazioni sul tenant in cui si trova l'applicazione Web di Azure AD. | Sì |
-| servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. | Sì |
-| connectVia | Runtime di integrazione da usare per la connessione all'archivio dati.  Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No |
+| type | La proprietà type deve essere impostata su: **Office365** | Yes |
+| office365TenantId | ID tenant di Azure a cui appartiene l'account di Office 365. | Yes |
+| servicePrincipalTenantId | Specificare le informazioni sul tenant in cui si trova l'applicazione Web di Azure AD. | Yes |
+| servicePrincipalId | Specificare l'ID client dell'applicazione. | Yes |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. | Yes |
+| connectVia | Runtime di integrazione da usare per la connessione all'archivio dati.  Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No  |
 
 >[!NOTE]
 > Differenza tra **office365TenantId** e **servicePrincipalTenantId** e il valore corrispondente da specificare:
@@ -117,11 +117,11 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Office 365, sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **Office365Table** | Sì |
-| tableName | Nome del set di dati da estrarre da Office 365. Per l'elenco dei set di dati di Office 365 disponibili per l'estrazione, vedere [questo articolo](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets). | Sì |
-| predicate | Un'espressione del predicato che può essere usata per filtrare le righe specifiche da estrarre da Office 365.  Per trovare le colonne che possono essere usate per il filtro predicato per ogni tabella e il formato dell'espressione di filtro, vedere [questo articolo](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters). | No<br>Se non viene fornita alcuna proprietà predicate, l'impostazione predefinita prevede l'estrazione dei dati per gli ultimi 30 giorni. |
+| type | La proprietà type del set di dati deve essere impostata su: **Office365Table** | Yes |
+| tableName | Nome del set di dati da estrarre da Office 365. Per l'elenco dei set di dati di Office 365 disponibili per l'estrazione, vedere [questo articolo](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets). | Yes |
+| predicate | Un'espressione del predicato che può essere usata per filtrare le righe specifiche da estrarre da Office 365.  Per trovare le colonne che possono essere usate per il filtro predicato per ogni tabella e il formato dell'espressione di filtro, vedere [questo articolo](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters). | No <br>Se non viene fornita alcuna proprietà predicate, l'impostazione predefinita prevede l'estrazione dei dati per gli ultimi 30 giorni. |
 
 **Esempio**
 

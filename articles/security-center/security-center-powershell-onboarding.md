@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 650c767d6f8ef495bb19886980b6d45bfe53b32a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ecfab15860ffc690d341069b626e5d7579c00da4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311178"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340369"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizzare l'onboarding del Centro sicurezza di Azure con PowerShell
 
@@ -40,7 +40,7 @@ In questo esempio si abiliterà il Centro sicurezza per una sottoscrizione con I
 
 5. Impostare il [CISO dell'organizzazione come contatto di sicurezza per gli eventi significativi e gli avvisi ASC](security-center-provide-security-contact-details.md).
 
-6. Assegnare i [criteri di sicurezza predefiniti](security-center-azure-policy.md) del Centro sicurezza.
+6. Assegnare i [criteri di sicurezza predefiniti](tutorial-security-policy.md) del Centro sicurezza.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -65,7 +65,7 @@ Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa pr
         Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
-2.  (Facoltativo) Impostare il livello di copertura (piano tariffario) delle sottoscrizioni (se non è definito, il piano tariffario è impostato su Gratuito):
+2.  Facoltativo: Impostare il livello di copertura (piano tariffario) delle sottoscrizioni (se non è definito, il piano tariffario è impostato su Gratuito):
 
         Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzureRmSecurityPricing -Name "default" -PricingTier "Standard"
@@ -85,14 +85,14 @@ Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa pr
     > È consigliabile abilitare il provisioning automatico per assicurarsi che le macchine virtuali di Azure siano protette automaticamente dal Centro sicurezza di Azure.
     >
 
-5.  (Facoltativo) È consigliabile definire i dettagli dei contatti di sicurezza per le sottoscrizioni caricate, che verranno usati come destinatari delle notifiche e degli avvisi generati dal Centro sicurezza:
+5.  Facoltativo: È consigliabile definire i dettagli dei contatti di sicurezza per le sottoscrizioni caricate, che verranno usati come destinatari delle notifiche e degli avvisi generati dal Centro sicurezza:
 
         Set-AzureRmSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertsAdmin -NotifyOnAlert 
 
 6.  Assegnare i criteri predefiniti del Centro sicurezza:
 
         Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzureRmPolicySetDefinition -Name ' [Preview]: Enable Monitoring in Azure Security Center'
+        $Policy = Get-AzureRmPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
         New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
 È stato completato l'onboarding del Centro sicurezza di Azure con PowerShell.
@@ -111,6 +111,6 @@ Per altre informazioni su come usare PowerShell per automatizzare l'onboarding n
 
 Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.

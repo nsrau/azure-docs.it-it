@@ -1,6 +1,6 @@
 ---
-title: Visualizzare le prenotazioni di Azure | Microsoft Docs
-description: Informazioni su come visualizzare le prenotazioni di Azure nel portale di Azure.
+title: Visualizzare le prenotazioni per le risorse di Azure | Microsoft Docs
+description: Informazioni su come visualizzare le prenotazioni per Azure nel portale di Azure.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: cwatson
-ms.openlocfilehash: 4506d65d173ea483558a772d89fe7cbc8cd84944
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c7522076987aacacc6fde6a0c9d2fa867a3f14aa
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584588"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314041"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>Visualizzare le prenotazioni di Azure nel portale di Azure
+# <a name="view-reservations-for-azure-in-the-azure-portal"></a>Visualizzare le prenotazioni per Azure nel portale di Azure
 
-A seconda del tipo di sottoscrizione e di autorizzazioni, esistono due modi per visualizzare le prenotazioni di Azure.
+A seconda del tipo di sottoscrizione e di autorizzazioni, è possibile visualizzare le prenotazioni per le risorse di Azure in due modi.
 
 ## <a name="view-reservations-as-owner-or-reader"></a>Visualizzare le prenotazioni come proprietario o come lettore
 
@@ -30,7 +30,7 @@ Per impostazione predefinita, quando si acquista una prenotazione, l'utente e l'
  
 Per visualizzare una prenotazione come proprietario o lettore,
 
-1. Accedere al [portale di Azure]( http://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare **Prenotazioni**.
 
     ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-view-reservation/portal-reservation-search.png)
@@ -45,7 +45,7 @@ Se è necessario modificare l'ambito di una prenotazione, dividere una prenotazi
 
 Per visualizzare le transazioni di prenotazione nel portale di Azure,
 
-1. Accedere al [portale di Azure]( http://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
 
     ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-view-reservation/portal-cm-billing-search.png)
@@ -62,7 +62,7 @@ Per ottenere i dati usando un'API, vedere [Get Reserved Instance transaction cha
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-- [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
+- [Cosa sono le prenotazioni di Azure?](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo la capacità riservata di Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
@@ -71,6 +71,6 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Informazioni sull'utilizzo della prenotazione per sottoscrizioni CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza e contatti
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-In caso di domande, creare una [Richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) per assistenza.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

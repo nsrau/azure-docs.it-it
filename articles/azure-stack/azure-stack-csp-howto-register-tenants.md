@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 6f93a72acdcc249720abeec3fe871b7108e2bb29
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e319c803b610005bc130e9c5d314d23c48c1e9a3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963743"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717192"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Aggiungere tenant per l'utilizzo e fatturazione per Azure Stack
 
-*Si applica a: i sistemi integrati di Azure Stack*
+*Si applica a: Sistemi integrati di Azure Stack*
 
 Questo articolo descrive i passaggi necessari aggiungere un utente finale ad Azure Stack gestito da un Provider del servizio Cloud (CSP). Quando il nuovo tenant Usa le risorse, Azure Stack segnalerà utilizzo alla propria sottoscrizione di CSP.
 
@@ -53,7 +53,7 @@ Se il cliente finale gestisce il proprio account, creare un utente guest nella p
  
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>Aggiornare la registrazione con la sottoscrizione del cliente end
 
-Aggiornare la registrazione con la nuova sottoscrizione del cliente. Azure segnala l'utilizzo del cliente usando l'identità del cliente dal Partner centrale. Questo passaggio assicura che viene segnalato l'utilizzo di ogni cliente in una singola sottoscrizione di CSP del cliente. Ciò rende molto più semplice tenere traccia dell'utilizzo di utente e la fatturazione.
+Aggiornare la registrazione con la nuova sottoscrizione del cliente. Azure segnala l'utilizzo del cliente usando l'identità del cliente dal centro per i Partner. Questo passaggio assicura che viene segnalato l'utilizzo di ogni cliente in una singola sottoscrizione di CSP del cliente. Ciò rende molto più semplice tenere traccia dell'utilizzo di utente e la fatturazione.
 
 > [!Note]  
 > Per eseguire questo passaggio, è necessario disporre [registrato di Azure Stack](azure-stack-register.md).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 40cad9eec87c07a205a86f1009074cdbeaf58d15
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 74092f57b3531a037aee71d433c33dddf8c2b694
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249964"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001788"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associazioni del servizio SignalR per Funzioni di Azure
 
@@ -30,7 +30,7 @@ Questo articolo illustra come autenticare e inviare messaggi in tempo reale ai c
 
 ## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
 
-Le associazioni del servizio SignalR sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.SignalRService](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) versione 1.0.0-preview1-*. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension).
+Le associazioni del servizio SignalR sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) versione 1.0.0-preview1-*. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension).
 
 > [!NOTE]
 > Il servizio Azure SignalR è disponibile a livello generale. Tuttavia, le associazioni del servizio SignalR per Funzioni di Azure sono attualmente in anteprima.
@@ -249,7 +249,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**direction**|| Il valore deve essere impostato su `in`.|
 |**nome**|| Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
 |**hubName**|**HubName**| Questo valore deve essere impostato sul nome dell'hub SignalR per il quale vengono generate le informazioni di connessione.|
-|**userId**|**UserId**| Facoltativo: valore dell'attestazione dell'identificatore utente da impostare nel token della chiave di accesso. |
+|**userId**|**UserId**| Facoltativo: valore dell'attestazione dell'ID utente da impostare nel token della chiave di accesso. |
 |**connectionStringSetting**|**ConnectionStringSetting**| Nome dell'impostazione app contenente la stringa di connessione al servizio SignalR (valore predefinito:"AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR

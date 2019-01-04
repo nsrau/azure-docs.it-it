@@ -1,33 +1,23 @@
 ---
-title: Spostare un peering pubblico su Azure ExpressRoute nel peering Microsoft | Microsoft Docs
+title: Spostare un peering pubblico nel peering Microsoft - Azure ExpressRoute | Microsoft Docs
 description: Questo articolo illustra i passaggi per spostare il peering pubblico nel peering Microsoft su ExpressRoute.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: f34fabc95d5b56edc6e37c323bebf60bd98c8b90
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: seodec18
+ms.openlocfilehash: 6b2bce6b488698db0a72c9a17f67c2555c6afa5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314300"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100022"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Spostare un peering pubblico nel peering Microsoft
 
-ExpressRoute supporta ora i servizi PaaS Azure, come l'archiviazione di Azure e il database SQL di Azure, usando il peering Microsoft con i filtri di route. È ora necessario un solo dominio di routing per accedere ai servizi PaaS e SaaS Microsoft. È possibile usare i filtri di route per annunciare in modo selettivo i prefissi dei servizi PaaS per le aree di Azure che si vuole usare.
-
-Questo articolo descrive come spostare una configurazione di peering pubblico nel peering Microsoft senza tempi di inattività. Per altre informazioni sul routing di domini e i peering, vedere l'articolo relativo ai [domini di routing e i circuiti ExpressRoute](expressroute-circuit-peerings.md).
-
+Questo articolo descrive come spostare una configurazione di peering pubblico nel peering Microsoft senza tempi di inattività. ExpressRoute supporta ora i servizi PaaS Azure, come l'archiviazione di Azure e il database SQL di Azure, usando il peering Microsoft con i filtri di route. È ora necessario un solo dominio di routing per accedere ai servizi PaaS e SaaS Microsoft. È possibile usare i filtri di route per annunciare in modo selettivo i prefissi dei servizi PaaS per le aree di Azure che si vuole usare. Per altre informazioni sul routing di domini e i peering, vedere l'articolo relativo ai [domini di routing e i circuiti ExpressRoute](expressroute-circuit-peerings.md).
 
 ## <a name="before"></a>Prima di iniziare
 
@@ -57,7 +47,7 @@ Verificare che il peering Microsoft sia abilitato e che i prefissi pubblici annu
 
 Per impostazione predefinita, i nuovi peering Microsoft non annunciano i prefissi fino a quando non viene associato un filtro di route al circuito. Quando si crea una regola di filtro di route, è possibile specificare l'elenco di community di servizio per le aree di Azure che si vuole usare per i servizi PaaS Azure, come illustrato nella schermata seguente:
 
-![Unire il peering pubblico](.\media\how-to-move-peering\public.png)
+![Unire il peering pubblico](./media/how-to-move-peering/public.png)
 
 Usare uno dei seguenti articoli per configurare i filtri di route:
 

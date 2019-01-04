@@ -1,5 +1,5 @@
 ---
-title: Gestire un piano di servizio app in Azure | Microsoft Docs
+title: Gestire un piano di servizio app - Azure | Microsoft Docs
 description: Informazioni su come eseguire diverse attività per gestire un piano di servizio app.
 keywords: servizio app, servizio app di azure, ridimensionare, piano di servizio app, modificare, creare, gestire, gestione
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec18
+ms.openlocfilehash: 8f8e5f3d184073a73ca30764542dc56e45974120
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166067"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262130"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
 
@@ -35,7 +36,7 @@ Un [piano di servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-o
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo** > **Web e dispositivi mobili** e quindi selezionare **App Web** o un altro tipo di app del servizio app.
 
-1. Selezionare un piano di servizio app esistente o creare un piano per la nuova app.
+2. Selezionare un piano di servizio app esistente o creare un piano per la nuova app.
 
    ![Creare un'app nel portale di Azure.][createWebApp]
 

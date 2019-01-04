@@ -1,5 +1,5 @@
 ---
-title: Elaborare ed estrarre testo da immagini in Ricerca di Azure | Microsoft Docs
+title: Elaborare ed estrarre testo da immagini nella ricerca cognitiva - Ricerca di Azure
 description: Elaborare ed estrarre testo e altre informazioni da immagini in pipeline di ricerca cognitiva all'interno di Ricerca di Azure.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 5ee821f3d1e81e581f376d4b14b3e8393a8f190c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: b4829b0da656c648db732b2e7564de6db8fbf2eb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444634"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312613"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Come elaborare ed estrarre informazioni da immagini in scenari di ricerca cognitiva
 

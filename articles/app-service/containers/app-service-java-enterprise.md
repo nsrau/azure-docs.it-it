@@ -1,5 +1,5 @@
 ---
-title: Supporto di Java Enterprise per il Servizio app di Azure in Linux | Microsoft Docs
+title: Supporto di Java Enterprise in Linux - Servizio app di Azure | Microsoft Docs
 description: Guida per sviluppatori sulla distribuzione di app Java Enterprise usando Wildfly con il Servizio app di Azure in Linux.
 keywords: servizio app di azure, app web, linux, oss, java, wildfly, enterprise
 services: app-service
@@ -12,16 +12,17 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: a6d50e6f405294bf8e91018dd4d7b6008cd49ada
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 34506266ed4a2103f0d3bd7a8014b9a038b25491
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161874"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338040"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guida di Java Enterprise per il Servizio app di Azure in Linux
 
-Il Servizio app di Azure in Linux consente agli sviluppatori Java di creare, distribuire e ridimensionare applicazioni Java Enterprise (JEE) in un servizio completamente gestito basato su Linux.  L'ambiente di runtime Java Enterprise sottostante è il server applicazioni open source [Wildfly](http://wildfly.org/).
+Il Servizio app di Azure in Linux consente agli sviluppatori Java di creare, distribuire e ridimensionare applicazioni Java Enterprise (JEE) in un servizio completamente gestito basato su Linux.  L'ambiente di runtime Java Enterprise sottostante è il server applicazioni open source [Wildfly](https://wildfly.org/).
 
 Questa guida illustra i concetti chiave e le istruzioni per gli sviluppatori Java Enterprise che usano il Servizio app di Azure per Linux. Se non si ha familiarità con lo sviluppo di applicazioni Java con il Servizio app di Azure per Linux, è consigliabile completare prima di tutto la [guida introduttiva per Java](quickstart-java.md). Le eventuali domande sul Servizio app di Azure per Linux che non riguardano Java Enterprise nello specifico trovano risposta nella [guida per sviluppatori di Java](app-service-linux-java.md) e nelle [domande frequenti sul Servizio app di Azure per Linux](app-service-linux-faq.md).
 
@@ -81,7 +82,7 @@ Per configurare in Wildfly una connessione all'origine dati, seguire lo stesso p
 2. Seguire i passaggi descritti in "Moduli e dipendenze" per creare e caricare il descrittore di modulo XML, lo script dell'interfaccia della riga di comando di JBoss, lo script di avvio e il file della dipendenza con estensione jar di JDBC.
 
 
-Sono disponibili altre informazioni sulla configurazione di Wildfly con [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://dev.mysql.com/doc/connector-j/5.1/connector-j-usagenotes-jboss.html) e [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898). È possibile usare queste istruzioni personalizzate con l'approccio generalizzato sopra indicato per aggiungere definizioni di origini dati al server.
+Sono disponibili altre informazioni sulla configurazione di Wildfly con [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource) e [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898). È possibile usare queste istruzioni personalizzate con l'approccio generalizzato sopra indicato per aggiungere definizioni di origini dati al server.
 
 ## <a name="messaging-providers"></a>Provider di messaggistica
 
@@ -103,7 +104,7 @@ Per impostazione predefinita, il Servizio app di Azure per Linux userà i cookie
 - Se un'istanza dell'applicazione viene riavviata o ridotta, lo stato della sessione utente nel server di applicazioni verrà perso.
 - Se le applicazioni sono impostate su un timeout della sessione prolungato o un numero fisso di utenti, la ricezione del carico da parte delle nuove istanze scalate automaticamente può richiedere tempo poiché solo le nuove sessioni verranno instradate verso le istanze appena avviate.
 
-È possibile configurare Wildfly in modo che usi un archivio delle sessioni esterne, ad esempio la [Cache Redis](/azure/redis-cache/). Sarà necessario [disabilitare la configurazione di affinità di istanza ARR esistente](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) per disattivare l'instradamento basato sui cookie della sessione e consentire a un archivio delle sessioni di Wildfly di operare senza interferenze.
+È possibile configurare Wildfly in modo che usi un archivio delle sessioni esterne, ad esempio la [Cache Redis di Azure](/azure/azure-cache-for-redis/). Sarà necessario [disabilitare la configurazione di affinità di istanza ARR esistente](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) per disattivare l'instradamento basato sui cookie della sessione e consentire a un archivio delle sessioni di Wildfly di operare senza interferenze.
 
 ## <a name="enable-web-sockets"></a>Abilitare i WebSocket
 
@@ -114,5 +115,5 @@ Per impostazione predefinita, i WebSocket sono abilitati nel Servizio app di Azu
 Il Servizio app di Azure include strumenti che aiutano a risolvere i problemi con l'applicazione di interesse.
 
 -   Abilitare la registrazione facendo clic su **Log di diagnostica** nel riquadro di spostamento a sinistra. Fare clic su **File System** per impostare il periodo di conservazione e la quota di archiviazione, quindi salvare le modifiche. È possibile trovare questi log in `/home/LogFiles/`.
--   [Usare il protocollo SSH per connettersi all'istanza dell'applicazione](/app-service-linux-ssh-support) per visualizzare i log relativi all'applicazione in esecuzione.
+-   [Usare il protocollo SSH per connettersi all'istanza dell'applicazione](app-service-linux-ssh-support.md) per visualizzare i log relativi all'applicazione in esecuzione.
 -   Controllare i log di diagnostica nel pannello **Log di diagnostica** del portale di Azure o usando il comando dell'interfaccia della riga di comando di Azure: ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `

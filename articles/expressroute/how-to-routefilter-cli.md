@@ -1,28 +1,20 @@
 ---
-title: 'Configurare i filtri di route per il peering Microsoft Azure ExpressRoute: Interfaccia della riga di comando | Microsoft Docs'
+title: 'Configurare i filtri di route per il peering Microsoft - ExpressRoute: Interfaccia della riga di comando di Azure | Microsoft Docs'
 description: Questo articolo descrive come configurare i filtri di route per il peering Microsoft usando l'interfaccia della riga di comando di Azure
-documentationcenter: na
 services: expressroute
 author: anzaman
-manager: ganesr
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 29cbe1686888a87fca6ddde957a1cbd35ba3df26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968694"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079297"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurare i filtri di route per il peering Microsoft: interfaccia della riga di comando di Azure
+# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurare i filtri di route per il peering Microsoft: Interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](how-to-routefilter-portal.md)
@@ -80,7 +72,7 @@ Prima di iniziare, installare la versione più recente dei comandi dell'interfac
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Accedere al proprio account Azure e selezionare la sottoscrizione
 
-Per iniziare la configurazione, accedere al proprio account Azure. Per eseguire la connessione, usare gli esempi che seguono:
+Per iniziare la configurazione, accedere al proprio account Azure. Se si usa il "Try It", viene automaticamente eseguito l'accesso e si può ignorare il passaggio di accesso. Per eseguire la connessione, usare gli esempi che seguono:
 
 ```azurecli
 az login
@@ -88,13 +80,13 @@ az login
 
 Controllare le sottoscrizioni per l'account.
 
-```azurecli
+```azurecli-interactive
 az account list
 ```
 
 Selezionare la sottoscrizione per la quale si vuole creare un circuito ExpressRoute.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "<subscription ID>"
 ```
 
@@ -104,7 +96,7 @@ az account set --subscription "<subscription ID>"
 
 Usare il cmdlet seguente per ottenere l'elenco dei valori di community BGP associati ai servizi accessibili tramite il peering Microsoft e l'elenco dei prefissi associati:
 
-```azurecli
+```azurecli-interactive
 az network route-filter rule list-service-communities
 ```
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Creare un elenco dei valori che si vuole usare
@@ -119,7 +111,7 @@ Un filtro di route può includere una sola regola di tipo 'Consenti'. A questa r
 
 Creare prima di tutto il filtro di route. Il comando 'az network route-filter create' crea solo una risorsa filtro di route. Dopo aver creato la risorsa, è necessario creare una regola e associarla all'oggetto filtro di route. Eseguire il comando seguente per creare una risorsa filtro di route:
 
-```azurecli
+```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
 ```
 
@@ -127,7 +119,7 @@ az network route-filter create -n MyRouteFilter -g MyResourceGroup
 
 Eseguire il comando seguente per creare una nuova regola:
  
-```azurecli
+```azurecli-interactive
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
@@ -135,7 +127,7 @@ az network route-filter rule create --filter-name MyRouteFilter -n CRM --communi
 
 Eseguire il comando seguente per associare il filtro di route al circuito ExpressRoute:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --route-filter MyRouteFilter
 ```
 
@@ -145,7 +137,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 Per ottenere le proprietà di un filtro di route, usare il comando seguente:
 
-```azurecli
+```azurecli-interactive
 az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilter 
 ```
 
@@ -153,7 +145,7 @@ az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilt
 
 Se il filtro di route è già associato a un circuito, gli aggiornamenti all'elenco di community BGP includono la propagazione automatica delle modifiche per gli annunci dei prefissi tramite le sessioni BGP stabilite. È possibile aggiornare l'elenco di community BGP del filtro di route con il comando seguente:
 
-```azurecli
+```azurecli-interactive
 az network route-filter rule update --filter-name MyRouteFilter -n CRM -g ExpressRouteResourceGroupName --add communities '12076:5040' --add communities '12076:5010'
 ```
 
@@ -161,7 +153,7 @@ az network route-filter rule update --filter-name MyRouteFilter -n CRM -g Expres
 
 Dopo aver rimosso l'associazione di un filtro di route dal circuito ExpressRoute, nessun prefisso viene annunciato tramite la sessione BGP. Usare il comando seguente per rimuovere l'associazione di un filtro di route da un circuito ExpressRoute:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
@@ -169,7 +161,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 È possibile eliminare un filtro di route solo se non è associato a un circuito. Assicurarsi che il filtro di route non sia associato a un circuito prima di tentare di eliminarlo. È possibile eliminare un filtro di route con il comando seguente:
 
-```azurecli
+```azurecli-interactive
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
 

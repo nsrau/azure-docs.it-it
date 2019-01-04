@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157361"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256673"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisiti di sistema di Azure Data Box Gateway (anteprima)
 
@@ -27,6 +27,19 @@ I requisiti di sistema per il dispositivo virtuale Data Box Gateway includono:
 > [!IMPORTANT]
 > Data Box Gateway è in anteprima. Prima di distribuire la soluzione, leggere le [condizioni d'uso per l'anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
+## <a name="specifications-for-the-virtual-device"></a>Specifiche per il dispositivo virtuale
+
+Il sistema host sottostante per Data Box Gateway deve essere in grado di dedicare le risorse seguenti al provisioning del dispositivo virtuale:
+
+| Specifiche                                          | DESCRIZIONE              |
+|---------------------------------------------------------|--------------------------|
+| Processori virtuali (core)   | Minimo 4 |            
+| Memoria  | Minimo 8 GB|
+| Disponibilità|Nodo singolo|
+| Dischi| Disco sistema operativo: 250 GB <br> Disco dati: almeno 2 TB, con thin provisioning e supportato da unità SSD|
+| Interfacce di rete|1 o più interfacce di rete virtuali|
+
+
 ## <a name="supported-os-for-clients-connected-to-device"></a>Sistema operativo supportato per i client connessi al dispositivo
 
 Di seguito è riportato l'elenco dei sistemi operativi supportati per i client o gli host connessi a Data Box Gateway.
@@ -34,7 +47,7 @@ Di seguito è riportato l'elenco dei sistemi operativi supportati per i client o
 | **Sistema operativo/piattaforma** | **Versioni** |
 | --- | --- |
 | Windows Server |2012 R2 <br> 2016 |
-| Windows |8, 10 |
+|  Windows |8, 10 |
 | SUSE Linux |Enterprise Server 12 (x86_64)|
 | Ubuntu |16.04.3 LTS|
 | CentOS | 7.0 |
@@ -92,7 +105,7 @@ La tabella seguente elenca le porte che devono essere aperte nel firewall per co
 
 | N. porta| In ingresso/In uscita | Ambito porta| Obbligatoria|   Note                                                             |                                                                                     |
 |--------|---------|----------|--------------|----------------------|---------------|
-| TCP 80 (HTTP)|In uscita|WAN |No|La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti. <br>Il proxy Web in uscita è configurabile dall'utente. |                          
+| TCP 80 (HTTP)|In uscita|WAN |No |La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti. <br>Il proxy Web in uscita è configurabile dall'utente. |                          
 | TCP 443 (HTTPS)|In uscita|WAN|Yes|La porta in uscita viene usata per accedere ai dati nel cloud.<br>Il proxy Web in uscita è configurabile dall'utente.|   
 | UDP 53 (DNS)|In uscita|WAN|In alcuni casi<br>Vedere le note|Questa porta è obbligatoria solo se si usa un server DNS basato su Internet.<br>È consigliabile l'uso del server DNS locale. |
 | UDP 123 (NTP)|In uscita|WAN|In alcuni casi<br>Vedere le note|Questa porta è obbligatoria solo se si usa un server NTP basato su Internet.  |

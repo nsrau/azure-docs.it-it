@@ -1,5 +1,5 @@
 ---
-title: Spostamento dei dati in SQL Server in una macchina virtuale di Azure | Documentazione Microsoft
+title: Spostare i dati in una macchina virtuale di SQL Server - Processo di data science per i team
 description: Spostare i dati da file flat o da un Server SQL locale a SQL Server su VM di Azure
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 649c98c235adc2435840c6c43d3e2f9d5755265f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: fbc23d53687b908245ffe25bdd418cbe64af080b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446195"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136189"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Spostamento dei dati in SQL Server in una macchina virtuale di Azure
 
@@ -26,7 +26,7 @@ Per un argomento che descrive le opzioni per lo spostamento dei dati a un databa
 
 Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dati in SQL Server in una macchina virtuale Azure.
 
-| <b>SOURCE</b> | <b>DESTINAZIONE: SQL Server in VM di Azure</b> |
+| <b>ORIGINE</b> | <b>DESTINAZIONE: SQL Server in macchina virtuale di Azure</b> |
 | --- | --- |
 | <b>File Flat</b> |1. <a href="#insert-tables-bcp">Utilità copia di massa della riga di comando (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Inserimento di massa query SQL </a><br> 3. <a href="#sql-builtin-utilities">Utilità grafiche integrate in SQL Server</a> |
 | <b>Server SQL locale</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Distribuzione di un database di SQL Server a una macchina virtuale di Microsoft Azure</a><br> 2. <a href="#export-flat-file">Esportazione in un file flat </a><br> 3. <a href="#sql-migration">Migrazione guidata database SQL </a> <br> 4. <a href="#sql-backup">Backup e ripristino database </a><br> |

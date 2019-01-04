@@ -1,7 +1,24 @@
 ---
-titolo: 'PowerShell - Ruotare la protezione TDE - Database SQL di Azure| descrizione di Microsoft Docs': Informazioni su come ruotare la protezione di Transparent Data Encryption (TDE) per un server SQL di Azure.
-services: sql-database ms.service: sql-database ms.subservice: security ms.custom: ms.devlang: ms.topic: conceptual author: aliceku ms.author: aliceku ms.reviewer: vanto manager: jhubbard ms.date: 08/07/2017
---- 
+title: PowerShell - Ruotare la protezione TDE - Database SQL di Azure| Microsoft Docs
+description: Informazioni su come ruotare la protezione di Transparent Data Encryption (TDE) per un server SQL di Azure.
+services: sql-database
+ms.service: sql-database
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: aliceku
+ms.author: aliceku
+ms.reviewer: vanto
+manager: jhubbard
+ms.date: 08/07/2017
+ms.openlocfilehash: 02f97b318be975f4ff24b4e72276776ebc30535c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52991977"
+---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Ruotare la protezione Transparent Data Encryption (TDE) tramite PowerShell 
 
 Questo articolo descrive la rotazione delle chiavi per un server SQL di Azure usando una protezione TDE di Azure Key Vault. Ruotare una protezione TDE di un server SQL di Azure significa passare a una nuova chiave asimmetrica che protegge i database nel server. La rotazione delle chiavi è un'operazione online e richiede solo pochi secondi, perché si limita a decrittografare e crittografare nuovamente la chiave di crittografia dei dati del database, ma non l'intero database.
@@ -90,4 +107,4 @@ L'opzione usa i cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvaul
 
 - In caso di rischio per la sicurezza, consultare [Rimuovere una chiave potenzialmente compromessa](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) per informazioni su come rimuovere una protezione TDE potenzialmente compromessa 
 
-- Introduzione al supporto Bring Your Own Key per TDE: [Abilitare TDE tramite la propria chiave da Key Vault usando PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)
+- Introduzione al supporto Bring Your Own Key per TDE: [Abilitare TDE con la propria chiave di Key Vault usando PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)

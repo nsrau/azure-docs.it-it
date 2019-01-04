@@ -1,26 +1,21 @@
 ---
-title: Gestire Azure Cosmos DB in Azure Storage Explorer
-description: Informazioni su come gestire Azure Cosmos DB in Azure Storage Explorer.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
+title: Gestire le risorse di Azure Cosmos DB usando Azure Storage Explorer
+description: Informazioni su come connettersi ad Azure Cosmos DB e gestire le relative risorse con Azure Storage Explorer.
 author: Jejiang
-manager: kfile
-editor: ''
 tags: Azure Cosmos DB
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 12/07/2018
 ms.author: jejiang
-ms.openlocfilehash: 4a50809c48ba03b7a12689d905e704d3f820ca8a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162467"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138127"
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gestire Azure Cosmos DB in Azure Storage Explorer
+# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Gestire le risorse di Azure Cosmos DB usando Azure Storage Explorer
 
 L'uso di Azure Cosmos DB in Azure Storage Explorer consente agli utenti di gestire le entità di Azure Cosmos DB, modificare i dati, aggiornare le stored procedure e attivarle assieme ad altre entità come code e BLOB di archiviazione di Azure. È ora possibile usare lo stesso strumento per gestire le diverse entità di Azure in un'unica posizione. Attualmente Azure Storage Explorer supporta account SQL, MongoDB, Graph e di tabella.
 
@@ -31,7 +26,7 @@ Un account Azure Cosmos DB per l'API SQL<!--or MongoDB API-->. Se non si ha un a
 
 ## <a name="installation"></a>Installazione
 
-Installare i bit più recenti di Azure Storage Explorer qui: [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). È ora supportata la versione per Windows, Linux e MAC.
+Installare i componenti più recenti di Azure Storage Explorer da qui: [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), attualmente è supportata una versione per Windows, Linux e Mac.
 
 ## <a name="connect-to-an-azure-subscription"></a>Connettersi a una sottoscrizione di Azure
 
@@ -242,11 +237,11 @@ Se non è possibile trovare alcun certificato autofirmato seguendo la procedura 
 
 Se non è possibile recuperare le sottoscrizioni dopo aver effettuato l'accesso:
 
-- Verificare che l'account abbia accesso alle sottoscrizioni effettuando l'accesso al [portale di Azure](http://portal.azure.com/)
-- Assicurarsi di aver effettuato l'accesso usando l'ambiente corretto, ad esempio [Azure](http://portal.azure.com/), [Azure Cina](https://portal.azure.cn/), [Azure Germania](https://portal.microsoftazure.de/), [Azure Governo degli Stati Uniti](http://portal.azure.us/) o Ambiente personalizzato/Azure Stack
+- Verificare che l'account abbia accesso alle sottoscrizioni effettuando l'accesso al [portale di Azure](https://portal.azure.com/)
+- Assicurarsi di aver effettuato l'accesso usando l'ambiente corretto, ad esempio [Azure](https://portal.azure.com/), [Azure Cina](https://portal.azure.cn/), [Azure Germania](https://portal.microsoftazure.de/), [Azure Governo degli Stati Uniti](https://portal.azure.us/) o Ambiente personalizzato/Azure Stack
 - Se si è protetti da un proxy, assicurarsi che il proxy Storage Explorer sia stato configurato correttamente
 - Provare a rimuovere e a aggiungere nuovamente l'account
-- Provare a eliminare i file seguenti dalla home directory, ovvero C:\Utenti\ContosoUser, e quindi aggiungere nuovamente l'account:
+- Provare a eliminare i file seguenti dalla home directory (ad esempio C:\Users\ContosoUser) e quindi aggiungere nuovamente l'account:
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -310,6 +305,6 @@ Se nessuna delle soluzioni proposte ha funzionato, inviare un'e-mail all'Azure C
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Guardare il video seguente per informazioni su come usare Azure Cosmos DB in Azure Storage Explorer: [Usare Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
+* Guardare il video seguente su come usare Azure Cosmos DB in Azure Storage Explorer: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Per altre informazioni su Storage Explorer e per connettersi ad altri servizi, vedere [Guida introduttiva a Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

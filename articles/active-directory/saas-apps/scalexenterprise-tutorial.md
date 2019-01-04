@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448819"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835387"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con ScaleX Enterprise
 
@@ -123,7 +123,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare il valore usando il modello seguente: `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
-    > Questi non sono i valori reali. Aggiornare questi valori con l'identificatore, l'URL di risposta o l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di ScaleX Enterprise](http://info.rescale.com/contact_sales). 
+    > Questi non sono i valori reali. Aggiornare questi valori con l'identificatore, l'URL di risposta o l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di ScaleX Enterprise](https://info.rescale.com/contact_sales). 
 
 1. L'applicazione ScaleX prevede un formato specifico per le asserzioni SAML. È quindi necessario modificare mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Fare clic sulla casella di controllo **Visualizza e modifica tutti gli altri attributi utente** per aprire le impostazioni degli attributi personalizzati.
 
@@ -172,7 +172,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. **Name of Identity Provider email field in ACS response** (Nome del campo e-mail del provider d'identità nella risposta ACS): incollare il valore `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    d. **Identity Provider EntityDescriptor Entity ID** (ID entità EntityDescriptor del provider d'identità): incollare il valore **ID entità SAML** copiato dal portale di Azure.
+    d. **Identity Provider EntityDescriptor Entity ID** (ID entità EntityDescriptor del provider di identità): incollare il valore **ID entità SAML** copiato dal portale di Azure.
 
     e. **Identity Provider SingleSignOnService URL** (URL servizio Single Sign-On del provider d'identità): incollare l'**URL servizio Single Sign-On SAML** dal portale di Azure.
 
@@ -183,7 +183,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     h. Fare clic su **Update SSO Settings** (Aggiorna impostazioni SSO) per salvare le impostazioni.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD

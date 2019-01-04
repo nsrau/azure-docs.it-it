@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 13ee238580d645f3e727090bc0e0275b36bdb225
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 64f02b1165d014a0eaa89dae64a7d9aa283cac32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208812"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834588"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrizione di un cluster di Service Fabric
 Cluster Resource Manager di Service Fabric fornisce alcuni meccanismi per descrivere un cluster. Durante la fase di esecuzione, Cluster Resource Manager usa queste informazioni per assicurare la disponibilità elevata dei servizi in esecuzione sul cluster. Applicando queste regole importanti, tenta anche di ottimizzare il consumo di risorse all'interno del cluster.
@@ -54,7 +54,7 @@ Durante la fase di esecuzione, Cluster Resource Manager di Service Fabric prende
 
 Cluster Resource Manager di Service Fabric non si cura del numero di livelli presenti nella gerarchia del dominio di errore. Tenta invece di garantire che la perdita di una parte della gerarchia non incida sui servizi che vi vengono eseguiti. 
 
-È preferibile che sia presente lo stesso numero di nodi a ogni livello di profondità della gerarchia del dominio di errore. Se l'albero dei domini di errore nel cluster è sbilanciato, è più difficile per Cluster Resource Manager determinare la migliore allocazione dei servizi. Layout sbilanciati dei domini di errore comportano che la perdita di alcuni domini possa incidere maggiormente sulla disponibilità del cluster rispetto ad altri. Di conseguenza Cluster Resource Manager si trova a dover scegliere fra due obiettivi: usare i computer del dominio più dotato posizionando i servizi in essi o posizionare i servizi in altri domini, così che la perdita di un dominio non causi problemi. 
+È preferibile che sia presente lo stesso numero di nodi a ogni livello di profondità della gerarchia del dominio di errore. Se l'albero dei domini di errore nel cluster è sbilanciato, è più difficile per Cluster Resource Manager determinare la migliore allocazione dei servizi. Layout sbilanciati dei domini di errore comportano che la perdita di alcuni domini possa incidere maggiormente sulla disponibilità del cluster rispetto ad altri. Di conseguenza, il Cluster Resource Manager è diviso tra due obiettivi: usare i computer del dominio "scuro" posizionando i servizi in essi o posizionare i servizi in altri domini, così che la perdita di un dominio non causi problemi. 
 
 Come appaiono i domini sbilanciati? La figura seguente illustra due diversi layout per un cluster. Nel primo esempio i nodi sono distribuiti uniformemente tra i domini di errore. Nel secondo esempio, un dominio di errore presenta molti più nodi degli altri. 
 
@@ -97,7 +97,7 @@ Il modello più comune è basato sulla matrice FD/UD, in cui i domini di errore 
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Vincoli del dominio di errore e di aggiornamento e comportamento risultante
 ### <a name="default-approach"></a>*Approccio predefinito*
-Per impostazione predefinita, il servizio Gestione risorse cluster mantiene bilanciati i servizi tra i domini di errore e di aggiornamento. Tale equilibrio è modellato come un [vincolo](service-fabric-cluster-resource-manager-management-integration.md). Il vincolo dei domini di errore e di aggiornamento stabilisce che: "Per una data partizione di servizio non deve mai esistere una differenza maggiore di uno nel numero di oggetti servizio (istanze di servizio senza stato o repliche con stato) tra due domini dello stesso livello gerarchico". Si supponga che questo vincolo fornisca una garanzia di "differenza massima". Il vincolo dei domini di errore e di aggiornamento impedisce determinati spostamenti o disposizioni che violano la regola indicata in precedenza. 
+Per impostazione predefinita, il servizio Gestione risorse cluster mantiene bilanciati i servizi tra i domini di errore e di aggiornamento. Tale equilibrio è modellato come un [vincolo](service-fabric-cluster-resource-manager-management-integration.md). Il vincolo dei domini di errore e di aggiornamento afferma: "Per una data partizione di servizio non deve mai esistere una differenza maggiore di uno nel numero di oggetti servizio (istanze di servizio senza stato o repliche con stato) tra due domini dello stesso livello gerarchico". Si supponga che questo vincolo fornisca una garanzia di "differenza massima". Il vincolo dei domini di errore e di aggiornamento impedisce determinati spostamenti o disposizioni che violano la regola indicata in precedenza. 
 
 Esaminiamo un esempio. Si supponga di avere un cluster con sei nodi, configurato con cinque domini di errore e cinque domini di aggiornamento.
 
@@ -176,7 +176,7 @@ D'altro canto, questo approccio può essere troppo limitato e non consentire al 
 
 ### <a name="alternative-approach"></a>*Approccio alternativo*
 
-Il servizio Gestione risorse cluster supporta un'altra versione del vincolo dei domini di errore e di aggiornamento che consente il posizionamento garantendo comunque un livello minimo di sicurezza. Il vincolo alternativo dei domini di errore e di aggiornamento può essere dichiarato come segue: "Per una data partizione del servizio, la distribuzione delle repliche tra i domini deve garantire che la partizione non subisca una perdita di quorum". Si supponga che questo vincolo fornisca una garanzia di "sicurezza del quorum". 
+Il servizio Gestione risorse cluster supporta un'altra versione del vincolo dei domini di errore e di aggiornamento che consente il posizionamento garantendo comunque un livello minimo di sicurezza. Il vincolo alternativo dei domini di errore e di aggiornamento può essere espresso come segue: "Per una determinata partizione del servizio, la distribuzione della replica tra i domini deve garantire che la partizione non subisca una perdita di quorum". Si supponga che questo vincolo fornisca una garanzia di "sicurezza del quorum". 
 
 > [!NOTE]
 >In un servizio con stato si parla di *perdita del quorum* in una situazione in cui la maggioranza delle repliche di partizione è contemporaneamente inattiva. Se, ad esempio, TargetReplicaSetSize è pari a cinque, un set di tre repliche rappresenta il quorum. Analogamente, se TargetReplicaSetSize è 6, per il quorum saranno necessarie quattro repliche. In entrambi i casi, perché la partizione possa continuare a funzionare normalmente non possono essere contemporaneamente inattive più di due repliche. Nei servizi senza stato non si presenta alcuna *perdita del quorum*; i servizi senza stato continuano infatti a funzionare normalmente anche se la maggior parte delle istanze è contemporaneamente inattiva. Di conseguenza, nella parte restante del testo verranno presi in considerazione soltanto i servizi con stato.
@@ -192,7 +192,7 @@ Poiché entrambi gli approcci presentano vantaggi e svantaggi, è stato introdot
 > [!NOTE]
 >Questo sarà il comportamento predefinito a partire dalla versione di Service Fabric 6.2. 
 >
-L'approccio adattivo usa la logica della "differenza massima" per impostazione predefinita, per passare alla logica di "sicurezza del quorum" solo quando necessario. Il servizio Gestione risorse cluster rileva automaticamente la strategia necessaria esaminando la configurazione di cluster e servizi. Per un servizio specifico: *se TargetReplicaSetSize è divisibile per il numero di domini di errore e il numero di domini di aggiornamento **e** il numero di nodi è minore o uguale a (numero di domini di errore) \* (numero di domini di aggiornamento), il servizio Gestione risorse cluster userà la logica "basata sul quorum" per tale servizio.* Tenere presente che il servizio Gestione risorse cluster usa questo approccio sia per i servizi senza stato che per i servizi con stato, benché la perdita di quorum non sia rilevante per i servizi senza stato.
+L'approccio adattivo usa la logica della "differenza massima" per impostazione predefinita, per passare alla logica di "sicurezza del quorum" solo quando necessario. Il servizio Gestione risorse cluster rileva automaticamente la strategia necessaria esaminando la configurazione di cluster e servizi. Per un determinato servizio: *Se TargetReplicaSetSize è equamente divisibile per il numero di domini di errore e il numero di domini di aggiornamento **e** il numero di nodi è inferiore o uguale a (numero di domini di errore) * (numero di domini di aggiornamento), il Cluster Resource Manager deve usare la logica "basata sul quorum" per tale servizio.* Tenere presente che il servizio Gestione risorse cluster usa questo approccio sia per i servizi senza stato che per i servizi con stato, benché la perdita di quorum non sia rilevante per i servizi senza stato.
 
 Tornare all'esempio precedente, supponendo che un cluster disponga ora di 8 nodi. Il cluster è ancora configurato con cinque domini di errore e cinque domini di aggiornamento, mentre il valore TargetReplicaSetSize di un servizio ospitato su tale cluster rimane cinque. 
 

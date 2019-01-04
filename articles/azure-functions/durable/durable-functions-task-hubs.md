@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 7a6346e594c5a7cc4cf02f3ea658aac4977e641a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637456"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336901"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hub attività in Funzioni permanenti (Funzioni di Azure)
 
@@ -27,7 +27,7 @@ Ogni app per le funzioni dispone di un hub attività distinto. Se più app per l
 
 ## <a name="azure-storage-resources"></a>Risorse di archiviazione di Azure
 
-Un hub di attività è costituito dalle risorse di archiviazione seguenti: 
+Un hub di attività è costituito dalle risorse di archiviazione seguenti:
 
 * Una o più code di controllo.
 * Una coda di elementi di lavoro.
@@ -41,7 +41,8 @@ Tutte le risorse vengono create automaticamente nell'account di Archiviazione di
 
 Gli hub attività sono identificati mediante un nome dichiarato nel file *host.json* file, come illustrato nell'esempio seguente:
 
-### <a name="hostjson-functions-v1"></a>host.json (funzioni v1)
+### <a name="hostjson-functions-1x"></a>host.json (funzioni 1.x)
+
 ```json
 {
   "durableTask": {
@@ -49,7 +50,9 @@ Gli hub attività sono identificati mediante un nome dichiarato nel file *host.j
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>host.json (funzioni v2)
+
+### <a name="hostjson-functions-2x"></a>host.json (funzioni 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -60,9 +63,11 @@ Gli hub attività sono identificati mediante un nome dichiarato nel file *host.j
   }
 }
 ```
+
 Gli hub attività possono anche essere configurati usando le impostazioni dell'app, come illustrato nel seguente file di esempio *host.json*:
 
-### <a name="hostjson-functions-v1"></a>host.json (funzioni v1)
+### <a name="hostjson-functions-1x"></a>host.json (funzioni 1.x)
+
 ```json
 {
   "durableTask": {
@@ -70,7 +75,9 @@ Gli hub attività possono anche essere configurati usando le impostazioni dell'a
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>host.json (funzioni v2)
+
+### <a name="hostjson-functions-2x"></a>host.json (funzioni 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -81,14 +88,46 @@ Gli hub attività possono anche essere configurati usando le impostazioni dell'a
   }
 }
 ```
+
 Il nome dell'hub attività verrà impostato in base al valore dell’impostazione dell’app `MyTaskHub`. La seguente impostazione `local.settings.json` spiega come configurare l’impostazione `MyTaskHub` su `samplehubname`:
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
-    "MyTaskHub" :  "samplehubname" 
+    "MyTaskHub" : "samplehubname"
   }
+}
+```
+
+Di seguito è riportato un esempio di C# precompilato su come scrivere una funzione che usa un oggetto [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) per funzionare con un hub attività configurato come Impostazione app:
+
+```csharp
+[FunctionName("HttpStart")]
+public static async Task<HttpResponseMessage> Run(
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
+    [OrchestrationClient(TaskHub = "%MyTaskHub%")] DurableOrchestrationClientBase starter,
+    string functionName,
+    ILogger log)
+{
+    // Function input comes from the request content.
+    dynamic eventData = await req.Content.ReadAsAsync<object>();
+    string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
+
+    return starter.CreateCheckStatusResponse(req, instanceId);
+}
+```
+
+Di seguito è riportata la configurazione necessaria per JavaScript. La proprietà dell'hub attività nel file `function.json` viene configurata tramite Impostazione app:
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
 }
 ```
 

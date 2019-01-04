@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3caa4f2dbe36f86c9b15a83303e90b16d06c56fd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419402"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192057"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installare l'agente di macchine virtuali di Azure in modalità offline 
 
@@ -76,7 +76,7 @@ Usare la procedura seguente per installare l'agente di macchine virtuali in moda
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
-        ![Esportare le sottochiavi del Registro di sistema](./media/install-vm-agent-offline/backup-reg.png)
+          ![Esportare le sottochiavi del Registro di sistema](./media/install-vm-agent-offline/backup-reg.png)
 
     2. Modificare i file del Registro di sistema. In ogni file, modificare il valore della voce **SYSTEM** in **BROKENSYSTEM** (come illustrato nelle immagini seguenti) e salvare il file. Tenere presente l'**ImagePath** dell'agente di macchine virtuali corrente. È necessario copiare la cartella corrispondente nel disco del sistema operativo collegato. 
 

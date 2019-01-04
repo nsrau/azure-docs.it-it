@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948128"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407882"
 ---
 # <a name="scale-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight
 
 HDInsight offre elasticità permettendo di aumentare e ridurre il numero di nodi di lavoro nei cluster. In questo modo, è possibile ridurre un cluster nelle ore di chiusura o nei fine settimana ed espanderlo durante i picchi delle richieste aziendali.
 
-Se, ad esempio, vengono eseguite attività di elaborazione batch una volta al giorno o una volta al mese, il cluster HDInsight può essere aumentato pochi minuti prima dell'evento pianificato in modo che sia disponibile un'adeguata potenza di calcolo della memoria e della CPU. È possibile automatizzare il ridimensionamento con il cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters) di PowerShell.  Successivamente, al termine dell'elaborazione e quando l'utilizzo diminuisce di nuovo, è possibile ridurre il cluster HDInsight a un numero inferiore di nodi di lavoro.
+Se, ad esempio, vengono eseguite attività di elaborazione batch una volta al giorno o una volta al mese, il cluster HDInsight può essere aumentato pochi minuti prima dell'evento pianificato in modo che sia disponibile un'adeguata potenza di calcolo della memoria e della CPU. È possibile automatizzare il ridimensionamento con il cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters) di PowerShell.  Successivamente, al termine dell'elaborazione e quando l'utilizzo diminuisce di nuovo, è possibile ridurre il cluster HDInsight a un numero inferiore di nodi di lavoro.
 
 * Per ridimensionare il cluster tramite [PowerShell](hdinsight-administer-use-powershell.md):
 
@@ -77,7 +77,7 @@ Ad esempio:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## <a name="rebalancing-an-hbase-cluster"></a>Ribilanciamento di un cluster HBase
+## <a name="rebalancing-an-apache-hbase-cluster"></a>Ribilanciamento di un cluster Apache HBase
 
 I server a livello di area vengono bilanciati automaticamente entro pochi minuti dal completamento dell'operazione di ridimensionamento. Per bilanciare manualmente i server a livello di area, seguire questa procedura:
 
@@ -99,11 +99,11 @@ Come accennato in precedenza, tutti i processi in sospeso e in esecuzione vengon
 
 ![Ridimensionare un cluster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
 
-Se si riduce il cluster al numero minimo di un nodo di lavoro, come mostrato nell'immagine precedente, Hadoop Distributed File System può restare bloccato in modalità sicura quando i nodi di lavoro vengono riavviati a causa dell'applicazione di patch oppure immediatamente dopo l'operazione di ridimensionamento.
+Se si riduce il cluster a un solo nodo di lavoro, come mostrato nell'immagine precedente, Apache Hadoop Distributed File System può restare bloccato in modalità sicura quando i nodi di lavoro vengono riavviati a causa dell'applicazione di patch oppure immediatamente dopo l'operazione di ridimensionamento.
 
 La causa principale di questo comportamento è che Hive usa alcuni file `scratchdir` e, per impostazione predefinita, si aspetta tre repliche di ogni blocco, mentre è possibile una sola replica se il cluster viene ridotto al numero minimo di un nodo di lavoro. Di conseguenza, i file in `scratchdir` diventano *sottoreplicati*. Questo può far sì che Hadoop Distributed File System resti in modalità sicura al riavvio dei servizi dopo l'operazione di ridimensionamento.
 
-Quando viene eseguito un tentativo di riduzione, HDInsight si affida alle interfacce di gestione di Ambari per rimuovere innanzitutto i nodi di lavoro aggiuntivi indesiderati, operazione che comporta la replica dei rispettivi blocchi Hadoop Distributed File System in altri nodi di lavoro online, e quindi ridurre in modo sicuro il cluster. Hadoop Distributed File System passa in modalità sicura durante la finestra di manutenzione e si suppone che ne esca al termine del ridimensionamento. È a questo punto che Hadoop Distributed File System può restare bloccato in modalità sicura.
+Quando viene eseguito un tentativo di riduzione, HDInsight si affida alle interfacce di gestione di Apache Ambari per rimuovere innanzitutto i nodi di lavoro aggiuntivi indesiderati, operazione che comporta la replica dei rispettivi blocchi Hadoop Distributed File System in altri nodi di lavoro online, e quindi per ridurre in modo sicuro il cluster. Hadoop Distributed File System passa in modalità sicura durante la finestra di manutenzione e si suppone che ne esca al termine del ridimensionamento. È a questo punto che Hadoop Distributed File System può restare bloccato in modalità sicura.
 
 Hadoop Distributed File System è configurato con l'opzione `dfs.replication` impostata su 3. In questo modo, i blocchi dei file temporanei sono sottoreplicati ogni volta che vi sono meno di tre nodi di lavoro online, perché non sono disponibili le tre copie previste di ogni blocco di file.
 
@@ -117,7 +117,7 @@ Dopo aver disattivato la modalità sicura, è possibile rimuovere manualmente i 
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>Errori di esempio quando la modalità sicura è attiva
 
-* H070 Unable to open Hive session. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Cannot create directory** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. **Name node is in safe mode**. The reported blocks 75 needs additional 12 blocks to reach the threshold 0.9900 of total blocks 87. The number of live datanodes 10 has reached the minimum number 0. Safe mode will be turned off automatically once the thresholds have been reached (H070 Impossibile aprire la sessione di Hive. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: Impossibile creare la directory /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. Il nodo dei nomi è in modalità sicura. I 75 blocchi segnalati necessitano di altri 12 blocchi per raggiungere la soglia 0,9900 di 87 blocchi totali. Il numero di 10 nodi dati live ha raggiunto il numero minimo 0. La modalità sicura verrà disattivata automaticamente una volta raggiunte le soglie).
+* H070 Unable to open Hive session. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Cannot create directory** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. **Name node is in safe mode**. The reported blocks 75 needs additional 12 blocks to reach the threshold 0.9900 of total blocks 87. The number of live datanodes 10 has reached the minimum number 0.  La modalità sicura verrà disattivata automaticamente una volta raggiunte le soglie.
 
 * H100 Unable to submit statement show databases: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: **Connection refused**
 
@@ -151,7 +151,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 
 ![Modalità sicura disattivata](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
-> [!NOTE]
+> [!NOTE]  
 > L'opzione `-D` è necessaria perché il file system predefinito in HDInsight è Archiviazione di Azure o Azure Data Lake Store. `-D` specifica che i comandi devono essere eseguiti nell'istanza di Hadoop Distributed File System locale.
 
 È quindi possibile visualizzare un report che mostra i dettagli dello stato di Hadoop Distributed File System:
@@ -251,7 +251,7 @@ Per pulire i file temporanei, operazione che rimuove gli errori di replica dei b
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Questo comando può interrompere Hive se alcuni processi sono ancora in esecuzione.
 
 ### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode-due-to-under-replicated-blocks"></a>Come impedire che HDInsight resti bloccato in modalità sicura a causa di blocchi sottoreplicati
@@ -327,4 +327,4 @@ L'opzione finale è prestare attenzione alle rare occasioni in cui Hadoop Distri
 
 * [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Ridimensionare i cluster](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambari.md)

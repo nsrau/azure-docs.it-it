@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: a17e2fa4bef6890d59f7e66c6ede349f8dee3b8a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e535d1c2c581e20667a1ccf10fc97fcf988bc91a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280454"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001816"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Kubernetes di Azure (AKS)
 
 La community di Kubernetes rilascia le versioni secondarie all'incirca ogni tre mesi. Queste versioni includono miglioramenti e nuove funzionalità. Le versioni delle patch sono più frequenti (in alcuni casi settimanali) e sono destinate esclusivamente a correzioni di bug importanti in una versione secondaria. Le versioni delle patch consentono di risolvere le vulnerabilità della sicurezza o i bug rilevanti con impatto su un numero elevato di clienti e prodotti in esecuzione in ambienti di produzione basati su Kubernetes.
 
-Una versione secondaria di Kubernetes è resa disponibile in [acs-engine][acs-engine] dal primo giorno. L'obiettivo del livello di servizio (SLO) del servizio Kubernetes di Azure è quello di rilasciare la versione secondaria per i cluster AKS entro 30 giorni, fermo restando la stabilità della versione.
+Una versione secondaria di Kubernetes è resa disponibile in [aks-engine][aks-engine] dal primo giorno. L'obiettivo del livello di servizio (SLO) del servizio Kubernetes di Azure è quello di rilasciare la versione secondaria per i cluster AKS entro 30 giorni, fermo restando la stabilità della versione.
 
 ## <a name="kubernetes-version-support-policy"></a>Criteri di supporto della versione di Kubernetes
 
@@ -41,19 +41,19 @@ Per scoprire quali versioni sono attualmente disponibili per la sottoscrizione e
 az aks get-versions --location eastus --output table
 ```
 
-L'output è simile all'esempio seguente, che illustra che la versione *1.11.3* di Kubernetes è la versione più recente disponibile:
+L'output è simile all'esempio seguente, che illustra che la versione *1.11.5* di Kubernetes è la versione più recente disponibile:
 
 ```
 KubernetesVersion    Upgrades
 -------------------  ----------------------
-1.11.3               None available
-1.11.2               1.11.3
-1.10.8               1.11.2, 1.11.3
-1.10.7               1.10.8, 1.11.2, 1.11.3
-1.9.10               1.10.7, 1.10.8
-1.9.9                1.9.10, 1.10.7, 1.10.8
-1.8.15               1.9.9, 1.9.10
-1.8.14               1.8.15, 1.9.9, 1.9.10
+1.11.5               None available
+1.11.4               1.11.5
+1.10.9               1.11.4, 1.11.5
+1.10.8               1.10.9, 1.11.4, 1.11.5
+1.9.11               1.10.8, 1.10.9
+1.9.10               1.9.11, 1.10.8, 1.10.9
+1.8.15               1.9.10, 1.9.11
+1.8.14               1.8.15, 1.9.10, 1.9.11
 ```
 
 ## <a name="faq"></a>Domande frequenti
@@ -84,7 +84,7 @@ Il master viene aggiornato automaticamente alla versione supportata più recente
 Per informazioni su come aggiornare il cluster, vedere [Aggiornare un cluster di Azure Kubernetes Service (AKS)][aks-upgrade].
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->

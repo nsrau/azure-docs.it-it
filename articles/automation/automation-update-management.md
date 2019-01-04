@@ -6,21 +6,21 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/28/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: caa1b6f31325cd67aad106f7829bd32a5e7aeb53
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 06006456a08c5eb499eff504fea5dcffdc11d662
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635816"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342392"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
 La soluzione Gestione aggiornamenti in Automazione di Azure consente di gestire gli aggiornamenti del sistema operativo per i computer Windows e Linux distribuiti in Azure, in ambienti locali o in altri provider di servizi cloud. È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire il processo di installazione degli aggiornamenti necessari per i server.
 
-È possibile abilitare Gestione aggiornamenti per le macchine virtuali direttamente dall'account di Automazione di Azure. Per informazioni su come abilitare Gestione aggiornamenti per le macchine virtuali dall'account di Automazione, vedere [Gestire gli aggiornamenti per più macchine virtuali](manage-update-multi.md). È anche possibile abilitare Gestione aggiornamenti per una singola macchina virtuale dal riquadro della macchina virtuale nel portale di Azure. Questo scenario è disponibile per macchine virtuali [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management).
+È possibile abilitare Gestione aggiornamenti per le macchine virtuali direttamente dall'account di Automazione di Azure. Per informazioni su come abilitare Gestione aggiornamenti per le macchine virtuali dall'account di Automazione, vedere [Gestire gli aggiornamenti per più macchine virtuali](manage-update-multi.md). È anche possibile abilitare Gestione aggiornamenti per una macchina virtuale dalla pagina della macchina virtuale nel portale di Azure. Questo scenario è disponibile per macchine virtuali [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management).
 
 ## <a name="solution-overview"></a>Panoramica della soluzione
 
@@ -41,7 +41,7 @@ Per i computer Linux, la visualizzazione della patch per la valutazione dopo il 
 
 Quando un computer ha completato l'analisi di conformità degli aggiornamenti, l'agente inoltra le informazioni in blocco ad Azure Log Analytics. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita.
 
-Oltre all'analisi pianificata, l'analisi della conformità degli aggiornamenti viene avviata entro 15 minuti in caso di riavvio di MMA e prima e dopo l'installazione degli aggiornamenti.
+Oltre all'analisi pianificata, l'analisi della conformità degli aggiornamenti viene avviata entro 15 minuti dal momento del riavvio di MMA e prima e dopo l'installazione degli aggiornamenti.
 
 Per un computer Linux, l'analisi della conformità viene eseguita ogni 3 ore per impostazione predefinita. Se l'agente MMA viene riavviato, viene avviata un'analisi della conformità entro 15 minuti.
 
@@ -52,7 +52,7 @@ La soluzione genera report sullo stato di aggiornamento del computer in base all
 
 È possibile distribuire e installare gli aggiornamenti software nei computer che richiedono gli aggiornamenti creando una distribuzione pianificata. Gli aggiornamenti classificati come *facoltativi* non sono inclusi nell'ambito della distribuzione per i computer Windows. Nell'ambito della distribuzione vengono inclusi solo gli aggiornamenti obbligatori. 
 
-La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando i computer in modo esplicito oppure selezionando un [gruppo di computer](../log-analytics/log-analytics-computer-groups.md) in base alle ricerche log di un determinato set di computer. Si specifica anche una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti.
+La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando i computer in modo esplicito oppure selezionando un [gruppo di computer](../azure-monitor/platform/computer-groups.md) in base alle ricerche log di un determinato set di computer. Si specifica anche una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti.
 
 Gli aggiornamenti vengono installati da runbook in Automazione di Azure. Questi runbook non richiedono alcuna configurazione e non possono essere visualizzati. Quando si crea una distribuzione degli aggiornamenti, nella distribuzione viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificate per i computer inclusi. Il runbook master avvia un runbook figlio in ogni agente per installare gli aggiornamenti necessari.
 
@@ -120,7 +120,7 @@ Se il gruppo di gestione di System Center Operations Manager è connesso all'are
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Update Deployment MP
 
-Per altre informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../log-analytics/log-analytics-om-agents.md).
+Per altre informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
 > Nei sistemi con l'agente di Operations Manager, quest'ultimo deve essere aggiornato a Microsoft Monitoring Agent per essere gestito completamente da Gestione aggiornamenti. Per informazioni su come aggiornare l'agente, vedere [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents) (Come aggiornare un agente di Operations Manager).
@@ -145,7 +145,7 @@ Heartbeat
 
 In un computer Windows la connettività degli agenti con Log Analytics può essere verificata esaminando le informazioni seguenti:
 
-1. Aprire **Microsoft Monitoring Agent** nel Pannello di controllo. Nella scheda **Analisi dei log di Azure** l'agente visualizza un messaggio per indicare che **Microsoft Monitoring Agent ha eseguito la connessione a Log Analytics**.
+1. Aprire **Microsoft Monitoring Agent** nel Pannello di controllo. Nella scheda **Log Analytics di Azure**, l'agente visualizza il messaggio per indicare che: **Microsoft Monitoring Agent ha eseguito la connessione a Log Analytics**.
 2. Aprire il registro eventi di Windows. Passare a **Registri applicazioni e servizi\Operations Manager** e cercare gli ID evento 3000 e 5002 del **connettore del servizio** di origine. Questi eventi indicano che il computer ha eseguito la registrazione all'area di lavoro di Log Analytics e sta ricevendo la configurazione.
 
 Se l'agente non è in grado di comunicare con Log Analytics ed è configurato in modo da comunicare con Internet attraverso un firewall o un server proxy, verificare che il firewall o il server proxy sia configurato correttamente. Per sapere come verificare se il firewall o il server proxy è configurato correttamente, vedere [Connettere computer Windows al servizio Log Analytics in Azure](../azure-monitor/platform/agent-windows.md) oppure [Raccogliere dati dal computer Linux ospitato nell'ambiente in uso](../log-analytics/log-analytics-agent-linux.md).
@@ -158,7 +158,7 @@ Se l'agente non è in grado di comunicare con Log Analytics ed è configurato in
 
 Gli agenti Linux appena aggiunti visualizzano lo stato **Aggiornato** dopo l'esecuzione di una valutazione. Il processo può richiedere fino a 6 ore.
 
-Per verificare che un gruppo di gestione di Operations Manager comunichi con Log Analytics, vedere [Convalidare l'integrazione di Operations Manager con Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
+Per verificare che un gruppo di gestione di Operations Manager comunichi con Log Analytics, vedere [Convalidare l'integrazione di Operations Manager con Log Analytics](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## <a name="data-collection"></a>Raccolta dei dati
 
@@ -192,7 +192,7 @@ Per eseguire una ricerca log che restituisce informazioni sul computer, l'aggior
 
 ## <a name="install-updates"></a>Installare gli aggiornamenti
 
-Dopo aver valutato gli aggiornamenti per tutti i computer Linux e Windows nell'area di lavoro, è possibile installare gli aggiornamenti necessari creando una *distribuzione degli aggiornamenti*. Una distribuzione degli aggiornamenti è un'installazione pianificata di aggiornamenti necessari per uno o più computer. Specificare la data e l'ora della distribuzione e un computer o gruppo di computer da includere nell'ambito della distribuzione. Per altre informazioni sui gruppi di computer, vedere [Gruppi di computer in Log Analytics](../log-analytics/log-analytics-computer-groups.md).
+Dopo aver valutato gli aggiornamenti per tutti i computer Linux e Windows nell'area di lavoro, è possibile installare gli aggiornamenti necessari creando una *distribuzione degli aggiornamenti*. Una distribuzione degli aggiornamenti è un'installazione pianificata di aggiornamenti necessari per uno o più computer. Specificare la data e l'ora della distribuzione e un computer o gruppo di computer da includere nell'ambito della distribuzione. Per altre informazioni sui gruppi di computer, vedere [Gruppi di computer in Log Analytics](../azure-monitor/platform/computer-groups.md).
 
  Quando si includono gruppi di computer nella distribuzione degli aggiornamenti, l'appartenenza ai gruppi viene valutata una sola volta al momento della creazione della pianificazione. Le modifiche successive a un gruppo non vengono riflesse. Per aggirare questo problema, usare i [gruppi dinamici](#using-dynamic-groups), che vengono risolti in fase di distribuzione e sono definiti da una query.
 
@@ -210,7 +210,7 @@ Per creare una nuova distribuzione di aggiornamenti, selezionare **Pianifica la 
 | NOME |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 |Sistema operativo| Linux o Windows|
 | Gruppi da aggiornare (anteprima)|Definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Gruppi dinamici](automation-update-management.md#using-dynamic-groups)|
-| Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer in Log Analytics, vedere [gruppi di Computer in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+| Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer in Log Analytics, vedere [gruppi di Computer in Log Analytics](../azure-monitor/platform/computer-groups.md) |
 |Classificazioni degli aggiornamenti|Selezionare tutte le classificazioni degli aggiornamenti necessarie|
 |Includi/Escludi aggiornamenti|Apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per altre informazioni sulla modalità di gestione dell'inclusione, vedere il [comportamento dell'inclusione](automation-update-management.md#inclusion-behavior) |
 |Impostazioni di pianificazione|Selezionare l'ora di inizio e selezionare Una sola volta o Ricorrente per la ricorrenza|
@@ -219,6 +219,21 @@ Per creare una nuova distribuzione di aggiornamenti, selezionare **Pianifica la 
 | Controllo riavvio| Determina come vengono gestiti i riavvii. Le opzioni disponibili sono:</br>Riavvia se necessario (opzione predefinita)</br>Riavvia sempre</br>Non riavviare mai</br>Riavvia solamente: gli aggiornamenti non verranno installati|
 
 Le distribuzioni di aggiornamenti possono essere create anche a livello di codice. Per informazioni su come creare una distribuzione di aggiornamenti con l'API REST, vedere [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create) (Configurazioni degli aggiornamenti software - Creazione). È anche disponibile un runbook di esempio che può essere usato per creare una distribuzione di aggiornamenti settimanale. Per altre informazioni su questo runbook, vedere [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1) (Creare una distribuzione di aggiornamenti settimanale per una o più macchine virtuali in un gruppo di risorse).
+
+### <a name="multi-tenant"></a>Distribuzioni di aggiornamenti tra tenant
+
+Se si hanno computer in un altro tenant di Azure che segnala a Gestione aggiornamenti che necessitano di una patch, occorrerà usare la seguente soluzione alternativa per la pianificazione. È possibile usare il cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) con l'opzione `-ForUpdate` per creare una pianificazione, usare il cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) e passare i computer nell'altro tenant al parametro `-NonAzureComputer`. Segue un esempio di come effettuare questa operazione:
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
 
 ## <a name="view-missing-updates"></a>Visualizzare gli aggiornamenti mancanti
 
@@ -282,7 +297,7 @@ $WUSettings.Save()
 
 ### <a name="enable-updates-for-other-microsoft-products"></a>Abilitare gli aggiornamenti per altri prodotti Microsoft
 
-Per impostazione predefinita, Windows Update fornisce soltanto gli aggiornamenti per Windows. Selezionando l'impostazione **Scarica aggiornamenti per altri prodotti Microsoft durante l'aggiornamento di Windows** vengono scaricati gli aggiornamenti per altri prodotti, incluso le patch di protezione per SQL Server o altri software proprietari. Non è possibile configurare questa opzione tramite Criteri di gruppo. Eseguire il comando PowerShell seguente nei sistemi sui quali si intende abilitare gli aggiornamenti proprietari per applicare l'impostazione a Gestione aggiornamenti.
+Per impostazione predefinita, Windows Update fornisce soltanto gli aggiornamenti per Windows. Selezionando l'impostazione **Scarica aggiornamenti per altri prodotti Microsoft durante l'aggiornamento di Windows** vengono scaricati gli aggiornamenti per altri prodotti, inclusi le patch di protezione per SQL Server o altri software proprietari. Non è possibile configurare questa opzione tramite Criteri di gruppo. Eseguire il comando PowerShell seguente nei sistemi sui quali si intende abilitare gli aggiornamenti proprietari per applicare l'impostazione a Gestione aggiornamenti.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -290,6 +305,11 @@ $ServiceManager.Services
 $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
 $ServiceManager.AddService2($ServiceId,7,"")
 ```
+
+## <a name="third-party"></a> Patch di terze parti in Windows
+
+Gestione aggiornamenti si basa su Windows Server Update Services o Windows Update per applicare patch ai sistemi Windows supportati. Strumenti come [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) consentono di pubblicare gli aggiornamenti personalizzati in Windows Server Update Services. Questo scenario consente a Gestione aggiornamenti per applicare patch ai computer che usano Windows Server Update Services come repository degli aggiornamenti del software di terze parti. Per informazioni su come configurare Updates Publisher, vedere [Installare Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Pianificazione della rete
 
@@ -310,7 +330,7 @@ Per altre informazioni sulle porte richieste dal ruolo di lavoro ibrido per runb
 
 Oltre ai dettagli presenti sul portale di Azure, è possibile eseguire ricerche nei log. Selezionare **Log Analytics** nelle pagine delle soluzioni. Viene aperto il riquadro **Ricerca log**.
 
-Per sapere come personalizzare le query o usarle da client diversi, consultare la [documentazione dell'API di ricerca di Log Analytics](
+Per sapere come personalizzare le query o usarle da client diversi e altro ancora, visitare:  [Documentazione dell'API di ricerca di Log Analytics](
 https://dev.loganalytics.io/).
 
 ### <a name="sample-queries"></a>Query di esempio
@@ -569,7 +589,7 @@ Poiché Gestione aggiornamenti esegue l'arricchimento degli aggiornamenti nel cl
 
 Tuttavia, Gestione aggiornamenti potrebbe continuare a segnalare tale computer come non conforme dal momento che contiene informazioni aggiuntive sull'aggiornamento pertinente.
 
-La distribuzione degli aggiornamenti in base alla classificazione di aggiornamento non funziona in CentOS per impostazione predefinita. Per SUSE, se si seleziona *solo* "Altri aggiornamenti" come classificazione, è possibile che vengano installati anche alcuni aggiornamenti della sicurezza se per prima cosa sono richiesti aggiornamenti della sicurezza correlati a zypper (gestione pacchetti) o alle relative dipendenze. Si tratta di una limitazione di zypper. In alcuni casi può essere necessario eseguire di nuovo la distribuzione degli aggiornamenti, per controllare il log di aggiornamento.
+La distribuzione degli aggiornamenti in base alla classificazione di aggiornamento non funziona in CentOS per impostazione predefinita. Per SUSE, se si seleziona *solo* "Altri aggiornamenti" come classificazione, è possibile che vengano installati anche alcuni aggiornamenti della sicurezza se per prima cosa sono richiesti aggiornamenti della sicurezza correlati a zypper (gestione pacchetti) o alle relative dipendenze. Si tratta di una limitazione di zypper. In alcuni casi può essere necessario eseguire di nuovo la distribuzione degli aggiornamenti. Per verificare, controllare il log di aggiornamento.
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
@@ -583,6 +603,6 @@ Continuare con l'esercitazione sulla gestione degli aggiornamenti per le macchin
 > [Gestire gli aggiornamenti e le patch per le macchine virtuali Windows di Azure](automation-tutorial-update-management.md)
 
 * Usare le ricerche log in [Log Analytics](../log-analytics/log-analytics-log-searches.md) per visualizzare dati dettagliati sugli aggiornamenti.
-* [Creare avvisi](../monitoring-and-diagnostics/monitoring-overview-alerts.md) quando aggiornamenti critici vengono rilevati come mancanti nei computer oppure se gli aggiornamenti automatici sono disabilitati per un computer.
+* [Creare avvisi](automation-tutorial-update-management.md#configure-alerts) per lo stato di distribuzione degli aggiornamenti.
 
 * Per informazioni su come interagire con Gestione aggiornamenti tramite l'API REST, vedere [Configurazioni degli aggiornamenti software](/rest/api/automation/softwareupdateconfigurations)

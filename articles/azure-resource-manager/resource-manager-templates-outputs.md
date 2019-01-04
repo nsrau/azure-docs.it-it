@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: e3c5a581b02f1dd7b7415ebd93de0e425ac2f8ae
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85aab429fd59afd36cd026e6d8aef2b7e6f6e122
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358366"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140456"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Sezione outputs nei modelli di Azure Resource Manager
 Nella sezione dell'output è possibile specificare i valori restituiti dalla distribuzione. Ad esempio, è possibile restituire l'URI per accedere a una risorsa distribuita.
@@ -48,7 +48,9 @@ Per l'interfaccia della riga di comando di Azure usare:
 az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
 ```
 
-È possibile recuperare il valore di output da un modello collegato usando la funzione [reference](resource-group-template-functions-resource.md#reference). Per ottenere un valore di output da un modello collegato, recuperare il valore della proprietà con una sintassi analoga a: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+È possibile recuperare il valore di output da un modello collegato usando la funzione [reference](resource-group-template-functions-resource.md#reference). Per ottenere un valore di output da un modello collegato, recuperare il valore della proprietà con una sintassi analoga a: `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+Quando si ottiene una proprietà di output da un modello collegato, il nome della proprietà non può includere un trattino.
 
 Ad esempio, si può impostare l'indirizzo IP in un dispositivo di bilanciamento del carico recuperando il valore da un modello collegato.
 
@@ -75,11 +77,11 @@ L'esempio seguente illustra la struttura di una definizione di output:
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--- |:--- |:--- |
-| outputName |Sì |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
-| type |Sì |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input del modello. |
-| value |Sì |Espressione del linguaggio di modello valutata e restituita come valore di output. |
+| outputName |Yes |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
+| type |Yes |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input del modello. |
+| value |Yes |Espressione del linguaggio di modello valutata e restituita come valore di output. |
 
-## <a name="recommendations"></a>Raccomandazioni
+## <a name="recommendations"></a>Consigli
 
 Se viene usato un modello per creare indirizzi IP pubblici, deve includere una sezione outputs che restituisca i dettagli dell'indirizzo IP e del nome di dominio completo (FQDN). Questi valori di output consentiranno di recuperare facilmente i dettagli sugli indirizzi IP pubblici e sugli FQDN dopo la distribuzione.
 

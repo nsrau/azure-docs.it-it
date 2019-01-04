@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 12f9ed6d5b5d4c8dc7e5b0b68a0a394749cc72bd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967062"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714611"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Esercitazione: Distribuire le App in Azure e Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Esercitazione: Distribuire app in Azure Stack e Azure
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
@@ -72,7 +72,7 @@ Questa esercitazione si presuppone una conoscenza di base di Azure e Azure Stack
 ### <a name="azure-requirements"></a>Requisiti di Azure
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-* Creare un [App Web](https://docs.microsoft.com/azure/app-service/app-service-web-overview) in Azure. Prendere nota dell'URL dell'App Web, è necessario usarlo nell'esercitazione.
+* Creare un [App Web](https://docs.microsoft.com/azure/app-service/overview) in Azure. Prendere nota dell'URL dell'App Web, è necessario usarlo nell'esercitazione.
 
 ### <a name="azure-stack-requirements"></a>Requisiti per Azure Stack
 
@@ -166,7 +166,7 @@ Come parte della configurazione dell'endpoint servizio, Azure DevOps Services ri
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Concedere i diritti dell'entità servizio per distribuire le risorse nella sottoscrizione di Azure Stack
 
-Per accedere alle risorse della propria sottoscrizione è necessario assegnare l'applicazione a un ruolo. Decidere quale ruolo rappresenti le autorizzazioni ottimali per l'applicazione. Per informazioni sui ruoli disponibili, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Per accedere alle risorse della propria sottoscrizione è necessario assegnare l'applicazione a un ruolo. Decidere quale ruolo rappresenti le autorizzazioni ottimali per l'applicazione. Per informazioni sui ruoli disponibili, vedere [RBAC: ruoli predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Aggiunta di un'applicazione al ruolo lettore per un gruppo di risorse, ad esempio, significa che è possibile leggere il gruppo di risorse e le relative risorse.
 
@@ -180,9 +180,7 @@ Per accedere alle risorse della propria sottoscrizione è necessario assegnare l
 
 3. In Visual Studio Enterprise, selezionare **controllo di accesso (IAM)**.
 
-    ![Controllo di accesso (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
-
-4. Selezionare **Aggiungi**.
+4. Selezionare **Aggiungi assegnazione ruolo**.
 
     ![Add](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
@@ -350,7 +348,7 @@ Integrazione continua/distribuzione ibrida è possibile applicare al codice dell
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Creare la distribuzione di app web autonoma per i servizi App in entrambi i cloud
 
-1. Modificare il **WebApplication.csproj** file: selezionare **Runtimeidentifier** e quindi aggiungere `win10-x64.` per altre informazioni, vedere [self-contained deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentazione.
+1. Modificare il **WebApplication.csproj** file: Selezionare **Runtimeidentifier** e quindi aggiungere `win10-x64.` per altre informazioni, vedere [self-contained deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentazione.
 
     ![Configurare Runtimeidentifier](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 

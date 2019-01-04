@@ -1,22 +1,18 @@
 ---
-title: 'Azure Cosmos DB come archivio di valori chiave: Panoramica dei costi | Microsoft Docs'
-description: Informazioni sui costi ridotti correlati all'uso di Azure Cosmos DB come archivio di valori chiave.
-keywords: archivio di valori chiave
-services: cosmos-db
+title: Addebiti di unità richiesta per Azure Cosmos DB come archivio di valori chiave
+description: Informazioni sugli addebiti di unità richiesta di Azure Cosmos DB per semplici operazioni di lettura e scrittura, quando si usa Cosmos DB come archivio di chiavi/valori.
 author: SnehaGunda
-manager: kfile
-tags: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 09abc89c8e4cc8b0ee79200739722fc62d1ece4b
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 3ab066cc3d2b06dc12c2399d718aeec6aac03b25
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163201"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134183"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB come archivio di valori chiave: Panoramica dei costi
 
@@ -39,9 +35,9 @@ La tabella seguente mostra il numero di UR necessarie per eseguire transazioni d
 
 ## <a name="cost-of-reads-and-writes"></a>Costo di letture e scritture
 
-Se si esegue il provisioning di 1.000 UR al secondo, si avrà un totale di 3,6 milioni di UR all'ora e il costo sarà di 0,08 dollari l'ora (negli Stati Uniti e in Europa). Per un documento di 1 KB, ciò significa che è possibile utilizzare 3,6 milioni di letture o 0,72 milioni di scritture (3,6 m UR/5) utilizzando la velocità effettiva con provisioning. Normalizzate in milioni di letture e scritture, il costo sarebbe di 0,022 dollari/milione di letture (0,08 dollari/3,6) e 0,111 dollari/milioni di scritture (0,08 dollari/0,72). Il costo al milione diventa minimo come illustrato nella tabella seguente.
+Se si effettua il provisioning di 1.000 UR al secondo, si avrà un totale di 3,6 milioni di UR all'ora e il costo sarà di 0,08 dollari l'ora (negli Stati Uniti e in Europa). Per un documento di 1 KB, ciò significa che è possibile utilizzare 3,6 milioni di letture o 0,72 milioni di scritture (3,6 milioni di UR/5) usando la velocità effettiva di cui è stato effettuato il provisioning. Normalizzate in milioni di letture e scritture, il costo sarebbe di 0,022 dollari/milione di letture (0,08 dollari/3,6) e 0,111 dollari/milioni di scritture (0,08 dollari/0,72). Il costo al milione diventa minimo come illustrato nella tabella seguente.
 
-|Dimensioni dell'elemento|1-m lettura|1-m scrittura|
+|Dimensioni dell'elemento|1-m lettura|1 m scrittura|
 |-------------|-------|--------|
 |1 KB|$0.022|$0.111|
 |100 KB|$0.222|$1.111|

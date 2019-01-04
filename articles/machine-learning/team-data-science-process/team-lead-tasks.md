@@ -1,6 +1,6 @@
 ---
-title: Attività del responsabile del team nel processo di data science per i team - Azure | Microsoft Docs
-description: Descrizione delle attività di un responsabile del team in un progetto team di data science.
+title: Attività per il responsabile del team nel team del processo di data science del team
+description: La struttura delle attività che un responsabile del team di un progetto team di data science deve completare per il proprio team di data science.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443850"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139640"
 ---
-# <a name="team-lead-tasks"></a>Attività del responsabile del team
+# <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Attività per il responsabile del team nel team del processo di data science del team
 
 Questo argomento illustra le attività che un responsabile del team deve completare per il proprio team di data science. L'obiettivo è di stabilire un ambiente di collaborazione nel team per normalizzare il [processo di data science per i team](overview.md) (TDSP, Team Data Science Process). Il processo di data science per i team (TDSP) è una metodologia di data science agile e iterativa, mirata a offrire in modo efficiente soluzioni di analisi predittiva e applicazioni intelligenti. Il processo è studiato per migliorare la collaborazione e l'apprendimento del team. Il processo è un'ottimizzazione di strutture e procedure consigliate di Microsoft e di settore, ai fini di una corretta implementazione di iniziative di data science volte ad aiutare le aziende a realizzare appieno i vantaggi dei propri programmi di analisi. Per una descrizione dei ruoli del personale e delle rispettive attività associate che un team di data science gestisce allo scopo di normalizzare il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
 
@@ -140,9 +140,9 @@ La procedura di seeding usa le directory nella DSVM locale come siti di staging 
 
 - Clonare il repository del gruppo nella directory locale: team R1 - clonato in -> D1 locale
 - Clonare i repository del team nelle directory locali: team R3 e R4 - clonati in -> D3 e D4 locali
-- Copiare il contenuto del modello di progetto del gruppo nella cartella del team locale: D1 - contenuto copiato in -> D3
+- Copiare il contenuto del modello di progetto del gruppo nella cartella locale del team:  D1 - contenuti copiati in -> D3
 - (Facoltativo) Personalizzazione di D3 e D4 locali
-- Inserire il contenuto delle directory locali nei repository del team: D3 e D4 - contenuti aggiunti in -> R3 e R4 del team
+- Eseguire il push del contenuto della directory locale nei repository del team: D3 e D4 - contenuti aggiunti in -> team R3 e R4
 
 
 ### <a name="initialize-the-team-repositories"></a>Inizializzare i repository del team
@@ -355,7 +355,7 @@ Verificare che una nuova unità F sia stata montata nel computer in uso.
 
 ![34](./media/team-lead-tasks/team-leads-34-attach-s3.png)
 
-**Come immettere manualmente le informazioni nella risorsa di archiviazione file di Azure:** se non si dispone di un file di testo con le informazioni sulla risorsa di archiviazione file di Azure, è possibile seguire le istruzioni visualizzate nella schermata seguente per immettere le necessarie informazioni sulla sottoscrizione, l'account di archiviazione e la risorsa di archiviazione file di Azure:
+**Come immettere manualmente le informazioni sull'archiviazione file di Azure:** se non si dispone delle informazioni sull'archiviazione file di Azure su un file di testo, è possibile seguire le istruzioni visualizzate nella schermata seguente per digitare le informazioni necessarie riguardanti la sottoscrizione, l'account di archiviazione e l'archiviazione file di Azure:
 
 ![35](./media/team-lead-tasks/team-leads-35-attach-s4.png)
 
@@ -384,7 +384,7 @@ Verificare che una nuova unità F sia stata montata nel computer in uso.
 
 ![40](./media/team-lead-tasks/team-leads-40-attach-s4-linux.png)
 
-**Come immettere manualmente le informazioni nella risorsa di archiviazione file di Azure:** se non si dispone di un file di testo con le informazioni sulla risorsa di archiviazione file di Azure, è possibile seguire le istruzioni visualizzate nella schermata seguente per immettere le necessarie informazioni sulla sottoscrizione, l'account di archiviazione e la risorsa di archiviazione file di Azure:
+**Come immettere manualmente le informazioni sull'archiviazione file di Azure:** se non si dispone delle informazioni sull'archiviazione file di Azure su un file di testo, è possibile seguire le istruzioni visualizzate nella schermata seguente per digitare le informazioni necessarie riguardanti la sottoscrizione, l'account di archiviazione e l'archiviazione file di Azure:
 
 - Digitare **n**.
 - Selezionare l'indice del nome della sottoscrizione in cui è stata creata la risorsa di archiviazione file di Azure nel passaggio precedente:

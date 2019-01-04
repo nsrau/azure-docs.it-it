@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979200"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386996"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: Domande frequenti (FAQ)
 
 Questo articolo include le domande frequenti relative ai problemi di configurazione e gestione per [Servizi cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Per informazioni sulle dimensioni, vedere la pagina [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md) .
 
@@ -170,7 +170,7 @@ Per ottenere le impostazioni di Diagnostica di Microsoft Azure corrente del serv
     </Endpoints>
   </WorkerRole>
 ```
-Per altre informazioni, vedere [New: Configurable Idle Timeout for Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) (Novità: Timeout di inattività configurabile per Azure Load Balancer).
+Vedere [New: Configurable Idle Timeout for Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) (Novità: Timeout di inattività configurabile per Azure Load Balancer).
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Come si associa un indirizzo IP statico a un servizio cloud?
 Per configurare un indirizzo IP statico, è necessario creare un IP riservato. Questo indirizzo IP riservato può essere associato a un nuovo servizio cloud o a una distribuzione esistente. Vedere i documenti seguenti per informazioni dettagliate:
@@ -190,7 +190,7 @@ Microsoft esegue un monitoraggio continuo di server, reti e applicazioni per ril
 Windows 10 e Windows Server 2016 includono il supporto per HTTP/2 sia sul lato client sia sul lato server. Se il client (browser) si connette al server IIS mediante il protocollo TLS che negozia HTTP/2 tramite le estensioni TLS, non è necessario apportare modifiche sul lato server. Con il protocollo TLS infatti come impostazione predefinita viene inviata l'intestazione h2-14 che specifica l'utilizzo di HTTP/2. Se invece il client invia un'intestazione di aggiornamento per eseguire l'aggiornamento a HTTP/2, è necessario apportare la modifica di seguito sul lato server per garantire il funzionamento dell'aggiornamento e la disponibilità di una connessione HTTP/2. 
 
 1. Eseguire regedit.exe.
-2. Individuare la chiave del Registro di sistema: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
+2. Passare alla chiave del Registro di sistema: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Creare un nuovo valore DWORD denominato **DuoEnabled**.
 4. Impostare il relativo valore su 1.
 5. Riavviare il server.
@@ -199,7 +199,7 @@ Windows 10 e Windows Server 2016 includono il supporto per HTTP/2 sia sul lato c
 Per altre informazioni, vedere:
 
 - [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 in IIS)
-- [Video: HTTP/2 in Windows 10: Browser, Apps and Web Server](https://channel9.msdn.com/Events/Build/2015/3-88) (Video: HTTP/2 in Windows 10: Browser, app e server Web)
+- [Video: HTTP/2 in Windows 10: Browser, App e Server Web](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
 È possibile automatizzare i passaggi precedenti tramite un'attività di avvio in modo che ogni volta che viene creata una nuova istanza PaaS, l'attività possa eseguire le modifiche indicate in precedenza nel Registro di sistema. Per altre informazioni, vedere [Come configurare ed eseguire attività di avvio per un servizio cloud](cloud-services-startup-tasks.md).
@@ -242,9 +242,9 @@ La scalabilità automatica in base alle metriche di memoria per i servizi cloud 
 
 Per ovviare a questo problema, è possibile usare Application Insights. La scalabilità automatica supporta Application Insights come origine delle metriche e supporta l'aumento o la riduzione del numero di istanze del ruolo in base a metriche guest come la memoria.  Per implementare questa funzionalità, è necessario configurare Application Insights nel file di pacchetto del progetto del servizio cloud (*.cspkg) e abilitare l'estensione Diagnostica di Azure per il servizio.
 
-Per altri dettagli su come usare una metrica personalizzata tramite Application Insights per configurare la scalabilità automatica per i servizi cloud, vedere [Introduzione alla scalabilità automatica in base a una metrica personalizzata in Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+Per altri dettagli su come usare una metrica personalizzata tramite Application Insights per configurare la scalabilità automatica per i servizi cloud, vedere [Introduzione alla scalabilità automatica in base a una metrica personalizzata in Azure](../azure-monitor/platform/autoscale-custom-metric.md)
 
-Per altre informazioni su come integrare Diagnostica di Azure con Application Insights per i servizi cloud, vedere [Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+Per altre informazioni su come integrare Diagnostica di Azure con Application Insights per i servizi cloud, vedere [Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
 Per altre informazioni su come abilitare Application Insights per i servizi cloud, vedere [Application Insights per Servizi cloud di Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 

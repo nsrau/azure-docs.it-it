@@ -10,26 +10,26 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 880f5fc44978a6b46b3cbaefe41296903617b4e6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 371685ba8a65fe3ca9d8835f4afcacc8ff2e07ed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011409"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383254"
 ---
-# <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Indice di Hadoop negli articoli sulla risoluzione dei problemi di HDInsight
+# <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>Indice di Apache Hadoop negli articoli sulla risoluzione dei problemi di HDInsight
 Gli articoli sono organizzati per tipi di errori.
 
 ## <a name="out-of-memory-error"></a>Errore di memoria insufficiente
-* [Correggere un errore di memoria insufficiente con le impostazioni di memoria di Hive in Hadoop in Azure HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): questo articolo illustra come correggere un errore di memoria esaurita da una query Hive. Lo scenario del cliente include una query in molte tabelle di grandi dimensioni.
+* [Correggere un errore Apache Hive di memoria insufficiente in HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): correggere un errore di memoria insufficiente da una query Hive. Lo scenario del cliente include una query in molte tabelle di grandi dimensioni.
 
-## <a name="hive-query-performance"></a>Prestazioni delle query Hive
-* [Ottimizzare le query Hive per Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md): questo articolo illustra alcuni metodi più comuni per l'ottimizzazione delle prestazioni di Hive da applicare alle query Hive.
-* [Troubleshoot Hive query performance issues in HDInsight Hadoop cluster](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)(Risolvere i problemi relativi alle prestazioni delle query Hive nei cluster Hadoop di HDInsight).
+## <a name="apache-hive-query-performance"></a>Prestazioni delle query di Apache Hive
+* [Ottimizzare le query Apache Hive per Apache Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md): questo articolo descrive alcuni metodi di ottimizzazione delle prestazioni Hive più comuni che è possibile applicare alle query Hive.
+* [Troubleshoot Apache Hive query performance issues in HDInsight Hadoop cluster](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)(Risolvere i problemi relativi alle prestazioni delle query Apache Hive nei cluster Hadoop di HDInsight).
 
 ## <a name="more-troubleshooting-articles"></a>Altri articoli sulla risoluzione dei problemi
 * [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md)
-* [Accedere ai log delle applicazioni YARN in Hadoop basato su Linux in HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Note sulla versione di componenti Hadoop in Azure HDInsight](hdinsight-release-notes.md)
+* [Accedere ai log dell'applicazione YARN di Apache Hadoop in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Note sulla versione di componenti Apache Hadoop in Azure HDInsight](hdinsight-release-notes.md)
 

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 53cec59841fbda49e4e410f069882ea76996f9fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8bdf49f4cea7c6f0ff30e37bcf1cf2fed3abc2bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428292"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963811"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Esercitazione: integrazione di Azure Active Directory con MobileIron
+# <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Esercitazione: Integrazione di Azure Active Directory con MobileIron
 
 Questa esercitazione descrive come integrare MobileIron con Azure Active Directory (Azure AD).
 
@@ -50,24 +50,27 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
+
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di MobileIron dalla raccolta
 1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-mobileiron-from-the-gallery"></a>Aggiunta di MobileIron dalla raccolta
+
 Per configurare l'integrazione di MobileIron in Azure AD, è necessario aggiungere MobileIron dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere MobileIron dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
     ![Pulsante Azure Active Directory][1]
 
 1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
-    
+
 1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![Pulsante Nuova applicazione][3]
@@ -103,29 +106,29 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Collegamento Configura accesso Single Sign-On][4]
 
 1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
+
     ![Finestra di dialogo Single Sign-On](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
-1. Nella sezione **URL e dominio MobileIron** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **URL e dominio MobileIron**, seguire questa procedura per configurare l'applicazione in modalità avviata da  **IDP** :
 
     ![Informazioni sull'accesso Single Sign-On di URL e dominio MobileIron](./media/mobileiron-tutorial/tutorial_mobileiron_url.png)
 
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://www.mobileiron.com/<key>`
+    1. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://www.mobileiron.com/<key>`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    1. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
-1. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Selezionare  **Mostra impostazioni URL avanzate**  e seguire questa procedura per configurare l'applicazione in modalità avviata da  **SP** :
 
     ![Accesso Single Sign-On di URL e dominio MobileIron](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<host>.mobileiron.com/user/login.html`
-    
-    > [!NOTE] 
+    Nella casella di testo  **URL di accesso** , digitare un'URL utilizzando il modello seguente: `https://<host>.mobileiron.com/user/login.html`
+
+    > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Si otterranno i valori di chiave e host dal portale di amministrazione di MobileIron illustrato più avanti nell'esercitazione.
 
 1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
-    ![Collegamento di download del certificato](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png) 
+    ![Collegamento di download del certificato](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png)
 
 1. Fare clic sul pulsante **Salva** .
 
@@ -135,7 +138,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Passare ad **Admin** > **Identità**.
 
-   * Selezionare l'opzione **AAD** nel campo **Info on Cloud IDP Setup** (Informazioni sulla configurazione del provider di identità cloud).
+   - Selezionare l'opzione **AAD** nel campo **Info on Cloud IDP Setup** (Informazioni sulla configurazione del provider di identità cloud).
 
     ![Pulsante Admin nella configurazione dell'accesso Single Sign-On](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
@@ -144,11 +147,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Pulsante Admin nella configurazione dell'accesso Single Sign-On](./media/mobileiron-tutorial/key.png)
 
 1. Nel campo **Export metadata file from AAD and import to MobileIron Cloud** (Esporta file di metadati da AAD e importa nel cloud di MobileIron) fare clic su **Scegli file** per caricare i metadati scaricati dal portale di Azure. Dopo il caricamento fare clic su **Fatto**.
- 
+
     ![Pulsante per i metadati amministratore nella configurazione dell'accesso Single Sign-On](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -174,13 +177,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Finestra di dialogo Utente](./media/mobileiron-tutorial/create_aaduser_04.png)
 
-    a. Nella casella **Nome** digitare **BrittaSimon**.
+    1. Nella casella **Nome** digitare **BrittaSimon**.
 
-    b. Nella casella **Nome utente** digitare l'indirizzo di posta elettronica dell'utente Britta Simon.
+    1. Nella casella **Nome utente** digitare l'indirizzo di posta elettronica dell'utente Britta Simon.
 
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Create**(Crea).
+    1. Fare clic su **Create**(Crea).
   
 ### <a name="create-a-mobileiron-test-user"></a>Creare un utente di test di MobileIron
 
@@ -199,25 +202,25 @@ Nel caso di MobileIron, il provisioning è un'attività manuale.
 
     ![Pulsante per l'aggiunta di utenti nella configurazione dell'accesso Single Sign-On](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-    a. Nella casella di testo **Email address** (Indirizzo di posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio brittasimon@contoso.com.
+    1. Nella casella di testo **Email address** (Indirizzo di posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio brittasimon@contoso.com.
 
-    b. Nella casella di testo **First Name** (Nome) immettere il nome dell'utente, ad esempio Britta.
+    1. Nella casella di testo **First Name** (Nome) immettere il nome dell'utente, ad esempio Britta.
 
-    c. Nella casella di testo **Last Name** (Nome) immettere il cognome dell'utente, ad esempio Simon.
-    
-    d. Fare clic su **Done**.  
+    1. Nella casella di testo **Last Name** (Nome) immettere il cognome dell'utente, ad esempio Simon.
+
+    1. Fare clic su **Done**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a MobileIron.
 
-![Assegnare il ruolo utente][200] 
+![Assegnare il ruolo utente][200]
 
 **Per assegnare Britta Simon a MobileIron seguire questa procedura:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
-    ![Assegna utente][201] 
+    ![Assegna utente][201]
 
 1. Nell'elenco delle applicazioni selezionare **MobileIron**.
 
@@ -236,19 +239,18 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
 1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
+
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro MobileIron nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione MobileIron.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -263,4 +265,3 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/mobileiron-tutorial/tutorial_general_201.png
 [202]: ./media/mobileiron-tutorial/tutorial_general_202.png
 [203]: ./media/mobileiron-tutorial/tutorial_general_203.png
-

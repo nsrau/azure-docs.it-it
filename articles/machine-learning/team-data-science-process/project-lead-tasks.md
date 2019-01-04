@@ -1,5 +1,5 @@
 ---
-title: Attività del responsabile di progetto nel processo di data science per i team - Azure | Microsoft Docs
+title: Attività per il responsabile di un progetto nel Processo di analisi scientifica dei dati in team
 description: Descrizione delle attività del responsabile di un progetto di data science in team.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 0b5129c4642a0c4381591f751bc4d5a51990b256
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442898"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135165"
 ---
-# <a name="project-lead-tasks"></a>Attività del responsabile di progetto
+# <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Attività per il responsabile di un progetto nel Processo di analisi scientifica dei dati in team
 
 Questa esercitazione descrive le attività che un responsabile di progetto deve completare per il team del progetto. L'obiettivo è di stabilire un ambiente di collaborazione per normalizzare il [processo di data science per il team](overview.md) (TDSP, Team Data Science Process). TDSP è un framework sviluppato da Microsoft che fornisce una sequenza strutturata di attività per eseguire in modo efficiente soluzioni di analisi predittiva, basate sul cloud. Per una descrizione dei ruoli del personale e delle relative attività associate gestiti da un team di data science, che vengono standardizzati con il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
 
@@ -27,7 +27,8 @@ Un **responsabile di progetto** gestisce le attività quotidiane dei singoli dat
 
 Questo argomento illustra attualmente le attività 1, 2 e 6 del flusso di lavoro per i responsabili dei progetti.
 
->[AZURE.NOTE] Vengono illustrati i passaggi necessari per configurare un ambiente di team TDSP per un progetto usando Azure DevOps nelle istruzioni seguenti. Viene specificato come eseguire queste attività con Azure DevOps dal momento che questa è la modalità di implementazione di TDSP in Microsoft. Se si usa un'altra piattaforma di hosting del codice per il proprio gruppo, le attività che il responsabile del team deve completare di per sé non cambiano, Sarà tuttavia diverso il modo in cui queste attività vengono completate.
+> [!NOTE]
+> Vengono illustrati i passaggi necessari per configurare un ambiente di team TDSP per un progetto usando Azure DevOps nelle istruzioni seguenti. Viene specificato come eseguire queste attività con Azure DevOps dal momento che questa è la modalità di implementazione di TDSP in Microsoft. Se si usa un'altra piattaforma di hosting del codice per il proprio gruppo, le attività che il responsabile del team deve completare di per sé non cambiano, Sarà tuttavia diverso il modo in cui queste attività vengono completate.
 
 
 ## <a name="repositories-and-directories"></a>Repository e directory
@@ -89,9 +90,9 @@ Se occorre personalizzare il repository del progetto **DSProject1** per soddisfa
 
 - Clonare il repository dei modelli di progetto nella directory locale: R3 del team clonato in-> D3 locale.
 - Clonare il repository DSProject1 in una directory locale: R5 del team clonato in -> D5 locale.
-- Copiare il contenuto dei modelli di progetto clonato nel clone locale del repository DSProject1: D3 - contenuti copiati in -> D5.
+- Copiare il contenuto dei modelli di progetto clonato nel clone locale del repository DSProject1:  D3 - contenuti copiati in -> D5.
 - (Facoltativo) Personalizzazione di D5 locale.
-- Eseguire il push del contenuto di DSProject1 nei repository del team: contenuti di D5 aggiunti a -> R5 del team.
+- Inserire il contenuto della directory locale DSProject1 nei repository del team: D5 - contenuti copiati nel -> team R5.
 
 
 ### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Clonare il repository dei modelli di progetto (R3) in una directory (D3) sul computer locale.
@@ -195,7 +196,8 @@ Se per il progetto sono necessarie alcune directory o documenti specifici, diver
     
 - Eseguire il commit e il push della modifica. 
 
->[AZURE.NOTE] Se è la prima volta che si esegue il commit in un repository Git, è necessario configurare i parametri globali *user.name* e *user.email* prima di eseguire il comando `git commit`. Eseguire questi due comandi:
+> [!NOTE]
+> Se è la prima volta che si esegue il commit in un repository Git, è necessario configurare i parametri globali *user.name* e *user.email* prima di eseguire il comando `git commit`. Eseguire questi due comandi:
         
     git config --global user.name <your name>
     git config --global user.email <your email address>

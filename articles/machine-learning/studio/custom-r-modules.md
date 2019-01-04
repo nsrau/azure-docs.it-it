@@ -1,12 +1,11 @@
 ---
-title: Definire moduli R personalizzati per Azure Machine Learning Studio | Microsoft Docs
-description: Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning Studio.
+title: Definire moduli R personalizzati - Azure Machine Learning Studio | Microsoft Docs
+description: Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -16,18 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: b8ab22f1567102ed79ccf6e0bf49dbdbc3f42ea9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2bdc8b7b28bee37ae88e466874d2b3d22dcd7556
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308432"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277931"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definire moduli R personalizzati per Azure Machine Learning Studio
 
 Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning Studio. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning. Vengono quindi descritti in modo più dettagliato elementi e attributi utilizzati nella definizione del modulo personalizzato. Viene inoltre illustrato come usare le funzionalità e i file ausiliari e gli output multipli. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="what-is-a-custom-r-module"></a>In cosa consiste un modulo R personalizzato?
 Un **modulo personalizzato** è un modulo definito dall'utente che può essere caricato nell'area di lavoro ed eseguito come parte di un esperimento di Azure Machine Learning. Un **modulo R personalizzato** è un modulo personalizzato che esegue una funzione R definita dall'utente. **R** è un linguaggio di programmazione per il calcolo e statistico e la grafica ampiamente usato in campo statistico e di analisi dei dati per l'implementazione degli algoritmi. R è attualmente l'unico linguaggio supportato nei moduli personalizzati, ma il supporto per altri linguaggi è previsto per le versioni future.
@@ -159,7 +158,7 @@ Le porte di input consentono di passare i dati all'area di lavoro e alla funzion
 L'attributo **id** associato a ogni porta di input **DataTable** deve avere un valore univoco che deve corrispondere al relativo parametro denominato nella funzione R.
 Le porte **DataTable** facoltative che non vengono passate come input in un esperimento passano un valore **NULL** alla funzione R e le porte ZIP facoltative vengono ignorate se l'input non è connesso. L'attributo **isOptional** è facoltativo per i tipi **DataTable** e **Zip** ed è *false* per impostazione predefinita.
 
-**Zip:** i moduli personalizzati possono accettare un file ZIP come input. Tale input viene decompresso in una directory di esecuzione R della funzione
+**Zip:** i moduli personalizzati possono accettare un file con estensione zip come input. Tale input viene decompresso in una directory di esecuzione R della funzione
 
         <Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
             <Description>Zip files to be extracted to the R working directory.</Description>
@@ -215,7 +214,7 @@ Restituire quindi gli oggetti in un elenco con l'ordine corretto in 'CustomAddRo
     return (list(dataset, dataset1, dataset2)) 
     } 
 
-**Output di visualizzazione:** è anche possibile specificare una porta di output di tipo *Visualization*che consente di visualizzare l'output del dispositivo e della console grafica R. Questa porta non fa parte dell'output della funzione R e non interferisce con l'ordine degli altri tipi di porta di output. Per aggiungere una porta di visualizzazione ai moduli personalizzati, aggiungere un elemento **Output** con un valore *Visualization* per il relativo attributo **type**:
+**Output di visualizzazione:** è anche possibile specificare una porta di output di tipo *Visualization* che consente di visualizzare l'output del dispositivo e della console grafica R. Questa porta non fa parte dell'output della funzione R e non interferisce con l'ordine degli altri tipi di porta di output. Per aggiungere una porta di visualizzazione ai moduli personalizzati, aggiungere un elemento **Output** con un valore *Visualization* per il relativo attributo **type**:
 
     <Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>

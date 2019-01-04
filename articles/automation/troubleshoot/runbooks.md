@@ -4,22 +4,22 @@ description: Informazioni su come risolvere i problemi relativi ai runbook di Au
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094865"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015467"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Risoluzione dei problemi relativi ai runbook
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Errori di autenticazione durante l'utilizzo di runbook di Automazione di Azure
 
-### <a name="sign-in-failed"></a>Scenario: Accesso all'account Azure non riuscito
+### <a name="sign-in-failed"></a>Scenario: accesso all'account Azure non riuscito
 
 #### <a name="issue"></a>Problema
 
@@ -75,7 +75,7 @@ Per determinare la causa del problema, seguire questa procedura:
    }
    ```
 
-### <a name="unable-to-find-subscription"></a>Scenario: Non è possibile trovare la sottoscrizione di Azure
+### <a name="unable-to-find-subscription"></a>Scenario: non è possibile trovare la sottoscrizione di Azure
 
 #### <a name="issue"></a>Problema
 
@@ -107,7 +107,7 @@ Per determinare se l'autenticazione in Azure è stata eseguita correttamente e s
    Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
     ```
 
-### <a name="auth-failed-mfa"></a>Scenario: L'autenticazione in Azure non è riuscita perché è abilitata l'autenticazione a più fattori
+### <a name="auth-failed-mfa"></a>Scenario: l'autenticazione in Azure non è riuscita perché è abilitata l'autenticazione a più fattori
 
 #### <a name="issue"></a>Problema
 
@@ -123,11 +123,11 @@ Se nell'account Azure è abilitata l'autenticazione a più fattori, non è possi
 
 #### <a name="resolution"></a>Risoluzione
 
-Per usare un certificato con i cmdlet del modello di distribuzione classica di Azure, vedere il blog relativo alla [creazione e all'aggiunta di un certificato per la gestione dei servizi Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Per usare un'entità servizio con i cmdlet di Azure Resource Manager, vedere l'argomento relativo alla [creazione di un'entità servizio tramite il portale di Azure](../../active-directory/develop/howto-create-service-principal-portal.md) e quello relativo all'[autenticazione di un'entità servizio con Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+Per usare un certificato con i cmdlet del modello di distribuzione classica di Azure, vedere il blog relativo alla [creazione e all'aggiunta di un certificato per la gestione dei servizi Azure.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Per usare un'entità servizio con i cmdlet di Azure Resource Manager, vedere l'argomento relativo alla [creazione di un'entità servizio tramite il portale di Azure](../../active-directory/develop/howto-create-service-principal-portal.md) e quello relativo all'[autenticazione di un'entità servizio con Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Errori comuni durante l'utilizzo di runbook
 
-### <a name="task-was-cancelled"></a>Scenario: il runbook ha esito negativo con errore "Un'attività è stata annullata"
+### <a name="task-was-cancelled"></a>Scenario: il runbook ha esito negativo e restituisce l'errore seguente: Un'attività è stata annullata
 
 #### <a name="issue"></a>Problema
 
@@ -147,7 +147,7 @@ Questo errore può essere risolto aggiornando i moduli di Azure alla versione pi
 
 Nell'account di Automazione fare clic su **Moduli** e quindi su **Aggiorna moduli di Azure**. L'aggiornamento richiede circa 15 minuti; al termine, eseguire di nuovo il runbook con esito negativo. Per ulteriori informazioni sull'aggiornamento dei moduli, vedere [Aggiornare i moduli di Azure in Automazione di Azure](../automation-update-azure-modules.md).
 
-### <a name="child-runbook-auth-failure"></a>Scenario: il runbook figlio non ha esito positivo quando si gestiscono più sottoscrizioni
+### <a name="child-runbook-auth-failure"></a>Scenario: il runbook figlio ha esito negativo quando si gestiscono più sottoscrizioni
 
 #### <a name="issue"></a>Problema
 
@@ -183,7 +183,7 @@ Start-AzureRmAutomationRunbook `
     –Parameters $params –wait
 ```
 
-### <a name="not-recognized-as-cmdlet"></a>Scenario: il runbook ha esito negativo a causa di un cmdlet mancano
+### <a name="not-recognized-as-cmdlet"></a>Scenario: il runbook ha esito negativo a causa di un cmdlet mancante
 
 #### <a name="issue"></a>Problema
 
@@ -208,7 +208,7 @@ Se il modulo è un modulo di Azure, vedere [Come aggiornare i moduli di Azure Po
 
 Se è un modulo separato, assicurarsi che il modulo venga importato nell'account di automazione.
 
-### <a name="job-attempted-3-times"></a>Scenario: l'avvio del processo runbook è stato tentato per tre volte, ma non è mai riuscito
+### <a name="job-attempted-3-times"></a>Scenario: l'avvio del processo runbook è stato tentato per tre volte, ma non è riuscito
 
 #### <a name="issue"></a>Problema
 
@@ -238,7 +238,7 @@ una qualsiasi delle soluzioni seguenti consente di correggere il problema:
 
 * Un’altra soluzione consiste nell'eseguire il runbook su un [ruolo di lavoro ibrido per runbook](../automation-hrw-run-runbooks.md). I ruoli di lavoro ibridi non hanno i limiti di memoria e rete che sono invece applicati ai sandbox di Azure.
 
-### <a name="fails-deserialized-object"></a>Scenario: Runbook con esito negativo a causa di un oggetto deserializzato
+### <a name="fails-deserialized-object"></a>Scenario: il runbook ha esito negativo a causa di un oggetto deserializzato
 
 #### <a name="issue"></a>Problema
 
@@ -262,7 +262,7 @@ Una qualsiasi delle tre soluzioni seguenti consente di correggere questo problem
 2. Passare il nome o il valore necessario dall'oggetto complesso invece di passare l'intero oggetto.
 3. Usare un runbook di PowerShell invece di un runbook del flusso di lavoro PowerShell.
 
-### <a name="quota-exceeded"></a>Scenario: Processo del Runbook non riuscito per il superamento della quota allocata
+### <a name="quota-exceeded"></a>Scenario: processo del Runbook non riuscito per il superamento della quota allocata
 
 #### <a name="issue"></a>Problema
 
@@ -285,7 +285,7 @@ Se si vogliono usare più di 500 minuti di elaborazione al mese, si deve modific
 3. Fare clic su **Impostazioni** > **Prezzi**.
 4. Fare clic su **Abilita** nella parte inferiore della pagina per aggiornare l'account al livello **Basic**.
 
-### <a name="cmdlet-not-recognized"></a>Scenario: Cmdlet non riconosciuto durante l'esecuzione di un runbook
+### <a name="cmdlet-not-recognized"></a>Scenario: cmdlet non riconosciuto durante l'esecuzione di un runbook
 
 #### <a name="issue"></a>Problema
 
@@ -338,9 +338,48 @@ I cmdlet di PowerShell che consentono lo scenario del runbook figlio sono:
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) che consente di controllare lo stato del processo per ogni figlio, se ci sono operazioni che devono essere eseguite al termine del runbook figlio.
 
+### <a name="expired webhook"></a>Scenario: stato: 400 - Richiesta non valida quando si richiama un webhook
+
+#### <a name="issue"></a>Problema
+
+Quando si tenta di chiamare un webhook per un runbook di Automazione di Azure, viene visualizzato l'errore seguente.
+
+```error
+400 Bad Request : This webhook has expired or is disabled
+```
+
+#### <a name="cause"></a>Causa
+
+Il webhook che si sta tentando di chiamare è disattivato o scaduto.
+
+#### <a name="resolution"></a>Risoluzione
+
+Se il webhook è disattivato, è possibile riabilitarlo tramite il portale di Azure. Se il webhook è scaduto, è necessario eliminarlo e ricrearlo. Il [rinnovo di un webhook](../automation-webhooks.md#renew-webhook) è possibile solo se il webhook non è scaduto.
+
+### <a name="429"></a>Scenario: 429: la frequenza delle richieste è troppo elevata. Riprovare
+
+#### <a name="issue"></a>Problema
+
+Quando si esegue il cmdlet `Get-AzureRmAutomationJobOutput` viene visualizzato il seguente messaggio di errore:
+
+```
+429: The request rate is currently too large. Please try again
+```
+
+#### <a name="cause"></a>Causa
+
+Questo errore può verificarsi durante il recupero di output del processo da un runbook con molti [flussi dettagliati](../automation-runbook-output-and-messages.md#verbose-stream).
+
+#### <a name="resolution"></a>Risoluzione
+
+È possibile risolvere questo problema in due modi:
+
+* Modificare il runbook riducendo il numero di flussi del processo generati dal runbook stesso.
+* Ridurre il numero di flussi da recuperare all'esecuzione del cmdlet. A tale scopo è possibile specificare il parametro `-Stream Output` in modo che il cmdlet `Get-AzureRmAutomationJobOutput` recuperi solo flussi di output. 
+
 ## <a name="common-errors-when-importing-modules"></a>Errori comuni durante l'importazione di moduli
 
-### <a name="module-fails-to-import"></a>Scenario: L'importazione del modulo non riesce o i cmdlet non possono essere eseguiti dopo l'importazione
+### <a name="module-fails-to-import"></a>Scenario: l'importazione del modulo non riesce o non è possibile eseguire i cmdlet dopo l'importazione
 
 #### <a name="issue"></a>Problema
 
@@ -359,7 +398,7 @@ Di seguito sono elencati alcuni motivi comuni che possono causare un'importazion
 
 una qualsiasi delle soluzioni seguenti consente di correggere il problema:
 
-* Assicurarsi che il modulo sia conforme al formato seguente: NomeModulo.Zip **->** NomeModulo o NumeroVersione **->** (NomeModulo.psm1, NomeModulo.psd1)
+* Assicurarsi che il modulo rispetti il formato seguente: ModuleName.Zip **->** Nome modulo o numero versione **->** (ModuleName.psm1, ModuleName.psd1)
 * Aprire il file con estensione psd1 e vedere se il modulo include dipendenze. In caso affermativo, caricare i moduli nell'account di automazione.
 * Assicurarsi che le eventuali DLL a cui viene fatto riferimento siano presenti nella cartella del modulo.
 

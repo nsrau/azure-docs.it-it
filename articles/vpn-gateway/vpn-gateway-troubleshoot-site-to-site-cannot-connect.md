@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: a2330cee3d5ea48f9f679ac02f6889ccce6c1d7c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 18900c4a1dbc25526a3f60c7410ad87e7dd9a9fa
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242756"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967845"
 ---
-# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: una connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: la connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
 
 Dopo aver configurato una connessione VPN da sito a sito tra una rete locale e una rete virtuale di Azure, la connessione VPN si interrompe improvvisamente e non può essere riconnessa. Questo articolo illustra la procedura per risolvere questo tipo di problema. 
 
@@ -39,7 +39,7 @@ Controllare il tipo del gateway VPN di Azure.
 
 2. Per informazioni sul tipo, vedere la pagina **Panoramica** del gateway VPN.
     
-    ![Panoramica del gateway](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
+    ![Panoramica del gateway](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Passaggio 1. Controllare se il dispositivo VPN locale è convalidato
 
@@ -100,7 +100,7 @@ Cercare e rimuovere il routing definito dall'utente o i gruppi di sicurezza di r
 2. Fare clic sull'avviso del certificato.
 3. Se si riceve una risposta, il gateway VPN viene considerato integro. Se non si riceve una risposta, è possibile che il gateway non sia integro oppure il problema è causato da un gruppo di sicurezza di rete nella subnet del gateway. Il testo seguente è una risposta di esempio:
 
-    &lt;?xml version="1.0"?&gt;  <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6&lt;/string&gt;
+    &lt;?xml version="1.0"?>  <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Passaggio 8. Controllare se nel dispositivo VPN locale è abilitata la funzionalità PFS
 

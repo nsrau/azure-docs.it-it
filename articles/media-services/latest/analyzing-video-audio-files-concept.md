@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 3af8aec6bb2fe08c4bd1ef65e4f272a6f85af50b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427422"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344313"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisi di file video e audio
 
 Servizi multimediali di Azure v3 consente anche di estrarre informazioni dettagliate da file audio e video con Video Indexer tramite i set di impostazioni di analisi di Servizi multimediali di Azure v3 descritti in questo articolo. Per ottenere informazioni più dettagliate, usare direttamente Video Indexer. Per comprendere quando è opportuno usare Video Indexer invece dei set di impostazioni di analisi di Servizi multimediali, vedere il [documento di confronto](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
-Per eseguire l'analisi con Servizi multimediali di Azure v3, si crea un oggetto **Transform** e si invia un oggetto **Job** che usa uno dei due set di impostazioni **AudioAnalyzerPreset** e **VideoAnalyzerPreset**. L'articolo seguente illustra come usare **VideoAnalyzerPreset**: [Esercitazione: Analizzare i video con Servizi multimediali di Azure](analyze-videos-tutorial-with-api.md).
+Per eseguire l'analisi con Servizi multimediali di Azure v3, si crea un oggetto **Transform** e si invia un oggetto **Job** che usa uno dei due set di impostazioni: **AudioAnalyzerPreset** oppure **VideoAnalyzerPreset**. L'articolo seguente illustra come usare **VideoAnalyzerPreset**: [Esercitazione: Analizzare i video con Servizi multimediali di Azure](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > Quando si usa un set di impostazioni di analisi video o audio, usare il portale di Azure per impostare l'account in modo che abbia 10 Media Reserved Units S3. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md).
@@ -33,7 +33,7 @@ Attualmente Servizi multimediali supporta i set di impostazioni di analisi prede
 
 |**Nome set di impostazioni**|**Scenario**|**Dettagli**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analisi dell'audio|Il set di impostazioni applica un set predefinito di operazioni di analisi basate su intelligenza artificiale, tra cui la trascrizione del parlato. Attualmente il set di impostazioni supporta l'elaborazione del contenuto con una singola traccia audio.<br/>È possibile specificare la lingua per il payload audio nell'input usando il formato BCP-47 per 'tag lingua-area'. (ad esempio 'en-US'). L'elenco delle lingue supportate è "en-US", "en-GB", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "pt-BR", "zh-CN". Se la lingua non è specificata o è impostata su Null, verrà usato il rilevamento automatico della lingua. La funzionalità di rilevamento automatico della lingua attualmente supporta inglese, cinese, francese, tedesco, italiano, giapponese, spagnolo, russo e portoghese.|
+|**AudioAnalyzerPreset**|Analisi dell'audio|Il set di impostazioni applica un set predefinito di operazioni di analisi basate su intelligenza artificiale, tra cui la trascrizione del parlato. Attualmente il set di impostazioni supporta l'elaborazione del contenuto con una singola traccia audio. È possibile specificare la lingua per il payload audio nell'input usando il formato BCP-47 per 'tag lingua-area'. Sono supportate le lingua: inglese ('en-US' e 'en-GB'), spagnolo ('es-ES' ed 'es-MX'), francese ('fr-FR'), italiano ('it-IT'), giapponese ('ja-JP'), portoghese ('pt-BR'), cinese ('zh-CN'), tedesco ('de-DE'), arabo ('ar-EG'), russo ('ru-RU'), hindi ('hi-IN') e coreano ('ko-KR').<br/><br/> Se la lingua non è specificata o è impostata su Null, verrà usato il rilevamento automatico della lingua. La funzionalità di rilevamento automatico della lingua attualmente supporta inglese, cinese, francese, tedesco, italiano, giapponese, spagnolo, russo e portoghese. La funzionalità di rilevamento automatico della lingua funziona in modo ottimale con registrazioni audio con parlato chiaro e percepibile. Se il rilevamento automatico della lingua non riesce a individuare la lingua, la trascrizione tornerà all'inglese.|
 |**VideoAnalyzerPreset**|Analisi di audio e video|Estrae informazioni cognitive dettagliate (metadati avanzati) da audio e video e restituisce un file in formato JSON. È possibile specificare se si vogliono estrarre solo informazioni dettagliate sull'audio durante l'elaborazione di un file video. Per altre informazioni, vedere [Analizzare i video](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset

@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva - Cluster Docker CE di Azure per Linux
+title: (DEPRECATO) Guida introduttiva - Cluster Docker CE di Azure per Linux
 description: Informazioni per creare rapidamente un cluster Docker CE per contenitori Linux nel servizio contenitore di Azure con l'interfaccia della riga di comando di Azure.
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: d3438f42753cba82a28d16be2b63926c4762b26b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421934"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994303"
 ---
-# <a name="deploy-docker-ce-cluster"></a>Distribuire un cluster Docker CE
+# <a name="deprecated-deploy-docker-ce-cluster"></a>(DEPRECATO) Distribuire cluster Docker CE
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In questa guida introduttiva viene distribuito un cluster Docker CE usando l'interfaccia della riga di comando di Azure. Un'applicazione multicontenitore costituita dal front-end Web e da un'istanza di Redis viene quindi distribuita ed eseguita nel cluster. Al termine, l'applicazione è accessibile tramite Internet.
 
@@ -24,7 +26,7 @@ Docker CE nel servizio contenitore di Azure è in anteprima e **non deve essere 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -169,7 +171,7 @@ In questa guida introduttiva sono state usate immagini del contenitore già crea
 
 In questa guida introduttiva è stato distribuito un cluster Docker Swarm in cui è stata quindi distribuita un'applicazione multicontenitore.
 
-Per informazioni sull'integrazione di Docker Swarm con Visual Studio Team Services, vedere l'articolo relativo a integrazione e distribuzione continua con Docker Swarm e VSTS.
+Per informazioni sull'integrazione di Docker Swarm con Azure DevOps, vedere l'articolo relativo a CI/CD con Docker Swarm e Azure DevOps.
 
 > [!div class="nextstepaction"]
-> [Integrazione continua e distribuzione continua con Docker Swarm e VSTS](./container-service-docker-swarm-setup-ci-cd.md)
+> [CI/CD con Docker Swarm e Azure DevOps](./container-service-docker-swarm-setup-ci-cd.md)

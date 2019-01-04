@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3fa2183a5bb3239059c349e8417aeb52553829cf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430586"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016879"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -151,14 +151,14 @@ Per altre informazioni, vedere la sezione relativa ad [affinità e anti-affinit�
 
 Un ultimo approccio per consentire all'utilità di pianificazione di Kubernetes di isolare in modo logico i carichi di lavoro consiste nell'usare l'affinità tra pod o l'anti-affinità. Le impostazioni definiscono che i pod *non devono* essere pianificati su un nodo con un pod corrispondente esistente o che *devono* essere pianificati. Per impostazione predefinita, l'utilità di pianificazione di Kubernetes tenta di pianificare più pod in un set di repliche tra i nodi. È possibile definire più regole specifiche in base a questo comportamento.
 
-Un buon esempio è un'applicazione Web che usa anche una cache Redis. È possibile usare le regole di anti-affinità dei pod per fare in modo che l'utilità di pianificazione di Kubernetes distribuisca le repliche tra i nodi. È quindi possibile usare le regole di affinità per assicurarsi che ogni componente dell'app Web sia pianificato sullo stesso host di una cache corrispondente. La distribuzione dei pod tra i nodi è simile alla seguente:
+Un buon esempio è un'applicazione Web che usa anche una cache Redis di Azure. È possibile usare le regole di anti-affinità dei pod per fare in modo che l'utilità di pianificazione di Kubernetes distribuisca le repliche tra i nodi. È quindi possibile usare le regole di affinità per assicurarsi che ogni componente dell'app Web sia pianificato sullo stesso host di una cache corrispondente. La distribuzione dei pod tra i nodi è simile alla seguente:
 
 | **Nodo 1** | **Nodo 2** | **Nodo 3** |
 |------------|------------|------------|
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Questo esempio è una distribuzione più complessa rispetto all'uso dei selettori di nodo o dell'affinità tra nodi. La distribuzione garantisce il controllo sul modo in cui Kubernetes pianifica i pod sui nodi e isola in modo logico le risorse. Per un esempio completo di questa applicazione Web con un esempio di cache Redis, vedere la sezione sulla [condivisione del percorso dei pod sullo stesso nodo][k8s-pod-affinity].
+Questo esempio è una distribuzione più complessa rispetto all'uso dei selettori di nodo o dell'affinità tra nodi. La distribuzione garantisce il controllo sul modo in cui Kubernetes pianifica i pod sui nodi e isola in modo logico le risorse. Per un esempio completo di questa applicazione Web con un esempio di cache Redis di Azure, vedere la sezione sulla [condivisione del percorso dei pod sullo stesso nodo][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Passaggi successivi
 

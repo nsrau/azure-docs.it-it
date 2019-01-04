@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f5610f03cb613c7da2f89da1a38b6bf058a4e0cc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962563"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714407"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Abilitare il backup per Azure Stack dal portale di amministrazione
 Abilitare il servizio di infrastruttura di Backup tramite il portale di amministrazione in modo che Azure Stack può generare backup. È possibile usare questi backup per ripristinare l'ambiente cloud di ripristino in caso di utilizzo [un errore irreversibile](./azure-stack-backup-recover-data.md). Lo scopo di ripristino di cloud è garantire che gli operatori e gli utenti possono accedere di nuovo il portale al termine del ripristino completo. Gli utenti avranno gli abbonamenti ripristinati incluse le autorizzazioni di accesso basato sui ruoli e i ruoli, originali piani, offerte e calcolo definito in precedenza, archiviazione e le quote di rete.
@@ -30,7 +30,7 @@ Tuttavia, il servizio Backup di infrastruttura non esegue il backup delle macchi
 Gli amministratori e gli utenti sono tenuti a backup e ripristino delle risorse IaaS e PaaS separatamente dai processi di backup dell'infrastruttura. Per informazioni sul backup delle risorse IaaS e PaaS, vedere i collegamenti seguenti:
 
 - [Macchine virtuali](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-protect)
-- [Servizio app](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+- [Servizio app](https://docs.microsoft.com/azure/app-service/manage-backup)
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 

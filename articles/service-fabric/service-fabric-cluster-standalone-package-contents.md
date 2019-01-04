@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: afb6c8345cd71e7d39b7f3a0b2307c99cf31b449
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a34ad340463faf0cdccdb7fa8b87283de60b4cc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253337"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141612"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Contenuto del pacchetto autonomo di Service Fabric per Windows Server
 Nel pacchetto autonomo di Service Fabric [scaricato](https://go.microsoft.com/fwlink/?LinkId=730690) sono disponibili i seguenti file:
@@ -40,6 +40,7 @@ Nel pacchetto autonomo di Service Fabric [scaricato](https://go.microsoft.com/fw
 | Tools\ServiceFabricUpdateService.zip |Strumento usato per abilitare l'aggiornamento del codice automatico per i cluster che non hanno accesso a Internet. Altri dettagli sono disponibili [qui](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Modelli** 
+
 | **Nome file** | **Descrizione breve** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |File di configurazione del cluster di esempio contenente le impostazioni per un cluster di sviluppo a tre nodi non protetto con singolo computer (o macchina virtuale), con le informazioni per ogni nodo incluso nel cluster. |
@@ -51,7 +52,7 @@ Nel pacchetto autonomo di Service Fabric [scaricato](https://go.microsoft.com/fw
 | ClusterConfig.gMSA.Windows.MultiMachine.json |File di configurazione del cluster di esempio contenente tutte le impostazioni per un cluster sicuro con più computer o macchine virtuali, con le informazioni per ogni nodo del cluster sicuro. Il cluster è protetto usando gli [account del servizio gestito del gruppo](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
 
 ## <a name="cluster-configuration-samples"></a>Esempi di configurazione del cluster
-Le versioni più recenti dei modelli di configurazione del cluster sono disponibili nella pagina di GitHub: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+Le versioni più recenti dei modelli di configurazione del cluster sono disponibili nella pagina di GitHub: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) (Esempi di configurazione di cluster autonomi).
 
 ## <a name="independent-runtime-package"></a>Pacchetto di Runtime indipendente
 Il pacchetto di runtime più recente viene scaricato automaticamente durante la distribuzione del cluster da [Collegamento per il download - Runtime di Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).

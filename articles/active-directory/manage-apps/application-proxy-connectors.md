@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: dce9c26d9f836a2238642521be4d88ba089058d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8b410cc85584f45d4a3e9d7bce180a2c6aa46114
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445959"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134972"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -31,9 +31,9 @@ I connettori sono agenti semplici che si trovano a livello locale e facilitano l
 Per distribuire correttamente il proxy di applicazione, è necessario almeno un connettore, ma sono consigliati due o più connettori per assicurare maggiore resilienza. Installare il connettore in computer con Windows Server 2012 R2 o 2016. Il connettore deve poter comunicare con il servizio proxy di applicazione e con le applicazioni locali che vengono pubblicate. 
 
 ### <a name="windows-server"></a>Windows Server
-È necessario un server che esegue Windows Server 2012 R2 o versione successiva in cui poter installare il connettore del proxy applicazione. Questo server deve connettersi ai servizi proxy applicazione in Azure e alle applicazioni locali che vengono pubblicate.
+È necessario un server che esegue Windows Server 2012 R2 o versione successiva in cui poter installare il connettore del proxy applicazione. Questo server deve connettersi ai servizi proxy di applicazione in Azure e alle applicazioni locali che vengono pubblicate.
 
-È necessario abilitare TLS 1.2 per Windows Server prima di installare il connettore del proxy applicazione. I connettori esistenti con versioni precedenti a 1.5.612.0 continueranno a funzionare nelle versioni precedenti di TLS fino a ulteriore comunicazione. Per abilitare TLS 1.2:
+È necessario abilitare TLS 1.2 per Windows Server prima di installare il connettore del proxy di applicazione. I connettori esistenti con versioni precedenti a 1.5.612.0 continueranno a funzionare nelle versioni precedenti di TLS fino a ulteriore comunicazione. Per abilitare TLS 1.2:
 
 1. Impostare le chiavi del Registro di sistema seguenti:
     
@@ -47,7 +47,7 @@ Per distribuire correttamente il proxy di applicazione, è necessario almeno un 
 2. Riavviare il server
 
 
-Per ulteriori informazioni sui requisiti di rete per il server del connettore, vedere [Introduzione al proxy dell'applicazione e installazione di un connettore](application-proxy-enable.md).
+Per ulteriori informazioni sui requisiti di rete per il server del connettore, vedere [Introduzione al proxy dell'applicazione e installazione di un connettore](application-proxy-add-on-premises-application.md).
 
 ## <a name="maintenance"></a>Manutenzione 
 I connettori e il servizio si occupano di tutte le attività che richiedono disponibilità elevata. Possono essere aggiunti o rimossi in modo dinamico. Ogni volta che arriva una nuova richiesta, questa viene indirizzata a uno dei connettori attualmente disponibili. Se un connettore è temporaneamente non disponibile, non risponde a questo traffico.
@@ -64,7 +64,7 @@ Non è necessario eliminare manualmente i connettori che non vengono usati. Quan
 
 ## <a name="automatic-updates"></a>Aggiornamenti automatici
 
-Azure AD offre aggiornamenti automatici per tutti i connettori da distribuire. Fino a quando il servizio di aggiornamento del connettore proxy di applicazione è in esecuzione, i connettori vengono aggiornati automaticamente. Se non viene visualizzato il servizio di aggiornamento del connettore nel server, è necessario [reinstallare il connettore](application-proxy-enable.md) per ottenere gli aggiornamenti. 
+Azure AD offre aggiornamenti automatici per tutti i connettori da distribuire. Fino a quando il servizio di aggiornamento del connettore proxy di applicazione è in esecuzione, i connettori vengono aggiornati automaticamente. Se non viene visualizzato il servizio di aggiornamento del connettore nel server, è necessario [reinstallare il connettore](application-proxy-add-on-premises-application.md) per ottenere gli aggiornamenti. 
 
 Se non si vuole attendere l'aggiornamento automatico del connettore, è possibile eseguire un aggiornamento manuale. Passare alla [pagina di download del connettore](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) nel server in cui si trova il connettore e selezionare **Download**. Grazie a questo processo viene avviato un aggiornamento del connettore locale. 
 
@@ -99,7 +99,7 @@ Sebbene i connettori bilanceranno automaticamente il carico all'interno di un gr
 
 ## <a name="security-and-networking"></a>Sicurezza e rete
 
-I connettori possono essere installati in qualsiasi punto della rete che consenta loro di inviare richieste al servizio proxy dell'applicazione. È importante che il computer che esegue il connettore abbia anche accesso alle app. È possibile installare i connettori all'interno della rete aziendale o in una macchina virtuale che viene eseguita nel cloud. I connettori possono essere eseguiti in una rete perimetrale, ma non è necessario poiché tutto il traffico è in uscita, in modo che la rete è protetta.
+I connettori possono essere installati in qualsiasi punto della rete che consenta loro di inviare richieste al servizio proxy dell'applicazione. È importante che il computer che esegue il connettore abbia anche accesso alle app. È possibile installare i connettori all'interno della rete aziendale o in una macchina virtuale che viene eseguita nel cloud. I connettori possono essere eseguiti in una zona demilitarizzata (DMZ), ma non è necessario poiché tutto il traffico è in uscita, in modo che la rete è protetta.
 
 I connettori inviano le richieste soltanto in uscita. Il traffico in uscita viene inviato al servizio proxy applicazione e alle applicazioni pubblicate. Non è necessario aprire porte in ingresso perché il traffico scorre in entrambe le direzioni, dopo aver stabilito una sessione. Non è necessario configurare il bilanciamento del carico tra i connettori o configurare l'accesso in ingresso attraverso firewall. 
 
@@ -120,9 +120,9 @@ Il bilanciamento del carico si verifica tra i connettori di un determinato grupp
 
 Un altro fattore che influenza le prestazioni è la qualità della connessione di rete tra i connettori, inclusi: 
 
-* **Il servizio online**: connessioni lente o a elevata latenza al servizio proxy di applicazione in Azure influenzano le prestazioni del connettore. Per ottenere prestazioni ottimali, connettere l'organizzazione ad Azure con Express Route. In caso contrario, assicurarsi che il team di rete garantisca una gestione il più possibile efficiente delle connessioni ad Azure. 
-* **Applicazioni back-end:** in alcuni casi ci sono altri proxy tra il connettore e le applicazioni back-end che possono rallentare o impedire la connessione. Per risolvere questo scenario, aprire un browser dal server del connettore e tentare di accedere all'applicazione. Se si eseguono i connettori in Azure, ma le applicazioni sono locali, l'esperienza degli utenti potrebbe essere diversa da quella prevista.
-* **I controller di dominio:** se i connettori eseguono l'accesso SSO mediante la delega vincolata Kerberos, essi contattano i controller di dominio prima di inviare la richiesta al back-end. I connettori hanno una cache dei ticket Kerberos, ma in ambienti affollati la velocità di risposta dei controller di dominio può influenzare le prestazioni. Questa situazione è più comune per i connettori eseguiti in Azure, ma che comunicano con i controller di dominio locali. 
+* **Il servizio online**: Connessioni lente o a elevata latenza al servizio proxy di applicazione in Azure influenzano le prestazioni del connettore. Per ottenere prestazioni ottimali, connettere l'organizzazione ad Azure con Express Route. In caso contrario, assicurarsi che il team di rete garantisca una gestione il più possibile efficiente delle connessioni ad Azure. 
+* **Applicazioni back-end**: In alcuni casi ci sono altri proxy tra il connettore e le applicazioni back-end che possono rallentare o impedire la connessione. Per risolvere questo scenario, aprire un browser dal server del connettore e tentare di accedere all'applicazione. Se si eseguono i connettori in Azure, ma le applicazioni sono locali, l'esperienza degli utenti potrebbe essere diversa da quella prevista.
+* **I controller di dominio**: Se i connettori eseguono l'accesso SSO mediante la delega vincolata Kerberos, essi contattano i controller di dominio prima di inviare la richiesta al back-end. I connettori hanno una cache dei ticket Kerberos, ma in ambienti affollati la velocità di risposta dei controller di dominio può influenzare le prestazioni. Questa situazione è più comune per i connettori eseguiti in Azure, ma che comunicano con i controller di dominio locali. 
 
 Per maggiori informazioni sull'ottimizzazione della rete, vedere [Considerazioni relative alla topologia di rete quando si usa il proxy di applicazione di Azure Active Directory](application-proxy-network-topology.md).
 
@@ -136,7 +136,7 @@ I connettori possono anche essere aggiunti a domini o foreste con attendibilità
 
 Nella maggior parte dei casi la distribuzione dei connettori è molto semplice e non richiede una configurazione speciale. Esistono tuttavia alcune condizioni specifiche che devono essere considerate:
 
-* Le organizzazioni che limitano il traffico in uscita devono [aprire le porte necessarie](application-proxy-enable.md#open-your-ports).
+* Le organizzazioni che limitano il traffico in uscita devono [aprire le porte necessarie](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 * Per i computer conformi FIPS potrebbe essere necessario modificare la configurazione per consentire ai processi connettore di generare e archiviare un certificato.
 * Le organizzazioni, che bloccano il proprio ambiente in base ai processi che inviano le richieste di rete, devono assicurarsi che siano abilitati entrambi i servizi connettore per accedere a tutte le porte e agli indirizzi IP necessari.
 * In alcuni casi il proxy di inoltro in uscita può interrompere l'autenticazione bidirezionale con certificato e non consentire la comunicazione.

@@ -1,5 +1,5 @@
 ---
-title: Contratto di licenza di Speech Devices SDK
+title: Contratto di licenza di Speech Devices SDK - Servizi Voce
 titleSuffix: Azure Cognitive Services
 description: Contratto di licenza di Speech Devices SDK.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: dea27d7363210580d5f040de7ea1db770701d9c9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: b1605337a810c635bfa40cd05e2f9b15d2e5a7e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466121"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078515"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contratto di licenza di Speech Devices SDK
 
-## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>CONDIZIONI DI LICENZA SOFTWARE MICROSOFT<br>SPEECH DEVICES SOFTWARE DEVELOPMENT KIT (SDK) 
+## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>CONDIZIONI DI LICENZA SOFTWARE MICROSOFT<br>SPEECH DEVICES SOFTWARE DEVELOPMENT KIT (SDK)
 
 > QUALORA IL LICENZIATARIO RISIEDA (O LA SEDE PRINCIPALE DI ATTIVITÀ DELLA SUA AZIENDA SI TROVI) NEGLI STATI UNITI, VEDERE L'ARTICOLO "ARBITRATO VINCOLANTE E RINUNCIA ALL'AZIONE DI CLASSE" RIPORTATO DI SEGUITO, CHE RIGUARDA LA RISOLUZIONE DELLE CONTROVERSIE.
 
@@ -57,7 +58,7 @@ f)  È necessario usare il software solo in combinazione con Servizi cognitivi M
 
 **5\. COMMENTI E SUGGERIMENTI.** Se si forniscono commenti e suggerimenti relativi al software a Microsoft, il licenziatario concede a Microsoft il diritto di usare, condividere e commercializzare tali commenti e suggerimenti in qualsiasi modo e per qualsiasi scopo a titolo gratuito. Il licenziatario si asterrà dal fornire a Microsoft eventuali commenti o suggerimenti soggetti a una licenza e che, se usati da Microsoft, obblighino Microsoft a concedere in licenza il proprio software o documentazione a terze parti. Tali diritti manterranno piena validità ed efficacia anche allo scadere del presente contratto.
 
-**6\. PERIODO.** Il presente contratto diventa effettivo al momento dell'accettazione e può essere rescisso dal licenziatario o da Microsoft in qualsiasi momento. 
+**6\. PERIODO.** Il presente contratto diventa effettivo al momento dell'accettazione e può essere rescisso dal licenziatario o da Microsoft in qualsiasi momento.
 
 **7\. RISOLUZIONE.** Fatto salvo ogni altro diritto, Microsoft può rescindere il presente contratto qualora il licenziatario non rispetti uno qualsiasi dei suoi termini o condizioni. In tal caso è necessario eliminare tutte le copie del software e tutti i relativi componenti.
 

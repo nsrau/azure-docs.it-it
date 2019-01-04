@@ -1,5 +1,5 @@
 ---
-title: Ciclo di vita del processo di data science per i team - Azure | Microsoft Docs
+title: Ciclo di vita del processo di data science per i team
 description: Procedura necessaria per eseguire i progetti di data science
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 24807d00170ed46a95d2726e1172b15775e0376d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a2a4a8c895bddb03271014c50f57b666faa0c2cc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443391"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135951"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Ciclo di vita del processo di data science per i team
 
@@ -24,9 +24,11 @@ Il processo di data science per i team (TDSP, Team Data Science Process) fornisc
 
 Questo ciclo di vita è stato messo a punto per i progetti di data science destinati a far parte di applicazioni intelligenti. Queste applicazioni distribuiscono modelli di Machine Learning o intelligenza artificiale per l'analisi predittiva. Anche i progetti di data science esplorativi e i progetti analitici ad hoc possono trarre vantaggio dall'uso di questo processo. Tuttavia per tali progetti potrebbero non essere necessarie alcune delle procedure descritte di seguito. 
 
+## <a name="five-lifecycle-stages"></a>Cinque fasi del ciclo di vita
+
 Il ciclo di vita TDSP è composto da cinque fasi principali che vengono eseguite in modo iterativo. Queste fasi includono:
 
-   1. [Comprensione del business](lifecycle-business-understanding.md)
+   1. [Comprensione delle strategie aziendali](lifecycle-business-understanding.md)
    2. [Acquisizione e comprensione dei dati](lifecycle-data.md)
    3. [Modellazione](lifecycle-modeling.md)
    4. [Distribuzione](lifecycle-deployment.md)
@@ -43,10 +45,10 @@ Per ogni fase, specificare le informazioni seguenti:
 
    * **Obiettivi**: gli obiettivi specifici.
    * **Procedura**: una struttura delle attività specifiche e una guida su come completarle.
-   * **Elementi**: i risultati finali e il supporto durante la produzione degli stessi.
+   * **Artefatti**: i risultati finali e il supporto per la generazione di tali risultati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Sono disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per scenari specifici. L'articolo sulle [procedure dettagliate di esempio](walkthroughs.md) include un elenco degli scenari con i collegamenti e le descrizioni di anteprima. Le procedure dettagliate illustrano come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
 
-Per esempi su come eseguire i passaggi nei processi di data science per i team (TDSP) che usano Azure Machine Learning Studio, vedere [Uso del processo di analisi scientifica dei dati per i team con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Per esempi su come eseguire i passaggi nei processi di data science per i team (TDSP) che usano Azure Machine Learning Studio, vedere [Usare il processo di data science per i team con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).

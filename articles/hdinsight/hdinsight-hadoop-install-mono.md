@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
 ms.custom: hdinsightactive
-ms.openlocfilehash: 9daf0d45c9bb24192750991e7bf84fa3614c970d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4f51de6ded29f93d29dbf80dd68715f621b5cb06
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011035"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384616"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Installare o aggiornare Mono in HDInsight
 
@@ -52,7 +52,7 @@ Quando si segue il documento di azione di script, usare l'URI seguente:
 
 Per specificare la versione Mono installata, usare il numero di versione nel campo __Parametri__. Ad esempio, immettere `5.4` per installare Mono 5.4.
 
-> [!NOTE]
+> [!NOTE]  
 > Durante la configurazione di HDInsight con lo script, contrassegnare quest'ultimo con l'opzione __Con salvataggio permanente__. Questa impostazione consente a HDInsight di applicare lo script ai nodi del ruolo di lavoro aggiunti tramite operazioni di ridimensionamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -60,8 +60,8 @@ Per specificare la versione Mono installata, usare il numero di versione nel cam
 Si è appreso come aggiornare o installare una versione specifica di Mono in HDInsight. Per altre informazioni sull'uso di applicazioni .NET con Mono in HDInsight, vedere i documenti seguenti:
 
 * [Usare C# con lo streaming di MapReduce su Hadoop in HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [Usare le funzioni definite dall'utente C# con lo streaming Hive e Pig in Hadoop in HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [Sviluppare topologie C# per Apache Storm in HDInsight tramite gli strumenti Hadoop per Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [Usare.NET con Apache Hive e Apache Pig in HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Sviluppare soluzioni C# con Apache Storm in HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
 * [Eseguire la migrazione di soluzioni .NET per HDInsight basato su Windows a HDInsight basato su Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 
-Per altre informazioni sulle azioni di script, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md)
+Per altre informazioni sulle azioni di script, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 34c11c911b6c2ffbc4d4800cd7203a8d430814fb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 666e4c434d05bb953950893f32c262183055becd
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311246"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728175"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Creare un peering di rete virtuale: diversi modelli di distribuzione e sottoscrizioni
 
@@ -48,16 +48,16 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 2. Fare clic su **+ Nuovo**, **Rete** e quindi **Rete virtuale**.
 3. Nel pannello **Crea rete virtuale** immettere o selezionare i valori necessari per le impostazioni seguenti e quindi fare clic su **Crea**:
     - **Nome**: *myVnetA*
-    - **Spazio indirizzi**: *10.0.0.0/16*
+    - **Spazio degli indirizzi**: *10.0.0.0/16*
     - **Nome subnet**: *predefinito*
     - **Intervallo di indirizzi subnet**: *10.0.0.0/24*
-    - **Sottoscrizione**: selezionare la sottoscrizione A.
-    - **Gruppo di risorse**: selezionare **Crea nuovo** e immettere *myResourceGroupA*
-    - **Località**: *Stati Uniti orientali*
+    - **Sottoscrizione** Selezionare la sottoscrizione A.
+    - **Gruppo di risorse**: Selezionare **Crea nuovo** e immettere *myResourceGroupA*
+    - **Posizione**: *Stati Uniti orientali*
 4. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetA*. Fare clic su **myVnetA** quando viene visualizzato nei risultati della ricerca. Viene visualizzato un pannello per la rete virtuale **myVnetA**.
 5. Nel pannello **myVnetA** visualizzato fare clic su **Controllo di accesso (IAM)** nell'elenco verticale di opzioni sul lato sinistro del pannello.
-6. Nel pannello **myVnetA - Controllo di accesso (IAM)** visualizzato fare clic su **+ Aggiungi**.
-7. Nel pannello **Aggiungi autorizzazioni** visualizzato selezionare **Collaboratore rete** nella casella **Ruolo**.
+6. Nel pannello **myVnetA - Controllo di accesso (IAM)** visualizzato fare clic su **+ Aggiungi assegnazione di ruolo**.
+7. Nel pannello **Aggiungi assegnazione di ruolo** visualizzato selezionare **Collaboratore di rete** nella casella **Ruolo**.
 8. Nella casella **Seleziona** selezionare UserB o digitare l'indirizzo di posta elettronica di UserB per cercarlo. L'elenco di utenti mostrato è tratto dallo stesso tenant di Azure Active Directory della rete virtuale per la quale si sta configurando il peering. Quando viene visualizzato nell'elenco, fare clic su UserB.
 9. Fare clic su **Save**.
 10. Disconnettersi dal portale come UserA e quindi accedere come UserB.
@@ -66,12 +66,12 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 13.   Nella casella Crea rete virtuale (classico) visualizzata immettere i valori seguenti:
 
     - **Nome**: *myVnetB*
-    - **Spazio indirizzi**: *10.1.0.0/16*
+    - **Spazio degli indirizzi**: *10.1.0.0/16*
     - **Nome subnet**: *predefinito*
     - **Intervallo di indirizzi subnet**: *10.1.0.0/24*
-    - **Sottoscrizione**: selezionare la sottoscrizione B.
-    - **Gruppo di risorse**: selezionare **Crea nuovo** e immettere *myResourceGroupB*
-    - **Località**: *Stati Uniti orientali*
+    - **Sottoscrizione** Selezionare la sottoscrizione B.
+    - **Gruppo di risorse**: Selezionare **Crea nuovo** e immettere *myResourceGroupB*
+    - **Posizione**: *Stati Uniti orientali*
 
 14. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetB*. Fare clic su **myVnetB** quando viene visualizzato nei risultati della ricerca. Viene visualizzato un pannello per la rete virtuale **myVnetB**.
 15. Nel pannello **myVnetB** visualizzato fare clic su **Proprietà** nell'elenco verticale di opzioni sul lato sinistro del pannello. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile all'esempio seguente: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
@@ -83,10 +83,10 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 21. Nel pannello **myVnetA - Peer** visualizzato fare clic su **+ Aggiungi**
 22. Nel pannello **Aggiungi peering** visualizzato immettere o selezionare le opzioni seguenti e quindi fare clic su **OK**:
      - **Nome**: *myVnetAToMyVnetB*
-     - **Modello di distribuzione della rete virtuale**: selezionare **Classica**.
-     - **Conosco l'ID della risorsa**: selezionare questa casella di controllo.
-     - **ID risorsa**: immettere l'ID risorsa indicato nel passaggio 15.
-     - **Consenti accesso alla rete virtuale:** assicurarsi che sia selezionato **Abilitato**.
+     - **Modello di distribuzione della rete virtuale**:  Selezionare **Classico**.
+     - **Conosco l'ID della risorsa**: selezionare questa casella.
+     - **ID risorsa**: immettere l'ID risorsa di myVnetB indicato nel passaggio 15.
+     - **Consenti accesso alla rete virtuale**: assicurarsi che sia selezionato **Abilitato**.
     Questa esercitazione non prevede l'uso di altre impostazioni. Per informazioni su tutte le impostazioni per il peering, vedere [Gestire i peering di rete virtuale](virtual-network-manage-peering.md#create-a-peering).
 23. Dopo aver fatto clic su **OK** nel passaggio precedente, il pannello **Aggiungi peering** si chiude e viene visualizzato di nuovo il pannello **myVnetA - Peer**. Dopo alcuni secondi, il peering creato viene visualizzato nel pannello. Nella colonna **STATO PEERING** relativa al peering **myVnetAToMyVnetB** creato è specificato lo stato **Connesso**. Il peering viene quindi stabilito. Non è necessario eseguire il peering tra la rete virtuale creata con modello di distribuzione classica e la rete virtuale creata con Resource Manager.
 
@@ -177,7 +177,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
     Tutte le risorse di Azure create in una delle reti virtuali possono ora comunicare tra loro tramite i relativi indirizzi IP. Se si usa la risoluzione dei nomi di Azure predefinita per le reti virtuali, le risorse contenute nelle reti virtuali non sono in grado di risolvere i nomi tra le reti virtuali. Se si intende risolvere i nomi tra le reti virtuali in peering, è necessario creare un proprio server DNS. Per informazioni sulla configurazione, vedere [Risoluzione dei nomi usando il server DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 10. **Facoltativo**: anche se la creazione delle macchine virtuali non è illustrata in questa esercitazione, è possibile creare una macchina virtuale in ogni rete virtuale ed eseguire la connessione da una macchina virtuale all'altra per convalidare la connettività.
-11. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-cli) in questo articolo.
+11. **Facoltativo**: per eliminare le risorse create in questa esercitazione, completare i passaggi della sezione [Eliminare risorse](#delete-cli) di questo articolo.
 
 ## <a name="powershell"></a>Creare un peering - PowerShell
 
@@ -267,7 +267,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
     Tutte le risorse di Azure create in una delle reti virtuali possono ora comunicare tra loro tramite i relativi indirizzi IP. Se si usa la risoluzione dei nomi di Azure predefinita per le reti virtuali, le risorse contenute nelle reti virtuali non sono in grado di risolvere i nomi tra le reti virtuali. Se si intende risolvere i nomi tra le reti virtuali in peering, è necessario creare un proprio server DNS. Per informazioni sulla configurazione, vedere [Risoluzione dei nomi usando il server DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 12. **Facoltativo**: anche se la creazione delle macchine virtuali non è illustrata in questa esercitazione, è possibile creare una macchina virtuale in ogni rete virtuale ed eseguire la connessione da una macchina virtuale all'altra per convalidare la connettività.
-13. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-powershell) in questo articolo.
+13. **Facoltativo**: per eliminare le risorse create in questa esercitazione, completare i passaggi della sezione [Eliminare risorse](#delete-powershell) di questo articolo.
 
 ## <a name="delete"></a>Eliminare risorse
 Al termine di questa esercitazione, è necessario eliminare le risorse create, per non incorrere in costi di utilizzo. Se si elimina un gruppo di risorse, vengono eliminate anche tutte le risorse all'interno di esso.

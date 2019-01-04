@@ -1,5 +1,5 @@
 ---
-title: Diagnosticare e risolvere i problemi di Java Async SDK di Azure Cosmos DB| Microsoft Docs
+title: Diagnosticare e risolvere i problemi di Java Async SDK di Azure Cosmos DB
 description: Usare funzionalità come la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi relativi ad Azure Cosmos DB.
 services: cosmos-db
 author: moderakh
@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: 2c73cda19a3f8b9b7c5ab493c0dfcd6c2e7be745
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 951c26ea5b5c77cf205e7793834d564889b9a635
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820240"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876104"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Risolvere i problemi durante l'uso di Java Async SDK con gli account API SQL di Azure Cosmos DB
 Questo articolo illustra problemi e soluzioni alternative comuni, passaggi di diagnostica e strumenti utili durante l'uso di [Java Async SDK](sql-api-sdk-async-java.md) con gli account API SQL di Azure Cosmos DB.
@@ -35,7 +35,7 @@ Iniziamo con un elenco:
 * Assicurarsi che l'app sia in esecuzione nella stessa area dell'account Azure Cosmos DB. 
 * Controllare l'utilizzo della CPU nell'host in cui viene eseguita l'app. Se l'utilizzo della CPU è 90% o oltre, eseguire l'app in un host con una configurazione superiore oppure distribuire il carico su più computer.
 
-#### <a name="connection-throttling"></a>Limitazione delle connessioni
+#### <a name="connection-throttling"></a>Limitazione della connessione
 La limitazione delle connessioni può verificarsi a causa di un [limite di connessioni nel computer host] o di un [esaurimento delle porte SNAT (PAT) di Azure].
 
 ##### <a name="connection-limit-on-host"></a>Limite di connessioni nel computer host
@@ -63,7 +63,7 @@ Se l'app viene distribuita in macchine virtuali di Azure senza un indirizzo IP p
 Se si usa un proxy HTTP, assicurarsi che possa supportare il numero di connessioni configurate in `ConnectionPolicy` dell'SDK.
 In caso contrario, verranno riscontrati problemi di connessione.
 
-#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Modello di codifica non valido: blocco del thread I/O Netty
+#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Modello di codifica non valida: blocco del thread di I/O Netty
 
 L'SDK usa la libreria di I/O [Netty](https://netty.io/) per comunicare con Azure Cosmos DB. L'SDK include API asincrone e usa le API di I/O non bloccante di Netty. Le operazioni di I/O dell'SDK vengono eseguite su thread di I/O di Netty. Il numero di thread di I/O di Netty viene configurato in modo da corrispondere al numero di core della CPU del computer dell'app. 
 

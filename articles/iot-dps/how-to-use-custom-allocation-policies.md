@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458191"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340054"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Come usare i criteri di allocazione personalizzati
 
@@ -102,7 +102,7 @@ In questa sezione si creerà un nuovo gruppo di registrazioni che usa i criteri 
 
     **Genera chiavi automaticamente**: questa casella di controllo dovrebbe essere già selezionata.
 
-    **Selezionare la modalità secondo cui assegnare i dispositivi agli hub**: selezionare **Personalizzata (usa funzione di Azure)**.
+    **Selezionare la modalità di assegnazione dei dispositivi agli hub**: selezionare **Personalizzata (usa funzione di Azure)**.
 
     ![Aggiungere il gruppo di registrazioni dell'allocazione personalizzata per l'attestazione con chiave simmetrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -111,7 +111,7 @@ In questa sezione si creerà un nuovo gruppo di registrazioni che usa i criteri 
 
     È necessario eseguire questo passaggio per entrambi gli hub IoT delle divisioni.
 
-    **Sottoscrizione**: se si dispone di più sottoscrizioni, scegliere quella in cui sono stati creati gli hub IoT delle divisioni.
+    **Sottoscrizione** se si dispone di più sottoscrizioni, scegliere quella in cui sono stati creati gli hub IoT delle divisioni.
 
     **Hub IoT**: selezionare uno degli hub delle divisioni creato.
 
@@ -390,7 +390,7 @@ Questa sezione si riferisce a una workstation basata su Windows. Per un esempio 
 4. Eseguire il comando seguente che compila una versione dell'SDK specifica per la piattaforma di sviluppo client. Verrà generata una soluzione di Visual Studio per il dispositivo simulato nella directory `cmake`. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Se `cmake` non trova il compilatore C++, si potrebbero verificare errori di compilazione durante l'esecuzione del comando precedente. In tal caso, provare a eseguire questo comando nel [prompt dei comandi di Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -398,7 +398,7 @@ Questa sezione si riferisce a una workstation basata su Windows. Per un esempio 
     Al termine della compilazione, le ultime righe di output saranno simili all'output seguente:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -449,20 +449,24 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
 
 6. Fare clic con il pulsante destro del mouse sul progetto **prov\_dev\_client\_sample** e scegliere **Imposta come progetto di avvio**. 
 
+
 #### <a name="simulate-the-contoso-toaster-device"></a>Simulare il dispositivo toaster di Contoso
 
-1. Nella finestra *Esplora soluzioni* di Visual Studio passare al progetto **hsm\_security\_client** ed espanderlo. Espandere i **File di origine**, quindi aprire **hsm\_client\_key.c**. 
-
-    Individuare la dichiarazione delle costanti `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Apportare le seguenti modifiche al file e salvarlo.
-
-    Aggiornare il valore della costante `REGISTRATION_NAME` con l'ID di registrazione del dispositivo toaster **breakroom499-contoso-tstrsd-007**.
-    
-    Aggiornare il valore della costante `SYMMETRIC_KEY_VALUE` con la chiave di dispositivo generata per il dispositivo toaster. Il valore **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** viene fornito solo come esempio.
+1. Per simulare il dispositivo toaster, individuare la chiamata a `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** che è impostata come commento.
 
     ```c
-    static const char* const REGISTRATION_NAME = "breakroom499-contoso-tstrsd-007";
-    static const char* const SYMMETRIC_KEY_VALUE = "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
+
+    Rimuovere il commento dalla chiamata alla funzione e sostituire i valori di segnaposto (incluse le parentesi angolari) con l'ID registrazione del toaster e la chiave di dispositivo derivata generata in precedenza. Il valore di chiave **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** visualizzato di seguito viene fornito solo come esempio.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("breakroom499-contoso-tstrsd-007", "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=");
+    ```
+   
+    Salvare il file.
 
 2. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella richiesta di ricompilare il progetto fare clic su **Sì** per ricompilare il progetto prima dell'esecuzione.
 
@@ -485,20 +489,16 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
 
 #### <a name="simulate-the-contoso-heat-pump-device"></a>Simulare il dispositivo pompa di calore di Contoso
 
-1. Nella finestra *Esplora soluzioni* di Visual Studio passare al progetto **hsm\_security\_client** ed espanderlo. Espandere i **file di origine**, quindi aprire **hsm\_client\_key.c**. 
-
-    Individuare la dichiarazione delle costanti `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Apportare le seguenti modifiche al file e salvarlo.
-
-    Aggiornare il valore della costante `REGISTRATION_NAME` con l'ID di registrazione del dispositivo pompa di calore **mainbuilding167-contoso-hpsd-088**.
-    
-    Aggiornare il valore della costante `SYMMETRIC_KEY_VALUE` con la chiave di dispositivo generata per il dispositivo toaster. Il valore **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** viene fornito solo come esempio.
+1. Per simulare il dispositivo pompa di calore, aggiornare di nuovo la chiamata a `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** con l'ID registrazione del dispositivo pompa di calore e la chiave di dispositivo derivata generata in precedenza. Il valore di chiave **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** visualizzato di seguito viene fornito solo come esempio.
 
     ```c
-    static const char* const REGISTRATION_NAME = "mainbuilding167-contoso-hpsd-088";
-    static const char* const SYMMETRIC_KEY_VALUE = "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("mainbuilding167-contoso-hpsd-088", "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=");
     ```
+   
+    Salvare il file.
 
-7. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella richiesta di ricompilare il progetto fare clic su **Sì** per ricompilare il progetto prima dell'esecuzione.
+2. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella richiesta di ricompilare il progetto fare clic su **Sì** per ricompilare il progetto prima dell'esecuzione.
 
     Il seguente output è un esempio di dispositivo pompa di calore simulato che si sta avviando correttamente e connettendo all'istanza del servizio di provisioning che i criteri di allocazione personalizzati assegneranno all'hub IoT delle pompe di calore di Contoso:
 
@@ -517,8 +517,6 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
     ```
 
 
-
-
 ## <a name="troubleshooting-custom-allocation-policies"></a>Risoluzione dei problemi relativi ai criteri di allocazione personalizzati
 
 La tabella seguente illustra gli scenari previsti e i codici di errore dei risultati che potrebbero verificarsi. Usare questa tabella come supporto per la risoluzione dei problemi relativi ai criteri di allocazione personalizzati con le Funzioni di Azure.
@@ -527,11 +525,11 @@ La tabella seguente illustra gli scenari previsti e i codici di errore dei risul
 | Scenario | Risultato della registrazione dal servizio di provisioning | Effettuare il provisioning dei risultati SDK |
 | -------- | --------------------------------------------- | ------------------------ |
 | Il webhook restituisce 200 OK con 'iotHubHostName' impostato su un nome host dell'hub IoT valido | Stato del risultato: Assegnato  | L'SDK restituisce PROV_DEVICE_RESULT_OK insieme alle informazioni dell'hub |
-| Il webhook restituisce 200 OK con 'iotHubHostName' incluso nella risposta ma impostato su una stringa vuota o Null | Stato del risultato: Non riuscito<br><br> Codice di errore: CustomAllocationIotHubNotSpecified (400208) | L'SDK restituisce PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| Il webhook restituisce 401 - Non autorizzato | Stato del risultato: Non riuscito<br><br>Codice di errore: CustomAllocationUnauthorizedAccess (400209) | L'SDK restituisce PROV_DEVICE_RESULT_UNAUTHORIZED |
-| È stata creata una registrazione singola per disabilitare il dispositivo | Stato del risultato: Non disponibile | L'SDK restituisce PROV_DEVICE_RESULT_DISABLED |
-| Il webhook restituisce il codice di errore > = 429 | L'orchestrazione di DPS effettuerà diversi nuovi tentativi. I criteri di ripetizione sono attualmente:<br><br>&nbsp;&nbsp;- Numero di tentativi: 10<br>&nbsp;&nbsp;- Intervallo iniziale: 1 s<br>&nbsp;&nbsp;- Incremento: 9 s | L'SDK ignorerà l'errore e invierà un altro messaggio per l'ottenimento dello stato nel periodo specificato |
-| Il webhook restituisce qualsiasi altro codice di stato | Stato del risultato: Non riuscito<br><br>Codice di errore: CustomAllocationFailed (400207) | L'SDK restituisce PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
+| Il webhook restituisce 200 OK con 'iotHubHostName' incluso nella risposta ma impostato su una stringa vuota o Null | Stato del risultato: Operazione non riuscita<br><br> Codice errore: CustomAllocationIotHubNotSpecified (400208) | L'SDK restituisce PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| Il webhook restituisce 401 - Non autorizzato | Stato del risultato: Operazione non riuscita<br><br>Codice errore: CustomAllocationUnauthorizedAccess (400209) | L'SDK restituisce PROV_DEVICE_RESULT_UNAUTHORIZED |
+| È stata creata una registrazione singola per disabilitare il dispositivo | Stato del risultato: Disabled | L'SDK restituisce PROV_DEVICE_RESULT_DISABLED |
+| Il webhook restituisce il codice di errore > = 429 | L'orchestrazione di DPS effettuerà diversi nuovi tentativi. I criteri di ripetizione sono attualmente:<br><br>&nbsp;&nbsp;- Numero di tentativi: 10<br>&nbsp;&nbsp;- Intervallo iniziale: 1 sec<br>&nbsp;&nbsp;- Incremento: 9 sec | L'SDK ignorerà l'errore e invierà un altro messaggio per l'ottenimento dello stato nel periodo specificato |
+| Il webhook restituisce qualsiasi altro codice di stato | Stato del risultato: Operazione non riuscita<br><br>Codice errore: CustomAllocationFailed (400207) | L'SDK restituisce PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

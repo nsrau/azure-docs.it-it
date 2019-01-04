@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 309da6f7753d95bc6830d61ecca7d86e002ddedf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d105968d13960409a60e2fde9c811a042f444d8f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214836"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848630"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover e failback dei server fisici replicati in Azure
 
@@ -25,9 +25,9 @@ I server fisici replicati in Azure con Site Recovery possono eseguire il failbac
 L'operazione di failover e failback comprende quattro fasi:
 
 1. **Failover in Azure**: eseguire il failover dei computer dal sito locale in Azure.
-2. **Riprotezione delle VM di Azure**: riproteggere le macchine virtuali di Azure in modo da avviarne la replica nelle VM VMware locali.
+2. **Riprotezione delle macchine virtuali di Azure**: riproteggere le macchine virtuali di Azure in modo da avviarne la replica nelle macchine virtuali VMware locali.
 3. **Failover nel sito locale**: eseguire un failover per il failback da Azure.
-4. **Riprotezione delle VM locali**: dopo il failback dei dati, riproteggere le VM VMware locali in cui è stato eseguito il failback in modo da avviarne la replica in Azure.
+4. **Riprotezione delle macchine virtuali locali**: dopo aver eseguito il failback dei dati, riproteggere le macchine virtuali VMware locali in cui è stato eseguito il failback, in modo che inizino la replica in Azure.
 
 ## <a name="verify-server-properties"></a>Verificare le proprietà del server
 
@@ -45,8 +45,8 @@ Verificare le proprietà del server e assicurarsi che sia conforme ai [requisiti
 1. In **Impostazioni** > **Elementi replicati** fare clic su computer > **Failover**.
 2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
    - **Più recente**: questa opzione elabora prima tutti i dati inviati a Site Recovery. Offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale di Azure creata dopo il failover contiene tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
-   - **Latest processed** (Elaborato più recente): questa opzione consente di eseguire il failover della macchina nel punto di recupero più recente elaborato da Site Recovery. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
-   - **Latest app-consistent** (Coerente con l'app più recente): questa opzione esegue il failover della macchina nel punto di recupero coerente con l'app più recente elaborato da Site Recovery.
+   - **Elaborato più recente**: questa opzione consente di eseguire il failover della macchina nel punto di ripristino più recente elaborato da Site Recovery. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
+   - **Coerente con l'app più recente**: questa opzione esegue il failover della macchina nel punto di ripristino coerente con l'app più recente elaborato da Site Recovery.
    - **Personalizzato**: specificare un punto di ripristino.
 
 3. Selezionare **Shut down machine before beginning failover** (Arrestare la macchina prima di iniziare il failover) se si vuole provare ad arrestare la macchina di origine tramite Site Recovery prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.

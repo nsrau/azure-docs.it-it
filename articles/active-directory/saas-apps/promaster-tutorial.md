@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 13bb128836590fb43e0c6a2f7131f83a99a23eaf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507802"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Esercitazione: Integrazione di Azure Active Directory con ProMaster (by Inlogik)
 
@@ -111,6 +111,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Informazioni sull'accesso Single Sign-On per URL e dominio di ProMaster (by Inlogik)](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
     a. Nella casella di testo **Identificatore** usare uno dei modelli di URL seguenti:
+
     | |
     | - |-|
     |  `https://secure.inlogik.com/<COMPANYNAME>`|
@@ -118,6 +119,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | |
 
     b. Nella casella di testo **URL di risposta** usare uno dei modelli di URL seguenti:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
@@ -129,6 +131,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Informazioni sull'accesso Single Sign-On per URL e dominio di ProMaster (by Inlogik)](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
     Nella casella di testo **URL di accesso** usare uno dei modelli di URL seguenti:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
@@ -182,7 +185,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="create-a-promaster-by-inlogik-test-user"></a>Creare un utente di test di ProMaster (by Inlogik)
 
-In questa sezione viene creato un utente chiamato Britta Simon in ProMaster (by Inlogik). Collaborare con il [team di supporto di ProMaster (by Inlogik)](mailto:michael.boldiston@inlogik.com) per aggiungere gli utenti alla piattaforma ProMaster (by Inlogik). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in ProMaster (by Inlogik). Collaborare con il  [team di supporto di ProMaster (by Inlogik)](mailto:michael.boldiston@inlogik.com)  per aggiungere gli utenti alla piattaforma ProMaster (by Inlogik). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

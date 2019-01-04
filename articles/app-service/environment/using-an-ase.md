@@ -1,5 +1,5 @@
 ---
-title: Usare un ambiente del servizio app di Azure
+title: Usare un ambiente del servizio app - Azure
 description: Come creare, pubblicare e ridimensionare le app in un ambiente del servizio app di Azure
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 80abe29c80898b691aa6e5e47bf068a9e69e50e4
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.custom: seodec18
+ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303371"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274718"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app #
 
@@ -27,9 +28,9 @@ ms.locfileid: "44303371"
 Ambiente del servizio app di Azure è una distribuzione di Servizio app di Azure in una subnet nella rete virtuale di Azure. È costituita da:
 
 - **Front-end**: i front-end rappresentano il punto in cui HTTP/HTTPS termina in un ambiente del servizio app (ASE).
-- **Ruoli di lavoro**: risorse che ospitano le app.
-- **Database**: contiene le informazioni che definiscono l'ambiente.
-- **Archiviazione**: usata per ospitare le app pubblicate dal cliente.
+- **Ruoli di lavoro**: i ruoli di lavoro sono le risorse che ospitano le app.
+- **Database**: il database contiene le informazioni che definiscono l'ambiente.
+- **Archiviazione**: Le risorse di archiviazione vengono usate per ospitare le app pubblicate dai clienti.
 
 > [!NOTE]
 > Esistono due versioni dell'ambiente del servizio app: ASEv1 e ASEv2. In ASEv1 è necessario gestire le risorse prima di poterle usare. Per informazioni su come configurare e gestire ASEv1, vedere [Configurare un ambiente del servizio app v1][ConfigureASEv1]. Il resto di questo articolo è incentrato su ASEv2.
@@ -51,7 +52,7 @@ Per creare un'app Web in un ambiente del servizio app:
 
 1. Selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
 
-1. Immettere un nome per l'app Web. Se si è già selezionato un piano di servizio app in un ambiente del servizio app, il nome di dominio dell'app rispecchierà il nome di dominio dell'ambiente del servizio app.
+2. Immettere un nome per l'app Web. Se si è già selezionato un piano di servizio app in un ambiente del servizio app, il nome di dominio dell'app rispecchierà il nome di dominio dell'ambiente del servizio app.
 
     ![Selezione del nome per l'app Web][1]
 
@@ -70,7 +71,7 @@ Per creare un'app Web in un ambiente del servizio app:
 
     b. Immettere un nome per il piano di servizio app.
 
-    c. Selezionare l'ambiente del servizio app nel menu a discesa **Località**. L'hosting di un'app di Linux in un ambiente del servizio app è attualmente abilitato solo in 6 aree, ovvero **Stati Uniti occidentali, Stati Uniti orientali, Europa occidentale, Europa settentrionale, Australia orientale, Asia sud-orientale.** 
+    c. Selezionare l'ambiente del servizio app nel menu a discesa **Località**. L'hosting di un'app di Linux in un ambiente del servizio app è attualmente abilitato solo in sei aree, ovvero **Stati Uniti occidentali, Stati Uniti orientali, Europa occidentale, Europa settentrionale, Australia orientale, Asia sud-orientale.** 
 
     d. Selezionare un piano tariffario **Isolato**. Scegliere **Seleziona**.
 
@@ -182,10 +183,10 @@ Per eliminare un ambiente del servizio app:
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../app-service-deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

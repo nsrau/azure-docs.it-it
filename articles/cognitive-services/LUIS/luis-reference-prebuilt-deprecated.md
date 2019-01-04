@@ -1,28 +1,29 @@
 ---
-title: Riferimento alle entità deprecate predefinite LUIS - Azure | Microsoft Docs
+title: Entità predefinite deprecate
 titleSuffix: Azure
 description: Questo articolo contiene informazioni sull'entità predefinita deprecata in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 5f722e9eae45f2df86b8c0831ffd33ad3edd8e5b
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 7b294b9c528d0b7a93a3e287b37124a26d0851dd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334109"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138059"
 ---
-# <a name="deprecated-entities"></a>Entità deprecate
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entità predefinite deprecate in un'app LUIS
 Le entità predefinite seguenti sono deprecate e non possono essere aggiunte alle nuove app LUIS.
 
 * **Datetime**: le app LUIS esistenti che usano **datetime** devono essere migrate in **datetimeV2**, anche se l'entità datetime continua a funzionare nelle app preesistenti che la usano.
-* **Geografia**: le app LUIS esistenti che usano **geografia** sono supportate fino a dicembre 2018.
-* **Enciclopedia**: le app LUIS esistenti che usano **enciclopedia** sono supportate fino a dicembre 2018.
+* **Geography**: le app LUIS esistenti che usano **geography** sono supportate fino a dicembre 2018.
+* **Encyclopedia**: le app LUIS esistenti che usano **encyclopedia** sono supportate fino a dicembre 2018.
 
 ## <a name="geography-culture"></a>Impostazioni cultura di geografia
 **Geografia** è disponibile solo nelle impostazioni locali `en-us`.
@@ -42,9 +43,9 @@ Entità predefinita   |   Espressione di esempio   |   JSON
 **Enciclopedia** è disponibile solo nelle impostazioni locali `en-US`.
 
 #### <a name="encyclopedia-subtypes"></a>Sottotipi di enciclopedia
-L'entità predefinita enciclopedia include più di 100 sottotipi nella tabella seguente. In aggiunta le entità enciclopedia spesso eseguono il mapping su più tipi. Ad esempio, la query Ronald Reagan restituisce: 
+L'entità encyclopedia incorporata include oltre 100 sottotipi nella tabella seguente: Inoltre, le entità encyclopedia eseguono spesso il mapping a più tipi. Ad esempio, la query Ronald Reagan restituisce: 
 
-```JSON
+```json
 {
       "entity": "ronald reagan",
       "type": "builtin.encyclopedia.people.person"

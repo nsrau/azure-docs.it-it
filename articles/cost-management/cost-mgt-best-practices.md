@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/09/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 77a5b455e3ef86484119983af24b6461a2fba229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273800"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074488"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Come ottimizzare gli investimenti per il cloud con Gestione costi di Azure
 
@@ -64,7 +64,7 @@ Impegnarsi per ridurre le spese basandosi sulle conclusioni raggiunte grazie all
 
 Tutti quelli che fanno parte dell'organizzazione devono essere coinvolti nel ciclo di vita della gestione dei costi. Il loro coinvolgimento deve essere continuativo per poter ottimizzare i costi. Questo processo iterativo deve essere applicato in modo rigoroso e deve diventare un elemento fondamentale per una governance del cloud responsabile all'interno dell'organizzazione.
 
-![Principi chiave](./media/cost-mgt-best-practices/principles.png)
+![Diagramma di principi chiave che illustra la visibilità, l'affidabilità e l'ottimizzazione](./media/cost-mgt-best-practices/principles.png)
 
 ## <a name="plan-with-cost-in-mind"></a>Pianificare tenendo presenti i costi
 
@@ -140,7 +140,7 @@ Per altre informazioni, vedere l'[analisi dei costi](quick-acm-cost-analysis.md)
 
 ### <a name="export-billing-data-on-a-schedule"></a>Esportare i dati di fatturazione in base a una pianificazione
 
-Se è necessario importare i dati di fatturazione in un sistema esterno, ad esempio un dashboard o un sistema finanziario, è possibile pianificare report automatizzati ogni giorno per evitare di scaricare manualmente i file ogni mese. È anche possibile esportare i dati di fatturazione in un account di archiviazione di Azure e ricevere una notifica tramite i [gruppi di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md). È quindi possibile usare i dati di Azure combinandoli con i dati personalizzati e usandoli nei propri sistemi.
+Se è necessario importare i dati di fatturazione in un sistema esterno, ad esempio un dashboard o un sistema finanziario, configurare esportazioni automatizzate in Archiviazione di Azure ed evitare di scaricare manualmente i file ogni mese. È quindi possibile configurare facilmente integrazioni automatiche con altri sistemi per mantenere sincronizzati i dati di fatturazione.
 
 Per altre informazioni sull'esportazione dei dati di fatturazione, vedere [Creare e gestire dati esportati](tutorial-export-acm-data.md).
 

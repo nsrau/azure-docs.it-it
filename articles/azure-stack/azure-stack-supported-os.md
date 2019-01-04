@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: be4d9b3ea7e5715d7c3a4df11b7e8bab4d1d4ca5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 056c44de4f89b04149c275b1508c7ea8f397d6e6
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405598"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810780"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemi operativi guest supportati in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 Azure Stack supporta i sistemi operativi guest di Windows elencati nella tabella seguente:
 
@@ -71,11 +71,11 @@ Distribuzioni di Linux indicate come disponibile nel Marketplace sono necessari 
 | Ubuntu 16.04-LTS | 64 bit | Canonical | Sì |
 | Ubuntu 18.04-LTS | 64 bit | Canonical | Sì |
 
-Per informazioni sul supporto di Red Hat Enterprise Linux, vedere [Red Hat e Azure Stack: domande frequenti](https://access.redhat.com/articles/3413531).
+Per informazioni sul supporto di Red Hat Enterprise Linux, vedere [Red Hat e Azure Stack: Domande frequenti](https://access.redhat.com/articles/3413531).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per ulteriori informazioni su Azure Stack Marketplace, vedere gli articoli seguenti:
 
-[Scaricare elementi di Marketplace](azure-stack-download-azure-marketplace-item.md)  
-[Creare e pubblicare un elemento del Marketplace](azure-stack-create-and-publish-marketplace-item.md)
+- [Scaricare elementi di Marketplace](azure-stack-download-azure-marketplace-item.md)  
+- [Creare e pubblicare un elemento del Marketplace](azure-stack-create-and-publish-marketplace-item.md)

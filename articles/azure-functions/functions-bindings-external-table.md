@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 5566ea8b21682c5023afc4af357e1a80e1d37384
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 62924488b776a1a89e1abf492db1881a44585b1a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248472"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997816"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Associazione di tabelle esterne per Funzioni di Azure (sperimentale)
 
@@ -49,7 +49,7 @@ Quando si assegna un'associazione, è possibile creare una nuova connessione API
 |[Salesforce](https://docs.microsoft.com/azure/connectors/connectors-create-api-salesforce)||x|x
 |[SharePoint](https://docs.microsoft.com/azure/connectors/connectors-create-api-sharepointonline)||x|x
 |[SQL Server](https://docs.microsoft.com/azure/connectors/connectors-create-api-sqlazure)||x|x
-|[Teradata](http://www.teradata.com/products-and-services/azure/products/)||x|x
+|[Teradata](https://www.teradata.com/products-and-services/azure/products/)||x|x
 |UserVoice||x|x
 |Zendesk||x|x
 
@@ -166,7 +166,7 @@ GO
 
 ### <a name="google-sheets-data-source"></a>Origine dati Fogli Google
 
-Per creare una tabella da usare con questo esempio in Documenti Google, creare un foglio di calcolo con un foglio di lavoro denominato `Contact`. Il connettore non può usare il nome visualizzato del foglio di calcolo. Il nome interno (in grassetto) deve essere usato come dataSetName, ad esempio: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** Aggiungere i nomi di colonna `Id`, `LastName`, `FirstName` alla prima riga, quindi inserire dati nelle righe successive.
+Per creare una tabella da usare con questo esempio in Documenti Google, creare un foglio di calcolo con un foglio di lavoro denominato `Contact`. Il connettore non può usare il nome visualizzato del foglio di calcolo. Il nome interno (in grassetto) deve essere usato come dataSetName, ad esempio: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** Aggiungere i nomi di colonna `Id`, `LastName`, `FirstName` alla prima riga e quindi inserire i dati nelle righe successive.
 
 ### <a name="salesforce"></a>Salesforce
 
@@ -176,7 +176,7 @@ Per usare questo esempio con Salesforce, `dataSetName` è "default".
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*.
 
-|Proprietà di function.json | DESCRIZIONE|
+|Proprietà di function.json | Descrizione|
 |---------|----------------------|
 |**type** | Il valore deve essere impostato su `apiHubTable`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |

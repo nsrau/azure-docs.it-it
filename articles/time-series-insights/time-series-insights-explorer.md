@@ -1,5 +1,5 @@
 ---
-title: Esplorare i dati tramite lo strumento di esplorazione di Azure Time Series Insights | Microsoft Docs
+title: Esplorazione dei dati con Azure Time Series Insights Explorer - Esplorare i dati usando Azure Time Series Insights Explorer | Microsoft Docs
 description: In questo articolo viene descritto come usare lo strumento di esplorazione di Azure Time Series Insights nel Web browser per avere in modo semplice e rapido una visualizzazione globale dei Big Data e convalidare l'ambiente IoT.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,17 +11,28 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: dfdc538719b0c7571ba04f4134819d7142f109d3
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629141"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273137"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Strumento di esplorazione di Azure Time Series Insights
 In questo articolo vengono descritte le funzionalità e le opzioni disponibili nell'app Web dello strumento di esplorazione di Time Series Insights. Usare lo strumento di esplorazione di Time Series Insights nel Web browser per creare visualizzazioni di dati.
  
 Azure Time Series Insights è un servizio completamente gestito per analisi, archiviazione e visualizzazione, che semplifica l'esplorazione e l'analisi di miliardi di eventi IoT contemporaneamente. Offre una visualizzazione globale dei dati e consente di convalidare rapidamente le soluzioni IoT e di evitare così costosi periodi di inattività per i dispositivi di importanza strategica. È possibile individuare tendenze nascoste e anomalie, nonché eseguire analisi della causa radice. Lo strumento di esplorazione di Time Series Insights è attualmente disponibile nella versione di anteprima pubblica.
+
+## <a name="video"></a>Video:
+
+In questo video viene illustrata una query sui dati tramite lo strumento di esplorazione di Time Series Insights. 
+
+Questo video si basa su Video Time Series Insights:  
+<span style="color:blue">Introduzione a Time Series Insights mediante un acceleratore di soluzione IoT di Azure.</span>
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,15 +56,15 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
 
 5. Nel grafico visualizzato è riportato il conteggio di tutti gli eventi durante l'intervallo di tempo selezionato.  Sono disponibili i controlli seguenti:
 
-    **Pannello Terms Editor** (Editor termini): in questo pannello vengono eseguite le query sull'ambiente.  Il pannello è disponibile sul lato sinistra della schermata. 
-      - **Measure** (Misura): in questo elenco a discesa sono visualizzate tutte le colonne numeriche (valori di tipo Double)
-      - **Split By** (Diviso per): in questo elenco a discesa sono visualizzate le colonne delle categorie (valori di tipo String)
+    **Pannello Terms Editor** (Editor termini):  in questo pannello vengono eseguite le query sull'ambiente.  Il pannello è disponibile sul lato sinistra della schermata. 
+      - **Misura**:  in questo elenco a discesa sono visualizzate tutte le colonne numeriche (valori di tipo Double)
+      - **Dividi per**: in questo elenco a discesa sono visualizzate le colonne delle categorie (valori di tipo String)
       - È possibile abilitare l'interpolazione graduale, visualizzare i valori massimi e minimi e adattare l'asse Y tramite il pannello di controllo accanto alla misura.  È anche possibile definire se i dati visualizzati sono un conteggio, una media oppure una somma di dati.
       - È possibile aggiungere fino a cinque termini da visualizzare sull'asse X.  Usare il pulsante per la **copia verso il basso** per aggiungere altri termini oppure fare clic sul pulsante **Add**  (Aggiungi) per aggiungere un nuovo termine.
      
         ![Pannello Terms Editor (Editor termini)](media/time-series-insights-explorer/explorer2.png)
 
-      - **Predicate** (Predicato): il predicato consente di filtrare rapidamente gli eventi tramite il set di operandi elencati di seguito. Se si esegue una ricerca tramite selezione o clic, il predicato viene automaticamente aggiornato in base a tale ricerca.      I tipi di operandi supportati includono:
+      - **Predicato**:  il predicato consente di filtrare rapidamente gli eventi tramite il set di operandi elencati di seguito. Se si esegue una ricerca tramite selezione o clic, il predicato viene automaticamente aggiornato in base a tale ricerca.      I tipi di operandi supportati includono:
 
          |Operazione  |Tipi supportati  |Note  |
          |---------|---------|---------|
@@ -92,7 +103,7 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
 
    ![Strumento Heatmap (Mappa termica)](media/time-series-insights-explorer/explorer6.png)
 
-12. **Events** (Eventi): quando si sceglie di esplorare gli eventi mediante una selezione o un clic con il pulsante destro del mouse nell'area soprastante, viene visualizzato il riquadro degli eventi.  In questa area è possibile visualizzare tutti gli eventi non elaborati ed esportare gli eventi come file con estensione json o csv. In Time Series Insights vengono archiviati tutti i dati non elaborati.
+12. **Eventi**:  quando si sceglie di esplorare gli eventi mediante una selezione o un clic con il pulsante destro del mouse nell'area soprastante, viene visualizzato il riquadro degli eventi.  In questa area è possibile visualizzare tutti gli eventi non elaborati ed esportare gli eventi come file con estensione json o csv. In Time Series Insights vengono archiviati tutti i dati non elaborati.
 
    ![Eventi](media/time-series-insights-explorer/explorer7.png)
 
@@ -100,7 +111,7 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
 
    - **Patterns** (Motivi): questa funzionalità evidenzia in modo proattivo i modelli statisticamente più significativi all'interno di un'area dati selezionata. Ciò consente di evitare di dover analizzare migliaia di eventi per individuare i modelli che maggiormente richiedono tempo ed energia. Time Series Insights consente inoltre di passare direttamente ai modelli statisticamente più significativi individuati e continuare ad analizzare i dati. Questa funzionalità risulta utile anche per le analisi retrospettive di dati storici. 
 
-   - **Column stats** (Statistiche di colonna): in questa area sono visualizzati grafici e tabelle che suddividono i dati per ciascuna colonna della serie di dati selezionata nell'intervallo di tempo selezionato.  
+   - **Statistiche di colonna**:  in questa area sono visualizzati grafici e tabelle che suddividono i dati per ciascuna colonna della serie di dati selezionata nell'intervallo di tempo selezionato.  
  
       ![STATS (Statistiche)](media/time-series-insights-explorer/explorer8.png) 
 

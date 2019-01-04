@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390212"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873827"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 Questo articolo spiega i diversi ambienti di calcolo che è possibile utilizzare per elaborare o una trasformare dati. Fornisce inoltre informazioni dettagliate sulle diverse configurazioni (on-demand e bring your own) supportate da Data Factory durante la configurazione di servizi collegati che collegano questi ambienti a una data factory di Azure.
@@ -27,7 +27,7 @@ La seguente tabella presenta un elenco degli ambienti di calcolo supportati da D
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Cluster HDInsight su richiesta](#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Streaming di Hadoop](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Impostazione personalizzata](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Attività di Machine Learning: esecuzione batch e aggiornamento risorse](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics.](#azure-data-lake-analytics-linked-service) | [Attività U-SQL di Data Lake Analytics](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
@@ -48,11 +48,7 @@ Tenere presente i seguenti punti **importanti** sul servizio collegato HDInsight
 * Il cluster HDInsight su richiesta verrà creato nella sottoscrizione di Azure. È possibile visualizzare il cluster nel portale di Azure quando questo è attivo e in esecuzione. 
 * I registri per i processi eseguiti su un cluster HDInsight su richiesta vengono copiati nell'account di archiviazione associato al cluster HDInsight. ClusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword definiti nella definizione del servizio collegato vengono usati per accedere al cluster per la risoluzione approfondita dei problemi durante il ciclo di vita del cluster. 
 * Viene addebitato solo il tempo in cui il cluster HDInsight è attivo e i processi in esecuzione.
-* Non è possibile utilizzare un'azione script con il servizio collegato Azure HDInsight su richiesta. Se, ad esempio, è necessario installare altre dipendenze, prendere in considerazione l'utilizzo di Automazione di Azure per eseguire uno script PowerShell che effettui le operazioni seguenti:  
-  a. Creare il cluster HDInsight.  
-  b. Eseguire un'azione script per installare altre dipendenze, ad esempio.  
-  c. Eseguire la pipeline di Data Factory.  
-  d. Eliminare il cluster.  
+* L'azione script con il servizio collegato Azure HDInsight su richiesta è ora supportata.  
 
 > [!IMPORTANT]
 > Richiede in genere almeno **20 minuti** per il provisioning di un cluster HDInsight di Azure su richiesta.
@@ -113,7 +109,7 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
 | clusterNamePrefix           | Il prefisso del nome cluster HDI, un timestamp verrà aggiunto automaticamente alla fine del nome del cluster| No        |
 | sparkVersion                 | Versione di Spark se il tipo di cluster è "Spark" | No        |
 | additionalLinkedServiceNames | Specifica account di archiviazione aggiuntivi per il servizio collegato HDInsight in modo che il servizio Data Factory possa registrarli per conto dell'utente. Questi account di archiviazione devono essere nella stessa area del cluster HDInsight, che viene creato nella stessa area dell'account di archiviazione specificato da linkedServiceName. | No        |
-| osType                       | Tipo di sistema operativo. I valori consentiti sono: Linux e Windows, solo per HDInsight 3.3. Il valore predefinito è Linux. | No        |
+| osType                       | Tipo di sistema operativo. I valori consentiti sono i seguenti: Linux e Windows, solo per HDInsight 3.3. Il valore predefinito è Linux. | No        |
 | hcatalogLinkedServiceName    | Il nome del servizio collegato di Azure SQL che fa riferimento al database HCatalog. Viene creato il cluster HDInsight su richiesta usando il database SQL di Azure come metastore. | No        |
 | connectVia                   | Runtime di integrazione da usare per inviare le attività a questo servizio collegato di HDInsight. Per il servizio collegato di HDInsight su richiesta, supporta solo il runtime di integrazione di Azure. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No        |
 | clusterUserName                   | Nome utente per accedere al cluster. | No        |
@@ -230,9 +226,9 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 
 | Proprietà          | DESCRIZIONE                              | Obbligatoria |
 | :---------------- | :--------------------------------------- | :------- |
-| headNodeSize      | Specifica le dimensioni del nodo head Il valore predefinito è Standard_D3. Vedere la sezione **Specificare le dimensioni dei nodi** per informazioni dettagliate. | No        |
-| dataNodeSize      | Specifica le dimensioni del nodo dei dati. Il valore predefinito è Standard_D3. | No        |
-| zookeeperNodeSize | Specifica le dimensioni del nodo Zookeeper. Il valore predefinito è Standard_D3. | No        |
+| headNodeSize      | Specifica le dimensioni del nodo head Il valore predefinito è: Standard_D3. Vedere la sezione **Specificare le dimensioni dei nodi** per informazioni dettagliate. | No        |
+| dataNodeSize      | Specifica le dimensioni del nodo dei dati. Il valore predefinito è: Standard_D3. | No        |
+| zookeeperNodeSize | Specifica le dimensioni del nodo Zookeeper. Il valore predefinito è: Standard_D3. | No        |
 
 #### <a name="specifying-node-sizes"></a>Specificare le dimensioni dei nodi
 Vedere l'articolo relativo alle [dimensioni delle macchine virtuali](../virtual-machines/linux/sizes.md) per i valori della stringa che è necessario specificare per le proprietà indicate nella sezione precedente. I valori devono essere conformi a **CMDLET e API** a cui si fa riferimento nell'articolo. Come si vede nell'articolo, il nodo dei dati di grandi dimensioni (per impostazione predefinita) ha 7 GB di memoria, che potrebbe non essere adatto al proprio scenario. 
@@ -244,7 +240,7 @@ Per creare nodi head e nodi del ruolo di lavoro di dimensioni D4, è necessario 
 "dataNodeSize": "Standard_D4",
 ```
 
-Se si specifica un valore errato per queste proprietà, potrebbe essere visualizzato il seguente **errore:** impossibile creare il cluster. Eccezione: impossibile completare l'operazione di creazione del cluster. L'operazione non è riuscita con codice '400'. Nello stato del cluster è apparso il messaggio 'Errore'. Messaggio: ’PreClusterCreationValidationFailure’. Quando si riceve questo errore, assicurarsi di usare il nome di **CMDLET e API** della tabella dell'articolo relativo alle [dimensioni delle macchine virtuali](../virtual-machines/linux/sizes.md).        
+Se si specifica un valore errato per queste proprietà, potrebbe essere visualizzato il seguente **errore:** Non è stato possibile creare il cluster. Eccezione: Impossibile completare l'operazione di creazione del cluster. L'operazione non è riuscita con codice '400'. Il cluster ha restituito lo stato: "Errore". Messaggio: "PreClusterCreationValidationFailure". Quando si riceve questo errore, assicurarsi di usare il nome di **CMDLET e API** della tabella dell'articolo relativo alle [dimensioni delle macchine virtuali](../virtual-machines/linux/sizes.md).        
 
 ## <a name="bring-your-own-compute-environment"></a>Ambiente di calcolo “bring your own”
 In questo tipo di configurazione, gli utenti possono registrare un ambiente informatico già esistente come servizio collegato in Data Factory. L'ambiente di elaborazione viene gestito dall'utente e il servizio Data Factory viene utilizzato per eseguire le attività.
@@ -383,7 +379,7 @@ Si crea un servizio collegato di Azure Machine Learning per registrare un endpoi
 ### <a name="properties"></a>Properties
 | Proprietà               | DESCRIZIONE                              | Obbligatoria                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| type                   | La proprietà type deve essere impostata su **AzureML**. | Yes                                      |
+| type                   | La proprietà type deve essere impostata su: **AzureML**. | Yes                                      |
 | mlEndpoint             | L’URL del batch punteggio.                   | Yes                                      |
 | apiKey                 | Modello dell'area di lavoro pubblicato di API.     | Yes                                      |
 | updateResourceEndpoint | L'URL della risorsa di aggiornamento per un endpoint del servizio Web di Azure ML usato per aggiornare il servizio Web predittivo con il file del modello con training | No                                        |
@@ -426,7 +422,7 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 
 | Proprietà             | DESCRIZIONE                              | Obbligatoria                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| type                 | La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. | Yes                                      |
+| type                 | La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. | Yes                                      |
 | accountName          | Nome dell'account di Azure Data Lake Analytics.  | Yes                                      |
 | dataLakeAnalyticsUri | URI di Azure Data Lake Analytics.           | No                                        |
 | subscriptionId       | ID sottoscrizione di Azure                    | No                                        |
@@ -487,7 +483,7 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 | Proprietà             | DESCRIZIONE                              | Obbligatoria                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | name                 | Nome del servizio collegato               | Yes   |
-| type                 | La proprietà type deve essere impostata su **AzureDatabricks**. | Yes                                      |
+| type                 | La proprietà type deve essere impostata su: **AzureDatabricks**. | Yes                                      |
 | dominio               | Specificare l'area di Azure in base all'area dell'area di lavoro di Databricks. Esempio: https://eastus.azuredatabricks.net | Yes                                 |
 | accessToken          | Il token di accesso è obbligatorio per l'autenticazione del data factory con Azure Databricks. Deve essere generato dall'area di lavoro di Databricks. Per una procedura più dettagliata per trovare il token di accesso, fare clic [qui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Yes                                       |
 | existingClusterId    | ID cluster di un cluster esistente in cui eseguire tutti i processi. Dovrebbe essere un cluster interattivo già creato. Se il cluster smette di rispondere, potrebbe essere necessario riavviarlo manualmente. Databricks suggerisce di eseguire i processi su nuovi cluster per una maggiore affidabilità. È possibile trovare l'ID cluster di un cluster interattivo nell'area di lavoro di Databricks -> Cluster -> Interactive Cluster Name (Nome cluster interattivo) -> Configurazione -> Tag. [Altre informazioni](https://docs.databricks.com/user-guide/clusters/tags.html) | No  

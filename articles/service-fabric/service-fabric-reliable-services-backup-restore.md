@@ -12,22 +12,26 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/6/2017
+ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 46f9c6129ccf99fb72a285fa4089b7b3f01f7d7b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643033"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727716"
 ---
-# <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Eseguire il backup e il ripristino di Reliable Services e Reliable Actors
+# <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Eseguire il backup e il ripristino di Reliable Services e Reliable Actors
 Azure Service Fabric è una piattaforma a disponibilità elevata che replica lo stato in più nodi per mantenere questa disponibilità elevata.  Anche in caso di errore di un nodo nel cluster, il servizio rimarrà quindi comunque disponibile. Anche se questa ridondanza predefinita fornita dalla piattaforma può essere sufficiente per alcune situazioni, in determinati casi è preferibile che il servizio esegua il backup dei dati in un archivio esterno.
 
 > [!NOTE]
 > È fondamentale eseguire il backup e il ripristino dei dati (e verificare che funzionino come previsto) per poter eseguire il ripristino in caso di perdita di dati.
 > 
+
+> [!NOTE]
+> Microsoft consiglia di usare [backup e ripristino periodici](service-fabric-backuprestoreservice-quickstart-azurecluster.md) per la configurazione del backup dei dati dei servizi Reliable con stato e di Reliable Actors. 
 > 
+
 
 Ad esempio, è possibile che in un servizio sia consigliabile eseguire il backup dei dati per evitare gli scenari seguenti:
 
@@ -40,7 +44,7 @@ Ad esempio, è possibile che in un servizio sia consigliabile eseguire il backup
 La funzionalità Backup/Ripristino consente ai servizi basati sull'API Reliable Services di creare e ripristinare i backup. Le API di backup fornite dalla piattaforma consentono il backup dello stato di una partizione del servizio senza bloccare le operazioni di lettura o scrittura. Le API di ripristino consentono il ripristino dello stato di una partizione del servizio da un backup specificato.
 
 ## <a name="types-of-backup"></a>Tipi di backup
-Sono disponibili due opzioni di backup: completo e incrementale.
+Esistono due opzioni di backup: completo e incrementale.
 Un backup completo contiene tutti i dati necessari per ricreare lo stato della replica, ossia i checkpoint e tutti i record di log.
 Visto che contiene i checkpoint e il log, un backup completo può ripristinarsi autonomamente.
 
@@ -51,7 +55,7 @@ A ogni backup, dovranno essere copiati 16 GB dei checkpoint oltre a 50 MB di log
 
 ![Esempio di backup completo.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
 
-Per risolvere questo problema è possibile usare i backup incrementali, in cui il backup contiene solo i record del log modificati dopo l'ultimo backup.
+Per risolvere questo problema, è possibile usare i backup incrementali, in cui il backup contiene solo i record del log modificati dopo l'ultimo backup.
 
 ![Esempio di backup incrementale.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.PNG)
 
@@ -82,7 +86,7 @@ La richiesta di esecuzione di un backup incrementale può non riuscire con `Fabr
 - la replica ha superato il limite `MaxAccumulatedBackupLogSizeInMB`.
 
 Gli utenti possono aumentare le probabilità di riuscire a eseguire i backup incrementali configurando `MinLogSizeInMB` o `TruncationThresholdFactor`.
-Si noti che l'aumento di questi valori comporta un aumento dell'utilizzo del disco per replica.
+L'aumento di questi valori comporta un aumento dell'utilizzo del disco per ogni replica.
 Per altre informazioni, vedere [Configurazione di Reliable Services](service-fabric-reliable-services-configuration.md)
 
 `BackupInfo` fornisce le informazioni relative al backup, incluso il percorso della cartella in cui il runtime ha salvato il backup (`BackupInfo.Directory`). La funzione di callback può spostare `BackupInfo.Directory` in un archivio esterno o in un'altra posizione.  Questa funzione restituisce anche un valore booleano che indica se è riuscita a spostare la cartella di backup nel percorso di destinazione.
@@ -176,7 +180,7 @@ Si noti che:
   - Quando si esegue il ripristino è possibile che il backup ripristinato sia precedente allo stato della partizione prima della perdita dei dati. È quindi necessario procedere al ripristino solo come ultima risorsa per recuperare la quantità maggiore possibile di dati.
   - La stringa che rappresenta il percorso della cartella di backup e i percorsi dei file nella cartella di backup può superare i 255 caratteri, in base al percorso FabricDataRoot e alla lunghezza del nome del tipo di applicazione. Questo approccio può far sì che alcuni metodi .NET, come `Directory.Move`, generino l'eccezione `PathTooLongException`. Una soluzione alternativa consiste nel chiamare direttamente le API kernel32, come `CopyFile`.
 
-## <a name="backup-and-restore-reliable-actors"></a>Eseguire il backup e il ripristino di Reliable Actors
+## <a name="back-up-and-restore-reliable-actors"></a>Eseguire il backup e il ripristino di Reliable Actors
 
 
 Reliable Actors Framework si basa su Reliable Services. L'ActorService che ospita l'attore o gli attori è un servizio Reliable con stato. Di conseguenza, tutte le funzionalità di backup e ripristino disponibili in Reliable Services sono disponibili anche per Reliable Actors (tranne i comportamenti specifici per il provider di stato). Poiché i backup verranno eseguiti per partizione, verrà eseguito il backup degli stati per tutti gli attori in quella partizione (il ripristino è simile e verrà eseguito anch'esso per partizione). Per eseguire il backup/ripristino, il proprietario del servizio deve creare un servizio Actor personalizzato che deriva da ActorService e quindi eseguire il backup/ripristino analogamente a quanto descritto nella sezione precedente per Reliable Services.
@@ -231,7 +235,7 @@ Quando si esegue il ripristino da una catena di backup, in maniera simile a Reli
 > Al momento l'opzione RestorePolicy.Safe viene ignorata da `KvsActorStateProvider`. Il supporto per questa funzionalità è pianificato per una versione futura.
 > 
 
-## <a name="testing-backup-and-restore"></a>Test del backup e del ripristino
+## <a name="testing-back-up-and-restore"></a>Test di backup e ripristino
 È importante assicurarsi che i dati critici vengano sottoposti a backup e che possano essere ripristinati. Per farlo, chiamare il cmdlet `Start-ServiceFabricPartitionDataLoss` in PowerShell che può indurre la perdita di dati in una determinata partizione per verificare se la funzionalità di backup e ripristino dei dati per il servizio funziona nel modo previsto.  Si può anche richiamare la perdita e il ripristino dei dati a livello di codice da tale evento.
 
 > [!NOTE]
@@ -260,7 +264,7 @@ Fino a quando un servizio non completa correttamente l'API, restituendo true o f
 
 ## <a name="next-steps"></a>Passaggi successivi
   - [Reliable Collections](service-fabric-work-with-reliable-collections.md)
-  - [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
+  - [Guida introduttiva a Reliable Services](service-fabric-reliable-services-quick-start.md)
   - [Notifiche di Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configurazione di Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

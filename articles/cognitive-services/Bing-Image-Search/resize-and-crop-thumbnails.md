@@ -1,25 +1,27 @@
 ---
-title: Ridimensionare e ritagliare le anteprime di Bing | Microsoft Docs
-description: Illustra come ridimensionare e ritagliare le anteprime incluse in una risposta di Bing.
+title: Ridimensionare e ritagliare le immagini di anteprima - API Ricerca immagini Bing
+titleSuffix: Azure Cognitive Services
+description: Ridimensionare e ritagliare le immagini di anteprima incluse nelle risposte dell'API Ricerca immagini Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: F4FFAE91-A003-4F7C-8E60-83A142485E28
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 98c4caa50ca5e861f4276e26983ef501d17bd349
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 3bb360cd95dcbfb95464b2b259dcebfce7065256
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41929805"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256391"
 ---
-# <a name="resizing-and-cropping-thumbnail-images"></a>Ridimensionamento e ritaglio delle immagini di anteprima
+# <a name="resize-and-crop-thumbnail-images"></a>Ridimensionare e ritagliare le immagini di anteprima
 
-Durante l'elaborazione di una query di ricerca, Bing genererà le informazioni dell'anteprima per tutte le immagini nella [risposta](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Queste informazioni possono essere usate per visualizzare tutte le anteprime, oppure un subset delle anteprime restituite. Se si visualizza un subset, offrire la possibilità di vedere le immagini rimanenti. 
+Durante l'elaborazione di una query di ricerca, Bing genererà le informazioni dell'anteprima per tutte le immagini nella [risposta](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Queste informazioni possono essere usate per visualizzare tutte le anteprime, oppure un subset delle anteprime restituite. Se si visualizza un subset, offrire la possibilità di vedere le immagini rimanenti.
 
 
 <!-- Removing image until we can replace it with a sanatized version.
@@ -38,8 +40,8 @@ Per ottenere informazioni dettagliate sull'immagine, ad esempio le pagine Web ch
 
 ## <a name="resizing-and-cropping-thumbnails"></a>Ridimensionamento e ritaglio delle anteprime
 
-È anche possibile ridimensionare ed espandere le anteprime, ad esempio quando un cursore del puntatore viene posizionato sopra l’anteprima. 
+È anche possibile ridimensionare ed espandere le anteprime, ad esempio quando un cursore del puntatore viene posizionato sopra l’anteprima.
 > [!NOTE]
-> Se si espande l'immagine, assicurarsi di assegnarle un attributo, ad esempio estraendo l'host da [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) e visualizzandolo sotto l'immagine. 
+> Se si espande l'immagine, assicurarsi di assegnarle un attributo, ad esempio estraendo l'host da [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) e visualizzandolo sotto l'immagine.
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]

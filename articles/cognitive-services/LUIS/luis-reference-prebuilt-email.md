@@ -5,25 +5,26 @@ description: Questo articolo contiene informazioni sull'entità predefinita post
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6d05f62ad725a89b0a34b21b8a8d36bb8fa464b1
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1cb12bdc362955da907fb5a5ed64c2a1a43fdc32
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441012"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140864"
 ---
-# <a name="email-entity"></a>Entità di posta elettronica
+# <a name="email-prebuilt-entity-for-a-luis-app"></a>Entità predefinita posta elettronica per un'app LUIS
 L'estrazione della posta elettronica include l'indirizzo di posta elettronica completo di un'espressione. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti la posta elettronica per le finalità dell'applicazione. L'entità posta elettronica è supportata solo nelle impostazioni cultura `en-us`. 
 
 ## <a name="resolution-for-prebuilt-email"></a>Risoluzione per il numero predefinito
 L'esempio seguente illustra la risoluzione dell'entità **builtin.email**.
 
-```JSON
+```json
 {
   "query": "please send the information to patti.owens@microsoft.com",
   "topScoringIntent": {

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7ab1c0f918b5e5b9135e8d1b91f0f97a6c95d05e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9175ed0b4f362a40e1d29a20a8378854b5f4cc81
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685430"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310387"
 ---
 # <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale
 
@@ -199,7 +199,7 @@ Dopo avere creato e distribuito i nuovi membri del gruppo di sincronizzazione, n
 
 ### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Con quale frequenza viene eseguita la sincronizzazione dati?
 
-La frequenza minima è ogni 5 minuti.
+La durata minima tra le attivazioni delle sincronizzazioni è di cinque minuti.
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>La sincronizzazione dati SQL crea tabelle e ne esegue il provisioning?
 

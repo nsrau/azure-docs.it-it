@@ -1,6 +1,6 @@
 ---
-title: Registrare un nuovo dispositivo Azure IoT Edge (VS Code) | Microsoft Docs
-description: Usare Visual Studio Code per creare un nuovo dispositivo IoT Edge nell'hub IoT di Azure
+title: Registrare un nuovo dispositivo da Visual Studio Code - Azure IoT Edge | Microsoft Docs
+description: Usare Visual Studio Code per creare un nuovo dispositivo IoT Edge nell'hub IoT di Azure e recuperare la stringa di connessione
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf9603c65454f076a494789e784c9352fb7bef33
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: cc812cc7f628f533cbf342edee66e01ce703678f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578706"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099786"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Registrare un nuovo dispositivo Azure IoT Edge da Visual Studio Code
 
@@ -35,7 +36,7 @@ Per eseguire operazioni con l'hub IoT, è possibile usare le estensioni Azure Io
 
 2. Nella parte inferiore della finestra di esplorazione espandere la sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). 
 
-   ![Espandere i dispositivi dell'hub IoT di Azure](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
+   ![Espandere la sezione Azure IoT Hub Devices (Dispositivi dell'Hub IoT di Azure).](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
 3. Fare clic sui puntini di sospensione (**...**) nell'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione o fare clic su di essa. 
 
@@ -63,7 +64,7 @@ Nella schermata di output viene visualizzato il risultato del comando. Vengono s
 
 Tutti i dispositivi connessi all'hub IoT sono elencati nella sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure) della finestra di esplorazione di Visual Studio Code. I dispositivi IoT Edge si distinguono dai dispositivi non Edge per la presenza di un'icona di tipo diverso e per il fatto che possono essere espansi in modo da mostrare i moduli distribuiti in ogni dispositivo. 
 
-   ![Visualizzare dispositivi in VS Code](./media/how-to-register-device-vscode/view-devices.png)
+   ![Visualizzare tutti i dispositivi IoT Edge nell'hub IoT](./media/how-to-register-device-vscode/view-devices.png)
 
 ## <a name="retrieve-the-connection-string"></a>Recuperare la stringa di connessione
 

@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492241"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276452"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Ottiene e imposta la pianificazione di chaos.
@@ -29,7 +29,7 @@ Ottiene e imposta la pianificazione di chaos.
 |Comando|DESCRIZIONE|
 | --- | --- |
 | get | Ottiene la pianificazione di Chaos che definisce quando e come eseguire Chaos. |
-| set | Imposta la pianificazione di Chaos che deve essere usata da Chaos. |
+| set | Imposta la pianificazione usata da Chaos. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>sfctl chaos schedule get
 Ottiene la pianificazione di Chaos che definisce quando e come eseguire Chaos.
@@ -53,9 +53,9 @@ Ottiene la versione della pianificazione di Chaos in uso e la pianificazione di 
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
-Imposta la pianificazione di Chaos che deve essere usata da Chaos.
+Imposta la pianificazione usata da Chaos.
 
-Imposta la pianificazione di Chaos attualmente usata da Chaos. Chaos pianificherà automaticamente le esecuzioni in base alla pianificazione di Chaos. La versione nella pianificazione di input fornita deve corrispondere alla versione della pianificazione di Chaos nel server. Se la versione fornita non corrisponde alla versione nel server, la pianificazione di Chaos non viene aggiornata. Se la versione fornita corrisponde alla versione nel server, la pianificazione di Chaos viene aggiornata e la versione della pianificazione di Chaos nel server viene incrementata di uno ed esegue di nuovo il wrapping su 0 dopo 2.147.483.647. Se Chaos è in esecuzione quando viene effettuata la chiamata, la chiamata avrà esito negativo.
+Chaos pianificherà automaticamente le esecuzioni in base alla pianificazione di Chaos. La versione nella pianificazione di input fornita deve corrispondere alla versione della pianificazione di Chaos nel server. Se la versione fornita non corrisponde alla versione nel server, la pianificazione di Chaos non viene aggiornata. Se la versione fornita corrisponde alla versione nel server, la pianificazione di Chaos viene aggiornata e la versione della pianificazione di Chaos nel server viene incrementata di uno ed esegue di nuovo il wrapping su 0 dopo 2.147.483.647. Se Chaos è in esecuzione quando viene effettuata la chiamata, la chiamata avrà esito negativo.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -143,6 +143,7 @@ Il comando seguente imposta una pianificazione (presumendo che la versione della
         ]
     }
     ]
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.

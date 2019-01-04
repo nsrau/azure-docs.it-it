@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 1025b004eb49f82532d3815be3536dbc1f336273
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634618"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435192"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Generare raccomandazioni di film tramite Apache Mahout con Apache Hadoop basato su Linux in HDInsight (SSH)
 
 [!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
 
-Informazioni su come usare la libreria di Machine Learning [Apache Mahout](http://mahout.apache.org) con Azure HDInsight per generare raccomandazioni di film.
+Informazioni su come usare la libreria di Machine Learning [Apache Mahout](https://mahout.apache.org) con Azure HDInsight per generare raccomandazioni di film.
 
 Mahout è una libreria di [apprendimento automatico][ml] per Apache Hadoop. Mahout contiene gli algoritmi per l'elaborazione dei dati, ad esempio applicazione di filtri, classificazione e clustering. In questo articolo si userà un motore di raccomandazione per generare consigli cinematografici in base ai film visti dai propri amici.
 
@@ -28,14 +28,14 @@ Mahout è una libreria di [apprendimento automatico][ml] per Apache Hadoop. Maho
 
 * Un cluster HDInsight basato su Linux. Per informazioni su come crearne uno, vedere [Introduzione all'uso di Hadoop basato su Linux in HDInsight][getstarted].
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un client SSH. Per altre informazioni, vedere il documento [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="mahout-versioning"></a>Controllo delle versioni di Mahout
+## <a name="apache-mahout-versioning"></a>Controllo delle versioni di Apache Mahout
 
-Per altre informazioni sulla versione di Mahout in HDInsight, vedere l'articolo relativo a [versioni di HDInsight e componenti di Hadoop](../hdinsight-component-versioning.md).
+Per altre informazioni sulla versione di Mahout in HDInsight, vedere l'articolo relativo a [versioni di HDInsight e componenti di Apache Hadoop](../hdinsight-component-versioning.md).
 
 ## <a name="recommendations"></a>Informazioni sulle raccomandazioni
 
@@ -59,8 +59,8 @@ I dati contenuti in user-ratings.txt presentano una struttura `userID`, `movieID
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ## <a name="run-the-analysis"></a>Eseguire l'analisi
@@ -71,7 +71,7 @@ Da una connessione SSH al cluster usare questi comandi per eseguire il processo 
 mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Il completamento del processo potrebbe richiedere alcuni minuti ed è possibile eseguire più processi MapReduce.
 
 ## <a name="view-the-output"></a>Visualizzare l'output
@@ -188,7 +188,7 @@ I processi Mahout non rimuovono i dati temporanei creati durante l'elaborazione 
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > Se si vuole eseguire nuovamente il comando, è inoltre necessario eliminare la directory di output. Per eliminare la directory, usare il codice seguente:
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
@@ -198,17 +198,17 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usare i dati in HDInsight:
 
-* [Hive con HDInsight](hdinsight-use-hive.md)
-* [Pig con HDInsight](hdinsight-use-pig.md)
+* [Apache Hive con HDInsight](hdinsight-use-hive.md)
+* [Apache Pig con HDInsight](hdinsight-use-pig.md)
 * [MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-[build]: http://mahout.apache.org/developers/buildingmahout.html
-[movielens]: http://grouplens.org/datasets/movielens/
-[100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
+[build]: https://mahout.apache.org/developers/buildingmahout.html
+[movielens]: https://grouplens.org/datasets/movielens/
+[100k]: https://files.grouplens.org/datasets/movielens/ml-100k.zip
 [getstarted]:apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
-[ml]: http://en.wikipedia.org/wiki/Machine_learning
-[forest]: http://en.wikipedia.org/wiki/Random_forest
+[ml]: https://en.wikipedia.org/wiki/Machine_learning
+[forest]: https://en.wikipedia.org/wiki/Random_forest
 [enableremote]: ./media/hdinsight-mahout/enableremote.png
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png

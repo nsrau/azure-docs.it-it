@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: funzionamento dell'accesso Single Sign-On facile | Microsoft Docs"
+title: "Azure AD Connect: Funzionamento dell'accesso Single Sign-On facile | Microsoft Docs"
 description: In questo articolo viene descritto il funzionamento dell'accesso Single Sign-On facile di Azure Active Directory.
 services: active-directory
 keywords: che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On
@@ -15,20 +15,21 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 54b614e49bc7c03325ebeada60232fca861874e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687402"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193077"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Accesso Single Sign-On facile di Azure Active Directory: approfondimento tecnico
+# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Accesso Single Sign-On facile di Azure Active Directory: Approfondimento tecnico
 
 Questo articolo riporta i dettagli tecnici del funzionamento dell'accesso Single Sign-On (SSO) facile di Azure Active Directory.
 
 ## <a name="how-does-seamless-sso-work"></a>Come opera la SSO facille?
 
 Questa sezione è composta da tre parti:
+
 1. Installazione della funzionalità di accesso SSO facile.
 2. Funzionamento di una transazione di accesso utente singolo in un browser Web con accesso SSO facile.
 3. Funzionamento di una transazione di accesso utente singolo in un client nativo con accesso SSO facile.
@@ -36,6 +37,7 @@ Questa sezione è composta da tre parti:
 ### <a name="how-does-set-up-work"></a>Installazione
 
 L'accesso SSO facile viene abilitato con Azure AD Connect, come illustrato [qui](how-to-connect-sso-quick-start.md). Durante l'abilitazione della funzionalità, si verificano i passaggi seguenti:
+
 - Un account computer denominato `AZUREADSSOACC`, che rappresenta Azure AD, viene creato in Active Directory (AD) locale in ciascuna foresta di AD.
 - La chiave di decrittografia Kerberos dell'account computer viene condivisa in modo sicuro con Azure AD. Se sono presenti più foreste Active Directory, ognuna avrà la propria chiave di decrittografia di Kerberos.
 - Vengono anche creati due nomi dell'entità servizio (SPN, Service Principal Name) Kerberos per rappresentare due URL usati durante l'accesso ad Azure AD.
@@ -56,8 +58,8 @@ Il flusso di accesso in un browser Web è il seguente:
 2. Se l'utente non ha ancora eseguito l'accesso, viene reindirizzato alla pagina di accesso di Azure AD.
 3. L'utente digita il nome utente nella pagina di accesso di Azure AD.
 
-  >[!NOTE]
-  >Per [determinate applicazioni](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso) i passaggi 2 e 3 vengono ignorati.
+   >[!NOTE]
+   >Per [determinate applicazioni](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso) i passaggi 2 e 3 vengono ignorati.
 
 4. Tramite l'uso di JavaScript in background, Azure AD richiede al browser, tramite una risposta di tipo 401 Non autorizzato, di specificare un ticket Kerberos.
 5. Il browser, a sua volta, richiede un ticket ad Active Directory per l'account computer `AZUREADSSOACC` che rappresenta Azure AD.

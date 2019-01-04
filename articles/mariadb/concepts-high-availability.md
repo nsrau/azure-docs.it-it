@@ -7,16 +7,16 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 2f06c9515c6ee79ea7475452b7000d1babdbecfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 043988066cae672225b850b57864bddb3155689c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956524"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833840"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Concetti a disponibilità elevata in Database di Azure per MariaDB
-Il servizio Database di Azure per MariaDB offre un livello di disponibilità elevata garantito. Il contratto di servizio con copertura finanziaria è del 99,99% in concomitanza con la disponibilità a livello generale. Il contratto di servizio non è applicabile durante il periodo di anteprima pubblica. I tempi di inattività dell'applicazione sono praticamente nulli quando si usa questo servizio.
+Il servizio Database di Azure per MariaDB offre un livello di disponibilità elevata garantito. Il contratto di servizio con copertura finanziaria è del 99,99% in concomitanza con la disponibilità a livello generale. I tempi di inattività dell'applicazione sono praticamente nulli quando si usa questo servizio.
 
 ## <a name="high-availability"></a>Disponibilità elevata
 Il modello di disponibilità elevata si basa sui meccanismi di failover predefiniti quando si verifica un'interruzione a livello di nodo. Un'interruzione a livello di nodo potrebbe verificarsi a causa di un errore hardware o in risposta a una distribuzione del servizio.
@@ -34,4 +34,4 @@ Come avviene per il modello a disponibilità elevata, quando un'istanza di Datab
 Durante l'operazione di ridimensionamento, si verifica un'interruzione delle connessioni al database. Le applicazioni client vengono disconnesse e le transazioni aperte non sottoposte a commit vengono annullate. Dopo che l'applicazione client ritenta la connessione o crea una nuova connessione, il gateway indirizza la connessione all'istanza appena ridimensionata.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per una panoramica del servizio, consultare le [informazioni generali su Database di Azure per MariaDB](overview.md)
+- Per una panoramica del servizio, vedere le  [informazioni generali su Database di Azure per MariaDB](overview.md)

@@ -1,12 +1,11 @@
 ---
-title: Utilizzare il portale dei servizi Web di Machine Learning - Azure Machine Learning Studio | Microsoft Docs
+title: Usare il portale dei servizi Web di Azure Machine Learning Studio | Microsoft Docs
 description: Il portale dei servizi Web di Microsoft Azure Machine Learning consente di gestire i servizi Web classici e nuovi di Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.openlocfilehash: 78e776da17e8e068ff45e426795fa5d86a92cc79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cf5a15ba88a3a4d678e6856d270b98697ecf5a3d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308665"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271777"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning
+# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning Studio
 Il portale dei servizi Web di Microsoft Azure Machine Learning consente di gestire i servizi Web classici e nuovi di Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.
 
 Nel portale dei servizi Web di Azure Machine Learning è possibile:
@@ -34,7 +33,7 @@ Nel portale dei servizi Web di Azure Machine Learning è possibile:
 * Creare, eliminare o aggiornare i piani di fatturazione (solo servizi nuovi).
 * Aggiungere ed eliminare gli endpoint (solo servizi classici)
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Autorizzazioni per gestire i nuovi servizi Web basati su Resource Manager
 

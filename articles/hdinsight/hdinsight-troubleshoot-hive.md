@@ -8,14 +8,14 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 832fab6c4f183ddad512c5e6e4309d70938a316b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600024"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407021"
 ---
-# <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Risolvere i problemi di Hive tramite Azure HDInsight
+# <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Hive tramite Azure HDInsight
 
 Informazioni sui problemi principali che possono verificarsi quando si usano i payload di Apache Hive in Apache Ambari unitamente alle risoluzioni.
 
@@ -104,7 +104,7 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties) (Proprietà di configurazione di Hive)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Come si analizzano i dati di un grafo aciclico diretto di Tez in un percorso critico del cluster?
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Come si analizzano i dati di un grafo aciclico diretto di Apache Tez in un percorso critico del cluster?
 
 
 ### <a name="resolution-steps"></a>Procedura per la risoluzione

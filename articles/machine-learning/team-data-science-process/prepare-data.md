@@ -1,6 +1,6 @@
 ---
-title: Pulizia e preparazione dei dati per Azure Machine Learning | Documentazione Microsoft
-description: Pre-elaborare ed eliminare i dati per prepararli per Machine Learning.
+title: Pulire e preparare i dati per Azure Machine Learning - Processo di data science per i team
+description: Pre-elaborare e pulire i dati in modo da prepararli per un uso efficiente nei processi di Machine Learning.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 52457e19cede5d8d2b74d9c3d81ebf35e3ad06c4
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a926edc3409290a0e8cd89fd909427833f9e1427
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446561"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134370"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Attività per preparare i dati per operazioni avanzate con Machine Learning
 La pre-elaborazione e la pulizia dei dati rappresentano attività importanti che in genere devono essere eseguite prima di poter usare un set di dati in modo efficace per Machine Learning. I dati non elaborati sono fastidiosi, non affidabili e potrebbero non contenere alcuni valori. Utilizzare tali dati per la modellazione può produrre risultati fuorvianti. Queste attività fanno parte del Processo di analisi scientifica dei dati per i team (TDSP) e generalmente seguono un'analisi iniziale di un set di dati usato per individuare e pianificare la pre-elaborazione necessaria. Per altre istruzioni su TDSP, vedere i passaggi descritti nell'articolo relativo al [Processo di analisi scientifica dei dati per i team](overview.md).
@@ -54,10 +54,10 @@ Quando si verificano problemi con i dati, sono necessari **passaggi di elaborazi
 **Azure Machine Learning utilizza dati tabulari in formato corretto**.  Se i dati sono già in formato tabulare, la pre-elaborazione dei dati può essere eseguita direttamente con Azure Machine Learning in Machine Learning Studio.  Se i dati non sono in formato tabulare, bensì in XML, l'analisi potrebbe essere necessaria per convertire i dati in formato tabulare.  
 
 ## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Quali sono alcune delle principali attività di pre-elaborazione dei dati?
-* **Pulizia dei dati**: compilare o inserire i valori mancanti, individuare e rimuovere dati e outlier che creano disturbo.
-* **Trasformazione dei dati**: normalizzare i dati per ridurne dimensioni e disturbo.
-* **Riduzione dei dati**: esempi di record di dati o attributi per una gestione dei dati semplificata.
-* **Discretizzazione dei dati**: convertire gli attributi continui in attributi categorici per facilitare l'uso di alcuni metodi di Machine Learning.
+* **Pulizia dei dati**:  compilare o inserire i valori mancanti, individuare e rimuovere dati e outlier che creano disturbo.
+* **Trasformazione dei dati**:  normalizzare i dati per ridurne dimensioni e disturbo.
+* **Riduzione dei dati**:  campionare record di dati o attributi per una gestione dei dati semplificata.
+* **Discretizzazione dei dati**:  convertire gli attributi continui in attributi di categoria per facilitare l'uso di alcuni metodi di Machine Learning.
 * **Pulizia del testo**: rimuovere i caratteri incorporati che potrebbero causare problemi di allineamento dei dati, ad esempio, schede incorporate in un file di dati separato da tabulazioni, nuove righe incorporate che potrebbero interrompere record ecc.
 
 Nelle sezioni seguenti vengono riportati alcuni dei passaggi di elaborazione dei dati.
@@ -65,16 +65,16 @@ Nelle sezioni seguenti vengono riportati alcuni dei passaggi di elaborazione dei
 ## <a name="how-to-deal-with-missing-values"></a>Come trattare i valori mancanti?
 Per gestire i valori mancanti, è consigliabile innanzitutto identificare il motivo per cui mancano dei valori per una gestione più efficiente del problema. I metodi di gestione dei valori mancanti tipici sono:
 
-* **Eliminazione**: rimuovere i record con valori mancanti
-* **Sostituzione fittizia**: sostituire un valore mancante con un valore fittizio, ad esempio, *unknown* per valori categorici o 0 per valori numerici.
+* **Eliminazione**: rimuovere i record con valori mancanti.
+* **Sostituzione fittizia**: sostituire i valori mancanti con un valore fittizio, ad esempio *unknown* per valori di categoria o 0 per valori numerici.
 * **Sostituzione con media**: se i dati mancanti sono numerici, sostituirli con la media.
-* **Sostituzione con elementi frequenti**: se i dati mancanti sono categorici, sostituirli con gli elementi più frequenti
+* **Sostituzione con elementi frequenti**: se i dati mancanti sono relativi a categorie, sostituirli con l'elemento più frequente.
 * **Sostituzione con regressione**: usare il metodo della regressione per sostituire i valori mancanti con valori regrediti.  
 
 ## <a name="how-to-normalize-data"></a>Come normalizzare i dati?
 La normalizzazione dei dati fa rientrare i valori numerici in un intervallo specifico. I metodi di normalizzazione dei dati più comuni includono:
 
-* **Normalizzazione Min-Max**: consente di trasformare i dati in un intervallo in modo lineare, ad esempio compreso tra 0 e 1, dove il valore min corrisponde a 0 e il valore massimo a 1.
+* **Normalizzazione Min-Max**: consente di trasformare in modo lineare i dati in un intervallo, ad esempio compreso tra 0 e 1, dove il valore min corrisponde a 0 e il valore massimo a 1.
 * **Normalizzazione Z-score**: consente di ridurre i dati in base alla media e alla deviazione standard. Si divide la differenza tra dati e media per la deviazione standard.
 * **Scalabilità decimale**: consente di ridurre i dati spostando il punto decimale del valore dell'attributo.  
 
@@ -82,13 +82,13 @@ La normalizzazione dei dati fa rientrare i valori numerici in un intervallo spec
 I dati possono essere discretizzati convertendo i valori continui in attributi o intervalli nominali. Ciò può essere fatto nei seguenti modi:
 
 * **Creazione di contenitori di uguale ampiezza**: si divide l'intervallo di tutti i possibili valori di un attributo in N gruppi della stessa dimensione a cui si assegnano i valori che rientrano in un contenitore con il numero di contenitore.
-* **Creazione di contenitori di uguale altezza**: si divide l'intervallo di tutti i possibili valori di un attributo in N gruppi, ciascuno contenente lo stesso numero di istanze, quindi si assegnano i valori che rientrano in un contenitore con il numero di contenitore.  
+* **Creazione di contenitori di uguale altezza**: si divide l'intervallo di tutti i possibili valori di un attributo in N gruppi, ciascuno contenente lo stesso numero di istanze e quindi si assegnano i valori che rientrano in un contenitore con il numero di contenitore.  
 
 ## <a name="how-to-reduce-data"></a>Come ridurre i dati?
 Esistono vari metodi per ridurre le dimensioni dei dati e renderne più semplice la gestione. A seconda della dimensione e del dominio dei dati, è possibile utilizzare i seguenti metodi:
 
-* **Campionamento record**: i record di dati vengono campionati e viene scelto solo un sottoinsieme rappresentativo.
-* **Campionamento attributi**: selezionare solo un sottoinsieme degli attributi più importanti dai dati.  
+* **Campionamento dei record**: i record di dati vengono campionati e viene scelto solo un sottoinsieme rappresentativo.
+* **Campionamento degli attributi**: viene selezionato solo un sottoinsieme degli attributi più importanti dai dati.  
 * **Aggregazione**: i dati vengono divisi in gruppi e per ogni gruppo vengono memorizzati i numeri. Ad esempio, i numeri dei ricavi giornalieri di una catena di ristoranti negli ultimi 20 anni possono essere aggregati in ricavi mensili per ridurre le dimensioni dei dati.  
 
 ## <a name="how-to-clean-text-data"></a>Come pulire i dati di testo?

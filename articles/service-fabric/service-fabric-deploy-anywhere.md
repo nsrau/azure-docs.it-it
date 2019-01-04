@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/28/2018
+ms.date: 11/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 80b331d32fe1e7bb4eb331bd981106968bc73bed
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e4540076b29cf3cd51f03239a1868e18a41781d9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163210"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726526"
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Creare cluster di Service Fabric in Windows Server o Linux
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una VM che fa parte di un cluster è chiamato nodo del cluster. I cluster possono essere ridimensionati fino a migliaia di nodi. Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancia le repliche e le istanze di partizione del servizio nel numero incrementato di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo.
@@ -35,7 +35,9 @@ La creazione di un cluster in Azure viene eseguita tramite un modello di Resourc
 * Windows Server 2012 R2
 * Windows Server 2016 
 * Windows Server 1709
+* Windows Server 1803
 * Linux Ubuntu 16.04
+* Red Hat Enterprise Linux 7.4 (supporto anteprima)
 
 > [!NOTE]
 > Se si decide di distribuire Service Fabric in Windows Server 1709, si noti che (1) non si tratta di una distribuzione LTSB (Long Term Servicing Branch) e quindi potrebbe essere necessario passare ad altre versioni in futuro, e (2) se la distribuzione include contenitori, i contenitori basati su Windows Server 2016 non funzionano in Windows Server 1709 e viceversa (sarà necessario ricompilarli per distribuirli).
@@ -71,15 +73,15 @@ Il processo di creazione di un cluster di Service Fabric locale è simile al pro
 L'esecuzione di cluster di Service Fabric in Azure offre alcuni vantaggi rispetto all'opzione locale. Se non sono presenti esigenze specifiche in merito all'ambiente di esecuzione dei cluster, quindi, è preferibile eseguirli in Azure. Per semplificare e rendere più affidabili le operazioni e la gestione del cluster, in Azure viene offerta l'integrazione con altre funzionalità e servizi di Azure.
 
 * **Portale di Azure:** il portale di Azure semplifica la creazione e la gestione dei cluster.
-* **Gestione risorse di Azure:** l'uso di Gestione risorse di Azure consente di gestire facilmente tutte le risorse usate dal cluster come singola unità e semplifica il tracciamento dei costi e la fatturazione.
+* **Azure Resource Manager:** l'uso di Azure Resource Manager consente di gestire facilmente tutte le risorse usate dal cluster come singola unità e semplifica il controllo dei costi e la fatturazione.
 * **Cluster di Service Fabric come risorsa di Azure:** un cluster di Service Fabric è una risorsa di Azure, quindi è possibile modellarla in modo analogo alle altre risorse in Azure.
 * **Integrazione con l'infrastruttura di Azure** Service Fabric si coordina con l'infrastruttura di Azure per il sistema operativo, la rete e altri aggiornamenti, in modo da migliorare la disponibilità e l'affidabilità delle applicazioni.  
-* **Diagnostica:** in Azure viene offerta l'integrazione con Diagnostica di Azure e Log Analytics.
+* **Diagnostica:** in Azure viene offerta l'integrazione con la diagnostica di Azure e Log Analytics.
 * **Ridimensionamento automatico:** per i cluster in Azure è disponibile la funzionalità predefinita di ridimensionamento automatico, grazie a set di ridimensionamento delle macchine virtuali. In locale e in altri ambienti cloud è necessario sviluppare una funzionalità di ridimensionamento automatico specifica oppure ridimensionare manualmente usando le API esposte da Service Fabric per il ridimensionamento dei cluster.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Creare un cluster nelle VM o nei computer che eseguono Windows Server: [Creazione di cluster di Service Fabric per Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-* Creare un cluster nelle VM o nei computer che eseguono Linux: [Creare un cluster Linux](service-fabric-cluster-creation-via-portal.md)
+* Creare un cluster nelle macchine virtuali o nei computer che eseguono Windows Server: [Creazione del cluster di Service Fabric per Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+* Creare un cluster nelle macchine virtuali o nei computer che eseguono Linux: [Creare un cluster Linux](service-fabric-cluster-creation-via-portal.md)
 * Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
 

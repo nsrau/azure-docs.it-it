@@ -1,5 +1,6 @@
 ---
-title: Creare un servizio di bilanciamento del carico pubblico standard con un front-end di indirizzo IP pubblico con ridondanza della zona usando l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: Creare un Load Balancer Standard con un IP front-end con ridondanza della zona usando l'interfaccia della riga di comando di Azure
+titlesuffix: Azure Load Balancer
 description: Informazioni su come creare un servizio di bilanciamento del carico pubblico standard con un front-end di indirizzo IP pubblico con ridondanza della zona usando l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
@@ -7,18 +8,19 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 169c440c8fb64923da537f391d2b5f64746162ce
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 8c396e72a8c8471be4214bf1b461210e2e61a805
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739125"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138926"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Creare un servizio di bilanciamento del carico pubblico standard con un front-end con ridondanza della zona usando l'interfaccia della riga di comando di Azure
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-cli"></a>Creare un Load Balancer Standard con un front-end con ridondanza della zona usando l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra la creazione di un [servizio di bilanciamento del carico standard](https://aka.ms/azureloadbalancerstandard) pubblico con un front-end con ridondanza della zona tramite un indirizzo standard IP pubblico.
 

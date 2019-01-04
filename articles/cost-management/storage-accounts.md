@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 398472df7caf0f702f43bc9d025d1e6ad7dcdd7e
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: secdec18
+ms.openlocfilehash: 25a8057a1c547e29b209d87d9124a3e019957dd8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275080"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100855"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurare gli account di archiviazione per Cloudyn
 
@@ -35,25 +35,25 @@ Se non si ha un bucket di archiviazione di AWS Simple Storage Service (S3), è n
 
 La configurazione dell'archiviazione di Azure per l'uso di Cloudyn è semplice. Raccogliere informazioni dettagliate sull'account di archiviazione e copiarle nel portale di Cloudyn.
 
-1. Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Fare clic su **Tutti i servizi**, selezionare **Account di archiviazione**, scorrere fino all'account di archiviazione da usare e quindi selezionarlo.
 3. Nella pagina dell'account di archiviazione in **Impostazioni** fare clic su **Chiavi di accesso**.
 4. Copiare il **Nome account di archiviazione** e la **Stringa di connessione** in key1.  
-![Chiavi di accesso all'archiviazione di Azure](./media/storage-accounts/azure-storage-access-keys.png)  
+![Copiare il nome dell'account di archiviazione e la stringa di connessione](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Aprire il portale di Cloudyn dal portale di Azure oppure passare a https://azure.cloudyn.com ed eseguire l'accesso.
 6. Fare clic sul simbolo con ruota dentata e quindi selezionare **Reports Storage Management** (Gestione archiviazione rapporti).
 7. Fare clic su **Add new +** (Aggiungi nuovo +) e verificare che sia selezionato Microsoft Azure. Incollare il nome dell'account di archiviazione di Azure nell'area **Nome**. Incollare la **stringa di connessione** nell'area corrispondente. Immettere un nome di contenitore e quindi fare clic su **Salva**.  
-![Archiviazione di Cloudyn configurata per Azure](./media/storage-accounts/azure-cloudyn-storage.png)
+![Incollare il nome dell'account di archiviazione di Azure e la stringa di connessione nella casella per aggiungere una nuova archiviazione per i report](./media/storage-accounts/azure-cloudyn-storage.png)
 
   La nuova voce di archiviazione dei report di Azure viene visualizzata nell'elenco degli account di archiviazione.  
-    ![Nuova risorsa di archiviazione dei report di Azure nell'elenco](./media/storage-accounts/azure-storage-entry.png)
+    ![Nuova voce di archiviazione dei report di Azure nell'elenco](./media/storage-accounts/azure-storage-entry.png)
 
 
 È ora possibile salvare i report nell'archiviazione di Azure. In qualsiasi report fare clic su **Azioni** e quindi selezionare **Schedule report** (Pianifica report). Assegnare un nome al report e quindi aggiungere il proprio URL o usare quello creato automaticamente. Selezionare **Save to storage** (Salva in risorsa di archiviazione) e quindi selezionare l'account di archiviazione. Immettere un prefisso che viene aggiunto al nome del file di report. Selezionare un formato di file CSV o JSON e quindi salvare il report.
 
 ## <a name="configure-an-aws-storage-bucket"></a>Configurare un bucket di archiviazione di AWS
 
-Il portale di Cloudyn usa le credenziali AWS esistenti, per l'utente o il ruolo, per salvare i report nel bucket. Per verificare l'accesso, Cloudyn tenta di salvare un file di testo di piccole dimensioni nel bucket con il nome file _check-bucket-permission.txt_.
+Cloudyn usa le credenziali AWS esistenti, Utente o Ruolo, per salvare i report nel bucket. Per verificare l'accesso, Cloudyn tenta di salvare un file di testo di piccole dimensioni nel bucket con il nome file _check-bucket-permission.txt_.
 
 Specificare il ruolo o l'utente di Cloudyn con l'autorizzazione PutObject per il bucket. Per salvare i report, usare quindi un bucket esistente o crearne uno nuovo. Decidere infine come gestire la classe di archiviazione, impostare le regole del ciclo di vita o rimuovere i file non necessari.
 
@@ -67,7 +67,7 @@ Quando si crea un nuovo criterio, specificare le autorizzazioni esatte necessari
 4. Fare clic sulla scheda **JSON**.
 5. Il criterio seguente consente di salvare un report in un bucket di S3. Copiare e incollare l'esempio di criterio seguente nella scheda **JSON**. Sostituire &lt;bucketname&gt; con il nome del bucket.
 
-  ```
+  ```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -86,7 +86,7 @@ Quando si crea un nuovo criterio, specificare le autorizzazioni esatte necessari
 ```
 
 6. Fare clic su **Review policy** (Rivedi criterio).  
-    ![Review policy](./media/storage-accounts/aws-policy.png) (Rivedi criterio)  
+    ![Criterio JSON AWS con informazioni di esempio](./media/storage-accounts/aws-policy.png)  
 7. Nella pagina per la revisione del criterio digitare un nome per il criterio. Ad esempio _CloudynSaveReport2S3_.
 8. Fare clic su **Create policy** (Crea criterio).
 
@@ -102,7 +102,7 @@ Per collegare il nuovo criterio, aprire la console di AWS e modificare il ruolo 
   1. Fare clic sul nome del ruolo di Cloudyn.
   2. Nella scheda **Permissions** (Autorizzazioni) fare clic su **Attach Policy** (Collega criterio).
   3. Cercare il criterio creato, selezionarlo e quindi fare clic su **Attach Policy** (Collega criterio).
-    ![AWS - Collegare il criterio per un ruolo](./media/storage-accounts/aws-attach-policy-role.png)
+    ![Criterio di esempio collegato al ruolo di Cloudyn](./media/storage-accounts/aws-attach-policy-role.png)
 
 **Per gli utenti:**
 
@@ -111,7 +111,7 @@ Per collegare il nuovo criterio, aprire la console di AWS e modificare il ruolo 
 3. Nella sezione **Grant Permission** (Concedi autorizzazione) selezionare **Attach existing policies directly** (Collega direttamente i criteri esistenti).
 4. Cercare il criterio creato, selezionarlo e quindi fare clic su **Next: Review** (Avanti: Rivedi).
 5. Nella pagina per l'aggiunta delle autorizzazioni al nome del ruolo fare clic su **Add permissions** (Aggiungi autorizzazioni).  
-    ![AWS - Collegare il criterio per un utente](./media/storage-accounts/aws-attach-policy-user.png)
+    ![Criterio di esempio collegato all'utente di Cloudyn](./media/storage-accounts/aws-attach-policy-user.png)
 
 
 ### <a name="optional-set-permission-with-bucket-policy"></a>Facoltativo: impostare le autorizzazioni con un criterio di bucket
@@ -152,11 +152,11 @@ Per collegare il nuovo criterio, aprire la console di AWS e modificare il ruolo 
 2. Fare clic sul simbolo con ruota dentata e quindi selezionare **Reports Storage Management** (Gestione archiviazione rapporti).
 3. Fare clic su **Add new +** (Aggiungi nuovo +) e verificare che sia selezionato AWS.
 4. Selezionare un account e un bucket di archiviazione. Il nome del bucket di archiviazione di AWS viene inserito automaticamente.  
-    ![Aggiungere una risorsa di archiviazione dei report per i bucket di AWS](./media/storage-accounts/aws-cloudyn-storage.png)  
+    ![Informazioni di esempio nella finestra per aggiungere una nuova archiviazione dei report](./media/storage-accounts/aws-cloudyn-storage.png)  
 5. Fare clic su **Save** (Salva) e quindi su **OK**.
 
     La nuova voce di archiviazione dei report di AWS viene visualizzata nell'elenco degli account di archiviazione.  
-    ![Nuova risorsa di archiviazione dei report di AWS nell'elenco](./media/storage-accounts/aws-storage-entry.png)
+    ![Nuova voce di archiviazione dei report di AWS visualizzata nell'elenco degli account di archiviazione](./media/storage-accounts/aws-storage-entry.png)
 
 
 È ora possibile salvare i report nell'archiviazione di Azure. In qualsiasi report fare clic su **Azioni** e quindi selezionare **Schedule report** (Pianifica report). Assegnare un nome al report e quindi aggiungere il proprio URL o usare quello creato automaticamente. Selezionare **Save to storage** (Salva in risorsa di archiviazione) e quindi selezionare l'account di archiviazione. Immettere un prefisso che viene aggiunto al nome del file di report. Selezionare un formato di file CSV o JSON e quindi salvare il report.

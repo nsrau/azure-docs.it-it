@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: impostazioni di notifica | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: impostazioni delle notifiche | Microsoft Docs'
 description: Impostazioni di notifica per Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: f5049d6092bfc6b3f70ebafdc501e02ad9fe7936
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432671"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958526"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Impostazioni di notifica in Azure AD Domain Services
 
@@ -41,7 +41,7 @@ Nella pagina sono elencati tutti i destinatari delle notifiche di posta elettron
 
 L'immagine seguente illustra un esempio di notifica:
 
-![Esempio di notifica di posta elettronica](.\media\active-directory-domain-services-alerts\email-alert.png)
+![Esempio di notifica di posta elettronica](./media/active-directory-domain-services-alerts/email-alert.png)
 
 Il messaggio di posta elettronica specifica il dominio gestito per cui è stato attivato l'avviso, data e ora del rilevamento e un collegamento alla pagina di integrità di Azure AD Domain Services nel portale di Azure.
 

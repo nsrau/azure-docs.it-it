@@ -4,9 +4,8 @@ description: Descrizione dei set di dati usati nei modelli di esempio inclusi in
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 57d9e1c7b501b67a441dc3490356261fa29ebb7d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308835"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270485"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Usare i set di dati di esempio in Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -34,7 +33,7 @@ La parte rimanente di questi set di dati di esempio è disponibile nell'area di 
 Per usare uno qualsiasi di questi set di dati in un esperimento personalizzato, trascinarlo all'area di disegno dell'esperimento.
 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <table>
 
@@ -50,7 +49,7 @@ Subset del database relativo al censimento del 1994, che usa adulti lavoratori d
 <p></p>
 <b>Utilizzo:</b> classificare le persone usando i dati demografici per prevedere se una persona ha un guadagno superiore a 50.000 dollari all'anno.
 <p></p>
-<b>Ricerca correlata:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Ricerca correlata:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -71,7 +70,7 @@ Il punteggio di rischio viene inizialmente associato al prezzo dell'automobile e
 <p></p>
 <b>Utilizzo:</b> prevedere il punteggio di rischio in base alle funzionalità, usando la regressione o la classificazione multivariata. 
 <p></p>
-<b>Ricerca correlata:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Ricerca correlata:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -102,7 +101,7 @@ I dati relativi al donatore includono i mesi trascorsi dopo l'ultima donazione, 
 <p></p>
 <b>Utilizzo:</b> l'obiettivo consiste nel prevedere tramite classificazione se il donatore abbia donato sangue nel mese di marzo 2007; 1 indica un donatore nel periodo in esame e 0 un non donatore. 
 <p></p>
-<b>Ricerca correlata:</b> Yeh, I.C., (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
+<b>Ricerca correlata:</b> Yeh, I.C., (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 Yeh, I-Cheng, Yang, King-Jang and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence", Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
@@ -115,7 +114,7 @@ Uno dei tre set di dati relativi al tumore fornito dall'istituto oncologico e us
 <p></p>
 <b>Utilizzo:</b> classificare il tipo di tumore, in base a 9 attributi, alcuni dei quali lineari e altri categorici. 
 <p></p>
-<b>Ricerca correlata:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Ricerca correlata:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -168,7 +167,7 @@ Raccolta di profili energetici simulati, basati su 12 forme di edifici diverse. 
 <p></p>
 <b>Utilizzo:</b> usare la regressione o la classificazione per prevedere il livello di efficienza energetica in base a una delle due risposte con valori reali. Per la classificazione a più classi, la variabile di risposta verrà arrotondata al valore Integer più vicino. 
 <p></p>
-<b>Ricerca correlata:</b> Xifara, A. &amp; Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Ricerca correlata:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -181,7 +180,7 @@ Il set di dati copre il periodo aprile-ottobre 2013. Prima del caricamento in Az
   <li>Il set di dati è stato filtrato in modo da coprire solo i 70 aeroporti più trafficati degli Stati Uniti continentali</li>
   <li>I voli cancellati sono stati etichettati in modo da indicare un ritardo superiore a 15 minuti</li>
   <li>I voli deviati sono stati esclusi</li>
-  <li>Sono state selezionate le colonne seguenti: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li>
+  <li>Aggiungere le colonne seguenti nell'ordine: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li>
 </ul>
 </td>
 </tr>
@@ -204,7 +203,7 @@ Contiene dati climatici, ad esempio temperatura, indici di umidità e velocità 
 <p></p>
 <b>Utilizzo:</b> si tratta di un'attività di regressione complessa, il cui scopo consiste nel prevedere l'area bruciata degli incendi boschivi. 
 <p></p>
-<b>Ricerca correlata:</b> Cortez, P., &amp; Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
+<b>Ricerca correlata:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 [Cortez e Morais, 2007] P. Cortez e A. Morais. Approccio di data mining per la previsione degli incendi nei boschi usando i dati meteorologici. In J. Neves, M. F. Santos e J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - (Nuove tendenze dell'intelligenza artificiale, Procedure del 13esimo EPIA 2007) Conferenza portoghese sull'intelligenza artificiale, dicembre, Guimarães, Portogallo, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponibile all'indirizzo <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
@@ -222,7 +221,7 @@ Il set di dati classifica le persone, descritte da un set di attributi, come ris
 <tr>
   <td>IMDB Movie Titles</td>
   <td>
-Il set di dati contiene informazioni sui film che sono stati valutati nei tweet di Twitter: ID del film nel database IMDB, nome, genere e anno di produzione del film. Il set di dati contiene 17.000 film. Il set di dati è stato introdotto nel documento di S. Dooms, T. De Pessemier e L. Martens. "MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
+Il set di dati contiene informazioni sui film che sono stati valutati nei tweet di Twitter: ID del film nel catalogo IMDB, titolo del film, genere e anno di produzione. Il set di dati contiene 17.000 film. Il set di dati è stato introdotto nel documento di S. Dooms, T. De Pessemier e L. Martens. "MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
   </td>
 </tr>
 
@@ -233,7 +232,7 @@ Si tratta probabilmente del database più conosciuto disponibile nella letteratu
 <p></p>
 <b>Utilizzo:</b> prevedere il tipo di iris in base alle misurazioni.  
 <p></p>
-<b>Ricerca correlata:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Ricerca correlata:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -252,7 +251,7 @@ I dati elencano il consumo di carburante per diverse automobili, in miglia per g
 <p></p>
 <b>Utilizzo:</b> prevedere il risparmio di carburante in base a tre attributi discreti multivalore e cinque attributi continui. 
 <p></p>
-<b>Ricerca correlata:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Ricerca correlata:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -262,7 +261,7 @@ Sottoinsieme di dati del database del National Institute of Diabetes and Digesti
 <p></p>
 <b>Utilizzo:</b> prevedere se il soggetto è diabetico (classificazione binaria). 
 <p></p>
-<b>Ricerca correlata:</b> Sigillito, V. (1990). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Ricerca correlata:</b> Sigillito, V. (1990). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -307,7 +306,7 @@ Questo set di dati include una serie di record relativi a tentativi di ricottura
 <p></p>
 Le designazioni dell'acciaio sono basate su uno standard definito da SAE e da altre organizzazioni. Si cerca una 'designazione' specifica (variabile della classe) e si vogliono comprendere i valori necessari. 
 <p></p>
-<b>Ricerca correlata:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
+<b>Ricerca correlata:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 Una guida utile alle designazioni dell'acciaio è disponibile qui: <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -322,9 +321,9 @@ Lo scopo della simulazione consiste nel migliorare la precisione dei telescopi g
 <p></p>
 I dati sono stati pre-elaborati in modo da creare un cluster allungato il cui asse longitudinale è orientato verso il centro della fotocamera. Le caratteristiche di questa ellissi, spesso definite parametri Hillas, si trovano tra i parametri dell'immagine che possono essere usati per la discriminazione.
 <p></p>
-<b>Utilizzo:</b> prevedere se l'immagine di una pioggia rappresenta un segnale o radiazioni di fondo.
+<b>Utilizzo:</b> prevedere se l'immagine di una pioggia rappresenta un segnale o rumore di fondo.
 <p></p>
-<b>Note:</b> la semplice precisione della classificazione non è significativa per questi dati, poiché la classificazione di un evento di fondo come segnale è ritenuta peggiore della classificazione di un evento di segnale come evento di fondo. Per un confronto dei diversi classificatori, è consigliabile usare il grafico ROC. La probabilità di accettazione di un evento di fondo come un segnale deve essere inferiore a una delle soglie seguenti: 0,01, 0,02, 0,05, 0,1 o 0,2.
+<b>Note:</b> la semplice precisione della classificazione non è significativa per questi dati, poiché la classificazione di un evento in background come segnale è ritenuta peggiore della classificazione di un evento di segnale come evento in background. Per un confronto dei diversi classificatori, è consigliabile usare il grafico ROC. La probabilità di accettazione di un evento in background come un segnale deve essere inferiore a una delle soglie seguenti: 0.01, 0.02, 0.05, 0.1 o 0.2.
 <p></p>
 Si noti anche che il numero di eventi di fondo (h per piogge adroniche) è sottostimato, mentre nelle misurazioni reali la classe h o noise rappresenta la maggior parte degli eventi. 
 <p></p>
@@ -341,7 +340,7 @@ I dati relativi al meteo riguardano le osservazioni effettuate dalle stazioni me
   <li>Gli ID delle stazioni meteo sono stati mappati agli ID degli aeroporti corrispondenti</li>
   <li>Le stazioni meteo non associate ai 70 aeroporti più trafficati sono state escluse</li>
   <li>La colonna Date è stata suddivisa in colonne Year, Month e Day distinte</li>
-  <li>Sono state selezionate le seguenti colonne: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
+  <li>Aggiungere le colonne seguenti nell'ordine: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
 </ul>
   </td>
 </tr>

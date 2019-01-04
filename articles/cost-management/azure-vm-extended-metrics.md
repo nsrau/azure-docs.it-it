@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
-ms.custom: ''
-ms.openlocfilehash: a41136837a56137ce92bd186cb4ee825e4f664c4
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 9bb8d74b012b25ca959cdb87b8a3d5e4284b6497
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274960"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097217"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Aggiungere metriche estese per le macchine virtuali di Azure
 
@@ -35,7 +35,7 @@ Ad esempio, potrebbe essere necessario monitorare le percentuali di CPU e memori
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinare se le metriche estese sono abilitate
 
-1. Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. In **Macchine virtuali** selezionare una macchina virtuale e quindi fare clic su **Metriche** in **Monitoraggio**. Verrà visualizzato un elenco delle metriche disponibili.
 3. Selezionare alcune metriche per visualizzare un grafico che mostra i dati corrispondenti.  
     ![Metrica di esempio - Percentuale di CPU per gli host](./media/azure-vm-extended-metrics/metric01.png)
@@ -55,18 +55,18 @@ Tenere presente che il monitoraggio a livello di guest sia di Azure che di Linux
 1. In **Macchine virtuali** visualizzare l'elenco delle macchine virtuali e quindi selezionare una macchina virtuale.
 2. Selezionare **Impostazioni di diagnostica** in **Monitoraggio**.
 3. Nella pagina Impostazioni di diagnostica fare clic su **Abilita monitoraggio a livello di guest**.  
-    ![Abilita monitoraggio a livello di guest](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
+    ![Abilita monitoraggio a livello di guest nella pagina Panoramica](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 4. Dopo pochi minuti, nella macchina virtuale viene installato l'agente di diagnostica di Azure. Viene aggiunto un set di base di metriche. Aggiornare la pagina. I contatori delle prestazioni aggiunti vengono visualizzati nella scheda Panoramica.
 5. In Monitoraggio selezionare **Metrica**.
 6. Nel grafico delle metriche selezionare **Guest (versione classica)** in **Metric Namespace** (Spazio dei nomi delle metriche).
 7. Nell'elenco Metrica è possibile visualizzare tutti i contatori delle prestazioni disponibili per la macchina virtuale guest.  
-    ![Metriche estese](./media/azure-vm-extended-metrics/extended-metrics.png)
+    ![elenco delle metriche estese di esempio](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>Abilitare il monitoraggio a livello di guest nelle nuove macchine virtuali
 
 Quando si creano nuove macchine virtuali, nella scheda Gestione selezionare **Sì** per **Diagnostica sistema operativo guest**.
 
-![Abilitare la diagnostica del sistema operativo guest](./media/azure-vm-extended-metrics/new-enable-diag.png)
+![impostare Diagnostica sistema operativo guest su Sì](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 Per altre informazioni sull'abilitazione delle metriche estese per le macchine virtuali di Azure, vedere [Informazioni e uso dell'agente Linux di Azure](../virtual-machines/extensions/agent-linux.md) e [Panoramica dell'agente di macchine virtuali di Azure](../virtual-machines/extensions/agent-windows.md).
 
@@ -82,7 +82,7 @@ Dopo aver abilitato le metriche estese, assicurarsi che Cloudyn abbia accesso al
 
 Per visualizzare le metriche delle prestazioni nelle istanze di Azure nel portale Cloudyn, passare a **Assets** (Asset)  > **Compute** (Calcolo)  > **Instance Explorer** (Esplora istanze). Nell'elenco delle istanze di macchina virtuale espandere un'istanza e quindi espandere una risorsa per visualizzarne i dettagli.
 
-![Instance Explorer (Esplora istanze)](./media/azure-vm-extended-metrics/instance-explorer.png)
+![informazioni di esempio visualizzate in Instance Explorer (Esplora istanze)](./media/azure-vm-extended-metrics/instance-explorer.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5634c14ee2b25600d66ff0f2c7385b2aaa9f1810
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a1457b2aa571b58502b7d819eb3bcf142c10dac1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699499"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725064"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-I criteri personalizzati sono file di configurazione che definiscono il comportamento del tenant di Azure Active Directory (Azure AD) B2C. I criteri pre-compilati sono predefiniti nel portale di Azure AD B2C per le attività più comuni di identità. I criteri personalizzati possono essere modificati completamente da uno sviluppatore di identità per completare molte attività diverse.
+I criteri personalizzati sono file di configurazione che definiscono il comportamento del tenant di Azure Active Directory (Azure AD) B2C. I flussi utente sono predefiniti nel portale di Azure AD B2C per le attività più comuni di identità. I criteri personalizzati possono essere modificati completamente da uno sviluppatore di identità per completare molte attività diverse.
 
-## <a name="comparing-built-in-policies-and-custom-policies"></a>Confronto tra criteri predefiniti e personalizzati
+## <a name="comparing-user-flows-and-custom-policies"></a>Confronto tra i criteri personalizzati e i flussi utente
 
-| | Criteri predefiniti | Criteri personalizzati |
+| | Flussi degli utenti | Criteri personalizzati |
 |-|-------------------|-----------------|
 | Utenti di destinazione | Tutti gli sviluppatori di applicazioni con o senza competenze di identità. | Professionisti di identità, integratori di sistemi, consulenti e team interni per la gestione di identità. Hanno familiarità con i flussi OpenIDConnect e comprendono i provider di identità e l'autenticazione basata sulle attestazioni. |
 | Metodo di configurazione | Portale di Azure con un'interfaccia utente (UI) intuitiva. | Modifica diretta dei file XML e caricamento nel portale di Azure. |
@@ -33,7 +33,7 @@ I criteri personalizzati sono file di configurazione che definiscono il comporta
 | Personalizzazione degli attributi | Attributi standard e personalizzati. | Uguale |
 | Gestione delle sessioni e dei token | Token personalizzato e opzioni di sessione multiple. | Uguale |
 | Provider di identità | Provider predefinito social o locale. | OIDC, SAML e OAuth basati su standard. |
-| Attività relative all'identità | Iscrizione o accesso ad account social o locali multipli.<br><br>Reimpostazione della password self-service.<br><br>Modifica del profilo.<br><br>Autenticazione a più fattori.<br><br>Personalizzare token e sessioni.<br><br>Flussi di accesso ai token. | Completare le stesse attività dei criteri predefiniti usando provider di identità personalizzati ambiti personalizzati.<br><br>Effettuare il provisioning di un account utente in un altro sistema al momento della registrazione.<br><br>Inviare un messaggio di posta elettronica di benvenuto con il proprio provider di servizi di posta elettronica.<br><br>Usare un archivio utente esterno Azure AD B2C.<br><br>Convalidare le informazioni date dall'utente con un sistema attendibile tramite un'API. |
+| Attività relative all'identità | Iscrizione o accesso ad account social o locali multipli.<br><br>Reimpostazione della password self-service.<br><br>Modifica del profilo.<br><br>Autenticazione a più fattori.<br><br>Personalizzare token e sessioni.<br><br>Flussi di accesso ai token. | Completare le stesse attività dei flussi utente usando provider di identità personalizzati ambiti personalizzati.<br><br>Effettuare il provisioning di un account utente in un altro sistema al momento della registrazione.<br><br>Inviare un messaggio di posta elettronica di benvenuto con il proprio provider di servizi di posta elettronica.<br><br>Usare un archivio utente esterno Azure AD B2C.<br><br>Convalidare le informazioni date dall'utente con un sistema attendibile tramite un'API. |
 
 ## <a name="policy-files"></a>File dei criteri
 
@@ -43,7 +43,7 @@ Vengono usati questi tre tipi di file dei criteri:
 - **File di estensioni** - contiene le modifiche di configurazione univoche per il tenant.
 - **File Relying Party (RP)** - L'unico file incentrato sulle attività che viene chiamato direttamente dell'applicazione o dal servizio (noto anche come Relying Party). Ogni attività univoca richiede un file Relying Party associato e, a seconda dei requisiti di personalizzazione, il numero potrebbe essere il "totale delle applicazioni per il numero totale di casi di uso".
 
-I criteri predefiniti in Azure AD B2C seguono il modello a 3 file descritto sopra, ma lo sviluppatore visualizza solo il file RP, mentre il portale di Azure apporta modifiche in background al file delle estensioni.
+I flussi utente in Azure AD B2C seguono il modello a 3 file descritto sopra, ma lo sviluppatore visualizza solo il file RP, mentre il portale di Azure apporta modifiche in background al file delle estensioni.
 
 ## <a name="custom-policy-core-concepts"></a>Concetti principali dei criteri personalizzati
 

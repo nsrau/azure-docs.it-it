@@ -8,26 +8,27 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 7f01fe5c71cdd6f4c70527fcf2553374aae9a5d8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: b06864e08f6edf52e4c96c33c88bba9f8ef4e859
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469927"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343208"
 ---
 # <a name="about-the-text-to-speech-api"></a>Informazioni sull'API Sintesi vocale
 
-L'API **Sintesi vocale** del servizio Voce converte il testo di input in parlato dal *suono naturale*.
+L'API **Sintesi vocale** converte il testo di input in parlato dal *suono naturale*.
 
-Per generare il parlato, l'applicazione invia richieste HTTP POST al servizio Voce, dove il testo viene sintetizzato in una voce dal suono umano e restituita come file audio. Sono supportate numerosi lingue e voci.
+Per generare il parlato, l'applicazione invia richieste HTTP POST all'API Sintesi vocale, dove il testo viene sintetizzato in una voce dal suono umano e restituita come file audio. Sono supportate numerosi lingue e voci.
 
 Gli scenari in cui viene adottata la sintesi vocale includono:
 
-* *Miglioramento dell'accessibilità:* la tecnologia di **sintesi vocale** consente ai proprietari e agli autori del contenuto di rispondere ai diversi modi in cui le persone interagiscono con il contenuto. Gli utenti con disturbi della vista o difficoltà di lettura o leggibilità apprezzano di poter utilizzare il contenuto oralmente. L'output vocale permette alle persone anche di fruire con maggiore facilità del contenuto testuale, ad esempio giornali o blog, sui dispositivi mobili mentre viaggiano o si allenano.
+* *Miglioramento dell'accessibilità:* la tecnologia di **sintesi vocale** consente ai proprietari e agli autori di contenuto di rispondere ai diversi modi in cui le persone interagiscono con il contenuto. Gli utenti con disturbi della vista o difficoltà di lettura o leggibilità apprezzano di poter utilizzare il contenuto oralmente. L'output vocale permette alle persone anche di fruire con maggiore facilità del contenuto testuale, ad esempio giornali o blog, sui dispositivi mobili mentre viaggiano o si allenano.
 
-* *Risposta in scenari multitasking:* la **sintesi vocale** consente alle persone di assimilare importanti informazioni rapidamente e comodamente mentre sono alla guida o in altre situazioni in cui non sarebbe pratico leggere. Un'applicazione comune in quest'ambito è la navigazione.
+* *Risposta in scenari multitasking:* la **sintesi vocale** consente alle persone di acquisire informazioni importanti in modo rapido e comodo, mentre sono alla guida o in altre situazioni in cui non sarebbe pratico leggere. Un'applicazione comune in quest'ambito è la navigazione.
 
 * *Miglioramento dell'apprendimento in più modi:* le persone apprendono in modi diversi. Gli esperti di apprendimento online hanno dimostrato che, fornendo voce e testo insieme, diventa più semplice assimilare e memorizzare le informazioni.
 
@@ -35,9 +36,15 @@ Gli scenari in cui viene adottata la sintesi vocale includono:
 
 ## <a name="voice-support"></a>Supporto vocale
 
-Il servizio di **sintesi vocale** di Microsoft offre più di 75 voci in più di 45 lingue e impostazioni locali. Per usare questi "caratteri voce" standard, è sufficiente specificare il nome della voce con pochi altri parametri quando si chiama l'API REST del servizio. Per informazioni dettagliate sulle voci supportate, vedere [Lingue supportate](language-support.md#text-to-speech).
+Il servizio di **sintesi vocale** di Microsoft offre più di 75 voci in più di 45 lingue e impostazioni locali. Per usare questi "caratteri voce" standard, è sufficiente specificare il nome della voce con pochi altri parametri quando si chiama l'API REST del servizio. Per altre informazioni sulle lingue, le impostazioni locali e le voci supportate, vedere [Supporto per le lingue](language-support.md#text-to-speech).
 
-Se si vuole usare una voce particolare per l'applicazione, è possibile creare [caratteri voce](how-to-customize-voice-font.md) personalizzati dai propri campioni vocali.
+### <a name="neural-voices"></a>Voci neurali
+
+La funzionalità di sintesi vocale neurale può essere usata per rendere più naturali e coinvolgenti le interazioni con chat bot e assistenti virtuali, per convertire testo digitale (come gli e-book) in audiolibri e per migliorare i sistemi dei navigatori per le automobili. Con la prosodia naturale simile al linguaggio umano e l'articolazione chiara delle parole, la sintesi vocale neurale ha ridotto in modo significativo le difficoltà di ascolto durante l'interazione con i sistemi di intelligenza artificiale. Per altre informazioni sulle voci neurali, vedere [Supporto per le lingue](language-support.md#text-to-speech).
+
+### <a name="custom-voices"></a>Voci personalizzate
+
+La personalizzazione della voce del servizio Sintesi vocale consente di creare una voce distintiva e unica per il proprio marchio, ovvero un *carattere voce*. Per creare un carattere voce, effettuare una registrazione in studio e caricare gli script associati come dati di training. Il servizio crea quindi un modello vocale univoco ottimizzato per la registrazione. È possibile usare questo carattere voce per la sintesi vocale. Per altre informazioni, vedere [Caratteri voce personalizzati](how-to-customize-voice-font.md).
 
 ## <a name="api-capabilities"></a>Funzionalità API
 
@@ -56,5 +63,7 @@ Molte delle funzionalità dell'API **Sintesi vocale**, soprattutto per quanto ri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di valutazione gratuita del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
-* [Informazioni sulla sintesi vocale tramite l'API REST](how-to-text-to-speech.md)
+* [Ottenere una sottoscrizione di valutazione gratuita per i servizi Voce](https://azure.microsoft.com/try/cognitive-services/)
+* [Avvio rapido: Sintesi vocale, Python](quickstart-python-text-to-speech.md)
+* [Avvio rapido: Sintesi vocale, .NET Core](quickstart-dotnet-text-to-speech.md)
+* [Informazioni di riferimento sulle API REST](rest-apis.md)

@@ -1,11 +1,13 @@
 ---
-title: Linguaggi per la macchina virtuale per data science in Azure | Microsoft Docs
-description: Linguaggi per la macchina virtuale per data science in Azure
+title: Linguaggi supportati per Data Science Virtual Machine
+titleSuffix: Azure
+description: Informazioni sui linguaggi di programma e gli strumenti correlati preinstallati in Data Science Virtual Machine.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 411729155f5135c7e45588b69995274c9cac1315
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8cc5d1a2d78179624ee1ba17482e9d1892625d6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418316"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104289"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Linguaggi supportati dalla macchina virtuali per data science 
 
@@ -234,7 +236,7 @@ La posizione predefinita di Julia è un ambiente globale leggibile da tutti gli 
 
 **C#**: disponibile in Windows e accessibile tramite Visual Studio Community Edition o in un `Developer Command Prompt for Visual Studio` in cui è possibile eseguire il comando `csc`. 
 
-**Java**: OpenJDK è disponibile nelle versioni Linux e Windows della macchina virtuale per data science e impostato nel percorso. Per usare Java è possibile digitare il comando `javac` o `java` nel prompt dei comandi di Windows o nella shell Bash in Linux. 
+**Java**: OpenJDK è disponibile nelle versioni Linux e Windows di DSVM e impostato nel percorso. Per usare Java è possibile digitare il comando `javac` o `java` nel prompt dei comandi di Windows o nella shell Bash in Linux. 
 
 **node.js**: node.js è disponibile nelle versioni Linux e Windows della macchina virtuale per data science e impostato nel percorso. Per accedere a node.js è possibile digitare il comando `node` o `npm` nel prompt dei comandi di Windows o nella shell Bash in Linux. In Windows, sono installati gli strumenti di node.js per l'estensione di Visual Studio per fornire un IDE con interfaccia grafica nel quale sviluppare l'applicazione node.js. 
 

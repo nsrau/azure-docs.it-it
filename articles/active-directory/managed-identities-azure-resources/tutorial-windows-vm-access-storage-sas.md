@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca9f2fa249a3d9f4387d0fa45e3c5874eea26120
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2091fb75e07b9ed01394621af2d82c02f5598430
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625488"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721324"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Esercitazione: usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -68,7 +68,7 @@ Archiviazione di Azure non supporta l'autenticazione di Azure AD in modo nativo.
 
 1. Tornare all'account di archiviazione appena creato.   
 2. Fare clic sul collegamento **Controllo di accesso (IAM)** nel pannello di sinistra.  
-3. Fare clic su **+ Aggiungi** nella parte superiore della pagina per aggiungere una nuova assegnazione di ruolo alla macchina virtuale.
+3. Fare clic su **+ Aggiungi assegnazione di ruolo** nella parte superiore della pagina per aggiungere una nuova assegnazione di ruolo per la macchina virtuale.
 4. Impostare **Ruolo** su "Collaboratore Account di archiviazione" sul lato destro della pagina.  
 5. Nell'elenco a discesa successivo impostare **Assegna accesso a** sulla risorsa "Macchina virtuale".  
 6. Assicurarsi quindi che la sottoscrizione appropriata sia presente nell'elenco a discesa **Sottoscrizione** e quindi impostare **Gruppo di risorse** su "Tutti i gruppi di risorse".  

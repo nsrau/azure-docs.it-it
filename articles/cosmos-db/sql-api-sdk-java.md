@@ -1,25 +1,23 @@
 ---
-title: 'Azure Cosmos DB: API Java, risorse e SDK per SQL | Documentazione Microsoft'
+title: 'Azure Cosmos DB: API Java SQL, SDK e risorse'
 description: Informazioni complete sull'SDK e sull'API Java, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB SQL Java SDK.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/21/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c58c1972fee782a93f9641d00376db916021f95
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e5c733ecd65482e4b02a5d4e28784e84e63f2231
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634490"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340522"
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Java SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java di Azure Cosmos DB per API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +28,7 @@ ms.locfileid: "52634490"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -38,7 +36,7 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 
 <table>
 
-<tr><td>**Download dell'SDK**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td>**Download dell'SDK**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
 <tr><td>**Documentazione sull'API**</td><td>[Documentazione di riferimento API Java](/java/api/com.microsoft.azure.documentdb)</td></tr>
 
@@ -52,6 +50,23 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Aggiunto il supporto per la scrittura in più aree per la modalità diretta.
+* Aggiunto il supporto per la gestione di IOExceptions generate come eccezioni ServiceUnavailable, da un proxy.
+* Risolto un bug nei criteri di ripetizione dei tentativi di individuazione degli endpoint.
+* Risolto un bug per assicurare che non vengano generate eccezioni del puntatore Null in BaseDatabaseAccountConfigurationProvider.
+* Risolto un bug per garantire che l'enumeratore delle query non restituisca valori Null.
+* Risolto un bug per garantire che sia consentito PartitionKey ampio
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Aggiunto il supporto per la scrittura in più aree per la modalità gateway.
+
+### <a name="a-name11641164"></a><a name="1.16.4"/>1.16.4
+* Risolto un bug negli intervalli di chiavi di partizione di lettura per una query.
+
+### <a name="a-name11631163"></a><a name="1.16.3"/>1.16.3
+* Risolto un bug nell'impostazione delle dimensioni dell'intestazione dei token di continuazione in modalità DirectHttps.
 
 ### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
 * Aggiunta del supporto del failover dello streaming.
@@ -205,6 +220,10 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.1.1](#2.1.1) |21 novembre 2018 |--- |
+| [2.0.0](#2.0.0) |21 settembre 2018 |--- |
+| [1.16.4](#1.16.4) |10 settembre 2018 |--- |
+| [1.16.3](#1.16.3) |9 settembre 2018 |--- |
 | [1.16.2](#1.16.2) |29 giugno 2018 |--- |
 | [1.16.1](#1.16.1) |16 maggio 2018 |--- |
 | [1.16.0](#1.16.0) |15 marzo 2018 |--- |

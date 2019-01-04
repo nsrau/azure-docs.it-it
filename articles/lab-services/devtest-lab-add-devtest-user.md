@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243710"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834129"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Aggiungere proprietari e utenti in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -69,15 +69,11 @@ Il processo di aggiunta di un proprietario o di un utente a un lab in Azure DevT
 3. Nell'elenco dei lab selezionare il lab desiderato.
 4. Nel pannello del lab selezionare **Configurazione e criteri**. 
 5. Nella pagina **Configurazione e criteri** selezionare **Controllo di accesso (IAM)** nel menu a sinistra. 
-6. Selezionare **Aggiungi** sulla barra degli strumenti per aggiungere un utente a un ruolo.
-
-    ![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+6. Selezionare **Aggiungi un'assegnazione di ruolo** sulla barra degli strumenti per aggiungere un utente a un ruolo.
 1. Nella finestra **Aggiungi autorizzazioni** eseguire queste operazioni: 
     1. Selezionare un ruolo (ad esempio: Utente DevTest Labs). La sezione [Azioni che possono essere eseguite in ogni ruolo](#actions-that-can-be-performed-in-each-role) elenca le diverse azioni che possono essere eseguite dagli utenti nei ruoli Proprietario, Utente DevTest Labs e Collaboratore.
     2. Selezionare l'utente da aggiungere al ruolo. 
     3. Selezionare **Salva**. 
-
-        ![Aggiungere l'utente al ruolo](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. Quando si torna al pannello **Utenti** , l'utente risulta aggiunto.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Aggiungere un utente esterno a un lab usando PowerShell

@@ -1,27 +1,25 @@
 ---
-title: Confrontare le autorizzazioni utente predefinite in Azure AD | Microsoft Docs
-description: Confrontare le autorizzazioni di membri, guest, proprietario dell'app e proprietario del gruppo
+title: Autorizzazioni utente predefinite - Azure Active Directory | Microsoft Docs
+description: Informazioni sulle diverse autorizzazioni utente disponibili in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
+ms.workload: identity
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-ms.openlocfilehash: e2571a6854d2c3de2425547b69c5435286182ef7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448153"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096596"
 ---
-# <a name="default-user-permissions-in-azure-active-directory"></a>Autorizzazioni utente predefinite in Azure Active Directory
-
+# <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Autorizzazioni utente predefinite in Azure Active Directory
 In Azure Active Directory (Azure AD) a tutti gli utenti viene concesso un set di autorizzazioni predefinite. L'accesso di un utente è costituito dal tipo di utente, dalle [appartenenze a ruoli](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) e dalla proprietà di singoli oggetti. Questo articolo descrive tali autorizzazioni predefinite e contiene un confronto delle impostazioni predefinite degli utenti membro e guest.
 
 ## <a name="member-and-guest-users"></a>Utenti guest e membro
@@ -52,7 +50,7 @@ Autorizzazione | Spiegazione dell'impostazione
 ---------- | ------------
 Possibilità di creare i gruppi di sicurezza | Impostando questa opzione su No, gli utenti non possono creare gruppi di sicurezza. Gli amministratori globali e gli amministratori account utente possono tuttavia creare i gruppi di sicurezza. Per informazioni, vedere [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../users-groups-roles/groups-settings-cmdlets.md).
 Possibilità di creare gruppi di Office 365 | Impostando questa opzione su No, gli utenti non possono creare gruppi di Office 365. Impostando questa opzione su In parte, un set selezionato di utenti può creare gruppi di Office 365. Gli amministratori globali e gli amministratori account utente potranno tuttavia creare gruppi di Office 365. Per informazioni, vedere [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../users-groups-roles/groups-settings-cmdlets.md).
-Limita l'accesso al portale di amministrazione di Azure AD | Impostando questa opzione su No, gli utenti non possono accedere al portale di Azure Active Directory.
+Limita l'accesso al portale di amministrazione di Azure AD | Impostando questa opzione su No, gli utenti non possono accedere ad Azure Active Directory.
 Possibilità di leggere altri utenti | Questa impostazione è disponibile solo in PowerShell. Impostando questo parametro su $false, nessun utente non amministratore potrà leggere le informazioni utente dalla directory. Ciò non impedisce la lettura delle informazioni utente in altri servizi Microsoft, ad esempio Exchange Online. Questa impostazione deve essere usata in casi speciali e impostarla su $false è sconsigliato.
 
 ## <a name="object-ownership"></a>Proprietà di un oggetto
@@ -70,7 +68,7 @@ Quando un utente crea un gruppo, viene aggiunto automaticamente come proprietari
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su come cambiare gli amministratori per una sottoscrizione di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../../billing/billing-add-change-azure-subscription-administrator.md)
+* Per altre informazioni su come assegnare i ruoli di amministratore di Azure AD, vedere [Assegnare un utente ai ruoli di amministratore in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Per altre informazioni sul modo in cui l'accesso alle risorse viene controllato in Microsoft Azure, vedere [Informazioni sull'accesso alle risorse in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Per altre informazioni sul modo in cui Azure Active Directory è correlato alla sottoscrizione di Azure, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Gestire gli utenti](add-users-azure-active-directory.md)

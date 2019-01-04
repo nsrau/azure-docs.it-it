@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 69802c6c4246b91f62a0e49ec0c34bdd3a1bec8b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c94c88aa088745a2ed421bff43c8d87382564a43
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958421"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141476"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure
 
@@ -256,7 +256,7 @@ Usare le informazioni seguenti per la risoluzione dei problemi di implementazion
 
 * Concedere i privilegi delle attestazioni di appartenenza al gruppo. Verificare che nel file manifesto dell'applicazione Azure AD sia presente quanto segue: 
 
-    "groupMembershipClaims": "All"    (il valore predefinito è Null)
+    "groupMembershipClaims": "All"    (il valore predefinito è null)
 
 * Impostare l'oggetto TokenType appropriato quando si creano i requisiti relativi alle restrizioni.
 
@@ -368,12 +368,12 @@ Quando si usa un servizio token di sicurezza personalizzato, è necessario appor
 Esistono due tipi di chiavi di sicurezza:
 
 * Chiave simmetrica: la stessa chiave viene usata per generare e verificare un token JWT.
-* Chiave asimmetrica: un coppia di chiavi pubblica-privata in un certificato X509 viene usata con una chiave privata per la crittografia/generazione di un token JWT e con la chiave pubblica per la verifica del token.
+* Chiave asimmetrica: una coppia di chiavi pubblica-privata in un certificato X509 viene usata con una chiave privata per la crittografia/generazione di un token JWT e con la chiave pubblica per la verifica del token.
 
 > [!NOTE]
 > Se si usa .NET Framework/C# come piattaforma di sviluppo, il certificato X509 usato per la chiave di sicurezza asimmetrica deve avere una lunghezza della chiave pari almeno a 2048 bit. È un requisito della classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. In caso contrario, viene generata un'eccezione simile alla seguente:
-
-> IDX10630: 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' per la firma non può essere inferiore a '2048' bit.
+> 
+> IDX10630: 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' per la firma non può essere inferiore a 2048 bit.
 
 ## <a name="the-completed-system-and-test"></a>Sistema completato e test
 Questa sezione illustra gli scenari seguenti nel sistema end-to-end completato per offrire una panoramica generale di quanto avviene prima di ottenere un account di accesso:

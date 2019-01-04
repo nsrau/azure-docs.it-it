@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: b84992f5deea1135692c368900f63773b51453bb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669368"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959683"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento 
 
@@ -37,7 +37,7 @@ Per risolvere questo problema, esaminare i log eventi nella macchina virtuale e 
 
 ### <a name="create-a-backup-snapshot"></a>Creare uno snapshot di backup
 
-Per creare uno snapshot di backup, seguire i passaggi descritti in [Creare uno snapshot di un disco](..\windows\snapshot-copy-managed-disk.md).
+Per creare uno snapshot di backup, seguire i passaggi descritti in [Creare uno snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
 
 ### <a name="connect-to-the-vm-remotely"></a>Connettersi alla macchina virtuale in modalità remota
 
@@ -54,36 +54,36 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1057 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nome log:** System <br />
-**Origine:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Nome del log:**      Sistema <br />
+**Origine:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Data:** *data e ora* <br />
-**ID evento:** 1058 <br />
-**Categoria attività**: None <br />
-**Livello**: Error <br />
-**Parola chiave**: Classic <br />
-**Utente**: N/A <br />
+**ID evento:**      1058 <br />
+**Categoria attività:** Nessuna <br />
+**Livello:**         Tipi di errore <br />
+**Parole chiave:**      Classico <br />
+**Utente:**          N/D <br />
 **Computer:** *computer* <br />
 **Descrizione:** il server host sessione Desktop remoto non è riuscito a sostituire il certificato autofirmato scaduto usato per l'autenticazione del server host sessione Desktop remoto durante le connessioni SSL. Il codice di stato pertinente era Accesso negato.
 
-**Nome log:** System <br />
-**Origine:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Nome del log:**      Sistema <br />
+**Origine:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Data:** *data e ora* <br />
-**ID evento:** 1058 <br />
-**Categoria attività**: None <br />
-**Livello**: Error <br />
-**Parola chiave**: Classic <br />
-**Utente**: N/A <br />
+**ID evento:**      1058 <br />
+**Categoria attività:** Nessuna <br />
+**Livello:**         Tipi di errore <br />
+**Parole chiave:**      Classico <br />
+**Utente:**          N/D <br />
 **Computer:** *computer* <br />
 **Descrizione:** il server host sessione Desktop remoto non è riuscito a creare un nuovo certificato autofirmato da usare per l'autenticazione del server host sessione Desktop remoto durante le connessioni SSL. Il codice di stato pertinente era L'oggetto esiste già.
 
-**Nome log:** System <br />
-**Origine:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Nome del log:**      Sistema <br />
+**Origine:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Data:** *data e ora* <br />
-**ID evento:** 1057 <br />
-**Categoria attività**: None <br />
-**Livello**: Error <br />
-**Parola chiave**: Classic <br />
-**Utente**: N/A <br />
+**ID evento:**      1057 <br />
+**Categoria attività:** Nessuna <br />
+**Livello:**         Tipi di errore <br />
+**Parole chiave:**      Classico <br />
+**Utente:**          N/D <br />
 **Computer:** *computer* <br />
 **Descrizione:** il server host sessione Desktop remoto non è riuscito a creare un nuovo certificato autofirmato da usare per l'autenticazione del server host sessione Desktop remoto durante le connessioni SSL. Il codice di stato pertinente era Keyset does not exist (Il set di chiavi non esiste).
 
@@ -94,14 +94,14 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36872 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nome log:** System <br />
-**Origine:** Schannel <br />
+**Nome del log:**      Sistema <br />
+**Origine:**        SChannel <br />
 **Data**: - <br />
-**ID evento:** 36870 <br />
-**Categoria attività**: None <br />
-**Livello**: Error <br />
+**ID evento:**      36870 <br />
+**Categoria attività:** Nessuna <br />
+**Livello:**         Tipi di errore <br />
 **Parole chiave:**       <br />
-**Utente:** SYSTEM <br />
+**Utente:**          SYSTEM <br />
 **Computer:** *computer* <br />
 **Descrizione:** si è verificato un errore irreversibile durante il tentativo di accedere alla chiave privata delle credenziali del server SSL. Il codice errore restituito dal modulo di crittografia è 0x8009030D.  <br />
 Lo stato dell'errore interno è 10001.
@@ -216,14 +216,14 @@ In un'istanza CMD eseguire i comandi seguenti per controllare se nelle ultime 24
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36871 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nome log:** System <br />
-**Origine:** Schannel <br />
+**Nome del log:**      Sistema <br />
+**Origine:**        SChannel <br />
 **Data**: - <br />
-**ID evento:** 36871 <br />
-**Categoria attività**: None <br />
-**Livello**: Error <br />
+**ID evento:**      36871 <br />
+**Categoria attività:** Nessuna <br />
+**Livello:**         Tipi di errore <br />
 **Parole chiave:**       <br />
-**Utente:** SYSTEM <br />
+**Utente:**          SYSTEM <br />
 **Computer:** *computer* <br />
 **Descrizione:** si è verificato un errore irreversibile durante la creazione di una credenziale del server TLS. Lo stato dell'errore interno è 10013.
  
@@ -246,14 +246,14 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Windows-TerminalServices-SessionBroker-Client '] and EventID=1296 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nome log:** Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
-**Origine:** Microsoft-Windows-TerminalServices-SessionBroker <br />
+**Nome del log:**      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
+**Origine:**        Microsoft-Windows-TerminalServices-SessionBroker <br />
 **Data:** *data e ora* <br />
-**ID evento:** 2056 <br />
+**ID evento:**      2056 <br />
 **Categoria attività:** (109) <br />
-**Livello**: Error <br />
+**Livello:**         Tipi di errore <br />
 **Parole chiave:**       <br />
-**Utente:** NETWORK SERVICE <br />
+**Utente:**          NETWORK SERVICE <br />
 **Computer:** *FQDN del computer* <br />
 **Descrizione:** non è possibile trovare la descrizione dell'ID evento 2056 da Microsoft-Windows-TerminalServices-SessionBroker. Il componente che genera questo evento non è installato nel computer locale o l'installazione è danneggiata. È possibile installare o riparare il componente nel computer locale. <br />
 Se l'evento ha avuto origine in un altro computer, le informazioni visualizzate dovevano essere salvate con l'evento. <br />
@@ -262,14 +262,14 @@ NULL <br />
 NULL <br />
 L'accesso al database non è riuscito.
 
-**Nome log:** Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
-**Origine:** Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
+**Nome del log:**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
+**Origine:**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
 **Data:** *data e ora* <br />
-**ID evento:** 1296 <br />
+**ID evento:**      1296 <br />
 **Categoria attività:** (104) <br />
-**Livello**: Error <br />
+**Livello:**         Tipi di errore <br />
 **Parole chiave:**       <br />
-**Utente:** NETWORK SERVICE <br />
+**Utente:**          NETWORK SERVICE <br />
 **Computer:** *FQDN del computer* <br />
 **Descrizione:** non è possibile trovare la descrizione dell'ID evento 1296 da Microsoft-Windows-TerminalServices-SessionBroker-Client. Il componente che genera questo evento non è installato nel computer locale o l'installazione è danneggiata. È possibile installare o riparare il componente nel computer locale.
 Se l'evento ha avuto origine in un altro computer, le informazioni visualizzate dovevano essere salvate con l'evento.

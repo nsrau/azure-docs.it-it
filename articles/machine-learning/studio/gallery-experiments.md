@@ -1,12 +1,11 @@
 ---
 title: Esperimenti di Azure AI Gallery - Azure Machine Learning Studio | Microsoft Docs
-description: Scoprire e condividere esperimenti in Azure AI Gallery.
+description: Scoprire e condividere esperimenti in Azure AI Gallery. Un esperimento è un'area di disegno in Machine Learning Studio che è possibile usare per creare un modello di analisi predittiva
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -16,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 12fb45b00848e5e34760ccb0691998c1f72237b8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317467"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269302"
 ---
-# <a name="discover-experiments-in-azure-ai-gallery"></a>Scoprire e condividere esperimenti in Azure AI Gallery
+# <a name="discover-azure-machine-learning-studio-experiments-in-azure-ai-gallery"></a>Scoprire esperimenti di Azure Machine Learning Studio in Azure AI Gallery
 
 [Azure AI Gallery](http://gallery.cortanaintelligence.com) contiene un'ampia gamma di [esperimenti](https://gallery.cortanaintelligence.com/experiments) sviluppati in [Azure Machine Learning Studio](https://studio.azureml.net), da veloci esperimenti di prova che illustrano una tecnica di apprendimento automatico specifica a soluzioni complete per la risoluzione di problemi di apprendimento automatico complessi.
 
 > [!NOTE]
-> Un ***esperimento*** è un'area di disegno in Machine Learning Studio da usare per costruire un modello di analisi predittiva. Il modello viene creato collegando i dati da vari moduli di analisi. È possibile provare idee diverse, effettuare esecuzioni di prova e alla fine distribuire il modello come servizio Web in Azure. Per un esempio di creazione di un esperimento semplice, vedere [Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio](create-experiment.md). Per una procedura dettagliata più completa della creazione di una soluzione di analisi predittiva, vedere [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+> Un ***esperimento*** è un'area di disegno in Machine Learning Studio da usare per costruire un modello di analisi predittiva. Il modello viene creato collegando i dati da vari moduli di analisi. È possibile provare idee diverse, effettuare esecuzioni di prova e alla fine distribuire il modello come servizio Web in Azure. Per un esempio di come creare un esperimento semplice, vedere [Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio](create-experiment.md). Per una procedura dettagliata più completa su come creare una soluzione di analisi predittiva, vedere [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 >
 >
 
@@ -82,7 +81,7 @@ Quando si esegue l'accesso a Gallery si diventa membri della community di Galler
 3. Quando l'esperimento è pronto per essere pubblicato in Gallery, selezionare **Publish to Gallery** (Pubblica in Gallery) nell'elenco di azioni sotto l'area di disegno dell'esperimento.
 
     ![Selezionare "Publish to Gallery" (Pubblica in Gallery)](./media/gallery-experiments/publish-experiment-to-gallery.png)
-4. Nella pagina **Experiment Description** (Descrizione esperimento), immettere un titolo e i tag, possibilmente descrittivi. Evidenziare le tecniche utilizzate o i problemi reali risolvibili che l'esperimento punta a risolvere. Un esempio di titolo descrittivo per un esperimento è "Classificazione binaria: analisi del sentiment su Twitter".
+4. Nella pagina **Experiment Description** (Descrizione esperimento), immettere un titolo e i tag, possibilmente descrittivi. Evidenziare le tecniche utilizzate o i problemi reali risolvibili che l'esperimento punta a risolvere. Un esempio di titolo descrittivo per un esperimento è "Classificazione binaria: Analisi del sentiment su Twitter".
 
     ![Immettere titolo e tag per la pubblicazione](./media/gallery-experiments/experiment-description.png)
 5. Nella casella **RIEPILOGO** immettere un riepilogo dell'esperimento. Descrivere brevemente il problema che viene risolto con l'esperimento e com'è stato affrontato.
@@ -90,7 +89,7 @@ Quando si esegue l'accesso a Gallery si diventa membri della community di Galler
    * Screenshot del grafico dell'esperimento
    * Origini dati e spiegazione
    * Elaborazione dei dati
-   * Progettazione delle funzioni
+   * Progettazione delle caratteristiche
    * Descrizione modello
    * Risultati e valutazione delle prestazioni del modello
 
@@ -189,4 +188,4 @@ Dopo aver inserito un tag, premere il tasto TAB per inserirne un altro.
 
 **[Passare a Gallery](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

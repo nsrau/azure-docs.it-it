@@ -1,28 +1,27 @@
 ---
-title: Operazioni asincrone in Azure |Microsoft Docs
-description: Viene descritto come tenere traccia delle operazioni asincrone in Azure.
+title: Stato delle operazioni asincrone - Azure Resource Manager
+description: Viene descritto come tenere traccia delle operazioni asincrone in Azure. Mostra i valori usati per ottenere lo stato di un'operazione a esecuzione prolungata.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: f62212f0488e4d1be49b419615b3a16b80033fd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.custom: seodec18
+ms.openlocfilehash: 1b05ed50f08ddbf2eb5da8e08f5bf623596e1f9b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358711"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135458"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Tenere traccia delle operazioni asincrone
-Alcune operazioni REST in Azure vengono eseguite in modo asincrono perché non è possibile completarle rapidamente. In questo articolo viene descritto come tenere traccia dello stato delle operazioni asincrone tramite i valori restituiti nella risposta.  
+Alcune operazioni REST in Azure vengono eseguite in modo asincrono perché non è possibile completarle rapidamente. Questo articolo descrive come tenere traccia dello stato delle operazioni asincrone tramite i valori restituiti nella risposta.  
 
 ## <a name="status-codes-for-asynchronous-operations"></a>Codici di stato per le operazioni asincrone
 Inizialmente, un'operazione asincrona restituisce un codice di stato HTTP del tipo:
@@ -35,7 +34,7 @@ Quando l'operazione viene completata correttamente, viene restituito uno dei cod
 * 200 (OK)
 * 204 (No Content (Nessun contenuto)) 
 
-Consultare la [documentazione dell'API REST](/rest/api/) per visualizzare le risposte dell'operazione in esecuzione. 
+Consultare la [documentazione dell'API REST](/rest/api/) per visualizzare le risposte dell'operazione in esecuzione.
 
 ## <a name="monitor-status-of-operation"></a>Monitorare lo stato dell'operazione
 Le operazioni REST asincrone restituiscono i valori di intestazione, che consentono di determinare lo stato dell'operazione. Potenzialmente esistono tre valori di intestazione da esaminare:

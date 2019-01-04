@@ -1,30 +1,31 @@
 ---
 title: Informazioni sul monitoraggio dei processi di Analisi di flusso di Azure
-description: Questo articolo descrive come monitorare i processi in Analisi di flusso di Azure.
+description: Questo articolo descrive come monitorare i processi di Analisi di flusso di Azure nel portale di Azure.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 200df7602f94f70f3fb9c62ad81a0710923184c7
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 656f749fd2a930c51bfd7d1a99642fae87694846
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291415"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096617"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
 
-## <a name="introduction-the-monitor-page"></a>Introduzione: Pagina di monitoraggio
+## <a name="introduction-the-monitor-page"></a>Introduzione: Pagina Monitoraggio
 Il portale di Azure evidenzia le metriche delle prestazioni chiave che possono essere usate per monitorare e consente di risolvere i problemi di prestazioni delle query e dei processi. Per visualizzare queste metriche, esplorare il processo di analisi di flusso di cui si desidera vedere le metriche e visualizzare la sezione **Monitoraggio** nella pagina della panoramica.  
 
-![Collegamento al monitoraggio](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
+![Collegamento Monitoraggio dei processi di Analisi di flusso](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
 Verrà visualizzata la finestra mostrata di seguito:
 
-![Monitoraggio del dashboard dei processi](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+![Dashboard Monitoraggio dei processi di Analisi di flusso](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>Metriche disponibili per l'analisi di flusso
 | Metrica                 | Definizione                               |
@@ -49,7 +50,7 @@ Verrà visualizzata la finestra mostrata di seguito:
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Personalizzazione del monitoraggio nel portale di Azure
 È possibile modificare il tipo di grafico, le metriche visualizzate e l’intervallo di tempo nelle impostazioni di Modifica grafico. Per altre informazioni, vedere [How to Customize Monitoring](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) (Come personalizzare il monitoraggio).
 
-  ![Monitoraggio query, grafico cronologico](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![Grafico cronologico del monitoraggio delle query di Analisi di flusso](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 
 ## <a name="latest-output"></a>Output più recente

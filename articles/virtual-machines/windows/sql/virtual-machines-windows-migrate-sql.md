@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: jroth
-ms.openlocfilehash: 0677faa90c73ffe4c0c1c48600c2f1ef2d05eb50
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 298a8597ae111550dfbd44d1e7bd9efb212f08af
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628784"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323218"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure
 
@@ -36,7 +36,7 @@ I metodi di migrazione principali sono:
 * Scollegamento e successiva copia dei dati e dei file di log sull’archivio BLOB di Azure, quindi collegamento a SQL Server nella macchina virtuale di Azure dall'URL
 * Conversione della macchina fisica locale a disco rigido virtuale Hyper-V, caricamento sull'archivio BLOB di Azure e successiva distribuzione come nuova macchina virtuale tramite il disco rigido virtuale caricato
 * Spedizione del disco rigido tramite il servizio di Importazione/Esportazione di Windows
-* Se si ha una distribuzione locale di AlwaysOn, uso dell' [aggiunta guidata di una replica di Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) per creare una replica in Azure e quindi eseguire il failover, indirizzando gli utenti all'istanza del database di Azure
+* Se si ha una distribuzione locale di Gruppi di disponibilità AlwaysOn, usare la [procedura guidata per l'aggiunta della replica di Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) per creare una replica in Azure e quindi eseguire il failover, puntando gli utenti all'istanza del database di Azure.
 * Uso della [replica transazionale](https://msdn.microsoft.com/library/ms151176.aspx) di SQL Server per configurare l'istanza del server SQL di Azure come server di sottoscrizione e quindi disabilitare la replica, indirizzando gli utenti all'istanza del database di Azure
 
 > [!TIP]

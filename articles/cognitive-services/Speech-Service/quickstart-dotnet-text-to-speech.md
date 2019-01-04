@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Convertire la sintesi vocale, .NET Core - Servizio di riconoscimento vocale'
+title: 'Avvio rapido: Eseguire la sintesi vocale, .NET Core - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva, si apprenderà come eseguire la conversione di sintesi vocale con l'API REST di sintesi vocale. Il testo di esempio incluso in questa guida è strutturato come SSML (Speech Synthesis Markup Language). In questo modo è possibile scegliere la voce e lingua della risposta di sintesi vocale.
+description: In questa guida introduttiva, si apprenderà come eseguire la conversione di sintesi vocale con l'API REST di sintesi vocale. Il testo di esempio incluso in questa guida è strutturato come SSML (Speech Synthesis Markup Language). Questo formato consente di scegliere la voce e la lingua della risposta di sintesi vocale.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,18 +10,18 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: erhopf
-ms.openlocfilehash: 4f424e73fbe1f05155e7f051d90dd72d57405adf
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641571"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089871"
 ---
-# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Guida introduttiva: Convertire sintesi vocale con .NET Core
+# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Avvio rapido: Eseguire la sintesi vocale con .NET Core
 
 In questa guida introduttiva, si apprenderà come eseguire la conversione di sintesi vocale usando l'API REST di sintesi vocale .NET Core. Il testo di esempio incluso in questa guida è strutturato come [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), che consente di scegliere la voce e la lingua della risposta.
 
-Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Servizio di riconoscimento vocale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per questo avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa del servizio Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -70,9 +70,9 @@ using System.Threading.Tasks;
 
 ## <a name="create-a-class-for-token-exchange"></a>Creare una classe per lo scambio di token
 
-L'API REST di sintesi vocale necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. In questo esempio viene scambiata la chiave di sottoscrizione del servizio di riconoscimento vocale per un token di accesso tramite l'endpoint `issueToken`.
+L'API REST di sintesi vocale necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. In questo esempio viene scambiata la chiave di sottoscrizione del servizio Voce con un token di accesso usando l'endpoint `issueToken`.
 
-In questo esempio si presuppone che la sottoscrizione del servizio di riconoscimento vocale è nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `FetchTokenUri`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+L'esempio presuppone che la sottoscrizione del servizio Voce sia nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `FetchTokenUri`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 ```csharp
 public class Authentication
@@ -162,7 +162,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
 ```
 
 > [!NOTE]
-> In questo esempio viene utilizzato il carattere voce `ZiraRUS`. Per un elenco completo delle voci/lingue di Microsoft fornite, vedere [Supporto per la lingua](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). Se si è interessati alla creazione di una voce unica, riconoscibile per il proprio marchio, vedere [Creazione di caratteri voce personalizzati](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
+> In questo esempio viene utilizzato il carattere voce `ZiraRUS`. Per un elenco completo di voci e lingue fornite da Microsoft, vedere [Supporto per le lingue](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). Se si è interessati alla creazione di una voce unica, riconoscibile per il proprio marchio, vedere [Creazione di caratteri voce personalizzati](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
 
 ## <a name="instantiate-the-client-make-a-request-and-save-synthesized-audio-to-a-file"></a>Creare un'istanza del client, effettuare una richiesta e salvare l'audio sintetizzato in un file
 
@@ -193,7 +193,6 @@ using (var client = new HttpClient())
         // Update your resource name
         request.Headers.Add("User-Agent", "YOUR_RESOURCE_NAME");
         request.Headers.Add("X-Microsoft-OutputFormat", "riff-24khz-16bit-mono-pcm");
-        request.Headers.Add("Connection", "Keep-Alive");
         // Create a request
         Console.WriteLine("Calling the TTS service. Please wait... \n");
         using (var response = await client.SendAsync(request).ConfigureAwait(false))
@@ -224,7 +223,7 @@ A questo punto è possibile eseguire l'app di sintesi vocale. Dalla riga di coma
 dotnet run
 ```
 
-Se l'operazione riesce, il file di riconoscimento vocale viene salvato nella cartella di progetto. Riprodurlo utilizzando il lettore multimediale preferito.
+Se l'operazione riesce, il file di riconoscimento vocale viene salvato nella cartella di progetto. Riprodurlo con il lettore multimediale preferito.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -237,4 +236,5 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 
 ## <a name="see-also"></a>Vedere anche 
 
-* [Esercitazione: Riconoscimento della finalità voce](how-to-recognize-intents-from-speech-csharp.md)
+* [Creazione di caratteri voce personalizzati](how-to-customize-voice-font.md)
+* [Esempi di campioni vocali per la creazione di una voce personalizzata](record-custom-voice-samples.md)

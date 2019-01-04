@@ -12,15 +12,15 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e7aeb273d4ae276d3460c3de1f404230276cffb7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 14183475fcca0e12c56f009f105e77aaf11b0c98
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056642"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315215"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gestire lo schema in un'applicazione SaaS che usa più database SQL multi-tenant
- 
+
 Questa esercitazione esamina le problematiche correlate alla gestione di un insieme di database in un'applicazione SaaS (software come un servizio). Vengono illustrate soluzioni per il fan-out delle modifiche allo schema nell'insieme di database.
 
 Come qualsiasi altra applicazione, l'app SaaS Wingtip Tickets evolverà nel tempo e saranno necessarie modifiche al database. Le modifiche possono influire sui dati di schemi o di riferimento o applicare attività di manutenzione database. Con un'applicazione SaaS che usa un modello di un database per ogni tenant, le modifiche devono essere coordinate in un insieme potenzialmente grande di database tenant. Inoltre, è necessario incorporare queste modifiche nel processo di provisioning del database per assicurare che siano incluse nei nuovi database al momento della creazione.
@@ -64,12 +64,12 @@ Il modello di database multi-tenant partizionato usato in questo esempio consent
 ## <a name="elastic-jobs-limited-preview"></a>Anteprima limitata del servizio Processi elastici
 
 È disponibile una nuova versione del servizio Processi elastici che è ora una funzionalità integrata di database SQL di Azure. Questa nuova versione del servizio Processi elastici è attualmente in anteprima limitata. L'anteprima limitata supporta attualmente l'utilizzo di PowerShell per creare un agente processo e T-SQL per creare e gestire i processi.
-> [!NOTE] 
+> [!NOTE]
 > Questa esercitazione usa funzionalità del servizio database SQL incluse in un'anteprima limitata (processi di database elastico). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a SaaSFeedback@microsoft.com indicando nell'oggetto del messaggio Elastic Jobs Preview. Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, scaricare e installare i cmdlet più recenti della versione preliminare. Questa versione di anteprima è limitata. Per eventuali domande o richieste di supporto, contattare SaaSFeedback@microsoft.com.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ottenere gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets
 
-Gli script del database multi-tenant SaaS Wingtip Tickets e un codice sorgente dell'applicazione sono disponibili nel repository [WingtipTicketsSaaS-MultiTenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) su GitHub. Vedere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets. 
+Gli script del database multi-tenant SaaS Wingtip Tickets e un codice sorgente dell'applicazione sono disponibili nel repository [WingtipTicketsSaaS-MultiTenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) su GitHub. Vedere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>Creare un database dell'agente processo e un nuovo agente processo
 
@@ -84,9 +84,9 @@ Lo script *Demo-SchemaManagement.ps1* chiama lo script *Deploy-SchemaManagement.
 
 #### <a name="prepare"></a>Preparazione
 
-Ogni database del tenant include un set di tipi di sedi nella tabella **VenueTypes**. Ogni tipo di sede definisce il tipo di eventi ospitati in una sede. Questi tipi di sedi corrispondono alle immagini di sfondo visualizzate nell'app degli eventi del tenant.  Questo esercizio illustra come distribuire un aggiornamento a tutti i database per aggiungere due tipi di eventi aggiuntivi: *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto). 
+Ogni database del tenant include un set di tipi di sedi nella tabella **VenueTypes**. Ogni tipo di sede definisce il tipo di eventi ospitati in una sede. Questi tipi di sedi corrispondono alle immagini di sfondo visualizzate nell'app degli eventi del tenant.  Questo esercizio illustra come distribuire un aggiornamento a tutti i database per aggiungere due tipi di eventi aggiuntivi: *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto).
 
-Esaminare prima i tipi di sede inclusi in ogni database tenant. Connettersi a uno dei database tenant in SQL Server Management Studio (SSMS) ed esaminare la tabella VenueTypes.  È anche possibile eseguire query su questa tabella nell'editor di query nel portale di Azure, accessibile dalla pagina di database. 
+Esaminare prima i tipi di sede inclusi in ogni database tenant. Connettersi a uno dei database tenant in SQL Server Management Studio (SSMS) ed esaminare la tabella VenueTypes.  È anche possibile eseguire query su questa tabella nell'editor di query nel portale di Azure, accessibile dalla pagina di database.
 
 1. Aprire SSMS e connettersi al server del tenant *tenants1-dpt-&lt;user&gt;.database.windows.net*
 1. Per verificare che *Motorcycle Racing* e *Swimming Club*  **non siano** attualmente inclusi, passare al database *contosoconcerthall* nel server *tenants1-dpt-&lt;utente&gt;* ed eseguire una query sulla tabella *VenueTypes*.

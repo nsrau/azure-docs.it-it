@@ -15,12 +15,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29a2be1735561d31f934f1353a336b5e4d198227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622194"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408128"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurare il servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory
 
@@ -46,7 +46,7 @@ Per connettere un'applicazione usando un modello di integrazione app, accedere a
 
 Nella raccolta di applicazioni è possibile aggiungere un'applicazione non pubblicata selezionando il riquadro **Applicazione non nella raccolta** visualizzato nei risultati della ricerca, se l'applicazione cercata non è stata trovata. Dopo aver immesso un nome per l'applicazione, è possibile configurare le opzioni di comportamento e Single Sign-On. 
 
-**Suggerimento rapido**: come procedura consigliata, usare la funzione di ricerca per verificare se l'applicazione esiste già nella raccolta di applicazioni. Se l'applicazione viene trovata e la relativa descrizione indica Single Sign-On, l'applicazione è già supportata per l'accesso Single Sign-On federato.
+**Suggerimento rapido**:  come procedura consigliata, usare la funzione di ricerca per verificare se l'applicazione esiste già nella raccolta di applicazioni. Se l'applicazione viene trovata e la relativa descrizione indica Single Sign-On, l'applicazione è già supportata per l'accesso Single Sign-On federato.
 
   ![Ricerca](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
@@ -163,7 +163,7 @@ Dopo che la pagina di accesso è stata acquisita, è possibile assegnare utenti 
 >
 
 ## <a name="existing-single-sign-on"></a>Single Sign-On esistente
-Selezionare questa opzione per aggiungere un collegamento a un'applicazione nel riquadro di accesso di Azure AD o nel portale di Office 365 dell'organizzazione. È possibile usare questa opzione per aggiungere collegamenti ad app Web personalizzate che usano Active Directory Federation Services di Azure (o un altro servizio federativo) anziché Azure AD per l'autenticazione. In alternativa, è possibile aggiungere collegamenti diretti a pagine specifiche di SharePoint o ad altre pagine Web da visualizzare nei riquadri di accesso dell'utente. 
+Selezionare questa opzione per aggiungere un collegamento a un'applicazione nel riquadro di accesso di Azure AD o nel portale di Office 365 dell'organizzazione. È possibile usare questa opzione per aggiungere collegamenti ad app Web personalizzate che usano Active Directory Federation Services (o un altro servizio federativo) anziché Azure AD per l'autenticazione. In alternativa, è possibile aggiungere collegamenti diretti a pagine specifiche di SharePoint o ad altre pagine Web da visualizzare nei riquadri di accesso dell'utente. 
 
 Dopo aver selezionato **Avanti**, viene richiesto di immettere l'URL dell'applicazione da collegare. Al termine sarà possibile assegnare utenti e gruppi all'applicazione e questa verrà visualizzata nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](end-user-experiences.md) per tali utenti.
 

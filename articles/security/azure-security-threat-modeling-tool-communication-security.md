@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be0dd7147e3864befa90434ade86b4032cd45cc3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247382"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013186"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastruttura di sicurezza: sicurezza della comunicazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -381,7 +381,7 @@ public class ValuesController : ApiController
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | [Supporto per SSL in Redis di Azure](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Passaggi** | Il server Redis non offre il supporto predefinito per SSL, ma tale supporto è disponibile nella Cache Redis di Azure. Se ci si connette alla Cache Redis di Azure e il client supporta SSL, ad esempio StackExchange.Redis, è consigliabile usare SSL. Per impostazione predefinita, la porta non SSL è disabilitata per le nuove istanze di Cache Redis di Azure. Verificare che le impostazioni predefinite sicure non vengano modificate a meno che non esista una dipendenza dei client Redis dal supporto per SSL. |
+| **Passaggi** | Il server Redis non offre il supporto predefinito per SSL, ma tale supporto è disponibile nella Cache Redis di Azure. Se ci si connette a Cache Redis di Azure e il client supporta SSL, ad esempio StackExchange.Redis, è consigliabile usare SSL. Per le nuove istanze di Cache Redis di Azure la porta non SSL è disabilitata per impostazione predefinita. Verificare che le impostazioni predefinite sicure non vengano modificate a meno che non esista una dipendenza dei client Redis dal supporto per SSL. |
 
 Si noti che Redis è progettato per essere accessibile da client attendibili all'interno di ambienti attendibili. Di conseguenza, non è solitamente opportuno esporre l'istanza di Redis direttamente a Internet o, in generale, a un ambiente in cui client non attendibili possono accedere direttamente al socket UNIX o alla porta TCP di Redis. 
 

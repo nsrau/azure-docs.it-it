@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 982c6112a19654e268c9c50fec35d65fbc1766c2
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c6d4ec767b4c566e6a390f37b97266916819a40c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062021"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015161"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configurazione della disponibilità elevata in SUSE con STONITH
 Questo documento contiene le istruzioni dettagliate per configurare la disponibilità elevata nel sistema operativo SUSE usando il dispositivo STONITH.
@@ -38,8 +38,8 @@ Per configurare la disponibilità elevata usando il clustering SUSE, è necessar
 ### <a name="setup-details"></a>Dettagli di configurazione
 Questa guida usa la configurazione seguente:
 - Sistema operativo: SLES 12 SP1 per SAP
-- Istanze di grandi dimensioni di HANA: 2xS192 (4 socket, 2 TB)
-- Versione di HANA: HANA 2.0 SP1
+- Istanze Large di HANA: 2 x S192 (4 socket, 2 TB)
+- Versione HANA: HANA 2.0 SP1
 - Nomi dei server: sapprdhdb95 (node1) e sapprdhdb96 (node2)
 - Dispositivo STONITH: dispositivo STONITH basato su iSCSI
 - NTP configurato in uno dei nodi di istanze di grandi dimensioni di HANA
@@ -76,7 +76,7 @@ Il team di gestione dei servizi Microsoft fornisce questa stringa. Modificare il
 
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 Modificare */etc/iscsi/iscsid.conf*: impostare *node.session.timeo.replacement_timeout=5* e *node.startup = automatic*. Modificare il file su **entrambi** i nodi.
+1.2 Modificare */etc/iscsi/iscsid.conf*: Impostare *node.session.timeo.replacement_timeout=5* e *node.startup = automatic*. Modificare il file su **entrambi** i nodi.
 
 1.3 Eseguire il comando discovery che visualizza quattro sessioni. Eseguirlo su entrambi i nodi.
 
@@ -297,8 +297,7 @@ Aggiungere la risorsa STONITH. Creare il file e aggiungere il testo seguente.
 # vi crm-sbd.txt
 # enter the following to crm-sbd.txt
 primitive stonith-sbd stonith:external/sbd \
-params pcmk_delay_max="15" \
-op monitor interval="15" timeout="15"
+params pcmk_delay_max="15"
 ```
 Aggiungere la configurazione al cluster.
 ```

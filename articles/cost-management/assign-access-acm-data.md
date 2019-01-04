@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/28/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: secdec18
+ms.openlocfilehash: ab5f334b1c830ea5e9c0164b8e75ef0f4fab8e1b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582599"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075642"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l’accesso ai dati di Gestione costi
 
@@ -64,12 +64,12 @@ Per accedere all'ambito dell'account di fatturazione è necessaria l'autorizzazi
 1. Accedere al portale EA dalla pagina [https://ea.azure.com](https://ea.azure.com) con un account di amministratore aziendale.
 2. Nel riquadro sinistro, selezionare **Gestisci**.
 3. Nella scheda **Registrazione**, selezionare la registrazione che si desidera gestire.  
-    ![Portale EA](./media/assign-access-acm-data/ea-portal.png)
+    ![Selezionare la registrazione nel portale EA](./media/assign-access-acm-data/ea-portal.png)
 4. Fare clic su **+ Aggiungi amministratore**.
 5. Nella casella Aggiungi amministratore, selezionare il tipo di autenticazione e digitare l'indirizzo di posta elettronica dell'utente.
 6. Se l'utente deve avere accesso in sola lettura ai dati di utilizzo e costi, sotto **Sola lettura**, selezionare **Sì**.  In caso contrario, selezionare **No**.
 7. Fare clic su **Aggiungi** per creare l'account.  
-    ![Casella Aggiungi amministratore](./media/assign-access-acm-data/add-admin.png)
+    ![Informazioni di esempio visualizzate nella casella Aggiungi amministratore](./media/assign-access-acm-data/add-admin.png)
 
 Potrebbero occorrere fino a 30 minuti prima che il nuovo utente possa accedere ai dati di Gestione costi.
 
@@ -85,7 +85,7 @@ Per l’accesso all'ambito di reparto è richiesto l'accesso come amministratore
 6. Se l'utente deve avere accesso in sola lettura ai dati di utilizzo e costi, sotto **Sola lettura**, selezionare **Sì**.  In caso contrario, selezionare **No**.
 7. Selezionare i reparti per i quali si desidera concedere l’autorizzazione amministrativa.
 8. Fare clic su **Aggiungi** per creare l'account.  
-    ![Casella Aggiungi amministratore di reparto](./media/assign-access-acm-data/add-depart-admin.png)
+    ![Immettere le informazioni necessarie nella casella Aggiungi Amministratore del reparto](./media/assign-access-acm-data/add-depart-admin.png)
 
 ## <a name="assign-enrollment-account-scope-access"></a>Assegnare l'accesso all'ambito di account di registrazione
 
@@ -99,7 +99,7 @@ Per l’accesso all'ambito di account di registrazione è richiesto l'accesso co
 6. Selezionare il tipo di autenticazione e digitare il nome dell'account.
 7. Digitare l'indirizzo di posta elettronica dell'utente e, facoltativamente, digitare il centro di costo.
 8. Fare clic su **Aggiungi** per creare l'account.  
-    ![Casella Aggiungi account](./media/assign-access-acm-data/add-account.png)
+    ![Immettere le informazioni necessarie nella casella Aggiungi account per un account di registrazione](./media/assign-access-acm-data/add-account.png)
 
 Dopo aver completato i passaggi precedenti, l'account utente diventa un account di registrazione nel portale aziendale e può creare sottoscrizioni. L'utente può accedere ai dati relativi all'utilizzo e ai costi per le sottoscrizioni create.
 
@@ -107,7 +107,7 @@ Dopo aver completato i passaggi precedenti, l'account utente diventa un account 
 
 Per l'accesso all'ambito Gruppo di gestione è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile configurare le autorizzazioni per un gruppo di gestione nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per il gruppo di gestione. Inoltre, è necessario abilitare l’impostazione **Visualizzazione addebiti abilitata per i proprietari dell'account** nel portale EA.
 
-1. Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com).
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** nella barra laterale, cercare _Gruppi di gestione_, quindi selezionare **Gruppi di gestione**.
 3. Selezionare i gruppi di gestione nella gerarchia.
 4. Accanto al nome del gruppo di gestione, fare clic su **Dettagli**.
@@ -117,13 +117,13 @@ Per l'accesso all'ambito Gruppo di gestione è richiesta almeno l'autorizzazione
 8. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 9. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
 10. Fare clic su **Save**.  
-    ![Casella Aggiungi autorizzazioni](./media/assign-access-acm-data/add-permissions.png)
+    ![Informazioni di esempio nella casella Aggiungi autorizzazioni per un gruppo di gestione](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>Assegnare l'accesso all'ambito di sottoscrizione
 
 Per accedere a una sottoscrizione è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile assegnare l'autorizzazione a una sottoscrizione nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per la sottoscrizione. Inoltre, è necessario abilitare l’impostazione **Visualizzazione addebiti abilitata per i proprietari dell'account** nel portale EA.
 
-1. Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com).
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** nella barra laterale, cercare _Sottoscrizioni_, quindi selezionare **Sottoscrizioni**.
 3. Selezionare la propria sottoscrizione.
 4. Selezionare **Controllo di accesso (IAM)** dal riquadro a sinistra.
@@ -137,7 +137,7 @@ Per accedere a una sottoscrizione è richiesta almeno l'autorizzazione Lettore G
 
 Per accedere a un gruppo di risorse è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile assegnare le autorizzazioni a un gruppo di risorse nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per il gruppo di risorse. Inoltre, è necessario abilitare l’impostazione **Visualizzazione addebiti abilitata per i proprietari dell'account** nel portale EA.
 
-1. Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com).
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** nella barra laterale, cercare _Gruppi di risorse_, quindi selezionare **Gruppi di risorse**.
 3. Selezionare un gruppo di risorse.
 4. Selezionare **Controllo di accesso (IAM)** dal riquadro a sinistra.

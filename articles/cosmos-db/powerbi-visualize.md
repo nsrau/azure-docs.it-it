@@ -1,21 +1,19 @@
 ---
-title: Esercitazione su Power BI per il connettore Azure Cosmos DB | Microsoft Docs
+title: Esercitazione su Power BI per il connettore Azure Cosmos DB
 description: Usare questa esercitazione su Power BI per importare JSON, creare report dettagliati e visualizzare i dati con Azure Cosmos DB e il connettore per Power BI.
 keywords: esercitazione Power BI, visualizzare dati, connettore Power BI
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa4e6aa1274609ebf990a02d41f63541668d3b37
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622092"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438711"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizzare i dati di Azure Cosmos DB con il connettore Power BI
 
@@ -36,7 +34,19 @@ Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare d
 
 * Scaricare i [dati di esempio sui vulcani](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) da GitHub.
 
-* [Creare un account di database di Azure Cosmos DB](https://azure.microsoft.com/documentation/articles/create-account/) e importare i dati sui vulcani usando l'[Utilità di migrazione dati di Azure Cosmos DB](import-data.md).
+* [Creare un account di database di Azure Cosmos DB](https://azure.microsoft.com/documentation/articles/create-account/) e importare i dati sui vulcani usando l'[Utilità di migrazione dati di Azure Cosmos DB](import-data.md). Quando si importano i dati, tenere conto delle impostazioni seguenti per l'origine e le destinazioni nell'Utilità di migrazione dati:
+
+   * **Parametri relativi all'origine** 
+
+       * **Importa da:** File JSON
+
+   * **Parametri relativi alla destinazione** 
+
+      * **Stringa di connessione:** `AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
+
+      * **Chiave di partizione:** /Country 
+
+      * **Velocità effettiva di raccolta:** 1000 
 
 Per condividere i report in PowerBI.com, è necessario avere un account in PowerBI.com.  Per altre informazioni su Power BI e su Power BI Pro, visitare il sito [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a6c8a8aa954379036ce566a205b8cb4e97952727
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282533"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887842"
 ---
 # <a name="add-a-popup-to-the-map"></a>Aggiungere un popup alla mappa
 
@@ -37,20 +37,32 @@ Il quarto blocco di codice crea un [oggetto popup](https://docs.microsoft.com/ja
 
 L'ultimo blocco di codice crea una funzione che viene attivata dal listener di eventi `mouseover`. Imposta il contenuto e le proprietà del popup e aggiunge l'oggetto popup alla mappa.
 
+## <a name="reusing-a-popup-with-multiple-points"></a>Riutilizzare un popup con più punti
+
+Quando si hanno molti punti e si vuole visualizzare un solo popup alla volta, l'approccio migliore è creare un popup e riutilizzarlo anziché crearne uno per ogni funzionalità punto. In questo modo, il numero di elementi DOM creati dall'applicazione è notevolmente ridotto, il che può fornire prestazioni migliori. Questo esempio crea tre funzionalità punto. Se si fa clic su una di esse, verrà visualizzato un popup con il contenuto di tale funzionalità punto.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Riutilizzo di popup con più segnaposto' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pins</a> (Riutilizzo di popup con più segnaposto) di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
 
 Vedere gli articoli seguenti che contengono esempi efficaci di codice completo:
 
 > [!div class="nextstepaction"]
-> [Aggiungere una forma](./map-add-shape.md)
+> [Aggiungere un livello per i simboli](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere codice HTML personalizzato](./map-add-custom-html.md)
+> [Aggiungere un indicatore HTML](./map-add-custom-html.md)
+
+> [!div class="nextstepaction"]
+> [Aggiungere una forma](./map-add-shape.md)

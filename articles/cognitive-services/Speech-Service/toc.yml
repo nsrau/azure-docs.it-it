@@ -10,50 +10,66 @@ items:
   expanded: true
 - name: Guide introduttive
   items:
-  - name: Riconoscimento vocale
+  - name: SDK
     items:
-    - name: Uso di C# (.NET in Windows)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-csharp-dotnet-windows.md
-    - name: Uso di C# (.NET Core in Windows)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-csharp-dotnetcore-windows.md
-    - name: Uso di C# (piattaforma UWP)
-      displayName: recognize speech, speech recognition, speech to text, stt, C#, UWP
-      href: quickstart-csharp-uwp.md
-    - name: Uso di C++ (Windows)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-cpp-windows.md
-    - name: Uso di C++ (Linux)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-cpp-linux.md
-    - name: Uso di Java (Android)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-java-android.md
-    - name: Uso di Java (Windows o Linux)
-      displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
-      href: quickstart-java-jre.md
-    - name: Uso di JavaScript (browser)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-js-browser.md
-    - name: Uso di JavaScript (Node.js)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-js-node.md
-    - name: Uso di Objective-C (iOS)
-      displayName: recognize speech, speech recognition, speech to text, stt, xcode
-      href: quickstart-objectivec-ios.md
-    - name: Uso di Python
-      displayName: recognize speech, speech recognition, speech to text, stt, python
-      href: quickstart-python.md
-  - name: Sintesi vocale
+    - name: Riconoscimento vocale
+      items:
+      - name: C# (.NET Framework - Windows)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-csharp-dotnet-windows.md
+      - name: C# (.NET Core - Windows)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-csharp-dotnetcore-windows.md
+      - name: C# (piattatorma UWP)
+        displayName: recognize speech, speech recognition, speech to text, stt, C#, universal windows platform
+        href: quickstart-csharp-uwp.md
+      - name: C++ (Windows)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-cpp-windows.md
+      - name: C++ (Linux)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-cpp-linux.md
+      - name: Java (Android)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-java-android.md
+      - name: Java (Windows, Linux)
+        displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
+        href: quickstart-java-jre.md
+      - name: JavaScript (Browser)
+        href: quickstart-js-browser.md
+      - name: JavaScript (Node.js)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-js-node.md
+      - name: Objective-C (iOS)
+        displayName: recognize speech, speech recognition, speech to text, stt, xcode
+        href: quickstart-objectivec-ios.md
+      - name: Python
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-python.md
+    - name: Traduzione vocale
+      items:
+      - name: C# (.NET Core - Windows)
+        href: quickstart-translate-speech-dotnetcore-windows.md
+      - name: C# (.NET Framework - Windows)
+        href: quickstart-translate-speech-dotnetframework-windows.md
+      - name: C# (piattatorma UWP)
+        displayName: recognize speech, speech recognition, speech to text, stt, C#, universal windows platform
+        href: quickstart-translate-speech-uwp.md
+      - name: C++ (Windows)
+        href: quickstart-translate-speech-cpp-windows.md
+      - name: Java (Windows, Linux)
+        href: quickstart-translate-speech-java-jre.md
+  - name: API REST
     items:
-    - name: Uso di C#, REST
-      href: quickstart-dotnet-text-to-speech.md
-    - name: Uso di Node.js, REST
-      href: quickstart-nodejs-text-to-speech.md
-    - name: Uso di Python, REST
-      href: quickstart-python-text-to-speech.md
-  - name: Introduzione a Speech Devices SDK
+    - name: Conversione sintesi vocale
+      items:
+      - name: C# (.NET Core)
+        href: quickstart-dotnet-text-to-speech.md
+      - name: Node.js
+        href: quickstart-nodejs-text-to-speech.md
+      - name: Python
+        href: quickstart-python-text-to-speech.md
+  - name: Speech Devices SDK
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk-qsg.md
 - name: Esercitazioni
@@ -210,9 +226,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacy e cookie
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 47335f2e0b09f797b01bfcbcc876f9a09dc57ecc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 16459f36ce6c65199fb609310ceac0a8863a6324
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605824"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715036"

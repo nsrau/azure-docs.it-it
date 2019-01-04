@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: bfb53ddf666426253cce08e6f09a5297f5d2f4d3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: ae2b06f266ef19d9558511284ba94c77cdca1955
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634108"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409684"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Eseguire query Apache Hive usando gli strumenti Data Lake per Visual Studio
 
@@ -24,7 +24,7 @@ Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguir
 
 * Un cluster Azure HDInsight (Apache Hadoop in HDInsight)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Visual Studio (una delle versioni seguenti):
@@ -37,7 +37,7 @@ Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguir
 
 * Strumenti HDInsight per Visual Studio o Azure Data Lake Tools per Visual Studio. Vedere [Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio](apache-hadoop-visual-studio-tools-get-started.md) per informazioni sull'installazione e la configurazione degli strumenti.
 
-## <a id="run"></a> Eseguire query Hive usando Visual Studio
+## <a id="run"></a> Eseguire query Apache Hive usando Visual Studio
 
 1. Aprire **Visual Studio** e scegliere **Nuovo** > **Progetto** > **Azure Data Lake** > **HIVE** > **Applicazione Hive**. Specificare un nome per questo progetto.
 
@@ -54,20 +54,20 @@ Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguir
 
     Le istruzioni eseguono queste azioni:
 
-   * `DROP TABLE`: se la tabella esiste, questa istruzione la elimina.
+   * `DROP TABLE`: Se la tabella esiste, questa istruzione la elimina.
 
-   * `CREATE EXTERNAL TABLE`: crea una nuova tabella "esterna" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
+   * `CREATE EXTERNAL TABLE`: Crea una nuova tabella "esterna" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Usa le tabelle esterne se si prevede che i dati sottostanti verranno aggiornati da un'origine esterna. Ad esempio, un processo MapReduce o un servizio di Azure.
      >
      > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
-   * `ROW FORMAT`: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
+   * `ROW FORMAT`: Indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
 
-   * `STORED AS TEXTFILE LOCATION`: indica a Hive che i dati sono archiviati nella directory example/data e che sono archiviati come testo.
+   * `STORED AS TEXTFILE LOCATION`: Indica a Hive che i dati sono archiviati nella directory example/data e che sono archiviati come testo.
 
-   * `SELECT`: seleziona un numero di tutte le righe in cui la colonna `t4` include il valore `[ERROR]`. L'istruzione dovrebbe restituire un valore pari a `3`, poiché sono presenti tre righe contenenti questo valore.
+   * `SELECT`: Seleziona un numero di tutte le righe in cui la colonna `t4` include il valore `[ERROR]`. L'istruzione dovrebbe restituire un valore pari a `3`, poiché sono presenti tre righe contenenti questo valore.
 
    * `INPUT__FILE__NAME LIKE '%.log'`: indica a Hive che si dovrebbero restituire solo i dati da file che terminano con .log. Questa clausola limita la ricerca al file sample.log che contiene i dati.
 
@@ -93,14 +93,14 @@ Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguir
 
     Le istruzioni eseguono queste azioni:
 
-   * `CREATE TABLE IF NOT EXISTS`: crea una tabella, se non esiste già. Poiché la parola chiave `EXTERNAL` non viene usata, questa istruzione crea una tabella interna. Le tabelle interne vengono archiviate nel data warehouse di Hive e sono gestite da Hive.
+   * `CREATE TABLE IF NOT EXISTS`: Crea una tabella, se non esiste già. Poiché la parola chiave `EXTERNAL` non viene usata, questa istruzione crea una tabella interna. Le tabelle interne vengono archiviate nel data warehouse di Hive e sono gestite da Hive.
 
-     > [!NOTE]
+     > [!NOTE]  
      > A differenza delle tabelle `EXTERNAL`, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
 
-   * `STORED AS ORC`: archivia i dati nel formato ORC, Optimized Row Columnar. ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
+   * `STORED AS ORC`: Archivia i dati nel formato ORC, Optimized Row Columnar. ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
 
-   * `INSERT OVERWRITE ... SELECT`: seleziona le righe della tabella `log4jLogs` contenenti `[ERROR]`, quindi inserisce i dati nella tabella `errorLogs`.
+   * `INSERT OVERWRITE ... SELECT`: Seleziona le righe della tabella `log4jLogs` contenenti `[ERROR]`, quindi inserisce i dati nella tabella `errorLogs`.
 
 8. Nella barra degli strumenti selezionare **Invia** per eseguire il processo. Usare **Stato processo** per accertarsi che il processo sia stato completato correttamente.
 
@@ -112,27 +112,27 @@ Come si può notare, gli strumenti HDInsight per Visual Studio forniscono un mod
 
 Per informazioni generali su Hive in HDInsight:
 
-* [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
+* [Usare Apache Hive con Apache Hadoop su HDInsight](hdinsight-use-hive.md)
 
 Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
-* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
+* [Usare Apache Pig con Apache Hadoop su HDInsight](hdinsight-use-pig.md)
 
-* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
+* [Usare MapReduce con Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)
 
 Per altre informazioni su HDInsight Tools per Visual Studio:
 
 * [Introduzione all'uso di HDInsight Tools per Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -147,7 +147,7 @@ Per altre informazioni su HDInsight Tools per Visual Studio:
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png

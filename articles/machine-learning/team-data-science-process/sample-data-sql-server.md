@@ -1,6 +1,6 @@
 ---
-title: Dati di esempio di SQL Server in Azure| Microsoft Docs
-description: Dati di esempio in SQL Server in Azure
+title: Campionare dati in SQL Server in Azure - Processo di data science per i team
+description: Campionare dati archiviati in SQL Server in Azure usando SQL o il linguaggio di programmazione Python e quindi spostarli in Azure Machine Learning.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 6483ba9f070252f58e0e3706472939dbfab12b59
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: fec649706be1b3db01a5c6cbc8f395e8c7e1a4d2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445039"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134336"
 ---
-# <a name="heading"></a>Dati di esempio in SQL Server in Azure
+# <a name="heading"></a>Campionare dati in SQL Server in Azure
 
 Questo articolo illustra come campionare dati archiviati in SQL Server su Azure usando SQL o il linguaggio di programmazione Python. Viene inoltre illustrato come spostare i dati campionati in Azure Machine Learning salvandoli in un file, caricandoli in un BLOB di Azure e quindi leggendoli in Azure Machine Learning Studio.
 
@@ -30,9 +30,9 @@ Il campionamento di Python usa la libreria ODBC [pyodbc](https://code.google.com
 > 
 
 **Perché campionare i dati?**
-Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Questa operazione facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di funzionalità. Il suo ruolo nel [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli di Machine Learning.
+Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Questa operazione facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di caratteristiche. Il suo ruolo nel [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli di Machine Learning.
 
-Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="SQL"></a>Utilizzo di SQL
 In questa sezione vengono descritti alcuni metodi di utilizzo di SQL per eseguire il campionamento casuale semplice dei dati all'interno del database. Scegliere il metodo in base alla dimensione dei dati e alla loro distribuzione.
@@ -111,7 +111,7 @@ La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 
 ![lettore BLOB][2]
 
-## <a name="the-team-data-science-process-in-action-example"></a>Esempio del Processo di analisi scientifica dei dati per i team
+## <a name="the-team-data-science-process-in-action-example"></a>Esempio del processo di data science per i team in azione
 Per un esempio della procedura dettagliata del processo di data science per i team usando un set di dati pubblici, vedere [Processo di data science per i team in azione: uso di SQL Server](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png

@@ -1,21 +1,22 @@
 ---
-title: Documentazione dell'API di Speech Service SDK - Esercitazioni, informazioni di riferimento per l'API
+title: Sviluppare app con Speech SDK - Servizi di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come creare e sviluppare app con Speech Service SDK
+description: Informazioni su come creare app con Speech SDK.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 7510b1501051b79f6bdaf33ec57647a7982fafda
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 4999639356fd440b6358983f1e4859fb3c505fc7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469419"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106499"
 ---
 # <a name="ship-an-application"></a>Spedire un'applicazione
 
@@ -23,7 +24,7 @@ Osservare la [licenza Speech SDK](https://aka.ms/csspeech/license201809), nonch�
 
 A seconda della piattaforma, esistono diverse dipendenze per eseguire l'applicazione.
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 Speech SDK do Servizi cognitivi è stato testato su Windows 10 e su Windows Server 2016.
 
@@ -38,7 +39,7 @@ Per l'input del microfono, è necessario installare le raccolte Media Foundation
 
 I file Speech SDK richiesti possono essere distribuiti nella stessa directory dell'applicazione. In questo modo l'applicazione può accedere direttamente alle raccolte. Assicurarsi di selezionare la versione corretta (Win32/x64) corrispondente all'applicazione.
 
-| Nome | Funzione
+| NOME | Funzione
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK di base, necessario per la distribuzione nativa e gestita
 | `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Obbligatorio per le distribuzioni gestite
@@ -63,5 +64,5 @@ sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di valutazione gratuita del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
+* [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
 * [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)

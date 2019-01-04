@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304238"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089702"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creare modelli di Azure Resource Manager per la distribuzione di app per la logica
 
@@ -27,8 +27,8 @@ Per altre informazioni sui modelli di Resource Manager, vedere gli articoli su [
 
 Un'app per la logica dispone di tre componenti di base:
 
-* **Risorsa di app per la logica**: contiene informazioni su elementi quali piano tariffario, posizione e definizione del flusso di lavoro.
-* **Definizione del flusso di lavoro**: descrive i passaggi del flusso di lavoro dell'app per la logica e come il motore dell'app per la logica deve eseguire il flusso di lavoro.
+* **Risorsa dell'app per la logica**: contiene informazioni su elementi quali piano tariffario, posizione e definizione del flusso di lavoro.
+* **Definizione del flusso di lavoro**: descrive i passaggi del flusso di lavoro dell'app per la logica e come il motore di App per la logica deve eseguire il flusso di lavoro.
 È possibile visualizzare questa definizione nella finestra **Visualizzazione Codice** dell'app per la logica.
 Nella risorsa di app per la logica è possibile trovare questa definizione nella proprietà `definition`.
 * **Connessioni**: si riferisce a risorse separate per archiviare in modo sicuro i metadati su qualsiasi connessione del connettore, ad esempio una stringa di connessione e un token di accesso.
@@ -173,7 +173,7 @@ Se si dispone di un progetto Gruppo di risorse esistente, è possibile aggiunger
 
 ## <a name="deploy-a-logic-app-template"></a>Distribuire un modello di app per la logica
 
-Per distribuire il modello, è possibile usare alcuni strumenti, inclusi PowerShell, API REST, [Azure DevOps Release Management](#team-services) e la distribuzione dei modelli attraverso il portale di Azure.
+Per distribuire il modello, è possibile usare alcuni strumenti, inclusi PowerShell, API REST, [Azure DevOps Pipelines](#team-services) e la distribuzione dei modelli attraverso il portale di Azure.
 Per archiviare i valori per i parametri, è inoltre consigliabile creare un [file di parametri](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 Sono disponibili informazioni su come [distribuire risorse con i modelli di Azure Resource Manager e PowerShell](../azure-resource-manager/resource-group-template-deploy.md) o [distribuire risorse con i modelli di Azure Resource Manager e il Portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -185,11 +185,11 @@ Per autorizzare le connessioni OAuth, aprire l'app per la logica nella finestra 
 Nel progetto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) è presente uno script di esempio su GitHub.
 
 <a name="team-services"></a>
-## <a name="azure-devops-release-management"></a>Azure DevOps - Release Management
+## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Pipelines
 
-Uno scenario comune per la distribuzione e la gestione di ambienti consiste nell'usare uno strumento come Release Management per Azure DevOps con un modello di distribuzione di app per la logica. Azure DevOps include un'attività [Distribuisci gruppo di risorse di Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) che può essere aggiunta in una pipeline di versione o di compilazione. Per l'autorizzazione alla distribuzione è necessario avere un'[entità servizio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Sarà quindi possibile generare la pipeline di versione.
+Uno scenario comune per la distribuzione e la gestione di ambienti consiste nell'usare uno strumento come Azure Pipelines in Azure DevOps con un modello di distribuzione di app per la logica. Azure DevOps include un'attività [Distribuisci gruppo di risorse di Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) che può essere aggiunta in una pipeline di versione o di compilazione. Per l'autorizzazione alla distribuzione è necessario avere un'[entità servizio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Sarà quindi possibile generare la pipeline di versione.
 
-1. In Release Management selezionare **Vuoto** per creare una pipeline vuota.
+1. In Azure Pipelines selezionare **Vuoto** per creare una pipeline vuota.
 
     ![Creare una pipeline vuota][1]
 

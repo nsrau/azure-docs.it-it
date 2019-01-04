@@ -2,18 +2,18 @@
 title: Installazione invisibile all'utente del server di Backup di Azure V2
 description: Usare uno script di PowerShell per installare in modo invisibile il server di Backup di Azure V2. Questo tipo di installazione è chiamato anche installazione automatica.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: markgal
-ms.openlocfilehash: 8f7bda070e613e5495d3733dd1610cb291e12c36
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: raynew
+ms.openlocfilehash: dd66710a24ca28b78c6b3e0a8197a078f17524db
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612696"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868141"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Eseguire un'installazione automatica del server di Backup di Azure
 

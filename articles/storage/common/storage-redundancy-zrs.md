@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: b310c06f508395635976009005dd2c4db2917abc
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 1b39de45d5046ce5a59dcaf0648b87aca2a5c6f5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218740"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868345"
 ---
-# <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona: applicazioni di Archiviazione Azure a disponibilità elevata
+# <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## <a name="support-coverage-and-regional-availability"></a>Copertura del supporto e disponibilità a livello di area
@@ -41,7 +41,7 @@ I dati sono ancora accessibili anche se una zona non è più disponibile. Micros
 
 Quando una zona non è disponibile, Azure avvia gli aggiornamenti di rete, ad esempio la modifica del puntamento DNS. Questi aggiornamenti possono interessare l'applicazione se si accede ai dati prima che l'aggiornamento sia stato completato.
 
-L'archiviazione con ridondanza della zona potrebbe non proteggere i dati in caso di un'emergenza a livello di area in cui più zone sono interessate in modo permanente. L'archiviazione con ridondanza della zona offre invece resilienza per i dati qualora diventino temporaneamente non disponibili. Per la protezione in caso di emergenze a livello di area, Microsoft consiglia di usare l'archiviazione con ridondanza geografica (GRS). Per altre informazioni sull'archiviazione con ridondanza geografica, vedere [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md).
+L'archiviazione con ridondanza della zona potrebbe non proteggere i dati in caso di un'emergenza a livello di area in cui più zone sono interessate in modo permanente. L'archiviazione con ridondanza della zona offre invece resilienza per i dati qualora diventino temporaneamente non disponibili. Per la protezione in caso di emergenze a livello di area, Microsoft consiglia di usare l'archiviazione con ridondanza geografica (GRS). Per altre informazioni sull'archiviazione con ridondanza geografica (GRS), vedere [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md).
 
 ## <a name="converting-to-zrs-replication"></a>Conversione nella replica di archiviazione con ridondanza della zona
 La migrazione in o da archiviazione con ridondanza locale, archiviazione con ridondanza geografica e archiviazione con ridondanza geografica e accesso in lettura è molto semplice. Per modificare il tipo di ridondanza dell'account, usare il portale di Azure o l'API del provider delle risorse di archiviazione. Azure eseguirà quindi la replica dei dati in modo conforme all'opzione scelta. 
@@ -78,13 +78,13 @@ Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 3. Selezionare **Avanti**. 
 4. Specificare i valori seguenti nella sezione **Problema**: 
     - **Gravità**: lasciare il valore predefinito.
-    - **Tipo di problema**: selezionare **Migrazione dei dati**.
+    - **Tipo di problema**: Selezionare **Migrazione dei dati**.
     - **Categoria**: selezionare **Migrate to ZRS within a region** (Migrazione a ZRS in un'area).
-    - **Titolo**: digitare un titolo descrittivo, ad esempio **migrazione di account con archiviazione con ridondanza della zona**.
-    - **Informazioni dettagliate**: digitare dettagli aggiuntivi nella casella **Dettagli**, ad esempio Vorrei eseguire la migrazione all'archiviazione con ridondanza locale da [LRS, GRS] nell'area ______. 
+    - **Titolo**: digitare un titolo descrittivo, ad esempio **Migrazione di account ZRS**.
+    - **Informazioni dettagliate**: digitare dettagli aggiuntivi nella casella **Dettagli**, ad esempio Vorrei eseguire la migrazione all'archiviazione con ridondanza locale da [LRS, GRS] nell'area \_\_. 
 5. Selezionare **Avanti**.
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Crea**.
+7. Selezionare **Create**.
 
 Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria. 
 

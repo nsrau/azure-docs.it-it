@@ -1,5 +1,5 @@
 ---
-title: Panoramica dell'architettura di rete degli ambienti del servizio app
+title: Panoramica dell'architettura di rete degli ambienti del servizio app - Azure
 description: Panoramica dell'architettura della topologia di rete degli ambienti del servizio app.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 3362a55524da42914681db06b8d2c0da8df773d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 0d7d4af46e54ad89e0d084cb15af13e56115e996
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986776"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274170"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Panoramica dell'architettura di rete degli ambienti del servizio app
 ## <a name="introduction"></a>Introduzione
@@ -86,7 +87,7 @@ Informazioni dettagliate sulle porte in ingresso usate dagli ambienti del serviz
 Informazioni dettagliate sull'uso di route definite dall'utente per concedere l'accesso Internet in uscita agli ambienti del servizio app sono disponibili in questo [articolo][ExpressRoute]. 
 
 <!-- LINKS -->
-[virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
+[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
 [controllinginboundtraffic]:  app-service-app-service-environment-control-inbound-traffic.md
 [ExpressRoute]:  app-service-app-service-environment-network-configuration-expressroute.md
 

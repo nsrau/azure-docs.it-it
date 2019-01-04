@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71b0739bacd8df586267b61a9135f448aa76479d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422355"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082238"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
@@ -23,7 +23,7 @@ QnA Maker estrae automaticamente coppie di domande e risposte da contenuto semis
 
 La tabella seguente riepiloga i tipi di contenuto e di formato di file supportati da QnA Maker.
 
-|Tipo di origine|Tipo di contenuto| Esempi|
+|Tipo di origine|Content Type| Esempi|
 |--|--|--|
 |URL|Domande frequenti (con struttura piatta, a sezioni o con collegamenti ad altre pagine)|[Pagine semplici di domande frequenti](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [pagine di domande frequenti con collegamenti](https://www.microsoft.com/software-download/faq), [pagine di domande frequenti con collegamenti ad altre pagine](https://support.microsoft.com/products/windows?os=windows-10)|
 |PDF/DOC|Domande frequenti, manuale del prodotto, brochure, documenti, volantino con i Criteri di Azure, guida di supporto tecnico, domanda-risposta strutturato e così via.|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
@@ -36,7 +36,7 @@ Solo gli URL pubblici sono validi per tutte le origini dati. Non inviare origini
 
 ## <a name="faq-urls"></a>Indirizzo Web di domande frequenti
 
-QnA Maker supporta 3 diversi formati di pagine Web di domande frequenti: pagine semplici di domande frequenti, pagine di domande frequenti con collegamenti, pagine di domande frequenti con collegamenti ad altre pagine.
+QnA Maker può supportare tre diversi formati di pagine Web di domande frequenti: pagine semplici di domande frequenti, pagine di domande frequenti con collegamenti, pagine di domande frequenti con collegamenti ad altre pagine.
 
 ### <a name="plain-faq-pages"></a>Pagine semplici di domande frequenti
 
@@ -44,7 +44,7 @@ Si tratta del tipo più comune di pagina di domande frequenti, in cui le rispost
 
 Di seguito è riportato un esempio di pagina semplice di domande frequenti:
 
-![Pagina semplice di domande frequenti](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![Esempio di pagina semplice di domande frequenti per una knowledge base](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
 ### <a name="faq-pages-with-links"></a>Pagina di domande frequenti con collegamenti 
@@ -53,7 +53,7 @@ In questo tipo di pagina di domande frequenti, le domande sono aggregate e colle
 
 Di seguito è riportato un esempio di pagina di domande frequenti con collegamenti a sezioni che si trovano nella stessa pagina:
 
- ![Pagina di domande frequenti con collegamenti a sezioni](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![Esempio di pagina di domande frequenti con collegamenti a sezioni per una knowledge base](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
 ### <a name="faq-pages-with-a-topics-homepage"></a>Pagina di domande frequenti con collegamenti ad altre pagine
@@ -62,7 +62,7 @@ Questo tipo di pagina di domande frequenti include una home page con argomenti i
 
 Di seguito è riportato un esempio di pagina delle domande frequenti in cui la home page di argomenti include collegamenti a sezioni di domande frequenti in pagine diverse. 
 
- ![Pagina delle domande frequenti con collegamento diretto](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![Esempio di pagina di domande frequenti con collegamenti diretti per una knowledge base](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
 ## <a name="pdf-doc-files"></a>File PDF/DOC
@@ -77,14 +77,14 @@ Un manuale è in genere materiale di riferimento fornito insieme a un prodotto. 
 
 Di seguito è riportato un esempio di un manuale con una pagina di indice e con contenuto gerarchico
 
- ![Esempio di manuale del prodotto](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![Esempio di manuale del prodotto per una knowledge base](../media/qnamaker-concepts-datasources/product-manual.png) 
 
 > [!NOTE]
 > L'estrazione funziona al meglio con i manuali che hanno un sommario e/o una pagina di indice e una struttura chiara con titoli gerarchici.
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>Brochure, linee guida, documenti e altri file
 
-Possono essere elaborati anche molti altri tipi di documento in modo che possano generare coppie di controllo qualità, purché essi dispongano di una struttura e di un layout chiari. Sono inclusi: brochure, linee guida, report, white paper, documenti scientifici, criteri, documentazioni e così via. Vedere un esempio [qui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
+Possono essere elaborati anche molti altri tipi di documento in modo che possano generare coppie di controllo qualità, purché essi dispongano di una struttura e di un layout chiari. incluse le seguenti: brochure, linee guida, report, white paper, documenti scientifici, criteri, documentazioni e così via. Vedere un esempio [qui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
 Di seguito è riportato un esempio di documento semistrutturato, senza un indice:
 
@@ -106,7 +106,7 @@ Answer2
 
 Di seguito è riportato un esempio di un documento di Word di domanda-risposta strutturato:
 
- ![Documento domanda-risposta strutturato](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![Esempio di documento domanda-risposta strutturato per una knowledge base](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
 
 ## <a name="structured-txt-tsv-and-xls-files"></a>File *TXT*, *TSV* e *XLS* strutturati
 
@@ -121,7 +121,7 @@ Qualsiasi colonna aggiuntiva nel file di origine viene ignorata.
 
 Di seguito è riportato un esempio di file *.xls* domanda-risposta strutturato, con contenuto HTML:
 
- ![File Excel domanda-risposta strutturato](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![Esempio di file Excel domanda-risposta strutturato per una knowledge base](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ## <a name="structured-data-format-through-import"></a>Formato di dati strutturati tramite l'importazione
 

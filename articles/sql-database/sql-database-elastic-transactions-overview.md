@@ -3,7 +3,7 @@ title: Transazioni distribuite in database cloud
 description: Panoramica delle transazioni di database elastico con il database SQL di Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 02cf72bf9fe06993ef859d1789983b7611c8472e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2418de5c20c34ae82ad36a914955fb338afd2822
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257470"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877185"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transazioni distribuite in database cloud
 Le transazioni di database elastico per il database SQL di Azure consentono di eseguire transazioni estese a più database nel database SQL. Le transazioni di database elastico per il database SQL sono disponibili per le applicazioni .NET tramite ADO .NET e si integrano con la familiare esperienza di programmazione usando le classi [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Per ottenere la libreria, vedere [Microsoft .NET Framework 4.6.1 (programma di installazione Web)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -30,7 +30,7 @@ In locale questo scenario richiede in genere l'esecuzione di Microsoft Distribut
 Le transazioni di database elastico per il database SQL consentono alle applicazioni di apportare modifiche atomiche ai dati archiviati in diversi database SQL. L'anteprima è incentrata sulle esperienze di sviluppo sul lato client in C# e .NET. Un'esperienza sul lato server con T-SQL è prevista per un momento successivo.  
 Le transazioni di database elastico sono destinate agli scenari seguenti:
 
-* Applicazioni con più database in Azure: con questo scenario i dati sono partizionati verticalmente in più database nel database SQL, in modo che diversi tipi di dati risiedano in database diversi. Alcune operazioni richiedono modifiche ai dati mantenuti in due o più database. L'applicazione usa le transazioni di database elastico per coordinare le modifiche tra i database e garantire l'atomicità.
+* Applicazioni con più database in Azure: con questo scenario i dati vengono partizionati verticalmente in più database nel database SQL, in modo che diversi tipi di dati risiedano in database diversi. Alcune operazioni richiedono modifiche ai dati mantenuti in due o più database. L'applicazione usa le transazioni di database elastico per coordinare le modifiche tra i database e garantire l'atomicità.
 * Applicazioni di database partizionato in Azure: con questo scenario il livello dati usa la [libreria client dei database elastici](sql-database-elastic-database-client-library.md) o il partizionamento automatico per eseguire il partizionamento orizzontale dei dati in molti database nel database SQL. Un caso d'uso significativo è la necessità di eseguire modifiche atomiche per un'applicazione multi-tenant partizionata, quando le modifiche si estendono a più tenant. Si pensi ad esempio a un trasferimento da un tenant all'altro, entrambi residenti in database diversi. Un secondo caso è il partizionamento orizzontale con granularità fine per soddisfare le esigenze di capacità per un tenant di grandi dimensioni che, a sua volta, implica in genere la necessità che alcune operazioni atomiche siano estese a diversi database usati per lo stesso tenant. Un terzo caso sono gli aggiornamenti atomici per fare riferimento ai dati replicati tra i database. Le operazioni atomiche e transazionali che seguono questo schema ora possono essere coordinate in diversi database usando l'anteprima.
   Le transazioni di database elastico usano il protocollo 2PC per garantire l'atomicità delle transazioni nei database. È una scelta ideale per le transazioni che coinvolgono meno di 100 database alla volta in una singola transazione. Questi limiti non vengono applicati, ma quando vengono superati è consigliabile prevedere una riduzione delle prestazioni e delle percentuali di riuscita delle transazioni di database elastico.
 
@@ -122,12 +122,12 @@ Le transazioni di database elastici sono supportate in diversi server logici del
 
 Usare i seguenti cmdlet di PowerShell per la gestione delle relazioni di comunicazione tra server per le transazioni di database elastici:
 
-* **New AzureRmSqlServerCommunicationLink**: usare questo cmdlet per creare una nuova relazione di comunicazione tra due server logici in un database SQL di Azure. La relazione è simmetrica, ovvero entrambi i server possono avviare le transazioni con l'altro server.
+* **New-AzureRmSqlServerCommunicationLink**: usare questo cmdlet per creare una nuova relazione di comunicazione tra due server logici in un database SQL di Azure. La relazione è simmetrica, ovvero entrambi i server possono avviare le transazioni con l'altro server.
 * **Get-AzureRmSqlServerCommunicationLink**: usare questo cmdlet per recuperare le relazioni di comunicazione esistenti e le relative proprietà.
 * **Remove-AzureRmSqlServerCommunicationLink**: usare questo cmdlet per rimuovere una relazione di comunicazione esistente. 
 
 ## <a name="monitoring-transaction-status"></a>Monitoraggio dello stato delle transazioni
-Per monitorare lo stato e l'avanzamento delle transazioni di database elastico in corso, usare viste a gestione dinamica (DMV) nel database SQL. Tutte le viste a gestione dinamica correlate alle transazioni sono rilevanti per le transazioni distribuite nel database SQL. È possibile trovare l'elenco delle viste a gestione dinamica corrispondente in [Funzioni e viste a gestione dinamica relative alle transazioni (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Per monitorare lo stato e l'avanzamento delle transazioni di database elastico in corso, usare viste a gestione dinamica (DMV) nel database SQL. Tutte le viste a gestione dinamica correlate alle transazioni sono rilevanti per le transazioni distribuite nel database SQL. È possibile trovare l'elenco corrispondente di DMV di seguito: [Funzioni e viste a gestione dinamica relative alle transazioni (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
 
 Queste viste a gestione dinamica sono particolarmente utili:
 

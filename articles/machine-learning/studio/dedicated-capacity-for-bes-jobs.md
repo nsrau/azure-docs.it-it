@@ -1,12 +1,11 @@
 ---
-title: Capacità dedicata per i processi del servizio di esecuzione Batch di Machine Learning - Azure Machine Learning Studio | Microsoft Docs
-description: Panoramica dei servizi di Azure Batch per i processi di Machine Learning.
+title: Servizio Azure Batch per processi di Machine Learning Studio | Microsoft Docs
+description: Panoramica dei servizi di Azure Batch per i processi di Machine Learning. L'elaborazione di pool di Batch consente di creare pool a cui è possibile inviare i processi batch.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.service: machine-learning
 ms.component: studio
@@ -15,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 13e9921b15faff10ac250aa7c19d655ada782ce2
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 44b63a51049e663e55cc59a623837cf65cab9ccc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308133"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275194"
 ---
-# <a name="azure-batch-service-for-machine-learning-jobs"></a>Servizio Azure Batch per i processi di Machine Learning
+# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Servizio Azure Batch per processi di Azure Machine Learning Studio
 
 L'elaborazione di pool di Batch in Machine Learning fornisce la scalabilità gestita dal cliente per il servizio di esecuzione Batch di Azure Machine Learning. L'elaborazione batch classica per l'apprendimento automatico avviene in un ambiente multi-tenant, limitando il numero di processi simultanei che è possibile inviare, e i processi vengono accodati in base alla modalità First-In-First-Out. Non è quindi possibile prevedere con precisione quando verrà eseguito il processo.
 

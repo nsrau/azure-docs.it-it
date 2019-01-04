@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul runtime di Azure IoT Edge| Microsoft Docs
-description: Informazioni sul runtime di Azure IoT Edge e su come potenzia i dispositivi perimetrali
+title: Informazioni su come il runtime gestisce i dispositivi - Azure IoT Edge | Microsoft Docs
+description: Informazioni su come i moduli, la sicurezza, le comunicazioni e la creazione di report per i dispositivi vengono gestiti dal runtime di Azure IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 05c97d21e9acf1bb49418e3a7d0ccf1657f84435
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 3495d157f1a681e80b6d113acced53d01751690f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685192"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077495"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
 
@@ -29,7 +30,7 @@ Nei dispositivi IoT Edge, il runtime di IoT Edge esegue le funzioni seguenti:
 * Facilita la comunicazione tra i moduli sul dispositivo IoT Edge.
 * Facilita la comunicazione tra il dispositivo IoT Edge e il cloud.
 
-![Il runtime di IoT Edge comunica informazioni approfondite e l'integrità del modulo all'hub IoT](./media/iot-edge-runtime/Pipeline.png)
+![Il runtime comunica informazioni dettagliate e l'integrità del modulo all'hub IoT](./media/iot-edge-runtime/Pipeline.png)
 
 Le responsabilità del runtime di IoT Edge rientrano in due categorie: comunicazione e gestione dei moduli. Questi due ruoli vengono eseguiti da due componenti che sono alla base del runtime di IoT Edge. L'hub di IoT Edge è responsabile della comunicazione, mentre l'agente di IoT Edge gestisce la distribuzione e il monitoraggio dei moduli. 
 
@@ -49,7 +50,7 @@ L'hub di Edge non è una versione completa dell'hub IoT in esecuzione in locale.
 
 Per ridurre la larghezza di banda usata dalla soluzione IoT Edge, l'hub di Edge ottimizza il numero effettivo di connessioni eseguite nel cloud. L'hub di Edge accetta le connessioni logiche dai client quali moduli o dispositivi foglia e le combina per avere un'unica connessione fisica nel cloud. I dettagli di questo processo sono trasparenti per il resto della soluzione. Ai client sembra di avere ognuno la propria la connessione al cloud ma in realtà usano tutti la stessa connessione. 
 
-![L'hub di Edge funge da gateway tra più dispositivi fisici e il cloud](./media/iot-edge-runtime/Gateway.png)
+![L'hub di Edge è un gateway tra dispositivi fisici e l'hub IoT](./media/iot-edge-runtime/Gateway.png)
 
 L'hub di Edge può determinare se è connesso all'hub IoT. Se la connessione viene persa, l'hub di Edge salva i messaggi o gli aggiornamenti gemelli in locale. Quando viene ristabilita la connessione, tutti i dati vengono sincronizzati. Il percorso usato per la cache temporanea è determinato da una proprietà del modulo gemello dell'hub di Edge. Le dimensioni della cache non sono limitate e aumentano fino a quando il dispositivo ha capacità di archiviazione. 
 
@@ -57,7 +58,7 @@ L'hub di Edge può determinare se è connesso all'hub IoT. Se la connessione vie
 
 L'hub di Edge facilita la comunicazione da modulo a modulo. L'uso dell'hub di Edge come broker consente ai moduli di rimanere indipendenti. Per i moduli è sufficiente specificare gli input su cui accettano i messaggi e gli output su cui scrivono i messaggi. Uno sviluppatore di soluzioni quindi unisce gli input e gli output in modo che i moduli elaborino i dati nell'ordine specifico per tale soluzione. 
 
-![L'hub di Edge facilita la comunicazione da modulo a modulo](./media/iot-edge-runtime/ModuleEndpoints.png)
+![L'hub di Edge facilita la comunicazione da modulo a modulo](./media/iot-edge-runtime/module-endpoints.png)
 
 Per inviare i dati all'hub di Edge, un modulo chiama il metodo SendEventAsync. Il primo argomento specifica su quale output inviare il messaggio. Lo pseudocodice seguente invia un messaggio su output1:
 
@@ -73,13 +74,13 @@ Per ricevere un messaggio, registrare un callback che elabori i messaggi in arri
    await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
    ```
 
-Per altre informazioni sulla classe ModuleClient e sui metodi di comunicazione di questa, vedere il riferimento all'API per il linguaggio preferito per l'SDK: [ C# ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C e Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable) oppure [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Per altre informazioni sulla classe ModuleClient e i relativi metodi di comunicazione, vedere le informazioni si riferimento sull'API per il linguaggio preferito per l'SDK: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C e Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable) o [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 Lo sviluppatore di soluzioni è responsabile dell'indicazione delle regole che determinano la modalità in cui l'hub di Edge passa i messaggi tra i moduli. Le regole di routing sono definite nel cloud e propagate all'hub di Edge nel dispositivo gemello. La stessa sintassi per le route dell'hub IoT viene usata per definire le route tra i moduli di Azure IoT Edge. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Route tra i moduli](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
+![Le route tra i moduli passano attraverso l'hub di Edge](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
 ## <a name="iot-edge-agent"></a>Agente di IoT Edge
 

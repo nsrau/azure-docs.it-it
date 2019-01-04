@@ -6,47 +6,64 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: article
-ms.date: 7/11/2018
+ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: 1a732e22d72c36afe11030e42bae529baa35df1a
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 86fdbbacf3e8064afe0aaaaebea1d6ef6c25f9d4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992510"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865830"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Distribuire Firewall di Azure con un modello
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
+[Creare il modello di configurazione sandbox di AzureFirewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) crea un ambiente di rete di test con un firewall. La rete ha una rete virtuale (VNet) con tre subnet: *AzureFirewallSubnet*, *ServersSubnet*, e *JumpboxSubnet*. Ciascuna delle subnet *ServersSubnet* e *JumpboxSubnet* dispone di una macchina singola virtuale Windows Server a due core.
 
-Gli esempi negli articoli di Firewall di Azure presuppongono che sia già stata abilitata l'anteprima pubblica di Firewall di Azure. Per altre informazioni, vedere [Abilitare l'anteprima pubblica di Firewall di Azure](public-preview.md).
+Il firewall si trova nella subnet *AzureFirewallSubnet* e dispone di una raccolta di regole dell'applicazione con una singola regola che consente l'accesso a *www.microsoft.com*.
 
-Questo modello crea un firewall e un ambiente di rete di test. La rete contiene una rete virtuale con tre subnet: *AzureFirewallSubnet*, *ServersSubnet* e *JumpboxSubnet*. ServersSubnet e JumpboxSubnet contengono ognuna un'istanza di Windows Server con 2 core.
+Una route definita dall'utente punta al traffico di rete dalla subnet *ServersSubnet* attraverso il firewall, in cui vengono applicate le regole del firewall.
 
-Il firewall si trova in AzureFirewallSubnet ed è configurato con una raccolta di regole di applicazione con una singola regola che consente l'accesso a www.microsoft.com.
+Per altre informazioni su Firewall di Azure, vedere [Distribuire e configurare Firewall di Azure tramite il portale di Azure](tutorial-firewall-deploy-portal.md).
 
-Viene creata una route definita dall'utente che punta al traffico di rete da ServersSubnet attraverso il firewall, in cui vengono applicate le regole del firewall.
+## <a name="use-the-template-to-deploy-azure-firewall"></a>Usare il modello per distribuire Firewall di Azure
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="template-location"></a>Percorso del modello
+**Per installare e distribuire Firewall di Azure usando il modello:**
 
-Il modello si trova in:
+1. Accedere al modello all'indirizzo [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox).
+   
+1. Leggere l'introduzione e, quando si è pronti per la distribuzione, selezionare **Distribuisci in Azure**.
+   
+1. Se necessario, accedere al portale di Azure. 
 
-[https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox)
-
-Leggere l'introduzione e, quando si è pronti per la distribuzione, fare clic su **Distribuzione in Azure**.
+1. Nel portale, alla pagina **Creare una configurazione sandbox di AzureFirewall**, digitare o selezionare i seguenti valori:
+   
+   - **Gruppo di risorse**: selezionare **Crea nuovo**, digitare un nome per il gruppo di risorse e selezionare **OK**. 
+   - **Nome della rete virtuale**: Digitare un nome per la nuova rete virtuale. 
+   - **Nome utente amministratore**: Digitare un nome utente per l'account utente amministratore.
+   - **Password amministratore**: Digitare una password dell'amministratore. 
+   
+1. Leggere le condizioni, quindi selezionare **Accetto le condizioni riportate sopra**.
+   
+1. Selezionare **Acquisto**.
+   
+   La creazione delle risorse richiederà alcuni minuti. 
+   
+1. Esplorare le risorse create con il firewall. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per prima cosa esplorare le risorse create con il firewall e poi, quando non sono più necessari, è possibile usare il comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per eliminare il gruppo di risorse, il firewall e tutte le risorse correlate.
+Quando non servono più, è possibile rimuovere il gruppo di risorse, il firewall e tutte le relative risorse eseguendo il comando PowerShell [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Per rimuovere un gruppo di risorse denominato *MyResourceGroup*, eseguire: 
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmResourceGroup -Name MyResourceGroup
 ```
+Non rimuovere ancora il gruppo di risorse e il firewall se si prevede di continuare con l'esercitazione sul monitoraggio del firewall. 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 È ora possibile monitorare i log di Firewall di Azure:
 
-- [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)
-
+> [!div class="nextstepaction"]
+> [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)

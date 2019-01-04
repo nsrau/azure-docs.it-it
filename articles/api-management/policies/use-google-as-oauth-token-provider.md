@@ -1,6 +1,6 @@
 ---
-title: "Esempio di criteri di Gestione API di Azure: autorizzare l'accesso con token OAuth Google | Microsoft Docs"
-description: Esempio di criteri di Gestione API di Azure che illustra come autorizzare l'accesso agli endpoint usando Google come provider di token OAuth.
+title: "Esempio di criteri di gestione API di Azure: autorizzare l'accesso con token OAuth Google | Microsoft Docs"
+description: "Esempio di criteri di gestione API di Azure: illustra come autorizzare l'accesso agli endpoint usando Google come provider di token OAuth."
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 22aed976ef69288aa0e49215a739174786843527
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 430f9e57df163ad345f0740e5bd5beca6e892a4c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284590"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869305"
 ---
 # <a name="authorize-access-using-google-oauth-token"></a>Autorizzare l'accesso con token OAuth Google
 

@@ -1,5 +1,5 @@
 ---
-title: Ricompilare un indice di Ricerca di Azure o aggiornare il contenuto ricercabile | Microsoft Docs
+title: Ridimensionare l'indicizzazione con indicizzatori predefiniti - Ricerca di Azure
 description: Aggiungere nuovi elementi, aggiornare gli elementi o i documenti esistenti o eliminare i documenti obsoleti in una ricompilazione completa o in un'indicizzazione incrementale parziale per aggiornare un indice di Ricerca di Azure.
 services: search
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 0b346756349c483dea32ec31827a653bd9b777cf
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec2018
+ms.openlocfilehash: 5f268de43f4f860458c062cb80e5bea0134b4407
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705940"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316681"
 ---
 # <a name="how-to-scale-out-indexing-in-azure-search"></a>Come ridimensionare l'indicizzazione in Ricerca di Azure
 

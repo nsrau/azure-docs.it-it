@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e0bbfafcda77ca48fb22ad919c5848a7670a102
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 67658d75f7ad4a6db1af5db97a525774b0ab6e61
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309675"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095279"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copiare dati da ServiceNow usando Azure Data Factory
 
@@ -42,9 +42,9 @@ Per il servizio collegato ServiceNow sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **ServiceNow**. | Yes |
+| type | La proprietà type deve essere impostata su: **ServiceNow** | Yes |
 | endpoint | Endpoint del server ServiceNow (`http://<instance>.service-now.com`).  | Yes |
-| authenticationType | Tipo di autenticazione da usare. <br/>I valori consentiti sono **Basic**, **OAuth2** | Yes |
+| authenticationType | Tipo di autenticazione da usare. <br/>I valori consentiti sono i seguenti: Di **base**, **OAuth2** | Yes |
 | username | Nome utente usato per la connessione al server di ServiceNow per l'autenticazione di base e OAuth2.  | Yes |
 | password | Password corrispondente al nome utente per l'autenticazione di base e OAuth2. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | clientId | ID client per l'autenticazione OAuth2.  | No  |
@@ -77,7 +77,12 @@ Per il servizio collegato ServiceNow sono supportate le proprietà seguenti:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati di ServiceNow.
 
-Per copiare dati da ServiceNow, impostare la proprietà type del set di dati su **ServiceNowObject**. Non sono presenti proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per copiare dati da ServiceNow, impostare la proprietà type del set di dati su **ServiceNowObject**. Sono supportate le proprietà seguenti:
+
+| Proprietà | DESCRIZIONE | Obbligatoria |
+|:--- |:--- |:--- |
+| type | La proprietà type del set di dati deve essere impostata su: **ServiceNowObject** | Yes |
+| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -89,7 +94,8 @@ Per copiare dati da ServiceNow, impostare la proprietà type del set di dati su 
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -104,8 +110,8 @@ Per copiare dati da ServiceNow, impostare il tipo di origine nell'attività di c
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **ServiceNowSource** | Yes |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Actual.alm_asset"`. | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **ServiceNowSource** | Yes |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Actual.alm_asset"`. | No (se nel set di dati è specificato "tableName") |
 
 Tenere presente quanto segue quando si specifica lo schema e la colonna per ServiceNow nella query, e **fare riferimento ai [suggerimenti sulle prestazioni](#performance-tips) per le implicazioni della copia per le prestazioni**.
 
@@ -113,7 +119,7 @@ Tenere presente quanto segue quando si specifica lo schema e la colonna per Serv
 - **Colonna:** il nome di colonna per il valore effettivo nello schema `Actual` è `[columne name]_value`, mentre il valore visualizzato nello schema `Display` è `[columne name]_display_value`. Si noti il nome della colonna deve essere mappato allo schema usato nella query.
 
 **Query di esempio:**
-`SELECT col_value FROM Actual.alm_asset` O 
+`SELECT col_value FROM Actual.alm_asset` OR 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Esempio:**

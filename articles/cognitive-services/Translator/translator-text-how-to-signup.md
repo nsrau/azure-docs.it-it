@@ -1,5 +1,5 @@
 ---
-title: Come eseguire la registrazione a Traduzione testuale - API Traduzione testuale
+title: Introduzione - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come eseguire la registrazione all'API Traduzione testuale e ottenere una chiave di sottoscrizione.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: e7ba72c95959a0c31ca724f91f519ac705d669fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 011e1db141c36c44ef51edc62d0123fdf3c036c7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245784"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091562"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Come registrarsi all'API Traduzione testuale
 
@@ -48,6 +49,8 @@ Quando si effettua la registrazione a Traduzione testuale, si ottiene una chiave
 
 - [Esempi di codice in GitHub](https://github.com/MicrosoftTranslator)
 - [Forum di supporto su Microsoft Translator](https://www.aka.ms/TranslatorForum)
+
+Microsoft Translator elabora in genere le prime due richieste senza verificare lo stato dell'account di sottoscrizione. Se le prime richieste per l'API Microsoft Translator hanno esito positivo e quindi le chiamate hanno esito negativo, la risposta di errore indicherà il problema. Registrare la risposta dell'API per poter visualizzare il motivo.
 
 ## <a name="pricing-options"></a>Opzioni di prezzo
 

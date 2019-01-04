@@ -3,7 +3,7 @@ title: ReliableConcurrentQueue in Azure Service Fabric
 description: ReliableConcurrentQueue è una coda ad alta velocità effettiva che consente operazioni di accodamento e rimozione dalla coda in parallelo.
 services: service-fabric
 documentationcenter: .net
-author: sangarg
+author: tylermsft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: sangarg
-ms.openlocfilehash: e04123f7870921a2979564d0f6c68424d4d7711c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: 61b53a23fdbb08b226878d9b702ec6bb2879f8bc
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206578"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185036"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introduzione a ReliableConcurrentQueue in Azure Service Fabric
 La coda simultanea affidabile è una coda replicata, transazionale e asincrona che assicura concorrenza elevata per le operazioni di accodamento e rimozione dalla coda. È progettata per offrire velocità effettiva elevata e bassa latenza allentando il vincolo di ordinamento FIFO fornito dalla [coda affidabile](https://msdn.microsoft.com/library/azure/dn971527.aspx) e fornisce invece un ordinamento in base al migliore sforzo.
@@ -146,7 +146,7 @@ Si supponga che le attività siano state completate, che siano state eseguite in
 
 Lo stesso elemento *non* sarà presente in entrambi gli elenchi. Di conseguenza, se dequeue1 contiene i valori *10*, *30*, dequeue2 conterrà i valori *20* e *40*.
 
-- *Caso 3: ordine di rimozione dalla coda con interruzione della transazione*
+- *Caso 3: Ordine di rimozione dalla coda con interruzione della transazione*
 
 L'interruzione di una transazione con rimozioni delle coda in transito riporta gli elementi all'inizio della coda. L'ordine in cui gli elementi vengono reinseriti all'inizio della coda non è garantito. Esaminare il codice seguente:
 

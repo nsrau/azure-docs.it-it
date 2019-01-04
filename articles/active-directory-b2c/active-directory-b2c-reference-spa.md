@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/06/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b00eb1b2d25187dc50be53425ebae347edde33b4
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 9e72eafc49167848996328774f7d18198667aa3d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344812"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845247"
 ---
-# <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure Active Directory B2C: app a singola pagina tramite il flusso implicito OAuth 2.0
+# <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Accesso dell'app a singola pagina tramite il flusso implicito OAuth 2.0
 
 Molte app moderne hanno un front-end dell'app a singola pagina scritto principalmente in JavaScript. L'app viene scritta spesso usando un framework come AngularJS, Ember.js o Durandal. Le app a pagina singola e le altre app JavaScript che vengono eseguite soprattutto in un browser presentano alcune problematiche aggiuntive per l'autenticazione:
 
@@ -25,12 +25,12 @@ Molte app moderne hanno un front-end dell'app a singola pagina scritto principal
 * Molti server di autorizzazione e provider di identità non supportano le richieste CORS (Condivisione risorse tra le origini).
 * I reindirizzamenti dei browser a pagina intera dall'app possono risultare particolarmente fastidiosi per l'esperienza utente.
 
-Per supportare queste applicazioni, Azure Active Directory B2C (Azure AD B2C) usa il flusso implicito OAuth 2.0. Il flusso di concessione implicita OAuth 2.0 è descritto nella [sezione 4.2 della specifica di OAuth 2.0](http://tools.ietf.org/html/rfc6749). Nel flusso implicito l'app riceve i token direttamente dall'endpoint di autorizzazione di Azure Active Directory (Azure AD), senza alcuno scambio tra server. Tutta la logica di autenticazione e gestione della sessione avviene interamente nel client JavaScript, senza eseguire ulteriori reindirizzamenti di pagina.
+Per supportare queste applicazioni, Azure Active Directory B2C (Azure AD B2C) usa il flusso implicito OAuth 2.0. Il flusso di concessione implicita OAuth 2.0 è descritto nella [sezione 4.2 della specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749). Nel flusso implicito l'app riceve i token direttamente dall'endpoint di autorizzazione di Azure Active Directory (Azure AD), senza alcuno scambio tra server. Tutta la logica di autenticazione e gestione della sessione avviene interamente nel client JavaScript, senza eseguire ulteriori reindirizzamenti di pagina.
 
-Azure AD B2C estende il flusso implicito OAuth 2.0 standard e va oltre le semplici operazioni di autorizzazione e autenticazione. Azure AD B2C introduce il [parametro di criteri](active-directory-b2c-reference-policies.md). Con il parametro di criteri è possibile usare OAuth 2.0 per aggiungere esperienze utente all'app, ad esempio la gestione dell'iscrizione, dell'accesso e del profilo. Questo articolo spiega come usare il flusso implicito e Azure AD per implementare ogni esperienza nelle applicazioni a singola pagina. Per iniziare, vedere anche gli esempi relativi a [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) e [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi).
+Azure AD B2C estende il flusso implicito OAuth 2.0 standard e va oltre le semplici operazioni di autorizzazione e autenticazione. Azure AD B2C introduce il [parametro di criteri](active-directory-b2c-reference-policies.md). Con il parametro di criteri è possibile usare OAuth 2.0 per aggiungere criteri all'app, ad esempio i flussi utente di iscrizione, accesso e gestione dei profili. Questo articolo spiega come usare il flusso implicito e Azure AD per implementare ogni esperienza nelle applicazioni a singola pagina. Per iniziare, vedere anche gli esempi relativi a [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) e [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi).
 
-Nelle richieste HTTP di esempio in questo articolo si usa la directory di Azure AD B2C di esempio, **fabrikamb2c.onmicrosoft.com**. Si usano anche i criteri e l'applicazione di esempio. È possibile provare le richieste in autonomia usando questi valori o sostituendoli con valori personalizzati.
-Altre informazioni su come [ottenere la directory, l'applicazione e i criteri di Azure AD B2C personalizzati](#use-your-own-b2c-tenant).
+Nelle richieste HTTP di esempio in questo articolo si usa la directory di Azure AD B2C di esempio, **fabrikamb2c.onmicrosoft.com**. Vengono usati anche i flussi utente e l'applicazione di esempio. È possibile provare le richieste in autonomia usando questi valori o sostituendoli con valori personalizzati.
+Visualizzare le informazioni su come [ottenere la directory, l'applicazione e i flussi utente di Azure AD B2C personalizzati](#use-your-own-b2c-tenant).
 
 
 ## <a name="protocol-diagram"></a>Diagramma di protocollo
@@ -40,11 +40,11 @@ Il flusso di accesso implicito è simile a quello illustrato nella figura seguen
 ![Corsie di OpenID Connect](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>Invio di richieste di autenticazione
-Quando l'app Web deve autenticare l'utente ed eseguire un criterio, indirizza l'utente all'endpoint `/authorize`. Questa è la parte interattiva del flusso, dove l'utente esegue operazioni in base ai criteri. L'utente riceve un token ID dall'endpoint di Azure AD.
+Quando l'app Web deve autenticare l'utente ed eseguire un flusso utente, indirizza l'utente all'endpoint `/authorize`. Questa è la parte interattiva del flusso, dove l'utente esegue operazioni in base al flusso utente. L'utente riceve un token ID dall'endpoint di Azure AD.
 
-In questa richiesta il client indica nel parametro `scope` le autorizzazioni che deve acquisire dall'utente. Nel parametro `p` indica i criteri da eseguire. Di seguito vengono presentati tre esempi (con interruzioni di riga per migliorare la leggibilità), ognuno dei quali usa criteri diversi. Per apprendere il funzionamento di ogni richiesta, provare a incollare la richiesta in un browser ed eseguirla.
+In questa richiesta il client indica nel parametro `scope` le autorizzazioni che deve acquisire dall'utente. Nel parametro `p` indica il flusso utente da eseguire. Di seguito sono riportati tre esempi (con interruzioni di riga per migliorare la leggibilità), ognuno dei quali usa un flusso utente diverso. Per apprendere il funzionamento di ogni richiesta, provare a incollare la richiesta in un browser ed eseguirla.
 
-### <a name="use-a-sign-in-policy"></a>Uso di un criterio di accesso
+### <a name="use-a-sign-in-user-flow"></a>Usare un flusso utente di accesso
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -57,7 +57,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-### <a name="use-a-sign-up-policy"></a>Uso di un criterio di iscrizione
+### <a name="use-a-sign-up-user-flow"></a>Usare un flusso utente di iscrizione
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -70,7 +70,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_up
 ```
 
-### <a name="use-an-edit-profile-policy"></a>Uso di un criterio di modifica del profilo
+### <a name="use-an-edit-profile-user-flow"></a>Usare un flusso utente di modifica del profilo
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -92,12 +92,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope |Obbligatoria |Elenco di ambiti separati da spazi. Un valore per l'ambito indica ad Azure AD entrambe le autorizzazioni richieste. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. Verranno fornite informazioni più avanti in questo articolo. L’ambito `offline_access` è facoltativo per le applicazioni Web. Indica che l'app necessita di un token di aggiornamento per avere un accesso duraturo alle risorse. |
 | state |Consigliato |Valore incluso nella richiesta che viene anche restituito nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto si voglia usare. Per evitare attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina in cui si trovava. |
 | nonce |Obbligatoria |Valore incluso nella richiesta, generata dall'app, che viene incorporato nel token ID risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
-| p |Obbligatoria |Criterio da eseguire. Si tratta del nome di un criterio creato nel tenant di Azure AD B2C. Il valore del nome dei criteri deve iniziare con **b2c\_1\_**. Per altre informazioni, vedere [Criteri incorporati di Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| p |Obbligatoria |Criterio da eseguire. Si tratta del nome di un criterio (flusso utente) creato nel tenant di Azure AD B2C. Il valore del nome dei criteri deve iniziare con **b2c\_1\_**. Per altre informazioni, vedere [Flussi degli utenti di Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | prompt |Facoltativo |Tipo di interazione utente obbligatoria. Al momento l'unico valore valido è `login`. L'utente è costretto a immettere le credenziali alla richiesta. L'accesso Single Sign-On non avrà effetto. |
 
-Viene a questo punto richiesto all'utente di completare il flusso di lavoro dei criteri. È possibile che venga richiesto all'utente di immettere nome utente e password, di accedere con un'identità di social networking, di iscriversi alla directory o di effettuare qualsiasi altro passaggio. Le azioni dell'utente dipendono dal modo in cui sono definiti i criteri.
+Viene a questo punto richiesto all'utente di completare il flusso di lavoro dei criteri. È possibile che venga richiesto all'utente di immettere nome utente e password, di accedere con un'identità di social networking, di iscriversi alla directory o di effettuare qualsiasi altro passaggio. Le azioni dell'utente dipendono dal modo in cui è definito il flusso utente.
 
-Dopo che l'utente ha completato i criteri, Azure AD restituisce una risposta per l'app in corrispondenza del valore usato per `redirect_uri`. Viene usato il metodo specificato nel parametro `response_mode`. La risposta è esattamente la stessa per ogni scenario di azione dell'utente, indipendentemente dai criteri eseguiti.
+Dopo che l'utente ha completato il flusso utente, Azure AD restituisce una risposta per l'app in corrispondenza del valore usato per `redirect_uri`. Viene usato il metodo specificato nel parametro `response_mode`. La risposta è esattamente la stessa per ogni scenario di azione dell'utente, indipendentemente dal flusso utente eseguito.
 
 ### <a name="successful-response"></a>Risposta con esito positivo
 Una risposta con esito positivo che usa `response_mode=fragment` e `response_type=id_token+token` è simile a quanto riportato di seguito. Sono state aggiunte interruzioni di riga per migliorare la leggibilità:
@@ -138,19 +138,19 @@ error=access_denied
 | state |Vedere la descrizione completa nella tabella precedente. Se un parametro `state` è incluso nella richiesta, lo stesso valore deve essere visualizzato nella risposta. L'app deve verificare che i valori `state` nella richiesta e nella risposta siano identici.|
 
 ## <a name="validate-the-id-token"></a>Convalidare il token ID
-La ricezione di un token ID non è sufficiente per autenticare l'utente. È necessario convalidare la firma del token ID e verificare se le attestazioni nel token soddisfano i requisiti dell'app. Azure AD B2C usa i [token Web JSON](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e la crittografia a chiave pubblica per firmare i token e verificarne la validità.
+La ricezione di un token ID non è sufficiente per autenticare l'utente. È necessario convalidare la firma del token ID e verificare se le attestazioni nel token soddisfano i requisiti dell'app. Azure AD B2C usa i [token Web JSON](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e la crittografia a chiave pubblica per firmare i token e verificarne la validità.
 
 Sono disponibili molte librerie open source per la convalida dei token JWT, a seconda del linguaggio preferito. È consigliabile prendere in esame le librerie open source disponibili anziché implementare una logica di convalida personalizzata. È possibile usare le informazioni contenute in questo articolo permettono di imparare a usare correttamente tali librerie.
 
-Azure AD B2C include un endpoint dei metadati di OpenID Connect. Un'app può usare l'endpoint per recuperare informazioni su Azure AD B2C in fase di esecuzione. Queste informazioni includono endpoint, contenuti del token e chiavi per la firma dei token. Il tenant Azure AD B2C include un documento di metadati JSON per ogni criterio. Ad esempio, il documento di metadati per il criterio b2c_1_sign_in nel tenant fabrikamb2c.onmicrosoft.com si trova in:
+Azure AD B2C include un endpoint dei metadati di OpenID Connect. Un'app può usare l'endpoint per recuperare informazioni su Azure AD B2C in fase di esecuzione. Queste informazioni includono endpoint, contenuti del token e chiavi per la firma dei token. Il tenant Azure AD B2C include un documento di metadati JSON per ogni flusso utente. Ad esempio, il documento di metadati per il flusso utente b2c_1_sign_in nel tenant fabrikamb2c.onmicrosoft.com si trova in:
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
-Una proprietà di questo documento di configurazione è `jwks_uri`. Il valore per lo stesso criterio sarebbe:
+Una proprietà di questo documento di configurazione è `jwks_uri`. Il valore per lo stesso flusso utente sarà:
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
-Per determinare quale criterio è stato usato per la firma di un token ID e la posizione da cui recuperare i metadati, sono disponibili due opzioni. Prima di tutto, il nome del criterio è incluso nell'attestazione `acr` in `id_token`. Per informazioni su come analizzare le attestazioni da un token ID, vedere [Azure AD B2C: informazioni di riferimento sui token](active-directory-b2c-reference-tokens.md). L'altra opzione consiste nel codificare i criteri nel valore del parametro `state` quando si emette la richiesta, per poi decodificare il parametro `state` e determinare quali criteri sono stati usati. Entrambi i metodi sono validi.
+Per individuare il flusso utente usato per la firma di un token ID e la posizione da cui recuperare i metadati, sono disponibili due opzioni. Innanzitutto, il nome del flusso utente è incluso nell'attestazione `acr` in `id_token`. Per informazioni su come analizzare le attestazioni da un token ID, vedere [Azure AD B2C: informazioni di riferimento sui token](active-directory-b2c-reference-tokens.md). In secondo luogo, è possibile codificare il flusso utente nel valore del parametro `state` quando si emette la richiesta, per poi decodificare il parametro `state` e determinare il flusso utente usato. Entrambi i metodi sono validi.
 
 Dopo aver acquisito il documento dei metadati dall'endpoint di metadati OpenID Connect, è possibile usare le chiavi pubbliche RSA 256 che si trovano in questo endpoint per convalidare la firma del token ID. In un determinato punto nel tempo è possibile che siano presenti più chiavi elencate in questo endpoint, ognuna identificata da un'attestazione `kid`. Anche l'intestazione di `id_token` contiene un'attestazione `kid`, che indica le chiavi usate per firmare il token ID. Per altre informazioni, inclusa la [convalida dei token](active-directory-b2c-reference-tokens.md#token-validation), vedere [Azure AD B2C: informazioni di riferimento sui token](active-directory-b2c-reference-tokens.md).
 <!--TODO: Improve the information on this-->
@@ -161,7 +161,7 @@ Dopo la convalida della firma del token ID sarà necessario verificare anche div
 * Convalidare l'attestazione `aud` per verificare che il token ID sia stato emesso per l'app. Il valore deve essere l'ID applicazione dell'app.
 * Convalidare le attestazioni `iat` e `exp` per verificare che il token ID non sia scaduto.
 
-Esistono anche diverse altre convalide che è opportuno eseguire, descritte in dettaglio nella [specifica di OpenID Connect Core](http://openid.net/specs/openid-connect-core-1_0.html). È inoltre consigliabile convalidare attestazioni aggiuntive in base allo scenario. Alcune convalide comuni includono:
+Esistono anche diverse altre convalide che è opportuno eseguire, descritte in dettaglio nella [specifica di OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html). È inoltre consigliabile convalidare attestazioni aggiuntive in base allo scenario. Alcune convalide comuni includono:
 
 * Verificare che l'utente o l'organizzazione abbia eseguito l'iscrizione all'app.
 * Verificare che l'utente abbia le autorizzazioni e i privilegi adeguati.
@@ -172,7 +172,7 @@ Per altri dettagli sulle attestazioni in un token ID, vedere [Azure AD B2C: info
 Dopo aver convalidato il token ID, è possibile avviare una sessione con l'utente. Usare nell'app le attestazioni del token ID per ottenere informazioni sull'utente. Queste informazioni possono essere usate per la visualizzazione, i record, le autorizzazioni e così via.
 
 ## <a name="get-access-tokens"></a>Ottenere i token di accesso
-Se l'app Web deve solo eseguire criteri, è possibile saltare le prossime sezioni. Le informazioni nelle sezioni seguenti sono applicabili solo alle app Web che devono eseguire chiamate autenticate a un'API Web e che sono protette da Azure AD B2C.
+Se l'app Web deve solo eseguire flussi utente, è possibile saltare le prossime sezioni. Le informazioni nelle sezioni seguenti sono applicabili solo alle app Web che devono eseguire chiamate autenticate a un'API Web e che sono protette da Azure AD B2C.
 
 Dopo l'accesso dell'utente all'app a singola pagina, è possibile ottenere i token di accesso per chiamare le API Web protette da Azure AD. Anche se si è già ricevuto un token usando il tipo di risposta `token`, è possibile usare questo metodo per acquisire i token per risorse aggiuntive senza dover reindirizzare l'utente perché esegua di nuovo l'accesso.
 
@@ -274,7 +274,7 @@ Per provare queste richieste, completare i tre passaggi seguenti. Sostituire i v
 
 1. [Creare un tenant di Azure AD B2C](active-directory-b2c-get-started.md). Usare il nome del tenant nelle richieste.
 2. [Creare un'applicazione](active-directory-b2c-app-registration.md) per ottenere un ID applicazione e un valore `redirect_uri`. Includere un'API Web o un'app Web nell'app. Se lo si desidera, è possibile creare un segreto dell'applicazione.
-3. [Creare i criteri](active-directory-b2c-reference-policies.md) per ottenere i nomi dei criteri.
+3. [Creare flussi utente](active-directory-b2c-reference-policies.md) per ottenere i nomi dei flussi utente.
 
 ## <a name="samples"></a>Esempi
 

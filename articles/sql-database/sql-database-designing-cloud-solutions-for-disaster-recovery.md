@@ -12,42 +12,43 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 07/26/2018
-ms.openlocfilehash: 8522fea10a4ec8f85d20e5a9ec04712c77bb6b94
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 12/04/2018
+ms.openlocfilehash: 46232afcaf9504d4cfbd80160e2d7e7ea958d600
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064272"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272780"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Progettazione di servizi disponibili a livello globale con il database SQL di Azure
 
-Quando si compilano e si distribuiscono servizi cloud con il database SQL di Azure, [i gruppi di failover e la replica geografica attiva](sql-database-geo-replication-overview.md) consentono di garantire resilienza in caso di interruzioni a livello di area ed errori irreversibili. La stessa funzionalità consente di creare applicazioni distribuite a livello globale ottimizzate per l'accesso locale ai dati. Questo articolo illustra modelli di applicazione comuni, nonché i vantaggi e gli svantaggi di ogni opzione. 
+Quando si compilano e si distribuiscono servizi cloud con il database SQL di Azure, la [replica geografica attiva](sql-database-active-geo-replication.md) o i [gruppi di failover automatico](sql-database-auto-failover-group.md) consentono di garantire resilienza in caso di interruzioni a livello di area ed errori irreversibili. La stessa funzionalità consente di creare applicazioni distribuite a livello globale ottimizzate per l'accesso locale ai dati. Questo articolo illustra modelli di applicazione comuni, nonché i vantaggi e gli svantaggi di ogni opzione.
 
 > [!NOTE]
 > Se si usano pool elastici e database premium o business critical, è possibile renderli resistenti alle interruzioni a livello di area convertendoli in una configurazione di distribuzione con ridondanza della zona. Vedere [Database con ridondanza della zona](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Uso di due aree di Azure per la continuità aziendale con tempo di inattività minimo
-In questo scenario le applicazioni presentano le caratteristiche seguenti: 
-*   L'applicazione è attiva in un'area di Azure
-*   Tutte le sessioni del database richiedono l'accesso in lettura e scrittura ai dati
-*   Il livello Web e il livello dati devono essere collocati in modo da ridurre la latenza e il costo del traffico 
-*   Essenzialmente, il tempo di inattività rappresenta per queste applicazioni un rischio aziendale più elevato rispetto alla perdita di dati
 
-In questo caso, la topologia di distribuzione dell'applicazione è ottimizzata per la gestione delle emergenze a livello di area in cui tutti i componenti dell'applicazione devono essere sottoposti a failover contemporaneamente. Il diagramma seguente illustra questa topologia. Per garantire la ridondanza geografica, le risorse dell'applicazione vengono distribuite nelle aree A e B. Le risorse nell'area B, tuttavia, non vengono utilizzate finché non si verifica un errore nell'area A. Tra le due aree viene configurato un gruppo di failover per gestire la connettività del database, la replica e il failover. Il servizio Web in entrambe le aree è configurato per accedere al database tramite il listener di lettura/scrittura **&lt;nome-gruppo-failover&gt;.database.windows.net** (1). Gestione traffico è configurato per l'uso del [metodo di routing per priorità](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+In questo scenario le applicazioni presentano le caratteristiche seguenti:
+
+* L'applicazione è attiva in un'area di Azure
+* Tutte le sessioni del database richiedono l'accesso in lettura e scrittura ai dati
+* Il livello Web e il livello dati devono essere collocati in modo da ridurre la latenza e il costo del traffico
+* Essenzialmente, il tempo di inattività rappresenta per queste applicazioni un rischio aziendale più elevato rispetto alla perdita di dati
+
+In questo caso, la topologia di distribuzione dell'applicazione è ottimizzata per la gestione delle emergenze a livello di area in cui tutti i componenti dell'applicazione devono essere sottoposti a failover contemporaneamente. Il diagramma seguente illustra questa topologia. Per garantire la ridondanza geografica, le risorse dell'applicazione vengono distribuite nelle aree A e B. Le risorse nell'area B, tuttavia, non vengono utilizzate finché non si verifica un errore nell'area A. Tra le due aree viene configurato un gruppo di failover per gestire la connettività del database, la replica e il failover. Il servizio Web in entrambe le aree è configurato per accedere al database tramite il listener di lettura/scrittura **&lt;nome-gruppo-failover&gt;.database.windows.net** (1). Gestione traffico è configurato per l'uso del [metodo di routing per priorità](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
-> [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md) viene usato in questo articolo solo a scopi illustrativi. È possibile usare qualsiasi soluzione di bilanciamento del carico che supporti il metodo di routing per priorità.    
->
+> [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md) viene usato in questo articolo solo a scopi illustrativi. È possibile usare qualsiasi soluzione di bilanciamento del carico che supporti il metodo di routing per priorità.
 
 Il diagramma seguente illustra questa configurazione prima di un'interruzione:
 
 ![Scenario 1. Configurazione prima dell'interruzione.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
 
 Dopo un'interruzione nell'area primaria, il servizio di database SQL rileva che il database primario non è accessibile e attiva il failover nell'area secondaria in base ai parametri dei criteri di failover automatico (1). A seconda del contratto di servizio dell'applicazione, è possibile configurare un periodo di tolleranza che controlla l'intervallo di tempo tra il rilevamento dell'interruzione e il failover stesso. Gestione traffico potrebbe avviare il failover degli endpoint prima che il gruppo di failover attivi il failover del database. In tal caso, l'applicazione Web non può riconnettersi immediatamente al database. Le riconnessioni, tuttavia, avranno automaticamente esito positivo non appena verrà completato il failover del database. Quando l'area in cui si è verificato l'errore è ripristinata e di nuovo online, il database primario precedente si riconnette automaticamente come nuovo database secondario. Il diagramma seguente illustra la configurazione dopo il failover.
- 
+
 > [!NOTE]
-> Tutte le transazioni di cui è stato eseguito il commit dopo il failover andranno perse durante la riconnessione. Dopo il completamento del failover, l'applicazione nell'area B può riconnettersi e riavviare l'elaborazione delle richieste utente. Sia l'applicazione Web che il database primario si trovano nell'area B e continuano a condividere lo stesso percorso. n>
+> Tutte le transazioni di cui è stato eseguito il commit dopo il failover andranno perse durante la riconnessione. Dopo il completamento del failover, l'applicazione nell'area B può riconnettersi e riavviare l'elaborazione delle richieste utente. Sia l'applicazione Web che il database primario si trovano nell'area B e continuano a condividere lo stesso percorso.
 
 ![Scenario 1. Configurazione dopo il failover](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 
@@ -63,12 +64,13 @@ In caso di interruzione nell'area B, il processo di replica tra il database prim
 
 I **vantaggi** chiave di questo modello di progettazione sono:
 
-* La stessa applicazione Web viene distribuita in entrambe le aree senza alcuna configurazione specifica dell'area e non richiede logica aggiuntiva per la gestione del failover. 
+* La stessa applicazione Web viene distribuita in entrambe le aree senza alcuna configurazione specifica dell'area e non richiede logica aggiuntiva per la gestione del failover.
 * Il failover non influisce sulle prestazioni dell'applicazione perché l'applicazione Web e il database condividono sempre lo stesso percorso.
 
 Il principale **svantaggio** è rappresentato dal fatto che le risorse dell'applicazione nell'area B sono sottoutilizzate nella maggior parte dei casi.
 
 ## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Scenario 2: Aree di Azure per la continuità aziendale con mantenimento massimo dei dati
+
 Questa opzione è particolarmente indicata per le applicazioni con le caratteristiche seguenti:
 
 * Qualsiasi perdita di dati rappresenta un rischio aziendale elevato. Il failover del database può essere usato solo come ultima soluzione se l'interruzione è causata da un errore irreversibile.
@@ -84,7 +86,6 @@ Quando Gestione traffico rileva un errore di connettività all'area A, trasferis
 
 > [!NOTE]
 > Se l'interruzione nell'area primaria viene risolta entro il periodo di tolleranza, Gestione traffico rileva il ripristino della connettività nell'area primaria e trasferisce di nuovo il traffico utente all'istanza dell'applicazione nell'area A. Tale istanza riprende l'esecuzione e funziona in modalità lettura/scrittura usando il database primario nell'area A come illustrato nel diagramma precedente.
->
 
 ![Scenario 2. Fasi del ripristino di emergenza.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-b.png)
 
@@ -101,30 +102,30 @@ Questo modello di progettazione presenta diversi **vantaggi**:
 
 Lo **svantaggio** è rappresentato dal fatto che l'applicazione deve poter funzionare in modalità di sola lettura.
 
-## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Scenario 3: Spostamento dell'applicazione in una diversa area geografica senza perdita di dati e tempo di inattività quasi nullo 
-In questo scenario, l'applicazione presenta le caratteristiche seguenti: 
+## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Scenario 3: Spostamento dell'applicazione in una diversa area geografica senza perdita di dati e tempo di inattività quasi nullo
+
+In questo scenario, l'applicazione presenta le caratteristiche seguenti:
+
 * Gli utenti finali accedono all'applicazione da diverse aree geografiche
 * L'applicazione include carichi di lavoro di sola lettura che non dipendono dalla sincronizzazione completa con gli aggiornamenti più recenti
-* L'accesso in scrittura ai dati deve essere supportato nella stessa area geografica per la maggior parte degli utenti 
-* La latenza di lettura è di importanza critica per l'esperienza degli utenti finali 
+* L'accesso in scrittura ai dati deve essere supportato nella stessa area geografica per la maggior parte degli utenti
+* La latenza di lettura è di importanza critica per l'esperienza degli utenti finali
 
+Per soddisfare questi requisiti, è necessario garantire che il dispositivo utente si connetta **sempre** all'applicazione distribuita nella stessa area geografica per le operazioni di sola lettura, come l'esplorazione dei dati, l'analisi e così via. Le operazioni OLTP vengono invece elaborate nella stessa area geografica **nella maggior parte dei casi**. Ad esempio, le operazioni OLTP potrebbero essere elaborate nella stessa area geografica in orario diurno e in un'altra area geografica durante gli orari di minore attività. Se l'attività degli utenti finali si verifica prevalentemente nelle ore lavorative, è possibile garantire prestazioni ottimali per quasi tutti gli utenti nella maggior parte dei casi. Il diagramma seguente illustra questa topologia.
 
-Per soddisfare questi requisiti, è necessario garantire che il dispositivo utente si connetta **sempre** all'applicazione distribuita nella stessa area geografica per le operazioni di sola lettura, come l'esplorazione dei dati, l'analisi e così via. Le operazioni OLTP vengono invece elaborate nella stessa area geografica **nella maggior parte dei casi**. Ad esempio, le operazioni OLTP potrebbero essere elaborate nella stessa area geografica in orario diurno e in un'altra area geografica durante gli orari di minore attività. Se l'attività degli utenti finali si verifica prevalentemente nelle ore lavorative, è possibile garantire prestazioni ottimali per quasi tutti gli utenti nella maggior parte dei casi. Il diagramma seguente illustra questa topologia. 
- 
 Le risorse dell'applicazione dovranno essere distribuite in ogni area geografica in cui si ha un'elevata esigenza di utilizzo. Se l'applicazione viene usata attivamente in Stati Uniti, Unione Europea e Asia sud-orientale, ad esempio, dovrà essere distribuita in tutte queste aree geografiche. Il database primario dovrà essere trasferito automaticamente da un'area geografica alla successiva al termine dell'orario lavorativo. Questo metodo è detto "follow the sun". Il carico di lavoro OLTP si connette sempre al database tramite il listener di lettura/scrittura **&lt;nome-gruppo-failover&gt;.database.windows.net** (1). Il carico di lavoro di sola lettura si connette direttamente al database locale usando l'endpoint server di database **&lt;nome-server&gt;.database.windows.net** (2). Gestione traffico viene configurato con il [metodo di routing per prestazioni](../traffic-manager/traffic-manager-configure-performance-routing-method.md), che assicura la connessione del dispositivo dell'utente finale al servizio Web nell'area più vicina. La configurazione di Gestione traffico dovrà includere l'abilitazione del monitoraggio degli endpoint per ogni endpoint servizio Web (3).
 
 > [!NOTE]
 > La configurazione del gruppo di failover definisce l'area usata per il failover. Dato che il nuovo database primario si trova in una diversa area geografica, il failover determina una latenza superiore per i carichi di lavoro sia OLTP che di sola lettura finché l'area interessata non è di nuovo online.
->
 
 ![Scenario 3. Configurazione con database primario nell'area Stati Uniti orientali.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
 Alla fine della giornata (ad esempio, alle 23 ora locale), i database attivi dovranno essere trasferiti all'area successiva (Europa settentrionale). Questa attività può essere interamente automatizzata con il [servizio di pianificazione di Azure](../scheduler/scheduler-intro.md).  L'attività include i passaggi seguenti:
+
 * Trasferire il server primario del gruppo di failover all'area Europa settentrionale con il failover semplice (1).
 * Rimuovere il gruppo di failover tra Stati Uniti orientali ed Europa settentrionale.
-* Creare un nuovo gruppo di failover con lo stesso nome ma tra Europa settentrionale e Asia orientale (2). 
+* Creare un nuovo gruppo di failover con lo stesso nome ma tra Europa settentrionale e Asia orientale (2).
 * Aggiungere il database primario nell'area Europa settentrionale e il database secondario nell'area Asia orientale a questo gruppo di failover (3).
-
 
 Il diagramma seguente illustra la nuova configurazione dopo il failover pianificato:
 
@@ -136,19 +137,20 @@ In caso di interruzione nell'area Europa settentrionale, ad esempio, il gruppo d
 
 > [!NOTE]
 > È possibile ridurre il periodo di tempo in cui l'esperienza degli utenti finali in Europa risulta compromessa dalla latenza elevata. A tale scopo, è consigliabile distribuire in modo proattivo una copia dell'applicazione e creare i database secondari in un'altra area locale (Europa occidentale) per la sostituzione dell'istanza dell'applicazione offline in Europa settentrionale. Quando quest'ultima è di nuovo online, si può decidere di continuare a usare l'area Europa occidentale oppure rimuovere tale copia dell'applicazione e tornare a usare l'area Europa settentrionale.
->
 
 I principali **vantaggi** di questa progettazione sono i seguenti:
-* Il carico di lavoro di sola lettura dell'applicazione accede sempre ai dati nell'area più vicina. 
+
+* Il carico di lavoro di sola lettura dell'applicazione accede sempre ai dati nell'area più vicina.
 * Il carico di lavoro di lettura/scrittura dell'applicazione accede ai dati nell'area più vicina durante il periodo di maggiore attività in ogni area geografica.
-* Dato che l'applicazione viene distribuita in più aree, può superare la perdita di una delle aree senza tempi di inattività significativi. 
+* Dato che l'applicazione viene distribuita in più aree, può superare la perdita di una delle aree senza tempi di inattività significativi.
 
 Esistono tuttavia alcuni **svantaggi**:
-* Un'interruzione a livello di area determina una latenza superiore nell'area geografica. I carichi di lavoro sia di lettura/scrittura che di sola lettura vengono gestiti dall'applicazione in una diversa area geografica. 
-* I carichi di lavoro di sola lettura devono connettersi a un diverso endpoint in ogni area. 
 
+* Un'interruzione a livello di area determina una latenza superiore nell'area geografica. I carichi di lavoro sia di lettura/scrittura che di sola lettura vengono gestiti dall'applicazione in una diversa area geografica.
+* I carichi di lavoro di sola lettura devono connettersi a un diverso endpoint in ogni area.
 
-## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Pianificazione della continuità aziendale: Scegliere una progettazione di applicazioni per il ripristino di emergenza cloud
+## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Pianificazione della continuità aziendale: scegliere una progettazione di applicazioni per il ripristino di emergenza cloud
+
 La strategia di ripristino di emergenza cloud specifica può combinare o estendere questi modelli di progettazione per soddisfare al meglio le esigenze dell'applicazione.  Come accennato in precedenza, la strategia scelta si basa sul contratto di servizio che si vuole offrire ai clienti e sulla topologia di distribuzione dell'applicazione. Per facilitare la decisione, la tabella seguente confronta le opzioni in base all'obiettivo del punto di ripristino (RPO) e al tempo di recupero stimato (ERT).
 
 | Modello | RPO | ERT |
@@ -160,6 +162,8 @@ La strategia di ripristino di emergenza cloud specifica può combinare o estende
 |||
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
-* Per informazioni sulla replica geografica e sui gruppi di failover, vedere l'articolo relativo alla [replica geografica attiva](sql-database-geo-replication-overview.md)  
+* Per informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-active-geo-replication.md).
+* Per informazioni sui gruppi di failover automatico, vedere [Gruppi di failover automatico](sql-database-auto-failover-group.md).
 * Per informazioni sulla replica geografica attiva con i pool elastici, vedere [Strategie di ripristino di emergenza per i pool elastici](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

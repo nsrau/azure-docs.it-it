@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da Drill usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da Drill tramite Azure Data Factory (anteprima) | Microsoft Docs
 description: Informazioni su come copiare dati da Drill in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 31dcae5dde53a9a3933c15dcf3b6869ec943cbea
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 180489aecc5eb5e937b4c163bc40937f3f6d2d80
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050285"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077665"
 ---
-# <a name="copy-data-from-drill-using-azure-data-factory"></a>Copiare dati da Drill usando Azure Data Factory
+# <a name="copy-data-from-drill-using-azure-data-factory-preview"></a>Copiare dati da Drill tramite Azure Data Factory (anteprima)
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Drill. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
@@ -45,7 +45,7 @@ Per il servizio collegato di Drill sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Drill** | Sì |
+| type | La proprietà type deve essere impostata su: **Drill**. | Yes |
 | connectionString | Stringa di connessione ODBC per la connessione a Drill. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
@@ -74,7 +74,12 @@ Per il servizio collegato di Drill sono supportate le proprietà seguenti:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Drill.
 
-Per copiare dati da Drill, impostare la proprietà type del set di dati su **DrillTable**. Non sono presenti proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per copiare dati da Drill, impostare la proprietà type del set di dati su **DrillTable**. Sono supportate le proprietà seguenti:
+
+| Proprietà | DESCRIZIONE | Obbligatoria |
+|:--- |:--- |:--- |
+| type | La proprietà type del set di dati deve essere impostata su: **DrillTable** | Yes |
+| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -86,7 +91,8 @@ Per copiare dati da Drill, impostare la proprietà type del set di dati su **Dri
         "linkedServiceName": {
             "referenceName": "<Drill linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -101,8 +107,8 @@ Per copiare dati da Drill, impostare il tipo di origine nell'attività di copia 
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **DrillSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **DrillSource** | Yes |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

@@ -1,6 +1,6 @@
 ---
-title: Competenza OCR della ricerca cognitiva (Ricerca di Azure) | Microsoft Docs
-description: Estrarre il testo dai file di immagine in una pipeline di arricchimento di Ricerca di Azure.
+title: Competenza OCR della ricerca cognitiva - Ricerca di Azure
+description: Estrarre il testo da file di immagine usando il riconoscimento ottico dei caratteri (OCR) in una pipeline di arricchimento di Ricerca di Azure.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.custom: seodec2018
+ms.openlocfilehash: 097fd93955a4ca3fd96ae6452fa3b503b029ffc3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055686"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313225"
 ---
 # <a name="ocr-cognitive-skill"></a>Competenza cognitiva OCR
 
@@ -28,6 +29,13 @@ La competenza **OCR** estrae il testo dai file di immagine. I formati di file su
 + .BMP
 + .GIF
 
+> [!NOTE]
+> A partire dal 21 dicembre 2018 è possibile associare una risorsa di Servizi cognitivi a un set di competenze di Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare l'esecuzione del set di competenze. Da questa data ha inizio anche l'addebito dell'estrazione di immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continuerà a essere offerta gratuitamente.
+>
+> L'esecuzione delle competenze predefinite verrà addebitata in base ai [prezzi con pagamento in base al consumo di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione di immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
+>
+>  Viene eseguito il mapping della competenza OCR alle funzionalità di servizi cognitivi seguenti: Quando il parametro textExtractionAlgorithm è impostato su "handwritten", viene utilizzata la funzionalità ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md).
+>  Quando il parametro textExtractionAlgorithm è impostato su "printed", per le lingue diverse dall'inglese viene usata la funzionalità ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md). Per l'inglese viene usata la nuova funzionalità di ["riconoscimento del testo"](../cognitive-services/computer-vision/concept-recognizing-text.md) per il testo stampato.
 
 ## <a name="skill-parameters"></a>Parametri della competenza
 
@@ -43,7 +51,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 | Nome input      | DESCRIZIONE                                          |
 |---------------|------------------------------------------------------|
-| immagine         | Tipo complesso. Attualmente funziona solo con il campo "/document/normalized_images", prodotto dall'indicizzatore di BLOB di Azure quando ```imageAction``` è impostato su ```generateNormalizedImages```. Per altre informazioni, vedere [esempio](#sample-output).|
+| image         | Tipo complesso. Attualmente funziona solo con il campo "/document/normalized_images", prodotto dall'indicizzatore di BLOB di Azure quando ```imageAction``` è impostato su ```generateNormalizedImages```. Per altre informazioni, vedere [esempio](#sample-output).|
 
 
 ## <a name="skill-outputs"></a>Output competenze
@@ -174,7 +182,7 @@ L'insieme di competenze di esempio seguente crea un campo *merged_text* per cont
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetname" : "merged_text"
+          "name": "mergedText", "targetName" : "merged_text"
         }
       ]
     }

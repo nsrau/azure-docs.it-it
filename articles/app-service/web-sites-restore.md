@@ -1,5 +1,5 @@
 ---
-title: Ripristinare un'app in Azure
+title: Ripristinare l'app - Servizio app di Azure
 description: Informazioni su come ripristinare l'app da un backup.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 69e0e8282ee0b8503fe11a57b8ba6037247822dd
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.custom: seodec18
+ms.openlocfilehash: 603a6bab75c4a5da4425bcc57d2cc5ccda728636
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160502"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274139"
 ---
 # <a name="restore-an-app-in-azure"></a>Ripristinare un'app in Azure
 Questo articolo illustra come ripristinare un'app nel [Servizio app di Azure](../app-service/app-service-web-overview.md) in precedenza sottoposta a un backup. Vedere [Eseguire il backup di un'app Web del Servizio app di Azure](web-sites-backup.md). È possibile ripristinare su richiesta a uno stato precedente l'app con i relativi database collegati oppure creare una nuova app basata su uno dei backup dell'app originale. Servizio app di Azure supporta il backup e il ripristino dei seguenti database:
@@ -42,7 +43,7 @@ Il ripristino da backup è disponibile per le app in esecuzione a livello **Stan
    
     L'opzione **Backup dell'app** mostra tutti i backup esistenti dell'app corrente, che possono essere facilmente selezionati.
     L'opzione **Archiviazione** consente di selezionare qualsiasi file ZIP del backup da un account di archiviazione e un contenitore di Azure esistenti nella sottoscrizione.
-    Se si sta tentando di ripristinare un backup di un'altra app, usare l'opzione **Archiviazione** .
+    Se si sta tentando di ripristinare un backup di un'altra app, usare l'opzione **Archiviazione**.
 3. Quindi, specificare la destinazione per il ripristino dell’app in **Destinazione di ripristino**.
    
     ![](./media/web-sites-restore/022ChooseDestination1.png)

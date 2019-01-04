@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 9ec8cbe3d2467714a4b2586db79566aaef30d6d7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 60e0485c28d90050a6ff775db41f8696a09fe033
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626897"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165759"
 ---
 # <a name="train-a-model"></a>Eseguire il training di un modello
 
@@ -28,19 +28,15 @@ Per eseguire il training di un modello:
 
     -  Document name (Nome documento): nome del documento.
 
-    -  Pairing (Associazione): indica se il documento è un documento monolingua o parallelo.
+    -  Pairing (Associazione): indica se il documento è monolingua o parallelo. I documenti monolingua non sono attualmente supportati per il training.
 
-    - I documenti monolingua non sono attualmente supportati per il training.
+    -  Document type (Tipo di documento): può essere destinato al training, all'ottimizzazione o al test oppure può essere un dizionario.
 
-    -  Document type (Tipo di documento): il documento può essere destinato al training, all'ottimizzazione, al test o essere un dizionario.
+    -  Language pair (Coppia di lingue): mostra la lingua di origine e quella di destinazione per il progetto.
 
-    -  Language pair (Coppia di lingue): vengono visualizzate la lingua di origine e la lingua di destinazione per il progetto.
+    -  Source sentences (Frasi di origine): mostra il numero di frasi estratte dal file di origine.
 
-    -  Source sentences (Frasi di origine): viene visualizzato il numero di frasi estratte dal
-    - file di origine.
-
-    -  Target sentences (Frasi di destinazione): viene visualizzato il numero di frasi estratte dal
-    - file di destinazione.
+    -  Target sentences (Frasi di destinazione): mostra il numero di frasi estratte dal file di destinazione.
 
     ![Eseguire il training del modello](media/how-to/how-to-train-model.png)
 
@@ -71,7 +67,7 @@ Per eseguire il training di un modello:
 
         ![Finestra di dialogo Edit Model (Modifica modello)](media/how-to/how-to-edit-model-dialog.png)
 
-3.  Fare clic su Save.
+3.  Fare clic su Save (Salva).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

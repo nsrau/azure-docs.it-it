@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 5001704f47af0c7b07744f1dceb7aa58bdb6448c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7fdbbee27f83a4583390158e456270324967b28a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158869"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961604"
 ---
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
 Con la [disponibilità generale del servizio app di Azure], è possibile eseguire facilmente la migrazione sul posto dei siti di Servizi mobili di Azure per sfruttare appieno tutte le funzionalità del servizio app di Azure.  Questo documento illustra cosa accade durante la migrazione del sito da Servizi mobili di Azure al servizio app di Azure.
@@ -37,7 +37,7 @@ La migrazione trasforma il servizio mobile di Azure in un'app del [servizio app 
 * Strumenti DevOps incorporati, tra cui [slot di staging], rollback e test nell'ambiente di produzione.
 * [Scalabilità automatica], bilanciamento del carico e [monitoraggio delle prestazioni].
 
-Per altre informazioni sui vantaggi del servizio app di Azure, vedere [Confronto tra Servizi mobili e il servizio app].
+Per altre informazioni sui vantaggi del servizio app di Azure, vedere [Servizi mobili e servizio app].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Prima di iniziare qualsiasi attività importante nel sito, è consigliabile eseguire un backup degli script e del database SQL del servizio mobile.
@@ -69,7 +69,7 @@ Pianificare il test del sito da un client mobile al termine del processo di migr
 ### <a name="update-app-service-tier"></a>Selezionare un piano tariffario appropriato per il servizio app
 La migrazione al servizio app di Azure offre una maggiore flessibilità dei prezzi.
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Fare clic su **Piano di servizio app** nel menu Impostazioni.
@@ -84,7 +84,7 @@ Come punto di partenza, è consigliabile scegliere i livelli seguenti:
 | Basic |B1 Basic |
 | Standard |S1 Standard |
 
-C'è una notevole flessibilità nella scelta del piano tariffario per l'applicazione.  Per informazioni dettagliate sui prezzi del nuovo servizio app, vedere [Prezzi di Servizio app] .
+C'è una notevole flessibilità nella scelta del piano tariffario per l'applicazione.  Per informazioni dettagliate sui prezzi del nuovo servizio app, vedere [App Service pricing] .
 
 > [!TIP]
 > Il livello Standard del servizio app include l'accesso a molte funzionalità utili, come ad esempio [slot di staging], backup automatico e scalabilità automatica.  Sono anche disponibili nuove funzionalità interessanti.
@@ -95,7 +95,7 @@ C'è una notevole flessibilità nella scelta del piano tariffario per l'applicaz
 I processi dell'utilità di pianificazione non saranno visibili fino a circa 30 minuti dopo la migrazione.  L'esecuzione dei processi pianificati continua in background.
 Per visualizzare i processi pianificati quando sono nuovamente visibili, seguire questa procedura:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Esplora>**, immettere **Pianificazione** nella casella *Filtro* e quindi selezionare **Raccolte dell'Utilità di pianificazione**.
 
 Dopo la migrazione è disponibile un numero limitato di processi dell'utilità di pianificazione gratuiti.  Esaminare l'utilizzo e i [piani dell'utilità di pianificazione di Azure].
@@ -105,7 +105,7 @@ La condivisione di risorse tra le origini è una tecnica che consente a un sito 
 
 Le impostazioni CORS di cui è stata eseguita la migrazione sono disponibili come impostazione app **MS_CrossDomainWhitelist**.  Per eseguire la migrazione del sito alla funzionalità CORS del servizio app:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Fare clic su **CORS** nel menu dell'API.
@@ -120,7 +120,7 @@ Le impostazioni CORS di cui è stata eseguita la migrazione sono disponibili com
 ### <a name="download-publish-profile"></a>Scaricare un nuovo profilo di pubblicazione
 Il profilo di pubblicazione del sito viene modificato durante la migrazione al Servizio app di Azure.  Se si intende pubblicare il sito da Visual Studio, è necessario un nuovo profilo di pubblicazione.  Per scaricare il nuovo profilo di pubblicazione:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Fare clic su **Recupera profilo di pubblicazione**.
 
@@ -139,7 +139,7 @@ Dopo la migrazione è possibile iniziare a usare il nuovo servizio app nel [port
 ### <a name="publishing-your-site"></a>Download e pubblicazione del sito di cui è stata eseguita la migrazione
 Il sito è disponibile tramite Git o FTP e può essere pubblicato nuovamente con vari meccanismi, inclusi WebDeploy, TFS, Mercurial, GitHub e FTP.  La migrazione delle credenziali di distribuzione viene eseguita con il resto del sito.  Se le credenziali di distribuzione non sono state impostate o non sono disponibili, è possibile reimpostarle:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Fare clic su **Credenziali di distribuzione** nel menu PUBBLICAZIONE.
@@ -151,7 +151,7 @@ Il sito è disponibile tramite Git o FTP e può essere pubblicato nuovamente con
 La maggior parte delle impostazioni di un servizio mobile di cui è stata eseguita la migrazione è disponibile in Impostazioni app.  Nel [portale di Azure] è possibile ottenere un elenco delle impostazioni dell'app.
 Per visualizzare o modificare le impostazioni app:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Fare clic su **Impostazioni dell'applicazione** nel menu GENERALE.
@@ -188,7 +188,7 @@ Nota: l'impostazione **MS\_AadTenants** viene archiviata come elenco delimitato 
 ### <a name="easytables"></a>Dati
 La scheda *Dati* in Servizi mobili è stata sostituita da *Tabelle semplici* nel portale di Azure.  Per accedere a Easy Tables:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Fare clic su **Tabelle semplici** nel menu MOBILE.
@@ -205,7 +205,7 @@ La scheda *Dati* in Servizi mobili è stata sostituita da *Tabelle semplici* nel
 ### <a name="easyapis"></a>API
 La scheda *API* in Servizi mobili è stata sostituita da *API semplici* nel portale di Azure.  Per accedere a Easy APIs:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Fare clic su **API semplici** nel menu MOBILE.
@@ -216,7 +216,7 @@ Dal nuovo pannello è possibile modificare le autorizzazioni e gli script per l'
 ### <a name="on-demand-jobs"></a>Processi dell'Utilità di pianificazione
 Tutti i processi dell'Utilità di pianificazione sono disponibili tramite la sezione relativa alle raccolte dei processi dell'Utilità di pianificazione.  Per accedere ai processi dell'Utilità di pianificazione:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Esplora>**, immettere **Pianificazione** nella casella *Filtro* e quindi selezionare **Raccolte dell'Utilità di pianificazione**.
 3. Selezionare la raccolta di processi per il sito.  È denominata *nomesito*-Processi.
 4. Fare clic su **Impostazioni**.
@@ -243,7 +243,7 @@ Servizi mobili usa Hub di notifica per le notifiche push.  Le impostazioni app r
 
 L'hub di notifica viene gestito attraverso il [portale di Azure].  Prendere nota del nome dell'hub di notifica. Per trovarlo è possibile usare le impostazioni app:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Esplora>** e quindi **Hub di notifica**.
 3. Fare clic sul nome dell'hub di notifica associato al servizio mobile.
 
@@ -306,17 +306,17 @@ Modificare i file e pubblicare il sito tramite Git o FTP.
 ### <a name="diagnostics"></a>Diagnostica e registrazione
 Nel servizio app di Azure la registrazione diagnostica è generalmente disabilitata.  Per abilitare la registrazione diagnostica:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Selezionare **Log di diagnostica** nel menu FUNZIONALITÀ.
-5. Fare clic su **SÌ** per i log seguenti: **Registrazione applicazioni (file system)**, **Messaggi di errore dettagliati** e **Traccia delle richieste non riuscite**.
+5. Fare clic su **Abilita** per i log seguenti: **Registrazione applicazioni (file system)**, **Messaggi di errore dettagliati** e **Traccia delle richieste non riuscite**.
 6. Fare clic su **File System** per la registrazione del server Web.
 7. Fare clic su **Save**
 
 Per visualizzare i log:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Fare clic sul pulsante **Strumenti**.
 4. Selezionare **Flusso di registrazione** nel menu OSSERVAZIONE.
@@ -327,7 +327,7 @@ I log vengono visualizzati nella finestra man mano che vengono generati.  È anc
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>L'eliminazione del clone di un'app per dispositivi mobili di cui è stata eseguita la migrazione provoca un'interruzione del sito
 Se si clona il servizio mobile di cui è stata eseguita la migrazione usando Azure PowerShell e si elimina il clone, viene rimossa la voce DNS per il servizio di produzione.  Quindi, il sito non è più accessibile da Internet.  
 
-Risoluzione: se si vuole clonare il sito, effettuare questa operazione tramite il portale.
+Risoluzione: se si vuole clonare il sito, eseguire questa operazione tramite il portale.
 
 ### <a name="changing-webconfig-does-not-work"></a>Le modifiche a Web.config non funzionano
 Se si usa un sito ASP.NET, le modifiche al file `Web.config` non vengono applicate.  Il servizio app di Azure compila un file `Web.config` appropriato durante l'avvio per supportare il runtime di Servizi mobili.  È possibile eseguire l'override di alcune impostazioni, ad esempio le intestazioni personalizzate, tramite un file di trasformazione XML.  Creare un file denominato `applicationHost.xdt`. Questo file deve essere salvato nella directory `D:\home\site` del servizio di Azure.  Caricare il file `applicationHost.xdt` tramite uno script di distribuzione personalizzato o direttamente tramite Kudu.  Di seguito viene illustrato un esempio di documento:
@@ -373,28 +373,28 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Prezzi del servizio app]: https://azure.microsoft.com/pricing/details/app-service/
+[App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Scalabilità automatica]: ../app-service/web-sites-scale.md
-[servizio app di Azure]: ../app-service/app-service-web-overview.md
+[Servizio app di Azure]: ../app-service/app-service-web-overview.md
 [portale di Azure classico]: https://manage.windowsazure.com
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/
 [piani dell'utilità di pianificazione di Azure]: ../scheduler/scheduler-plans-billing.md
 [distribuzione continua]: ../app-service/app-service-continuous-deployment.md
 [Convertire gli spazi dei nomi di tipo Misto]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
-[curl]: http://curl.haxx.se/
+[curl]: https://curl.haxx.se/
 [nomi di dominio personalizzati]: ../app-service/app-service-web-tutorial-custom-domain.md
-[Fiddler]: http://www.telerik.com/fiddler
+[Fiddler]: https://www.telerik.com/fiddler
 [disponibilità generale del servizio app di Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
 [registrazione]: ../app-service/web-sites-enable-diagnostic-log.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
-[Confronto tra Servizi mobili e il servizio app]: app-service-mobile-value-prop-migration-from-mobile-services.md
+[Servizi mobili e servizio app]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Hub di notifica]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [monitoraggio delle prestazioni]: ../app-service/web-sites-monitor.md
-[Postman]: http://www.getpostman.com/
+[Postman]: https://www.getpostman.com/
 [slot di staging]: ../app-service/web-sites-staged-publishing.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT transform samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
-[funzioni]: ../azure-functions/functions-overview.md
+[Funzioni]: ../azure-functions/functions-overview.md

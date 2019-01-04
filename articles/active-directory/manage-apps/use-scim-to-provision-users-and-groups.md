@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 4247ef1ffd1b8d5c5ec393e3ebff20c3e04e32b3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 87f5153ef71f74a0fa1a6be3c527fba03b65bf83
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347699"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095568"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
 
@@ -61,14 +61,14 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
 2. Passare ad **Azure Active Directory > Applicazioni aziendali** e selezionare **Nuova applicazione > Tutte > Applicazione non nella raccolta**.
 3. Immettere un nome per l'applicazione e fare clic sull'icona **Aggiungi** per creare un oggetto app.
     
-  ![][1]
-  *Figura 2: Raccolta di applicazioni di Azure AD*
+   ![][1]
+   *Figura 2: Raccolta di applicazioni di Azure AD*
     
 4. Nella schermata risultante selezionare la scheda **Provisioning** nella colonna sinistra.
 5. Nel menu **Modalità di provisioning** selezionare **Automatica**.
     
-  ![][2]
-  *Figura 3: Configurazione del provisioning nel portale di Azure*
+   ![][2]
+   *Figura 3: Configurazione del provisioning nel portale di Azure*
     
 6. Nel campo **URL tenant** immettere l'URL dell'endpoint SCIM dell'applicazione. Esempio: https://api.contoso.com/scim/v2/
 7. Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token segreto** facoltativo. Se questo campo viene lasciato vuoto, AD Azure include in ogni richiesta un token di connessione OAuth emesso da Azure AD. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD.
@@ -86,8 +86,8 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
 
 Dopo aver avviato la sincronizzazione iniziale, è possibile usare la scheda **Log di controllo** per monitorare lo stato di avanzamento, che mostra tutte le azioni eseguite dal servizio di provisioning sull'app. Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](check-status-user-account-provisioning.md).
 
->[!NOTE]
->La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. 
+> [!NOTE]
+> La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. 
 
 
 ## <a name="building-your-own-provisioning-solution-for-any-application"></a>Creazione di una soluzione di provisioning personale per qualsiasi applicazione
@@ -119,15 +119,19 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 2. Decomprimere il pacchetto e salvarlo nel computer Windows in un percorso analogo a C:\AzureAD-BYOA-Provisioning-Samples\.
 3. In questa cartella, avviare il progetto FileProvisioning\Host\FileProvisioningService.csproj in Visual Studio.
 4. Selezionare **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti** ed eseguire i comandi seguenti per il progetto FileProvisioningService per risolvere i riferimenti alla soluzione:
-  ```` 
-   Update-Package -Reinstall
-  ````
+
+   ```
+    Update-Package -Reinstall
+   ```
+
 5. Compilare il progetto FileProvisioningService.
 6. Avviare l'applicazione prompt dei comandi in Windows come amministratore e usare il comando **cd** per passare alla cartella **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug**.
 7. Eseguire il comando seguente, sostituendo <ip-address> con l'indirizzo IP o il nome di dominio del computer Windows:
-  ````   
-   FileSvc.exe http://<ip-address>:9000 TargetFile.csv
-  ````
+
+   ```
+    FileSvc.exe http://<ip-address>:9000 TargetFile.csv
+   ```
+
 8. In Windows, in **Impostazioni di Windows > Rete e Internet**, selezionare **Windows Firewall > Impostazioni avanzate** e quindi creare una **Nuova regola connessioni in entrata** che consente l'accesso in ingresso alla porta 9000.
 9. Se il computer Windows si trova dietro un router, è necessario configurare il router in modo che esegua NAT (Network Access Translation) tra la rispettiva porta 9000 esposta a Internet e la porta 9000 nel computer Windows. Questa configurazione è necessario per consentire ad Azure AD di accedere a questo endpoint sul cloud.
 
@@ -139,8 +143,8 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 4. Nella schermata risultante selezionare la scheda **Provisioning** nella colonna sinistra.
 5. Nel menu **Modalità di provisioning** selezionare **Automatica**.
     
-  ![][2]
-  *Figura 4: Configurazione del provisioning nel portale di Azure*
+   ![][2]
+   *Figura 4: Configurazione del provisioning nel portale di Azure*
     
 6. Nel campo **URL tenant** immettere l'URL esposto a Internet e la porta dell'endpoint SCIM. Questa voce sarà simile a http://testmachine.contoso.com:9000 o a http://<indirizzo-IP>:9000/, dove <indirizzo-IP> è l'indirizzo IP esposto a Internet.  
 7. Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token segreto** facoltativo. Se questo campo viene lasciato vuoto, AD Azure includerà in ogni richiesta un token di connessione OAuth emesso da Azure AD. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD.
@@ -159,11 +163,11 @@ Il passaggio finale della verifica dell'esempio consiste nell'aprire il file Tar
 ### <a name="development-libraries"></a>Librerie di sviluppo
 Per sviluppare un servizio Web personalizzato conforme alla specifica SCIM, è necessario prima di tutto acquisire familiarità con le librerie Microsoft seguenti per accelerare il processo di sviluppo: 
 
-1. Le librerie CLI (Common Language Infrastructure) vengono messe a disposizione per essere usate con linguaggi basati su questa infrastruttura, ad esempio C#. Una di queste librerie, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), dichiara un'interfaccia, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, illustrata nella figura seguente. Uno sviluppatore che usa le librerie implementerà questa interfaccia con una classe a cui è possibile fare riferimento, in modo generico, come provider. Le librerie consentono agli sviluppatori di distribuire un servizio Web conforme alla specifica SCIM, che può essere ospitato sia in Internet Information Services sia in qualsiasi assembly Common Language Infrastructure eseguibile. La richiesta viene convertita in chiamate ai metodi del provider, che saranno programmate dallo sviluppatore per agire su un archivio identità.
+1. Le librerie CLI (Common Language Infrastructure) vengono messe a disposizione per essere usate con linguaggi basati su questa infrastruttura, ad esempio C#. Una di queste librerie, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), dichiara un'interfaccia, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, mostrata nella figura seguente:  Uno sviluppatore che usa le librerie implementerà questa interfaccia con una classe a cui è possibile fare riferimento, in modo generico, come provider. Le librerie consentono agli sviluppatori di distribuire un servizio Web conforme alla specifica SCIM, che può essere ospitato sia in Internet Information Services sia in qualsiasi assembly Common Language Infrastructure eseguibile. La richiesta viene convertita in chiamate ai metodi del provider, che saranno programmate dallo sviluppatore per agire su un archivio identità.
   
-  ![][3]
+   ![][3]
   
-2. I [gestori di ExpressRoute](http://expressjs.com/guide/routing.html) sono disponibili per l'analisi di oggetti richiesta node.js che rappresentano chiamate, in base alla definizione della specifica SCIM, effettuate a un servizio Web node.js.   
+2. I [gestori di ExpressRoute](https://expressjs.com/guide/routing.html) sono disponibili per l'analisi di oggetti richiesta node.js che rappresentano chiamate, in base alla definizione della specifica SCIM, effettuate a un servizio Web node.js.   
 
 ### <a name="building-a-custom-scim-endpoint"></a>Creazione di un endpoint SCIM personalizzato
 Usando le librerie CLI, gli sviluppatori possono ospitare i servizi in un assembly Common Language Infrastructure eseguibile o in Internet Information Services. Ecco del codice di esempio per l'hosting di un servizio in un assembly eseguibile all'indirizzo http://localhost:9000: 
@@ -292,54 +296,54 @@ Gli sviluppatori che usano le librerie CLA fornite da Microsoft per la creazione
 
 1. In un provider implementare la proprietà Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior facendo in modo che restituisca un metodo da chiamare ogni volta che viene avviato il servizio: 
 
-  ````
-    public override Action\<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration\> StartupBehavior
-    {
-      get
-      {
-        return this.OnServiceStartup;
-      }
-    }
+   ```
+     public override Action\<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration\> StartupBehavior
+     {
+       get
+       {
+         return this.OnServiceStartup;
+       }
+     }
 
-    private void OnServiceStartup(
-      Owin.IAppBuilder applicationBuilder,  // Defined in Owin.dll.  
-      System.Web.Http.HttpConfiguration configuration)  // Defined in System.Web.Http.dll.  
-    {
-    }
-  ````
+     private void OnServiceStartup(
+       Owin.IAppBuilder applicationBuilder,  // Defined in Owin.dll.  
+       System.Web.Http.HttpConfiguration configuration)  // Defined in System.Web.Http.dll.  
+     {
+     }
+   ```
 
 2. Aggiungere il codice seguente al metodo, in modo che qualsiasi richiesta a uno degli endpoint del servizio venga autenticata come se includesse un token emesso da Azure Active Directory per conto di un tenant specifico, per l'accesso al servizio Web Graph di Azure AD: 
 
-  ````
-    private void OnServiceStartup(
-      Owin.IAppBuilder applicationBuilder IAppBuilder applicationBuilder, 
-      System.Web.Http.HttpConfiguration HttpConfiguration configuration)
-    {
-      // IFilter is defined in System.Web.Http.dll.  
-      System.Web.Http.Filters.IFilter authorizationFilter = 
-        new System.Web.Http.AuthorizeAttribute(); // Defined in System.Web.Http.dll.configuration.Filters.Add(authorizationFilter);
+   ```
+     private void OnServiceStartup(
+       Owin.IAppBuilder applicationBuilder IAppBuilder applicationBuilder, 
+       System.Web.Http.HttpConfiguration HttpConfiguration configuration)
+     {
+       // IFilter is defined in System.Web.Http.dll.  
+       System.Web.Http.Filters.IFilter authorizationFilter = 
+         new System.Web.Http.AuthorizeAttribute(); // Defined in System.Web.Http.dll.configuration.Filters.Add(authorizationFilter);
 
-      // SystemIdentityModel.Tokens.TokenValidationParameters is defined in    
-      // System.IdentityModel.Token.Jwt.dll.
-      SystemIdentityModel.Tokens.TokenValidationParameters tokenValidationParameters =     
-        new TokenValidationParameters()
-        {
-          ValidAudience = "00000002-0000-0000-c000-000000000000"
-        };
+       // SystemIdentityModel.Tokens.TokenValidationParameters is defined in    
+       // System.IdentityModel.Token.Jwt.dll.
+       SystemIdentityModel.Tokens.TokenValidationParameters tokenValidationParameters =     
+         new TokenValidationParameters()
+         {
+           ValidAudience = "00000002-0000-0000-c000-000000000000"
+         };
 
-      // WindowsAzureActiveDirectoryBearerAuthenticationOptions is defined in 
-      // Microsoft.Owin.Security.ActiveDirectory.dll
-      Microsoft.Owin.Security.ActiveDirectory.
-      WindowsAzureActiveDirectoryBearerAuthenticationOptions authenticationOptions =
-        new WindowsAzureActiveDirectoryBearerAuthenticationOptions()    {
-        TokenValidationParameters = tokenValidationParameters,
-        Tenant = "03F9FCBC-EA7B-46C2-8466-F81917F3C15E" // Substitute the appropriate tenant’s 
-                                                      // identifier for this one.  
-      };
+       // WindowsAzureActiveDirectoryBearerAuthenticationOptions is defined in 
+       // Microsoft.Owin.Security.ActiveDirectory.dll
+       Microsoft.Owin.Security.ActiveDirectory.
+       WindowsAzureActiveDirectoryBearerAuthenticationOptions authenticationOptions =
+         new WindowsAzureActiveDirectoryBearerAuthenticationOptions()    {
+         TokenValidationParameters = tokenValidationParameters,
+         Tenant = "03F9FCBC-EA7B-46C2-8466-F81917F3C15E" // Substitute the appropriate tenant’s 
+                                                       // identifier for this one.  
+       };
 
-      applicationBuilder.UseWindowsAzureActiveDirectoryBearerAuthentication(authenticationOptions);
-    }
-  ````
+       applicationBuilder.UseWindowsAzureActiveDirectoryBearerAuthentication(authenticationOptions);
+     }
+   ```
 
 
 ## <a name="user-and-group-schema"></a>Schema di utenti e gruppi
@@ -349,7 +353,8 @@ Le risorse utente sono rilevate dall'identificatore dello schema, "urn:ietf:para
 
 Le risorse gruppo sono identificate dall'identificatore dello schema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  La tabella 2 riportata di seguito illustra il mapping predefinito degli attributi di gruppi di Azure Active Directory agli attributi delle risorse http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 
-### <a name="table-1-default-user-attribute-mapping"></a>Tabella 1: mapping predefinito degli attributi utente
+### <a name="table-1-default-user-attribute-mapping"></a>Tabella 1: Mapping predefinito degli attributi utente
+
 | Utente Azure Active Directory | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |active |
@@ -370,7 +375,8 @@ Le risorse gruppo sono identificate dall'identificatore dello schema, http://sch
 | telephone-Number |phoneNumbers[type eq "work"].value |
 | user-PrincipalName |userName |
 
-### <a name="table-2-default-group-attribute-mapping"></a>Tabella 2: mapping predefinito degli attributi gruppo
+### <a name="table-2-default-group-attribute-mapping"></a>Tabella 2: Mapping predefinito degli attributi dei gruppi
+
 | Gruppo di Azure Active Directory | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
 | displayName |externalId |
@@ -387,298 +393,322 @@ La figura seguente illustra i messaggi che Azure Active Directory invia al servi
 *Figura 5: Sequenza di provisioning e deprovisioning utenti*
 
 1. Azure Active Directory esegue query nel servizio per trovare un utente con valore dell'attributo externalId corrispondente al valore dell'attributo mailNickname di un utente in Azure AD. La query viene espressa come richiesta HTTP (Hypertext Transfer Protocol) analoga a quella dell'esempio, dove jyoung è un esempio di mailNickname di un utente in Azure Active Directory: 
-  ````
-    GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
-    Authorization: Bearer ...
-  ````
-  Se il servizio è stato creato mediante le librerie Common Language Infrastructure fornite da Microsoft per implementare i servizi SCIM, la richiesta viene convertita in una chiamata al metodo Query del provider del servizio.  Ecco la firma del metodo: 
-  ````
-    // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
-    // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
-    // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
-    // Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters is defined in 
-    // Microsoft.SystemForCrossDomainIdentityManagement.Protocol.  
 
-    System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]> Query(
-      Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
-      string correlationIdentifier);
-  ````
-  Ecco la definizione dell'interfaccia Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters: 
-  ````
-    public interface IQueryParameters: 
-      Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
-    {
-        System.Collections.Generic.IReadOnlyCollection <Microsoft.SystemForCrossDomainIdentityManagement.IFilter> AlternateFilters 
-        { get; }
-    }
+   ```
+     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
+     Authorization: Bearer ...
+   ```
 
-    public interface Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
-    {
-      system.Collections.Generic.IReadOnlyCollection<string> ExcludedAttributePaths 
-      { get; }
-      System.Collections.Generic.IReadOnlyCollection<string> RequestedAttributePaths 
-      { get; }
-      string SchemaIdentifier 
-      { get; }
-    }
+   Se il servizio è stato creato mediante le librerie Common Language Infrastructure fornite da Microsoft per implementare i servizi SCIM, la richiesta viene convertita in una chiamata al metodo Query del provider del servizio.  Ecco la firma del metodo: 
 
-    public interface Microsoft.SystemForCrossDomainIdentityManagement.IFilter
-    {
-        Microsoft.SystemForCrossDomainIdentityManagement.IFilter AdditionalFilter 
-          { get; set; }
-        string AttributePath 
-          { get; } 
-        Microsoft.SystemForCrossDomainIdentityManagement.ComparisonOperator FilterOperator 
-          { get; }
-        string ComparisonValue 
-          { get; }
-    }
+   ```
+     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
+     // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
+     // Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters is defined in 
+     // Microsoft.SystemForCrossDomainIdentityManagement.Protocol.  
+ 
+     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]>  Query(
+       Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
+       string correlationIdentifier);
+   ````
 
-    public enum Microsoft.SystemForCrossDomainIdentityManagement.ComparisonOperator
-    {
-        Equals
-    }
-  ````
-  Nell'esempio seguente di una query per un utente con un determinato valore per l'attributo externalId, i valori degli argomenti passati al metodo Query sono: 
-  * parameters.AlternateFilters.Count: 1
-  * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
-  * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
-  * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
-  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
+   Ecco la definizione dell'interfaccia Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters: 
+
+   ```
+     public interface IQueryParameters: 
+       Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
+     {
+         System.Collections.Generic.IReadOnlyCollection  <Microsoft.SystemForCrossDomainIdentityManagement.IFilter> AlternateFilters 
+         { get; }
+     }
+
+     public interface Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
+     {
+       system.Collections.Generic.IReadOnlyCollection<string> ExcludedAttributePaths 
+       { get; }
+       System.Collections.Generic.IReadOnlyCollection<string> RequestedAttributePaths 
+       { get; }
+       string SchemaIdentifier 
+       { get; }
+     }
+
+     public interface Microsoft.SystemForCrossDomainIdentityManagement.IFilter
+     {
+         Microsoft.SystemForCrossDomainIdentityManagement.IFilter AdditionalFilter 
+           { get; set; }
+         string AttributePath 
+           { get; } 
+         Microsoft.SystemForCrossDomainIdentityManagement.ComparisonOperator FilterOperator 
+           { get; }
+         string ComparisonValue 
+           { get; }
+     }
+
+     public enum Microsoft.SystemForCrossDomainIdentityManagement.ComparisonOperator
+     {
+         Equals
+     }
+   ```
+
+   Nell'esempio seguente di una query per un utente con un determinato valore per l'attributo externalId, i valori degli argomenti passati al metodo Query sono: 
+   * parameters.AlternateFilters.Count: 1
+   * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
+   * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
+   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
 2. Se la risposta a una query sul servizio Web per cercare un utente con valore dell'attributo externalId corrispondente al valore dell'attributo mailNickname di un utente non restituisce alcun utente, Azure Active Directory richiede che il servizio effettui il provisioning di un utente corrispondente a quello in Azure Active Directory.  Ecco un esempio di questa richiesta: 
-  ````
-    POST https://.../scim/Users HTTP/1.1
-    Authorization: Bearer ...
-    Content-type: application/scim+json
-    {
-      "schemas":
-      [
-        "urn:ietf:params:scim:schemas:core:2.0:User",
-        "urn:ietf:params:scim:schemas:extension:enterprise:2.0User"],
-      "externalId":"jyoung",
-      "userName":"jyoung",
-      "active":true,
-      "addresses":null,
-      "displayName":"Joy Young",
-      "emails": [
-        {
-          "type":"work",
-          "value":"jyoung@Contoso.com",
-          "primary":true}],
-      "meta": {
-        "resourceType":"User"},
-       "name":{
-        "familyName":"Young",
-        "givenName":"Joy"},
-      "phoneNumbers":null,
-      "preferredLanguage":null,
-      "title":null,
-      "department":null,
-      "manager":null}
-  ````
-  Le librerie Common Language Infrastructure fornite da Microsoft per implementare servizi SCIM convertiranno tale richiesta in una chiamata al metodo Create del provider del servizio.  Il metodo Create ha la firma seguente: 
-  ````
-    // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
-    // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
-    // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
 
-    System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> Create(
-      Microsoft.SystemForCrossDomainIdentityManagement.Resource resource, 
-      string correlationIdentifier);
-  ````
-  In una richiesta di provisioning di un utente, il valore dell'argomento resource è un'istanza della classe Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser, definita nella libreria Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  Se la richiesta di provisioning dell'utente ha esito positivo, si prevede che l'implementazione del metodo restituisca un'istanza di Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser, con il valore della proprietà Identifier impostato sull'identificatore univoco dell'utente appena sottoposto a provisioning.  
+   ```
+     POST https://.../scim/Users HTTP/1.1
+     Authorization: Bearer ...
+     Content-type: application/scim+json
+     {
+       "schemas":
+       [
+         "urn:ietf:params:scim:schemas:core:2.0:User",
+         "urn:ietf:params:scim:schemas:extension:enterprise:2.0User"],
+       "externalId":"jyoung",
+       "userName":"jyoung",
+       "active":true,
+       "addresses":null,
+       "displayName":"Joy Young",
+       "emails": [
+         {
+           "type":"work",
+           "value":"jyoung@Contoso.com",
+           "primary":true}],
+       "meta": {
+         "resourceType":"User"},
+        "name":{
+         "familyName":"Young",
+         "givenName":"Joy"},
+       "phoneNumbers":null,
+       "preferredLanguage":null,
+       "title":null,
+       "department":null,
+       "manager":null}
+   ```
+
+   Le librerie Common Language Infrastructure fornite da Microsoft per implementare servizi SCIM convertiranno tale richiesta in una chiamata al metodo Create del provider del servizio.  Il metodo Create ha la firma seguente: 
+
+   ```
+     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
+     // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
+ 
+     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> Create (
+       Microsoft.SystemForCrossDomainIdentityManagement.Resource resource, 
+       string correlationIdentifier);
+   ```
+
+   In una richiesta di provisioning di un utente, il valore dell'argomento resource è un'istanza della classe Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser, definita nella libreria Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  Se la richiesta di provisioning dell'utente ha esito positivo, si prevede che l'implementazione del metodo restituisca un'istanza di Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser, con il valore della proprietà Identifier impostato sull'identificatore univoco dell'utente appena sottoposto a provisioning.  
 
 3. Per aggiornare un utente la cui esistenza è nota in un archivio identità gestito da SCIM, Azure Active Directory richiede al servizio lo stato corrente dell'utente con una richiesta simile alla seguente: 
-  ````
-    GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
-    Authorization: Bearer ...
-  ````
-  In un servizio creato mediante le librerie Common Language Infrastructure fornite da Microsoft per implementare i servizi SCIM, la richiesta viene convertita in una chiamata al metodo Retrieve del provider del servizio.  Ecco la firma del metodo Retrieve: 
-  ````
-    // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
-    // Microsoft.SystemForCrossDomainIdentityManagement.Resource and 
-    // Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
-    // are defined in Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
-    System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> 
-       Retrieve(
-         Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
-           parameters, 
-           string correlationIdentifier);
 
-    public interface 
-      Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
-        IRetrievalParameters
-        {
-          Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier 
-            ResourceIdentifier 
-              { get; }
-    }
-    public interface Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier
-    {
-        string Identifier 
-          { get; set; }
-        string Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier 
-          { get; set; }
-    }
-  ````
-  Nell'esempio di una richiesta per recuperare lo stato corrente di un utente, i valori delle proprietà dell'oggetto fornito come valore dell'argomento parameters sono analoghi ai seguenti: 
+   ```
+     GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+     Authorization: Bearer ...
+   ```
+
+   In un servizio creato mediante le librerie Common Language Infrastructure fornite da Microsoft per implementare i servizi SCIM, la richiesta viene convertita in una chiamata al metodo Retrieve del provider del servizio.  Ecco la firma del metodo Retrieve: 
+
+    ```
+     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+     // Microsoft.SystemForCrossDomainIdentityManagement.Resource and 
+     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
+     // are defined in Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
+     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> 
+        Retrieve(
+          Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
+            parameters, 
+            string correlationIdentifier);
+ 
+     public interface 
+       Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
+         IRetrievalParameters
+         {
+           Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier 
+             ResourceIdentifier 
+               { get; }
+     }
+     public interface Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier
+     {
+         string Identifier 
+           { get; set; }
+         string Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier 
+           { get; set; }
+     }
+   ```
+
+   Nell'esempio di una richiesta per recuperare lo stato corrente di un utente, i valori delle proprietà dell'oggetto fornito come valore dell'argomento parameters sono analoghi ai seguenti: 
   
-  * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+   * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 4. Se è necessario aggiornare un attributo reference, Azure Active Directory esegue query sul servizio per determinare se il valore corrente dell'attributo reference nell'archivio identità gestito dal servizio corrisponde già al valore dell'attributo in Azure Active Directory. Per gli utenti, l'unico attributo il cui valore corrente viene sottoposto a query con questa modalità è l'attributo manager. Ecco un esempio di una richiesta per determinare se l'attributo manager di un oggetto utente specifico ha attualmente un determinato valore: 
-  ````
-    GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq 2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
-    Authorization: Bearer ...
-  ````
-  Il valore del parametro attributes della query, "ID", indica che se esiste un oggetto utente che soddisfa l'espressione fornita come valore del parametro filter della query, il servizio dovrà rispondere con una risorsa "urn:ietf:params:scim:schemas:core:2.0:User" o "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" che include solo il valore dell'attributo "ID" della risorsa.  Il valore dell'attributo **ID** è noto al richiedente, poiché è incluso nel valore del parametro filter della query. Il valore viene chiesto per potere richiedere una rappresentazione minima di una risorsa che soddisfa l'espressione di filtro come indicazione dell'eventuale esistenza di questo oggetto.   
 
-  Se il servizio è stato creato mediante le librerie Common Language Infrastructure fornite da Microsoft per implementare i servizi SCIM, la richiesta viene convertita in una chiamata al metodo Query del provider del servizio. Il valore delle proprietà dell'oggetto fornito come valore dell'argomento parameters è analogo al seguente: 
+   ```
+     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq  2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
+     Authorization: Bearer ...
+   ```
+
+   Il valore del parametro attributes della query, "ID", indica che se esiste un oggetto utente che soddisfa l'espressione fornita come valore del parametro filter della query, il servizio dovrà rispondere con una risorsa "urn:ietf:params:scim:schemas:core:2.0:User" o "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" che include solo il valore dell'attributo "ID" della risorsa.  Il valore dell'attributo **ID** è noto al richiedente, poiché è incluso nel valore del parametro filter della query. Il valore viene chiesto per potere richiedere una rappresentazione minima di una risorsa che soddisfa l'espressione di filtro come indicazione dell'eventuale esistenza di questo oggetto.   
+
+   Se il servizio è stato creato mediante le librerie Common Language Infrastructure fornite da Microsoft per implementare i servizi SCIM, la richiesta viene convertita in una chiamata al metodo Query del provider del servizio. Il valore delle proprietà dell'oggetto fornito come valore dell'argomento parameters è analogo al seguente: 
   
-  * parameters.AlternateFilters.Count: 2
-  * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
-  * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
-  * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
-  * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-  * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-  * parameters.RequestedAttributePaths.ElementAt(0): "ID"
-  * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+   * parameters.AlternateFilters.Count: 2
+   * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
+   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(x).ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
+   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(y).ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
+   * parameters.RequestedAttributePaths.ElementAt(0): "ID"
+   * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-  Il valore dell'indice x può essere 0 e il valore dell'indice y può essere 1 oppure il valore di x può essere 1 e il valore di y può essere 0, in base all'ordine delle espressioni del parametro filter della query.   
+   Il valore dell'indice x può essere 0 e il valore dell'indice y può essere 1 oppure il valore di x può essere 1 e il valore di y può essere 0, in base all'ordine delle espressioni del parametro filter della query.   
 
 5. Ecco un esempio di una richiesta di Azure Active Directory a un servizio SCIM per l'aggiornamento di un utente: 
-  ````
-    PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
-    Authorization: Bearer ...
-    Content-type: application/scim+json
-    {
-      "schemas": 
-      [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-      "Operations":
-      [
-        {
-          "op":"Add",
-          "path":"manager",
-          "value":
-            [
-              {
-                "$ref":"http://.../scim/Users/2819c223-7f76-453a-919d-413861904646",
-                "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
-  ````
-  Le librerie Microsoft Common Language Infrastructure per implementare servizi SCIM convertiranno la richiesta in una chiamata al metodo Update del provider del servizio. Questa è la firma del metodo Update: 
-  ````
-    // System.Threading.Tasks.Tasks and 
-    // System.Collections.Generic.IReadOnlyCollection<T>
-    // are defined in mscorlib.dll.  
-    // Microsoft.SystemForCrossDomainIdentityManagement.IPatch, 
-    // Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase, 
-    // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
-    // Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation, 
-    // Microsoft.SystemForCrossDomainIdentityManagement.OperationName, 
-    // Microsoft.SystemForCrossDomainIdentityManagement.IPath and 
-    // Microsoft.SystemForCrossDomainIdentityManagement.OperationValue 
-    // are all defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
 
-    System.Threading.Tasks.Task Update(
-      Microsoft.SystemForCrossDomainIdentityManagement.IPatch patch, 
-      string correlationIdentifier);
+   ```
+     PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+     Authorization: Bearer ...
+     Content-type: application/scim+json
+     {
+       "schemas": 
+       [
+         "urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+       "Operations":
+       [
+         {
+           "op":"Add",
+           "path":"manager",
+           "value":
+             [
+               {
+                 "$ref":"http://.../scim/Users/2819c223-7f76-453a-919d-413861904646",
+                 "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
+   ```
 
-    public interface Microsoft.SystemForCrossDomainIdentityManagement.IPatch
-    {
-    Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase 
-      PatchRequest 
-        { get; set; }
-    Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier 
-      ResourceIdentifier 
-        { get; set; }        
-    }
+   Le librerie Microsoft Common Language Infrastructure per implementare servizi SCIM convertiranno la richiesta in una chiamata al metodo Update del provider del servizio. Questa è la firma del metodo Update: 
 
-    public class PatchRequest2: 
-      Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase
-    {
-    public System.Collections.Generic.IReadOnlyCollection
-      <Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation> 
-        Operations
-        { get;}
+   ```
+     // System.Threading.Tasks.Tasks and 
+     // System.Collections.Generic.IReadOnlyCollection<T>
+     // are defined in mscorlib.dll.  
+     // Microsoft.SystemForCrossDomainIdentityManagement.IPatch, 
+     // Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase, 
+     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
+     // Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation, 
+     // Microsoft.SystemForCrossDomainIdentityManagement.OperationName, 
+     // Microsoft.SystemForCrossDomainIdentityManagement.IPath and 
+     // Microsoft.SystemForCrossDomainIdentityManagement.OperationValue 
+     // are all defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
 
-    public void AddOperation(
-      Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation operation);
-    }
+     System.Threading.Tasks.Task Update(
+       Microsoft.SystemForCrossDomainIdentityManagement.IPatch patch, 
+       string correlationIdentifier);
 
-    public class PatchOperation
-    {
-    public Microsoft.SystemForCrossDomainIdentityManagement.OperationName 
-      Name
-      { get; set; }
+     public interface Microsoft.SystemForCrossDomainIdentityManagement.IPatch
+     {
+     Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase 
+       PatchRequest 
+         { get; set; }
+     Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier 
+       ResourceIdentifier 
+         { get; set; }        
+     }
 
-    public Microsoft.SystemForCrossDomainIdentityManagement.IPath 
-      Path
-      { get; set; }
+     public class PatchRequest2: 
+       Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase
+     {
+     public System.Collections.Generic.IReadOnlyCollection
+       <Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation> 
+         Operations
+         { get;}
 
-    public System.Collections.Generic.IReadOnlyCollection
-      <Microsoft.SystemForCrossDomainIdentityManagement.OperationValue> Value
-      { get; }
+     public void AddOperation(
+       Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation operation);
+     }
 
-    public void AddValue(
-      Microsoft.SystemForCrossDomainIdentityManagement.OperationValue value);
-    }
+     public class PatchOperation
+     {
+     public Microsoft.SystemForCrossDomainIdentityManagement.OperationName 
+       Name
+       { get; set; }
 
-    public enum OperationName
-    {
-      Add,
-      Remove,
-      Replace
-    }
+     public Microsoft.SystemForCrossDomainIdentityManagement.IPath 
+       Path
+       { get; set; }
 
-    public interface IPath
-    {
-      string AttributePath { get; }
-      System.Collections.Generic.IReadOnlyCollection<IFilter> SubAttributes { get; }
-      Microsoft.SystemForCrossDomainIdentityManagement.IPath ValuePath { get; }
-    }
+     public System.Collections.Generic.IReadOnlyCollection
+       <Microsoft.SystemForCrossDomainIdentityManagement.OperationValue> Value
+       { get; }
 
-    public class OperationValue
-    {
-      public string Reference
-      { get; set; }
+     public void AddValue(
+       Microsoft.SystemForCrossDomainIdentityManagement.OperationValue value);
+     }
 
-      public string Value
-      { get; set; }
-    }
-  ````
+     public enum OperationName
+     {
+       Add,
+       Remove,
+       Replace
+     }
+
+     public interface IPath
+     {
+       string AttributePath { get; }
+       System.Collections.Generic.IReadOnlyCollection<IFilter> SubAttributes { get; }
+       Microsoft.SystemForCrossDomainIdentityManagement.IPath ValuePath { get; }
+     }
+
+     public class OperationValue
+     {
+       public string Reference
+       { get; set; }
+
+       public string Value
+       { get; set; }
+     }
+   ```
+
     Nell'esempio di una richiesta per l'aggiornamento di un utente, i valori delle proprietà dell'oggetto fornito come valore dell'argomento patch sono analoghi ai seguenti: 
   
-  * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
-  * (PatchRequest as PatchRequest2).Operations.Count: 1
-  * (PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName: OperationName.Add
-  * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Path.AttributePath: "manager"
-  * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.Count: 1
-  * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
-  * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
+   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * ResourceIdentifier.SchemaIdentifier:  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+   * (PatchRequest as PatchRequest2).Operations.Count: 1
+   * (PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName: OperationName.Add
+   * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Path.AttributePath: "manager"
+   * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.Count: 1
+   * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
+   * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
 6. Per effettuare il deprovisioning di un utente da un archivio identità gestito da un servizio SCIM, Azure Active Directory invia una richiesta simile alla seguente: 
-  ````
-    DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
-    Authorization: Bearer ...
-  ````
-  Se il servizio è stato creato mediante le librerie Common Language Infrastructure fornite da Microsoft per implementare i servizi SCIM, la richiesta viene convertita in una chiamata al metodo Delete del provider del servizio.   Il metodo ha la firma seguente: 
-  ````
-    // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
-    // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
-    // is defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
-    System.Threading.Tasks.Task Delete(
-      Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier  
-        resourceIdentifier, 
-      string correlationIdentifier);
-  ````
-  Nell'esempio di una richiesta per il deprovisioning di un utente, i valori delle proprietà dell'oggetto fornito come valore dell'argomento resourceIdentifier sono analoghi ai seguenti: 
-  
-  * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+
+   ```
+     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+     Authorization: Bearer ...
+   ```
+
+   Se il servizio è stato creato mediante le librerie Common Language Infrastructure fornite da Microsoft per implementare i servizi SCIM, la richiesta viene convertita in una chiamata al metodo Delete del provider del servizio.   Il metodo ha la firma seguente: 
+
+   ```
+     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
+     // is defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
+     System.Threading.Tasks.Task Delete(
+       Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier  
+         resourceIdentifier, 
+       string correlationIdentifier);
+   ```
+
+   Nell'esempio di una richiesta per il deprovisioning di un utente, i valori delle proprietà dell'oggetto fornito come valore dell'argomento resourceIdentifier sono analoghi ai seguenti: 
+
+   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="group-provisioning-and-de-provisioning"></a>Provisioning e deprovisioning gruppi
 La figura seguente illustra i messaggi che Azure AD invia al servizio SCIM per gestire il ciclo di vita di un gruppo in un altro archivio identità.  Questi messaggi si differenziano dai messaggi relativi agli utenti in tre modi: 
@@ -691,7 +721,6 @@ La figura seguente illustra i messaggi che Azure AD invia al servizio SCIM per g
 *Figura 6: Sequenza di provisioning e deprovisioning gruppi*
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
 * [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](user-provisioning.md)
 * [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](customize-application-attributes.md)
 * [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)

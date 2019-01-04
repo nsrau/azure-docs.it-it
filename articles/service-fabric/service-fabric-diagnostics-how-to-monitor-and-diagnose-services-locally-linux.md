@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 5aeb87538968304d3eaf73873d4c4c762c07329c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 9f0c4789e73659e5965440989c23a8cf673f7cd2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051375"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309162"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorare e diagnosticare servizi in una configurazione di sviluppo con computer locale
 
@@ -35,7 +35,7 @@ Le operazioni di monitoraggio, rilevamento, diagnosi e risoluzione dei problemi 
 
 ## <a name="debugging-service-fabric-java-applications"></a>Debug delle applicazioni Java di Service Fabric
 
-Per le applicazioni Java sono disponibili [più framework di registrazione](http://en.wikipedia.org/wiki/Java_logging_framework) . Dato che `java.util.logging` è l'opzione predefinita con JRE, viene usato anche per gli [esempi di codice in GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  Di seguito viene illustrato come configurare il framework `java.util.logging` .
+Per le applicazioni Java sono disponibili [più framework di registrazione](http://en.wikipedia.org/wiki/Java_logging_framework) . Dato che `java.util.logging` è l'opzione predefinita con JRE, viene usato anche per gli [esempi di codice in GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started). Di seguito viene illustrato come configurare il framework `java.util.logging` .
 
 Usando java.util.logging è possibile reindirizzare i log dell'applicazione a memoria, flussi di output, file di console o socket. Nel framework sono disponibili gestori predefiniti per ognuna di queste opzioni. È possibile creare un file `app.properties` per configurare il gestore di file per l'applicazione in modo da reindirizzare tutti i log a un file locale.
 
@@ -48,7 +48,7 @@ java.util.logging.FileHandler.level = ALL
 java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.limit = 1024000
 java.util.logging.FileHandler.count = 10
-java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log             
+java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
 La cartella a cui fa riferimento il file `app.properties` deve essere presente. Dopo la creazione del file `app.properties`, è anche necessario modificare lo script del punto di ingresso`entrypoint.sh`, nella cartella `<applicationfolder>/<servicePkg>/Code/` in modo da impostare la proprietà `java.util.logging.config.file` sul file `app.propertes`. La voce dovrebbe essere simile al frammento seguente:
@@ -64,7 +64,7 @@ Con questa configurazione, i log verranno raccolti a rotazione in `/tmp/servicef
 
 Se non viene configurato in modo esplicito alcun gestore, per impostazione predefinita viene registrato il gestore della console. È possibile visualizzare i log in syslog, in /var/log/syslog.
 
-Per altre informazioni, vedere gli [GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
+Per altre informazioni, vedere gli [GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Debug di applicazioni C# di Service Fabric
@@ -83,8 +83,8 @@ Il primo passaggio consiste nell'includere System.Diagnostics.Tracing in modo da
 
 ```csharp
 
- public class ServiceEventSource : EventSource
- {
+public class ServiceEventSource : EventSource
+{
         public static ServiceEventSource Current = new ServiceEventSource();
 
         [NonEvent]
@@ -105,8 +105,8 @@ Il primo passaggio consiste nell'includere System.Diagnostics.Tracing in modo da
 
 
 ```csharp
-   internal class ServiceEventListener : EventListener
-   {
+internal class ServiceEventListener : EventListener
+{
 
         protected override void OnEventSourceCreated(EventSource eventSource)
         {
@@ -114,20 +114,20 @@ Il primo passaggio consiste nell'includere System.Diagnostics.Tracing in modo da
         }
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
-            using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
-        { 
-                 // report all event information               
-         Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
-                if (eventData.Message != null)              
-            Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
-            else             
-        { 
-                    string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
-                    Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");             
+                using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))
+                {
+                        // report all event information
+                        Out.Write(" {0} ", Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
+                        if (eventData.Message != null)
+                                Out.WriteLine(eventData.Message, eventData.Payload.ToArray());
+                        else
+                        {
+                                string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
+                                Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");
+                        }
+                }
         }
-           }
-        }
-    }
+}
 ```
 
 

@@ -1,5 +1,5 @@
 ---
-title: Aumentare automaticamente le unità elaborate di Hub eventi di Azure | Microsoft Docs
+title: Aumentare automaticamente le unità elaborate - Hub eventi di Azure | Microsoft Docs
 description: Abilitare Aumento automatico in uno spazio dei nomi per aumentare le unità elaborate.
 services: event-hubs
 documentationcenter: na
@@ -10,19 +10,19 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987002"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408162"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Aumentare automaticamente le unità elaborate di Hub eventi di Azure
-
 Hub eventi di Azure è una piattaforma di streaming dei dati altamente scalabile. L'uso di Hub eventi, quindi, spesso aumenta dopo che si è iniziato a usare il servizio. Questo utilizzo richiede di aumentare le prestazioni di Hub eventi aumentando le [unità elaborate](event-hubs-features.md#throughput-units) predeterminate e di gestire velocità di trasferimento più alte. La funzionalità **Aumento automatico** di Hub eventi aumenta automaticamente le prestazioni aumentando il numero di unità elaborate per soddisfare le esigenze di utilizzo. L'aumento delle unità elaborate previene scenari di limitazione in cui:
 
 * Le velocità di ingresso dei dati superano le unità elaborate impostate.
@@ -47,15 +47,25 @@ Per abilitare o disabilitare Aumento automatico in uno spazio dei nomi di Hub ev
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>Abilitare Aumento automatico tramite il portale
 
-È possibile abilitare la funzionalità Aumento automatico quando si crea uno spazio dei nomi di Hub eventi:
+
+#### <a name="enable-at-the-time-of-creation"></a>Abilitare al momento della creazione 
+È possibile abilitare la funzionalità Aumento automatico **quando si crea uno spazio dei nomi di Hub eventi**:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+![Attivare l'aumento automatico nel momento della creazione di hub eventi](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 Dopo avere abilitato questa opzione, è possibile iniziare con un numero ridotto di unità elaborate e aumentarle in funzione delle esigenze di utilizzo. Il limite superiore per l'aumento non influisce immediatamente sui prezzi, che dipendono dal numero di unità elaborate usate all'ora.
 
-È anche possibile abilitare la funzionalità Aumento automatico usando l'opzione **Ridimensiona** nel riquadro Impostazioni del portale:
+#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>Abilitare l'aumento automatico per un hub eventi esistente
+È anche possibile abilitare la funzionalità di aumento automatico e modificarne le impostazioni usando le istruzioni seguenti: 
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+1. Nella pagina **Spazio dei nomi degli Hub eventi di Azure**, selezionare **Disabilitato** in **Aumento automatico delle unità elaborate**.  
+
+    ![Selezionare le unità elaborate nella pagina di spazio dei nomi di Hub eventi di Azure](./media/event-hubs-auto-inflate/select-throughput-units.png)
+2. Nella pagina delle **Impostazioni di scalabilità**, selezionare la casella di controllo per **Abilitare** (se non è stata abilitata la funzionalità di scalabilità automatica).
+
+    ![Selezionare Abilita](./media/event-hubs-auto-inflate/scale-settings.png)
+3. Immettere il numero **massimo** di unità elaborate o usare la barra di scorrimento per impostare il valore. 
+4. (facoltativo) Aggiornare il numero **minimo** di unità elaborate nella parte superiore della pagina. 
 
 
 > [!NOTE]

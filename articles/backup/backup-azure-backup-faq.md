@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti su Backup di Azure
-description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
+description: 'Risposte alle domande comuni su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 647ed64d405424431419da1e693abea2bdf07ace
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261667"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262266"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 Questo articolo risponde alle domande comuni sul servizio Backup di Azure.
@@ -235,8 +235,8 @@ Sì. I dati vengono crittografati nel computer locale con AES256. I dati vengono
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Anche i dati di backup in Azure sono crittografati?
 
 Sì. I dati in Azure vengono crittografati a riposo.
-- Per il backup in locale, la crittografia a riposo viene eseguita con l'uso della passphrase immessa durante il backup in Azure.
-- Per le macchine virtuali di Azure, i dati sono crittografati a riposo usando la crittografia del servizio di archiviazione.
+- Per il backup in locale, la crittografia dei dati inattivi viene eseguita con l'uso della passphrase immessa durante il backup in Azure.
+- Per le macchine virtuali di Azure, i dati inattivi sono crittografati usando la crittografia del servizio di archiviazione.
 
 Microsoft non decrittografa mai i dati di backup.
 

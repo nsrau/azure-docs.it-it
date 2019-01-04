@@ -1,12 +1,11 @@
 ---
-title: Analisi della varianza dei clienti con Azure Machine Learning Studio | Microsoft Docs
+title: Analisi della varianza dei clienti - Azure Machine Learning Studio | Microsoft Docs
 description: Casi di studio sullo sviluppo di un modello integrato per l'analisi e l'assegnazione dei punteggi di varianza del cliente con Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314985"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272168"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analisi della varianza dei clienti con Azure Machine Learning Studio
 ## <a name="overview"></a>Panoramica
@@ -31,11 +30,11 @@ Questo argomento illustra un'implementazione di riferimento di un progetto di an
 Questo esperimento è stato sviluppato e testato da Serge Berger, Principal Data Scientist presso Microsoft e Roger Barga, in precedenza Product Manager per Microsoft Azure Machine Learning. Il team di documentazione di Azure esprime riconoscenza e ringrazia gli esperti per aver condiviso le proprie competenze in questo white paper.
 
 > [!NOTE]
-> I dati usati per questo esperimento non sono disponibili pubblicamente. Per un esempio su come compilare un modello di apprendimento automatico per l'analisi della varianza, vedere: [Retail churn model template](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) (Modello di varianza al dettaglio) nella [Raccolta di intelligenza artificiale per Azure](http://gallery.cortanaintelligence.com/)
+> I dati usati per questo esperimento non sono disponibili pubblicamente. Per un esempio su come compilare un modello di apprendimento automatico per l'analisi della varianza, vedere: [Retail churn model template](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) (Modello di varianza al dettaglio) nella [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="the-problem-of-customer-churn"></a>Il problema della varianza del cliente
 Le aziende del mercato consumer, come tutte quelle dei settori commerciali, devono fare i conti con la varianza. In certi casi una varianza eccessiva può arrivare a influenzare i criteri decisionali. La soluzione tradizionale consiste nel prevedere i fattori con elevata propensione alla varianza e soddisfare le relative esigenze tramite un servizio di concierge, campagne di marketing o tramite l'applicazione di dispense speciali. Questi approcci possono variare da settore a settore. Possono variare persino da un determinato gruppo di clienti a un altro all'interno di un settore (ad esempio quello delle telecomunicazioni).
@@ -66,7 +65,7 @@ Si tratta di un approccio rivolto al futuro è il modo migliore per trattare la 
 
 ![][2]
 
-*Figura 4: archetipo multi modello unificato*  
+*Figura 4: Archetipo multi modello unificato*  
 
 L'interazione tra modelli è fondamentale per lo sviluppo di un approccio olistico alla fidelizzazione del cliente. Ogni modello subisce inevitabilmente un degrado con il passare degli anni, pertanto, l'architettura è un ciclo implicito (simile all'archetipo impostato dallo standard di data mining CRISP-DM [***3***]).  
 
@@ -108,11 +107,11 @@ Nei diagrammi che seguono sono illustrati i dati usati.
 
 ![][5]
 
-*Figure 7: Funzionalità estratte dall'origine dati*
+*Figura 7: Funzionalità estratte dall'origine dati*
  
 
 > Questi dati sono privati e quindi il modello e i dati non possono essere condivisi.
-> Tuttavia, per un modello simile che usa dati disponibili pubblicamente, vedere questo esperimento di esempio nella [Raccolta di intelligenza artificiale per Azure](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Varianza del cliente in ambito di telecomunicazioni).
+> Tuttavia, per un modello simile che usa dati disponibili pubblicamente, vedere questo esperimento di esempio nella [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Varianza del cliente in ambito di telecomunicazioni).
 > 
 > Per altre informazioni su come è possibile implementare un modello di analisi della varianza usando Cortana Intelligence Suite, si consiglia anche [questo video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del Senior Program Manager Wee Hyong Tok. 
 > 
@@ -147,7 +146,7 @@ La metrica più importante in ambito di varianza è tuttavia il tasso di errata 
 
 ![][7]
 
-*Figure 9: Area sottesa dalla curva del prototipo Passau*
+*Figura 9: Area sottesa dalla curva del prototipo Passau*
 
 ### <a name="using-auc-to-compare-results"></a>Uso di AUC per il confronto dei risultati
 L'area sottesa dalla curva (AUC, Area Under Curve) è una metrica che rappresenta una misura globale di *separabilità* tra le distribuzioni di punteggi per popolazioni positive e negative. È simile al grafico ROC (Receiver Operator Characteristic) tradizionale, ma un'importante differenza è rappresentata dal fatto che la metrica AUC non richiede un valore soglia. ma fornisce invece un riepilogo dei risultati di **tutte** le scelte possibili. Al contrario, il grafico ROC tradizionale mostra il tasso positivo sull'asse verticale e il tasso di falsi positivi su quello orizzontale, con conseguente variazione della soglia di classificazione.   
@@ -175,7 +174,7 @@ Il grafico seguente illustra i risultati non elaborati della valutazione usando 
 
 ![][9]
 
-*Figure 11: modello di albero delle decisioni con boosting*
+*Figura 11: modello di albero delle decisioni con boosting*
 
 ## <a name="performance-comparison"></a>Confronto delle prestazioni
 È stata confrontata la velocità di assegnazione del punteggio usando i modelli di Machine Learning Studio e un modello paragonabile creato usando l'edizione desktop di SAS Enterprise Miner 12.1.  
@@ -219,7 +218,7 @@ In questo documento viene descritto un approccio intelligente alla gestione di u
 ## <a name="references"></a>Riferimenti
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, luglio/agosto 2011, pp.18-20.  
 
-[2] Articolo di Wikipedia relativo all'[accuratezza e alla precisione](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Articolo di Wikipedia: [Accuratezza e precisione](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Guida dettagliata sul data mining](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 

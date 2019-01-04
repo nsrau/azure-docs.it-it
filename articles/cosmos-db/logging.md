@@ -1,23 +1,20 @@
 ---
-title: Registrazione diagnostica di Azure Cosmos DB | Microsoft Docs
-description: Questa esercitazione offre un'introduzione alla registrazione di Azure Cosmos DB.
-services: cosmos-db
+title: Registrazione diagnostica in Azure Cosmos DB
+description: Informazioni sui diversi modi in cui è possibile registrare e monitorare i dati archiviati in Azure Cosmos DB.
 author: SnehaGunda
-manager: kfile
-tags: azure-resource-manager
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 1c25db0a217d6aff984029a28932242b06096735
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.custom: seodec18
+ms.openlocfilehash: 7a233a5effb804ec3cc22727b46846509032d214
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423230"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438507"
 ---
-# <a name="azure-cosmos-db-diagnostic-logging"></a>Registrazione diagnostica di Azure Cosmos DB
+# <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registrazione diagnostica in Azure Cosmos DB 
 
 Dopo avere iniziato a usare uno o più database di Azure Cosmos DB, sarà possibile scegliere di monitorare come e quando viene eseguito l'accesso ai database. Questo articolo fornisce una panoramica dei log disponibili nella piattaforma di Azure. Verrà inoltre illustrato come abilitare la registrazione diagnostica a scopo di monitoraggio per inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), come eseguire lo streaming dei log in [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) e come esportare log in [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/).
 
@@ -81,11 +78,11 @@ Per abilitare la registrazione diagnostica nel portale di Azure, eseguire le ope
     * **Nome**: immettere un nome per i log da creare.
 
     * **Archivia in un account di archiviazione**: per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Per creare un nuovo account di archiviazione nel portale, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md) e seguire le istruzioni per creare un account Azure Resource Manager di uso generico. Tornare quindi a questa pagina del portale per selezionare l'account di archiviazione. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
-    * **Streaming in un hub eventi**: per usare questa opzione, sono necessari uno spazio dei nomi di Hub eventi esistente e un hub eventi a cui connettersi. Per creare uno spazio dei nomi di Hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare quindi a questa pagina del portale per selezionare lo spazio dei nomi di Hub eventi e il nome dei criteri.
-    * **Invia a Log Analytics**: per usare questa opzione, usare un'area di lavoro esistente o creare una nuova area di lavoro di Log Analytics seguendo la procedura per [creare una nuova area di lavoro](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) nel portale. Per altre informazioni sulla visualizzazione dei log in Log Analytics, vedere [Visualizzare i log in Log Analytics](#view-in-loganalytics).
-    * **Registra DataPlaneRequests**: selezionare questa opzione per registrare le richieste back-end dalla piattaforma distribuita di Azure Cosmos DB sottostante per gli account SQL, Graph, MongoDB, Cassandra e API di tabella. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
-    * **Registra MongoRequests**: selezionare questa opzione per registrare le richieste avviate dall'utente dal front-end di Azure Cosmos DB per la gestione di account API MongoDB. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
-    * **Metric Requests** (Richieste Metriche): selezionare questa opzione per archiviare i dati dettagliati nelle [metriche di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Streaming in un hub eventi** : per usare questa opzione, sono necessari uno spazio dei nomi di Hub eventi e un hub eventi a cui connettersi. Per creare uno spazio dei nomi di Hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare quindi a questa pagina del portale per selezionare lo spazio dei nomi di Hub eventi e il nome dei criteri.
+    * **Invia a Log Analytics**: per usare questa opzione, usare un'area di lavoro esistente o creare una nuova area di lavoro di Log Analytics seguendo la procedura per [creare una nuova area di lavoro](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) nel portale. Per altre informazioni sulla visualizzazione dei log in Log Analytics, vedere [Visualizzare i log in Log Analytics](#view-in-loganalytics).
+    * **Log DataPlaneRequests**: selezionare questa opzione per registrare le richieste back-end dalla piattaforma distribuita di Azure Cosmos DB sottostante per gli account SQL, Graph, MongoDB, Cassandra e API Tabella. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Log MongoRequests**: selezionare questa opzione per registrare le richieste avviate dall'utente dal front-end di Azure Cosmos DB per la gestione di account API MongoDB. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Metrica Richieste**: selezionare questa opzione per archiviare i dati dettagliati nelle [metriche di Azure](../azure-monitor/platform/metrics-supported.md). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
 
 3. Selezionare **Salva**.
 
@@ -445,11 +442,11 @@ La tabella seguente descrive il contenuto di ogni voce di log.
 | **time** | **TimeGenerated** | Data e ora (UTC) in cui si è verificata l'operazione. |
 | **resourceId** | **Risorsa** | Account Azure Cosmos DB per cui vengono abilitati i log.|
 | **category** | **Categoria** | Per i log di Azure Cosmos DB, **DataPlaneRequests** è l'unico valore disponibile. |
-| **operationName** | **OperationName** | Nome dell'operazione. Questo valore può essere una delle operazioni seguenti: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
+| **operationName** | **OperationName** | Nome dell'operazione. Questo valore può corrispondere a una delle operazioni seguenti: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
 | **properties** | n/d | Il contenuto di questo campo è descritto nelle righe seguenti. |
 | **activityId** | **activityId_g** | GUID univoco per l'operazione registrata. |
 | **userAgent** | **userAgent_s** | Stringa che specifica l'agente utente del client che esegue la richiesta. Il formato è {nome agente utente}/{versione}.|
-| **resourceType** | **ResourceType** | Tipo di risorsa di accesso. Questo valore può essere uno dei seguenti tipi di risorsa: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction oppure Offer. |
+| **resourceType** | **ResourceType** | Tipo di risorsa di accesso. Questo valore può corrispondere a uno dei tipi di risorse seguenti: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction o Offer. |
 | **statusCode** | **statusCode_s** | Stato di risposta dell'operazione. |
 | **requestResourceId** | **ResourceId** | ID risorsa relativo alla richiesta. Il valore può puntare a databaseRid, collectionRid o documentRid a seconda dell'operazione eseguita.|
 | **clientIpAddress** | **clientIpAddress_s** | Indirizzo IP del client. |

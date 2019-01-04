@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: dobett
-ms.openlocfilehash: 1d9e5b46460f04ad491ac741a62ee6d644985e61
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 724f655229347aa73747476e6bb4837b30e0fc4f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283428"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839008"
 ---
 # <a name="upload-files-with-iot-hub"></a>Caricare file con l'hub IoT
 
@@ -54,7 +54,7 @@ L'hub IoT restituisce i dati seguenti, usati dal dispositivo per caricare il fil
 ```json
 {
     "correlationId": "somecorrelationid",
-    "hostName": "contoso.azure-devices.net",
+    "hostName": "yourstorageaccount.blob.core.windows.net",
     "containerName": "testcontainer",
     "blobName": "test-device1/image.jpg",
     "sasToken": "1234asdfSAStoken"
@@ -125,8 +125,8 @@ Ogni hub IoT espone le opzioni di configurazione seguenti per le notifiche di ca
 
 | Proprietà | DESCRIZIONE | Intervallo e valore predefinito |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Controlla se verranno scritte notifiche di caricamento file nell'endpoint per le notifiche relative ai file. |Valore booleano. Predefinito: True. |
-| **fileNotifications.ttlAsIso8601** |Durata (TTL) predefinita per le notifiche di caricamento file. |Intervallo ISO_8601 fino a 48 ore (minimo 1 minuto). Predefinito: 1 ora. |
+| **enableFileUploadNotifications** |Controlla se verranno scritte notifiche di caricamento file nell'endpoint per le notifiche relative ai file. |Valore booleano. Predefinito: vero. |
+| **fileNotifications.ttlAsIso8601** |Durata (TTL) predefinita per le notifiche di caricamento file. |Intervallo ISO_8601 fino a 48 ore (minimo 1 minuto). Predefinito: 1 ora |
 | **fileNotifications.lockDuration** |Durata del blocco per la coda delle notifiche di caricamento file. |Da 5 a 300 secondi (minimo 5 secondi). Predefinito: 60 secondi. |
 | **fileNotifications.maxDeliveryCount** |Numero massimo di recapiti per la coda delle notifiche di caricamento file. |Da 1 a 100. Predefinito: 100. |
 

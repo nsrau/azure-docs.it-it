@@ -139,7 +139,7 @@
 ### [Crittografia AES-128](media-services-protect-with-aes128.md)
 ### [PlayReady/Widevine per lo streaming](media-services-protect-with-playready-widevine.md)
 ### [FairPlay per lo streaming](media-services-protect-hls-with-fairplay.md)
-### [PlayReady offline per Windows 10](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [PlayReady offline per Windows 10](offline-playready-streaming-windows-10.md)
 ### [Fairplay offline per iOS](media-services-protect-hls-with-offline-fairplay.md)
 ### [Widevine offline per Android](offline-widevine-for-android.md)
 ### [Configurare il portale di Azure](media-services-portal-protect-content.md)

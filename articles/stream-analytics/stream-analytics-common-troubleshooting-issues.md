@@ -2,19 +2,19 @@
 title: Risoluzione dei problemi comuni in Analisi di flusso
 description: Questo articolo descrive diversi problemi comuni in Analisi di flusso di Azure e le procedure per la relativa risoluzione.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 2fe180873f8f410d80b06d29d16881eb49f7fc2a
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978441"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090976"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Problemi comuni in Analisi di flusso e passaggi per risolvere tali problemi
 
@@ -24,7 +24,7 @@ ms.locfileid: "50978441"
  
  Quando un processo di Analisi di flusso riceve un messaggio in formato non valido da un input, elimina il messaggio e visualizza un messaggio di avviso per l'utente. Un simbolo di avviso viene visualizzato nel riquadro **Input** del processo di Analisi di flusso (il simbolo di avviso rimane finché il processo è in esecuzione):
 
-![Riquadro Input](media/stream-analytics-malformed-events/inputs_tile.png)
+![Riquadro degli input nel dashboard di Analisi di flusso di Azure](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Per ottenere altre informazioni, è possibile abilitare i log di diagnostica per visualizzare i dettagli dell'avviso. Per gli eventi di input con formato non corretto, i log di esecuzione contengono una voce con un messaggio simile al seguente: "Messaggio: Non è stato possibile deserializzare gli eventi di input dalla risorsa <blob URI> come json". 
 
@@ -34,7 +34,7 @@ Per ottenere altre informazioni, è possibile abilitare i log di diagnostica per
 
 2. Nel riquadro dei dettagli di input viene visualizzato un set di avvisi con i dettagli sul problema. Di seguito è riportato un messaggio di avviso di esempio, che mostra la partizione, l'offset e i numeri di sequenza dei dati JSON in formato non valido. 
 
-   ![Messaggio di avviso con offset](media/stream-analytics-malformed-events/warning_message_with_offset.png)
+   ![Messaggio di avviso di input con offset](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
 3. Per ottenere i dati JSON in formato non valido, eseguire il codice CheckMalformedEvents.cs. Questo esempio è disponibile nel [repository degli esempi di GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Questo codice legge l'ID della partizione, l'offset e stampa i dati presenti nell'offset. 
 

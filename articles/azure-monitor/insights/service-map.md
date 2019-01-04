@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c25bc5d577096078694e3af0de74debe0f906251
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827564"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186498"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi visualizza le connessioni fra i server, i processi, la latenza di connessione in ingresso e in uscita e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -38,13 +37,13 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 2. Nella barra di ricerca digitare **Mapping dei servizi** e premere **INVIO**.
 3. Nella pagina dei risultati della ricerca nel marketplace selezionare **Mapping dei servizi** dall'elenco.<br><br> ![Selezionare la soluzione Mapping dei servizi dai risultati della ricerca di Azure Marketplace](./media/service-map/marketplace-search-results.png)<br>
 4. Nel riquadro della panoramica di **Mapping dei servizi** esaminare i dettagli della soluzione e quindi fare clic su **Crea** per avviare il processo di onboarding all'area di lavoro di Log Analytics.<br><br> ![Onboarding della soluzione Mapping dei servizi](./media/service-map/service-map-onboard.png).
-5. Nel riquadro **Configure a solution** (Configura soluzione) selezionare un oggetto esistente o creare una nuova area di lavoro di Log Analytics.  Per altre informazioni su come creare una nuova area di lavoro, vedere [Creare un'area di lavoro di Log Analytics nel portale di Azure](../../log-analytics/log-analytics-quick-create-workspace.md). Immettere le informazioni necessarie e quindi fare clic su **Crea**.  
+5. Nel riquadro **Configure a solution** (Configura soluzione) selezionare un oggetto esistente o creare una nuova area di lavoro di Log Analytics.  Per altre informazioni su come creare una nuova area di lavoro, vedere [Creare un'area di lavoro di Log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md). Immettere le informazioni necessarie e quindi fare clic su **Crea**.  
 
 Per tenere traccia dello stato di avanzamento della verifica delle informazioni e della distribuzione della soluzione, è possibile usare la voce **Notifiche** nel menu. 
 
 È possibile accedere a Mapping dei servizi nel portale di Azure dall'area di lavoro di Log Analytics e selezionare l'opzione **Soluzioni** dal riquadro sinistro.<br><br> ![Selezionare l'opzione Soluzioni nell'area di lavoro](./media/service-map/select-solution-from-workspace.png).<br> Dall'elenco delle soluzioni, selezionare **ServiceMap(workspaceName)** e nella pagina della panoramica della soluzione Mapping dei servizi, fare clic sul riquadro di riepilogo di Mapping dei servizi.<br><br> ![Riquadro di riepilogo di Mapping dei servizi](./media/service-map/service-map-summary-tile.png).
 
-## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casi di utilizzo: Riconoscimento delle dipendenze nei processi IT
+## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casi d'uso: Riconoscimento delle dipendenze nei processi IT
 
 ### <a name="discovery"></a>Individuazione
 Mapping dei servizi genera automaticamente una mappa di riferimento delle dipendenze tra server, processi e servizi di terze parti. La soluzione rileva e mappa tutte le dipendenze TCP, identificando le connessioni impreviste, i sistemi remoti di terze parti da cui si dipende e le dipendenze da aree tradizionali non note della rete, ad esempio Active Directory. Mapping dei servizi rileva i tentativi di connessione di rete non riusciti effettuati dai sistemi gestiti permettendo di identificare potenziali configurazioni del server errate, interruzioni dei servizi e problemi di rete.
@@ -277,7 +276,7 @@ Il pannello relativo agli **aggiornamenti del computer** mostra i dati provenien
 ![Riquadro di rilevamento modifiche del computer](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
-I dati di inventario di computer e processi di Mapping dei servizi sono disponibili per la [ricerca](../../log-analytics/log-analytics-queries.md) in Log Analytics. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
+I dati di inventario di computer e processi di Mapping dei servizi sono disponibili per la [ricerca](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
 
 Ogni ora viene generato un record per ogni computer e processo univoco che si aggiunge ai record generati quando un processo o computer viene avviato o caricato in Mapping dei servizi. I record hanno le proprietà descritte nelle tabelle seguenti. I campi e i valori negli eventi ServiceMapComputer_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. I campi e i valori negli eventi ServiceMapProcess_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. Il campo ResourceName_s coincide con il campo del nome nella risorsa di Resource Manager corrispondente. 
 
@@ -504,7 +503,7 @@ Per altre informazioni sulla raccolta e sull'uso dei dati , vedere l'[Informativ
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni sulle [ricerche nei log](../../log-analytics/log-analytics-queries.md) in Log Analytics per recuperare i dati raccolti da Mapping dei servizi.
+Altre informazioni sulle [ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics per recuperare i dati raccolti da Mapping dei servizi.
 
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi

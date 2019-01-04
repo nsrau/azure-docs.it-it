@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261072"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081541"
 ---
 # <a name="determine-your-publishing-option"></a>Determinare l'opzione di pubblicazione
 L'opzione di pubblicazione scelta per l'offerta è correlata direttamente sia ai requisiti di idoneità che ai vantaggi GMT del marketplace. L'aspetto più importante è che la selezione dell'opzione di pubblicazione e del tipo di offerta nel portale Cloud Partner definisce il modo in cui gli utenti interagiranno con l'offerta nel marketplace.
 
 Per abilitare le opzioni di pubblicazione, selezionare un tipo di offerta e quindi creare un'offerta del marketplace nel portale Cloud Partner. A tale scopo, è necessario comprendere i concetti chiave del marketplace seguenti, ovvero le opzioni di pubblicazione, i tipi e le configurazioni dell'offerta e gli inviti all'azione che determinano il modo e il punto in cui l'offerta viene presentata nelle vetrine del marketplace.
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
+![](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
 >[!Note]
 >La tabella precedente descrive il modo in cui la soluzione o il servizio esegue il mapping alla vetrina, nonché l'opzione di pubblicazione e il tipo di offerta usati per presentare l'offerta stessa nel marketplace.
@@ -44,7 +44,7 @@ Prima di selezionare un'opzione di pubblicazione, è importante comprendere i re
 
 Le applicazioni **Azure Marketplace** sono blocchi predefiniti tecnici integrati o compilati per Azure. I servizi di consulenza di Azure Marketplace sono offerte di servizi professionali che consentono ai clienti di iniziare a usare Azure o di accelerarne l'uso.
 
-Le applicazioni **AppSource** sono soluzioni line-of-business che possono essere integrate in Azure o compilate per Dynamics 365, Office 365, PowerBI o PowerApps. I servizi di consulenza di AppSource sono offerte di servizi professionali che consentono ai clienti di iniziare a usare Dynamics 365 e Power BI o di accelerarne l'uso.
+Le applicazioni **AppSource** sono soluzioni line-of-business che possono essere integrate in Azure o compilate per Dynamics 365, Office 365, PowerBI o Power Apps. I servizi di consulenza di AppSource sono offerte di servizi professionali che consentono ai clienti di iniziare a usare Dynamics 365 e Power BI o di accelerarne l'uso.
 
 Dopo aver completato la registrazione per diventare un editore e aver ricevuto le autorizzazioni di accesso al portale Cloud Partner per la creazione, la configurazione e la pubblicazione di offerte del marketplace, sarà possibile eseguire queste operazioni:
 
@@ -67,7 +67,7 @@ Le opzioni di pubblicazione disponibili offrono un engagement differenziato dei 
 | **Opzione di pubblicazione**    | **Descrizione**  |
 | :------------------- | :-------------------|
 | **Elenco** | Semplice inserzione dell'applicazione o del servizio che consente a un utente del marketplace di chiedere la connessione con il cliente tramite l'invito all'azione **Contattami**. |
-| **Versione di valutazione** | Usare il marketplace per migliorare l'individuabilità e automatizzare il provisioning dell'esperienza di valutazione dell'applicazione, consentendo agli utenti potenziali di provare l'esperienza in-app SaaS, IaaS o Microsoft senza costi aggiuntivi per un periodo di tempo limitato prima dell'acquisto. L'invito all'azione usato per l'opzione di pubblicazione correlata alla versione di valutazione può essere di tipo **Versione di valutazione** o **Test drive**. |
+| **Versione di valutazione** | Usare il marketplace per migliorare l'individuabilità e automatizzare il provisioning dell'esperienza di valutazione dell'applicazione, consentendo agli utenti potenziali di provare l'esperienza in-app SaaS, IaaS o Microsoft senza costi aggiuntivi per un periodo di tempo limitato prima dell'acquisto. L'invito all'azione usato per l'opzione di pubblicazione correlata alla versione di valutazione può essere di tipo **Versione di valutazione gratuita** o **Test drive**. |
 | **Transazione** | L'applicazione viene eseguita in Azure e può essere sottoposta a provisioning come risorsa direttamente nella sottoscrizione di Azure del cliente quando quest'ultimo seleziona l'invito all'azione per eseguire immediatamente il download. Le tariffe per la licenza software possono essere facoltativamente acquistate e fatturate in base al metodo e alle condizioni di pagamento scelti dal cliente ed è possibile scegliere di offrire l'accesso a tempo limitato alla **versione di valutazione software gratuita** (disponibile solo per Azure Marketplace). |
 
 >[!Note]

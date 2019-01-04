@@ -1,5 +1,6 @@
 ---
-title: Come usare l'estensione dell'interfaccia della riga di comando di Azure Machine Learning
+title: Estensione dell'interfaccia della riga di comando di Machine Learning
+titleSuffix: Azure Machine Learning service
 description: Informazioni sull'estensione dell'interfaccia della riga di comando di Azure Machine Learning per l'interfaccia della riga di comando di Azure. L'interfaccia della riga di comando di Azure è un'utilità della riga di comando multipiattaforma che consente di usare le risorse nel cloud di Azure. L'estensione di Machine Learning consente di usare il servizio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -8,15 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 09/24/2018
-ms.openlocfilehash: 13d09471191deed670db97a9f18e15bc9577dd1a
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: e16506773e38f1732a55161cdd58ffb7523602d4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713419"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277285"
 ---
-# <a name="use-the-azure-machine-learning-cli-extension"></a>Usare l'estensione dell'interfaccia della riga di comando di Azure Machine Learning
+# <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Usare l'estensione dell'interfaccia della riga di comando per il servizio Azure Machine Learning
 
 L'interfaccia della riga di comando di Azure Machine Learning è un'estensione dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), un'interfaccia della riga di comando multipiattaforma per la piattaforma Azure. Questa estensione fornisce i comandi per usare il servizio Azure Machine Learning dalla riga di comando. Consente di creare script per automatizzare i flussi di lavoro di apprendimento automatico. È ad esempio possibile creare script che eseguono le azioni seguenti:
 
@@ -40,17 +42,17 @@ L'interfaccia della riga di comando non sostituisce Azure Machine Learning SDK. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
-> [!NOTE]
-> Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
+* Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
+
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="install-the-extension"></a>Installare l'estensione
 
 Per installare l'estensione dell'interfaccia della riga di comando di Azure Machine Learning, usare il comando seguente:
 
 ```azurecli-interactive
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.2-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 Quando richiesto, selezionare `y` per installare l'estensione.
@@ -79,22 +81,33 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
 
 + Creare un'area di lavoro del servizio Azure Machine Learning:
 
-   ```azurecli-interactive
-   az ml workspace create -n myworkspace -g myresourcegroup
-   ```
+    ```azurecli-interactive
+    az ml workspace create -n myworkspace -g myresourcegroup
+    ```
 
 + Impostare un'area di lavoro predefinita:
 
-   ```azurecli-interactive
-   az configure --defaults aml_workspace=myworkspace group=myresourcegroup
-   ```
+    ```azurecli-interactive
+    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
+    ```
 
-+ Creare una macchina virtuale data science. È anche possibile creare cluster BatchAI per il training distribuito o cluster AKS per la distribuzione.
++ Creare una destinazione di calcolo gestita per il training distribuito:
 
+    ```azurecli-interactive
+    az ml computetarget create amlcompute -n mycompute --max_nodes 4 --size Standard_NC6
+    ```
 
-  ```azurecli-interactive
-  az ml computetarget setup dsvm -n mydsvm
-  ```
+* Aggiornare una destinazione di calcolo gestita:
+
+    ```azurecli-interactive
+    az ml computetarget update --name mycompute --workspace –-group --max_nodes 4 --min_nodes 2 --idle_time 300
+    ```
+
+* Collegare una destinazione di calcolo non gestita per il training o la distribuzione:
+
+    ```azurecli-interactive
+    az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
+    ```
 
 ## <a name="experiments"></a>Sperimentazioni
 

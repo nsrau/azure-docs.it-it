@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: b1a4354db23cdfdc6201decbb793a3f9a3ad8206
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c35082d7aa1e9d669bc9c5b89948f190d3edd2f3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496145"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014532"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Usare Apache Spark Structured Streaming con Apache Kafka e Azure Cosmos DB
 
@@ -45,7 +45,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 1. Usare il pulsante seguente per accedere ad Azure e aprire il modello nel portale di Azure.
     
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
     </a>
 
     Il modello di Azure Resource Manager si trova nel repository GitHub per questo progetto ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
@@ -70,28 +70,28 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
    
     ![Distribuzione personalizzata di HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
 
-    * **Sottoscrizione**: selezionare una sottoscrizione di Azure.
+    * **Sottoscrizione** Selezionare la sottoscrizione di Azure.
    
     * **Gruppo di risorse**: creare un gruppo o selezionarne uno esistente. Questo gruppo contiene il cluster HDInsight.
 
     * **Località**: scegliere una località geograficamente vicina.
 
-    * **Nome dell'account Cosmos DB**: questo valore viene usato come nome per l'account Cosmos DB.
+    * **Nome dell'account Cosmos DB**: questo valore viene usato come nome dell'account Cosmos DB.
 
     * **Base Cluster Name** (Nome di base del cluster): questo valore viene usato come nome di base per i cluster Spark e Kafka. Ad esempio, se si immette **myhdi** viene creato un cluster Spark denominato __spark-myhdi__ e un cluster Kafka denominato **kafka-myhdi**.
 
-    * **Versione del cluster**: versione del cluster HDInsight.
+    * **Versione cluster**: versione del cluster HDInsight.
 
         > [!IMPORTANT]
         > In questo esempio è stato eseguito un test con HDInsight 3.6 e potrebbe non funzionare con altri tipi di cluster.
 
-    * **Cluster Login User Name** (Nome utente di accesso del cluster): nome utente amministratore per i cluster Spark e Kafka.
+    * **Nome utente dell'account di accesso del cluster**: nome utente amministratore per i cluster Spark e Kafka.
 
-    * **Cluster Login Password** (Password di accesso del cluster): password amministratore per i cluster Spark e Kafka.
+    * **Password dell'account di accesso del cluster**: password dell'utente amministratore per i cluster Spark e Kafka.
 
-    * **SSH User Name** (Nome utente SSH): utente SSH da creare per i cluster Spark e Kafka.
+    * **Nome utente SSH**: utente SSH da creare per i cluster Spark e Kafka.
 
-    * **SSH Password** (Password SSH): password dell'utente SSH per i cluster Spark e Kafka.
+    * **Password SSH**: password dell'utente SSH per i cluster Spark e Kafka.
 
 3. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
 

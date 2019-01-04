@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: 66b2930e06cef1a31602df3d358c78f42c8cd2cf
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fae4fffbe9e4b0be0f2edacf3e86b6268cc58608
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406365"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384650"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gestire Protezione DDoS di Azure Standard nel portale di Azure
 
@@ -114,7 +114,7 @@ Usando la configurazione degli avvisi di Monitoraggio di Azure, è possibile sel
 
 Per simulare un attacco DDoS per convalidare l'avviso, vedere [Convalidare il rilevamento della protezione DDoS](#validate-ddos-detection).
 
-È anche possibile leggere altre informazioni relative alla [configurazione dei webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e alle [app per la logica](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per la creazione di avvisi.
+È anche possibile leggere altre informazioni relative alla [configurazione dei webhook](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e alle [app per la logica](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per la creazione di avvisi.
 
 ## <a name="use-ddos-protection-telemetry"></a>Usare la telemetria di protezione DDoS
 
@@ -129,9 +129,9 @@ I dati di telemetria per un attacco vengono forniti da Monitoraggio di Azure in 
 
 I nomi delle metriche si riferiscono a diversi tipi di pacchetto e byte rispetto ai pacchetti, con una struttura di base correlata ai nomi di tag per ogni metrica, come indicato di seguito:
 
-- **Dropped tag name** (Nome tag eliminato), ad esempio **Inbound Packets Dropped DDoS** (Pacchetti in ingresso eliminati da DDoS): numero di pacchetti eliminati/sottoposti a scrubbing dal sistema di protezione DDoS.
-- **Forwarded tag name** (Nome tag inoltrato), ad esempio **Inbound Packets Forwarded DDoS** (Pacchetti in ingresso inoltrati da DDoS): numero di pacchetti inoltrati dal sistema DDoS all'indirizzo VIP di destinazione (il traffico non è stato filtrato).
-- **No tag name** (Nessun nome di tag), ad esempio **Inbound Packets DDoS** (Pacchetti in ingresso elaborati da DDoS): numero totale di pacchetti arrivati nel sistema di scrubbing, che rappresenta la somma dei pacchetti eliminati e di quelli inoltrati.
+- **Nome tag eliminato** (ad esempio, **DDoS pacchetti in ingresso eliminati**): Il numero di pacchetti eliminati/sottoposti a scrubbing dal sistema di protezione DDoS.
+- **Nome tag inoltrato** (ad esempio, **DDoS pacchetti in ingresso inoltrati**): numero di pacchetti inoltrati dal sistema DDoS all'indirizzo VIP di destinazione (il traffico non è stato filtrato).
+- **Nessun nome di tag** (ad esempio **Inbound Packets DDoS** (Pacchetti in ingresso DDoS)): numero totale di pacchetti arrivati nel sistema di scrubbing, che rappresenta la somma dei pacchetti eliminati e di quelli inoltrati.
 
 Per simulare un attacco DDoS per convalidare la telemetria, vedere [Convalidare il rilevamento della protezione DDoS](#validate-ddos-detection).
 
@@ -156,9 +156,9 @@ I report sulla mitigazione degli attacchi usano i dati del protocollo Netflow ch
 5. Selezionare **Indirizzo IP pubblico** per **Tipo di risorsa**, quindi selezionare l'indirizzo IP pubblico specifico per il quale si vogliono registrare le metriche.
 6. Selezionare **Turn on diagnostics to collect the DDoSMitigationReports log** (Attiva diagnostica per raccogliere il log DDoSMitigationReports) e quindi selezionare tutte le opzioni necessarie tra le seguenti:
 
-    - **Archivia in un account di archiviazione**: i dati vengono scritti in un account di archiviazione di Azure. Per altre informazioni su questa opzione, vedere [Archiviare i log di diagnostica](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Archiviare in un account di archiviazione**: I dati vengono scritti in un account di archiviazione di Azure. Per altre informazioni su questa opzione, vedere [Archiviare i log di diagnostica](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Streaming in un hub eventi**: consente a un ricevitore di log di prelevare i log usando un Hub eventi di Azure. Gli hub eventi consentono l'integrazione con Splunk o altri sistemi SIEM. Per altre informazioni su questa opzione, vedere [Trasmettere log di diagnostica a un hub eventi](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Invia a Log Analytics**: scrive i log nel servizio Azure Log Analytics. Per altre informazioni su questa opzione, vedere [Raccolta di log da usare in Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Invia a Log Analytics**: scrive i log nel servizio Azure Log Analytics. Per altre informazioni su questa opzione, vedere [Raccolta di log da usare in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Sia i report incrementali che quello sulla mitigazione successivo all'attacco includono i campi seguenti
 - Attack vectors (Vettori di attacco)
@@ -178,9 +178,9 @@ I log del flusso di mitigazione degli attacchi consentono di esaminare il traffi
 5. Selezionare **Indirizzo IP pubblico** per **Tipo di risorsa**, quindi selezionare l'indirizzo IP pubblico specifico per il quale si vogliono registrare le metriche.
 6. Selezionare **Turn on diagnostics to collect the DDoSMitigationFlowLogs log** (Attiva diagnostica per raccogliere il log DDoSMitigationFlowLogs) e quindi selezionare tutte le opzioni necessarie tra le seguenti:
 
-    - **Archivia in un account di archiviazione**: i dati vengono scritti in un account di archiviazione di Azure. Per altre informazioni su questa opzione, vedere [Archiviare i log di diagnostica](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Archiviare in un account di archiviazione**: I dati vengono scritti in un account di archiviazione di Azure. Per altre informazioni su questa opzione, vedere [Archiviare i log di diagnostica](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Streaming in un hub eventi**: consente a un ricevitore di log di prelevare i log usando un Hub eventi di Azure. Gli hub eventi consentono l'integrazione con Splunk o altri sistemi SIEM. Per altre informazioni su questa opzione, vedere [Trasmettere log di diagnostica a un hub eventi](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Invia a Log Analytics**: scrive i log nel servizio Azure Log Analytics. Per altre informazioni su questa opzione, vedere [Raccolta di log da usare in Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Invia a Log Analytics**: scrive i log nel servizio Azure Log Analytics. Per altre informazioni su questa opzione, vedere [Raccolta di log da usare in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Per visualizzare i dati dei log del flusso nel dashboard di analisi di Azure, è possibile importare il dashboard di esempio da https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 I log del flusso conterranno i campi seguenti: 

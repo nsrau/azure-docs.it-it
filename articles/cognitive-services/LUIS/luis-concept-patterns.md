@@ -1,27 +1,28 @@
 ---
-title: Informazioni su come i criteri aumentano l'accuratezza della stima
-titleSuffix: Azure Cognitive Services
-description: I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili. Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni.
+title: Miglioramento delle stime grazie ai criteri
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 46c9eb99d808874e0f49dee5fa4865a4867873f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300371"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271522"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
 I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili.  Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>I criteri risolvono il problema dell'attendibilità ridotta della finalità
-Si consideri un'app di risorse umane che genera report nel grafico aziendale su un dipendente. Dato un nome e una relazione dipendente, LUIS restituisce i dipendenti coinvolti. Si consideri un dipendente, Tom, con un manager di nome Alice, e un team di sottoposti che si chiamano Michael, Rebecca e Carl.
+Si consideri un'app di risorse umane che genera report nel grafico aziendale su un dipendente. Dato un nome e una relazione dipendente, LUIS restituisce i dipendenti coinvolti. Si consideri un dipendente, Tom, con un manager di nome Alice e un team di sottoposti di nome Michael, Rebecca e Carl.
 
 ![Immagine del grafico aziendale](./media/luis-concept-patterns/org-chart.png)
 
@@ -43,6 +44,8 @@ I criteri usano una combinazione di tecnologie di stima. L'impostazione di una f
 ## <a name="patterns-do-not-improve-entity-detection"></a>I criteri non migliorano il rilevamento di entità
 Anche se i criteri richiedono le entità, non servono a rilevarle. Un criterio è concepito solo per l'uso di finalità e ruoli con le stime.  
 
+Non aspettarsi un miglioramento della stima delle entità se si comprimono più espressioni in un singolo criterio. Per le entità semplici da attivare, è necessario aggiungere espressioni o usare entità elenco, altrimenti il criterio non viene attivato.
+
 ## <a name="patterns-use-entity-roles"></a>I criteri usano i ruoli delle entità
 Se due o più entità in un criterio hanno una relazione di tipo contestuale, i criteri usano i [ruoli](luis-concept-roles.md) delle entità per estrarre informazioni contestuali sull'entità. Ciò equivale agli elementi figlio nelle gerarchiche di entità, ma è disponibile **solo** nei criteri. 
 
@@ -50,7 +53,7 @@ Se due o più entità in un criterio hanno una relazione di tipo contestuale, i 
 Con un numero sufficiente di espressioni di esempio, LUIS dovrebbe poter aumentare l'attendibilità delle stime anche senza criteri. I criteri aumentano il punteggio di attendibilità senza dovere specificare un numero così elevato di espressioni.  
 
 ## <a name="pattern-matching"></a>Corrispondenza dei criteri
-Per cercare una corrispondenza tra criteri, prima vengono rilevate le entità all'interno del criterio, poi vengono convalidate le parole restanti e l'ordine delle parole del criterio. Le entità nel criterio sono necessarie perché venga individuata una corrispondenza del criterio. 
+Per cercare una corrispondenza tra criteri, prima vengono rilevate le entità all'interno del criterio, poi vengono convalidate le parole restanti e l'ordine delle parole del criterio. Le entità nel criterio sono necessarie perché venga individuata una corrispondenza del criterio. Il criterio viene applicato a livello di token, non a livello di carattere. 
 
 ## <a name="pattern-syntax"></a>Sintassi dei criteri
 La sintassi dei criteri è un modello per un'espressione. Il modello deve contenere parole ed entità che si vuole far corrispondere, nonché le parole e la punteggiatura che si vuole ignorare. **Non** si tratta di un'espressione regolare. 

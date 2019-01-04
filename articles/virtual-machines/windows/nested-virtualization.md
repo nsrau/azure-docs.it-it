@@ -11,12 +11,12 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e9b05751166ac200f4a9cdab4c7fe3ed797f2a10
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d1381ff16d0de382634b06fd081f1827588f8ee9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465249"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435107"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Come abilitare la virtualizzazione annidata in una macchina virtuale di Azure
 
@@ -157,7 +157,7 @@ Seguire la procedura seguente per configurare DHCP nella macchina virtuale host 
   
 4. Definire un intervallo IP per il server DHCP, ad esempio da 192.168.0.100 a 192.168.0.200.
   
-5. Fare clic su **Avanti** finché non viene visualizzata la pagina Gateway predefinito. Come gateway predefinito immettere l'indirizzo IP creato in precedenza, ad esempio 192.168.0.1.
+5. Fare clic su **Avanti** finché non viene visualizzata la pagina Gateway predefinito. Come gateway predefinito immettere l'indirizzo IP creato in precedenza, ad esempio 192.168.0.1, quindi fare clic su **Aggiungi**.
   
 6. Fare clic su **Avanti** fino al completamento della procedura guidata senza modificare i valori predefiniti e quindi fare clic su **Fine**.
     

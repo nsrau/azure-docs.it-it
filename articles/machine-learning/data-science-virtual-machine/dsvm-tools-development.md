@@ -1,11 +1,12 @@
 ---
 title: Strumenti di sviluppo della macchina virtuale per data science in Azure | Microsoft Docs
-description: Strumenti di sviluppo della macchina virtuale per data science.
+description: Informazioni su strumenti e ambienti di sviluppo integrato preinstallati in Data Science Virtual Machine.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ee1e7003a9f1479db7311072e29132cf491cbc88
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237878"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073755"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Strumenti di sviluppo nella macchina virtuali per data science
 
@@ -32,7 +33,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 | Che cos'è?   | IDE di uso generale      |
 | Versioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Sviluppo di software    |
-| Come viene configurata o installata sulla macchina virtuale per data science?      | Carico di lavoro di data science (strumenti Python e R), carico di lavoro di Azure (Hadoop e Data Lake), Node.js, strumenti di SQL Server, [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai)    |
+| Come viene configurata o installata sulla macchina virtuale per data science?      | Carico di lavoro di data science (strumenti Python e R), carico di lavoro di Azure (Hadoop e Data Lake), Node.js, strumenti di SQL Server, [Azure Machine Learning per Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | Strumenti correlati nella macchina virtuale per data science      |     Visual Studio Code, RStudio, Juno  |
 

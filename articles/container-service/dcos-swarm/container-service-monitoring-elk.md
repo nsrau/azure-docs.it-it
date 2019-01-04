@@ -1,5 +1,5 @@
 ---
-title: Monitorare un cluster DC/OS di Azure - Stack ELK
+title: (DEPRECATO) Monitorare un cluster DC/OS di Azure - Stack ELK
 description: Monitorare un cluster DC/OS nel cluster del servizio contenitore di Azure con ELK (Elasticsearch, Logstash e Kibana).
 services: container-service
 author: sauryadas
@@ -9,18 +9,20 @@ ms.topic: article
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: dc863894d8846e066c90bdf7b309f141d32a1186
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 342cf23db2df7d7c79a2b56df96d1a78d6ba215e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163181"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998116"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Monitorare un cluster del servizio contenitore di Azure con ELK
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(DEPRECATO) Monitorare un cluster del servizio contenitore di Azure con ELK
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Questo articolo descrive come distribuire lo stack ELK (Elasticsearch, Logstash, Kibana) in un cluster DC/OS nel servizio contenitore di Azure. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 [Distribuire](container-service-deployment.md) e [connettere](../container-service-connect.md) un cluster DC/OS configurato dal servizio contenitore di Azure. Esplorare il dashboard di DC/OS e i servizi Marathon [qui](container-service-mesos-marathon-ui.md). Installare anche il [servizio di bilanciamento del carico Marathon](container-service-load-balancing.md).
 
 

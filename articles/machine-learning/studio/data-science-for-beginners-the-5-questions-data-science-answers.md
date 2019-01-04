@@ -1,13 +1,12 @@
 ---
-title: Le 5 domande su data science - Data Science per principianti - Azure Machine Learning Studio | Microsoft Docs
+title: Data science per principianti - Azure Machine Learning Studio | Microsoft Docs
 description: La serie di Data Science per principianti illustra i concetti di base in 5 brevi video, partendo con "The 5 Questions Data Science Answers" (Le 5 domande a cui Data Science può rispondere). Da Azure Machine Learning.
 keywords: eseguire l'analisi scientifica dei dati, analisi scientifica dei dati per principianti, fondamenti dell'analisi scientifica dei dati, domande sull'analisi scientifica dei dati, video sull'analisi scientifica dei dati, introduzione all'analisi scientifica dei dati
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: c59b4783c59c44604738a3056b3484e11ff90363
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9f6d951dcbb0a0a01961bf3f6c924a0c40fd4d29
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314167"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252916"
 ---
-# <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Analisi scientifica dei dati per principianti, video 1: Le 5 domande a cui risponde l'analisi scientifica dei dati
+# <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Data science per principianti, video 1: 5 domande a cui può rispondere la data science
 La serie *Data Science for Beginners* (Analisi scientifica dei dati per principianti) offre in cinque brevi video una rapida introduzione all'analisi scientifica dei dati offerta da un esperto in materia. Questi video sono basilari, ma utili per chi è interessati a eseguire l'analisi scientifica dei dati oppure lavora con addetti a questa operazione.
 
 Il primo video contiene le tipologie di domande a cui l'analisi scientifica dei dati può rispondere. Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
@@ -37,13 +36,13 @@ Il primo video contiene le tipologie di domande a cui l'analisi scientifica dei 
 ## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in circa 25 minuti. Estrarre tutti i cinque video:
 
-* Video 1: 5 domande a cui può rispondere l'analisi scientifica dei dati
-* Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
+* Video 1: 5 domande a cui può rispondere la data science
+* Video 2: [I dati sono pronti per la data science?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
 * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min e 17 sec)*
 * Video 4: [Prevedere una risposta con un modello semplice](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min e 42 sec)*
-* Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
+* Video 5: [Copiare il lavoro di altre persone per operazioni di data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
 
-## <a name="transcript-the-5-questions-data-science-answers"></a>Trascrizione: Le 5 domande a cui risponde l'analisi scientifica dei dati
+## <a name="transcript-the-5-questions-data-science-answers"></a>Trascrizione: 5 domande a cui può rispondere la data science
 Salve! Benvenuti alla serie di video *Analisi scientifica dei dati per principianti*.
 
 Il concetto di analisi scientifica dei dati per principianti può intimidire, per questo motivo i concetti di base verranno illustrati senza ricorrere a equazioni o al gergo informatico di programmazione.

@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: rwike77
 ms.author: ryanwi
-ms.date: 07/12/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: f72490169149d247a43e2760815d757c3606f1b3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: fa2c34168423796a82f274db1b60b45ac10b5501
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163725"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888665"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia di Service Fabric Mesh
 
@@ -28,7 +28,7 @@ Azure Service Fabric Mesh è un servizio completamente gestito che consente agli
 
 **Applicazione Service Fabric Mesh**: le applicazioni Service Fabric Mesh sono descritte dal [modello di risorse](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources) (file di risorse YAML e JSON) e possono essere distribuite in qualsiasi ambiente in cui viene eseguito Service Fabric.
 
-**Applicazione nativa Service Fabric**: le applicazioni native Service Fabric sono descritte dal [modello applicativo nativo](/azure/service-fabric/service-fabric-application-model) (manifesti delle applicazioni e dei servizi basati su XML).  Non è possibile eseguire applicazioni native Service Fabric in Service Fabric Mesh.
+**Applicazione nativa di Service Fabric**: le applicazioni native Service Fabric sono descritte dal [modello applicativo nativo](/azure/service-fabric/service-fabric-application-model) (manifesti delle applicazioni e dei servizi basati su XML).  Non è possibile eseguire applicazioni native Service Fabric in Service Fabric Mesh.
 
 **Applicazione**: un'applicazione Service Fabric Mesh è l'unità di distribuzione, controllo delle versioni e durata di un'applicazione Mesh. Il ciclo di vita di ogni istanza dell'applicazione può essere gestito in modo indipendente.  Le applicazioni sono composte da uno o più pacchetti di codice del servizio e dalle impostazioni. Un'applicazione viene definita in base allo schema del modello di risorse (RM) di Azure.  I servizi sono descritti come proprietà della risorsa applicazione in un modello RM.  L'applicazione fa riferimento alle reti e ai volumi che usa.  Quando si crea un'applicazione, l'applicazione, i servizi, la rete e i volumi vengono modellati in base al modello di risorsa Service Fabric.
 

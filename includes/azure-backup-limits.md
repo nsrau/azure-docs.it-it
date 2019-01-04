@@ -2,30 +2,29 @@
 title: File di inclusione
 description: File di inclusione
 services: backup
-author: markgalioto
+author: rayne-wiselman
 ms.service: backup
 ms.topic: include
-ms.date: 9/10/2018
-ms.author: trinadhk;sogup
+ms.date: 12/07/2018
+ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 64101ea5a3bbaac4a6b2e349a04d06ea84a87081
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 63922eb623576379058c9a8a367d6e52249115f2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381086"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53109094"
 ---
 I limiti seguenti si applicano ai Backup di Azure.
 
-| Identificatore limite | Limite predefinito |
+| **Limite** | **Valore predefinito** |
 | --- | --- |
-| Numero di server/macchine che possono essere registrati con ogni insieme di credenziali |50 per Windows Server/Client/SCDPM  <br/> 1000 per le macchine virtuali IaaS |
-| Dimensioni di un'origine dati per i dati archiviati nel servizio di archiviazione Azure insieme di credenziali |54400 GB max<sup>1</sup> |
-| Numero di insiemi di credenziali di backup creati in ogni sottoscrizione di Azure |500 insiemi di credenziali di Servizi di ripristino per ogni area |
-| Numero di volte in cui è possibile pianificare backup al giorno |3 al giorno per Windows Server/Client <br/> 2 al giorno per SCDPM <br/> Una volta al giorno per le macchine virtuali IaaS |
-| Dischi dati collegati a una macchina virtuale di Azure per il backup |16 |
-| Dimensione di un singolo disco dati collegato a una macchina virtuale di Azure per il backup| 4095 GB|
+| Server/macchine virtuali che è possibile registrare in un insieme di credenziali | Windows Server/Windows Client/System Center DPM: 50 <br/><br/> Macchine virtuali IaaS: 1000  |
+| Dimensione di un'origine dati nella risorsa di archiviazione dell'insieme di credenziali |54400 GB al massimo. Il limite non si applica al backup delle macchine virtuali IaaS. |
+| Insiemi di credenziali di backup in una sottoscrizione di Azure |500 insiemi di credenziali per ogni area |
+| Pianificazione dei backup giornalieri |Windows Server/Client: Tre volte al giorno<br/> System Center DPM: Due volte al giorno <br/> Macchine virtuali IaaS: Una volta al giorno  |
+| Dischi dati collegati a una macchina virtuale di Azure per il backup | 32 |
+| Singolo disco dati collegato a una macchina virtuale di Azure per il backup| 4095 GB|
 
-* <sup>1</sup>Il limite di 54400 GB non si applica ai backup delle macchine virtuali IaaS.
- 
+
 

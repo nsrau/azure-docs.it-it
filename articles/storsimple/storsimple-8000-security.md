@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ded3c89774c39b5edee02b9e3c6807ce75ff16a4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566194"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193910"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sicurezza e protezione dei dati di StorSimple
 
@@ -210,10 +210,10 @@ StorSimple usa i seguenti algoritmi di crittografia per proteggere i dati archiv
 Il servizio Gestione dispositivi StorSimple per la serie di dispositivi fisici e virtuali raccoglie le informazioni personali nei seguenti casi in particolare:
 
 - Impostazioni dell'utente relative agli avvisi in cui viene configurato l'indirizzo di posta elettronica degli utenti. Queste informazioni possono essere visualizzate e cancellate dell'amministratore. Questo vale sia per i dispositivi della serie StorSimple 8000 sia per gli array virtuali di StorSimple.
- * Per visualizzare e cancellare le impostazioni di StorSimple serie 8000, seguire la procedura in [Visualizzare e gestire gli avvisi di StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
- * Per visualizzare e cancellare le impostazioni dell'array virtuale di StorSimple, seguire la procedura in [Visualizzare e gestire gli avvisi di StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+  * Per visualizzare e cancellare le impostazioni di StorSimple serie 8000, seguire la procedura in [Visualizzare e gestire gli avvisi di StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+  * Per visualizzare e cancellare le impostazioni dell'array virtuale di StorSimple, seguire la procedura in [Visualizzare e gestire gli avvisi di StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
 - Utenti che possono accedere ai dati presenti nelle condivisioni. Viene mostrato e può essere visualizzato un elenco di utenti che possono accedere ai dati della condivisione. Questo elenco viene eliminato quando vengono eliminate le condivisioni. Questa condizione si applica solo agli array virtuali di StorSimple.
- * Per visualizzare l'elenco di utenti che possono accedere o per eliminare una condivisione, seguire la procedura in [Gestire le condivisioni nell'array virtuale StorSimple](storsimple-virtual-array-manage-shares.md)
+  * Per visualizzare l'elenco di utenti che possono accedere o per eliminare una condivisione, seguire la procedura in [Gestire le condivisioni nell'array virtuale StorSimple](storsimple-virtual-array-manage-shares.md)
 
 Per altre informazioni, consultare l'Informativa sulla privacy Microsoft nel [Centro protezione](https://www.microsoft.com/trustcenter).
 
@@ -223,7 +223,7 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 **D:** Il servizio è compromesso. Quali sono i passaggi successivi da eseguire?
 
-**R:** È necessario modificare subito la chiave DEK del servizio e le chiavi dell'account di archiviazione per l'account usato per suddividere i dati in livelli. Per istruzioni, vedere:
+**R:** È necessario modificare subito la chiave di crittografia dei dati del servizio e le chiavi dell'account di archiviazione usato per suddividere i dati in livelli. Per istruzioni, vedere:
 
 * [Modificare la chiave DEK del servizio](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Rotazione delle chiavi degli account di archiviazione](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
@@ -234,29 +234,29 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 * [Visualizzare o rigenerare la chiave di registrazione del servizio](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
 
-**D:** Ho perso la chiave DEK del servizio. Cosa devo fare?
+**D:** Ho perso la chiave di crittografia dei dati del servizio. Cosa devo fare?
 
 **R:** Contattare il supporto Microsoft. Il personale può accedere a una sessione di supporto nel dispositivo e offrire assistenza per il recupero della chiave (ammesso che almeno un dispositivo sia online). Subito dopo aver ottenuto la chiave DEK del servizio, è consigliabile modificarla per garantire che la nuova chiave sia nota solo all'utente che la modifica. Per istruzioni, vedere:
 
 * [Modificare la chiave DEK del servizio](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
-**D:** Ho autorizzato un dispositivo per la modifica della chiave DEK del servizio, ma il processo di modifica della chiave non è stato avviato. Cosa devo fare?
+**D:**  Ho autorizzato un dispositivo per la modifica della chiave di crittografia dei dati del servizio, ma il processo di modifica della chiave non è stato avviato. Cosa devo fare?
 
-**R:** Se il periodo di timeout è scaduto, sarà necessario autorizzare nuovamente il dispositivo per la modifica della chiave DEK del servizio e riavviare il processo.
+**R:** Se il periodo di timeout è scaduto, sarà necessario autorizzare nuovamente il dispositivo per la modifica della chiave di crittografia dei dati del servizio e riavviare il processo.
 
-**D:** Ho modificato la chiave DEK del servizio, ma non ho potuto aggiornare gli altri dispositivi entro 4 ore. Devo avviare nuovamente il processo?
+**D:**  Ho modificato la chiave di crittografia dei dati del servizio, ma non ho potuto aggiornare gli altri dispositivi entro 4 ore. Devo avviare nuovamente il processo?
 
 **R:** Il periodo di tempo di 4 ore si riferisce solo all'avvio della modifica. Dopo aver avviato il processo di aggiornamento sul dispositivo StorSimple autorizzato, l'autorizzazione è valida fino all'aggiornamento di tutti gli altri dispositivi.
 
 **D:** L'amministratore di StorSimple ha lasciato l'azienda. Cosa devo fare?
 
-**R:** Modificare e reimpostare le password che consentono di accedere al dispositivo StorSimple e modificare la chiave DEK del servizio per garantire che le nuove informazioni non siano note al personale non autorizzato. Per istruzioni, vedere:
+**R:** Modificare e reimpostare le password che consentono di accedere al dispositivo StorSimple e modificare la chiave di crittografia dei dati del servizio per garantire che le nuove informazioni non siano note al personale non autorizzato. Per istruzioni, vedere:
 
 * [Usare il servizio Gestione dispositivi StorSimple per modificare le password di StorSimple](storsimple-8000-change-passwords.md)
 * [Modificare la chiave DEK del servizio](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Configurare CHAP per il dispositivo StorSimple](storsimple-8000-configure-chap.md)
 
-**D:** Vorrei comunicare la password di Gestione snapshot StorSimple a un host che si connette al dispositivo StorSimple, ma la password non è disponibile. In che modo è possibile risolvere questo problema?
+**D:** Vorrei comunicare la password di Snapshot Manager StorSimple a un host che si connette al dispositivo StorSimple, ma la password non è disponibile. In che modo è possibile risolvere questo problema?
 
 **R:** Se si dimentica la password, è necessario crearne una nuova. Informare quindi tutti gli utenti esistenti che la password è stata modificata e che devono aggiornare i client per usare la nuova password. Per istruzioni, vedere:
 
@@ -275,7 +275,7 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 **D:** Se un utente riesce ad accedere al certificato di crittografia dei dati, i miei dati verranno compromessi?
 
-**R:** Microsoft Azure archivia la chiave di crittografia dei dati del cliente (file con estensione .pfx) in formato crittografato. Dato che il file con estensione pfx è crittografato e il servizio StorSimple non ha la chiave DEK del servizio per decrittografarlo, il semplice accesso al file con estensione pfx non espone alcun dato segreto.
+**R:** Microsoft Azure archivia la chiave di crittografia dei dati del cliente (file con estensione pfx) in formato crittografato. Dato che il file con estensione pfx è crittografato e il servizio StorSimple non ha la chiave DEK del servizio per decrittografarlo, il semplice accesso al file con estensione pfx non espone alcun dato segreto.
 
 **D:** Cosa accade se un ente pubblico chiede i miei dati a Microsoft?
 

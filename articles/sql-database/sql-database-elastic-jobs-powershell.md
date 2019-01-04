@@ -3,21 +3,21 @@ title: Creare e gestire processi elastici con PowerShell | Documentazione Micros
 description: PowerShell viene utilizzato per gestire i pool del database SQL di Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
-ms.devlang: pwershell
+ms.devlang: powershell
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 9ed5026211bec11b510d095decac25f8d4b8a52a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243198"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278458"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Creare e gestire processi elastici del database SQL con PowerShell (anteprima)
 
@@ -31,10 +31,10 @@ Le API di PowerShell per i **processi di database elastici** , in anteprima, con
 * Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 * Un set di database creato con gli strumenti di database elastici. Vedere [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
-* **processi di database elastici** di PowerShell, vedere [Installing processi di database elastici](sql-database-elastic-jobs-service-installation.md)
+* Pacchetto di PowerShell dei **processi di database elastico**: vedere [Installazione dei processi di database elastico](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Selezionare la sottoscrizione ad Azure
-Per selezionare la sottoscrizione, è necessario l'ID sottoscrizione (**-SubscriptionId**) o il nome della sottoscrizione (**-SubscriptionName**). Se sono disponibili più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureRmSubscription** e copiare le informazioni sulla sottoscrizione desiderata dal set di risultati. Dopo aver ottenuto le informazioni della sottoscrizione, eseguire il commandlet seguente per impostare tale sottoscrizione come predefinita, vale a dire la destinazione per la creazione e la gestione dei processi:
+Per selezionare la sottoscrizione, è necessario l'ID sottoscrizione (**-SubscriptionId**) o il nome della sottoscrizione (**-SubscriptionName**). Se sono disponibili più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureRmSubscription** e copiare le informazioni sulla sottoscrizione desiderata dal set di risultati. Dopo aver ottenuto le informazioni della sottoscrizione, eseguire il comdlet seguente per impostare tale sottoscrizione come predefinita, vale a dire la destinazione per la creazione e la gestione dei processi:
 
     Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
@@ -193,8 +193,8 @@ Il processo esegue script Transact-SQL (T-SQL) o applica DACPAC in un gruppo di 
 
 Si possono creare due tipi di gruppi: 
 
-* [Mappa partizioni](sql-database-elastic-scale-shard-map-management.md) : quando viene inviato un processo destinato a una mappa partizioni, il processo esegue query sulla mappa partizioni per determinare il set di partizioni corrente e quindi crea processi figlio per ogni partizione nella mappa partizioni.
-* Gruppo Raccolta personalizzata: set di database personalizzato. Quando un processo è destinato a una raccolta personalizzata, crea processi figlio per ogni database attualmente nella raccolta personalizzata.
+* Gruppo [Mappa partizioni](sql-database-elastic-scale-shard-map-management.md): quando viene inviato un processo destinato a una mappa partizioni, il processo esegue query sulla mappa partizioni per determinare il set di partizioni corrente e quindi crea processi figlio per ogni partizione nella mappa partizioni.
+* Gruppo Raccolta personalizzata: un set definito personalizzato di database. Quando un processo è destinato a una raccolta personalizzata, crea processi figlio per ogni database attualmente nella raccolta personalizzata.
 
 ## <a name="to-set-the-elastic-database-jobs-connection"></a>Per impostare la connessione dei processi di database elastici
 È necessario impostare una connessione al *database di controllo* dei processi prima di usare le API dei processi. L'esecuzione di questo cmdlet attiva la visualizzazione di una finestra delle credenziali che richiede il nome utente e la password creati durante l'installazione dei processi di database elastici. Tutti gli esempi forniti in questo argomento presuppongono che il primo passaggio sia già stato eseguito.
@@ -415,20 +415,20 @@ I processi di database elastici supportano la creazione di criteri di esecuzione
 Criteri di esecuzione che attualmente consentono la definizione di:
 
 * Nome: Identificatore del criterio di esecuzione.
-* Timeout del processo: tempo totale prima che un processo venga annullato dai processi di database elastici.
-* Intervallo tra tentativi iniziale: intervallo di attesa prima del primo tentativo.
-* Intervallo massimo di tentativi: estremità degli intervalli tra i tentativi da utilizzare.
-* Coefficiente di backoff dell’intervallo tra tentativi: coefficiente utilizzato per calcolare l’intervallo successivo tra i tentativi.  Viene utilizzata la seguente formula: (Intervallo tentativi iniziale) * Math.pow((Coefficiente di backoff dell’intervallo), (Numero di tentativi) - 2). 
-* Numero massimo di tentativi: Il numero massimo di tentativi all'interno di un processo.
+* Timeout del processo: tempo totale prima che un processo venga annullato dai processi di database elastico.
+* Intervallo iniziale tra tentativi: intervallo di attesa che precede il primo tentativo.
+* Intervallo massimo tra tentativi: limite massimo degli intervalli tra tentativi da usare.
+* Coefficiente di backoff dell'intervallo tra tentativi: coefficiente usato per calcolare l'intervallo successivo tra i tentativi.  Viene usata la formula seguente: (Intervallo iniziale tra tentativi) * Math.pow((Coefficiente di backoff intervallo), (Numero di tentativi) - 2). 
+* Numero massimo di tentativi: Numero massimo di tentativi da eseguire all'interno di un processo.
 
 Il criterio di esecuzione predefinito utilizza i valori seguenti:
 
 * Nome: Criterio di esecuzione predefinito
 * Timeout del processo: 1 settimana
-* Intervallo tra tentativi iniziale: 100 millisecondi
+* Intervallo iniziale tra tentativi:  100 millisecondi
 * Intervallo massimo tra tentativi: 30 minuti
-* Coefficiente di intervallo tra tentativi: 2
-* Numero massimo di tentativi: 2,147,483,647
+* Coefficiente dell'intervallo tra tentativi: 2
+* Numero massimo di tentativi: 2.147.483.647
 
 Creare il criterio di esecuzione desiderato:
 
@@ -459,8 +459,8 @@ I processi di database elastici supportano le richieste di annullamento dei proc
 
 E’ possibile cancellare un processo in due modi diversi tramite i processi di database elastici:
 
-1. Annullare le attività attualmente in esecuzione: se viene rilevato un annullamento mentre un'attività è in esecuzione, l'annullamento verrà eseguito nell'aspetto dell'attività attualmente in esecuzione.  Ad esempio: se viene eseguita una query con esecuzione prolungata quando si tenta di eseguire un annullamento, si verificherà un tentativo di annullare la query.
-2. Annullare i tentativi dell'attività: se viene rilevato un annullamento dal thread di controllo prima che venga avviata un'attività per l'esecuzione, il thread di controllo eviterà di avviare l'attività e dichiarerà annullata la richiesta.
+1. Annullare le attività attualmente in esecuzione: Se viene rilevato un annullamento mentre un'attività è in esecuzione, verrà tentato un annullamento nell'ambito dell'esecuzione corrente dell'attività.  Ad esempio:  se è in corso una query con esecuzione prolungata quando si prova a eseguire un annullamento, si verificherà un tentativo di annullare la query.
+2. Annullamento dei tentativi per le attività: se viene rilevato un annullamento dal thread di controllo prima che venga avviata un'attività per l'esecuzione, il thread di controllo eviterà di avviare l'attività e dichiarerà annullata la richiesta.
 
 Se viene richiesto un annullamento del processo per un processo padre, tale richiesta verrà rispettata per il processo padre e per tutti i relativi processi figlio.
 

@@ -2,29 +2,29 @@
 title: Protezione dello stato del sistema e ripristino bare metal da parte del server di Backup di Azure
 description: Utilizzare il server di Backup di Azure per eseguire il backup dello stato del sistema e fornire la protezione del ripristino bare metal.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: ''
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: markgal
-ms.openlocfilehash: 7cb87847d6a1e191fb20dfa9cdf263066704eb6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238812"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880098"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Eseguire il backup dello stato del sistema e il ripristino bare metal con il server di Backup di Azure
 
 Il server di Backup di Azure esegue il backup dello stato del sistema e offre la protezione del ripristino bare metal.
 
-*   **Backup dello stato del sistema**: viene eseguito il backup dei file del sistema operativo, in modo da consentire il ripristino quando un computer viene avviato, ma i file di sistema e il registro vengono persi. Un backup dello stato del sistema include:
-    * Membro di dominio: file di avvio, database di registrazione della classe COM+, registro
-    * Controller di dominio: file di avvio di Windows Server Active Directory (NTDS), database di registrazione della classe COM+, registro, volume di sistema (SYSVOL)
-    * Computer che esegue servizi cluster: metadati del server di cluster
-    * Computer che esegue servizi certificati: dati del certificato
+*   **Backup dello stato del sistema**: esegue il backup dei file del sistema operativo, in modo da consentire il ripristino quando un computer viene avviato, ma i file di sistema e il registro vengono persi. Un backup dello stato del sistema include:
+    * Membro del dominio: file di avvio, database di registrazione della classe COM+, registro
+    * Controller di dominio: Windows Server Active Directory (NTDS), file di avvio, database di registrazione della classe COM+, registro, volume di sistema (SYSVOL)
+    * Computer che esegue servizi cluster: metadati del server del cluster
+    * Computer che esegue i servizi di certificato: Dati del certificato
 * **Backup bare metal**: esegue il backup dei file del sistema operativo e di tutti i dati su volumi critici (tranne i dati utente). Per definizione, un backup bare metal include un backup dello stato del sistema. Fornisce protezione quando un computer non si avvia ed è necessario ripristinare tutto.
 
 Nella tabella seguente sono riepilogati gli elementi di cui è possibile eseguire il backup e il ripristino. Per informazioni dettagliate sulle versioni delle app che è possibile proteggere con il ripristino dello stato del sistema e bare metal, vedere [Di quali elemento esegue il backup il server di Backup di Azure?](backup-mabs-protection-matrix.md).

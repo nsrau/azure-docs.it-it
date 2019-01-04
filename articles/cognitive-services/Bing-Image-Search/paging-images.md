@@ -1,7 +1,7 @@
 ---
-title: Come sfogliare le immagini disponibili - API Ricerca immagini Bing
+title: Sfogliare le immagini restituite dall'API Ricerca immagini Bing
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come sfogliare tutte le immagini che possono essere restituite da Bing.
+description: Spostarsi tra le diverse pagine delle immagini restituite dall'API Ricerca immagini Bing.
 services: cognitive-services
 author: swhite-msft
 manager: cgonlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.custom: seodec2018
+ms.openlocfilehash: 69829066e543e5ab3badc4d1d3f77ff3c1d16ffd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739367"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259750"
 ---
-# <a name="paging-results"></a>Risultati di paging
+# <a name="page-through-the-images-results"></a>Sfogliare i risultati delle immagini
 
 Quando si chiama l'API Ricerca immagini, Bing restituisce un elenco di risultati. L'elenco è un subset del numero totale di risultati pertinenti alla query. Per ottenere il numero totale stimato di risultati disponibili, accedere al campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) dell'oggetto risposta.  
 

@@ -1,6 +1,6 @@
 ---
 title: Tipi di quote in Azure Stack | Microsoft Docs
-description: Esaminare i tipi di quote diversi disponibili per i servizi e risorse in Azure Stack.
+description: Visualizzare e modificare i tipi di quote diversi disponibili per i servizi e risorse in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 17326fa60160e084d4c30347b1a765d1f80d01f5
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: c5b3be1d5b047e77b12d22fd5d24cbc42d88f783
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711532"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715654"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipi di quote in Azure Stack
 
@@ -29,6 +29,7 @@ ms.locfileid: "51711532"
 [Le quote](azure-stack-plan-offer-quota-overview.md#plans) definire i limiti delle risorse che può effettuare il provisioning o utilizzare una sottoscrizione utente. Ad esempio, una quota potrebbe consentire all'utente di creare fino a cinque macchine virtuali. Ogni risorsa può avere un proprio tipi di quote.
 
 ## <a name="compute-quota-types"></a>Tipi di quota di calcolo 
+
 | **Tipo** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
 | Numero massimo di macchine virtuali | 50 | Il numero massimo di macchine virtuali che è possibile creare una sottoscrizione in questa posizione. |
@@ -39,6 +40,7 @@ ms.locfileid: "51711532"
 | Capacità massima (in GB) del disco gestito premium | 2048 | La capacità massima di premium servizio managed disks che possono essere create in questa posizione. |
 
 ## <a name="storage-quota-types"></a>Tipi di quote di archiviazione 
+
 | **Elemento** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
 | Capacità massima (GB) |2048 |Capacità di archiviazione totale che può essere utilizzata da una sottoscrizione in questa posizione. |
@@ -49,6 +51,7 @@ ms.locfileid: "51711532"
 
 
 ## <a name="network-quota-types"></a>Tipi di quote di rete
+
 | **Elemento** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
 | Indirizzi IP pubblici massimo |50 |Il numero massimo di indirizzi IP pubblici che è possibile creare una sottoscrizione in questa posizione. |
@@ -60,23 +63,51 @@ ms.locfileid: "51711532"
 | Gruppi di sicurezza di rete massima |50 |Il numero massimo di gruppi di sicurezza di rete che è possibile creare una sottoscrizione in questa posizione. |
 
 ## <a name="view-an-existing-quota"></a>Visualizzare una quota esistente
+
+Esistono due modi diversi per visualizzare una quota esistente:
+
+### <a name="plans"></a>Piani
+
+1.  Nel riquadro di spostamento a sinistra del portale di amministrazione, selezionare **piani**.
+2.  Selezionare il piano di cui che si desidera visualizzare i dettagli, facendo clic sul relativo nome.
+3.  Nel pannello aperto, selezionare **servizi e le quote**.
+4.  Selezionare la quota si desidera vedere facendovi clic sopra nel **nome** colonna.
+
+    [ ![Le quote](media/azure-stack-quota-types/quotas1sm.png "consente di visualizzare le quote") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+
+### <a name="resource-providers"></a>Provider di risorse
+
 1. Nel dashboard predefinito del portale di amministrazione, trovare il **provider di risorse** riquadro.
-2. Selezionare il servizio con la quota che si desidera visualizzare, ad esempio **Compute** oppure **archiviazione**.
+2. Selezionare il servizio con la quota che si desidera visualizzare, ad esempio **Compute**, **Network**, o **archiviazione**.
 3. Selezionare **quote**e quindi selezionare la quota si desidera visualizzare.
 
+## <a name="edit-a-quota"></a>Modifica di una quota
 
-## <a name="edit-a-quota"></a>Modifica di una quota  
-È possibile scegliere di modificare la configurazione originale di una quota anziché [usando un piano aggiuntivo](create-add-on-plan.md). Quando si modifica una quota, la nuova configurazione applica automaticamente a livello globale per tutti i piani che usano tale quota e tutte le sottoscrizioni esistenti che usano tali piani. Le modifiche a una quota è diversa quando si usa un piano del componente aggiuntivo per fornire una quota modificata, quale un utente sceglie di sottoscrivere. 
+Esistono due diversi modi per modificare un obiettivo di vendita:
 
-### <a name="to-edit-a-quota"></a>Per modificare una quota  
-1. Nel dashboard predefinito del portale di amministrazione, trovare il **provider di risorse** riquadro.
+### <a name="edit-a-plan"></a>Modificare un piano
+
+1.  Nel riquadro di spostamento a sinistra del portale di amministrazione, selezionare **piani**.
+2.  Selezionare il piano per il quale si desidera modificare una quota, facendo clic sul relativo nome.
+3.  Nel pannello aperto, selezionare **servizi e le quote**.
+4.  Selezionare la quota si desidera modificare facendo clic su esso nel **nome** colonna.
+    [ ![Le quote](media/azure-stack-quota-types/quotas1sm.png "consente di visualizzare le quote") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+
+5.  Nel pannello aperto, selezionare **modifica nel componente Compute**, **modificare nella rete**, o **modifica nell'archiviazione**.
+    ![Le quote](media/azure-stack-quota-types/quotas3.png "consente di visualizzare le quote")    
+
+In alternativa, è possibile seguire questa procedura per modificare un obiettivo di vendita:
+
+1. Nel dashboard del portale di amministratore predefinito, trovare il **provider di risorse** riquadro.
 2. Selezionare il servizio con la quota che si desidera modificare, ad esempio **Compute**, **Network**, o **archiviazione**.
 3. Successivamente, selezionare **quote**e quindi selezionare la quota che si desidera modificare.
-4. Nel **impostare le quote** riquadro, modificare i valori e quindi selezionare **salvare**. 
+4. Nel **le quote di archiviazione impostato**, **calcolo impostare quote**, o **quote di rete impostato** (a seconda del tipo di quota si è scelto di modifica), modificare i valori e quindi selezionare **Salvare**.
+
+### <a name="edit-original-configuration"></a>Modificare la configurazione originale
+  
+È possibile scegliere di modificare la configurazione originale di una quota anziché [usando un piano aggiuntivo](create-add-on-plan.md). Quando si modifica una quota, la nuova configurazione applica automaticamente a livello globale per tutti i piani che usano tale quota e tutte le sottoscrizioni esistenti che usano tali piani. Le modifiche a una quota è diversa quando si usa un piano del componente aggiuntivo per fornire una quota modificata, quale un utente sceglie di sottoscrivere. 
 
 I nuovi valori per la quota si applicano globalmente a tutti i piani che usano la quota modificata e per tutte le sottoscrizioni esistenti che usano tali piani. 
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

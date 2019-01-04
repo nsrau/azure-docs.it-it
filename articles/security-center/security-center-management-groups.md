@@ -3,7 +3,7 @@ title: Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 description: Informazioni su come ottenere visibilità a livello di tenant nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
-ms.author: terrylan
-ms.openlocfilehash: caab7e3d15f6d82ee4daf6eb343601ff849bfde5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: rkarlin
+ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298779"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964118"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come iniziare a eseguire diverse azioni che ottimizzano i vantaggi offerti dal Centro sicurezza di Azure. Queste azioni consentono di ottenere visibilità su tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory e di gestire in modo efficiente la sicurezza dell'organizzazione su vasta scala applicando i criteri di sicurezza in più sottoscrizioni secondo una logica aggregativa.
@@ -93,13 +93,16 @@ Per ottenere visibilità in tutte le sottoscrizioni, gli amministratori tenant d
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Assegnare ruoli Controllo degli accessi in base al ruolo agli utenti tramite il portale di Azure: 
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-2. Per visualizzare i gruppi di gestione, selezionare **Tutti i servizi** nel menu principale di Azure, quindi selezionare **Gruppi di gestione**.
-3.  Selezionare un gruppo di gestione e fare clic su **dettagli**.
+1. Per visualizzare i gruppi di gestione, selezionare **Tutti i servizi** nel menu principale di Azure, quindi selezionare **Gruppi di gestione**.
+1.  Selezionare un gruppo di gestione e fare clic su **dettagli**.
 
     ![Schermata dei dettagli dei Gruppi di gestione](./media/security-center-management-groups/management-group-details.PNG)
  
-4. Fare clic su **Controllo di accesso (IAM)**, quindi su **Aggiungi**.
-5. Selezionare il ruolo da assegnare e l'utente, quindi fare clic su **Salva**.  
+1. Fare clic su **Controllo di accesso (IAM)** e quindi su **Assegnazioni di ruolo**.
+
+1. Fare clic su **Aggiungi assegnazione ruolo**.
+
+1. Selezionare il ruolo da assegnare e l'utente, quindi fare clic su **Salva**.  
    
    ![Aggiungere la schermata del Ruolo con autorizzazioni di lettura per la sicurezza](./media/security-center-management-groups/asc-security-reader.png)
 

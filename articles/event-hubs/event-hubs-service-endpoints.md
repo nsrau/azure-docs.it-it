@@ -1,6 +1,6 @@
 ---
-title: Endpoint del servizio e regole della rete virtuale per Hub eventi di Azure | Microsoft Docs
-description: Aggiungere un endpoint del servizio Microsoft.EventHub a una rete virtuale.
+title: Endpoint del servizio di rete virtuale - Hub eventi di Azure | Microsoft Docs
+description: Questo articolo fornisce informazioni su come aggiungere un endpoint del servizio Microsoft.EventHub a una rete virtuale.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -8,25 +8,43 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 29b5f877065029dc271e49c1afd6d547def58a6e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2ad525ee0e10064d4d606dc1f899ef813fe92ab5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408133"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273502"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usare gli endpoint del servizio della rete virtuale con Hub eventi di Azure
 
-L'integrazione di Hub eventi con gli [endpoint del servizio della rete virtuale][vnet-sep] consente di proteggere l'accesso alle funzionalità di messaggistica da carichi di lavoro come macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto a entrambe le estremità. 
-
-> [!IMPORTANT]
-> Le reti virtuali sono supportate nei livelli **standard** e **dedicato** di Hub eventi. Non sono supportate nel livello Basic. 
+L'integrazione di Hub eventi con gli [endpoint del servizio della rete virtuale][vnet-sep] consente di proteggere l'accesso alle funzionalità di messaggistica da carichi di lavoro come macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto a entrambe le estremità.
 
 Dopo averlo configurato per essere associato ad almeno un endpoint del servizio della subnet della rete virtuale, il corrispondente spazio dei nomi di Hub eventi non accetta più traffico se non dalle subnet autorizzate delle reti virtuali. Dal punto di vista della rete virtuale, l'associazione di uno spazio dei nomi di Hub eventi a un endpoint del servizio consente di configurare un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica.
 
 Il risultato è una relazione privata e isolata tra i carichi di lavoro associati alla subnet e lo spazio dei nomi di Hub eventi corrispondente, nonostante l'indirizzo di rete osservabile dell'endpoint del servizio di messaggistica sia in un intervallo di IP pubblici.
+
+>[!WARNING]
+> L'implementazione dell'integrazione delle reti virtuali può impedire l'interazione da parte di altri servizi Azure con l'Hub eventi di Azure.
+>
+> I servizi Microsoft attendibili non sono supportati quando sono implementate le reti virtuali, ma saranno presto disponibili.
+>
+> Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo)
+> - Monitoraggio di Azure
+> - Analisi di flusso di Azure
+> - Integrazione con Griglia di eventi di Azure
+> - Route dell'hub IoT di Azure
+> - Azure IoT Device Explorer
+> - Esplora dati di Azure
+>
+> I servizi Microsoft seguenti devono essere in una rete virtuale
+> - App Web di Azure 
+> - Funzioni di Azure
+
+> [!IMPORTANT]
+> Le reti virtuali sono supportate nei livelli **standard** e **dedicato** di Hub eventi. Non sono supportate nel livello Basic.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scenari di sicurezza avanzati resi possibili dall'integrazione della rete virtuale 
 
@@ -42,7 +60,7 @@ Le *regole delle reti virtuali* rappresentano la funzionalità di sicurezza fire
 
 L'associazione di uno spazio dei nomi di Hub eventi a una rete virtuale è un processo in due passaggi. È prima necessario creare un **endpoint del servizio di rete virtuale** su una subnet della rete virtuale e abilitarlo per "Microsoft.EventHub" come descritto nella [panoramica sull'endpoint del servizio][vnet-sep]. Dopo aver aggiunto l'endpoint del servizio, è necessario associare lo spazio dei nomi di Hub eventi all'endpoint con una *regola della rete virtuale*.
 
-La regola della rete virtuale è un'associazione denominata tra lo spazio dei nomi di Hub eventi e una subnet della rete virtuale. Fino a quando esiste la regola, a tutti i carichi di lavoro associati alla subnet viene concesso l'accesso allo spazio dei nomi di Hub eventi. Hub eventi non stabilisce mai direttamente connessioni in uscita e non deve ottenere l'accesso, quindi non ottiene mai l'accesso alla subnet abilitando questa regola.
+La regola della rete virtuale è un'associazione dello spazio dei nomi di Hub eventi e una subnet della rete virtuale. Fino a quando esiste la regola, a tutti i carichi di lavoro associati alla subnet viene concesso l'accesso allo spazio dei nomi di Hub eventi. Hub eventi non stabilisce mai direttamente connessioni in uscita e non deve ottenere l'accesso, quindi non ottiene mai l'accesso alla subnet abilitando questa regola.
 
 ### <a name="create-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Creare una regola di rete virtuale con i modelli di Azure Resource Manager
 
@@ -50,45 +68,120 @@ Il modello di Resource Manager seguente consente di aggiungere una regola di ret
 
 Parametri del modello:
 
-* **namespaceName**: spazio dei nomi di Hub eventi.
+* **namespaceName**: Spazio dei nomi dell'Hub eventi di Azure.
 * **vnetRuleName**: nome per la regola della rete virtuale da creare.
 * **virtualNetworkingSubnetId**: percorso completo di Resource Manager per la subnet della rete virtuale. Ad esempio, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` per la subnet predefinita di una rete virtuale.
 
+> [!NOTE]
+> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"**, che non limita le connessioni.
+> Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
+> 
+> from
+> ```json
+> "defaultAction": "Allow"
+> ```
+> to
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
+
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "vnetRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "virtualNetworkSubnetId":{  
-             "type":"string",
-             "metadata":{  
-                "description":"subnet Azure Resource Manager ID"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "eventhubNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Event Hubs namespace"
+        }
       },
+      "virtualNetworkName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Rule"
+        }
+      },
+      "subnetName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Sub Net"
+        }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('eventhubNamespaceName'), concat('/', 'default'))]",
+      "subNetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('virtualNetworkName'), parameters('subnetName'))]"
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('vnetRuleName'))]",
-            "type":"Microsoft.EventHub/namespaces/VirtualNetworkRules",         
-            "properties": {             
-                "virtualNetworkSubnetId": "[parameters('virtualNetworkSubnetId')]"  
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('eventhubNamespaceName')]",
+        "type": "Microsoft.EventHub/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2017-09-01",
+        "name": "[parameters('virtualNetworkName')]",
+        "location": "[parameters('location')]",
+        "type": "Microsoft.Network/virtualNetworks",
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "10.0.0.0/23"
+            ]
+          },
+          "subnets": [
+            {
+              "name": "[parameters('subnetName')]",
+              "properties": {
+                "addressPrefix": "10.0.0.0/23",
+                "serviceEndpoints": [
+                  {
+                    "service": "Microsoft.EventHub"
+                  }
+                ]
+              }
             }
-        } 
-    ]
-}
+          ]
+        }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": 
+          [
+            {
+              "subnet": {
+                "id": "[variables('subNetId')]"
+              },
+              "ignoreMissingVnetServiceEndpoint": false
+            }
+          ],
+          "ipRules":[<YOUR EXISTING IP RULES>],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Per distribuire il modello, seguire le istruzioni per [Azure Resource Manager][lnk-deploy].

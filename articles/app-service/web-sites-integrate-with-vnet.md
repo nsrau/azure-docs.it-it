@@ -1,5 +1,5 @@
 ---
-title: Integrazione di un'app in una rete virtuale di Azure
+title: Integrare un'app in una rete virtuale di Azure - Servizio app di Azure
 description: Illustra come connettere un'app del servizio app di Azure a una rete virtuale di Azure nuova o esistente
 services: app-service
 documentationcenter: ''
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
-ms.openlocfilehash: 8a6d7fef902a3bd240b152cb15d6852a5fa0e7c6
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687307"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273358"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
-Questo documento descrive la funzionalità di integrazione del servizio app di Azure in una rete virtuale, specificando come configurarla con le app del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Le [reti virtuali di Azure][VNETOverview] consentono di posizionare molte risorse di Azure in una rete instradabile non Internet. Queste reti possono quindi essere connesse alle reti locali mediante tecnologie VPN. 
+Questo documento descrive la funzionalità di integrazione del servizio app di Azure in una rete virtuale, specificando come configurarla con le app del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Le [reti virtuali di Azure][VNETOverview] consentono di posizionare molte risorse di Azure in una rete instradabile non Internet. Queste reti possono quindi essere connesse alle reti locali mediante tecnologie VPN. 
 
 Il servizio app di Azure è disponibile in due forme. 
 
@@ -30,7 +31,7 @@ Il servizio app di Azure è disponibile in due forme.
 
 Questo documento illustra la funzionalità Integrazione rete virtuale, destinata all'uso nel servizio app multi-tenant.  Se l'app è nell'[ambiente del servizio App][ASEintro], è già in una rete virtuale e non richiede l'uso della funzionalità Integrazione rete virtuale per raggiungere risorse nella stessa rete virtuale.
 
-Integrazione rete virtuale consente all'app Web di accedere alle risorse presenti nella propria rete virtuale. Al contrario, l'accesso privato all'app Web dalla rete virtuale non viene concesso. Per accesso privato s'intende la possibilità di rendere l'app accessibile soltanto da una rete privata, ad esempio all'interno di una rete virtuale di Azure. L'accesso privato al sito è disponibile solo con un ambiente del servizio app configurato con un servizio di bilanciamento del carico interno (ILB). Per informazioni dettagliate in proposito, vedere [Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app][ILBASE]. 
+Integrazione rete virtuale consente all'app Web di accedere alle risorse presenti nella propria rete virtuale. Al contrario, l'accesso privato all'app Web dalla rete virtuale non viene concesso. Per accesso privato s'intende la possibilità di rendere l'app accessibile soltanto da una rete privata, ad esempio all'interno di una rete virtuale di Azure. L'accesso privato al sito è disponibile solo con un ambiente del servizio app configurato con un servizio di bilanciamento del carico interno (ILB). Per informazioni dettagliate in proposito, vedere l'articolo [Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app][ILBASE]. 
 
 Integrazione rete virtuale viene spesso usata per consentire l'accesso dalle app ai database e ai servizi Web in esecuzione nella rete virtuale. Con Integrazione rete virtuale non è necessario esporre un endpoint pubblico per le applicazioni nella macchina virtuale ma è possibile usare gli indirizzi instradabili non Internet privati. 
 
@@ -161,7 +162,7 @@ L'uso della funzionalità Integrazione rete virtuale prevede tre tipi di costi:
 * Costi di trasferimento dati
 * Costi del gateway VPN
 
-Il piano di servizio delle app deve essere di tipo Standard, Premium o PremiumV2. Per altre informazioni sui costi, vedere i [prezzi del servizio app][ASPricing]. 
+Il piano di servizio delle app deve essere di tipo Standard, Premium o PremiumV2. Per altre informazioni sui costi, vedere [Prezzi di Servizio app][ASPricing]. 
 
 È previsto un addebito per i dati in uscita, anche se la rete virtuale è nello stesso data center. Gli addebiti sono descritti nei [dettagli relativi ai prezzi dei trasferimenti dei dati][DataPricing]. 
 
@@ -307,17 +308,17 @@ La nuova funzionalità Integrazione rete virtuale consente di usare gli endpoint
 [8]: ./media/web-sites-integrate-with-vnet/vnetint-selectvnet.png
 
 <!--Links-->
-[VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
-[AzurePortal]: http://portal.azure.com/
-[ASPricing]: http://azure.microsoft.com/pricing/details/app-service/
-[VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
-[DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
-[V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[VNETOverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
+[AzurePortal]: https://portal.azure.com/
+[ASPricing]: https://azure.microsoft.com/pricing/details/app-service/
+[VNETPricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
+[DataPricing]: https://azure.microsoft.com/pricing/details/data-transfers/
+[V2VNETP2S]: https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
 [ASEintro]: environment/intro.md
 [ILBASE]: environment/create-ilb-ase.md
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
-[creategatewaysubnet]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
-[creategateway]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
-[setp2saddresses]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
+[creategatewaysubnet]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
+[creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
+[setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool

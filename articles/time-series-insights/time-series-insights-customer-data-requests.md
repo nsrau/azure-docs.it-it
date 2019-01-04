@@ -1,6 +1,6 @@
 ---
-title: Funzionalità di richiesta dei dati dei clienti in Azure Time Series Insights
-description: Riepilogo delle funzionalità di richiesta dei dati dei clienti.
+title: Richiesta di dati dei clienti di Azure Time Series Insights - Funzionalità di richiesta di dati dei clienti in Azure Time Series Insights | Microsoft Docs
+description: Riepilogo delle funzionalità di richiesta dei dati dei clienti in Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
 manager: cshankar
@@ -8,12 +8,13 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
-ms.openlocfilehash: 4696cdaf96a73c54334f553a0affe459e3476946
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: c749a61fa26b13ffe67c5913d1a11b6c1f0e186b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629736"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276061"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
 

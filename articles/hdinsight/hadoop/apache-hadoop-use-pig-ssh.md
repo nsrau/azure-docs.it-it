@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6bcd2d299d3816c17265eef658ff1f01409828a1
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: a674ee52ae5e8f8f800d4584a53c808ceae70156
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632223"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435056"
 ---
 # <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Eseguire processi Apache Pig in un cluster basato su Linux con il comando Pig (SSH)
 
@@ -22,7 +22,7 @@ ms.locfileid: "51632223"
 
 Informazioni su come eseguire in modo interattivo i processi Apache Pig da una connessione SSH al cluster HDInsight. Il linguaggio di programmazione Pig Latin consente di descrivere le trasformazioni applicate ai dati di input per produrre l'output desiderato.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="ssh"></a>Connettersi con SSH
@@ -35,7 +35,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 
 Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="pig"></a>Usare il comando Pig
+## <a id="pig"></a>Usare il comando Apache Pig
 
 1. Una volta connessi, avviare l'interfaccia della riga di comando di Pig (CLI) tramite il comando seguente:
 
@@ -74,7 +74,7 @@ Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-lin
     | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Crea un set di dati che contiene ciascun valore univoco del livello di registrazione e il numero di occorrenze. Il set di dati viene archiviato in `FREQUENCIES`. |
     | `RESULT = order FREQUENCIES by COUNT desc;` | Ordina i livelli di registrazione in base al numero (decrescente) e memorizza i risultati in `RESULT`. |
 
-    > [!TIP]
+    > [!TIP]  
     > Usare `DUMP` per visualizzare il risultato della trasformazione dopo ogni passaggio.
 
 5. È anche possibile salvare i risultati di una trasformazione usando l'istruzione `STORE` . Ad esempio, la seguente istruzione salva l'`RESULT` nella directory `/example/data/pigout` nella risorsa di archiviazione predefinita per il cluster:
@@ -83,7 +83,7 @@ Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-lin
     STORE RESULT into '/example/data/pigout';
     ```
 
-   > [!NOTE]
+   > [!NOTE]  
    > I dati vengono memorizzati nella directory specificata nei file denominati `part-nnnnn`. Se la directory esiste già, si riceve un errore.
 
 6. Per uscire dal prompt grunt, immettere la seguente istruzione:
@@ -136,9 +136,9 @@ Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-lin
 
 Per informazioni generali su sull'uso di Pig con HDInsight, vedere il documento seguente:
 
-* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
+* [Usare Apache Pig con Apache Hadoop su HDInsight](hdinsight-use-pig.md)
 
 Per altre informazioni su come usare Hadoop con HDInsight, vedere i documenti seguenti:
 
-* [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
-* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
+* [Usare Apache Hive con Apache Hadoop su HDInsight](hdinsight-use-hive.md)
+* [Usare MapReduce con Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)

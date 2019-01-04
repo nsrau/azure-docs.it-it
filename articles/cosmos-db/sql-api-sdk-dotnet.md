@@ -1,10 +1,7 @@
 ---
-title: 'Azure Cosmos DB: API .NET, risorse e SDK per SQL | Microsoft Docs'
+title: 'Azure Cosmos DB: API SQL .NET, SDK e risorse'
 description: Tutte le informazioni sull'SDK e sull'API .NET per SQL, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di Azure Cosmos DB .NET SDK.
-services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,14 +9,14 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f8af635eb7d5449a242f3a7708d865c13bb448
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 715d67a30bbf2c6d1f50ed7c10a013c0d421f48b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162807"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337938"
 ---
-# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK per API SQL: download e note sulla versione
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>.NET SDK di Azure Cosmos DB per l'API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +27,7 @@ ms.locfileid: "52162807"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -50,6 +47,24 @@ ms.locfileid: "52162807"
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name3001-preview3001-preview"></a>Anteprima <a name="3.0.0.1-preview"/>3.0.0.1
+* Anteprima 1 della [versione 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) di .NET SDK per l'anteprima pubblica.
+* Destinazione .NET Standard, che supporta .NET framework 4.6.1+ e .NET Core 2.0 +
+* Nuovo modello a oggetti con il modulo CosmosClient di livello superiore e metodi suddivisi tra le relative classi CosmosDatabases, CosmosContainers e CosmosItems. 
+* Supporto dei flussi. 
+* Classe CosmosResponseMessage aggiornata a partire dal server per restituire il codice di stato e generare un'eccezione solo se non viene restituita alcuna risposta. 
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* Per la diagnostica di trasporto diretto/TCP, è stata aggiunta TransportException, un tipo di eccezione interna dell'SDK. Quando è presente nei messaggi di eccezione, questo tipo consente di stampare informazioni aggiuntive per la risoluzione dei problemi di connettività client.
+
+* È stato aggiunto un nuovo overload di costruttori che usa HttpMessageHandler, uno stack del gestore HTTP da usare per inviare le richieste HttpClient (ad esempio, HttpClientHandler).
+
+* Correzione di bug in cui l'intestazione con i valori Null non viene gestita correttamente.
+
+* È stata migliorata la convalida della cache di raccolta.
+
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
 * È stato effettuato l'aggiornamento di System.Net.Security alla versione 4.3.2.
@@ -101,7 +116,7 @@ ms.locfileid: "52162807"
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
-* Correzione del bug che si verifica in determinate race condition, che comporta errori intermittenti "Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token" (La sessione di lettura non è disponibile per il token della sessione di input) quando si usa il livello di coerenza di sessione.
+* Correzione del bug che si verifica in determinate race condition, che comporta errori intermittenti "Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token" (Microsoft.Azure.Documents.NotFoundException: sessione di lettura non disponibile per il token della sessione di input) quando si usa il livello di coerenza di sessione.
 
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
@@ -172,7 +187,7 @@ ms.locfileid: "52162807"
 * Correzioni per rendere l'SDK più resiliente per il failover automatico in determinate condizioni.
 
 ### <a name="a-name11221122"></a><a name="1.12.2"/>1.12.2
-* Correzione di un problema che occasionalmente causa un'eccezione WebException, ovvero l'impossibilità di risolvere il nome remoto.
+* Correzione di un problema che a volte causa un'eccezione WebException che indica che è impossibile risolvere il nome remoto.
 * Aggiunta del supporto per la lettura diretta di un documento con tipo includendo nuovi overload all'API ReadDocumentAsync.
 
 ### <a name="a-name11211121"></a><a name="1.12.1"/>1.12.1
@@ -205,7 +220,7 @@ ms.locfileid: "52162807"
 * Supporto per nuove classi e metodi per elaborare il [feed di modifiche](change-feed.md) dei documenti in una raccolta.
 * Supporto per la continuazione della query tra partizioni e miglioramenti delle prestazioni per le query tra partizioni.
 * Aggiunta dei metodi CreateDatabaseIfNotExistsAsync e CreateDocumentCollectionIfNotExistsAsync.
-* Supporto di LINQ per le funzioni di sistema: IsDefined, IsNull e IsPrimitive.
+* Supporto LINQ per le funzioni di sistema: IsDefined, IsNull e IsPrimitive.
 * Correzione per l'inserimento automatico nel Cestino degli assembly Microsoft.Azure.Documents.ServiceInterop.dll e DocumentDB.Spatial.Sql.dll nella cartella Cestino dell'applicazione quando si usa il pacchetto Nuget con progetti che includono strumenti project.json.
 * Supporto per l'emissione di tracce ETW lato client che possono essere utili in scenari di debug.
 
@@ -217,7 +232,7 @@ ms.locfileid: "52162807"
 * Varie correzioni di bug dell'SDK.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Risolto un problema che causava l'eccezione NotFoundException seguente: la sessione di lettura non è disponibile per il token della sessione di input. In alcuni casi questa eccezione si è verificata durante l'esecuzione di query per l'area di lettura di un account geograficamente distribuito.
+* Risolto un problema che ha causato l'eccezione NotFoundException seguente: The read session is not available for the input session token. (La sessione di lettura non è disponibile per il token di sessione di input.) In alcuni casi questa eccezione si è verificata durante l'esecuzione di query per l'area di lettura di un account geograficamente distribuito.
 * L'esposizione della proprietà ResponseStream nella classe ResourceResponse consente l'accesso diretto al flusso sottostante proveniente da una risposta.
 
 ### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
@@ -225,7 +240,7 @@ ms.locfileid: "52162807"
 * Risolto un problema che causava un'intestazione di chiave di partizione non valida con l'uso di un oggetto JsonSerializerSettings personalizzato per la serializzazione dei dati.
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
-* Risoluzione di un problema che provocava l'esito negativo con errore delle query con esecuzione prolungata. Al momento il token di autorizzazione non è valido.
+* Risolto un problema che causava un esito negativo di query con esecuzione prolungata con il seguente errore: Authorization token is not valid at the current time. (Token di autorizzazione non valido al momento.)
 * Risoluzione di un problema che rimuoveva l'oggetto SqlParameterCollection originale dalle query top/order-by tra partizioni.
 
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
@@ -260,7 +275,7 @@ ms.locfileid: "52162807"
 * Implementazione delle [raccolte partizionate](partition-data.md) e dei [livelli di prestazioni definiti dall'utente](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Correzione]** Se si eseguono query nell'endpoint Azure Cosmos DB viene generato il messaggio seguente: "System.Net.Http.HttpRequestException: Errore durante la copia del contenuto in un flusso".
+* **[Corretto]**  la query all'endpoint di Azure Cosmos DB genera: 'System.Net.Http.HttpRequestException: Error while copying content to a stream'. (System.Net.Http.HttpRequestException: Errore durante la copia del contenuto in un flusso).
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Supporto LINQ espanso, tra cui nuovi operatori per il paging, espressioni condizionali e confronto di intervalli.
@@ -335,6 +350,7 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |7 dicembre 2018 |--- |
 | [2.1.3](#2.1.3) |15 ottobre 2018 |--- |
 | [2.1.2](#2.1.2) |4 ottobre 2018 |--- |
 | [2.1.1](#2.1.1) |27 settembre 2018 |--- |

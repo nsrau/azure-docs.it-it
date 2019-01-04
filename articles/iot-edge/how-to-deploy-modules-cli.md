@@ -1,5 +1,5 @@
 ---
-title: Distribuire i moduli di Azure IoT Edge (interfaccia della riga di comando) | Microsoft Docs
+title: Distribuire moduli dalla riga di comando - Azure IoT Edge | Microsoft Docs
 description: Usare l'estensione IoT per l'interfaccia della riga di comando di Azure per distribuire i moduli in un dispositivo IoT Edge
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8f39befbe1a329091da19eeba14a8dcc749fa93
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: f9aa3fff8750dc20053072c939a6db9362a2b0d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564987"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093574"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Distribuire i moduli di Azure IoT Edge con l'interfaccia della riga di comando di Azure
 
@@ -117,7 +118,7 @@ Per applicare la configurazione a un dispositivo IoT Edge usare il comando segue
 
 Il parametro device id fa distinzione tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato. 
 
-   ![Impostare i moduli](./media/how-to-deploy-cli/set-modules.png)
+   ![az iot edge set-modules output](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>Visualizzare i moduli nel dispositivo
 
@@ -131,7 +132,7 @@ Visualizzare i moduli nel dispositivo IoT Edge:
 
 Per il parametro device-id viene fatta distinzione tra maiuscole e minuscole.
 
-   ![Elencare i moduli](./media/how-to-deploy-cli/list-modules.png)
+   ![az iot hub module-identity list output](./media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,12 +1,11 @@
 ---
 title: 'Passaggio 3: Creare un nuovo esperimento di Machine Learning Studio - Azure | Microsoft Docs'
-description: 'Passaggio 3 della procedura dettagliata Sviluppare una soluzione predittiva: Creare un nuovo esperimento di formazione in Azure Machine Learning Studio.'
+description: 'Passaggio 3 della procedura dettagliata sullo sviluppo di una soluzione predittiva: Creare un nuovo esperimento di training in Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5f3f73e2c2cb281887e795d974403a17cffd5978
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317529"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260787"
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Passaggio 3 della procedura dettagliata: Creare un nuovo esperimento di Azure Machine Learning Studio
 Questo è il terzo passaggio della procedura dettagliata [Sviluppare una soluzione di analisi predittiva in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -164,7 +163,7 @@ L'esperimento avrà ora un aspetto analogo al seguente:
 
 Per altre informazioni sull'uso di script R negli esperimenti, vedere [Estendere l'esperimento con R](extend-your-experiment-with-r.md).
 
-**Passaggio successivo: [Eseguire il training e la valutazione del modello](walkthrough-4-train-and-evaluate-models.md)**
+**Passaggio successivo: [Eseguire il training e valutare i modelli](walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/walkthrough-3-create-new-experiment/rename-experiment.png

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 4128d113535c67c0b440dc3fb275af05b5c1c1ae
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306146"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844652"
 ---
-# <a name="security-frame-cryptography--mitigations"></a>Infrastruttura di sicurezza: crittografia - Procedure di mitigazione 
+# <a name="security-frame-cryptography--mitigations"></a>Infrastruttura di sicurezza: crittografia | Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
 | **Applicazione Web** | <ul><li>[Usare solo crittografie a blocchi simmetriche e lunghezze di chiave approvate](#cipher-length)</li><li>[Usare modalità di crittografia a blocchi approvate e vettori di inizializzazione per crittografie simmetriche](#vector-ciphers)</li><li>[Usare riempimenti, lunghezze di chiave e algoritmi asimmetrici approvati](#padding)</li><li>[Usare generatori di numeri casuali approvati](#numgen)</li><li>[Non usare crittografie di flusso simmetriche](#stream-ciphers)</li><li>[Usare algoritmi MAC/HMAC/hash con chiave](#mac-hash)</li><li>[Usare solo funzioni hash crittografiche approvate](#hash-functions)</li></ul> |
@@ -172,8 +172,8 @@ ms.locfileid: "43306146"
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | Sistema operativo dispositivo: Windows IoT Core, connettività dispositivo: Azure IoT SDK per dispositivi |
-| **Riferimenti**              | [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm) (TPM in Windows IoT Core), [Set up TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/win10/setuptpm) (Configurare TPM in Windows IoT Core), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) (TPM di Azure IoT SDK per dispositivi) |
-| **Passaggi** | Archiviare le chiavi private dei certificati o simmetriche in modo sicuro in una risorsa di archiviazione hardware protetta, ad esempio chip di smart card o TPM. Windows 10 IoT Core supporta l'uso di un modulo TPM. Sono diversi i moduli TPM compatibili che possono essere usati: https://developer.microsoft.com/windows/iot/win10/tpm. È consigliabile usare un modulo TPM firmware o discreto. Un modulo TPM software deve essere usato solo a scopo di sviluppo e test. Quando un modulo TPM è disponibile ed è stato effettuato il provisioning delle chiavi, il codice che genera il token deve essere scritto senza codificare le informazioni sensibili. | 
+| **Riferimenti**              | [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm) (TPM in Windows IoT Core), [Set up TPM on Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm) (Configurare TPM in Windows IoT Core), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) (TPM di Azure IoT SDK per dispositivi) |
+| **Passaggi** | Archiviare le chiavi private dei certificati o simmetriche in modo sicuro in una risorsa di archiviazione hardware protetta, ad esempio chip di smart card o TPM. Windows 10 IoT Core supporta l'uso di un modulo TPM. Sono diversi i moduli TPM compatibili che possono essere usati: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. È consigliabile usare un modulo TPM firmware o discreto. Un modulo TPM software deve essere usato solo a scopo di sviluppo e test. Quando un modulo TPM è disponibile ed è stato effettuato il provisioning delle chiavi, il codice che genera il token deve essere scritto senza codificare le informazioni sensibili. | 
 
 ### <a name="example"></a>Esempio
 ```

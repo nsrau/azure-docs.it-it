@@ -1,28 +1,22 @@
 ---
-title: 'Verifica della connettività: guida alla risoluzione dei problemi di Azure ExpressRoute | Microsoft Docs'
+title: 'Verificare la connettività - Guida alla risoluzione dei problemi di ExpressRoute: Azure | Microsoft Docs'
 description: Questa pagina fornisce istruzioni sulla risoluzione dei problemi e convalida della connettività end-to-end di un circuito ExpressRoute.
-documentationcenter: na
 services: expressroute
 author: rambk
-manager: tracsman
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/26/2017
-ms.author: cherylmc
-ms.openlocfilehash: 10d4779d05d95822ffd487db1ce8992d199c495f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: rambala
+ms.custom: seodec18
+ms.openlocfilehash: a64aa59b205e8986b80a575c50041f826606e16f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753448"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272814"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
-ExpressRoute, che consente di estendere una rete locale nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività, coinvolge le tre diverse aree di rete seguenti:
+Questo articolo fornisce informazioni sulla verifica e la risoluzione dei problemi di connettività di ExpressRoute. ExpressRoute, che consente di estendere una rete locale nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività, coinvolge le tre diverse aree di rete seguenti:
 
 -   Rete del cliente
 -   Rete del provider
@@ -161,7 +155,7 @@ Una risposta di esempio:
     Sku                              : Standard
     Status                           : Enabled
 
-Per verificare se un circuito ExpressRoute è operativo, prestare particolare attenzione ai campi seguenti: ServiceProviderProvisioningState: Provisioned Status: Enabled
+Per verificare se un circuito ExpressRoute è operativo, prestare particolare attenzione ai campi seguenti: ServiceProviderProvisioningState : Provisioned Status                           : Attivato
 
 >[!NOTE]
 >Se *Status* non è abilitato, contattare il [supporto tecnico Microsoft][Support]. Se *ServiceProviderProvisioningState* è senza provisioning, contattare il provider di servizi.
@@ -169,7 +163,7 @@ Per verificare se un circuito ExpressRoute è operativo, prestare particolare at
 >
 
 ## <a name="validate-peering-configuration"></a>Convalidare la configurazione del peering
-Dopo che il provider di servizi ha completato il provisioning del circuito ExpressRoute, è possibile creare una configurazione di routing sul circuito ExpressRoute tra MSEE-PR (4) e MSEE (5). Ogni circuito ExpressRoute può avere uno, due o tre contesti di routing abilitati: peering privato di Azure, ovvero il traffico verso reti virtuali private in Azure, peering pubblico di Azure, ovvero il traffico verso indirizzi IP pubblici in Azure e peering Microsoft, ovvero il traffico verso Office 365 e Dynamics 365. Per altre informazioni su come creare e modificare la configurazione di routing, vedere l'articolo [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
+Dopo che il provider di servizi ha completato il provisioning del circuito ExpressRoute, è possibile creare una configurazione di routing sul circuito ExpressRoute tra MSEE-PR (4) e MSEE (5). Ogni circuito ExpressRoute può avere uno, due o tre contesti di routing abilitati: peering privato di Azure, ovvero il traffico verso reti virtuali private in Azure, peering pubblico di Azure, ovvero il traffico verso indirizzi IP pubblici in Azure, e peering Microsoft, ovvero il traffico verso Office 365 e Dynamics 365. Per altre informazioni su come creare e modificare la configurazione di routing, vedere l'articolo [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Verifica tramite il portale di Azure
 

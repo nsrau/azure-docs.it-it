@@ -6,15 +6,15 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39a938d45c8f15c21b44bb5b04b1429fb4733b5a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033924"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323269"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Cosa fare se si verifica un'interruzione di Archiviazione di Azure
 Microsoft si impegna costantemente per verificare che i servizi siano sempre disponibili. A volte si verificano eventi al di fuori del controllo di Microsoft, che causano interruzioni non pianificate dei servizi in una o più aree. Per riuscire a gestire questi sporadici avvenimenti, viene fornita la guida generale seguente per i servizi di Archiviazione di Azure.
@@ -34,7 +34,7 @@ Il modo consigliato per determinare lo stato dei servizi di Azure consiste nel s
 ## <a name="what-to-do-if-a-storage-outage-occurs"></a>Cosa fare se si verifica un'interruzione dell'archiviazione
 Se uno o più servizi di archiviazione sono temporaneamente non disponibili in una o più aree, è possibile prendere considerazione due opzioni. Per accedere immediatamente ai dati, prendere in considerazione l'opzione 2.
 
-### <a name="option-1-wait-for-recovery"></a>Opzione 1: Attendere il ripristino
+### <a name="option-1-wait-for-recovery"></a>Opzione 1: attendere il ripristino
 In tal caso, non è necessaria alcuna azione da parte dell'utente. Si sta lavorando per ripristinare la disponibilità dei servizi di Azure. È possibile monitorare lo stato dei servizi nel [Dashboard per l'integrità dei servizi di Azure](https://azure.microsoft.com/status/).
 
 ### <a name="option-2-copy-data-from-secondary"></a>Opzione 2: Copiare i dati dall'area secondaria

@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bcb448296313eedebb8f8389b320c5da5f1a80dd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ef86c9ee00fdd4673774640d33eec93e2ead876d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305650"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193094"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacy dell'utente e autenticazione pass-through di Azure Active Directory
 
@@ -72,7 +72,7 @@ Per visualizzare i log correlati all'agente di autenticazione pass-through, apri
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Eliminare i file di log di traccia dell'agente di autenticazione
 
-È consigliabile controllare regolarmente il contenuto di **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\** ed eliminare il contenuto di questa cartella ogni 48 ore. 
+È consigliabile controllare regolarmente il contenuto di <strong>%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\</strong> ed eliminare il contenuto di questa cartella ogni 48 ore. 
 
 >[!IMPORTANT]
 >Se il servizio agente di autenticazione è in esecuzione, non sarà possibile eliminare il file di log corrente nella cartella. Arrestare il servizio prima di riprovare. Per evitare errori di accesso dell'utente, l'autenticazione pass-through deve essere già configurata per la [disponibilità elevata](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).

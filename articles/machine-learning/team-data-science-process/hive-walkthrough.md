@@ -1,5 +1,5 @@
 ---
-title: Esplorare i dati in un cluster Hadoop e di creare modelli in Azure Machine Learning | Documentazione Microsoft
+title: Esplorare i dati nel cluster Hadoop - Processo di analisi scientifica dei dati per i team
 description: Uso di Team Data Science Process per uno scenario end-to-end, insieme a un cluster Hadoop di HDInsight per creare e distribuire un modello.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: e6adbe5a0e5ce88db12637889e201b5a15a0556f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444206"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139623"
 ---
-# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight
+# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: Usare cluster Hadoop di Azure HDInsight
 In questa procedura dettagliata viene usato [Team Data Science Process (TDSP)](overview.md) in uno scenario end-to-end. Verrà usato un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviazione, esplorazione e sviluppo delle funzionalità dei dati del set di dati delle [corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/), disponibile a livello pubblico, e per sottocampionare i dati. Per gestire attività predittive di regressione e classificazione binaria e multiclasse, verranno creati modelli dei dati con Azure Machine Learning. 
 
 Per una procedura dettagliata che mostra come gestire set di dati di dimensioni più grandi, vedere [Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB](hive-criteo-walkthrough.md).
@@ -50,18 +50,18 @@ La chiave univoca per creare un join di trip\_data e trip\_fare è costituita da
 ## <a name="mltasks"></a>Esempi di attività di stima
 Determinare il tipo di stime che si vuole eseguire in base all'analisi dei dati. In questo modo, si otterrà maggiore chiarezza sulle attività che è necessario includere nel processo. Ecco tre esempi di problemi relativi alle stime che possono essere risolti tramite questa procedura dettagliata. Gli esempi sono basati su *tip\_amount*:
 
-- **Classificazione binaria**: permette di stimare se per la corsa è stata lasciata o meno una mancia. Se *tip\_amount* è maggiore di $ 0, si tratta di un esempio positivo, mentre se *tip\_amount* è uguale a $ 0, si tratta di un esempio negativo.
+- **Classificazione binaria**: stimare se per un viaggio è stata lasciata o meno una mancia. Se *tip\_amount* è maggiore di $ 0, si tratta di un esempio positivo, mentre se *tip\_amount* è uguale a $ 0, si tratta di un esempio negativo.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **Classificazione multiclasse**: permette di stimare l'intervallo di importi delle mance lasciate per la corsa. Il valore di *tip\_amount* viene diviso in cinque classi:
+- **Classificazione multiclasse**: stimare l'intervallo di importi delle mance lasciate per la corsa. Il valore di *tip\_amount* viene diviso in cinque classi:
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
         Class 2: tip_amount > $5 and tip_amount <= $10
         Class 3: tip_amount > $10 and tip_amount <= $20
         Class 4: tip_amount > $20
-- **Attività di regressione**: permette di stimare l'importo della mancia lasciata per una corsa.  
+- **Attività di regressione**: stimare l'importo della mancia lasciata per una corsa.  
 
 ## <a name="setup"></a>Configurare un cluster Hadoop di HDInsight per l'analisi avanzata
 > [!NOTE]
@@ -76,7 +76,7 @@ Per impostare un ambiente Azure per l'analisi avanzata basato su un cluster HDIn
    
    * Ricordare di collegare l'account di archiviazione creato nel passaggio 1 al cluster HDInsight al momento della creazione. Questo account di archiviazione accede ai dati elaborati all'interno del cluster.
    * Dopo aver creato il cluster, abilitare l'accesso remoto al nodo head del cluster. Passare alla scheda **Configurazione** e selezionare **Abilita modalità remota**. Questo passaggio consente di specificare le credenziali utente da usare per l'accesso remoto.
-3. [Creare un'area di lavoro di Azure Machine Learning](../studio/create-workspace.md): usare questa area di lavoro per creare modelli di apprendimento automatico. Questa attività viene eseguita dopo aver completato un'esplorazione iniziale e un sottocampionamento dei dati usando il cluster HDInsight.
+3. [Creare un'area di lavoro di Azure Machine Learning](../studio/create-workspace.md): usare questa area di lavoro per compilare modelli di machine learning. Questa attività viene eseguita dopo aver completato un'esplorazione iniziale e un sottocampionamento dei dati usando il cluster HDInsight.
 
 ## <a name="getdata"></a>Acquisire i dati da un'origine pubblica
 > [!NOTE]
@@ -410,7 +410,7 @@ Dal prompt della directory Hive eseguire il comando seguente:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Esplorazione: distribuzione delle corse per licenza e hack_license
+### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Esplorazione: distribuzione delle corse per licenza e hack license
 > [!NOTE]
 > Questa attività viene in genere svolta da un data scientist.
 > 
@@ -435,7 +435,7 @@ Al prompt della directory Hive eseguire:
 
 I risultati della query vengono scritti nel file locale **C:\temp\queryoutput.tsv**.
 
-### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Esplorazione: valutazione della qualità dei dati mediante il controllo dei record di longitudine/latitudine non validi
+### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Esplorazione: valutazione della qualità dei dati mediante il controllo dei record di longitudine o latitudine non validi
 > [!NOTE]
 > Questa attività viene in genere svolta da un data scientist.
 > 
@@ -721,13 +721,13 @@ Per inviare query Hive nel modulo [Import Data][import-data] (Importa dati) di M
 
 Ecco alcuni dettagli sul modulo [Import Data][import-data] (Importa dati) e sui parametri da immettere:
 
-**URI del server HCatalog**: se il nome del cluster è **abc123**, è semplicemente https://abc123.azurehdinsight.net.
+**HCatalog server URI**: se il nome del cluster è **abc123**, è semplicemente: https://abc123.azurehdinsight.net.
 
-**Hadoop user account name** (Nome dell'account utente Hadoop): nome utente scelto per il cluster (non il nome utente di accesso remoto).
+**Hadoop user account name**: (Nome dell'account utente Hadoop): nome utente scelto per il cluster (non il nome utente di accesso remoto).
 
-**Hadoop user account password** (Password dell'account utente di Hadoop): password scelta per il cluster (non la password di accesso remoto).
+**Hadoop user account password**: la password scelta per il cluster (non la password di accesso remoto).
 
-**Percorso dei dati di output**: ossia Azure.
+**Location of output data**: scegliere Azure.
 
 **Nome dell'account di archiviazione di Azure**: nome dell'account di archiviazione predefinito associato al cluster.
 
@@ -757,7 +757,7 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 ### <a name="mlmodel"></a>Creare modelli in Machine Learning
 È ora possibile procedere alla creazione e alla distribuzione di modelli in [Machine Learning](https://studio.azureml.net). I dati sono pronti per essere usati per la risoluzione dei problemi relativi alle stime identificati in una delle sezioni precedenti:
 
-- **Classificazione binaria**: consente di prevedere se per la corsa è stata lasciata o meno una mancia.
+- **Classificazione binaria**: permette di stimare se per un viaggio è stata lasciata o meno una mancia.
 
   **Strumento di apprendimento usato:** regressione logistica a due classi
 
@@ -765,7 +765,7 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 
   Il diagramma seguente mostra l'esperimento per stimare se per una corsa specifica è stata o meno lasciata una mancia:
 
-  ![Diagramma dell'esperimento](./media/hive-walkthrough/QGxRz5A.png)
+  ![Diagramma dell'esperimento per stimare se è stata lasciata una mancia](./media/hive-walkthrough/QGxRz5A.png)
 
   b. Per questo esperimento, le distribuzioni dell'etichetta di destinazione sono approssimativamente 1:1.
 
@@ -785,7 +785,7 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 
   Il diagramma seguente mostra l'esperimento per stimare in quale bin è probabilmente inclusa una mancia. I bin sono: classe 0: tip = $ 0, classe 1: tip > $ 0 e tip <= $ 5, classe 2: tip > $ 5 e tip <= $ 10, classe 3: tip > $ 10 e tip <= $ 20 e classe 4: tip > $ 20.
 
-  ![Diagramma dell'esperimento](./media/hive-walkthrough/5ztv0n0.png)
+  ![Diagramma dell'esperimento per stimare se è stata lasciata una mancia](./media/hive-walkthrough/5ztv0n0.png)
 
   Viene ora mostrata l'effettiva distribuzione delle classi di test. Le classi 0 e 1 sono quelle prevalenti, mentre le altre sono più rare.
 
@@ -797,15 +797,15 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 
   Si noti che mentre l'accuratezza delle classi è abbastanza soddisfacente per le classi prevalenti, il modello non è altrettanto efficace per l'"apprendimento" delle classi più rare.
 
-- **Attività di regressione**: consente di prevedere l'importo della mancia lasciata per una corsa.
+- **Attività di regressione**: permette di stimare l'importo della mancia lasciata per una corsa.
 
-  **Strumento di apprendimento usato:** albero delle decisioni con boosting
+  **Strumento di apprendimento usato:** albero delle decisioni con boosting scalabile
 
   a. Per questo problema, l'etichetta (o classe) di destinazione è **tip\_amount**. In questo caso, le perdite di destinazione sono: **tipped**, **tip\_class** e **total\_amount**. Tutte queste variabili rivelano informazioni sull'importo delle mance che in genere non sono disponibili in fase di test. È possibile rimuovere queste colonne tramite il modulo [Seleziona colonne in set di dati][select-columns].
 
   Il diagramma seguente mostra l'esperimento per la stima dell'importo della mancia lasciata:
 
-  ![Diagramma dell'esperimento](./media/hive-walkthrough/11TZWgV.png)
+  ![Diagramma dell'esperimento per stimare l'importo di una mancia](./media/hive-walkthrough/11TZWgV.png)
 
   b. Per problemi di regressione, l'accuratezza della stima viene misurata esaminando l'errore quadratico nelle stime e il coefficiente di determinazione:
 

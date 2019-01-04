@@ -3,7 +3,7 @@ title: Transazioni e modalità di blocco delle raccolte Reliable Collections in 
 description: Transazioni e blocco delle raccolte Reliable Collections e di Reliable State Manager in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: mcoskun
-ms.openlocfilehash: 79be861a70abb0331d971b00e753691e77642637
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: a7e2bfba736e3b6cee738d5a2b5283f51f60d7c5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207367"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185400"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transazioni e modalità di blocco delle raccolte Reliable Collections in Azure Service Fabric
 
@@ -27,15 +27,15 @@ ms.locfileid: "34207367"
 Una transazione è una sequenza di operazioni eseguite in un'unica unità logica di lavoro
 e deve includere le proprietà seguenti, dette ACID (atomicità, coerenza, isolamento e durabilità) (vedere: https://technet.microsoft.com/library/ms190612)
 * **Atomicità**: una transazione deve essere un'unità di lavoro atomica. In altre parole, devono essere eseguite tutte le modifiche dei dati oppure non ne deve essere eseguita nessuna.
-* **Coerenza**: al termine della transazione, tutti i dati devono essere coerenti e tutte le strutture di dati interne devono risultare corrette.
-* **Isolamento**: le modifiche eseguite da transazioni simultanee devono essere isolate da quelle eseguite da qualsiasi altra transazione simultanea. Il livello di isolamento usato per un'operazione all'interno di un oggetto ITransaction è determinato dall'interfaccia IReliableState che esegue l'operazione.
-* **Durabilità**: gli effetti di una transazione completata sono permanenti all'interno del sistema. Le modifiche eseguite rimangono valide anche in caso di errore del sistema.
+* **Coerenza**: al termine della transazione, tutti i dati devono essere in uno stato coerente. e tutte le strutture di dati interne devono risultare corrette.
+* **Isolamento**: le modifiche apportate dalle transazioni simultanee devono essere isolate da quelle apportate da qualsiasi altra transazione simultanea. Il livello di isolamento usato per un'operazione all'interno di un oggetto ITransaction è determinato dall'interfaccia IReliableState che esegue l'operazione.
+* **Durabilità**: dopo il completamento di una transazione, i suoi effetti vengono salvati in modo permanente nel sistema. Le modifiche eseguite rimangono valide anche in caso di errore del sistema.
 
 ### <a name="isolation-levels"></a>Livelli di isolamento
 Il livello di isolamento definisce il grado in cui la transazione deve essere isolata dalle modifiche apportate da altre transazioni.
 Le raccolte Reliable Collections supportano due livelli di isolamento:
 
-* **Repeatable Read**: specifica che le istruzioni non possono leggere dati modificati da altre transazioni di cui non è ancora stato eseguito il commit e che nessun'altra transazione può modificare i dati letti dalla transazione corrente, finché quest'ultima non viene completata. Per informazioni dettagliate, vedere [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Lettura ripetibile**: specifica che le istruzioni non possono leggere dati modificati da altre transazioni di cui non è ancora stato eseguito il commit e che nessun'altra transazione può modificare i dati letti dalla transazione corrente, finché quest'ultima non viene completata. Per informazioni dettagliate, vedere [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 * **Snapshot**: specifica che i dati letti da qualsiasi istruzione in una transazione rappresentano la versione coerente dal punto di vista transazionale dei dati esistenti al momento dell'avvio della transazione.
   La transazione può quindi riconoscere solo le modifiche dei dati di cui è stato eseguito il commit prima dell'avvio della transazione.
   Le modifiche apportate da altre transazioni dopo l'inizio della transazione corrente non sono visibili per le istruzioni eseguite nella transazione corrente.

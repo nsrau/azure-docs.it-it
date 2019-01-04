@@ -1,5 +1,5 @@
 ---
-title: Piattaforme e strumenti per progetti team di data science - Azure  | Microsoft Docs
+title: Piattaforme e strumenti per progetti di data science - Processo di data science per i team
 description: L'articolo illustra in modo dettagliato le risorse dati e di analisi disponibili per le aziende allo scopo di normalizzare il processo di data science per i team.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 8a37c200e52e1d2786690a8a0e669af57312294d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446450"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139176"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Piattaforme e strumenti per progetti di data science
 
@@ -59,7 +59,7 @@ Apache Spark è un framework open source di elaborazione parallela che supporta 
 
 Quando si crea un cluster di Spark in HDInsight, si creano risorse di calcolo di Azure con Spark installato e configurato. Per creare un cluster Spark in HDInsight, sono sufficienti circa 10 minuti. Archiviare i dati da elaborare in Archiviazione Blob di Azure. Per informazioni sull'uso di Archiviazione Blob di Azure con un cluster, vedere [Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end su come usare cluster di Azure HDInsight Spark per compilare soluzioni di data science, una tramite Python e l'altra tramite Scala. Per altre informazioni sui cluster di **Azure HDInsight Spark**, vedere [Introduzione a Spark in HDInsight](../../hdinsight/spark/apache-spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Python** in un cluster di Azure HDInsight Spark, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Scala** in un cluster di Azure HDInsight Spark, vedere [Analisi scientifica dei dati tramite Scala e Spark in Azure](scala-walkthrough.md). 
+Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end su come usare cluster di Azure HDInsight Spark per compilare soluzioni di data science, una tramite Python e l'altra tramite Scala. Per altre informazioni sui cluster di **Azure HDInsight Spark**, vedere [Panoramica: Apache Spark in HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Python** in un cluster di Azure HDInsight Spark, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Scala** in un cluster di Azure HDInsight Spark, vedere [Analisi scientifica dei dati tramite Scala e Spark in Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
@@ -103,7 +103,7 @@ R Services (In-Database) supporta il linguaggio R open source grazie a un set co
 Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end che illustrano come compilare soluzioni di data science in SQL Server 2016 R Services, una per i programmatori R e una per gli sviluppatori SQL. Per i **programmatori R**, vedere [Procedura dettagliata di analisi scientifica dei dati end-to-end per R e SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Per gli **sviluppatori SQL**, vedere [In-Database Advanced Analytics for SQL Developers (Tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers) (Esercitazione sull'analisi avanzata In-Database per sviluppatori SQL).
 
 
-## <a name="appendix"></a>Appendice - Strumenti per configurare progetti di data science
+## <a name="appendix"></a>Appendice: strumenti per configurare progetti di data science
 
 ### <a name="install-git-credential-manager-on-windows"></a>Installare Git Credential Manager in Windows
 
@@ -129,17 +129,17 @@ Se si usano computer Linux (CentOS) per eseguire i comandi Git, è necessario ag
         ssh-keygen
         cat .ssh/id_rsa.pub
 
-![](./media/platforms-and-tools/resources-1-generate_ssh.png)
+![Comandi per generare la chiave SSH](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copiare l'intera chiave SSH, incluso *ssh-rsa*. 
 - Accedere a Azure DevOps Services. 
 - Fare clic su **<Your Name\>** (Nome) nell'angolo superiore destro della pagina e quindi fare clic su **Sicurezza**. 
     
-    ![](./media/platforms-and-tools/resources-2-user-setting.png)
+    ![Fare clic sul nome utente e quindi su Sicurezza](./media/platforms-and-tools/resources-2-user-setting.png)
 
 - Fare clic su **Chiavi pubbliche SSH** e quindi fare clic su **+Aggiungi**. 
 
-    ![](./media/platforms-and-tools/resources-3-add-ssh.png)
+    ![Fare clic su Chiavi pubbliche SSH e quindi fare clic su +Aggiungi](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 - Incollare la chiave SSH copiata nella casella di testo e salvare.
 

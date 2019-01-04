@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6c1307fcb472f6c66a95b76ad3c1b1686ce4f998
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cf037000a047b02f3874c3bccc9678f2ea18ecec
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308939"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011199"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creare cluster Apache HBase su HDInsight nella rete virtuale di Azure
 Informazioni su come creare cluster Apache HBase in Azure HDInsight in una [Rete virtuale di Azure][1].
@@ -37,14 +37,14 @@ In questa sezione viene creato un cluster Apache HBase basato su Linux con l'acc
 > [!NOTE]
 > Alcune proprietà sono state impostate come hardcoded nel modello. Ad esempio: 
 >
-> * **Location**: Stati Uniti orientali 2
+> * **Posizione**: Stati Uniti orientali 2
 > * **Versione cluster**: 3.6
-> * **Cluster worker node count**: 2
+> * **Numero di nodi del ruolo di lavoro nel cluster**: 2
 > * **Default storage account**: stringa univoca
-> * **Virtual network name**: &lt;Nome cluster&gt;-vnet
-> * **Virtual network address space**: 10.0.0.0/16
+> * **Nome rete virtuale**: &lt;Nome cluster>-vnet
+> * **Spazio indirizzo rete virtuale**: 10.0.0.0/16
 > * **Subnet name**: subnet1
-> * **Subnet address range**: 10.0.0.0/24
+> * **Intervallo di indirizzi subnet**: 10.0.0.0/24
 >
 > &lt;Cluster Name > viene sostituito con il nome del cluster fornito quando si usa il modello.
 >
@@ -55,13 +55,13 @@ In questa sezione viene creato un cluster Apache HBase basato su Linux con l'acc
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Inserire le proprietà seguenti dal pannello **Distribuzione personalizzata**:
 
-   * **Sottoscrizione**: selezionare una sottoscrizione di Azure usata per creare il cluster HDInsight, l'account di archiviazione dipendente e la rete virtuale di Azure.
-   * **Gruppo di risorse**: selezionare **Crea nuovo** e assegnare un nome al nuovo gruppo di risorse.
-   * **Posizione**: selezionare una posizione per il gruppo di risorse.
+   * **Sottoscrizione** selezionare una sottoscrizione di Azure usata per creare il cluster HDInsight, l'account di archiviazione dipendente e la rete virtuale di Azure.
+   * **Gruppo di risorse**: selezionare **Crea nuovo** e specificare un nuovo nome al gruppo di risorse.
+   * **Posizione**: Selezionare una posizione per il gruppo di risorse.
    * **ClusterName**: immettere un nome per il cluster Hadoop da creare.
-   * **Cluster login name and password**: il nome dell'account di accesso predefinito è **admin**.
-   * **SSH username and password**: il nome utente predefinito è **sshuser**.  È possibile rinominarlo.
-   * **Accetto le condizioni riportate sopra**: (selezionare)
+   * **ID di accesso e password del cluster**: Il nome di accesso predefinito è **admin**.
+   * **Nome utente e password SSH**: Il nome utente predefinito è **sshuser**.  È possibile rinominarlo.
+   * **Accetto i termini e le condizioni riportati sopra**: (selezionare)
 3. Fare clic su **Acquista**. La creazione di un cluster richiede circa 20 minuti. Dopo aver creato il cluster, è possibile fare clic sul pannello del cluster nel portale per aprirlo.
 
 Al termine dell'esercitazione, è consigliabile eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati. Per istruzioni sull'eliminazione di un cluster, vedere [Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure](../hdinsight-administer-use-management-portal.md#delete-clusters).
@@ -71,7 +71,7 @@ Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le proced
 ## <a name="connect-to-the-apache-hbase-cluster-using-apache-hbase-java-rpc-apis"></a>Connettersi al cluster Apache HBase tramite le API RPC Java di Apache HBase
 1. Creare una macchina virtuale IaaS (Infrastructure as a Service) nella stessa rete virtuale di Azure e nella stessa subnet. Per le istruzioni su come creare una nuova macchina virtuale IaaS, vedere [Creare una macchina virtuale che esegue Windows Server](../../virtual-machines/windows/quick-create-portal.md). Quando si usa la procedura indicata in questo documento, è necessario inserire i valori seguenti per la configurazione di rete:
 
-   * **Virtual network**: &lt;Nome cluster&gt;-vnet
+   * **Rete virtuale**: &lt;Nome cluster>-vnet
    * **Subnet**: subnet1
 
    > [!IMPORTANT]
@@ -247,7 +247,7 @@ In questa esercitazione si è appreso come creare un cluster Apache HBase. Per a
 * [Introduzione all'uso di Apache HBase con Apache Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Panoramica di Rete virtuale.](../../virtual-network/virtual-networks-overview.md)
 
-[1]: http://azure.microsoft.com/services/virtual-network/
-[2]: http://technet.microsoft.com/library/ee176961.aspx
-[3]: http://technet.microsoft.com/library/hh847889.aspx
+[1]: https://azure.microsoft.com/services/virtual-network/
+[2]: https://technet.microsoft.com/library/ee176961.aspx
+[3]: https://technet.microsoft.com/library/hh847889.aspx
 

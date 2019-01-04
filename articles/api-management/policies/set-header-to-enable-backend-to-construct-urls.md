@@ -1,6 +1,6 @@
 ---
-title: Esempio di criteri di Gestione API di Azure - Aggiungere un'intestazione Forwarded | Microsoft Docs
-description: Esempio di criteri di Gestione API di Azure - Illustra come aggiungere un'intestazione Forwarded nella richiesta in ingresso per consentire all'API back-end di costruire URL corretti.
+title: "Esempio di criteri di gestione API di Azure: aggiungere un'intestazione trasferita | Microsoft Docs"
+description: "Esempio di criteri di gestione API di Azure: illustrare come aggiungere un'intestazione trasferita nella richiesta in ingresso per consentire all'API di back-end di costruire URL corrette."
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 00c8ac567b476d0591069c83c371d987d651de9d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b857d1780e9734ce891ce2c0ce4bedf50dfe13e9
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935091"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871456"
 ---
 # <a name="add-a-forwarded-header"></a>Aggiungere un'intestazione Forwarded
 
@@ -28,7 +28,7 @@ In questo articolo viene descritto un esempio di criteri di Gestione API di Azur
 
 Incollare il codice nel blocco **inbound**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Forward gateway hostname to backend for generating correct urls in responses.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Forward gateway hostname to backend for generating correct urls in responses.policy.xml)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

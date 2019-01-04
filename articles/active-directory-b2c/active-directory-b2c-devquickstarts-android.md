@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/06/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 716cf9e47cd71d003513066d390f9dccb5c83dcb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: a5bf15289e91cc568524e8110702b5608118bc2d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344127"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833925"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: accedere mediante un'applicazione Android
 
@@ -40,17 +40,17 @@ Successivamente, è necessario creare un'app nella directory B2C. In questo modo
 * Copiare l' **ID applicazione** assegnato all'app. che sarà necessario più avanti.
 * Configurare un **URI di reindirizzamento** client nativo (ad esempio com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Sarà necessario più avanti.
 
-## <a name="create-your-policies"></a>Creare i criteri
+## <a name="create-your-user-flows"></a>Creare i flussi utente
 
-In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md)specifici. Questa app contiene un'esperienza di identità che combina accesso e iscrizione. È necessario creare i criteri, come descritto nell'[articolo di riferimento per i criteri](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Durante la creazione dei criteri, assicurarsi di:
+In Azure AD B2C ogni esperienza utente viene definita da un [flusso utente](active-directory-b2c-reference-policies.md), che è un set di criteri che controllano il comportamento di Azure AD. Questa app contiene un'esperienza di identità che combina un flusso utente di accesso e iscrizione. È necessario creare questo flusso utente come descritto nell'[articolo di riferimento sui flussi utente](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Durante la creazione del flusso utente, assicurarsi di:
 
-* Scegliere **Nome visualizzato** come attributo di iscrizione nei criteri.
-* Scegliere le attestazioni dell'applicazione **Nome visualizzato** e **ID oggetto** in tutti i criteri. È consentito scegliere anche altre attestazioni.
-* Copiare il **Nome** di ogni criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`.  Il nome dei criteri sarà necessario più avanti.
+* Scegliere **Nome visualizzato** come attributo di iscrizione nel flusso utente.
+* Scegliere le attestazioni dell'applicazione **Nome visualizzato** e **ID oggetto** ogni flusso utente. È consentito scegliere anche altre attestazioni.
+* Copiare il **nome** di ogni flusso utente dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`.  Il nome del flusso utente sarà necessario in un secondo momento.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Dopo aver creato i criteri, è possibile passare alla creazione dell'app.
+Dopo aver creato i flussi utente, è possibile passare alla creazione dell'app.
 
 ## <a name="download-the-sample-code"></a>Scaricare il codice di esempio
 
@@ -69,7 +69,7 @@ L'esempio è una versione modificata di quello fornito da [AppAuth](https://open
 È possibile configurare la comunicazione con Azure AD B2C specificando l'URI di individuazione o specificando sia l'URI dell'endpoint di autorizzazione che quello dell'endpoint di token. In ogni caso sarà necessario specificare le informazioni seguenti:
 
 * ID tenant (ad esempio contoso.onmicrosoft.com)
-* Nome del criterio (ad esempio B2C\_1\_SignUpIn)
+* Nome del flusso utente (ad esempio B2C\_1\_SignUpIn)
 
 Se si sceglie di individuare automaticamente gli URI degli endpoint di autorizzazione e di token, è necessario recuperare le informazioni dall'URI di individuazione. L'URI di individuazione può essere generato mediante la sostituzione dell'ID\_tenant e del nome\_criterio nell'URL seguente:
 

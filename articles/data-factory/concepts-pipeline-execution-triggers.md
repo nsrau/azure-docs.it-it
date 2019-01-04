@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 890ef4baf27e193fecc17d8435998604ce25e282
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 58fffafe9658919a96d1aef2881424c0d324e688
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162688"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876478"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
 > * [Versione 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versione corrente](concepts-pipeline-execution-triggers.md)
 
@@ -92,7 +92,7 @@ POST
 https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
 ```
 
-Per un esempio completo, vedere [Guida introduttiva: Creare una data factory usando l'API REST](quickstart-create-data-factory-rest-api.md).
+Per un esempio completo, vedere [Avvio rapido: Creare una data factory tramite API REST](quickstart-create-data-factory-rest-api.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Il comando di esempio seguente illustra come eseguire manualmente la pipeline usando Azure PowerShell:
@@ -118,7 +118,7 @@ Il payload di risposta è un ID univoco dell'esecuzione della pipeline:
 }
 ```
 
-Per un esempio completo, vedere [Guida introduttiva: Creare una data factory con Azure PowerShell](quickstart-create-data-factory-powershell.md).
+Per un esempio completo, vedere [Avvio rapido: Creare una data factory tramite Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="net-sdk"></a>.NET SDK
 La chiamata di esempio seguente illustra come eseguire manualmente la pipeline usando .NET SDK:
@@ -127,7 +127,7 @@ La chiamata di esempio seguente illustra come eseguire manualmente la pipeline u
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
 ```
 
-Per un esempio completo, vedere [Guida introduttiva: Creare una data factory e una pipeline con .NET SDK](quickstart-create-data-factory-dot-net.md).
+Per un esempio completo, vedere [Avvio rapido: Creare una data factory tramite .NET SDK](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
 > È possibile usare .NET SDK per richiamare le pipeline di Data Factory da Funzioni di Azure, dai propri servizi Web e così via.
@@ -135,11 +135,11 @@ Per un esempio completo, vedere [Guida introduttiva: Creare una data factory e u
 <h2 id="triggers">Attivare l'esecuzione</h2>
 I trigger rappresentano una modalità alternativa per attivare una esecuzione di pipeline. I trigger rappresentano un'unità di elaborazione che determina quando deve essere avviata l'esecuzione di una pipeline. Data Factory supporta attualmente tre tipi di trigger:
 
-- Trigger di pianificazione: un trigger che richiama una pipeline con una pianificazione basata sul tempo reale.
+- Trigger di pianificazione: trigger che richiama una pipeline con una pianificazione basata sul tempo reale.
 
-- Trigger di finestra a cascata: un trigger che viene attivato a intervalli periodici, mantenendo al tempo stesso lo stato.
+- Trigger di finestra a cascata: trigger che viene attivato a intervalli periodici, mantenendo al tempo stesso lo stato.
 
-- Trigger basato su eventi: un trigger che risponde a un evento.
+- Trigger basato su eventi: trigger che risponde a un evento.
 
 Pipeline e trigger hanno una relazione molti-a-molti. Più trigger possono avviare una singola pipeline e un singolo trigger può avviare più pipeline. Nella definizione di trigger seguente la proprietà **pipelines** fa riferimento a un elenco di pipeline attivate dal trigger specifico. La definizione della proprietà include i valori dei parametri della pipeline.
 
@@ -196,7 +196,7 @@ Per fare in modo che il trigger di pianificazione attivi l'esecuzione di una pip
           "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-60>>],
           "monthDays": [<<1-31>>],
-          "monthlyOccurences": [
+          "monthlyOccurrences": [
             {
               "day": <<Monday-Sunday>>,
               "occurrence": <<1-5>>
@@ -313,7 +313,7 @@ La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 | **minutes** | Minuti dell'ora in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi|
 | **hours** | Ore del giorno in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi|
 | **weekDays** | Giorni della settimana in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza settimanale.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Matrice di valori relativi ai giorni (la dimensione massima della matrice è 7)<br /><br />I valori dei giorni non fanno distinzione tra maiuscole e minuscole|
-| **monthlyOccurrences** | Giorni del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. |- Matrice di oggetti **monthlyOccurence**: `{ "day": day,  "occurrence": occurence }`<br />- L'attributo **day** è il giorno della settimana in cui verrà eseguito il trigger. Ad esempio, una proprietà **monthlyOccurrences** con un valore **day** uguale a `{Sunday}` indica ogni domenica del mese. L'attributo **day** è obbligatorio.<br />- L'attributo **occurrence** indica l'occorrenza dell'attributo **day** specificato durante il mese. Ad esempio, una proprietà **monthlyOccurrences** con i valori **day** e **occurrence** uguali a `{Sunday, -1}` indica l'ultima domenica del mese. L'attributo **occurrence** è facoltativo.|
+| **monthlyOccurrences** | Giorni del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. |- Matrice di oggetti **monthlyOccurrence**: `{ "day": day,  "occurrence": occurrence }`<br />- L'attributo **day** è il giorno della settimana in cui verrà eseguito il trigger. Ad esempio, una proprietà **monthlyOccurrences** con un valore **day** uguale a `{Sunday}` indica ogni domenica del mese. L'attributo **day** è obbligatorio.<br />- L'attributo **occurrence** indica l'occorrenza dell'attributo **day** specificato durante il mese. Ad esempio, una proprietà **monthlyOccurrences** con i valori **day** e **occurrence** uguali a `{Sunday, -1}` indica l'ultima domenica del mese. L'attributo **occurrence** è facoltativo.|
 | **monthDays** | Giorno del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. |- Qualsiasi valore <= -1 e >= -31<br />- Qualsiasi valore >= 1 e <= 31<br />- Matrice di valori|
 
 ## <a name="tumbling-window-trigger"></a>Trigger di finestra a cascata
@@ -378,6 +378,6 @@ La tabella seguente contiene un confronto del trigger di finestra a cascata e de
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere le esercitazioni seguenti:
 
-- [Guida introduttiva: Creare una data factory con .NET SDK](quickstart-create-data-factory-dot-net.md)
+- [Avvio rapido: Creare una data factory tramite .NET SDK](quickstart-create-data-factory-dot-net.md)
 - [Creare un trigger di pianificazione](how-to-create-schedule-trigger.md)
 - [Creare un trigger di finestra a cascata](how-to-create-tumbling-window-trigger.md)

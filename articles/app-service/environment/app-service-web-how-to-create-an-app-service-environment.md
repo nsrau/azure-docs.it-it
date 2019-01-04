@@ -1,5 +1,5 @@
 ---
-title: Come creare un ambiente del servizio app (versione 1)
+title: Come creare un ambiente del servizio app (versione 1) - Azure
 description: Descrizione del flusso di creazione di un ambiente del servizio app (versione 1)
 services: app-service
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/11/2017
+ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 1df3b790d0c6c0f597a8559551ff5e42c9f110e4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.custom: seodec18
+ms.openlocfilehash: 9bc796c4d0d449f72dc3234bc2825554eafaf77f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230268"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339893"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Come creare un ambiente del servizio app (versione 1) 
 
@@ -55,7 +56,7 @@ Per creare un ambiente del servizio app (versione 1), è possibile cercare ***Ap
 4. Selezionare la rete virtuale e la località. È possibile scegliere di creare una nuova rete virtuale o selezionare una rete virtuale già esistente. Se si seleziona una nuova rete virtuale, è possibile specificare un nome e una località. Alla nuova rete virtuale verrà assegnato l'intervallo di indirizzi 192.168.250.0/23 e una subnet denominata **predefinita**, definita come 192.168.250.0/24. È anche possibile selezionare semplicemente una rete virtuale classica o di Resource Manager già esistente. La selezione del tipo di indirizzo VIP indica se è possibile accedere all'ambiente del servizio app direttamente da Internet (Esterno) o se si usa un Servizio di bilanciamento del carico interno. Per altre informazioni, vedere [Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app][ILBASE]. Se si seleziona un indirizzo VIP di tipo Esterno, è possibile selezionare il numero di indirizzi IP esterni con cui viene creato il sistema per finalità IPSSL. Se si seleziona Interno, è necessario specificare il sottodominio che verrà usato dall'ambiente del servizio app. Gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano *gli* intervalli di indirizzi pubblici *o gli* spazi di indirizzi RFC1918, ovvero gli indirizzi privati. Per usare una rete virtuale con un intervallo di indirizzi pubblici, è necessario creare in anticipo la rete virtuale. Quando si seleziona una rete virtuale già esistente, sarà necessario creare una nuova subnet durante la creazione dell'ambiente del servizio app. **Non è possibile usare una subnet creata in precedenza nel portale. È possibile creare un ambiente del servizio app con una subnet già esistente se si crea l'ambiente del servizio app usando un modello di Resource Manager.** Per creare un ambiente del servizio app da un modello, vedere gli articoli relativi alla [creazione di un ambiente del servizio app da un modello][ILBAseTemplate] e alla [creazione di un ambiente del servizio app con servizio di bilanciamento del carico interno da un modello][ASEfromTemplate].
 
 ### <a name="details"></a>Dettagli
-Un ambiente del servizio app viene creato con due front-end e due ruoli di lavoro. Le risorse front-end fungono da endpoint HTTP/HTTPS e inviano il traffico ai ruoli di lavoro, ovvero i ruoli che ospitano le applicazioni. È possibile modificare la quantità dopo la creazione dell'ambiente del servizio app e configurare regole di scalabilità automatica per questi pool di risorse. Per altri dettagli sulla scalabilità manuale, la gestione e il monitoraggio di un ambiente del servizio app, vedere l'articolo su [come configurare un ambiente del servizio app][ASEConfig]. 
+Un ambiente del servizio app viene creato con due front-end e due ruoli di lavoro. Le risorse front-end fungono da endpoint HTTP/HTTPS e inviano il traffico ai ruoli di lavoro, ovvero i ruoli che ospitano le applicazioni. È possibile modificare la quantità dopo la creazione dell'ambiente del servizio app e configurare regole di scalabilità automatica per questi pool di risorse. Per altri dettagli sul ridimensionamento manuale, la gestione e il monitoraggio di un ambiente del servizio app, vedere [Come configurare un ambiente del servizio app][ASEConfig]. 
 
 Nella subnet usata dall'ambiente del servizio app può essere presente solo un ambiente del servizi app. La subnet non può essere usata per scopi diversi dall'ambiente del servizio app.
 
@@ -63,13 +64,13 @@ Nella subnet usata dall'ambiente del servizio app può essere presente solo un a
 Dopo la creazione dell'ambiente del servizio app è possibile modificare:
 
 * Quantità di server front-end (minimo: 2)
-* Quantità di processi di lavoro (minimo: 2)
+* Quantità di ruoli di lavoro (minimo: 2)
 * Quantità di indirizzi IP disponibili per IP SSL
 * Dimensioni delle risorse di calcolo usate dai server front-end o dai processi di lavoro (dimensioni minime per i front-end: P2)
 
-Per altri dettagli sulla scalabilità manuale, la gestione e il monitoraggio degli ambienti del servizio app, vedere l'articolo su [come configurare un ambiente del servizio app][ASEConfig]. 
+Per altri dettagli sul ridimensionamento manuale, la gestione e il monitoraggio degli ambienti del servizio app, vedere [Come configurare un ambiente del servizio app][ASEConfig]. 
 
-Per informazioni sulla scalabilità automatica, vedere la guida su [come configurare la scalabilità automatica per un ambiente del servizio app][ASEAutoscale].
+Per informazioni sul ridimensionamento automatico, vedere [Come configurare il ridimensionamento automatico per un ambiente del servizio app][ASEAutoscale].
 
 Sono inoltre presenti altre dipendenze non disponibili per la personalizzazione, ad esempio il database e l'archiviazione. Questi sono gestiti da Azure e sono inclusi nel sistema. Il servizio di archiviazione del sistema supporta fino a 500 GB per l'intero ambiente del servizio app e il database viene rettificato da Azure in base alle esigenze, tramite il ridimensionamento del sistema.
 
@@ -85,8 +86,8 @@ Per iniziare a usare l'ambiente del servizio app (versione 1), vedere [Introduzi
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ILBASE]: app-service-environment-with-internal-load-balancer.md
-[ILBAseTemplate]: http://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
+[ILBAseTemplate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
 [ASEfromTemplate]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md

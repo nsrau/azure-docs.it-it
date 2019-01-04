@@ -1,23 +1,25 @@
 ---
-title: Struttura delle definizioni di criteri di Azure
+title: Dettagli della struttura delle definizioni dei criteri
 description: Descrizione di come la definizione dei criteri delle risorse viene usata da Criteri di Azure per stabilire le convenzioni per le risorse all'interno dell'organizzazione grazie alla definizione di quando i criteri vengono applicati e dell'azione da eseguire.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: f1332e1622c34a33dd264a1115a0fd7f37ee8ba7
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283292"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383970"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
-La definizione dei criteri delle risorse usata da Criteri di Azure consente di stabilire le convenzioni per le risorse all'interno dell'organizzazione grazie alla definizione di quando i criteri vengono applicati e delle azioni da eseguire. Definendo le convenzioni, è possibile controllare i costi e gestire più facilmente le risorse. È ad esempio possibile specificare che vengano consentiti solo determinati tipi di macchine virtuali. In alternativa, è possibile richiedere che tutte le risorse abbiano un tag specifico. I criteri vengono ereditati da tutte le risorse figlio. Se quindi un criterio viene applicato a un gruppo di risorse, è applicabile a tutte le risorse in tale gruppo.
+Le definizioni dei criteri delle risorse vengono usati da Criteri di Azure per stabilire le convenzioni delle risorse. Ogni definizione descrive la conformità della risorsa e le azioni da intraprendere quando una risorsa non è conforme.
+Definendo le convenzioni, è possibile controllare i costi e gestire più facilmente le risorse. È ad esempio possibile specificare che vengano consentiti solo determinati tipi di macchine virtuali. In alternativa, è possibile richiedere che tutte le risorse abbiano un tag specifico. I criteri vengono ereditati da tutte le risorse figlio. Se un criterio viene applicato a un gruppo di risorse, è applicabile a tutte le risorse in tale gruppo.
 
 Lo schema usato dai Criteri di Azure è reperibile qui: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
 
@@ -73,9 +75,9 @@ Il parametro **mode** (modalità) determina quali tipi di risorse verranno valut
 - `all`: vengono valutati i gruppi di risorse e tutti i tipi di risorse
 - `indexed`: vengono valutati solo i tipi di risorse che supportano tag e il percorso
 
-Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure è necessario specificare il parametro **mode** manualmente. Se la definizione dei criteri non contiene un valore **mode**, come valore predefinito viene usato `all` in Azure PowerShell e `null` nell'interfaccia della riga di comando di Azure, che equivale a `indexed`, per compatibilità con le versioni precedenti.
+Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure è necessario specificare il parametro **mode** manualmente. Se la definizione dei criteri non include un valore **mode**, assume il valore predefinito `all` in Azure PowerShell e `null` nell'interfaccia della riga di comando di Azure. Un valore mode `null` equivale all'utilizzo di `indexed` per supportare la compatibilità con le versioni precedenti.
 
-`indexed` deve essere usato quando la creazione di criteri consente di applicare tag o percorsi. Anche se questo non è necessario, così facendo le risorse che non supportano tag e percorsi saranno visualizzate come non conformi nei risultati sulla conformità. L'unica eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che tentano di applicare percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroup`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md).
+`indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, si evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroup`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parametri
 
@@ -86,7 +88,8 @@ I parametri funzionano nello stesso modo durante la creazione di criteri. L'incl
 > La definizione dei parametri per una definizione dei criteri o di un'iniziativa può essere configurata solo durante la creazione iniziale dei criteri o dell'iniziativa. La definizione dei parametri non può essere modificata in un secondo momento.
 > In questo modo le assegnazioni esistenti dei criteri o dell'iniziativa non possono essere rese indirettamente non valide.
 
-Ad esempio, è possibile definire un criterio per la proprietà di una risorsa in modo da limitare le posizioni in cui le risorse possono essere distribuite. In questo caso, durante la creazione del criterio dichiarare i parametri seguenti:
+Ad esempio, è possibile definire un criterio per limitare le posizioni in cui le risorse possono essere distribuite.
+Durante la creazione del criterio dichiarare i parametri seguenti:
 
 ```json
 "parameters": {
@@ -123,7 +126,7 @@ Nella regola dei criteri fare riferimento ai parametri con la sintassi della fun
 
 ## <a name="definition-location"></a>Posizione della definizione
 
-Durante la creazione di una iniziativa o dei criteri è importante specificare la posizione della definizione. Il percorso della definizione deve essere un gruppo di gestione o una sottoscrizione e determina l'ambito a cui è possibile assegnare l'iniziativa o i criteri. Le risorse devono essere membri diretti o elementi figli all'interno della gerarchia della posizione della definizione da destinare all'assegnazione.
+Durante la creazione di iniziative o criteri è importante specificare la posizione della definizione. La posizione della definizione deve essere specificata come un gruppo di gestione o una sottoscrizione. Tale posizione determina l'ambito al quale la definizione delle iniziative o dei criteri può essere assegnata. Le risorse devono essere membri diretti o elementi figli all'interno della gerarchia della posizione della definizione da destinare all'assegnazione.
 
 Se la posizione della definizione è:
 
@@ -132,7 +135,7 @@ Se la posizione della definizione è:
 
 ## <a name="display-name-and-description"></a>Nome visualizzato e descrizione
 
-È possibile usare **displayName** e **description** per identificare la definizione dei criteri e fornire il contesto d'uso.
+Usare **displayName** e **description** per identificare la definizione dei criteri e fornire il contesto d'uso.
 
 ## <a name="policy-rule"></a>Regola dei criteri
 
@@ -198,13 +201,13 @@ Una condizione valuta se un **campo** soddisfa determinati criteri. Le condizion
 - `"exists": "bool"`
 
 Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly `*` nel valore.
-Il valore non deve contenere più di 1 carattere jolly `*`.
+Il valore non deve contenere più di un carattere jolly `*`.
 
 Quando si usano le condizioni **match** e **notMatch**, specificare `#` per rappresentare una cifra, `?` per rappresentare una lettera, `.` per rappresentare tutti i caratteri e qualsiasi altro carattere per rappresentare il carattere effettivo. Ad esempio, vedere [Consentire modelli nome multipli](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Campi
 
-Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse usato per descrivere lo stato della risorsa.
+Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse e descrive lo stato della risorsa.
 
 Sono supportati i seguenti campi:
 
@@ -214,6 +217,9 @@ Sono supportati i seguenti campi:
 - `kind`
 - `type`
 - `location`
+  - Usare **global** per le risorse che sono indipendenti dalla posizione. Per un esempio, vedere [Esempi - Posizioni consentite](../samples/allowed-locations.md).
+- `identity.type`
+  - Restituisce il tipo di [Identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md) abilitata per la risorsa.
 - `tags`
 - `tags.<tagName>`
   - Dove **\<tagName\>** è il nome del tag per il quale convalidare la condizione.
@@ -247,7 +253,7 @@ In caso di **aggiunta**, è necessario specificare questi dettagli:
 
 Il valore può essere una stringa o un oggetto formato JSON.
 
-Con **AuditIfNotExists** e **DeployIfNotExists** è possibile valutare l'esistenza di una risorsa correlata e applicare una regola e un effetto corrispondente quando tale risorsa non esiste. È possibile ad esempio richiedere che venga distribuito un Network Watcher per tutte le reti virtuali. Per un esempio di controllo quando non è stata distribuita un'estensione della macchina virtuale, vedere [Audit if extension does not exist](../samples/audit-ext-not-exist.md) (Controllare se l'estensione esiste).
+**AuditIfNotExists** e **DeployIfNotExists** valutano l'esistenza di una risorsa correlata e applicano una regola. Se la risorsa non corrisponde alla regola, l'effetto viene implementato. È possibile ad esempio richiedere che venga distribuito un Network Watcher per tutte le reti virtuali. Per altre informazioni, vedere l'esempio [Audit if extension doesn't exist](../samples/audit-ext-not-exist.md) (Controllare se l'estensione non esiste).
 
 L'effetto **DeployIfNotExists** richiede la proprietà **roleDefinitionId** nella parte dei **dettagli** della regola dei criteri. Per altre informazioni, vedere [Correzione: configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
 
@@ -265,14 +271,14 @@ Per informazioni dettagliate su ogni effetto, ordine di valutazione, proprietà 
 
 ### <a name="policy-functions"></a>Funzioni dei criteri
 
-È disponibile un subset delle [funzioni del modello di Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) per l'utilizzo all'interno di una regola dei criteri. Le funzioni attualmente supportate sono:
+Sono disponibili diverse [funzioni del modello di Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) per l'utilizzo all'interno di una regola dei criteri. Le funzioni attualmente supportate sono:
 
 - [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
 - [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
 - [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
 - [sottoscrizione](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
 
-Inoltre, la funzione `field` è disponibile per le regole dei criteri. Questa funzione viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Un esempio può essere visualizzato nell'[esempio DeployIfNotExists](effects.md#deployifnotexists-example).
+Inoltre, la funzione `field` è disponibile per le regole dei criteri. `field` viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-examples"></a>Esempi di funzione dei criteri
 

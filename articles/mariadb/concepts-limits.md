@@ -7,19 +7,19 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: ac05a2dcee3adaa93d31e28e5597a788c0159ddd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 4fb774341b19034d3905341a99be2114a0d1e18b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955436"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835710"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limiti di Database di Azure per MariaDB
-Il servizio Database di Azure per MariaDB è in anteprima pubblica. Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database.
+Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database.
 
 ## <a name="maximum-connections"></a>Numero massimo di connessioni
-Di seguito è indicato il numero massimo di connessioni per ogni piano tariffario e vCore durante la fase di anteprima:
+Di seguito è indicato il numero massimo di connessioni per ogni piano tariffario e vCore:
 
 |**Piano tariffario**|**vCore**| **Numero massimo di connessioni**|
 |---|---|---|
@@ -36,7 +36,7 @@ Di seguito è indicato il numero massimo di connessioni per ogni piano tariffari
 |Con ottimizzazione per la memoria| 16| 5000|
 
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
-> ERROR 1040 (08004): Too many connections (ERRORE 1040 (08004): numero eccessivo di connessioni)
+> ERROR 1040 (08004): Troppe connessioni
 
 ## <a name="storage-engine-support"></a>Supporto del motore di archiviazione
 

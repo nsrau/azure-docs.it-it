@@ -3,22 +3,21 @@ title: Introduzione ad Azure Advisor | Microsoft Docs
 description: Introduzione ad Azure Advisor.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
-ms.author: makohli
-ms.openlocfilehash: f6b6900425f86cf720e63cda8621ff438f0f9dea
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.author: kasparks
+ms.openlocfilehash: 6e66fed21223701cd6c61bd1e903b4e7d7fbe0d0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42139896"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850093"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introduzione ad Azure Advisor
 
@@ -35,7 +34,7 @@ Informazioni su come accedere ad Advisor tramite il portale di Azure, ricevere e
 
 4. Nel dashboard di Advisor viene visualizzato un riepilogo dei consigli per tutte le sottoscrizioni selezionate.  È possibile scegliere le sottoscrizioni per le quali si vuole ottenere i consigli usando come filtro il menu a discesa delle sottoscrizioni.
 
-5. Per ricevere consigli per una categoria specifica, fare clic su una delle schede seguenti: **Disponibilità elevata**, **Sicurezza**, **Prestazioni** o **Costo**. 
+5. Per ottenere consigli relativi a una categoria specifica, fare clic su una delle schede: **Disponibilità elevata**, **Sicurezza**, **Prestazioni**, oppure **Costo**. 
 
   ![Dashboard di Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 

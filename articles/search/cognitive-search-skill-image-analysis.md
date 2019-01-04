@@ -1,5 +1,5 @@
 ---
-title: Competenza della ricerca cognitiva di Analisi delle immagini (Ricerca di Azure) | Microsoft Docs
+title: Competenza di ricerca cognitiva Analisi delle immagini - Ricerca di Azure
 description: Estrarre il testo semantico tramite l'analisi delle immagini usando la competenza cognitiva di analisi delle immagini in una pipeline di arricchimento di Ricerca di Azure.
 services: search
 manager: pablocas
@@ -10,16 +10,23 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 7f7d447edd0d73084a46aeff81f27b3ab0f072d3
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.custom: seodec2018
+ms.openlocfilehash: fc8780c5b99ce98a55a6cb08cfaa6585e5a4e89a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286235"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313310"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Competenza cognitiva di Analisi delle immagini
 
 La competenza di **Analisi delle immagini** estrae una vasta gamma di caratteristiche visive in base al contenuto delle immagini. Ad esempio, si può generare una didascalia da un'immagine, generare tag o identificare personaggi famosi e luoghi di interesse.
+
+> [!NOTE]
+> A partire dal 21 dicembre 2018 è possibile associare una risorsa di Servizi cognitivi a un set di competenze di Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare l'esecuzione del set di competenze. Da questa data ha inizio anche l'addebito dell'estrazione di immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continuerà a essere offerta gratuitamente.
+>
+> L'esecuzione delle competenze predefinite verrà addebitata in base ai [prezzi con pagamento in base al consumo di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione di immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
+
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
@@ -44,7 +51,6 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 
 ##  <a name="sample-definition"></a>Definizione di esempio
-
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
@@ -105,8 +111,16 @@ I parametri fanno distinzione tra maiuscole e minuscole.
     "values": [
         {
             "recordId": "1",
-            "data": {
-                "url": "https://storagesample.blob.core.windows.net/sample-container/image.jpg"
+            "data": {                
+                "image":  {
+                               "data": "BASE64 ENCODED STRING OF A JPEG IMAGE",
+                               "width": 500,
+                               "height": 300,
+                               "originalWidth": 5000,  
+                               "originalHeight": 3000,
+                               "rotationFromOriginal": 90,
+                               "contentOffset": 500  
+                           }
             }
         }
     ]
@@ -217,7 +231,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
                         "Black"
                     ],
                     "accentColor": "873B59",
-                    "isBWImg": false
+                    "isBwImg": false
                     },
                 "imageType": {
                     "clipArtType": 0,

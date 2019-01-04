@@ -1,6 +1,6 @@
 ---
-title: Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori | Documentazione Microsoft
-description: Informazioni su come estrarre i dati dal database SQL di Azure a un indice di Ricerca di Azure tramite gli indicizzatori.
+title: Connettere e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori - Ricerca di Azure
+description: Informazioni su come ricercare per indicizzazione i dati nel database SQL di Azure usando gli indicizzatori di ricerca full-text in Ricerca di Azure. Questo articolo illustra le connessioni, la configurazione dell'indicizzatore e l'inserimento di dati.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,14 +9,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245648"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313395"
 ---
-# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Effettuare la connessione a e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori di Ricerca di Azure
 
 Prima di poter eseguire una query nell'[indice di Ricerca di Azure](search-what-is-an-index.md), è necessario inserirvi i propri dati. Se i dati si trovano in un database SQL di Azure, l'**Indicizzatore di Ricerca di Azure per il database SQL di Azure**, o in breve **Indicizzatore SQL di Azure**, è in grado di automatizzare il processo di indicizzazione. Questo implica che la quantità di codice da scrivere è inferiore, così come l'infrastruttura di cui occuparsi.
 
@@ -324,13 +325,13 @@ Non direttamente. La connessione diretta non è consigliata né supportata, in q
 
 **D: Posso usare l'indicizzatore di Azure SQL con database diversi da SQL Server in esecuzione in IaaS in Azure?**
 
-No. Questo scenario non è supportato, in quanto non è stato eseguito il test dell'indicizzatore con database diversi da SQL Server.  
+ No. Questo scenario non è supportato, in quanto non è stato eseguito il test dell'indicizzatore con database diversi da SQL Server.  
 
 **D: Posso creare più indicizzatori in esecuzione in una pianificazione?**
 
 Sì. Tuttavia, è possibile eseguire un solo indicizzatore per volta in un nodo. Se è necessario eseguire più indicizzatori contemporaneamente, considerare il ridimensionamento del servizio di ricerca a più unità di ricerca.
 
-**D: L’esecuzione di un indicizzatore influisce sul carico di lavoro della query?**
+**D: L'esecuzione di un indicizzatore influisce sul carico di lavoro della query?**
 
 Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e le risorse di tale nodo vengono condivise tra l'indicizzazione e la gestione del traffico di query e altre richieste API. Se si eseguono un'indicizzazione e carichi di lavoro di query intensivi e si verifica una frequenza elevata di errori 503 o un aumento dei tempi di risposta, considerare il [ridimensionamento del servizio di ricerca](search-capacity-planning.md).
 
@@ -338,7 +339,7 @@ Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e le
 
 Dipende. Per l'indicizzazione completa di una tabella o vista, è possibile usare una replica secondaria. 
 
-Per l'indicizzazione incrementale, Ricerca di Azure supporta due criteri di rilevamento delle modifiche: il rilevamento delle modifiche integrato di SQL e il livello più alto.
+Per l'indicizzazione incrementale, Ricerca di Azure supporta due criteri per il rilevamento delle modifiche: Limite massimo e rilevamento delle modifiche integrato in SQL.
 
 Nelle repliche di sola lettura il database SQL non supporta il rilevamento delle modifiche integrato. Pertanto, è necessario usare il criterio del livello più alto. 
 

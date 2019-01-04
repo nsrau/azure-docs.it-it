@@ -1,5 +1,5 @@
 ---
-title: Ridimensionamento automatico e ambiente del servizio app (versione 1)
+title: Ridimensionamento automatico e ambiente del servizio app (versione 1) - Azure
 description: Ridimensionamento automatico e ambiente del servizio app
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 0feb6e4862f643c35a58c0321181bdda22b032e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22987566"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270026"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Ridimensionamento automatico e ambiente del servizio app (versione 1)
 
@@ -66,7 +67,7 @@ Diego è amministratore di sistema presso una società e ha eseguito la migrazio
 
 L'ambiente del servizio app è configurato per la scalabilità manuale come segue:
 
-* **Front-end:** 3
+* **Front end:** 3
 * **Pool di lavoro 1**: 10
 * **Pool di lavoro 2**: 5
 * **Pool di lavoro 3**: 5
@@ -82,30 +83,30 @@ Diego ha una notevole familiarità con l'applicazione. Sa che le ore di picco di
 | **Profilo di ridimensionamento automatico - Giorni feriali - Piano di servizio app** | **Profilo di ridimensionamento automatico - Fine settimana - Piano di servizio app** |
 | --- | --- |
 | **Nome:** profilo Giorno feriale |**Nome:** profilo Fine settimana |
-| **Ridimensiona in base a:** regole per la pianificazione e le prestazioni |**Ridimensiona in base a:** regole per la pianificazione e le prestazioni |
-| **Profilo:** giorni della settimana |**Profilo:** fine settimana |
-| **Tipo:** ricorrenza |**Tipo:** ricorrenza |
+| **Ridimensiona di:** regole per la pianificazione e le prestazioni |**Ridimensiona di:** regole per la pianificazione e le prestazioni |
+| **Profilo:** Giorni della settimana |**Profilo:** fine settimana |
+| **Tipo:** Ricorrenza |**Tipo:** Ricorrenza |
 | **Intervallo di destinazione:** da 5 a 20 istanze |**Intervallo di destinazione:** da 3 a 10 istanze |
 | **Giorni:** Lunedì, Martedì, Mercoledì, Giovedì, Venerdì |**Giorni:** Sabato, Domenica |
-| **Ora di inizio:** 9:00 |**Ora di inizio:** 9:00 |
-| **Fuso orario:** UTC -08 |**Fuso orario:** UTC -08 |
+| **Ora di inizio:** 9.00 |**Ora di inizio:** 9.00 |
+| **Fuso orario:** UTC-08 |**Fuso orario:** UTC-08 |
 |  | |
 | **Regola di ridimensionamento automatico (aumento)** |**Regola di ridimensionamento automatico (aumento)** |
-| **Risorsa:** produzione (Ambiente del servizio app) |**Risorsa:** produzione (Ambiente del servizio app) |
+| **Risorsa:** produzione (ambiente del servizio app) |**Risorsa:** produzione (ambiente del servizio app) |
 | **Metrica:** % CPU |**Metrica:** % CPU |
-| **Operazione:** maggiore del 60% |**Operazione:** maggiore del 80% |
+| **Operazione:** Maggiore del 60% |**Operazione:** Maggiore dell'80% |
 | **Durata:** 5 minuti |**Durata:** 10 minuti |
-| **Aggregazione temporale:** media |**Aggregazione temporale:** media |
-| **Azione:** aumenta numero di 2 |**Azione:** aumenta numero di 1 |
+| **Aggregazione temporale:** Media |**Aggregazione temporale:** Media |
+| **Azione:** Aumenta numero di 2 |**Azione:** Aumenta numero di 1 |
 | **Disattiva regole dopo (minuti):** 15 |**Disattiva regole dopo (minuti):** 20 |
 |  | |
 | **Regola di ridimensionamento automatico (riduzione)** |**Regola di ridimensionamento automatico (riduzione)** |
-| **Risorsa:** produzione (Ambiente del servizio app) |**Risorsa:** produzione (Ambiente del servizio app) |
+| **Risorsa:** produzione (ambiente del servizio app) |**Risorsa:** produzione (ambiente del servizio app) |
 | **Metrica:** % CPU |**Metrica:** % CPU |
-| **Operazione:** inferiore al 30% |**Operazione:** inferiore al 20% |
+| **Operazione:** Minore del 30% |**Operazione:** Minore del 20% |
 | **Durata:** 10 minuti |**Durata:** 15 minuti |
-| **Aggregazione temporale:** media |**Aggregazione temporale:** media |
-| **Azione:** riduci numero di 1 |**Azione:** riduci numero di 1 |
+| **Aggregazione temporale:** Media |**Aggregazione temporale:** Media |
+| **Azione:** Riduci numero di 1 |**Azione:** Riduci numero di 1 |
 | **Disattiva regole dopo (minuti):** 20 |**Disattiva regole dopo (minuti):** 10 |
 
 ### <a name="app-service-plan-inflation-rate"></a>Tasso di inflazione del piano di servizio app
@@ -153,30 +154,30 @@ Con queste informazioni Diego può definire le regole e il profilo di ridimensio
 | **Profilo di ridimensionamento automatico - Giorni feriali** | **Profilo di ridimensionamento automatico - Fine settimana** |
 | --- | --- |
 | **Nome:** profilo Giorno feriale |**Nome:** profilo Fine settimana |
-| **Ridimensiona in base a:** regole per la pianificazione e le prestazioni |**Ridimensiona in base a:** regole per la pianificazione e le prestazioni |
-| **Profilo:** giorni della settimana |**Profilo:** fine settimana |
-| **Tipo:** ricorrenza |**Tipo:** ricorrenza |
+| **Ridimensiona di:** regole per la pianificazione e le prestazioni |**Ridimensiona di:** regole per la pianificazione e le prestazioni |
+| **Profilo:** Giorni della settimana |**Profilo:** fine settimana |
+| **Tipo:** Ricorrenza |**Tipo:** Ricorrenza |
 | **Intervallo di destinazione:** da 13 a 25 istanze |**Intervallo di destinazione:** da 6 a 15 istanze |
 | **Giorni:** Lunedì, Martedì, Mercoledì, Giovedì, Venerdì |**Giorni:** Sabato, Domenica |
-| **Ora di inizio:** 7:00 |**Ora di inizio:** 9:00 |
-| **Fuso orario:** UTC -08 |**Fuso orario:** UTC -08 |
+| **Ora di inizio:** 7:00 |**Ora di inizio:** 9.00 |
+| **Fuso orario:** UTC-08 |**Fuso orario:** UTC-08 |
 |  | |
 | **Regola di ridimensionamento automatico (aumento)** |**Regola di ridimensionamento automatico (aumento)** |
 | **Risorsa:** Pool di lavoro 1 |**Risorsa:** Pool di lavoro 1 |
-| **Metrica:** Pool di lavoro disponibili |**Metrica:** Pool di lavoro disponibili |
-| **Operazione:** minore di 8 |**Operazione:** minore di 3 |
+| **Metrica:** WorkersAvailable |**Metrica:** WorkersAvailable |
+| **Operazione:** Minore di 8 |**Operazione:** Minore di 3 |
 | **Durata:** 20 minuti |**Durata:** 30 minuti |
-| **Aggregazione temporale:** media |**Aggregazione temporale:** media |
-| **Azione:** aumenta numero di 8 |**Azione:** aumenta numero di 3 |
+| **Aggregazione temporale:** Media |**Aggregazione temporale:** Media |
+| **Azione:** Aumenta numero di 8 |**Azione:** Aumenta numero di 3 |
 | **Disattiva regole dopo (minuti):** 180 |**Disattiva regole dopo (minuti):** 180 |
 |  | |
 | **Regola di ridimensionamento automatico (riduzione)** |**Regola di ridimensionamento automatico (riduzione)** |
 | **Risorsa:** Pool di lavoro 1 |**Risorsa:** Pool di lavoro 1 |
-| **Metrica:** Pool di lavoro disponibili |**Metrica:** Pool di lavoro disponibili |
-| **Operazione:** maggiore di 8 |**Operazione:** maggiore di 3 |
+| **Metrica:** WorkersAvailable |**Metrica:** WorkersAvailable |
+| **Operazione:** Maggiore di 8 |**Operazione:** Maggiore di 3 |
 | **Durata:** 20 minuti |**Durata:** 15 minuti |
-| **Aggregazione temporale:** media |**Aggregazione temporale:** media |
-| **Azione:** riduci numero di 2 |**Azione:** riduci numero di 3 |
+| **Aggregazione temporale:** Media |**Aggregazione temporale:** Media |
+| **Azione:** Riduci numero di 2 |**Azione:** Riduci numero di 3 |
 | **Disattiva regole dopo (minuti):** 120 |**Disattiva regole dopo (minuti):** 120 |
 
 L'intervallo di destinazione definito nel profilo è calcolato in base al numero minimo di istanze definito nel profilo per il piano di servizio app più il buffer.
@@ -197,31 +198,31 @@ Per questo scenario, Diego sa che la percentuale di errore aumenta quando i pool
 
 | **Profilo di ridimensionamento automatico - Front-end** |
 | --- |
-| **Nome:** Ridimensionamento automatico - Front-end |
-| **Ridimensiona in base a:** regole per la pianificazione e le prestazioni |
+| **Nome:** ridimensionamento automatico - front-end |
+| **Ridimensiona di:** regole per la pianificazione e le prestazioni |
 | **Profilo:** ogni giorno |
-| **Tipo:** ricorrenza |
+| **Tipo:** Ricorrenza |
 | **Intervallo di destinazione:** da 3 a 10 istanze |
 | **Giorni:** ogni giorno |
-| **Ora di inizio:** 9:00 |
-| **Fuso orario:** UTC -08 |
+| **Ora di inizio:** 9.00 |
+| **Fuso orario:** UTC-08 |
 |  |
 | **Regola di ridimensionamento automatico (aumento)** |
 | **Risorsa:** pool front-end |
 | **Metrica:** % CPU |
-| **Operazione:** maggiore del 60% |
+| **Operazione:** Maggiore del 60% |
 | **Durata:** 20 minuti |
-| **Aggregazione temporale:** media |
-| **Azione:** aumenta numero di 3 |
+| **Aggregazione temporale:** Media |
+| **Azione:** Aumenta numero di 3 |
 | **Disattiva regole dopo (minuti):** 120 |
 |  |
 | **Regola di ridimensionamento automatico (riduzione)** |
 | **Risorsa:** Pool di lavoro 1 |
 | **Metrica:** % CPU |
-| **Operazione:** inferiore al 30% |
+| **Operazione:** Minore del 30% |
 | **Durata:** 20 minuti |
-| **Aggregazione temporale:** media |
-| **Azione:** riduci numero di 3 |
+| **Aggregazione temporale:** Media |
+| **Azione:** Riduci numero di 3 |
 | **Disattiva regole dopo (minuti):** 120 |
 
 <!-- IMAGES -->

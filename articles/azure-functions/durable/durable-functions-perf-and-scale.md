@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 54a88188a432a23476af6a1670635a23fb72eea7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638206"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341169"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -33,7 +33,7 @@ Quando è necessario eseguire un'istanza di orchestrazione, le righe appropriate
 
 La tabella **Istanze** tabella è un'altra tabella di Archiviazione di Azure che contiene gli stati di tutte le istanze di orchestrazione all'interno di un hub attività. In seguito alla creazione di istanze, nuove righe vengono aggiunte alla tabella. La chiave di partizione della tabella è l'ID dell'istanza di orchestrazione, mentre la chiave di riga è una costante fissa. Per ogni istanza di orchestrazione, è presente una riga.
 
-Questa tabella viene usata per soddisfare le richieste delle query di istanza dell'API [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) e dell'[API HTTP della query sullo stato](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status). Il contenuto della tabella viene mantenuto coerente con quello della tabella **Cronologia** citata in precedenza. L'uso di una tabella di Archiviazione di Azure separata per soddisfare in modo efficiente le operazioni di query di istanza in questo modo è influenzata dal [modello di separazione e responsabilità per query e comandi (CQRS, Command and Query Responsibility Segregation)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Questa tabella viene usata per soddisfare le richieste delle query di istanza delle API [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) (.NET) e `getStatus` (JavaScript) e anche dell'[API HTTP della query sullo stato](durable-functions-http-api.md#get-instance-status). Il contenuto della tabella viene mantenuto coerente con quello della tabella **Cronologia** citata in precedenza. L'uso di una tabella di Archiviazione di Azure separata per soddisfare in modo efficiente le operazioni di query di istanza in questo modo è influenzata dal [modello di separazione e responsabilità per query e comandi (CQRS, Command and Query Responsibility Segregation)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Trigger di code interne
 
@@ -53,10 +53,24 @@ Le code di controllo contengono messaggi di diverso tipo relativi al ciclo di vi
 
 Code, tabelle e BLOB usati dalle funzioni durevoli vengono creati in un account di Archiviazione di Azure configurato. L'account da usare può essere specificato tramite l'impostazione `durableTask/azureStorageConnectionStringName` nel file **host.json**.
 
+### <a name="functions-1x"></a>Funzioni 1.x
+
 ```json
 {
   "durableTask": {
     "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+  }
+}
+```
+
+### <a name="functions-2x"></a>Funzioni 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+    }
   }
 }
 ```
@@ -67,6 +81,8 @@ Se non specificato, come valore predefinito viene usato l'account di archiviazio
 
 Le funzioni di attività sono senza stato e vengono scalate orizzontalmente in modo automatico tramite l'aggiunta di macchine virtuali. D'altra parte le funzioni di orchestrazione vengono *partizionate* tra una o più code di controllo. Il numero di code di controllo viene definito nel file **host.json**. Nel frammento di codice host.json di esempio la proprietà `durableTask/partitionCount` viene impostata su `3`.
 
+### <a name="functions-1x"></a>Funzioni 1.x
+
 ```json
 {
   "durableTask": {
@@ -74,6 +90,19 @@ Le funzioni di attività sono senza stato e vengono scalate orizzontalmente in m
   }
 }
 ```
+
+### <a name="functions-2x"></a>Funzioni 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "partitionCount": 3
+    }
+  }
+}
+```
+
 Un hub attività può essere configurato con un numero di partizioni compreso tra 1 e 16. Se non specificato, il numero di partizioni predefinito è **4**.
 
 Quando si esegue la scalabilità orizzontale in più istanze dell'host di funzioni, in genere su diverse macchine virtuali, ogni istanza acquisisce un blocco su una delle code di controllo. Tali blocchi vengono implementati internamente come lease di archiviazione BLOB e garantiscono che un'istanza di orchestrazione venga eseguita solo in un'unica istanza di host alla volta. Se un hub attività viene configurato con tre code di controllo, il bilanciamento del carico delle istanze di orchestrazione può essere applicato a un massimo di tre macchine virtuali. È possibile aggiungere altre macchine virtuali per aumentare la capacità per l'esecuzione della funzione di attività.
@@ -106,11 +135,26 @@ Funzioni di Azure supporta l'esecuzione di più funzioni contemporaneamente in u
 
 I limiti per la concorrenza per la funzione di attività e per la funzione dell'agente di orchestrazione possono essere configurati nel file **host.json**. Le impostazioni pertinenti sono `durableTask/maxConcurrentActivityFunctions` e `durableTask/maxConcurrentOrchestratorFunctions` rispettivamente.
 
+### <a name="functions-1x"></a>Funzioni 1.x
+
 ```json
 {
   "durableTask": {
     "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10
+  }
+}
+```
+
+### <a name="functions-2x"></a>Funzioni 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10
+    }
   }
 }
 ```
@@ -121,15 +165,31 @@ Nell'esempio precedente al massimo 10 funzioni dell'agente di orchestrazione e 1
 > Tali impostazioni sono utili per semplificare la gestione della memoria e l'uso della CPU in una singola macchina virtuale. Tuttavia, se si applica la scalabilità orizzontale a più macchine virtuali, per ogni macchina virtuale verrà impostato un set di limiti specifico. Tali impostazioni non possono essere usate per controllare la concorrenza a livello globale.
 
 ## <a name="orchestrator-function-replay"></a>Riproduzione delle funzioni dell'agente di orchestrazione
+
 Come accennato in precedenza, le funzioni dell'agente di orchestrazione vengono riprodotte tramite il contenuto della tabella **Cronologia**. Per impostazione predefinita, il codice della funzione dell'agente di orchestrazione viene riprodotto ogni volta che un batch di messaggi viene rimosso da un coda di controllo.
 
 Per disabilitare questo comportamento di riproduzione aggressivo, è possibile abilitare le **sessioni estese**. Quando le sessioni estese vengono abilitate, le istanze delle funzioni dell'agente di orchestrazione sono conservate in memoria più a lungo ed è possibile elaborare nuovi messaggi senza una riproduzione completa. Le sessioni estese vengono abilitate impostando `durableTask/extendedSessionsEnabled` su `true` nel file **host.json**. L'impostazione `durableTask/extendedSessionIdleTimeoutInSeconds` consente di controllare per quanto tempo una sessione inattiva verrà conservata in memoria:
+
+### <a name="functions-1x"></a>Funzioni 1.x
 
 ```json
 {
   "durableTask": {
     "extendedSessionsEnabled": true,
     "extendedSessionIdleTimeoutInSeconds": 30
+  }
+}
+```
+
+### <a name="functions-2x"></a>Funzioni 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "extendedSessionsEnabled": true,
+      "extendedSessionIdleTimeoutInSeconds": 30
+    }
   }
 }
 ```

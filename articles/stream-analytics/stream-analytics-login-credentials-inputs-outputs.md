@@ -2,19 +2,19 @@
 title: Ruotare le credenziali di accesso nei processi di Analisi di flusso di Azure
 description: Questo articolo descrive come aggiornare le credenziali dei sink di input e di output nei processi di Analisi di flusso di Azure.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: 362fdca3b9a54ea0a8785ae37b32b88cbe0f67ba
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 14e24c1e9a61eb7ea73a949e17ffbf8c5b768f05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978768"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099070"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Ruotare le credenziali di accesso per input e output in un processo di Analisi di flusso
 
@@ -27,20 +27,20 @@ Questa sezione illustra la procedura da seguire per rigenerare le credenziali pe
 ### <a name="blob-storagetable-storage"></a>Archiviazione BLOB/Archiviazione tabelle
 1. Accedere al portale di Azure e passare all'account di archiviazione usato come input/output per il processo di Analisi di flusso.    
 2. Dalla sezione Impostazioni aprire **Chiavi di accesso**. Delle due chiavi predefinite (key1, key2), selezionare quella che non viene usata dal processo e rigenerarla:  
-   ![Rigenerare le chiavi per l'account di archiviazione](media/stream-analytics-login-credentials-inputs-outputs/image1.png)
+   ![Rigenerare le chiavi per l'account di archiviazione](media/stream-analytics-login-credentials-inputs-outputs/regenerate-storage-keys.png)
 3. Copiare la chiave appena generata.    
 4. Dal portale di Azure passare al processo di Analisi di flusso, selezionare **Arresta** e attendere l'arresto del processo.    
 5. Individuare l'input o l'output di Archiviazione BLOB o tabelle per cui aggiornare le credenziali.    
 6. Individuare il campo **Chiave dell'account di archiviazione**, incollarvi la chiave appena generata e quindi fare clic su **Salva**.    
 7. Al salvataggio delle modifiche, verrà automaticamente avviato un test di connessione. È possibile visualizzarlo dalla scheda delle notifiche. Sono presenti due notifiche che corrispondono rispettivamente al salvataggio dell'aggiornamento e al test della connessione:  
-   ![Notifiche dopo la modifica della chiave](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
+   ![Notifiche dopo la modifica della chiave](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
 8. Passare alla sezione [Avviare il processo dall'ultimo arresto](#start-your-job-from-the-last-stopped-time).
 
 ### <a name="event-hubs"></a>Hub eventi
 
 1. Accedere al portale di Azure e passare all'hub eventi usato come input/output per il processo di Analisi di flusso.    
 2. Dalla sezione Impostazioni aprire **Criteri di accesso condiviso** e selezionare i criteri di accesso richiesti. Delle due chiavi configurate, **Chiave primaria** e **Chiave secondaria**, selezionare quella non usata dal processo e rigenerarla:  
-   ![Rigenerare le chiavi per Hub eventi](media/stream-analytics-login-credentials-inputs-outputs/image2.png)
+   ![Rigenerare le chiavi per Hub eventi](media/stream-analytics-login-credentials-inputs-outputs/regenerate-event-hub-keys.png)
 3. Copiare la chiave appena generata.    
 4. Dal portale di Azure passare al processo di Analisi di flusso, selezionare **Arresta** e attendere l'arresto del processo.    
 5. Individuare l'input o l'output di Hub eventi per cui aggiornare le credenziali.    
@@ -54,7 +54,7 @@ Se è necessario connettersi al database SQL per aggiornare le credenziali di ac
 
 1. Accedere al portale di Azure e passare al database SQL usato come input/output per il processo di Analisi di flusso.    
 2. Da **Esplora dati** connettersi al database e selezionare il tipo di autorizzazione come **Autenticazione di SQL Server**, quindi digitare i dati nei campi **Account di accesso** e **Password** e infine fare clic su **OK**.  
-   ![Rigenerare le credenziali per il database SQL](media/stream-analytics-login-credentials-inputs-outputs/image3.png)
+   ![Rigenerare le credenziali per il database SQL](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. Nella scheda della query modificare la password per uno degli utenti eseguendo la query seguente, facendo attenzione a sostituire `<user_name>` con il nome utente e `<new_password>` con la nuova password:  
 
@@ -79,7 +79,7 @@ Se è necessario connettersi al database SQL per aggiornare le credenziali di ac
 
 1. Passare al riquadro **Panoramica** del processo e fare clic su **Avvia** per avviare il processo.    
 2. Selezionare **Ultimo arresto** e fare clic su **Avvia**. Si noti che l'opzione "Ultimo arresto" viene visualizzata solo se il processo è stato eseguito in precedenza ed è stato generato dell'output. Il processo viene riavviato in base al momento in cui è stato restituito l'ultimo valore di output.
-   ![Avviare il processo](media/stream-analytics-login-credentials-inputs-outputs/image5.png)
+   ![Avviare il processo di Analisi di flusso](media/stream-analytics-login-credentials-inputs-outputs/start-stream-analytics-job.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

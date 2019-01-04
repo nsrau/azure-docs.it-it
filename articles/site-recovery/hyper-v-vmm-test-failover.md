@@ -1,25 +1,25 @@
 ---
 title: Eseguire un'esercitazione sul ripristino di emergenza di macchine virtuali Hyper-V in un sito secondario con Azure Site Recovery | Microsoft Docs
 description: Informazioni su come eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V di cloud VMM in un data center locale secondario usando Azure Site Recovery.
-author: ponatara
-manager: abhemraj
+author: rajani-janaki-ram
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
-ms.author: ponatara
-ms.openlocfilehash: 3f7e534e9c698e31e1061c35aec713d20c7e570f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/27/2018
+ms.author: rajanaki
+ms.openlocfilehash: 5e6d155a3efebfc8289263ac703a87e9aa3287cd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211350"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834758"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
 
 
 Questo articolo illustra come eseguire un esercitazione sul ripristino di emergenza per le macchine virtuali Hyper-V gestite nei cloud di System Center Virtual Machine Manager (VMM) in un sito secondario locale usando [Azure Site Recovery](site-recovery-overview.md).
 
-Viene eseguito un failover di test per convalidare la strategia di replica ed eseguire un'esercitazione sul ripristino di emergenza senza perdita di dati o tempi di inattività. Un failover di test non ha alcun impatto sulla replica in corso o sull'ambiente di produzione. 
+Viene eseguito un failover di testper convalidare la strategia di replica ed eseguire un'esercitazione sul ripristino di emergenza senza perdita di dati o tempi di inattività. Un failover di test non ha alcun impatto sulla replica in corso o sull'ambiente di produzione. 
 
 ## <a name="how-do-test-failovers-work"></a>Come funziona il failover di test?
 
@@ -31,8 +31,8 @@ Eseguire un failover di test dal server primario al sito secondario. Se si desid
     - Eseguire il failover e consentire a Site Recovery di creare automaticamente una rete di test. In questo caso Site Recovery crea automaticamente la rete ed esegue la pulizia quando il failover di test è stato completato.
 - È necessario selezionare un punto di ripristino per il failover di test: 
     - **Elaborato più recente**: questa opzione consente di eseguire il failover di una macchina virtuale nel punto di ripristino più recente elaborato da Site Recovery. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
-    - **Coerente con l'app più recente**: questa opzione esegue il failover di una macchina virtuale nel punto di ripristino coerente con l'app più recente elaborato da Site Recovery. 
-    - **Più recente**: con questa opzione vengono prima elaborati tutti i dati inviati al servizio Site Recovery per creare un punto di ripristino per ogni VM e quindi viene eseguito il failover in tale punto di ripristino. Questa opzione offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale creata dopo il failover conterrà tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
+    - **Coerente con l'app più recente**: questa opzione esegue il failover di una macchina virtuale nel punto di ripristino coerente con l'applicazione più recente elaborato da Site Recovery. 
+    - **Più recente**: con questa opzione vengono prima elaborati tutti i dati inviati al servizio Site Recovery per creare un punto di ripristino per ogni macchina virtuale e quindi viene eseguito il failover in tale punto di ripristino. Questa opzione offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale creata dopo il failover conterrà tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
     - **Elaborato più recente tra più macchine virtuali**: questa opzione è disponibile per i piani di ripristino che includono una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali in cui è abilitata l'impostazione eseguono il failover nel punto di ripristino coerente tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di ripristino più recente elaborato.
     - **Coerente con l'app più recente tra più macchine virtuali**: questa opzione è disponibile per i piani di ripristino con una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali che fanno parte di un gruppo di replica eseguono il failover nel punto di ripristino coerente a livello applicazione tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di ripristino più recente coerente con l'applicazione.
     - **Personalizzato**: questa opzione consente di eseguire il failover di una macchina virtuale specifica in un determinato punto di ripristino.

@@ -1,6 +1,6 @@
 ---
-title: Ridimensionamento di Media Reserved Unit - Azure | Microsoft Docs
-description: Questo argomento presenta una panoramica del ridimensionamento dell'elaborazione multimediale con Servizi multimediali di Azure.
+title: Uso dell'interfaccia della riga di comando per la creazione di filtri con Servizi multimediali di Azure | Microsoft Docs
+description: In questo argomento illustra come usare l'interfaccia della riga di comando per creare filtri con Servizi multimediali.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: 9099429097efb17629e88318430f004f0f763cc5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: a16024ad5d8b9d2355b579b9b508ef0de91f2ccd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336670"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133860"
 ---
 # <a name="creating-filters-with-cli"></a>Creazione di filtri con l'interfaccia della riga di comando 
 
@@ -100,7 +101,7 @@ Vedere anche [Esempi JSON per i filtri](https://docs.microsoft.com/rest/api/medi
 
 ## <a name="next-step"></a>Passaggio successivo
 
-[Streaming di video](stream-files-tutorial-with-api.md) 
+[Video in streaming](stream-files-tutorial-with-api.md) 
 
 ## <a name="see-also"></a>Vedere anche 
 

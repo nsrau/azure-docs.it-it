@@ -3,7 +3,7 @@ title: Distribuire una macchina virtuale dai dischi rigidi virtuali per Azure Ma
 description: Questo articolo illustra come registrare una macchina virtuale da un disco rigido virtuale distribuito in Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: pbutlerm
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2771549af29b3e717d117afb42de6db03fbee226
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 9157ce7f8f16bc60a6d5c16fa992a5402cf2d7ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639127"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190731"
 ---
-# <a name="deploy-a-vm-from-your-vhds"></a>Distribuire una macchina virtuale dai dischi rigidi virtuali
+# <a name="deploy-a-vm-from-your-vhds"></a>Distribuire una macchina virtuale dai VHD
 
-Questo articolo illustra come registrare una macchina virtuale (VM) da un Azure distribuito disco rigido virtuale (VHD).  Elenca gli strumenti necessari e indica come usarli per creare un'immagine di macchina virtuale utente e quindi distribuirla in Azure usando il [portale di Microsoft Azure](https://ms.portal.azure.com/) o script di PowerShell. 
+Questa sezione illustra come distribuire una macchina virtuale (VM) da un Azure distribuito disco rigido virtuale (VHD).  Elenca gli strumenti necessari e indica come usarli per creare un'immagine di macchina virtuale dell'utente e quindi distribuirla in Azure usando script di PowerShell.
 
 Dopo aver caricato uno o più dischi rigidi virtuali, ovvero il disco rigido virtuale del sistema operativo generalizzato e zero o più dischi rigidi virtuali dei dischi dati, in un account di archiviazione di Azure, è possibile registrarli come immagine di macchina virtuale degli utenti ed eseguirne il test. Dal momento che il disco rigido virtuale dl sistema operativo è generalizzato, non è possibile distribuire direttamente la macchina virtuale specificando l'URL del disco.
 
@@ -33,48 +33,23 @@ Per altre informazioni sulle immagini di macchina virtuale, vedere i post di blo
 - [Procedure di PowerShell per immagini di macchina virtuale](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 
-## <a name="set-up-the-necessary-tools"></a>Configurare gli strumenti necessari
+## <a name="prerequisite-install-the-necessary-tools"></a>Prerequisito: installare gli strumenti necessari
 
 Se non è già stato fatto, installare Azure PowerShell e l'interfaccia della riga di comando di Azure, usando queste istruzioni:
-
-<!-- TD: Change the following URLs (in this entire topic) to relative paths.-->
 
 - [Installare Azure PowerShell in Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 - [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
-## <a name="create-a-user-vm-image"></a>Creare un'immagine di macchina virtuale degli utenti
+## <a name="deployment-steps"></a>Passaggi di distribuzione
 
-Successivamente viene creata un'immagine non gestita dal disco rigido virtuale generalizzato.
+È necessario usare la procedura seguente per creare e distribuire un'immagine di macchina virtuale dell'utente:
 
-#### <a name="capture-the-vm-image"></a>Acquisire l'immagine della macchina virtuale
+1. Creare l'immagine di macchina virtuale dell'utente, che comporta l'acquisizione e la generalizzazione dell'immagine. 
+2. Creare i certificati e archiviarli in un nuovo Azure Key Vault. Un certificato è necessario per stabilire una connessione WinRM sicura con la macchina virtuale.  Vengono forniti un modello di Azure Resource Manager e uno script di Azure PowerShell. 
+3. Distribuire la macchina virtuale da un'immagine di macchina virtuale dell'utente, usando il modello e lo script forniti.
 
-Seguire le istruzioni indicate nell'articolo seguente sull'acquisizione della macchina virtuale che corrisponde all'acceso usato:
-
--  PowerShell: [Come creare un'immagine di macchina virtuale non gestita da una macchina virtuale di Azure](../../../virtual-machines/windows/capture-image-resource.md)
--  Interfaccia della riga di comando di Azure: [Come creare un'immagine di una macchina virtuale o un disco rigido virtuale](../../../virtual-machines/linux/capture-image.md)
--  API: [Macchine virtuali - Acquisizione](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
-
-### <a name="generalize-the-vm-image"></a>Generalizzare l'immagine di macchina virtuale
-
-Poiché l'immagine dell'utente è stata generata da un disco rigido virtuale generalizzato in precedenza, è necessario che sia generalizzata.  Anche in questo caso selezionare l'articolo seguente che corrisponde al meccanismo di accesso.  Il disco potrebbe già essere stato generalizzato al momento dell'acquisizione.
-
--  PowerShell: [Generalizzare la macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
--  Interfaccia della riga di comando di Azure: [Passaggio 2: Creare l'immagine della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
--  API: [Macchine virtuali - Generalizzazione](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
-
-
-## <a name="deploy-a-vm-from-a-user-vm-image"></a>Distribuire una macchina virtuale da un'immagine di macchina virtuale degli utenti
-
-Successivamente si distribuirà una macchina virtuale da un'immagine di un utente tramite il portale di Azure o PowerShell.
-
-<!-- TD: Recapture following hilited images and replace with red-box. -->
-
-### <a name="deploy-a-vm-from-azure-portal"></a>Distribuire una macchina virtuale dal portale di Azure
-
-Per distribuire la macchina virtuale dell'utente dal portale di Azure, eseguire questa procedura.
-
-1.  Accedere al [portale di Azure](https://portal.azure.com).
+Dopo aver distribuito la macchina virtuale, è possibile [certificare l'immagine di macchina virtuale](./cpp-certify-vm.md).
 
 2.  Fare clic su **Nuovo**, eseguire una ricerca in **Distribuzione modello** e quindi selezionare **Creare un modello personalizzato nell'editor**.  <br/>
   ![Creare il modello di distribuzione del disco rigido virtuale nel portale di Azure](./media/publishvm_021.png)
@@ -93,7 +68,7 @@ Per distribuire la macchina virtuale dell'utente dal portale di Azure, eseguire 
    | Nome DNS per indirizzo IP pubblico      | Nome DNS dell'indirizzo IP pubblico                                                           |
    | Nome utente amministratore             | Nome utente dell'account di amministratore per la nuova macchina virtuale                                  |
    | Password amministratore              | Password dell'account di amministratore per la nuova macchina virtuale                                  |
-   | Tipo di sistema operativo                     | Sistema operativo della macchina virtuale: `Windows` \| `Linux`                                    |
+   | OS Type (Tipo di sistema operativo)                     | Sistema operativo della macchina virtuale: `Windows` \| `Linux`                                    |
    | ID sottoscrizione             | Identificatore della sottoscrizione selezionata                                      |
    | Località                    | Località geografica della distribuzione                                        |
    | Dimensioni macchina virtuale                     | [Dimensioni della macchina virtuale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), ad esempio `Standard_A2` |
@@ -121,10 +96,8 @@ Per distribuire una macchina virtuale di grandi dimensioni dall'immagine di macc
     New-AzureVM -ServiceName "VMImageCloudService" -VMs $myVM -Location "West US" -WaitForBoot
 ```
 
-<!-- TD: The following is a marketplace-publishing article and may be out-of-date.  TD: update and move topic.
-For help with issues, see [Troubleshooting common issues encountered during VHD creation](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting) for additional assistance.
--->
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver distribuito la macchina virtuale, è possibile [configurare la macchina virtuale](./cpp-configure-vm.md).
+Successivamente, verrà [creata un'immagine di macchina virtuale dell'utente](cpp-create-user-image.md) per la propria soluzione.
+

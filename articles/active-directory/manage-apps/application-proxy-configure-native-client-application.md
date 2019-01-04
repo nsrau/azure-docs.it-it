@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: b4476579665b0e6b574827d1bec06233560038a8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a73e652c74f9d88f1e066de190834fc033c13cf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621089"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135527"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Come abilitare le app client native per l'interazione con le applicazioni proxy
 
@@ -35,7 +35,7 @@ Per pubblicare applicazioni native, usare Azure AD Authentication Library, che g
 Questo articolo illustra i quattro passaggi necessari per pubblicare un'applicazione nativa con il proxy di applicazione e Azure AD Authentication Library. 
 
 ## <a name="step-1-publish-your-application"></a>Passaggio 1: Pubblicare l'applicazione
-Pubblicare l'applicazione proxy come qualsiasi altra applicazione e assegnare agli utenti l'accesso all'applicazione. Per altre informazioni, vedere [Pubblicare applicazioni mediante il proxy di applicazione](application-proxy-publish-azure-portal.md).
+Pubblicare l'applicazione proxy come qualsiasi altra applicazione e assegnare agli utenti l'accesso all'applicazione. Per altre informazioni, vedere [Pubblicare applicazioni mediante il proxy di applicazione](application-proxy-add-on-premises-application.md).
 
 ## <a name="step-2-configure-your-application"></a>Passaggio 2: Configurare l'applicazione
 Configurare l'applicazione nativa come indicato di seguito:
@@ -51,12 +51,12 @@ Configurare l'applicazione nativa come indicato di seguito:
 Per informazioni più dettagliate sulla creazione di una nuova registrazione di app, vedere [Integrazione di applicazioni con Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 
-## <a name="step-3-grant-access-to-other-applications"></a>Passaggio 3: Concedi accesso ad altre applicazioni
+## <a name="step-3-grant-access-to-other-applications"></a>Passaggio 3: Concedere l'accesso ad altre applicazioni
 Abilitare l'applicazione nativa da esporre ad altre applicazioni nella directory:
 
 1. In **Registrazioni per l'app** selezionare la nuova applicazione nativa appena creata.
-2. Selezionare **Autorizzazioni necessarie**.
-3. Selezionare **Aggiungi**.
+2. Selezionare **Autorizzazioni API**.
+3. Selezionare **Aggiungi un'autorizzazione**.
 4. Aprire il primo passaggio, **Selezionare un'API**.
 5. Usare la barra di ricerca per trovare l'app del proxy di applicazione pubblicata nella prima sezione. Scegliere tale app e quindi fare clic su **Seleziona**. 
 

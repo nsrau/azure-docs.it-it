@@ -1,5 +1,5 @@
 ---
-title: Effettuare il provisioning automatico di un dispositivo Azure IoT Edge con il servizio Device Provisioning - Windows | Microsoft Docs
+title: Effettuare il provisioning automatico di dispositivi Windows con il servizio Device Provisioning - Azure IoT Edge | Microsoft Docs
 description: Usare un dispositivo simulato nel computer Windows per testare il provisioning automatico dei dispositivi per Azure IoT Edge con il servizio Device Provisioning
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9be790d9b512dc9338cf183240430ad0ada3bef4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: a251eb3915ee3043ab4b69e0cd4cef8fa2170486
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565106"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101603"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM Edge in Windows
 

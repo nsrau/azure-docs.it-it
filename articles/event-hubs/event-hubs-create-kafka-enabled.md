@@ -1,6 +1,6 @@
 ---
 title: Creare Hub eventi di Azure abilitati per Apache Kafka | Microsoft Docs
-description: Creare uno spazio dei nomi di Hub eventi di Azure abilitato per Kafka usando il portale di Azure
+description: Questo articolo include una procedura dettagliata per la creazione di uno spazio dei nomi di Hub eventi di Azure abilitato per Apache Kafka tramite il portale di Azure.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: b72f6b190aad436398629c67f271020ffd0a8da9
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf78ac6bce23b739ed661929f6fe90eddc9b4d94
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822076"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090779"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Creare Hub eventi con supporto per Apache Kafka
 

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/03/2018
+ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712144"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843207"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
@@ -145,7 +145,7 @@ Istanza gestita non può accedere ai file, quindi non è possibile creare provid
 
 ### <a name="collation"></a>Collation
 
-Le regole di confronto del server sono `SQL_Latin1_General_CP1_CI_AS` e non possono essere modificate. Vedere [Regole di confronto](https://docs.microsoft.com/sql/t-sql/statements/collations).
+Le regole di confronto di istanza predefinita sono `SQL_Latin1_General_CP1_CI_AS` e possono essere specificate come un parametro di creazione. Vedere [Regole di confronto](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 ### <a name="database-options"></a>Opzioni di database
 
@@ -264,7 +264,7 @@ La [ricerca semantica](https://docs.microsoft.com/sql/relational-databases/searc
 
 I server collegati in Istanza gestita supportano un numero limitato di destinazioni:
 
-- Destinazioni supportate: SQL Server e database SQL
+- Destinazioni supportate: SQL Server e Database SQL
 - Destinazioni non supportate: file, Analysis Services e altri sistemi di gestione di database relazionali (RDBMS).
 
 Operazioni
@@ -277,7 +277,8 @@ Operazioni
 ### <a name="logins--users"></a>Account di accesso/utenti
 
 - Gli account di accesso SQL creati `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` e `FROM SID` sono supportati. Vedere [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Gli account di accesso Windows creati con la sintassi `CREATE LOGIN ... FROM WINDOWS` non sono supportati.
+- Sono supportati gli accessi ad Azure Active Directory (AAD) creati con la sintassi [CREA ACCESSO](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) o con la sintassi [CREA UTENTE](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) (**anteprima pubblica**).
+- Gli account di accesso Windows creati con la sintassi `CREATE LOGIN ... FROM WINDOWS` non sono supportati. Usare gli accessi e gli utenti di Azure Active Directory.
 - L'utente di Azure Active Directory (Azure AD) che ha creato l'istanza ha [privilegi amministrativi illimitati](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
 - Gli utenti non amministratori di Azure Active Directory (Azure AD) a livello di database possono essere creati con la sintassi `CREATE USER ... FROM EXTERNAL PROVIDER`. Vedere [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
 
@@ -333,7 +334,7 @@ Per informazioni sulle istruzioni Restore, vedere [Istruzioni RESTORE](https://d
 Il broker di servizio tra istanze non è supportato:
 
 - `sys.routes` - prerequisito: selezionare un indirizzo da sys.routes. L'indirizzo deve essere LOCALE in ogni route. Vedere [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE` - non è possibile eseguire un'istruzione `CREATE ROUTE` con un `ADDRESS` diverso da `LOCAL`. Vedere [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `CREATE ROUTE` - non è possibile usare `CREATE ROUTE` con `ADDRESS` diverso da `LOCAL`. Vedere [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` - non è possibile eseguire un'istruzione `ALTER ROUTE` con un `ADDRESS` diverso da `LOCAL`. Vedere [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
 ### <a name="service-key-and-service-master-key"></a>Chiave del servizio e chiave master del servizio
@@ -427,14 +428,14 @@ Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 
 Ogni istanza gestita dispone di una risorsa di archiviazione da 35 TB riservata allo spazio su disco Premium di Azure e ogni file di database si trova su un disco fisico separato. I dischi possono essere da 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. Lo spazio inutilizzato su disco non viene conteggiato, ma la somma delle dimensioni dei dischi Premium di Azure non può superare 35 TB. In alcuni casi, un'istanza gestita che non necessita di 8 TB in totale può superare il limite di Azure di 35 TB per le dimensioni delle risorse di archiviazione, a causa della frammentazione interna.
 
-Ad esempio, un'istanza gestita può avere un unico file di 1,2 TB all'interno di un disco da 4 TB e 248 file di 1 GB ciascuno all'interno di dischi da 128 GB separati. Esempio:
+Per esempio, un'istanza gestita può avere un file da 1,2 TB all'interno di un disco da 4 TB e 248 file (da 1 GB ciascuno) all'interno di dischi da 128 GB separati. Esempio:
 
-- le dimensioni di archiviazione totali dei dischi sono 1 x 4 TB + 248 x 128 GB = 35 TB.
-- lo spazio totale riservato per i database nell'istanza corrisponde a 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
+- la dimensione totale della risorsa di archiviazione sul disco allocato è 1 x 4 TB + 248 x 128 GB = 35 TB.
+- Lo spazio totale riservato per i database nell'istanza è 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
 
-Ciò dimostra che, in determinate circostanze, a causa di una distribuzione peculiare dei file, un'istanza gestita può raggiungere i 35 TB riservati per il disco Premium di Azure anche quando non previsto.
+Ciò dimostra che, in determinate circostanze, a causa di una distribuzione specifica dei file, un'istanza gestita può raggiungere i 35 TB riservati ad Azure Premium Disk allegato anche quando non previsto.
 
-In questo esempio i database esistenti continueranno a funzionare e potranno crescere senza alcun problema fino a quando non vengono aggiunti nuovi file. È possibile tuttavia che non vengano creati o ripristinati nuovi database a causa dello spazio insufficiente per le nuove unità disco, anche se le dimensioni totali di tutti i database non raggiungono il limite di dimensioni dell'istanza. L'errore restituito in questo caso potrebbe non essere chiaro.
+In questo esempio, i database esistenti continueranno a funzionare e potranno crescere senza alcun problema fino a quando non vengono aggiunti nuovi file. È possibile tuttavia che non vengano creati o ripristinati nuovi database a causa dello spazio insufficiente per le nuove unità disco, anche se le dimensioni totali di tutti i database non raggiungono il limite di dimensioni dell'istanza. L'errore restituito in questo caso potrebbe non essere chiaro.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configurazione non corretta della chiave di firma di accesso condiviso durante il ripristino del database
 
@@ -443,7 +444,10 @@ Assicurarsi di rimuovere il carattere `?` iniziale dalla chiave SAS generata con
 
 ### <a name="tooling"></a>Strumenti
 
-SQL Server Management Studio e SQL Server Data Tools potrebbero riscontrare problemi durante l'accesso a Istanza gestita. Tutti i problemi relativi agli strumenti verranno risolti prima del rilascio della versione con disponibilità generale.
+SQL Server Management Studio (SSMS) ed SQL Server Data Tools (SSDT) potrebbero riscontrare problemi durante l'accesso a Istanza gestita.
+
+- L'uso degli accessi e degli utenti di Azure AD (**anteprima pubblica**) con SSDT non è attualmente supportato.
+- Gli script per gli accessi e gli utenti di Azure AD (**anteprima pubblica**) non sono supportati in SSMS.
 
 ### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Nomi di database errati in alcune viste, log e messaggi
 
@@ -451,7 +455,7 @@ In numerose viste di sistema, contatori delle prestazioni, messaggi di errore, X
 
 ### <a name="database-mail-profile"></a>Profilo di posta elettronica database
 
-Può esistere un solo profilo di posta elettronica database, che deve essere denominato `AzureManagedInstance_dbmail_profile`. Si tratta di una limitazione temporanea che verrà rimossa a breve.
+Può esistere un solo profilo di posta elettronica database, che deve essere denominato `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>I log degli errori non sono persistenti
 
@@ -461,7 +465,7 @@ I log degli errori che sono disponibili nell'istanza gestita non sono persistent
 
 Istanza gestita inserisce informazioni dettagliate nei log degli errori e molte di esse non sono pertinenti. La quantità di informazioni nei log degli errori verrà ridotta in futuro.
 
-**Soluzione alternativa**: usare una procedura personalizzata per la lettura dei log degli errori, in modo da escludere alcune delle voci non pertinenti. Per informazioni dettagliate, vedere [Istanza gestita di database SQL di Azure - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Soluzione alternativa**: usare una procedura personalizzata per la lettura dei log degli errori che filtrano alcune voci non pertinenti. Per informazioni dettagliate, vedere [Istanza gestita di database SQL di Azure - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>L'ambito della transazione in due database nella stessa istanza non è supportato
 
@@ -492,11 +496,11 @@ using (var scope = new TransactionScope())
 
 Sebbene questo codice funzioni con i dati nella stessa istanza, è necessario MSDTC.
 
-**Soluzione alternativa**: usare [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) per usare un altro database nel contesto della connessione invece di due connessioni.
+**Soluzione alternativa**: usare [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) per usare un altro database nel contesto della connessione invece di usare due connessioni.
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>I moduli CLR e i server collegati talvolta non riescono a fare riferimento all'indirizzo IP locale
 
-I moduli CLR inseriti in Istanza gestita e i server collegati o le query distribuite che fanno riferimento all'istanza corrente talvolta non riescono a risolvere l'indirizzo IP dell'istanza locale. Si tratta di un errore temporaneo.
+I moduli CLR inseriti in Istanza gestita e i server collegati o le query distribuite che fanno riferimento all'istanza corrente talvolta non riescono a risolvere l'indirizzo IP dell'istanza locale. Questo errore è un problema temporaneo.
 
 **Soluzione alternativa**: usare connessioni di contesto nel modulo CLR, se possibile.
 

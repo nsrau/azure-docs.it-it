@@ -1,5 +1,5 @@
 ---
-title: Scalabilità distribuita a livello geografico con ambienti del servizio app
+title: Scalabilità distribuita a livello geografico con ambienti del servizio app - Azure
 description: Informazioni sulla scalabilità orizzontale delle app mediante la distribuzione a livello geografico con Gestione traffico e ambienti del servizio app
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.openlocfilehash: bc85139dfa3589baf6505fac2269f8755dcaddc8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.custom: seodec18
+ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213249"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273868"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Scalabilità distribuita a livello geografico con ambienti del servizio app
 ## <a name="overview"></a>Panoramica
@@ -42,18 +43,18 @@ Il resto di questo argomento illustra in dettaglio la procedura prevista per con
 ## <a name="planning-the-topology"></a>Pianificazione della topologia
 Prima di compilare il footprint di un'app distribuita, è utile avere anticipatamente alcune informazioni.
 
-* **Dominio personalizzato per l'app**: definire qual è il nome del dominio personalizzato che i clienti useranno per accedere all'app.  Per l'app di esempio il nome di dominio personalizzato è *www.scalableasedemo.com*
-* **Dominio di Gestione traffico:** è necessario scegliere un nome di dominio quando si crea un profilo di [Gestione traffico di Azure][AzureTrafficManagerProfile].  Questo nome sarà combinato con il suffisso *trafficmanager.net* per registrare una voce di dominio gestita da Gestione traffico.  Per l'app di esempio il nome scelto è *scalable-ase-demo*.  Il nome di dominio completo gestito da Gestione traffico sarà quindi *scalable-ase-demo.trafficmanager.net*.
-* **Strategia per la scalabilità del footprint dell'app:** definire se il footprint dell'applicazione sarà distribuito tra più ambienti del servizio app in una singola area geografica,  in più aree geografiche  o con una combinazione di entrambi gli approcci.  La decisione dovrà essere basata sulla previsione dell'origine del traffico dei clienti, oltre che sull'efficacia della scalabilità del resto dell'infrastruttura di back-end di supporto di un'app.  Ad esempio, un'applicazione al 100% senza stato può essere considerevolmente ridimensionata usando una combinazione di più ambienti del servizio app per ogni area di Azure, moltiplicati per gli ambienti del servizio app distribuiti tra più aree di Azure.  Con la disponibilità di oltre 15 aree di Azure pubbliche da cui scegliere, i clienti possono veramente creare un footprint dell'applicazione iperscalabile in tutto il mondo.  Per l'app di esempio usata per questo articolo sono stati creati tre ambienti del servizio app in una singola area di Azure (Stati Uniti centro-meridionali).
-* **Convenzione di denominazione per gli ambienti del servizio app**: ogni ambiente del servizio app richiede un nome univoco.  Oltre a uno o due ambienti del servizio app, è utile avere una convenzione di denominazione per facilitare l'identificazione di ogni ambiente del servizio app.  Per l'app di esempio è stata usata una convenzione di denominazione semplice.  I nomi dei tre ambienti del servizio app sono *fe1ase*, *fe2ase* e *fe3ase*.
-* **Convenzione di denominazione per le app:** poiché saranno distribuite più istanze dell'app, è necessario un nome per ogni istanza dell'app distribuita.  Una funzionalità poco conosciuta ma molto pratica degli ambienti del servizio app è la possibilità di usare lo stesso nome tra più ambienti.  Poiché ogni ambiente del servizio app ha un suffisso univoco, gli sviluppatori possono scegliere di riutilizzare esattamente lo stesso nome dell'app in ogni ambiente.  Ad esempio, uno sviluppatore può avere app denominate come segue: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net* e così via.  Per l'app di esempio ogni istanza dell'app ha tuttavia anche un nome univoco.  I nomi delle istanze dell'app usati sono *webfrontend1*, *webfrontend2* e *webfrontend3*.
+* **Dominio personalizzato per l'app:**  definire il nome del dominio personalizzato che i clienti useranno per accedere all'app.  Per l'app di esempio il nome di dominio personalizzato è *www.scalableasedemo.com*
+* **Dominio di Gestione traffico:**  quando si crea un profilo di [Gestione traffico di Azure][AzureTrafficManagerProfile] è necessario scegliere un nome di dominio.  Questo nome sarà combinato con il suffisso *trafficmanager.net* per registrare una voce di dominio gestita da Gestione traffico.  Per l'app di esempio il nome scelto è *scalable-ase-demo*.  Il nome di dominio completo gestito da Gestione traffico sarà quindi *scalable-ase-demo.trafficmanager.net*.
+* **Strategia per la scalabilità del footprint dell'app:**  stabilire se il footprint dell'applicazione sarà distribuito tra più ambienti del servizio app in una singola area geografica,  in più aree geografiche  o con una combinazione di entrambi gli approcci.  La decisione dovrà essere basata sulla previsione dell'origine del traffico dei clienti, oltre che sull'efficacia della scalabilità del resto dell'infrastruttura di back-end di supporto di un'app.  Ad esempio, un'applicazione al 100% senza stato può essere considerevolmente ridimensionata usando una combinazione di più ambienti del servizio app per ogni area di Azure, moltiplicati per gli ambienti del servizio app distribuiti tra più aree di Azure.  Con la disponibilità di oltre 15 aree di Azure pubbliche da cui scegliere, i clienti possono veramente creare un footprint dell'applicazione iperscalabile in tutto il mondo.  Per l'app di esempio usata per questo articolo sono stati creati tre ambienti del servizio app in una singola area di Azure (Stati Uniti centro-meridionali).
+* **Convenzione di denominazione per gli ambienti del servizio app:**  ogni ambiente del servizio app richiede un nome univoco.  Oltre a uno o due ambienti del servizio app, è utile avere una convenzione di denominazione per facilitare l'identificazione di ogni ambiente del servizio app.  Per l'app di esempio è stata usata una convenzione di denominazione semplice.  I nomi dei tre ambienti del servizio app sono *fe1ase*, *fe2ase* e *fe3ase*.
+* **Convenzione di denominazione per le app:**  poiché verranno distribuite più istanze dell'app, è necessario definire un nome per ogni istanza dell'app distribuita.  Una funzionalità poco conosciuta ma molto pratica degli ambienti del servizio app è la possibilità di usare lo stesso nome tra più ambienti.  Poiché ogni ambiente del servizio app ha un suffisso univoco, gli sviluppatori possono scegliere di riutilizzare esattamente lo stesso nome dell'app in ogni ambiente.  Ad esempio, uno sviluppatore può avere app denominate come segue: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net* e così via.  Per l'app di esempio ogni istanza dell'app ha tuttavia anche un nome univoco.  I nomi delle istanze dell'app usati sono *webfrontend1*, *webfrontend2* e *webfrontend3*.
 
 ## <a name="setting-up-the-traffic-manager-profile"></a>Configurazione del profilo di Gestione traffico
 Dopo la distribuzione di più istanze di un'app in più ambienti del servizio app, è possibile registrare le singole istanze con Gestione traffico.  Per l'app di esempio è necessario un profilo di Gestione traffico per *scalable-ase-demo.trafficmanager.net* che possa indirizzare i clienti a una qualsiasi delle istanze seguenti dell'app distribuita:
 
-* **webfrontend1.fe1ase.p.azurewebsites.net**: istanza dell'app di esempio distribuita nel primo ambiente del servizio app.
-* **webfrontend2.fe2ase.p.azurewebsites.net**: istanza dell'app di esempio distribuita nel secondo ambiente del servizio app.
-* **webfrontend3.fe3ase.p.azurewebsites.net**: istanza dell'app di esempio distribuita nel terzo ambiente del servizio app.
+* **webfrontend1.fe1ase.p.azurewebsites.net:**  istanza dell'app di esempio distribuita nel primo ambiente del servizio app.
+* **webfrontend2.fe2ase.p.azurewebsites.net:**  istanza dell'app di esempio distribuita nel secondo ambiente del servizio app.
+* **webfrontend3.fe3ase.p.azurewebsites.net:**  istanza dell'app di esempio distribuita nel terzo ambiente del servizio app.
 
 Il modo più semplice per registrare più endpoint di servizio app di Azure in esecuzione nella **stessa** area di Azure consiste nell'usare il [supporto di Azure Resource Manager per Gestione traffico di Azure][ARMTrafficManager] con PowerShell.  
 

@@ -1,11 +1,10 @@
 ---
-title: Come scegliere gli algoritmi di Machine Learning - Azure Machine Learning Studio | Microsoft Docs
+title: Come scegliere gli algoritmi per Azure Machine Learning Studio | Microsoft Docs
 description: Come scegliere gli algoritmi di Azure Machine Learning Studio per l'apprendimento supervisionato e non supervisionato negli esperimenti di clustering, classificazione o regressione.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
@@ -13,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 7ddfb98a884779385cde643e213bebb98b050436
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9e601464f97a7717a2ccef0e60172357d3169697
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312419"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256928"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Come scegliere gli algoritmi di Azure Machine Learning Studio
 
@@ -44,7 +43,7 @@ Leggere il percorso e le etichette degli algoritmi sul grafico come "Per *&lt;et
 A volte nessuno di essi sarà la scelta perfetta. Devono essere considerati consigli generali, pertanto non è necessario che siano esatti.
 Diversi scienziati dei dati con cui ho parlato hanno detto che l'unico modo sicuro per trovare l'algoritmo migliore consiste nel provarli tutti.
 
-Un esempio tratto dalla [Raccolta di intelligenza artificiale per Azure](http://gallery.cortanaintelligence.com/) di un esperimento che prova diversi algoritmi sugli stessi dati e ne confronta i risultati è disponibile in: [Compare Multi-class Classifiers: Letter recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92) (Confrontare classificatori multiclasse: riconoscimento di lettere).
+Un esempio tratto da [Azure AI Gallery](http://gallery.cortanaintelligence.com/) di un esperimento che prova diversi algoritmi sugli stessi dati e ne confronta i risultati è disponibile in: [Compare Multi-class Classifiers: Letter recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92) (Confrontare classificatori multiclasse: riconoscimento di lettere).
 
 > [!TIP]
 > Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](studio-overview-diagram.md).
@@ -133,7 +132,7 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 | [giungla delle decisioni ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Footprint della memoria ridotto |
 | [rete neurale](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[È possibile un’ulteriore personalizzazione](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Visualizzare le proprietà del metodo a due classi selezionato |
-| **Regressionee** | | | | | |
+| **Regressione** | | | | | |
 | [lineare](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Regressione lineare Bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
@@ -245,7 +244,7 @@ Avviato e condotto da John Langford di Microsoft Research, VW è un elemento da 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ottenere una descrizione degli algoritmi e alcuni esempi, vedere [Infografica scaricabile: nozioni fondamentali di Machine Learning con esempi di algoritmi](basics-infographic-with-algorithm-examples.md).
+* Per ottenere una descrizione degli algoritmi e alcuni esempi, vedere [Infografica scaricabile: Nozioni fondamentali di Machine Learning con esempi di algoritmi](basics-infographic-with-algorithm-examples.md).
 
 * Per un elenco per categoria degli algoritmi di Machine Learning disponibili in Machine Learning Studio, vedere l'argomento relativo al [modello di inizializzazione](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
 

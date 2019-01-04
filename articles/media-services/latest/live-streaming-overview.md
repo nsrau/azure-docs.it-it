@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: 634563a2010562e20691abae132dc7540ef8faf2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632705"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000249"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -34,7 +34,7 @@ Questo articolo offre una guida e una panoramica dettagliata, includendo i diagr
 
 Per offrire streaming live oppure on demand con Servizi multimediali, è necessario avere almeno uno [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Quando viene creato l'account di Servizi multimediali, viene aggiunto all'account uno StreamingEndpoint **predefinito** in stato **Stopped**. È necessario avviare l'entità StreamingEndpoint da cui si vuole trasmettere il contenuto agli utenti. È possibile usare il valore **StreamingEndpoint** predefinito, oppure creare un nuovo **StreamingEndpoint** personalizzato con la configurazione desiderata e le impostazioni della rete CDN. È possibile decidere di abilitare più StreamingEndpoint, ciascuno destinato a una rete CDN diversa e fornendo un nome host univoco per la distribuzione dei contenuti. 
 
-In Servizi multimediali, i [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento ed elaborazione dei feed video live. Quando si crea un LiveEvent, si genera un endpoint di input che è possibile usare per inviare un segnale in tempo reale da un codificatore remoto. Il codificatore live remoto invia il feed di contributi al suddetto endpoint di input usando il protocollo [RTMP](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) o [Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming#Microsoft_Smooth_Streaming) (MP4 frammentato).  
+In Servizi multimediali, i [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento ed elaborazione dei feed video live. Quando si crea un LiveEvent, si genera un endpoint di input che è possibile usare per inviare un segnale in tempo reale da un codificatore remoto. Il codificatore live remoto invia il feed di contributi al suddetto endpoint di input usando il protocollo [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 frammentato).  
 
 Una volta che il **LiveEvent** inizia a ricevere il feed di contributi, è possibile usare l'endpoint di anteprima (URL di anteprima) per visualizzare in anteprima e convalidare la ricezione del flusso live prima di pubblicare nuovamente. Dopo avere verificato che il flusso di anteprima è ottimale, è possibile utilizzare il LiveEvent per rendere il flusso live disponibile per la pubblicazione tramite uno o più **StreamingEndpoint** creati in precedenza. A tale scopo, si crea un nuovo [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) nel **LiveEvent**. 
 

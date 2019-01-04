@@ -1,5 +1,5 @@
 ---
-title: Considerazioni sulla rete per Ambiente del servizio app di Azure
+title: Considerazioni sulla rete per un ambiente del servizio app - Azure
 description: Viene spiegato il traffico di rete dell'ambiente del servizio app e come impostare gruppi di sicurezza di rete (NSG) e route definite dall'utente (UDR) con l'ambiente del servizio app
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.custom: seodec18
+ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288255"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271012"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -26,8 +27,8 @@ ms.locfileid: "51288255"
 
  L'[ambiente del servizio app di Azure][Intro] è una distribuzione di Servizio app di Azure in una subnet nella rete virtuale di Azure (VNet). È possibile distribuire un ambiente del servizio app in due modi:
 
-- **Ambiente del servizio app esterno**: espone le app ospitate dall'ambiente del servizio app su un indirizzo IP accessibile da Internet. Per altre informazioni, vedere [Create an External ASE][MakeExternalASE] (Creare un ambiente del servizio app esterno).
-- **Ambiente del servizio app con bilanciamento del carico interno**: espone le app ospitate dall'ambiente del servizio app su un indirizzo IP all'interno della VNet. L'endpoint interno è un servizio di bilanciamento del carico interno (ILB, Internal Load Balancer) ed è per questo motivo che si usa la definizione "ambiente del servizio app con bilanciamento del carico interno". Per altre informazioni, vedere [Create and use an ILB ASE][MakeILBASE] (Creare e usare un ambiente del servizio app ILB).
+- **Ambiente del servizio app di Azure esterno**: espone le app ospitate dall'ambiente del servizio app su un indirizzo IP accessibile da Internet. Per altre informazioni, vedere [Create an External ASE][MakeExternalASE] (Creare un ambiente del servizio app esterno).
+- **Ambiente del servizio app di Azure con bilanciamento del carico interno**: espone le app ospitate dall'ambiente del servizio app su un indirizzo IP all'interno della VNet. L'endpoint interno è un servizio di bilanciamento del carico interno (ILB, Internal Load Balancer) ed è per questo motivo che si usa la definizione "ambiente del servizio app con bilanciamento del carico interno". Per altre informazioni, vedere [Create and use an ILB ASE][MakeILBASE] (Creare e usare un ambiente del servizio app ILB).
 
 Esistono due versioni dell'ambiente del servizio app: ASEv1 e ASEv2. Per informazioni sulla versione ASEv1, vedere [Introduzione all'ambiente del servizio app][ASEv1Intro]. Un ambiente ASEv1 può essere distribuito in una rete virtuale classica o di Resource Manager. Un ambiente ASEv2 può essere distribuito solo in una rete virtuale di Resource Manager.
 
@@ -74,9 +75,9 @@ Le dipendenze per l'accesso in ingresso dell'ambiente del servizio app sono:
 | Uso | Da | A |
 |-----|------|----|
 | Gestione | Indirizzi di gestione del servizio app | Subnet dell'ambiente del servizio app: 454, 455 |
-|  Comunicazione interna dell'ambiente del servizio app | Subnet dell'ambiente del servizio app: tutte le porte | Subnet dell'ambiente del servizio app: tutte le porte
-|  Consenti bilanciamento del carico di Azure in ingresso | Servizio di bilanciamento del carico di Azure | Subnet dell'ambiente del servizio app: tutte le porte
-|  Indirizzi IP assegnati alle app | Indirizzi assegnati alle app | Subnet dell'ambiente del servizio app: tutte le porte
+|  Comunicazione interna dell'ambiente del servizio app | Subnet dell'ambiente del servizio app: Tutte le porte | Subnet dell'ambiente del servizio app: Tutte le porte
+|  Consenti bilanciamento del carico di Azure in ingresso | Servizio di bilanciamento del carico di Azure | Subnet dell'ambiente del servizio app: Tutte le porte
+|  Indirizzi IP assegnati alle app | Indirizzi assegnati alle app | Subnet dell'ambiente del servizio app: Tutte le porte
 
 Il traffico di gestione in ingresso fornisce comandi e controllo dell'ambiente del servizio app oltre al monitoraggio del sistema. Gli indirizzi di origine per il traffico sono indicati nel documento [Indirizzi di gestione dell'Ambiente del servizio app][ASEManagement]. La configurazione della sicurezza di rete deve consentire l'accesso da tutti gli indirizzi IP sulle porte 454 e 455. Se si blocca l'accesso da questi indirizzi, l'ambiente del servizio app risulterà non integro e quindi verrà sospeso.
 
@@ -137,8 +138,8 @@ Le funzioni e i processi Web dipendono dal sito di Gestione controllo servizi, m
 Un ambiente del servizio app ha alcuni indirizzi IP di cui tenere conto. Sono:
 
 - **Indirizzo IP in ingresso pubblico**: usato per il traffico di app in un ambiente del servizio app esterno e per il traffico di gestione sia per un ambiente del servizio app esterno che con bilanciamento del carico interno.
-- **IP pubblico in uscita**: usato come indirizzo IP di origine per le connessioni in uscita dall'ambiente del servizio app che lasciano la rete virtuale e non vengono indirizzate su una VPN.
-- **Indirizzo IP con bilanciamento del carico interno**: se si usa un ambiente del servizio app con bilanciamento del carico interno.
+- **Indirizzo IP in uscita pubblico**: usato come indirizzo IP di origine per le connessioni in uscita dall'ambiente del servizio app che lasciano la rete virtuale e non vengono indirizzate su una VPN.
+- **Indirizzo IP del servizio ILB**: Se si usa un ambiente del servizio app ILB.
 - **Indirizzi SSL basati su IP assegnati alle app**: possibili solo con un ambiente del servizio app esterno e quando è configurato SSL basato su IP.
 
 Tutti questi indirizzi IP sono facilmente visibili in un ambiente ASEv2 nel portale di Azure dall'interfaccia utente dell'ambiente del servizio app. Con un ambiente del servizio app con bilanciamento del carico interno viene elencato l'indirizzo IP per il servizio di bilanciamento del carico interno.
@@ -234,10 +235,10 @@ Quando gli endpoint servizio sono abilitati in una subnet con un'istanza di SQL 
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md

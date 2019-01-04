@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 05/17/2018
-ms.openlocfilehash: cb3d8629d5d72644e647da14e7c3b31a4914814d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/05/2018
+ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159560"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997600"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection per il database SQL di Azure
 
@@ -28,11 +28,11 @@ SQL Advanced Threat Protection (ATP) offre una serie di funzionalità di sicurez
 
 - [Individuazione dati e classificazione](sql-database-data-discovery-and-classification.md) (attualmente in anteprima) offre funzionalità avanzate integrate nel database SQL di Azure per l'individuazione, la classificazione, l'aggiunta di etichette e la protezione dei dati sensibili presenti nel database. Consente di visualizzare lo stato di classificazione del database e di tenere traccia dell'accesso ai dati sensibili all'interno del database e all'esterno di questo ambito.
 - [Valutazione della vulnerabilità](sql-vulnerability-assessment.md) è un servizio semplice da configurare che consente di individuare, monitorare e risolvere potenziali vulnerabilità del database. Consente di visualizzare lo stato di sicurezza e prevede passaggi utili per risolvere i problemi di sicurezza e migliorare la protezione del database.
-- [Rilevamento minacce](sql-database-threat-detection.md) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database. Monitora in modo continuo il database in caso di attività sospette e fornisce avvisi di sicurezza immediati su potenziali vulnerabilità, attacchi SQL injection e in caso di modelli di accesso ai database anomali. Gli avvisi della funzionalità di rilevamento minacce includono dettagli sulle attività sospette e consigliano azioni per l'analisi e la mitigazione della minaccia.
+- [Rilevamento minacce](sql-database-threat-detection-overview.md) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database. Monitora in modo continuo il database in caso di attività sospette e fornisce avvisi di sicurezza immediati su potenziali vulnerabilità, attacchi SQL injection e in caso di modelli di accesso ai database anomali. Gli avvisi della funzionalità di rilevamento minacce includono dettagli sulle attività sospette e consigliano azioni per l'analisi e la mitigazione della minaccia.
 
 Abilitare SQL Advanced Threat Protection una volta per abilitare tutte le funzionalità incluse. Con un solo clic è possibile abilitare Advanced Threat Protection nell'intero server di database, applicandolo a tutti i database nel server. 
 
-I prezzi di ATP sono allineati con il livello Standard del Centro sicurezza di Azure alla tariffa di $ 15/nodo/mese, dove ogni server di database SQL viene conteggiato come un nodo. Nei primi 60 giorni dopo l'abilitazione si usa una versione di valutazione senza alcun addebito. Per altre informazioni, vedere la [pagina dei prezzi del Centro sicurezza di Azure](https://azure.microsoft.com/pricing/details/security-center/).
+I prezzi di ATP sono allineati con il livello Standard del Centro sicurezza di Azure, dove ogni server di database SQL viene conteggiato come un nodo. Le nuove risorse protette danno diritto a una versione di valutazione gratuita del livello Standard del Centro sicurezza. Per altre informazioni, vedere la [pagina dei prezzi del Centro sicurezza di Azure](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## <a name="getting-started-with-atp"></a>Introduzione ad Advanced Threat Protection 
@@ -45,7 +45,7 @@ Abilitare Advanced Threat Protection passando ad **Advanced Threat Protection** 
 ![Abilitare Advanced Threat Protection](./media/sql-advanced-protection/enable_atp.png) 
 
 > [!NOTE]
-> Il costo di Advanced Threat Protection è $ 15/nodo/mese, in cui un nodo è l'intero server logico SQL. Si paga solo una volta per proteggere tutti i database sul server con Advanced Threat Protection. Nei primi 60 giorni si usa una versione di valutazione senza alcun addebito.
+> Il costo di Advanced Threat Protection è allineato al prezzo del livello Standard del Centro sicurezza di Azure per ogni nodo, dove un nodo è l'intero server logico SQL. Si paga solo una volta per proteggere tutti i database sul server con Advanced Threat Protection. È possibile provare Advanced Threat Protection con una versione di valutazione gratuita.
 
 ## <a name="2-configure-vulnerability-assessment"></a>2. Configurare Valutazione della vulnerabilità
 

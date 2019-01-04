@@ -2,26 +2,26 @@
 title: Distribuire e gestire i backup per le macchina virtuali distribuite con Resource Manager utilizzando PowerShell
 description: Utilizzare PowerShell per distribuire e gestire i backup per le macchine virtuali distribuite con Resource Manager in Azure
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 10/20/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 855a046425f051739f61c74b551d4ffea7b9120a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 814afb8731f8e4da3d3cbc75ef69c3b5da487914
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252361"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877871"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Usare PowerShell per il backup e il ripristino di macchine virtuali
 
 Questo articolo illustra come usare i cmdlet di Azure PowerShell per eseguire il backup e il ripristino di una macchina virtuale di Azure da un insieme di credenziali di Servizi di ripristino. Un insieme di credenziali di Servizi di ripristino è una risorsa di Azure Resource Manager usata per proteggere dati e risorse nei servizi Backup di Azure e Azure Site Recovery. 
 
 > [!NOTE]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo si riferisce alle VM create tramite il modello Resource Manager.
+> Azure offre due modelli di distribuzione per creare e utilizzare le risorse, ovvero [Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo si riferisce alle VM create tramite il modello Resource Manager.
 >
 >
 
@@ -54,7 +54,7 @@ Per iniziare:
 3. Accedere all'account Azure tramite **Connect-AzureRmAccount**. Questo cmdlet visualizza una pagina Web che richiede le credenziali dell'account:
 
     * In alternativa, è possibile includere le credenziali dell'account come parametro nel cmdlet **Connect-AzureRmAccount**, usando il parametro **-Credential**.
-    * Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+    * Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio:  **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 
 4. Associare la sottoscrizione che si vuole usare all'account perché un account può avere molte sottoscrizioni:
 

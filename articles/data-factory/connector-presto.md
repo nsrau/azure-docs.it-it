@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da Presto usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da Presto tramite Azure Data Factory (anteprima) | Microsoft Docs
 description: Informazioni su come copiare dati da Presto in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2017
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4b3e022bd22242bdc246e1dd30aa6cc3e00134e0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 905431c73488ddc6ebf2d13823e4bb705d16304c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052624"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102011"
 ---
-# <a name="copy-data-from-presto-using-azure-data-factory"></a>Copiare dati da Presto usando Azure Data Factory
+# <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copiare dati da Presto tramite Azure Data Factory (anteprima)
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Presto. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
@@ -45,12 +45,12 @@ Per il servizio collegato di Presto sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Presto**. | Sì |
-| host | Indirizzo IP o nome host del server Presto, ovvero 192.168.222.160.  | Sì |
-| serverVersion | Versione del server Presto, ovvero 0.148-t.  | Sì |
-| catalog | Il contesto del catalogo di tutte le richieste sul server.  | Sì |
+| type | La proprietà type deve essere impostata su: **Presto** | Yes |
+| host | Indirizzo IP o nome host del server Presto, ovvero 192.168.222.160.  | Yes |
+| serverVersion | Versione del server Presto, ovvero 0.148-t.  | Yes |
+| catalog | Il contesto del catalogo di tutte le richieste sul server.  | Yes |
 | port | Porta TCP che il server Presto usa per l'ascolto delle connessioni client. Il valore predefinito è 8080.  | No  |
-| authenticationType | Meccanismo di autenticazione usato per la connessione al server Presto. <br/>I valori consentiti sono: **Anonima**, **LDAP**. | Sì |
+| authenticationType | Meccanismo di autenticazione usato per la connessione al server Presto. <br/>I valori consentiti sono i seguenti: **Anonimo**, **LDAP** | Yes |
 | username | Nome utente usato per connettersi al server Presto.  | No  |
 | password | Password corrispondente al nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No  |
 | enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è False.  | No  |
@@ -88,7 +88,12 @@ Per il servizio collegato di Presto sono supportate le proprietà seguenti:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Presto.
 
-Per copiare dati da Presto, impostare la proprietà type del set di dati su **PrestoObject**. Non sono presenti proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per copiare dati da Presto, impostare la proprietà type del set di dati su **PrestoObject**. Sono supportate le proprietà seguenti:
+
+| Proprietà | DESCRIZIONE | Obbligatoria |
+|:--- |:--- |:--- |
+| type | La proprietà type del set di dati deve essere impostata su: **PrestoObject** | Yes |
+| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -100,7 +105,8 @@ Per copiare dati da Presto, impostare la proprietà type del set di dati su **Pr
         "linkedServiceName": {
             "referenceName": "<Presto linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -109,14 +115,14 @@ Per copiare dati da Presto, impostare la proprietà type del set di dati su **Pr
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione presenta un elenco delle proprietà supportate dall'origine Presto.
 
-### <a name="prestosource-as-source"></a>PrestoSource come origine
+### <a name="presto-as-source"></a>Presto come origine
 
 Per copiare dati da Presto, impostare il tipo di origine nell'attività di copia su **PrestoSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **PrestoSource**. | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **PrestoSource** | Yes |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

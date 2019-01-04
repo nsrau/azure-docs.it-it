@@ -1,20 +1,20 @@
 ---
 title: Pulire un processo di Analisi di flusso di Azure
-description: Questo articolo illustra come eliminare i processi di Analisi di flusso di Azure.
+description: Questo articolo illustra metodi diversi per eliminare i processi di Analisi di flusso di Azure.
 services: stream-analytics
 author: mamccrea
-manager: kfile
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/22/2018
-ms.openlocfilehash: 580d05909ff3c94c982be5353b3b5e86a78fc43f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 85db38fef5e69c4de855f8cb6d54151496faebbe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969341"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090245"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>Pulire un processo di Analisi di flusso di Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "38969341"
 
 3. Nella pagina del processo di Analisi di flusso selezionare **Arresta** per arrestare il processo. 
 
-   ![Arresta processo](./media/stream-analytics-clean-up-your-job/stop-job.png)
+   ![Arrestare un processo di Analisi di flusso di Azure](./media/stream-analytics-clean-up-your-job/stop-stream-analytics-job.png)
 
 
 ## <a name="delete-a-job-in-azure-portal"></a>Eliminare un processo nel portale di Azure
@@ -42,7 +42,7 @@ ms.locfileid: "38969341"
 
 3. Nella pagina del processo di Analisi di flusso selezionare **Elimina** per eliminare il processo. 
 
-   ![Elimina processo](./media/stream-analytics-clean-up-your-job/delete-job.png)
+   ![Eliminare un processo di Analisi di flusso di Azure](./media/stream-analytics-clean-up-your-job/delete-stream-analytics-job.png)
 
 
 ## <a name="stop-or-delete-a-job-using-powershell"></a>Arrestare o eliminare un processo con PowerShell

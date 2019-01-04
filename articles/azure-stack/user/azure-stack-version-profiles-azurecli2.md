@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2018
+ms.date: 12/06/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dacc28c1cfe2ee896597aeaf92a22c7f6e13c306
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969958"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726613"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Usare i profili delle versioni API con il comando di Azure in Azure Stack
 
@@ -128,7 +128,6 @@ Usare la procedura seguente per connettersi ad Azure Stack:
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
-
    b. Per registrare il *utente* ambiente, usare:
 
       ```azurecli
@@ -151,9 +150,22 @@ Usare la procedura seguente per connettersi ad Azure Stack:
         --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
         --profile 2018-03-01-hybrid
       ```
+    d. Per registrare l'utente in un ambiente di AD FS, usare:
 
+      ```azurecli
+      az cloud register \
+        -n AzureStack  \
+        --endpoint-resource-manager "https://management.local.azurestack.external" \
+        --suffix-storage-endpoint "local.azurestack.external" \
+        --suffix-keyvault-dns ".vault.local.azurestack.external"\
+        --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" \
+        --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/"\
+        --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/"\
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --profile "2018-03-01-hybrid"
+      ```
 1. Impostare l'ambiente attivo usando i comandi seguenti.
-
+   
    a. Per il *cloud amministrativi* ambiente, usare:
 
       ```azurecli
@@ -180,7 +192,7 @@ Usare la procedura seguente per connettersi ad Azure Stack:
 
 1. Accedere all'ambiente Azure Stack usando il `az login` comando. È possibile accedere all'ambiente Azure Stack come un utente o come un [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-    * Ambienti di AAD
+    * Ambienti di Azure AD
       * Accedere come un *utente*: È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario farlo se l'account è abilitata l'autenticazione a più fattori.
 
       ```azurecli
@@ -192,9 +204,9 @@ Usare la procedura seguente per connettersi ad Azure Stack:
       > [!NOTE]
       > Se l'account utente è attivata l'autenticazione a più fattori, è possibile usare la `az login command` senza fornire il `-u` parametro. Esecuzione del comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
    
-      * Accedere come un *entità servizio*: prima di accedere, [creare un'entità servizio tramite il portale di Azure](azure-stack-create-service-principals.md) o CLI e assegnarle un ruolo. Accedere a questo punto, usando il comando seguente:
+      * Accedere come un *entità servizio*: Prima di accedere, [creare un'entità servizio tramite il portale di Azure](azure-stack-create-service-principals.md) o CLI e assegnarle un ruolo. Accedere a questo punto, usando il comando seguente:
 
-      ```azurecli
+      ```azurecli  
       az login \
         --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
         --service-principal \
@@ -203,20 +215,33 @@ Usare la procedura seguente per connettersi ad Azure Stack:
       ```
     * Ambienti di AD FS
 
-        * Accedere come un *entità servizio*: 
-          1.    Preparare il file con estensione PEM da utilizzare per l'accesso dell'entità servizio.
-                * Nel computer client in cui l'entità è stata creata, esportare il certificato dell'entità servizio come un file pfx con la chiave privata (che si trova in cert: \CurrentUser\My; il nome del certificato ha lo stesso nome dell'entità).
+        * Accedere come utente con un web browser:  
+              ```azurecli  
+              az login
+              ```
+        * Accedere come utente con un web browser con un codice di dispositivo:  
+              ```azurecli  
+              az login --use-device-code
+              ```
+        > [!Note]  
+        >Esecuzione del comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
 
-                *   Convertire il file pfx in pem (utilità di uso OpenSSL).
+        * Accedere come un'entità servizio:
+        
+          1. Preparare il file con estensione PEM da utilizzare per l'accesso dell'entità servizio.
 
-          1.    Effettuare l'accesso all'interfaccia della riga di comando. :
-                ```azurecli
-                az login --service-principal \
-                 -u <Client ID from the Service Principal details> \
-                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
-                 --tenant <Tenant ID> \
-                 --debug 
-                ```
+            * Nel computer client in cui l'entità è stata creata, esportare il certificato dell'entità servizio come un file pfx con la chiave privata (disponibile all'indirizzo `cert:\CurrentUser\My;` il nome del certificato ha lo stesso nome dell'entità).
+        
+            * Convertire il file pfx in pem (utilità di uso OpenSSL).
+
+          2.  Accedi per l'interfaccia della riga di comando:
+            ```azurecli  
+            az login --service-principal \
+              -u <Client ID from the Service Principal details> \
+              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
+              --tenant <Tenant ID> \
+              --debug 
+            ```
 
 ## <a name="test-the-connectivity"></a>Testare la connettività
 

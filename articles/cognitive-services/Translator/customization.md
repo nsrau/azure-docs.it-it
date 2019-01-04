@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f02c495c7448334529de2d5b42cda02206daea0d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229680"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877973"
 ---
 # <a name="customize-your-text-translations"></a>Personalizzare le traduzioni di testo
 
-L'anteprima di Microsoft Custom Translator è una funzionalità del servizio Microsoft Translator che consente agli utenti di personalizzare la traduzione automatica neurale avanzata durante la traduzione di testo tramite l'API Traduzione testuale (solo versione 3).
+Il traduttore personalizzato Microsoft è una funzionalità del servizio Microsoft Translator che consente agli utenti di personalizzare la traduzione automatica neurale avanzata durante la traduzione di testo tramite l'API Traduzione testuale (solo versione 3).
 
-La funzionalità può anche essere usata per personalizzare la traduzione vocale quando usata con l'[anteprima di voce dei Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+La funzionalità può anche essere usata per personalizzare la traduzione vocale quando usata con i [servizi Voce di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
 ## <a name="custom-translator"></a>Custom Translator
 
@@ -48,12 +48,12 @@ L'hub di Microsoft Translator legacy può essere usato per traduzione automatica
 
 |   | **Hub** | **Custom Translator**|
 |:-----|:----:|:----:|
-|Stato delle funzionalità di personalizzazione   | Disponibilità generale  | Preview |
+|Stato delle funzionalità di personalizzazione   | Disponibilità generale  | Disponibilità generale |
 | Versione API per testo  | Solo V2   | Solo V3 |
-| Personalizzazione SMT | Yes   | No  |
-| Personalizzazione NMT | No     | Yes |
-| Personalizzazione dei nuovi servizi voce unificati | No     | Yes |
-| [Nessuna traccia](https://www.aka.ms/notrace) | Yes  | Yes |
+| Personalizzazione SMT | Sì   | No |
+| Personalizzazione NMT | No    | Sì |
+| Personalizzazione dei nuovi servizi voce unificati | No    | Sì |
+| [Nessuna traccia](https://www.aka.ms/notrace) | Sì  | Sì |
 
 ## <a name="collaborative-translations-framework"></a>Framework di Collaborative Translations
 

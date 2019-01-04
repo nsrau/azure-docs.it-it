@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3808511e588ba4284dee16cf7ca88bfd5a382c3a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345306"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337479"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure
 
@@ -60,7 +60,7 @@ Il servizio Istanza gestita è progettato appositamente per carichi di lavoro lo
 Per informazioni su come creare l'infrastruttura di rete virtuale e un'istanza gestita, vedere l'articolo su come [creare un'istanza gestita](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> È importante che la rete virtuale e la subnet di destinazione siano sempre conformi ai [requisiti per la rete virtuale di Istanza gestita](sql-database-managed-instance-vnet-configuration.md#requirements). Qualsiasi incompatibilità può impedire la creazione di nuove istanze o l'uso di quelle già create.
+> È importante che la rete virtuale e la subnet di destinazione siano sempre conformi ai [requisiti per la rete virtuale di Istanza gestita](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Qualsiasi incompatibilità può impedire la creazione di nuove istanze o l'uso di quelle già create. Altre informazioni sulle [creazione di nuove reti](sql-database-managed-instance-create-vnet-subnet.md) e [la configurazione di reti esistenti](sql-database-managed-instance-configure-vnet-subnet.md).
 
 ## <a name="select-migration-method-and-migrate"></a>Selezionare il metodo ed eseguire la migrazione
 
@@ -117,8 +117,7 @@ Dopo la migrazione tenere traccia del comportamento e delle prestazioni dell'app
 
 Per ridurre i rischi della migrazione, modificare il livello di compatibilità del database solo dopo il monitoraggio delle prestazioni. Come strumento ottimale per ottenere informazioni sulle prestazioni dei carichi di lavoro prima e dopo la modifica del livello di compatibilità del database, usare Query Store come illustrato in [Mantenere la stabilità delle prestazioni durante l'aggiornamento alla nuova versione di SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 
-Dopo essere passati a una piattaforma completamente gestita, usufruire dei vantaggi offerti automaticamente come parte del servizio Database SQL. In Istanza gestita, ad esempio, non è necessario creare backup, perché vengono creati automaticamente dal servizio, né preoccuparsi della pianificazione, dell'esecuzione e della gestione dei backup. Istanza gestita offre la possibilità di eseguire il ripristino a qualsiasi momento specifico all'interno del periodo di conservazione con il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore). Durante l'anteprima pubblica, il periodo di conservazione è fissato a sette giorni.
-Non è inoltre necessario preoccuparsi della configurazione della disponibilità elevata, perché la [disponibilità elevata](sql-database-high-availability.md) è predefinita.
+Dopo essere passati a una piattaforma completamente gestita, usufruire dei vantaggi offerti automaticamente come parte del servizio Database SQL. In Istanza gestita, ad esempio, non è necessario creare backup, perché vengono creati automaticamente dal servizio, né preoccuparsi della pianificazione, dell'esecuzione e della gestione dei backup. Istanza gestita offre la possibilità di eseguire il ripristino a qualsiasi momento specifico all'interno del periodo di conservazione con il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore). Non è inoltre necessario preoccuparsi della configurazione della disponibilità elevata, perché la [disponibilità elevata](sql-database-high-availability.md) è predefinita.
 
 Per potenziare la sicurezza, valutare la possibilità di usare alcune delle funzionalità disponibili:
 

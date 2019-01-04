@@ -1,5 +1,5 @@
 ---
-title: Distribuire contenitori con Helm in Azure Kubernetes
+title: (DEPRECATO) Distribuire contenitori con Helm in Azure Kubernetes
 description: Usare lo strumento di creazione dei pacchetti Helm per distribuire i contenitori in un cluster Kubernetes nel servizio contenitore di Azure
 services: container-service
 author: sauryadas
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634154"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997894"
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Usare Helm per distribuire i contenitori in un cluster Kubernetes
+# <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(DEPRECATO) Usare Helm per distribuire i contenitori in un cluster Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Per la versione aggiornata di questa esercitazione che usa il servizio Azure Kubernetes, vedere [Installare applicazioni con Helm nel servizio Azure Container](../../aks/kubernetes-helm.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Helm](https://github.com/kubernetes/helm/) è uno strumento di creazione dei pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente ai responsabili di pacchetto Linux, ad esempio Apt-get e Yum, Helm viene usato per gestire i grafici Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurati. In questo articolo viene illustrato come usare Helm in un cluster Kubernetes distribuito nel servizio contenitore di Azure.
 
@@ -27,7 +30,7 @@ Helm presenta due componenti:
 
 * **Tiller** è un server che viene eseguito sul cluster Kubernetes e gestisce il ciclo di vita delle applicazioni Kubernetes 
  
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Creare un cluster Kubernetes](container-service-kubernetes-walkthrough.md) nel servizio contenitore di Azure
 

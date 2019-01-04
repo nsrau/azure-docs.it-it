@@ -1,6 +1,6 @@
 ---
-title: 'Esempio di criteri di Gestione API di Azure: filtrare il contenuto della risposta | Microsoft Docs'
-description: Esempio di criteri di Gestione API di Azure che illustra come filtrare elementi dati dal payload della risposta in base al prodotto associato alla richiesta.
+title: 'Esempio di criteri di gestione API di Azure: filtrare il contenuto della risposta | Microsoft Docs'
+description: 'Esempio di criteri di gestione API di Azure: dimostra come filtrare gli elementi dati dal payload della risposta in base al prodotto associato alla richiesta.'
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: f6475b272239e9352211a80985e1b46da9c6f8e0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 26829dfc04acdac2a25fe0d4fdc3e95e4d219057
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933429"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869178"
 ---
 # <a name="filter-response-content"></a>Filtrare il contenuto della risposta
 
@@ -28,7 +28,7 @@ Questo articolo offre un esempio di criteri di Gestione API di Azure che illustr
 
 Incollare il codice nel blocco **outbound**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Filter response content based on product name.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Filter response content based on product name.policy.xml)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

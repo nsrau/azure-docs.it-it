@@ -1,20 +1,21 @@
 ---
-title: Domande frequenti sugli Hub eventi di Azure | Documentazione Microsoft
-description: Domande frequenti sugli Hub eventi di Azure (FAQ)
+title: Domande frequenti su Hub eventi di Azure | Microsoft Docs
+description: Questo articolo offre un elenco di domande frequenti (FAQ) su Hub eventi di Azure e le relative risposte.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 10/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9bd1649c0ec89abf660865971314becb6580852f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 7308b122d878c225aa98a19a303bc9520f3201ef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300676"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088233"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -64,7 +65,7 @@ Esempio:
 
 bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
 
-Nota: se sasl.jaas.config non è una configurazione supportata nel framework, individuare le configurazioni usate per impostare il nome utente e la password SASL e usarle. Impostare il nome utente $ConnectionString e la password per la stringa di connessione di Hub eventi.
+Note: se sasl.jaas.config non è una configurazione supportata nel framework, individuare le configurazioni usate per impostare il nome utente e la password SASL e usarle. Impostare il nome utente $ConnectionString e la password per la stringa di connessione di Hub eventi.
 
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Qual è la dimensione di messaggi/eventi per Hub eventi abilitato per Kafka?
 La dimensione massima dei messaggi consentita per Hub eventi abilitato per Kafka è 1 MB.

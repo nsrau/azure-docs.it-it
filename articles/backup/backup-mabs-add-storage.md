@@ -2,22 +2,22 @@
 title: Usare Modern Backup Storage con il server di Backup di Azure
 description: Informazioni sulle nuove funzionalità del server di Backup di Azure. In questo articolo viene descritto come aggiornare l'installazione del server di backup.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: markgal; adigan; kasinh
-ms.openlocfilehash: da9b3d22dce3f92ff6d1a588d283d47f22fca736
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: adigan
+ms.openlocfilehash: cc76b15c3cb108b5181e22330954dfee789b01ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612968"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251114"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Aggiungere risorse di archiviazione al server di Backup di Azure
 
-Il server di Backup di Azure V2 e versioni successive include Modern Backup Storage di System Center 2016 Data Protection Manager. Modern Backup Storage garantisce un risparmio del 50% sullo spazio di archiviazione, backup tre volte più veloci e un'archiviazione più efficiente. Offre anche l'archiviazione con riconoscimento del carico di lavoro.
+Il server di Backup di Azure V2 e versioni successive supporta Modern Backup Storage, che garantisce un risparmio del 50% sullo spazio di archiviazione, backup tre volte più veloci e un'archiviazione più efficiente. Offre anche l'archiviazione con riconoscimento del carico di lavoro.
 
 > [!NOTE]
 > Per usare Modern Backup Storage, è necessario eseguire il server di Backup V2 o V3 Windows Server 2016 oppure V3 in Windows Server 2019.
@@ -75,7 +75,7 @@ Con l'archiviazione del carico di lavoro, è possibile selezionare i volumi in c
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-È possibile configurare l'archiviazione con riconoscimento del carico di lavoro utilizzando il cmdlet di PowerShell Update-DPMDiskStorage che aggiorna le proprietà di un volume nel pool di archiviazione di un server Data Protection Manager.
+È possibile configurare l'archiviazione con riconoscimento del carico di lavoro usando il cmdlet di PowerShell Update-DPMDiskStorage che aggiorna le proprietà di un volume nel pool di archiviazione di un server di Backup di Azure. 
 
 Sintassi:
 

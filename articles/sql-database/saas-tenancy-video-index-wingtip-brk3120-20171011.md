@@ -12,20 +12,20 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 05/14/2018
-ms.openlocfilehash: b472baf77cc8f253337aa0780321a6e7dd3fecac
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ec3f286791a3a2c7a3bebd84ba17a11571e389f8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056690"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163974"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Annotazioni e indicizzazione dei video per l'app SaaS multi-tenant con il database SQL di Azure
 
 Questo articolo è un indice con annotazioni nelle posizioni temporali di un video di 81 minuti sui criteri o sui modelli di tenancy SaaS. L'articolo consente di spostarsi avanti o indietro nel video fino alla parte di interesse. Il video illustra le principali opzioni di progettazione per un'applicazione di database multi-tenant nel database SQL di Azure. Il video include demo, procedure dettagliate di codice di gestione e, talvolta, dettagli ricavati dalle esperienze più approfonditi rispetto a quanto disponibile nella documentazione.
 
 Il video analizza maggiormente in dettaglio le informazioni disponibili nella nostra documentazione disponibile in: 
-- *Informazioni generali:* [Criteri di tenancy di database delle applicazioni SaaS multi-tenant][saas-concept-design-patterns-563e]
-- *Esercitazioni:* [Applicazione SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
+- *Informazioni generali:* [Modelli di tenancy di database delle applicazioni SaaS multi-tenant][saas-concept-design-patterns-563e]
+- *Esercitazioni:* [L'applicazione SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 Il video e gli articoli descrivono le varie fasi di creazione di un'applicazione multi-tenant nel database SQL di Azure nel cloud. Speciali funzionalità del database SQL di Azure agevolano lo sviluppo e l'implementazione di app multi-tenant più semplici da gestire e affidabili in termini di prestazioni.
 
@@ -63,8 +63,8 @@ I titoli seguenti sono collegamenti alle corrispondenti sezioni con annotazioni 
 - [17. App SaaS multi-tenant ibrida canonica, 0:47:33](#anchor-image-wtip-min04733)
 - [18. App di esempio SaaS Wingtip, 0:48:10](#anchor-image-wtip-min04810)
 - [19. Scenari e criteri illustrati nelle esercitazioni, 0:49:10](#anchor-image-wtip-min04910)
-- [20. Demo di esercitazioni e repository Github, 0:50:18](#anchor-image-wtip-min05018)
-- [21. Repository Github Microsoft/Wingtip SaaS, 0:50:38](#anchor-image-wtip-min05038)
+- [20. Demo di esercitazioni e repository GitHub, 0:50:18](#anchor-image-wtip-min05018)
+- [21. Repository GitHub Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
 - [22. Esplorazione dei criteri, 0:56:20](#anchor-image-wtip-min05620)
 - [23. Provisioning di tenant e onboarding, 0:57:44](#anchor-image-wtip-min05744)
 - [24. Provisioning di tenant e connessione dell'applicazione, 0:58:58](#anchor-image-wtip-min05858)
@@ -121,7 +121,7 @@ Fare clic su uno screenshot per passare alla posizione temporale esatta nel vide
 
 &nbsp; <a name="anchor-image-wtip-min00505"/>
 #### <a name="4-multi-tenant-web-app-00500"></a>4. App Web multi-tenant, 0:05:00
-[![App SaaS Wingtip: app Web multi-tenant][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
+[![App SaaS Wingtip: App Web multi-tenant][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
 
 
 &nbsp; <a name="anchor-image-wtip-min00555"/>
@@ -199,13 +199,13 @@ Fare clic su uno screenshot per passare alla posizione temporale esatta nel vide
 
 
 &nbsp; <a name="anchor-image-wtip-min05018"/>
-#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Demo di esercitazioni e repository Github, 0:50:12
-[![Demo di esercitazioni e repository Github][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
+#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Demo di esercitazioni e repository GitHub, 0:50:12
+[![Demo di esercitazioni e repository GitHub][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
 
 
 &nbsp; <a name="anchor-image-wtip-min05038"/>
-#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Repository Github Microsoft/Wingtip SaaS, 0:50:32
-[![Repository Github Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
+#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Repository GitHub Microsoft/WingtipSaaS, 0:50:32
+[![Repository GitHub Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
 &nbsp; <a name="anchor-image-wtip-min05620"/>
@@ -294,14 +294,14 @@ Fare clic su uno screenshot per passare alla posizione temporale esatta nel vide
 
 - [Post del blog, 22 maggio 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Informazioni generali:* [Criteri di tenancy di database delle applicazioni SaaS multi-tenant][saas-concept-design-patterns-563e]
+- *Informazioni generali:* [Modelli di tenancy di database delle applicazioni SaaS multi-tenant][saas-concept-design-patterns-563e]
 
-- *Esercitazioni:* [Applicazione SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
+- *Esercitazioni:* [L'applicazione SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
-- Repository Github per esplorare l'applicazione tenancy SaaS Wingtip Ticket:
-    - [Repository Github per - Modello di applicazione autonomo][github-wingtip-standaloneapp].
-    - [Repository Github per - Modello di database per tenant][github-wingtip-dbpertenant].
-    - [Repository Github per - Modello di database multi-tenant][github-wingtip-multitenantdb].
+- Repository GitHub per esplorare l'applicazione tenancy SaaS Wingtip Ticket:
+    - [Repository GitHub per - Modello di applicazione autonomo][github-wingtip-standaloneapp].
+    - [Repository GitHub per - Modello di database per tenant][github-wingtip-dbpertenant].
+    - [Repository GitHub per - Modello di database multi-tenant][github-wingtip-multitenantdb].
 
 
 
@@ -354,9 +354,9 @@ Fare clic su uno screenshot per passare alla posizione temporale esatta nel vide
 
 [image-wtip-min04910-scenarios-tutorials]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04910-scenarios-patterns-explored-tutorials.png "Scenari e criteri illustrati nelle esercitazioni"
 
-[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Demo di esercitazioni e repository Github"
+[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Demo di esercitazioni e repository GitHub"
 
-[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Repository Github Microsoft/Wingtip SaaS"
+[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Repository GitHub Microsoft/WingtipSaaS"
 
 [image-wtip-min05620-exploring-patterns]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05620-exploring-patterns-tutorials.png "Esplorazione dei criteri"
 

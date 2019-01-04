@@ -3,24 +3,24 @@ title: Apache Phoenix in HDInsight - Azure HDInsight
 description: ''
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 454cd7e52be54b9a7ec4a518d8e2617e7ef3dfa5
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596070"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435549"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix in HDInsight
 
-[Apache Phoenix](http://phoenix.apache.org/) è un livello database relazionale open source altamente parallelo basato su [HBase](hbase/apache-hbase-overview.md). Phoenix consente di usare query in stile SQL su HBase. Phoenix usa i driver JDBC sottostanti per consentire agli utenti di creare, eliminare e modificare tabelle, indici, viste e sequenze, nonché righe upsert SQL singolarmente e in blocco. Phoenix usa la compilazione nativa NoSQL anziché MapReduce per compilare query, consentendo la creazione di applicazioni a bassa latenza basate su HBase. Phoenix aggiunge coprocessori per supportare l'esecuzione del codice fornito dal client nello spazio degli indirizzi del server, eseguendo il codice che si trova nello stesso percorso dei dati. Questo approccio consente di ridurre al minimo il trasferimento di dati client/server.
+[Apache Phoenix](http://phoenix.apache.org/) è un livello di database relazionale open source altamente parallelo basato su [Apache HBase](hbase/apache-hbase-overview.md). Phoenix consente di usare query in stile SQL su HBase. Phoenix usa i driver JDBC sottostanti per consentire agli utenti di creare, eliminare e modificare tabelle, indici, viste e sequenze, nonché righe upsert SQL singolarmente e in blocco. Phoenix usa la compilazione nativa NoSQL anziché MapReduce per compilare query, consentendo la creazione di applicazioni a bassa latenza basate su HBase. Phoenix aggiunge coprocessori per supportare l'esecuzione del codice fornito dal client nello spazio degli indirizzi del server, eseguendo il codice che si trova nello stesso percorso dei dati. Questo approccio consente di ridurre al minimo il trasferimento di dati client/server.
 
-Apache Phoenix consente ai non sviluppatori di gestire query per Big Data usando una sintassi simile a SQL invece della programmazione. Phoenix è altamente ottimizzato per HBase, a differenza di altri strumenti, ad esempio [Hive](hadoop/hdinsight-use-hive.md) e Spark SQL. Il vantaggio per gli sviluppatori è la possibilità di scrivere query ad alte prestazioni con una quantità di codice molto minore.
+Apache Phoenix consente agli utenti non sviluppatori di gestire query per Big Data usando una sintassi simile a SQL invece della programmazione. A differenza di altri strumenti, ad esempio [Hive](hadoop/hdinsight-use-hive.md) e Apache Spark SQL, Phoenix è altamente ottimizzato per HBase. Il vantaggio per gli sviluppatori è la possibilità di scrivere query ad alte prestazioni con una quantità di codice molto minore.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Quando si invia una query SQL, Phoenix compila la query in chiamate native di HBase ed esegue l'analisi (o il piano) in parallelo per l'ottimizzazione. Questo livello di astrazione consente allo sviluppatore di evitare la scrittura di processi MapReduce e di concentrarsi invece sulla logica di business e sul flusso di lavoro dell'applicazione correlati all'archiviazione di Big Data con Phoenix.
@@ -122,7 +122,7 @@ CREATE TABLE Saltedweblogs (
     shippingamount DOUBLE NULL) SALT_BUCKETS=4;
 ```
 
-## <a name="enable-and-tune-phoenix-with-ambari"></a>Abilitare e ottimizzare Phoenix con Ambari
+## <a name="enable-and-tune-phoenix-with-apache-ambari"></a>Abilitare e ottimizzare Phoenix con Apache Ambari
 
 Un cluster HBase di HDInsight include l'[interfaccia utente di Ambari](hdinsight-hadoop-manage-ambari.md) per apportare modifiche di configurazione.
 

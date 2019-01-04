@@ -1,22 +1,20 @@
 ---
-title: Stringa di connessione MongoDB per un account Azure Cosmos DB | Microsoft Docs
+title: Stringa di connessione MongoDB per un account Azure Cosmos DB
 description: Informazioni su come connettere l'app MongoDB a un account Azure Cosmos DB usando una stringa di connessione MongoDB.
 keywords: stringa di connessione mongodb
 services: cosmos-db
 author: slyons
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/19/2017
 ms.author: sclyon
-ms.openlocfilehash: ad8d6fe36c289c4c9e37689e1c7d755dc3bf9048
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: a78a77e16e9a810c0be03656aa48b02cc8e6e5e6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038330"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849259"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connettere un'applicazione MongoDB ad Azure Cosmos DB
 Informazioni su come connettere l'app MongoDB a un account Azure Cosmos DB usando una stringa di connessione MongoDB. È quindi possibile usare un database di Azure Cosmos DB come archivio dati per l'app MongoDB. 
@@ -54,17 +52,17 @@ Questa esercitazione illustra due modi per recuperare le informazioni della stri
 >
 >
 
-Azure Cosmos DB supporta il formato URI della stringa di connessione di MongoDB standard, con un paio di requisiti specifici: gli account Azure Cosmos DB richiedono l'autenticazione e la comunicazione sicura tramite SSL. Il formato della stringa di connessione sarà quindi:
+Azure Cosmos DB supporta il formato URI della stringa di connessione MongoDB standard, con un paio di requisiti specifici: gli account Azure Cosmos DB richiedono l'autenticazione e la comunicazione sicura tramite SSL. Il formato della stringa di connessione sarà quindi:
 
     mongodb://username:password@host:port/[database]?ssl=true
 
 I valori di questa stringa sono disponibili nel pannello **Stringa di connessione** mostrato in precedenza:
 
 * Nome utente (obbligatorio): nome dell'account Azure Cosmos DB.
-* Password (obbligatorio): password dell'account Azure Cosmos DB.
+* Password (obbligatoria): password dell'account Azure Cosmos DB.
 * Host (obbligatorio): nome di dominio completo dell'account Azure Cosmos DB.
-* Porta (obbligatorio): 10255.
-* Database (facoltativo): il database utilizzato dalla connessione. Se viene specificato alcun database, il database predefinito è "test".
+* Porta (obbligatoria): 10255.
+* Database (facoltativo): database usato dalla connessione. Se viene specificato alcun database, il database predefinito è "test".
 * ssl=true (obbligatorio)
 
 Si consideri l'account mostrato nel pannello **Stringa di connessione**. Una stringa di connessione valida è la seguente:

@@ -1,21 +1,22 @@
 ---
-title: Pubblicare l'app LUIS sull'endpoint di stima
+title: Pubblicare l'app
 titleSuffix: Azure Cognitive Services
 description: Dopo aver compilato ed eseguito il test dell'app LUIS attiva, renderla disponibile per l'applicazione client effettuandone la pubblicazione sull'endpoint.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6eb48fd0f3290fbc3a249bc3880c809ace9f9ddb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 73788b05cad3abac19b1ef509f1250542d10dba2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886488"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136648"
 ---
 # <a name="publish-your-trained-app"></a>Pubblicare l'app sottoposta a training
 
@@ -37,7 +38,7 @@ L'app è pubblicata in tutte le regioni associate alle risorse LUIS aggiunte nel
 
 Dopo aver pubblicato correttamente l'app, nella parte superiore del browser viene visualizzata una notifica di operazione riuscita verde. La barra di notifica verde include anche un collegamento agli endpoint. 
 
-![Finestra popup di pubblicazione](./media/luis-how-to-publish-app/publish-success.png)
+![Finestra popup di pubblicazione con collegamento all'endpoint](./media/luis-how-to-publish-app/publish-success.png)
 
 Se è necessario l'URL dell'endpoint, selezionare il collegamento. È anche possibile ottenere gli URL di endpoint selezionando **Gestisci** nel menu in alto, quindi selezionare **Chiavi e endpoint** nel menu a sinistra. 
 

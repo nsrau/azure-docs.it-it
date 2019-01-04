@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 55d4f53a23c92bb96934e84c0400bc182bc3d87e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 80f7d93037c0b900608301ebf6463f85be10f2de
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976809"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311321"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -62,11 +62,11 @@ Il servizio app, progettato su misura per DevOps, supporta vari strumenti per la
 
 È possibile eseguire la migrazione delle applicazioni esistenti nel servizio app tramite lo [strumento di migrazione online](https://www.migratetoazure.net/).
 
->**Uso consigliato**: usare il servizio app per eseguire la migrazione in Azure di applicazioni Web esistenti, se per queste è necessaria una piattaforma di hosting gestita. È anche possibile usare il servizio app se l'app deve supportare client per dispositivi mobili o esporre API REST.
+>**Uso consigliato**: usare il servizio app per eseguire la migrazione in Azure di applicazioni Web esistenti, se per queste è necessaria una piattaforma di hosting completamente gestita. È anche possibile usare il servizio app se l'app deve supportare client per dispositivi mobili o esporre API REST.
 
->**Come iniziare**: con il servizio app è facile creare e distribuire un'[app Web](../../app-service/app-service-web-get-started-dotnet.md), un'[app per dispositivi mobili](../../app-service-mobile/app-service-mobile-ios-get-started.md) o un'[app per le API](../../app-service/app-service-web-tutorial-rest-api.md) fin dalla prima volta.
+>**Come iniziare**: con il servizio app è facile creare e distribuire la prima [app Web](../../app-service/app-service-web-get-started-dotnet.md), [app per dispositivi mobili](../../app-service-mobile/app-service-mobile-ios-get-started.md) o [app per le API](../../app-service/app-service-web-tutorial-rest-api.md).
 
->**Prova adesso**: il servizio app consente di eseguire il provisioning di un'app di breve durata per provare la piattaforma senza dover effettuare la registrazione per la creazione di un account Azure. È possibile provare la piattaforma e [creare un'app del servizio app di Azure](https://tryappservice.azure.com/).
+>**Da provare subito**: il servizio app consente di eseguire il provisioning di un'app di breve durata per provare la piattaforma senza dover effettuare la registrazione per la creazione di un account Azure. È possibile provare la piattaforma e [creare un'app del servizio app di Azure](https://tryappservice.azure.com/).
 
 #### <a name="azure-virtual-machines"></a>Macchine virtuali di Azure
 
@@ -76,7 +76,7 @@ Dato il livello di controllo disponibile per le VM, in Azure è possibile esegui
 
 >**Uso consigliato**: usare macchine virtuali se si vuole il controllo completo sull'infrastruttura dell'applicazione o se è necessario eseguire la migrazione in Azure di carichi di lavoro delle applicazioni locali senza dover apportare modifiche.
 
->**Come iniziare**: creare una [VM Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) o una [VM Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) dal Portale di Azure.
+>**Come iniziare**: creare una [macchina virtuale Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) o una [macchina virtuale Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) dal portale di Azure.
 
 #### <a name="azure-functions-serverless"></a>Funzioni di Azure (senza server)
 
@@ -84,19 +84,19 @@ Come sarebbe se, invece di occuparsi della creazione e della gestione di un'inte
 
 >**Uso consigliato**: usare Funzioni di Azure quando il codice viene attivato da altri servizi di Azure, da eventi basati sul Web o in base a una pianificazione. È possibile usare Funzioni di Azure anche quando non è necessario sovraccaricare l'infrastruttura con un progetto completamente ospitato o quando si vuole pagare solo per il tempo in cui il codice viene eseguito. Per altre informazioni, vedere [Introduzione a Funzioni di Azure](../../azure-functions/functions-overview.md).
 
->**Come iniziare**: eseguire l'esercitazione introduttiva di Funzioni di Azure nel portale per [creare la prima funzione](../../azure-functions/functions-create-first-azure-function.md).
+>**Come iniziare**: seguire l'esercitazione introduttiva di Funzioni di Azure per [creare la prima funzione](../../azure-functions/functions-create-first-azure-function.md) dal portale.
 
->**Prova adesso**: Funzioni di Azure consente di eseguire il codice senza richiedere la registrazione per la creazione di un account di Azure. È possibile provare subito a [creare la prima funzione di Azure](https://tryappservice.azure.com/).
+>**Da provare subito**: Funzioni di Azure consente di eseguire il codice senza richiedere la registrazione per la creazione di un account di Azure. È possibile provare subito a [creare la prima funzione di Azure](https://tryappservice.azure.com/).
 
 #### <a name="azure-service-fabric"></a>Azure Service Fabric
 
 Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica lo sviluppo, la creazione del pacchetto, la distribuzione e la gestione di microservizi scalabili e affidabili. Fornisce inoltre una gamma completa di funzionalità di gestione per il provisioning, la distribuzione, il monitoraggio, l'aggiornamento, l'esecuzione di patch e l'eliminazione di applicazioni distribuite. Le app, eseguite in un pool condiviso di computer, possono essere inizialmente di piccole dimensioni e ridimensionarsi in seguito su centinaia o migliaia di computer in base alle esigenze.
 
-Service Fabric supporta API Web con Open Web Interface for .NET (OWIN) e ASP.NET Core e mette a disposizione SDK per la compilazione di servizi su Linux in .NET Core e Java. Per altre informazioni su Service Fabric, vedere la [documentazione di Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/).
+Service Fabric supporta API Web con Open Web Interface for .NET (OWIN) e ASP.NET Core e mette a disposizione SDK per la compilazione di servizi su Linux in .NET Core e Java. Per altre informazioni su Service Fabric, vedere la [documentazione di Service Fabric](https://docs.microsoft.com/azure/service-fabric/).
 
 >**Uso consigliato:** Service Fabric è una scelta valida quando si deve creare una nuova applicazione o riscrivere un'applicazione esistente per l'architettura dei microservizi. È consigliabile usare Service Fabric se è necessario un controllo più approfondito sull'infrastruttura sottostante o l'accesso diretto a questa.
 
->**Come iniziare:** [creare la prima applicazione Azure Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
+>**Per iniziare:** [Creare la prima applicazione di Azure Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Migliorare le applicazioni con i servizi di Azure
 
@@ -107,21 +107,21 @@ Oltre all'hosting di applicazioni, Azure mette a disposizione servizi in grado d
 La maggior parte delle applicazioni deve archiviare dati. Pertanto, indipendentemente dalla modalità con cui si decide di ospitare l'applicazione in Azure, è necessario prendere in considerazione uno o più dei servizi seguenti di archiviazione dei dati.
 
 -   **Azure Cosmos DB**: servizio di database multimodello, distribuito a livello globale, che consente di ridimensionare in modo flessibile la velocità effettiva e le risorse di archiviazione, in un numero qualsiasi di aree geografiche, con un contratto di servizio completo. 
-    >**Uso consigliato**: quando l'applicazione necessita di database di grafici, tabelle o documenti, inclusi i database di MongoDB, con più modelli di coerenza ben definiti. 
+    >**Uso consigliato:** quando l'applicazione necessita di database di grafici, tabelle o documenti, inclusi i database di MongoDB, con più modelli di coerenza ben definiti. 
 
     >**Come iniziare**: [creare un'app Web di Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Se si è uno sviluppatore di MongoDB, vedere come [creare un'app Web di MongoDB con Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Archiviazione di Azure**: offre risorse di archiviazione durevoli e a disponibilità elevata per BLOB, code, file e altri tipi di dati non relazionali. Queste risorse rappresentano la base dell'archiviazione per le VM.
 
-    >**Uso consigliato**: quando l'app esegue l'archiviazione di dati non relazionali, ad esempio di coppie chiave-valore (tabelle), BLOB, condivisioni file o messaggi (code).
+    >**Uso consigliato**: quando l'app archivia dati non relazionali, ad esempio di coppie chiave-valore (tabelle), BLOB, condivisioni file o messaggi (code).
 
     >**Come iniziare**: scegliere uno dei tipi di archiviazione seguenti: [BLOB](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tabelle](../../cosmos-db/table-storage-how-to-use-dotnet.md), [code](../../storage/queues/storage-dotnet-how-to-use-queues.md) o [file](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -   **Database SQL di Azure**: versione basata su Azure del motore di Microsoft SQL Server per l'archiviazione di dati tabulari relazionali nel cloud. Il database SQL offre prestazioni prevedibili, scalabilità senza tempi di inattività, continuità aziendale e protezione dei dati.
 
-    >**Uso consigliato**: quando per l'applicazione è necessaria l'archiviazione dei dati con integrità referenziale, nonché il supporto delle transazioni e delle query T-SQL.
+    >**Uso consigliato**: quando per l'applicazione è necessaria l'archiviazione dei dati con integrità referenziale, oltre al supporto delle transazioni e delle query T-SQL.
 
-    >**Come iniziare**: [creare un database SQL in pochi minuti usando il Portale di Azure](../../sql-database/sql-database-get-started.md).
+    >**Come iniziare**: [creare un database SQL in pochi minuti usando il portale di Azure](../../sql-database/sql-database-get-started.md).
 
 
 È possibile usare [Azure Data Factory](../../data-factory/introduction.md) per spostare in Azure dati locali esistenti. Se non è ancora possibile spostare i dati nel cloud, [Connessioni ibride](../../biztalk-services/integration-hybrid-connection-overview.md) in Servizi BizTalk consente di connettere le app ospitate del servizio app a risorse locali. È anche possibile connettersi ai servizi dati e di archiviazione di Azure dalle applicazioni locali.
@@ -132,19 +132,19 @@ I contenitori Docker, un tipo di virtualizzazione del sistema operativo, consent
 
 In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicazioni.
 
--   **Estensione VM di Azure Docker**: consente di usare gli strumenti di Docker per configurare una VM come host Docker.
+-   **Estensione della macchina virtuale Docker di Azure**: consente di usare gli strumenti di Docker per configurare una macchina virtuale come host Docker.
 
-    >**Uso consigliato**: quando si vuole generare distribuzioni di contenitori coerenti per le applicazioni in una VM o usare [Docker Compose](https://docs.docker.com/compose/overview/).
+    >**Uso consigliato**: quando si vogliono generare distribuzioni di contenitori coerenti per le applicazioni in una macchina virtuale o quando si vuole usare [Docker Compose](https://docs.docker.com/compose/overview/).
 
-    >**Come iniziare**: [creare un ambiente Docker in Azure tramite l'estensione VM di Docker](../../virtual-machines/virtual-machines-linux-dockerextension.md).
+    >**Come iniziare**: [creare un ambiente Docker in Azure usando l'estensione della macchina virtuale Docker](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
--   **Servizio contenitore di Azure**: consente di creare, configurare e gestire un cluster di macchine virtuali preconfigurate per l'esecuzione delle applicazioni all'interno di contenitori. Per altre informazioni sul servizio contenitore, vedere [Azure Container Service introduction](../../container-service/container-service-intro.md) (Introduzione al servizio contenitore di Azure).
+-   **Servizio Azure Container**: consente di creare, configurare e gestire un cluster di macchine virtuali preconfigurate per l'esecuzione delle applicazioni all'interno di contenitori. Per altre informazioni sul servizio contenitore, vedere [Azure Container Service introduction](../../container-service/container-service-intro.md) (Introduzione al servizio contenitore di Azure).
 
     >**Uso consigliato**: quando è necessario creare ambienti scalabili e pronti per la produzione che offrano strumenti di pianificazione e gestione aggiuntivi o quando si vuole distribuire un cluster Docker Swarm.
 
-    >**Come iniziare**: [distribuire un cluster di contenitori Docker](../../container-service/dcos-swarm/container-service-deployment.md).
+    >**Come iniziare**: [distribuire un cluster del servizio contenitore](../../container-service/dcos-swarm/container-service-deployment.md).
 
--   **Docker Machine**: consente di installare e gestire Docker Engine in host virtuali tramite comandi di Docker Machine.
+-   **Computer Docker**: consente di installare e gestire un motore Docker in host virtuali tramite comandi docker-machine.
 
     >**Uso consigliato**: quando è necessario creare rapidamente il prototipo di un'app tramite la creazione di un unico host Docker.
 
@@ -160,13 +160,13 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
 -   **Azure Active Directory (Azure AD)**: il servizio Microsoft multi-tenant e basato sul cloud per la gestione delle identità e dell'accesso. Tramite l'integrazione con Azure AD è possibile aggiungere la funzionalità Single-Sign-On (SSO) alle applicazioni. È possibile accedere alle proprietà delle directory usando direttamente l'API di Azure AD Graph o l'API di Microsoft Graph. È possibile eseguire l'integrazione con il supporto di Azure AD per il framework di autorizzazione OAuth 2.0 e OpenID Connect usando endpoint HTTP/REST nativi e le librerie di autenticazione di Azure AD multipiattaforma.
 
-    >**Uso consigliato**: quando si vuole offrire un'esperienza SSO, usare dati basati su Graph o autenticare utenti in base al dominio.
+    >**Uso consigliato**: quando si vuole offrire un'esperienza Single Sign-On, usare dati basati su Graph o autenticare utenti in base al dominio.
 
     >**Come iniziare**: per altre informazioni, vedere la [guida per gli sviluppatori di Azure Active Directory](../../active-directory/develop/v1-overview.md).
 
--   **Autenticazione del servizio app**: quando si sceglie di ospitare l'app nel servizio app, si ottiene anche il supporto dell'autenticazione predefinita per Azure AD, insieme ai provider di identità basati su social network, ad esempio Facebook, Google, Microsoft e Twitter.
+-   **Autenticazione servizio app**: quando si sceglie di ospitare l'app nel servizio app, si ottiene anche il supporto dell'autenticazione predefinita per Azure AD, insieme ai provider di identità basati su social network, ad esempio Facebook, Google, Microsoft e Twitter.
 
-    >**Uso consigliato**: quando si vuole abilitare l'autenticazione in un'app del servizio App tramite Azure AD, provider di identità basati su social network o entrambi.
+    >**Uso consigliato**: quando si vuole abilitare l'autenticazione in un'app del servizio app tramite Azure AD, provider di identità basati su social network o entrambi.
 
     >**Come iniziare**: per altre informazioni sull'autenticazione nel servizio app, vedere [Autenticazione e autorizzazione nel servizio app di Azure](../../app-service/app-service-authentication-overview.md).
 
@@ -182,13 +182,13 @@ Quando l'applicazione è in esecuzione e operativa in Azure, è necessario esser
 
 -   **Monitoraggio di Azure**: servizio che consente di visualizzare, instradare e archiviare metriche e log generati dall'infrastruttura e dalle risorse di Azure, nonché di eseguire query e operazioni su tali metriche e log. Monitoraggio di Azure, da cui provengono le visualizzazioni dati presentate nel Portale di Azure, rappresenta un'origine singola per il monitoraggio delle risorse di Azure.
  
-    >**Come iniziare**: [Introduzione al monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-get-started.md).
+    >**Come iniziare**: [Introduzione a Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-get-started.md).
 
 ### <a name="devops-integration"></a>Integrazione di strumenti DevOps
 
 Sia che si tratti di eseguire il provisioning di VM o di pubblicare app Web con integrazione continua, Azure si integra con la maggior parte degli strumenti DevOps più diffusi. Grazie al supporto di strumenti quali, tra gli altri, Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps e altri, è possibile usare gli strumenti già disponibili e ottimizzare l'esperienza esistente.
 
->**Prova adesso:** [alcune integrazioni di DevOps](https://azure.microsoft.com/try/devops/).
+>**Da provare subito:** [alcune integrazioni di DevOps](https://azure.microsoft.com/try/devops/).
 
 >**Come iniziare**: per visualizzare le opzioni di DevOps per le app del servizio app, vedere [Distribuzione continua nel servizio app di Azure](../../app-service/app-service-continuous-deployment.md).
 
@@ -205,7 +205,7 @@ Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicaz
 
 Nonostante sia improbabile, è possibile che un intero centro dati venga disconnesso a causa di un evento, ad esempio una calamità naturale o un guasto su Internet. La procedura consigliata prevede che le applicazioni aziendali di importanza critica vengano ospitate in più centri dati per garantirne la massima disponibilità. L'uso di più aree può anche ridurre la latenza per gli utenti globali e offrire altre opportunità per una maggiore flessibilità durante l'aggiornamento delle applicazioni.
 
-Alcuni servizi, ad esempio Macchina virtuale e Servizi app, usano [Gestione traffico di Azure](../../traffic-manager/traffic-manager-overview.md) per abilitare il supporto di più aree con failover tra le aree per garantire il funzionamento delle applicazioni aziendali a disponibilità elevata. Per un esempio, vedere [Azure reference architecture: Run a web application in multiple regions](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) (Architettura di riferimento per Azure: Eseguire un'applicazione Web in più aree geografiche).
+Alcuni servizi, ad esempio Macchina virtuale e Servizi app, usano [Gestione traffico di Azure](../../traffic-manager/traffic-manager-overview.md) per abilitare il supporto di più aree con failover tra le aree per garantire il funzionamento delle applicazioni aziendali a disponibilità elevata. Per un esempio, vedere [Architettura di riferimento di Azure: Eseguire un'applicazione Web in più aree geografiche](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 >**Uso consigliato**: in presenza di applicazioni aziendali a disponibilità elevata che traggono vantaggio dalla replica e dal failover.
 
@@ -251,7 +251,7 @@ Oltre al raggruppamento e alla gestione logica di risorse correlate, Azure Resou
 
 Per sviluppare questo tipo di distribuzioni si usa un modello di Azure Resource Manager, che è un documento in formato JSON. I modelli consentono di definire la distribuzione e di gestire le applicazioni tramite modelli dichiarativi, anziché tramite script. I modelli possono funzionare in ambienti diversi, ad esempio negli ambienti di test, staging e produzione. Tramite i modelli, ad esempio, è possibile aggiungere un pulsante che consenta, con un solo clic, di passare a un repository di GitHub e di distribuire il codice presente all'interno di questo in un set di servizi di Azure.
 
->**Uso consigliato**: usare modelli di Resource Manager quando si vuole distribuire l'app con una distribuzione basata su modello gestibile a livello di programmazione tramite le API REST, l'interfaccia della riga di comando di Azure e Azure PowerShell.
+>**Uso consigliato**: usare modelli di Resource Manager quando si vuole distribuire l'app con una distribuzione basata su modello gestibile a livello di codice tramite le API REST, l'interfaccia della riga di comando di Azure e Azure PowerShell.
 
 >**Come iniziare**: per iniziare a usare i modelli, vedere [Creazione di modelli di Azure Resource Manager](../../resource-group-authoring-templates.md).
 
@@ -285,7 +285,7 @@ Quando si consente l'accesso alle risorse di Azure, la procedura sempre consigli
 
     >**Uso consigliato**: quando è necessaria una gestione degli accessi con granularità fine per utenti e gruppi o quando è necessario impostare un utente come proprietario di una sottoscrizione.
 
-    >**Introduzione**: per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+    >**Come iniziare**: per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 -   **Oggetti entità servizio**: oltre a concedere l'accesso a entità utente e a gruppi, è possibile concedere lo stesso tipo di accesso a un'entità servizio.
 

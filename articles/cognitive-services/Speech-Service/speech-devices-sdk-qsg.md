@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Speech Devices SDK
+title: Introduzione a Speech Devices SDK - Servizi di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Prerequisiti e istruzioni per iniziare con Speech Devices SDK.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: e035e1bdedefc8e327b0179006b45f3bad4c41ee
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 46f7762a815a7fa4aa4663d9ac6e7c6001ea345c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470201"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097183"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Introduzione a Speech Devices SDK
 
-Questo articolo descrive come configurare il PC di sviluppo e il kit di sviluppo per dispositivi Voce per sviluppare dispositivi abilitati per il riconoscimento vocale con Speech Devices SDK. Viene anche spiegato come compilare e distribuire un'applicazione di esempio nel dispositivo. 
+Questo articolo descrive come configurare il PC di sviluppo e il kit di sviluppo per dispositivi Voce per sviluppare dispositivi abilitati per il riconoscimento vocale con Speech Devices SDK. Viene anche spiegato come compilare e distribuire un'applicazione di esempio nel dispositivo.
 
 Il codice sorgente dell'applicazione di esempio è incluso in Speech Devices SDK ed è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -29,10 +30,10 @@ Prima di iniziare a usare Speech Devices SDK per sviluppare, raccogliere le info
 
 * Ottenere un [kit di sviluppo di ROOBO](http://ddk.roobo.com/). Sono disponibili kit con configurazioni array di microfoni lineari o circolari. Scegliere la configurazione adatta alle proprie esigenze.
 
-    |Configurazione del kit di sviluppo|Posizione dell'altoparlante|
+    |Configurazione kit di sviluppo|Posizione del parlante|
     |-----------------------------|------------|
     |Circolare|In qualsiasi posizione rispetto al dispositivo|
-    |Lineare|Davanti al dispositivo|
+    |Lineari|Davanti al dispositivo|
 
 * Ottenere la versione più recente di Speech Devices SDK, che include un'app Android di esempio, dal [sito di download di Speech Devices SDK](https://shares.datatransfer.microsoft.com/). Decomprimere il file ZIP in una cartella locale, ad esempio C:\SDSDK.
 
@@ -40,7 +41,7 @@ Prima di iniziare a usare Speech Devices SDK per sviluppare, raccogliere le info
 
 * Ottenere una [chiave di sottoscrizione al servizio Voce](get-started.md). Dal dashboard di Azure è possibile ottenere una versione di valutazione gratuita di 30 giorni oppure una chiave.
 
-* Se si vuole usare la funzionalità Riconoscimento finalità del servizio Voce, eseguire la sottoscrizione al [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) e [ottenere una chiave di sottoscrizione](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). 
+* Se si vuole usare la funzionalità Riconoscimento finalità del servizio Voce, eseguire la sottoscrizione al [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) e [ottenere una chiave di sottoscrizione](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
 
     È possibile [creare un modello LUIS semplice](https://docs.microsoft.com/azure/cognitive-services/luis/) oppure usare il modello LUIS di esempio, ovvero LUIS-example.json. Il modello LUIS di esempio è disponibile nel [sito di download di Speech Devices SDK](https://shares.datatransfer.microsoft.com/). Per caricare il file JSON del modello nel [portale LUIS](https://www.luis.ai/home), selezionare **Import new app** (Importa nuova app) e quindi selezionare il file JSON.
 
@@ -54,19 +55,19 @@ Prima di iniziare a usare Speech Devices SDK per sviluppare, raccogliere le info
 
 1. Orientare il kit di sviluppo per la configurazione circolare o lineare.
 
-    |Configurazione del kit di sviluppo|Orientamento|
+    |Configurazione kit di sviluppo|Orientamento|
     |-----------------------------|------------|
-    |Circolare|Verticale, con i microfoni rivolti verso il soffitto|
-    |Lineare|Sul lato, con i microfoni rivolti verso l'utente (vedere l'immagine seguente)|
+    |Circolare|Diritto, con i microfoni rivolti verso l'alto|
+    |Lineari|Sul lato, con i microfoni rivolti verso l'utente (vedere l'immagine seguente)|
 
     ![Orientamento del kit di sviluppo lineare](media/speech-devices-sdk/qsg-2.png)
 
 1. Installare i certificati e il file della tabella delle parole di attivazione del dispositivo (parole chiave) e impostare le autorizzazioni del dispositivo audio. Digitare i comandi seguenti in una finestra del prompt dei comandi:
 
    ```
-   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/ 
+   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/
    adb shell
-   cd /data/ 
+   cd /data/
    chmod 777 roobo_setup.sh
    ./roobo_setup.sh
    exit
@@ -77,34 +78,34 @@ Prima di iniziare a usare Speech Devices SDK per sviluppare, raccogliere le info
 
     > [!TIP]
     > Disattivare l'audio del microfono e dell'altoparlante del PC per essere sicuri di usare i microfoni del kit di sviluppo. In questo modo si evita che il dispositivo venga attivato accidentalmente da audio proveniente dal PC.
-    
+
 1.  Avviare Vysor nel computer.
 
     ![Vysor](media/speech-devices-sdk/qsg-3.png)
 
-1.  Il dispositivo dovrebbe essere incluso nell'elenco **Choose a device** (Scegli un dispositivo). Selezionare clic sul pulsante **View** (Visualizza) accanto al dispositivo. 
- 
+1.  Il dispositivo dovrebbe essere incluso nell'elenco **Choose a device** (Scegli un dispositivo). Selezionare clic sul pulsante **View** (Visualizza) accanto al dispositivo.
+
 1.  Connettersi alla rete wireless facendo clic sull'icona della cartella e quindi su **Impostazioni** > **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
- 
+
     > [!NOTE]
-    > Se la società prevede criteri per la connessione dei dispositivi al sistema Wi-Fi, è necessario ottenere l'indirizzo MAC e contattare il reparto IT per sapere come connettersi al sistema Wi-Fi aziendale. 
+    > Se la società prevede criteri per la connessione dei dispositivi al sistema Wi-Fi, è necessario ottenere l'indirizzo MAC e contattare il reparto IT per sapere come connettersi al sistema Wi-Fi aziendale.
     >
     > Per trovare l'indirizzo MAC del kit di sviluppo, selezionare l'icona della cartella file sul desktop del kit di sviluppo.
     >
     >  ![Cartella di file Vysor](media/speech-devices-sdk/qsg-10.png)
     >
-    > Selezionare **Impostazioni**. Cercare "indirizzo mac" e quindi selezionare **Mac address** > **Advanced WLAN** (Indirizzo MAC > WLAN avanzata). Prendere nota dell'indirizzo MAC che viene visualizzato nella parte inferiore della finestra di dialogo. 
+    > Selezionare **Impostazioni**. Cercare "indirizzo mac" e quindi selezionare **Mac address** > **Advanced WLAN** (Indirizzo MAC > WLAN avanzata). Prendere nota dell'indirizzo MAC che viene visualizzato nella parte inferiore della finestra di dialogo.
     >
     > ![Indirizzo MAC Vysor](media/speech-devices-sdk/qsg-11.png)
     >
     > Alcune società possono inoltre prevedere un limite al tempo in cui un dispositivo può rimanere connesso al sistema Wi-Fi aziendale. Può quindi essere necessario prolungare la registrazione del kit di sviluppo al sistema Wi-Fi dopo un certo numero di giorni.
-    > 
+    >
     > Per collegare un altoparlante al kit di sviluppo, è possibile connetterlo all'uscita audio. È consigliabile scegliere un altoparlante da 3,5 mm di buona qualità.
     >
     > ![Audio Vysor](media/speech-devices-sdk/qsg-14.png)
- 
+
 ## <a name="run-a-sample-application"></a>Eseguire un'applicazione di esempio
 
 Per eseguire i test di ROOBO e convalidare la configurazione del kit di sviluppo, compilare e installare l'applicazione di esempio:
@@ -114,10 +115,10 @@ Per eseguire i test di ROOBO e convalidare la configurazione del kit di sviluppo
 1.  Selezionare **Open an existing Android Studio project** (Apri un progetto di Android Studio esistente).
 
     ![Android Studio: apertura di un progetto esistente](media/speech-devices-sdk/qsg-5.png)
- 
+
 1.  Passare a C:\SDSDK\Android-Sample-Release\example. Fare clic su **OK** per aprire il progetto di esempio.
- 
-1.  Aggiungere la chiave di sottoscrizione del servizio Voce al codice sorgente. Se si vuole provare la funzionalità Riconoscimento finalità, aggiungere anche la chiave di sottoscrizione e l'ID applicazione del [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 
+
+1.  Aggiungere la chiave di sottoscrizione del Servizio di riconoscimento vocale al codice sorgente. Se si vuole provare la funzionalità Riconoscimento finalità, aggiungere anche la chiave di sottoscrizione e l'ID applicazione del [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
     Le chiavi e le informazioni relative all'applicazione devono essere inserite nelle righe seguenti del file di origine MainActivity.java:
 
@@ -135,7 +136,7 @@ Per eseguire i test di ROOBO e convalidare la configurazione del kit di sviluppo
     È anche possibile [creare una parola di attivazione personalizzata](speech-devices-sdk-create-kws.md).
 
     Per installare la parola di attivazione che si vuole usare:
- 
+
     * Creare una cartella keyword nella cartella data del dispositivo eseguendo i comandi seguenti in una finestra del prompt dei comandi:
 
         ```
@@ -152,9 +153,9 @@ Per eseguire i test di ROOBO e convalidare la configurazione del kit di sviluppo
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
         ```
-    
+
     * Fare riferimento a questi file nell'applicazione di esempio. Individuare le righe seguenti in MainActivity.java. Assicurarsi che la parola chiave specificata sia quella usata e che il percorso punti al file `kws.table` di cui è stato eseguito il push nel dispositivo.
-        
+
         ```java
         private static final String Keyword = "Computer";
         private static final String KeywordModel = "/data/keyword/kws.table";
@@ -175,7 +176,7 @@ Per eseguire i test di ROOBO e convalidare la configurazione del kit di sviluppo
     private static final String SelectedGeometry = "Circular6+1";
     ```
     La tabella seguente descrive i valori disponibili:
-    
+
     |Variabile|Significato|Valori disponibili|
     |--------|-------|----------------|
     |`DeviceGeometry`|Configurazione microfoni fisica|Per un kit di sviluppo circolare: `Circular6+1` |
@@ -186,34 +187,34 @@ Per eseguire i test di ROOBO e convalidare la configurazione del kit di sviluppo
     |||Per un kit di sviluppo lineare che usa due microfoni: `Linear2`|
 
 
-1.  Per compilare l'applicazione, nel menu **Run** (Esegui) selezionare **Run 'app'** (Esegui 'app'). Viene visualizzata la finestra di dialogo **Select Deployment Target** (Seleziona destinazione di distribuzione). 
+1.  Per compilare l'applicazione, nel menu **Run** (Esegui) selezionare **Run 'app'** (Esegui 'app'). Viene visualizzata la finestra di dialogo **Select Deployment Target** (Seleziona destinazione di distribuzione).
 
 1. Selezionare il dispositivo e quindi fare clic su **OK** per distribuire l'applicazione nel dispositivo.
 
     ![Finestra di dialogo Select Deployment Target (Seleziona destinazione di distribuzione)](media/speech-devices-sdk/qsg-7.png)
- 
+
 1.  L'applicazione di esempio di Speech Devices SDK viene avviata e visualizza le opzioni seguenti:
 
     ![Applicazione di esempio di Speech Devices SDK e opzioni](media/speech-devices-sdk/qsg-8.png)
 
 1. A questo punto, non resta che sperimentare.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="certificate-failures"></a>Errori di certificato
 
 Se quando si usa il servizio Voce vengono visualizzati errori di certificato, assicurarsi che la data e l'ora del dispositivo siano corretti:
 
-1. Passare a **Settings** (Impostazioni). In **System** (Sistema) selezionare **Date & time** (Data e ora).
+1. Passare a **Impostazioni**. In **System** (Sistema) selezionare **Date & time** (Data e ora).
 
     ![In Settings (Impostazioni) selezionare Date & time (Data e ora)](media/speech-devices-sdk/qsg-12.png)
 
-1. Mantenere selezionata l'opzione **Automatic date & time** (Data e ora automatiche). In **Select time zone** (Seleziona il fuso orario) selezionare il fuso orario corrente. 
+1. Mantenere selezionata l'opzione **Automatic date & time** (Data e ora automatiche). In **Select time zone** (Seleziona il fuso orario) selezionare il fuso orario corrente.
 
     ![Opzioni per la selezione della data e del fuso orario](media/speech-devices-sdk/qsg-13.png)
 
-    Dopo aver verificato che l'ora del kit di sviluppo corrisponde a quella del PC, il kit di sviluppo è connesso a Internet. 
-    
+    Dopo aver verificato che l'ora del kit di sviluppo corrisponde a quella del PC, il kit di sviluppo è connesso a Internet.
+
     Per altre informazioni sullo sviluppo, vedere la [guida allo sviluppo di ROOBO](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
 ### <a name="audio"></a>Audio

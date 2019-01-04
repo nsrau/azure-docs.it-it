@@ -1,5 +1,5 @@
 ---
-title: Esercitazione Integrazione di Azure Active Directory con Kiteworks | Microsoft Docs
+title: 'Esercitazione: Integrazione di Azure Active Directory con Kiteworks | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Kiteworks.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 88531ee1a98eefdf3ee85b4308150f10417858d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 986640c6af07c5a7ad85cfe8ca1f3d5b8a8aae84
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420224"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845995"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Esercitazione Integrazione di Azure Active Directory con Kiteworks
+# <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Esercitazione: Integrazione di Azure Active Directory con Kiteworks
 
 Questa esercitazione descrive come integrare Kiteworks con Azure Active Directory (Azure AD).
 
@@ -117,7 +117,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<subdomain>.kiteworks.com/sp/module.php/saml/sp/saml2-acs.php/sp-sso`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Kiteworks](http://accellion.com/support). 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Kiteworks](https://accellion.com/support). 
  
 1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -160,7 +160,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     g. Fare clic su **Save**.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -201,7 +201,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Kiteworks
 Kiteworks supporta il provisioning JIT (just-in-time), che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Kiteworks viene creato un nuovo utente, se questo non esiste già.
 
 >[!NOTE]
->Per creare un utente manualmente è necessario contattare il [team di supporto di Kiteworks](http://accellion.com/support).
+>Per creare un utente manualmente è necessario contattare il [team di supporto di Kiteworks](https://accellion.com/support).
  
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD

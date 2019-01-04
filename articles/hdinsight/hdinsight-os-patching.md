@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 5d8fae7412bece631e6961fb92b7d87e308cc857
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 34bf642cbdecce31be1a8119adc483d017686479
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599215"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434046"
 ---
 # <a name="os-patching-for-hdinsight"></a>Applicazione di patch del sistema operativo per HDInsight 
-Come servizio gestito di Hadoop, HDInsight si occupa dell'applicazione di patch al sistema operativo delle macchine virtuali sottostanti usate dal cluster HDInsight. A partire dal 1° agosto 2016, sono stati modificati i criteri di applicazione delle patch del sistema operativo guest per i cluster HDInsight basati su Linux (versione 3.4 o successiva). L'obiettivo del nuovo criterio è di ridurre in modo consistente il numero di riavvii causati dall'applicazione delle patch. Il nuovo criterio continuerà ad applicare le patch alle macchine virtuali sui cluster Linux ogni lunedì o giovedì a partire dalle ore 00:00 UTC con un flusso di intervalli sui nodi in ogni cluster. Tuttavia, le macchine virtuali verranno riavviate solo una volta ogni 30 giorni a causa dell'applicazione delle patch al sistema operativo guest. In aggiunta, il primo riavvio di un cluster appena creato non verrà eseguito prima di 30 giorni dalla data di creazione del cluster. I patch verranno applicati al riavvio delle macchine virtuali.
+Come servizio gestito di Apache Hadoop, HDInsight si occupa dell'applicazione di patch al sistema operativo delle macchine virtuali sottostanti usate dal cluster HDInsight. A partire dal 1° agosto 2016, sono stati modificati i criteri di applicazione delle patch del sistema operativo guest per i cluster HDInsight basati su Linux (versione 3.4 o successiva). L'obiettivo del nuovo criterio è di ridurre in modo consistente il numero di riavvii causati dall'applicazione delle patch. Il nuovo criterio continuerà ad applicare le patch alle macchine virtuali sui cluster Linux ogni lunedì o giovedì a partire dalle ore 00:00 UTC con un flusso di intervalli sui nodi in ogni cluster. Tuttavia, le macchine virtuali verranno riavviate solo una volta ogni 30 giorni a causa dell'applicazione delle patch al sistema operativo guest. In aggiunta, il primo riavvio di un cluster appena creato non verrà eseguito prima di 30 giorni dalla data di creazione del cluster. I patch verranno applicati al riavvio delle macchine virtuali.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Procedura per configurare una pianificazione dell'applicazione di patch al sistema operativo per i cluster HDInsight basati su Linux
 Le macchine virtuali in un cluster HDInsight devono essere riavviate di tanto in tanto in modo che sia possibile installare le patch di sicurezza importanti. A partire dal 1° agosto 2016, i nuovi cluster HDInsight basati su Linux (versione 3.4 o successive) verranno riavviati in base alla pianificazione seguente:
@@ -31,7 +31,7 @@ Tramite l'azione di script descritta in questo articolo, è possibile modificare
 2. Impostare la frequenza di riavvio (giorni tra i riavvii)
 3. Impostare il giorno della settimana in cui eseguire un riavvio
 
-> [!NOTE]
+> [!NOTE]  
 > Questa azione di script funziona solo con i cluster HDInsight basati su Linux creati dopo il 1° agosto 2016. I patch verranno applicati solo al riavvio delle macchine virtuali. 
 >
 
@@ -52,10 +52,8 @@ L'uso di questo script richiede le informazioni seguenti:
     | Giorno della settimana |da 1 a 7 (incluso). Il valore 1 indica che il riavvio deve essere eseguito il lunedì e 7 indica la domenica. Ad esempio usando i parametri di 1 60 2 si produce un riavvio automatico ogni 60 giorni (al massimo) il martedì. |
     | Persistenza |Quando si applica un'azione di script a un cluster esistente, è possibile contrassegnare lo script come persistente. Gli script persistenti vengono applicati quando vengono aggiunti nuovi nodi del ruolo di lavoro al cluster tramite operazioni di ridimensionamento. |
 
-> [!NOTE]
-> Quando si applica a un cluster esistente, è necessario contrassegnare questo script come persistente. In caso contrario i nuovi nodi creati tramite le operazioni di ridimensionamento useranno il la pianificazione dell'applicazione di patch predefinita.
-Se si applica lo script come parte del processo di creazione del cluster, viene mantenuto automaticamente.
->
+> [!NOTE]  
+> Quando si applica a un cluster esistente, è necessario contrassegnare questo script come persistente. In caso contrario i nuovi nodi creati tramite le operazioni di ridimensionamento useranno la pianificazione dell'applicazione di patch predefinita.  Se si applica lo script come parte del processo di creazione del cluster, viene mantenuto automaticamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

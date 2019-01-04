@@ -5,20 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 04/12/2017
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 80ae3d2603cbb1c52c5bbe5e72ef7880cf0da6eb
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: fbe1cfdcfb1b5ec295748c3c77030df45323ee54
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984603"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434325"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Controllo e creazione di report per un utente di Collaborazione B2B
-Con gli utenti guest, sono disponibili funzionalità di controllo analoghe a quelle degli utenti membri. Di seguito è riportato un esempio di cronologia di inviti e riscatti dell'invitato Sam Oogle:
+Con gli utenti guest, sono disponibili funzionalità di controllo analoghe a quelle degli utenti membri. 
+
+## <a name="access-reviews"></a>Verifiche di accesso
+È possibile usare le verifiche di accesso per verificare periodicamente se gli utenti guest hanno ancora necessità di accedere alle risorse. La funzionalità **Verifiche di accesso** è disponibile in **Azure Active Directory** in **Gestisci** > **Relazioni aziendali**. (È anche possibile cercare le "verifiche di accesso" da **Tutti i servizi** nel portale di Azure.) Per informazioni su come usare le verifiche di accesso, vedere [Gestire l'accesso guest con le verifiche di accesso di Azure AD](../governance/manage-guest-access-with-access-reviews.md).
+
+## <a name="audit-logs"></a>Log di controllo
+
+I log di controllo di Azure AD forniscono i record delle attività di sistema e utente, incluse le attività avviate da parte degli utenti guest. Per accedere ai log di controllo in **Azure Active Directory**, in **Monitoraggio**, selezionare **Log di controllo**. Di seguito è riportato un esempio di cronologia di inviti e riscatti dell'invitato Sam Oogle:
 
 ![log di controllo](./media/auditing-and-reporting/audit-log.png)
 

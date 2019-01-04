@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c7e9c841e7a1d73fcdedd99e210eefb1e52bbf3e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9819b2bf3c5e5a07d788dc7f51b674a07e6c41ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498751"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972338"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure
 
@@ -26,10 +26,10 @@ La tabella seguente confronta File, BLOB e Dischi e illustra scenari di esempio 
 | Funzionalità | DESCRIZIONE | Quando usare le autorizzazioni |
 |--------------|-------------|-------------|
 | **File di Azure** | Include un'interfaccia SMB, librerie client e un'[interfaccia REST](/rest/api/storageservices/file-service-rest-api) che consente l'accesso ai file archiviati ovunque ci si trovi. | Si intende aggiornare e spostare un'applicazione nel cloud che usa già le API del file system native per condividere i dati con altre applicazioni in esecuzione in Azure.<br/><br/>Si intende archiviare gli strumenti di sviluppo e di debug a cui deve essere possibile accedere da molte macchine virtuali. |
-| **BLOB di Azure** | Include librerie client e un'[interfaccia REST](/rest/api/storageservices/blob-service-rest-api) che consente di archiviare i dati non strutturati e di accedervi su larga scala in BLOB in blocchi. | Si desidera che la propria applicazione supporti scenari di accesso casuale e tramite flusso.<br/><br/>Si desidera poter accedere ai dati dell'applicazione ovunque ci si trovi. |
+| **BLOB di Azure** | Include librerie client e un'[interfaccia REST](/rest/api/storageservices/blob-service-rest-api) che consente di archiviare i dati non strutturati e di accedervi su larga scala in BLOB in blocchi.<br/><br/>Supporta anche [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) per le soluzioni aziendali di analisi di Big Data. | Si desidera che la propria applicazione supporti scenari di accesso casuale e tramite flusso.<br/><br/>Si desidera poter accedere ai dati dell'applicazione ovunque ci si trovi.<br/><br/>Si vuole compilare un Data Lake aziendale in Azure ed eseguire l'analisi dei Big Data. |
 | **Dischi di Azure** | Include librerie client e un'[interfaccia REST](/rest/api/compute/manageddisks/disks/disks-rest-api) che consente di archiviare in modo permanente i dati e di accedervi da un disco rigido virtuale collegato. | Si intende aggiornare e spostare le applicazioni che usano le API del file system native per leggere e scrivere dati su dischi permanenti.<br/><br/>Si intende archiviare i dati a cui non è necessario accedere dall'esterno della macchina virtuale a cui è collegato il disco. |
 
-## <a name="comparison-files-and-blobs"></a>Confronto: File e BLOB
+## <a name="comparison-files-and-blobs"></a>Confronto: file e BLOB
 
 La tabella seguente confronta File di Azure e BLOB di Azure.  
   
@@ -48,7 +48,7 @@ La tabella seguente confronta File di Azure e BLOB di Azure.
 |Capacità fatturata|In base ai byte scritti|In base alle dimensioni di file|  
 |Librerie client|Supporto di più lingue|Supporto di più lingue|  
   
-## <a name="comparison-files-and-disks"></a>Confronto: File e Dischi
+## <a name="comparison-files-and-disks"></a>Confronto: file e dischi
 
 File di Azure è un complemento di Dischi di Azure. Un disco può essere collegato a una sola macchina virtuale di Azure alla volta. I dischi sono dischi rigidi virtuali in formato fisso archiviati come BLOB di pagine in Archiviazione di Azure e vengono usati dalla macchina virtuale per archiviare dati durevoli. È possibile accedere alle condivisioni file in File di Azure nello stesso modo in cui si accede al disco locale (usando le API del file system native). Le condivisioni file possono essere condivise tra molte macchine virtuali.  
  

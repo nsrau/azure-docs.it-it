@@ -8,18 +8,17 @@ manager: abhemraj
 editor: ''
 ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 1e7486dc646843c473cfb355445e194893934a1a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447147"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255092"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Risolvere gli errori durante il failover di una macchina virtuale in Azure
 
@@ -29,7 +28,7 @@ Durante il failover di una macchina virtuale in Azure è possibile che l'utente 
 
 Site Recovery non è riuscito a creare un'operazione di failover sulla macchina virtuale in Azure. Questo può verificarsi a causa di uno dei motivi seguenti:
 
-* Non è disponibile una quota sufficiente per creare la macchina virtuale: è possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](http://aka.ms/getazuresupport) per aumentare la quota.
+* Non è disponibile una quota sufficiente per creare la macchina virtuale: È possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](http://aka.ms/getazuresupport) per aumentare la quota.
 
 * Si sta tentando di effettuare il failover delle macchine virtuali delle famiglie di dimensioni diverse nello stesso set di disponibilità. Assicurarsi di aver scelto la stessa famiglia di dimensioni per tutte le macchine virtuali nello stesso set di disponibilità. È possibile modificare le dimensioni passando alle impostazioni Calcolo e rete della macchina virtuale e ritentando il failover.
 
@@ -114,9 +113,6 @@ Se su una macchina virtuale in cui è stato eseguito il failover, il pulsante **
 Quando si esegue l'avvio di una macchina virtuale Windows dopo il failover e si riceve un messaggio di arresto imprevisto nella macchina virtuale ripristinata, significa che non è stato acquisito uno stato di arresto della macchina virtuale nel punto di ripristino usato per il failover. Questo accade quando si effettua il ripristino ad un punto in cui la macchina virtuale non è stata completamente arrestata.
 
 In genere, non è motivo di preoccupazione e può essere ignorato per i failover non pianificati. In caso di failover pianificato, assicurarsi che la macchina virtuale sia arrestata in modo corretto prima del failover e di fornire il tempo necessario per i dati di replica in sospeso di essere inviati ad Azure in locale. Usare l'opzione **Più recente** nella [schermata Failover](site-recovery-failover.md#run-a-failover) in modo che tutti i dati in sospeso in Azure siano elaborati in un punto di recupero, che viene quindi usato per il failover della macchina virtuale.
-
-## <a name="retaining-drive-letter-after-failover"></a>Mantenimento della lettera di unità dopo il failover
-Per mantenere la lettera di unità nelle macchine virtuali dopo il failover, è possibile impostare il **criterio SAN** per la macchina virtuale locale su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Risoluzione problemi [di connessione RDP a una macchina virtuale Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)

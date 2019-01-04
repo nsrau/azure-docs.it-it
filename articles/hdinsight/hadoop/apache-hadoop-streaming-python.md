@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: d6a9de293d62ec6f25bd3a665d5ced5a1ac671ae
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e8cf8de25a35909cb2a0fc94237bfa517c72e685
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634023"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410347"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Sviluppare programmi MapReduce per la creazione di flussi Python per HDInsight
 
@@ -49,7 +49,7 @@ Hadoop consente di specificare un file che contiene la logica di mapping e riduz
 
 * **Input**: i componenti di mapping e riduzione devono leggere i dati di input da STDIN.
 * **Output**: i componenti di mapping e riduzione devono scrivere i dati di output in STDOUT.
-* **Formato dati**: i dati usati e prodotti devono essere una coppia chiave/valore, separati da un carattere di tabulazione.
+* **Formato dati**: i dati utilizzati e generati devono essere una coppia chiave/valore, separati da un carattere di tabulazione.
 
 Python è in grado di gestire facilmente questi requisiti usando il modulo `sys` per leggere da STDIN e il modulo `print` per stampare in STDOUT. Il resto dell'attività consiste semplicemente nella formattazione dei dati con un carattere di tabulazione (`\t`) tra la chiave e il valore.
 
@@ -144,7 +144,7 @@ Usare lo script di PowerShell seguente per caricare i file, eseguire il processo
 
     Questo comando copia i file dal sistema locale nel nodo head.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Se è stata usata una password per proteggere l'account SSH, viene richiesto di specificarla. Se è stata usata una chiave SSH, potrebbe essere necessario usare il parametro `-i` e il percorso della chiave privata. Ad esempio: `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. Connettersi al cluster usando SSH:
@@ -172,7 +172,7 @@ Usare lo script di PowerShell seguente per caricare i file, eseguire il processo
 
    * **hadoop-streaming.jar**: usato durante l'esecuzione di operazioni di flusso MapReduce. Consente ad Hadoop di interagire con il codice MapReduce esterno fornito dall'utente.
 
-   * **-file**: aggiunge i file specificati al processo MapReduce.
+   * **-files**: aggiunge i file specificati al processo MapReduce.
 
    * **-mapper**: indica ad Hadoop quale file usare come mapper.
 
@@ -199,6 +199,6 @@ Usare lo script di PowerShell seguente per caricare i file, eseguire il processo
 
 Dopo aver appreso come usare i processi di flusso MapReduce con HDInsight, vedere i seguenti collegamenti per esplorare altri modi di uso di Azure HDInsight.
 
-* [Usare Hive con HDInsight](hdinsight-use-hive.md)
-* [Usare Pig con HDInsight](hdinsight-use-pig.md)
+* [Usare Apache Hive con HDInsight](hdinsight-use-hive.md)
+* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)

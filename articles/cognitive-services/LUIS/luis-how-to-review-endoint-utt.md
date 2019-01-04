@@ -1,23 +1,24 @@
 ---
-title: Esaminare le espressioni di endpoint per Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
+title: Esaminare le espressioni utente
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: La funzionalità all'avanguardia di LUIS è il fulcro concettuale dell'apprendimento attivo. Una volta che LUIS contiene le query di endpoint, l'apprendimento attivo consente di migliorare la qualità dei risultati attraverso la selezione delle espressioni di cui non è sicuro. Se etichetti queste espressioni, vi esegui il training e le pubblichi, LUIS le identificherà in modo più accurato.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7175463001eac118d2939d3479e61a01b80ba86b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030796"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106550"
 ---
-# <a name="review-endpoint-utterances"></a>Esaminare le espressioni endpoint
+# <a name="how-to-review-endpoint-utterances-in-luis-portal"></a>Come esaminare le espressioni dell'endpoint nel portale di LUIS
 
 La funzionalità all'avanguardia di LUIS è il [fulcro concettuale](luis-concept-review-endpoint-utterances.md) dell'apprendimento attivo. Una volta contenente le query di endpoint, LUIS usa l'apprendimento attivo per migliorare la qualità dei risultati. Nel processo di apprendimento attivo, LUIS esamina tutte le espressioni di endpoint e seleziona quelle di cui non è sicuro. Se etichetti queste espressioni, vi esegui il training e le pubblichi, LUIS le identificherà in modo più accurato. 
 

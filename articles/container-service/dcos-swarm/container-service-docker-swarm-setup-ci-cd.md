@@ -1,5 +1,5 @@
 ---
-title: CI/CD con il servizio contenitore di Azure e Swarm
+title: (DEPRECATO) CI/CD con il servizio Azure Container e Swarm
 description: Usare il servizio contenitore di Azure con Docker Swarm, un Registro contenitori di Azure e Azure DevOps per distribuire un'applicazione .NET Core multi-contenitore in modo continuativo
 services: container-service
 author: jcorioland
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 3b91c269104e740add1d3a5b8ecaee93ca269188
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db0a16fa44dd23cbc32159889fe8b8ec28c77a5f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302827"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992552"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>Pipeline CI/CD completa per distribuire un'applicazione multi-contenitore nel servizio contenitore di Azure con Docker Swarm usando Azure DevOps Services
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(DEPRECATO) Pipeline CI/CD completa per distribuire un'applicazione multi-contenitore nel servizio Azure Container con Docker Swarm usando Azure DevOps Services
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Una delle sfide principali quando si sviluppano applicazioni moderne per il cloud è quella di riuscire a distribuire le applicazioni in modo continuativo. In questo articolo viene descritto come implementare una pipeline completa di distribuzione e di integrazione continua (CI/CD) tramite il servizio contenitore di Azure con Docker Swarm, Registro contenitori di Azure e la gestione Azure Pipelines.
 

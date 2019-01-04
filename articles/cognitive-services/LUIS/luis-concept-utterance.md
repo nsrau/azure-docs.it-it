@@ -1,21 +1,22 @@
 ---
-title: Espressioni in app LUIS
-titleSuffix: Azure Cognitive Services
+title: Espressioni di esempio corrette
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Le espressioni sono gli input dell'utente che l'app ha bisogno di interpretare. Raccogliere le frasi che si ritiene verranno immesse dagli utenti. Includere espressioni con lo stesso significato ma con una costruzione diversa in termini di lunghezza e posizione delle parole.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2b21102a5416c1fd7e2abb35be677c48ffc63263
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 4f6bb367e706771707b65445c91619d439257207
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638076"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014838"
 ---
 # <a name="utterances-in-luis"></a>Espressioni in LUIS
 
@@ -55,6 +56,10 @@ In ogni iterazione del modello, non aggiungere un'ampia quantità di espressioni
 LUIS compila modelli efficaci con espressioni selezionate con attenzione. L'aggiunta di un numero eccessivo di espressioni non è utile perché introduce confusione.  
 
 È consigliabile iniziare con poche espressioni, poi [esaminare le espressioni dell'endpoint](luis-how-to-review-endoint-utt.md) per prevederne correttamente la finalità e per estrarre l'entità.
+
+## <a name="punctuation-marks"></a>Segni di punteggiatura
+
+LUIS non ignora i segni di punteggiatura per impostazione predefinita, in quanto alcune applicazioni client possono attribuire significato a questi segni. Assicurarsi che le espressioni di esempio usino sia lo stile con punteggiatura sia quello senza punteggiatura, in modo che entrambi gli stili restituiscano gli stessi punteggi relativi. Se la punteggiatura non ha alcun significato specifico nell'applicazione client, valutare la possibilità di [ignorare i segni di punteggiatura](#ignoring-words-and-punctuation) usando criteri. 
 
 ## <a name="ignoring-words-and-punctuation"></a>Ignorare parole e punteggiatura
 Se si desidera che vengano ignorati parole o segni di punteggiatura specifici nell'espressione di esempio, usare un [criterio](luis-concept-patterns.md#pattern-syntax) con la sintassi _ignore_. 

@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 77615705ade42a2afcc8e3a9f662b0551a2411fd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: daf4a6142c0e30fa7b8534e5598cec39c69079c0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582453"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184050"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordinare gli eventi di connessione dei dispositivi dall'hub IoT di Azure tramite Azure Cosmos DB
 
@@ -200,11 +200,11 @@ Nel flusso di lavoro dell'app per la logica, le condizioni consentono di eseguir
 
 2. Specificare la condizione come illustrato di seguito per l'esecuzione esclusiva degli eventi di connessione e disconnessione dei dispositivi:
 
-  * Scegliere un valore: **eventType**
-  * Modificare "uguale a" in **termina con**
-  * Scegliere un valore: **nected**
+   * Scegliere un valore: **eventType**
+   * Modificare "uguale a" in **termina con**
+   * Scegliere un valore: **nected**
 
-   ![Specificare una condizione](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![Specificare una condizione](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. Se la condizione è vera, fare clic su **Aggiungi un'azione**.
   
@@ -254,7 +254,7 @@ In questa sezione viene configurato l'hub IoT per la pubblicazione degli eventi 
 
        ![URL di Selezione endpoint](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-   * **Dettagli sottoscrizione evento**: fornire un nome descrittivo e selezionare **Schema griglia di eventi**.
+   * **Dettagli sottoscrizione evento**: fornire un nome descrittivo e selezionare **Schema Griglia di eventi**.
    Il modulo sarà simile all'esempio seguente: 
 
        ![Modulo sottoscrizione di eventi di esempio](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)

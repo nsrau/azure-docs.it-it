@@ -1,7 +1,7 @@
 ---
-title: Aggiornare l'API Ricerca immagini Bing dalla versione 5 alla 7 - API Ricerca immagini Bing
+title: Aggiornare l'API Ricerca immagini Bing dalla versione 5 alla versione 7
 titleSuffix: Azure Cognitive Services
-description: Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Ricerca immagini Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
+description: Questa guida all'aggiornamento descrive le differenze tra la versione 5 e la versione 7 dell'API Ricerca immagini Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -11,14 +11,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 53713a629dbe2682ef393a3a5dbf7845b5075591
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2192e3d2a344a31717c59c813123ed0c807a2841
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296363"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256554"
 ---
-# <a name="image-search-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Ricerca immagini
+# <a name="bing-image-search-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Ricerca immagini Bing
 
 Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Ricerca immagini Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 
@@ -39,7 +39,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 
 - I codici di errore della versione 5 sono stati sostituiti con i possibili valori `code` e `subCode` seguenti.
 
-|Codice|Sottocodice|Descrizione
+|Codice|Sottocodice|DESCRIZIONE
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing restituisce ServerError ogni volta che si verifica una delle condizioni del sottocodice. La risposta include questi errori se il codice di stato HTTP è 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloccato|Bing restituisce InvalidRequest ogni volta che una parte della richiesta non è valida, ad esempio quando non è specificato un parametro obbligatorio o un valore di parametro non è valido.<br/><br/>Se l'errore è ParameterMissing o ParameterInvalidValue, il codice di stato HTTP è 400.<br/><br/>Se l'errore è HttpNotAllowed, il codice di stato HTTP è 410.

@@ -1,5 +1,5 @@
 ---
-title: Architettura del motore di ricerca full-text (Lucene) in Ricerca di Azure | Microsoft Docs
+title: Architettura del motore di ricerca full-text (Lucene) in Ricerca di Azure
 description: Spiegazione dell'elaborazione delle query di Lucene e dei concetti del recupero del documento per una ricerca full-text in relazione a Ricerca di Azure.
 manager: jlembicz
 author: yahnoosh
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.custom: seodec2018
+ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036871"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315807"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Funzionamento della ricerca full-text in Ricerca di Azure
 
@@ -262,7 +263,7 @@ Ritornando all'esempio precedente, per il campo **titolo**, l'indice invertito Ã
 | resort | 3 |
 | rifugio | 4 |
 
-Nel campo del titolo, solo *hotel* viene visualizzato in due documenti: 1, 3.
+Nel campo del titolo, solo *hotel* viene visualizzato in due documenti: 1 e 3.
 
 Per il campo **descrizione**, l'indice Ã¨ il seguente:
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958160"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726169"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gestire account RunAs di Automazione di Azure
 
@@ -358,11 +358,11 @@ Per rinnovare il certificato, seguire questa procedura:
 
 Per controllare la destinazione dell'automazione in base alle risorse in Automazione di Azure, all'account RunAs vengono concessi i diritti di collaboratore nella sottoscrizione per impostazione predefinita. Se è necessario limitare le operazioni che l'entità servizio RunAs può eseguire, è possibile rimuovere l'account dal ruolo di collaboratore per la sottoscrizione e aggiungerlo come collaboratore ai gruppi di risorse che si vuole specificare.
 
-Nel portale di Azure selezionare **Sottoscrizioni** e scegliere la sottoscrizione dell'account di Automazione. Selezionare **Controllo di accesso (IAM)** e cercare l'entità servizio per l'account di Automazione, che è simile a \<NomeAccountDiAutomazione\>_identificatore univoco. Selezionare l'account e fare clic su **Rimuovi** per rimuoverlo dalla sottoscrizione.
+Nel portale di Azure selezionare **Sottoscrizioni** e scegliere la sottoscrizione dell'account di Automazione. Selezionare **Controllo di accesso (IAM)** e quindi la scheda **Assegnazioni di ruolo**. Cercare l'entità servizio per l'account di Automazione, che è simile a \<NomeAccountDiAutomazione\>_identificatore univoco. Selezionare l'account e fare clic su **Rimuovi** per rimuoverlo dalla sottoscrizione.
 
 ![Collaboratori della sottoscrizione](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Per aggiungere l'entità servizio a un gruppo di risorse, selezionare il gruppo di risorse nel portale di Azure e selezionare **Controllo di accesso (IAM)**. Selezionare **Aggiungi** per aprire la pagina **Aggiungi autorizzazioni**. Per **Ruolo**, selezionare **Collaboratore**. Nella casella di testo **Seleziona** digitare il nome dell'entità servizio per l'account RunAs e selezionarlo dall'elenco. È consigliabile fare clic su **Salva** per salvare le modifiche. Eseguire questa procedura per i gruppi di risorse a cui l'entità servizio RunAs di Automazione di Azure deve poter accedere.
+Per aggiungere l'entità servizio a un gruppo di risorse, selezionare il gruppo di risorse nel portale di Azure e selezionare **Controllo di accesso (IAM)**. Selezionare **Aggiungi assegnazione di ruolo** per aprire la pagina **Aggiungi assegnazione di ruolo**. Per **Ruolo**, selezionare **Collaboratore**. Nella casella di testo **Seleziona** digitare il nome dell'entità servizio per l'account RunAs e selezionarlo dall'elenco. È consigliabile fare clic su **Salva** per salvare le modifiche. Eseguire questa procedura per i gruppi di risorse a cui l'entità servizio RunAs di Automazione di Azure deve poter accedere.
 
 ## <a name="misconfiguration"></a>Errore di configurazione
 

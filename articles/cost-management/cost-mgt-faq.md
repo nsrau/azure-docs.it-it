@@ -1,21 +1,21 @@
 ---
 title: Domande frequenti su Cloudyn in Azure | Microsoft Docs
-description: Risposte ad alcune domande comuni su Cloudyn.
+description: Questo articolo risponde ad alcune domande comuni su Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/14/2018
+ms.date: 12/06/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 3b137a170edf2be13fa4999947994ee12a374aa9
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: a27cd45ebec41a90a1627bff157c1058b83a25e6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276279"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098090"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Domande frequenti su Cloudyn
 
@@ -127,7 +127,7 @@ Cloudyn rileva automaticamente la valuta della sottoscrizione Enterprise Agreeme
 Cloudyn offre le tempistiche di aggiornamento dei dati riportate di seguito.
 
 - **Iniziale**: la visualizzazione dei dati sui costi in Cloudyn dopo la configurazione può richiedere fino a 24 ore. Possono inoltre trascorrere fino a 10 giorni prima che Cloudyn raccolga dati sufficienti per visualizzare consigli sul ridimensionamento.
-- **Giornaliero**: dal giorno 10 fino alla fine di ogni mese, Cloudyn visualizzerà i dati aggiornati del giorno precedente dopo le ore UTC+3 circa del giorno successivo.
+- **Giornaliera**: dal giorno 10 fino alla fine di ogni mese, Cloudyn visualizzerà i dati aggiornati del giorno precedente dopo le ore UTC+3 circa del giorno successivo.
 - **Mensile**: dal giorno 1 al 10 di ogni mese, Cloudyn potrebbe visualizzare solo i dati fino alla fine del mese precedente.
 
 Cloudyn elabora i dati per il giorno precedente quando sono tutti disponibili. I dati del giorno precedente sono in genere disponibili in Cloudyn entro le ore UTC+3 circa di ogni giorno. L'elaborazione di alcuni dati, come i tag, può richiedere altre 24 ore.

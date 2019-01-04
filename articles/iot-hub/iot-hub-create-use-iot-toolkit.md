@@ -1,24 +1,24 @@
 ---
-title: Creare un hub IoT di Azure usando Azure IoT Toolkit per Visual Studio Code | Microsoft Docs
-description: Come usare Azure IoT Toolkit per Visual Studio Code per creare un hub IoT.
+title: Creare un hub IoT di Azure usando Azure IoT Hub Toolkit per Visual Studio Code | Microsoft Docs
+description: Come usare Azure IoT Hub Toolkit per Visual Studio Code per creare un hub IoT.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: junhan
-ms.openlocfilehash: 5097d7e1f6a0b9e94919ccc8731702206c0a1568
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: cee71ddfbf1a20cc7417976d60b04bff6f0deac8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047234"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339026"
 ---
-# <a name="create-an-iot-hub-using-the-azure-iot-toolkit-for-visual-studio-code"></a>Creare un hub IoT con Azure IoT Toolkit per Visual Studio Code
+# <a name="create-an-iot-hub-using-the-azure-iot-hub-toolkit-for-visual-studio-code"></a>Creare un hub IoT con Azure IoT Hub Toolkit per Visual Studio Code
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Questo articolo illustra come usare [Azure IoT Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) per creare un hub IoT di Azure. 
+Questo articolo illustra come usare [Azure IoT Hub Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (in precedenza Azure IoT Toolkit) per creare un hub IoT di Azure. 
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
@@ -26,7 +26,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+- [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -56,10 +56,10 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Si è ora implementato un hub IoT usando Azure IoT Toolkit per Visual Studio Code. Per altre informazioni, vedere gli articoli seguenti:
+È stato implementato un hub IoT usando Azure IoT Hub Toolkit per Visual Studio Code. Per altre informazioni, vedere gli articoli seguenti:
 
-* [Usare l'estensione Azure IoT Toolkit per Visual Studio Code per inviare e ricevere messaggi tra il dispositivo e l'hub IoT](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
+* [Usare l'estensione Azure IoT Hub Toolkit per Visual Studio Code per inviare e ricevere messaggi tra il dispositivo e l'hub IoT](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
 
-* [Usare l'estensione Azure IoT Toolkit per Visual Studio Code per la gestione dei dispositivi dell'hub IoT di Azure](iot-hub-device-management-iot-toolkit.md)
+* [Usare l'estensione Azure IoT Hub Toolkit per Visual Studio Code per la gestione dei dispositivi dell'hub IoT di Azure](iot-hub-device-management-iot-toolkit.md)
 
-* [Pagina Wiki per Azure IoT Toolkit](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki)
+* [Pagina Wiki per Azure IoT Hub Toolkit](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).

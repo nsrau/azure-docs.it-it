@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08ffc3a9eb4942cb21c0a800d493b87b016d7f87
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016176"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409922"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione di Azure per limitare l'accesso ai dati in HDInsight
 
 HDInsight ha accesso completo ai dati negli account di archiviazione di Azure associati al cluster. È possibile usare le firme di accesso condiviso nel contenitore BLOB per limitare l'accesso ai dati, Le firme di accesso condiviso sono una funzionalità degli account di archiviazione di Azure che consente di limitare l'accesso ai dati. Ad esempio, concedendo l'accesso in sola lettura ai dati.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Per una soluzione che usi Apache Ranger, considerare la possibilità di usare HDInsight aggiunto al dominio. Per altre informazioni, vedere il documento [Configurare i cluster HDInsight aggiunti al dominio](./domain-joined/apache-domain-joined-configure.md).
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight deve avere accesso completo alla risorsa di archiviazione predefinita per il cluster.
 
 ## <a name="requirements"></a>Requisiti
@@ -34,9 +34,9 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
   * Visual Studio versione 2013, 2015 o 2017
   * Python versione 2.7 o successiva.
 
-* Un cluster HDInsight basato su Linux OPPURE [Azure PowerShell][powershell]. Se è disponibile un cluster basato su Linux esistente, è possibile usare Ambari per aggiungere una firma di accesso condiviso al cluster. In caso contrario, è possibile usare Azure PowerShell per creare un cluster e aggiungere una firma di accesso condiviso durante la creazione del cluster.
+* Un cluster HDInsight basato su Linux OPPURE [Azure PowerShell][powershell]. Se è disponibile un cluster basato su Linux esistente, è possibile usare Apache Ambari per aggiungere una firma di accesso condiviso al cluster. In caso contrario, è possibile usare Azure PowerShell per creare un cluster e aggiungere una firma di accesso condiviso durante la creazione del cluster.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * I file di esempio da [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Il repository contiene gli elementi seguenti:
@@ -66,7 +66,7 @@ La differenza tra le due forme è importante un unico scenario chiave, la revoca
 
 4. La chiave dell'account utilizzata per creare la firma di accesso condiviso viene rigenerata. Se si rigenera la chiave, l'autenticazione di tutte le applicazioni che usano la chiave precedente avrà esito negativo. Aggiornare tutti i componenti con la nuova chiave.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > L'URI di una firma di accesso condiviso è associato alla chiave dell'account usata per creare la firma e ai relativi criteri di accesso archiviati (se presenti). Se non sono specificati criteri di accesso archiviati, l'unico modo per revocare una firma di accesso condiviso consiste nel modificare la chiave dell'account.
 
 È consigliabile usare sempre i criteri di accesso archiviati. Con i criteri archiviati, è possibile revocare le firme o estendere la scadenza in base alle esigenze. I passaggi illustrati in questo documento permettono di usare i criteri di accesso archiviati per generare firme di accesso condiviso.
@@ -81,7 +81,7 @@ Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni su
 
 3. Selezionare **Impostazioni** e aggiungere i valori per le voci seguenti:
 
-   * StorageConnectionString: stringa di connessione per l'account di archiviazione per cui si vuole creare un criterio archiviato e una firma di accesso condiviso. Il formato deve essere `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`, dove `myaccount` è il nome dell'account di archiviazione e `mykey` è la chiave dell'account di archiviazione.
+   * StorageConnectionString: stringa di connessione per l'account di archiviazione per cui si vogliono creare criteri archiviati e una firma di accesso condiviso. Il formato deve essere `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`, dove `myaccount` è il nome dell'account di archiviazione e `mykey` è la chiave dell'account di archiviazione.
 
    * ContainerName: contenitore nell'account di archiviazione a cui si vuole limitare l'accesso.
 
@@ -101,7 +101,7 @@ Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni su
 
    * policy\_name: nome da usare per i criteri archiviati da creare.
 
-   * storage\_account\_name: nome del proprio account di archiviazione.
+   * storage\_account\_name: nome dell'account di archiviazione.
 
    * storage\_account\_key: chiave per l'account di archiviazione.
 
@@ -177,7 +177,7 @@ La directory `CreateCluster` del repository include un esempio di creazione di u
 
     Se si sta creando un cluster basato su Linux, viene chiesto di specificare anche un nome e una password per l'account utente SSH. Questo account viene usato per accedere in remoto al cluster.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Quando vengono richiesti un nome e una password per HTTP/S o SSH, è necessario fornire una password che soddisfi i criteri seguenti:
    >
    > * La lunghezza non può essere inferiore a 10 caratteri
@@ -208,7 +208,7 @@ Se è disponibile un cluster basato su Linux esistente, è possibile aggiungere 
 
     Al termine delle modifiche, fare clic su **OK** .
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Perché le modifiche siano effettive, è necessario riavviare diversi servizi.
 
 6. Nell'interfaccia utente Web di Ambari selezionare **HDFS** dall'elenco a sinistra e quindi selezionare **Restart All Affected** (Reimposta tutti gli interessati) dall'elenco a discesa **Service Actions** (Azioni servizio) a destra. Quando viene chiesto, selezionare __Confirm restart all__ (Conferma riavvio di tutti).
@@ -288,7 +288,7 @@ Dopo aver stabilito la connessione al cluster, usare la procedura seguente per v
 
 **Causa**: questo errore può verificarsi se si usa una password per l'utente admin/HTTP per il cluster oppure, nei cluster basati su Linux, per l'utente SSH.
 
-**Risoluzione**: usare una password che soddisfi i criteri seguenti:
+**Soluzione**: usare una password che soddisfi i criteri seguenti:
 
 * La lunghezza non può essere inferiore a 10 caratteri
 * Deve contenere almeno una cifra
@@ -299,8 +299,8 @@ Dopo aver stabilito la connessione al cluster, usare la procedura seguente per v
 
 Ora che si è appreso come aggiungere risorse di archiviazione ad accesso limitato al cluster HDInsight, è possibile conoscere altri modi per usare i dati nel cluster:
 
-* [Usare Hive con HDInsight](hadoop/hdinsight-use-hive.md)
-* [Usare Pig con HDInsight](hadoop/hdinsight-use-pig.md)
+* [Usare Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
+* [Usare Pig con Hadoop in HDInsight](hadoop/hdinsight-use-pig.md)
 * [Usare MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

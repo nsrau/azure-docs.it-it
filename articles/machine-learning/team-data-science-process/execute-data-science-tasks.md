@@ -1,5 +1,5 @@
 ---
-title: Eseguire attività di data science - Azure Machine Learning | Microsoft Docs
+title: Eseguire attività di data science - Processo di data science per i team
 description: Informazioni su come un esperto di dati può eseguire un progetto di data science in modo tracciabile, collaborativo e con controllo della versione.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 7e25e2c95f377b1ad40cba24b29ababd0561e32a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: e8167361f3b541b613d453ade473880ec97a56dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495693"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134812"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Eseguire attività di data science: esplorazione, modellazione e distribuzione
 

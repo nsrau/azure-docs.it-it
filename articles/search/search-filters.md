@@ -1,5 +1,5 @@
 ---
-title: Filtri in Ricerca di Azure | Microsoft Docs
+title: Filtri per definire l'ambito dei risultati della ricerca in un indice - Ricerca di Azure
 description: Filtrare in base a identità di sicurezza dell'utente, lingua, località geografica o valori numerici per ridurre i risultati della ricerca nelle query in Ricerca di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 9f891dbe3f051f2fb5bfd242830f3c30abede487
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: d99196e231d122fcb0e707d30aed4d3b3eb2b89d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191367"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310352"
 ---
 # <a name="filters-in-azure-search"></a>Filtri in Ricerca di Azure 
 

@@ -1,5 +1,5 @@
 ---
-title: Come controllare il traffico in ingresso a un ambiente del servizio app
+title: Controllare il traffico in ingresso a un ambiente del servizio app - Azure
 description: Informazioni su come configurare le regole di sicurezza di rete per controllare il traffico in ingresso a un ambiente del servizio app.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
-ms.openlocfilehash: ed72bf3202d6cb2d2161bc0df693d3e6a1fc58ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 84575dcb67845a074ce19cf9d819e1dda3f90e20
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22987006"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271976"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Come controllare il traffico in ingresso a un ambiente del servizio app
 ## <a name="overview"></a>Panoramica
@@ -38,12 +39,12 @@ Prima di bloccare il traffico di rete in ingresso tramite un gruppo di sicurezza
 
 Di seguito è riportato un elenco delle porte usate da un ambiente del servizio app. Tutte le porte sono di tipo **TCP**, se non indicato diversamente in modo chiaro:
 
-* 454: **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite SSL.  Non bloccare il traffico indirizzato a questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
-* 455: **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite SSL.  Non bloccare il traffico indirizzato a questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
-* 80: porta predefinita per il traffico HTTP in ingresso alle app in esecuzione nei piani di servizio app in un ambiente del servizio app.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
+* 454:  **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite SSL.  Non bloccare il traffico indirizzato a questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
+* 455:  **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite SSL.  Non bloccare il traffico indirizzato a questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
+* 80:  porta predefinita per il traffico HTTP in ingresso alle app in esecuzione nei piani di servizio app in un ambiente del servizio app.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
 * 443: porta predefinita per il traffico SSL in ingresso alle app in esecuzione nei piani del servizio app in un ambiente del servizio app.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
-* 21: canale di controllo per il servizio FTP.  Questa porta può essere bloccata, se non si usa un servizio FTP.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB per un ambiente.
-* 990: canale di controllo per il servizio FTPS.  Questa porta può essere bloccata, se non si usa un servizio FTPS.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB per un ambiente.
+* 21:  canale di controllo per il servizio FTP.  Questa porta può essere bloccata, se non si usa un servizio FTP.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB per un ambiente.
+* 990:  canale di controllo per il servizio FTPS.  Questa porta può essere bloccata, se non si usa un servizio FTPS.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB per un ambiente.
 * 10001-10020: canali di dati per il servizio FTP.  Come per il canale di controllo, queste porte possono essere bloccate se non si usa il servizio FTP.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta può essere associata all'indirizzo ILB dell'ambiente.
 * 4016: porta usata per il debug remoto con Visual Studio 2012.  Questa porta può essere bloccata, se non si usa questa funzionalità.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
 * 4018: porta usata per il debug remoto con Visual Studio 2013.  Questa porta può essere bloccata, se non si usa questa funzionalità.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.

@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 3015755d8046f72c03cd1a1485d90a7f720a8909
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b1b4ea5775a661712838c1495ef0025a83b8c518
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353023"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607944"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Panoramica del servizio app in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Servizio App di Azure in Azure Stack è un'offerta di platform-as-a-service (PaaS) di Microsoft Azure disponibile in Azure Stack. Il servizio consente ai clienti interni o esterni creare web, API e funzioni di Azure delle applicazioni per qualsiasi piattaforma o dispositivo. Possono integrare le tue App con le applicazioni locali e automatizzare i processi di business. Gli operatori cloud di Azure Stack è possono eseguire app di clienti in macchine virtuali (VM), completamente gestite con le scelte di risorse delle macchine Virtuali condivise o le macchine virtuali dedicate.
+Servizio App di Azure in Azure Stack è un'offerta di platform-as-a-service (PaaS) di Microsoft Azure disponibile in Azure Stack. Il servizio consente ai clienti interni o esterni creare web, API e funzioni di Azure delle applicazioni per qualsiasi piattaforma o dispositivo. È possibile integrare le app con applicazioni locali e automatizzare i processi aziendali. Gli operatori cloud di Azure Stack possono eseguire le app dei clienti in macchine virtuali completamente gestite, con le relative risorse condivise o le macchine virtuali dedicate desiderate.
 
 Servizio App di Azure consente di automatizzare i processi aziendali e ospitare API cloud. Un singolo servizio integrato, servizio App di Azure consente di combinare vari componenti, ad esempio siti Web, API REST e i processi di business, in un'unica soluzione.
 
@@ -33,16 +33,16 @@ Servizio App di Azure consente di automatizzare i processi aziendali e ospitare 
 
 Ecco alcune caratteristiche e funzionalità chiave del servizio app:
 
-- **Più linguaggi e Framework**: servizio App ha un supporto eccellente per ASP.NET, Node. js, Java, PHP e Python. È anche possibile eseguire Windows PowerShell e altri script o eseguibili su macchine virtuali del servizio App.
-- **Ottimizzazione della metodologia DevOps**: configurare l'integrazione continua e la distribuzione Git locale, GitHub o BitBucket. È possibile alzare di livello gli aggiornamenti tramite test e ambienti di staging e gestire le app nel servizio App usando Azure PowerShell o l'interfaccia della riga di comando multipiattaforma (CLI).
-- **Integrazione di Visual Studio**: gli strumenti dedicati in Visual Studio semplificano il processo di creazione e distribuzione di applicazioni.
+- **Più linguaggi e Framework**: Servizio App ha un supporto eccellente per ASP.NET, Node. js, Java, PHP e Python. È anche possibile eseguire Windows PowerShell e altri script o eseguibili su macchine virtuali del servizio App.
+- **Ottimizzazione della metodologia DevOps**: Configurare l'integrazione continua e distribuzione con l'archivio Git locale, GitHub o BitBucket. È possibile alzare di livello gli aggiornamenti tramite test e ambienti di staging e gestire le app nel servizio App usando Azure PowerShell o l'interfaccia della riga di comando multipiattaforma (CLI).
+- **Integrazione di Visual Studio**: Gli strumenti dedicati in Visual Studio semplificano il processo di creazione e distribuzione di applicazioni.
 
 ## <a name="app-types-in-app-service"></a>Tipi di app nel servizio app
 
 Servizio App offre diversi tipi di app, ognuno dei quali è progettato per ospitare un carico di lavoro specifico:
 
-- [App Web](../app-service/app-service-web-overview.md) per l'hosting di siti e applicazioni web.
-- [App per le API](../app-service/app-service-web-overview.md) per l'hosting di API REST.
+- [App Web](../app-service/overview.md) per l'hosting di siti e applicazioni web.
+- [App per le API](../app-service/overview.md) per l'hosting di API REST.
 - Funzioni di Azure per l'hosting aktivita typu EventDriven, i carichi di lavoro senza server.
 
 La parola *app* fa riferimento a risorse di hosting dedicate all'esecuzione di un carico di lavoro. Prendendo *app web* ad esempio, si è probabilmente abituati a pensare di un'app web come se tale funzionalità insieme offrono un browser del codice sia le risorse di calcolo e dell'applicazione. Nel servizio App, un'app web è la risorsa di calcolo di Azure Stack offre per ospitare il codice dell'applicazione.

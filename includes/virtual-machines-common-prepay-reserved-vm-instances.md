@@ -1,15 +1,15 @@
 ---
 author: yashesvi
-ms.author: yashar
+ms.author: cwatson
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09/05/2018
-ms.openlocfilehash: 40551fa60aa17e9a46d24ffdf17bb61a884a48f2
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 11/30/2018
+ms.openlocfilehash: a35c3a9a6d914cf7e6620819b24e34d954f55c2d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585744"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742301"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure
 
@@ -32,10 +32,9 @@ Le istanze di macchina virtuale riservate sono disponibili per la maggior parte 
 
 - Lo sconto per la prenotazione non si applica alle macchine virtuali seguenti:
   - Macchine virtuali e servizi cloud classici
-  - Dimensioni con vCPU vincolate
   - Serie di macchine virtuali: serie A, serie Av2 o serie G
   - Macchine virtuali in anteprima: qualsiasi dimensione o serie di macchine virtuali disponibile in anteprima
-- Cloud: le prenotazioni non sono disponibili per le aree di Germania e Cina.
+- Cloud: le prenotazioni non sono disponibili per le aree di Germania o Cina.
 - Quota insufficiente: una prenotazione con ambito riferito a una singola sottoscrizione deve avere una quota di CPU virtuali disponibile nell'istanza riservata. Ad esempio, se la sottoscrizione di destinazione ha un limite di quota pari a 10 vCPU per la serie D, non sarà possibile acquistare una prenotazione per 11 istanze Standard_D1. Il controllo della quota per le prenotazioni include le macchine virtuali già distribuite nella sottoscrizione. Ad esempio, se la sottoscrizione include una quota di 10 vCPU per la serie D e distribuisce due istanze Standard_D1, sarà possibile acquistare una prenotazione per le 10 istanze Standard_D1 nella sottoscrizione. 
 - Restrizioni della capacità: in rari casi Azure limita l'acquisto di nuove prenotazioni per subset di dimensioni di macchine virtuali a causa della bassa capacità in un'area specifica.
 
@@ -49,7 +48,7 @@ Le istanze di macchina virtuale riservate sono disponibili per la maggior parte 
     | Campo      | DESCRIZIONE|
     |:------------|:--------------|
     |NOME        |Il nome della prenotazione.| 
-    |Sottoscrizione|La sottoscrizione usata per pagare la prenotazione. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P) o con pagamento in base al consumo (numero offerta: MS-AZR-0003P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.|    
+    |Sottoscrizione|La sottoscrizione usata per pagare la prenotazione. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numero offerta: MS-AZR-0017P) o con pagamento a consumo (numero offerta: MS-AZR-0003P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.|    
     |Scope       |L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>Sottoscrizione singola: lo sconto relativo alla prenotazione viene applicato alle macchine virtuali in questa sottoscrizione. </li><li>Condivisa: lo sconto relativo alla prenotazione viene applicato alle macchine virtuali in tutte le sottoscrizione all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni (eccetto le sottoscrizioni di sviluppo/test) all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</li></ul>|
     |Region    |L'area di Azure coperta dalla prenotazione.|    
     |Dimensioni macchina virtuale     |Le dimensioni delle istanze della macchina virtuale.|

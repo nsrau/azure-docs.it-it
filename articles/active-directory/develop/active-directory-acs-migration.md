@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 805270fa4cc051929ecb1362f2d3cd4455a17a60
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e68099609e5a4a27dfae7956fa43634d38311a22
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423382"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015773"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Microsoft Azure
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione dal Servizio di controllo di accesso di Azure
 
 Servizio di controllo di accesso di Microsoft Azure, un servizio di Azure Active Directory (Azure AD), verrà ritirato il 7 novembre 2018. Le applicazioni e i servizi che attualmente utilizzano questo servizio devono eseguire la migrazione completa a un meccanismo di autenticazione diverso entro tale data. Questo articolo presenta i consigli per i clienti attuali che pianificano la deprecazione dell'uso di Controllo di accesso. Se attualmente non si utilizza Controllo di accesso, non è necessario intraprendere alcuna azione.
 
@@ -113,7 +113,7 @@ A partire dal mese di novembre 2017, tutti i componenti di Controllo di accesso 
 
 Di seguito è riportata la pianificazione della deprecazione dei componenti di Controllo di accesso:
 
-- **Novembre 2017**: l'esperienza di amministrazione di Azure AD nel portale di Azure classico [è stata ritirata](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). A questo punto, la gestione degli spazi dei nomi per Controllo di accesso sarà disponibile presso un nuovo URL dedicato: `https://manage.windowsazure.com?restoreClassic=true`. Utilizzare questo URl per visualizzare gli spazi dei nomi esistenti, abilitarli, disabilitarli ed eventualmente eliminarli.
+- **Novembre 2017**:  l'esperienza di amministrazione di Azure AD nel portale di Azure classico [è stata ritirata](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). A questo punto, la gestione degli spazi dei nomi per Controllo di accesso sarà disponibile presso un nuovo URL dedicato: `https://manage.windowsazure.com?restoreClassic=true`. Utilizzare questo URl per visualizzare gli spazi dei nomi esistenti, abilitarli, disabilitarli ed eventualmente eliminarli.
 - **2 aprile 2018**: il portale di Azure classico è stato completamente ritirato. Pertanto, la gestione degli spazi dei nomi di Controllo di accesso non è più disponibile tramite un URL. A questo punto, è impossibile disabilitare o abilitare, eliminare o enumerare gli spazi dei nomi di Controllo di accesso. Il portale di gestione di Controllo di accesso, tuttavia, sarà completamente funzionante e disponibile all'indirizzo `https://\<namespace\>.accesscontrol.windows.net`. Tutti gli altri componenti di Controllo di accesso continuano a funzionare normalmente.
 - **7 novembre 2018**: tutti i componenti di Controllo di accesso vengono arrestati in modo permanente. Sono inclusi il portale di gestione di Controllo di accesso, il servizio di gestione, il servizio token di sicurezza e il motore di regole di trasformazione dei token. A questo punto, tutte le richieste inviate a Controllo di accesso (all'indirizzo \<spaziodeinomi\>.accesscontrol.windows.net) hanno esito negativo. È necessario eseguire la migrazione di tutte le app e di tutti i servizi esistenti ad altre tecnologie molto prima di questa data.
 
@@ -132,7 +132,7 @@ Ogni servizio cloud Microsoft che accetta token rilasciati da Controllo di acces
 | ------- | -------- |
 | Bus di servizio di Azure | [Eseguire la migrazione alle firme di accesso condiviso](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Inoltro del bus di servizio di Azure | [Eseguire la migrazione alle firme di accesso condiviso](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Cache gestita di Azure | [Eseguire la migrazione a Cache Redis di Azure](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Cache gestita di Azure | [Eseguire la migrazione a Cache Redis di Azure](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Azure DataMarket | [Eseguire la migrazione alle API Servizi cognitivi](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Servizi BizTalk | [Eseguire la migrazione alla funzionalità app per la logica del servizio app di Azure](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Servizi multimediali di Azure | [Eseguire la migrazione all'autenticazione di Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
@@ -162,8 +162,8 @@ Per le applicazioni Web che usano Controllo di accesso per l'autenticazione uten
 
 - Integrazione profonda con Windows Identity Foundation (WIF).
 - Federazione con account Google, Facebook, Yahoo, Azure Active Directory, AD FS Microsoft.
-- Supporto per i protocolli di autenticazione seguenti: OAuth 2.0 bozza 13, WS-Trust e Web Services Federation (WS-Federation).
-- Supporto per i formati di token seguenti: token JSON Web (JWT), SAML 1.1, SAML 2.0 e token Web semplice (SWT).
+- Supporto per i protocolli di autenticazione seguenti: OAuth 2.0 Draft 13, WS-Trust e Web Services Federation (WS-Federation).
+- Supporto per i formati di token seguenti: token JSON Web (token JWT), SAML 1.1, SAML 2.0 e token Web semplice (SWT).
 - Un'esperienza di individuazione dell'area di autenticazione principale, integrata in WIF, che consente agli utenti di scegliere il tipo di account da usare per l'accesso. Questa esperienza è ospitata dall'applicazione Web e completamente personalizzabile.
 - Trasformazione dei token che consente la personalizzazione avanzata delle attestazioni ricevute dall'applicazione Web dal Controllo di accesso, tra cui:
     - Pass-through delle attestazioni dai provider di identità.
@@ -307,7 +307,7 @@ Per i servizi Web protetti con token rilasciati da Controllo di accesso, Control
     - Semplice password creata per l'identità del servizio
     - Token Web semplice firmato che usa una chiave simmetrica o un certificato X509
     - Token SAML rilasciato da un provider di identità attendibile (in genere un'istanza di AD FS)
-- Supporto per i formati di token seguenti: JWT, SAML 1.1, SAML 2.0 e SWT.
+- Supporto per i formati di token seguenti: token JWT, SAML 1.1, SAML 2.0 e SWT.
 - Semplici regole di trasformazione dei token.
 
 Le identità del servizio di Controllo di accesso sono in genere usate per l'implementazione dell'autenticazione di tipo S2S (server-to-server). 

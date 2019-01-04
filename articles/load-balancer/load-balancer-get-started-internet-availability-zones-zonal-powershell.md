@@ -1,5 +1,6 @@
 ---
-title: Creare un servizio Load Balancer Standard con un front-end di indirizzo IP pubblico di zona usando Azure PowerShell | Microsoft Docs
+title: Creare un servizio Load Balancer Standard pubblico con un front-end di indirizzo IP di zona - Azure PowerShell
+titlesuffix: Azure Load Balancer
 description: Informazioni su come creare un servizio Load Balancer Standard con un front-end di indirizzo IP pubblico di zona usando Azure PowerShell
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: bf3abeaec402eaf42bee74c167812340b093161b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: da30bce34425d3537f9610c6e1f64ded4a836fd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413230"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100685"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-powershell"></a>Creare un servizio Load Balancer Standard con un front-end di zona usando Azure PowerShell
 

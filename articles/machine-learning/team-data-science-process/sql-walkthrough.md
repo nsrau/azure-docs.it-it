@@ -1,6 +1,6 @@
 ---
-title: Compilare e distribuire un modello di Machine Learning utilizzando SQL Server in una macchina virtuale di Azure | Documentazione Microsoft
-description: Advanced Analytics Process and Technology in azione
+title: Creare e distribuire un modello in una macchina virtuale di SQL Server - Processo di data science per i team
+description: Creare e distribuire un modello di Machine Learning usando SQL Server in una macchina virtuale di Azure con un set di dati disponibile pubblicamente.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,16 +10,16 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: cad56d2e8de071feb9a02e0cfc6bcc884eebe91a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445464"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141408"
 ---
-# <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
-Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
+# <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di data science per i team in azione: uso di SQL Server
+Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di data science standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
 
 ## <a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
 I dati relativi alle corse dei taxi a NYC hanno dimensioni di circa 20 GB sotto forma di file CSV compressi(circa 48 GB senza compressione), e includono oltre 173 milioni di corse singole nonché le tariffe pagate per ciascuna corsa. Il record di ogni corsa include la località e l'orario di partenza e di arrivo, il numero di patente anonimo (del tassista) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
@@ -46,15 +46,15 @@ La chiave univoca che consente di unire trip\_data e trip\_fare è composta dai 
 ## <a name="mltasks"></a>Esempi di attività di stima
 Verranno formulati tre problemi di stima, basati su *tip\_amount*, vale a dire:
 
-1. Classificazione binaria: consente di prevedere se sia stata lasciata una mancia per la corsa oppure no, vale a dire se un *tip\_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un *tip\_amount* pari a $ 0 rappresenta un esempio negativo.
-2. Classificazione multiclasse: consente di prevedere l'intervallo di mance lasciato per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
+1. Classificazione binaria: consente di prevedere se è stata lasciata una mancia per una corsa oppure no, ovvero se un valore di *tip\_amount* superiore a $0 è un esempio positivo, mentre un valore di *tip\_amount* pari a $0 è un esempio negativo.
+2. Classificazione multiclasse: consente di stimare l'intervallo degli importi delle mance lasciate per la corsa. Il valore di *tip\_amount* viene suddiviso in cinque bin o classi:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Attività di regressione: consente di prevedere l'importo della mancia lasciata per una corsa.  
+3. Attività di regressione: consente di stimare l'importo della mancia lasciata per una corsa.  
 
 ## <a name="setup"></a>Configurazione dell'ambiente di analisi scientifica dei dati Azure per l’analitica avanzata
 Come è possibile vedere nella guida di [pianificazione dell'ambiente](plan-your-environment.md) , sono disponibili diverse opzioni per utilizzare il set di dati Corse dei taxi di NYC in Azure:
@@ -79,7 +79,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure:
    > 
    > 
 
-In base alle dimensioni del set di dati, al percorso dell'origine dati e all'ambiente di destinazione Azure selezionato, questo scenario è simile allo [Scenario \#n.5: Set di dati di grandi dimensioni in file locali, con destinazione SQL Server nella macchina virtuale di Azure](plan-sample-scenarios.md#largelocaltodb).
+In base alle dimensioni del set di dati, alla posizione dell'origine dati e all'ambiente di destinazione di Azure selezionato, questo scenario è simile allo [Scenario \#5: Set di dati di grandi dimensioni in file locali, con SQL Server in una macchina virtuale di Azure come destinazione](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Acquisizione dei dati da un'origine pubblica
 Per visualizzare il set di dati [Corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) dal relativo percorso pubblico, è possibile usare uno qualsiasi dei metodi descritti in [Spostamento dei dati da e verso l'archivio BLOB di Azure](move-azure-blob.md) e copiare i dati nella nuova macchina virtuale.
@@ -87,7 +87,7 @@ Per visualizzare il set di dati [Corse dei taxi di NYC](http://www.andresmh.com/
 Per copiare i dati usando AzCopy:
 
 1. Accedere alla macchina virtuale (VM)
-2. Creare una nuova directory nel disco dati della macchina virtuale (nota: non utilizzare come disco dati il disco temporaneo fornito con la macchina virtuale).
+2. Creare una nuova directory nel disco dati della macchina virtuale (Nota: non usare come disco dati il disco temporaneo fornito con la macchina virtuale).
 3. In una finestra di prompt dei comandi, eseguire la seguente riga di comando Azcopy, sostituendo <path_to_data_folder> con la cartella dei dati creata al passaggio (2):
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -164,7 +164,7 @@ Per una verifica rapida del numero di righe e di colonne nelle tabelle popolate 
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>Esplorazione: distribuzione delle corse per licenza
-In questo esempio viene identificata la licenza (numero del taxi) che ha eseguito più di 100 corse in un determinato periodo. Per la query verrà usata la tabella partizionata poiché è condizionata dallo schema di partizione di **pickup\_datetime**. Per la query del set di dati completo verrà inoltre utilizzata la tabella partizionata e/o l'analisi dell'indice.
+In questo esempio viene identificata la licenza (numero identificativo del taxi) che ha eseguito più di 100 corse in un determinato periodo. Per la query verrà usata la tabella partizionata poiché è condizionata dallo schema di partizione di **pickup\_datetime**. Per la query del set di dati completo verrà inoltre utilizzata la tabella partizionata e/o l'analisi dell'indice.
 
     SELECT medallion, COUNT(*)
     FROM nyctaxi_fare
@@ -172,14 +172,14 @@ In questo esempio viene identificata la licenza (numero del taxi) che ha eseguit
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Esplorazione: distribuzione delle corse per licenza e hack_license
+#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Esplorazione: distribuzione delle corse per licenza e numero di patente
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Valutazione della qualità dei dati: verifica dei record con longitudine o latitudine errate
+#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Valutazione della qualità dei dati: verifica dei record con longitudine e/o latitudine errate
 In questo esempio viene esaminato se uno dei campi relativi alla longitudine o alla latitudine contiene un valore non valido (i gradi radianti devono essere compresi tra -90 e 90) o presenta le coordinate (0, 0).
 
     SELECT COUNT(*) FROM nyctaxi_trip
@@ -191,7 +191,7 @@ In questo esempio viene esaminato se uno dei campi relativi alla longitudine o a
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Esplorazione: distribuzione delle corse per le quali è stata lasciata una mancia e di quelle per le quali non è stata lasciata una mancia
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Esplorazione: distribuzione delle corse per cui è stata lasciata una mancia e e di quelle per cui non è stata lasciata una mancia
 In questo esempio viene individuato il numero di corse per le quali è stata lasciata una mancia e il numero di corse per le quali non è stata lasciata una mancia in un determinato periodo (o nel set di dati completo, in caso di un anno intero). Questa distribuzione riflette la distribuzione delle etichette binarie che dovranno essere utilizzate in seguito per la creazione di modelli di classificazione binaria.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -335,7 +335,7 @@ Successivamente si consulterà il box plot per la distanza delle corse, per visu
 
 ![Grafico n. 1][1]
 
-#### <a name="visualization-distribution-plot-example"></a>Visualizzazione: esempio di tracciato di distribuzione
+#### <a name="visualization-distribution-plot-example"></a>Visualizzazione: esempio di grafico di distribuzione
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
     ax2 = fig.add_subplot(1,2,2)
@@ -344,7 +344,7 @@ Successivamente si consulterà il box plot per la distanza delle corse, per visu
 
 ![Grafico n. 2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>Visualizzazione: tracciati a barre e linee
+#### <a name="visualization-bar-and-line-plots"></a>Visualizzazione: grafici a barre e linee
 In questo esempio, la distanza delle corse viene suddivisa in cinque contenitori e vengono visualizzati i risultati di questa suddivisione.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -352,7 +352,7 @@ In questo esempio, la distanza delle corse viene suddivisa in cinque contenitori
     trip_dist_bin_id = pd.cut(df1['trip_distance'], trip_dist_bins)
     trip_dist_bin_id
 
-La distribuzione precedente può essere rappresentata in un tracciato a barre o linee come illustrato di seguito
+La distribuzione precedente può essere rappresentata in un grafico a barre o linee come illustrato di seguito
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
@@ -456,7 +456,7 @@ Nell'esempio seguente, verranno generati due set di etichette da utilizzare per 
         cursor.execute(nyctaxi_one_percent_update_col)
         cursor.commit()
 
-#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Progettazione di funzionalità: funzionalità di conteggio per le colonne relative alle categorie
+#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Progettazione di caratteristiche: caratteristiche di conteggio per le colonne relative alle categorie
 In questo esempio un campo di categoria viene trasformato in un campo numerico mediante la sostituzione di ciascuna categoria con il conteggio delle relative occorrenze nei dati.
 
     nyctaxi_one_percent_insert_col = '''
@@ -486,8 +486,8 @@ In questo esempio un campo di categoria viene trasformato in un campo numerico m
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Progettazione di funzionalità: funzionalità di collocazione per le colonne numeriche
-In questo esempio, un campo numerico continuo viene trasformato in intervalli di categorie predefiniti, vale a dire che il campo numerico verrà trasformato in un campo di categoria.
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Progettazione di caratteristiche: caratteristiche di tipo contenitore per le colonne numeriche
+In questo esempio, un campo numerico continuo viene trasformato in intervalli di categoria predefiniti, vale a dire che il campo numerico verrà trasformato in un campo di categoria.
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent ADD trip_time_bin int
@@ -514,7 +514,7 @@ In questo esempio, un campo numerico continuo viene trasformato in intervalli di
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Progettazione di funzionalità: funzionalità di estrazione della posizione dalla longitudine/latitudine decimale
+#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Progettazione di caratteristiche: estrazione di caratteristiche relative alle rappresentazioni decimali di latitudine/longitudine
 In questo esempio, la rappresentazione decimale di un campo di latitudine o longitudine viene suddivisa in più campi area di diversa granularità, ad esempio, paese, città, paese, quartiere e così via.  Si noti che non viene eseguito il mapping dei nuovi campi geografici alle località effettive. Per informazioni sul mapping delle località con codice geografico, vedere [Servizi REST di Bing Mappe](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
@@ -546,11 +546,11 @@ In questo esempio, la rappresentazione decimale di un campo di latitudine o long
 
 A questo punto è possibile procedere con la creazione e la distribuzione di modelli in [Azure Machine Learning](https://studio.azureml.net). I dati sono pronti per eventuali problemi di stima identificati in precedenza, in modo specifico:
 
-1. Classificazione binaria: consente di prevedere se per la corsa è stata lasciata o meno una mancia.
-2. Classificazione multiclasse: consente di prevedere l'intervallo di mance pagato, in base alle classi definite in precedenza.
-3. Attività di regressione: consente di prevedere l'importo della mancia lasciata per una corsa.  
+1. Classificazione binaria: consente di prevedere se per una corsa è stata lasciata o meno una mancia.
+2. Classificazione multiclasse: consente di stimare l'intervallo degli importi delle mance lasciate, in base alle classi definite in precedenza.
+3. Attività di regressione: consente di stimare l'importo della mancia lasciata per una corsa.  
 
-## <a name="mlmodel"></a>Compilazione di modelli in Azure Machine Learning
+## <a name="mlmodel"></a>Creazione di modelli in Azure Machine Learning
 Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area di lavoro Azure Machine Learning. Se non è ancora disponibile un'area di lavoro di machine learning, vedere [Creare un'area di lavoro Azure Machine Learning](../studio/create-workspace.md).
 
 1. Per iniziare a utilizzare Azure Machine Learning, vedere [Informazioni su Azure Machine Learning Studio](../studio/what-is-ml-studio.md)

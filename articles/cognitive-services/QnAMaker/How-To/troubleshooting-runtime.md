@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: ad3c01ebf37c8b544830b281144090694eeadfcd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 065b6551098a39fb737b7eface17d78b111d31b6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033729"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074146"
 ---
-# <a name="qnamaker-troubleshooting"></a>Risoluzione dei problemi relativi a QnA Maker
+# <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>Suggerimenti per la risoluzione dei problemi a supporto del servizio e del runtime di QnA Maker
 QnA Maker è costituito da componenti ospitati nell'account Azure dell'utente. Ai fini del debug, può essere necessario che gli utenti modifichino le proprie risorse di Azure per QnA Maker o forniscano al team di supporto di QnA Maker informazioni aggiuntive sulla configurazione.
 
 ## <a name="how-to-get-latest-qnamaker-runtime-updates"></a>Come ottenere gli aggiornamenti del runtime di QnA Maker più recenti
@@ -39,11 +40,11 @@ Il nome host del servizio QnA Maker è utile per scopi di debug quando si contat
     
 1. Passare al servizio QnA Maker (gruppo di risorse) nel [portale di Azure](https://portal.azure.com)
 
-    ![Gruppo di risorse di Azure per QnA Maker](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+    ![Gruppo di risorse Azure per QnA Maker nel portale di Azure](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
 2. Fare clic sul servizio app
 
-     ![Servizio app QnA Maker](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+     ![Selezionare il servizio app QnA Maker](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
 3. L'URL del nome host è disponibile nella sezione Panoramica
 

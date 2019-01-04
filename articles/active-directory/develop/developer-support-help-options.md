@@ -17,14 +17,14 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422440"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337139"
 ---
-# <a name="support-and-help-options-for-developers"></a>Opzioni di supporto tecnico e assistenza per gli sviluppatori 
+# <a name="support-and-help-options-for-developers"></a>Opzioni di supporto tecnico e assistenza per gli sviluppatori
 
 Indipendentemente dal fatto che si stia iniziando l'integrazione con Azure Active Directory, con le identità di Microsoft o con l'API Microsoft Graph, o che si stia implementando una nuova funzionalità nell'applicazione, in alcuni momenti è necessario l'aiuto della community o la comprensione approfondita delle opzioni di supporto disponibili per gli sviluppatori. Questo articolo aiuta a comprendere queste opzioni. Ecco un riepilogo:
 
@@ -76,7 +76,7 @@ Se non si riesce a trovare la soluzione a un problema tramite la ricerca, è pos
 |Qualsiasi altra area correlata ad argomenti relativi all'autenticazione o all'autorizzazione |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
-> Il post di Stack Overflow seguente contiene suggerimenti su come porre domande e su come aggiungere codice sorgente. Se ci si attiene a queste linee guida, aumenta la probabilità che i membri della community valutino le domande e rispondano rapidamente:  
+> Il post di Stack Overflow seguente contiene suggerimenti su come porre domande e su come aggiungere codice sorgente. Se ci si attiene a queste linee guida, aumenta la probabilità che i membri della community valutino le domande e rispondano rapidamente:
 > - [Come creare una domanda utile](https://stackoverflow.com/help/how-to-ask)
 > - [Come creare un esempio minimo, completo e verificabile](https://stackoverflow.com/help/mcve)
 

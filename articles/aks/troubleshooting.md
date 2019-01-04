@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1fd8f7c8499b7f9223939b8d426f274e79fd190e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c20f2cc03565ce861dfc6317be8459fdafeef0bf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025346"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384106"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di AKS
 Quando si creano o gestiscono cluster AKS, possono occasionalmente verificarsi problemi. Questo articolo illustra alcuni problemi comuni e i passaggi per la risoluzione dei problemi.
@@ -59,8 +59,31 @@ Se non viene visualizzato il dashboard di Kubernetes, controllare se il pod kube
 
 Assicurarsi che il gruppo di sicurezza di rete predefinito non sia modificato e che la porta 22 sia aperta per la connessione al server API. Controllare se il pod tunnelfront è in esecuzione nello spazio dei nomi kube system. In caso contrario, forzarne l'eliminazione in modo che venga riavviato.
 
-### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>Durante un tentativo di aggiornamento o ridimensionamento viene visualizzato il messaggio: "La modifica della proprietà 'imageReference' non è consentita." Errore.  Come si risolve il problema?
+### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>Sto cercando di eseguire l'aggiornamento o il ridimensionamento e ricevo un "messaggio": "La modifica della proprietà 'imageReference' non è consentita." Errore.  Come si risolve il problema?
 
 È possibile che questo errore venga visualizzato in seguito alla modifica di tag nei nodi dell'agente all'interno del cluster AKS. La modifica e l'eliminazione di tag e altre proprietà delle risorse nel gruppo di risorse MC_* può causare risultati imprevisti. Modificare le risorse in MC_* nel cluster AKS è una violazione dell'obiettivo del livello di servizio (SLO).
 
+### <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>Come posso rinnovare il segreto dell'entità servizio nel cluster del servizio Azure Kubernetes?
 
+Per impostazione predefinita, i cluster AKS vengono creati con un'entità servizio che dispone di una data di scadenza di un anno. Poiché la data di scadenza di un anno è prossima, è possibile reimpostare le credenziali per estendere l'entità servizio per un ulteriore periodo di tempo.
+
+L'esempio seguente segue questa procedura:
+
+1. Ottiene l'ID dell'entità servizio del cluster tramite il comando [az aks show](/cli/azure/aks#az-aks-show).
+1. Elenca il segreto client dell'entità servizio tramite l'[elenco di credenziali di az ad sp](/cli/azure/ad/sp/credential#az-ad-sp-credential-list)
+1. Estende l'entità servizio per un altro anno tramite il comando [ad az sp-reset credential](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset). Il segreto client dell'entità servizio deve rimanere invariato per eseguire correttamente il cluster del servizio Azure Kubernetes.
+
+```azurecli
+# Get the service principal ID of your AKS cluster
+sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+
+# Get the existing service principal client secret
+key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
+
+# Reset the credentials for your AKS service principal and extend for 1 year
+az ad sp credential reset \
+    --name $sp_id \
+    --password $key_secret \
+    --years 1
+```

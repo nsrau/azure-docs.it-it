@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 3012f07d8c56f2581a087bc8e43aa4a089bf9589
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633513"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322705"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Accesso Single Sign-On alle applicazioni in Azure Active Directory
 Informazioni su come scegliere il metodo di accesso Single Sign-On appropriato quando si configurano le applicazioni in Azure Active Directory (Azure AD). 
@@ -61,14 +61,13 @@ L'accesso Single Sign-On basato su SAML è supportato per le applicazioni che us
 
 - SAML 2.0
 - WS-Federation
-- OpenID Connect
 
 Per configurare un'applicazione per l'accesso Single Sign-On basata su SAML, vedere [Configurare l'accesso Single Sign-On basato su SAML](configure-single-sign-on-portal.md). Molte applicazioni presentano anche [esercitazioni specifiche dell'applicazione](../saas-apps/tutorial-list.md) di supporto nella configurazione dell'accesso Single Sign-On basato su SAML per applicazioni specifiche. 
 
 Per altre informazioni sul funzionamento del protocollo SAML, vedere [Protocollo SAML per Single Sign-On](../develop/single-sign-on-saml-protocol.md).
 
 ## <a name="password-based-sso"></a>SSO basato su password
-Nell'accesso Single Sign-On basato su password l'applicazione esegue l'autenticazione all'applicazione con un nome utente e una password. Gli utenti finali accedono all'applicazione la prima volta. Agli accessi successivi sarà Azure Active Directory a indicare il nome utente e la password all'applicazione. 
+Con l'accesso basato su password, gli utenti finali eseguono la procedura di accesso all'applicazione con nome utente e password solo al primo accesso. Agli accessi successivi sarà Azure Active Directory a indicare il nome utente e la password all'applicazione. 
 
 L'accesso Single Sign-On basato su password usa il processo di autenticazione esistente specificato dall'applicazione. Quando si abilita l'accesso Single Sign-On basato su password per un'applicazione, Azure AD raccoglie e archivia in modo sicuro i nomi utente e le password per l'applicazione. Le credenziali utente vengono archiviate in formato crittografato nella directory. 
 
@@ -178,6 +177,6 @@ Per altre informazioni, vedere [Edizioni di Azure Active Directory](../fundament
 * [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Esercitazione per configurare l'accesso Single Sign-On](configure-single-sign-on-portal.md)
 * [Introduzione alla gestione dell'accesso alle applicazioni](what-is-access-management.md)
-* Collegamento di download: [piano di distribuzione di Single Sign-On](http://aka.ms/SSODeploymentPlan).
+* Collegamento di download: [piano di distribuzione di Single Sign-On](https://aka.ms/SSODeploymentPlan).
 
 

@@ -1,5 +1,5 @@
 ---
-title: Analizzatori in Ricerca di Azure | Documentazione Microsoft
+title: Analizzatori per elaborazione linguistica e del testo - Ricerca di Azure
 description: Assegnare degli analizzatori ai campi di testo di ricerca in un indice per sostituire lo standard Lucene predefinito con alternative specifiche per lingua, predefinite o personalizzate.
 services: search
 ms.service: search
@@ -8,14 +8,15 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.openlocfilehash: 68ce4fa5536f21d6d66245a9383a4b58c42febff
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: seodec2018
+ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116371"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310539"
 ---
-# <a name="analyzers-in-azure-search"></a>Analizzatori in Ricerca di Azure
+# <a name="analyzers-for-text-processing-in-azure-search"></a>Analizzatori per elaborazione del testo in Ricerca di Azure
 
 Un *analizzatore* è un componente della [ricerca full-text](search-lucene-query-architecture.md) responsabile dell'elaborazione di testo in stringhe di query e documenti indicizzati. Le trasformazioni seguenti sono tipiche durante l'analisi:
 
@@ -82,7 +83,7 @@ Se la ricerca non restituisce i risultati previsti, è molto probabile che esist
 Gli esempi seguenti mostrano le definizioni degli analizzatori per alcuni scenari chiave.
 
 <a name="Example1"></a>
-### <a name="example-1-custom-options"></a>Esempio 1: opzioni personalizzate
+### <a name="example-1-custom-options"></a>Esempio 1: Opzioni personalizzate
 
 Questo esempio illustra una definizione di analizzatore con opzioni personalizzate. Le opzioni personalizzate per filtri char, tokenizer e filtri token vengono specificate separatamente come costrutti denominati a cui si fa riferimento nella definizione dell'analizzatore. Gli elementi predefiniti vengono usati as-is, facendo riferimento a essi semplicemente in base al nome.
 
@@ -149,7 +150,7 @@ Passaggi di questo esempio:
 ~~~~
 
 <a name="Example2"></a>
-### <a name="example-2-override-the-default-analyzer"></a>Esempio 2: eseguire l'Override dell'analizzatore predefinito
+### <a name="example-2-override-the-default-analyzer"></a>Esempio 2: Eseguire l'override dell'analizzatore predefinito
 
 L'analizzatore Standard è l'impostazione predefinita. Si supponga di volere sostituire l'elemento predefinito con un analizzatore predefinito diverso, ad esempio l'analizzatore Pattern. Se non si impostano delle opzioni personalizzate, occorre specificarlo in base al nome nella definizione del campo.
 
@@ -181,7 +182,7 @@ L'elemento "analizzatore" sostituisce l'analizzatore Standard campo per campo. N
 ~~~~
 
 <a name="Example3"></a>
-### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>Esempio 3: analizzatori diversi per le operazioni di indicizzazione e ricerca
+### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>Esempio 3: Analizzatori diversi per le operazioni di indicizzazione e ricerca
 
 Le API includono attributi di indice aggiuntivi per specificare analizzatori diversi per l'indicizzazione e la ricerca. Gli attributi `searchAnalyzer` e `indexAnalyzer` devono essere specificati come coppia, sostituendo l'attributo singolo `analyzer`.
 
@@ -208,7 +209,7 @@ Le API includono attributi di indice aggiuntivi per specificare analizzatori div
 ~~~~
 
 <a name="Example4"></a>
-### <a name="example-4-language-analyzer"></a>Esempio 4: analizzatore del linguaggio
+### <a name="example-4-language-analyzer"></a>Esempio 4: Analizzatore del linguaggio
 
 I campi contenenti stringhe in diverse lingue possono utsare un analizzatore del linguaggio, mentre altri campi mantengono il valore predefinito (o usano altri analizzatori predefiniti o personalizzati). Se si usa un analizzatore del linguaggio, questo deve essere usato per le operazioni di indicizzazione e ricerca. I campi che usano un analizzatore del linguaggio non possono disporre di analizzatori diversi per indicizzazione e ricerca.
 

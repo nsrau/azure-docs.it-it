@@ -1,12 +1,11 @@
 ---
-title: Usare un servizio Web di Machine Learning Studio da Excel - Azure Machine Learning Studio | Microsoft Docs
+title: Utilizzare un servizio Web in Excel - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning Studio semplifica la chiamata dei servizi Web direttamente da Excel senza dover di scrivere codice.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 3f3cdd2f-1816-487e-ab78-530e01e9788f
 ms.service: machine-learning
@@ -15,20 +14,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2018
-ms.openlocfilehash: 7084e62df3cd4872d90661ad6b94e1ebf7b54d8d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 02/01/2018
+ms.openlocfilehash: ad7eae16c2933790aefba3cee1551be29ee457be
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312745"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276928"
 ---
-# <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Utilizzo di un servizio Web Azure Machine Learning da Excel
+# <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Utilizzo di un servizio Web di Azure Machine Learning Studio da Excel
+
  Azure Machine Learning Studio semplifica la chiamata dei servizi Web direttamente da Excel senza dover di scrivere codice.
 
 Se si usa Excel 2013 (o versione successiva) o Excel Online, è consigliabile usare il [componente aggiuntivo di Excel](excel-add-in-for-web-services.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="steps"></a>Passaggi
 Pubblicazione di un servizio Web. [Questa pagina](walkthrough-5-publish-web-service.md) spiega come eseguire tale operazione. Attualmente la funzionalità della cartella di lavoro di Excel è supportata solo per i servizi di richiesta/risposta con un unico output cioè, una singola etichetta di valutazione. 

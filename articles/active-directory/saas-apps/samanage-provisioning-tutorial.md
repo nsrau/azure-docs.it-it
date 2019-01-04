@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634507"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322431"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Esercitazione: Configurare Samanage per il provisioning utenti automatico
 
@@ -76,7 +76,9 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Suggerimenti importanti per l'assegnazione di utenti a Samanage
 
-*   È consigliabile assegnare un singolo utente di Azure AD a Samanage per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+*    I ruoli di Samanage vengono popolati oggi stesso in modo automatico e dinamico nell'interfaccia utente del portale di Azure. Prima di assegnare i ruoli Samanage agli utenti, assicurarsi di completare una sincronizzazione iniziale con Samanage per recuperare gli ultimi ruoli nel tenant Samanage.
+
+*    È consigliabile assegnare un singolo utente di Azure AD a Samanage per testare la configurazione iniziale del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento, una volta completati i test.
 
 *   Quando si assegna un utente a Samanage, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** vengono esclusi dal provisioning.
 

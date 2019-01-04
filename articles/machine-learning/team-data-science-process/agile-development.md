@@ -1,5 +1,5 @@
 ---
-title: Sviluppo Agile di progetti di data science - Azure Machine Learning | Microsoft Docs
+title: Sviluppo Agile di progetti di data science - Processo di data science per i team
 description: Come gli sviluppatori possono eseguire un progetto di data science in modo sistematico, collaborativo e con controllo della versione all'interno di un team di progetto tramite il processo di data science per i team.
 author: marktab
 manager: cgronlun
@@ -9,17 +9,17 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 9fd8714e4c9fdc89036a3b05ba835b140363c0e3
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ee8e3e3ef33a8b09b92d4dfc262fce26dd60abb3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443373"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134404"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Sviluppo Agile di progetti di data science
 
-Questo documento descrive come gli sviluppatori possono eseguire un progetto di data science in modo sistematico, collaborativo e con controllo della versione all'interno di un team di progetto tramite il [processo di data science per i team](overview.md) (TDSP, Team Data Science Process). Il TDSP è un framework sviluppato da Microsoft che fornisce una sequenza strutturata di attività per eseguire in modo efficiente soluzioni di analisi predittiva, basate sul cloud. Per una descrizione dei ruoli del personale e delle rispettive attività associate che un team di data science gestisce allo scopo di normalizzare il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team). 
+Questo documento descrive come gli sviluppatori possono eseguire un progetto di data science in modo sistematico, collaborativo e con controllo della versione all'interno di un team di progetto tramite il [processo di data science per i team](overview.md) (TDSP, Team Data Science Process). Il TDSP è un framework sviluppato da Microsoft che fornisce una sequenza strutturata di attività per eseguire in modo efficiente soluzioni di analisi predittiva, basate sul cloud. Per una descrizione dei ruoli del personale e delle rispettive attività associate che un team di data science gestisce allo scopo di normalizzare il processo, vedere [Ruoli e attività del processo di data science per i team](roles-tasks.md). 
 
 Questo articolo comprende istruzioni su come: 
 
@@ -51,7 +51,7 @@ Nel framework di pianificazione dello sprint TDSP sono disponibili quattro tipi 
 - **Attività**: le attività sono elementi di lavoro di codice o di documento assegnabili o altre attività che devono essere eseguite per completare una storia specifica. Ad esempio, le attività nella storia *Getting Data* (Acquisizione dei dati) potrebbero essere:
     -  Ottenere le credenziali di SQL Server 
     -  Caricamento dei dati in SQL Data Warehouse. 
-- **Bug**: i bug fanno in genere riferimento alle correzioni necessarie per un codice o un documento esistenti che vengono eseguite durante il completamento di un'attività. Se il bug è causato rispettivamente da passaggi o attività mancanti, è possibile passarlo allo stato di storia o di attività. 
+- **Bug**: i bug fanno in genere riferimento alle correzioni necessarie per il codice o un documento esistente che vengono eseguite durante il completamento di un'attività. Se il bug è causato rispettivamente da passaggi o attività mancanti, è possibile passarlo allo stato di storia o di attività. 
 
 > [!NOTE]
 > I concetti di funzionalità, storie, attività e bug sono presi in prestito dalla gestione del codice software e usati in data science, pur in un senso leggermente diverso da quello delle definizioni convenzionali proprie della gestione del codice software.
@@ -139,7 +139,7 @@ Questo articolo illustra come impostare un modello di Team Data Science Process 
 
 5. Analogamente, modificare il nome di Backlog "Funzionalità" in "Fasi TDSP" e aggiungere le informazioni seguenti per **Nuovo tipo di elemento di lavoro**:
 
-    - Informazioni commerciali
+    - Comprensione delle strategie aziendali
     - Acquisizione dei dati
     - Modellazione
     - Distribuzione

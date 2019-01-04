@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456491"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957692"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility in una replica di Azure
 
@@ -66,11 +66,11 @@ Quando si abilita la replica di una macchina virtuale a partire [dalla visualizz
 
 1. Se sono disponibili nuovi aggiornamenti per il servizio Mobility installato nella macchina virtuale di Azure, viene visualizzata la notifica "È disponibile un nuovo aggiornamento dell'agente di replica di Site Recovery. Fare clic per installare."
 
-     ![Finestra Elementi replicati](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![Finestra Elementi replicati](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 3. Selezionare la notifica per aprire la pagina di selezione della macchina virtuale.
 4. Selezionare le macchine virtuali su cui aggiornare il servizio Mobility e quindi selezionare **OK**.
 
-     ![Elenco delle macchine virtuali in Elementi replicati](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![Elenco delle macchine virtuali in Elementi replicati](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 Verrà avviato il processo di aggiornamento del servizio Mobility per ognuna delle macchine virtuali selezionate.
 
@@ -81,8 +81,8 @@ In caso di problemi con gli aggiornamenti automatici, verrà visualizzata una no
 
 Se si tenta di abilitare gli aggiornamenti automatici e l'operazione non dà esito positivo, vedere di seguito per la risoluzione dei problemi.
 
-**Errore**: non si hanno le autorizzazioni per creare un account RunAs di Azure (entità servizio) e concedere il ruolo di collaboratore all'entità servizio. 
-- Azione consigliata: verificare che all'account connesso sia assegnato il ruolo di collaboratore e ripetere l'operazione. Fare riferimento a [questo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) documento per altre informazioni sull'assegnazione delle autorizzazioni appropriate.
+**Errore**: non si è autorizzati a creare un account RunAs di Azure (entità servizio) e a concedere il ruolo Collaboratore all'entità servizio. 
+- Azione consigliata: verificare che all'account connesso sia assegnato il ruolo di "Collaboratore" e ripetere l'operazione. Fare riferimento a [questo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) documento per altre informazioni sull'assegnazione delle autorizzazioni appropriate.
  
 Quando gli aggiornamenti automatici sono attivati, la maggior parte dei problemi può essere risolta dal servizio Site Recovery e richiede di fare clic sul pulsante **Ripara**.
 

@@ -11,19 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 102a00ac79c91ac4d571c0254570f14e8f2af46f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d801ed309b0d79dd6655c7dd59ebd17bd37de222
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239084"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164399"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelli di acquisto del database SQL di Azure
 
 Database SQL di Azure consente di acquistare con facilità un motore di database PaaS completamente gestito che si adatta alle proprie esigenze di prestazioni e costi. A seconda del modello di distribuzione del Database SQL di Azure, è possibile selezionare il modello di acquisto adatto alle proprie esigenze:
+- [Modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) (scelta consigliata) che consente di scegliere la quantità esatta di capacità di archiviazione e di calcolo necessaria per il carico di lavoro.
+- [Modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) in cui è possibile scegliere pacchetti di calcolo e archiviazione in bundle bilanciati per i carichi di lavoro comuni.
 
-- I [server logici](sql-database-logical-servers.md) nel [database SQL di Azure](sql-database-technical-overview.md) offrono due modelli di acquisto per le risorse di calcolo, archiviazione e I/O basati rispettivamente su [DTU](sql-database-service-tiers-dtu.md) e [vCore](sql-database-service-tiers-vcore.md). All'interno di questo modello di acquisto, è possibile scegliere [database singoli](sql-database-single-databases-manage.md) oppure [pool elastici](sql-database-elastic-pool.md).
+Nei modelli di distribuzione del database SQL di Azure sono disponibili modelli di acquisto diversi:
+- I [server logici](sql-database-logical-servers.md) nel [database SQL di Azure](sql-database-technical-overview.md) offrono sia il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) che il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). All'interno di questo modello di acquisto, è possibile scegliere [database singoli](sql-database-single-databases-manage.md) oppure [pool elastici](sql-database-elastic-pool.md).
 - Le [istanze gestite](sql-database-managed-instance.md) nel database SQL di Azure offrono solo il [modello di acquisto basato sui vCore](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -51,7 +54,7 @@ Il modello di acquisto basato su vCore consente di scegliere le risorse di calco
 
 > [!IMPORTANT]
 > I costi delle risorse di calcolo, I/O e archiviazione di dati e log vengono addebitati per database singolo o pool elastico. Il costo delle risorse di archiviazione per i backup viene addebitato per ogni database. Per informazioni dettagliate sull'addebito dei costi di Istanza gestita, vedere la sezione relativa all'[istanza gestita di database SQL di Azure](sql-database-managed-instance.md).
-> **Limitazioni regionali:** il modello di acquisto basato su vCore non è disponibile nelle seguenti regioni: Europa occidentale, Francia centrale, Regno Unito meridionale, Regno Unito occidentale e Australia sud-orientale.
+> **Limitazioni di area:** il modello di acquisto basato su vCore non è ancora disponibile nelle aree seguenti: Europa occidentale, Francia centrale, Regno Unito meridionale, Regno Unito occidentale e Australia sud-orientale.
 
 Se il database o il pool elastico utilizza più di 300 DTU, la conversione a vCore può consentire di ridurre i costi. È possibile eseguire questa conversione usando l'API preferita o il portale di Azure, senza tempi di inattività. La conversione non è tuttavia obbligatoria. Se il modello di acquisto basato su DTU soddisfa i requisiti aziendali e di prestazioni, è consigliabile continuare a usarlo. Se si decide di eseguire la conversione dal modello basato su DTU a quello basato su vCore, selezionare le dimensioni di calcolo usando la regola empirica seguente: è necessario almeno 1 vCore nel livello per utilizzo generico per ogni 100 DTU nel livello Standard; per ogni 125 DTU nel livello Premium è necessario almeno 1 vCore nel livello business critical.
 

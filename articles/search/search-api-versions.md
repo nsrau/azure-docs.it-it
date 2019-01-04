@@ -1,5 +1,5 @@
 ---
-title: Versioni dell'API di Ricerca di Azure | Microsoft Azure | API di ricerca
+title: Gestione delle versioni dell'API per .NET SDK e API REST - Ricerca di Azure
 description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: brjohnst
-ms.openlocfilehash: 8d1e30b0bca3c63fe4528c06e5389d8cbe27a7e6
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.custom: seodec2018
+ms.openlocfilehash: 0cf5cac341cb36029c09ee2da5477323fac79cf5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113606"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311644"
 ---
 # <a name="api-versions-in-azure-search"></a>Versioni API in Ricerca di Azure
 Il servizio Ricerca di Azure Search distribuisce regolarmente aggiornamenti delle funzionalità. Talvolta, ma non sempre, questi aggiornamenti richiedono una nuova versione dell'API per mantenere la compatibilità con le versioni precedenti. Questa pubblicazione consente di controllare come e quando integrare gli aggiornamenti del servizio di ricerca nel codice.
@@ -56,6 +57,6 @@ Le funzionalità di anteprima sono disponibili per i test e la sperimentazione a
 
 È quindi consigliabile evitare di scrivere codice di produzione con dipendenze da versioni di anteprima. Se si usa una versione di anteprima precedente, è consigliabile eseguire la migrazione alla versione GA.
 
-Per .NET SDK: le linee guida per la migrazione del codice sono disponibili nell'articolo sull' [aggiornamento di .NET SDK](search-dotnet-sdk-migration.md).
+Per .NET SDK: le linee guida per la migrazione del codice sono disponibili nell'articolo sull'[aggiornamento di .NET SDK](search-dotnet-sdk-migration.md).
 
 Con disponibilità a livello generale si intende che Ricerca di Azure è ora soggetta al contratto di servizio (SLA). Il contratto di servizio è reperibile in [Contratto di Servizio per Ricerca](https://azure.microsoft.com/support/legal/sla/search/v1_0/).

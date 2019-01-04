@@ -1,5 +1,5 @@
 ---
-title: Eseguire il monitoraggio delle app nel Servizio app di Azure | Documentazione Microsoft
+title: Eseguire il monitoraggio delle app - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come monitorare le app nel servizio app di Azure tramite il portale di Azure.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 9c58e5c64ea3689634d7afb4c5fef08c9b21798c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 103b5c1d2bc70f187b6e65a9fa9d80a35ad8e0c1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244373"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321580"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Procedura: Eseguire il monitoraggio delle app nel servizio app di Azure
 Il [servizio app](https://go.microsoft.com/fwlink/?LinkId=529714) offre una funzionalità di monitoraggio incorporata nel [portale di Azure](https://portal.azure.com).
@@ -53,7 +54,7 @@ Le **quote** per le app ospitate nel piano **gratuito** o **condiviso** sono:
 
 L'unica quota applicabile alle app ospitate nei piani **Basic**, **Standard** e **Premium** è **File system**.
 
-Per altre informazioni su quote, funzionalità e limiti specifici per i diversi SKU del servizio app, vedere i [limiti del servizio di sottoscrizione di Azure](../azure-subscription-service-limits.md#app-service-limits)
+Per altre informazioni su quote, funzionalità e limiti specifici per i diversi SKU del servizio app, vedere: [Limiti del servizio di sottoscrizione di Azure](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Imposizione della quota
 Se l'uso di un'applicazione supera la quota relativa a **CPU (breve)**, **CPU (giorno)** o **larghezza di banda**, l'applicazione viene arrestata fino al momento in cui viene reimpostata la quota. Durante questo periodo, per tutte le richieste in ingresso viene restituito un errore di tipo **HTTP 403**.
@@ -75,7 +76,7 @@ Per un' **applicazione**, le metriche disponibili sono:
 * **Working set della memoria medio**
   * Quantità media di memoria usata dall'app, in MiB.
 * **Tempo CPU**
-  * Quantità di CPU utilizzata dall'app, in secondi. Per altre informazioni su questa metrica, vedere [Tempo CPU e percentuale CPU](#cpu-time-vs-cpu-percentage)
+  * Quantità di CPU utilizzata dall'app, in secondi. Per altre informazioni su questo metrica, vedere: [Tempo CPU e percentuale CPU](#cpu-time-vs-cpu-percentage)
 * **Dati in entrata**
   * Quantità di larghezza di banda in entrata utilizzata dall'app, in MiB.
 * **Dati in uscita**
@@ -144,23 +145,23 @@ Le ![][quotas]
 **quote** sono disponibili in Impostazioni>**Quote**. L'esperienza utente consente di esaminare: (1) nomi delle quote, (2) intervallo di reimpostazione, (3) limiti correnti e (4) valore corrente.
 
 Le ![][metrics]
-**metriche** sono accessibili direttamente dalla pagina delle risorse. Per personalizzare il grafico: (1) **fare clic** su di esso e selezionare (2) **Modifica grafico**.
+**metriche** sono accessibili direttamente dalla pagina delle risorse. Per personalizzare la visualizzazione del grafico: (1) **fare clic** su di esso e selezionare (2) **Modifica grafico**.
 Da qui è possibile modificare le opzioni relative a (3) **intervallo di tempo**, (4) **tipo di grafico** e (5) **metriche** da visualizzare.  
 
-Per altre informazioni sulle metriche, vedere [Monitor service metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) (Monitorare le metriche del servizio).
+Altre informazioni sulle metriche sono disponibili qui: [Monitorare le metriche del servizio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Avvisi e scalabilità automatica
 Le metriche per un'app o per un piano di servizio app possono essere collegate ad avvisi specifici. Per altre informazioni, vedere [Ricevere notifiche di avvisi](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Le app del servizio app ospitate nei piani di servizio app Basic, Standard e Premium supportano il **ridimensionamento automatico**. Il ridimensionamento automatico consente di configurare le regole che monitorano le metriche del piano di servizio app. Le regole possono aumentare o diminuire il numero di istanze per concedere risorse aggiuntive in base alla esigenze. Le regole consentono anche di risparmiare quando l'applicazione ha un provisioning eccessivo. Per altre informazioni sul ridimensionamento automatico, vedere [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) (Come ridimensionare) e [Best practices for Azure Monitor autoscaling](../monitoring-and-diagnostics/insights-autoscale-best-practices.md) (Procedure consigliate per il ridimensionamento automatico in Monitoraggio di Azure)
+Le app del servizio app ospitate nei piani di servizio app Basic, Standard e Premium supportano il **ridimensionamento automatico**. Il ridimensionamento automatico consente di configurare le regole che monitorano le metriche del piano di servizio app. Le regole possono aumentare o diminuire il numero di istanze per concedere risorse aggiuntive in base alla esigenze. Le regole consentono anche di risparmiare quando l'applicazione ha un provisioning eccessivo. Altre informazioni sulla scalabilità automatica sono disponibili qui: [Come eseguire la scalabilità automatica](../monitoring-and-diagnostics/insights-how-to-scale.md) e [Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure](../azure-monitor/platform/autoscale-best-practices.md)
 
 > [!NOTE]
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
-[fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
-[vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
+[fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
+[vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
 
 
 

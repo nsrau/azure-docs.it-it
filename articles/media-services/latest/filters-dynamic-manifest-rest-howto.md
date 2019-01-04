@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: juliako
-ms.openlocfilehash: 6b0ef646ba9ea535038f181ebfff5bf7639afdf8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5cc670a94958b123ac71b49cbf25661d567e4629
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633623"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083412"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali
 
@@ -30,9 +30,9 @@ Questo argomento illustra come definire un filtro per un asset Video on demand e
 
 Per completare i passaggi descritti in questo argomento, è necessario:
 
-- Rivedere [Filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
+- Leggere [Filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di Servizi multimediali. 
-- [Configurare Postman per le chiamate API REST Servizi multimediali di Azure](media-rest-apis-with-postman.md)/
+- [Configurare Postman per le chiamate API REST Servizi multimediali di Azure](media-rest-apis-with-postman.md).
 
 ## <a name="define-a-filter"></a>Definire un filtro  
 

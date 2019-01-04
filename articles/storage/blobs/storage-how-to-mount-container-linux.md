@@ -7,17 +7,17 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: seguler
-ms.openlocfilehash: 50378fd7739567b0cc56066168ddd33c3ea14141
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2374875512bba55409ef43906acb20238c77158f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957055"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268462"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Come montare l'archivio BLOB come file system con blobfuse
 
 ## <a name="overview"></a>Panoramica
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) è un driver del file system virtuale per Archiviazione BLOB di Azure, che consente di accedere ai dati BLOB in blocchi esistenti nell'account di archiviazione tramite il file system di Linux. Archiviazione BLOB di Azure è un servizio di archiviazione di oggetti e quindi non ha uno spazio dei nomi gerarchico. Blobfuse fornisce questo spazio dei nomi tramite lo schema della directory virtuale usando la barra "/" come delimitatore.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) è un driver virtuale file system per l'archivio BLOB di Azure. Blobfuse consente di accedere ai dati di BLOB in blocchi esistenti nell'account di archiviazione tramite il file system di Linux. Archiviazione BLOB di Azure è un servizio di archiviazione di oggetti e non ha uno spazio dei nomi gerarchico. Blobfuse fornisce questo spazio dei nomi tramite lo schema della directory virtuale con la barra "/" come delimitatore.  
 
 Questa guida illustra come usare blobfuse e come montare un contenitore di archiviazione BLOB in Linux e accedere ai dati. Per altre informazioni su blobfuse, vedere i dettagli nel [repository di blobfuse](https://github.com/Azure/azure-storage-fuse).
 
@@ -27,7 +27,12 @@ Questa guida illustra come usare blobfuse e come montare un contenitore di archi
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Installare blobfuse in Linux
-I file binari di blobfuse sono disponibili nei [repository software Microsoft per Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) per le distribuzioni Ubuntu e RHEL. Per installare blobfuse in queste distribuzioni, configurare uno dei repository presenti nell'elenco. Se non sono disponibili file binari per la distribuzione, è anche possibile generare i file binari dal codice sorgente seguendo la procedura di installazione descritta [qui](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source).
+I file binari di blobfuse sono disponibili nei [repository software Microsoft per Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) per le distribuzioni Ubuntu e RHEL. Per installare blobfuse in queste distribuzioni, configurare uno dei repository presenti nell'elenco. Se non sono disponibili file binari per la distribuzione, è anche possibile generare i file binari dal codice sorgente seguendo la [procedura di installazione di Archiviazione di Azure](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source).
+
+Blobfuse supporta l'installazione in Ubuntu 14.04 e 16.04. Eseguire questo comando per verificare che sia stata distribuita una di tali versioni:
+```
+lsb_release -a
+```
 
 ### <a name="configure-the-microsoft-package-repository"></a>Configurare il repository di pacchetti Microsoft
 Configurare il [repository di pacchetti Linux per i prodotti Microsoft](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
@@ -39,7 +44,7 @@ sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-pr
 
 Analogamente, sostituire l'URL con `.../rhel/7/...` in modo che faccia riferimento a una distribuzione Enterprise Linux 7.
 
-Un altro esempio in Ubuntu 14.04:
+Un altro esempio in una distribuzione Ubuntu 14.04:
 ```bash
 wget https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -56,12 +61,12 @@ sudo apt-get install blobfuse
 ```
 
 In una distribuzione Enterprise Linux:
-```bash
+```bash    
 sudo yum install blobfuse
 ```
 
 ## <a name="prepare-for-mounting"></a>Preparare il montaggio
-Blobfuse richiede un percorso temporaneo nel file system per memorizzare nel buffer e nella cache eventuali file aperti e offrire in questo modo prestazioni di tipo nativo. Per questo percorso temporaneo, scegliere il disco con le prestazioni più elevate o usare un disco RAM per prestazioni ottimali. 
+Blobfuse offre prestazioni di tipo nativo richiedendo un percorso temporaneo nel file system per memorizzare nel buffer e nella cache eventuali file aperti. Per questo percorso temporaneo, scegliere il disco con le prestazioni più elevate o usare un disco RAM per prestazioni ottimali. 
 
 > [!NOTE]
 > Blobfuse archivia i contenuti di tutti i file aperti nel percorso temporaneo. Verificare di avere spazio sufficiente per tutti i file aperti. 
@@ -75,10 +80,10 @@ sudo mkdir /mnt/ramdisk/blobfusetmp
 sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 ```
 
-### <a name="use-an-ssd-for-temporary-path"></a>Usare un'unità SSD per il percorso temporaneo
-In Azure è possibile usare i dischi temporanei (unità SSD) disponibili nelle VM per fornire un buffer a bassa latenza per blobfuse. Nelle distribuzioni Ubuntu questo disco temporaneo viene montato in '/mnt', mentre nelle distribuzioni Red Hat e CentOS viene montato in '/mnt/resource/'.
+### <a name="use-an-ssd-as-a-temporary-path"></a>Usare un'unità SSD come percorso temporaneo
+In Azure è possibile usare i dischi temporanei (unità SSD) disponibili nelle VM per fornire un buffer a bassa latenza per blobfuse. Nelle distribuzioni Ubuntu questo disco temporaneo viene montato in "/mnt". Nelle distribuzioni Red Hat e CentOS il disco viene montato in "/mnt/resource/".
 
-Assicurarsi che l'utente abbia accesso al percorso temporaneo:
+Verificare che l'utente abbia accesso al percorso temporaneo:
 ```bash
 sudo mkdir /mnt/resource/blobfusetmp
 sudo chown <youruser> /mnt/resource/blobfusetmp
@@ -99,7 +104,7 @@ chmod 700 fuse_connection.cfg
 ```
 
 > [!NOTE]
-> Se il file di configurazione è stato creato in Windows, assicurarsi di eseguire `dos2unix` per purificare e convertire in formato Unix. 
+> Se il file di configurazione è stato creato in Windows, assicurarsi di eseguire `dos2unix` per purificare e convertire il file in formato Unix. 
 >
 
 ### <a name="create-an-empty-directory-for-mounting"></a>Creare una directory vuota per il montaggio
@@ -116,10 +121,10 @@ mkdir ~/mycontainer
 Per montare blobfuse, usare il comando seguente con l'utente. Questo comando monta nella posizione "/mycontainer" il contenitore specificato in "/path/to/fuse_connection.cfg".
 
 ```bash
-blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
+sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
-Si avrà ora accesso ai BLOB in blocchi tramite le normali API del file system. Si noti che la directory montata è accessibile solo all'utente che esegue il montaggio, per proteggere l'accesso. Per consentire l'accesso a tutti gli utenti, è possibile eseguire il montaggio tramite l'opzione ```-o allow_other```. 
+Si avrà ora accesso ai BLOB in blocchi tramite le normali API del file system. Per impostazione predefinita, l'utente che monta la directory è l'unica persona che può accedervi e in questo modo l'accesso risulta protetto. Per consentire l'accesso a tutti gli utenti, è possibile eseguire il montaggio tramite l'opzione ```-o allow_other```. 
 
 ```bash
 cd ~/mycontainer

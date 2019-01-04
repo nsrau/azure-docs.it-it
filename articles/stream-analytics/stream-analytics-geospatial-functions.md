@@ -4,17 +4,16 @@ description: Questo articolo descrive le funzioni geospaziali che vengono usate 
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/04/2018
-ms.openlocfilehash: 02d1f551c7ec2856bbfce65c5397f454f6b9d5be
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/06/2018
+ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703336"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103133"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introduzione alle funzioni geospaziali di Analisi di flusso
 
@@ -28,7 +27,7 @@ Degli esempi di scenari che possono trarre vantaggio da funzioni geospaziali com
 * Definizione del geo-fencing
 * Rilevamento telefonico tra siti di cella
 
-Linguaggio di query di analisi di flusso ha sette funzioni geospaziali incorporati: **CreateLineString**, **Createpoint(20.0**, **CreatePolygon**, **ST_DISTANCE** , **ST_OVERLAPS**, **ST_INTERSECTS**, e **ST_WITHIN**.
+Il linguaggio di query di Analisi di flusso di Azure ha sette funzioni geospaziali incorporate: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_ INTERSECA** e **ST_WITHIN**.
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -51,9 +50,9 @@ FROM input
   
 ### <a name="output-example"></a>Esempio di output  
 
- {"type" : "LineString", "coordinate" : [ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5] ]}
+ {"tipo": "LineString", "coordinate" : [ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5] ]}
 
- {"type" : "LineString", "coordinate" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
+ {"tipo": "LineString", "coordinate" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
 Per altre informazioni, visitare il riferimento [CreateLineString](https://msdn.microsoft.com/azure/stream-analytics/reference/createlinestring).
 
@@ -78,9 +77,9 @@ FROM input
   
 ### <a name="output-example"></a>Esempio di output
   
- {"type": "Point", "coordinate": [-10.2, 3.0]}  
+ {"tipo": "Punto", "coordinate" : [-10.2, 3.0]}  
   
- {"type": "Point", "coordinate": [20.2321, -87.33]}  
+ {"tipo": "Punto", "coordinate": [20.2321,-87.33]}  
 
 Per altre informazioni, visitare il riferimento [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint).
 
@@ -105,9 +104,9 @@ FROM input
   
 ### <a name="output-example"></a>Esempio di output  
 
- {"type" : "Polygon", "coordinate" : [[ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5], [-10.2, 3.0] ]]}
+ {"tipo": "Poligono", "coordinate" : [[ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5], [-10.2, 3.0] ]]}
  
- {"type" : "Polygon", "coordinate" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
+ {"tipo": "Poligono", "coordinate" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
 
 Per altre informazioni, visitare il riferimento [CreatePolygon](https://msdn.microsoft.com/azure/stream-analytics/reference/createpolygon).
 

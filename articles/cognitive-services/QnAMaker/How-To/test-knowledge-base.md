@@ -10,23 +10,24 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 6ce3fc774d23914ab150e1dc1371391fc9fc548b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 5b0dfe1753686015c88bdc1214273354dd00c958
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034386"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086313"
 ---
-# <a name="test-your-knowledge-base"></a>Testare la Knowledge Base
+# <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Testare la knowledge base in modo interattivo in QnA Maker
 
 Testare la Knowledge Base di QnA Maker è una parte importante di un processo iterativo per migliorare l'accuratezza delle risposte restituite. È possibile testare la Knowledge Base attraverso un'interfaccia di chat avanzata che consente anche di apportare modifiche.
 
 ## <a name="test-answer-matching"></a>Testare la corrispondenza delle risposte
 
-1.  Accedere alla Knowledge Base selezionandone il nome nella pagina **My knowledge bases** (Knowledge Base personali).
-2.  Per accedere al pannello a scorrimento Test, selezionare **Test** nel pannello superiore dell'applicazione.
+1.  Accedere alla knowledge base selezionandone il nome nella pagina  **My knowledge bases** (Knowledge Base personali).
+2.  Per accedere al pannello a scorrimento Test, selezionare  **Test**  nel pannello superiore dell'applicazione.
 
-    ![Accedere a Test](../media/qnamaker-how-to-test-kb/access-test.png)
+    ![Accedere al pannello Test](../media/qnamaker-how-to-test-kb/access-test.png)
 
 3.  Immettere una query nella casella di testo e premere Invio.
 
@@ -34,33 +35,33 @@ Testare la Knowledge Base di QnA Maker è una parte importante di un processo it
 
 ## <a name="clear-test-panel"></a>Cancellare il pannello Test
 
-Per cancellare tutte le query di test inserite e i relativi risultati dalla console di test, selezionare **Ricomincia** nell'angolo in alto a sinistra del pannello Test.
+Per cancellare tutte le query di test inserite e i relativi risultati dalla console di test, selezionare  **Ricomincia**  nell'angolo in alto a sinistra del pannello Test.
 
 ## <a name="close-test-panel"></a>Chiudere il pannello Test
 
-Per chiudere il pannello Test, selezionare nuovamente il pulsante **Test**. Quando il pannello Test è aperto, non è possibile modificare i contenuti della Knowledge Base.
+Per chiudere il pannello Test, selezionare nuovamente il pulsante  **Test** . Quando il pannello Test è aperto, non è possibile modificare i contenuti della Knowledge Base.
 
 ## <a name="inspect-score"></a>Ispezionare il punteggio
 
-È possibile ispezionare i dettagli dei risultati del test nel pannello Inspect (Ispeziona).
+È possibile ispezionare i dettagli del risultato del test nel pannello Ispeziona.
 
-1.  Con il pannello a scorrimento Test aperto, selezionare **Inspect** (Ispeziona) per visualizzare altri dettagli sulla risposta.
+1.  Con il pannello a scorrimento Test aperto, selezionare  **Ispeziona**  per visualizzare altri dettagli sulla risposta.
 
     ![Ispezionare le risposte](../media/qnamaker-how-to-test-kb/inspect.png)
 
-2.  Verrà visualizzato il pannello Inspection (Ispeziona). Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
+2.  Verrà visualizzato il pannello Ispeziona. Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
 
 ## <a name="correct-the-top-scoring-answer"></a>Correggere la risposta con il punteggio più alto
 
 Se la risposta con il punteggio più alto non è corretta, selezionare la risposta corretta dall'elenco e selezionare **Save and Train** (Salva ed esegui training).
 
-![Accedere a Test](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Correggere la risposta con il punteggio più alto](../media/qnamaker-how-to-test-kb/choose-answer.png)
 
 ## <a name="add-alternate-questions"></a>Aggiungere domande alternative
 
 È possibile aggiungere forme alternative di una domanda a una determinata risposta. Digitare le risposte alternative nella casella di testo e premere Invio per aggiungerle. Selezionare **Save and Train** (Salva ed esegui training) per archiviare gli aggiornamenti.
 
-![Accedere a Test](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Aggiungere domande alternative](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
 
 ## <a name="add-a-new-answer"></a>Aggiungere una nuova risposta
 
@@ -68,7 +69,7 @@ Se la risposta con il punteggio più alto non è corretta, selezionare la rispos
 
 Selezionare **Save and train** (Salva ed esegui training) per salvare questa risposta in modo permanente. Una nuova coppia di domanda/risposta è stata così aggiunta alla Knowledge Base.
 
-![Accedere a Test](../media/qnamaker-how-to-test-kb/add-answer.png)
+![Aggiungere una nuova coppia di domanda e risposta](../media/qnamaker-how-to-test-kb/add-answer.png)
 
 > [!NOTE]
 > Tutte le modifiche alla Knowledge Base vengono salvate solo quando si fa clic sul pulsante  **Save and train** (Salva ed esegui training).

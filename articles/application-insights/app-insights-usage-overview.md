@@ -8,18 +8,17 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 968c5fb093f3ebdb6ce7eb239f79573f19b89e0f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278634"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955430"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Uso dell'analisi con Application Insights
 
@@ -33,13 +32,13 @@ La migliore esperienza viene ottenuta tramite l'installazione di Application Ins
 
     * *Non si vuole installare il codice server? [Creare una risorsa di Azure Application Insights](app-insights-create-new-resource.md).*
 
-2. **Codice della pagina Web:** aprire il [Portale di Azure](https://portal.azure.com), aprire la risorsa di Application Insights per l'app e quindi aprire **Introduzione > Monitoraggio e diagnosi dell'applicazione lato client**. 
+2. **Codice della pagina Web:** aprire il [portale di Azure](https://portal.azure.com), aprire la risorsa di Application Insights per l'app e quindi aprire **Introduzione > Monitoraggio e diagnosi dell'applicazione lato client**. 
 
     ![Copiare lo script nell'intestazione della pagina master web.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
-3. **Codice dell'app per dispositivi mobili:** usare App Center SDK per raccogliere gli eventi dall'app, quindi inviare copie di questi eventi ad Application Insights per l'analisi [seguendo le istruzioni in questa guida](app-insights-mobile-center-quickstart.md).
+3. **Codice app per dispositivi mobili:** usare App Center SDK per raccogliere gli eventi dall'app, quindi inviare copie di questi eventi ad Application Insights per l'analisi [seguendo le istruzioni in questa guida](app-insights-mobile-center-quickstart.md).
 
-4. **Ottenere dati di telemetria:** eseguire il progetto in modalità di debug per alcuni minuti e quindi cercare i risultati nel pannello Panoramica in Application Insights.
+4. **Ottenere i dati di telemetria:** eseguire il progetto in modalità di debug per alcuni minuti e quindi cercare i risultati nel pannello Panoramica in Application Insights.
 
     Pubblicare l'app per monitorare le prestazioni dell'app ed esaminare le operazioni eseguite dagli utenti con l'app.
 
@@ -61,26 +60,6 @@ Informazioni approfondite sui modelli di segnalazione corretti nel set di dati.
 * Il report sulle **sessioni** conteggia il numero di sessioni dell'utente che accedono al sito. Una sessione è un periodo di attività dell'utente, che termina quando si verifica un periodo di inattività di più di mezz'ora.
 
 [Altre informazioni sugli strumenti di Utenti, Sessioni ed Eventi](app-insights-usage-segmentation.md)  
-
-## <a name="page-views"></a>Visualizzazioni pagina
-
-Nel pannello Uso fare clic nel riquadro Visualizzazioni pagina per ottenere una suddivisione delle pagine più comuni:
-
-![Nel pannello Panoramica fare clic sul grafico Visualizzazioni pagina.](./media/app-insights-usage-overview/05-games.png)
-
-L'esempio precedente proviene da un sito Web di giochi. Dai grafici, è possibile immediatamente notare quanto segue:
-
-* L'utilizzo non è migliorato nell'ultima settimana. Potrebbe essere utile ottimizzare il motore di ricerca.
-* La pagina Tennis è la pagina del gioco più popolare. È opportuno quindi migliorare questa pagina.
-* In media, gli utenti visitano la pagina Tennis circa tre volte alla settimana. Il numero delle sessioni è tre volte superiore al numero di utenti.
-* La maggior parte degli utenti visita il sito durante la settimana lavorativa negli Stati Uniti e nell'orario di lavoro. Si dovrebbe forse aggiungere un pulsante "Nascondi rapidamente" nella pagina Web.
-* Le [annotazioni](app-insights-annotations.md) nel grafico indicano quando sono state distribuite le nuove versioni del sito Web. Nessuna delle distribuzioni recenti ha avuto un effetto visibile sull'utilizzo.
-
-Cosa fare se si desidera analizzare il traffico del sito in modo più dettagliato, ad esempio suddividendolo in base a una proprietà personalizzata, mentre il sito invia i dati di telemetria di visualizzazioni della pagina?
-
-1. Nel menu delle risorse di Application Insights aprire lo strumento **Eventi**. Questo strumento consente di analizzare il numero di visualizzazioni della pagina ed eventi personalizzati inviati dall'app, in base a diverse opzioni di filtro, coorte e segmentazione.
-2. Nell'elenco a discesa "Who used" (Usato da) selezionare "Any Page View" (Qualsiasi visualizzazione di pagina).
-3. Nell'elenco a discesa "Split by" (Dividi per) selezionare una proprietà in base alla quale dividere i dati di telemetria di visualizzazione della pagina.
 
 ## <a name="retention---how-many-users-come-back"></a>Conservazione: numero di utenti che ritornano
 

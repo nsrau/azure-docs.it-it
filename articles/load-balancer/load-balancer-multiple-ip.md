@@ -1,5 +1,6 @@
 ---
-title: Bilanciamento del carico in più configurazioni IP in Azure | Microsoft Docs
+title: Bilanciamento del carico in più configurazioni IP in Azure
+titlesuffix: Azure Load Balancer
 description: Bilanciamento del carico tra configurazioni IP primarie e secondarie.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0f092c471a7908eabe481adc8c722993818840b8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e6aff89fe45220e1642a91e6a2d31a9da422fdea
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219512"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163532"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Bilanciamento del carico in più configurazioni IP tramite il portale di Azure
 
@@ -166,7 +168,7 @@ Configurare un probe di integrità per il servizio di bilanciamento del carico:
 
 4. Digitare un nome per il probe di integrità, ad esempio **HTTP**. Selezionare **OK**.
 
-### <a name="step-6-configure-load-balancing-rules"></a>Passaggio 6: Configurare le regole di bilanciamento del carico
+### <a name="step-6-configure-load-balancing-rules"></a>Passaggio 6: Configurare le regole del servizio di bilanciamento del carico
 
 Per ognuno dei siti Web (contoso.com e fabrikam.com) configurare le regole di bilanciamento del carico:
     

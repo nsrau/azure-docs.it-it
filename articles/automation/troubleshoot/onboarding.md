@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c11013c926e77447a69ce0dfe697fdda1ecc2b8c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284847"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879641"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Risoluzione di problemi di onboarding delle soluzioni
 
@@ -21,7 +21,7 @@ Durante l'onboarding di soluzioni quali Gestione aggiornamenti, Rilevamento modi
 
 ## <a name="general-errors"></a>Errori generali
 
-### <a name="computer-grou-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
+### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Problema
 
@@ -55,7 +55,7 @@ Per poter distribuire la soluzione, è necessario provare a modificare i criteri
   * Ridefinendo la destinazione dei criteri per una risorsa specifica (ad esempio un account di Automazione di Azure specifico).
   * Modificando il set di risorse per il quale il criterio specifico è stato configurato per negare l'autorizzazione.
 
-Controllare le notifiche nell'angolo inferiore destro del portale di Azure o passare al gruppo di risorse che contiene l'account di automazione e selezionare **Distribuzioni** in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni sui criteri di Azure, vedere [Informazioni su Criteri di Azure](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
+Controllare le notifiche nell'angolo inferiore destro del portale di Azure o passare al gruppo di risorse che contiene l'account di automazione e selezionare **Distribuzioni** in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni su Criteri di Azure, vedere: [Panoramica dei criteri di Azure](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>Errori delle estensioni di MMA
 
@@ -67,7 +67,7 @@ L'installazione dell'estensione MMA o dell'agente di Log Analytics per Linux pu�
 
 Nella sezione seguente vengono descritti diversi problemi che possono verificarsi durante l'onboarding che causano errori nella distribuzione dell'estensione MMA.
 
-### <a name="webclient-exception"></a>Scenario: è stata generata un'eccezione durante una richiesta WebClient
+### <a name="webclient-exception"></a>Scenario: È stata generata un'eccezione durante una richiesta WebClient
 
 L'estensione MMA della macchina virtuale non può comunicare con le risorse esterne e la distribuzione non riesce.
 
@@ -95,7 +95,7 @@ Alcune cause possibili di questo errore sono:
 
 Assicurarsi di avere le porte e gli indirizzi aperti per la comunicazione. Per un elenco di porte e indirizzi, vedere [Planning your network](../automation-hybrid-runbook-worker.md#network-planning) (Pianificazione della rete).
 
-### <a name="transient-environment-issue"></a>Scenario: l'installazione non è riuscita a causa di problemi di ambiente temporanei
+### <a name="transient-environment-issue"></a>Scenario: L'installazione non è riuscita a causa di problemi di ambiente temporanei
 
 L'installazione dell'estensione Microsoft Monitoring Agent non è riuscita durante la distribuzione a causa di un'altra installazione o di un'azione che l'hanno bloccata
 
@@ -126,7 +126,7 @@ Alcune cause possibili di questo errore sono:
 
 Si tratta di un problema di per sé temporaneo. Ritentare la distribuzione per installare l'estensione.
 
-### <a name="installation-timeout"></a>Scenario: timeout dell'installazione
+### <a name="installation-timeout"></a>Scenario: Timeout dell'installazione
 
 L'installazione dell'estensione MMA non è stata completata a causa di un timeout.
 

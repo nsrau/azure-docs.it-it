@@ -5,14 +5,15 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 667cbbbcc0a74550b389d7a75e17cecd00b88d06
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.topic: conceptual
+ms.openlocfilehash: af610aaec238e1b2ae8ec2387e5a8f71225cab8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976614"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848171"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Escludere dischi dalla replica di macchine virtuali VMware in Azure
 
@@ -56,7 +57,7 @@ Per proteggere una macchina virtuale dal portale di Azure Site Recovery, seguire
 > * Dopo aver abilitato la replica, non è più possibile aggiungere o rimuovere dischi da replicare. Se si vuole aggiungere o escludere un disco, è necessario disabilitare la protezione per il computer e quindi riabilitarla.
 > * Se si esclude un disco necessario per il funzionamento di un'applicazione, dopo il failover in Azure è necessario crearlo manualmente in Azure per consentire l'esecuzione dell'applicazione replicata. In alternativa, è possibile integrare Automazione di Azure in un piano di ripristino per creare il disco durante il failover del computer.
 > * Macchina virtuale Windows: per i dischi creati manualmente in Azure non viene eseguito il failback. Se, ad esempio, si esegue il failover di tre dischi e se ne creano due direttamente in Macchine virtuali di Azure, viene eseguito il failback solo dei tre dischi sottoposti a failover. Non è possibile includere i dischi creati manualmente nel failback o nella riprotezione da locale ad Azure.
-> * Macchina virtuale Linux: per i dischi creati manualmente in Azure non viene eseguito il failback. Se, ad esempio, si esegue il failover di tre dischi e se ne creano due direttamente in Macchine virtuali di Azure, viene eseguito il failback di tutti e cinque i dischi. Non è possibile escludere i dischi creati manualmente dall'operazione di failback.
+> * Macchina virtuale Linux: per i dischi creati manualmente in Azure viene eseguito il failback. Se, ad esempio, si esegue il failover di tre dischi e se ne creano due direttamente in Macchine virtuali di Azure, viene eseguito il failback di tutti e cinque i dischi. Non è possibile escludere i dischi creati manualmente dall'operazione di failback.
 >
 
 
@@ -167,7 +168,7 @@ DISK0 | C:\ | Disco del sistema operativo
 Disk1 | D:\ | Database di sistema SQL e Database1 dell'utente
 Disk2 | G:\ | Database2 dell'utente
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Esempio 2: Escludere il disco del file di paging (pagefile.sys)
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Esempio 2 Escludere il disco del file di paging (pagefile.sys)
 
 Si prenda ad esempio una macchina virtuale con un disco del file di paging che è possibile escludere.
 I casi possibili sono due:

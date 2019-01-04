@@ -1,6 +1,7 @@
 ---
-title: Guida per la risoluzione dei problemi di distribuzione del servizio Azure Machine Learning
-description: Informazioni su come risolvere o trovare soluzioni alternative per i più comuni errori di distribuzione di Docker con il servizio Azure Machine Learning.
+title: Guida alla risoluzione dei problemi di distribuzione
+titleSuffix: Azure Machine Learning service
+description: Informazioni su come risolvere o trovare soluzioni alternative per i più comuni errori di distribuzione di Docker con il servizio Azure Kubernetes e Istanze di Azure Container quando si usa il servizio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,18 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: jmartens
-ms.date: 10/01/2018
-ms.openlocfilehash: a10b05e95fa719b80775191e48bd4117e3a785fd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321683"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100515"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-deployments"></a>Risoluzione dei problemi di distribuzione del servizio Azure Machine Learning
+# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Risoluzione dei problemi di distribuzione del servizio Azure Kubernetes e di Istanze di Azure Container con il servizio Azure Machine Learning
 
-Questo articolo offre informazioni su come risolvere o trovare soluzioni alternative per i più comuni errori di distribuzione di Docker con il servizio Azure Machine Learning.
+Questo articolo illustra come risolvere o trovare soluzioni alternative per i più comuni errori di distribuzione di Docker con il servizio Azure Kubernetes e Istanze di Azure Container quando si usa il servizio Azure Machine Learning.
 
 Durante la distribuzione di un modello nel servizio Azure Machine Learning, il sistema esegue una serie di attività. Si tratta di una sequenza complessa di eventi, che a volte genera alcuni problemi. Le attività di distribuzione sono le seguenti:
 
@@ -31,7 +33,7 @@ Durante la distribuzione di un modello nel servizio Azure Machine Learning, il s
     4. Creare una nuova immagine Docker usando il Dockerfile.
     5. Registrare l'immagine Docker con il Registro contenitori di Azure associato all'area di lavoro.
 
-3. Distribuire l'immagine Docker al servizio Istanza di contenitore di Azure o al servizio Kubernetes di Azure (AKS).
+3. Distribuire l'immagine Docker al servizio Istanze di Azure Container o Azure Kubernetes.
 
 4. Avviare uno o più nuovi contenitori in uno di questi due servizi. 
 
@@ -101,7 +103,7 @@ L'URI del log è un URL SAS che punta a un file di log archiviato nell'Archivio 
 
 
 ## <a name="service-launch-fails"></a>Errore di avvio del servizio
-Dopo aver creato correttamente l'immagine, il sistema tenta di avviare un contenitore nel servizio Istanza di contenitore di Azure o nel servizio Kubernetes di Azure (AKS), a seconda della configurazione della distribuzione. È generalmente consigliabile provare prima con la distribuzione nel servizio Istanza di contenitore di Azure in quanto, coinvolgendo un solo contenitore, risulta più semplice. In questo modo è possibile escludere qualsiasi problema specifico del servizio AKS.
+Dopo aver creato correttamente l'immagine, il sistema tenta di avviare un contenitore nel servizio Istanze di Azure Container o Azure Kubernetes, a seconda della configurazione della distribuzione. È generalmente consigliabile provare prima con la distribuzione nel servizio Istanze di Azure Container in quanto, coinvolgendo un solo contenitore, risulta più semplice. In questo modo è possibile escludere qualsiasi problema specifico del servizio Azure Kubernetes.
 
 Nell'ambito del processo di avvio del contenitore, il sistema richiama la funzione `init()` nello script di assegnazione dei punteggi. Se la funzione `init()` contiene eccezioni non rilevate, nel messaggio di errore potrebbe essere visualizzato l'errore **CrashLoopBackOff**. Ecco alcuni suggerimenti utili per risolvere il problema.
 
@@ -117,7 +119,7 @@ print(ws.webservices()['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Eseguire il debug dell'immagine di Docker in locale
-A volte il log di Docker non fornisce informazioni sufficienti sul problema. In questo caso è possibile recuperare l'immagine di Docker compilata, avviare un contenitore locale ed eseguire il debug direttamente all'interno del contenitore in modo interattivo. Per avviare un contenitore locale, deve essere in esecuzione in locale un motore Docker. Per semplificare notevolmente il processo è inoltre consigliabile installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+A volte il log di Docker non fornisce informazioni sufficienti sul problema. In questo caso è possibile recuperare l'immagine di Docker compilata, avviare un contenitore locale ed eseguire il debug direttamente all'interno del contenitore in modo interattivo. Per avviare un contenitore locale, deve essere in esecuzione in locale un motore Docker. Per semplificare notevolmente il processo è inoltre consigliabile installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Prima di tutto occorre trovare la posizione dell'immagine:
 
@@ -222,10 +224,6 @@ def run(input_data):
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sulla distribuzione: 
-* [Come distribuire in ACI](how-to-deploy-to-aci.md)
+* [Come e dove distribuire modelli](how-to-deploy-and-where.md)
 
-* [Come distribuire in AKS](how-to-deploy-to-aks.md)
-
-* [Esercitazione n. 1: Eseguire il training di un modello](tutorial-train-models-with-aml.md)
-
-* [Esercitazione n. 2: distribuire un modello](tutorial-deploy-models-with-aml.md)
+* [Esercitazione: Eseguire il training e la distribuzione di modelli](tutorial-train-models-with-aml.md)

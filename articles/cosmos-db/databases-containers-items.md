@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684859"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409542"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Utilizzo dei database, dei contenitori e degli elementi di Azure Cosmos DB
 
@@ -26,10 +26,10 @@ Dopo aver creato un [account Azure Cosmos DB](account-overview.md) nella sottosc
 
 | **Entità di Azure Cosmos DB** | **API SQL** | **API Cassandra** | **API di MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- |
-|Database Azure Cosmos DB | Database | Keyspace | Database | ND | ND |
+|Database Azure Cosmos DB | Database | Keyspace | Database | Database | ND |
 
 > [!NOTE]
-> Con gli account di API Gremlin e Tabella, quando si crea il primo grafico o la prima tabella viene creato automaticamente un database predefinito nell'account Azure Cosmos DB.
+> Con gli account di API Tabella, quando si crea la prima tabella viene creato automaticamente un database predefinito nell'account Azure Cosmos.
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Operazioni su un database Azure Cosmos DB
 
@@ -49,11 +49,11 @@ Un contenitore Azure Cosmos DB è l'unità di scalabilità sia per velocità eff
 
 Quando si crea un contenitore Azure Cosmos DB, si configura la velocità effettiva in uno dei modi seguenti:
 
-* **Velocità effettiva con provisioning dedicata**: la velocità effettiva con provisioning in un contenitore è riservata esclusivamente al contenitore ed è supportata dai contratti di servizio. Per altre informazioni, vedere l'articolo su [come effettuare il provisioning della velocità effettiva in un contenitore Azure Cosmos DB](how-to-provision-container-throughput.md).
+* Modalità **Velocità effettiva con provisioning dedicata**: la velocità effettiva con provisioning in un contenitore è riservata esclusivamente al contenitore ed è supportata dai contratti di servizio. Per altre informazioni, vedere l'articolo su [come effettuare il provisioning della velocità effettiva in un contenitore Azure Cosmos DB](how-to-provision-container-throughput.md).
 
-* **Velocità effettiva con provisioning condivisa**: questi contenitori condividono la velocità effettiva con provisioning con altri contenitori nello stesso database (esclusi i contenitori che sono stati configurati con velocità effettiva con provisioning dedicata). In altre parole, la velocità effettiva con provisioning nel database viene condivisa tra tutti i contenitori "condivisi". Per altre informazioni, vedere l'articolo su [come effettuare il provisioning della velocità effettiva per un database in Azure Cosmos DB](how-to-provision-database-throughput.md).
+* Modalità **Velocità effettiva con provisioning condivisa**: questi contenitori condividono la velocità effettiva con provisioning con altri contenitori nello stesso database (esclusi i contenitori che sono stati configurati con velocità effettiva con provisioning dedicata). In altre parole, la velocità effettiva con provisioning nel database viene condivisa tra tutti i contenitori "condivisi". Per altre informazioni, vedere l'articolo su [come effettuare il provisioning della velocità effettiva per un database in Azure Cosmos DB](how-to-provision-database-throughput.md).
 
-Un contenitore Azure Cosmos DB può scalare in modo elastico, a prescindere che si creino contenitori con la modalità di velocità effettiva con provisioning "condivisa" o "dedicata". Ciò significa che il contenitore può disporre di una velocità effettiva con provisioning e di una risorsa di archiviazione illimitate.  
+Un contenitore Azure Cosmos può scalare in modo elastico, a prescindere che si creino contenitori con la modalità di velocità effettiva con provisioning "condivisa" o "dedicata".
 
 Un contenitore Azure Cosmos DB è un contenitore di elementi completamente senza schema. Gli elementi all'interno di un contenitore possono avere schemi arbitrari. Due elementi che rappresentano una persona e un'automobile, ad esempio, possono trovarsi nello stesso contenitore. Per impostazione predefinita, tutti gli elementi che si aggiungono a un contenitore vengono automaticamente indicizzati senza che venga richiesta alcuna gestione dello schema o dell'indice esplicita. È possibile personalizzare il comportamento di indicizzazione configurando i criteri di indicizzazione in un contenitore. 
 
@@ -69,7 +69,7 @@ Un contenitore Azure Cosmos DB è specializzato in entità specifiche dell'API c
 
 | **Entità di Azure Cosmos DB** | **API SQL** | **API Cassandra** | **API di MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- |
-|Contenitore Azure Cosmos DB | Contenitore | Tabella | Raccolta | Grafico | Tabella |
+|Contenitore Azure Cosmos DB | Raccolta | Tabella | Raccolta | Grafico | Tabella |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Proprietà di un contenitore Azure Cosmos DB
 
@@ -105,7 +105,7 @@ A seconda della scelta dell'API, un elemento Azure Cosmos DB può rappresentare 
 
 | **Entità Cosmos** | **API SQL** | **API Cassandra** | **API di MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- |
-|Elemento Azure Cosmos DB | Elemento | Riga | Documento | Nodo o arco | Elemento |
+|Elemento Azure Cosmos DB | Documento | Riga | Documento | Nodo o arco | Elemento |
 
 ### <a name="properties-of-an-item"></a>Proprietà di un elemento
 

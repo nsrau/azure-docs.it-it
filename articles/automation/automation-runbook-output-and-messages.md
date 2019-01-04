@@ -6,32 +6,32 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9602b8ff4d0df15b030626d5e2cfeca9bcc2bd5d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: cc1ef2a3ab09ec5b86d1dc0b4c139afd43ba356d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284115"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969125"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Output di runbook e messaggi in automazione di Azure
-La maggior parte dei runbook di Automazione di Azure avrà qualche forma di output, ad esempio un messaggio di errore all'utente o un oggetto complesso destinato a essere usato da un altro flusso di lavoro. Windows PowerShell fornisce [più flussi](https://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) per inviare l'output da uno script o flusso di lavoro. Automazione di Azure funziona con ciascuno di questi flussi in modo diverso ed è necessario seguire le procedure consigliate per utilizzarli quando si crea un runbook.
+La maggior parte dei runbook di Automazione Azure ha una forma di output. L'output può essere un messaggio di errore destinato all'utente o un oggetto complesso che si prevede di usare con un altro runbook. Windows PowerShell fornisce [più flussi](/powershell/module/microsoft.powershell.core/about/about_redirection) per inviare l'output da uno script o flusso di lavoro. Automazione di Azure funziona con ogni flusso in modo diverso. Seguire le procedure consigliate per usare ogni flusso quando si crea un runbook.
 
-La tabella seguente fornisce una breve descrizione di ciascuno dei flussi e il relativo comportamento nel portale di Azure durante l'esecuzione di un runbook pubblicato e quando si esegue il [test di un runbook](automation-testing-runbook.md). Nelle sezioni successive vengono forniti ulteriori dettagli su ogni flusso.
+La tabella seguente include una breve descrizione di ogni flusso e il relativo comportamento nel portale di Azure per un runbook pubblicato e per il [test di un runbook](automation-testing-runbook.md). Nelle sezioni successive vengono specificati ulteriori dettagli su ogni flusso.
 
 | Flusso | DESCRIZIONE | Pubblicato | Test |
 |:--- |:--- |:--- |:--- |
 | Output |Gli oggetti devono essere utilizzati da altri runbook. |Scrivere la cronologia dei processi. |Visualizzata nel pannello Output del Test. |
 | Avviso |Messaggio di avviso destinato all'utente. |Scrivere la cronologia dei processi. |Visualizzata nel pannello Output del Test. |
 | Tipi di errore |Messaggio di errore previsto per l'utente. A differenza di un'eccezione, il runbook continua dopo un messaggio di errore per impostazione predefinita. |Scrivere la cronologia dei processi. |Visualizzata nel pannello Output del Test. |
-| Dettagliato |Messaggi che forniscono informazioni generali o di debug. |Scritti nella cronologia del processo solo se è attivata la registrazione dettagliata per il runbook. |Viene visualizzata nel pannello Output del Test solo se $VerbosePreference è impostata su Continue nel runbook. |
-| Avanzamento |Record generati automaticamente prima e dopo ogni attività del runbook. Il runbook non dovrebbe tentare di creare i propri record di stato di avanzamento poiché sono destinati ad un utente interattivo. |Scritti nella cronologia processo solo se lo stato di avanzamento della registrazione è attivata per il runbook. |Non sono visualizzati nel pannello Output del Test. |
+| Dettagliato |Messaggi che includono informazioni generali o di debug. |Scritti nella cronologia del processo solo se è attivata la registrazione dettagliata per il runbook. |Viene visualizzata nel pannello Output del Test solo se $VerbosePreference è impostata su Continue nel runbook. |
+| Avanzamento |Record generati automaticamente prima e dopo ogni attività del runbook. Il runbook non dovrebbe tentare di creare i propri record di stato di avanzamento, dato che sono destinati a un utente interattivo. |Scritti nella cronologia processo solo se lo stato di avanzamento della registrazione è attivata per il runbook. |Non sono visualizzati nel pannello Output del Test. |
 | Debug |Messaggi destinati a un utente interattivo. Non devono essere utilizzati nei runbook. |Non scritti nella cronologia del processo. |Non scritti nel pannello Output del Test. |
 
 ## <a name="output-stream"></a>Flusso di output
-Il flusso di Output è destinato agli output degli oggetti creati da uno script o da un flusso di lavoro quando vengono eseguiti correttamente. In automazione di Azure, il flusso viene utilizzato principalmente per gli oggetti che devono essere utilizzati da [runbook padre che chiamano il runbook corrente](automation-child-runbooks.md). In caso di [chiamata di un runbook inline](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) da un runbook padre, vengono restituiti i dati dal flusso di output all'elemento padre. Usare solo il flusso di output per comunicare informazioni generali all'utente se si è a conosce del fatto che il runbook non verrà mai chiamato da un altro runbook. Come procedura consigliata, tuttavia, è consigliabile in genere utilizzare il [Flusso dettagliato](#verbose-stream) per comunicare informazioni generali all'utente.
+Il flusso di output è destinato all'output degli oggetti, che vengono creati da uno script o da un flusso di lavoro eseguito correttamente. In automazione di Azure, il flusso viene utilizzato principalmente per gli oggetti che devono essere utilizzati da [runbook padre che chiamano il runbook corrente](automation-child-runbooks.md). In caso di [chiamata di un runbook inline](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) da un runbook padre, vengono restituiti i dati dal flusso di output all'elemento padre. Usare il flusso di output per comunicare informazioni generali all'utente solo se si è certi che il runbook non viene mai chiamato da un altro runbook. Come procedura consigliata, tuttavia, è consigliabile in genere utilizzare il [Flusso dettagliato](#verbose-stream) per comunicare informazioni generali all'utente.
 
 È possibile scrivere i dati per il flusso di output tramite [Write-Output](https://technet.microsoft.com/library/hh849921.aspx) o inserendo l'oggetto nella relativa riga nel runbook.
 
@@ -42,7 +42,7 @@ $object
 ```
 
 ### <a name="output-from-a-function"></a>Output da una funzione
-Quando si scrive nel flusso di output in una funzione inclusa nel runbook, l'output viene passato nuovamente al runbook. Se il runbook assegna l'output a una variabile, allora non è scritto nel flusso di output. La scrittura in eventuali altri flussi da all'interno della funzione scriverà nel flusso corrispondente per il runbook.
+Quando si scrive nel flusso di output di una funzione inclusa nel runbook, l'output viene passato nuovamente al runbook. Se il runbook assegna l'output a una variabile, allora non è scritto nel flusso di output. La scrittura in eventuali altri flussi da all'interno della funzione scriverà nel flusso corrispondente per il runbook.
 
 Si consideri il seguente esempio di runbook:
 
@@ -76,10 +76,10 @@ Verbose outside of function
 Verbose inside of function
 ```
 
-Dopo aver pubblicato il runbook e prima di avviarlo, è anche necessario attivare la registrazione dettagliata nelle impostazioni del runbook per ottenere l'output di flusso dettagliato.
+Dopo aver pubblicato il runbook e prima di avviarlo è anche necessario attivare la registrazione dettagliata nelle impostazioni del runbook, per ottenere l'output di flusso dettagliato.
 
 ### <a name="declaring-output-data-type"></a>Dichiarazione del tipo di dati di output
-Un flusso di lavoro può specificare il tipo di dati del relativo output utilizzando l’ [attributo OutputType](https://technet.microsoft.com/library/hh847785.aspx). Questo attributo non ha alcun effetto in fase di esecuzione, ma offre un'indicazione all'autore del runbook in fase di progettazione dell’output previsto del runbook. Man mano che il set di strumenti per i runbook continuano ad evolvere, l'importanza della dichiarazione dei tipi di dati di output in fase di progettazione aumenterà. Di conseguenza, è consigliabile includere questa dichiarazione in qualsiasi runbook creato.
+Un flusso di lavoro può specificare il tipo di dati del relativo output utilizzando l’ [attributo OutputType](https://technet.microsoft.com/library/hh847785.aspx). Questo attributo non ha alcun effetto in fase di esecuzione, ma offre un'indicazione all'autore del runbook in fase di progettazione dell’output previsto del runbook. Man mano che il set di strumenti per i runbook continuano ad evolvere, l'importanza della dichiarazione dei tipi di dati di output in fase di progettazione aumenterà. Di conseguenza è consigliabile includere questa dichiarazione in qualsiasi runbook creato.
 
 Di seguito è riportato un elenco di tipi di output di esempio:
 
@@ -100,9 +100,9 @@ Workflow Test-Runbook
 }
  ```
 
-Per dichiarare un tipo di output nei runbook del flusso di lavoro grafico o del flusso di lavoro PowerShell grafico, è possibile selezionare l'opzione di menu **Input e output** e digitare il nome del tipo di output. È consigliabile usare il nome della classe .NET completo affinché sia facilmente identificabile nel riferimento da un runbook padre. Questa operazione espone tutte le proprietà di tale classe nel bus di dati del runbook e offre una notevole flessibilità quando le proprietà vengono usate per la logica condizionale, la registrazione e il riferimento come valori per altre attività del runbook.<br> ![Opzione Input e output del runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+Per dichiarare un tipo di output nei runbook del flusso di lavoro grafico o del flusso di lavoro PowerShell grafico, è possibile selezionare l'opzione di menu **Input e output** e digitare il nome del tipo di output. È consigliabile usare il nome della classe .NET completo, in modo che sia facilmente identificabile nel riferimento da un runbook padre. Questa operazione espone tutte le proprietà di tale classe nel bus di dati del runbook e offre una notevole flessibilità quando le proprietà vengono usate per la logica condizionale, la registrazione e il riferimento come valori per altre attività del runbook.<br> ![Opzione Input e output del runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
-Nell'esempio seguente sono disponibili due runbook grafici per illustrare questa funzionalità. Se si applica il modello di progettazione modulare dei runbook, si avrà un runbook che funge da *modello di runbook di autenticazione* per la gestione dell'autenticazione con Azure tramite l'account RunAs. Il secondo runbook, che normalmente eseguirebbe la logica di base per automatizzare un determinato scenario, in questo caso eseguirà il *modello di runbook di autenticazione* e visualizzerà i risultati nel riquadro di output **Test** . In circostanze normali, questo runbook eseguirebbe operazioni su una risorsa sfruttando l'output del runbook figlio.    
+Nell'esempio seguente sono disponibili due runbook grafici per illustrare questa funzionalità. Se si applica il modello di progettazione modulare dei runbook, si avrà un runbook che funge da *modello di runbook di autenticazione* per la gestione dell'autenticazione con Azure tramite l'account RunAs. Il secondo runbook, che normalmente eseguirebbe la logica di base per automatizzare un determinato scenario, in questo caso eseguirà il *modello di runbook di autenticazione* e visualizzerà i risultati nel riquadro di output **Test** . In circostanze normali, questo runbook eseguirebbe operazioni su una risorsa sfruttando l'output del runbook figlio.
 
 Di seguito è riportata la logica di base del runbook **AuthenticateTo-Azure**.<br> ![Esempio di modello di runbook di autenticazione](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
 
@@ -135,9 +135,9 @@ Write-Error –Message "This is an error message that will stop the runbook beca
 ```
 
 ### <a name="verbose-stream"></a>Flusso dettagliato
-Il flusso del messaggio dettagliato è destinato a informazioni generali sull'operazione del runbook. Poiché il [Flusso di Debug](#debug-stream) non è disponibile in un runbook, i messaggi dettagliati devono essere utilizzati per le informazioni di debug. Per impostazione predefinita, i messaggi dettagliati da runbook pubblicato non vengono archiviati nella cronologia del processo. Per archiviare i messaggi dettagliati, configurare i runbook pubblicati su Registra record dettagliati nella scheda Configura del runbook nel portale di Azure. Nella maggior parte dei casi, è consigliabile mantenere l'impostazione predefinita che non registra record dettagliati per un runbook per motivi di prestazioni. Attivare questa opzione solo per risolvere i problemi o eseguire il debug di un runbook.
+Il flusso del messaggio dettagliato è destinato a informazioni generali sull'operazione del runbook. Poiché il [Flusso di Debug](#debug-stream) non è disponibile in un runbook, i messaggi dettagliati devono essere utilizzati per le informazioni di debug. Per impostazione predefinita, i messaggi dettagliati provenienti da runbook pubblicati non vengono archiviati nella cronologia del processo. Per archiviare i messaggi dettagliati, configurare i runbook pubblicati su Registra record dettagliati nella scheda Configura del runbook nel portale di Azure. Nella maggior parte dei casi, è consigliabile mantenere l'impostazione predefinita che non registra record dettagliati per un runbook per motivi di prestazioni. Attivare questa opzione solo per risolvere i problemi o eseguire il debug di un runbook.
 
-Quando si esegue il [test di un runbook](automation-testing-runbook.md), i messaggi dettagliati non vengono visualizzati anche se il runbook è configurato per registrare i record dettagliati. Per visualizzare i messaggi dettagliati durante il [test di un runbook](automation-testing-runbook.md), è necessario impostare la variabile $VerbosePreference su Continue. Con tale set di variabili, i messaggi dettagliati vengono visualizzati nel pannello Output del Test del portale di Azure.
+Quando si esegue il [test di un runbook](automation-testing-runbook.md) i messaggi dettagliati non vengono visualizzati, anche se il runbook è configurato per registrare i record dettagliati. Per visualizzare i messaggi dettagliati durante il [test di un runbook](automation-testing-runbook.md), è necessario impostare la variabile $VerbosePreference su Continue. Con tale set di variabili, i messaggi dettagliati vengono visualizzati nel pannello Output del Test del portale di Azure.
 
 Creare un messaggio dettagliato utilizzando il cmdlet [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) .
 
@@ -153,7 +153,7 @@ Il flusso di Debug deve essere utilizzato con un utente interattivo e non deve e
 ## <a name="progress-records"></a>Record di stato
 Se si configura un runbook per registrare i record di stato di avanzamento (nella scheda Configura del runbook nel portale di Azure), verrà scritto un record per la cronologia dei processi prima e dopo l'esecuzione di ogni attività. Nella maggior parte dei casi, è consigliabile mantenere l'impostazione predefinita che non registra record dettagliati per un runbook per massimizzare le prestazioni. Attivare questa opzione solo per risolvere i problemi o eseguire il debug di un runbook. Quando si esegue il test di un runbook, i messaggi dettagliati non vengono visualizzati anche se il runbook è configurato per registrare i record dettagliati.
 
-Il cmdlet [Write-Progress](https://technet.microsoft.com/library/hh849902.aspx) non è valido in un runbook, poiché questo deve essere utilizzato con un utente interattivo.
+Il cmdlet [Write-Progress](https://technet.microsoft.com/library/hh849902.aspx) non è valido in un runbook, poiché questo cmdlet è destinato all'uso con un utente interattivo.
 
 ## <a name="preference-variables"></a>Variabili di preferenza
 Windows PowerShell utilizza [le variabili di preferenza](https://technet.microsoft.com/library/hh847796.aspx) per stabilire come rispondere ai dati inviati ai diversi flussi di output. È possibile impostare queste variabili in un runbook per controllare la modalità di risposta ai dati inviati in diversi flussi.
@@ -171,12 +171,12 @@ Nella tabella seguente è elencato il comportamento dei valori delle variabili d
 | Valore | Comportamento |
 |:--- |:--- |
 | Continue |Registra il messaggio e continua l'esecuzione del runbook. |
-| SilentlyContinue |Continua l'esecuzione del runbook senza registrazione del messaggio. Questo ha l'effetto di ignorare il messaggio. |
-| Stop |Registra il messaggio e sospende il runbook. |
+| SilentlyContinue |Continua l'esecuzione del runbook senza registrazione del messaggio. Questo valore fa in modo che il messaggio venga ignorato. |
+| Arresto |Registra il messaggio e sospende il runbook. |
 
-## <a name="retrieving-runbook-output-and-messages"></a>Recupero di messaggi e output di runbook
+## <a name="runbook-output"></a>Recupero di messaggi e output di runbook
 ### <a name="azure-portal"></a>Portale di Azure
-È possibile visualizzare i dettagli di un processo di un runbook nel portale di Azure dalla scheda processi di un runbook. Il riepilogo del processo visualizzerà i parametri di input e il [flusso di output](#output-stream) oltre alle informazioni generali sul processo e le eccezioni se si sono verificate. La cronologia includerà i messaggi dal [flusso di output](#output-stream) e dai [flussi di avviso ed errore](#warning-and-error-streams) in aggiunta al [flusso dettagliato](#verbose-stream) e ai [record di avanzamento](#progress-records), se il runbook è configurato per la registrazione di record dettagliati e di avanzamento.
+È possibile visualizzare i dettagli di un processo di un runbook nel portale di Azure dalla scheda processi di un runbook. Il riepilogo del processo visualizzerà i parametri di input e il [flusso di output](#output-stream) oltre alle informazioni generali sul processo e le eccezioni se si sono verificate. La cronologia includerà i messaggi dal [flusso di output](#output-stream) e dai [flussi di avviso ed errore](#warning-and-error-streams) e anche dal [flusso dettagliato](#verbose-stream) e dai [record di avanzamento](#progress-records) se il runbook è configurato per la registrazione di record dettagliati e di avanzamento.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 In Windows PowerShell, è possibile recuperare i messaggi e gli output da un runbook tramite il cmdlet [Get-AzureAutomationJobOutput](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjoboutput) . Questo cmdlet richiede l'ID del processo e dispone di un parametro denominato flusso in cui è possibile specificare quale flusso restituire. È possibile specificare **Any** per restituire tutti i flussi per il processo.
@@ -204,7 +204,7 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 ``` 
 
 ### <a name="graphical-authoring"></a>Creazione grafica
-Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma di traccia a livello di attività. Sono disponibili due livelli di traccia: base e dettagliato. Nella traccia di base sono indicate l'ora di inizio e di fine di ogni attività del runbook, oltre a informazioni relative a eventuali ulteriori tentativi di esecuzione dell'attività, ad esempio il numero di tentativi e l'ora di inizio dell'attività. Nella traccia dettagliata sono indicate le informazioni della traccia di base e i dati di input e output di ogni attività. Attualmente i record di traccia vengono scritti usando il flusso dettagliato. Per questa ragione è necessario abilitare la registrazione dettagliata quando si abilita la traccia. Per i runbook grafici con la traccia abilitata non è necessario registrare record di stato perché la traccia di base svolge la stessa funzione e offre maggiori informazioni.
+Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma di traccia a livello di attività. Sono disponibili due livelli di traccia: di base e dettagliata. Nella traccia di base sono indicate l'ora di inizio e di fine di ogni attività del runbook, oltre a informazioni relative a eventuali ulteriori tentativi di esecuzione dell'attività. Alcuni esempi sono il numero di tentativi e l'ora di inizio dell'attività. Nella traccia dettagliata sono indicate le informazioni della traccia di base e i dati di input e output di ogni attività. Attualmente i record di traccia vengono scritti usando il flusso dettagliato. Per questa ragione è necessario abilitare la registrazione dettagliata quando si abilita la traccia. Per i runbook grafici con la traccia attivata non è necessario registrare record di avanzamento. La traccia di base svolge la stessa funzione e offre maggiori informazioni.
 
 ![Visualizzazione dei flussi dei processi di creazione grafica](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
@@ -218,7 +218,7 @@ Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma d
 4. In **Impostazioni** fare clic su **Registrazione e traccia**.
 5. Nella pagina Registrazione e traccia **abilitare** la registrazione dettagliata in Registra record dettagliati e impostare il livello di traccia su **Basic** o **Dettagliato**, in base alle esigenze, in Traccia a livello di attività.<br>
    
-   ![Pannello Registrazione e traccia della creazione grafica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
+   ![Pannello Registrazione e traccia per la creazione grafica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ### <a name="microsoft-azure-log-analytics"></a>Log Analytics di Microsoft Azure
 Automazione può inviare lo stato e i flussi del processo del runbook all'area di lavoro di Log Analytics. Con Log Analytics è possibile:

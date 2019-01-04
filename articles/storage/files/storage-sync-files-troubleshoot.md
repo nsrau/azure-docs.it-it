@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f6075bcbaae14fc60df6f33f4e65cd4abcec731
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014279"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409463"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -40,7 +40,7 @@ Esaminare il file installer.log per determinare la causa dell'errore di installa
 <a id="agent-installation-on-DC"></a>**L'installazione dell'agente ha esito negativo nel controller di dominio di Active Directory**  
 Se si tenta di installare l'agente di sincronizzazione in un controller di dominio di Active Directory in cui il proprietario di ruolo si trova in un Windows Server 2008 R2 o una versione precedente del sistema operativo, è possibile riscontrare il problema dell'esito negativo dell'installazione dell'agente.
 
-Per risolverlo, trasferire il ruolo PDC in un altro controller di dominio su cui è in esecuzione Windows Server 2012R2 o una versioni più recente, quindi installare la sincronizzazione.
+Per risolverlo, trasferire il ruolo PDC in un altro controller di dominio su cui è in esecuzione Windows Server 2012 R2 o una versione più recente, quindi installare la sincronizzazione.
 
 <a id="server-registration-missing"></a>**Il server non è elencato in Server registrati nel portale di Azure**  
 Se un server non è presente nell'elenco **Server registrati** per un servizio di sincronizzazione archiviazione, seguire questa procedura:
@@ -48,7 +48,7 @@ Se un server non è presente nell'elenco **Server registrati** per un servizio d
 2. Aprire Esplora File e quindi passare alla directory di installazione dell'agente di sincronizzazione archiviazione (il percorso predefinito è C:\Program Files\Azure\StorageSyncAgent). 
 3. Eseguire il file ServerRegistration.exe e completare la registrazione guidata del server con un servizio di sincronizzazione archiviazione.
 
-<a id="server-already-registered"></a>**Durante l'installazione dell'agente Sincronizzazione file di Azure, Registrazione server visualizza il messaggio seguente: "Il server è già registrato"** 
+<a id="server-already-registered"></a>**Durante l'installazione dell'agente Sincronizzazione file di Azure, Registrazione server visualizza il messaggio seguente: "Il server è già registrato con un altro insieme di credenziali"** 
 
 ![Schermata della finestra di dialogo Registrazione server con messaggio di errore che indica che il server è già registrato](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -68,7 +68,7 @@ Reset-StorageSyncServer
 Questo errore si verifica perché durante la registrazione del server sono abilitati i criteri **Sicurezza avanzata di Internet Explorer**. Per altre informazioni su come disabilitare correttamente i criteri **Sicurezza avanzata di Internet Explorer**, vedere [Preparare Windows Server per l'uso con Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Gestione dei gruppi di sincronizzazione
-<a id="cloud-endpoint-using-share"></a>**La creazione di endpoint cloud ha esito negativo e restituisce un messaggio di errore che indica che la condivisione file di Azure specificata è già usata da un endpoint cloud diverso**  
+<a id="cloud-endpoint-using-share"></a>**La creazione dell'endpoint cloud ha esito negativo e viene restituito il messaggio di errore: "La condivisione file di Azure specificata è già usata da un endpoint cloud diverso"**  
 Questo errore si verifica se la condivisione file di Azure è già in uso da parte di un altro endpoint cloud. 
 
 Se viene visualizzato questo messaggio e la condivisione file di Azure non è attualmente in uso da alcun endpoint cloud, attenersi ai passaggi seguenti per cancellare i metadati di Sincronizzazione file di Azure nella condivisone file di Azure:
@@ -80,13 +80,13 @@ Se viene visualizzato questo messaggio e la condivisione file di Azure non è at
 2. Fare clic con il pulsante destro del mouse sulla condivisione file di Azure e scegliere **Modifica metadati**.
 3. Fare clic con il pulsante destro del mouse su **SyncService** e quindi fare clic su **Elimina**.
 
-<a id="cloud-endpoint-authfailed"></a>**La creazione dell'endpoint cloud ha esito negativo e viene restituito il messaggio di errore "AuthorizationFailed"**  
+<a id="cloud-endpoint-authfailed"></a>**La creazione dell'endpoint cloud ha esito negativo e viene restituito il messaggio di errore: "AuthorizationFailed"**  
 Questo problema si verifica se l'account utente non ha diritti sufficienti per creare un endpoint cloud. 
 
 Per creare un endpoint cloud, l'account utente deve avere le autorizzazioni Microsoft seguenti:  
-* Lettura: Ottieni definizione ruolo
+* Lettura: Ottenere la definizione del ruolo
 * Scrittura: Crea o aggiorna la definizione del ruolo personalizzata
-* Lettura: Ottieni assegnazione ruolo
+* Lettura: Ottenere l'assegnazione del ruolo
 * Scrittura: Crea assegnazione ruolo
 
 I seguenti ruoli predefiniti dispongono delle necessarie autorizzazioni Microsoft:  
@@ -96,15 +96,16 @@ I seguenti ruoli predefiniti dispongono delle necessarie autorizzazioni Microsof
 Per determinare se il ruolo dell'account utente in uso dispone delle autorizzazioni necessarie:  
 1. Nel portale di Azure fare clic su **Gruppi di risorse**.
 2. Selezionare il gruppo di risorse in cui si trova l'account di archiviazione e quindi selezionare **Controllo di accesso (IAM)**.
-3. Selezionare il **ruolo** per l'account utente, ad esempio proprietario o collaboratore.
-4. Nell'elenco **Provider di risorse** selezionare **Autorizzazione Microsoft**. 
+3. Selezionare la scheda **Assegnazioni di ruolo**.
+4. Selezionare il **Ruolo** per l'account utente, ad esempio proprietario o collaboratore.
+5. Nell'elenco **Provider di risorse** selezionare **Autorizzazione Microsoft**. 
     * In **Assegnazione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura**.
     * In **Definizione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura**.
 
-<a id="server-endpoint-createjobfailed"></a>**La creazione dell'endpoint server ha esito negativo e restituisce il messaggio di errore: "MgmtServerJobFailed" (codice di errore: -2134375898)**  
+<a id="server-endpoint-createjobfailed"></a>**La creazione dell'endpoint del server ha esito negativo e viene restituito il messaggio di errore: "MgmtServerJobFailed" (Codice errore: -2134375898)**  
 Questo problema si verifica se il percorso dell'endpoint server si trova sul volume di sistema ed è abilitata la suddivisione in livelli nel cloud. La suddivisione in livelli cloud non è supportata nel volume di sistema. Per creare un endpoint server nel volume di sistema, disabilitare la suddivisione in livelli nel cloud durante la creazione dell'endpoint server.
 
-<a id="server-endpoint-deletejobexpired"></a>**L'eliminazione dell'endpoint server ha esito negativo e restituisce il messaggio di errore: "MgmtServerJobExpired"**                
+<a id="server-endpoint-deletejobexpired"></a>**L'eliminazione dell'endpoint del server ha esito negativo e viene restituito il messaggio di errore: "MgmtServerJobExpired"**                
 Questo problema si verifica se il server è offline o non si dispone di connettività di rete. Se il server non è più disponibile, annullare la registrazione del server nel portale. In questo modo, si annullano gli endpoint server. Per eliminare gli endpoint server, seguire la procedura descritta in [Annullare la registrazione del server con Sincronizzazione file di Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Impossibile aprire la pagina delle proprietà dell'endpoint server o aggiornare i criteri di suddivisione in livelli nel cloud**  
@@ -131,7 +132,7 @@ Questo problema può verificarsi se il processo di monitoraggio della sincronizz
 
 Per risolvere il problema, eseguire la procedura seguente:
 
-1. Aprire Gestione attività sul server e verificare che il processo di monitoraggio della sincronizzazione dell'archiviazione (AzureStorageSyncMonitor.exe) sia in esecuzione. Se il processo non è in esecuzione, provare a riavviare il server. Se il riavvio del server non risolve il problema, aggiornare l'agente Sincronizzazione file di Azure alla versione [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018), se non ancora installato.
+1. Aprire Gestione attività sul server e verificare che il processo di monitoraggio della sincronizzazione dell'archiviazione (AzureStorageSyncMonitor.exe) sia in esecuzione. Se il processo non è in esecuzione, provare a riavviare il server. Se il riavvio del server non risolve il problema, aggiornare all'ultima[versione dell'agente](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes) della Sincronizzazione file di Azure.
 2. Verificare che le impostazioni del proxy e del firewall siano configurate correttamente:
     - Se il server si trova dietro un firewall, verificare che la porta 443 in uscita sia consentita. Se il firewall limita il traffico a domini specifici, verificare che i domini elencati nella [documentazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) del firewall siano accessibili.
     - Se il server si trova dietro un proxy, configurare le impostazioni del proxy a livello di computer o specifiche dell'app seguendo la procedura descritta nella [documentazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) del proxy.
@@ -467,20 +468,17 @@ Impostando questo valore del registro, l'agente di Sincronizzazione file di Azur
 | **Stringa di errore** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Rimedio necessario** | Yes |
 
-In genere questo errore si verifica perché l'ora del server non è corretta oppure il certificato usato per l'autenticazione è scaduto. Se l'ora del server è corretta, eseguire la procedura seguente per eliminare il certificato scaduto (se scaduto) e reimpostare lo stato di registrazione server:
+In genere questo errore si verifica perché l'ora del server non è corretta oppure il certificato usato per l'autenticazione è scaduto. Se l'ora del server è corretta, seguire la procedura seguente per rinnovare il certificato scaduto:
 
 1. Aprire lo snap-in MMC dei certificati, selezionare l'account del computer e passare a certificati (Computer locale)\Personale\Certificati.
-2. Eliminare il certificato di autenticazione client se scaduto e chiudere lo snap-in MMC dei certificati.
-3. Aprire Regedit ed eliminare la chiave ServerSetting nel registro: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. Nel portale di Azure passare alla sezione Server registrati del servizio di sincronizzazione archiviazione. Fare doppio clic sul server con il certificato scaduto e fare clic su "Annulla registrazione server".
-5. Eseguire i comandi di PowerShell seguenti sul server:
+2. Controllare se il certificato di autenticazione del client è scaduto. Se il certificato è scaduto, chiudere lo snap-in di MMC Certificati e quindi procedere con i passaggi rimanenti. 
+3. Verificare che sia installata la versione 4.0.1.0 o versione successiva dell'agente Sincronizzazione file di Azure.
+4. Eseguire i comandi di PowerShell seguenti sul server:
 
     ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Reset-StorageSyncServer
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-6. Registrare nuovamente il server eseguendo ServerRegistration.exe (il percorso predefinito è C:\File di programma\Azure\StorageSyncAgent).
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**Lo spazio su disco del volume in cui risiede l'endpoint server è insufficiente.**  
 | | |
@@ -705,8 +703,9 @@ if ($fileShare -eq $null) {
 
 <a id="troubleshoot-rbac"></a>**Garantire che Sincronizzazione file di Azure possa accedere all'account di archiviazione.**  
 # <a name="portaltabportal"></a>[Portale](#tab/portal)
-1. Fare clic su **controllo di accesso (IAM)** nel sommario a sinistra per passare all'elenco di utenti e applicazioni (*entità servizio*) che hanno accesso all'account di archiviazione.
-2. Verificare che **servizio di Sincronizzazione file di ibrido** venga visualizzato nell'elenco con il ruolo di **Lettore e accesso ai dati**. 
+1. Fare clic su **Controllo di accesso (IAM)** nel sommario a sinistra.
+1. Fare clic sulla scheda **Assegnazioni del ruolo** per passare all'elenco di utenti e applicazioni (*entità servizio*) che possono accedere all'account di archiviazione.
+1. Verificare che **servizio di Sincronizzazione file di ibrido** venga visualizzato nell'elenco con il ruolo di **Lettore e accesso ai dati**. 
 
     ![Schermata dell'entità servizio del servizio Sincronizzazione file ibrida nella scheda di controllo di accesso dell'account di archiviazione](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 

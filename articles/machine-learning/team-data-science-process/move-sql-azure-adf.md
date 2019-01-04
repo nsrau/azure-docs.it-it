@@ -1,5 +1,5 @@
 ---
-title: Spostare dati da SQL Server locale a SQL Azure con Azure Data Factory | Microsoft Docs
+title: Dati da SQL Server a SQL Azure con Azure Data Factory - Processo di data science per i team (TDSP)
 description: Impostare una pipeline di ADF che comprenda due attività di migrazione di dati che insieme spostino i dati giornalmente tra database locali e nel cloud.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: bddb54d9a00c5ec88fcebe498d7f959c0f8e3dbf
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a1bb841c1218be0a418583af8ca95b2dff2f67d9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447037"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309502"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Spostare i dati da SQL Server locale a SQL Azure con Azure Data Factory
 
@@ -24,7 +24,7 @@ Questo articolo descrive come spostare i dati da un database di SQL Server local
 
 Per un tabella che riepiloga le varie opzioni per lo spostamento dei dati in un database SQL Azure, vedere [Spostare i dati a un database SQL Azure per Azure Machine Learning](move-sql-azure.md).
 
-## <a name="intro"></a>Introduzione: che cos'è l’ADF e quando deve essere utilizzato per la migrazione dei dati?
+## <a name="intro"></a>Introduzione: Che cos'è Azure Data Factory e quando deve essere usato per la migrazione dei dati?
 Il Data factory è un servizio di integrazione delle informazioni basato sul cloud che permette di automatizzare lo spostamento e la trasformazione dei dati. Il concetto chiave nel modello ADF è pipeline. Una pipeline è un raggruppamento logico di attività, ognuna delle quali definisce le azioni da eseguire sui dati contenuti nel set di dati. I servizi collegati vengono utilizzati per definire le informazioni necessarie affinché il servizio Data factory si connetta a risorse dati esterne.
 
 Con ADF, i servizi di elaborazione dei dati esistenti possono essere composti in pipeline di dati, altamente disponibili e gestiti nel cloud. Queste pipeline di dati possono essere pianificate per inserire, preparare, trasformare, analizzare e pubblicare i dati e l’ADF gestisce e organizza i dati complessi e le dipendenze di elaborazione. Le soluzioni possono essere compilate e distribuite nel cloud, collegando un numero crescente di origini dati locali e cloud.
@@ -43,7 +43,7 @@ Si configura una pipeline ADF che compone due attività di migrazione dei dati. 
 * Copiare i dati dall'account di archiviazione BLOB di Azure a un Database di SQL Azure.
 
 > [!NOTE]
-> I passaggi illustrati di seguito sono stati adattati dall'esercitazione più specifica fornita dal team ADF: [Spostare dati tra origini locali e il cloud con gateway di gestione dati](../../data-factory/tutorial-hybrid-copy-portal.md). I riferimenti alle sezioni pertinenti dell'argomento vengono resi disponibili laddove opportuno.
+> I passaggi illustrati di seguito sono stati adattati dall'esercitazione più dettagliata fornita dal team di Azure Data Factory: [Copiare dati da un database di SQL Server locale in archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) Se appropriato, vengono indicati Riferimenti alle sezioni pertinenti di quell'argomento.
 >
 >
 
@@ -68,15 +68,10 @@ Utilizziamo il [set di dati NYC Taxi](http://chriswhong.com/open-data/foil_nyc_t
 ## <a name="create-adf"></a> Creare un data factory di Azure
 Le istruzioni per la creazione di una nuova data factory di Azure e un gruppo di risorse nel [portale di Azure](https://portal.azure.com/) sono disponibili in [Creazione di un'istanza di Data factory di Azure](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Denominare la nuova istanza ADF *adfdsp*e assegnare il nome *adfdsprg* al gruppo di risorse creato.
 
-## <a name="install-and-configure-up-the-data-management-gateway"></a>Installare e configurare i Gateway di gestione dati
-Per abilitare le pipeline in Azure Data Factory per il funzionamento con SQL Server locale, è necessario aggiungerle come servizio collegato ad Azure Data Factory. Per creare un servizio collegato per SQL Server locale, è necessario:
+## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installare e configurare Integration Runtime di Azure Data Factory 
+Integration Runtime è un'infrastruttura di integrazione dati gestita dal cliente, usata da Azure Data Factory per fornire funzionalità di integrazione dati in ambienti di rete differenti. In precedenza Questo runtime era chiamato "gateway di gestione dati". 
 
-* scaricare e installare il gateway di gestione dati di Microsoft nel computer locale.
-* configurare il servizio collegato per l'origine dati locale per l'utilizzo del gateway.
-
-Gateway di gestione dati serializza e deserializza i dati di origine e sink sul computer in cui è ospitato.
-
-Per le istruzioni di configurazione e i dettagli sul Gateway di gestione dati, vedere [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../../data-factory/tutorial-hybrid-copy-portal.md)
+Per la configurazione, [seguire le istruzioni per la creazione di una pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline).
 
 ## <a name="adflinkedservices"></a>Creare servizi collegati per connettersi alle risorse di dati
 I servizi collegati definiscono le informazioni necessarie affinché il servizio data factory si connetta a risorse dati. Sono disponibili tre risorse in questo scenario per il quale sono necessari servizi collegati:

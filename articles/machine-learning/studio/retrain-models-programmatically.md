@@ -1,12 +1,11 @@
 ---
 title: Ripetere il training dei modelli di Machine Learning Studio a livello di codice - Azure | Microsoft Docs
-description: Informazioni su come ripetere il training di un modello a livello di codice e aggiornare il servizio Web per l'uso del modello appena sottoposto a training in Azure Machine Learning.
+description: Informazioni su come ripetere il training di un modello a livello di codice usando C# e il servizio Esecuzione batch di Machine Learning.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: b38143fe6f1f1cf3e65a2989e1b0a71c28530b2a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313386"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257394"
 ---
-# <a name="retrain-machine-learning-studio-models-programmatically"></a>Ripetere il training dei modelli di Machine Learning Studio a livello di codice
+# <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Ripetere il training dei modelli di Azure Machine Learning Studio a livello di codice
 Questa procedura dettagliata descrive come ripetere il training di un servizio Web di Azure Machine Learning Studio a livello di codice usando C# e il servizio Esecuzione batch di Machine Learning.
 
 Dopo aver ripetuto il training del modello, attenersi alle procedure dettagliate seguenti che descrivono come aggiornare il modello nel servizio Web predittivo:
@@ -36,14 +35,14 @@ Per una panoramica del processo di ripetizione del training, vedere [Ripetere il
 Se si vuole iniziare con il servizio Web esistente basato sul nuovo Azure Resource Manager, vedere [Retrain an existing Predictive web service](retrain-existing-resource-manager-based-web-service.md) (Ripetere il training di un servizio Web predittivo esistente).
 
 ## <a name="create-a-training-experiment"></a>Creare un esperimento di training
-Per questo esempio, si userà "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" che fa parte degli esempi di Microsoft Azure Machine Learning. 
+Per questo esempio si userà "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" dagli esempi di Microsoft Azure Machine Learning. 
 
 Per creare l'esperimento:
 
 1. Accedere a Microsoft Azure Machine Learning Studio. 
 2. Nell'angolo in basso a destra del dashboard fare clic su **New**(Nuovo).
 3. Tra gli esempi di Microsoft selezionare l'esempio 5.
-4. Per rinominare l'esperimento, nella parte superiore dell'area di disegno dell'esperimento selezionare il nome dell'esperimento "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset".
+4. Per rinominare l'esperimento, nella parte superiore dell'area di disegno dell'esperimento selezionare il nome "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset".
 5. Digitare Census Model.
 6. Fare clic su **Run**(Esegui) nella parte inferiore dell'area di disegno dell'esperimento.
 7. Fare clic su **Set Up Web service** (Configura servizio Web) e selezionare **Retraining Web service** (Servizio Web di ripetizione del training). 
@@ -93,7 +92,7 @@ In questo esempio viene usato C# per creare l'applicazione di ripetizione del tr
 
 Per chiamare le API per la ripetizione del training:
 
-1. Creare un'applicazione console C# in Visual Studio. A tale scopo, selezionare **Nuovo** > **Progetto** > **Visual C#** > **Desktop classico di Windows** > **Applicazione console (.NET Framework)**.
+1. Creare un'applicazione console C# in Visual Studio: **Nuovo** > **Progetto** > **Visual C#** > **Desktop di Windows classico** > **App console (.NET Framework)**.
 2. Accedere al portale dei servizi Web di Machine Learning.
 3. Se si usa un servizio Web classico, fare clic su **Classic Web Services**(Servizi Web classici).
    1. Fare clic sul servizio Web in uso.

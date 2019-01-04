@@ -1,57 +1,56 @@
 ---
-title: Informazioni sugli effetti di Criteri di Azure
+title: Comprendere il funzionamento degli effetti
 description: La definizione di Criteri di Azure ha diversi effetti che determinano in che modo viene gestita e segnalata la conformità.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 4668b1fe6e59898d81fc71558e21acd1a89be767
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279499"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310845"
 ---
 # <a name="understand-policy-effects"></a>Informazioni sugli effetti di Criteri
 
-Ogni definizione dei criteri in Criteri di Azure ha uno specifico effetto che determina cosa accade durante l'analisi quando il segmento **if** della regola dei criteri viene valutato corrispondente alla risorsa analizzata. Gli effetti possono avere anche un comportamento diverso se riguardano una nuova risorsa, una risorsa aggiornata o una risorsa esistente.
+Ogni definizione di criteri in Criteri di Azure ha un effetto. Questo effetto determina cosa accade quando viene valutata la corrispondenza della regola dei criteri. Il comportamento degli effetti varia a seconda che riguardino una nuova risorsa, una risorsa aggiornata o una risorsa esistente.
 
 Attualmente sono disponibili sei effetti supportati in una definizione dei criteri:
 
 - Append
 - Audit
 - AuditIfNotExists
-- Nega
+- Deny
 - DeployIfNotExists
 - Disabled
 
 ## <a name="order-of-evaluation"></a>Ordine di valutazione
 
-Quando viene effettuata una richiesta per la creazione o l'aggiornamento di una risorsa tramite Azure Resource Manager, Criteri elabora alcuni degli effetti prima di trasmettere la richiesta al provider di risorse appropriato.
-Questa operazione impedisce l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance progettati di Criteri. Criteri crea un elenco di tutte le definizioni dei criteri assegnate, da un'assegnazione di un criterio o di un'iniziativa, applicabili dall'ambito (meno le esclusioni) alla risorsa e si prepara a valutare la risorsa in base a ogni definizione.
+Le richieste di creare o aggiornare una risorsa tramite Azure Resource Manager vengono valutate per prime da Criteri di Azure. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e quindi valuta la risorsa rispetto a ogni definizione. Criteri di Azure elabora diversi effetti prima di passare la richiesta al provider di risorse appropriato. In questo modo si evita l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance progettati di Criteri di Azure.
 
 - **Disabled** viene verificato per primo, per determinare se valutare la regola dei criteri.
 - Successivamente viene valutato **Append**. Dal momento che Append può alterare la richiesta, una modifica apportata da Append potrebbe impedire l'attivazione di un effetto Audit o Deny.
 - Successivamente viene valutato **Deny**. La valutazione di Deny prima di Audit impedisce la doppia registrazione di una risorsa non desiderata.
-- Viene quindi valutato **Audit** prima che la richiesta passi al provider di risorse.
+- **Audit** viene quindi valutato prima che la richiesta venga passata al provider di risorse.
 
-Dopo che la richiesta viene fornita al provider di risorse e quest'ultimo restituisce un codice di stato con esito positivo, vengono valutati **AuditIfNotExists** e **DeployIfNotExists** per determinare se è richiesta un'azione o una registrazione di conformità come completamento della procedura.
+Dopo che il provider di risorse restituisce un codice di riuscita, vengono valutati **AuditIfNotExists** e **DeployIfNotExists** per determinare se è necessaria un'ulteriore registrazione della conformità o un'altra azione.
 
 ## <a name="disabled"></a>Disabled
 
-Questo effetto è utile per testare situazioni e quando la definizione dei criteri ha parametrizzato l'effetto. È possibile disabilitare una sola assegnazione di quei criteri modificando il parametro di assegnazione dell'effetto anziché disabilitando tutte le assegnazioni dei criteri.
+Questo effetto è utile per gli scenari di test o quando la definizione dei criteri ha parametrizzato l'effetto. Grazie a questa flessibilità è possibile disabilitare una singola assegnazione invece di disabilitare tutte le assegnazioni di quei criteri.
 
 ## <a name="append"></a>Append
 
-Append viene usato per aggiungere altri campi alla risorsa richiesta durante la creazione o l'aggiornamento. Può essere utile per aggiungere tag alle risorse come costCenter o specificare gli indirizzi IP consentiti per una risorsa di archiviazione.
+Append viene usato per aggiungere altri campi alla risorsa richiesta durante la creazione o l'aggiornamento. Un esempio comune è l'aggiunta di tag a risorse come costCenter o la specifica di indirizzi IP consentiti per una risorsa di archiviazione.
 
 ### <a name="append-evaluation"></a>Valutazione di Append
 
-Come accennato, Append viene valutato prima che la richiesta sia elaborata da un provider di risorse durante la creazione o l'aggiornamento di una risorsa. Append aggiunge uno o più campi alla risorsa quando viene soddisfatta la condizione **if** della regola dei criteri. Se l'effetto Append sostituisce un valore nella richiesta originale con un valore diverso, agisce come effetto Deny e la richiesta viene rifiutata.
+Append viene valutato prima che la richiesta venga elaborata da un provider di risorse durante la creazione o l'aggiornamento di una risorsa. Append aggiunge campi alla risorsa quando viene soddisfatta la condizione **if** della regola dei criteri. Se l'effetto Append sostituisce un valore nella richiesta originale con un valore diverso, agisce come effetto Deny e rifiuta la richiesta.
 
 Quando una definizione dei criteri che usa l'effetto Append viene eseguita come parte di un ciclo di valutazione, non apporta modifiche alle risorse già esistenti. Al contrario, contrassegna qualsiasi risorsa che soddisfi la condizione **if** come non conforme.
 
@@ -73,7 +72,7 @@ Esempio 1: coppia **campo/valore** singola per accodare un tag.
 }
 ```
 
-Esempio 2: coppie **campo/valore** multiple per accodare un set di tag.
+Esempio 2: due coppie **campo/valore** per accodare un set di tag.
 
 ```json
 "then": {
@@ -90,7 +89,7 @@ Esempio 2: coppie **campo/valore** multiple per accodare un set di tag.
 }
 ```
 
-Esempio 3: coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) con **value** di matrice per impostare le regole IP in un account di archiviazione.
+Esempio 3: coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) con un **valore** di matrice per impostare le regole IP in un account di archiviazione.
 
 ```json
 "then": {
@@ -105,15 +104,15 @@ Esempio 3: coppia **campo/valore** singola che usa un [alias](definition-structu
 }
 ```
 
-## <a name="deny"></a>Nega
+## <a name="deny"></a>Deny
 
-Deny viene usato per impedire una richiesta di risorse che non corrisponde agli standard desiderati tramite una definizione dei criteri e che genera un errore della richiesta.
+Deny viene usato per impedire una richiesta di risorse che non corrisponde agli standard definiti tramite una definizione dei criteri e che genera un errore della richiesta.
 
 ### <a name="deny-evaluation"></a>Valutazione di Deny
 
-Quando si crea o si aggiorna una risorsa, Deny impedisce la richiesta prima che sia inviata al provider di risorse. La richiesta viene restituita come 403 (Accesso negato). Nel portale l'accesso negato può essere visualizzato come stato della distribuzione impedita a causa dell'assegnazione dei criteri.
+Quando si crea o si aggiorna una risorsa corrispondente, Deny impedisce la richiesta prima che sia inviata al provider di risorse. La richiesta viene restituita come `403 (Forbidden)`. Nel portale l'accesso negato può essere visualizzato come stato della distribuzione impedita dall'assegnazione dei criteri.
 
-Durante un ciclo di valutazione, le definizioni dei criteri con un effetto Deny che corrispondono alle risorse sono contrassegnate come non conformi, ma non vengono eseguite azioni sulla risorsa stessa.
+Durante la valutazione di risorse esistenti, le risorse che corrispondono a una definizione di criteri Deny vengono contrassegnate come non conformi.
 
 ### <a name="deny-properties"></a>Proprietà di Deny
 
@@ -131,11 +130,11 @@ Esempio: uso dell'effetto Deny.
 
 ## <a name="audit"></a>Audit
 
-L'effetto Audit viene usato per creare un evento di avviso in un log attività quando viene valutata una risorsa non conforme, ma la richiesta non viene arrestata.
+Audit viene usato per creare un evento di avviso nel log attività quando viene valutata una risorsa non conforme, ma non arresta la richiesta.
 
 ### <a name="audit-evaluation"></a>Valutazione di Audit
 
-L'effetto Audit è l'ultimo a essere eseguito durante la creazione o l'aggiornamento di una risorsa prima che la risorsa venga inviata al provider di risorse. L'effetto Audit ha lo stesso funzionamento per una richiesta di risorsa e un ciclo di valutazione ed esegue un'operazione `Microsoft.Authorization/policies/audit/action` per il log attività. In entrambi i casi la risorsa è contrassegnata come non conforme.
+Audit è l'ultimo effetto controllato da Criteri di Azure durante la creazione o l'aggiornamento di una risorsa. La risorsa viene quindi inviata al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge un'operazione `Microsoft.Authorization/policies/audit/action` al log attività e contrassegna la risorsa come non conforme.
 
 ### <a name="audit-properties"></a>Proprietà di Audit
 
@@ -153,11 +152,11 @@ Esempio: uso dell'effetto Audit.
 
 ## <a name="auditifnotexists"></a>AuditIfNotExists
 
-AuditIfNotExists consente il controllo su una risorsa che corrisponde alla condizione **if**, ma non ha i componenti specificati in **details** della condizione **then**.
+AuditIfNotExists consente il controllo sulle risorse che corrispondono alla condizione **if**, ma non ha i componenti specificati in **details** nella condizione **then**.
 
 ### <a name="auditifnotexists-evaluation"></a>Valutazione di AuditIfNotExists
 
-AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento per una risorsa e ha restituito un codice di stato con esito positivo. L'effetto viene attivato se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Quando l'effetto viene attivato, un'operazione `Microsoft.Authorization/policies/audit/action` per il log attività viene eseguita allo stesso modo dell'effetto Audit. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
+AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Criteri di Azure aggiunge un'operazione `Microsoft.Authorization/policies/audit/action` al log attività allo stesso modo dell'effetto Audit. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
 
 ### <a name="auditifnotexists-properties"></a>Proprietà di AuditIfNotExists
 
@@ -225,9 +224,9 @@ Analogamente ad AuditIfNotExists, DeployIfNotExists esegue una distribuzione di 
 
 ### <a name="deployifnotexists-evaluation"></a>Valutazione di DeployIfNotExists
 
-Anche DeployIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento per una risorsa e ha restituito un codice di stato con esito positivo. L'effetto viene attivato se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Quando viene attivato l'effetto, viene eseguita una distribuzione di modelli.
+DeployIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. Una distribuzione di modello si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true.
 
-Durante un ciclo di valutazione, le definizioni dei criteri con un effetto DeployIfNotExists che corrispondono alle risorse sono contrassegnate come non conformi, ma non vengono eseguite azioni sulla risorsa stessa.
+Durante un ciclo di valutazione, le definizioni dei criteri con un effetto DeployIfNotExists che corrispondono alle risorse vengono contrassegnate come non conformi, ma non vengono eseguite azioni sulla risorsa stessa.
 
 ### <a name="deployifnotexists-properties"></a>Proprietà di DeployIfNotExists
 
@@ -242,7 +241,7 @@ La proprietà **details** degli effetti DeployIfNotExists ha tutte le sottopropr
   - Consente che la corrispondenza della risorsa correlata provenga da un gruppo di risorse diverso.
   - Non è applicabile se **type** è una risorsa sottostante la risorsa della condizione **if**.
   - L'impostazione predefinita è il gruppo di risorse della risorsa della condizione **if**.
-  - Se viene eseguita una distribuzione di modelli, viene distribuita nel gruppo di risorse di questo valore.
+  - Se viene eseguita una distribuzione di modelli, la distribuzione avviene nel gruppo di risorse di questo valore.
 - **ExistenceScope** (facoltativo)
   - I valori consentiti sono _Subscription_ e _ResourceGroup_.
   - Imposta l'ambito dove recuperare la risorsa correlata a cui corrispondere.
@@ -319,21 +318,32 @@ Esempio: valuta i database SQL Server per determinare se transparentDataEncrypti
 
 ## <a name="layering-policies"></a>Livelli dei criteri
 
-Una risorsa potrebbe essere interessata da assegnazioni multiple. Queste assegnazioni possono essere nello stesso ambito (risorsa, gruppo di risorse, sottoscrizione o gruppo di gestione specifico) o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. Indipendentemente da ciò, la condizione e l'effetto per ogni criterio (assegnato direttamente o come parte di un'iniziativa) vengono valutati in modo indipendente. Ad esempio, se il criterio 1 ha una condizione che limita la creazione del percorso risorsa per la sottoscrizione A solo in 'westus' con l'effetto Deny e il criterio 2 ha una condizione che limita la creazione del percorso risorsa nel gruppo di risorse B (che si trova nella sottoscrizione A) solo in 'eastus' con l'effetto Audit e sono entrambi assegnati, il risultato finale potrebbe essere il seguente:
+Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. Ad esempio: 
 
-- Qualsiasi risorsa già presente nel gruppo di risorse B in 'eastus' è conforme al criterio 2, ma è contrassegnata come non conforme al criterio 1.
-- Qualsiasi risorsa già presente nel gruppo di risorse B non in 'eastus' verrà contrassegnata come non conforme al criterio 2 e potrebbe anche essere contrassegnata come non conforme al criterio 1 se non in 'westus'.
-- Qualsiasi nuova risorsa nella sottoscrizione A non in 'westus' verrebbe rifiutata dal criterio 1.
-- Qualsiasi nuova risorsa nella sottoscrizione A/gruppo di risorse B in 'westus' verrebbe contrassegnata come non conforme al criterio 2, ma sarebbe creata (in caso di conformità al criterio 1 e al criterio 2 è applicabile Audit e non Deny).
+- Criterio 1
+  - Limita la posizione delle risorse a "westus"
+  - Assegnato alla sottoscrizione A
+  - Effetto Deny
+- Criterio 2
+  - Limita la posizione delle risorse a "eastus"
+  - Assegnato al gruppo di risorse B nella sottoscrizione A
+  - Effetto Audit
+  
+Questa configurazione produrrebbe il risultato seguente:
+
+- Qualsiasi risorsa già presente nel gruppo di risorse B in "eastus" è conforme al criterio 2 e non conforme al criterio 1
+- Qualsiasi risorsa già presente nel gruppo di risorse B non in "eastus" è conforme al criterio 2 e non conforme al criterio 1 se non in "westus"
+- Qualsiasi nuova risorsa nella sottoscrizione A non in "westus" viene rifiutata dal criterio 1
+- Qualsiasi nuova risorsa nella sottoscrizione A e nel gruppo di risorse B in "westus" è creata e non conforme al criterio 2
 
 Se entrambi i criteri 1 e 2 avessero l'effetto Deny, la situazione diventerebbe la seguente:
 
-- Qualsiasi risorsa già presente nel gruppo di risorse B non in 'eastus' verrà contrassegnata come non conforme al criterio 2.
-- Qualsiasi risorsa già presente nel gruppo di risorse B non in 'westus' verrà contrassegnata come non conforme al criterio 1.
-- Qualsiasi nuova risorsa nella sottoscrizione A non in 'westus' verrebbe rifiutata dal criterio 1.
-- Qualsiasi nuova risorsa nella sottoscrizione A/gruppo di risorse B verrebbe rifiutata (dal momento che il percorso non potrebbe mai soddisfare entrambi i percorsi 1 e 2).
+- Qualsiasi risorsa già presente nel gruppo di risorse B non in "eastus" non è conforme al criterio 2
+- Qualsiasi risorsa già presente nel gruppo di risorse B non in "westus" non è conforme al criterio 1
+- Qualsiasi nuova risorsa nella sottoscrizione A non in "westus" viene rifiutata dal criterio 1
+- Qualsiasi nuova risorsa nel gruppo di risorse B della sottoscrizione A viene negata
 
-Dal momento che ogni assegnazione viene valutata singolarmente, non c'è la possibilità di inserire per sbaglio una risorsa a causa delle differenze nell'ambito. Pertanto, il risultato netto dei livelli dei criteri o della sovrapposizione dei criteri è considerato **cumulativo più restrittivo**. In altre parole, una risorsa che si vuole creare potrebbe essere bloccata a causa di criteri sovrapposti e in conflitto, come nell'esempio precedente se i criteri 1 e 2 hanno avuto un effetto Deny. Se è ancora necessario che la risorsa venga creata nell'ambito di destinazione, rivedere le esclusioni per ogni assegnazione per verificare che i criteri corretti interessino gli ambiti corretti.
+Ogni assegnazione viene valutata singolarmente. Di conseguenza, non c'è alcuna possibilità di inserire per sbaglio una risorsa a causa delle differenze nell'ambito. Il risultato netto della disposizione dei criteri su più livelli o della sovrapposizione dei criteri è considerato **cumulativo più restrittivo**. Ad esempio, se entrambi i criteri 1 e 2 avessero un effetto Deny, una risorsa verrebbe bloccata dai criteri sovrapposti e in conflitto. Se è ancora necessario che la risorsa venga creata nell'ambito di destinazione, rivedere le esclusioni per ogni assegnazione per verificare che i criteri corretti interessino gli ambiti corretti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

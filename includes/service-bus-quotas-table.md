@@ -5,15 +5,15 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 08/29/2018
+ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 1116d6037a149b379bd96d6b208ca306a38c7a03
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: e2335beba521a612d03b1d12cd4bf6139e1330fb
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52288690"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410865"
 ---
 La tabella seguente include le informazioni sulle quote specifiche per la messaggistica del Bus di servizio: Per informazioni sui prezzi e altre quote del bus di servizio, vedere la panoramica [Prezzi di Azure](https://azure.microsoft.com/pricing/details/service-bus/) .
 
@@ -28,8 +28,9 @@ La tabella seguente include le informazioni sulle quote specifiche per la messag
 | Numero di [code/argomenti partizionati](/azure/service-bus-messaging/service-bus-partitioning) per ogni spazio dei nomi |Spazio dei nomi |Le successive richieste di creazione di una nuova coda o un nuovo argomento partizionato nello spazio dei nomi vengono rifiutate. Se pertanto la configurazione viene eseguita tramite il [portale di Azure][Azure portal], viene generato un messaggio di errore. Se viene chiamato dall'API di gestione, viene ricevuta un'eccezione **QuotaExceededException** dal codice chiamante. |Livelli Basic e Standard: 100<br/><br/>Le entità partizionate non supportate nel livello [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md).<br/><br />Ogni coda o argomento partizionato viene conteggiato ai fini della quota di 1000 entità per spazio dei nomi. |
 | Dimensione massima di qualsiasi percorso di entità di messaggistica: coda o argomento |Entità |- |260 caratteri |
 | Dimensione massima di qualsiasi nome di entità di messaggistica: spazio dei nomi, sottoscrizione o regola di sottoscrizione |Entità |- |50 caratteri |
-| Dimensioni massime di un [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid) di messaggio | Entità |- | 128 |
-| Dimensione dei messaggi per un'entità coda/argomento/sottoscrizione |Entità |I messaggi in ingresso che superano queste quote vengono rifiutati e il codice chiamante riceve un'eccezione. |Dimensione massima dei messaggi: 256 KB per il [livello Standard](../articles/service-bus-messaging/service-bus-premium-messaging.md) / 1 MB per il [livello Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />A causa di un sovraccarico del sistema, questo limite è minore di questi valori.<br /><br />Dimensione massima delle intestazioni: 64 KB<br /><br />Numero massimo di proprietà intestazione nell'elenco proprietà: **byte/int.MaxValue**<br /><br />Dimensioni massime della proprietà nel contenitore delle proprietà: nessun limite esplicito. Limitato dalla dimensione massima delle intestazioni. |
+| Dimensione massima di un [ID di messaggio](/dotnet/api/microsoft.azure.servicebus.message.messageid) | Entità |- | 128 |
+| Dimensione massima di un [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid) di messaggio | Entità |- | 128 |
+| Dimensione dei messaggi per un'entità coda/argomento/sottoscrizione |Entità |I messaggi in ingresso che superano queste quote vengono rifiutati e il codice chiamante riceve un'eccezione. |Dimensione massima dei messaggi: 256 KB per il [livello Standard](../articles/service-bus-messaging/service-bus-premium-messaging.md) / 1 MB per il [livello Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />A causa di un sovraccarico del sistema, questo limite è minore di questi valori.<br /><br />Dimensione massima delle intestazioni: 64 KB<br /><br />Numero massimo di proprietà intestazione nell'elenco proprietà: **byte/int.MaxValue**<br /><br />Dimensione massima della proprietà nel contenitore delle proprietà: nessun limite esplicito. Limitato dalla dimensione massima delle intestazioni. |
 | Dimensione delle proprietà dei messaggi per un'entità coda/argomento/sottoscrizione |Entità |Viene generata un'eccezione **SerializationException**. |La dimensione massima delle proprietà dei messaggi per ogni proprietà è di 32 KB. Le dimensioni cumulative di tutte le proprietà non possono superare i 64 KB. Questo limite si applica all'intera intestazione dell'oggetto [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), che ha sia proprietà utente che proprietà di sistema, ad esempio [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label), [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid) e così via. |
 | Numero di sottoscrizioni e per ogni argomento |Entità |Le successive richieste di creazione di altre sottoscrizioni per l'argomento vengono rifiutate. Se pertanto la configurazione viene eseguita tramite il portale, viene visualizzato un messaggio di errore. Se viene chiamato dall'API di gestione, viene ricevuta un'eccezione dal codice chiamante. |Livello Standard: ogni sottoscrizione viene conteggiata ai fini della quota di 1000 entità (code, argomenti e sottoscrizioni) per spazio dei nomi. <br/> <br/> Livello Premium: 2.000 |
 | Numero di filtri SQL per ogni argomento |Entità |Le successive richieste di creazione di altri filtri per l'argomento vengono rifiutate e il codice chiamante riceve un'eccezione. |2.000 |

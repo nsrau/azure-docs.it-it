@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 89e731d6c255092b087f0615bad49185c7181f1f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 07274269e9902a336181c89ee5c02edd52b6ab01
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210757"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849497"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>Panoramica del supporto multi-tenant per il ripristino di emergenza da VMware ad Azure con CSP
 
@@ -58,7 +58,7 @@ Ogni server di configurazione nello scenario multi-tenant usa due account:
 
 - **Account di accesso vCenter**: questo account viene usato per individuare le macchine virtuali tenant. Ha autorizzazioni di accesso vCenter assegnate. Per evitare la divulgazione delle credenziali di accesso, è consigliabile che i partner immettano personalmente queste credenziali nello strumento di configurazione.
 
-- **Account di accesso alla macchina virtuale**: questo account viene usato per installare l'agente del servizio Mobility nelle macchine virtuali tenant con un push automatico. Si tratta in genere di un account di dominio che un tenant può fornire a un partner o che può essere gestito direttamente dal partner. Se un tenant non intende condividere i dettagli direttamente con il partner, può immettere le credenziali tramite un accesso limitato nel tempo al server di configurazione. In alternativa, con l'assistenza del partner è possibile installare l'agente del servizio Mobility manualmente.
+- **Account di accesso alla macchina virtuale**: questo account viene usato per installare l'agente del servizio Mobility nelle macchine virtuali tenant con push automatico. Si tratta in genere di un account di dominio che un tenant può fornire a un partner o che può essere gestito direttamente dal partner. Se un tenant non intende condividere i dettagli direttamente con il partner, può immettere le credenziali tramite un accesso limitato nel tempo al server di configurazione. In alternativa, con l'assistenza del partner è possibile installare l'agente del servizio Mobility manualmente.
 
 ## <a name="vcenter-account-requirements"></a>Requisiti dell'account vCenter
 
@@ -79,7 +79,7 @@ Configurare il server di configurazione con un account a cui sia assegnato un ru
     * **Network** (Rete): Network assign (Assegnazione rete)
     * **Resource** (Risorsa): Assign VM to resource pool (Assegna macchina virtuale a pool di risorse), Migrate powered off VM (Esegui migrazione macchina virtuale spenta), Migrate powered on VM (Esegui migrazione macchina virtuale accesa)
     * **Tasks** (Attività): Create task (Crea attività), Update task (Aggiorna attività)
-    * **VM - Configuration (Configurazione)**: All (Tutto)
+    * **VM - Configuration** (VM - Configurazione): Tutti
     - **VM - Interaction (Interazione)** > Answer question (Rispondi alla domanda), Device connection (Connessione dispositivo), Configure CD media (Configura supporto CD), Configure floppy media (Configura supporto floppy), Power off (Spegni), Power on (Accendi), VMware tools install (Installazione strumenti VMware)
     - **VM - Inventory (Inventario)** > Create from existing (Crea da esistente), Create new (Crea nuovo), Register (Registra), Unregister (Annulla registrazione)
     - **VM - Provisioning** > Allow virtual machine download (Consenti download macchina virtuale), Allow virtual machine files upload (Consenti upload file macchina virtuale)

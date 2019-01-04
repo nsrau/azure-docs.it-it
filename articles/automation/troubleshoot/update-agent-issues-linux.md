@@ -4,25 +4,25 @@ description: Informazioni su come risolvere i problemi con l'agente Gestione agg
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/06/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: adaeb3087fca57a4a868f4525d588e014ff36fcf
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 491f60b55843957bf9ec904f7310ef67219ba3c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335828"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438643"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Linux in Gestione aggiornamenti
 
-Sono molti i motivi possibili per cui un computer Azure non viene visualizzato come **Pronto** in Gestione aggiornamenti. In Gestione aggiornamenti è possibile controllare l'integrità di un agente del ruolo di lavoro ibrido per determinare il problema sottostante. Questo articolo illustra come eseguire la risoluzione dei problemi dal portale di Azure e negli scenari offline.
+Sono molti i motivi possibili per cui un computer non viene visualizzato come **Pronto** in Gestione aggiornamenti. In Gestione aggiornamenti è possibile controllare l'integrità di un agente del ruolo di lavoro ibrido per determinare il problema sottostante. Questo articolo illustra come eseguire la risoluzione dei problemi per i computer Azure dal portale di Azure e per i computer non Azure nello [scenario offline](#troubleshoot-offline).
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
-Facendo clic sul collegamento **Troubleshoot** (Risolvi i problemi) nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si avvia la pagina **Troubleshoot Update Agent** (Risolvere i problemi dell'agente di aggiornamento). Questa pagina illustra i problemi con l'agente e riporta un collegamento a questo articolo per facilitare la risoluzione dei problemi.
+Nel caso di computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si apre la pagina **Troubleshoot Update Agent** (Risoluzione dei problemi dell'agente di aggiornamento). Nel caso di computer non Azure, facendo clic sul collegamento, si accede a questo articolo. Per risolvere i problemi di un computer non Azure, vedere le [istruzioni relative allo scenario offline](#offline).
 
 ![Pagina con l'elenco delle macchine virtuali](../media/update-agent-issues-linux/vm-list.png)
 
@@ -54,12 +54,12 @@ Il controllo del sistema operativo verifica se il ruolo di lavoro ibrido per run
 
 ### <a name="oms-agent"></a>Agente OMS
 
-Questo controllo verifica che l'agente OMS per Linux sia installato. Per istruzioni su come installarlo, vedere [Installare l'agente per Linux](../../log-analytics//log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux
+Questo controllo verifica che l'agente OMS per Linux sia installato. Per istruzioni su come installarlo, vedere [Installare l'agente per Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
 ### <a name="oms-agent-status"></a>Stato dell'agente OMS
 
-Questo controllo verifica che l'agente OMS per Linux sia in esecuzione. Se l'agente non è in esecuzione è possibile eseguire il comando seguente per tentare di riavviarlo. Per altre informazioni sulla risoluzione dei problemi dell'agente, vedere [Risolvere i problemi di ruoli di lavoro ibridi per runbook (Linux)](hybrid-runbook-worker.md#linux).
+Questo controllo verifica che l'agente OMS per Linux sia in esecuzione. Se l'agente non è in esecuzione, è possibile eseguire il comando seguente per tentare di riavviarlo. Per altre informazioni sulla risoluzione dei problemi dell'agente, vedere [Risolvere i problemi di ruoli di lavoro ibridi per runbook (Linux)](hybrid-runbook-worker.md#linux).
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart

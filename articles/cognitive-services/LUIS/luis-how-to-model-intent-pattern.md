@@ -1,21 +1,22 @@
 ---
-title: Aggiungere modelli di criteri anziché altre espressioni in app di LUIS
-titleSuffix: Azure Cognitive Services
+title: Miglioramento dell'accuratezza grazie ai criteri
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Informazioni su come aggiungere i modelli di criteri in Language Understanding (LUIS) per migliorarne la precisione delle previsioni.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6c15fc256a330c7de154c551c1ef4c78913f470a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ae0fdb17680f415a1dacce1738fa53fcda943788
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885887"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134999"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Modalità tramite cui aggiungere Criteri per migliorare la precisione delle previsioni
 Dopo che l'app LUIS ha ricevuto le espressioni di endpoint, usa il [concetto](luis-concept-patterns.md) di Criteri per migliorare la precisione della previsione per quelle espressioni che presentano un criterio a livello di ordine delle parole e di scelta lessicale. I criteri usano le [entità](luis-concept-entity-types.md) e i rispettivi ruoli per estrarre i dati tramite la sintassi di un criterio specifico. 
@@ -95,7 +96,7 @@ Per riassegnare diversi criteri a diverse finalità, seleziona la casella di con
 
 2. Viene visualizzata la finestra di dialogo di conferma per l'opzione **Elimina criteri**. Fai clic su **Ok** per completare l'eliminazione.
 
-    ![Schermata dell'eliminazione di diversi criteri](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Screenshot della casella di conferma dell'eliminazione di diversi criteri](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## <a name="filter-pattern-list-by-entity"></a>Filtrare l'elenco dei criteri per entità
 
@@ -116,7 +117,7 @@ Dopo aver applicato il filtro, il nome della finalità viene visualizzato sotto 
 ## <a name="remove-entity-or-intent-filter"></a>Rimuovere il filtro entità o finalità
 Quando l'elenco dei criteri viene filtrato, il nome dell'entità o della finalità viene visualizzato sotto alla barra degli strumenti. Per rimuovere il filtro, seleziona il nome.
 
-![Schermata dei criteri filtrati per entità](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Screenshot della rimozione dell'entità dal filtro](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 Il filtro viene rimosso e vengono visualizzati tutti i criteri. 
 
@@ -125,7 +126,7 @@ Il filtro viene rimosso e vengono visualizzati tutti i criteri.
 
 1. Nella riga selezionata dell'espressione selezionare i puntini di sospensione (***...***) a destra dell'espressione, quindi **Aggiungi come criterio**.
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Schermata della tabella di espressioni con Aggiungi criterio evidenziato nel menu delle opzioni")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![Screenshot della tabella delle espressioni con la voce per l'aggiunta di un criterio evidenziata nel menu relativo alle opzioni](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Screenshot della tabella delle espressioni con la voce per l'aggiunta di un criterio evidenziata nel menu relativo alle opzioni")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
 2. Modifica il criterio in base alle [regole della sintassi](luis-concept-patterns.md#pattern-syntax). Se l'espressione selezionata è etichettata con le entità, queste ultime sono già presenti nel criterio con la sintassi corretta.
 

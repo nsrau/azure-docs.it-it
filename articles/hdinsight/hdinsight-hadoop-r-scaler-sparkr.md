@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: da486b25a9a35cb4f00d6e5a4689d5be3d270e36
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013276"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386901"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Uso combinato di ScaleR e SparkR in HDInsight
 
 Questo documento illustra come stimare i ritardi di arrivo dei voli usando un modello di regressione logistica **ScaleR**. Nell'esempio vengono usati dati sul ritardo dei voli e dati sulle condizioni atmosferiche, uniti in join tramite **SparkR**.
 
-Sebbene vengano eseguiti nel motore di esecuzione di Hadoop Spark, entrambi i pacchetti sono bloccati da una condivisione dei dati in memoria in quanto ognuno di essi richiede le rispettive sessioni Spark. Finché questo problema non verrà risolto in una versione futura di ML Server, la soluzione alternativa consiste nel mantenere sessioni di Spark non sovrapposte e scambiare i dati tramite file intermedi. Le istruzioni riportate di seguito mostrano che questi requisiti sono semplici da rispettare.
+Sebbene vengano eseguiti nel motore di esecuzione di Apache Hadoop Spark, entrambi i pacchetti sono bloccati da una condivisione dei dati in memoria in quanto ognuno di essi richiede le rispettive sessioni Spark. Finché questo problema non verrà risolto in una versione futura di ML Server, la soluzione alternativa consiste nel mantenere sessioni di Spark non sovrapposte e scambiare i dati tramite file intermedi. Le istruzioni riportate di seguito mostrano che questi requisiti sono semplici da rispettare.
 
 Questo esempio è stato condiviso inizialmente in un discorso tenuto a Strata 2016 da Mario Inchiosa e Roni Burd. Il discorso è disponibile nel webinar [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Compilazione di una piattaforma Data Science scalabile con R).
 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Assegnazione di punteggi in un'altra posizione
 
-È possibile anche usare il modello per l'assegnazione di punteggi ai dati in un'altra piattaforma salvandolo come file di Servizi desktop remoto e trasferendo e importando questo file di Servizi desktop remoto nell'ambiente per l'assegnazione di punteggi di destinazione, ad esempio Servizi R per SQL Server. È importante assicurarsi che i factor level dei dati a cui assegnare un punteggio corrispondano a quelli in cui è stato creato il modello. Questa corrispondenza può essere ottenuta tramite l'estrazione e il salvataggio delle informazioni sulla colonna associate ai dati di modellazione tramite la funzione `rxCreateColInfo()` di ScaleR, quindi applicando queste informazioni sulla colonna all'origine dati di input per la previsione. Di seguito sono state salvate alcune righe del set di dati di test e le informazioni sulla colonna verranno estratte e usate da questo esempio nello script di previsione:
+È possibile anche usare il modello per l'assegnazione di punteggi ai dati in un'altra piattaforma salvandolo come file di Servizi desktop remoto e trasferendo e importando questo file di Servizi Desktop remoto nell'ambiente per l'assegnazione di punteggi di destinazione, ad esempio R Services per Microsoft SQL Server. È importante assicurarsi che i factor level dei dati a cui assegnare un punteggio corrispondano a quelli in cui è stato creato il modello. Questa corrispondenza può essere ottenuta tramite l'estrazione e il salvataggio delle informazioni sulla colonna associate ai dati di modellazione tramite la funzione `rxCreateColInfo()` di ScaleR, quindi applicando queste informazioni sulla colonna all'origine dati di input per la previsione. Di seguito sono state salvate alcune righe del set di dati di test e le informazioni sulla colonna verranno estratte e usate da questo esempio nello script di previsione:
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +535,7 @@ In questo articolo è stato illustrato come è possibile combinare l'uso di Spar
 
 ## <a name="next-steps-and-more-information"></a>Passaggi successivi e altre informazioni
 
-- Per altre informazioni sull'uso di ML Server in Spark, vedere la [Guida introduttiva](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Per altre informazioni sull'uso di ML Server in Apache Spark, vedere la [Guida introduttiva](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
 - Per informazioni generali su ML Server, vedere l'articolo [Introduzione a Microsoft R Server](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node).
 

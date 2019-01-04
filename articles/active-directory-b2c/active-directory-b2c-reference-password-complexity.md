@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 88609f4daac176f082e7f4962d557267946ab98c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014721"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724435"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Configurare i requisiti di complessità delle password
 
@@ -26,22 +26,21 @@ Azure Active Directory B2C (Azure AD B2C) supporta la modifica dei requisiti di 
 
 ## <a name="when-password-rules-are-enforced"></a>Quando vengono applicate regole sulle password
 
-Durante la registrazione o la reimpostazione di una password, l'utente finale deve specificare una password che soddisfi le regole di complessità,  che vengono applicate in base ai criteri di riferimento.  È possibile che, durante la registrazione, alcuni criteri richiedano un pin a quattro cifre, mentre altri una stringa di otto caratteri.  È possibile, ad esempio, usare criteri con una complessità delle password diversa per gli adulti e per i bambini.
+Durante la registrazione o la reimpostazione di una password, l'utente finale deve specificare una password che soddisfi le regole di complessità,  che vengono applicate in base al flusso utente di riferimento.  È possibile che, durante la registrazione, un flusso utente richieda un PIN a quattro cifre, mentre un altro una stringa di otto caratteri.  È possibile, ad esempio, usare un flusso utente con una complessità delle password diversa per gli adulti e per i bambini.
 
 La complessità delle password non viene mai applicata durante l'accesso.  Durante la registrazione, infatti, agli utenti non viene mai chiesto di modificare la password perché non soddisfa i requisiti di complessità correnti.
 
-Di seguito sono elencati i tipi di criteri in cui è possibile configurare la complessità delle password:
+Di seguito sono elencati i tipi di flussi utente in cui è possibile configurare la complessità delle password:
 
-* Criteri di registrazione o di accesso
-* Criteri di reimpostazione delle password
+* Flusso utente di iscrizione o accesso
+* Flusso utente di reimpostazione delle password
 * Criteri personalizzati ([Configurare la complessità delle password nei criteri personalizzati](active-directory-b2c-reference-password-complexity-custom.md))
 
 ## <a name="how-to-configure-password-complexity"></a>Come configurare la complessità delle password
 
-1. Aprire **Sign-up or sign-in polices** (Criteri di registrazione o accesso).
-2. Selezionare i criteri e fare clic su **Modifica**.
-3. Aprire **Complessità password**.
-4. Impostare la complessità delle password per questi criteri su **Semplice**, **Alta** o **Personalizzata**.
+1. Aprire **Flussi utente**.
+2. Selezionare un flusso utente e fare clic su **Proprietà**.
+3. In **Complessità password** impostare la complessità delle password per questo flusso utente su **Semplice**, **Alta** o **Personalizzata**.
 
 ### <a name="comparison-chart"></a>Grafico di confronto
 
@@ -71,7 +70,7 @@ Consente di controllare i requisiti di lunghezza della password.
 
 Consente di controllare i diversi tipi di carattere usati nella password.
 
-* **2 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (2 di 4: carattere minuscolo, carattere maiuscolo, numero (0-9), simbolo): garantisce che la password contenga almeno due tipi di carattere, ad esempio un numero e un carattere minuscolo.
+* **2 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (2 di 4: carattere minuscolo, carattere maiuscolo, numero (0-9), simbolo): garantisce che la password contenga almeno tre tipi di carattere, ad esempio un numero e un carattere minuscolo.
 * **3 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (3 di 4: carattere minuscolo, carattere maiuscolo, numero (0-9), simbolo): garantisce che la password contenga almeno tre tipi di carattere, ad esempio un numero, un carattere minuscolo e un carattere maiuscolo.
 * **4 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (4 di 4: carattere minuscolo, carattere maiuscolo, numero (0-9), simbolo): garantisce che la password contenga tutti i quattro tipi di carattere.
 

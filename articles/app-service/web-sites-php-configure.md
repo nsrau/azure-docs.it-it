@@ -1,5 +1,5 @@
 ---
-title: Configurazione di PHP nelle app Web di Servizio app di Azure
+title: Configurare il runtime PHP - Servizio app di Azure
 description: Informazioni su come configurare l'installazione predefinita di PHP o aggiungere un'installazione personalizzata di PHP in Servizio app di Azure."
 services: app-service
 documentationcenter: php
@@ -13,12 +13,13 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 1e5f7ed2fb4c77e0a738cbe6ee6c84b46bc59bb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: d5ad7b392029ae33ee7666b80edfe5b4b7555b41
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230836"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273196"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurazione di PHP nelle app Web di Servizio app di Azure
 
@@ -28,7 +29,7 @@ Questa guida descrive come configurare il runtime PHP incorporato per le app Web
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to-change-the-built-in-php-version"></a>Procedura: modificare la versione PHP incorporata
+## <a name="how-to-change-the-built-in-php-version"></a>Procedura: Modificare la versione PHP predefinita
 
 Per impostazione predefinita, PHP 5.6 è installato e immediatamente disponibile per l'uso quando si crea un'app Web del servizio app di Azure. Il modo migliore per visualizzare la revisione della versione disponibile, la sua configurazione predefinita e le estensioni abilitate consiste nel distribuire uno script che chiama la funzione [phpinfo ()] .
 
@@ -39,10 +40,10 @@ Sono anche disponibili le versioni PHP 7.0 e PHP 7.2, che però non sono abilita
 1. Passare all'app Web nel [portale di Azure](https://portal.azure.com) e fare clic sul pulsante **Impostazioni**.
 
     ![Impostazioni app Web][settings-button]
-1. Dal pannello **Impostazioni** selezionare **Impostazioni applicazione** e scegliere la nuova versione di PHP.
+2. Dal pannello **Impostazioni** selezionare **Impostazioni applicazione** e scegliere la nuova versione di PHP.
 
     ![Impostazioni dell'applicazione][application-settings]
-1. Fare clic sul pulsante **Salva** all'inizio del pannello **Impostazioni app Web**.
+3. Fare clic sul pulsante **Salva** all'inizio del pannello **Impostazioni app Web**.
 
     ![Salvare le impostazioni di configurazione][save-button]
 
@@ -78,7 +79,7 @@ Per usare l'interfaccia della riga di comando di Azure, è necessario [installar
 
         az webapp show --name {app-name} --resource-group {resource-group-name}
 
-## <a name="how-to-change-the-built-in-php-configurations"></a>Modificare la configurazione PHP incorporata
+## <a name="how-to-change-the-built-in-php-configurations"></a>Procedura: Modificare le configurazioni PHP predefinite
 
 Per qualsiasi runtime PHP incorporato, è possibile modificare le opzioni di configurazione eseguendo la procedura seguente. (per informazioni sulle direttive solo a livello di sistema, vedere la [Lista delle direttive php.ini]).
 
@@ -109,7 +110,7 @@ In alternativa a un file `.user.ini` è possibile usare la funzione [ini_set()] 
         wincache.maxfilesize=512
 1. Riavviare l'app Web per caricare di nuovo le modifiche.
 
-## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Abilitare le estensioni nel runtime PHP predefinito
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Procedura: Abilitare le estensioni nel runtime PHP predefinito
 
 Come indicato nella sezione precedente, il modo migliore per visualizzare la versione PHP disponibile, la sua configurazione predefinita e le estensioni abilitate consiste nel distribuire uno script che chiama la funzione [phpinfo ()]. Per abilitare le estensioni aggiuntive, eseguire la procedura seguente:
 
@@ -144,11 +145,11 @@ Come indicato nella sezione precedente, il modo migliore per visualizzare la ver
 
 Con l'uso di una chiave **PHP_ZENDEXTENSIONS** sono supportate anche le estensioni Zend. Per abilitare più estensioni, includere un elenco separato da virgole di `.dll` file per il valore dell'impostazione dell'app.
 
-## <a name="how-to-use-a-custom-php-runtime"></a>Usare un runtime PHP personalizzato
+## <a name="how-to-use-a-custom-php-runtime"></a>Procedura: Usare un runtime PHP personalizzato
 
 Invece del runtime PHP predefinito, App Web di Servizio Web può utilizzare un runtime PHP fornito dall'utente per l'esecuzione degli script PHP. Quest'ultimo può essere configurato da un file `php.ini` analogamente fornito dall'utente. Per usare un runtime PHP personalizzato con le app Web, attenersi alla procedura seguente.
 
-1. Ottenere una versione compatibile con VC9 o VC11 e non-thread-safe di PHP per Windows. Le versioni recenti di PHP per Windows sono disponibili qui: [http://windows.php.net/download/]. Le versioni precedenti sono disponibili in questo archivio: [http://windows.php.net/downloads/releases/archives/].
+1. Ottenere una versione compatibile con VC9 o VC11 e non-thread-safe di PHP per Windows. Le versioni recenti di PHP per Windows sono disponibili qui: [https://windows.php.net/download/]. Le versioni precedenti sono disponibili in questo archivio: [https://windows.php.net/downloads/releases/archives/].
 1. Modificare il file `php.ini` per il proprio runtime. Qualsiasi impostazione di configurazione che non sia una direttiva solo a livello di sistema verrà ignorata dalle app Web. (per informazioni sulle direttive solo a livello di sistema, vedere la [Lista delle direttive php.ini]).
 1. Facoltativamente, aggiungere le estensioni al proprio runtime PHP e abilitarle nel file `php.ini` .
 1. Aggiungere una directory `bin` alla propria directory radice e inserirvi la directory contenente il proprio runtime PHP (ad esempio, `bin\php`).
@@ -165,7 +166,7 @@ Invece del runtime PHP predefinito, App Web di Servizio Web può utilizzare un r
 
 <a name="composer" />
 
-## <a name="how-to-enable-composer-automation-in-azure"></a>Procedura: Abilitare l’automazione Composer in Azure
+## <a name="how-to-enable-composer-automation-in-azure"></a>Procedura: Abilitare l'automazione Composer in Azure
 
 Per impostazione predefinita, il servizio app non esegue operazioni relative a composer.json, se questo è presente nel progetto PHP. Se si usa la [distribuzione Git](app-service-deploy-local-git.md), è possibile abilitare l'elaborazione di composer.json durante l'operazione di `git push` abilitando l'estensione Composer.
 
@@ -196,7 +197,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](https://a
 >
 
 [valutazione gratuita]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo ()]: http://php.net/manual/en/function.phpinfo.php
+[phpinfo ()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [Lista delle direttive php.ini]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
@@ -206,8 +207,8 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](https://a
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [php-extensions]: ./media/web-sites-php-configure/php-extensions.png
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[http://windows.php.net/download/]: http://windows.php.net/download/
-[http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
+[https://windows.php.net/download/]: https://windows.php.net/download/
+[https://windows.php.net/downloads/releases/archives/]: https://windows.php.net/downloads/releases/archives/
 [SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png

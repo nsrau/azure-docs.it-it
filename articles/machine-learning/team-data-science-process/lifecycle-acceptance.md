@@ -1,5 +1,5 @@
 ---
-title: Fase di accettazione del cliente del ciclo di vita del processo di data science per i team - Azure | Microsoft Docs
+title: Fase di accettazione del cliente del ciclo di vita del processo di data science per i team
 description: Obiettivi, attività e risultati finali per la fase di accettazione da parte del cliente dei progetti di data science.
 services: machine-learning
 author: marktab
@@ -10,19 +10,19 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: a60594123346b599270f2a7763e98fc863f85067
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 7a00f18a8ae51d5118275e904e2ca76fc167d987
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441486"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132619"
 ---
-# <a name="customer-acceptance"></a>Accettazione del cliente
+# <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Fase di accettazione del cliente del ciclo di vita del processo di data science per i team
 
 Questo argomento descrive gli obiettivi, le attività e i risultati finali associati alla fase di accettazione del cliente del processo TDSP. Questo processo offre un ciclo di vita consigliato da usare per strutturare i progetti di data science. Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
 
-   1. **Comprensione del business**
+   1. **Comprensione delle strategie aziendali**
    2. **Acquisizione e comprensione dei dati**
    3. **Modellazione**
    4. **Distribuzione**
@@ -34,7 +34,7 @@ Ecco una rappresentazione visiva del ciclo di vita del processo TDSP:
 
 
 ## <a name="goal"></a>Obiettivo
-**Finalizzare i risultati del progetto**: verificare che la pipeline, il modello e la relativa distribuzione nell'ambiente di produzione soddisfino gli obiettivi del cliente.
+**Finalizzare i risultati del progetto**: verificare che la pipeline, il modello e la relativa distribuzione in un ambiente di produzione soddisfino gli obiettivi del cliente.
 
 ## <a name="how-to-do-it"></a>Procedura
 Questa fase comprende due attività principali:
@@ -52,7 +52,7 @@ Il principale elemento prodotto in questa fase finale è il **Report di uscita d
 
 Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data science per i team:
 
-   1. [Comprensione del business](lifecycle-business-understanding.md)
+   1. [Comprensione delle strategie aziendali](lifecycle-business-understanding.md)
    2. [Acquisizione e comprensione dei dati](lifecycle-data.md)
    3. [Modellazione](lifecycle-modeling.md)
    4. [Distribuzione](lifecycle-deployment.md)
@@ -60,4 +60,4 @@ Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data scie
 
 Sono disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per scenari specifici. L'articolo sulle [procedure dettagliate di esempio](walkthroughs.md) include un elenco degli scenari con i collegamenti e le descrizioni di anteprima. Le procedure dettagliate illustrano come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
 
-Per esempi su come eseguire i passaggi nei processi di data science per i team (TDSP) che usano Azure Machine Learning Studio, vedere [Uso del processo di analisi scientifica dei dati per i team con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Per esempi su come eseguire i passaggi nei processi di data science per i team (TDSP) che usano Azure Machine Learning Studio, vedere [Usare il processo di data science per i team con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 9b83d6ac908be1e62e3c6c2025ae31aa374bdeea
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 47f3e8ab14ecd50e958c57ba4c8f9f098fd5bb7b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975074"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868362"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Governance dell'infrastruttura di Azure DevTest Labs - Gestire i costi e la proprietà
 Costi e proprietà sono problemi primari quando si considera la creazione di ambienti di test e sviluppo. In questa sezione sono riportate informazioni che consentono di ottimizzare i costi e allineare la proprietà al proprio ambiente.
@@ -40,7 +40,7 @@ Questo approccio offre numerosi vantaggi:
  
 Solo i titolari di sottoscrizioni attive di Visual Studio (sottoscrizioni standard, sottoscrizioni cloud annuali e sottoscrizioni cloud mensili) possono usare le risorse di Azure in esecuzione nell'ambito di una sottoscrizione dell'offerta Sviluppo/test Enterprise. Gli utenti finali tuttavia possono accedere all'applicazione per fornire commenti e o eseguire test di accettazione. L'uso delle risorse nell'ambito di questa sottoscrizione è limitato allo sviluppo e al test delle applicazioni e non sono previsti tempi di attività garantiti.
 
-Se si decide di usufruire dell'offerta Sviluppo/test, si noti che questo vantaggio è riservato esclusivamente allo sviluppo e test delle proprie applicazioni. L'utilizzo entro i limiti della sottoscrizione non prevede un contratto di servizio con copertura finanziaria, fatta eccezione per l'uso di Visual Studio Team Services e HockeyApp.
+Se si decide di usufruire dell'offerta Sviluppo/test, si noti che questo vantaggio è riservato esclusivamente allo sviluppo e test delle proprie applicazioni. L'utilizzo entro i limiti della sottoscrizione non prevede un contratto di servizio con copertura finanziaria, fatta eccezione per l'uso di Azure DevOps e HockeyApp.
 
 ## <a name="define-a-role-based-access-across-your-organization"></a>Definire un accesso in base al ruolo all'interno dell'organizzazione
 ### <a name="question"></a>Domanda

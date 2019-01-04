@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: 945cdf63a178a09f121f355aaa7635537e46e5ff
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4941d893c6c871541772569e42bf5169270def88
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703434"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413558"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Creare unit test per i servizi con stato
 Il testing unità dei servizi con stato di Service Fabric svela gli errori comuni che non verrebbero necessariamente rilevati dall'applicazione convenzionale o testing unità specifico di dominio. Durante lo sviluppo di unit test per i servizi con stato, esistono alcune considerazioni speciali che devono essere tenute a mente.
@@ -34,7 +34,7 @@ Questo articolo si presuppone che [Unit test di servizi con stato in Service Fab
 A partire dalla versione 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) fornisce un'API per il comportamento fittizio sia a livello dell'orchestrazione delle repliche sia a livello della gestione dello stato. Verrà usato negli esempi.
 
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[Github](https://github.com/loekd/ServiceFabric.Mocks)
+[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *ServiceFabric.Mocks non è di proprietà né è gestito da Microsoft. Tuttavia, questa è attualmente la libreria consigliata di Microsoft per i servizi del testing unità con stato.*
 
@@ -91,7 +91,7 @@ replicaSet.PromoteNewReplicaToPrimaryAsync(4);
 
 //promote the first idle secondary to an active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync();
-//promote idle secodary with replica id 4 to active secondary 
+//promote idle secodary with replica id 4 to active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync(4);
 
 //add a new replica with randomly assigned replica id and promote it to primary

@@ -1,21 +1,22 @@
 ---
-title: Procedure consigliate per la creazione di App con LUIS - Language Understanding
-titleSuffix: Azure Cognitive Services
-description: Informazioni sulle procedure consigliate LUIS per ottenere i risultati migliori.
+title: Procedure consigliate
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Informazioni sulle procedure consigliate LUIS per ottenere i risultati migliori con il modello di app LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6b7b9c8a2a3e7da1628ef3e6f93a4b632ce38615
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e63d6ed584c0e8afc823bbcdc6e70ceabbf43db6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637781"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085281"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedure consigliate per la creazione di un'app di riconoscimento vocale con Servizi cognitivi
 Usare il processo di creazione dell'app per compilare l'app LUIS. 
@@ -50,10 +51,10 @@ Se il vocabolario tra due finalità è lo stesso, combinare la finalità e usare
 
 Considerare le espressioni di esempio seguenti:
 
-```
-Book a flight
-Book a hotel
-```
+|Espressioni di esempio|
+|--|
+|Prenota un volo|
+|Prenota un hotel|
 
 "Prenota un volo" e "Prenota un hotel" usano lo stesso vocabolario di "prenota un". È una sovrapposizione, pertanto dovrebbe essere la stessa finalità con le parole diverse delle entità estratte volo e hotel. 
 

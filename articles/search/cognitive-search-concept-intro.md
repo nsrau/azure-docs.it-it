@@ -1,6 +1,6 @@
 ---
-title: Ricerca cognitiva per l'estrazione di dati, elaborazione con intelligenza artificiale del linguaggio naturale in Ricerca di Azure | Microsoft Docs
-description: Estrazione dei contenuti, elaborazione del linguaggio naturale (NLP) ed elaborazione di immagini per creare contenuti che supportano la ricerca nell'indicizzazione di Ricerca di Azure tramite competenze cognitive e algoritmi di intelligenza artificiale
+title: Ricerca cognitiva per l'estrazione di dati, elaborazione con intelligenza artificiale del linguaggio naturale - Ricerca di Azure
+description: Estrazione dei contenuti, elaborazione del linguaggio naturale (NLP) ed elaborazione di immagini per creare contenuti che supportano la ricerca nell'indicizzazione di Ricerca di Azure tramite competenze cognitive e algoritmi di intelligenza artificiale.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 72d1630ecaeada3acf8b49952a31ccd3ae8634aa
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.custom: seodec2018
+ms.openlocfilehash: 62d2e7af40d6abf6f316789051dfe78f73208eb3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617959"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315608"
 ---
-# <a name="what-is-cognitive-search"></a>Che cos'è la ricerca cognitiva?
+# <a name="what-is-cognitive-search-in-azure-search"></a>Che cos'è la ricerca cognitiva in Ricerca di Azure?
 
 La ricerca cognitiva crea informazioni disponibili per la ricerca partendo da contenuti non ricercabili, allegando algoritmi di intelligenza artificiale a una pipeline di indicizzazione. L'integrazione IA avviene tramite *competenze cognitive* che arricchiscono i documenti indirizzati verso un indice di ricerca. 
 
@@ -31,7 +32,9 @@ Le competenze cognitive in Ricerca di Azure si basano sugli stessi algoritmi IA 
 Il linguaggio naturale e l'elaborazione delle immagini vengono applicati durante la fase di inserimento dei dati e i risultati diventano parte della composizione di un documento in un indice di ricerca consultabile in Ricerca di Azure. I dati vengono originati come set di dati di Azure e quindi attraverso una pipeline di indicizzazione che usa le [competenze predefinite](cognitive-search-predefined-skills.md) necessarie. L'architettura è estendibile per permettere di creare e associare [competenze personalizzate](cognitive-search-create-custom-skill-example.md) per integrare l'elaborazione personalizzata nel caso in cui le competenze predefinite non siano sufficienti. Esempi possono essere un modulo di entità personalizzato o un classificatore di documenti destinato a un dominio specifico, ad esempio pubblicazioni finanziarie, scientifiche o mediche.
 
 > [!NOTE]
-> La ricerca cognitiva è disponibile in anteprima pubblica e l'esecuzione del set di competenze è attualmente offerta gratuitamente. Il prezzo per questa funzionalità verrà annunciato in un momento successivo. 
+> A partire dal 21 dicembre 2018 è possibile associare una risorsa di Servizi cognitivi a un set di competenze di Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare l'esecuzione del set di competenze. Da questa data ha inizio anche l'addebito dell'estrazione di immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continuerà a essere offerta gratuitamente.
+>
+> L'esecuzione delle competenze predefinite verrà addebitata in base ai [prezzi con pagamento in base al consumo di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione di immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="components-of-cognitive-search"></a>Componenti della ricerca cognitiva
 
@@ -45,7 +48,7 @@ All'inizio della pipeline è presente un testo non strutturato o un contenuto no
 
 ![Fase di individuazione dei documenti](./media/cognitive-search-intro/document-cracking-phase-blowup.png "individuazione di documenti")
 
- Le origini supportate includono archiviazione BLOB di Azure, archiviazione tabelle di Azure, database SQL di Azure e Azure Cosmos DB. I contenuti testuali possono essere estratti dai seguenti tipi di file: PDF, Word, PowerPoint e file CSV. Per un elenco completo, vedere [Formati supportati](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
+ Le origini supportate includono archiviazione BLOB di Azure, archiviazione tabelle di Azure, database SQL di Azure e Azure Cosmos DB. I contenuti testuali possono essere estratti dai seguenti tipi di file: PDF, Word, PowerPoint e CSV. Per un elenco completo, vedere [Formati supportati](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
 ### <a name="cognitive-skills-and-enrichment-phase"></a>Competenze cognitive e fase di arricchimento
 
@@ -90,8 +93,19 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 
 **Passaggio 1: Creare un servizio di ricerca in un'area che fornisce le API** 
 
++ Stati Uniti centro-occidentali
 + Stati Uniti centro-meridionali
++ Stati Uniti orientali
++ Stati Uniti orientali 2
++ Stati Uniti occidentali 2
++ Canada centrale
 + Europa occidentale
++ Regno Unito meridionale
++ Europa settentrionale
++ Brasile meridionale
++ Asia sud-orientale
++ India centrale
++ Australia orientale
 
 **Passaggio 2: Esperienza pratica per gestire il flusso di lavoro**
 
@@ -99,7 +113,7 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 + [Esercitazione (richieste HTTP)](cognitive-search-tutorial-blob.md)
 + [Esempio di competenze personalizzate (C#)](cognitive-search-create-custom-skill-example.md)
 
-**Passaggio 3: Verifica dell'API (solo REST)**
+**Passaggio 3: Esaminare l'API (solo REST)**
 
 Attualmente, vengono fornite solo API REST. Usare `api-version=2017-11-11-Preview` per tutte le richieste. Usare le API seguenti per compilare una soluzione di ricerca cognitiva. Per la ricerca cognitiva vengono aggiunte o estese solo due API. Altre API hanno la stessa sintassi delle versioni generalmente disponibili.
 
@@ -135,5 +149,5 @@ Per altre informazioni su domande o problemi specifici, vedere [Suggerimenti per
 ## <a name="next-steps"></a>Passaggi successivi
 
 + [Documentazione sulla ricerca cognitiva](cognitive-search-resources-documentation.md)
-+ [Guida introduttiva: Provare la ricerca cognitiva in una procedura dettagliata per il portale](cognitive-search-quickstart-blob.md)
-+ [Esercitazione: Informazioni sull'API di ricerca cognitiva](cognitive-search-tutorial-blob.md)
++ [Avvio rapido: Provare la ricerca cognitiva in una procedura dettagliata del portale](cognitive-search-quickstart-blob.md)
++ [Esercitazione: Informazioni sulle API di ricerca cognitiva](cognitive-search-tutorial-blob.md)

@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/12/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: 9f229caa76059db403ced5b74c7a35ec2f0b8e9d
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 91966bf2958b1670559aa57076eae7a62214fec5
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721892"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809803"
 ---
-# <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considerazioni sulla chiave: uso dei servizi o creazione di App per Azure Stack
+# <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considerazioni principali: Uso dei servizi o creazione di App per Azure Stack
 
-Prima di usare i servizi o creare applicazioni per Azure Stack, è necessario comprendere le differenze tra Azure e Azure Stack. Questo articolo identifica le considerazioni principali quando si usa Azure Stack come ambiente di sviluppo cloud ibrido.
+Prima di usare i servizi o creare applicazioni per Azure Stack, è necessario comprendere le differenze tra Azure e Azure Stack. Questo articolo identifica le principali considerazioni quando si usa Azure Stack come ambiente di sviluppo cloud ibrido.
 
 ## <a name="overview"></a>Panoramica
 
@@ -36,11 +36,12 @@ Il contenuto tecnico di Azure presuppone che le app sviluppate per un servizio d
 * Azure Stack offre un' **subset** dei servizi e funzionalità disponibili in Azure.
 * Il provider della società o un servizio può scegliere quali servizi che vogliono offrire. Le opzioni disponibili possono includere servizi personalizzati o le applicazioni. Offrono la propria documentazione personalizzati.
 * È necessario usare i valori corretti gli endpoint di Azure Stack-specifici (ad esempio, gli URL per l'indirizzo di portale e l'endpoint Azure Resource Manager).
-* È necessario usare le versioni di PowerShell e API supportate da Azure Stack. Utilizzare le versioni supportate assicura che l'App funzionerà in Azure Stack e Azure.
+* È necessario usare le versioni di PowerShell e API supportate da Azure Stack. Utilizzare le versioni supportate assicura che le app di lavoro in Azure Stack e Azure.
 
-## <a name="cheat-sheet-high-level-differences"></a>Foglio informativo: differenze di alto livello
+## <a name="cheat-sheet-high-level-differences"></a>Foglio informativo: Differenze di alto livello
 
 Nella tabella seguente vengono descritte le differenze generali tra Azure e Azure Stack. Quando si sviluppa per Azure Stack o usano servizi di Azure Stack, tenere presente queste differenze.
+
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 | Area | Azure (globale) | Azure Stack |
@@ -52,17 +53,17 @@ Nella tabella seguente vengono descritte le differenze generali tra Azure e Azur
 | Portale URL * | [https://portal.azure.com](https://portal.azure.com) | Per un sistema integrato Azure Stack, passare all'URL che ha fornito l'operatore di Azure Stack.<br><br>Per il kit di sviluppo, usare: https://portal.local.azurestack.external
 | Region | È possibile selezionare l'area in cui si desidera distribuire. | Per un sistema integrato Azure Stack, usare l'area in cui è disponibile nel sistema.<br><br>Per il kit di sviluppo, area sarà sempre **locale**.
 | Gruppi di risorse | Un gruppo di risorse possa estendersi a più aree. | Per i sistemi integrati e il kit di sviluppo, è disponibile una sola area.
-|Spazi dei nomi supportati, i tipi di risorse e le versioni dell'API | La versione più recente (o versioni precedenti che non sono ancora deprecate). | Azure Stack supporta versioni specifiche. Vedere la sezione "Requisiti di versione" di questo articolo.
+|Spazi dei nomi supportati, i tipi di risorse e le versioni dell'API | La versione più recente (o versioni precedenti che non sono ancora deprecate). | Azure Stack supporta versioni specifiche. Vedere le [i requisiti di versione](#version-requirements) sezione di questo articolo.
 | | |
 
 * Se si è un operatore di Azure Stack, vedere [tramite il portale dell'amministratore](../azure-stack-manage-portals.md) e [nozioni fondamentali sull'amministrazione](../azure-stack-manage-basics.md) per altre informazioni.
 
 ## <a name="helpful-tools-and-best-practices"></a>Strumenti utili e procedure consigliate
  
- Microsoft offre diversi strumenti e linee guida che consente di sviluppare per Azure Stack.
+ Microsoft offre gli strumenti e linee guida che consentono di sviluppare per Azure Stack.
 
-| Raccomandazione | Riferimenti | 
-| -------- | ------------- | 
+| Raccomandazione | Riferimenti |
+| -------- | ------------- |
 | Installare gli strumenti corretti in della workstation dello sviluppatore. | - [Installare PowerShell](azure-stack-powershell-install.md)<br>- [Scarica gli strumenti](azure-stack-powershell-download.md)<br>- [Configurare PowerShell](azure-stack-powershell-configure-user.md)<br>- [Installare Visual Studio](azure-stack-install-visual-studio.md) 
 | Esaminare le informazioni sugli elementi seguenti:<br>-Considerazioni sui modelli di Resource Manager azure<br>-Procedura trovare modelli di avvio rapido<br>-Usare un modulo criteri che consentono di usare Azure per lo sviluppo per Azure Stack | [Sviluppare per Azure Stack](azure-stack-developer.md) | 
 | Esaminare e seguire le procedure consigliate per i modelli. | [Modelli di avvio rapido di Resource Manager](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
@@ -75,16 +76,16 @@ Azure Stack supporta versioni specifiche di Azure PowerShell e API del servizio 
 Per assicurarsi che si usa una versione corretta di Azure PowerShell, usare [i profili delle versioni API](azure-stack-version-profiles.md). Per determinare il profilo di versione API più recente che è possibile usare, scoprire la compilazione dello Stack di Azure in uso. È possibile ottenere queste informazioni dall'amministratore di Azure Stack.
 
 >[!NOTE]
- Se si usa Azure Stack Development Kit e si dispone dell'accesso amministrativo, vedere la sezione "Per determinare la versione corrente" di [gestire gli aggiornamenti](../azure-stack-updates.md#determine-the-current-version) per determinare la compilazione di Azure Stack.
+ Se si usa Azure Stack Development Kit e si dispone dell'accesso amministrativo, vedere la [determinare la versione corrente](../azure-stack-updates.md#determine-the-current-version) sezione per determinare la compilazione di Azure Stack.
 
-Per altre API, eseguiti il comando PowerShell seguente per l'output di spazi dei nomi, tipi di risorse e le versioni API supportate nella sottoscrizione di Azure Stack. Nota potrebbe essere ancora differenze a livello una proprietà. (Per questo comando funziona, è necessario avere già [installata](azure-stack-powershell-install.md) e [configurato](azure-stack-powershell-configure-user.md) PowerShell per un ambiente Azure Stack. È anche necessario avere una sottoscrizione a un'offerta di Azure Stack.)
+Per altre API, eseguiti il comando PowerShell seguente per l'output di spazi dei nomi, tipi di risorse e le versioni API supportate nella sottoscrizione di Azure Stack. Nota potrebbe essere ancora differenze a livello una proprietà. Per questo comando funziona, è necessario avere già [installata](azure-stack-powershell-install.md) e [configurato](azure-stack-powershell-configure-user.md) PowerShell per un ambiente Azure Stack. È anche necessario avere una sottoscrizione a un'offerta di Azure Stack.
 
 ```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
 
-Esempio di output (troncato): ![output di esempio del comando Get-AzureRmResourceProvider](media/azure-stack-considerations/image1.png)
+Output di esempio (troncato): ![Output di esempio del comando Get-AzureRmResourceProvider](media/azure-stack-considerations/image1.png)
  
 ## <a name="next-steps"></a>Passaggi successivi
 

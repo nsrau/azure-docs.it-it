@@ -3,7 +3,7 @@ title: Usare le raccolte Reliable Collections | Documentazione Microsoft
 description: Procedure consigliate per lavorare con le raccolte Reliable Collections.
 services: service-fabric
 documentationcenter: .net
-author: rajak
+author: tylermsft
 manager: timlt
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
-ms.author: rajak
-ms.openlocfilehash: 2568e116fdb3f80976d49787877d2ecf68f128ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: 86e1370bb5241dbe14b34cebe2f2ee6d71a0a323
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210818"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193536"
 ---
 # <a name="working-with-reliable-collections"></a>Lavorare con le raccolte Reliable Collections
 Service Fabric offre un modello di programmazione con stato disponibile per gli sviluppatori .NET tramite Reliable Collections. In particolare, Service Fabric offre classi ReliableDictionary e ReliableQueue. Quando si usano queste classi, lo stato è partizionato (per la scalabilità), replicato (per la disponibilità) e le transazioni vengono eseguite all'interno di una partizione (per la semantica ACID). Di seguito viene descritto l'uso tipico di un oggetto ReliableDictionary per osservarne le azioni.
@@ -198,7 +198,7 @@ public struct ItemId {
 ```
 
 ## <a name="schema-versioning-upgrades"></a>Controllo delle versioni dello schema (aggiornamenti)
-Internamente, le raccolte Reliable Collections serializzano gli oggetti usando DataContractSerializer di .NET. Gli oggetti serializzati sono persistenti sul disco locale della replica primaria e vengono anche trasmessi alle repliche secondarie. Con l'evoluzione del servizio, è probabile che si desideri modificare il tipo di dati (schema) richiesti dal servizio. Il controllo delle versioni dei dati deve essere eseguito con estrema attenzione. Innanzitutto, si deve essere sempre in grado di deserializzare i dati precedenti. In particolare, ciò significa che il codice di deserializzazione deve essere infinitamente compatibile con le versioni precedenti: la versione 333 del codice del servizio deve essere in grado di operare sui dati inseriti in una raccolta Reliable Collections dalla versione 1 del codice del servizio 5 anni fa.
+Internamente, le raccolte Reliable Collections serializzano gli oggetti usando DataContractSerializer di .NET. Gli oggetti serializzati sono persistenti sul disco locale della replica primaria e vengono anche trasmessi alle repliche secondarie. Con l'evoluzione del servizio, è probabile che si desideri modificare il tipo di dati (schema) richiesti dal servizio. Il controllo delle versioni dei dati deve essere eseguito con estrema attenzione. Innanzitutto, si deve essere sempre in grado di deserializzare i dati precedenti. Nello specifico, ciò significa che il codice di deserializzazione deve essere infinitamente compatibile con le versioni precedenti: la versione 333 del codice del servizio deve essere in grado di operare sui dati inseriti in una raccolta Reliable Collections dalla versione 1 del codice del servizio 5 anni fa.
 
 Il codice del servizio viene aggiornato un dominio di aggiornamento alla volta. Pertanto, durante un aggiornamento, vengono eseguite contemporaneamente due diverse versioni del codice del servizio. È necessario evitare che la nuova versione del codice del servizio usi il nuovo schema dal momento che le versioni precedenti del codice del servizio potrebbero non essere in grado di gestire il nuovo schema. Quando possibile, si consiglia di progettare ogni versione del servizio perché sia compatibile con tutte le versioni precedenti, a partire dalla versione 1. In particolare, questo significa che V1 del codice del servizio deve essere in grado di ignorare tutti gli elementi dello schema che non vengono gestiti in modo esplicito. Tuttavia, deve essere in grado di salvare i dati che non conosce in modo esplicito e riscriverli quando si aggiorna il valore o la chiave del dizionario.
 

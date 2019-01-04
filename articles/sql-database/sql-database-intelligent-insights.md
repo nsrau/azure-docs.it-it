@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976186"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278135"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con intelligenza artificiale per eseguire il monitoraggio e risolvere i problemi delle prestazioni del database
 
@@ -87,7 +87,7 @@ La soluzione Analisi SQL di Azure fornisce l'interfaccia utente grafica, la crea
 > Guida rapida introduttiva: il modo più semplice per cominciare con l'uso di Intelligent Insights è usarlo insieme ad Analisi SQL di Azure in modo da fornire un'interfaccia utente grafica per problemi di prestazioni del database. Aggiungere la soluzione Analisi SQL di Azure dal marketplace, creare un'area di lavoro all'interno di questa soluzione e quindi, per ogni database per cui si desidera attivare Intelligent Insights, configurare la trasmissione del log di "SQLInsights" nel pannello delle impostazioni di diagnostica di un database per l'area di lavoro di Azure SQL Analytics.
 >
 
-Il pre-requisito consiste nel disporre di Analisi SQL di Azure insieme alla dashboard del portale di Azure dal marketplace e creare un'area di lavoro, vedere [ConfigurareAzure SQL Analytics](../log-analytics/log-analytics-azure-sql.md#configuration)
+Il pre-requisito consiste nel disporre di Analisi SQL di Azure insieme alla dashboard del portale di Azure dal marketplace e creare un'area di lavoro, vedere [ConfigurareAzure SQL Analytics](../azure-monitor/insights/azure-sql.md#configuration)
 
 Per usare Intelligent Insights con Analisi SQL di Azure, configurare i dati di log di Intelligent Insights da trasmettere all'area di lavoro Azure Log Analytics creata nel precedente passaggio, vedere [Metriche del database SQL di Azure e registrazione diagnostica](sql-database-metrics-diag-logging.md).
 
@@ -179,5 +179,5 @@ Nel caso in cui una delle eccezioni critiche monitorate superi le soglie assolut
 
 - Informazioni su come [risolvere i problemi di prestazioni del database SQL con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Usare il [log di diagnostica delle prestazioni del database SQL generato da Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Informazioni su come [monitorare un database SQL usando Analisi SQL](../log-analytics/log-analytics-azure-sql.md).
+- Informazioni su come [monitorare un database SQL usando Analisi SQL](../azure-monitor/insights/azure-sql.md).
 - Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

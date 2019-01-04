@@ -1,5 +1,5 @@
 ---
-title: Controllo del traffico del servizio app di Azure con Gestione traffico di Azure
+title: Controllare il traffico con Gestione traffico - Servizio app di Azure
 description: Questo articolo fornisce informazioni di riepilogo per Gestione traffico di Azure in relazione al servizio app di Azure.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 5e4dfec4bdc9deaf1a57413c1cba4ceefa5195d6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 85405a96d141188203ddc88410c96654667fa83a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246345"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270111"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controllo del traffico del servizio app di Azure con Gestione traffico di Azure
 > [!NOTE]

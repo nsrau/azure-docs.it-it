@@ -3,7 +3,7 @@ title: Usare Integrità risorse di Azure per monitorare l'integrità dei databas
 description: Usare Integrità risorse di Azure per monitorare l'integrità dei database SQL, diagnosticare gli eventuali problemi di Azure che possono influire negativamente sulle risorse e ottenere il supporto necessario.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 9cbe88a44ba598a22fab628ae01605ac9d63bece
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.date: 12/06/2018
+ms.openlocfilehash: dc20ffb0ce8add08a396a4c0ba5b496e80d04aa1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632629"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083887"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Usare Integrità risorse di Azure per risolvere i problemi di connettività del database SQL di Azure
 
@@ -39,11 +39,11 @@ Lo stato **Disponibile** indica che Integrità risorse non ha rilevato problemi 
 
 ![Disponibile](./media/sql-database-resource-health/sql-resource-health-available.jpg)
 
-### <a name="degraded"></a>Danneggiato
+### <a name="degraded"></a>Degraded
 
 Lo stato **Danneggiato** indica che Integrità risorse ha rilevato una maggioranza di accessi riusciti, ma anche alcuni accessi non riusciti. Si tratta con ogni probabilità di errori di accesso temporanei. Per ridurre l'impatto dei problemi di connessione causati dagli errori di accesso temporanei, implementare la [logica di ripetizione dei tentativi](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) nel codice.
 
-![Danneggiato](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
+![Degraded](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
 ### <a name="unavailable"></a>Non disponibile
 
@@ -67,11 +67,11 @@ Quando si registra un tempo di inattività per il database SQL, viene eseguita u
 
 #### <a name="planned-maintenance"></a>Manutenzione pianificata
 
-L'infrastruttura di Azure esegue periodicamente una manutenzione pianificata, ossia un aggiornamento dei componenti hardware o software nel data center. Mentre il database viene sottoposto a manutenzione, SQL può terminare alcune connessioni esistenti e rifiutare nuove connessioni. Gli errori di accesso che si verificano durante una manutenzione pianificata sono in genere temporanei e la logica di ripetizione dei tentativi contribuisce a ridurne l'impatto. Se gli errori di accesso persistono, contattare il supporto.
+L'infrastruttura di Azure esegue periodicamente una manutenzione pianificata, ossia un aggiornamento dei componenti hardware o software nel data center. Mentre il database viene sottoposto a manutenzione, SQL può terminare alcune connessioni esistenti e rifiutare nuove connessioni. Gli errori di accesso che si verificano durante una manutenzione pianificata sono in genere temporanei e la [logica di ripetizione dei tentativi](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) contribuisce a ridurne l'impatto. Se gli errori di accesso persistono, contattare il supporto.
 
 #### <a name="reconfiguration"></a>Riconfigurazione
 
-Le riconfigurazioni sono considerate condizioni transitorie, che si verificano di tanto in tanto. Questi eventi possono essere attivati da errori di bilanciamento del carico o errori software/hardware. Qualsiasi applicazione di produzione client che si connette a un servizio di database cloud dovrebbe implementare un'efficace logica di ripetizione dei tentativi di connessione con logica di backoff, in quanto contribuirebbe ad attenuare queste situazioni e generalmente renderebbe gli errori trasparenti all'utente finale.
+Le riconfigurazioni sono considerate condizioni transitorie, che si verificano di tanto in tanto. Questi eventi possono essere attivati da errori di bilanciamento del carico o errori software/hardware. Qualsiasi applicazione di produzione client che si connette a un database cloud dovrebbe implementare un'efficace [logica di ripetizione dei tentativi](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) di connessione, perché contribuirebbe ad attenuare queste situazioni e generalmente renderebbe gli errori trasparenti all'utente finale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

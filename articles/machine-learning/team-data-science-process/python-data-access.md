@@ -1,5 +1,5 @@
 ---
-title: Accedere a set di dati tramite la libreria client Python di Azure Machine Learning | Microsoft Docs
+title: Accedere a set di dati con la libreria client Python - Processo di data science per i team
 description: Installare e usare la libreria client Python per accedere e gestire i dati di Azure Machine Learning in modo protetto da un ambiente Python locale.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 43812b68b10f9e4f8510d24cb08c8bb368b3b8f8
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445762"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140031"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accedere a set di dati con Python mediante la libreria client Python di Azure Machine Learning
 L'anteprima della libreria client Python di Microsoft Azure Machine Learning consente l'accesso sicuro a set di dati di Azure Machine Learning da un ambiente Python locale, nonché la creazione e la gestione di set di dati in un'area di lavoro.
@@ -92,10 +92,10 @@ I token di autorizzazione vengono gestiti nella pagina **AUTHORIZATION TOKENS** 
     ![Set di dati][datasets]
 4. Selezionare il frammento di codice dalla finestra che viene visualizzata e copiarlo negli Appunti.
    
-    ![Codice di accesso][dataset-access-code]
+    ![Pulsante per generare il codice di accesso ai dati][dataset-access-code]
 5. Incollare il codice nel blocco appunti dell'applicazione Python locale.
    
-    ![Blocco appunti][ipython-dataset]
+    ![Incollare il codice nel blocco appunti][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Accedere a set di dati intermedi da esperimenti di Machine Learning
 Dopo aver eseguito un esperimento in Machine Learning Studio, è possibile accedere ai set di dati intermedi dai nodi di output dei moduli. I set di dati intermedi sono costituiti da dati creati e usati per i passaggi intermedi quando è in esecuzione uno strumento di modello.
@@ -133,10 +133,10 @@ I passaggi seguenti illustrano un esempio in cui si crea e si esegue un esperime
     ![Menu di scelta rapida][experiment]
 8. Selezionare il frammento di codice dalla finestra che viene visualizzata e copiarlo negli Appunti.
    
-    ![Codice di accesso][intermediate-dataset-access-code]
+    ![Generare il codice di accesso dal menu di scelta rapida][intermediate-dataset-access-code]
 9. Incollare il codice nel blocco appunti.
    
-    ![Blocco appunti][ipython-intermediate-dataset]
+    ![Incollare il codice nel blocco appunti][ipython-intermediate-dataset]
 10. È possibile visualizzare i dati usando matplotlib. In questo caso, viene creato un istogramma per la colonna dell'età.
     
     ![Istogramma][ipython-histogram]

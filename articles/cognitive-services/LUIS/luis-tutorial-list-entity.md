@@ -1,5 +1,5 @@
 ---
-title: Aggiungere automaticamente le etichette alle entità con un'entità elenco tramite Nodejs | Microsoft Docs
+title: Entità di corrispondenza esatta del testo
 description: Informazioni su come aggiungere un'entità elenco per aiutare LUIS a etichettare le varianti di una parola o una frase.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: be2c7aea356f6d7b73438499b7e4d680ed4bad7c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036780"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259240"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Usare un'entità elenco per migliorare il rilevamento di entità 
 Questa esercitazione illustra l'uso di una [entità elenco](luis-concept-entity-types.md) per migliorare il rilevamento di entità. Non è necessario etichettare le entità elenco, in quanto rappresentano una corrispondenza esatta di termini.  
@@ -81,15 +81,16 @@ Creare un file Node.js e copiare al suo interno il codice seguente. Modificare i
 
 Usare il comando seguente per installare le dipendenze NPM ed eseguire il codice per creare l'entità elenco:
 
-```Javascript
+```console
 npm install && node add-entity-list.js
 ```
 
 L'output dell'esecuzione è l'ID dell'entità elenco:
 
-```Javascript
+```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
+
 ## <a name="train-the-model"></a>Eseguire il training del modello
 Eseguire il training di LUIS affinché il nuovo elenco influisca sui risultati di query. Il training è un processo in due parti, ovvero il training vero e proprio e quindi il controllo dello stato al termine del training. Per il training di un'app con molti modelli, potrebbero essere necessari alcuni minuti. Il codice seguente esegue il training dell'app e quindi ne attende il completamento. Il codice usa una strategia di attesa e nuovo tentativo per evitare l'errore 429 relativo a un eccessivo numero di richieste. 
 
@@ -99,13 +100,13 @@ Creare un file Node.js e copiare al suo interno il codice seguente. Modificare i
 
 Usare il comando seguente per eseguire il codice per il training dell'app:
 
-```Javascript
+```console
 node train.js
 ```
 
 L'output dell'esecuzione è lo stato di ogni iterazione del training dei modelli LUIS. L'esecuzione seguente ha richiesto un solo controllo del training:
 
-```Javascript
+```console
 1 trained = true
 [ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
@@ -130,13 +131,13 @@ Creare un file Node.js e copiare al suo interno il codice seguente. Modificare i
 
 Usare il comando seguente per eseguire il codice per la query sull'app:
 
-```Javascript
+```console
 node publish.js
 ```
 
 L'output seguente include l'URL dell'endpoint per le query. I risultati JSON reali includerebbero il valore appID reale. 
 
-```JSON
+```json
 { 
   versionId: null,
   isStaging: false,
@@ -157,13 +158,13 @@ Creare un file Node.js e copiare al suo interno il codice seguente. Modificare i
 
 Usare il comando seguente per eseguire il codice e la query sull'app:
 
-```Javascript
+```console
 node train.js
 ```
 
 L'output contiene i risultati della query. Poiché il codice ha aggiunto la coppia nome/valore **verbose** alla stringa di query, l'output include tutte le finalità e i relativi punteggi:
 
-```JSON
+```json
 {
   "query": "turn up the heat",
   "topScoringIntent": {

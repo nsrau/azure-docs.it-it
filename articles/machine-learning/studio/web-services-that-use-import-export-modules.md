@@ -1,12 +1,11 @@
 ---
-title: Utilizzo di Import Data ed Export Data nei servizi Web Azure Machine Learning Studio | Microsoft Docs
+title: Importazione/Esportazione di dati nei servizi Web - Azure Machine Learning Studio | Microsoft Docs
 description: Informazioni su come usare i moduli Import Data ed Export Data per inviare e ricevere dati da un servizio Web.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: ee7d0fb4792983099dc6192de8f85338daee357f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306948"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251386"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Distribuire servizi Web di Azure Machine Learning Studio che usano i moduli Import Data ed Export Data
 
@@ -29,10 +28,10 @@ Quando si crea un esperimento predittivo, si aggiunge in genere un input e un ou
 
 I moduli Import Data ed Export Data possono leggere e scrivere in numerose posizioni, ad esempio un URL Web tramite HTTP, una query Hive, un database SQL di Azure, l'archiviazione tabelle di Azure, l'Archiviazione BLOB di Azure, un provider di feed di dati o un database SQL locale.
 
-Questo argomento usa l'esempio "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" e presuppone che il set di dati sia già stato caricato nella tabella SQL di Azure denominata censusdata.
+Questo argomento usa il campione "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Campione 5: training, test, valutazione per la classificazione binaria: set di dati su adulti) e presuppone che il set di dati sia già stato caricato in una tabella SQL di Azure denominata censusdata.
 
 ## <a name="create-the-training-experiment"></a>Creare l'esperimento di training
-Quando si apre l'esempio "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset", si usa il set di dati Adult Census Income Binary Classification di esempio. L'esperimento nell'area di disegno sarà simile all'immagine seguente:
+Quando si apre il campione "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Campione 5: training, test, valutazione per la classificazione binaria: set di dati su adulti), esso usa il set di dati campione Adult Census Income Binary Classification. L'esperimento nell'area di disegno sarà simile all'immagine seguente:
 
 ![Configurazione iniziale dell'esperimento.](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -104,7 +103,7 @@ Per eseguire la distribuzione come servizio Web classico e creare un'applicazion
 2. Al termine dell'esecuzione fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]).
 3. Nel dashboard del servizio Web individuare la chiave API. Copiarla e salvarla per usarla in un secondo momento.
 4. Nella tabella **Default Endpoint** (Endpoint predefinito) fare clic sul collegamento **Esecuzione batch** per aprire la pagina della Guida dell'API.
-5. In Visual Studio creare un'applicazione console C#. A tale scopo, selezionare **Nuovo** > **Progetto** > **Visual C#** > **Desktop classico di Windows** > **Applicazione console (.NET Framework)**.
+5. In Visual Studio creare un'applicazione console in C#: **Nuovo** > **Progetto** > **Visual C#** > **Desktop di Windows classico** > **App console (.NET Framework)**.
 6. Nella pagina della Guida di API individuare la sezione **Sample Code** (Codice di esempio) nella parte inferiore della pagina.
 7. Copiare e incollare il codice di esempio in C# nel file Program.cs e rimuovere tutti i riferimenti nell'archiviazione BLOB.
 8. Aggiornare il valore della variabile *apiKey* con la chiave API salvata in precedenza.
@@ -133,7 +132,7 @@ Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione p
 3. Nella pagina Deploy Experiment (Sperimentazione distribuzione) immettere un nome per il servizio Web e selezionare un piano tariffario, quindi fare clic su **Deploy**(Distribuzione).
 4. Nella pagina **Quickstart** (Avvio rapido) fare clic su **Consume** (Utilizzo).
 5. Nella sezione **Sample Code** (Codice di esempio) fare clic su **Batch**.
-6. In Visual Studio creare un'applicazione console C#. A tale scopo, selezionare **Nuovo** > **Progetto** > **Visual C#** > **Desktop classico di Windows** > **Applicazione console (.NET Framework)**.
+6. In Visual Studio creare un'applicazione console in C#: **Nuovo** > **Progetto** > **Visual C#** > **Desktop di Windows classico** > **App console (.NET Framework)**.
 7. Copiare e incollare il codice di esempio in C# nel file Program.cs.
 8. Aggiornare il valore della variabile *apiKey* con la **chiave primaria** presente nella sezione **Basic consumption info** (Informazioni di base sul consumo).
 9. Individuare la dichiarazione *scoreRequest* e aggiornare i valori dei parametri del servizio Web passati ai moduli *Import Data* (Importa dati) e *Export Data* (Esporta dati). In questo caso, usare la query originale, ma definire un nome per la nuova tabella.

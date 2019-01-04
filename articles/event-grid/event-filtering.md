@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: fd33ca723bd00b4a9c25009ef5b4f444487244f0
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 973b5d3f40968790dc6153ae91d1638cb83202ee
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281949"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384378"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informazioni sui filtri eventi per le sottoscrizioni di Griglia di eventi
 
@@ -47,7 +47,7 @@ La sintassi JSON per l'applicazione di un filtro in base al tipo di evento è la
 
 ```json
 "filter": {
-  "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+  "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
   "subjectEndsWith": ".jpg"
 }
 

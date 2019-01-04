@@ -3,7 +3,7 @@ title: Creare e gestire processi di database elastico di Azure SQL tramite Trans
 description: Eseguire script in più database con l'agente di processo di database elastico tramite Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3c40c6721651864b9e0d64d4eeda415bfd3e181a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056788"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164518"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
 
@@ -210,9 +210,9 @@ EXEC jobs.sp_add_jobstep
 @credential_name='myjobcred',
 @target_group_name='PoolGroup',
 @output_type='SqlDatabase',
-@output_credential_name=’myjobcred’,
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’<resultsdb>',
+@output_credential_name='myjobcred',
+@output_server_name='server1.database.windows.net',
+@output_database_name='<resultsdb>',
 @output_table_name='<resutlstable>'
 Create a job to monitor pool performance
 --Connect to the job database specified when creating the job agent
@@ -257,8 +257,8 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 @target_group_name='MasterGroup',
 @output_type='SqlDatabase',
 @output_credential_name='myjobcred',
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’resultsdb',
+@output_server_name='server1.database.windows.net',
+@output_database_name='resultsdb',
 @output_table_name='resutlstable'
 ```
 
@@ -330,7 +330,7 @@ Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) 
 ```sql
 --Connect to the job database specified when creating the job agent
 
---View top-level execution status for the job named ‘ResultsPoolJob’
+--View top-level execution status for the job named 'ResultsPoolJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' and step_id IS NULL
 ORDER BY start_time DESC
@@ -339,7 +339,7 @@ ORDER BY start_time DESC
 SELECT * FROM jobs.job_executions WHERE step_id IS NULL
 ORDER BY start_time DESC
 
---View all execution statuses for job named ‘ResultsPoolsJob’
+--View all execution statuses for job named 'ResultsPoolsJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' 
 ORDER BY start_time DESC
@@ -1011,14 +1011,14 @@ Aggiunge un database o un gruppo di database a un gruppo di destinazione.
 
 ```sql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
-         [ @membership_type = ] ‘membership_type’ ]   
-        [ , [ @target_type = ] ‘target_type’ ]   
-        [ , [ @refresh_credential_name = ] ‘refresh_credential_name’ ]   
-        [ , [ @server_name = ] ‘server_name’ ]   
-        [ , [ @database_name = ] ‘database_name’ ]   
-        [ , [ @elastic_pool_name = ] ‘elastic_pool_name’ ]   
-        [ , [ @shard_map_name = ] ‘shard_map_name’ ]   
-        [ , [ @target_id = ] ‘target_id’ OUTPUT ]
+         [ @membership_type = ] 'membership_type' ]   
+        [ , [ @target_type = ] 'target_type' ]   
+        [ , [ @refresh_credential_name = ] 'refresh_credential_name' ]   
+        [ , [ @server_name = ] 'server_name' ]   
+        [ , [ @database_name = ] 'database_name' ]   
+        [ , [ @elastic_pool_name = ] 'elastic_pool_name' ]   
+        [ , [ @shard_map_name = ] 'shard_map_name' ]   
+        [ , [ @target_id = ] 'target_id' OUTPUT ]
 ```
 
 #### <a name="arguments"></a>Argomenti
@@ -1101,7 +1101,7 @@ Rimuove un membro del gruppo di destinazione da un gruppo di destinazione.
 
 ```sql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
-        [ , [ @target_id = ] ‘target_id’]
+        [ , [ @target_id = ] 'target_id']
 ```
 
 

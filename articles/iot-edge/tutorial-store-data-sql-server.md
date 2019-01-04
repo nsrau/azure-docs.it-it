@@ -1,5 +1,5 @@
 ---
-title: Archiviare i dati con il modulo SQL per Azure IoT Edge | Microsoft Docs
+title: 'Esercitazione: Archiviare i dati con il modulo SQL - Azure IoT Edge | Microsoft Docs'
 description: Informazioni su come archiviare i dati in locale nel dispositivo IoT Edge con un modulo SQL Server
 services: iot-edge
 author: kgremban
@@ -8,15 +8,15 @@ ms.author: kgremban
 ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: b0d26704d287f2e02541cc667250af8e8005f864
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833994"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163413"
 ---
-# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati nei dispositivi perimetrali con database di SQL Server
+# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati sul perimetro con database di SQL Server
 
 Usare Azure IoT Edge e SQL Server per archiviare i dati ed eseguirne query nei dispositivi perimetrali. Azure IoT Edge offre funzionalità di archiviazione di base che memorizzano nella cache i messaggi se un dispositivo passa alla modalità offline e quindi li inoltrano quando viene ristabilita la connessione. È tuttavia possibile che siano necessarie funzionalità di archiviazione più avanzate, ad esempio la possibilità di eseguire query sui dati in locale. Incorporando i database locali, i dispositivi IoT Edge possono eseguire elaborazioni più complesse senza la necessità di mantenere una connessione all'hub IoT. Ad esempio, un sensore in un computer carica i dati nel cloud una volta al mese per la creazione di report e il miglioramento di un modulo di apprendimento automatico. Tuttavia, se un tecnico sul campo sta lavorando sulla macchina, può accedere agli ultimi giorni di dati del sensore localmente.
 
@@ -71,7 +71,7 @@ Se non è ancora disponibile alcun registro contenitori, seguire questa procedur
    | Utente amministratore | Impostare su **Abilita**. |
    | SKU | Selezionare **Basic**. | 
 
-5. Selezionare **Crea**.
+5. Selezionare **Create**.
 
 6. Dopo aver creato il registro contenitori, passare al registro e quindi selezionare **Chiavi di accesso**. 
 
@@ -87,7 +87,7 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
 
 2. Aprire il riquadro comandi di VS Code selezionando **Visualizza** > **Riquadro comandi**.
 
-3. Nel riquadro comandi digitare ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione: 
+3. Nel riquadro comandi digitare ed eseguire il comando **Azure IoT Edge: Nuova soluzione IoT Edge**. Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione: 
 
    | Campo | Valore |
    | ----- | ----- |
@@ -99,11 +99,11 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
 
    La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. 
    
-4. Nella soluzione IoT Edge aprire il file con estensione env. 
+4. Nella soluzione IoT Edge aprire il file con estensione \.env. 
 
    Quando si crea una nuova soluzione IoT Edge, Visual Studio Code chiede di specificare le credenziali del registro nel file \.env. Questo file viene ignorato da Git e l'estensione IoT Edge lo usa in un secondo momento per fornire l'accesso al registro al dispositivo IoT Edge. 
 
-   Se nel passaggio precedente non si è specificato il registro contenitori, ma si è accettata l'impostazione predefinita localhost:5000, il file con estensione env non sarà disponibile.
+   Se nel passaggio precedente non si è specificato il registro contenitori, ma si è accettata l'impostazione predefinita localhost:5000, il file con estensione \.env non sarà disponibile.
 
 5. Nel file con estensione env assegnare al runtime IoT Edge le credenziali del registro in modo che possa accedere alle immagini di modulo. Trovare le sezioni **CONTAINER_REGISTRY_USERNAME** e **CONTAINER_REGISTRY_PASSWORD** e inserire le credenziali dopo il segno di uguale: 
 
@@ -163,7 +163,7 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
                        {
                            //Execute the command and log the # rows affected.
                            var rows = await cmd.ExecuteNonQueryAsync();
-                           log.Info($"{rows} rows were updated");
+                           logger.LogInformation($"{rows} rows were updated");
                        }
                    }
 
@@ -251,7 +251,7 @@ Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che 
    }
    ```
 
-   ![Aggiungere un contenitore di SQL Server](./media/tutorial-store-data-sql-server/view_json_sql.png)
+   ![Aggiungere il modulo di SQL Server al manifesto](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
 5. A seconda del tipo di contenitori Docker presenti nel dispositivo IoT Edge, aggiornare i parametri del modulo **sql** con il codice seguente:
    * Contenitori Windows:
@@ -324,7 +324,7 @@ Quando si comunica a Visual Studio Code di compilare la soluzione, prima di tutt
 
 È possibile impostare i moduli in un dispositivo tramite l'hub IoT, ma è anche possibile accedere all'hub IoT e ai dispositivi tramite Visual Studio Code. In questa sezione si configura l'accesso all'hub IoT e quindi si usa VS Code per distribuire la soluzione nel dispositivo IoT Edge. 
 
-1. Nel riquadro comandi di VS Code selezionare **Azure IoT Hub: Select IoT Hub** (Hub IoT di Azure: Seleziona l'hub IoT).
+1. Nel riquadro comandi di VS Code selezionare **Hub IoT di Azure: Selezionare l'hub IoT**.
 
 2. Seguire le istruzioni per accedere all'account Azure. 
 
@@ -416,7 +416,7 @@ Dallo strumento di comando SQL eseguire il comando seguente per visualizzare i d
    GO
    ```
 
-   ![Visualizzare i dati locali](./media/tutorial-store-data-sql-server/view-data.png)
+   ![Visualizzare il contenuto del database locale](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 

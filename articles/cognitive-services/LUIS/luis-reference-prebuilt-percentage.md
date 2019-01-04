@@ -1,32 +1,33 @@
 ---
-title: Riferimento alla percentuale per le entità predefinite LUIS - Azure | Microsoft Docs
+title: Entità predefinita percentuale
 titleSuffix: Azure
 description: Questo articolo contiene informazioni sull'entità predefinita percentuale in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 876ee710491213f17c12d3b6ddd0339bb2043657
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9b9faaae78cd1e3590291aef68db47f57f050f3d
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334908"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165691"
 ---
-# <a name="percentage-entity"></a>Entità percentuale
+# <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Entità predefinita percentuale per un'app LUIS
 I numeri in percentuale possono essere visualizzati come frazioni `3 1/2`, o come percentuale, `2%`. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti la percentuale per le finalità dell'applicazione. L'entità percentuale è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-percentage"></a>Tipi di percentuale
-La percentuale viene gestita nel repository Github [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114)
+La percentuale viene gestita nel repository GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114)
 
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>Risoluzione per l'entità percentuale predefinita
 L'esempio seguente illustra la risoluzione dell'entità **builtin.percentage**.
 
-```JSON
+```json
 {
   "query": "set a trigger when my stock goes up 2%",
   "topScoringIntent": {

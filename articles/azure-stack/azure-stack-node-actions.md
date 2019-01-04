@@ -1,6 +1,6 @@
 ---
 title: Unità nodo azioni di ridimensionamento in Azure Stack | Microsoft Docs
-description: Informazioni su come visualizzare lo stato del nodo e sfruttare la potenza su, power off, lo svuotamento e riprendere le azioni di nodo in un sistema integrato Azure Stack.
+description: Informazioni su come visualizzare lo stato del nodo e utilizzare l'accensione, power off, disabilitare e riprendere le azioni di nodo in un sistema integrato Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -9,143 +9,144 @@ editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a792bc083c3a2c78b24d5895c34420b86b0863bb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ced6e2edb570e12b17d14e0552030902161b5d53
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959768"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725253"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Unità nodo azioni di ridimensionamento in Azure Stack
 
-*Si applica a: i sistemi integrati di Azure Stack*
+*Si applica a: Sistemi integrati di Azure Stack*
 
-Questo articolo descrive come visualizzare lo stato di un'unità di scala e i relativi nodi associati e come usare le azioni di nodo disponibile. Nodo azioni includono power on, power off, svuotare, riprendono e ripristinano. In genere, si usano queste azioni nodo durante la sostituzione del campo di parti o per scenari di ripristino del nodo.
+Questo articolo descrive come visualizzare lo stato di un'unità di scala. È possibile visualizzare i nodi dell'unità. È possibile eseguire le azioni di nodo, ad esempio power on, power off, arrestare, svuotare, riprendere e ripristinare. In genere, si usano queste azioni nodo durante la sostituzione del campo delle parti o per recuperare un nodo.
 
 > [!Important]  
-> Tutte le azioni del nodo descritte in questo articolo dovrebbero solo destinazione un nodo alla volta.
-
+> Tutte le azioni del nodo descritte in questo articolo deve avere come destinazione un nodo alla volta.
 
 ## <a name="view-the-node-status"></a>Visualizzare lo stato del nodo
 
-Nel portale di amministrazione, è possibile visualizzare facilmente lo stato di un'unità di scala e i relativi nodi associati.
+Nel portale di amministrazione, è possibile visualizzare lo stato di un'unità di scala e i relativi nodi associati.
 
 Per visualizzare lo stato di un'unità di scala:
 
 1. Nel **gestione delle aree** riquadro, selezionare l'area.
 2. A sinistra, sotto **risorse di infrastruttura**, selezionare **unità di scala**.
 3. Nei risultati, selezionare l'unità di scala.
- 
-In questo caso, è possibile visualizzare le informazioni seguenti:
+4. A sinistra, sotto **generali**, selezionare **nodi**.
 
-- nome dell'area. Il nome dell'area viene fatto riferimento con **-posizione** nel modulo di PowerShell.
-- tipo di sistema
-- Totale core logici
-- memoria totale
-- L'elenco di singoli nodi e il relativo stato; entrambi **in esecuzione** o **arrestato**
+  Visualizzare le informazioni seguenti:
 
-![Riquadro di unità di scalabilità che mostra lo stato di esecuzione per ogni nodo](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
+  - L'elenco dei singoli nodi
+  - Stato operativo (vedere l'elenco riportato di seguito)
+  - Stato di alimentazione (in esecuzione o arrestato)
+  - modello di server
+  - Indirizzo IP del baseboard management controller (BMC)
+  - Numero totale di core
+  - quantità totale di memoria
 
-## <a name="view-node-information"></a>Visualizza informazioni a nodo
+![stato di un'unità di scala](media/azure-stack-node-actions/multinodeactions.png)
 
-Se si seleziona un singolo nodo, è possibile visualizzare le informazioni seguenti:
+### <a name="node-operational-states"></a>Stati operativi nodo
 
-- Nome area
-- modello di server
-- Indirizzo IP del baseboard management controller (BMC)
-- stato operativo
-- Numero totale di core
-- quantità totale di memoria
- 
-![Riquadro di unità di scalabilità che mostra lo stato di esecuzione per ogni nodo](media/azure-stack-node-actions/NodeActions.PNG)
-
-Da qui è anche possibile eseguire azioni di nodo di unità di scala.
+| Status | DESCRIZIONE |
+|----------------------|-------------------------------------------------------------------|
+| In esecuzione | Il nodo partecipa attivamente nell'unità di scala. |
+| Arrestato | Il nodo è disponibile. |
+| Aggiunta | Il nodo viene attivamente viene aggiunto all'unità di scala. |
+| Ripristino | Il nodo è attivamente in fase di manutenzione. |
+| Manutenzione  | Il nodo venga sospeso e nessun carico di lavoro utente attivo è in esecuzione. |
+| Richiede correzione | È stato rilevato un errore che richiede che il nodo da ripristinare. |
 
 ## <a name="scale-unit-node-actions"></a>Nodo azioni unità di scala
 
 Quando si visualizzano informazioni su un nodo di unità di scala, è anche possibile eseguire le azioni di nodo, ad esempio:
-
-- Svuotamento e la ripresa
-- Ripristina
+ - Avviare e arrestare (a seconda dello stato di alimentazione corrente)
+ - Disabilitare e riprendere (a seconda dello stato di operazioni)
+ - Ripristina
+ - Shutdown
 
 Lo stato operativo del nodo determina quali opzioni sono disponibili.
 
-### <a name="power-off"></a>Spegnimento
+È necessario installare i moduli di PowerShell per Azure Stack. Questi cmdlet sono nel **Azs.Fabric.Admin** modulo. Per installare o verificare l'installazione di PowerShell per Azure Stack, vedere [installazione di PowerShell per Azure Stack](azure-stack-powershell-install.md).
 
-Il **spegnere** azione consente di disattivare il nodo. È lo stesso come se si preme il pulsante di alimentazione. Accade **non** inviare un segnale di chiusura al sistema operativo. Per alimentazione pianificata di operazioni, assicurarsi che svuotare un nodo di unità di scala prima di tutto.
+## <a name="stop"></a>Arresto
+
+Il **arrestare** azione consente di disattivare il nodo. È lo stesso come se si preme il pulsante di alimentazione. Viene inviato un segnale di chiusura al sistema operativo. Per le operazioni di arresto pianificato, provare l'operazione di arresto prima di tutto. 
 
 Questa azione viene in genere usata quando un nodo è bloccata e non risponde più alle richieste.
 
-> [!Important] 
-> Questa funzionalità è disponibile solo tramite PowerShell. Sarà disponibile nel portale di amministrazione di Azure Stack in un secondo momento.
+Per eseguire l'azione di interruzione, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
 
-
-Per l'esecuzione di spegnimento azione tramite PowerShell:
-
-````PowerShell
+```PowerShell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-```` 
+```
 
-Nel caso improbabile che spegnimento azione non funziona, usare invece l'interfaccia web BMC.
+Nel caso improbabile che l'azione di interruzione non funziona, quindi ripetere l'operazione e se ha esito negativo una seconda volta usare l'interfaccia web BMC invece.
 
-### <a name="power-on"></a>Accendere
+Per altre informazioni, vedere [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-Il **accendere** azione attiva nel nodo. È lo stesso come se si preme il pulsante di alimentazione. 
+## <a name="start"></a>Inizia
 
-> [!Important] 
-> Questa funzionalità è disponibile solo tramite PowerShell. Sarà disponibile nel portale di amministrazione di Azure Stack in un secondo momento.
+Il **avviare** azione attiva nel nodo. È lo stesso come se si preme il pulsante di alimentazione. 
+ 
+Per eseguire l'azione di avvio, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
 
-Per eseguire la potenza su azioni tramite PowerShell:
-
-````PowerShell
+```PowerShell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-````
+```
 
-Nel caso improbabile che l'azione di accensione non funziona, usare invece l'interfaccia web BMC.
+Nel caso improbabile che l'azione di avvio non funziona, quindi ripetere l'operazione e se ha esito negativo una seconda volta usare l'interfaccia web BMC invece.
 
-### <a name="drain"></a>Svuotamento
+Per altre informazioni, vedere [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
 
-Il **svuotare** azione evacuates tutti i carichi di lavoro attivi tramite la distribuzione tra i nodi rimanenti di tale unità di scala particolare.
+## <a name="drain"></a>Svuotamento
+
+Il **svuotare** azione Sposta tutti i carichi di lavoro attivi per i nodi rimanenti di tale unità di scala particolare.
 
 Questa azione viene in genere usata durante la sostituzione del campo di parti, ad esempio la sostituzione di un intero nodo.
 
-> [!IMPORTANT]  
-> Assicurarsi che svuotare un nodo solo durante una finestra di manutenzione pianificata, in cui gli utenti hanno ricevuto notifica. In alcune condizioni, i carichi di lavoro attivi può subire interruzioni.
+> [!Important]
+> Assicurarsi di usare un'operazione di svuotamento in un nodo in una finestra di manutenzione pianificata, in cui gli utenti hanno ricevuto notifica. In alcune condizioni, i carichi di lavoro attivi può subire interruzioni.
 
-Per eseguire l'azione di svuotamento tramite PowerShell:
+Per eseguire l'azione di svuotamento, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
 
-  ````PowerShell
+```PowerShell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-  ````
+```
 
-### <a name="resume"></a>Riprendi
+Per altre informazioni, vedere [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
 
-Il **Riprendi** azione riprende un nodo svuotato e come contrassegnarlo attivo per il posizionamento del carico di lavoro. I carichi di lavoro precedenti che erano in esecuzione nel nodo di non eseguire il failback. (Se si svuotare un nodo e quindi power off, quando si accende il nodo indietro, non è contrassegnata come attiva per il posizionamento del carico di lavoro. Quando si è pronti, è necessario utilizzare l'azione di ripresa per contrassegnare il nodo come attiva.)
+## <a name="resume"></a>Riprendi
 
-Per eseguire l'azione di ripresa tramite PowerShell:
+Il **riprendere** azione riprende un nodo disabilitato e lo contrassegna attivo per il posizionamento del carico di lavoro. I carichi di lavoro precedenti che erano in esecuzione nel nodo di non eseguire il failback. (Se si usa un'operazione di svuotamento in un nodo assicurarsi di alimentazione. Quando si accende il nodo indietro, non è contrassegnata come attiva per il posizionamento del carico di lavoro. Quando si è pronti, è necessario utilizzare l'azione di ripresa per contrassegnare il nodo come attiva.)
 
-  ````PowerShell
+Per eseguire l'azione di ripresa, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
+
+```PowerShell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-  ````
+```
 
-### <a name="repair"></a>Ripristina
+Per altre informazioni, vedere [Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
 
-Il **Repair** azione consente di ripristinare un nodo. Usarla solo per entrambi gli scenari seguenti:
+## <a name="repair"></a>Ripristina
 
-- Sostituzione nodo completo (con o senza i dischi dati nuovi)
-- Dopo l'errore del componente hardware e sostituzione (se consigliato nella documentazione (FRU) di unità sostituibile sul campo).
+Il **riparare** azione consente di ripristinare un nodo. Usarla solo per entrambi gli scenari seguenti:
+ - Sostituzione nodo completo (con o senza i dischi dati nuovi)
+ - Dopo l'errore del componente hardware e sostituzione (se consigliato nella documentazione (FRU) di unità sostituibile sul campo).
 
-> [!IMPORTANT]  
-> Vedere documentazione del fornitore hardware OEM FRU procedura precisa da applicare quando è necessario sostituire i singoli componenti hardware o un nodo. La documentazione FRU specificherà se è necessario eseguire l'azione di ripristino dopo la sostituzione di un componente hardware.  
+> [!Important]  
+> Vedere documentazione del fornitore hardware OEM FRU procedura precisa da applicare quando è necessario sostituire i singoli componenti hardware o un nodo. La documentazione FRU specificherà se è necessario eseguire l'azione di ripristino dopo la sostituzione di un componente hardware. 
 
 Quando si esegue l'azione di ripristino, è necessario specificare l'indirizzo IP del BMC. 
 
-Per eseguire l'azione di ripristino tramite PowerShell:
+Per eseguire l'azione di ripristino, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
 
   ````PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>

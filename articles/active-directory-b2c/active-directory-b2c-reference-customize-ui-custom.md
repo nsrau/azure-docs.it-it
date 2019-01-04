@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139510"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841626"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati
 
@@ -31,7 +31,7 @@ Un'esperienza utente integrata è fondamentale per qualsiasi soluzione Business 
 
 Azure AD B2C consente di personalizzare l'aspetto dell'esperienza utente nelle diverse pagine rese disponibili e visualizzate da Azure AD B2C tramite i criteri personalizzati.
 
-A tale scopo, Azure AD B2C esegue il codice nel browser del cliente e usa il moderno approccio standard [Condivisione risorse tra le origini (CORS)](http://www.w3.org/TR/cors/) per caricare il contenuto personalizzato da un determinato URL che punta ai modelli HTML5/CSS, come si specifica in un criterio personalizzato. CORS è un meccanismo che consente alle risorse limitate, ad esempio i tipi di carattere, in una pagina Web di essere richieste da un altro dominio esterno al dominio da cui la risorsa è stata originata.
+A tale scopo, Azure AD B2C esegue il codice nel browser del cliente e usa il moderno approccio standard [Condivisione risorse tra le origini (CORS)](https://www.w3.org/TR/cors/) per caricare il contenuto personalizzato da un determinato URL che punta ai modelli HTML5/CSS, come si specifica in un criterio personalizzato. CORS è un meccanismo che consente alle risorse limitate, ad esempio i tipi di carattere, in una pagina Web di essere richieste da un altro dominio esterno al dominio da cui la risorsa è stata originata.
 
 Rispetto alla precedente modalità tradizionale, in cui le pagine modello sono di proprietà della soluzione, nella quale si inserivano testo e immagini limitati e il controllo del layout e dell'aspetto era limitato al punto che non era semplice raggiungere un'esperienza integrata, la modalità CORS supporta HTML5 e CSS e consente di:
 
@@ -69,10 +69,10 @@ Per assicurarsi che tutto funzioni come previsto, è necessario:
 - Usare URL assoluti, ad esempio https://yourdomain/content, per tutti i collegamenti e il contenuto CSS.
 
 > [!TIP]
-> Per verificare che CORS sia abilitato per il sito su cui si ospita il contenuto e per testare le richieste CORS, usare il sito http://test-cors.org/. Da questo sito è possibile inviare la richiesta CORS a un server remoto (per verificare se CORS è supportato) oppure a un server di test (per esplorare determinate funzionalità di CORS).
+> Per verificare che CORS sia abilitato per il sito su cui si ospita il contenuto e per testare le richieste CORS, usare il sito https://test-cors.org/. Da questo sito è possibile inviare la richiesta CORS a un server remoto (per verificare se CORS è supportato) oppure a un server di test (per esplorare determinate funzionalità di CORS).
 
 > [!TIP]
-> Il sito http://enable-cors.org/ costituisce anche una risorsa molto utile per CORS.
+> Il sito https://enable-cors.org/ costituisce anche una risorsa molto utile per CORS.
 
 Grazie a questo approccio basato su CORS, le esperienze degli utenti finali saranno coerenti nell'applicazione e nelle pagine rese disponibili da Azure AD B2C.
 
@@ -120,13 +120,13 @@ La condivisione di risorse tra le origini (CORS) deve essere abilitata nell'endp
 Per verificare che CORS sia abilitato per la risorsa di archiviazione in cui si ospita il contenuto, procedere con i passaggi seguenti:
 
 1. Aprire una sessione del browser e passare alla pagina *unified.html* usando l'URL completo del percorso nell'account di archiviazione, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Ad esempio: https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Accedere a http://test-cors.org. Questo sito consente di verificare che CORS sia abilitato per la pagina in uso.  
+2. Accedere a https://test-cors.org. Questo sito consente di verificare che CORS sia abilitato per la pagina in uso.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->
 
 3. In **Remote URL** (URL remoto) immettere l'URL completo per il contenuto di unified.html e fare clic su **Send Request** (Invia richiesta).
-4. Verificare che l'output nella sezione **Results** (Risultati) contenga *XHR status: 200* (Stato XHR: 200). Tale valore indica che CORS è abilitato.
+4. Verificare che l'output nella sezione **Results** (Risultati) contenga *XHR status: 200* (Stato XHR: 200), che indica che CORS è abilitato.
 <!--
 ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
 -->
@@ -168,4 +168,4 @@ La tabella seguente descrive il set di ID definizione del contenuto riconosciuti
 | *api.signuporsignin* | **Pagina unificata per l'iscrizione o l'accesso**.  Questa pagina consente di gestire sia l'iscrizione che l'accesso degli utenti, che possono usare provider di identità aziendali, provider di identità basati su social network come Facebook o Google+ o account locali.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni di riferimento: conoscere il funzionamento dei criteri personalizzati con il framework di esperienza di gestione delle identità in B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)
+[Informazioni di riferimento: conoscere il funzionamento dei criteri personalizzati con Identity Experience Framework in B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

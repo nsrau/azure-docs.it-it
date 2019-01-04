@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394834"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846471"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Diventare un editore del Marketplace cloud
 
@@ -78,9 +78,9 @@ Verrà richiesto di includere le informazioni seguenti:
 Il team che gestisce l'onboarding in Marketplace convalida i dettagli di registrazione al marketplace specificati nel passaggio 3. Dopo l'approvazione, si riceverà un messaggio di benvenuto con le credenziali dell'account e informazioni aggiuntive sull'accesso al [portale Cloud Partner](https://cloudpartner.azure.com).
 
 Si userà il [portale Cloud Partner](https://cloudpartner.azure.com) per creare, pubblicare e gestire le offerte nel marketplace. Dopo aver ricevuto il messaggio di benvenuto con l'approvazione, è possibile accedere immediatamente al [portale Cloud Partner](https://cloudpartner.azure.com) con il proprio account Microsoft per accedere a informazioni tecniche aggiuntive sulla pubblicazione nel marketplace e la creazione dell'offerta. 
-*   Per altre informazioni sull'uso del portale Cloud Partner, [consultare l'articolo introduttivo nella sezione delle informazioni](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Per accedere a questi dettagli è necessario eseguire l'accesso al portale Cloud Partner.
+*   Per altre informazioni sull'uso del portale Cloud Partner, [consultare l'articolo introduttivo nella sezione delle informazioni](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). Per accedere a questi dettagli è necessario eseguire l'accesso al portale Cloud Partner.
 *   Se si hanno domande o si vuole pianificare una chiamata per avere informazioni preliminari sull'onboarding, consultare altri articoli in questa Guida alla pubblicazione o aprire una richiesta di supporto selezionando l'onboarding in Marketplace come tipo di problema nel portale Cloud Partner.
-*   Se non si riceve il messaggio di benvenuto, controllare se nella cartella della posta indesiderata è presente un messaggio con oggetto “Benvenuti in Microsoft Marketplace”. Se la cartella della posta indesiderata non contiene alcun messaggio, [contattare il supporto Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Nella pagina del supporto selezionare l'onboarding in Marketplace come tipo di problema.  Il team addetto all'onboarding degli editori di Marketplace sarà lieto di offrire informazioni e assistenza. 
+*   Se non si riceve il messaggio di benvenuto, controllare se nella cartella della posta indesiderata è presente un messaggio con oggetto “Benvenuti in Microsoft Marketplace”. Se la cartella della posta indesiderata non contiene alcun messaggio, [contattare il supporto Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Nella pagina del supporto selezionare: Tipo di problema > Marketplace Onboarding.  Il team addetto all'onboarding degli editori di Marketplace sarà lieto di offrire informazioni e assistenza. 
 
 
 ## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. Eseguire la registrazione nel Dev Center (solo per l'opzione di pubblicazione Transazione) 

@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: a1a31ec7ee0d1daea9f178e51dc860279d3787ec
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e16d27314a159b124e35560ffb8cd9685fc5c7a0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615348"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438014"
 ---
 # <a name="routing-events-and-messages"></a>Routing di eventi e messaggi
 
@@ -25,7 +25,7 @@ Gemelli digitali di Azure offre due metodi per integrare gli eventi IoT in altri
 
 * **Routing di eventi di Gemelli digitali di Azure**: un oggetto nel grafico spaziale che cambia, dati di telemetria che vengono ricevuti o una funzione definita dall'utente che crea una notifica in base a condizioni predefinite possono attivare eventi di Gemelli digitali di Azure. Gli utenti possono inviare questi eventi a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [argomenti del bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) o [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) per l'ulteriore elaborazione.
 
-* **Routing dei dati di telemetria dei dispositivi**: oltre al routing di eventi, Gemelli digitali di Azure può instradare anche messaggi di telemetria dei dispositivi non elaborati a hub eventi per ulteriori analisi e recupero di informazioni. Questi tipi di messaggi non vengono elaborati da Gemelli digitali di Azure. Vengono solo inoltrati all'hub eventi.
+* **Routing dei dati di telemetria dei dispositivi**: oltre al routing di eventi, Gemelli digitali di Azure può instradare anche messaggi non elaborati di telemetria dei dispositivi a Hub eventi per ulteriori analisi e approfondimenti. Questi tipi di messaggi non vengono elaborati da Gemelli digitali di Azure. Vengono solo inoltrati all'hub eventi.
 
 Gli utenti possono specificare uno o più endpoint in uscita per inviare eventi o inoltrare messaggi. Eventi e messaggi verranno inviati agli endpoint in base a queste preferenze di routing predefinite. In altre parole, gli utenti possono specificare un determinato endpoint per ricevere gli eventi delle operazioni del grafico, un altro per ricevere gli eventi di telemetria dei dispositivi e così via.
 
@@ -41,7 +41,7 @@ Attualmente il servizio Gemelli digitali di Azure supporta gli elementi **Endpoi
 * **ServiceBus**, l'endpoint della stringa di connessione del bus di servizio.
 * **EventGrid**, l'endpoint della stringa di connessione di Griglia di eventi.
 
-Attualmente Gemelli digitali di Azure supporta gli elementi **EventTypes** seguenti da inviare all'endpoint scelto:
+Attualmente Gemelli digitali di Azure supporta gli elementi **EventType** seguenti da inviare all'endpoint scelto:
 
 * **DeviceMessages**, i messaggi di telemetria inviati dai dispositivi degli utenti e inoltrati dal sistema.
 * **TopologyOperation**, un'operazione che modifica il grafico o i metadati del grafico. Ad esempio, l'aggiunta o l'eliminazione di un'entità, come uno spazio.
@@ -50,7 +50,7 @@ Attualmente Gemelli digitali di Azure supporta gli elementi **EventTypes** segue
 * **UdfCustom**, una notifica personalizzata proveniente da una funzione definita dall'utente.
 
 > [!IMPORTANT]  
-> Non tutti gli elementi **EndpointType** supportano tutti gli oggetti **EventTypes**.
+> Non tutti gli elementi **EndpointType** supportano tutti gli **EventType**.
 > Vedere la tabella seguente per gli elementi **EventTypes** consentiti per ogni elemento **EndpointType**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |

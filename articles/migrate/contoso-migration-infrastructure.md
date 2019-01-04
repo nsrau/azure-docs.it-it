@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 2210aaa5d4d0ba9d730e5aee97972565ea0c1090
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092976"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726985"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - Distribuire un'infrastruttura di migrazione
 
@@ -30,14 +30,14 @@ Questo articolo fa parte di una serie di articoli che descrivono come la societ�
 [Articolo 1: Panoramica](contoso-migration-overview.md) | Panoramica della serie di articoli, della strategia di migrazione di Contoso e delle app di esempio usate nella serie. | Disponibile
 Articolo 2: Distribuire un'infrastruttura di Azure | Contoso prepara la propria infrastruttura locale e l'infrastruttura di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli articoli della serie relativi alla migrazione. | Questo articolo
 [Articolo 3: Valutare le risorse locali per la migrazione in Azure](contoso-migration-assessment.md)  | Contoso esegue una valutazione dell'app SmartHotel360 locale in esecuzione su VMware. Valuta le macchine virtuali dell'app con il servizio Azure Migrate e il database SQL Server dell'app con Data Migration Assistant. | Disponibile
-[Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in Istanza gestita di database SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel360 locale. Usa [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) per la migrazione della macchina virtuale del front-end dell'app. mentre per la migrazione del database dell'app in un'Istanza gestita di database SQL di Azure viene usato il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Disponibile   
-[Articolo 5: Eseguire il rehosting di un'app in VM di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel360 nelle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
+[Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in un'istanza gestita di database SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel360 locale. Usa [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) per la migrazione della macchina virtuale del front-end dell'app. mentre per la migrazione del database dell'app in un'Istanza gestita di database SQL di Azure viene usato il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Disponibile   
+[Articolo 5: Effettuare il rehosting di un'app nelle macchine virtuali di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel360 nelle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
 [Articolo 6: Eseguire il rehosting di un'app in macchine virtuali di Azure e in un gruppo di disponibilità AlwaysOn di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso esegue la migrazione dell'app usando Site Recovery per la migrazione delle macchine virtuali dell'app e il Servizio Migrazione del database per la migrazione del database dell'app a un cluster di SQL Server protetto da un gruppo di disponibilità AlwaysOn. | Disponibile
-[Articolo 7: Eseguire il rehosting di un'app Linux in VM di Azure](contoso-migration-rehost-linux-vm.md) | Contoso completa una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
+[Articolo 7: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure](contoso-migration-rehost-linux-vm.md) | Contoso completa una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
 [Articolo 8: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure e in Database di Azure per MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux alle macchine virtuali di Azure mediante Site Recovery. Esegue la migrazione del database dell'app in Database di Azure per MySQL tramite MySQL Workbench. | Disponibile
 [Articolo 9: Eseguire il refactoring di un'app in un'app Web di Azure e un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Contoso esegue la migrazione dell'app SmartHotel360 a un'app Web di Azure e del database dell'app a un'istanza di SQL Server di Azure con Data Migration Assistant. | Disponibile    
 [Articolo 10: Eseguire il refactoring di un'app Linux in un'app Web di Azure e Database di Azure per MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso esegue la migrazione dell'app osTicket Linux in un'app Web di Azure su più siti. L'app Web è integrata con GitHub per il recapito continuo. Esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Disponibile
-[Articolo 11: eseguire il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
+[Articolo 11: Eseguire il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
 [Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database di app SQL di Azure. | Disponibile    
 [Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizio app di Azure, il servizio Kubernetes di Azure (AKS), Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile
 [Articolo 14: Passare a una migrazione completa in Azure](contoso-migration-scale.md) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Disponibile 
@@ -54,7 +54,7 @@ Prima di eseguire la migrazione ad Azure, Contoso deve predisporre l'infrastrutt
 **Passaggio 3: Ripristino di emergenza e resilienza**: in che modo Contoso garantirà la resilienza delle app e dell'infrastruttura in caso di emergenze e interruzioni?  
 **Passaggio 4: Rete**: in che modo Contoso deve progettare l'infrastruttura di rete e stabilire la connettività tra i data center locale e Azure?  
 **Passaggio 5: Sicurezza**: in che modo proteggerà la distribuzione ibrida/Azure?  
-**Passaggio 6: Governance**: in che modo Contoso manterrà allineati i requisiti di sicurezza e di governance?
+**Passaggio 6: Governance**: in che modo Contoso manterrà allineata la distribuzione con i requisiti di sicurezza e di governance?
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -81,7 +81,7 @@ Ecco un diagramma che illustra l'infrastruttura locale corrente di Contoso.
 - I controller di dominio nel data center vengono eseguiti in macchine virtuali VMware. Il controller di dominio nelle filiali locali vengono eseguiti in server fisici.
 
 
-## <a name="step-1-buy-and-subscribe-to-azure"></a>Passaggio 1: Acquistare ed eseguire la sottoscrizione a Azure
+## <a name="step-1-buy-and-subscribe-to-azure"></a>Passaggio 1: Acquistare ed eseguire la sottoscrizione ad Azure
 
 Contoso deve decidere come acquistare Azure, architettare le sottoscrizioni e concedere in licenza servizi e risorse.
 
@@ -256,8 +256,8 @@ Il [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/r
 
 Gli amministratori Contoso ora assegnano ruoli ai gruppi di AD sincronizzati in locale.
 
-1. Nel gruppo di risorse **ControlCobRG** fa clic su **Controllo di accesso (IAM)** > **Aggiungi**.
-2. In **Aggiungi autorizzazioni** > **Ruolo** > **Collaboratore** seleziona il gruppo AD **ContosoCobRG** dall'elenco. Il gruppo viene visualizzato nell'elenco **Membri selezionati**. 
+1. Nel gruppo di risorse **ControlCobRG** fa clic su **Controllo di accesso (IAM)** > **Aggiungi un'assegnazione di ruolo**.
+2. In **Aggiungi un'assegnazione di ruolo** > **Ruolo** > **Collaboratore** seleziona il gruppo AD **ContosoCobRG** dall'elenco. Il gruppo viene visualizzato nell'elenco **Membri selezionati**. 
 3. L'azienda ripete questa operazione con le stesse autorizzazioni per gli altri gruppi di risorse (ad eccezione di **ContosoAzureAdmins**), aggiungendo le autorizzazioni Collaboratore all'account di Active Directory che corrisponde al gruppo di risorse.
 4. Per il gruppo AD **ContosoAzureAdmins** assegna il ruolo **Proprietario**.
 
@@ -302,8 +302,8 @@ Contoso implementerà zone di disponibilità dal momento che le app richiedono s
 
 Una volta progettata l'area, Contoso è pronta considerare una strategia di rete. Deve capire in che modo il data center locale e Azure si connetteranno e comunicheranno tra loro e come progettare l'infrastruttura di rete in Azure. In particolare Contoso deve:
 
-- **Pianificare la connettività di rete ibrida**: decidere come connettere le reti in locale e in Azure.
-- **Progettare un'infrastruttura di rete di Azure**: decidere come distribuire le reti tra le aree e in che modo le reti comunicheranno nella stessa area e tra aree diverse.
+- **Pianificare una connettività di rete ibrida**: decidere come connettere le reti in locale e in Azure.
+- **Progettare l'infrastruttura di rete di Azure**: decidere in che modo distribuire le reti nelle aree e in che modo le reti comunicheranno nella stessa area e tra aree diverse.
 - **Progettare e configurare le reti di Azure**: configurare le reti e le subnet di Azure e decidere cosa si troverà al loro interno.
 
 ### <a name="plan-hybrid-network-connectivity"></a>Pianificare una connettività di rete ibrida
@@ -640,7 +640,7 @@ Nel momento in cui configura il controllo delle identità e degli accessi, Conto
 
 - **Criteri**: i criteri in Azure applicano regole ed effetti alle risorse, in modo che queste siano sempre conformi ai requisiti e ai contratti di servizio aziendali.
 - **Blocchi**: Azure consente di bloccare sottoscrizioni, gruppi di risorse e risorse di altro tipo, in modo che possano essere modificati solo dagli utenti autorizzati.
-- **Tag**: le risorse possono essere controllate e gestite tramite tag. I tag collegano i metadati alle risorse, fornendo informazioni sulle risorse o sui proprietari.
+- **Tag**: le risorse possono essere controllate e gestite usando i tag. I tag collegano i metadati alle risorse, fornendo informazioni sulle risorse o sui proprietari.
 
 ### <a name="set-up-policies"></a>Configurare i criteri
 
@@ -728,9 +728,9 @@ La sicurezza è fondamentale nel cloud e Azure offre un'ampia gamma di funzional
 
 Contoso deve prendere in considerazione alcuni aspetti:
 
-- **Centro sicurezza di Azure**: il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. Con il Centro sicurezza, è possibile applicare i criteri di sicurezza sui carichi di lavoro, limitare l'esposizione alle minacce, rilevare e rispondere agli attacchi.  [Altre informazioni](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- **Centro sicurezza di Azure**: Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. Con il Centro sicurezza, è possibile applicare i criteri di sicurezza sui carichi di lavoro, limitare l'esposizione alle minacce, rilevare e rispondere agli attacchi.  [Altre informazioni](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - **Gruppi di sicurezza di rete (NSG)**: un gruppo di sicurezza di rete è un filtro (firewall) contenente un elenco di regole di sicurezza che, se applicate, consentono o rifiutano il traffico di rete verso le risorse connesse alle reti virtuali di Azure. [Altre informazioni](https://docs.microsoft.com/azure/virtual-network/security-overview)
-- **Crittografia dischi**: Crittografia dischi di Azure è una funzionalità che consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. [Altre informazioni](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- **Crittografia dei dati**: Crittografia dischi di Azure è una funzionalità che consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. [Altre informazioni](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
 
 ### <a name="work-with-the-azure-security-center"></a>Uso del Centro sicurezza di Azure
 

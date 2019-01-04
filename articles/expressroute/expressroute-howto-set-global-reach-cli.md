@@ -1,19 +1,19 @@
 ---
-title: Configurare Copertura globale di Azure ExpressRoute con l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: 'Configurare Copertura globale di ExpressRoute: Interfaccia della riga di comando di Azure | Microsoft Docs'
 description: Questo articolo descrive come collegare circuiti ExpressRoute tra loro per creare una rete privata tra le reti locali e abilitare il servizio Copertura globale.
-documentationcenter: na
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 12/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9d41ab26876d464187466f566bbfafc4861c799d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 9a8e0a5df9383d8e3d7159aa916b0e4fbfeea948
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333261"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384055"
 ---
 # <a name="configure-expressroute-global-reach-using-azure-cli-preview"></a>Configurare Copertura globale di Azure ExpressRoute con l'interfaccia della riga di comando di Azure (anteprima)
 Questo articolo illustra come configurare Copertura globale di ExpressRoute con l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Copertura globale di ExpressRoute](expressroute-global-reach.md).
@@ -55,24 +55,22 @@ az account set --subscription <your subscription ID>
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Abilitare la connettività tra le reti locali
 
-Eseguire il comando dell'interfaccia della riga di comando seguente per connettere due circuiti ExpressRoute.
+Quando si esegue il comando per abilitare la connettività, prendere in considerazione i valori seguenti:
 
-> [!NOTE]
-> *peer-circuit* deve essere l'ID risorsa completo, ad esempio
-> ```
-> */subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}*
-> ```
-> 
+* *peer-circuit* deve essere l'ID risorsa completo. Ad esempio:  
+
+  ```
+  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
+  ```
+* *-AddressPrefix* deve essere una subnet /29 IPv4, ad esempio "10.0.0.0/29". Si useranno gli indirizzi IP in questa subnet per stabilire la connettività tra i due circuiti ExpressRoute. Evitare di usare indirizzi inclusi in questa subnet nelle reti virtuali di Azure o nelle reti locali.
+
+Eseguire il comando dell'interfaccia della riga di comando seguente per connettere due circuiti ExpressRoute. Usare il comando di esempio seguente:
 
 ```azurecli
 az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29>
 ```
 
-> [!IMPORTANT]
-> *-AddressPrefix* deve essere una subnet /29 IPv4, ad esempio "10.0.0.0/29". Si useranno gli indirizzi IP in questa subnet per stabilire la connettività tra i due circuiti ExpressRoute. Evitare di usare indirizzi inclusi in questa subnet nelle reti virtuali di Azure o nelle reti locali.
-> 
-
-L'output dell'interfaccia della riga di comando è simile al seguente.
+L'output dell'interfaccia della riga di comando ha un aspetto simile all'esempio seguente:
 
 ```azurecli
 {

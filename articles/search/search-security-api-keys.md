@@ -1,5 +1,5 @@
 ---
-title: Creare, gestire e proteggere chiavi API amministratore e query per la ricerca di Azure | Microsoft Docs
+title: Creare, gestire e proteggere chiavi API amministratore e query - Ricerca di Azure
 description: Le chiavi API controllano l'accesso all'endpoint di servizio. Le chiavi amministratore concedono l'accesso in scrittura. Le chiavi di query possono essere create per l'accesso in sola lettura.
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 2ec720f26cfbadb9963ff3991ad1795c9b30c136
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.custom: seodec2018
+ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284982"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316928"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Creare e gestire chiavi API per un servizio di ricerca di Azure
 
@@ -65,7 +66,7 @@ Riscrivendo contemporaneamente sia la chiave primaria che quella secondaria, qua
 ## <a name="secure-api-keys"></a>Proteggere le chiavi API
 La sicurezza delle chiavi viene garantita limitando l'accesso tramite il portale o le interfacce di Resource Manager (PowerShell o interfaccia della riga di comando). Come indicato, gli amministratori delle sottoscrizioni possono visualizzare e rigenerare tutte le chiavi API. Per precauzione, esaminare le assegnazioni di ruolo per sapere chi ha accesso alle chiavi amministratore.
 
-+ Nella dashboard del servizio, fare clic su **Controllo di accesso (IAM)** per visualizzare le assegnazioni di ruolo per il servizio.
++ Nella dashboard del servizio, fare clic su **Controllo di accesso (IAM)** e quindi sulla scheda **Assegnazioni di ruolo** per visualizzare le assegnazioni di ruolo per il servizio.
 
 I membri dei ruoli seguenti possono visualizzare e ricreare una chiave: proprietario, collaboratore, [collaboratore Servizio di ricerca](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 

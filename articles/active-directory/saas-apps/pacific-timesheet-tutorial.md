@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Pacific Timesheet | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Pacific Timesheet | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Pacific Timesheet.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 051e39d0e7a58c79eb00bc3dfb73eaf5389617c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b821da194ce41fc419e769336eeeb5927306684
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448364"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Esercitazione: Integrazione di Azure Active Directory con Pacific Timesheet
 
@@ -117,7 +117,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Pacific Timesheet](http://www.pacifictimesheet.com/support).
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Pacific Timesheet](https://www.pacifictimesheet.com/support).
  
 1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -131,10 +131,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/pacific-timesheet-tutorial/tutorial_pacifictimesheet_configure.png) 
 
-1. Per configurare l'accesso Single Sign-On sul lato **Pacific Timesheet**, è necessario inviare il file **Certificato (Base64)** scaricato, l'**URL del servizio Single Sign-On SAML** e l'**ID di entità SAML** al [team di supporto di Pacific Timesheet](http://www.pacifictimesheet.com/support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On sul lato **Pacific Timesheet**, è necessario inviare il file **Certificato (Base64)** scaricato, l'**URL del servizio Single Sign-On SAML** e l'**ID di entità SAML** al [team di supporto di Pacific Timesheet](https://www.pacifictimesheet.com/support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -170,7 +170,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-a-pacific-timesheet-test-user"></a>Creazione di un utente di test di Pacific Timesheet
 
-In questa sezione viene creato un utente di nome Britta Simon in Pacific Timesheet. Collaborare con il [team di supporto di Pacific Timesheet](http://www.pacifictimesheet.com/support) per creare un utente nell'applicazione.
+In questa sezione viene creato un utente di nome Britta Simon in Pacific Timesheet. Collaborare con il [team di supporto di Pacific Timesheet](https://www.pacifictimesheet.com/support) per creare un utente nell'applicazione.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 

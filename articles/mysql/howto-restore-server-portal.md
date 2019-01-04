@@ -9,19 +9,19 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 6a34bbb5eefac117775c9876f3e4a25d3dade736
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 7f75950a0f61c646d6cf36ea0903ebdefbd336ee
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266272"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138480"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL tramite il portale di Azure
 
 ## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
 Il backup dei server Database di Azure per MySQL viene eseguito periodicamente per abilitare le funzionalità di ripristino. L'uso di questa funzionalità consente di ripristinare il server e tutti i suoi database a un momento precedente nel nuovo server.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida, è necessario:
 - Un [database di Azure per il database e il server MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -65,10 +65,10 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 3. Compilare il modulo Ripristina con le informazioni obbligatorie:
 
    ![Database di Azure per MySQL - Informazioni di ripristino ](./media/howto-restore-server-portal/3-restore.png)
-  - **Punto di ripristino**: selezionare il punto nel tempo per il ripristino.
-  - **Server di destinazione**: specificare un nome per il nuovo server.
-  - **Percorso**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
-  - **Piano tariffario**: non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
+   - **Punto di ripristino**: selezionare il punto di ripristino temporizzato desiderato.
+   - **Server di destinazione**: Specificare un nome per il nuovo server.
+   - **Posizione**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
+   - **Piano tariffario**: non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
 
 4. Fare clic su **OK** per ripristinare il server a un momento specifico. 
 
@@ -85,7 +85,7 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
    ![Opzione "Database di Azure per MySQL"](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
 
 2. Nell'elenco a discesa **Seleziona origine** scegliere **Backup**. Questa azione consente di caricare un elenco di server per i quali è stato abilitato il backup con ridondanza geografica. Selezionare uno di questi backup come origine del nuovo server.
-   ![Opzione Seleziona origine: Backup ed elenco di backup con ridondanza geografica](./media/howto-restore-server-portal/2-georestore.png)
+   ![Seleziona origine: backup ed elenco di backup con ridondanza geografica](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Quando un server viene creato per la prima volta, potrebbe non essere subito disponibile per il ripristino geografico. Potrebbero essere necessarie alcune ore per popolare i metadati necessari.

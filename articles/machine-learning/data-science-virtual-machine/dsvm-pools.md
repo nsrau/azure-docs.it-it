@@ -6,6 +6,7 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -13,36 +14,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 12/10/2018
 ms.author: gokuma
-ms.openlocfilehash: 0740ff7542d066442146b8e80e188ad5ba49a2b5
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 648b0818f07aca8763fa4af01380076ae307b0a2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309399"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408953"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Creare un pool condiviso di Data Science Virtual Machine
 
 Questo articolo illustra come è possibile creare un pool condiviso di Data Science Virtual Machine (DSVM) per l'uso da parte di un team. I vantaggi di usare un pool condiviso sono un migliore utilizzo delle risorse, facilità di condivisione e collaborazione e gestione più efficace delle risorse DSVM. 
 
-È possibile usare numerosi metodi e tecnologie per creare un pool di DSVM. Questo articolo illustra i pool per l'elaborazione batch e le VM interattive.
-
-## <a name="batch-processing-pool"></a>Pool di elaborazione batch
-Per configurare un pool di DSVM principalmente per eseguire i processi in un batch offline, è possibile usare il servizio [Azure Batch per intelligenza artificiale](https://docs.microsoft.com/azure/batch-ai/) oppure [Azure Batch](https://docs.microsoft.com/azure/batch/). Questo articolo è incentrato su Azure Batch per intelligenza artificiale.
-
-L'edizione Ubuntu della DSVM è supportata come una delle immagini in Azure Batch per intelligenza artificiale. Nell'interfaccia della riga di comando di Azure o in Python SDK, in cui si crea il cluster Azure Batch per intelligenza artificiale, si può specificare il parametro `image` e impostarlo su `UbuntuDSVM`. È possibile scegliere il tipo di nodi di elaborazione desiderato, ovvero istanze basate su GPU o istanze solo CPU, il numero di CPU e la memoria, dall'[ampia scelta di istanze di VM](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) disponibile in Azure. 
-
-Quando si usa l'immagine Ubuntu di DSVM in Azure Batch per intelligenza artificiale con nodi basati su GPU, tutti i driver GPU e i framework di apprendimento avanzato necessari sono preinstallati. La preinstallazione consente di risparmiare molto tempo nella preparazione dei nodi batch. Se infatti si sviluppa in una DSVM Ubuntu in modo interattivo, si noterà che i nodi Azure Batch per intelligenza artificiale hanno esattamente la stessa configurazione dell'ambiente. 
-
-In genere quando, si crea un cluster Azure Batch per intelligenza artificiale, si crea anche una condivisione file montata da tutti i nodi. La condivisione file viene usata per l'input e l'output dei dati, oltre che per l'archiviazione del codice e degli script dei processi batch. 
-
-Dopo avere creato un cluster Azure Batch per intelligenza artificiale, è possibile usare la stessa interfaccia della riga di comando o Python SDK per inviare i processi da eseguire. Si paga solo per il tempo impiegato per eseguire i processi batch. 
-
-Per altre informazioni, vedere:
-* Procedura dettagliata per l'uso dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) per gestire Azure Batch per intelligenza artificiale
-* Procedura dettagliata per l'uso di [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) per gestire Azure Batch per intelligenza artificiale
-* [File recipe di Azure Batch per intelligenza artificiale](https://github.com/Azure/BatchAI) che illustrano come usare vari framework di apprendimento avanzato e intelligenza artificiale con Azure Batch per intelligenza artificiale
+È possibile usare numerosi metodi e tecnologie per creare un pool di DSVM. Questo articolo illustra i pool per le VM interattive. Un'infrastruttura di calcolo gestita alternativa è Ambiente di calcolo di Azure Machine Learning. Visualizzare [Configurare le destinazioni di calcolo](../service/how-to-set-up-training-targets.md#amlcompute) per altre informazioni.
 
 ## <a name="interactive-vm-pool"></a>Pool di VM interattive
 

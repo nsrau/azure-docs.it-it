@@ -1,6 +1,6 @@
 ---
-title: 'Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse | Documentazione Microsoft'
-description: Advanced Analytics Process and Technology in azione
+title: Compilare e distribuire un modello usando Azure SQL Data Warehouse - Processo di data science per i team
+description: Compilare e distribuire un modello di Machine Learning usando Azure SQL Data Warehouse con un set di dati disponibile pubblicamente.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ed3731db88d7f829634a03c55e5ec033c03e4b0f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445709"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139131"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse
 In questa esercitazione verranno esaminate la compilazione e la distribuzione di un modello di Machine Learning usando SQL Data Warehouse (SQL DW) per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Il modello di classificazione binaria costruito stabilisce se sia stata lasciata o meno una mancia per una corsa. Vengono illustrati anche i modelli per la regressione e la classificazione multiclasse che consentono di stimare la distribuzione delle mance pagate.
@@ -52,15 +52,15 @@ La **chiave univoca** usata per unire trip\_data e trip\_fare è costituita dai 
 ## <a name="mltasks"></a>Risolvere tre tipi di attività di stima
 Sono stati formulati tre problemi di stima basati sul valore di *tip\_amount* per illustrare tre tipi di attività di modellazione:
 
-1. **Classificazione binaria**: consente di prevedere se sia stata lasciata o meno una mancia per la corsa. In questo caso, un valore di *tip\_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un valore di *tip\_amount* pari a $ 0 rappresenta un esempio negativo.
-2. **Classificazione multiclasse**: consente di prevedere l'intervallo in cui rientra la mancia lasciata per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
+1. **Classificazione binaria**: per prevedere se è stata lasciata una mancia per una corsa oppure no, ovvero se un valore di *tip\_amount* superiore a $0 è un esempio positivo, mentre un valore di *tip\_amount* pari a $ 0 è un esempio negativo.
+2. **Classificazione multiclasse**: consente di stimare l'intervallo degli importi delle mance lasciate per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. **Attività di regressione**: consente di prevedere l'importo della mancia lasciata per una corsa.  
+3. **Attività di regressione**: permette di stimare l'importo della mancia lasciata per una corsa.  
 
 ## <a name="setup"></a>Configurare l'ambiente di scienza dei dati di Azure per l'analisi avanzata
 Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire questi passaggi.
@@ -117,7 +117,7 @@ Aprire una console dei comandi di Windows PowerShell. Eseguire i comandi di Powe
 
 Al termine dell'esecuzione, la directory di lavoro corrente diventa *-DestDir*. Verrà visualizzata una schermata simile alla seguente:
 
-![][19]
+![Modifiche alla directory di lavoro corrente][19]
 
 In *-DestDir*eseguire lo script di PowerShell seguente in modalità amministratore:
 
@@ -321,7 +321,7 @@ La posizione geografica degli account di archiviazione influisce sui tempi di ca
 > 
 > 
 
-![Grafico n. 21][21]
+![Output di AzCopy][21]
 
 È possibile usare i propri dati. Se i dati sono nel computer locale nell'applicazione reale, è tuttavia possibile usare AzCopy per caricare i dati locali nell'archiviazione BLOB di Azure privato. È sufficiente sostituire il percorso **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, nel comando di AzCopy del file di script di PowerShell con la directory locale contenente i dati.
 
@@ -334,7 +334,7 @@ Questo script di PowerShell collega anche le informazioni di Azure SQL DW con i 
 
 Al termine dell'esecuzione, verrà visualizzata una schermata simile alla seguente:
 
-![][20]
+![Output di un'esecuzione corretta dello script][20]
 
 ## <a name="dbexplore"></a>Esplorazione dei dati e progettazione di funzionalità in Azure SQL Data Warehouse
 In questa sezione vengono effettuate l'esplorazione dei dati e la generazione di funzionalità eseguendo query SQL direttamente su Azure SQL DW usando **Visual Studio Data Tools**. Tutte le query SQL usate in questa sezione sono disponibili nello script di esempio *SQLDW_Explorations.sql*. Questo file è già stato scaricato nella directory locale dallo script di PowerShell. È anche possibile recuperarlo da [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql), ma al file in GitHub non sono collegate le informazioni di Azure SQL DW.
@@ -387,7 +387,7 @@ Questo esempio identifica le licenze (numeri dei taxi) e i numeri di hack_licens
 
 **Output:** la query dovrebbe restituire una tabella con 13.369 righe in cui vengono specificati quali dei 13.369 ID di automobile/autista hanno eseguito più di 100 corse nel 2013. L'ultima colonna contiene il totale delle corse eseguite.
 
-### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Valutazione della qualità dei dati: verifica dei record con longitudine o latitudine errate
+### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Valutazione della qualità dei dati: verifica dei record con longitudine e/o latitudine errate
 In questo esempio viene esaminato se uno dei campi relativi alla longitudine o alla latitudine contiene un valore non valido (i gradi radianti devono essere compresi tra -90 e 90) o presenta le coordinate (0, 0).
 
     SELECT COUNT(*) FROM <schemaname>.<nyctaxi_trip>
@@ -571,16 +571,16 @@ Se si è già configurata un'area di lavoro di AzureML, è possibile caricare di
 
 1. Accedere all'area di lavoro AzureML, fare clic su "Studio" in alto e fare clic su "NOTEBOOKS" a sinistra nella pagina Web.
    
-    ![Grafico n. 22][22]
+    ![Fare clic su Studio quindi su NOTEBOOK][22]
 2. Fare clic su "NEW" nell'angolo in basso a sinistra della pagina Web e selezionare "Python 2". Specificare quindi un nome per il notebook e fare clic sul segno di spunta per creare il nuovo IPython Notebook vuoto.
    
-    ![Grafico n. 23][23]
+    ![Fare clic su NUOVO, quindi selezionare Python 2][23]
 3. Fare clic sul simbolo "Jupyter" nell'angolo in alto a sinistra del nuovo IPython Notebook.
    
-    ![Grafico n. 24][24]
+    ![Fare clic sul simbolo di Jupyter][24]
 4. Trascinare l'esempio di IPython Notebook nella pagina **albero** del servizio IPython Notebook di Azure Machine Learning e fare clic su **Upload** (Carica). L'esempio di IPython Notebook verrà quindi caricato nel servizio IPython Notebook di AzureML.
    
-    ![Grafico n. 25][25]
+    ![Fare clic su Upload (Carica).][25]
 
 Per eseguire l'esempio di IPython Notebook o il file di script di Python, sono necessari i pacchetti di Python seguenti. Se si usa il servizio IPython Notebook di AzureML, questi pacchetti sono stati preinstallati.
 
@@ -679,14 +679,14 @@ Ora è possibile esplorare i dati campionati. Si inizia da alcune statistiche de
 
     df1['trip_distance'].describe()
 
-### <a name="visualization-box-plot-example"></a>Visualizzazione: esempio di box plot
+### <a name="visualization-box-plot-example"></a>Visualizzazione: Esempio di box plot
 Successivamente si consulterà il box plot per la distanza delle corse, per visualizzare i quantili.
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![Grafico n. 1][1]
+![Output di box plot][1]
 
-### <a name="visualization-distribution-plot-example"></a>Visualizzazione: esempio di tracciato di distribuzione
+### <a name="visualization-distribution-plot-example"></a>Visualizzazione: Esempio di tracciato di distribuzione
 Tracciati che visualizzano la distribuzione e un istogramma per le distanze delle corse campionate.
 
     fig = plt.figure()
@@ -695,9 +695,9 @@ Tracciati che visualizzano la distribuzione e un istogramma per le distanze dell
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![Grafico n. 2][2]
+![Output del tracciato di distribuzione][2]
 
-### <a name="visualization-bar-and-line-plots"></a>Visualizzazione: tracciati a barre e linee
+### <a name="visualization-bar-and-line-plots"></a>Visualizzazione: Tracciati a barre e linee
 In questo esempio, la distanza delle corse viene suddivisa in cinque contenitori e vengono visualizzati i risultati di questa suddivisione.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -709,26 +709,26 @@ La distribuzione binaria precedente può essere rappresentata in un tracciato a 
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![Grafico n. 3][3]
+![Output del tracciato a barre][3]
 
 e
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![Grafico n. 4][4]
+![Output del tracciato a linee][4]
 
-### <a name="visualization-scatterplot-examples"></a>Visualizzazione: esempi di grafico a dispersione
+### <a name="visualization-scatterplot-examples"></a>Visualizzazione: Esempi di grafico a dispersione
 Viene eseguito un grafico a dispersione tra **trip\_time\_in\_secs** e **trip\_distance** per verificare se esiste una correlazione.
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![Grafico n. 6][6]
+![Output di grafico a dispersione di relazione tra tempo e distanza][6]
 
 Allo stesso modo, è possibile verificare la relazione tra **rate\_code** e **trip\_distance**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![Grafico n. 8][8]
+![Output di grafico a dispersione di relazione tra codice e distanza][8]
 
 ### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Esplorazione nei dati campionati usando query SQL in IPython Notebook
 In questa sezione verranno esplorate le distribuzioni di dati usando i dati campionati salvati in modo definitivo nella nuova tabella creata in precedenza. Si noti che esplorazioni simili possono essere eseguite usando le tabelle originali.
@@ -781,7 +781,7 @@ In questa sezione verranno esplorate le distribuzioni di dati usando i dati camp
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Esplorazione: distribuzione delle corse per licenza e hack_license
+#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Esplorazione: distribuzione delle corse per licenza e hack license
     query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
     pd.read_sql(query,conn)
 
@@ -805,9 +805,9 @@ In questa sezione verranno esplorate le distribuzioni di dati usando i dati camp
 ## <a name="mlmodel"></a>Creare modelli in Azure Machine Learning
 A questo punto è possibile procedere con la creazione e la distribuzione di modelli in [Azure Machine Learning](https://studio.azureml.net). I dati sono pronti per essere usati nei problemi di stima identificati in precedenza, in modo specifico:
 
-1. **Classificazione binaria**: consente di prevedere se per la corsa è stata lasciata o meno una mancia.
-2. **Classificazione multiclasse**: consente di prevedere l'intervallo di mance pagato, in base alle classi definite in precedenza.
-3. **Attività di regressione**: consente di prevedere l'importo della mancia lasciata per una corsa.  
+1. **Classificazione binaria**: permette di stimare se per un viaggio è stata lasciata o meno una mancia.
+2. **Classificazione multiclasse**: consente di stimare l'intervallo degli importi delle mance lasciate, in base alle classi definite in precedenza.
+3. **Attività di regressione**: permette di stimare l'importo della mancia lasciata per una corsa.  
 
 Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area di lavoro **Azure Machine Learning** . Se non è ancora disponibile un'area di lavoro di machine learning, vedere [Creare un'area di lavoro Azure ML](../studio/create-workspace.md).
 

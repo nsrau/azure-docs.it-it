@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705379"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966824"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Novità di Azure SQL Data Warehouse Ottobre 2018
 Azure SQL Data Warehouse riceve continuamente miglioramenti. Questo articolo illustra le nuove funzionalità e le modifiche introdotte nel mese di ottobre 2018.
@@ -62,6 +62,7 @@ Azure SQL Data Warehouse (SQL DW) dispone ora dell'integrazione nativa con Azure
 | **CETAS to Parquet nelle classi di risorse di piccole dimensioni nel Data warehouse di DW2000 e altro** | Questa correzione identifica correttamente un riferimento Null nel percorso di codice Create External Table As to Parquet. |
 |**Il valore della colonna Identity potrebbe andare perso durante qualche operazione CTAS** | Il valore di una colonna Identity potrebbe non essere mantenuto durante un CTAS a un'altra tabella. Segnalati in un blog: [ https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/ ](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/). |
 | **Errore interno in alcuni casi quando una sessione viene terminata mentre è ancora in esecuzione una query** | Questa correzione attiva un'eccezione InvalidOperationException se una sessione viene terminata quando la query è ancora in esecuzione. |
+| **(Distribuzione di novembre 2018) I clienti rilevano prestazioni non ottimali quando tentano di caricare più file di piccole dimensioni da ADLS (Gen1) usando Polybase.** | Collo di bottiglia delle prestazioni del sistema durante la convalida del token di sicurezza AAD. I problemi di prestazioni sono stati risolti abilitando la memorizzazione nella cache dei token di sicurezza. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

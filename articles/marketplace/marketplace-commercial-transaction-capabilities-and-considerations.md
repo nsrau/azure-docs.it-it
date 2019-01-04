@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 32198387be680fd01558e900e4c438cde2cdc5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266500"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880183"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Funzionalità e considerazioni sulle transazioni ‎commerciali di Azure Marketplace
 
@@ -177,8 +177,9 @@ Se ad esempio il cliente effettua un acquisto con la carta di credito:
 |Data calcolo proventi (il giorno 15 di ogni mese) | 1 ott 2018 |
 |Payout Date | 15 ott 2018 |
 
-Se il cliente effettua un acquisto con un contratto Enterprise Agreement:  
-|DESCRIZIONE    |    Data  |
+Se il cliente effettua un acquisto con un contratto Enterprise Agreement:
+
+| DESCRIZIONE |    Data  |
 |----------|----------|
 |Periodo dell'ordine | 15 ago 2018 - 30 ago 2018 |
 |Fine periodo (trimestre) | 30 set 2018 |
@@ -237,7 +238,7 @@ L'opzione di pubblicazione delle transazioni è disponibile solo per l'uso con i
 
 Scegliere tra i modelli di determinazione prezzi Gratuito, Bring Your Own License o con pagamento in base al consumo e indicarli come SKU definiti a livello di offerta. Nella fattura di Azure del cliente Microsoft indica i costi della licenza del software dell'editore separatamente dai costi dell'infrastruttura di Azure sottostante. I costi dell'infrastruttura di Azure sono determinati dall'uso del software dell'editore.
 
-**Applicazioni Azure: modello di soluzione o app gestita** 
+**Applicazioni di Azure: modello di soluzione o app gestita** 
 
 È necessario effettuare il provisioning di una o più macchine virtuali e calcolare la somma dei prezzi delle macchine virtuali. Per le app gestite in un singolo piano, come modello di determinazione prezzi è possibile selezionare una sottoscrizione a tariffa fissa mensile invece dei prezzi delle macchine virtuali. In entrambi i casi, le spese di utilizzo dell'infrastruttura di Azure vengono trasferite al cliente separatamente dalle spese di licenza software, ma nello stesso estratto conto.
 

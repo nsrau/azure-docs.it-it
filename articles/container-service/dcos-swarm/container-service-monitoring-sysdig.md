@@ -1,5 +1,5 @@
 ---
-title: Monitorare un cluster del servizio contenitore di Azure con Sysdig
+title: (DEPRECATO) Monitorare un cluster del servizio Azure Container con Sysdig
 description: Monitorare un cluster del servizio contenitore di Azure con Sysdig.
 services: container-service
 author: sauryadas
@@ -9,18 +9,20 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 0c0f4fd1f3a8242061e198d7b5447656f9008e96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3b6781a6b87f9f11b341cf3cf2bcf6668b640c2b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162137"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992188"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>Monitorare un cluster del servizio contenitore di Azure con Sysdig
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(DEPRECATO) Monitorare un cluster del servizio Azure Container con Sysdig
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In questo articolo verranno distribuiti agenti di Sysdig in tutti i nodi agente nel cluster del servizio contenitore di Azure. Per questa configurazione, è necessario un account con Sysdig. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 [Distribuire](container-service-deployment.md) e [connettere](../container-service-connect.md) un cluster configurato dal servizio contenitore di Azure. Esplorare l' [interfaccia utente](container-service-mesos-marathon-ui.md)di Marathon. Passare a [http://app.sysdigcloud.com](http://app.sysdigcloud.com) per configurare un account cloud Sysdig. 
 
 ## <a name="sysdig"></a>Sysdig

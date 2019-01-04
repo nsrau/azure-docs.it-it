@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 10ebb5f549aba42c4de74cec2c16ed63f90532a1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 09db18f38cd64d462815793e3067b29fa0989cf9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633742"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719318"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Note sulla versione di Speech Devices SDK di Servizi cognitivi
 
@@ -24,7 +24,8 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 ## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Speech Devices SDK di Servizi cognitivi 1.1.0: versione di novembre 2018 
 
 * Il componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) è stato aggiornato alla versione 1.1.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew). 
-* L'accuratezza del riconoscimento vocale in campo lontano è stata migliorata grazie a un nuovo algoritmo di elaborazione audio  
+* L'accuratezza del riconoscimento vocale in campo lontano è stata migliorata grazie a un nuovo algoritmo di elaborazione audio.
+* L'applicazione di esempio ha aggiunto il supporto al riconoscimento vocale in cinese.
 
 ## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Speech Devices SDK di Servizi cognitivi 1.0.1: versione di ottobre 2018 
 

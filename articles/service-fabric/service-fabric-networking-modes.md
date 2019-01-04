@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 1a0b7932d8dced086370027e1f8eecaf81841ab3
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300780"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866067"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
@@ -78,7 +78,7 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
             ],
     ```
 
-2. Configurare la sezione del profilo di rete per consentire la configurazione di più indirizzi IP in ogni nodo del cluster. Nell'esempio seguente vengono configurati cinque indirizzi IP per ogni nodo di un cluster di Service Fabric basato su Windows/Linux. Per ogni nodo, quindi, è possibile avere cinque istanze di servizio in ascolto sulla porta.
+2. Configurare la sezione del profilo di rete per consentire la configurazione di più indirizzi IP in ogni nodo del cluster. Nell'esempio seguente vengono configurati cinque indirizzi IP per ogni nodo di un cluster di Service Fabric basato su Windows/Linux. Per ogni nodo, quindi, è possibile avere cinque istanze di servizio in ascolto sulla porta. Affinché i cinque indirizzi IP siano accessibili da Azure Load Balancer, registrare i cinque indirizzi IP nel Pool di indirizzi di back-end di Azure Load Balancer come mostrato di seguito.
 
     ```json
     "variables": {
@@ -126,6 +126,11 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
                           "name": "[concat(parameters('nicName'),'-', 1)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -135,6 +140,11 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
                           "name": "[concat(parameters('nicName'),'-', 2)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -144,6 +154,11 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
                           "name": "[concat(parameters('nicName'),'-', 3)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -153,6 +168,11 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
                           "name": "[concat(parameters('nicName'),'-', 4)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -162,6 +182,11 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
                           "name": "[concat(parameters('nicName'),'-', 5)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }

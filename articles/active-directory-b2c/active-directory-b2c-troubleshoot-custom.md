@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e4b33552c4b070164b55a84f1d8586422aced2f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c733c148994b06e6d7cd13ee98e1a8157f26010a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446674"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163178"
 ---
-# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: raccolta di log
+# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Raccolta di log
 
 Questo articolo illustra i passaggi per la raccolta di log da Azure AD B2C in modo che sia possibile diagnosticare con criteri personalizzati.
 
@@ -108,7 +108,7 @@ La versione del visualizzatore che legge gli eventi da Application Insights è d
 >[!NOTE]
 >I log attività dettagliati descritti qui attualmente sono progettati **SOLO** per facilitare lo sviluppo di criteri personalizzati. Non usare la modalità di sviluppo in fase di produzione.  I log raccolgono tutte le attestazioni inviate verso e dai provider di identità durante lo sviluppo.  Se usato in fase di produzione, lo sviluppatore si assume la responsabilità delle informazioni personali raccolte nel log di App Insights di cui è proprietario.  Questi log dettagliati vengono raccolti solo quando il criterio è in **MODALITÀ DI SVILUPPO**.
 
-[Repository GitHub di esempi di criteri personalizzate non supportati e strumenti correlati](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
+[Repository GitHub di esempi di criteri personalizzati non supportati e strumenti correlati](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 

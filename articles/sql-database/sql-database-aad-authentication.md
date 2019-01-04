@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/03/2018
+ms.openlocfilehash: ff9011dda4a94f323b430a3860eadc8d970a23f7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244077"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838617"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usare l'autenticazione di Azure Active Directory per l'autenticazione con SQL
 
-L'autenticazione di Azure Active Directory è un meccanismo di connessione al [database SQL](sql-database-technical-overview.md) di Azure e a [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tramite le identità di Azure Active Directory (Azure AD). 
+L'autenticazione di Azure Active Directory è un meccanismo di connessione al [database SQL](sql-database-technical-overview.md) di Azure, a [Istanza gestita](sql-database-managed-instance.md) e a [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tramite le identità di Azure Active Directory (Azure AD). 
 
 > [!NOTE]
 > Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
@@ -84,15 +84,7 @@ Per creare un utente di database indipendente nel database SQL di Azure, in Ista
 - Membri importati da altre istanze di Azure AD che sono membri nativi o del dominio federato.
 - Gruppi di Active Directory creati come gruppi di sicurezza.
 
-Limitazioni di Azure AD correlate a Istanza gestita:
-
-- Solo l'amministratore di Azure AD può creare database. Gli utenti di Azure AD hanno un ambito limitato a un singolo database e non dispongono di questa autorizzazione.
-- Proprietà del database:
-  - L'entità di sicurezza di Azure AD non può modificare il proprietario del database (ALTER AUTHORIZATION ON DATABASE) né può essere impostata come proprietario.
-  - Per i database creati dall'amministratore di Azure AD, il proprietario non è impostato. Il campo owner_sid in sys.sysdatabases è 0x1.
-- Non è possibile gestire SQL Agent se si è eseguito l'accesso usando le entità di sicurezza di Azure AD.
-- L'amministratore di Azure AD non può essere rappresentato usando EXECUTE AS.
-- La connessione DAC non è supportata con le entità di sicurezza di Azure AD.
+Gli utenti e gli account di accesso di Azure AD sono supportati come funzionalità di anteprima per [Istanza gestita](sql-database-managed-instance.md)
 
 Queste funzioni di sistema restituiscono valori NULL quando vengono eseguite nell'ambito di entità di sicurezza di Azure AD:
 

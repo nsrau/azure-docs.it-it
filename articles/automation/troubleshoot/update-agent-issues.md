@@ -4,25 +4,25 @@ description: Informazioni su come risolvere i problemi con l'agente Gestione agg
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 61ff50cda6ec523964ccf8f885f07c39020fbc88
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335147"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434767"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Windows in Gestione aggiornamenti
 
-Esistono molte buone ragioni per cui un computer di Azure potrebbe non indicare lo stato **Pronto** in Gestione aggiornamenti di Azure. In Gestione aggiornamenti è possibile controllare l'integrità di un agente del ruolo di lavoro ibrido per determinare il problema sottostante. Questo articolo descrive come eseguire la risoluzione dei problemi di Gestione aggiornamenti dal portale di Azure e negli scenari offline.
+Sono molti i motivi possibili per cui un computer non viene visualizzato come **Pronto** in Gestione aggiornamenti. In Gestione aggiornamenti è possibile controllare l'integrità di un agente del ruolo di lavoro ibrido per determinare il problema sottostante. Questo articolo illustra come eseguire la risoluzione dei problemi per i computer Azure dal portale di Azure e per i computer non Azure nello [scenario offline](#troubleshoot-offline).
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
-Nel portale di Azure la pagina **Risoluzione dei problemi dell'agente di aggiornamento** visualizza i problemi relativi all'agente. Nella pagina è presente un collegamento a questo articolo per assistenza con la risoluzione dei problemi. Per passare alla pagina **Risoluzione dei problemi dell'agente di aggiornamento** selezionare il collegamento **Risoluzione dei problemi** nella colonna **Aggiorna idoneità agente**.
+Per i computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Aggiorna idoneità agente** del portale, si avvia la pagina **Risoluzione dei problemi dell'agente di aggiornamento**. Nel caso di computer non Azure, facendo clic sul collegamento, si accede a questo articolo. Per risolvere i problemi di un computer non Azure, vedere le [istruzioni relative allo scenario offline](#troubleshoot-offline).
 
 ![Aggiornare l'elenco di gestione delle macchine virtuali](../media/update-agent-issues/vm-list.png)
 
@@ -82,7 +82,7 @@ Questo controllo determina se `HealthService`, ovvero Microsoft Monitoring Agent
 
 Per altre informazioni sulla risoluzione dei problemi del servizio, vedere [Microsoft Monitoring Agent non è in esecuzione](hybrid-runbook-worker.md#mma-not-running).
 
-Per reinstallare Microsoft Monitoring Agent, vedere [Installare l'agente per Windows](../../log-analytics/log-analytics-quick-collect-windows-computer.md#install-the-agent-for-windows).
+Per reinstallare Microsoft Monitoring Agent, vedere [Installare l'agente per Windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Monitoraggio degli eventi del servizio agente
 

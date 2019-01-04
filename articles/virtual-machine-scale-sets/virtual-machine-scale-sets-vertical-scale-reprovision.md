@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: 8080cdf78333eed9541311ba67221c713341a21a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b961dadbe8743f1485ef0d13a44a1bb0f3ce32b5
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741573"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321376"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Scalabilità verticale automatica con set di scalabilità di macchine virtuali
 In questo articolo viene descritto come ridimensionare in verticale i [set di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/) di Azure con o senza un nuovo provisioning. Per la scalabilità verticale delle macchine virtuali non incluse nei set di scalabilità, vedere l'articolo [Scalabilità verticale di macchine virtuali di Azure tramite Automazione di Azure](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -84,7 +84,7 @@ Dopo aver importato i runbook, aggiungere un webhook al runbook in modo che poss
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Aggiungere un avviso al set di scalabilità di macchine virtuali
-Di seguito è riportato uno script di PowerShell che mostra come aggiungere un avviso a un set di scalabilità di macchine virtuali. Vedere l'articolo seguente per ottenere il nome della metrica in base alla quale attivare l'avviso: [Azure Monitor autoscaling common metrics](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) (Metriche comuni per il ridimensionamento automatico di Monitoraggio di Azure).
+Di seguito è riportato uno script di PowerShell che mostra come aggiungere un avviso a un set di scalabilità di macchine virtuali. Vedere l'articolo seguente per ottenere il nome della metrica in base alla quale attivare l'avviso: [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -120,7 +120,7 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 Per altre informazioni su come creare gli avvisi, vedere gli articoli seguenti:
 
 * [Esempi di avvio rapido con PowerShell per Monitoraggio di Azure](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma per Monitoraggio di Azure](../monitoring-and-diagnostics/insights-cli-samples.md)
+* [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma per Monitoraggio di Azure](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Summary
 Questo articolo ha illustrato semplici esempi di ridimensionamento verticale. Con questi blocchi predefiniti, ovvero account di automazione, runbook, webhook e avvisi, è possibile connettere una vasta gamma di eventi con un set di azioni personalizzato.

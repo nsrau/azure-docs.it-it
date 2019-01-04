@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi comuni degli indicizzatori in Ricerca di Azure | Microsoft Docs
-description: Risolvere i problemi comuni con gli indicizzatori in Ricerca di Azure
+title: Risolvere i problemi comuni degli indicizzatori di ricerca - Ricerca di Azure
+description: Correggere gli errori e i problemi comuni con gli indicizzatori in Ricerca di Azure, inclusi connessione all'origine dati, firewall e documenti mancanti.
 author: mgottein
 manager: cgronlun
 services: search
@@ -9,12 +9,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: magottei
-ms.openlocfilehash: 6c64cf066651c403136bba97c8d1e1230162dbb4
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.custom: seodec2018
+ms.openlocfilehash: 7696f1628edd3b81568382fd7892a877c6f54ef7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619525"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312392"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Risoluzione dei problemi comuni degli indicizzatori in Ricerca di Azure
 

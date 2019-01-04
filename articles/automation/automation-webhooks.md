@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/04/2018
+ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a65a0b8e054b1d0bb6cd4cbeb2daf9be2b132a9e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 381f8c5fb59379c0494dabcd22f4675be9535837
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304533"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016692"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Avviare un runbook di Automazione di Azure con un webhook
 
@@ -31,7 +31,7 @@ La tabella seguente descrive le proprietà che devono essere configurate per un 
 |:--- |:--- |
 | NOME |È possibile specificare un nome qualsiasi per un webhook dal momento che non viene esposto al client. Viene usato solo per consentire all'utente di identificare il Runbook in Automazione di Azure. <br> Come procedura consigliata è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
 | URL |L'URL del webhook è l'indirizzo univoco che viene chiamato da un client con HTTP POST per avviare il Runbook collegato al webhook. Viene generato automaticamente al momento della creazione del webhook. Non è possibile specificare un URL personalizzato. <br> <br> L'URL contiene un token di sicurezza che consente al runbook di essere richiamato da un sistema di terze parti senza un'autenticazione aggiuntiva. Per questo motivo, deve essere considerato come una password. Per motivi di sicurezza, è possibile visualizzare l'URL solo nel portale di Azure al momento della creazione del webhook. Prendere nota dell'URL e conservarlo in un luogo sicuro per usi futuri. |
-| Expiration date |Analogamente a un certificato, un webhook ha una data di scadenza oltre la quale non può più essere usato. La data di scadenza può essere modificata dopo la creazione del webhook. |
+| Expiration date |Analogamente a un certificato, un webhook ha una data di scadenza oltre la quale non può più essere usato. La data di scadenza può essere modificata dopo la creazione del webhook, a condizione che quest'ultimo non sia scaduto. |
 | Attivato |Un webhook viene abilitato per impostazione predefinita nel momento in cui viene creato. Se viene impostato sulla proprietà Disabled, nessun client sarà in grado di usarlo. È possibile impostare la proprietà **Enabled** quando si crea il webhook o in qualsiasi momento successivo. |
 
 ### <a name="parameters"></a>Parametri
@@ -122,6 +122,12 @@ Se la richiesta ha esito positivo, la risposta del webhook conterrà l'ID proces
 
 Il client non è in grado di determinare quando viene completato il processo del Runbook o lo stato di avanzamento dal webhook. Può determinare queste informazioni usando l'ID processo con un altro metodo, ad esempio [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) o l'[API di Automazione di Azure](/rest/api/automation/job).
 
+## <a name="renew-webhook"></a>Rinnovare un webhook
+
+Un webhook ha un periodo di validità di un anno a partire dalla data di creazione. Quando raggiunge il limite di validità di un anno, il webhook scade automaticamente. Dopo la scadenza, un webhook non può essere riattivato, ma va rimosso e ricreato. Se un webhook non ha raggiunto la scadenza, può essere esteso.
+
+Per estendere un webhook, passare al runbook che contiene il webhook. Selezionare **Webhook** sotto **Risorse**. Fare clic sul webhook che si vuole estendere. Viene visualizzata la pagina **Webhook**.  Scegliere una nuova data e ora di scadenza e fare clic su **Salva**.
+
 ## <a name="sample-runbook"></a>Runbook di esempio
 
 Il runbook di esempio seguente accetta i dati del webhook e avvia le macchine virtuali specificate nel corpo della richiesta. Per testare il runbook, nell'account di Automazione in **Runbook** fare clic su **+ Aggiungi runbook**. Se non conosce la procedura di creazione di un runbook, vedere [Creare un runbook di Automazione di Azure](automation-quickstart-create-runbook.md).
@@ -133,8 +139,20 @@ param
     [object] $WebhookData
 )
 
+
+
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData) {
+
+    # Check header for message to validate request
+    if ($WebhookData.RequestHeader.message -eq 'StartedbyContoso')
+    {
+        Write-Output "Header has required information"}
+    else
+    {
+        Write-Output "Header missing required information";
+        exit;
+    }
 
     # Retrieve VM's from Webhook request body
     $vms = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
@@ -143,7 +161,7 @@ if ($WebhookData) {
 
     Write-Output "Authenticating to Azure with service principal and certificate"
     $ConnectionAssetName = "AzureRunAsConnection"
-    Write-Output "Get connection asset: $ConnectionAssetName" 
+    Write-Output "Get connection asset: $ConnectionAssetName"
 
     $Conn = Get-AutomationConnection -Name $ConnectionAssetName
             if ($Conn -eq $null)
@@ -171,7 +189,7 @@ else {
 
 L'esempio seguente usa Windows PowerShell per avviare un Runbook con un webhook. Qualsiasi linguaggio in grado di creare una richiesta HTTP può usare un webhook. Windows PowerShell viene usato qui come esempio.
 
-Il Runbook prevede un elenco di macchine virtuali in formato JSON nel corpo della richiesta.
+Il Runbook prevede un elenco di macchine virtuali in formato JSON nel corpo della richiesta. Il runbook verifica anche che le intestazioni contenenti un messaggio specifico per la convalida del chiamante webhook siano valide.
 
 ```azurepowershell-interactive
 $uri = "<webHook Uri>"
@@ -181,8 +199,8 @@ $vms  = @(
             @{ Name="vm02";ResourceGroup="vm02"}
         )
 $body = ConvertTo-Json -InputObject $vms
-
-$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body
+$header = @{ message="StartedbyContoso"}
+$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body -Headers $header
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 

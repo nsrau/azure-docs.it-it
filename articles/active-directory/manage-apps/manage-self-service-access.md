@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: barbkess
-ms.openlocfilehash: c1e6c48ef262bf3cb71f7201ba2ff7e9105681dc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1876ff0cea2e46f8159b9ffb24de72a6272b3a79
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355884"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077080"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Come configurare un'assegnazione di applicazioni self-service
 
@@ -57,7 +57,7 @@ Per abilitare l'accesso self-service per un'applicazione, seguire questa procedu
 
 5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+    * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
 6.  Selezionare l'applicazione per cui si desidera abilitare l'accesso self-service dall'elenco.
 
@@ -67,21 +67,21 @@ Per abilitare l'accesso self-service per un'applicazione, seguire questa procedu
 
 9.  Successivamente, per selezionare il gruppo al quale devono essere aggiunti gli utenti che richiedono l'accesso a questa applicazione, fare clic sul selettore accanto all'etichetta **Gruppo a cui devono essere aggiunti gli utenti assegnati** e selezionare un gruppo.
   
-  > [!NOTE]
-  > Per il gruppo a cui devono essere aggiunti gli utenti che richiedono l'accesso a questa applicazione non è supportato l'uso di gruppi sincronizzati dall'ambiente locale.
+    > [!NOTE]
+    > Per il gruppo a cui devono essere aggiunti gli utenti che richiedono l'accesso a questa applicazione non è supportato l'uso di gruppi sincronizzati dall'ambiente locale.
   
-10. **Facoltativo:** se si desidera richiedere un'approvazione aziendale prima che venga consentito l'accesso agli utenti, impostare l'opzione **Richiedere l'approvazione prima di concedere l'accesso a questa applicazione?** su **Sì**.
+10. **Facoltativo:** se si vuole richiedere un'approvazione aziendale prima che venga consentito l'accesso agli utenti, impostare l'opzione **Richiedere l'approvazione prima di concedere l'accesso a questa applicazione?** su **Sì**.
 
-11. **Facoltativo: per applicazioni che usano solo l'accesso Single Sign-On tramite password,** se si desidera consentire ai responsabili approvazione aziendali di specificare le password inviate a questa applicazione per gli utenti approvati, impostare l'opzione **Consentire ai responsabili approvazione di impostare le password utente per questa applicazione?** su **Sì**.
+11. **Facoltativo: per le applicazioni che usano solo l'accesso Single Sign-On tramite password,** se si vuole consentire ai responsabili approvazione aziendali di specificare le password inviate a questa applicazione per gli utenti approvati, impostare l'opzione **Consentire ai responsabili approvazione di impostare le password utente per questa applicazione?** su **Sì**.
 
-12. **Facoltativo:** per specificare i responsabili approvazione aziendali che possono approvare l'accesso a questa applicazione, fare clic sul selettore accanto all'etichetta **Utenti autorizzati ad approvare l'accesso a questa applicazione** per selezionare un massimo di 10 singoli responsabili approvazione aziendali.
+12. **Facoltativo:** per specificare i responsabili approvazione aziendali che possono approvare l'accesso a questa applicazione, fare clic sul selettore accanto all'etichetta **Utenti autorizzati ad approvare l'accesso a questa applicazione** per selezionare fino a 10 singoli responsabili approvazione aziendali.
 
-   >[!NOTE]
-   >I gruppi non sono supportati.
-   >
-   >
+     > [!NOTE]
+     > I gruppi non sono supportati.
+     >
+     >
 
-13. **Facoltativo:****per le applicazioni che espongono i ruoli**, se si desidera assegnare un ruolo agli utenti approvati self-service, fare clic sul selettore accanto all'opzione **A quale ruolo è necessario assegnare gli utenti in questa applicazione?** per selezionare il ruolo a cui devono essere assegnati questi utenti.
+13. **Facoltativo:** **per le applicazioni che espongono ruoli**, se si vuole assegnare un ruolo agli utenti approvati self-service, fare clic sul selettore accanto all'opzione **A quale ruolo è necessario assegnare gli utenti in questa applicazione?** per selezionare il ruolo cui devono essere assegnati questi utenti.
 
 14. Per terminare, fare clic sul pulsante **Salva** nella parte superiore del pannello.
 

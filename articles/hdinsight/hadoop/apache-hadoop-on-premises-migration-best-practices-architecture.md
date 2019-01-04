@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 62e15b5845ed9faa605f978f0d2fd427c9c3ee9b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8295c149d513f89318aa63ddd7f4236013923203
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008182"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434009"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'architettura
 
@@ -49,7 +49,7 @@ La tabella seguente illustra i diversi metodi che possono essere usati per crear
 |[SDK per Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
 |[Modelli di Gestione risorse di Azure](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
-Per altre informazioni, vedere l'articolo [Tipi di cluster in HDInsight](../hadoop/apache-hadoop-introduction.md)
+Per altre informazioni, vedere l'articolo [Tipi di cluster in HDInsight](../hadoop/apache-hadoop-introduction.md).
 
 ## <a name="use-transient-on-demand-clusters"></a>Usare cluster temporanei on demand
 
@@ -57,7 +57,7 @@ I cluster HDInsight potrebbero rimanere inutilizzati per lunghi periodi di tempo
 
 Quando si elimina un cluster, l'account di archiviazione associato e i metadati esterni non vengono rimossi. Il cluster può successivamente essere ricreato usando gli stessi account di archiviazione e metastore.
 
-Azure Data Factory può essere usato per pianificare la creazione di cluster HDInsight on demand. Per altre informazioni, vedere l'articolo [Creare cluster Hadoop on demand in HDInsight con Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
+Azure Data Factory può essere usato per pianificare la creazione di cluster HDInsight on demand. Per altre informazioni, vedere l'articolo [Creare cluster Apache Hadoop on demand in HDInsight con Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
 
 ## <a name="decouple-storage-from-compute"></a>Separare l'archiviazione dal calcolo
 
@@ -65,33 +65,35 @@ Le distribuzioni di Hadoop locali tipiche usano lo stesso set di computer per l'
 
 Nei cluster HDInsight, le risorse di archiviazione e di calcolo non devono condividere la stessa posizione e possono essere in Archiviazione di Azure, Azure Data Lake Storage o in entrambi. La separazione dell'archiviazione dal calcolo offre i vantaggi seguenti:
 
-- Condivisione dei dati tra i cluster
-- Uso di cluster temporanei dato che i dati non sono dipendenti dal cluster
-- Riduzione dei costi di archiviazione
-- Ridimensionamento separato delle risorse di archiviazione e calcolo
-- Replica dei dati tra aree
+- Condivisione dei dati tra i cluster.
+- Uso di cluster temporanei dato che i dati non sono dipendenti dal cluster.
+- Riduzione dei costi di archiviazione.
+- Ridimensionamento separato delle risorse di archiviazione e calcolo.
+- Replica dei dati tra aree.
 
 I cluster di calcolo vengono creati in prossimità delle risorse dell'account di archiviazione in un'area di Azure per attenuare l'impatto sulle prestazioni della separazione di calcolo e archiviazione. Le reti ad alta velocità rendono efficiente l'accesso ai dati in archiviazione di Azure per i nodi di calcolo.
 
 ## <a name="use-external-metadata-stores"></a>Usare archivi di metadati esterni
 
-Esistono due principali metastore che supportano i cluster HDInsight: Hive e Oozie. Il metastore Hive è il repository di schemi centrale che può essere usato dai motori di elaborazione dei dati, tra cui Hadoop, Spark, LLAP, Presto e Pig. Il metastore Oozie archivia i dettagli sulla pianificazione e lo stato dei processi Hadoop in corso e completati.
+
+Esistono due principali metastore che supportano i cluster HDInsight: [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). Il metastore Hive è il repository di schemi centrale che può essere usato dai motori di elaborazione dei dati, tra cui Hadoop, Spark, LLAP, Presto e Apache Pig. Il metastore Oozie archivia i dettagli sulla pianificazione e lo stato dei processi Hadoop in corso e completati.
+
 
 HDInsight usa il database SQL di Azure per i metastore Hive e Oozie. Esistono due modi per configurare un metastore nei cluster HDInsight:
 
 1. Metastore predefinito
 
-    - Non sono previsti costi aggiuntivi
-    - Il metastore viene eliminato quando viene eliminato il cluster
-    - Il metastore non può essere condiviso tra cluster diversi
+    - Non sono previsti costi aggiuntivi.
+    - Il metastore viene eliminato quando viene eliminato il cluster.
+    - Il metastore non può essere condiviso tra cluster diversi.
     - Usa il database SQL di Azure di base, che prevede un limite di cinque DTU.
 
 1. Metastore esterno personalizzato
 
     - Specificare un database SQL di Azure esterno come metastore.
     - I cluster possono essere creati ed eliminati senza perdere i metadati, inclusi i dettagli dei processi Hive e Oozie.
-    - Un singolo database di metastore può essere condiviso con tipi diversi di cluster
-    - Il metastore può essere potenziato in base alle esigenze
+    - Un singolo database di metastore può essere condiviso con tipi diversi di cluster.
+    - Il metastore può essere potenziato in base alle esigenze.
     - Per altre informazioni, vedere [Use external metadata stores in Azure HDInsight (Usare archivi di metadati esterni in Azure HDInsight)](../hdinsight-use-external-metadata-stores.md).
 
 ## <a name="best-practices-for-hive-metastore"></a>Procedure consigliate per il metastore Hive
@@ -106,7 +108,7 @@ Di seguito sono indicate alcune procedure consigliate per il metastore Hive di H
 - Monitorare le prestazioni e la disponibilità del metastore usando gli strumenti di monitoraggio del database SQL di Azure, ad esempio il portale di Azure o Azure Log Analytics.
 - Eseguire il comando **ANALYZE TABLE** all'occorrenza per generare statistiche per tabelle e colonne. Ad esempio: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
-## <a name="best-practices-for-different-types-of-workloads"></a>Procedure consigliate per tipi diversi di carichi di lavoro
+## <a name="best-practices-for-different-workloads"></a>Procedure consigliate per diversi carichi di lavoro
 
 - È consigliabile usare cluster LLAP per le query Hive interattive con tempo di risposta migliorato. [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) è una nuova funzionalità di Hive 2.0 che consente la memorizzazione nella cache in memoria delle query. LLAP rende molto più veloci le query Hive, in alcuni casi fino a  [26 volte più veloci rispetto a Hive 1.x](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 - Prendere in considerazione l'uso di processi Spark al posto dei processi Hive.

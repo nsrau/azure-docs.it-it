@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975891"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434665"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
-Funzioni di Azure viene eseguito in due modalità diverse, ovvero con piano a consumo e piano di servizio app di Azure. Il piano a consumo alloca automaticamente funzionalità di calcolo durante l'esecuzione del codice. Il numero di istanze dell'app viene aumentato in base alla necessità per gestire il carico e ridotto quando il codice non è in esecuzione. Non è necessario pagare per le macchine virtuali inattive, né riservare in anticipo la capacità.
+Funzioni di Azure viene eseguito in due modalità diverse: piano a consumo e piano di servizio app di Azure. Il piano a consumo alloca automaticamente funzionalità di calcolo durante l'esecuzione del codice. Il numero di istanze dell'app viene aumentato in base alla necessità per gestire il carico e ridotto quando il codice non è in esecuzione. Non è necessario pagare per le macchine virtuali inattive, né riservare in anticipo la capacità.
 
 > [!NOTE]  
 > L'[hosting in Linux](functions-create-first-azure-function-azure-cli-linux.md) è attualmente disponibile solo per i piani di servizio app.
@@ -68,7 +68,7 @@ Prendere in considerazione un piano di servizio app nei casi seguenti:
 
 Una macchina virtuale separa i costi associati al numero di esecuzioni, al tempo di esecuzione e alla memoria usata. Non si pagherà quindi più del costo dell'istanza di macchina virtuale allocata. Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Con un piano di servizio app, è possibile aumentare manualmente il numero di istanze aggiungendo altre istanze di macchine virtuali oppure abilitare la scalabilità automatica. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Per aumentare le prestazioni è anche possibile scegliere un piano di servizio App diverso. Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](../app-service/web-sites-scale.md). 
+Con un piano di servizio app, è possibile aumentare manualmente il numero di istanze aggiungendo altre istanze di macchine virtuali oppure abilitare la scalabilità automatica. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Per aumentare le prestazioni è anche possibile scegliere un piano di servizio App diverso. Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](../app-service/web-sites-scale.md). 
 
 Quando si eseguono funzioni JavaScript in un piano di servizio app, è necessario scegliere un piano con un minor numero di vCPU. Per altre informazioni, vedere [Scegliere i piani di servizio app single core](functions-reference-node.md#considerations-for-javascript-functions).  
 

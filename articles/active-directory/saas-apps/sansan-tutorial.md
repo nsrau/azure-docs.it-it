@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: cc070f7c4cb201e68c93b0b1337982325df74663
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9e14f923b1e25f5fbc522cd39763ac53ddf37617
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051262"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872255"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Esercitazione: integrazione di Azure Active Directory con Sansan
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Esercitazione: Integrazione di Azure Active Directory con Sansan
 
 Questa esercitazione descrive come integrare Sansan con Azure Active Directory (Azure AD).
 
@@ -186,7 +186,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     }
     ```
 
-8. Dopo il completamento dello script di PowerShell il risultato dello script sarà simile al seguente e i valori dell'URL saranno aggiornati ma non vengono riflessi nel portale di Azure. 
+8. Dopo il completamento dello script di PowerShell, il risultato dello script sarà simile al seguente e i valori dell'URL saranno aggiornati, ma non verranno riportati nel portale di Azure. 
 
     ![Configurare lo script Single Sign-On](./media/sansan-tutorial/tutorial_sansan_powershell.png)
 
@@ -230,7 +230,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-sansan-test-user"></a>Creazione di un utente di test di Sansan
 

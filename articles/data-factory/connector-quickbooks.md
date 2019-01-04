@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a3d079483ecf4ea8cf9a4c6bda050bfe8befcfd0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 51a48576b56413e0e779a49829a6eccaa0266a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241685"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076104"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiare dati da QuickBooks Online tramite Azure Data Factory (anteprima)
 
@@ -45,7 +45,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato QuickBooks sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **QuickBooks** | Yes |
 | endpoint | Endpoint del server QuickBooks Online, ovvero quickbooks.api.intuit.com  | Yes |
@@ -89,8 +89,12 @@ Per il servizio collegato QuickBooks sono supportate le proprietà seguenti:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati QuickBooks.
 
-Per copiare dati da QuickBooks Online, impostare la proprietà type del set di dati su **QuickBooksObject**. Non sono presenti proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per copiare dati da QuickBooks Online, impostare la proprietà type del set di dati su **QuickBooksObject**. Sono supportate le proprietà seguenti:
 
+| Proprietà | DESCRIZIONE | Obbligatoria |
+|:--- |:--- |:--- |
+| type | La proprietà type del set di dati deve essere impostata su: **QuickBooksObject** | Yes |
+| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 **Esempio**
 
 ```json
@@ -101,7 +105,8 @@ Per copiare dati da QuickBooks Online, impostare la proprietà type del set di d
         "linkedServiceName": {
             "referenceName": "<QuickBooks linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -110,14 +115,14 @@ Per copiare dati da QuickBooks Online, impostare la proprietà type del set di d
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione presenta un elenco delle proprietà supportate dall'origine QuickBooks.
 
-### <a name="quickbookssource-as-source"></a>QuickBooksSource come origine
+### <a name="quickbooks-as-source"></a>QuickBooks come origine
 
 Per copiare dati da QuickBooks Online, impostare il tipo di origine nell'attività di copia su **QuickBooksSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **QuickBooksSource** | Yes |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **QuickBooksSource** | Yes |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

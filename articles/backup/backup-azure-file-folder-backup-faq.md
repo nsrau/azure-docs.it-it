@@ -8,13 +8,13 @@ keywords: backup e ripristino di emergenza; servizio Backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.author: saurse;trinadhk
-ms.openlocfilehash: cf27848b6ca63f06c7d452ac67908cb85dbafd47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: trinadhk
+ms.openlocfilehash: 5262c99fae965201d4f9519495163d0e16836a7a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239841"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726543"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Domande sull'agente di Backup di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti dell'agente di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,7 +29,7 @@ Sì, le credenziali dell'insieme di credenziali scadono dopo 48 ore. Se il file 
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>Da quali tipi di unità è possibile eseguire il backup di file e cartelle? <br/>
 Non è possibile eseguire il backup delle unità o dei volumi seguenti:
 
-* Supporto rimovibile: tutte le origini degli elementi di backup devono essere segnalate come corrette.
+* Supporti rimovibili: tutte le origini degli elementi di backup devono essere segnalate come corrette.
 * Volumi di sola lettura: il volume deve essere accessibile in scrittura per garantire il funzionamento del servizio Copia Shadow del volume (VSS).
 * Volumi offline: il volume deve essere online per garantire il funzionamento del servizio VSS.
 * Condivisione di rete: il volume deve essere in locale nel server per poter essere sottoposto a backup online.
@@ -43,9 +43,9 @@ Sono supportati i tipi seguenti:
 * Compresso
 * Sparse
 * Compresso + Sparse
-* Collegamenti reali: non supportato, ignorato
-* Punto di analisi: non supportato, ignorato
-* Crittografato + Sparse: non supportato, ignorato
+* Collegamenti reali: non supportati, ignorati
+* Reparse point: non supportato, ignorato
+* Crittografato + sparse: non supportato, ignorato
 * Flusso compresso: non supportato, ignorato
 * Flusso di tipo sparse: non supportato, ignorato
 

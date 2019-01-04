@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7602524675edbf0e3ca96c74a2aba2eac48c417b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416937"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084074"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -192,9 +192,12 @@ Configurare l'impostazione **enableStaging** nell'attività di copia per specifi
 | Proprietà | Descrizione | Valore predefinito | Obbligatorio |
 | --- | --- | --- | --- |
 | **enableStaging** |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |False |No |
-| **linkedServiceName** |Specificare il nome di un servizio collegato [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/> L'archiviazione non può essere usata con una firma di accesso condiviso per caricare dati in SQL Data Warehouse tramite PolyBase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
-| **path** |Specificare il percorso dell'archivio BLOB che deve contenere i dati di staging. Se non si specifica un percorso, il servizio crea un contenitore in cui archiviare i dati temporanei. <br/><br/> Specificare un percorso solo se si usa l'archiviazione con una firma di accesso condiviso o se i dati temporanei devono trovarsi in un percorso specifico. |N/D |No |
-| **enableCompression** |Specifica se è necessario comprimere i dati prima di copiarli nella destinazione. Questa impostazione ridurre il volume dei dati da trasferire. |False |No |
+| **linkedServiceName** |Specificare il nome di un servizio collegato [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/>  L'archiviazione non può essere usata con una firma di accesso condiviso per caricare dati in SQL Data Warehouse tramite PolyBase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
+| **path** |Specificare il percorso dell'archivio BLOB che deve contenere i dati di staging. Se non si specifica un percorso, il servizio crea un contenitore in cui archiviare i dati temporanei. <br/><br/>  Specificare un percorso solo se si usa l'archiviazione con una firma di accesso condiviso o se i dati temporanei devono trovarsi in un percorso specifico. |N/D |No |
+| **enableCompression** |Specifica se è necessario comprimere i dati prima di copiarli nella destinazione. Questa impostazione ridurre il volume dei dati da trasferire. |False |No  |
+
+>[!NOTE]
+> Se si usa la copia di staging con compressione abilitata, l'entità servizio o l'autenticazione MSI per lo staging del servizio collegato BLOB non è supportato.
 
 Di seguito è riportata una definizione di esempio di attività di copia con le proprietà descritte nella tabella precedente:
 
@@ -283,7 +286,7 @@ Per gli archivi dati Microsoft, vedere gli [argomenti sul monitoraggio e l'ottim
 
 ### <a name="relational-data-stores"></a>Archivi dati relazionali
 
-* **Modello di dati**: lo schema di tabella influisce sulla velocità effettiva di copia. Una riga di grandi dimensioni offre migliori prestazioni rispetto a una riga di piccole dimensioni per copiare la stessa quantità di dati. Questo perché il database è in grado di recuperare in modo più efficiente un minor numero di batch di dati che contengono meno righe.
+* **Modello di dati**: Lo schema di tabella influisce sulla velocità effettiva di copia. Una riga di grandi dimensioni offre migliori prestazioni rispetto a una riga di piccole dimensioni per copiare la stessa quantità di dati. Questo perché il database è in grado di recuperare in modo più efficiente un minor numero di batch di dati che contengono meno righe.
 * **Query o stored procedure**: ottimizzare la logica della query o della stored procedure specificata nell'origine dell'attività di copia per recuperare i dati in modo più efficiente.
 
 ## <a name="considerations-for-the-sink"></a>Considerazioni sul sink
@@ -336,7 +339,7 @@ Serializzazione e deserializzazione possono verificarsi quando il set di dati di
 
 Quando il set di dati di input o di output è un file, è possibile impostare l'attività di copia per l'esecuzione della compressione o decompressione durante la scrittura dei dati nella destinazione. La scelta della compressione comporta un compromesso tra input/output (I/O) e CPU. La compressione dei dati ha un costo maggiore in termini di risorse di calcolo, ma riduce l'I/O di rete e l'archiviazione. A seconda dei dati, si potrebbe riscontrare un aumento della velocità effettiva di copia complessiva.
 
-**Codec**: ogni codec di compressione presenta dei vantaggi. Ad esempio, bzip2 ha la velocità effettiva copia più bassa, ma offre prestazioni di query Hive migliori perché permette di dividerle per l'elaborazione. Gzip è l'opzione più bilanciata e quella usata più di frequente. Scegliere il codec più adatto allo scenario end-to-end personalizzato.
+**Codec**: Ogni codec di compressione presenta dei vantaggi. Ad esempio, bzip2 ha la velocità effettiva copia più bassa, ma offre prestazioni di query Hive migliori perché permette di dividerle per l'elaborazione. Gzip è l'opzione più bilanciata e quella usata più di frequente. Scegliere il codec più adatto allo scenario end-to-end personalizzato.
 
 **Livello**: per ogni codec di compressione è possibile scegliere tra due opzioni, la compressione più veloce e la compressione ottimale. L'opzione di compressione più veloce comprime i dati il più rapidamente possibile, anche se il file risultante non viene compresso in modo ottimale. L'opzione di compressione ottimale impiega più tempo per la compressione e restituisce una quantità minima di dati. È possibile testare entrambe le opzioni per verificare quale offra le migliori prestazioni complessive in base alle proprie esigenze.
 
@@ -394,7 +397,7 @@ Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione
 * Azure SQL Data Warehouse: la funzionalità viene misurata in unità data warehouse (DWU). Vedere in proposito [Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [livelli di prestazioni in Azure Cosmos DB](../cosmos-db/performance-levels.md)
 * SQL Server locale: [Monitoraggio e ottimizzazione delle prestazioni](https://msdn.microsoft.com/library/ms189081.aspx)
-* File server locale: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
+* File server locale: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli altri articoli relativi all'attività di copia:

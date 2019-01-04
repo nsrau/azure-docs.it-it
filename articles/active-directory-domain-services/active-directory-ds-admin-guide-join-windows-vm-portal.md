@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Domain Services - Aggiungere una macchina virtuale Windows Server a un dominio gestito | Documentazione Microsoft
+title: 'Azure Active Directory Domain Services: Aggiungere una VM Windows Server a un dominio gestito | Microsoft Docs'
 description: Aggiungere una macchina virtuale Windows Server ad Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 753818526ad637db0baa13c92e92d2725b19dbf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158329"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957675"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito
 Questo articolo illustra come distribuire una macchina virtuale Windows Server usando il portale di Azure. Descrive quindi come aggiungere la macchina virtuale a un dominio gestito di Azure Active Directory Domain Services.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="step-1-create-a-windows-server-virtual-machine"></a>Passaggio 1: Creare una macchina virtuale Windows Server
+## <a name="step-1-create-a-windows-server-virtual-machine"></a>Passaggio 1: creare una macchina virtuale Windows Server
 Per creare una macchina virtuale Windows aggiunta alla rete virtuale in cui è stato abilitato Azure Active Directory Domain Services, seguire questa procedura:
 
-1. Accedere al [portale di Azure](http://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella parte superiore del riquadro sinistro selezionare **Nuovo**.
 3. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**.
 
@@ -67,7 +67,7 @@ Per creare una macchina virtuale Windows aggiunta alla rete virtuale in cui è s
 10. Al termine della distribuzione, è possibile visualizzare informazioni relative alla macchina virtuale nella pagina **Panoramica**.
 
 
-## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>Passaggio 2: Connettersi alla macchina virtuale Windows Server usando l'account amministratore locale
+## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>Passaggio 2: connettersi alla macchina virtuale Windows Server usando l'account amministratore locale
 È ora possibile connettersi alla macchina virtuale Windows Server appena creata per aggiungerla al dominio. Usare le credenziali di amministratore locale specificate durante la creazione della macchina virtuale.
 
 Per connettersi alla macchina virtuale, seguire questa procedura:
@@ -84,7 +84,7 @@ Per connettersi alla macchina virtuale, seguire questa procedura:
 A questo punto si dovrebbe essere connessi alla macchina virtuale Windows appena creata mediante le credenziali di amministratore locale. Il passaggio successivo consiste nell'aggiungere la macchina virtuale al dominio.
 
 
-## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>Passaggio 3: Aggiungere la macchina virtuale Windows Server al dominio gestito di Azure Active Directory Domain Services
+## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>Passaggio 3: aggiungere la macchina virtuale Windows Server al dominio gestito di Azure Active Directory Domain Services
 Per aggiungere la macchina virtuale Windows Server al dominio gestito di Azure Active Directory Domain Services, completare questa procedura:
 
 1. Connettersi alla macchina virtuale Windows Server come illustrato nel passaggio 2. Dalla schermata **Start** aprire **Server Manager**.
@@ -107,9 +107,9 @@ Per aggiungere la macchina virtuale Windows Server al dominio gestito di Azure A
 
 7. È possibile specificare le credenziali in uno dei modi seguenti:
 
-   * **Formato UPN:** (consigliato) specificare il suffisso UPN (User Principal Name) per l'account utente, come configurato in Azure Active Directory. In questo esempio, il suffisso UPN dell'utente *bob* è *bob@domainservicespreview.onmicrosoft.com*.
+   * **Formato UPN**: (consigliato) specificare il suffisso UPN (User Principal Name) per l'account utente, come configurato in Azure Active Directory. In questo esempio, il suffisso UPN dell'utente *bob* è *bob@domainservicespreview.onmicrosoft.com*.
 
-   * **Formato SAMAccountName**: è possibile specificare il nome account con il formato SAMAccountName. In questo esempio l'utente *bob* deve immettere *CONTOSO100\bob*.
+   * **Formato sAMAccountName**: è possibile specificare il nome account con il formato SAMAccountName. In questo esempio l'utente *bob* deve immettere *CONTOSO100\bob*.
 
      > [!TIP]
      > **È consigliabile usare il formato UPN per specificare le credenziali.**

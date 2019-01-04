@@ -1,5 +1,6 @@
 ---
-title: 'Distribuire un servizio di bilanciamento del carico con connessione Internet con IPv6: modello di Azure | Documentazione Microsoft'
+title: Distribuire un servizio di bilanciamento del carico con connessione Internet con IPv6 - Modello di Azure
+titlesuffix: Azure Load Balancer
 description: Come distribuire il supporto IPv6 per Azure Load Balancer e le macchine virtuali con bilanciamento del carico.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ keywords: ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobil
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 14a28fb341692c309ff4f965628b38a767c56633
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2374df3a457e0f4730dcaa6d69ea3f2e0fa6e9cc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740743"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163209"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuire una soluzione di bilanciamento del carico con connessione Internet con IPv6 usando un modello
 

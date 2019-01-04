@@ -9,31 +9,28 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 21c7b94f694e8a2cfe6abfd74bbc616ade5dad82
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f0d6c22d54de0486ad679f93343f0e7b208f21f4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008352"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384054"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Sviluppare script di Azione script per HDInsight nei cluster basati su Windows
 Informazioni su come scrivere script di Azione script per HDInsight Per informazioni sull'uso di script di Azione script, vedere [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster.md). Per lo stesso articolo dedicato ai cluster HDInsight basati su Linux, vedere [Sviluppare script di Azione script per HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Per informazioni sull'uso di azioni script con cluster basati su Linux, vedere [Sviluppo di azioni script con HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
->
->
 
 
+L'azione script può essere usata per installare software aggiuntivi in esecuzione in un cluster Apache Hadoop o per modificare la configurazione delle applicazioni installate in un cluster. Le azioni script sono script eseguiti sui nodi del cluster quando si distribuiscono cluster HDInsight. Tali script vengono eseguiti dopo che i nodi del cluster hanno completato la configurazione di HDInsight. Un'azione script viene eseguita con i privilegi dell'account amministratore di sistema e fornisce diritti di accesso completo ai nodi del cluster. È possibile fornire a ciascun cluster un elenco di azioni script da eseguire nell'ordine in cui sono state specificate.
 
-L'azione script può essere usata per installare software aggiuntivi in esecuzione in un cluster Hadoop o per modificare la configurazione delle applicazioni installate in un cluster. Le azioni script sono script eseguiti sui nodi del cluster quando si distribuiscono cluster HDInsight. Tali script vengono eseguiti dopo che i nodi del cluster hanno completato la configurazione di HDInsight. Un'azione script viene eseguita con i privilegi dell'account amministratore di sistema e fornisce diritti di accesso completo ai nodi del cluster. È possibile fornire a ciascun cluster un elenco di azioni script da eseguire nell'ordine in cui sono state specificate.
-
-> [!NOTE]
+> [!NOTE]  
 > Se viene visualizzato il messaggio di errore seguente:
 >
-> System.Management.Automation.CommandNotFoundException; ExceptionMessage: Termine 'Save-HDIFile' non riconosciuto come nome di cmdlet, funzione, programma eseguibile o file script. Controllare l'ortografia del nome o verificare che il percorso sia incluso e corretto, quindi riprovare.
+> System.Management.Automation.CommandNotFoundException; ExceptionMessage: il termine "Save-HDIFile" non viene riconosciuto come nome di cmdlet, funzione, file di script o programma eseguibile. Controllare l'ortografia del nome o verificare che il percorso sia incluso e corretto, quindi riprovare.
+> 
 > È perché non sono stati inclusi i metodi di supporto.  Vedere [Metodi helper per gli script personalizzati](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 >
 >
@@ -98,16 +95,16 @@ HDInsight fornisce diversi script di esempio per installare componenti aggiuntiv
 
 | NOME | Script |
 | --- | --- |
-| **Installare Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Vedere [Installare e usare Spark in cluster Hadoop di HDInsight][hdinsight-install-spark]. |
+| **Installare Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Vedere [Installare e usare Apache Spark in cluster Hadoop di HDInsight][hdinsight-install-spark]. |
 | **Installare R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Vedere [Installare e usare R nei cluster Hadoop HDInsight](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Installare Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Vedere [Installare e usare Solr nei cluster Hadoop di HDInsight](hdinsight-hadoop-solr-install.md). |
-| **Installare Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Vedere [Installare Giraph nei cluster HDInsight Hadoop](hdinsight-hadoop-giraph-install.md). |
-| **Precaricare le librerie Hive** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Vedere l'articolo relativo all' [aggiunta di librerie Hive in cluster HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
+| **Installare Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Vedere [Installare e usare Apache Solr in cluster Hadoop di HDInsight](hdinsight-hadoop-solr-install.md). |
+| **Installare Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Vedere [Installare e usare Apache Giraph in cluster Hadoop di HDInsight](hdinsight-hadoop-giraph-install.md). |
+| **Precaricare le librerie Hive** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Vedere [Aggiungere librerie Apache Hive personalizzate durante la creazione del cluster HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 
 È possibile distribuire l'azione script dal portale di Azure, da Azure PowerShell o tramite HDInsight .NET SDK.  Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante l'azione script][hdinsight-cluster-customize].
 
-> [!NOTE]
+> [!NOTE]  
 > Gli script di esempio funzionano solo con il cluster HDInsight versione 3.1 o successiva. Per altre informazioni sulle versioni dei cluster HDInsight, vedere [Versioni cluster HDInsight](hdinsight-component-versioning.md).
 >
 >
@@ -157,25 +154,25 @@ Di seguito sono indicati i metodi di supporto forniti da questo script:
 ## <a name="best-practices-for-script-development"></a>Procedure consigliate per lo sviluppo di script
 Quando si sviluppa uno script personalizzato per un cluster HDInsight, è opportuno seguire le procedure consigliate indicate di seguito:
 
-* Controllare la versione di Hadoop
+* Controllare la versione di Hadoop.
 
     Solo HDInsight versione 3.1 (Hadoop 2.4) e versioni successive supportano l'uso di Azione script per installare i componenti personalizzati in un cluster. Nello script personalizzato è necessario usare il metodo helper **Get-HDIHadoopVersion** per controllare la versione di Hadoop prima di procedere con le altre attività nello script.
-* Fornire collegamenti stabili alle risorse di script
+* Fornire collegamenti stabili alle risorse di script.
 
     Gli utenti devono assicurarsi che tutti gli script e gli altri elementi usati per la personalizzazione di un cluster rimangano disponibili per l'intero ciclo di vita del cluster stesso e che durante tale periodo le versioni di questi file non cambino. Queste risorse sono richieste in caso di ricreazione dell'immagine dei nodi nel cluster. Si consiglia di scaricare e archiviare tutti gli elementi in un account di archiviazione controllato dall'utente. L'account di archiviazione può essere quello predefinito o uno degli account aggiuntivi specificati durante la distribuzione per un cluster personalizzato.
     Negli esempi di cluster personalizzati Spark e R riportati nella documentazione, ad esempio, è inclusa una copia locale delle risorse in questo account di archiviazione: https://hdiconfigactions.blob.core.windows.net/.
-* Assicurarsi che lo script di personalizzazione del cluster sia idempotente
+* Assicurarsi che lo script di personalizzazione del cluster sia idempotente.
 
     È necessario tenere presente che, durante il ciclo di vita di un cluster HDInsight, l'immagine dei nodi del cluster può essere ricreata. Lo script di personalizzazione del cluster viene eseguito ad ogni nuova creazione dell'immagine del cluster. Questo script deve essere progettato in modo da essere idempotente. In altri termini, quando viene ricreata l'immagine, lo script deve assicurare che il cluster venga riportato allo stesso stato personalizzato in cui si trovava dopo la prima esecuzione dello script, al momento della creazione originaria del cluster. Se, ad esempio, al momento della prima esecuzione uno script personalizzato ha installato un'applicazione in D:\AppLocation, a ogni esecuzione successiva, quando viene ricreata l'immagine, lo script deve verificare la presenza dell'applicazione nel percorso D:\AppLocation prima di procedere con altri passaggi.
-* Installare i componenti personalizzati nella posizione ottimale
+* Installare i componenti personalizzati nella posizione ottimale.
 
     Quando vengono ricreate le immagini dei nodi del cluster, l'unità delle risorse C:\ e l'unità di sistema D:\ potrebbero essere riformattate, causando una perdita dei dati e delle applicazioni installate nei driver. Questa perdita può verificarsi anche se un nodo della macchina virtuale (VM) di Azure che fa parte del cluster si arresta e viene sostituito da un nuovo nodo. È possibile installare componenti nell'unità D:\ o nel percorso C:\apps del cluster. Tutti gli altri percorsi nell'unità C:\ sono riservati. Specificare il percorso in cui installare le applicazioni o le librerie nello script di personalizzazione del cluster.
-* Verificare la disponibilità elevata dell'architettura del cluster
+* Verificare la disponibilità elevata dell'architettura del cluster.
 
     HDInsight ha un'architettura attivo/passivo per la disponibilità elevata, in cui un nodo head è in modalità attiva (dove sono in esecuzione i servizi HDInsight) e l'altro è in modalità standby (dove non sono in esecuzione i servizi HDInsight). I nodi passano dalla modalità attiva a quella passiva e viceversa quando i servizi HDInsight vengono interrotti. Se un'azione script viene usata per installare i servizi in entrambi i nodi head per la disponibilità elevata, tenere presente che il meccanismo di failover di HDInsight non sarà in grado di eseguire automaticamente il failover di questi servizi installati dall'utente. Quindi, se è richiesta la disponibilità elevata per i servizi installati dall'utente nei nodi head di HDInsight, questi servizi devono avere un proprio meccanismo di failover se sono in modalità attivo/passivo oppure essere in modalità attivo/attivo.
 
     Il comando dell'azione Script di HDInsight viene eseguito su entrambi i nodi head quando il ruolo di questi nodi viene specificato nel parametro *ClusterRoleCollection* descritto in precedenza. Pertanto, quando si progetta uno script personalizzato, assicurarsi che lo script tenga conto di questa impostazione. Per evitare problemi, è preferibile non installare e avviare gli stessi servizi in entrambi i nodi head, dove è possibile che entrino in competizione l'uno con l'altro. Tenere anche presente che, quando viene ricreata l'immagine, sono possibili perdite di dati: è quindi necessario che il software installato mediante l'azione script sia resiliente a eventi di questo tipo. Le applicazioni devono essere progettate per usare dati a disponibilità elevata distribuiti in molti nodi. È possibile ricreare allo stesso tempo l'immagine di 1/5 dei nodi di un cluster.
-* Configurare i componenti personalizzati per l'uso dell'archivio BLOB di Azure
+* Configurare i componenti personalizzati per l'uso dell'archivio BLOB di Azure.
 
     I componenti personalizzati installati nei nodi del cluster possono avere una configurazione predefinita per l'uso dell'archiviazione in un file system distribuito Hadoop (HDFS). Modificare la configurazione in modo che venga usato l'archivio BLOB di Azure. Quando si ricrea l'immagine di un cluster, il file system HDFS viene formattato e tutti i dati archiviati vengono eliminati. Se invece si usa l'archivio BLOB di Azure, i dati vengono mantenuti.
 
@@ -297,9 +294,9 @@ Nel caso in cui si verifichi un errore di esecuzione, anche l'output che descriv
 
 ## <a name="see-also"></a>Vedere anche 
 * [Personalizzare cluster HDInsight mediante l'azione script][hdinsight-cluster-customize]
-* [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]
-* [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md).
-* [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md).
+* [Installare e usare Apache Spark in cluster Hadoop di HDInsight][hdinsight-install-spark]
+* [Installare e usare Apache Solr in cluster Hadoop di HDInsight](hdinsight-hadoop-solr-install.md)
+* [Installare e usare Apache Giraph in cluster Hadoop di HDInsight](hdinsight-hadoop-giraph-install.md)
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

@@ -5,37 +5,39 @@ services: service-fabric-mesh
 keywords: ''
 author: rwike77
 ms.author: ryanwi
-ms.date: 07/12/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 6aa268cf56bfb8be9c27a9e0d9e5c9f4464b0c9d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+manager: jeconnoc
+ms.openlocfilehash: ecdb36af786d96a5b343d11cd689642d59528445
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075938"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888533"
 ---
 # <a name="state-management-with-service-fabric"></a>Gestione dello stato con Service Fabric
+
 Service Fabric supporta molte opzioni diverse per l'archiviazione dello stato. Per una panoramica concettuale dei modelli di gestione dello stato e Service Fabric, vedere [concetti relativi a Service Fabric: Stato del servizio](/azure/service-fabric/service-fabric-concepts-state). Tutti questi stessi concetti si applicano se i servizi vengono eseguiti all'interno o all'esterno di mesh Service Fabric. 
 
-## <a name="state-storage-options-in-azure-service-fabric-mesh"></a>Opzioni di archiviazione dello stato su Azure Service Fabric Mesh
 Con mesh Service Fabric puoi distribuire facilmente una nuova applicazione e connetterla a un archivio dati esistente ospitato in Azure. Oltre a usare qualsiasi database remoto, sono disponibili diverse opzioni per l'archiviazione dei dati, a seconda che il servizio richieda l'archiviazione locale o remota. 
 
-* Dati replicati archiviati a livello locale
-  * Reliable Collections (non disponibile in anteprima)
-    * Una libreria che implementa le strutture di dati quali le code e coppie chiave-valore da usare nel servizio
-    * Fornisce il modo più semplice e veloce per interagire con i dati, offrendo allo stesso tempo un facile instradamento delle partizioni in combinazione con l'Intelligent Routing in mesh Service Fabric
-  * Driver di volume di Service Fabric (non disponibile in anteprima)
-    * Un driver di volume Docker per montare un volume locale su un contenitore
-    * Offre la massima flessibilità nell'archiviazione dei dati in locale, tramite qualsiasi API, che supporta l'archiviazione dei file.
+## <a name="volumes"></a>Volumi
 
-* Archiviazione remota
-  * Driver di volume di File di Azure
-    * Un driver di volume Docker per montare una condivisione di File di Azure su un contenitore
-    * Offre un'opzione di dati meno performante, ma anche più economica, flessibile e affidabile, tramite qualsiasi API, che supporta l'archiviazione dei file.
-    * [Guida pratica: distribuire un'app con il volume dei File di Azure](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md)
-    
+I contenitori spesso usano dischi temporanei. Si tratta di supporti temporanei, quindi si riceve un nuovo disco temporaneo e si perdono i dati in caso di arresto anomalo di un contenitore. È anche difficile condividere le informazioni sui dischi temporanei con altri contenitori. I volumi sono le directory che vengono montate all'interno di istanze del contenitore che è possibile usare per mantenere la persistenza dello stato. I volumi offrono una risorsa di archiviazione file per utilizzo generico e consentono di leggere e scrivere i file usando le API di file di I/O del disco. La risorsa Volume spiega come montare una directory e quale risorsa di archiviazione di backup usare. È possibile scegliere Archiviazione file di Azure o un disco volume di Service Fabric per archiviare i dati.
+
+![Volumi][image3]
+
+### <a name="service-fabric-reliable-volume"></a>Reliable Volume di Service Fabric
+
+Reliable Volume di Service Fabric è un driver di volume Docker usato per montare un volume locale in un contenitore. Lettura e scrittura sono operazioni locali e veloci. I dati vengono replicati in nodi secondari e sono quindi estremamente disponibili. Anche il failover è veloce. Quando un contenitore si arresta in modo anomalo, esegue il failover in un nodo che contiene già una copia dei dati. Per un esempio, vedere [How to deploy an app with Service Fabric Reliable Volume](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/counter) (Come distribuire un'app con Reliable Volume di Service Fabric).
+
+### <a name="azure-files-volume"></a>Volume di File di Azure
+
+Il volume di File di Azure è un driver di volume Docker usato per montare una condivisione di File di Azure in un contenitore. La risorsa di archiviazione di File di Azure usa l'archiviazione di rete, quindi le operazioni di lettura e scrittura vengono eseguite in rete. Rispetto a Reliable Volume di Service Fabric, l'archiviazione di File di Azure è meno efficiente, ma offre un'opzione più economica e completamente affidabile per i dati. Per un esempio, vedere [Archiviazione dello stato in un'applicazione di Azure Service Fabric Mesh tramite il montaggio di un volume basato su File di Azure all'interno del contenitore](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni sul modello dell'applicazione, consultare [risorse di Service Fabric](service-fabric-mesh-service-fabric-resources.md)
+
+[image3]: ./media/service-fabric-mesh-storing-state/volumes.png

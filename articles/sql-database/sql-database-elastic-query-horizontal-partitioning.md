@@ -3,7 +3,7 @@ title: Creazione di report tra database cloud con scalabilità orizzontale | Doc
 description: Come configurare query elastiche sui partizionamenti orizzontali
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e1eec489bf33cbf03269f68413c39c9fb03bbb22
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: de96de96d68164d021f8b823e69bc52322642aa7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240393"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865404"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Creazione di report tra database cloud con scalabilità orizzontale (anteprima)
 ![Eseguire una query tra partizioni][1]
@@ -168,9 +168,9 @@ La query seguente esegue un join a tre vie tra magazzini, ordini e righe di ordi
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Stored procedure per l'esecuzione remota di T-SQL: sp\_execute_remote
 La query elastica introduce anche una stored procedure che fornisce l'accesso diretto alle partizioni. La stored procedure è denominata [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) e può essere usata per eseguire stored procedure remote o codice T-SQL sui database remoti. È necessario specificare i seguenti parametri: 
 
-* Nome dell'origine dati (nvarchar): il nome dell'origine dati esterna di tipo RDBMS. 
-* Query (nvarchar): la query T-SQL da eseguire in ogni partizione. 
-* Dichiarazione del parametro (nvarchar) - Facoltativo: stringa con definizioni del tipo di dati per i parametri usati nel parametro della query, ad esempio sp_executesql. 
+* Nome dell'origine dati (nvarchar): nome dell'origine dati esterna di tipo RDBMS. 
+* Query (nvarchar): query T-SQL da eseguire in ogni partizione. 
+* Dichiarazione del parametro (nvarchar) - facoltativo: stringa con definizioni del tipo di dati per i parametri usati nel parametro della query, ad esempio sp_executesql. 
 * Elenco di valori dei parametri (facoltativo): elenco delimitato da virgole di valori dei parametri, ad esempio sp_executesql.
 
 La stored procedure sp\_execute\_remote usa l'origine dati esterna specificata nei parametri di chiamata per eseguire l'istruzione T-SQL inclusa nei database remoti. Usa le credenziali dell'origine dati esterna per connettersi al database di gestione shardmap e ai database remoti.  

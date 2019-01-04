@@ -1,6 +1,6 @@
 ---
-title: Controllo degli accessi in base al ruolo di Hub eventi di Azure (anteprima) | Microsoft Docs
-description: Controllo degli accessi in base al ruolo di Hub eventi di Azure
+title: Anteprima di controllo degli accessi in base al ruolo - Hub eventi di Azure | Microsoft Docs
+description: Questo articolo fornisce informazioni sul controllo degli accessi in base al ruolo per gli Hub eventi di Azure.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ef74600fdf5051394f8b7bfbdd71e144b3f26d8a
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 1324700445aebe672b2c5ae2b55ad9bc0bab13b2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005739"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384259"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controllo degli accessi in base al ruolo di Active Directory (anteprima)
 
@@ -45,11 +46,7 @@ Se si vuole comunque creare un account specifico per questo scenario, [seguire q
 
 Successivamente, [creare uno spazio dei nomi di Hub eventi](event-hubs-create.md) in una delle aree di Azure con supporto di anteprima di Hub eventi per Controllo degli accessi in base al ruolo: **Stati Uniti orientali**, **Stati Uniti orientali 2**, o **Europa occidentale**. 
 
-Una volta creato lo spazio dei nomi, passare alla relativa pagina **Controllo di accesso (IAM)** nel portale e quindi fare clic su **Aggiungi** per aggiungere l'account utente di Azure AD al ruolo Proprietario. Se si usa il proprio account utente e si è creato lo spazio dei nomi, si sta già usando il ruolo Proprietario. Per aggiungere un account utente diverso al ruolo, cercare il nome dell'applicazione Web nel campo **Seleziona** del pannello **Aggiungi autorizzazioni** e quindi fare clic sulla voce. Fare quindi clic su **Salva**.
- 
-![](./media/event-hubs-role-based-access-control/rbac1.PNG)
-
-L'account utente dispone ora dell'accesso allo spazio dei nomi di Hub eventi e all'hub eventi creato in precedenza.
+Una volta creato lo spazio dei nomi, passare alla relativa pagina **Controllo di accesso (IAM)** nel portale e quindi fare clic su **Aggiungi assegnazione ruolo** per aggiungere l'account utente di Azure AD al ruolo Proprietario. Se si usa il proprio account utente e si è creato lo spazio dei nomi, si sta già usando il ruolo Proprietario. Per aggiungere un account utente diverso al ruolo, cercare il nome dell'applicazione Web nel campo **Seleziona** del pannello **Aggiungi autorizzazioni** e quindi fare clic sulla voce. Fare quindi clic su **Salva**. L'account utente dispone ora dell'accesso allo spazio dei nomi di Hub eventi e all'hub eventi creato in precedenza.
  
 ### <a name="register-the-application"></a>Registrare l'applicazione
 
@@ -71,6 +68,8 @@ Prima di eseguire l'esempio, modificare il file App.config e, a seconda dello sc
 - URI di reindirizzamento specificato nell'app nei passaggi precedenti.
  
 Quando si esegue l'applicazione console, viene chiesto di selezionare uno scenario. Fare clic su **Interactive User Login** (Accesso utente interattivo) digitando il relativo numero e premendo INVIO. L'applicazione visualizza una finestra di accesso, chiede il consenso per l'accesso a Hub eventi e quindi usa il servizio per eseguire lo scenario di invio e ricezione mediante l'identità dell'account di accesso.
+
+L'app usa `ServiceAudience.EventHubsAudience` come destinatari dei token. Quando si usano altri linguaggi o SDK in cui i destinatari non sono disponibili come costante, il valore corretto da usare è `https://eventhubs.azure.net/`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

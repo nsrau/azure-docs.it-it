@@ -1,5 +1,5 @@
 ---
-title: Come aggiungere un set di dati di riferimento all'ambiente Azure Time Series Insights
+title: Dati di riferimento di Azure Time Series Insights - Come aggiungere un set di dati di riferimento all'ambiente Azure Time Series Insights | Microsoft Docs
 description: In questo articolo viene descritto come aggiungere un set di dati di riferimento per aumentare i dati nell'ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 2cf9c8baf715acf0eef36d640c22f355435c9ca5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: de5f4735e7dde7a3e631d14c83d42ccb9fd5c9db
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631045"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273835"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creare un set di dati di riferimento per l'ambiente Time Series Insights usando il portale di Azure
 
@@ -24,6 +25,12 @@ In questo articolo viene descritto come aggiungere un set di dati di riferimento
 Un set di dati di riferimento è una raccolta di elementi che aumentano gli eventi dell'origine evento. Il motore in ingresso di Time Series Insights crea un join tra ogni evento dell'origine evento e la riga di dati corrispondente nel set di dati di riferimento. Questo evento aumentato sarà quindi disponibile per le query. Questo join è basato sulla colonna o le colonne di chiavi primarie definite nel set di dati di riferimento.
 
 Non viene creato un join dei dati di riferimento in maniera retroattiva. Questo significa che solo i dati in ingresso correnti e futuri vengono uniti in join al set di dati di riferimento, appena viene configurato e caricato.
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-time-series-insights-reference-data-modelbr"></a>In questo video viene illustrato il modello di dati di riferimento di Time Series Insight.</br>
+
+> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
 ## <a name="add-a-reference-data-set"></a>Aggiungere un set di dati di riferimento
 
@@ -55,7 +62,7 @@ Non viene creato un join dei dati di riferimento in maniera retroattiva. Questo 
 
    Ad esempio, incollare dati CSV: ![Dati CSV incollati](media/add-reference-data-set/csv_data_pasted.png)
 
-   Ad esempio, incollare dati di matrice JSON: ![Dati di matrice JSON incollati](media/add-reference-data-set/json_data_pasted.png)
+   Ad esempio, incollare dati della matrice JSON: ![Incollare i dati JSON](media/add-reference-data-set/json_data_pasted.png)
 
    In caso di errore di analisi dei valori dei dati, l'errore viene visualizzato in rosso in fondo alla pagina, ad esempio: `CSV parsing error, no rows extracted`.
 

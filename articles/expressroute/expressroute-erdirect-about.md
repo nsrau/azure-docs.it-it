@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Azure ExpressRoute Direct | Microsoft Docs
+title: Informazioni su ExpressRoute Direct -Azure | Microsoft Docs
 description: Questa pagina fornisce una panoramica di ExpressRoute Direct (anteprima)
 services: expressroute
 author: mialdrid
@@ -7,16 +7,17 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: mialdrid
-ms.openlocfilehash: 3b46f24edf10fee7001b35ffdd9fa218aa438e19
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.custom: seodec18
+ms.openlocfilehash: 2f984eb8cb09e5d65c4a366b827f695c739003f3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959674"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163828"
 ---
 # <a name="about-expressroute-direct-preview"></a>Informazioni su ExpressRoute Direct (anteprima)
 
-ExpressRoute Direct offre ai clienti la possibilità di connettersi direttamente alla rete globale di Microsoft in località peer distribuite in modo strategico in tutto il mondo. ExpressRoute Direct fornisce doppia connettività a 100 Gbps che supporta la connettività attivo/attivo su larga scala.
+ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete globale di Microsoft in località peer distribuite in modo strategico in tutto il mondo. ExpressRoute Direct fornisce doppia connettività a 100 Gbps che supporta la connettività attivo/attivo su larga scala.
 
 Tra le funzionalità principali di ExpressRoute Direct sono incluse:
 
@@ -44,7 +45,7 @@ Prima di usare ExpressRoute Direct è necessario registrare la sottoscrizione ne
 | --- | --- |
 | Usa i provider di servizi per abilitare il caricamento rapido e la connettività nell'infrastruttura esistente | Richiede un'infrastruttura a 100 Gbps e la gestione completa di tutti i livelli
 | Si integra con centinaia di provider, tra cui Ethernet e MPLS | Capacità diretta/dedicata per settori regolamentati e inserimento dati massiccio |
-| SKU di circuiti da 50 Mbps a 10 Gbps | Il cliente può selezionare una combinazione degli SKU di circuito seguenti: 5 Gbps, 10 Gbps, 40 Gbps e 100 Gbps, con il limite totale di 200 Gbps
+| SKU di circuiti da 50 Mbps a 10 Gbps | Il cliente può selezionare una combinazione dei seguenti SKU di circuiti: 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps; limitato a un totale di 200 Gbps
 | Ottimizzato per tenant singolo | Ottimizzato per tenant singolo/provider di servizi cloud/più business unit
 
 ## <a name="expressroute-direct-circuits"></a>Circuiti di ExpressRoute Direct

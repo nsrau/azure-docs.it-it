@@ -3,7 +3,7 @@ title: Aumento del numero di istanze con il database SQL di Azure | Documentazio
 description: Gli sviluppatori di Software come Servizio (Saas) possono facilmente creare database elastici e scalabili nel cloud utilizzando questi strumenti
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,21 +12,21 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: ab787e8f659d2f57f23bb87397608736e7f6848a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a36c5cfc977920f43b7f73e3e7cf9176de7c1f8a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164914"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867087"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Aumentare il numero di istanze con il database SQL di Azure
 È possibile aumentare facilmente il numero di istante dei database SQL di Azure con gli strumenti dei **database elastici** . Questi strumenti e funzionalità consentono di usare le risorse di database di **Database SQL di Azure** per creare soluzioni per carichi di lavoro transazionali e soprattutto applicazioni SaaS (Software as a Service). Le funzionalità dei database elastici sono costituite dai seguenti elementi:
 
-* [Libreria client dei database elastici](sql-database-elastic-database-client-library.md): la libreria client è una funzionalità che consente di creare e gestire i database partizionati.  Vedere [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
+* [Libreria client del database elastico](sql-database-elastic-database-client-library.md): la libreria client è una funzionalità che consente di creare e gestire i database partizionati.  Vedere [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 * [Strumento divisione-unione del database elastico](sql-database-elastic-scale-overview-split-and-merge.md): consente di spostare dati tra database partizionati. Questo strumento è utile per lo spostamento di dati da un database multi-tenant in un database single-tenant (o viceversa). Vedere [Esercitazione relativa allo strumento divisione-unione del database elastico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Processi di database elastico](sql-database-elastic-jobs-overview.md) (anteprima): utilizzare i processi per gestire un numero elevato di database SQL di Azure. Consente di eseguire facilmente operazioni amministrative, ad esempio le modifiche dello schema, la gestione delle credenziali, gli aggiornamenti dei dati di riferimento, la raccolta dei dati sulle prestazioni o la raccolta di dati di telemetria tenant (cliente) utilizzando i processi.
-* [Query di database elastico](sql-database-elastic-query-overview.md) (anteprima): consente di eseguire una query Transact-SQL che si estende in più database. Tale query consente una connessione a strumenti di report, ad esempio Excel, Power BI, Tableau e così via.
-* [Transazioni di database elastico](sql-database-elastic-transactions-overview.md): questa funzionalità consente di eseguire transazioni estese a più database nel database SQL di Azure. Le transazioni di database elastico sono disponibili per le applicazioni .NET tramite ADO .NET e si integrano con i tipi di programmazione più diffusi grazie alle classi [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Processi di database elastico](sql-database-elastic-jobs-overview.md) (anteprima): usare i processi per gestire un numero elevato di database SQL di Azure. Consente di eseguire facilmente operazioni amministrative, ad esempio le modifiche dello schema, la gestione delle credenziali, gli aggiornamenti dei dati di riferimento, la raccolta dei dati sulle prestazioni o la raccolta di dati di telemetria tenant (cliente) utilizzando i processi.
+* [Query del database elastico](sql-database-elastic-query-overview.md) (anteprima): consente di eseguire una query Transact-SQL estesa a più database. Tale query consente una connessione a strumenti di report, ad esempio Excel, Power BI, Tableau e così via.
+* [Transazioni elastiche](sql-database-elastic-transactions-overview.md): questa funzionalità consente di eseguire transazioni estese a più database nel database SQL di Azure. Le transazioni di database elastico sono disponibili per le applicazioni .NET tramite ADO .NET e si integrano con i tipi di programmazione più diffusi grazie alle classi [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 Nel grafico seguente è illustrata un'architettura che include le **funzionalità dei database elastici** in relazione a una raccolta di database.
 

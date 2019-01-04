@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b429f9dab0411dba599fd696dff3d424916007e0
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635170"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413269"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Selezionare la versione del runtime Azure Functions che si sta utilizzando: "]
 > * [Versione 1](functions-host-json-v1.md)
 > * [Versione 2](functions-host-json.md)
 
@@ -96,7 +96,23 @@ Le sezioni seguenti di questo articolo illustrano ogni proprietà di livello sup
 
 Questa impostazione è un elemento figlio di [logging](#logging).
 
-[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+Controlla le [funzionalità di campionamento in Application Insights](./functions-monitoring.md#configure-sampling).
+
+```json
+{
+    "applicationInsights": {
+        "samplingSettings": {
+          "isEnabled": true,
+          "maxTelemetryItemsPerSecond" : 5
+        }
+    }
+}
+```
+
+|Proprietà  |Predefinito | DESCRIZIONE |
+|---------|---------|---------| 
+|isEnabled|true|Abilita o disabilita il campionamento.| 
+|maxTelemetryItemsPerSecond|5|La soglia oltre la quale viene avviato il campionamento.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -185,7 +201,28 @@ Controlla i comportamenti di registrazione dell'app per le funzioni, tra cui App
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definisce il livello di registrazione dei file abilitato.  Le opzioni sono `never`, `always`, `debugOnly`. |
 |logLevel|n/d|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. La versione 2.x segue il layout di ASP.NET Core per il filtro delle categorie di log. Ciò consente di filtrare la registrazione per funzioni specifiche. Per altre informazioni, vedere [Filtro dei log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) nella documentazione di ASP.NET Core. |
+|console|n/d| Impostazione di registrazione nella [console](#console). |
 |applicationInsights|n/d| Impostazione di [ApplicationInsights](#applicationinsights). |
+
+## <a name="console"></a>console
+
+Questa impostazione è un elemento figlio di [logging](#logging). Controlla la registrazione nella console quando non è attiva la modalità di debug.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": "false"
+        },
+    ...
+    }
+}
+```
+
+|Proprietà  |Predefinito | DESCRIZIONE |
+|---------|---------|---------| 
+|isEnabled|false|Abilita o disabilita la registrazione nella console.| 
 
 ## <a name="queues"></a>queues
 

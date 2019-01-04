@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: af57dc50dd156a3398c2c685e436d22ba3daea95
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567775"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875400"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare Azure ExpressRoute con il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -28,7 +28,7 @@ Site Recovery consente il ripristino di emergenza delle macchine virtuali di Azu
 
 ExpressRoute consente di estendere le reti locali nel cloud Microsoft Azure tramite una connessione privata fornita da un provider di connettività. Se è stato configurato ExpressRoute, questo si integra con Site Recovery nel modo seguente:
 
-- **Durante la replica tra aree di Azure**: il traffico di replica per il ripristino di emergenza delle macchine virtuali di Azure è solo all'interno di Azure ed ExpressRoute non è necessario o usato per la replica. Tuttavia, se ci si connette da un sito locale alle macchine virtuali di Azure nel sito di Azure primario, è necessario tenere presenti alcuni aspetti durante la configurazione del ripristino di emergenza per le macchine virtuali di Azure.
+- **Durante la replica tra aree di Azure**: il traffico di replica per il ripristino di emergenza delle macchine virtuali di Azure è solo all'interno di Azure; ExpressRoute non è necessario o usato per la replica. Tuttavia, se ci si connette da un sito locale alle macchine virtuali di Azure nel sito di Azure primario, è necessario tenere presenti alcuni aspetti durante la configurazione del ripristino di emergenza per le macchine virtuali di Azure.
 - **Failover tra aree di Azure**: quando si verificano interruzioni, eseguire il failover delle macchine virtuali di Azure dal server primario all'area di Azure secondaria. Dopo il failover in un'area secondaria, esistono una serie di passaggi da effettuare per poter accedere alle macchine virtuali di Azure nell'area secondaria tramite ExpressRoute.
 
 
@@ -37,7 +37,7 @@ ExpressRoute consente di estendere le reti locali nel cloud Microsoft Azure tram
 Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 
 - I [circuiti](../expressroute/expressroute-circuit-peerings.md) di ExpressRoute
-- I [domini di routing](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains) di ExpressRoute
+- I [domini di routing](../expressroute/expressroute-circuit-peerings.md#routingdomains) di ExpressRoute
 - [Località](../expressroute/expressroute-locations.md) per ExpressRoute.
 - [Architettura della replica](azure-to-azure-architecture.md) per le macchine virtuali di Azure
 - Come [configurare la replica](azure-to-azure-tutorial-enable-replication.md) per le macchine virtuali di Azure.
@@ -95,7 +95,7 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
     - Tutte le comunicazioni tra le subnet passano attraverso questo hub.
  - ****Subnet della rete virtuale hub**. La rete virtuale hub comprende due subnet:
      - **NVA subnet**: 10.10.10.0/25. Questa subnet contiene un'appliance virtuale di rete (10.10.10.10).
-     - **Gateway subnet**: 10.10.10.128/25. Questa subnet contiene un gateway ExpressRoute collegato a una connessione ExpressRoute che indirizza al sito locale tramite un dominio di routing di peering privato.
+     - **Subnet del gateway**: 10.10.10.128/25. Questa subnet contiene un gateway ExpressRoute collegato a una connessione ExpressRoute che indirizza al sito locale tramite un dominio di routing di peering privato.
 - Il data center locale dispone di una connessione al circuito ExpressRoute tramite un'appliance perimetrale partner a Hong Kong.
 - Tutto il routing è controllato tramite le tabelle di route di Azure (routing definito dall'utente).
 - Tutto il traffico in uscita tra le reti virtuali o al data center locale viene instradato tramite NVA Subnet.
@@ -136,7 +136,7 @@ In questo esempio, dovrebbe verificarsi quanto segue quando si abilita la replic
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>Eseguire il failover delle macchine virtuali di Azure durante l'uso di ExpressRoute
 
-Dopo aver eseguito il failover delle macchine virtuali di Azure nell'area di Azure di destinazione tramite Site Recovery, è possibile accedervi mediante il [peering privato](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) di ExpressRoute.
+Dopo aver eseguito il failover delle macchine virtuali di Azure nell'area di Azure di destinazione tramite Site Recovery, è possibile accedervi mediante il [peering privato](../expressroute/expressroute-circuit-peerings.md#privatepeering) di ExpressRoute.
 
 - È necessario connettere ExpressRoute alla rete virtuale di destinazione con una nuova connessione. La connessione ExpressRoute esistente non viene trasferita automaticamente.
 - Il modo in cui deve essere configurata la connessione ExpressRoute alla rete virtuale di destinazione dipende dalla topologia di ExpressRoute.

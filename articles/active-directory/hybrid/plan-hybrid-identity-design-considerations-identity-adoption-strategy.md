@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5aeefe82255d40938eff09d7920e2fd5aca94c95
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9cfd3f32f6293d5760c4a4ddcf40428a2b9b70f8
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308300"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999094"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
 In questa attività viene definita la strategia di adozione della soluzione ibrida di gestione delle identità in modo che soddisfi i requisiti aziendali definiti in:
@@ -53,8 +53,8 @@ La tabella seguente consente di determinare i vantaggi e gli svantaggi di ognuna
 
 | Strategia | Vantaggi | Svantaggi: |
 | --- | --- | --- |
-| **Identità cloud** |Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Non ci sono componenti da installare in locale. Non è necessario alcun hardware aggiuntivo.<br>Facile da disabilitare se l'utente lascia la società |Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud <br> Le password per le identità cloud e locale possono essere uguali oppure no |
-| **Identità sincronizzate** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br> Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
+| **Identità cloud** |Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Non ci sono componenti da installare in locale. Non è necessario alcun hardware aggiuntivo.<br> Facile da disabilitare se l'utente lascia la società |Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud <br>  Le password per le identità cloud e locale possono essere uguali oppure no |
+| **Identità sincronizzate** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br>  Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
 | **Federato** |Gli utenti possono usufruire dell'accesso Single Sign-On  <br>Se un utente cessa di lavorare in azienda, l'account viene disabilitato immediatamente e l'accesso revocato,<br> Supporta scenari avanzati che non sono disponibili con le identità sincronizzate |Altri passaggi di configurazione <br> Manutenzioni superiori <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per installare il server federativo. Se si usa AD FS, è necessario software aggiuntivo <br> È richiesta una configurazione estesa per SSO <br> Punto critico di errore se il server federativo è inattivo, gli utenti non potranno eseguire l'autenticazione |
 
 ### <a name="client-experience"></a>Esperienza client
@@ -92,7 +92,7 @@ Se nel corso dell'attività 1 è stato determinato che è in uso un provider di 
 * La transizione di Office all'autenticazione passiva consente di supportare solo provider di identità SAML 2.0, ma il supporto sarà garantito esclusivamente client per client
 
 > [!NOTE]
-> Per l'elenco più aggiornato, vedere l'articolo https://aka.ms/ssoproviders.
+> Per l'elenco più aggiornato, vedere l'articolo [Elenco di compatibilità di federazione di Azure AD](how-to-connect-fed-compatibility.md).
 > 
 > 
 

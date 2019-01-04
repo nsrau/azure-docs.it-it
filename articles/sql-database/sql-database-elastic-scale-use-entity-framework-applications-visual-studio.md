@@ -3,7 +3,7 @@ title: Uso della libreria client dei database elastici con Entity Framework | Do
 description: Usare la libreria client del database elastico e Entity Framework per la codifica di database
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 58b109651408a51ca7505c92d3875de63aae2cc6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 030ec9db16f90430a544ca8715a4e1dea02e2c62
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261928"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873241"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Libreria client dei database elastici con Entity Framework
 Questo documento illustra le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con le funzionalità degli [strumenti del database elastico](sql-database-elastic-scale-introduction.md). Vengono descritti in particolare la [gestione delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md) e il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) con l'approccio **Code First** di Entity Framework. L'esercitazione [Code First per un nuovo database](https://msdn.microsoft.com/data/jj193542.aspx) per Entity Framework servirà da esempio nell'intero documento. Il codice di esempio che accompagna questo documento fa parte del set di esempi sugli strumenti dei database elastici negli esempi di codice di Visual Studio.
@@ -189,7 +189,7 @@ Gli esempi di codice precedenti illustrano le riscritture del costruttore predef
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Distribuzione dello schema partizione tramite migrazioni di Entity Framework
 La gestione automatica dello schema è una funzionalità disponibile in Entity Framework. Nel contesto di applicazioni che usano gli strumenti dei database elastici è desiderabile mantenere questa funzionalità per il provisioning automatico dello schema alle nuove partizioni quando si aggiungono database all'applicazione partizionata. Il caso di utilizzo principale è l'aumento della capacità al livello dati per le applicazioni partizionate mediante Entity Framework. L'uso delle le funzionalità di Entity Framework per la gestione dello schema riduce le attività di amministrazione di database necessarie per un'applicazione partizionata basata su Entity Framework. 
 
-La distribuzione dello schema tramite migrazioni di Entity Framework funziona al meglio con le **connessioni non aperte**. Si tratta di uno scenario diverso rispetto al routing dipendente dai dati, che usa la connessione aperta fornita dall'API client dei database elastici. Un’altra differenza è il requisito di coerenza: sebbene sia opportuno garantire la coerenza per tutte le connessioni di routing dipendente dai dati per la protezione dalle modifiche simultanee alla mappa partizioni, questo non rappresenta un problema nel caso della distribuzione iniziale dello schema in un nuovo database non ancora registrato nella mappa partizioni e non ancora allocato per contenere shardlet. Per questi scenari è pertanto possibile usare le normali connessioni di database anziché il routing dipendente dai dati.  
+La distribuzione dello schema tramite migrazioni di Entity Framework funziona al meglio con le **connessioni non aperte**. Si tratta di uno scenario diverso rispetto al routing dipendente dai dati, che usa la connessione aperta fornita dall'API client dei database elastici. Un'altra differenza è il requisito di coerenza: sebbene sia opportuno garantire la coerenza per tutte le connessioni di routing dipendente dai dati per la protezione dalle modifiche simultanee alla mappa partizioni, questo non rappresenta un problema nel caso della distribuzione iniziale dello schema in un nuovo database non ancora registrato nella mappa partizioni e non ancora allocato per contenere shardlet. Per questi scenari è pertanto possibile usare le normali connessioni di database anziché il routing dipendente dai dati.  
 
 Questo conduce a un approccio in cui la distribuzione dello schema tramite migrazioni di Entity Framework è strettamente legata alla registrazione del nuovo database come partizione nella mappa partizioni dell'applicazione. L'approccio è basato sui seguenti prerequisiti: 
 

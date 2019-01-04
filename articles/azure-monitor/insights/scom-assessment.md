@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 1b6f157ce8a184885fcd1cd6bbde912516916db9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429726"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186124"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 
@@ -99,7 +97,7 @@ Dopo aver creato l'account RunAs, è necessario indicare i server di gestione di
 2. Nella scheda **Distribuzione** fare clic su **Aggiungi**per la casella **Computer selezionati** e aggiungere il server di gestione in cui distribuire l'account.  Fare due volte clic su **OK** per salvare le modifiche.
 3. In **Run As Configuration** (Configurazione RunAs) fare clic su **Profili**.
 4. Cercare il profilo *SCOM Assessment*.
-5. Il nome del profilo è *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
+5. Il nome del profilo è: *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
 6. Fare clic con il pulsante destro del mouse, aggiornare le proprietà e aggiungere l'account RunAs creato in precedenza.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL per la concessione di autorizzazioni dettagliate all'account RunAs
@@ -238,7 +236,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
     ```
 
     >[!NOTE]
-    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](../../log-analytics/log-analytics-queries.md), la query precedente verrà sostituita dalla seguente.
+    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](../../azure-monitor/log-query/log-query-overview.md), la query precedente verrà sostituita dalla seguente.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +261,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
     ```
 
     >[!NOTE]
-    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](../../log-analytics/log-analytics-queries.md), la query precedente verrà sostituita dalla seguente.
+    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](../../azure-monitor/log-query/log-query-overview.md), la query precedente verrà sostituita dalla seguente.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +302,4 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Ricerche nei log](../../log-analytics/log-analytics-queries.md) per informazioni su come analizzare le raccomandazioni e i dati dettagliati di Controllo integrità System Center Operations Manager.
+- Vedere [Ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) per informazioni su come analizzare le raccomandazioni e i dati dettagliati di Controllo integrità System Center Operations Manager.

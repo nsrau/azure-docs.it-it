@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242824"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270400"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Domande frequenti sul database SQL
 
@@ -31,7 +31,7 @@ Microsoft garantisce che per almeno il 99,99% del tempo il cliente disponga dell
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>È possibile controllare quando si verificano i tempi di inattività per l'applicazione di patch
 
-No. L'impatto dell'applicazione di patch non è in genere rilevante se si [impiega la logica di ripetizione dei tentativi](sql-database-develop-overview.md#resiliency) nell'app.
+ No. L'impatto dell'applicazione di patch non è in genere rilevante se si [impiega la logica di ripetizione dei tentativi](sql-database-develop-overview.md#resiliency) nell'app.
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Qual è il nuovo modello di acquisto basato su vCore per il database SQL di Azure?
 
@@ -196,9 +196,9 @@ Ad esempio:
 > [!NOTE]
 > Per un periodo limitato di tempo non vengono applicati addebiti per i backup e le operazioni di I/O.
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Come viene indicato in fattura l'uso della replica geografica attiva in un pool elastico?
+## <a name="how-does-the-use-of-active-geo-replication-or-auto-failover-groups-in-an-elastic-pool-show-up-on-my-bill"></a>Come viene indicato in fattura l'uso della replica geografica attiva o dei gruppo di failover automatico in un pool elastico?
 
-A differenza dei database singoli, l'uso della [replica geografica attiva](sql-database-geo-replication-overview.md) con i database elastici non ha un impatto diretto sulla fatturazione.  Vengono addebitate solo le risorse delle quali è stato eseguito il provisioning per ognuno dei pool (pool primario e secondario).
+A differenza dei database singoli, l'uso della [replica geografica attiva](sql-database-active-geo-replication.md) o dei [gruppo di failover automatico](sql-database-auto-failover-group.md) con i database elastici non ha un impatto diretto sulla fatturazione. Vengono addebitate solo le risorse delle quali è stato eseguito il provisioning per ognuno dei pool (pool primario e secondario).
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>In che modo l'utilizzo della funzionalità di controllo influisce sulla fatturazione?
 
@@ -217,7 +217,7 @@ Vedere [Gestione di database e accessi](sql-database-manage-logins.md).
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Come si può garantire che l'accesso al server sia consentito solo agli indirizzi IP autorizzati?
 
-Vedere [Procedura: configurare le impostazioni del firewall su Database SQL mediante il portale di Azure](sql-database-configure-firewall-settings.md).
+Vedere [Procedura: Configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md).
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>Qual è l'intervallo di replica previsto durante la replica geografica di un database tra due aree della stessa area geografica di Azure?
 

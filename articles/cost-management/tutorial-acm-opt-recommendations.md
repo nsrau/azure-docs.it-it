@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: 4d9e47d6da45eaba19cbe089de3fdf053c36046a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030678"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077078"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Esercitazione: Ottimizzare i costi grazie agli elementi consigliati
 
@@ -43,7 +43,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 Nel portale di Azure fare clic su **Gestione dei costi e fatturazione** nell'elenco dei servizi. Quindi nell'elenco in **Gestione costi di Azure**, selezionare **Raccomandazioni di Advisor**. Vengono visualizzate gli elementi consigliati di Advisor sui costi.
 
-![Elementi consigliati di Advisor](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
+![Consigli di Advisor di Gestione costi visualizzati nel portale di Azure](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
 L'elenco degli elementi consigliati identifica inefficienze di utilizzo o mostra raccomandazioni d'acquisti che consentono di risparmiare denaro aggiuntivo. Il totale **Risparmi annuali potenziali** indica l'importo totale che è possibile risparmiare se si arrestano o deallocano tutte le macchine virtuali che soddisfano le regole di raccomandazione. Se non si desidera arrestarle, considerare il ridimensionamento a un SKU di macchina virtuale meno costoso.
 
@@ -59,20 +59,20 @@ Sebbene in alcuni scenari possa verificarsi un utilizzo ridotto legato alla prog
 
 Nell'elenco degli elementi consigliati, fare clic sulla raccomandazione **Ridimensionare correttamente o arrestare le macchine virtuali sottoutilizzate**. Nell'elenco dei candidati di macchina virtuale, scegliere una macchina virtuale da ridimensionare e quindi fare clic sulla macchina virtuale. Vengono visualizzati i dettagli della macchina virtuale in modo che sia possibile verificare le metriche di utilizzo. Il valore dei **Risparmi annuali potenziali** è ciò che si può risparmiare se si arresta o rimuove la macchina virtuale. Il ridimensionamento di una macchina virtuale consente di risparmiare sui costi, ma non di risparmiare l'intero importo dei risparmi annuali potenziali.
 
-![Dettagli delle raccomandazioni](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
+![Esempio di dettagli dei consigli](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
 
 Nei dettagli della macchina virtuale, controllare l'utilizzo della macchina virtuale per confermare che sia un candidato di ridimensionamento appropriato.
 
-![Dettagli macchina virtuale](./media/tutorial-acm-opt-recommendations/vm-details.png)
+![Esempio di dettagli di una macchina virtuale](./media/tutorial-acm-opt-recommendations/vm-details.png)
 
 Notare le dimensioni della macchina virtuale corrente. Dopo aver verificato che la macchina virtuale deve essere ridimensionata, chiudere i dettagli della macchina virtuale per visualizzare l'elenco delle macchine virtuali.
 
 Nell'elenco dei candidati per arrestare o ridimensionare, selezionare **Ridimensionare la macchina virtuale**.
-![Ridimensionare la macchina virtuale](./media/tutorial-acm-opt-recommendations/resize-vm.png)
+![Consiglio di esempio con la possibilità di ridimensionare la macchina virtuale](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 Successivamente, viene visualizzato un elenco di opzioni di ridimensionamento disponibili. Scegliere quella in grado di offrire prestazioni ottimali e convenienza economica per il proprio scenario. Nell'esempio seguente, l'opzione scelta permette di ridimensionare da un **DS14\_V2** a un **DS13\_V2**. Seguendo l'elemento consigliato è possibile risparmiare $ 551.30/ mese o $ 6,615.60/ anno.
 
-![Scegliere le dimensioni](./media/tutorial-acm-opt-recommendations/choose-size.png)
+![Esempio di elenco di dimensioni di VM disponibili in cui è possibile scegliere una dimensione](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
 Dopo aver scelto delle dimensioni appropriate, fare clic su **Seleziona** per avviare l'azione di ridimensionamento.
 
@@ -82,7 +82,7 @@ Il ridimensionamento richiede il riavvio di una macchina virtuale in esecuzione.
 
 Quando il ridimensionamento della macchina virtuale viene completato correttamente, viene visualizzata una notifica di Azure.
 
-![Notifica di ridimensionamento](./media/tutorial-acm-opt-recommendations/resized-notification.png)
+![Notifica dell'esito positivo del ridimensionamento della macchina virtuale](./media/tutorial-acm-opt-recommendations/resized-notification.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

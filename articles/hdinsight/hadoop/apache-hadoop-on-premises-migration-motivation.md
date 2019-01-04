@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288119"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000442"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Motivazione e vantaggi
 
@@ -32,7 +32,7 @@ Azure HDInsight è una distribuzione cloud dei componenti Hadoop di  [Hortonwor
 - Apache HBase
 - R
 
-## <a name="advantages-that-azure-hdinsight-offers-over-on-premises-hadoop"></a>Vantaggi offerti da Azure HDInsight rispetto a Hadoop in locale
+## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>Vantaggi di Azure HDInsight rispetto a Hadoop in locale
 
 - **Basso costo** - È possibile ridurre i costi [creando cluster su richiesta](../hdinsight-hadoop-create-linux-clusters-adf.md) e pagando solo in base al consumo. La separazione delle risorse di calcolo e archiviazione garantisce flessibilità, mantenendo il volume di dati indipendente dalle dimensioni del cluster.
 
@@ -62,12 +62,12 @@ Azure HDInsight è una distribuzione cloud dei componenti Hadoop di  [Hortonwor
     - Archiviazione BLOB di Azure
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
-    -  database SQL di Azure
+    - Database SQL di Azure
     - Azure Analysis Services
 
 - **Riparazione automatica di processi e i componenti** - HDInsight controlla costantemente i componenti open source e dell'infrastruttura mediante la propria infrastruttura di monitoraggio. Ripristina automaticamente anche errori critici, ad esempio l'assenza di disponibilità di nodi e componenti open source. Vengono attivati avvisi in Ambari in caso di errore in qualsiasi componente OSS.
 
-Per altre informazioni, vedere l'articolo [Informazioni su Azure HDInsight e sullo stack di tecnologie Hadoop](../hadoop/apache-hadoop-introduction.md).
+Per altre informazioni, vedere l'articolo [Informazioni su Azure HDInsight e sullo stack di tecnologie Apache Hadoop](../hadoop/apache-hadoop-introduction.md).
 
 ## <a name="migration-planning-process"></a>Processo di pianificazione della migrazione
 
@@ -90,7 +90,7 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 
 | **Domanda** | **Esempio** | **Risposta** |
 |---|---|---|
-|**Argomento**: **ambiente**|||
+|**Argomento**: **Environment**|||
 |Tipo di distribuzione cluster|Hortonworks, Cloudera, MapR| |
 |Versione di distribuzione cluster|HDP 2.6.5, CDH 5.7|
 |Componenti dell'ecosistema di Big Data|Hadoop Distributed File System, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
@@ -108,7 +108,7 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Ripristino di emergenza/backup|Cluster di backup?|  
 |Sistemi che dipendono dal cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Integrazioni di terze parti|Tableau, GridGain, Qubole, Informatica, Splunk|
-|**Argomento**: **sicurezza**|||
+|**Argomento**: **Sicurezza**|||
 |Protezione perimetrale|Firewall|
 |Autenticazione e autorizzazione del cluster|Active Directory, Ambari, Cloudera Manager, nessuna autenticazione|
 |Controllo di accesso Hadoop Distributed File System|  Manuale, utenti SSH|
@@ -132,18 +132,18 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Processi di training del modello ML|2 processi una volta a settimana||
 |Linguaggi di programmazione|Python, Scala, Java||
 |Scripting|Shell, Python||
-|**Argomento**: **dati**|||
+|**Argomento**: **Dati**|||
 |Origini dati|File flat, JSON, Kafka, RDBMS||
 |Orchestrazione dei dati|Flussi di lavoro Oozie, Airflow||
 |Ricerche in memoria|Apache Ignite, Redis||
 |Destinazioni dei dati|Hadoop Distributed File System, RDBMS, Kafka, MPP ||
-|**Argomento**: **metadati**|||
+|**Argomento**: **Metadati**|||
 |Tipo di database Hive|MySQL, Postgres||
 | No. di metastore Hive|2||
 | No. di tabelle Hive|100||
 | No. di criteri di Ranger|20||
 | No. di flussi di lavoro Oozie|100||
-|**Argomento**: **scalabilità**|||
+|**Argomento**: **Ridimensionare**|||
 |Volume di dati, inclusa la replica|100 TB||
 |Volume di inserimento giornaliero|50 GB||
 |Tasso di crescita dei dati|10% all'anno||
@@ -153,32 +153,32 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |% media memoria usata|75%||
 |Spazio su disco usato|75%||
 |% media rete usata|25%
-|**Argomento**: **personale**|||
+|**Argomento**: **Staff**|||
 | No. di amministratori|2||
 | No. di sviluppatori|10||
 | No. di utenti finali|100||
 |Competenze|Hadoop, Spark||
 | No. di risorse disponibili per le iniziative di migrazione|2||
-|**Argomento**: **limitazioni**|||
+|**Argomento**: **Limitazioni**|||
 |Limitazioni correnti|Latenza elevata||
 |Sfide correnti|Problema di concorrenza||
 
 ### <a name="azure-requirements-questionnaire"></a>Questionario sui requisiti di Azure
 
-|**Argomento**: **infrastruttura** |||
+|**Argomento**: **Infrastruttura** |||
 |---|---|---|
 |**Domanda**|**Esempio**|**Risposta**|
 | Area preferita|Stati Uniti orientali||
 |Rete virtuale preferita?|Yes||
 |Disponibilità elevata/ripristino di emergenza necessari?|Yes||
 |Integrazione con altri servizi cloud?|File di definizione dell'applicazione (ADF), CosmosDB||
-|**Argomento**:   **spostamento dei dati**  |||
+|**Argomento**:   **Spostamento dei dati**  |||
 |Preferenza di caricamento iniziale|DistCp, Data Box, ADF, WANDisco||
 |Delta di trasferimento dati|DistCp, AzCopy||
 |Trasferimento incrementale costante dei dati|DistCp, Sqoop||
 |**Argomento**:   **monitoraggio e invio di avvisi** |||
 |Uso di Monitoraggio di Azure e invio di avvisi/integrazione del monitoraggio di terze parti|Uso di Monitoraggio di Azure e invio di avvisi||
-|**Argomento**: **preferenze relative alla sicurezza** |||
+|**Argomento**:   **preferenze relative alla sicurezza** |||
 |Pipeline di dati privata e protetta?|Yes||
 |Cluster aggiunto a un dominio (ESP)?|     Yes||
 |Sincronizzazione da AD locale al cloud?|     Yes||
@@ -191,7 +191,7 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Controllo necessario?|                  Yes||
 |Crittografia dei dati inattivi?|          Yes||
 |Crittografia dei dati in movimento?|       Yes||
-|**Argomento**: **preferenze di riprogettazione** |||
+|**Argomento**:   **preferenze di riprogettazione** |||
 |Tipi di cluster singoli o specifici|Tipi di cluster specifici||
 |Archiviazione remota o con percorso condiviso?|Archiviazione remota||
 |Dimensioni del cluster ridotte man mano che i dati vengono archiviati in remoto?|Dimensioni del cluster ridotte||

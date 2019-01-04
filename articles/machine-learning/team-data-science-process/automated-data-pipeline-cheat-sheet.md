@@ -1,6 +1,6 @@
 ---
-title: Foglio informativo sulla pipeline di dati automatizzati di Azure Machine Learning | Microsoft Docs
-description: Un foglio informativo stampabile che illustra come configurare una pipeline di dati automatizzati per il servizio web Azure Machine Learning, sia che i dati siano locali, in streaming, in Azure o in un servizio cloud di terze parti.
+title: Foglio informativo sulla pipeline di dati di Azure Machine Learning - Processo di data science per i team
+description: Un foglio informativo stampabile che illustra come configurare una pipeline di dati automatizzata per il servizio Web Azure Machine Learning, sia che i dati siano locali, in streaming, in Azure o in un servizio cloud di terze parti.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,24 +10,24 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tdsp
-ms.custom: (previous author=garyericson, ms.author=garye)
-ms.openlocfilehash: 07f7334a98c1220d051ed1be9d04e4e4e86d4dcc
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
+ms.openlocfilehash: 627729ef4f2b6a8df96d9e3b794a1ba24143b4d7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444430"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132670"
 ---
-# <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Foglio informativo sulla pipeline di dati automatizzati per le stime di Azure Machine Learning
-Il **foglio informativo sulla pipeline di dati automatizzati per le stime di Microsoft Azure Machine Learning** consente di spostarsi tra la tecnologia che si può usare per ottenere i dati per il servizio Web Machine Learning, in cui  i dati stessi possono essere classificati dal modello di analisi predittiva.
+# <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Foglio informativo sulla pipeline di dati automatizzata per le stime di Azure Machine Learning
+Il **foglio informativo sulla pipeline di dati automatizzata per le stime di Microsoft Azure Machine Learning** consente di spostarsi tra la tecnologia che si può usare per ottenere i dati per il servizio Web Machine Learning, in cui i dati stessi possono essere classificati dal modello di analisi predittiva.
 
 A seconda che i dati siano in locale, nel cloud o in streaming in tempo reale, sono disponibili diversi meccanismi per spostare i dati all'endpoint del servizio web per la classificazione.
 Questo foglio informativo favorisce il processo decisionale e offre collegamenti ad articoli in supporto allo sviluppo della soluzione.
 
-## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Download del foglio informativo sulla pipeline di dati automatizzati di Machine Learning
+## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Download del foglio informativo sulla pipeline di dati automatizzata di Machine Learning
 Una volta scaricato, è possibile stampare il foglio informativo in formato tabloid (27 x 43 cm circa).
 
-Scaricare il foglio informativo qui: **[foglio informativo sulla pipeline di dati automatizzati per le stime di Microsoft Azure Machine Learning](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+Scaricare qui il foglio informativo: **[Foglio informativo sulla pipeline di dati automatizzata di Microsoft Azure Machine Learning](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Panoramica delle funzionalità di Microsoft Azure Machine Learning Studio][op-cheat-sheet]
 

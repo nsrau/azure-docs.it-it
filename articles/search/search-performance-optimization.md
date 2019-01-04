@@ -1,6 +1,6 @@
 ---
-title: Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca di Azure | Microsoft Docs
-description: Ottimizzare le prestazioni di Ricerca di Azure e configurare una scalabilità ottimale
+title: Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca di Azure - Ricerca di Azure
+description: Informazioni tecniche e procedure consigliate per l'ottimizzazione delle prestazioni di Ricerca di Azure e la configurazione ottimale per la scalabilità.
 author: LiamCavanagh
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: 89c0352723f1ed00784250b566902028af853d10
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 0a98e7f05e766d47a5ea9293409a74a6fafbf837
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797765"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310246"
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca di Azure
 Un'esperienza eccellente è la chiave del successo per molti dispositivi mobili e applicazioni Web. Dal mercato immobiliare, passando per il mercato dell'usato dei veicoli fino ai negozi online, la ricerca veloce e i risultati rilevanti influiscono sull'esperienza dell'utente. Questo documento aiuta l'utente a scoprire le procedure consigliate su come ottenere il massimo da Ricerca di Azure, in particolare per scenari avanzati con requisiti di scalabilità avanzati, con supporto multilingue o classificazione personalizzata.  Questo documento illustra anche i meccanismi interni e descrive gli approcci efficienti per le applicazioni reali dei clienti.
@@ -42,8 +43,8 @@ Durante la creazione di questi carichi di lavoro di test, è opportuno considera
 ## <a name="scaling-azure-search-for-high-query-rates-and-throttled-requests"></a>Ridimensionamento di Ricerca di Azure per tassi elevati di query e richieste limitate
 Quando si ricevono troppe richieste limitate o si superano i tassi di latenza di destinazione da un carico maggiore di query, è possibile considerare di ridurre il tasso di latenza in uno dei due modi seguenti:
 
-1. **Aumentare le repliche:** una replica è una copia dei dati che consente a Ricerca di Azure di bilanciare il carico con le numerose copie.  Il bilanciamento del carico e la replica dei dati tra le repliche vengono gestiti da Ricerca di Azure ed è possibile modificare in qualsiasi momento il numero delle repliche allocate per il servizio.  È possibile allocare fino a 12 repliche in un servizio di ricerca Standard e 3 repliche in un servizio di ricerca Basic. Le repliche possono essere modificate dal [portale di Azure](search-create-service-portal.md) o da [PowerShell](search-manage-powershell.md).
-2. **Aumentare il livello di Ricerca:** sono disponibili [diversi livelli](https://azure.microsoft.com/pricing/details/search/) per Ricerca di Azure, ognuno dei quali offre diversi livelli di prestazioni.  In alcuni casi, è possibile che l'utente disponga di un numero talmente elevato di query che il livello a cui appartiene non fornisce tassi di latenza sufficientemente bassi, anche quando si raggiunge il limite massimo delle repliche.  In questo caso, è consigliabile considerare di usare uno dei livelli di Ricerca di Azure più elevati, ad esempio il livello S3, adatto a scenari con un numero elevato di documenti e carichi di lavoro delle query estremamente elevati.
+1. **Aumentare le repliche:**  una replica è una copia dei dati che consente a Ricerca di Azure di bilanciare il carico delle richieste tra più copie.  Il bilanciamento del carico e la replica dei dati tra le repliche vengono gestiti da Ricerca di Azure ed è possibile modificare in qualsiasi momento il numero delle repliche allocate per il servizio.  È possibile allocare fino a 12 repliche in un servizio di ricerca Standard e 3 repliche in un servizio di ricerca Basic. Le repliche possono essere modificate dal [portale di Azure](search-create-service-portal.md) o da [PowerShell](search-manage-powershell.md).
+2. **Aumentare il livello di Ricerca:**  Ricerca di Azure è disponibile in [diversi livelli](https://azure.microsoft.com/pricing/details/search/) , ognuno dei quali offre diversi livelli di prestazioni.  In alcuni casi, è possibile che l'utente disponga di un numero talmente elevato di query che il livello a cui appartiene non fornisce tassi di latenza sufficientemente bassi, anche quando si raggiunge il limite massimo delle repliche.  In questo caso, è consigliabile considerare di usare uno dei livelli di Ricerca di Azure più elevati, ad esempio il livello S3, adatto a scenari con un numero elevato di documenti e carichi di lavoro delle query estremamente elevati.
 
 ## <a name="scaling-azure-search-for-slow-individual-queries"></a>Ridimensionamento di Ricerca di Azure per le singole query lente
 Un altro motivo per cui il tasso di latenza può essere lento è una singola query che impiega troppo tempo.  In questo caso, l'aggiunta di repliche non migliorerà il tasso di latenza.  In questo caso sono disponibili due opzioni:
@@ -52,7 +53,7 @@ Un altro motivo per cui il tasso di latenza può essere lento è una singola que
    
    Il servizio di ricerca Standard offe fino a un massimo di 12 partizioni, mentre il servizio Basic offre 1 partizione.  Le partizioni possono essere modificate dal [portale di Azure](search-create-service-portal.md) o da [PowerShell](search-manage-powershell.md).
 2. **Limitare i campi a cardinalità elevata:** un campo a cardinalità elevata è costituito da un facet o da un campo filtrabile che dispone di un numero significativo di valori univoci e, di conseguenza, richiede molte risorse per calcolare i risultati.   Ad esempio, l'impostazione di un campo ID prodotto o la descrizione come facet/filtrabile comporterebbe un'elevata cardinalità perché la maggior parte dei valori dei documenti è univoca. Se possibile, limitare il numero di campi a cardinalità elevata.
-3. **Aumentare il livello di Ricerca:** il passaggio a un livello superiore di Ricerca di Azure può essere un altro modo per migliorare le prestazioni delle query lente.  Ogni livello superiore fornisce CPU più veloce e memoria più ampia, elementi che possono avere un impatto positivo sulle prestazioni delle query.
+3. **Aumentare il livello di Ricerca:**  il passaggio a un livello superiore di Ricerca di Azure può essere un altro modo per migliorare le prestazioni delle query lente.  Ogni livello superiore fornisce CPU più veloce e memoria più ampia, elementi che possono avere un impatto positivo sulle prestazioni delle query.
 
 ## <a name="scaling-for-availability"></a>Ridimensionamento per la disponibilità
 Le repliche non solo consentono di ridurre la latenza delle query ma possono anche favorire una disponibilità elevata.  Con una singola replica, è necessario prevedere un tempo di inattività periodico dovuto al riavvio del server dopo gli aggiornamenti software o per altri interventi di manutenzione.  Di conseguenza, è importante considerare se l'applicazione richiede disponibilità elevata di ricerche, ovvero query, e operazioni di scrittura, ovvero eventi indicizzazione.  Ricerca di Azure offre opzioni di Contratto di servizio in tutte le offerte a pagamento, con le caratteristiche seguenti:

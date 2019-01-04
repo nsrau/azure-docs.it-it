@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/20/2018
+ms.date: 12/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e33871f35613fbd5cdc5bf3162855b942056807f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7e547f49ec14bdb69a85dd916ef435c3f30f6ef2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254772"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413728"
 ---
 ### <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -117,10 +117,14 @@ Per i limiti del servizio Firewall di Azure, vedere [Sottoscrizione di Azure e l
 
 Sì, è possibile usare il Firewall di Azure in una rete virtuale hub per instradare e filtrare il traffico tra due reti virtuali spoke. Le subnet in ognuna delle reti virtuali spoke devono avere il routing definito dall'utente che punta verso il Firewall di Azure come gateway predefinito per il corretto funzionamento di questo scenario.
 
-### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>Firewall di Azure può inoltrare e filtrare il traffico di rete tra subnet nella stessa rete virtuale?
+### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Firewall di Azure può inoltrare e filtrare il traffico di rete tra subnet della stessa rete virtuale o di reti virtuali con peering?
 
 Il traffico tra subnet nella stessa rete virtuale o in una rete virtuale direttamente con peering viene instradato direttamente anche se il routing definito dall'utente punta verso il Firewall di Azure come gateway predefinito. Il metodo consigliato per la segmentazione della rete interna è quello di usare gruppi di sicurezza di rete. Per inviare il traffico da subnet a subnet al firewall in questo scenario, il routing definito dall'utente deve contenere il prefisso di rete subnet di destinazione in modo esplicito su entrambe le subnet.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Vi sono restrizioni relative al gruppo di risorse del firewall?
 
 Sì. Il firewall, la subnet, la rete virtuale e l'indirizzo IP pubblico devono trovarsi nello stesso gruppo di risorse.
+
+### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Quando si configura DNAT per il traffico di rete in ingresso, è necessario anche configurare una regola di rete corrispondente per consentire tale traffico?
+
+ No. Le regole NAT aggiungono in modo implicito una regola di rete corrispondente per consentire il traffico convertito. È possibile sostituire questo comportamento aggiungendo in modo esplicito una raccolta regole di rete con regole di negazione corrispondenti al traffico convertito. Per altre informazioni sulla logica di elaborazione delle regole di Firewall di Azure, vedere [Azure Firewall rule processing logic](../articles/firewall/rule-processing.md) (Logica di elaborazione delle regole di Firewall di Azure).

@@ -9,20 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: ''
-ms.date: 11/11/2018
+ms.custom: seodec18
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: cb49b642137517c0ceef7d2fa01994a554db1f4e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: fc80e2c540279c0a0c8acb575c9e5b1478a46cf8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613160"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133367"
 ---
 # <a name="create-an-azure-media-services-account"></a>Creare un account di Servizi multimediali di Azure
 
 Per avviare le operazioni di crittografia, codifica, analisi, gestione e streaming dei contenuti multimediali in Azure, è necessario creare un account di Servizi multimediali. Durante la creazione di un account di Servizi multimediali, viene creato l'account di archiviazione associato (se non si desidera utilizzarne uno esistente) nella stessa area geografica dell'account di Servizi multimediali.
-
 Questo articolo descrive i passaggi per la creazione di un account di Servizi multimediali di Azure tramite l'interfaccia della riga di comando di Azure.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

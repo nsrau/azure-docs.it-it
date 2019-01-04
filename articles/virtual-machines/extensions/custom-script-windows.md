@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 2c8ac43d96c100f0c26281fea1d4e9eba41bc178
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282331"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963505"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
@@ -53,14 +53,14 @@ Se lo script è in un server locale, può essere necessario aprire porte aggiunt
 * La percentuale di errori più elevata per questa estensione è dovuta a errori di sintassi nello script. Verificare che lo script venga eseguito senza errori e inserire nello script altre opzioni di registrazione, per trovare più facilmente i punti che causano errori.
 * Scrivere script idempotenti in modo che, se per errore vengono eseguiti più di una volta, non siano apportate modifiche al sistema.
 * Verificare che gli script non richiedano l'input dell'utente durante l'esecuzione.
-* Il tempo massimo consentito per l'esecuzione dello script è pari a 90 minuti. Tempi superiori comportano un errore di provisioning dell'estensione.
-* Non inserire riavvii all'interno dello script, altrimenti si verificheranno problemi con le altre estensioni in fase di installazione e, dopo il riavvio, l'estensione non riprenderà a funzionare. 
-* Se si ha uno script che causerà un riavvio, installare le applicazioni e poi eseguire gli script e così via. È consigliabile pianificare il riavvio del computer usando un'attività pianificata di Windows oppure strumenti come le estensioni DSC, Chef o Puppet.
+* Il tempo massimo consentito per l'esecuzione dello script è di 90 minuti. Tempi superiori comportano un errore di provisioning dell'estensione.
+* Non inserire riavvii all'interno dello script, altrimenti si verificheranno problemi con le altre estensioni in fase di installazione. Dopo il riavvio, inoltre, l'estensione non riprenderà a funzionare. 
+* Se si ha uno script che causa un riavvio, installare le applicazioni ed eseguire gli script. È possibile pianificare il riavvio del computer usando un'attività pianificata di Windows oppure strumenti come le estensioni DSC, Chef o Puppet.
 * L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare l'estensione per creare un'attività pianificata di Windows.
 * Se vuole pianificare il momento di esecuzione di uno script, usare l'estensione per creare un'attività pianificata di Windows. 
-* Quando lo script è in esecuzione, l'unica indicazione presente nell'interfaccia della riga di comando o nel portale di Azure sarà lo stato dell'estensione "Transizione in corso". Se si vogliono aggiornamenti più frequenti sullo stato di uno script in esecuzione, sarà necessario creare una soluzione personalizzata.
+* Durante l'esecuzione dello script, l'unica indicazione presente nell'interfaccia della riga di comando o nel portale di Azure sarà lo stato dell'estensione "Transizione in corso". Se si vogliono aggiornamenti più frequenti sullo stato di uno script in esecuzione, è necessario creare una soluzione personalizzata.
 * L'estensione script personalizzata non supporta in modo nativo i server proxy, ma è possibile usare uno strumento di trasferimento file che supporti i server proxy all'interno dello script, ad esempio *Curl* 
-* Tenere presenti gli eventuali percorsi di directory non predefiniti usati dagli script o dai comandi e includere la logica necessaria per gestirli.
+* Tenere presenti gli eventuali percorsi di directory non predefiniti usati dagli script o dai comandi e includere la logica necessaria per gestire questa situazione.
 
 
 ## <a name="extension-schema"></a>Schema dell'estensione
@@ -92,7 +92,8 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
         "settings": {
             "fileUris": [
                 "script location"
-            ]
+            ],
+            "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
@@ -113,6 +114,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 | type | CustomScriptExtension | stringa |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (es.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| timestamp  (esempio) | 123456789 | valore integer a 32 bit |
 | commandToExecute (es.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | stringa |
 | storageAccountName (es.) | examplestorageacct | stringa |
 | storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | stringa |
@@ -123,6 +125,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 #### <a name="property-value-details"></a>Dettagli sui valori delle proprietà
  * `commandToExecute`: (**obbligatorio**, stringa) script del punto di ingresso da eseguire. Usare in alternativa questo campo se il comando contiene segreti, ad esempio password, oppure se gli URI di file sono riservati.
 * `fileUris`: (facoltativo, matrice di stringhe) URL relativi ai file da scaricare.
+* `timestamp` (facoltativo, valore integer a 32 bit) usare questo campo solo per attivare una nuova esecuzione dello script modificando il valore del campo.  Qualsiasi valore intero è accettabile, purché sia diverso dal valore precedente.
 * `storageAccountName`: (facoltativo, stringa) nome dell'account di archiviazione. Se si specificano credenziali di archiviazione, tutti i valori di `fileUris` devono essere URL relativi a BLOB di Azure.
 * `storageAccountKey`: (facoltativo, stringa) chiave di accesso dell'account di archiviazione
 
@@ -201,7 +204,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>Come eseguire uno script personalizzato più volte tramite l'interfaccia della riga di comando
 Si può eseguire più volte l'estensione script personalizzata solo nelle condizioni seguenti:
 1. Il parametro 'Name' dell'estensione deve essere lo stesso usato nella distribuzione precedente dell'estensione.
-2. È necessario aggiornare la configurazione o il comando non verrà eseguito nuovamente. Ad esempio, si può aggiungere al comando una proprietà dinamica, come un timestamp. 
+2. È necessario aggiornare la configurazione o il comando non verrà eseguito nuovamente. È possibile, ad esempio, aggiungere al comando una proprietà dinamica, come un timestamp.
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
@@ -244,4 +247,4 @@ Le informazioni sul percorso dopo il primo segmento URI vengono mantenute per i 
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). È anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

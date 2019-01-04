@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: eeaa0e9a940f16c2416418959c98cd17e4816afc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387634"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722378"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informazioni sulla configurazione del backup periodico in Azure Service Fabric
 
@@ -27,15 +27,15 @@ La configurazione del backup periodico dei servizi Reliable con stato o dei Reli
 
 1. **Creazione di criteri di backup**: in questa fase vengono creati uno o più criteri di backup, a seconda dei requisiti.
 
-2. **Abilitazione del backup**: in questa fase i criteri di backup creati nel **passaggio 1** vengono associati alle entità corrispondenti: _Applicazione_, _Servizio_ o _Partizione_.
+2. **Abilitazione del backup**: in questa fase i criteri di backup creati nel **passaggio 1** vengono associati alle entità richieste: _Applicazione_, _Servizio_ o _Partizione_.
 
 ## <a name="create-backup-policy"></a>Crea criterio di backup
 
 Un criterio di backup è costituito dalle configurazioni seguenti:
 
-* **Auto restore on data loss** (Ripristino automatico per perdita di dati): specifica se attivare automaticamente il ripristino usando l'ultimo backup disponibile quando la partizione registra un evento di perdita di dati.
+* **Auto restore on data loss** (Ripristino automatico in caso di perdita di dati): specifica se attivare automaticamente il ripristino usando l'ultimo backup disponibile quando la partizione registra un evento di perdita di dati.
 
-* **Max incremental backups** (N. massimo di backup incrementali): definisce il numero massimo di backup incrementali eseguibili tra due backup completi. Max incremental backups (N. massimo di backup incrementali) specifica il limite massimo. Un backup completo può essere eseguito prima del raggiungimento del numero di backup incrementali specificato se si verifica una delle situazioni seguenti:
+* **Max incremental backups** (Numero massimo di backup incrementali): definisce il numero massimo di backup incrementali eseguibili tra due backup completi. Max incremental backups (N. massimo di backup incrementali) specifica il limite massimo. Un backup completo può essere eseguito prima del raggiungimento del numero di backup incrementali specificato se si verifica una delle situazioni seguenti:
 
     1. La replica non ha mai eseguito un backup completo dopo essere diventata primaria.
 
@@ -53,8 +53,8 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
         }
         ```
 
-    2. **Time-based backup schedule** (Pianificazione backup basata su tempo): questo tipo di pianificazione può essere usato quando è necessario eseguire il backup dei dati in orari specifici ogni giorno o ogni settimana. Il tipo di frequenza di pianificazione può essere giornaliero o settimanale.
-        1. **_Daily_ Time-based backup schedule** (Pianificazione backup basata su tempo - Giornaliera): questo tipo di pianificazione va usata quando è necessario eseguire il backup dei dati in orari specifici della giornata. Per fare ciò impostare `ScheduleFrequencyType` su _Giornaliera_ e impostare `RunTimes` sull'elenco di orari della giornata desiderati, in formato ISO 8601. La data specificata insieme all'ora viene ignorata. Ad esempio `0001-01-01T18:00:00` rappresenta le _18:00_ di ogni giorno e la parte della data _0001-01-01_ viene ignorata. L'esempio seguente visualizza la configurazione che attiva un backup giornaliero alle_9:00_ e alle _18:00_ di ogni giorno.
+    2. **Time-based backup schedule** (Pianificazione backup basata sul tempo): questo tipo di pianificazione può essere usato quando è necessario eseguire il backup dei dati in orari specifici ogni giorno o ogni settimana. Il tipo di frequenza di pianificazione può essere giornaliero o settimanale.
+        1. **Pianificazione backup basata sul tempo _Giornaliera_**: questo tipo di pianificazione può essere usato quando è necessario eseguire il backup dei dati in orari specifici del giorno. Per fare ciò impostare `ScheduleFrequencyType` su _Giornaliera_ e impostare `RunTimes` sull'elenco di orari della giornata desiderati, in formato ISO 8601. La data specificata insieme all'ora viene ignorata. Ad esempio `0001-01-01T18:00:00` rappresenta le _18:00_ di ogni giorno e la parte della data _0001-01-01_ viene ignorata. L'esempio seguente visualizza la configurazione che attiva un backup giornaliero alle_9:00_ e alle _18:00_ di ogni giorno.
 
             ```json
             {
@@ -67,7 +67,7 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
             }
             ```
 
-        2. **_Weekly_ Time-based backup schedule** (Pianificazione backup basata su tempo - Settimanale): questo tipo di pianificazione può essere usato quando è necessario eseguire il backup dei dati in orari specifici ogni giorno. Per fare ciò impostare `ScheduleFrequencyType` su _Settimanale_, quindi impostare `RunDays` sull'elenco dei giorni della settimana in cui va attivato il backup e impostare `RunTimes` sull'elenco di orari della giornata desiderati, in formato ISO 8601. La data specificata insieme all'ora viene ignorata. Elenco dei giorni della settimana in cui attivare il backup periodico. L'esempio seguente visualizza una configurazione che attiva il backup giornaliero alle _9:00_ e alle _18.00_ ogni giorno da lunedì a venerdì.
+        2. **Pianificazione backup basata sul tempo _Settimanale_**: questo tipo di pianificazione può essere usato quando è necessario eseguire il backup dei dati in orari specifici del giorno. Per fare ciò impostare `ScheduleFrequencyType` su _Settimanale_, quindi impostare `RunDays` sull'elenco dei giorni della settimana in cui va attivato il backup e impostare `RunTimes` sull'elenco di orari della giornata desiderati, in formato ISO 8601. La data specificata insieme all'ora viene ignorata. Elenco dei giorni della settimana in cui attivare il backup periodico. L'esempio seguente visualizza una configurazione che attiva il backup giornaliero alle _9:00_ e alle _18.00_ ogni giorno da lunedì a venerdì.
 
             ```json
             {
@@ -98,7 +98,7 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
         }
         ```
 
-    2. **Condivisione file**: questo tipo di archiviazione va selezionato per i cluster _autonomi_ quando si vuole archiviare i dati di backup in locale. La descrizione di questo tipo di archiviazione richiede il percorso di condivisione file in cui devono essere caricati i backup. L'accesso alla condivisione file può essere configurato usando una delle seguenti opzioni
+    2. **Condivisione file**: questo tipo di archiviazione va selezionato per i cluster _autonomi_ quando è necessario archiviare i dati di backup in locale. La descrizione di questo tipo di archiviazione richiede il percorso di condivisione file in cui devono essere caricati i backup. L'accesso alla condivisione file può essere configurato usando una delle seguenti opzioni
         1. _Autenticazione di Windows integrata_: l'accesso alla condivisione di file è consentito a tutti i computer appartenenti al cluster Service Fabric. In questo caso impostare i campi seguenti per configurare l'archiviazione di backup basata sulla _condivisione file_.
 
             ```json
@@ -110,6 +110,7 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
             ```
 
         2. _Protecting file share using user name and password_ (Condivisione file protetta da nome utente e password): l'accesso alla condivisione file è consentito a utenti specifici. La specifica di archiviazione basata sulla condivisione file consente anche di specificare un nome utente secondario e una password secondaria come credenziali di fallback, nel caso in cui l'autenticazione con il nome utente primario e la password primaria abbia esito negativo. In questo caso impostare i campi seguenti per configurare l'archiviazione di backup basata sulla _condivisione file_.
+
             ```json
             {
                 "StorageKind": "FileShare",
@@ -125,6 +126,17 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
 > [!NOTE]
 > Verificare che l'affidabilità di archiviazione soddisfi o superi i requisiti di affidabilità dei dati di backup.
 >
+
+* **Criteri di conservazione**: specifica i criteri per conservare i backup nella risorsa di archiviazione configurata. Sono supportati solo i criteri di conservazione di base.
+    1. **Basic Retention Policy** (Criteri di conservazione di base): questi criteri di conservazione consentono di garantire l'utilizzo ottimale dell'archiviazione rimuovendo i file di backup non più necessari. Specificare `RetentionDuration` per impostare l'intervallo di tempo in cui i backup devono essere conservati nella risorsa di archiviazione. `MinimumNumberOfBackups` è un parametro facoltativo che può essere specificato per assicurarsi che venga sempre mantenuto il numero specificato di backup indipendentemente da `RetentionDuration`. L'esempio seguente illustra la configurazione che consente di conservare i backup per _10_ giorni e non consente che il numero di backup scenda a meno di _20_.
+
+        ```json
+        {
+            "RetentionPolicyType": "Basic",
+            "RetentionDuration" : "P10D",
+            "MinimumNumberOfBackups": 20
+        }
+        ```
 
 ## <a name="enable-periodic-backup"></a>Abilitare il backup periodico
 Dopo aver definito i criteri di backup in modo da soddisfare i requisiti per il backup dei dati, è necessario associare i criteri di backup a un'_applicazione_, a un _servizio_ o a una _partizione_.
@@ -179,6 +191,13 @@ Il diagramma seguente visualizza i criteri di backup abilitati in modo esplicito
 
 * La disabilitazione di un criterio di backup per una _partizione_ arresta tutti i backup periodici dei dati eseguiti nella partizione in base a tale criterio.
 
+* Durante la disabilitazione del backup per un'entità (applicazione/servizio/partizione) è possibile impostare `CleanBackup` su _true_ per eliminare tutti i backup nella risorsa di archiviazione configurata.
+    ```json
+    {
+        "CleanBackup": true 
+    }
+    ```
+
 ## <a name="suspend--resume-backup"></a>Sospendere e riprendere il backup
 In determinati casi può risultare necessario sospendere temporaneamente il backup periodico dei dati. In tali situazioni, a seconda delle esigenze, è possibile usare l'API di sospensione del backup a livello di _applicazione_, _servizio_ o _partizione_. La sospensione del backup periodico è transitiva per il sottoalbero della gerarchia dell'applicazione dal punto in cui viene applicata. 
 
@@ -218,11 +237,11 @@ Le API supportano anche l'impaginazione dei risultati: quando il parametro _MaxR
 
 Di seguito sono elencate informazioni concise sulle varianti supportate.
 
-- [Get Application Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): restituisce l'elenco dei backup disponibili per ogni partizione appartenente a un'applicazione Service Fabric specifica.
+- [Get Application Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist) (Ottieni elenco backup applicazione): restituisce l'elenco dei backup disponibili per ogni partizione appartenente a un'applicazione Service Fabric specifica.
 
-- [Get Service Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): restituisce l'elenco dei backup disponibili per ogni servizio appartenente a un'applicazione Service Fabric specifica.
+- [Get Service Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist) (Ottieni elenco backup servizio): restituisce l'elenco dei backup disponibili per ogni partizione appartenente a un determinato servizio Service Fabric.
  
-- [Get Partition Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): restituisce l'elenco dei backup disponibili per la partizione specificata.
+- [Get Partition Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist) (Ottieni elenco backup partizione): restituisce l'elenco dei backup disponibili per la partizione specificata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Informazioni di riferimento sull'API REST di ripristino backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582888"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834237"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati
 
@@ -143,7 +143,7 @@ Individuare l'elemento `<img>` contenente il valore `ID` *background_background_
 
 2. Eseguire il debug dell'app Web e verificare che la pagina _unified_ sia accessibile (ad esempio, `http://localhost:<Port number>/Home/unified`).
 
-### <a name="step-25-publish-to-azure"></a>Passaggio 2.5 Pubblicare in Azure
+### <a name="step-25-publish-to-azure"></a>Passaggio 2.5: Pubblicazione in Azure
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **Contoso.AADB2C.UI** e quindi scegliere **Pubblica**.
 
     ![Pubblicare in Servizio app di Microsoft Azure](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
@@ -193,7 +193,7 @@ Il modello HTML5 è pronto per l'uso. Non è tuttavia disponibile nel codice `Co
 * Il server di contenuti sia abilitato per CORS.
 
     >[!NOTE]
-    >Per verificare che CORS sia abilitato per il sito in cui si ospita il contenuto e che il sito possa testare le richieste CORS, passare al sito Web [test-cors.org](http://test-cors.org/). 
+    >Per verificare che CORS sia abilitato per il sito in cui si ospita il contenuto e che il sito possa testare le richieste CORS, passare al sito Web [test-cors.org](https://test-cors.org/). 
 
 * Il contenuto gestito sia protetto tramite **HTTPS**.
 * Vengono usati *URL assoluti*, ad esempio *https://yourdomain/content*, per tutti i collegamenti, i contenuti CSS e le immagini.

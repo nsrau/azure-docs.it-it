@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b81b9b34843974ceacf41b08a40a52418ea46d22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888512"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547550"
 ---
 # <a name="configure-deployment-sources"></a>Configurare le origini di distribuzione
 
@@ -74,8 +74,8 @@ Oltre al Git locale, sono supportati i seguenti provider controllo codice sorgen
 5. Copiare l'**URL di callback**. In una distribuzione di Azure Stack predefinita, il callback di URL è nel formato https://portal.local.azurestack.external/TokenAuthorize. Se si esegue in un dominio diverso, sostituire il nome di dominio con azurestack. Local. Per l'integrazione di BitBucket abbia esito positivo, l'URL deve seguire le lettere maiuscole elencate di seguito.
 6. Immettere il **URL**. Questo URL deve essere il portale di Azure Stack URL; ad esempio, https://portal.local.azurestack.external.
 7. Selezionare il **autorizzazioni** obbligatorio:
-    - **I repository**: *lettura*
-    - **I Webhook**: *lettura e scrittura*
+    - **I repository**: *Lettura*
+    - **I Webhook**: *Lettura e scrittura*
 8. Fare clic su **Save**. Ora viene visualizzata la nuova applicazione, insieme con il **chiave** e **segreto**, in **consumer OAuth**.
     ![Elenco applicazioni BitBucket][9]
 9.  In una finestra o una nuova scheda del browser accedere al portale di amministrazione di Azure Stack (https://adminportal.local.azurestack.external) come amministratore del servizio.
@@ -138,7 +138,7 @@ Oltre al Git locale, sono supportati i seguenti provider controllo codice sorgen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli utenti possono ora usare le origini di distribuzione per elementi quali [distribuzione continua](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [distribuzione Git locale](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), e [cloud la sincronizzazione delle cartelle](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).
+Gli utenti possono ora usare le origini di distribuzione per elementi quali [distribuzione continua](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment), [distribuzione Git locale](https://docs.microsoft.com/azure/app-service/deploy-local-git), e [cloud la sincronizzazione delle cartelle](https://docs.microsoft.com/azure/app-service-web/deploy-content-sync).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png

@@ -2,19 +2,19 @@
 title: Integrazione di Analisi di flusso di Azure con Azure Machine Learning
 description: Questo articolo descrive come configurare rapidamente un semplice processo di Analisi di flusso di Azure che integra Azure Machine Learning usando una funzione definita dall'utente.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/16/2018
-ms.openlocfilehash: 2169c3a41991b0b49a4324c16ea079f5943fad0b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d90439e498e8812551d9e2994165f1714d3bdaab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685753"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093335"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analisi del sentiment con Analisi di flusso di Azure e Azure Machine Learning
 Questo articolo descrive come configurare rapidamente un semplice processo di Analisi di flusso di Azure che integra Azure Machine Learning. Verrà usato un modello di Machine Learning per l'analisi del sentiment proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio del sentiment in tempo reale. Cortana Intelligence Suite consente di eseguire questa operazione senza doversi preoccupare delle complessità della creazione di un modello di analisi del sentiment.
@@ -28,7 +28,7 @@ Questo articolo descrive come configurare rapidamente un semplice processo di An
 
 In uno scenario reale, si potrebbero ottenere i dati direttamente da un flusso di dati di Twitter. Per semplificare la presentazione, l'esercitazione è stata scritta in modo che il processo di Analisi di flusso ottenga i tweet da un file CSV in Archiviazione BLOB di Azure. È possibile creare un file CSV personalizzato oppure usare un file CSV di esempio, come illustrato nella figura seguente:
 
-![tweet di esempio in un file CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
+![Tweet di esempio illustrati in un file CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
 Il processo di Analisi di flusso creato applica il modello di analisi del sentiment come funzione definita dall'utente (UDF) ai dati del testo di esempio dell'archivio BLOB. L'output (il risultato dell'analisi del sentiment) viene scritto nello stesso archivio BLOB in un file CSV diverso. 
 
@@ -58,15 +58,15 @@ Per questo passaggio, è possibile usare qualsiasi file CSV, ad esempio quello d
 
 3. Specificare un gruppo di risorse esistente e specificare un percorso. Per quanto riguarda il percorso, è consigliabile che tutte le risorse create in questa esercitazione usino lo stesso percorso.
 
-    ![specificare i dettagli dell'account di archiviazione](./media/stream-analytics-machine-learning-integration-tutorial/create-sa1.png)
+    ![specificare i dettagli dell'account di archiviazione](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
 4. Selezionare l'account di archiviazione nel portale di Azure. Nel pannello dell'account di archiviazione fare clic su **Contenitori** e quindi su **+&nbsp;Contenitore** per creare un archivio BLOB.
 
-    ![Creare un contenitore BLOB](./media/stream-analytics-machine-learning-integration-tutorial/create-sa2.png)
+    ![Creare un contenitore di archiviazione BLOB per l'input](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
 5. Specificare quindi un nome per il contenitore (`azuresamldemoblob` nell'esempio) e verificare che **Tipo di accesso** sia impostato su **BLOB**. Al termine, fare clic su **OK**.
 
-    ![specificare i dettagli del contenitore BLOB](./media/stream-analytics-machine-learning-integration-tutorial/create-sa3.png)
+    ![specificare i dettagli del contenitore BLOB](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
 6. Nel pannello **Contenitori** selezionare il nuovo contenitore, in modo da aprire il pannello per tale contenitore.
 
@@ -123,7 +123,7 @@ Ora che i dati di esempio sono in un BLOB, è possibile abilitare il modello di 
 
 3. Assegnare il nome `azure-sa-ml-demo` al processo, specificare una sottoscrizione, specificare un gruppo di risorse esistente o crearne uno nuovo e selezionare il percorso per il processo.
 
-   ![specificare le impostazioni per il nuovo processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
+   ![specificare le impostazioni per il nuovo processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-job-1.png)
    
 
 ### <a name="configure-the-job-input"></a>Configurare l'input del processo
@@ -143,7 +143,7 @@ Il processo ottiene l'input dal file CSV caricato in precedenza nell'archivio BL
    |**Contenitore**  | Selezionare il contenitore creato in precedenza (`azuresamldemoblob`).        |
    |**Formato di serializzazione eventi**  |  Selezionare **CSV**.       |
 
-   ![Impostazioni per il nuovo input del processo](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
+   ![Impostazioni per l'input del nuovo processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
 4. Fare clic su **Save**.
 
@@ -163,7 +163,7 @@ Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input.
    |**Contenitore**  | Selezionare il contenitore creato in precedenza (`azuresamldemoblob`).        |
    |**Formato di serializzazione eventi**  |  Selezionare **CSV**.       |
 
-   ![Impostazioni per il nuovo output del processo](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
+   ![Impostazioni per l'input del nuovo processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
 4. Fare clic su **Save**.   
 
@@ -185,7 +185,7 @@ In questa sezione dell'esercitazione si definisce una funzione nel processo di A
    | **URL**| Incollare l'URL del servizio Web.|
    |**Chiave** | Incollare la chiave API. |
   
-   ![Impostazioni per l'aggiunta di una funzione di Machine Learning al processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Impostazioni per aggiungere la funzione Machine Learning al processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
 4. Fare clic su **Save**.
 

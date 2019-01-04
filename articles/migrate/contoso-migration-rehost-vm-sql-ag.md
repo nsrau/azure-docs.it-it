@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 18041c95405614768845399f92efac229db53b20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ff8f5c51f17375208fdb32e521bfc85ee3f0c77
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250731"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880217"
 ---
-# <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migrazione Contoso: eseguire il rehosting di un'app locale in VM di Azure e nel gruppo di disponibilità AlwaysOn di SQL Server
+# <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migrazione di Contoso: eseguire il rehosting di un'app locale in VM di Azure e nel gruppo di disponibilità AlwaysOn di SQL Server
 
 Questo articolo spiega in che modo Contoso esegue il rehosting dell'app SmartHotel360 in Azure. tramite la migrazione della VM front-end dell'app a una VM di Azure e del database dell'app a una VM di SQL Server in Azure, in esecuzione in un cluster di failover Windows Server con gruppi di disponibilità AlwaysOn di SQL Server.
 
@@ -26,17 +26,17 @@ Questo documento fa parte di una serie di articoli che descrivono in che modo la
 [Articolo 1: Panoramica](contoso-migration-overview.md) | Panoramica della serie di articoli, della strategia di migrazione di Contoso e delle app di esempio usate nella serie. | Disponibile
 [Articolo 2: Distribuire l'infrastruttura di Azure](contoso-migration-infrastructure.md) | Contoso prepara la propria infrastruttura locale e l'infrastruttura di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli articoli della serie relativi alla migrazione. | Disponibile
 [Articolo 3: Valutare le risorse locali per la migrazione in Azure](contoso-migration-assessment.md)  | Contoso esegue una valutazione dell'app SmartHotel360 locale in esecuzione su VMware. Valuta le macchine virtuali dell'app con il servizio Azure Migrate e il database SQL Server dell'app con Data Migration Assistant. | Disponibile
-[Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in Istanza gestita di database SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel360 locale. Usa [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) per la migrazione della macchina virtuale del front-end dell'app. mentre per la migrazione del database dell'app in un'Istanza gestita di database SQL di Azure viene usato il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Disponibile   
-[Articolo 5: Eseguire il rehosting di un'app in VM di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel360 nelle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
+[Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in un'istanza gestita di database SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel360 locale. Usa [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) per la migrazione della macchina virtuale del front-end dell'app. mentre per la migrazione del database dell'app in un'Istanza gestita di database SQL di Azure viene usato il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Disponibile   
+[Articolo 5: Effettuare il rehosting di un'app nelle macchine virtuali di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel360 nelle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
 Articolo 6: Eseguire il rehosting di un'app in macchine virtuali di Azure e in un gruppo di disponibilità AlwaysOn di SQL Server | Contoso esegue la migrazione dell'app SmartHotel360. Usa Site Recovery per eseguire la migrazione delle macchine virtuali dell'app e il Servizio Migrazione del database per la migrazione del database dell'app in un cluster di SQL Server protetto da un gruppo di disponibilità AlwaysOn. | Questo articolo
-[Articolo 7: Eseguire il rehosting di un'app Linux in VM di Azure](contoso-migration-rehost-linux-vm.md) | Contoso esegue una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery | Disponibile
-[Articolo 8: Rehosting di un'app Linux in VM di Azure e Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery e del database dell'app a un'istanza di Azure MySQL Server mediante MySQL Workbench. | Disponibile
-[Articolo 9: Refactoring di un'app in app Web di Azure e in un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Contoso esegue la migrazione dell'app SmartHotel360 a un'app Web di Azure e del database dell'app a un'istanza di SQL Server di Azure con Data Migration Assistant | Disponibile
-[Articolo 10: Refactoring di un'app Linux in app Web di Azure e Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux a un'app Web di Azure in più aree di Azure usando Gestione traffico di Azure, integrato con GitHub per il recapito continuo. Contoso esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Disponibile 
-[Articolo 11: effettuare il refactoring di Team Foundation Server nei servizi di Azure DevOps](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
-[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database SQL di Azure. | Disponibile
+[Articolo 7: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure](contoso-migration-rehost-linux-vm.md) | Contoso esegue una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery | Disponibile
+[Articolo 8: Eseguire il rehosting di un'app Linux in VM di Azure e Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery e del database dell'app a un'istanza di Azure MySQL Server mediante MySQL Workbench. | Disponibile
+[Articolo 9: Effettuare il refactoring di un'app in app Web di Azure e in un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Contoso esegue la migrazione dell'app SmartHotel360 a un'app Web di Azure e del database dell'app a un'istanza di SQL Server di Azure con Data Migration Assistant | Disponibile
+[Articolo 10: Effettuare il refactoring di un'app Linux in app Web di Azure e Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux a un'app Web di Azure in più aree di Azure usando Gestione traffico di Azure, integrato con GitHub per il recapito continuo. Contoso esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Disponibile 
+[Articolo 11: Effettuare il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
+[Articolo 12: Riprogettare un'app nei contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database SQL di Azure. | Disponibile
 [Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizio app di Azure, il servizio Kubernetes di Azure (AKS), Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile
-[Articolo 14: Passare a una migrazione completa in Azure](contoso-migration-scale.md) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Disponibile
+[Articolo 14: Ridimensionare una migrazione completa in Azure](contoso-migration-scale.md) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Disponibile
 
 
 In questo articolo Contoso esegue la migrazione in Azure dell'app a due livelli SmartHotel360 di Windows .NET in esecuzione nelle macchine virtuali VMware. Questa app è disponibile per l'uso in modalità open source e può essere scaricata da [GitHub](https://github.com/Microsoft/SmartHotel360).
@@ -45,10 +45,10 @@ In questo articolo Contoso esegue la migrazione in Azure dell'app a due livelli 
 
 Il team di leadership IT collabora attivamente con i partner commerciali per capire gli obiettivi da raggiungere con questa migrazione:
 
-- **Gestire la crescita aziendale**: Contoso è in espansione e di conseguenza l'infrastruttura e i sistemi locali iniziano a sentirne la pressione.
-- **Aumentare l'efficienza**: Contoso deve rimuovere le procedure inutili e semplificare i processi per sviluppatori e utenti.  L'azienda richiede un settore IT rapido ed efficiente in termini di tempo e costi, in modo da soddisfare più velocemente le esigenze dei clienti.
-- **Migliorare l'agilità**: il settore IT di Contoso deve essere più reattivo alle esigenze dell'azienda. Deve essere in grado di reagire più rapidamente ai cambiamenti nel marketplace, in modo da raggiungere risultati di successo in un'economia globale.  Non deve rappresentare un ostacolo per le attività aziendali.
-- **Favorire la scalabilità**: il settore IT di Contoso deve fornire sistemi in grado di crescere di pari passo con l'espansione dell'azienda.
+- **Stare al passo con la crescita del business**: Contoso è in espansione e di conseguenza l'infrastruttura e i sistemi locali iniziano a sentirne la pressione.
+- **Aumentare l'efficienza**: occorre rimuovere le procedure inutili e semplificare i processi per sviluppatori e utenti.  L'azienda richiede un settore IT rapido ed efficiente in termini di tempo e costi, in modo da soddisfare più velocemente le esigenze dei clienti.
+- **Aumentare l'agilità**:  il settore IT di Contoso deve essere più reattivo alle esigenze dell'azienda. Deve essere in grado di reagire più rapidamente ai cambiamenti nel marketplace, in modo da raggiungere risultati di successo in un'economia globale.  Non deve rappresentare un ostacolo per le attività aziendali.
+- **Scalabilità**: il settore IT di Contoso deve fornire sistemi in grado di crescere di pari passo con l'espansione dell'azienda.
 
 ## <a name="migration-goals"></a>Obiettivi della migrazione
 
@@ -155,16 +155,16 @@ Ecco in che modo Contoso eseguirà la migrazione:
 > * **Passaggio 1: Preparare un cluster**: creare un cluster per la distribuzione di due nodi VM di SQL Server in Azure.
 > * **Passaggio 2: Distribuire e configurare il cluster**: preparare un cluster di Server SQL di Azure.  I database vengono migrati in questo cluster creato in precedenza.
 > * **Passaggio 3: Distribuire il servizio di bilanciamento del carico**: distribuire un servizio di bilanciamento del carico per bilanciare il traffico verso i nodi di SQL Server.
-> * **Passaggio 4: Preparare Azure per Site Recovery**. creare un account di archiviazione di Azure per contenere i dati replicati e un insieme di credenziali dei Servizi di ripristino. 
-> * **Passaggio 5: Preparare VMware in locale per Site Recovery**. preparare gli account per l'individuazione delle macchine virtuali e l'installazione dell'agente. Prepara le macchine virtuali locali in modo che gli utenti possano connettersi alle macchine virtuali di Azure dopo la migrazione.
-> * **Passaggio 6: Replicare le VM**: abilitare la replica della VM su Azure.
-> * **Passaggio 7: Installazione di DMA**: scaricare e installare il Database Migration Assistant.
-> * **Passaggio 7: Eseguire la migrazione del database con il Servizio Migrazione del database**: eseguire la migrazione del database in Azure.
+> * **Passaggio 4: Preparare Azure per Site Recovery**: creare un account di archiviazione di Azure per contenere i dati replicati e un insieme di credenziali dei Servizi di ripristino. 
+> * **Passaggio 5: Preparare l'ambiente VMware locale per Site Recovery**: preparare gli account per l'individuazione della macchina virtuale e l'installazione dell'agente. Prepara le macchine virtuali locali in modo che gli utenti possano connettersi alle macchine virtuali di Azure dopo la migrazione.
+> * **Passaggio 6: Replicare le macchine virtuali**: abilitare la replica di macchine Virtuali in Azure.
+> * **Passaggio 7: Installare DMA**: scaricare e installare il Database Migration Assistant.
+> * **Passaggio 7: Eseguire la migrazione del database tramite DMA**: eseguire la migrazione del database in Azure.
 > * **Passaggio 9: Proteggere il database**: creare un gruppo di disponibilità AlwaysOn per il cluster.
-> * **Passaggio 10: Migrare l'applicazione Web VM**: eseguire quindi un failover di test per verificare che tutto funzioni come previsto. Eseguire quindi un failover completo in Azure. 
+> * **Passaggio 10: Eseguire la migrazione della macchina virtuale app Web**: Eseguire un failover di test per verificare che tutti gli elementi funzionino come previsto. Eseguire quindi un failover completo in Azure. 
 
 
-## <a name="step-1-prepare-a-sql-server-alwayson-availability-group-cluster"></a>Passaggio 1: Configurare un cluster con gruppi di disponibilità AlwaysOn di SQL Server
+## <a name="step-1-prepare-a-sql-server-alwayson-availability-group-cluster"></a>Passaggio 1: Preparare un cluster di gruppi di disponibilità AlwaysOn di SQL Server
 
 Per configurare il cluster, gli amministratori di Contoso seguono questa procedura:
 
@@ -174,7 +174,7 @@ Per configurare il cluster, gli amministratori di Contoso seguono questa procedu
 
 2. In **Creazione guidata macchina virtuale** > **Impostazioni di base** configura le impostazioni seguenti:
 
-    - Definisce i nomi per le VM: **SQLAOG1** e **SQLAOG2**.
+    - Nomi per le macchine virtuali: **SQLAOG1** e **SQLAOG2**.
     - Poiché le macchine virtuali sono business critical, abilita le unità SSD per il tipo di disco delle VM.
     - Specifica le credenziali delle macchine virtuali.
     - Distribuisce le VM nell'area primaria Stati Uniti orientali 2, nel gruppo di risorse ContosoRG.
@@ -184,9 +184,9 @@ Per configurare il cluster, gli amministratori di Contoso seguono questa procedu
 
     - Poiché queste VM sono database critici per l'app, Contoso usa dischi gestiti.
     - Posiziona le macchine nella rete di produzione nell'area primaria Stati Uniti orientali 2 (**VNET-PROD-EUS2**), nella subnet di database (**PROD-DB-EUS2**).
-    - Crea un nuovo set di disponibilità, **SQLAOGAVSET**, con due domini di errore e cinque domini di aggiornamento.
+    - Crea un nuovo set di disponibilità: **SQLAOGAVSET**, con due domini di errore e cinque domini di aggiornamento.
 
-    ![VM SQL](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
+      ![VM SQL](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
 
 4. In **Impostazioni di SQL Server** limita la connettività SQL alla rete virtuale (privata) sulla porta predefinita 1433. Per l'autenticazione specifica le stesse credenziali usate in locale (**contosoadmin**).
 
@@ -235,11 +235,11 @@ Prima di configurare il cluster, gli amministratori Contoso creano uno snapshot 
 
 ![snapshot](media/contoso-migration-rehost-vm-sql-ag/snapshot.png)
 
-2. Esegue quindi uno script definito per creare il cluster di failover di Windows.
+1. Esegue quindi uno script definito per creare il cluster di failover di Windows.
 
     ![Creare cluster](media/contoso-migration-rehost-vm-sql-ag/create-cluster1.png)
 
-3. Dopo aver creato il cluster, verifica che le VM vengano visualizzate come nodi del cluster.
+2. Dopo aver creato il cluster, verifica che le VM vengano visualizzate come nodi del cluster.
 
      ![Creare cluster](media/contoso-migration-rehost-vm-sql-ag/create-cluster2.png)
 
@@ -277,9 +277,9 @@ Gli amministratori Contoso vogliono ora distribuire un servizio di bilanciamento
 
 Per creare il servizio di bilanciamento del carico, Contoso segue questa procedura:
 
-1. Nel portale di Azure > **Rete** > **Servizi di bilanciamento del carico** configura un nuovo servizio di bilanciamento del carico interno: **ILB-PROD-DB-EUS2-SQLAOG**.
+1. Nel portale di Azure > **Rete** > **Bilanciamento il carico**, configura un nuovo servizio di bilanciamento del carico interno: **ILB-PROD-DB-EUS2-SQLAOG**.
 2. Posiziona il servizio nella rete di produzione **VNET-PROD-EUS2**, nella subnet del database **PROD-DB-EUS2**.
-3. Assegna a tale servizio l'indirizzo IP statico 10.245.40.100.
+3. Assegna a tale servizio l'indirizzo IP statico: 10.245.40.100.
 4. Come elemento di rete, distribuisce il servizio di bilanciamento del carico nel gruppo di risorse di rete **ContosoNetworkingRG**.
 
     ![Bilanciamento del carico.](media/contoso-migration-rehost-vm-sql-ag/lb-create.png)
@@ -290,7 +290,7 @@ Una volta distribuito, il servizio di bilanciamento del carico interno deve esse
 
 Per distribuire il traffico alle VM nel cluster, gli amministratori Contoso configurano un pool back-end che include gli indirizzi IP delle schede NIC per le VM che riceveranno il traffico di rete dal servizio di bilanciamento del carico.
 
-1. Nelle impostazioni del servizio di bilanciamento del carico nel portale Contoso aggiunge un pool back-end: **ILB-PROD-DB-EUS-SQLAOG-BEPOOL**.
+1. Nelle impostazioni del servizio di bilanciamento del carico nel portale, Contoso aggiunge un pool back-end: **ILB-PROD-DB-EUS-SQLAOG-BEPOOL**.
 2. Associa il pool al set di disponibilità SQLAOGAVSET. Le VM nel set (**SQLAOG1** e **SQLAOG2**) vengono aggiunte al pool.
 
     ![Pool back-end](media/contoso-migration-rehost-vm-sql-ag/backend-pool.png)
@@ -301,7 +301,7 @@ Gli amministratori Contoso creano un probe di integrità per consentire al servi
 
 Per creare il probe, Contoso segue questa procedura: 
 
-1. Nelle impostazioni del servizio di bilanciamento del carico nel portale crea un probe di integrità: **SQLAlwaysOnEndPointProbe**.
+1. Nelle impostazioni del servizio di bilanciamento del carico nel portale, Contoso crea un probe di integrità: **SQLAlwaysOnEndPointProbe**.
 2. Imposta il probe in modo da monitorare le VM sulla porta TCP 59999.
 3. Imposta un intervallo di 5 secondi tra i probe e un valore soglia pari a 2. Se due probe restituiscono un errore, lo stato della VM verrà considerato non integro.
 
@@ -317,7 +317,7 @@ Gli amministratori Contoso devono ora creare una regola di bilanciamento del car
 
 Per creare la regola, Contoso segue questa procedura:
 
-1. Nelle impostazioni del servizio di bilanciamento del carico nel portale aggiunge una nuova regola di bilanciamento del carico: **SQLAlwaysOnEndPointListener**.
+1. Nelle impostazioni del servizio di bilanciamento del carico nel portale, aggiunge una nuova regola di bilanciamento del carico: **SQLAlwaysOnEndPointListener**.
 2. Viene impostato un listener front-end per ricevere il traffico dei client SQL in ingresso sulla porta TCP 1433.
 3. Specifica il pool back-end a cui il traffico verrà indirizzato e la porta su cui le VM sono ascolto del traffico.
 4. Abilitano un IP mobile (Direct Server Return). Questo è sempre necessario per SQL AlwaysOn.
@@ -351,7 +351,7 @@ Per configurare questi elementi, gli amministratori Contoso seguono questa proce
     - Usa un account generico con archiviazione standard e la replica dell'archiviazione con ridondanza locale.
     - L'account deve trovarsi nella stessa area dell'insieme di credenziali.
 
-    ![Archiviazione di Site Recovery](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
+      ![Archiviazione di Site Recovery](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
 
 3. Dopo aver configurato la rete e l'account di archiviazione, Contoso crea un insieme di credenziali di Servizi di ripristino (**ContosoMigrationVault**) e lo posiziona nel gruppo di risorse **ContosoFailoverRG** nell'area primaria Stati Uniti orientali 2.
 
@@ -403,15 +403,15 @@ Dopo il failover, Contoso vuole essere in grado di connettersi alle VM di Azure.
 
 1. Per l'accesso tramite Internet:
 
- - Abilita RDP nella VM locale prima del failover.
- - Verifica che per il profilo **Pubblico** siano aggiunte le regole TCP e UDP.
- - Verifica che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.
+   - Abilita RDP nella VM locale prima del failover.
+   - Verifica che per il profilo **Pubblico** siano aggiunte le regole TCP e UDP.
+   - Verifica che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.
  
 2. Per l'accesso tramite VPN da sito a sito:
 
- - Abilita RDP nella macchina virtuale locale.
- - Consente RDP in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio e private**.
- - Imposta i criteri SAN del sistema operativo nella VM locale su **OnlineAll**.
+   - Abilita RDP nella macchina virtuale locale.
+   - Consente RDP in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio e private**.
+   - Imposta i criteri SAN del sistema operativo nella VM locale su **OnlineAll**.
 
 Inoltre, quando esegue un failover, deve verificare quanto segue:
 
@@ -496,7 +496,7 @@ Ora gli amministratori di Contoso possono creare i criteri di replica.
 
 1. In **Preparare l'infrastruttura** > **Impostazioni della replica** > **Criteri di replica** >  **Crea e associa** vengono creati i criteri **ContosoMigrationPolicy**.
 2. Usa le impostazioni predefinite:
-    - **Soglia RPO**. Impostazione predefinita di 60 minuti. Questo valore definisce la frequenza con cui vengono creati punti di ripristino. Se la replica continua supera questo limite, viene generato un avviso.
+    - **Soglia RPO**: Il valore predefinito è 60 minuti. Questo valore definisce la frequenza con cui vengono creati punti di ripristino. Se la replica continua supera questo limite, viene generato un avviso.
     - **Conservazione del punto di ripristino**. Impostazione predefinita di 24 ore. Questo valore specifica il periodo di conservazione per ogni punto di ripristino. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo.
     - **Frequenza snapshot coerenti con l'app**. Impostazione predefinita di un'ora. Questo valore specifica la frequenza di creazione di snapshot coerenti con l'applicazione.
  
@@ -619,7 +619,7 @@ Al termine della configurazione, Contoso può ora disporre di un gruppo di dispo
 - Sono disponibili [altre informazioni](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2) sulla creazione e l'uso della firma di accesso condiviso.
 
 
-## <a name="step-8-migrate-the-vm-with-site-recovery"></a>Passaggio 8: Eseguire la migrazione della VM con Site Recovery
+## <a name="step-8-migrate-the-vm-with-site-recovery"></a>Passaggio 8: Eseguire la migrazione della macchina virtuale con Site Recovery
 
 Gli amministratori Contoso effettuano un rapido failover di test e poi eseguono la migrazione della macchina virtuale.
 
@@ -704,7 +704,7 @@ Il team di sicurezza Contoso esamina le VM di Azure WEBVM, SQLAOG1 e SQLAOG2 per
 ## <a name="bcdr"></a>BCDR
 
  Per la continuità aziendale e il ripristino di emergenza (BCDR), Contoso esegue le azioni seguenti:
- - Mantenere i dati al sicuro: Contoso esegue il backup dei dati nelle macchine virtuali WEBVM, SQLAOG1 e SQLAOG2 usando il servizio Backup di Azure. [Altre informazioni].
+ - Proteggere i dati: Contoso esegue il backup dei dati nelle macchine virtuali WEBVM, SQLAOG1 e SQLAOG2 usando il servizio Backup di Azure. [Altre informazioni].
 (https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - Contoso apprenderà anche come usare Archiviazione di Azure per eseguire il backup di SQL Server direttamente in un archivio blob. [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore)
 - Mantenere le app in esecuzione: Contoso esegue la replica delle macchine virtuali dell'app in Azure in un'area secondaria usando Site Recovery. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)

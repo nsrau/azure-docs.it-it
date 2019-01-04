@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b535939e200b533c06c97686897e283fb6cf57bc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632790"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720185"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
 
@@ -94,8 +94,8 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 ```
 
 Dove: 
-- Il nome e il tipo di estensione per Windows è: ManagedIdentityExtensionForWindows
-- Il nome e il tipo di estensione per Linux è: ManagedIdentityExtensionForLinux
+- Il nome dell'estensione e il tipo per Windows sono: ManagedIdentityExtensionForWindows
+- Il nome dell'estensione e il tipo per Linux sono: ManagedIdentityExtensionForLinux
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -115,7 +115,7 @@ Se il pannello di configurazione della macchina virtuale non è visualizzato nel
 
 ### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Impossibile assegnare l'accesso alle macchine virtuali nel pannello Controllo di accesso (IAM)
 
-Se la **macchina virtuale** non è visualizzata nel portale di Azure come opzione per **Assegnare accesso a** in **Controllo di accesso (IAM)** > **Aggiungere autorizzazioni**, le identità gestite per le risorse di Azure non sono ancora state abilitate nel portale della propria area geografica. Ricontrollare in seguito.  È comunque possibile selezionare l'identità per la macchina virtuale per l'assegnazione del ruolo eseguendo una ricerca dell'entità servizio relativa alle identità gestite per le risorse di Azure.  Immettere il nome della macchina virtuale nel campo **Seleziona** per visualizzare l'entità servizio nei risultati della ricerca.
+Se la **macchina virtuale** non è visualizzata nel portale di Azure come opzione per **Assegnare accesso a** in **Controllo di accesso (IAM)** > **Aggiungi un'assegnazione di ruolo**, le identità gestite per le risorse di Azure non sono ancora state abilitate nel portale della propria area geografica. Ricontrollare in seguito.  È comunque possibile selezionare l'identità per la macchina virtuale per l'assegnazione del ruolo eseguendo una ricerca dell'entità servizio relativa alle identità gestite per le risorse di Azure.  Immettere il nome della macchina virtuale nel campo **Seleziona** per visualizzare l'entità servizio nei risultati della ricerca.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>La macchina virtuale non viene avviata dopo essere stata spostata dal gruppo di risorse o dalla sottoscrizione
 

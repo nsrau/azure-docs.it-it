@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: df69406bd0a6e09f66262ce66f8eeb7cada2422a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: eb4057b4cfc6a68fb3489a7ab6fb1ee6b5f41d7d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393984"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338463"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Panoramica delle code dei messaggi non recapitabili del bus di servizio
 
@@ -76,7 +76,7 @@ Oltre alle funzionalità di definizione dei messaggi non recapitabili del sistem
 
 I messaggi verranno inviati nella coda dei messaggi non recapitabili di trasferimento nelle condizioni seguenti:
 
-- Un messaggio passa attraverso più di 3 code o argomenti che sono [concatenati](service-bus-auto-forwarding.md).
+- Un messaggio passa attraverso più di 4 code o argomenti che sono [concatenati](service-bus-auto-forwarding.md).
 - L'argomento o la coda di destinazione è disattivato o eliminato.
 - L'argomento o la coda di destinazione supera le dimensioni massime dell'entità.
 

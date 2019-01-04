@@ -8,24 +8,23 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: d8bb7a975bd5bab8698d20e5d21514b79945eac6
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 4a7b5cd925bd4b66e25754c30de5cbaf866dab0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564919"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970627"
 ---
 # <a name="application-insights-cohorts"></a>Coorti di Application Insights
 
 Una coorte è un set di utenti, sessioni, eventi o operazioni con elementi in comune. In Azure Application Insights le coorti vengono definite da una query di analisi. Se è necessario analizzare più volte un set specifico di utenti o eventi, le coorti offrono più flessibilità per esprimere con esattezza il set a cui si è interessati.
 
-![Riquadro Coorti](.\media\app-insights-usage-cohorts\001.png)
+![Riquadro Coorti](./media/app-insights-usage-cohorts/001.png)
 
 ## <a name="cohorts-versus-basic-filters"></a>Coorti e filtri di base
 
@@ -36,7 +35,7 @@ Le coorti vengono usate in modo simile ai filtri, ma le definizioni delle coorti
 > [!NOTE]
 > Dopo essere state create, le coorti sono disponibili dagli strumenti Utenti, Sessioni, Eventi e Flussi utente.
 
-## <a name="example-engaged-users"></a>Esempio: utenti attivi
+## <a name="example-engaged-users"></a>Esempio: Utenti attivi
 
 In base alla definizione elaborata dal team, un utente attivo è chi usa l'app cinque o più volte in un determinato mese. In questa sezione si definisce una coorte di questi utenti attivi.
 
@@ -53,14 +52,14 @@ In base alla definizione elaborata dal team, un utente attivo è chi usa l'app c
 
 4. Impostare **UsedAtLeastCustom** su **5+ days** (5+ giorni) e lasciare **Period** impostato sul valore predefinito di 28 giorni.
 
-    ![Utenti attivi](.\media\app-insights-usage-cohorts\003.png)
+    ![Utenti attivi](./media/app-insights-usage-cohorts/003.png)
 
     Questa coorte rappresenta ora tutti gli ID utente inviati con gli eventi personalizzati o le visualizzazioni pagina in 5 giorni distinti nell'arco degli ultimi 28.
 
 5. Selezionare **Salva**.
 
    > [!TIP]
-   >  Assegnare un nome alla coorte, ad esempio "Utenti attivi (5+ giorni)". Salvarla in "Report personali" o in "Report condivisi", a seconda che si voglia consentire o meno ad altri utenti che hanno accesso a questa risorsa di Application Insights di visualizzare questa coorte.
+   > Assegnare un nome alla coorte, ad esempio "Utenti attivi (5+ giorni)". Salvarla in "Report personali" o in "Report condivisi", a seconda che si voglia consentire o meno ad altri utenti che hanno accesso a questa risorsa di Application Insights di visualizzare questa coorte.
 
 6. Selezionare **Torna alla raccolta**.
 
@@ -70,15 +69,16 @@ Aprire lo strumento Utenti. Nella casella di riepilogo a discesa **Mostra** sceg
 
 Allo strumento Utenti viene ora applicato il filtro basato su questa coorte di utenti:
 
-![Riquadro Utenti filtrato in base a una determinata coorte](.\media\app-insights-usage-cohorts\004.png)
+![Riquadro Utenti filtrato in base a una determinata coorte](./media/app-insights-usage-cohorts/004.png)
 
 Alcuni aspetti importanti da notare:
+
 * Non è possibile creare questo set con i normali filtri. La logica della data è più avanzata.
 * È possibile filtrare ulteriormente questa coorte usando i normali filtri nello strumento Utenti, quindi, anche se la coorte è definita in una finestra di 28 giorni, è tuttavia possibile impostare l'intervallo di tempo nello strumento Utenti su 30, 60 o 90 giorni.
 
 Questi filtri supportano domande più sofisticate, impossibili da esprimere con il generatore di query. Un esempio è costituito dalle _persone che sono state attive negli ultimi 28 giorni. Come si sono comportate le stesse persone negli ultimi 60 giorni?_
 
-## <a name="example-events-cohort"></a>Esempio: coorte di eventi
+## <a name="example-events-cohort"></a>Esempio: Coorte eventi
 
 È anche possibile creare coorti di eventi. In questa sezione si definisce una coorte degli eventi e delle visualizzazioni pagina, quindi si vedrà come usarli dagli altri strumenti. Questa coorte potrebbe definire un set di eventi che il team considera _utilizzo attivo_ o impostare un set correlato a una nuova funzionalità.
 
@@ -88,7 +88,7 @@ Questi filtri supportano domande più sofisticate, impossibili da esprimere con 
 
 3. Selezionare **Events Picker** (Selezione eventi).
 
-    ![Screenshot di Events Picker (Selezione eventi)](.\media\app-insights-usage-cohorts\006.png)
+    ![Screenshot di Events Picker (Selezione eventi)](./media/app-insights-usage-cohorts/006.png)
 
 4. Nella casella di riepilogo a discesa **Activities** selezionare gli eventi da inserire nella coorte.
 
@@ -98,11 +98,11 @@ Questi filtri supportano domande più sofisticate, impossibili da esprimere con 
 
 Le due coorti precedenti sono state definite usando caselle di riepilogo a discesa, ma è anche possibile definire le coorti usando query di analisi per una flessibilità ottimale. A questo scopo, creare una coorte di utenti del Regno Unito.
 
-![Immagine animata che illustra l'uso dello strumento Coorti](.\media\app-insights-usage-cohorts\cohorts0001.gif)
+![Immagine animata che illustra l'uso dello strumento Coorti](./media/app-insights-usage-cohorts/cohorts0001.gif)
 
 1. Aprire lo strumento Coorti, selezionare la scheda **Raccolta modelli** e selezionare **Coorte utenti vuota**.
 
-    ![Coorte utenti vuota](.\media\app-insights-usage-cohorts\001.png)
+    ![Coorte utenti vuota](./media/app-insights-usage-cohorts/001.png)
 
     Sono disponibili tre sezioni:
     * Una sezione di testo Markdown, in cui si descrive più dettagliatamente la coorte per gli altri membri del team.
@@ -137,7 +137,8 @@ Le coorti e i filtri sono diversi. Si supponga di avere una coorte di utenti del
 * La versione dei filtri mostra solo gli eventi del Regno Unito, ma, se si divide per paese o area geografica, viene visualizzato solo il Regno Unito.
 
 ## <a name="learn-more"></a>Altre informazioni
-- [Linguaggio di query di Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
-- [Utenti, sessioni ed eventi](app-insights-usage-segmentation.md)
-- [Flussi degli utenti](app-insights-usage-flows.md)
-- [Panoramica sull'uso](app-insights-usage-overview.md)
+
+* [Linguaggio di query di Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Utenti, sessioni ed eventi](app-insights-usage-segmentation.md)
+* [Flussi degli utenti](app-insights-usage-flows.md)
+* [Panoramica sull'uso](app-insights-usage-overview.md)

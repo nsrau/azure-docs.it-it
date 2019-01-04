@@ -1,19 +1,20 @@
 ---
-title: Filtri di sicurezza per limitare i risultati in Ricerca di Azure | Microsoft Docs
+title: Filtri di sicurezza per limitare i risultati - Ricerca di Azure
 description: Controllo di accesso sul contenuto di Ricerca di Azure con i filtri di sicurezza e le identità dell'utente.
 ms.service: search
 ms.topic: conceptual
 services: search
 ms.date: 08/07/2017
-author: revitalbarletz
-ms.author: revitalb
+author: brjohnstmsft
+ms.author: brjohnst
 manager: jlembicz
-ms.openlocfilehash: dd26676b74431566b3631b8a79cd06bcf3022518
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792801"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314228"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtri di sicurezza per limitare i risultati in Ricerca di Azure
 
@@ -32,7 +33,7 @@ Questo articolo descrive come applicare un filtro di sicurezza usando la procedu
 >[!NOTE]
 > Il processo di recupero degli identificatori dell'entità di sicurezza non viene trattato in questo documento. È possibile richiederlo dal provider di servizi di identità.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone la disponibilità di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), del [servizio Ricerca di Azure](https://docs.microsoft.com/azure/search/search-create-service-portal) e dell'[Indice di Ricerca di Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ddf9c5e30a27a829a74ccf0985dce30a68f9bbb7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b4023d45c3628df5006d076e01f32bb8f3aa80a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256649"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846250"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlli delle applicazioni adattivi nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il controllo delle applicazioni nel Centro sicurezza di Azure.
@@ -105,7 +105,7 @@ Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le
 
   - **Nome**: nome della sottoscrizione e del gruppo
   - **MACCHINE VIRTUALI**: numero di macchine virtuali nel gruppo
-  - **Modalità**: la modalità di controllo registra i tentativi di eseguire applicazioni non inserite nell'elenco elementi consentiti, mentre la modalità di imposizione impedisce l'esecuzione delle applicazioni non inserite nell'elenco elementi consentiti
+  - **Modalità**: la modalità di controllo registra i tentativi di eseguire applicazioni non inserite nell'elenco elementi consentiti, mentre la modalità Applica impedisce l'esecuzione delle applicazioni non inserite nell'elenco elementi consentiti
   - **Avvisi**: qualsiasi violazione corrente
 
 2. Fare clic su un gruppo per apportare le modifiche nella pagina **Modifica il criterio del controllo applicazione**.
@@ -118,7 +118,8 @@ Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le
   - **Applica**: in questa modalità la soluzione di controllo delle applicazioni applica le regole e garantisce il blocco delle applicazioni la cui esecuzione non è consentita.
 
    > [!NOTE]
-   > Come indicato in precedenza, per impostazione predefinita i nuovi criteri di controllo delle applicazioni vengono sempre configurati in modalità *Controllo*. 
+   > -  La modalità di protezione**Applica** è disabilitata fino a nuovo avviso.
+   > - Come indicato in precedenza, per impostazione predefinita i nuovi criteri di controllo delle applicazioni vengono sempre configurati in modalità *Controllo*. 
    >
 
 4. In **Estensione dei criteri** è possibile aggiungere il percorso di qualsiasi applicazione da consentire. Dopo aver aggiunto tali percorsi, il Centro sicurezza aggiorna i criteri di inserimento nell'elenco elementi consentiti nelle macchine virtuali all'interno del gruppo selezionato e crea le regole appropriate per queste applicazioni, oltre a quelle già presenti.
@@ -130,7 +131,7 @@ Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le
 6. In **Regole di inserimento delle entità di pubblicazione nell'elenco elementi consentiti** e **Regole di inserimento dei percorsi nell'elenco elementi consentiti** e **Regole di inserimento degli hash nell'elenco elementi consentiti** è possibile visualizzare quali regole di inserimento delle applicazioni nell'elenco elementi consentiti sono attualmente configurate nelle macchine virtuali all'interno di un gruppo, in base al tipo di raccolta di regole. Per ogni regola è possibile visualizzare:
 
   - **Regola**: i parametri specifici in base ai quali un'applicazione viene esaminata da AppLocker per determinare se può essere eseguita.
-  - **Tipo di file**: tipi di file coperti da una specifica regola. Può trattarsi di uno dei seguenti: EXE, Script, file MSI o qualsiasi permutazione di questi tipi di file.
+  - **Tipo di file**: i tipi di file coperti da una specifica regola. Può trattarsi di uno dei seguenti: EXE, Script, file MSI o qualsiasi permutazione di questi tipi di file.
   - **Utenti**: nome o numero di utenti autorizzati a eseguire un'applicazione che è coperta da una regola di inserimento delle applicazioni nell'elenco elementi consentiti.
 
    ![Regole di inserimento nell'elenco elementi consentiti](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)

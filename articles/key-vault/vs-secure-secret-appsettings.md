@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4c54fe7c9ae5555ad1b8ba6919c70c8f7fa49125
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625454"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252108"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvataggio sicuro delle impostazioni applicazione segrete per un'applicazione Web
 
 ## <a name="overview"></a>Panoramica
 Questo articolo descrive come salvare in modo sicuro le impostazioni di configurazione dell'applicazione segrete per le applicazioni Azure.
 
-In genere tutte le impostazioni di configurazione delle applicazioni Web vengono salvate in file di configurazione come Web.config. Questa procedura porta all'archiviazione di impostazioni segrete, ad esempio le credenziali del cloud, in sistemi di controllo del codice sorgente pubblici come Github. Nel frattempo potrebbe essere difficile seguire una procedura consigliata di sicurezza a causa dell'overhead necessario per modificare il codice sorgente e riconfigurare le impostazioni di sviluppo.
+In genere tutte le impostazioni di configurazione delle applicazioni Web vengono salvate in file di configurazione come Web.config. Questa procedura porta all'archiviazione di impostazioni segrete, ad esempio le credenziali del cloud, in sistemi di controllo del codice sorgente pubblici come GitHub. Nel frattempo potrebbe essere difficile seguire una procedura consigliata di sicurezza a causa dell'overhead necessario per modificare il codice sorgente e riconfigurare le impostazioni di sviluppo.
 
 Per assicurarsi che il processo di sviluppo sia protetto, vengono create librerie di strumenti e framework in cui salvare in modo sicuro le impostazioni segrete dell'applicazione con modifiche minime o nulle del codice sorgente.
 

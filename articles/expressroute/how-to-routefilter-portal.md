@@ -1,28 +1,21 @@
 ---
-title: 'Configurare i filtri di route per il peering Microsoft Azure ExpressRoute: Portale | Microsoft Docs'
+title: 'Configurare i filtri di route per il peering Microsoft: Azure ExpressRoute - Portale | Microsoft Docs'
 description: Questo articolo descrive come configurare i filtri di route per il peering Microsoft con il portale di Azure.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 09/26/2018
 ms.author: ganesr
-ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: seodec18
+ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29387728"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104206"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurare i filtri di route per il peering Microsoft: portale di Azure
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurare i filtri di route per il peering Microsoft: Portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale di Azure](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
@@ -95,33 +88,33 @@ Un filtro di route può includere una sola regola di tipo 'Consenti'. A questa r
 ### <a name="1-create-a-route-filter"></a>1. Creare un filtro di route
 È possibile creare un filtro di route selezionando l'opzione che consente di creare una nuova risorsa. Fare clic su **Crea una risorsa** > **Rete** > **Filtro della route**, come illustrato nell'immagine seguente:
 
-![Creare un filtro di route](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
+![Creare un filtro di route](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 
 Il filtro di route deve essere inserito in un gruppo di risorse. 
 
-![Creare un filtro di route](.\media\how-to-routefilter-portal\CreateRouteFilter.png)
+![Creare un filtro di route](./media/how-to-routefilter-portal/CreateRouteFilter.png)
 
 ### <a name="2-create-a-filter-rule"></a>2. Creare una regola di filtro
 
 È possibile aggiungere e aggiornare regole selezionando la scheda di gestione delle regole per il filtro di route.
 
-![Creare un filtro di route](.\media\how-to-routefilter-portal\ManageRouteFilter.png)
+![Creare un filtro di route](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
 Nell'elenco a discesa è possibile selezionare i servizi a cui si intende connettersi e, al termine, salvare la regola.
 
-![Creare un filtro di route](.\media\how-to-routefilter-portal\AddRouteFilterRule.png)
+![Creare un filtro di route](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
 ## <a name="attach"></a>Passaggio 3: Associare il filtro di route a un circuito ExpressRoute
 
 È possibile associare il filtro di route a un circuito facendo clic sul pulsante "Aggiungi circuito" e selezionando il circuito ExpressRoute nell'elenco a discesa.
 
-![Creare un filtro di route](.\media\how-to-routefilter-portal\AddCktToRouteFilter.png)
+![Creare un filtro di route](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
 Se il provider di connettività configura il peering del circuito ExpressRoute, aggiornare il circuito ExpressRoute dal pannello del circuito ExpressRoute prima di selezionare il pulsante "Aggiungi circuito".
 
-![Creare un filtro di route](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
+![Creare un filtro di route](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
 
 ## <a name="tasks"></a>Attività comuni
 
@@ -129,7 +122,7 @@ Se il provider di connettività configura il peering del circuito ExpressRoute, 
 
 È possibile visualizzare le proprietà di un filtro di route quando si apre la risorsa nel portale.
 
-![Creare un filtro di route](.\media\how-to-routefilter-portal\ViewRouteFilter.png)
+![Creare un filtro di route](./media/how-to-routefilter-portal/ViewRouteFilter.png)
 
 
 ### <a name="updateproperties"></a>Per aggiornare le proprietà di un filtro di route
@@ -137,23 +130,23 @@ Se il provider di connettività configura il peering del circuito ExpressRoute, 
 È possibile aggiornare l'elenco dei valori di community BGP associato a un circuito facendo clic sul pulsante "Gestisci regola".
 
 
-![Creare un filtro di route](.\media\how-to-routefilter-portal\ManageRouteFilter.png)
+![Creare un filtro di route](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
-![Creare un filtro di route](.\media\how-to-routefilter-portal\AddRouteFilterRule.png) 
+![Creare un filtro di route](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
 
 
 ### <a name="detach"></a>Per rimuovere l'associazione di un filtro di route da un circuito ExpressRoute
 
 Per disconnettere un circuito dal filtro di route, fare clic con il pulsante destro del mouse sul circuito e fare clic su "annulla associazione".
 
-![Creare un filtro di route](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
+![Creare un filtro di route](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
 
 ### <a name="delete"></a>Per eliminare un filtro di route
 
 È possibile eliminare un filtro di route selezionando il pulsante di eliminazione. 
 
-![Creare un filtro di route](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
+![Creare un filtro di route](./media/how-to-routefilter-portal/DeleteRouteFilter.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

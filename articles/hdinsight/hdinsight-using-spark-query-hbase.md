@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 1136d97ad1c1d02320331e6d2013b68526d5abb4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f76dfc8499d294c2c682c4d9c4cf2cd2f858432f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277902"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408865"
 ---
-# <a name="use-spark-to-read-and-write-hbase-data"></a>Usare Spark per leggere e scrivere dati HBase
+# <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Usare Apache Spark per leggere e scrivere dati Apache HBase
 
-Le query in Apache HBase vengono in genere eseguite con l'API di basso livello corrispondente (scan, get e put) o con una sintassi SQL tramite Phoenix. Apache offre anche il connettore HBase Spark, che rappresenta una comoda ed efficace alternativa per eseguire query e modificare i dati archiviati da HBase.
+Le query in Apache HBase vengono in genere eseguite con l'API di basso livello corrispondente (scan, get e put) o con una sintassi SQL tramite Apache Phoenix. Apache offre anche il connettore HBase di Apache Spark, che rappresenta una comoda ed efficace alternativa per eseguire query e modificare i dati archiviati da HBase.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,9 +38,9 @@ Il processo generale per l'abilitazione di un cluster Spark per l'esecuzione di 
 5. Definire un catalogo corrispondente allo schema da Spark a HBase.
 6. Interagire con i dati di HBase tramite le API RDD o DataFrame.
 
-## <a name="prepare-sample-data-in-hbase"></a>Preparare i dati di esempio in HBase
+## <a name="prepare-sample-data-in-apache-hbase"></a>Preparare i dati di esempio in Apache HBase
 
-In questo passaggio, viene creata e popolata una semplice tabella in HBase, sulla quale è poi possibile eseguire query tramite Spark.
+In questo passaggio viene creata e popolata una semplice tabella in Apache HBase, sulla quale è poi possibile eseguire query tramite Spark.
 
 1. Connettersi al nodo head del cluster HBase tramite SSH. Per altre informazioni, vedere [Connettersi a HDInsight con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 2. Eseguire la shell HBase:
@@ -132,7 +132,7 @@ In questo passaggio, viene creata e popolata una semplice tabella in HBase, sull
 
 ## <a name="define-a-catalog-and-query"></a>Definire un catalogo ed eseguire una query
 
-In questo passaggio, definire un oggetto catalogo corrispondente allo schema da Spark a HBase. 
+In questo passaggio, definire un oggetto catalogo corrispondente allo schema da Apache Spark ad Apache HBase. 
 
 1. Nella shell di Spark aperta eseguire le istruzioni `import` seguenti:
 
@@ -244,4 +244,4 @@ In questo passaggio, definire un oggetto catalogo corrispondente allo schema da 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Connettore HBase Spark](https://github.com/hortonworks-spark/shc)
+* [Connettore HBase di Apache Spark](https://github.com/hortonworks-spark/shc)

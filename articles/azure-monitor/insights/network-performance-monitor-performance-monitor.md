@@ -10,19 +10,17 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: 8b4ed19ede70c3c9b768cfd368e22b0df3e71212
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: de9e6d5c8c6b4dc9652ae64c9a4fd0e38d7a7b87
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430536"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184764"
 ---
-# <a name="network-performance-monitor-solution-performance-monitoring"></a>Soluzione Monitoraggio prestazioni rete - Monitoraggio delle prestazioni
+# <a name="network-performance-monitor-solution-performance-monitoring"></a>Soluzione Monitoraggio prestazioni rete: Monitoraggio delle prestazioni
 
 La funzionalità Performance Monitor in [Monitoraggio prestazioni rete](network-performance-monitor.md) consente di monitorare la connettività tra vari punti della rete. È possibile monitorare distribuzioni cloud e sedi locali, diversi data center e succursali e applicazioni o microservizi multilivello di importanza cruciale. La funzionalità Performance Monitor consente di rilevare tempestivamente i problemi a livello di rete. I principali vantaggi offerti sono i seguenti: 
 
@@ -137,4 +135,4 @@ Nella figura seguente la causa radice delle aree problematiche relative alla sez
 ![Mappa della topologia con proprietà del nodo selezionato](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Effettuare una ricerca nei log](../../log-analytics/log-analytics-queries.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
+[Effettuare una ricerca nei log](../../azure-monitor/log-query/log-query-overview.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.

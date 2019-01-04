@@ -9,17 +9,16 @@ ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b9428e4451ebef921907809b1250238bf084706d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960821"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864962"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -70,7 +69,7 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 ## <a name="faq"></a>Domande frequenti
 
 * *È vero che il personale Microsoft ha accesso ai dati personali?*
-  * No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](app-insights-data-retention-privacy.md).
+  *  No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](app-insights-data-retention-privacy.md).
 * *Tutti i dati raccolti vengono analizzati da Application Insights?*
   * Attualmente no. Al momento vengono analizzati il tempo di risposta alla richiesta, il tempo di risposta della dipendenza e il tempo di caricamento della pagina. L'analisi delle metriche aggiuntive si trova nel backlog futuro.
 
@@ -86,7 +85,7 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 
   * L'analisi viene eseguita giornalmente sui dati di telemetria dal giorno precedente, giornata completa nel fuso orario UTC.
 * *Ciò sostituisce [gli avvisi delle metriche](app-insights-alerts.md)?*
-  * No.  Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
+  *  No.  Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
 
 
 * *Se non eseguo alcuna operazione in risposta a una notifica, viene inviato un promemoria?*
@@ -117,8 +116,8 @@ Aprire il pannello delle metriche del browser. La visualizzazione segmentata del
 ### <a name="improve-slow-pages"></a>Migliorare le pagine lente
 Sul Web sono disponibili molti suggerimenti per migliorare le risposte del server e i tempi di caricamento delle pagine, quindi non occorre riportarli in questo articolo. Ecco alcuni suggerimenti probabilmente già noti, ma che possono risultare utili:
 
-* Caricamento lento a causa di file di grandi dimensioni: caricare gli script e altre parti in modo asincrono. Usare la creazione di bundle di script. Suddividere la pagina principale in widget che caricano separatamente i rispettivi dati. Non inviare semplice codice HTML per tabelle lunghe. Usare invece uno script per richiedere i dati come JSON o un altro formato compatto, quindi compilare la tabella sul posto. Per semplificare queste operazioni, sono disponibili utili framework, che ovviamente includono script di grandi dimensioni.
-* Dipendenze lente del server: esaminare le posizioni geografiche dei componenti. Ad esempio, se si usa Azure, assicurarsi che il server Web e il database si trovino nella stessa area geografica. Le query recuperano una quantità di informazioni superiore al necessario? La memorizzazione nella cache o l'invio in batch possono essere utili?
+* Caricamento lento a causa di file di grandi dimensioni: caricare gli script e le altre parti in modo asincrono. Usare la creazione di bundle di script. Suddividere la pagina principale in widget che caricano separatamente i rispettivi dati. Non inviare semplice codice HTML per tabelle lunghe. Usare invece uno script per richiedere i dati come JSON o un altro formato compatto, quindi compilare la tabella sul posto. Per semplificare queste operazioni, sono disponibili utili framework, che ovviamente includono script di grandi dimensioni.
+* Dipendenze lente del server: esaminare le località geografiche dei componenti. Ad esempio, se si usa Azure, assicurarsi che il server Web e il database si trovino nella stessa area geografica. Le query recuperano una quantità di informazioni superiore al necessario? La memorizzazione nella cache o l'invio in batch possono essere utili?
 * Problemi di capacità: esaminare le metriche del server relative ai tempi di risposta e al numero delle richieste. Se i picchi dei tempi di risposta non sono proporzionati ai picchi del numero di richieste, è probabile che le capacità dei server siano insufficienti.
 
 
@@ -185,7 +184,7 @@ Gli strumenti di diagnostica seguenti consentono di controllare la telemetria da
 
 * [Profiler](app-insights-profiler.md) 
 * [Debugger di snapshot](app-insights-snapshot-debugger.md)
-* [Analisi](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analisi](../azure-monitor/log-query/get-started-portal.md)
 * [Diagnostica intelligenti di Analisi](app-insights-analytics.md)
 
 Gli avvisi di rilevamento intelligente sono completamente automatici, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.

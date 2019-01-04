@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: d228fbde230f89848d895bd1c004724b88de4431
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a8d91c0410d2a59e4b22866aa48d36c026f3ee8e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883823"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956296"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Problemi noti e limitazioni per le migrazioni online al database SQL di Azure
 
@@ -28,9 +28,9 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
 Se il database di origine è costituito da una o più tabelle temporali, si verifica un errore di migrazione del database durante l'operazione di caricamento completo dei dati ed è possibile che venga visualizzato il messaggio seguente:
 
-{ "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" } (Errore di migrazione del database. Non è stato possibile impostare le funzionalità di acquisizione. L'uso della replica non è supportato con la tabella temporale con controllo delle versioni di sistema)
+{ "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Messaggio: [Microsoft][SQL Server Native Client 11.0][SQL Server]L'uso della replica non è supportato con la tabella temporale '[Application. Cities]' con controllo delle versioni di sistema' Riga: 1 Colonna: -1 "]" }
  
- ![Esempio di errori di tabella temporale](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
+ ![Esempio di errori di tabella temporale](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **Soluzione alternativa**
 
@@ -52,7 +52,7 @@ Per altre informazioni, vedere l'articolo [Tabelle temporali](https://docs.micro
 
 Può verificarsi un'eccezione SQL in cui è indicato che "ntext non è compatibile con hierarchyid" durante l'operazione di caricamento completo dei dati:
      
-![Esempio di errori di hierarchyid](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
+![Esempio di errori di hierarchyid](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
 
 **Soluzione alternativa**
 
@@ -107,7 +107,7 @@ Se è necessario che il Servizio Migrazione del database esegua la migrazione de
 
 In caso di errori di migrazione visualizzati nel pannello di informazioni dettagliate sullo stato del database, il collegamento **Errori di migrazione dati** sulla barra multifunzione superiore potrebbe non mostrare dettagli aggiuntivi relativi a tali errori.
 
-![Esempio di errori di migrazione dei dati senza dettagli](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
+![Esempio di errori di migrazione dei dati senza dettagli](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
 **Soluzione alternativa**
 
@@ -115,6 +115,6 @@ Per ottenere dettagli specifici sugli errori, eseguire i passaggi seguenti.
 
 1. Chiudere il pannello di informazioni dettagliate sullo stato del database per visualizzare la schermata dell'attività di migrazione.
 
-     ![Schermata dell'attività di migrazione](media\known-issues-azure-sql-online\dms-migration-activity-screen.png)
+     ![Schermata dell'attività di migrazione](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
 2. Selezionare **Vedere i dettagli dell'errore** per visualizzare i messaggi specifici che consentono di risolvere gli errori di migrazione.

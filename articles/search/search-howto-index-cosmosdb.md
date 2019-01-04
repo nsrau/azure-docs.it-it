@@ -1,6 +1,6 @@
 ---
-title: Indicizzazione di un'origine dati di Azure Cosmos DB per Ricerca di Azure | Microsoft Docs
-description: Questo articolo illustra come creare un indicizzatore di Ricerca di Azure con Cosmos DB come origine dati.
+title: Indicizzare un'origine dati di Azure Cosmos DB - Ricerca di Azure
+description: Eseguire la ricerca per indicizzazione in un'origine dati di Azure Cosmos DB e inserire dati in un indice di ricerca full-text in Ricerca di Azure. Gli indicizzatori automatizzano l'inserimento di dati per alcune origini dati come Azure Cosmos DB.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec2018
+ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747542"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311814"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Connessione di Cosmos DB con Ricerca di Azure tramite indicizzatori
 
@@ -96,16 +97,16 @@ Per creare un'origine dati, creare un POST:
 Il corpo della richiesta contiene la definizione dell'origine dati, che deve includere i campi seguenti:
 
 * **name**: scegliere un nome qualsiasi per rappresentare il database.
-* **type**: deve essere `documentdb`.
+* **type**: Deve essere `documentdb`.
 * **Credenziali**
   
-  * **connectionString**: obbligatorio. Specificare le informazioni di connessione al database di Azure Cosmos DB nel formato seguente: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` per le raccolte di MongoDB, aggiungere **ApiKind=MongoDb** alla stringa di connessione: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  * **connectionString**: Richiesto. Specificare le informazioni di connessione al database di Azure Cosmos DB nel formato seguente: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Per le raccolte di MongoDB, aggiungere **ApiKind = MongoDb** alla stringa di connessione: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
   Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Ricerca di Azure non potrà indicizzare il database di Azure Cosmos DB.
 * **contenitore**:
   
-  * **name**: obbligatorio. Specificare l'ID della raccolta di database da indicizzare.
-  * **query**: facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure. Per le raccolte di MongoDB, le query non sono supportate. 
-* **dataChangeDetectionPolicy**: consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).
+  * **name**: Richiesto. Specificare l'ID della raccolta di database da indicizzare.
+  * **query**: facoltativo. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure. Per le raccolte di MongoDB, le query non sono supportate. 
+* **dataChangeDetectionPolicy**: Consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).
 * **dataDeletionDetectionPolicy**: facoltativo. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Utilizzo di query per formare dati indicizzati

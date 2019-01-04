@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 12/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b036f0b1c38222b6bb3ebee1a3fab0d1613260f7
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890552"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811019"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
@@ -300,15 +300,15 @@ Facoltativamente, è possibile usare il cmdlet Get-Content per puntare a un file
 
 ## <a name="verify-azure-stack-registration"></a>Verificare la registrazione di Azure Stack
 
-Usare questi passaggi per verificare che Azure Stack è stato registrato con Azure.
+È possibile usare la **gestione delle aree** riquadro per verificare che la registrazione di Azure Stack è riuscita. Questo riquadro è disponibile nel dashboard predefinito nel portale di amministrazione. Lo stato può essere registrato o non registrato. Se la registrazione, nonché l'ID sottoscrizione di Azure che è utilizzato per registrare lo Stack di Azure con il gruppo di risorse di registrazione e il nome.
 
-1. Accedi ad Azure Stack [portale di amministrazione](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;area >. &lt;fqdn >*.
-2. Selezionare **tutti i servizi**, quindi nel **amministrazione** categoria, seleziona **gestione Marketplace** > **Add da Azure**.
+1. Accedi per il [portale di amministrazione di Azure Stack](https://adminportal.local.azurestack.external).
 
-Se viene visualizzato un elenco di elementi disponibili in Azure (ad esempio WordPress), l'attivazione è riuscita. Tuttavia, in ambienti disconnessi non noterai elementi del marketplace di Azure nel marketplace di Azure Stack.
+2. Dal Dashboard, selezionare **gestione delle aree**.
 
-> [!Note]  
-> Dopo aver completata la registrazione, il messaggio di avviso attiva per la registrazione non verrà più visualizzato.
+    [ ![Nel riquadro Gestione regione](media/azure-stack-registration/admin1sm.png "nel riquadro Gestione area") ](media/azure-stack-registration/admin1.png#lightbox)
+
+3. Selezionare **Proprietà**. Questo pannello mostra lo stato e i dettagli dell'ambiente. Lo stato può essere **Registered** oppure **non è registrato**. Se la registrazione, nonché l'ID sottoscrizione di Azure che è utilizzato per registrare Azure Stack, con il gruppo di risorse di registrazione e il nome.
 
 ## <a name="renew-or-change-registration"></a>Rinnova o Modifica registrazione
 
@@ -434,9 +434,9 @@ Per eseguire il cmdlet, è necessario:
 | AzureContext | Oggetto PSObject |  |
 | ResourceGroupName | string |  |
 | ResourceGroupLocation | string |  |
-| BillingModel | string | Il modello di fatturazione che usa la sottoscrizione. I valori per questo parametro consentiti sono: capacità PayAsYouUse e sviluppo. |
+| BillingModel | string | Il modello di fatturazione che usa la sottoscrizione. I valori consentiti per questo parametro sono: Capacità PayAsYouUse e sviluppo. |
 | MarketplaceSyndicationEnabled | True/False | Determina se la funzionalità di gestione di marketplace è disponibile nel portale. Impostare su true se la registrazione con connettività internet. Impostare su false se la registrazione in ambienti disconnessi. Per le registrazioni disconnesse, il [dello strumento di diffusione offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) può essere usato per il download di elementi del marketplace. |
-| UsageReportingEnabled | True/False | Azure Stack riporta le metriche di utilizzo per impostazione predefinita. Gli operatori con utilizza la capacità o che supportano un ambiente disconnesso saranno necessario disattivare la segnalazione di utilizzo. I valori per questo parametro consentiti sono: True, False. |
+| UsageReportingEnabled | True/False | Azure Stack riporta le metriche di utilizzo per impostazione predefinita. Gli operatori con utilizza la capacità o che supportano un ambiente disconnesso saranno necessario disattivare la segnalazione di utilizzo. I valori consentiti per questo parametro sono: È true, False. |
 | AgreementNumber | string |  |
 | registrationName | string | Impostare un nome univoco per la registrazione se si esegue lo script di registrazione in più di un'istanza di Azure Stack usando la stessa sottoscrizione di Azure ID. Il parametro ha un valore predefinito pari **AzureStackRegistration**. Tuttavia, se si usa lo stesso nome in più di un'istanza di Azure Stack, lo script avrà esito negativo. |
 
@@ -456,9 +456,9 @@ Get-AzsRegistrationToken genererà un token di registrazione dai parametri di in
 | AzureContext | Oggetto PSObject |  |
 | ResourceGroupName | string |  |
 | ResourceGroupLocation | string |  |
-| BillingModel | string | Il modello di fatturazione che usa la sottoscrizione. I valori per questo parametro consentiti sono: capacità PayAsYouUse e sviluppo. |
+| BillingModel | string | Il modello di fatturazione che usa la sottoscrizione. I valori consentiti per questo parametro sono: Capacità PayAsYouUse e sviluppo. |
 | MarketplaceSyndicationEnabled | True/False |  |
-| UsageReportingEnabled | True/False | Azure Stack riporta le metriche di utilizzo per impostazione predefinita. Gli operatori con utilizza la capacità o che supportano un ambiente disconnesso saranno necessario disattivare la segnalazione di utilizzo. I valori per questo parametro consentiti sono: True, False. |
+| UsageReportingEnabled | True/False | Azure Stack riporta le metriche di utilizzo per impostazione predefinita. Gli operatori con utilizza la capacità o che supportano un ambiente disconnesso saranno necessario disattivare la segnalazione di utilizzo. I valori consentiti per questo parametro sono: È true, False. |
 | AgreementNumber | string |  |
 
 

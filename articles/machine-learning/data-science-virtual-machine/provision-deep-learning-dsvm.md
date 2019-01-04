@@ -1,10 +1,12 @@
 ---
-title: Effettuare il provisioning di una macchina virtuale di data science per l'apprendimento avanzato in Azure | Microsoft Docs
+title: Creare una Data Science Virtual Machine per l'apprendimento avanzato
+titleSuffix: Azure
 description: Configurare e creare una macchina virtuale di data science per l'apprendimento avanzato in Azure per l'analisi e l'apprendimento automatico.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -13,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9d64ad70ea49f7fbffd8bd6a5a77177fe490b832
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6963515958cd55314562e37ffc6ab1d8e0af5bee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229663"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078757"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale per l'apprendimento avanzato in Azure 
 
@@ -36,21 +38,21 @@ Ecco i passaggi necessari per creare un'istanza della macchina virtuale per l'ap
    
    1. **Nozioni di base**
       
-      1. **Name**: nome del server di analisi scientifica dei dati che si sta creando.
-      2. **Select OS type for the Deep Learning VM** (Selezionare il tipo di sistema operativo per la VM di apprendimento avanzato): scegliere Windows o Linux (per la DSVM di base Windows 2016 e Linux Ubuntu)
+      1. **Nome**: nome del server di data science che si sta creando.
+      2. **Select OS type for the Deep Learning VM** (Selezionare il tipo di sistema operativo per la VM di apprendimento avanzato): scegliere Windows o Linux (per la DSVM di base Windows 2016 e Ubuntu Linux)
       2. **Nome utente**: ID di accesso dell'account amministratore.
       3. **Password**: password dell'account amministratore.
-      4. **Sottoscrizione**: se si ha più di una sottoscrizione, selezionare quella in cui viene creata e fatturata la macchina virtuale.
+      4. **Sottoscrizione** Se si ha più di una sottoscrizione, selezionare quella in cui viene creata e fatturata la macchina virtuale.
       5. **Gruppo di risorse**: è possibile creare un nuovo gruppo di risorse di Azure oppure usarne uno **vuoto** esistente nella sottoscrizione.
-      6. **Location**: selezionare la posizione del data center più appropriata. In genere è il data center contenente la maggior parte dei dati o più vicino alla posizione fisica per garantire la massima velocità di accesso alla rete. 
+      6. **Posizione**: selezionare il data center più appropriato. In genere è il data center contenente la maggior parte dei dati o più vicino alla posizione fisica per garantire la massima velocità di accesso alla rete. 
       
 > [!NOTE]
 > Il DLVM supporta tutte le istanze delle macchine virtuali GPU serie NC e ND. Durante il provisioning del DLVM, è necessario scegliere una delle posizioni in Azure che dispongono di GPU. Controllare la [pagina dei Prodotti Azure per area](https://azure.microsoft.com/regions/services/) per le posizioni disponibili e cercare **Serie NC**, **Serie NCv2**, **Serie NCv3** o **Serie ND** sotto **Calcolo**. 
 
    2. **Impostazioni**: selezionare una macchina virtuale GPU serie NC (NC, NCv2, NCv3) o ND che soddisfi i requisiti funzionali e i vincoli di costo. Creare un account di archiviazione per la macchina virtuale.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **Riepilogo**: verificare che tutte le informazioni immesse siano corrette.
-   5. **Acquista**: fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** . 
+   3. **Riepilogo**: Verificare che tutte le informazioni immesse siano corrette.
+   5. **Acquisto**: fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** . 
 
 > [!NOTE]
 > Per il provisioning sono necessari circa 10-20 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
@@ -77,12 +79,12 @@ Per la DLVM Linux è già stato effettuato il provisioning con il server X2Go. L
 1. Scaricare e installare il client X2Go per la piattaforma client da [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Eseguire il client X2Go e selezionare **New Session**(Nuova sessione). Viene visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti:
    * **Scheda Session**(Sessione):
-     * **Host**: nome host o indirizzo IP della VM Linux di analisi scientifica dei dati.
-     * **Login**(Accesso): nome utente di accesso della VM Linux.
-     * **SSH Port**(Porta SSH): lasciare il valore predefinito 22.
-     * **Session Type**(Tipo sessione): modificare il valore in **XFCE**. La DSVM Linux attualmente supporta solo l'ambiente desktop XFCE.
-   * **Scheda Media**(Supporti): è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
-   * **Shared folders**(Cartelle condivise): se si intende montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
+     * **Host**: nome host o indirizzo IP della Data Science Virtual Machine Linux.
+     * **Login**(Accesso): nome utente della VM Linux.
+     * **SSH Port** (Porta SSH): lasciare il valore predefinito 22.
+     * **Session Type** (Tipo di sessione): modificare il valore in **XFCE**. La DSVM Linux attualmente supporta solo l'ambiente desktop XFCE.
+   * **Scheda Media** (Supporti): è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
+   * **Shared folders** (Cartelle condivise): se si prevede di montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
 
 Dopo aver eseguito l'accesso alla VM con il client SSH o il desktop con interfaccia grafica XFCE tramite il client X2Go, è possibile iniziare a usare gli strumenti installati e configurati nella VM. In XFCE è possibile visualizzare i collegamenti di menu delle applicazioni e le icone del desktop per molti di questi strumenti.
 

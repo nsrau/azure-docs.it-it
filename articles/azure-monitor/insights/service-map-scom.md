@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: b590a6ce6d92c78f2020d5ef7cffe6d7f277433c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827500"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187212"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integrazione di Elenco dei servizi con System Center Operations Manager
   > [!NOTE]
@@ -94,7 +93,7 @@ Dopo aver connesso l'area di lavoro di Log Analytics, nel riquadro **Monitoraggi
 La cartella Mapping dei servizi ha quattro nodi:
 * **Avvisi attivi**: elenca tutti gli avvisi attivi per le comunicazioni tra Operations Manager e Mapping dei servizi.  Si noti che tali avvisi non corrispondono agli avvisi di Log Analytics sincronizzati con Operations Manager. 
 
-* **Server**: contiene l'elenco dei server monitorati configurati per la sincronizzazione da Elenco dei servizi.
+* **Server**: contiene l'elenco dei server monitorati configurati per la sincronizzazione da Mapping dei servizi.
 
     ![Riquadro Monitoraggio server di Operations Manager](media/service-map-scom/scom-monitoring-servers.png)
 
@@ -102,7 +101,7 @@ La cartella Mapping dei servizi ha quattro nodi:
 
     ![Diagramma applicazioni distribuite di Operations Manager](media/service-map-scom/scom-group-dad.png)
 
-* **Server Dependency Views** (Visualizzazioni dipendenze server): elenca tutti i server sincronizzati da Elenco dei servizi. È possibile fare clic su un server per visualizzarne il diagramma applicazioni distribuite.
+* **Server Dependency Views** (Visualizzazioni dipendenze server): elenca tutti i server sincronizzati da Mapping dei servizi. È possibile fare clic su un server per visualizzarne il diagramma applicazioni distribuite.
 
     ![Diagramma applicazioni distribuite di Operations Manager](media/service-map-scom/scom-dad.png)
 

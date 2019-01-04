@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334636"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850976"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Linux in Azure usando l'autenticazione di Azure Active Directory (anteprima)
 
@@ -96,7 +96,7 @@ Dopo aver installato l'estensione nella macchina virtuale viene visualizzato lo 
 
 I criteri del controllo degli accessi in base al ruolo determinano chi può accedere alla macchina virtuale. Per autorizzare l'account alla VM vengono usati due ruoli Controllo degli accessi in base al ruolo:
 
-- **Accesso amministratore alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente ROOT di Windows o Linux.
+- **Accesso amministratore alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di amministratore di Windows o di utente root di Linux.
 - **Accesso utente alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente normale.
 
 > [!NOTE]
@@ -129,7 +129,7 @@ Visualizzare innanzitutto l'indirizzo IP pubblico della macchina virtuale con [a
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Accedere alla macchina virtuale Linux di Azure usando le credenziali di Azure AD. Il parametro `-l` consente di specificare il proprio indirizzo dell'account di Azure AD. Specificare l'indirizzo IP pubblico della macchina virtuale come output nel comando precedente:
+Accedere alla macchina virtuale Linux di Azure usando le credenziali di Azure AD. Il parametro `-l` consente di specificare il proprio indirizzo dell'account di Azure AD. Gli indirizzi dell'account devono essere immessi in tutte lettere minuscole. Usare l'indirizzo IP pubblico della macchina virtuale dal comando precedente:
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com publicIps

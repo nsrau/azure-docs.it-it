@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare Zendesk per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: configurare Zendesk per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Zendesk.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 2dc965547511d27ed43a88c1f45b50593b30a937
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347937"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322773"
 ---
-# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zendesk per il provisioning utenti automatico
+# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Esercitazione: configurare Zendesk per il provisioning utenti automatico
 
 Questa esercitazione descrive la procedura da eseguire in Zendesk e Azure Active Directory (Azure AD) per configurare Azure AD in modo da effettuare automaticamente il provisioning e il de-provisioning di utenti e/o gruppi in Zendesk. 
 
@@ -77,6 +77,10 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Suggerimenti importanti per l'assegnazione di utenti a Zendesk
 
+*    I ruoli di Zendesk vengono popolati oggi stesso in modo automatico e dinamico nell'interfaccia utente del portale di Azure. Prima di assegnare i ruoli Zendesk agli utenti, assicurarsi di completare una sincronizzazione iniziale con Zendesk per recuperare gli ultimi ruoli nel tenant Zendesk.
+
+*    È consigliabile assegnare un singolo utente di Azure AD a Zendesk per testare la configurazione iniziale del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento, una volta completati i test.
+  
 *   È consigliabile assegnare un singolo utente di Azure AD a Zendesk per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
 *   Quando si assegna un utente a Zendesk, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** vengono esclusi dal provisioning.

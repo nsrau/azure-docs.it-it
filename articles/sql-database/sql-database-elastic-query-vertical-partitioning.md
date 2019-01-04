@@ -3,7 +3,7 @@ title: Eseguire query in database cloud con schemi diversi | Documentazione Micr
 description: Informazioni su come configurare le query tra database su partizioni verticali.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 5dbf6fb1b59999481348d3b4ad4775a77295b70d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 75c021f7b2c2584580f2d9dbf30cbcdf11d3fdc5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238897"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875366"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Eseguire query in database cloud con schemi diversi (anteprima)
 ![Eseguire una query tra tabelle in vari database][1]
@@ -118,7 +118,7 @@ Nell'esempio seguente viene illustrato come recuperare l'elenco di tabelle ester
 La query elastica estende la sintassi esistente della tabella esterna per definire le tabelle esterne che usano origini dati esterne di tipo RDBMS. Una definizione di tabella esterna per il partizionamento verticale comprende gli aspetti seguenti: 
 
 * **Schema**: il DDL della tabella esterna definisce uno schema che può essere usato dalle query. Lo schema fornito nella definizione della tabella esterna deve corrispondere allo schema delle tabelle nel database remoto in cui sono archiviati i dati effettivi. 
-* **Riferimento al database remoto**: il DDL della tabella esterna fa riferimento a un'origine dati esterna. L'origine dati esterna specifica il nome del server logico e il nome del database remoto in cui sono archiviati i dati effettivi della tabella. 
+* **Riferimento a database remoto**: il DDL della tabella esterna fa riferimento a un'origine dati esterna. L'origine dati esterna specifica il nome del server logico e il nome del database remoto in cui sono archiviati i dati effettivi della tabella. 
 
 Se si usa un'origine dati esterna, come illustrato nella sezione precedente, la sintassi per la creazione di tabelle esterne è la seguente: 
 
@@ -156,10 +156,10 @@ La query seguente esegue un join a tre vie tra le due tabelle locali per gli ord
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Stored procedure per l'esecuzione remota di T-SQL: sp\_execute_remote
 La query elastica introduce anche una stored procedure che offre l'accesso diretto al database remoto. La stored procedure è denominata [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) e può essere usata per eseguire stored procedure remote o il codice T-SQL nel database remoto. È necessario specificare i seguenti parametri: 
 
-* Nome dell'origine dati (nvarchar): il nome dell'origine dati esterna di tipo RDBMS. 
-* Query (nvarchar): la query T-SQL da eseguire nel database remoto. 
-* Dichiarazione del parametro (nvarchar) - Facoltativo: stringa con definizioni del tipo di dati per i parametri usati nel parametro della query, ad esempio sp_executesql. 
-* Elenco di valori dei parametri (facoltativo): elenco delimitato da virgole di valori dei parametri, ad esempio sp_executesql.
+* Nome dell'origine dati (nvarchar): nome dell'origine dati esterna di tipo RDBMS. 
+* Query (nvarchar): query T-SQL da eseguire nel database remoto. 
+* (Facoltativo) Dichiarazione del parametro (nvarchar): stringa con definizioni del tipo di dati per i parametri usati nel parametro della query, ad esempio sp_executesql. 
+* (Facoltativo) Elenco di valori dei parametri: elenco delimitato da virgole di valori dei parametri, ad esempio sp_executesql.
 
 La stored procedure sp\_execute\_remote usa l'origine dati esterna specificata nei parametri di chiamata per eseguire l'istruzione T-SQL specificata nel database remoto. Usa le credenziali dell'origine dati esterna per connettersi al database remoto.  
 

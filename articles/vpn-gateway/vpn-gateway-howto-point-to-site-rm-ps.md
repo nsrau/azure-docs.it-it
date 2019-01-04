@@ -1,18 +1,18 @@
 ---
-title: "Connettere un computer a una rete virtuale di Azure da punto a sito con l'autenticazione del certificato di Azure nativo: PowerShell | Microsoft Docs"
+title: "Connettere un computer a una rete virtuale usando l'autenticazione da punto a sito e il certificato di Azure nativo: PowerShell | Microsoft Docs"
 description: Connettere i client Windows e Mac OS X in modo sicuro alla rete virtuale di Azure tramite certificati da punto a sito e autofirmati o certificati rilasciati da un'autorità di certificazione. Questo articolo usa PowerShell.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: ced92cd28c12443234b47353548a9c968cc175ac
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: c579bb32fdd43c95f027e6c9f5a6ef656d059d60
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095587"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847406"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativo: PowerShell
 
@@ -41,41 +41,32 @@ Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscriz
 
 * **Nome: VNet1**
 * **Spazio degli indirizzi: 192.168.0.0/16** e **10.254.0.0/16**<br>Questo esempio usa più di uno spazio indirizzi per mostrare che la configurazione funziona con più spazi indirizzi, ma per questa configurazione non sono necessari più spazi indirizzi.
-* **Nome subnet: FrontEnd**
+* **Nome subnet: Front-end**
   * **Intervallo di indirizzi subnet: 192.168.1.0/24**
 * **Nome subnet: BackEnd**
   * **Intervallo di indirizzi subnet: 10.254.1.0/24**
 * **Nome subnet: GatewaySubnet**<br>Il nome subnet *GatewaySubnet* è obbligatorio per il funzionamento del gateway VPN.
-  * **Intervallo di indirizzi subnet del gateway: 192.168.200.0/24** 
+  * **Intervallo di indirizzi GatewaySubnet: 192.168.200.0/24** 
 * **Pool di indirizzi client VPN: 172.16.201.0/24**<br>I client VPN che si connettono alla rete virtuale con questa connessione da punto a sito ricevono un indirizzo IP dal pool di indirizzi client VPN.
-* **Sottoscrizione:** se si hanno più sottoscrizioni, verificare di usare quella corretta.
+* **Sottoscrizione:** se si dispone di più sottoscrizioni, verificare di usare quella corretta.
 * **Gruppo di risorse: TestRG**
-* **Località: Stati Uniti orientali**
+* **Percorso: Stati Uniti orientali**
 * **Server DNS: indirizzo IP** del server DNS che si vuole usare per la risoluzione dei nomi. (facoltativo).
-* **Nome del gateway: Vnet1GW**
-* **Nome dell'IP pubblico: VNet1GWPIP**
+* **Nome GW: Vnet1GW**
+* **Nome IP pubblico: VNet1GWPIP**
 * **VpnType: RouteBased** 
 
-## <a name="declare"></a>1. Accedere e impostare le variabili
+## <a name="declare"></a>1. Accedere e impostare le variabili.
 
 In questa sezione si accede e si dichiarano i valori usati per la configurazione. I valori dichiarati saranno usati negli script di esempio. È possibile modificare i valori in base all'ambiente personalizzato. In alternativa, è possibile usare i valori dichiarati e seguire la procedura come un esercizio.
 
-1. Aprire la console di PowerShell con privilegi elevati e accedere al proprio account Azure. Il cmdlet richiederà le credenziali di accesso. Dopo l'accesso, vengono scaricate le impostazioni dell'account in modo che siano disponibili per Azure PowerShell. Se non si esegue PowerShell in locale e si usa l'opzione Prova di Azure Cloud Shell nel browser, è possibile andare al passaggio 2 di questa sezione.
+### <a name="sign-in"></a>Accesso
 
-  ```azurepowershell
-  Connect-AzureRmAccount
-  ```
-2. Ottenere un elenco delle sottoscrizioni di Azure.
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
 
-  ```azurepowershell-interactive
-  Get-AzureRmSubscription
-  ```
-3. Specificare la sottoscrizione da usare.
+### <a name="declare-variables"></a>Dichiarare le variabili
 
-  ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-  ```
-4. Dichiarare le variabili da usare. Usare l'esempio seguente, sostituendo i valori con quelli personalizzati, se necessario.
+Dichiarare le variabili da usare. Usare l'esempio seguente, sostituendo i valori con quelli personalizzati, se necessario.
 
   ```azurepowershell-interactive
   $VNetName  = "VNet1"

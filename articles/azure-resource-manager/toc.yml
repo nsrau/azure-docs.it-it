@@ -20,6 +20,8 @@ items:
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
   - name: Creare più istanze
     href: resource-manager-tutorial-create-multiple-instances.md
+  - name: Spostare le risorse
+    href: resource-manager-tutorial-move-resources.md
   - name: Impostare l'ordine di distribuzione delle risorse
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
   - name: Usare le condizioni
@@ -44,9 +46,10 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concetti
   items:
-  - name: Struttura del modello
-    href: resource-group-authoring-templates.md
+  - name: Modelli
     items:
+    - name: Struttura del file modello
+      href: resource-group-authoring-templates.md
     - name: Parametri
       href: resource-manager-templates-parameters.md
     - name: variables
@@ -57,17 +60,21 @@ items:
       href: resource-manager-templates-resources.md
     - name: Output
       href: resource-manager-templates-outputs.md
+  - name: Indicazioni
+    items:
+    - name: Procedure consigliate per i modelli
+      href: template-best-practices.md
+    - name: Governance per le sottoscrizioni
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold
+      maintainContext: true
+    - name: Modelli per la coerenza del cloud
+      href: templates-cloud-consistency.md
   - name: Provider e tipi di risorse
     href: resource-manager-supported-services.md
   - name: Gruppi di gestione
     href: management-groups-overview.md
   - name: Deployment Manager
     href: deployment-manager-overview.md
-  - name: Governance per le sottoscrizioni
-    href: /azure/architecture/cloud-adoption-guide/subscription-governance
-    maintainContext: true
-  - name: Modelli per la coerenza del cloud
-    href: templates-cloud-consistency.md
   - name: Modalità di distribuzione
     href: deployment-modes.md
   - name: Eliminazione delle risorse
@@ -78,6 +85,8 @@ items:
   items:
   - name: Creare modelli
     items:
+    - name: Creare il modello
+      href: how-to-create-template.md
     - name: Creare gruppi di risorse e risorse nella sottoscrizione
       href: deploy-to-subscription.md
     - name: Definire le dipendenze delle risorse
@@ -235,9 +244,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 47766ce1bd0250c1eeaa269c4bc2436a2e117f02
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 3cdd48bf83de29a294c5c4b7bcebc6caf36862d5
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600965"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742440"

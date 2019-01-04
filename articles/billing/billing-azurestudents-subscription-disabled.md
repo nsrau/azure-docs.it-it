@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: cwatson
 ROBOTS: NOINDEX
-ms.openlocfilehash: c8d78d51425ea5a5fc2f3b326710b3c2ad5a6a06
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0e4c7ca6776e2016bf0d34d856c4c2332a0bece0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581851"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250451"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Perché la sottoscrizione di Azure per studenti è disabilitata e cosa occorre fare per riattivarla?
 
-La sottoscrizione di Azure per studenti potrebbe essere disabilitata perché è stato usato tutto il credito, il credito è scaduto oppure la sottoscrizione è stata annullata per errore. Identificare il problema che descrive la situazione per informazioni su come riattivare la sottoscrizione.
+La sottoscrizione di Azure for Students potrebbe essere disabilitata perché è stato usato tutto il credito, il credito è scaduto oppure la sottoscrizione è stata annullata per errore. Identificare il problema che descrive la situazione per informazioni su come riattivare la sottoscrizione.
 
-## <a name="you-have-used-all-of-your-credit"></a>È stato usato tutto il credito
+## <a name="youve-used-all-of-your-credit"></a>È stato usato tutto il credito
 
-L'account di Azure per studenti offre 100 dollari sotto forma di credito e una quantità limitata di servizi gratuiti per 12 mesi. L'utilizzo non coperto dai servizi e dalle quantità gratuite viene dedotto dal credito. Quando il credito si esaurisce, i servizi e la sottoscrizione di Azure vengono disabilitati. Per continuare a usare i servizi di Azure, è necessario aggiornare la sottoscrizione a una sottoscrizione con pagamento in base al consumo contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e fornendo le informazioni sulla carta di credito. Dopo l'aggiornamento, la sottoscrizione ha ancora accesso ai servizi gratuiti per 12 mesi dalla data di iscrizione. Viene addebitato solo un eventuale utilizzo non coperto dalle quantità e dai servizi gratuiti.
+L'account di Azure per studenti offre 100 dollari sotto forma di credito e una quantità limitata di servizi gratuiti per 12 mesi. L'utilizzo non coperto dai servizi e dalle quantità gratuite viene dedotto dal credito. Quando il credito si esaurisce, i servizi e la sottoscrizione di Azure vengono disabilitati. Per continuare a usare i servizi di Azure, è necessario aggiornare la sottoscrizione a una sottoscrizione con pagamento in base al consumo contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Dopo l'aggiornamento, la sottoscrizione ha ancora accesso ai servizi gratuiti per 12 mesi dalla data di iscrizione. Viene addebitato solo un eventuale utilizzo non coperto dalle quantità e dai servizi gratuiti.
 
 È possibile verificare il credito rimanente nel [portale di Microsoft Azure Sponsorships](https://www.microsoftazuresponsorships.com/balance)
 
@@ -47,15 +47,13 @@ La tabella contiene le colonne seguenti:
 * **Risorsa servizio:** unità di misura per il servizio utilizzato.
 * **Spesa:** importo in USD del credito speso per il servizio.
 
-
 ## <a name="your-credit-has-expired"></a>Il credito è scaduto
 
-Il credito di Azure per studenti scade al termine dei 12 mesi. Una volta scaduto il credito, la sottoscrizione viene disabilitata. Per continuare a usare i servizi di Azure, è necessario aggiornare la sottoscrizione a una sottoscrizione con pagamento in base al consumo contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e fornendo le informazioni sulla carta di credito. Dopo l'aggiornamento, Azure addebita tariffe a consumo per i servizi usati.
+Il credito di Azure per studenti scade al termine dei 12 mesi. Una volta scaduto il credito, la sottoscrizione viene disabilitata. Per continuare a usare i servizi di Azure, è necessario aggiornare la sottoscrizione a una sottoscrizione con pagamento in base al consumo contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Dopo l'aggiornamento, Azure addebita tariffe a consumo per i servizi usati.
 
+## <a name="youve-accidentally-canceled-your-subscription"></a>La sottoscrizione è stata annullata per errore
 
-## <a name="you-have-accidentally-canceled-your-subscription"></a>La sottoscrizione è stata annullata per errore
-
-Se la sottoscrizione di Azure per studenti è stata annullata per errore, è possibile riattivarla contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Dopo la riattivazione si avrà accesso al credito rimanente e ai servizi gratuiti per 12 mesi dalla data di iscrizione.
+Se la sottoscrizione di Azure for Students è stata annullata per errore, è possibile riattivarla contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Dopo la riattivazione si avrà accesso al credito rimanente e ai servizi gratuiti per 12 mesi dalla data di iscrizione.
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 

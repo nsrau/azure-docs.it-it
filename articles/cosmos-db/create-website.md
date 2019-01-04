@@ -1,21 +1,19 @@
 ---
-title: Distribuire un'app Web con un modello - Azure Cosmos DB | Microsoft Docs
+title: Distribuire un'app Web con un modello - Azure Cosmos DB
 description: Informazioni su come distribuire un account Azure Cosmos DB, app Web del servizio app di Azure e un'applicazione Web di esempio usando un modello di Azure Resource Manager.
 services: cosmos-db, app-service\web
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 29a2335a3a4077866b71e4303c240ad8352371ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8af76c64e755b9c72ae4ebcc223e5f69549b92b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243778"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076732"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuire Azure Cosmos DB e app Web del servizio app di Azure tramite un modello di Azure Resource Manager
 Questa esercitazione illustra come usare un modello di Azure Resource Manager per distribuire e integrare [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), un'app Web del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
@@ -82,7 +80,7 @@ Si procederà ora alla distribuzione del primo modello.
 
 <a id="Build"></a> 
 
-## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>Passaggio 3: Distribuire l'esempio relativo ad account DocumentDB e app Web
+## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>Passaggio 3: Distribuire l'account documento e l'app Web di esempio
 Si procederà ora alla distribuzione del secondo modello.  Questo modello è utile per mostrare come inserire le informazioni relative alla connessione di Azure Cosmos DB, ad esempio l'endpoint dell'account e la chiave master in un'app Web come impostazioni dell'applicazione o come stringa di connessione personalizzata. Si supponga ad esempio di avere un'applicazione Web che si intende distribuire con un account Azure Cosmos DB e con informazioni relative alla connessione popolate automaticamente durante la distribuzione.
 
 > [!TIP]
@@ -121,15 +119,15 @@ Si procederà ora alla distribuzione del secondo modello.  Questo modello è uti
 ## <a name="next-steps"></a>Passaggi successivi
 Congratulazioni! È stata completata la distribuzione di Azure Cosmos DB, di un'app Web del servizio app e di un'applicazione Web di esempio usando i modelli di Azure Resource Manager.
 
-* Per altre informazioni su Azure Cosmos DB, fare clic [qui](http://azure.com/docdb).
+* Per altre informazioni su Azure Cosmos DB, fare clic [qui](https://azure.microsoft.com/services/cosmos-db/).
 * Per altre informazioni sulle app Web del servizio app di Azure, vedere [qui](https://go.microsoft.com/fwlink/?LinkId=325362).
 * Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [qui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](https://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida alla modifica da siti Web a servizio app, vedere: [Servizio app di Azure e i servizi di Azure esistenti](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 

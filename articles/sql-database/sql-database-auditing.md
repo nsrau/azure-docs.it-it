@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/25/2018
-ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e947c284843074cf36c2d85dd240df23a1958cd5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092952"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971522"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -39,8 +39,6 @@ Il controllo del [database SQL di Azure](sql-database-technical-overview.md) e d
 - **Conservare** un audit trail di eventi selezionati. È possibile definire categorie di azioni di database da controllare.
 - **Creare report** sulle attività del database. È possibile usare i report preconfigurati e un dashboard per iniziare rapidamente a usare l'attività e la segnalazione di eventi.
 - **Analizzare** i report. È possibile individuare eventi sospetti, attività insolite e tendenze.
-
-È possibile configurare il controllo per diversi tipi di categorie di eventi, come spiegato nella sezione [Configurare il controllo per il database](#subheading-2).
 
 > [!IMPORTANT]
 > I log di controllo vengono scritti in **Accodare BLOB**nell'archivio BLOB di Azure della sottoscrizione di Azure.
@@ -177,7 +175,7 @@ Se si sceglie di scrivere i log di controllo in un account di archiviazione di A
 
 Con i database con replica geografica, quando si abilita il controllo nel database primario il database secondario disporrà di un criterio di controllo identico. È anche possibile impostare il controllo nel database secondario abilitando il controllo nel **server secondario**, in modo indipendente dal database primario.
 
-- A livello di server (**consigliato**): attivare il controllo sia nel **server primario** che nel **server secondario**. I database primari e secondari saranno controllati in modo indipendente in base ai rispettivi criteri a livello di server.
+- Livello server (**consigliato**): attivare il controllo sia nel **server primario** che nel **server secondario**. I database primari e secondari saranno controllati in modo indipendente in base ai rispettivi criteri a livello di server.
 - A livello di database: il controllo a livello di database per i database secondari può essere configurato solo mediante le impostazioni di controllo del database primario.
   - Il controllo deve essere abilitato nello *stesso database primario* e non nel server.
   - Dopo che il controllo è stato abilitato nel database primario, verrà abilitato anche nel database secondario.

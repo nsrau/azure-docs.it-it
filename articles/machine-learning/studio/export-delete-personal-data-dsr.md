@@ -3,22 +3,21 @@ title: Esportare ed eliminare i dati da Machine Learning Studio - Azure | Micros
 description: I dati interni al prodotto archiviati da Azure Machine Learning Studio sono disponibili per l'esportazione e l'eliminazione tramite il portale di Azure e anche tramite API REST autenticate. I dati di telemetria sono accessibili tramite il portale Privacy di Azure. Questo articolo illustra i passaggi da eseguire.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: cgronlun
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 04b26dc9ad9f4b7a4feb03039d92854385d75465
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e69883022937ccb4ad0f83f144afef0b5b1e0e56
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262372"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276265"
 ---
-# <a name="export-and-delete-in-product-user-data-from-machine-learning-studio"></a>Esportare ed eliminare i dati utente interni al prodotto da Machine Learning Studio
+# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Esportare ed eliminare i dati utente interni al prodotto da Azure Machine Learning Studio
 
 È possibile eliminare o esportare i dati interni al prodotto archiviati da Azure Machine Learning Studio usando il portale di Azure, l'interfaccia di Machine Learning Studio, PowerShell e API REST autenticate. Questo articolo spiega come procedere. 
 
@@ -65,7 +64,7 @@ Gli utenti possono eliminare le risorse in un'area di lavoro selezionandole e qu
 ### <a name="delete-an-entire-workspace"></a>Eliminare un'intera area di lavoro
 
 Gli utenti possono anche eliminare la propria intera area di lavoro:
-- Area di lavoro a pagamento: eliminare tramite il portale di Azure.
+- Aggiungi area di lavoro: Eliminare il ripristino tramite il portale di Azure.
 - Area di lavoro gratuita: usare il pulsante di eliminazione nel riquadro **Impostazioni**.
 
 ![Eliminare un'area di lavoro gratuita in Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634074"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435073"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usare una funzione definita dall'utente Java con Apache Hive in HDInsight
 
@@ -29,9 +29,9 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 
     La maggior parte dei passaggi di questo documento vale per entrambi i cluster basati su Windows e Linux. I passaggi necessari per caricare la funzione definita dall'utente compilata nel cluster ed eseguirla sono tuttavia specifici per i cluster basati su Linux. Vengono forniti i collegamenti alle informazioni utili per i cluster basati su Windows.
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 o versione successiva (o equivalente, ad esempio OpenJDK)
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 o versione successiva (o equivalente, ad esempio OpenJDK)
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * Un editor di testo o ambiente IDE Java
 
@@ -213,7 +213,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
     ```
 
     > [!NOTE]
-    > Questo esempio assume che Archiviazione di Azure sia la risorsa di archiviazione predefinita per il cluster. Se il cluster usa invece Data Lake Store, modificare il valore `wasb:///` in `adl:///`.
+    > Questo esempio assume che Archiviazione di Azure sia la risorsa di archiviazione predefinita per il cluster. Se il cluster usa invece Azure Data Lake Storage, modificare il valore `wasb:///` in `adl:///`.
 
 3. Utilizzare la UDF per convertire i valori recuperati da una tabella in stringhe con lettere minuscole.
 
@@ -240,6 +240,6 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per apprendere altri modi di utilizzare Hive, vedere [Utilizzare Hive con HDInsight](hdinsight-use-hive.md).
+Per informazioni su altre modalità di utilizzo di Apache Hive, vedere [Cosa sono Apache Hive e HiveQL in Azure HDInsight](hdinsight-use-hive.md).
 
-Per ulteriori informazioni sulle UDF di Hive, vedere la sezione [Operatori e funzioni definite dall’utente di Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) del wiki di Hive all’indirizzo apache.org.
+Per altre informazioni sulle UDF di Hive, vedere la sezione [Apache Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Operatori e funzioni definite dall’utente di Apache Hive) del wiki di Hive all’indirizzo apache.org.

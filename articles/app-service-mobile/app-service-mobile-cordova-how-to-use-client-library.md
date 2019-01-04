@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6fb8be96c9793e96f1f7d2ad8e212d056d7e9ba5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 358e8cd92fe250741adbbb9208b5e149a5f60216
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467887"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959734"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Come usare la libreria client Apache Cordova per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -72,7 +72,7 @@ Il plug-in Cordova di App per dispositivi mobili di Azure supporta le app Ionic 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>Procedura: Autenticare gli utenti
-Il servizio app di Azure supporta l'autenticazione e l'autorizzazione degli utenti di app usando diversi provider di identità esterni, a esempio Facebook, Google, account Microsoft e Twitter. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere l'esercitazione [Introduzione all'autenticazione] .
+Il servizio app di Azure supporta l'autenticazione e l'autorizzazione degli utenti di app usando diversi provider di identità esterni, ad esempio Facebook, Google, account Microsoft e Twitter. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere l'esercitazione [Introduzione all'autenticazione] .
 
 Quando si usa l'autenticazione in un'app Apache Cordova, devono essere disponibili i plug-in Cordova seguenti:
 
@@ -83,7 +83,7 @@ Sono supportati due flussi di autenticazione, ovvero un flusso server e un fluss
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Procedura: Configurare il servizio App per dispositivi mobili per URL di reindirizzamento esterni.
+### <a name="configure-external-redirect-urls"></a>Procedura: Configurare il servizio app per dispositivi mobili per URL di reindirizzamento esterni.
 Molti tipi di applicazioni Apache Cordova usano una funzionalità di loopback per gestire i flussi dell’interfaccia utente di OAuth.  I flussi dell'interfaccia utente di OAuth sull'host locale causa problemi in quanto il servizio di autenticazione sa usare il servizio solo con le impostazioni predefinite.  Alcuni esempi di flussi dell'interfaccia utente di OAuth problematici sono:
 
 * L'emulatore Ripple.
@@ -167,7 +167,7 @@ Usare Notification Hubs SDK per inviare notifiche push dal server.  Non inviare 
 
 ## <a name="more-information"></a>Altre informazioni
 
-È possibile trovare informazioni dettagliate sulle API nella [documentazione sulle API](http://azure.github.io/azure-mobile-apps-js-client/).
+È possibile trovare informazioni dettagliate sulle API nella [documentazione sulle API](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
 [Portale di Azure]: https://portal.azure.com
@@ -176,7 +176,7 @@ Usare Notification Hubs SDK per inviare notifiche push dal server.  Non inviare 
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [plug-in Apache Cordova per le app per dispositivi mobili di Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[prima app Apache Cordova]: http://cordova.apache.org/#getstarted
+[prima app Apache Cordova]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device

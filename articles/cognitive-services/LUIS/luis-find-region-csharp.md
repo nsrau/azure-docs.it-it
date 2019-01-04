@@ -1,27 +1,28 @@
 ---
-title: Trovare l'area di endpoint con C# in LUIS
-titleSuffix: Azure Cognitive Services
-description: Ricerca programmatica dell'area di pubblicazione con chiave endpoint e ID dell'applicazione LUIS.
+title: Area degli endpoint, C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Con C#, trovare l'area di pubblicazione con la chiave dell'endpoint e l'ID applicazione per LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 53c3d1abb24ae0d5b33a2a100dda07fd20ae92d1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5d4c564ac797f40d7f6e9b169a6c864d3ef8147b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039633"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165164"
 ---
 # <a name="find-endpoint-region-with-c"></a>Trovare l'area di endpoint con C# 
 Se si dispone dell'ID dell'applicazione LUIS e dell'ID della sottoscrizione LUIS, è possibile trovare la regione da utilizzare per le query sugli endpoint.
 
 > [!NOTE] 
-> La soluzione C# completa è disponibile nel [**repository Github degli esempi LUIS**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
+> La soluzione C# completa è disponibile nel [ repository GitHub **LUIS-Samples**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
 
 ## <a name="luis-endpoint-query-strategy"></a>Strategia di query dell’endpoint LUIS
 Ogni query dell’endpoint LUIS richiede:

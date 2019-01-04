@@ -9,16 +9,15 @@ ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 521bf044f280b91f668d42d760ba2a726b555f12
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf096032d0ab429a5c6c06d5ada568c4bfb56d9f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822671"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994433"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostica completa per servizi e app Web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Funzione di Application Insights
@@ -79,8 +78,8 @@ Le principali categorie di dati sono:
 * Eventi personalizzati utilizzabili per tenere traccia degli eventi aziendali.
 * Tracce del log a scopo di debug.
 
-## <a name="case-study-real-madrid-fc"></a>Case study: Real Madrid C.F.
-Il servizio Web del [Real Madrid Football Club](http://www.realmadrid.com/) serve circa 450 milioni di tifosi in tutto il mondo, che vi accedono tramite Web browser e dalle app per dispositivi mobili della società non solo per prenotare i biglietti, ma anche per consultare informazioni e guardare clip video sui risultati, i giocatori e le partite in programma. I tifosi possono eseguire ricerche applicando filtri come, ad esempio, il numero di goal segnati. Inoltre, sono disponibili i collegamenti ai social media. L'esperienza utente è altamente personalizzata e progettata come strumento di comunicazione bidirezionale per coinvolgere i tifosi.
+## <a name="case-study-real-madrid-fc"></a>Case study: Real Madrid F.C.
+Il servizio Web del [Real Madrid Football Club](https://www.realmadrid.com/) serve circa 450 milioni di tifosi in tutto il mondo, che vi accedono tramite Web browser e dalle app per dispositivi mobili della società non solo per prenotare i biglietti, ma anche per consultare informazioni e guardare clip video sui risultati, i giocatori e le partite in programma. I tifosi possono eseguire ricerche applicando filtri come, ad esempio, il numero di goal segnati. Inoltre, sono disponibili i collegamenti ai social media. L'esperienza utente è altamente personalizzata e progettata come strumento di comunicazione bidirezionale per coinvolgere i tifosi.
 
 La soluzione [è un sistema di servizi e applicazioni in Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). La scalabilità è un requisito essenziale: il traffico è variabile e può raggiungere volumi molto elevati prima, dopo e durante le partite.
 

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c8edaba8de597e3e76e760e1f5109006338a663c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238821"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888461"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Stili delle mappe supportati da Mappe di Azure
-Mappe di Azure supporta quattro diversi stili predefiniti. Di seguito sono elencati gli stili e le relative descrizioni.
+Mappe di Azure supporta vari stili di mappa predefiniti, come descritto di seguito.
 
 ## <a name="road"></a>strada
 Una mappa **stradale** è una mappa standard che indica le strade, caratteristiche naturali e artificiali e indicazioni di tali caratteristiche.
@@ -49,6 +49,14 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 **gradazioni di grigio scuro** è una versione scura dello stile della mappa stradale.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+
+**API idonee:**
+* Controllo mappa JS 
+
+## <a name="night"></a>notte
+**notte** è una versione scura dello stile della mappa stradale con strade colorate e simboli.
+
+![notte](./media/supported-map-styles/night.PNG)
 
 **API idonee:**
 * Controllo mappa JS 

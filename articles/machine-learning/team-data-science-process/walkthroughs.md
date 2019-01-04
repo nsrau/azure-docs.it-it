@@ -1,5 +1,5 @@
 ---
-title: Procedure dettagliate per l'esecuzione del processo di data science per i Team in Azure | Microsoft Docs
+title: Procedure dettagliate del processo di data science per i team in Azure
 description: Come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5a5a63bfdc9019afe292dd7623051123c3eb2dbf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495896"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132687"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Procedure dettagliate del processo di data science per i team
 
@@ -42,5 +42,5 @@ Per una descrizione dei componenti principali che costituiscono il processo di d
 
 Per una descrizione del ciclo di vita del processo di data science per i team che è possibile usare per definire la struttura dei progetti di data science, vedere [Ciclo di vita del processo di data science per i team](lifecycle.md). Il ciclo di vita descrive tutti i passaggi generalmente seguiti dai progetti in fase di esecuzione. 
 
-Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle attività che costituiscono il processo di analisi scientifica dei dati in Azure, vedere [Processo di analisi scientifica dei dati per i team](https://aka.ms/datascienceprocess). 
+Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle attività che costituiscono il processo di analisi scientifica dei dati in Azure, vedere [Processo di analisi scientifica dei dati per i team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

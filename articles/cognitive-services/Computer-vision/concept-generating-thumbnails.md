@@ -8,32 +8,35 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 9cb82b40d1fbec513b0219f26d1959fbd7f64570
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343963"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966739"
 ---
 # <a name="generating-thumbnails"></a>Generazione di anteprime
 
-Un'anteprima è una rappresentazione di piccole dimensioni di un'immagine con le dimensioni originali. Diversi dispositivi, ad esempio telefoni, tablet e PC, comportano la necessità di layout e di dimensioni delle anteprime diversi per l'esperienza utente. Grazie a una funzione di ritaglio intelligente, Visione artificiale consente di risolvere questo problema.
+Un'immagine di anteprima è una rappresentazione di dimensioni ridotte di un'immagine. Le anteprime vengono usate per rappresentare le immagini e altri dati in modo più conveniente e con un layout più facile. L'API Visione artificiale usa il ritaglio intelligente, insieme al ridimensionamento dell'immagine, per creare anteprime intuitive per una determinata immagine.
 
-Dopo il caricamento di un'immagine, Visione artificiale genera un'anteprima di alta qualità e quindi analizza gli oggetti inclusi nell'immagine per identificare l'*area di interesse*. Facoltativamente può ritagliare l'immagine in base ai requisiti dell'area di interesse. L'anteprima generata può essere presentata con proporzioni diverse rispetto all'immagine originale in modo da soddisfare le esigenze dell'utente.
+L'algoritmo di generazione di anteprime di Visione artificiale funziona nel modo seguente:
+1. Vengono rimossi gli elementi di distrazione dall'immagine e viene identificata l'_area di interesse_&mdash;l'area dell'immagine in cui compare l'oggetto principale.
+1. L'immagine viene ritagliata in base all'_area di interesse_ identificata.
+1. Le proporzioni vengono modificate per adattare le dimensioni all'anteprima di destinazione.
 
-L'algoritmo per la generazione delle anteprime algoritmo funziona nel modo seguente:
+## <a name="area-of-interest"></a>Area di interesse
 
-1. Rimuove gli elementi indesiderati dall'immagine e identifica l'oggetto principale, ovvero l'area di interesse.
-2. Ritaglia l'immagine in base all'area di interesse identificata.
-3. Modifica le proporzioni per adattare le dimensioni all'anteprima di destinazione.
+Quando si carica un'immagine, l'API Visione artificiale la analizza per determinare l'*area di interesse*. Quindi può usare quest'area per determinare come ritagliare l'immagine. L'operazione di ritaglio, tuttavia, corrisponde sempre alle proporzioni desiderate se vengono specificate.
+
+È anche possibile ottenere le coordinate del rettangolo delimitatore non elaborate di questa stessa *area di interesse* chiamando l'API **areaOfInterest**. Quindi si può usare queste informazioni per modificare l'immagine originale come si vuole.
+
+## <a name="examples"></a>Esempi
 
 L'anteprima generata può variare notevolmente a seconda dei valori specificati per l'altezza, la larghezza e il ritaglio intelligente, come illustrato nell'immagine seguente.
 
 ![Anteprime](./Images/thumbnail-demo.png)
-
-## <a name="thumbnail-generation-examples"></a>Esempi di generazione di anteprime
 
 La tabella seguente illustra anteprime tipiche generate da Visione artificiale per le immagini di esempio. Le anteprime sono state generate per un'altezza e una larghezza di destinazione pari a 50 pixel, con ritaglio intelligente abilitato.
 
@@ -45,4 +48,4 @@ La tabella seguente illustra anteprime tipiche generate da Visione artificiale p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Concetti relativi all'[assegnazione di tag alle immagini](concept-tagging-images.md) e alla [classificazione delle immagini](concept-categorizing-images.md).
+Informazioni sull'[assegnazione di tag alle immagini](concept-tagging-images.md) e la [classificazione delle immagini](concept-categorizing-images.md).

@@ -1,23 +1,24 @@
 ---
-title: Testare l'app LUIS all'interno del portale LUIS
-titleSuffix: Azure Cognitive Services
+title: Testare l'app nel portale di LUIS
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Usare il servizio LUIS (Language Understanding) per lavorare continuamente sull'applicazione allo scopo di perfezionarla e migliorarne l'apprendimento del linguaggio.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6bb03975e36e93c2496eb4c6013be21ebc891ed1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 836449dad621cf6a0efe6c8534edc9f3982869b3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039702"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141578"
 ---
-# <a name="test-your-luis-app"></a>Testare l'app LUIS
+# <a name="test-your-luis-app-in-the-luis-portal"></a>Testare l'app LUIS nel portale LUIS
 <a name="train-your-app"></a>
 [Il test](luis-concept-test.md) di un'app costituisce un processo iterativo. Dopo aver eseguito il training dell'app LUIS, testarla con espressioni di esempio per verificare se le finalità e le entità vengono riconosciute correttamente. Se così non fosse, aggiornare l'app LUIS ed eseguire nuovamente il training e il test. 
 

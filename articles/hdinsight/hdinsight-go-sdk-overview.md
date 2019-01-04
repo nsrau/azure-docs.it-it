@@ -5,14 +5,15 @@ services: hdinsight
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 9/21/2018
+ms.date: 09/21/2018
 ms.author: tyfox
-ms.openlocfilehash: f018130ca94c7efb7a9c6c873c150dcc382dbc4c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: 13bca67a48d1b9e73dc2f092979e455c72711316
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498299"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011336"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Anteprima di HDInsight Go Management SDK
 
@@ -36,7 +37,7 @@ Dal percorso dell'ambiente GOPATH eseguire `go get github.com/Azure/azure-sdk-fo
 L'SDK deve essere prima autenticato con la sottoscrizione di Azure.  Seguire questo esempio per creare un'entità servizio e usarla per l'autenticazione. Al termine si avrà un'istanza di un `ClustersClient` che contiene molte funzioni, descritte nelle sezioni seguenti, che possono essere usate per operazioni di gestione.
 
 > [!NOTE]
-> Oltre all'esempio seguente esistono altre modalità di autenticazione che possono essere più adatte alle proprie esigenze. Tutte le funzioni sono descritte nell'articolo [Funzioni di autenticazione in Azure SDK per Go](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
+> Oltre all'esempio seguente esistono altre modalità di autenticazione che possono essere più adatte alle proprie esigenze. Tutte le funzioni sono descritte di seguito: [Funzioni di autenticazione in Azure SDK per Go](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
 
 ### <a name="authentication-example-using-a-service-principal"></a>Esempio di autenticazione con un'entità servizio
 
@@ -350,7 +351,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>Abilitare il monitoraggio di OMS
 
 > [!NOTE]
-> Per abilitare il monitoraggio di OMS è necessaria un'area di lavoro di Log Analytics esistente. Se l'area non è stata ancora creata, vedere [Creare un'area di lavoro di Log Analytics nel portale di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) per informazioni su come crearla.
+> Per abilitare il monitoraggio di OMS è necessaria un'area di lavoro di Log Analytics esistente. Se non è già stata creata una, è possibile ottenere informazioni su come farlo qui: [Creare un'area di lavoro di Log Analytics nel portale di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 Per abilitare il monitoraggio di OMS nel cluster:
 
@@ -378,7 +379,7 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 
 HDInsight offre una funzione di configurazione denominato "azioni script" che richiama script personalizzati per il cluster.
 > [!NOTE]
-> Per altre informazioni sulle azioni script, vedere [Personalizzare i cluster HDInsight basati su Linux tramite azioni script](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
+> Altre informazioni su come usare le azioni dello script sono disponibili qui: [Personalizzare i cluster HDInsight basati su Linux tramite azioni script](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
 
 ### <a name="execute-script-actions"></a>Eseguire azioni script
 

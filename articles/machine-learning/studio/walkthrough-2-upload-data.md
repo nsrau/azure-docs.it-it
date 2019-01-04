@@ -1,12 +1,11 @@
 ---
 title: 'Passaggio 2: Caricare dati in un esperimento di Machine Learning Studio - Azure | Microsoft Docs'
-description: 'Passaggio 2 della procedura dettagliata Sviluppare una soluzione predittiva: Caricare dati pubblici archiviati in Azure Machine Learning Studio'
+description: 'Passaggio 2 della procedura dettagliata sullo sviluppo di una soluzione predittiva: Caricare dati pubblici archiviati in Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 0dc39d42e1ad7cc955b0bdc91d9a4c5cb49a2f2e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 90a73de4177cec74187da852709137d77d60b4d4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311977"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261450"
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Passaggio 2 della procedura dettagliata: Caricare dati esistenti in un esperimento di Azure Machine Learning Studio
 Questo è il secondo passaggio della procedura dettagliata [Sviluppare una soluzione di analisi predittiva in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -101,7 +100,7 @@ I dati vengono caricati in un modulo del set di dati che è possibile usare in u
 
 Per altre informazioni sull'importazione di altri tipi di dati in un esperimento, vedere [Importare dati di training in Azure Machine Learning Studio](import-data.md).
 
-**Passaggi successivi: [Creare un nuovo esperimento](walkthrough-3-create-new-experiment.md)**
+**Passaggio successivo: [Creare un nuovo esperimento](walkthrough-3-create-new-experiment.md)**
 
 [1]: media/walkthrough-2-upload-data/menu.png
 [2]: media/walkthrough-2-upload-data/add-dataset.png

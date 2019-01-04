@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 6796ecd272c7a1ed1d29c89fbe06c87dc2d4601b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 87d2ebcf6a12f51775b15e906ea7813962e3630f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242807"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965377"
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -334,7 +334,7 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 ```
 
 #### <a name="filter-response-based-on-product"></a>Filtrare la risposta in base al prodotto
- Questo esempio mostra come eseguire operazioni di filtro sui contenuti rimuovendo elementi di dati dalla risposta ricevuta dal servizio back-end quando si usa il prodotto `Starter`. Per una dimostrazione relativa alla configurazione e all'uso di questo criterio, vedere l'[episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 34:30. Iniziare dal minuto 31:50 per visualizzare una panoramica di [The Dark Sky Forecast API](https://developer.forecast.io/), l'API usata in questa dimostrazione.
+ Questo esempio mostra come eseguire operazioni di filtro sui contenuti rimuovendo elementi di dati dalla risposta ricevuta dal servizio back-end quando si usa il prodotto `Starter`. Per una dimostrazione relativa alla configurazione e all'uso di questi criteri, vedere l'[Episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 34:30. Iniziare dal minuto 31:50 per visualizzare una panoramica di [The Dark Sky Forecast API](https://developer.forecast.io/), l'API usata in questa dimostrazione.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -469,7 +469,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Inoltro di informazioni di contesto al servizio back-end
- Questo esempio illustra come applicare criteri a livello di API per fornire informazioni di contesto al servizio back-end. Per una dimostrazione relativa alla configurazione e all'uso di questo criterio, vedere l'[episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 10:30. Al minuto 12:10 è illustrato come richiamare un'operazione nel portale per sviluppatori, dove è possibile vedere all'opera il criterio in questione.
+ Questo esempio illustra come applicare criteri a livello di API per fornire informazioni di contesto al servizio back-end. Per una dimostrazione relativa alla configurazione e all'uso di questi criteri, vedere l'[Episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 10:30. Al minuto 12:10 è illustrato come richiamare un'operazione nel portale per sviluppatori, dove è possibile vedere all'opera il criterio in questione.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -543,7 +543,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Inoltro di informazioni di contesto al servizio back-end
- Questo esempio illustra come applicare criteri a livello di API per fornire informazioni di contesto al servizio back-end. Per una dimostrazione relativa alla configurazione e all'uso di questo criterio, vedere l'[episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 10:30. Al minuto 12:10 è illustrato come richiamare un'operazione nel portale per sviluppatori, dove è possibile vedere all'opera il criterio in questione.
+ Questo esempio illustra come applicare criteri a livello di API per fornire informazioni di contesto al servizio back-end. Per una dimostrazione relativa alla configurazione e all'uso di questi criteri, vedere l'[Episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 10:30. Al minuto 12:10 è illustrato come richiamare un'operazione nel portale per sviluppatori, dove è possibile vedere all'opera il criterio in questione.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->
@@ -709,7 +709,7 @@ OriginalUrl.
 |----------|-----------------|--------------|
 |xsl-transform|Elemento radice.|Yes|
 |parametro|Consente di definire le variabili usate nella trasformazione|No |
-|xsl:stylesheet|Elemento del foglio di stile principale. Tutti gli elementi e gli attributi definiti rispettano le [specifiche XSLT](http://www.w3.org/TR/xslt) standard|Yes|
+|xsl:stylesheet|Elemento del foglio di stile principale. Tutti gli elementi e gli attributi definiti rispettano le [specifiche XSLT](https://www.w3.org/TR/xslt) standard|Yes|
 
 ### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.

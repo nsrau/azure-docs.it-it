@@ -1,22 +1,24 @@
 ---
-title: Come usare le distribuzioni dei servizi Web - Azure Machine Learning
-description: Informazioni su come usare un servizio Web creato distribuendo un modello di Azure Machine Learning. Quando si distribuisce un modello di Azure Machine Learning, viene creato un servizio Web che espone un'API REST. È possibile creare client per questa API tramite il linguaggio di programmazione preferito. In questo documento, viene spiegato come accedere all'API con Python e C#.
+title: Creare client per utilizzare un servizio Web distribuito
+titleSuffix: Azure Machine Learning service
+description: Informazioni su come utilizzare un servizio Web generato al momento della distribuzione di un modello con il modello di Azure Machine Learning, il servizio Web che espone un'API REST. Creare client per questa API usando il linguaggio di programmazione preferito.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: raymondl
-author: raymondlaghaeian
+ms.author: aashishb
+author: aashishb
 ms.reviewer: larryfr
-ms.date: 10/30/2018
-ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/03/2018
+ms.custom: seodec18
+ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262900"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251131"
 ---
-# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utilizzare un modello di Azure Machine Learning distribuito come servizio Web
 
 Quando si distribuisce un modello di Azure Machine Learning come servizio Web, viene creata un’API REST. È possibile inviare dati a questa API per ottenere la stima restituita dal modello. In questo documento, viene spiegato come creare client per il servizio Web utilizzando C#, Go, Java e Python.
 
@@ -100,7 +102,7 @@ L'API REST prevede che il corpo della richiesta sia un documento JSON con la str
 > [!IMPORTANT]
 > La struttura dei dati deve corrispondere allo script di punteggio e al modello nelle stime del servizio. Lo script di punteggio può modificare i dati prima di trasferirli al modello.
 
-Ad esempio, nel modello dell’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) è prevista una matrice di 10 numeri. Lo script di punteggio per questo esempio crea una matrice Numpy dalla richiesta la trasferisce al modello. Nell'esempio seguente sono visualizzati i dati che questo servizio prevede:
+Ad esempio, nel modello dell’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) è prevista una matrice di 10 numeri. Lo script di punteggio per questo esempio crea una matrice Numpy dalla richiesta la trasferisce al modello. Nell'esempio seguente sono visualizzati i dati che questo servizio prevede:
 
 ```json
 {
@@ -124,9 +126,46 @@ Ad esempio, nel modello dell’esempio [Eseguire il training sul notebook](https
 
 Il servizio Web può accettare più set di dati in un'unica richiesta. Restituisce un documento JSON contenente una matrice di risposte.
 
+### <a name="binary-data"></a>Dati binari
+
+Se il modello accetta dati binari, ad esempio un'immagine, è necessario modificare il file `score.py` usato per la distribuzione in modo da accettare richieste HTTP non elaborate. Di seguito è riportato un esempio di un `score.py` che accetta dati binari e restituisce i byte invertiti per le richieste POST. Per le richieste GET restituisce l'URL completo nel corpo della risposta:
+
+```python 
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> Gli elementi dello spazio dei nomi `azureml.contrib` cambiano di frequente poiché Microsoft è impegnata a migliorare il servizio. Pertanto, qualsiasi elemento in questo spazio dei nomi deve essere considerato come anteprima e non è completamente supportato da Microsoft.
+>
+> Se è necessario eseguire un test nell'ambiente di sviluppo locale, è possibile installare i componenti nello spazio dei nomi contrib usando il comando seguente:
+> 
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
 ## <a name="call-the-service-c"></a>Chiamare il servizio (C#)
 
-In questo esempio viene illustrato come utilizzare C# per chiamare il servizio Web creato dall’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook):
+In questo esempio viene illustrato come utilizzare C# per chiamare il servizio Web creato dall’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
 
 ```csharp
 using System;
@@ -215,7 +254,7 @@ I risultati restituiti sono simili al seguente documento JSON:
 
 ## <a name="call-the-service-go"></a>Chiamare il servizio (Go)
 
-In questo esempio viene illustrato come utilizzare Go per chiamare il servizio Web creato dall’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook):
+In questo esempio viene illustrato come utilizzare Go per chiamare il servizio Web creato dall’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
 
 ```go
 package main
@@ -307,7 +346,7 @@ I risultati restituiti sono simili al seguente documento JSON:
 
 ## <a name="call-the-service-java"></a>Chiamare il servizio (Java)
 
-In questo esempio viene illustrato come utilizzare Java per chiamare il servizio Web creato dall’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook):
+In questo esempio viene illustrato come utilizzare Java per chiamare il servizio Web creato dall’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
 
 ```java
 import java.io.IOException;
@@ -387,7 +426,7 @@ I risultati restituiti sono simili al seguente documento JSON:
 
 ## <a name="call-the-service-python"></a>Chiamare il servizio (Python)
 
-In questo esempio viene illustrato come utilizzare Python per chiamare il servizio Web creato dall’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook):
+In questo esempio viene illustrato come utilizzare Python per chiamare il servizio Web creato dall’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
 
 ```python
 import requests
@@ -446,7 +485,3 @@ I risultati restituiti sono simili al seguente documento JSON:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
-
-## <a name="next-steps"></a>Passaggi successivi
-
-Ora che si è appreso come creare un client per un modello distribuito, è possibile procedere alle informazioni su come [Distribuire un modello in un dispositivo IoT Edge](how-to-deploy-to-iot.md).

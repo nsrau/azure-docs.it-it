@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138660"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678441"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problemi delle appliance virtuali di rete in Azure
 
 È possibile che si verifichino problemi ed errori di connettività per la VM o la VPN quando si usa un'appliance virtuale di rete in Microsoft Azure. Questo articolo illustra le procedure di base che consentono di convalidare i requisiti essenziali della piattaforma Azure per le configurazioni delle appliance virtuali di rete.
 
-Il supporto tecnico per le appliance virtuali di rete di terze parti e per la rispettiva integrazione con la piattaforma Azure viene fornito dal fornitore dell'appliance virtuale di rete. Se si verifica un problema di connettività o di routing che interessa un'appliance virtuale di rete, è necessario [contattare il fornitore dell'appliance virtuale di rete](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) direttamente.
+Il supporto tecnico per le appliance virtuali di rete di terze parti e per la rispettiva integrazione con la piattaforma Azure viene fornito dal fornitore dell'appliance virtuale di rete. 
+
+> [!NOTE]
+> Se si verifica un problema di connettività o di routing che interessa un'appliance virtuale di rete, è necessario [contattare il fornitore dell'appliance virtuale di rete](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) direttamente.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -37,6 +40,7 @@ Il supporto tecnico per le appliance virtuali di rete di terze parti e per la ri
 - Route definite dall'utente nelle subnet di rete virtuale che indirizzano il traffico dall'appliance virtuale di rete
 - Tabelle e regole di routing entro l'appliance virtuale di rete (ad esempio, da NIC1 a NIC2)
 - Traccia sulle schede di interfaccia di rete dell'appliance virtuale di rete per la verifica della ricezione e dell'invio del traffico di rete
+- Quando si usano uno SKU Standard e IP pubblici, è necessario che esistano un gruppo di sicurezza di rete e una regola esplicita per consentire l'indirizzamento del traffico all'appliance virtuale di rete.
 
 ## <a name="basic-troubleshooting-steps"></a>Procedura di base per la risoluzione dei problemi
 
@@ -73,6 +77,8 @@ Usare PowerShell
           Execute: $nic2 #and check for an expected output:
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
+
+**Verificare la presenza di un gruppo di sicurezza di rete quando si usano IP pubblici e SKU Standard** Quando si usano uno SKU Standard e IP pubblici, è necessario che esistano un gruppo di sicurezza di rete e una regola esplicita per consentire il traffico verso l'appliance virtuale di rete.
 
 **Controllare se il traffico può essere indirizzato all'appliance virtuale di rete**
 

@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d7f33bf0657ca2a6888387b7651706f9de537bb4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: ce10e2c24e89140357df3fa6b724a1f89f389a50
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494357"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275483"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Gestisce i cluster di Service Fabric autonomi.
@@ -63,18 +63,18 @@ Convalida i parametri di aggiornamento della configurazione forniti e avvia l'ag
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --cluster-config [Obbligatorio] | Configurazione del cluster che verrà applicata al cluster. |
+| --cluster-config [Obbligatorio] | Configurazione del cluster. |
 | --application-health-policies | Dizionario con codifica JSON delle coppie di nomi del tipo di applicazione e percentuale massima di stato non integro prima che venga generato l'errore. |
 | --delta-unhealthy-nodes | Percentuale massima consentita di riduzione delle prestazioni nell'integrità delta durante l'aggiornamento. I valori consentiti sono valori interi compresi tra 0 e 100. |
 | --health-check-retry | Intervallo di tempo tra i tentativi di esecuzione dei controlli integrità se l'applicazione o il cluster non è integro.  Impostazione predefinita\: PT0H0M0S. |
-| --health-check-stable | Intervallo di tempo in cui l'applicazione o il cluster deve rimanere integro.  Impostazione predefinita\: PT0H0M0S. |
+| --health-check-stable | Tempo di attesa per cui l'applicazione o il cluster devono rimanere integri prima di passare al dominio di aggiornamento successivo.  Impostazione predefinita\: PT0H0M0S. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
 | --health-check-wait | Intervallo di tempo di attesa dopo il completamento di un dominio di aggiornamento prima di avviare il processo dei controlli integrità.  Impostazione predefinita\: PT0H0M0S. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 | --unhealthy-applications | Percentuale massima consentita di applicazioni non integre durante l'aggiornamento. I valori consentiti sono valori interi compresi tra 0 e 100. |
 | --unhealthy-nodes | Percentuale massima consentita di nodi non integri durante l'aggiornamento. I valori consentiti sono valori interi compresi tra 0 e 100. |
 | --upgrade-domain-delta-unhealthy-nodes | Percentuale massima consentita di riduzione delle prestazioni nell'integrità delta del dominio di aggiornamento durante l'aggiornamento. I valori consentiti sono valori interi compresi tra 0 e 100. |
-| --upgrade-domain-timeout | Timeout per il dominio di aggiornamento.  Impostazione predefinita\: PT0H0M0S. |
-| --upgrade-timeout | Timeout di aggiornamento.  Impostazione predefinita\: PT0H0M0S. |
+| --upgrade-domain-timeout | Tempo necessario al completamento di ogni dominio di aggiornamento prima dell'esecuzione di FailureAction.  Impostazione predefinita\: PT0H0M0S. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
+| --upgrade-timeout | Tempo necessario al completamento dell'aggiornamento prima dell'esecuzione di FailureAction.  Impostazione predefinita\: PT0H0M0S. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -88,7 +88,12 @@ Convalida i parametri di aggiornamento della configurazione forniti e avvia l'ag
 
 ### <a name="examples"></a>Esempi
 
-Avviare un aggiornamento della configurazione del cluster sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+Avviare un aggiornamento della configurazione cluster
+
+```
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-
+policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+```
 
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster upgrade-status
 Ottiene lo stato dell'aggiornamento della configurazione del cluster di un cluster autonomo di Service Fabric.

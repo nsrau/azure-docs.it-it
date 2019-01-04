@@ -2,19 +2,19 @@
 title: Flussi di dati di Internet delle cose in tempo reale con Analisi di flusso di Azure
 description: Tag dei sensori IoT e flussi di dati con l'elaborazione dei dati in tempo reale e l'analisi di flusso
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 8a4e5b180438203e345ef6c5323ab010f4757c0e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: b008fe128aa760197c34d8c14c4d3b92cbed2bd2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978077"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103167"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introduzione all'analisi di flusso di Azure per elaborare dati dai dispositivi IoT
 Questa esercitazione illustra come creare la logica di elaborazione del flusso per raccogliere dati da dispositivi IoT (Internet delle cose). Verrà usato un caso d'uso reale di IoT per dimostrare come compilare una soluzione in modo rapido ed economico.
@@ -56,37 +56,37 @@ Per semplicità d'uso, questa guida introduttiva include un file di dati di esem
    > 
 4. Nel dashboard selezionare la casella in cui inserire il processo e quindi fare clic su **CREA**.
    
-    ![creazione del processo in corso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
+    ![Creazione del processo di Analisi di flusso in corso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
 5. Dovrebbe essere visualizzato un messaggio di tipo 'Distribuzione avviata...' nella parte superiore destra della finestra del browser. Viene quindi visualizzato il messaggio che indica il completamento dell'attività.
    
-    ![creazione del processo in corso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
+    ![Distribuzione di Analisi di flusso completata](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
 ## <a name="create-an-azure-stream-analytics-query"></a>Creare una query di analisi di flusso di Azure
 Dopo aver creato il processo, aprirlo ed eseguire una query. Per accedere al processo è sufficiente fare clic sul riquadro relativo.
 
-![Riquadro del processo](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
+![Riquadro del processo di Analisi di flusso nel portale di Azure](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
 Nel riquadro **Job Topology** (Topologia processo) fare clic sulla casella **QUERY** per aprire l'editor di query. L'editor di **query** consente di inserire una query T-SQL che esegue la trasformazione dei dati di eventi in ingresso.
 
-![Riquadro della query](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
+![Riquadro query dashboard di Analisi di flusso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
-### <a name="query-archive-your-raw-data"></a>Query: Archiviazione dei dati non elaborati
+### <a name="query-archive-your-raw-data"></a>Query: Archiviare i dati non elaborati
 La forma più semplice di query è una query pass-through che archivia tutti i dati di input nell'output designato. Scaricare il file di dati di esempio da [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) a un percorso nel proprio computer. 
 
 1. Incollare la query dal file PassThrough.txt. 
    
-    ![Test del flusso di input](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
+    ![Incollare la query nell'editor query di Analisi di flusso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
 2. Fare clic sui tre puntini accanto all'input e selezionare la casella **Upload sample data from file** (Caricare i dati di esempio dal file).
    
-    ![Test del flusso di input](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
+    ![Scegliere di caricare i dati di esempio da file](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
 3. Nel riquadro che verrà visualizzato a destra, selezionare il file di dati HelloWorldASA-InputStream.json dalla posizione di download e fare clic su **OK** nella parte inferiore del riquadro.
    
-    ![Test del flusso di input](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
+    ![Caricare un file di dati di esempio JSON](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
 4. Per elaborare la query di test a fronte del set di dati di esempio, fare clic sull'ingranaggio **Test** nella parte superiore sinistra della finestra. Al completamento del processo, sotto alla query verrà visualizzata una finestra contenente i risultati dell'elaborazione.
    
-    ![Risultati del test](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+    ![Risultati del test dell'operazione per la query di Analisi di flusso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
-### <a name="query-filter-the-data-based-on-a-condition"></a>Query: Filtro dei dati in base a una condizione
+### <a name="query-filter-the-data-based-on-a-condition"></a>Query: Filtrare i dati in base a una condizione
 È possibile filtrare i risultati in base a una condizione. Ai fini di questa esercitazione, si vogliono visualizzare solo i risultati relativi agli eventi provenienti da "sensorA". La query si trova nel file Filtering.txt.
 
 ![Filtro di un flusso di dati](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
@@ -95,14 +95,14 @@ Si noti che la query, con distinzione tra maiuscole e minuscole, confronta un va
 
 ![Secondo risultato di output del test di query](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
 
-### <a name="query-alert-to-trigger-a-business-workflow"></a>Query: Avviso per attivare un flusso di lavoro aziendale
+### <a name="query-alert-to-trigger-a-business-workflow"></a>Query: Generare un avviso per attivare un flusso di lavoro aziendale
 La query verrà ora resa più dettagliata. Per ogni tipo di sensore, si vuole monitorare la temperatura media in una finestra di 30 secondi e visualizzare i risultati solo se tale temperatura supera i 100 gradi. A tale scopo, scrivere la query seguente e quindi fare clic su **Test** per visualizzare i risultati. La query si trova nel file ThresholdAlerting.txt.
 
 ![Query di filtro per 30 secondi](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
 I risultati visualizzati conterranno ora solo 245 righe e i nomi dei sensori in cui temperatura media è superiore a 100. La query raggruppa il flusso di eventi in base al nome del sensore (**dspl**) su una **finestra a cascata** di 30 secondi. Le query temporali devono specificare come si vuole definire l'avanzamento del tempo. Usando la clausola **TIMESTAMP BY** è stata specificata la colonna **OUTPUTTIME** per associare l'ora a tutti i calcoli temporali. Per informazioni dettagliate, vedere gli articoli di MSDN relativi alla [gestione del tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e alle [funzioni finestra](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
-### <a name="query-detect-absence-of-events"></a>Query: rilevare l'assenza di eventi
+### <a name="query-detect-absence-of-events"></a>Query: Rilevare l'assenza di eventi
 La scrittura di una query per trovare una mancanza di eventi di input consente di determinare l'ultima volta in cui un sensore ha inviato dati e non ha quindi inviato alcun evento per i 5 secondi successivi. La query si trova nel file AbsenseOfEvent.txt.
 
 ![Rilevare l'assenza di eventi](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
@@ -110,5 +110,5 @@ La scrittura di una query per trovare una mancanza di eventi di input consente d
 In questo caso viene usato un **LEFT OUTER JOIN** per lo stesso flusso di dati (self-join). In caso di **INNER JOIN** viene restituito un risultato solo quando viene trovata una corrispondenza.  In caso di **LEFT OUTER JOIN**, se un evento del lato sinistro del join è senza corrispondenza viene restituita una riga con valore NULL per tutte le colonne del lato destro. Questa tecnica è molto utile per trovare un'assenza di eventi. Per altre informazioni sui [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx), vedere la documentazione MSDN.
 
 ## <a name="conclusion"></a>Conclusioni
-Lo scopo di questa esercitazione è illustrare come scrivere diverse query nel linguaggio di query di Analisi di flusso e visualizzare i risultati nel browser. Si tratta, tuttavia, di informazioni di base, perché Analisi di flusso consente di eseguire molte altre attività. Analisi di flusso supporta un'ampia gamma di input e output e può anche usare le funzioni di Azure Machine Learning per offrire uno strumento efficace per l'analisi dei flussi di dati. Per iniziare a esplorare Analisi di flusso, è possibile usare la [mappa di apprendimento](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Per altre informazioni su come scrivere le query, vedere l'articolo sui [modelli di query comuni](stream-analytics-stream-analytics-query-patterns.md).
+Lo scopo di questa esercitazione è illustrare come scrivere diverse query nel linguaggio di query di Analisi di flusso e visualizzare i risultati nel browser. Si tratta, tuttavia, di informazioni di base, perché Analisi di flusso consente di eseguire molte altre attività. Analisi di flusso supporta un'ampia gamma di input e output e può anche usare le funzioni di Azure Machine Learning per offrire uno strumento efficace per l'analisi dei flussi di dati. Per iniziare a esplorare Analisi di flusso, è possibile usare la [mappa di apprendimento](https://docs.microsoft.com/azure/stream-analytics/). Per altre informazioni su come scrivere le query, vedere l'articolo sui [modelli di query comuni](stream-analytics-stream-analytics-query-patterns.md).
 

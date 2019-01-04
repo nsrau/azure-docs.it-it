@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 30d0818b57057785784c1fbda1c67ca0be10d769
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820308"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384769"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usare il servizio Importazione/Esportazione di Azure per importare i dati in File di Azure
 
@@ -29,7 +29,7 @@ Prima di creare un processo di importazione per trasferire dati in File di Azure
 - Avere almeno un account di archiviazione di Azure. Vedere l'elenco di [account di archiviazione e tipi di archiviazione supportati per il servizio Importazione/Esportazione](storage-import-export-requirements.md). Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-quickstart-create-account.md).
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks). 
 - Predisporre un sistema Windows con una [versione del sistema operativo supportata](storage-import-export-requirements.md#supported-operating-systems).
-- [Scaricare WAImportExport versione 2](https://www.microsoft.com/download/details.aspx?id=55280) nel sistema Windows. Decomprimere la cartella predefinita `waimportexport`. Ad esempio: `C:\WaImportExport`.
+- [Scaricare WAImportExport versione 2](https://aka.ms/waiev2) nel sistema Windows. Decomprimere la cartella predefinita `waimportexport`. Ad esempio: `C:\WaImportExport`.
 - Avere un account FedEx o DHL. 
     - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
     - Generare un numero di tracciabilità per il processo di esportazione.
@@ -50,14 +50,14 @@ Per preparare le unità, eseguire le operazioni seguenti.
 2. Creare un singolo volume NTFS in ogni unità. Assegnare una lettera di unità al volume. Non usare punti di montaggio.
 3. Modificare il file *dataset.csv* nella cartella radice in cui si trova lo strumento. A seconda che si voglia importare un file o una cartella oppure entrambi, aggiungere nel file *dataset.csv* voci simili a quelle mostrate negli esempi seguenti.  
 
-    - **Per importare un file**: nell'esempio seguente i dati da copiare si trovano nell'unità C:. Il file *MyFile1.txt* viene copiato nella radice *MyAzureFileshare1*. Se *MyAzureFileshare1* non esiste, viene creata nell'account di archiviazione di Azure. La struttura di cartelle viene mantenuta.
+    - **Per importare un file**: nell'esempio seguente i dati da copiare si trovano nell'unità C. Il file *MyFile1.txt* viene copiato nella radice *MyAzureFileshare1*. Se *MyAzureFileshare1* non esiste, viene creata nell'account di archiviazione di Azure. La struttura di cartelle viene mantenuta.
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
-    - **Per importare una cartella**: tutti i file e le cartelle all'interno di *MyFolder2* vengono copiati in modo ricorsivo nella condivisione file. La struttura di cartelle viene mantenuta.
+    - **Per importare una cartella**: tutti i file e le cartelle in *MyFolder2* vengono copiati in modo ricorsivo nella condivisione file. La struttura di cartelle viene mantenuta.
 
         ```
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
@@ -84,7 +84,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
         H,Format,SilentMode,Encrypt,
         ```
     
-    - **Per un disco già crittografato**: specificare *AlreadyEncrypted* e immettere la chiave BitLocker.
+    - **Per un disco già crittografato**: specificare *AlreadyEncrypted* e fornire la chiave BitLocker.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -137,7 +137,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 
 3. In **Dettagli processo**:
     
-    - Caricare i file journal creati in [Passaggio 1: Preparare le unità](#step-1-prepare-the-drives). 
+    - Caricare i file journal creati durante il precedente [Passaggio 1: Preparare le unità](#step-1-prepare-the-drives). 
     - Selezionare l'account di archiviazione in cui verranno importati i dati. 
     - La località di consegna viene popolata automaticamente in base all'area dell'account di archiviazione selezionato.
    
@@ -166,7 +166,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-4-update-the-job-with-tracking-information"></a>Passaggio 4: Aggiornare il processo con informazioni di tracciabilità della spedizione
+## <a name="step-4-update-the-job-with-tracking-information"></a>Passaggio 4: Aggiornare il processo con le informazioni di tracciabilità
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 

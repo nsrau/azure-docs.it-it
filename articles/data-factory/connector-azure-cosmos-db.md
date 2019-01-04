@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da o verso Azure Cosmos DB usando Data Factory | Microsoft Docs
+title: Copiare dati da o verso Azure Cosmos DB (API SQL) usando Data Factory | Microsoft Docs
 description: Informazioni su come copiare dati da archivi dati di origine supportati da o verso Azure Cosmos DB in archivi sink supportati usando Data Factory.
 services: data-factory, cosmosdb
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c10a933f371bfc84b863413134f2fdf5ff9c0e34
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 16c02f1f47f556f550519feec78e7dd26b302e18
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161838"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103796"
 ---
-# <a name="copy-data-to-or-from-azure-cosmos-db-by-using-azure-data-factory"></a>Copiare dati da o verso Azure Cosmos DB usando Azure Data Factory
+# <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiare dati da o verso Azure Cosmos DB (API SQL) usando Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-azure-documentdb-connector.md)
@@ -39,6 +39,9 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 - Importare ed esportare documenti JSON così come sono o copiare dati da o in un set di dati tabulari, ad esempio un database SQL e un file CSV. Per copiare documenti così come sono da o verso file JSON o da o verso un'altra raccolta di Azure Cosmos DB, vedere [Importare o esportare documenti JSON](#importexport-json-documents).
 
 Data Factory si integra con la [libreria dell'executor bulk di Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) per offrire le migliori prestazioni durante la scrittura in Azure Cosmos DB.
+
+>[!NOTE]
+>Questo connettore supporta solo la copia di dati da o verso l'API SQL Cosmos DB.
 
 > [!TIP]
 > Il [video sulla migrazione dei dati](https://youtu.be/5-SRNiC_qOU) illustra la procedura di copia dei dati da Archiviazione BLOB di Azure ad Azure Cosmos DB. Il video presenta inoltre alcune considerazioni generali sull'ottimizzazione delle prestazioni per l'inserimento di dati in Azure Cosmos DB.

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: be56fd80229010090216413a7c1833d94e8bac25
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739567"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339876"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Convertire un modello di set di scalabilità in un modello di set di scalabilità per i dischi gestiti
 
@@ -126,7 +126,7 @@ Non esistono proprietà esplicite nella configurazione del set di scalabilità c
 
 ## <a name="data-disks"></a>Dischi dati
 
-Con le modifiche precedenti, il set di scalabilità usa dischi gestiti per il disco del sistema operativo. Non si è però parlato dei dischi dati. Per aggiungere dischi dati, aggiungere la proprietà "dataDisks" in "storageProfile" allo stesso livello di "osDisk". Il valore della proprietà è un elenco JSON di oggetti, ognuno dei quali ha proprietà "lun" (che devono essere univoche per ogni disco dati in una VM), "createOption" ("empty" è attualmente la sola opzione supportata) e "diskSizeGB" (le dimensioni del disco in gigabyte, che devono essere maggiori di 0 e minori di 1024), come nell'esempio seguente: 
+Con le modifiche precedenti, il set di scalabilità usa dischi gestiti per il disco del sistema operativo. Non si è però parlato dei dischi dati. Per aggiungere dischi dati, aggiungere la proprietà "dataDisks" in "storageProfile" allo stesso livello di "osDisk". Il valore della proprietà è un elenco JSON di oggetti, ognuno dei quali ha proprietà "lun" (che devono essere univoche per ogni disco dati in una VM), "createOption" ("empty" è attualmente la sola opzione supportata) e "diskSizeGB" (le dimensioni del disco in gigabyte, che devono essere maggiori di 0 e minori di 1024), come nell'esempio seguente:
 
 ```
 "dataDisks": [

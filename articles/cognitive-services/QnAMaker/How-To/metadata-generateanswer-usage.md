@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim88
-ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031085"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166592"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Uso dei metadati e dell'API GenerateAnswer
 
@@ -54,15 +54,15 @@ Per ottenere i dettagli dell'endpoint:
 - **URL della richiesta**: https://{QnA Maker endpoint}/knowledgebases/{knowledge base ID}/generateAnswer
 
 - **Parametri della richiesta**: 
-    - **Knowledge base ID** (stringa): GUID relativo alla knowledge base.
-    - **QnAMaker endpoint** (stringa): nome host dell'endpoint distribuito nella sottoscrizione di Azure.
+    - **ID della Knowledge Base** (stringa): L'identificatore univoco globale della Knowledge Base.
+    - **Endpoint QnAMaker** (stringa): nome host dell'endpoint distribuito nella sottoscrizione di Azure.
 - **Intestazioni della richiesta**
-    - **Content-Type** (stringa): tipo multimediale del corpo inviato all'API.
+    - **Content-Type** (stringa): tipo di supporto del corpo inviato all'API.
     - **Autorizzazione** (stringa): la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Corpo della richiesta**
-    - **question** (stringa): domanda dell'utente in base a cui eseguire la query sulla knowledge base.
+    - **question** (stringa): domanda dell'utente in base a cui eseguire la query sulla Knowledge Base.
     - **top** (facoltativo, numero intero): numero di risultati classificati da includere nell'output. Il valore predefinito è 1.
-    - **userId** (facoltativo, stringa): ID univoco per identificare l'utente. Questo ID verrà registrato nei log di chat.
+    - **userId** (facoltativo, stringa): ID univoco per l'identificazione dell'utente. Questo ID verrà registrato nei log di chat.
     - **strictFilters** (facoltativo, stringa): se specificato, indica a QnA Maker di restituire solo le risposte contenenti i metadati specificati. Per altre informazioni, vedere sotto.
     ```json
     {
@@ -84,7 +84,7 @@ Per ottenere i dettagli dell'endpoint:
         - **score**: punteggio di classificazione, compreso tra 0 e 100.
         - **questions**: domande fornite dall'utente.
         - **answer**: la risposta alla domanda.
-        - **source**: nome dell'origine da cui la risposta è stata estratta o salvata nella knowledge base.
+        - **source**: nome dell'origine da cui la risposta è stata estratta o salvata nella Knowledge Base.
         - **metadata**: metadati associati alla risposta.
             - name: nome dei metadati. (stringa, lunghezza massima: 100, obbligatorio)
             - value: valore dei metadati. (stringa, lunghezza massima: 100, obbligatorio)
@@ -167,6 +167,8 @@ La risposta a GenerateAnswer contiene le informazioni sui metadati corrispondent
 Queste informazioni possono essere usate per registrare il contesto della conversazione precedente da usare nelle conversazioni successive. 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+La pagina di pubblicazione fornisce anche informazioni a [generare una risposta](../Quickstarts/get-answer-from-kb-using-postman.md) con Postman e [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
 > [Creare una knowledge base](./create-knowledge-base.md)

@@ -1,5 +1,5 @@
 ---
-title: Come preparare un cambio di indirizzo IP in uscita - Azure
+title: Preparare un cambio di indirizzo IP in uscita - Servizio app di Azure
 description: Se l'indirizzo IP in uscita sta per essere modificato, in questo articolo viene spiegato come procedere in modo che l'app continui a funzionare anche dopo la modifica.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 5e17638e030ae2827b0de7dc82ecf75062504112
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: f611733400b8bfd18a135fe07f84606f13e59704
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39575931"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275721"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Come preparare un cambio di indirizzo IP in uscita
 
@@ -39,7 +40,7 @@ I nuovi indirizzi IP in uscita vengono visualizzati nel portale prima di diventa
 
 3.  Selezionare il servizio app nell'elenco.
 
-4.  Se l'app è un'app per le funzioni, vedere [Function app outbound IP addresses](../azure-functions/ip-addresses.md#function-app-outbound-ip-addresses) (Indirizzi IP in uscita dell'app per le funzioni).
+1.  Se l'app è un'app per le funzioni, vedere [Function app outbound IP addresses](../azure-functions/ip-addresses.md#find-outbound-ip-addresses) (Indirizzi IP in uscita dell'app per le funzioni).
 
 4.  Nell'intestazione **Impostazioni** fare clic su **Proprietà** nel menu di spostamento a sinistra e individuare la sezione denominata **Indirizzi IP in uscita**.
 

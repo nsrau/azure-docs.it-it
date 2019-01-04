@@ -1,13 +1,11 @@
 ---
-title: Diagnostica in Azure Load Balancer Standard | Microsoft Docs
+title: Diagnostica in Azure Load Balancer Standard
+titlesuffix: Azure Load Balancer
 description: Uso delle metriche e delle informazioni sull'integrità disponibili per la diagnostica per Azure Load Balancer Standard.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 258e093acd50946e95360416f89b2ceb96ee35d3
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426469"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189048"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Metriche e diagnostica dell'integrità per Load Balancer Standard
 
 Azure Load Balancer Standard fornisce le funzionalità di diagnostica seguenti per le risorse:
-* **Metriche multidimensionali**: sono disponibili nuove funzionalità di diagnostica multidimensionale tramite [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) per le configurazioni di Load Balancer sia pubbliche che interne. Così è possibile monitorare, gestire e risolvere i problemi delle risorse di Load Balancer.
+* **Metriche multidimensionali**: sono disponibili nuove funzionalità di diagnostica multidimensionale tramite [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) per le configurazioni di Load Balancer pubbliche e interne. Così è possibile monitorare, gestire e risolvere i problemi delle risorse di Load Balancer.
 
 * **Integrità risorse**: la pagina di Load Balancer nel portale di Azure e la pagina Integrità risorse (in Monitoraggio) espongono la sezione di integrità delle risorse per la configurazione pubblica di bilanciamento del carico di Load Balancer Standard.
 
@@ -82,7 +80,7 @@ Per ottenere la disponibilità VIP per le risorse di Load Balancer Standard:
 
 ![Esecuzione del probe VIP](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Figura - Dettagli dell'esecuzione del probe VIP di Load Balancer*
+*Figura: Dettagli dell'esecuzione del probe VIP di Load Balancer*
 
 La metrica viene generata da una misura attiva in banda. Un servizio di esecuzione del probe all'interno della regione genera traffico per la misura. Il servizio viene attivato non appena si crea una distribuzione con un front end pubblico e continua fino a quando non viene rimosso. 
 
@@ -109,7 +107,7 @@ Per ottenere la disponibilità DIP per le risorse di Load Balancer Standard:
 
 ![Disponibilità DIP](./media/load-balancer-standard-diagnostics/LBMetrics-DIPAvailability.png)
 
-*Figura - Disponibilità VIP per Load Balancer*
+*Figura: Disponibilità VIP per Load Balancer*
 
 I probe di integrità hanno esito negativo per le ragioni seguenti:
 - Se si configura un probe di integrità per una porta che non è in ascolto, che non risponde o che non utilizza il protocollo corretto. Se il servizio usa regole Direct Server Return (DSR o IP mobile), assicurarsi che il servizio sia in ascolto sull'indirizzo IP della configurazione IP della scheda di rete e non soltanto sul loopback configurato con l'indirizzo IP front-end.
@@ -129,7 +127,7 @@ Per ottenere statistiche sulle connessioni SNAT:
 
 ![Connessione SNAT](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*Figura - Conteggio delle connessioni SNAT per Load Balancer*
+*Figura: Conteggio delle connessioni SNAT per Load Balancer*
 
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Come è possibile verificare i tentativi di connessione in ingresso/uscita per il servizio?
@@ -140,7 +138,7 @@ Usare **Totale** come aggregazione per la maggior parte degli scenari.
 
 ![Connessione SYN](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-*Figura - Conteggio SYN per Load Balancer*
+*Figura: Conteggio SYN per Load Balancer*
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>Come è possibile verificare il consumo di larghezza di banda di rete? 
@@ -157,7 +155,7 @@ Per ottenere statistiche relative al conteggio di byte o pacchetti:
 
 ![Conteggio byte](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Figura - Conteggio byte per Load Balancer*
+*Figura: Conteggio byte per Load Balancer*
 
 #### <a name = "vipavailabilityandhealthprobes"></a>Come è possibile diagnosticare la distribuzione di Load Balancer?
 
@@ -169,7 +167,7 @@ La combinazione delle metriche relative alla disponibilità VIP e ai probe di in
 
 ![Diagnostica VIP](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
 
-*Figura - Combinazione delle metriche relative alla disponibilità DIP e VIP*
+*Figura: Combinazione delle metriche relative alla disponibilità DIP e VIP*
 
 In questo grafico vengono visualizzate le informazioni seguenti:
 - L'infrastruttura di per sé era integra, l'infrastruttura che ospita le macchine virtuali era raggiungibile e più di una macchina virtuale è stata inserita nel back-end. Questa informazione è indicata dalla traccia blu per la disponibilità VIP (100%). 
@@ -193,7 +191,7 @@ Per visualizzare l'integrità delle risorse della configurazione pubblica di Loa
 
    ![Pagina Monitoraggio](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-   *Figura - Collegamento a Integrità dei servizi in Monitoraggio di Azure*
+   *Figura: Collegamento a Integrità dei servizi in Monitoraggio di Azure*
 
 2. Selezionare **Integrità risorse** e assicurarsi che **ID di sottoscrizione** e **Tipo di risorsa = Load Balancer** siano selezionati.
 

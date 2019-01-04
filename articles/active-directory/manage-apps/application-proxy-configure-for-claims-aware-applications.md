@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: bb04f1965764413c474c2e0d057d77d5d30edd07
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b8c69ebec2258581954e26dc6181d5f4b57f461c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623112"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137702"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Uso di app in grado di riconoscere attestazioni nel proxy di applicazione
 Le [app in grado di riconoscere attestazioni](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) eseguono un reindirizzamento al servizio token di sicurezza. Il servizio token di sicurezza richiede le credenziali all'utente in cambio di un token e quindi reindirizza l'utente all'applicazione. È possibile consentire al proxy di applicazione di usare questi reindirizzamenti in diversi modi. Usare questo articolo per configurare la distribuzione per app in grado di riconoscere attestazioni. 
@@ -29,7 +29,7 @@ Assicurarsi che il servizio token di sicurezza cui viene reindirizzata l'app in 
 
 ## <a name="publish-your-application"></a>Pubblicare l'applicazione
 
-1. Pubblicare l'applicazione seguendo le istruzioni contenute in [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-publish-azure-portal.md).
+1. Pubblicare l'applicazione seguendo le istruzioni contenute in [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-add-on-premises-application.md).
 2. Passare alla pagina dell'applicazione nel portale e selezionare **Single Sign-On**.
 3. Se si sceglie **Azure Active Directory** come **Metodo di autenticazione preliminare**, selezionare **Single Sign-On di Azure AD disabilitato** come **Metodo di autenticazione interna**. Se si sceglie **Pass-through** come **Metodo di autenticazione preliminare**, non è necessario apportare alcuna modifica.
 
@@ -37,7 +37,7 @@ Assicurarsi che il servizio token di sicurezza cui viene reindirizzata l'app in 
 
 È possibile configurare AD FS per le app in grado di riconoscere attestazioni in due modi diversi. Il primo consiste nell'usare domini personalizzati. Il secondo è con WS-Federation. 
 
-### <a name="option-1-custom-domains"></a>Opzione 1: domini personalizzati
+### <a name="option-1-custom-domains"></a>Opzione 1: Domini personalizzati
 
 Se tutti gli URL interni per le applicazioni sono nomi di dominio completi (FQDN), è possibile configurare [domini personalizzati](application-proxy-configure-custom-domain.md) per le applicazioni. Usare i domini personalizzati per creare URL esterni identici agli URL interni. Se gli URL esterni corrispondono agli URL interni, i reindirizzamenti del servizio token di sicurezza funzionano indipendentemente dal fatto che gli utenti siano in locale o in remoto. 
 

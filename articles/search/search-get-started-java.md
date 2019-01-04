@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Ricerca di Azure in Java | Documentazione Microsoft
+title: Introduzione a Ricerca di Azure in Java - Ricerca di Azure
 description: Come compilare un'applicazione di ricerca cloud ospitata in Azure usando Java come linguaggio di programmazione.
 services: search
 author: jj09
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec2018
+ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419300"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316971"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introduzione a Ricerca di Azure in Java
 > [!div class="op_single_selector"]
@@ -46,12 +47,12 @@ In questa applicazione, il programma **SearchServlet.java** compila e carica l'i
 Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esempio.
 
 * Search.jsp: fornisce l'interfaccia utente
-* SearchServlet.java: fornisce i metodi (simile a un controller MVC)
-* SearchServiceClient.java: gestisce le richieste HTTP 
-* SearchServiceHelper.java: una classe di supporto che fornisce metodi statici
-* Document.Java: fornisce il modello di dati
-* config.properties: imposta l'URL del servizio di ricerca e la chiave dell'api
-* pom.xml: una dipendenza Maven
+* SearchServlet.java: fornisce i metodi (simile a un controller in MVC)
+* SearchServiceClient.java: gestisce le richieste HTTP
+* SearchServiceHelper.java: classe di supporto che fornisce metodi statici
+* Document.java: fornisce il modello di dati
+* config.properties: imposta l'URL del servizio di ricerca e api-key
+* pom.xml: dipendenza Maven
 
 <a id="sub-2"></a>
 

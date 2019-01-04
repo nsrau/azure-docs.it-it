@@ -4,9 +4,9 @@ description: Una procedura dettagliata che mostra come creare una soluzione di a
 keywords: rischio di credito, soluzione di analisi predittiva, valutazione del rischio
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.component: studio
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: a5dd8432ca79cca8de37f5d64027e0b9c498f3b9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fce8f03adfad348c9daddf3c2a225d6df29552d7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311943"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252521"
 ---
-# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio
+# <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Procedura dettagliata: Sviluppare una soluzione predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio
 
 In questa procedura dettagliata viene esaminato il processo di sviluppo di una soluzione di analisi predittiva in Machine Learning Studio. Viene sviluppato un modello semplice in Machine Learning Studio, che viene quindi distribuito come servizio Web di Azure Machine Learning, in cui il modello può creare previsioni usando nuovi dati. 
 
 In questa procedura dettagliata si presuppone che Machine Learning Studio sia già stato usato almeno una volta e che alcuni concetti di Machine Learning siano noti, ma non si dà per scontato che l'utente sia un esperto.
 
-Se non si ha alcuna esperienza di **Azure Machine Learning Studio**, è consigliabile iniziare con l'esercitazione [Creare il primo esperimento di analisi scientifica dei dati in Azure Machine Learning Studio](create-experiment.md), Tale esercitazione guida l'utente nel primo uso di Machine Learning Studio, offre le nozioni di base su come trascinare moduli nell'esperimento, connetterli, eseguire l'esperimento ed esaminare i risultati. Un altro strumento che potrebbe essere utile all'inizio è un diagramma che offre una panoramica delle funzionalità di Machine Learning Studio. È possibile scaricarlo e stamparlo da qui: [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](studio-overview-diagram.md).
+Se non si ha alcuna esperienza di **Azure Machine Learning Studio**, è consigliabile iniziare con l'esercitazione [Creare il primo esperimento di analisi scientifica dei dati in Azure Machine Learning Studio](create-experiment.md), Tale esercitazione guida l'utente nel primo uso di Machine Learning Studio, offre le nozioni di base su come trascinare moduli nell'esperimento, connetterli, eseguire l'esperimento ed esaminare i risultati. Un altro strumento che potrebbe essere utile all'inizio è un diagramma che offre una panoramica delle funzionalità di Machine Learning Studio. È possibile scaricarlo e stamparlo da qui: [Diagramma generale delle funzionalità di Azure Machine Learning Studio](studio-overview-diagram.md).
  
 Se non si ha familiarità con il campo dell'apprendimento automatico in generale, è disponibile una serie di video che possono risultare utile all'utente. Si chiama [Analisi scientifica dei dati per principianti](data-science-for-beginners-the-5-questions-data-science-answers.md) e offre un'ottima introduzione all'apprendimento automatico grazie a un linguaggio e a concetti comuni.
 
@@ -56,6 +56,6 @@ Per creare la soluzione di valutazione del rischio di credito, seguire la proced
 6. [Accedere al servizio Web](walkthrough-6-access-web-service.md)
 
 > [!TIP] 
-> È possibile trovare una copia di lavoro dell'esperimento sviluppato in questa procedura dettagliata nella [raccolta per intelligenza artificiale di Azure](https://gallery.cortanaintelligence.com). Passare a **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Procedura dettagliata: previsione del rischio di credito) e fare clic su **Apri in Studio** per scaricare una copia dell'esperimento nell'area di lavoro di Machine Learning Studio.
+> È possibile trovare una copia di lavoro dell'esperimento sviluppato in questa procedura dettagliata in [Azure AI Gallery](https://gallery.cortanaintelligence.com). Passare a **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Procedura dettagliata: previsione del rischio di credito) e fare clic su **Apri in Studio** per scaricare una copia dell'esperimento nell'area di lavoro di Machine Learning Studio.
 > 
-> Questa procedura dettagliata è basata su una versione semplificata dell'esperimento di esempio [Binary Classfication: Credit risk prediction](https://go.microsoft.com/fwlink/?LinkID=525270) (Classificazione binaria: previsione del rischio di credito) nella [raccolta](http://gallery.cortanaintelligence.com/).
+> Questa procedura dettagliata è basata su una versione semplificata dell'esperimento di esempio [Binary Classification: Credit risk prediction](https://go.microsoft.com/fwlink/?LinkID=525270) (Classificazione binaria: previsione del rischio di credito) nella [Gallery](http://gallery.cortanaintelligence.com/).

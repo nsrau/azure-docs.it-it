@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 40ec204f105b32c8b7d9e2dda6f6f3c3023b2d44
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0f608dc89d3a9bc8914fc9be142c442246ce13b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495459"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278543"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni.
@@ -434,23 +434,23 @@ Convalida i parametri di aggiornamento dell'applicazione offerta e avvia l'aggio
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio] | Identità dell'applicazione. <br><br> Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
-| --application-version [Obbligatorio] | Versione dell'applicazione di destinazione. |
+| --application-id [obbligatorio] | Identità dell'applicazione. <br><br> Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
+| --application-version [Obbligatorio] | Versione del tipo di applicazione di destinazione (presente nel manifesto dell'applicazione) per l'aggiornamento dell'applicazione. |
 | --parameters [Obbligatorio] | Elenco con codifica JSON di sostituzioni del parametro dell'applicazione da applicare quando si esegue l'aggiornamento dell'applicazione. |
 | --default-service-health-policy | Specifica con codifica JSON dei criteri di integrità usati per impostazione predefinita per la valutazione dell'integrità di un tipo di servizio. |
 | --failure-action | Azione da eseguire quando un aggiornamento di monitoraggio rileva violazioni dei criteri di integrità o dei criteri di monitoraggio. |
 | --force-restart | Riavvia in modo forzato i processi durante l'aggiornamento anche quando la versione del codice non è stata modificata. |
-| --health-check-retry-timeout | Quantità di tempo per ripetere le valutazioni di integrità, quando l'applicazione o il cluster non è integro prima di eseguire l'azione di errore. Misurato in millisecondi.  Impostazione predefinita\: PT0H10M0S. |
-| --health-check-stable-duration | Tempo di attesa per cui l'applicazione o il cluster devono rimanere integri prima di passare al dominio di aggiornamento successivo. Misurato in millisecondi.  Impostazione predefinita\: PT0H2M0S. |
-| --health-check-wait-duration | Tempo di attesa dopo il completamento di un dominio di aggiornamento prima di applicare i criteri di integrità. Misurato in millisecondi.  Impostazione predefinita\: 0. |
+| --health-check-retry-timeout | Intervallo di tempo tra i tentativi di esecuzione dei controlli integrità se l'applicazione o il cluster non è integro.  Impostazione predefinita\: PT0H10M0S. |
+| --health-check-stable-duration | Tempo di attesa per cui l'applicazione o il cluster devono rimanere integri prima di passare al dominio di aggiornamento successivo.  Impostazione predefinita\: PT0H2M0S. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
+| --health-check-wait-duration | Intervallo di tempo di attesa dopo il completamento di un dominio di aggiornamento prima di avviare il processo dei controlli integrità.  Impostazione predefinita\: 0. |
 | --max-unhealthy-apps | Percentuale massima consentita di applicazioni distribuite non integre. Rappresentato come un numero compreso tra 0 e 100. |
 | --mode | La modalità usata per monitorare l'integrità durante un aggiornamento in sequenza.  Impostazione predefinita\: UnmonitoredAuto. |
 | --replica-set-check-timeout | Tempo massimo per bloccare l'elaborazione di un dominio di aggiornamento ed evitare la perdita di disponibilità quando si verificano problemi imprevisti. Il valore è espresso in secondi. |
 | --service-health-policy | Mappa con codifica JSON con criteri di integrità del tipo di servizio per ogni nome di tipo di servizio. Per impostazione predefinita la mappa è vuota. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
-| --upgrade-domain-timeout | Tempo necessario al completamento di ogni dominio di aggiornamento prima dell'esecuzione di FailureAction. Misurato in millisecondi.  Impostazione predefinita\: P10675199DT02H48M05.4775807S. |
-| --upgrade-timeout | Tempo necessario al completamento dell'aggiornamento prima dell'esecuzione di FailureAction. Misurato in millisecondi.  Impostazione predefinita\: P10675199DT02H48M05.4775807S. |
-| --warning-as-error | Considera gli avvisi di valutazione di integrità con lo stesso livello di gravità degli errori. |
+| --upgrade-domain-timeout | Tempo necessario al completamento di ogni dominio di aggiornamento prima dell'esecuzione di FailureAction.  Impostazione predefinita\: P10675199DT02H48M05.4775807S. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
+| --upgrade-timeout | Tempo necessario al completamento dell'aggiornamento prima dell'esecuzione di FailureAction.  Impostazione predefinita\: P10675199DT02H48M05.4775807S. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
+| --warning-as-error | Indica se gli avvisi vengono considerati con lo stesso livello di gravità degli errori. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 

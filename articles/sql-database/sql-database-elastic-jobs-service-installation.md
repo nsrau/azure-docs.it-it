@@ -3,7 +3,7 @@ title: Installazione dei processi di database elastici | Documentazione Microsof
 description: Installazione dettagliata della funzionalità dei processi elastici.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: c2fb3ae20ea2b6ba71408a734c1e0c82cbeb699c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cc322f44760ddf0a7cd28751c895a7c4938dbbc0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233576"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867241"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installazione dei processi di database elastici (panoramica)
 
@@ -51,7 +51,7 @@ Se sono già stati installati i **processi di database elastici** tramite il por
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>Installare i componenti dei processi di database elastici utilizzando PowerShell
-1. Avviare una finestra di comando di Microsoft Azure PowerShell e passare alla \sottodirectory strumenti sotto la cartella Microsoft.Azure.SqlDatabase.Processi.x.x.xxx.x: digitare cd\strumenti
+1. Avviare una finestra di comando di Microsoft Azure PowerShell e passare alla sottodirectory \tools nella cartella Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: Digitare cd \tools
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
@@ -156,7 +156,7 @@ Per aggiornare la dimensione della macchina virtuale di un'installazione, esegui
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Installare i componenti dei processi di database elastici utilizzando il portale
 Dopo aver creato un [pool elastico](sql-database-elastic-pool-manage-portal.md), è possibile installare componenti dei **processi di database elastici** per abilitare l'esecuzione di attività amministrative su ogni database nel pool elastico. A differenza di quando si utilizzano le API PowerShell dei **processi di database elastici** , l'interfaccia del portale è attualmente limitata solamente all’esecuzione su un pool esistente.
 
-**Tempo previsto per il completamento:** 10 minuti
+**Tempo previsto per il completamento**: 10 minuti.
 
 1. Nella vista del dashboard del pool elastico tramite il [portale di Azure](https://portal.azure.com/#) fare clic su **Crea processo**.
 2. Se si sta creando un processo per la prima volta, è necessario installare **processi di database elastici** facendo clic su **ANTEPRIMA TERMINI**.

@@ -1,11 +1,12 @@
 ---
-title: Eseguire il provisioning di una macchina virtuale con intelligenza artificiale geografica in Azure | Microsoft Docs
-description: Come eseguire il provisioning di una macchina virtuale con intelligenza artificiale geografica in Azure.
-keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, analisi geospaziale
+title: Effettuare il provisioning di una macchina virtuale con intelligenza artificiale geografica in Azure | Microsoft Docs
+description: Informazioni su come creare e configurare la Data Science Virtual Machine con intelligenza artificiale geografica. La Data Science Virtual Machine con intelligenza artificiale geografica offre gli strumenti necessari per creare soluzioni di intelligenza artificiale e Machine Learning usando i dati geografici.
+keywords: deep learning, AI, strumenti di data science, data science virtual machine, analisi geospaziale
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,16 +16,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239798"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103949"
 ---
-# <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Eseguire il provisioning di una macchina virtuale con intelligenza artificiale geografica in Azure 
+# <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale con intelligenza artificiale geografica in Azure 
 
-La macchina virtuale di data science con intelligenza artificiale geografica (Geo-DSVM) è una speciale estensione della diffusa [macchina virtuale di data science di Azure](https://aka.ms/dsvm) configurata per combinare intelligenza artificiale e analisi geospaziale. L'analisi geospaziale nella macchina virtuale è basata sulla tecnologia [ArcGIS Pro](https://www.arcgis.com/features/index.html). La macchina virtuale di data science rende possibile il training rapido dei modelli di apprendimento automatico e dei modelli di apprendimento avanzato sulla base di dati arricchiti con informazioni geografiche. È supportata solo su DSVM Windows 2016. 
+La Data Science Virtual Machine con intelligenza artificiale geografica (Geo-DSVM) è una speciale estensione della nota [Data Science Virtual Machine di Azure](https://aka.ms/dsvm), appositamente configurata per combinare intelligenza artificiale e analisi geospaziale. L'analisi geospaziale nella macchina virtuale è basata sulla tecnologia [ArcGIS Pro](https://www.arcgis.com/features/index.html). La Data Science Virtual Machine rende possibile il training rapido dei modelli di Machine Learning e Deep Learning sulla base di dati arricchiti con informazioni geografiche. È supportata solo su DSVM Windows 2016. 
 
 La macchina virtuale Geo-DSVM contiene diversi strumenti per l'intelligenza artificiale, tra cui:
 
@@ -34,9 +35,9 @@ La macchina virtuale Geo-DSVM contiene diversi strumenti per l'intelligenza arti
 - software desktop ArcGIS Pro di ESRI e interfacce Python e R utilizzabili con i dati geospaziali provenienti da applicazioni di intelligenza artificiale. 
 
 
-## <a name="create-your-geo-ai-data-science-vm"></a>Creare una macchina virtuale di data science con intelligenza artificiale geografica
+## <a name="create-your-geo-ai-data-science-vm"></a>Creare la Data Science Virtual Machine con intelligenza artificiale geografica
 
-Ecco la procedura per creare un'istanza della VM di data science con intelligenza artificiale geografica: 
+Ecco la procedura per creare un'istanza della Data Science Virtual Machine con intelligenza artificiale geografica: 
 
 
 1. Passare alla macchina virtuale nel [portale di Azure](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
@@ -54,24 +55,24 @@ Ecco la procedura per creare un'istanza della VM di data science con intelligenz
 
       3. **Password**: password dell'account amministratore.
 
-      4. **Sottoscrizione**: se si ha più di una sottoscrizione, selezionare quella in cui viene creata e fatturata la macchina virtuale.
+      4. **Sottoscrizione**: se si hanno più sottoscrizioni, selezionare quella in cui viene creata e fatturata la macchina virtuale.
 
       5. **Gruppo di risorse**: è possibile creare un nuovo gruppo di risorse di Azure oppure usarne uno **vuoto** esistente nella sottoscrizione.
 
-      6. **Location**: selezionare la posizione del data center più appropriata. In genere è il data center contenente la maggior parte dei dati o più vicino alla posizione fisica per garantire la massima velocità di accesso alla rete. Se è necessario l'apprendimento avanzato su GPU, scegliere una posizione in Azure che contenga istanze di macchine virtuali GPU serie NC. Attualmente le posizioni che contengono macchine virtuali GPU sono: **Stati Uniti orientali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Europa settentrionale, Europa occidentale**. Per l'elenco più recente, vedere la pagina [Prodotti Azure per area](https://azure.microsoft.com/regions/services/) e cercare **serie NC** in **Calcolo**. 
+      6. **Località**: selezionare il data center più appropriato. In genere è il data center contenente la maggior parte dei dati o più vicino alla posizione fisica per garantire la massima velocità di accesso alla rete. Se è necessario eseguire attività di Deep Learning su GPU, scegliere una posizione in Azure che contenga istanze di macchine virtuali GPU serie NC. Attualmente le località in cui sono presenti macchine virtuali GPU sono le seguenti: **Stati Uniti orientali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Europa settentrionale, Europa occidentale**. Per l'elenco più recente, vedere la pagina [Prodotti Azure per area](https://azure.microsoft.com/regions/services/) e cercare **serie NC** in **Calcolo**. 
 
 
-   - **Impostazioni**: selezionare una macchina virtuale GPU serie NC se si intende eseguire l'apprendimento avanzato sulla macchina virtuale Geo-DSVM. In caso contrario, si può scegliere una delle istanze basate su CPU.  Creare un account di archiviazione per la macchina virtuale. 
+   - **Impostazioni**: selezionare una macchina virtuale GPU serie NC se si intende eseguire processi di Deep Learning nel proprio ambiente Geo-DSVM. In caso contrario, si può scegliere una delle istanze basate su CPU.  Creare un account di archiviazione per la macchina virtuale. 
    
-   - **Riepilogo**: verificare che tutte le informazioni immesse siano corrette.
+   - **Riepilogo**: Verificare che tutte le informazioni immesse siano corrette.
 
-   - **Acquista**: fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni del servizio. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** . 
+   - **Acquisto**: fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni del servizio. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** . 
 
 >[!NOTE]
 > Per il provisioning sono necessari circa 20-30 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
 
 
-## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>Come accedere alla macchina virtuale di data science con intelligenza artificiale geografica
+## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>Come accedere alla Data Science Virtual Machine con intelligenza artificiale geografica
 
 Una volta creata la VM, si è pronti per iniziare a usare gli strumenti installati e preconfigurati nella VM. Sono disponibili riquadri del menu di avvio e icone del desktop per molti strumenti. È possibile connettersi tramite desktop remoto con le credenziali dell'account amministratore configurato nella sezione **Nozioni di base** precedente. 
 
@@ -92,6 +93,6 @@ Una volta eseguito l'accesso ad ArcGIS Pro desktop con l'account ArcGIS, si è p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Iniziare a usare la macchina virtuale di data science con intelligenza artificiale geografica facendo riferimento agli argomenti seguenti:
+Iniziare a usare la Data Science Virtual Machine con intelligenza artificiale geografica facendo riferimento agli argomenti seguenti:
 
-* [Usare la macchina virtuale di data science con intelligenza artificiale geografica](use-geo-ai-dsvm.md)
+* [Usare la Data Science VM con intelligenza artificiale geografica](use-geo-ai-dsvm.md)

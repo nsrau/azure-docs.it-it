@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 790cc11e3d4cf1d0260b1099efd82bdddec85785
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d3c9c8eab0ce13aee5dbe7bdb732d45555e547fb
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634567"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407168"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Eseguire query Apache Hive con HDInsight .NET SDK
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 Informazioni su come inviare query Apache Hive tramite HDInsight .NET SDK. Si scrive un programma C# per inviare una query Hive per elencare le tabelle Hive e visualizzare i risultati.
 
-> [!NOTE]
+> [!NOTE]  
 > I passaggi descritti in questo articolo devono essere eseguiti da un client Windows. Per informazioni sull'uso di un client Linux, OS X o Unix con Hive, usare il selettore di schede visualizzato all'inizio dell'articolo.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -29,7 +29,7 @@ Per eseguire le procedure descritte nell'articolo sono necessari gli elementi se
 
 * **Un cluster Apache Hadoop in HDInsight**. Vedere [Introduzione all'uso di Hadoop basato su Linux in HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
-    > [!WARNING]
+    > [!WARNING]  
     > A partire dal 15 settembre 2017, HDInsight .NET SDK supporta solo i risultati della query Hive in restituzione dagli account di Archiviazione di Microsoft Azure. Se si usa questo esempio con un cluster HDInsight che usa Azure Data Lake Store come archiviazione primaria, non è possibile recuperare i risultati della ricerca tramite .NET SDK.
 
 * **Visual Studio 2013/2015/2017**.
@@ -138,11 +138,11 @@ L'output dell'applicazione sarà simile al seguente:
 Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Introduzione ad Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
-* [Creare cluster Hadoop in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Gestire cluster Hadoop in HDInsight con il portale di Azure](../hdinsight-administer-use-management-portal.md)
+* [Creare cluster Apache Hadoop in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
+* [Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure](../hdinsight-administer-use-management-portal.md)
 * [Riferimento a HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
-* [Usare Pig con HDInsight](hdinsight-use-pig.md)
-* [Usare Sqoop con Hadoop in HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
+* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
+* [Usare Apache Sqoop con HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Creare applicazioni .NET HDInsight di autenticazione non interattive](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
  
 

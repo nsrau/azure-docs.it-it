@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: cb9058d4f68b2dc202edeeaa6cafb2eefa82470b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284728"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954613"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Non è possibile connettersi in remoto a una macchina virtuale perché la porta RDP non è abilitata in NSG
 
@@ -26,7 +26,7 @@ Questo articolo spiega come risolvere il problema di non riuscire a connettersi 
 
 
 > [!NOTE] 
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e la distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Per le nuove distribuzioni si consiglia di usare il modello di distribuzione di Resource Manager anziché quello classico. 
+> Azure offre due modelli di distribuzione per creare e utilizzare le risorse: [Resource Manager e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Per le nuove distribuzioni si consiglia di usare il modello di distribuzione di Resource Manager anziché quello classico. 
 
 ## <a name="symptom"></a>Sintomo
 
@@ -49,7 +49,7 @@ Per abilitare la porta RDP in un gruppo di sicurezza di rete, seguire questa pro
     **Protocollo**: TCP </br>
     **Origine**: Qualsiasi </br>
     **Destinazioni**: Qualsiasi </br>
-    **Azione**: Consenti </br>
+    **Azione**: CONSENTI </br>
 
 Se si specifica l'indirizzo IP di origine, questa impostazione consente solo al traffico proveniente da un indirizzo IP o da un intervallo di indirizzi IP specifico di connettersi alla macchina virtuale. Assicurarsi che il computer utilizzato per avviare la sessione RDP sia compreso nell'intervallo.
 

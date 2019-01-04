@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: c80c7a075b8a7735a4e9d2438c94eaac89f2b50e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a522d436328a3aeb1ed365baa2ec1e3b9d3387ed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006968"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385024"
 ---
-# <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Lavorare all'interno dell'ecosistema Hadoop in HDInsight da un computer Windows
+# <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Lavorare all'interno dell'ecosistema Apache Hadoop in HDInsight da un computer Windows
 
-Informazioni sulle opzioni di sviluppo e gestione sul computer Windows per lavorare nell'ecosistema di Hadoop in HDInsight. 
+Informazioni sulle opzioni di sviluppo e gestione sul computer Windows per lavorare nell'ecosistema di Apache Hadoop in HDInsight. 
 
 HDInsight si basa su componenti Apache Hadoop e Hadoop, tecnologie open source sviluppate in Linux. HDInsight 3.4 e versioni successive usa la distribuzione Ubuntu Linux come sistema operativo sottostante per il cluster. Tuttavia, è possibile lavorare con HDInsight da un client Windows o l'ambiente di sviluppo Windows.
 
@@ -27,7 +27,7 @@ Azure PowerShell è un ambiente di scripting che può essere usato per controlla
 Esempi di attività che è possibile eseguire con PowerShell:
 
 * [Creare cluster usando PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Esecuzione di query Hive usando PowerShell](hadoop/apache-hadoop-use-hive-powershell.md)
+* [Eseguire query Apache Hive usando PowerShell](hadoop/apache-hadoop-use-hive-powershell.md)
 * [Gestire cluster con PowerShell](hdinsight-administer-use-powershell.md)
 
 Attenersi alla procedura [installare e configurare Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) per ottenere la versione più recente. Se sono presenti script che devono essere modificati per l'uso dei nuovi cmdlet per Azure Resource Manager, vedere [Migrare a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -35,10 +35,10 @@ Attenersi alla procedura [installare e configurare Azure Powershell](https://doc
 ## <a name="utilities-you-can-run-in-a-browser"></a>Utilità che è possibile eseguire in un browser
 Le seguenti utilità hanno un'interfaccia utente Web che viene eseguita in un browser:
 * **[Azure Cloud Shell (anteprima)](https://docs.microsoft.com/azure/cloud-shell/quickstart)** è una shell interattiva della riga di comando che viene eseguita nel browser e dall'interno del portale di Azure.
-* **[Interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md)** è un'utilità di gestione e monitoraggio disponibile nel portale di Azure che può essere usata per gestire diversi tipi di processi, ad esempio:
-    * [Usare Ambari con l'API REST](hdinsight-hadoop-manage-ambari-rest-api.md)
-    * [vista Hive in Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Vista Tez in Ambari](hdinsight-debug-ambari-tez-view.md)
+* **[Interfaccia utente Web Apache Ambari](hdinsight-hadoop-manage-ambari.md)** è un'utilità di gestione e monitoraggio disponibile nel portale di Azure che può essere usata per gestire diversi tipi di processi, ad esempio:
+    * [Usare Apache Ambari con l'API REST](hdinsight-hadoop-manage-ambari-rest-api.md)
+    * [Vista in Apache Ambari di Apache Hive](hadoop/apache-hadoop-use-hive-ambari-view.md)
+    * [Vista in Apache Ambari di Apache Tez](hdinsight-debug-ambari-tez-view.md)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Strumenti Data Lake (Hadoop) per Visual Studio
 Usare gli strumenti Data Lake per Visual Studio per distribuire e gestire topologie Storm. Gli strumenti Data Lake installano anche SCP.NET SDK, che consente di sviluppare topologie Storm C# con Visual Studio.
@@ -55,10 +55,11 @@ Esempi di attività che è possibile eseguire con Visual Studio e gli strumenti 
 
 Esempi di attività che è possibile eseguire con .NET SDK in Visual Studio:
 * [Creare cluster e lavorare in HDInsight da un'applicazione .NET Framework](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* [Eseguire query Hive con .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Usare funzioni C# definite dall'utente con lo streaming Hive e Pig in Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Eseguire query Apache Hive con .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [Usare le funzioni definite dall'utente C# con lo streaming Apache Hive e Apache Pig in Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-> SUGGERIMENTO Se si eseguono soluzioni .NET con cluster HDInsight basati su Windows, è opportuno pianificare una migrazione verso cluster basati su Linux. Per altre informazioni, vedere [Migrare una soluzione .NET per HDInsight basato su Windows a HDInsight basato su Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
+> SUGGERIMENTO   
+> Se si eseguono soluzioni .NET con cluster HDInsight basati su Windows, è opportuno pianificare una migrazione verso cluster basati su Linux. Per altre informazioni, vedere [Migrare una soluzione .NET per HDInsight basato su Windows a HDInsight basato su Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij IDEA e IDE di Eclipse per cluster Spark
 È possibile usare sia [Intellij IDEA](https://www.jetbrains.com/idea/download) che l'[IDE di Eclipse](https://www.eclipse.org/downloads/) per:
@@ -67,15 +68,15 @@ Esempi di attività che è possibile eseguire con .NET SDK in Visual Studio:
 * Sviluppare ed eseguire un'applicazione Spark in Scala localmente.
 
 Questi articoli mostrano come: 
-* Intellij IDEA: [Creare applicazioni Spark usando il plug-in Azure Toolkit per Intellij e Scala SDK.](spark/apache-spark-intellij-tool-plugin.md)
-* L'IDE di Eclipse o l'IDE Scala per Eclipse: [Creare applicazioni Spark e Azure Toolkit per Eclipse](spark/apache-spark-eclipse-tool-plugin.md) 
+* Intellij IDEA: [Creare applicazioni Apache Spark usando il plug-in Azure Toolkit per Intellij e Scala SDK.](spark/apache-spark-intellij-tool-plugin.md)
+* IDE Eclipse o IDE Scala per Eclipse: [Creare applicazioni Apache Spark e Azure Toolkit for Eclipse](spark/apache-spark-eclipse-tool-plugin.md) 
 
 
 ## <a name="notebooks-on-spark-for-data-scientists"></a>Notebook su Spark per data scientist 
-I cluster Apache Spark in HDInsight includono notebook e kernel Zeppelin che possono essere usati con notebook Jupyter. 
+I cluster Apache Spark in HDInsight includono notebook e kernel Apache Zeppelin che possono essere usati con notebook Jupyter. 
 
-* [Informazioni su come usare i kernel nei cluster Spark con notebook Jupyter per testare le applicazioni Spark](spark/apache-spark-zeppelin-notebook.md)
-* [Informazioni su come usare notebook Zeppelin nei cluster Spark per eseguire processi Spark](spark/apache-spark-jupyter-notebook-kernels.md) 
+* [Informazioni su come usare i kernel nei cluster Apache Spark con notebook Jupyter per testare le applicazioni Spark](spark/apache-spark-zeppelin-notebook.md)
+* [Informazioni su come usare notebook Apache Zeppelin nei cluster Spark per eseguire processi Spark](spark/apache-spark-jupyter-notebook-kernels.md) 
 
 
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Eseguire strumenti e tecnologie basate su Linux in Windows
@@ -88,5 +89,5 @@ Se si verifica una situazione in cui è necessario usare uno strumento o una tec
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se non si ha familiarità con l'uso dei cluster basati su Linux, vedere gli articoli seguenti:
-* [Configurare Hadoop, Kafka, Spark o altri cluster](hdinsight-hadoop-provision-linux-clusters.md)
+* [Configurare Apache Hadoop, Apache Kafka, Apache Spark o altri cluster](hdinsight-hadoop-provision-linux-clusters.md)
 * [Suggerimenti per i cluster HDInsight in Linux](hdinsight-hadoop-linux-information.md)

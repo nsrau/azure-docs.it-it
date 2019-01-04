@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 71e39c6430231ae8d175f9c09a9059c3da4c9a1e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0a2b56164662a13d8254d8956712077e5f8a83a9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854255"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961521"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Scrivere query per Esplora dati di Azure
 
@@ -26,9 +26,9 @@ In questo articolo viene descritto come usare il linguaggio di query in Esplora 
 - Nel *cluster della guida* di Esplora dati di Azure configurato per facilitare l'apprendimento.
     [Accedere al cluster](https://dataexplorer.azure.com/clusters/help/databases/samples) con un account di posta elettronica dell'organizzazione membro di Azure Active Directory.
 
-- In un cluster personalizzato che include i dati di esempio StormEvents. Per altre informazioni, vedere [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) (Guida introduttiva: creare un cluster e un database di Esplora dati di Azure) e [Inserire i dati di esempio in Esplora dati di Azure](ingest-sample-data.md).
+- In un cluster personalizzato che include i dati di esempio StormEvents. Per ulteriori informazioni, consultare [Avvio rapido: Creare un database e un cluster di Esplora dati di Azure](create-cluster-database-portal.md) e [Inserire i dati di esempio in Esplora dati di Azure](ingest-sample-data.md).
 
-[!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
+    [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>Panoramica del linguaggio di query
 
@@ -113,7 +113,7 @@ StormEvents
 
 ### <a name="where"></a>dove
 
-[**where**](https://docs.microsoft.com/azure/kusto/query/whereoperator): filtra una tabella per trovare il subset di righe che soddisfano un predicato.
+[**where**](https://docs.microsoft.com/azure/kusto/query/whereoperator): Filtra una tabella per trovare il subset di righe che soddisfano un predicato.
 
 La query seguente filtra i dati per `EventType` e `State`.
 
@@ -128,7 +128,7 @@ StormEvents
 
 ### <a name="sort"></a>sort
 
-[**sort**](https://docs.microsoft.com/azure/kusto/query/sortoperator): ordina le righe della tabella di input in base a una o più colonne.
+[**sort**](https://docs.microsoft.com/azure/kusto/query/sortoperator): ordina le righe della tabella input in base a una o più colonne.
 
 La query seguente ordina i dati in ordine decrescente per `DamageProperty`.
 
@@ -358,7 +358,7 @@ MyData
 
 ### <a name="ago"></a>ago()
 
-[**ago()**](https://docs.microsoft.com/azure/kusto/query/agofunction): sottrae l'intervallo di tempo specificato dall'ora UTC corrente.
+[**ago()**](https://docs.microsoft.com/azure/kusto/query/agofunction): Sottrae l'intervallo di tempo specificato dall'ora UTC corrente.
 
 La query seguente restituisce i dati per le ultime 12 ore.
 
@@ -374,7 +374,7 @@ print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
 
 ### <a name="startofweek"></a>startofweek()
 
-[**startofweek()**](https://docs.microsoft.com/azure/kusto/query/startofweekfunction): restituisce l'inizio della settimana che contiene la data, spostata in base a un offset, se specificato.
+[**startofweek()**](https://docs.microsoft.com/azure/kusto/query/startofweekfunction): restituisce l'inizio della settimana che contiene la data, spostata in base a un offset, se specificato
 
 La query seguente restituisce l'inizio della settimana con diversi offset.
 
@@ -389,7 +389,7 @@ Questa query usa l'operatore **range**, che genera una tabella di valori con una
 
 ### <a name="between"></a>between()
 
-[**Between()**](https://docs.microsoft.com/azure/kusto/query/betweenoperator): individua come corrispondenza l'input all'interno dell'intervallo inclusivo.
+[**between()**](https://docs.microsoft.com/azure/kusto/query/betweenoperator): individua come corrispondenza l'input all'interno dell'intervallo inclusivo.
 
 La query seguente filtra i dati in base a un determinato intervallo di date.
 
@@ -512,7 +512,7 @@ Le aggregazioni di base, come **count** e **summarize**, sono state descritte pi
 
 [**top-nested**](https://docs.microsoft.com/azure/kusto/query/topnestedoperator): restituisce i risultati principali in una gerarchia, in cui ogni livello è un drill-down basato sui valori del livello precedente.
 
-Questo operatore è utile per gli scenari di visualizzazione di dashboard oppure quando è necessario rispondere a una domanda simile alla seguente: "Individuare i primi N valori di K1 (usando un'aggregazione di qualche tipo); per ognuno di questi valori, individuare i primi M valori di K2 (usando un'altra aggregazione); ..."
+Questo operatore è utile per scenari di visualizzazione di dashboard oppure quando è necessario rispondere a una domanda simile alla seguente: "Individuare i primi N valori di K1 (usando un'aggregazione di qualche tipo); per ognuno di questi valori, individuare i primi M valori di K2 (usando un'altra aggregazione); ..."
 
 La query seguente restituisce una tabella gerarchica con `State` al livello superiore, seguito da `Sources`.
 
@@ -741,7 +741,7 @@ StormEvents
 
 ### <a name="cross-database-and-cross-cluster-queries"></a>Query tra database e tra cluster
 
-[Query tra database e tra cluster](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries): è possibile eseguire query su un database nello stesso cluster facendo riferimento a tale database nel formato `database("MyDatabase").MyTable`. È possibile eseguire query su un database in un cluster remoto facendo riferimento a tale database nel formato `cluster("MyCluster").database("MyDatabase").MyTable`.
+[Query tra database e tra cluster](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries): È possibile eseguire query su un database nello stesso cluster facendo riferimento a tale database nel formato `database("MyDatabase").MyTable`. È possibile eseguire query su un database in un cluster remoto facendo riferimento a tale database nel formato `cluster("MyCluster").database("MyDatabase").MyTable`.
 
 La query seguente viene richiamata da un cluster e opera sui dati del cluster `MyCluster`. Per eseguire questa query, usare il nome del cluster e il nome del database in uso.
 

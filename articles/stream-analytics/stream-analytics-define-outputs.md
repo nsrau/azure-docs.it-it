@@ -7,13 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 555a2bdfe3997114c1aaa202a89d650287f27c0e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310043"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091629"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 Questo articolo descrive i diversi tipi di output disponibili per un processo di Analisi di flusso di Azure. Gli output consentono di archiviare e salvare i risultati del processo di Analisi di flusso di Azure. Usando i dati di output, è possibile eseguire altre analisi di business e il data warehousing dei dati. 
@@ -34,13 +35,13 @@ L'output di Azure Data Lake Store da Stream Analytics non è attualmente disponi
 
 1. Se nel portale di Azure è selezionato Data Lake Store come output, viene richiesto di autorizzare una connessione a un Data Lake Store esistente.  
 
-   ![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+   ![Autorizzare la connessione a Data Lake Storage](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 2. Se si ha già accesso a Data Lake Store, selezionare **Autorizza ora**. Verrà visualizzata una pagina con il messaggio **Reindirizzamento all'autorizzazione in corso**. Dopo che l'autorizzazione ha esito positivo, viene visualizzata la pagina che consente di configurare l'output di Data Lake Store.
 
 3. Dopo aver autenticato l'account, è possibile configurare le proprietà per l'output di Archivio Data Lake. La tabella seguente elenca i nomi di proprietà e le relative descrizioni per configurare l'output di Archivio Data Lake.
 
-   ![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+   ![Definire Data Lake Storage come output di Analisi di flusso](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 | Nome proprietà | DESCRIZIONE | 
 | --- | --- |
@@ -59,7 +60,7 @@ Se la password dell'account Data Lake Store è stata modificata dopo la creazion
 
 Per rinnovare l'autorizzazione, **arrestare** il processo, passare all'output di Data Lake Store, quindi fare clic sul collegamento **Rinnova autorizzazione**. Verrà brevemente visualizzata una pagina che indica **Reindirizzamento all'autorizzazione in corso**. La pagina verrà chiusa automaticamente e, in caso di esito positivo, verrà visualizzato il messaggio **L'autorizzazione è stata rinnovata**. È quindi necessario fare clic su **Salva** nella parte inferiore della pagina e, per continuare, riavviare il processo dall'**ora dell'ultimo arresto** per evitare la perdita di dati.
 
-![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+![Rinnovare l'autorizzazione per Data Lake Storage nell'output](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>Database SQL
 [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) può essere usato come output per i dati di natura relazionale o per applicazioni che dipendono dal contesto ospitato in un database relazionale. I processi di Analisi di flusso di Azure eseguono la scrittura in una tabella esistente di un database SQL di Azure.  Lo schema della tabella deve corrispondere esattamente ai campi e ai relativi tipi generati dal processo. Un [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) può anche essere specificato come output tramite l'opzione di output del database SQL. Per informazioni sui modi che consentono di migliorare la velocità effettiva di scrittura, vedere l'articolo [Analisi di flusso con database SQL di Azure come output](stream-analytics-sql-output-perf.md). La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un database SQL di output.
@@ -133,11 +134,11 @@ L'output di Power BI da Stream Analytics non è attualmente disponibile nelle ar
 ### <a name="authorize-a-power-bi-account"></a>Autorizzare un account Power BI
 1. Se nel portale di Azure è selezionato Power BI come output, viene richiesto di autorizzare un utente Power BI esistente oppure di creare un nuovo account Power BI.  
    
-   ![Autorizzare l'utente di Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
+   ![Autorizzare l'utente di Power BI alla configurazione dell'output](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
 2. Creare un nuovo account se non è ancora presente, quindi scegliere Autorizza ora.  Viene visualizzata la pagina seguente:
    
-   ![Power BI account Azure](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+   ![Eseguire l'autenticazione a Power BI dall'account di Azure](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 
 3. In questo passaggio immettere l'account aziendale o dell'istituto di istruzione per autorizzare l'output di Power BI. Se non si è già iscritti a Power BI, scegliere Iscriviti ora. L'account aziendale o dell'istituto di istruzione usato per Power BI potrebbe differire dall'account della sottoscrizione di Azure con cui si è attualmente connessi.
 
@@ -190,11 +191,11 @@ DateTime | string | string |  DateTime | string
 ### <a name="renew-power-bi-authorization"></a>Rinnovare l'autorizzazione di Power BI
 Se la password dell'account Power BI viene modificata dopo la creazione o l'ultima autenticazione del processo di Analisi di flusso, è necessario ripetere l'autenticazione di Analisi di flusso. Se nel tenant di Azure Active Directory (AAD) è configurata la Multi-Factor Authentication (MFA), sarà necessario rinnovare anche l'autorizzazione di Power BI ogni due settimane. Un sintomo di questo problema è che non ci sono output del processo e un "Errore nell’autenticazione dell’utente" nei log delle operazioni:
 
-  ![Errore token di aggiornamento di Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
+  ![Errore di autenticazione dell'utente di Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
 Per risolvere questo problema, arrestare il processo in esecuzione e passare all'output di Power BI.  Fare clic sul collegamento **Rinnova autorizzazione** e riavviare il processo dall'**ora dell'ultimo arresto** per evitare la perdita di dati.
 
-  ![Rinnovo autorizzazione di Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
+  ![Rinnovare l'autorizzazione di Power BI per l'output](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>Archiviazione tabelle
 [Archiviazione tabelle di Azure](../storage/common/storage-introduction.md) offre un archivio a disponibilità elevata e altamente scalabile, per consentire la scalabilità automatica di un'applicazione in base alle richieste degli utenti. Archiviazione tabelle è l'archivio di chiavi/attributi NoSQL di Microsoft che è possibile sfruttare per i dati strutturati con meno vincoli allo schema. Archivio tabelle di Azure consente di archiviare i dati per il salvataggio permanente e il recupero efficiente.
@@ -329,7 +330,7 @@ La tabella seguente spiega alcune considerazioni per l'invio in batch dell'outpu
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 
-> [Avvio rapido: creare un processo di Analisi di flusso di Azure tramite il portale di Azure](stream-analytics-quick-create-portal.md)
+> [Guida introduttiva: creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

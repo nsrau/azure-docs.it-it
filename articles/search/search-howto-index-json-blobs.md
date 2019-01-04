@@ -1,6 +1,6 @@
 ---
-title: Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure
-description: Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure
+title: Indicizzare i BLOB JSON da un indicizzatore di BLOB di Azure per la ricerca full-text - Ricerca di Azure
+description: Ricercare per indicizzazione i BLOB JSON di Azure per il contenuto di testo usando l'indicizzatore di BLOB di Ricerca di Azure. Gli indicizzatori automatizzano l'inserimento di dati per le origini dati selezionate, ad esempio l'archiviazione BLOB di Azure.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec2018
+ms.openlocfilehash: 7eb215271a8d5d21403cc7c5a49028bb366e61fd
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711073"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312528"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure
 Questo articolo illustra come configurare un indicizzatore di BLOB di Ricerca di Azure per estrarre contenuto strutturato dai BLOB JSON in Archiviazione BLOB di Azure.
@@ -186,7 +187,7 @@ I nomi dei campi di origine nei mapping vengono specificati mediante la notazion
 >
 >
 
-## <a name="example-indexer-request-with-field-mappings"></a>Esempio: richiesta dell'indicizzatore con mapping dei campi
+## <a name="example-indexer-request-with-field-mappings"></a>Esempio: Richiesta dell'indicizzatore con mapping dei campi
 
 L'esempio seguente mostra un payload di indicizzatore completo con mapping dei campi:
 

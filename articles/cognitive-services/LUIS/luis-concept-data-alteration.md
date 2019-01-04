@@ -1,24 +1,25 @@
 ---
-title: Concetti relativi all'alterazione di dati in LUIS - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Modifica dei dati
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Informazioni su come modificare i dati prima delle previsioni in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6db7fd2474688608eb029fce1529ba1d3f00c5d3
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6f3f1ba47ec4dbdd09f6c9e3962b2102fc366136
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637171"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099121"
 ---
-# <a name="data-alterations"></a>Modifiche dei dati
-LUIS offre vari modi per manipolare le espressioni prima o durante la previsione. Fra questi figurano la correzione dell'ortografia e la risoluzione dei problemi di fuso orario per la datetimeV2 predefinita. 
+# <a name="alter-utterance-data-before-or-during-prediction"></a>Modificare i dati delle espressioni prima e durante la stima
+LUIS offre vari modi per manipolare le espressioni prima o durante la stima. Fra questi figurano la correzione dell'ortografia e la risoluzione dei problemi di fuso orario per la datetimeV2 predefinita. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Correggere gli errori di ortografia nell'espressione
 Per correggere gli errori di ortografia nell'espressione, LUIS usa l'[API Controllo ortografico Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) e ha bisogno della chiava associata a tale servizio. Occorre quindi creare la chiave e aggiungerla come parametro querystring all'[endpoint](https://aka.ms/luis-endpoint-apis). 

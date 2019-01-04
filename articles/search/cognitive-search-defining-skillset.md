@@ -1,19 +1,21 @@
 ---
-title: Creare un set di competenze in una pipeline di ricerca cognitiva (Ricerca di Azure) | Microsoft Docs
+title: Creare un set di competenze in una pipeline di ricerca cognitiva - Ricerca di Azure
 description: Definire le procedure di estrazione dei dati, di elaborazione del linguaggio naturale o di analisi delle immagini per completare ed estrarre informazioni strutturate dai dati a disposizione da usare in Ricerca di Azure.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 816951ac128fb76d748262cfbc5f064a44e6376c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.custom: seodec2018
+ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640927"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320796"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Come creare un set di competenze in una pipeline di arricchimento
 
@@ -28,7 +30,7 @@ Punti principali da tenere presente:
 
 + È possibile avere solo un set di competenze per indicizzatore.
 + Un set di competenze deve includere almeno una competenza.
-+ È possibile creare più competenze dello stesso tipo (ad esempio, varianti di una competenza di analisi di immagini), ma ogni competenza può essere usata una sola volta all'interno dello stesso set di competenze.
++ È possibile creare più competenze dello stesso tipo (ad esempio, varianti di una competenza di analisi di immagini).
 
 ## <a name="begin-with-the-end-in-mind"></a>Iniziare definendo l'obiettivo da raggiungere
 
@@ -106,11 +108,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -210,11 +212,11 @@ Richiamare la struttura dell'arricchitore di Ricerca entità di Bing personalizz
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       }
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -228,9 +230,9 @@ Richiamare la struttura dell'arricchitore di Ricerca entità di Bing personalizz
 
 Questa definizione è una competenza personalizzata che chiama un'API Web come parte del processo di arricchimento. Per ogni organizzazione identificata dal riconoscimento delle entità denominate, questa competenza chiama un'API Web per individuare la descrizione dell'organizzazione. L'orchestrazione di quando chiamare l'API Web e come propagare le informazioni ricevute viene gestita internamente dal motore di arricchimento. L'inizializzazione necessaria per chiamare l'API personalizzata deve tuttavia essere specificata nel file JSON (ad esempio URI, intestazioni http e input previsti). Per informazioni sulla creazione di un'API Web personalizzata per la pipeline di arricchimento, vedere [How to define a custom interface](cognitive-search-custom-skill-interface.md) (Come definire un'interfaccia personalizzata).
 
-Si noti che il campo "contesto" è impostato su ```"/document/content/organizations/*"``` con un asterisco. Questo significa che il passaggio di arricchimento viene chiamato *per ogni* organizzazione presente in ```"/document/content/organizations"```. 
+Si noti che il campo "contesto" è impostato su ```"/document/organizations/*"``` con un asterisco. Questo significa che il passaggio di arricchimento viene chiamato *per ogni* organizzazione presente in ```"/document/organizations"```. 
 
-L'output, in questo caso la descrizione di una società, viene generato per ogni organizzazione identificata. Quando si fa riferimento alla descrizione in un passaggio a valle (ad esempio, nell'estrazione di frasi chiave), si usa il percorso ```"/document/content/organizations/*/description"``` a tale scopo. 
+L'output, in questo caso la descrizione di una società, viene generato per ogni organizzazione identificata. Quando si fa riferimento alla descrizione in un passaggio a valle (ad esempio, nell'estrazione di frasi chiave), si usa il percorso ```"/document/organizations/*/description"``` a tale scopo. 
 
 ## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Creazione di strutture da informazioni non strutturate tramite gli arricchimenti
 

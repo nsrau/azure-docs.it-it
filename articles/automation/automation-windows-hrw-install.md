@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83820440a6304886785a175b27614b45fdb98b13
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a0e0000c4baa22ccc1c26c0e40ec62bb277104af
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252225"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993910"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -53,12 +53,12 @@ Seguire questa procedura per automatizzare l'installazione e la configurazione d
 
    Per l'esecuzione dello script New-OnPremiseHybridWorker.ps1 sono necessari i parametri seguenti:
 
-   * *AutomationAccountName* (obbligatorio): nome dell'account di automazione.
-   * *AAResourceGroupName* (obbligatorio): nome del gruppo di risorse associato all'account di automazione.
+   * *AutomationAccountName* (obbligatorio): nome dell'account di Automazione.
+   * *AAResourceGroupName* (obbligatorio): nome del gruppo di risorse associato all'account di Automazione.
    * *OMSResourceGroupName* (facoltativo): nome del gruppo di risorse per l'area di lavoro di Log Analytics. Se il gruppo di risorse non è specificato, verrà usato *AAResourceGroupName*.
    * *HybridGroupName* (obbligatorio): nome di un gruppo di ruoli di lavoro ibridi per runbook specificato come destinazione per i runbook che supportano questo scenario.
    * *SubscriptionID* (obbligatorio): ID sottoscrizione di Azure in cui si trova l'account di Automazione.
-   * *WorkspaceName* (facoltativo): nome dell'area di lavoro di Log Analytics. Se non si dispone di un'area di lavoro di Log Analytics, lo script ne crea e configura una.
+   * *WorkspaceName* (facoltativo): Nome dell'area di lavoro di Log Analytics. Se non si dispone di un'area di lavoro di Log Analytics, lo script ne crea e configura una.
 
      > [!NOTE]
      > Le uniche aree di Automazione supportate per l'integrazione con Log Analytics sono attualmente: **Australia sud-orientale**, **Stati Uniti orientali 2**, **Asia sud-orientale** ed **Europa occidentale**. Se l'account di automazione non si trova in una di queste aree, lo script crea un'area di lavoro di Log Analytics ma avvisa l'utente che non sarà possibile eseguire il collegamento.
@@ -85,7 +85,7 @@ Eseguire i primi due passaggi una volta per l'ambiente di automazione e quindi r
 
 #### <a name="1-create-a-log-analytics-workspace"></a>1. Creare un'area di lavoro di Log Analytics
 
-Se non si ha ancora un'area di lavoro di Log Analytics, crearne una seguendo le istruzioni contenute in [Gestire le aree di lavoro](../log-analytics/log-analytics-manage-access.md). Se già si dispone di un'area di lavoro, è possibile usarla.
+Se non si ha ancora un'area di lavoro di Log Analytics, crearne una seguendo le istruzioni contenute in [Gestire le aree di lavoro](../azure-monitor/platform/manage-access.md). Se già si dispone di un'area di lavoro, è possibile usarla.
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Aggiungere la soluzione Automazione all'area di lavoro di Log Analytics
 

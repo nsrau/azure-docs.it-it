@@ -1,6 +1,6 @@
 ---
-title: Log di diagnostica di Hub eventi in Azure | Microsoft Docs
-description: Informazioni su come configurare log di diagnostica per gli hub eventi in Azure.
+title: Configurare i log di diagnostica - Hub eventi in Azure | Microsoft Docs
+description: Informazioni su come configurare log attività e di diagnostica per gli hub eventi in Azure.
 keywords: ''
 documentationcenter: ''
 services: event-hubs
@@ -13,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/02/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bee6219bca21c3bc2bf4f97aa061fce0b30d55ff
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c0c8740648ad845b58ff0578607f4b5e9c235166
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985167"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105479"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
 È possibile visualizzare due tipi di log per Hub eventi di Azure:
 
-* **[Log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**: questi log contengono informazioni sulle operazioni eseguite in un processo. I log sono sempre attivati.
-* **[Log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**: è possibile configurare i log di diagnostica per una visualizzazione più completa di tutto ciò che accade in un processo. I log di diagnostica coprono le attività che si verificano dal momento della creazione del processo fino alla sua eliminazione, inclusi gli aggiornamenti e le attività che si verificano durante l'esecuzione del processo.
+* **[Log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**: Questi log contengono informazioni sulle operazioni eseguite in un processo. I log sono sempre attivati.
+* **[Log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**: È possibile configurare i log di diagnostica per una visualizzazione più completa di tutto ciò che accade in un processo. I log di diagnostica coprono le attività che si verificano dal momento della creazione del processo fino alla sua eliminazione, inclusi gli aggiornamenti e le attività che si verificano durante l'esecuzione del processo.
 
 ## <a name="enable-diagnostic-logs"></a>Abilitare i log di diagnostica
 
@@ -70,7 +71,7 @@ Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogn
 
 Le stringhe JSON dei log di archiviazione includono gli elementi elencati nella tabella seguente:
 
-NOME | Descrizione
+NOME | DESCRIZIONE
 ------- | -------
 TaskName | Descrizione dell'attività non riuscita.
 ActivityId | ID interno, usato a scopo di rilevamento.
@@ -108,7 +109,7 @@ Il codice seguente è un esempio di stringa JSON di log di archiviazione:
 
 Le stringhe JSON dei log operativi includono gli elementi elencati nella seguente tabella:
 
-NOME | Descrizione
+NOME | DESCRIZIONE
 ------- | -------
 ActivityId | ID interno, usato a scopo di rilevamento.
 EventName | Nome operazione.  

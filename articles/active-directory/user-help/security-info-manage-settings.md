@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: f9a77c1f3fbce295a40db366619d7485d44efc4f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4cd88490118343a9a00dbd919d7820f0334df92e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162717"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016147"
 ---
 # <a name="manage-your-security-info-preview"></a>Gestire le informazioni di sicurezza (anteprima)
 
@@ -67,7 +67,7 @@ In caso di perdita o di compromissione di un dispositivo sarà necessario ripete
 
 3. Nell'area **Gestisci account** selezionare **Ignora MFA nei dispositivi memorizzati**.
     
-    Questa opzione prevede la necessità di eseguire nuovamente il processo di autenticazione a più fattori dopo avere eseguito l'accesso.
+    Questa opzione prevede la necessità di eseguire nuovamente il processo di autenticazione a più fattori (MFA) dopo avere eseguito l'accesso.
 
     ![Schermata Profilo con il collegamento Ignora evidenziato](media/security-info/security-info-forget.png)
 
@@ -77,7 +77,7 @@ Questo articolo aiuta a risolvere i problemi relativi alle informazioni di sicur
 
 |Problema|Soluzione|
 |-------|--------|
-|Il telefono non è al momento disponibile|Capita di non avere il proprio telefono a disposizione in un dato momento, ma che sia comunque necessario accedere al proprio account di lavoro o dell'istituto di istruzione. Per risolvere il problema, è possibile accedere usando un metodo di autenticazione diverso che non richiede l'uso del telefono personale, ad esempio l'indirizzo di posta elettronica o il numero di telefono dell'ufficio. Per aggiungere altri metodi alle informazioni di sicurezza, è possibile seguire i passaggi descritti nella sezione [Modificare le informazioni](#change-your-info).|
+|Il telefono non è al momento disponibile|Capita di non avere il proprio telefono a disposizione in un dato momento, ma che sia comunque necessario accedere al proprio account di lavoro o dell'istituto di istruzione. Per risolvere il problema, è possibile accedere usando un metodo di autenticazione diverso che non richiede l'uso del telefono personale, ad esempio il numero di telefono dell'ufficio. Per aggiungere altri metodi alle informazioni di sicurezza, è possibile seguire i passaggi descritti nella sezione [Modificare le informazioni](#change-your-info).|
 |Il telefono è stato perso o rubato|Sfortunatamente può succedere che il telefono venga perso o rubato. Si consiglia vivamente in questo caso di informare l'organizzazione in modo che il personale IT possa reimpostare le password delle app e cancellare eventuali dispositivi memorizzati dall'elenco dei dispositivi attendibili. È anche possibile ignorare i dispositivi attendibili attenendosi alla procedura descritta nella sezione [Gestire le informazioni di sicurezza in caso di smarrimento o potenziale compromissione di un dispositivo](#manage-your-security-info-for-a-lost-or-potentially-compromised-device).|
 |Nuovo numero di telefono|È possibile procedere in due modi per risolvere questo problema. È possibile accedere usando un metodo di autenticazione alternativo che non richiede l'inserimento del numero di telefono, ad esempio la posta elettronica, oppure, se ciò non è possibile, si può contattare il personale IT della propria organizzazione e chiedere di cancellare le impostazioni. Per aggiungere altri metodi alle informazioni di sicurezza, è possibile seguire i passaggi descritti nella sezione [Modificare le informazioni](#change-your-info).|
 |Il metodo predefinito è errato|È possibile aggiornare il metodo predefinito nelle opzioni di sicurezza. Per i dettagli specifici, vedere la sezione [Modificare le informazioni](#change-your-info).|

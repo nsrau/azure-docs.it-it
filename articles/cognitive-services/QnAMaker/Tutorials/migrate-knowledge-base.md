@@ -1,7 +1,7 @@
 ---
 title: Eseguire la migrazione di anteprima delle knowledge base - Qna Maker
 titleSuffix: Azure Cognitive Services
-description: Come importare una knowledge base
+description: Le knowledge base create con QnA Maker Free Preview dovranno essere migrate a QnA Maker GA. QnA Maker Preview sarà deprecato a gennaio 2019.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,15 +10,16 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.custom: seodec18
+ms.openlocfilehash: 261d42a6c21681ee8015edfe73ad78b4458eb0ee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365561"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078812"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Eseguire la migrazione di una knowledge base utilizzando la funzione di importazione ed esportazione
-QnA Maker ha annunciato General Availability il 7 maggio 2018 in occasione della conferenza \\\build\. QnA Maker GA ha una nuova architettura basata su Azure. Le knowledge base create con QnA Maker Free Preview dovranno essere migrate a QnA Maker GA. QnA Maker Preview sarà deprecato a novembre 2018. Per ulteriori informazioni sulle modifiche apportate a QnA Maker GA, vedere il [post di blog](https://aka.ms/qnamakerga-blog) con l'annuncio di QnA Maker GA.
+QnA Maker ha annunciato General Availability il 7 maggio 2018 in occasione della conferenza \\\build\. QnA Maker GA ha una nuova architettura basata su Azure. Le knowledge base create con QnA Maker Free Preview dovranno essere migrate a QnA Maker GA. QnA Maker Preview sarà deprecato a gennaio 2019. Per ulteriori informazioni sulle modifiche apportate a QnA Maker GA, vedere il [post di blog](https://aka.ms/qnamakerga-blog) con l'annuncio di QnA Maker GA.
 
 QnA Maker include ora un [modello di determinazione prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 

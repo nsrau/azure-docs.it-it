@@ -1,5 +1,5 @@
 ---
-title: Reimpostare i peering Azure ExpressRoute | Microsoft Docs
+title: 'Reimpostare il peering del circuito - ExpressRoute:  Azure | Microsoft Docs'
 description: Informazioni su come abilitare e disabilitare i peering di un circuito ExpressRoute.
 services: expressroute
 author: charwen
@@ -7,14 +7,15 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: 1bb2bb61ccd06d5774b811203e86d609a01250a4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: ad050e11c98139af00ad752f8960d55a58ca2f34
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415815"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132592"
 ---
-# <a name="reset-expressroute-peerings"></a>Reimpostare i peering ExpressRoute
+# <a name="reset-expressroute-circuit-peerings"></a>Reimpostare i peering del circuito ExpressRoute
 
 Questo articolo descrive come abilitare e disabilitare i peering di un circuito ExpressRoute tramite PowerShell. Quando si disabilita un peering, la sessione BGP viene arrestata sia nella connessione primaria sia nella connessione secondaria del circuito ExpressRoute. Si perde la connettività con questo peering a Microsoft. Quando si abilita un peering, la sessione BGP viene attivata sia nella connessione primaria sia nella connessione secondaria del circuito ExpressRoute. Si riottiene la connettività con questo peering a Microsoft. È possibile abilitare e disabilitare in modo indipendente il peering Microsoft e il peering privato di Azure in un circuito ExpressRoute. Quando si configurano i peering nel circuito ExpressRoute per la prima volta, i peering sono abilitati per impostazione predefinita.
 

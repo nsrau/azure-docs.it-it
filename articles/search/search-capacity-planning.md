@@ -1,5 +1,5 @@
 ---
-title: Allocare partizioni e repliche per query e indicizzazione in Ricerca di Azure | Microsoft Docs
+title: Allocare partizioni e repliche per query e indicizzazione - Ricerca di Azure
 description: Regolare le risorse di calcolo, ovvero partizioni e repliche, dove il prezzo di ogni risorsa è definito in unità di ricerca fatturabili, in Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fa1a13c5c786867f6e92a678c40a491e0a226076
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: e2eff6c854dae48961700341a6db19dc7113901c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238737"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316115"
 ---
 # <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Allocare partizioni e repliche per i carichi di lavoro di query e indicizzazione in Ricerca di Azure
 Dopo aver [scelto un piano tariffario](search-sku-tier.md) ed [eseguito il provisioning di un servizio di ricerca](search-create-service-portal.md), il passaggio successivo consente di aumentare il numero di repliche o partizioni usate dal servizio. Ogni livello offre un numero fisso di unità di fatturazione. Questo articolo illustra come assegnare le unità per ottenere una configurazione ottimale che bilanci i requisiti per l'esecuzione di query, indicizzazione e archiviazione.
@@ -97,7 +98,7 @@ Il servizio Basic prevede esattamente una partizione e fino a tre repliche, per 
 
 <a id="chart"></a>
 
-## <a name="standard-tiers-partition-and-replica-combinations"></a>Livello Standard: combinazioni di partizioni e repliche
+## <a name="standard-tiers-partition-and-replica-combinations"></a>Livelli standard: combinazioni di partizioni e repliche
 La tabella seguente mostra le unità di ricerca necessarie per supportare combinazioni di repliche e partizioni entro il limite di 36 unità di ricerca, per tutti i livelli Standard.
 
 |   | **1 partizione** | **2 partizioni** | **3 partizioni** | **4 partizioni** | **6 partizioni** | **12 partizioni** |

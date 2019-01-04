@@ -1,5 +1,5 @@
 ---
-title: Risorse della documentazione di ricerca cognitiva (Ricerca di Azure) | Microsoft Docs
+title: Risorse della documentazione di ricerca cognitiva- Ricerca di Azure
 description: Un elenco annotato di articoli, esercitazioni, esempi e post di blog relativi ai carichi di lavoro della ricerca cognitiva in Ricerca di Azure.
 services: search
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: cee479b81cb5d8b6cd3306e3735d72c9e64e6045
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.custom: seodec2018
+ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640354"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314602"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Risorse della documentazione per i carichi di lavoro della ricerca cognitiva
 
@@ -37,13 +38,13 @@ Gli articoli seguenti rappresentano la documentazione completa per la ricerca co
 + [Come definire un'interfaccia di competenze personalizzata](cognitive-search-custom-skill-interface.md)
 + [Suggerimenti per la risoluzione dei problemi](cognitive-search-concept-troubleshooting.md)
 
-## <a name="reference"></a>Riferimenti
+## <a name="reference"></a>riferimento
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
-  + [Microsoft.Skills.Text.MergerSkill](cognitive-search-skill-textmerger.md)
+  + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
   + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)

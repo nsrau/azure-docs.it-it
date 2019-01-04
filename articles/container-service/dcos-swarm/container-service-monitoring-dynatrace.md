@@ -1,5 +1,5 @@
 ---
-title: Monitorare cluster DC/OS di Azure - Dynatrace
+title: '(DEPRECATO) Monitorare un cluster del controller di dominio/sistema operativo di Azure: Dynatrace'
 description: Monitorare un cluster DC/OS del servizio contenitore di Azure con Dynatrace. Distribuire Dynatrace OneAgent tramite il dashboard di DC/OS.
 services: container-service
 author: MartinGoodwell
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 3d1bfc3bb61781d487c40831edd5da6fcb5a7df9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162042"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001985"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Monitorare un cluster DC/OS del servizio contenitore di Azure con Dynatrace SaaS/Managed
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(DEPRECATO) Monitorare un cluster del controller di dominio/sistema operativo del servizio Azure Container con Dynatrace SaaS/Gestito
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Questo articolo mostra come distribuire [Dynatrace](https://www.dynatrace.com/) OneAgent per monitorare tutti i nodi dell'agente nel cluster del servizio contenitore di Azure. Per questa configurazione, è necessario un account con Dynatrace SaaS/Managed. 
 
@@ -27,7 +29,7 @@ La figura seguente mostra l'interfaccia utente di Dynatrace:
 
 ![Interfaccia utente di Dynatrace](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
-## <a name="prerequisites"></a>prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 [Distribuire](container-service-deployment.md) ed [eseguire la connessione](./../container-service-connect.md) a un cluster configurato dal servizio contenitore di Azure. Esplorare l' [interfaccia utente](container-service-mesos-marathon-ui.md)di Marathon. Passare a [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) per configurare un account Dynatrace SaaS.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Configurare una distribuzione Dynatrace con Marathon

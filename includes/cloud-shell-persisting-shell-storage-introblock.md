@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: 6055b70c7df2704a334b7f14c9365863ddafbd5a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164547"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52886358"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Rendere persistenti i file in Azure Cloud Shell
 Cloud Shell utilizza l'archiviazione dei file di Azure per mantenere i file in più sessioni. Al primo avvio Cloud Shell richiede di associare una condivisione file nuova o esistente per mantenere i file in più sessioni.
@@ -35,11 +35,14 @@ La condivisione file contiene anche un'immagine da 5 GB creata per l'utente che 
 
 ## <a name="use-existing-resources"></a>Usare le risorse esistenti
 
-Con l'opzione Avanzate è possibile associare risorse esistenti. Al prompt di impostazione dell'archiviazione, selezionare **Mostra impostazioni avanzate** per visualizzare le opzioni aggiuntive. Il filtro di opzioni di archiviazione popolato per gli account di archiviazione con ridondanza locale, archiviazione con ridondanza della zona e archiviazione con ridondanza geografica. Andare [qui per altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option) sulle opzioni di replica per gli account di Archiviazione di Azure.
+Con l'opzione Avanzate è possibile associare risorse esistenti. Quando si seleziona un'area Cloud Shell è necessario selezionare un account di archiviazione di backup collocato nella stessa area. Se, ad esempio, l'area assegnata è Stati Uniti occidentali, è necessario associare una condivisione di file anch'essa posizionata nell'area Stati Uniti occidentali.
+
+Al prompt di impostazione dell'archiviazione, selezionare **Mostra impostazioni avanzate** per visualizzare le opzioni aggiuntive. Il filtro di opzioni di archiviazione popolato per gli account di archiviazione con ridondanza locale, archiviazione con ridondanza della zona e archiviazione con ridondanza geografica. 
+
+> [!NOTE]
+> L'uso degli account di archiviazione con ridondanza geografica o della zona è consigliato per aumentare la resilienza per la condivisione di file di backup. Il tipo di ridondanza dipende dagli obiettivi e dalla preferenza di prezzo. [Altre informazioni sulle opzioni di replica per gli account di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
 
 ![Impostazione del gruppo di risorse](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
-
-Quando si seleziona un'area Cloud Shell è necessario selezionare per montare un account di archiviazione di backup in tale area.
 
 ### <a name="supported-storage-regions"></a>Aree di archiviazione supportate
 Gli account di archiviazione di Azure associati devono risiedere nella stessa area del computer Cloud Shell in cui vengono montati. Per trovare l'area corrente, è possibile eseguire `env` in Bash e individuare la variabile `ACC_LOCATION`. Le condivisioni file ricevono un'immagine da 5 GB creata automaticamente per mantenere persistente la directory `$Home`.

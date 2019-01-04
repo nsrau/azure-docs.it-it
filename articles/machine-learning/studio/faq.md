@@ -5,7 +5,7 @@ keywords: introduzione al machine learning, modellazione predittiva, cos’è il
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309141"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091291"
 ---
-# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Domande frequenti su Azure Machine Learning Studio: fatturazione, funzionalità, limitazioni e supporto
+# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Domande frequenti su Azure Machine Learning Studio: fatturazione, funzionalità, limitazioni e supporto
 Di seguito sono riportate alcune domande frequenti e le corrispondenti risposte su Azure Machine Learning, un servizio cloud che consente di sviluppare modelli predittivi e rendere operative le soluzioni tramite servizi Web. Questo articolo contiene domande sull'uso del servizio, includendo il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
 
 **Non è possibile trovare la risposta a una domanda?**
@@ -32,7 +32,7 @@ Di seguito sono riportate alcune domande frequenti e le corrispondenti risposte 
 ## <a name="general-questions"></a>Domande generali
 **Cos'è Machine Learning Studio?**
 
-Machine Learning Studio è un ambiente workbench accessibile con un Web browser. Machine Learning Studio ospita diversi moduli in un'interfaccia di composizione visiva che consente di compilare un flusso di lavoro di analisi scientifica dei dati end-to-end sotto forma di esperimento.
+Machine Learning Studio è un ambiente accessibile tramite Web browser che offre un'area di disegno con funzionalità di trascinamento della selezione. Machine Learning Studio ospita diversi moduli in un'interfaccia di composizione visiva che consente di compilare un flusso di lavoro di analisi scientifica dei dati end-to-end sotto forma di esperimento.
 
 Per altre informazioni su Machine Learning Studio, vedere [Cos'è Machine Learning Studio?](what-is-ml-studio.md)
 
@@ -55,8 +55,8 @@ I servizi Web di Machine Learning offrono un'interfaccia tra un'applicazione e u
 
 Azure Machine Learning offre due tipi di servizi Web.
 
-* Servizio richiesta-risposta (RRS): un servizio a bassa latenza e scalabilità elevata che offre un'interfaccia per i modelli senza stato creati e distribuiti con Machine Learning Studio.
-* Servizio esecuzione batch (BES): un servizio asincrono per l'assegnazione di punteggi a un batch di record di dati.
+* Servizio di richiesta-risposta (RRS): un servizio a bassa latenza e scalabilità elevata che offre un'interfaccia per i modelli senza stato creati e distribuiti con Machine Learning Studio.
+* Servizio Esecuzione batch (BES): un servizio asincrono per l'assegnazione di punteggi a batch di record di dati.
 
 È possibile utilizzare l'API REST e accedere al servizio Web in diversi modi. È ad esempio possibile scrivere un'applicazione in C#, R o Python usando il codice di esempio generato automaticamente quando è stato distribuito il servizio Web.
 
@@ -96,7 +96,7 @@ I moduli seguenti sono limitati a set di dati inferiori a 10 GB:
 
 * Moduli di raccomandazione
 * Modulo SMOTE (Synthetic Minority Oversampling Technique)
-* Moduli di script: R, Python, SQL
+* Moduli di scripting: R, Python, SQL
 * Moduli in cui la dimensione dei dati di output può essere maggiore della dimensione dei dati di input, come Join (Unione) o Feature Hashing (Hash delle funzionalità)
 * Convalida incrociata, ottimizzazione degli iperparametri del modello, regressione ordinale e multiclasse uno-tutti, quando il numero di iterazioni è molto elevato
 
@@ -263,7 +263,7 @@ I moduli seguenti sono limitati a set di dati inferiori a 10 GB:
 
 * Moduli di raccomandazione
 * Modulo SMOTE (Synthetic Minority Oversampling Technique)
-* Moduli di script: R, Python, SQL
+* Moduli di scripting: R, Python, SQL
 * Moduli in cui la dimensione dei dati di output può essere maggiore della dimensione dei dati di input, come Join (Unione) o Feature Hashing (Hash delle funzionalità)
 * Convalida incrociata, ottimizzazione degli iperparametri del modello, regressione ordinale e multiclasse uno-tutti, quando il numero di iterazioni è molto elevato
 
@@ -312,7 +312,7 @@ Per ottenere supporto tecnico per Azure Machine Learning, accedere a [Supporto t
 ## <a name="billing-questions"></a>Domande sulla fatturazione
 **Come funziona la fatturazione di Machine Learning?**
 
-Azure Machine Learning include due componenti: Machine Learning Studio e i servizi Web di Machine Learning.
+Azure Machine Learning è costituito da due componenti: Machine Learning Studio e i servizi Web di Machine Learning.
 
 Per la valutazione di Machine Learning Studio si può usare il livello di fatturazione Gratuito. Il livello Gratuito consente anche di distribuire un servizio Web classico con capacità limita.
 
@@ -487,14 +487,14 @@ Gli addebiti seguenti vengono aggregati per ogni area di lavoro della sottoscriz
 * Ore sperimentazione in Studio: questa misurazione aggrega tutti i costi di calcolo accumulati eseguendo esperimenti in Machine Learning Studio e chiamate API di produzione nell'ambiente di staging.
 * È possibile accedere ai dati con la connessione a un server locale che esegue SQL Server nei modelli per il training e l'assegnazione dei punteggi.
 * Per i servizi Web classici:
-  * Ore di calcolo dell'API di produzione. Questa misurazione include i costi di calcolo accumulati dai servizi Web eseguiti nell'ambiente di produzione.
-  * Transazioni dell'API di produzione (in migliaia). Questa misurazione include i costi accumulati per ogni chiamata al servizio Web di produzione.
+  * Ore di calcolo dell'API di produzione: questa misurazione include i costi di calcolo accumulati dai servizi Web eseguiti nell'ambiente di produzione.
+  * Transazioni dell'API di produzione (in migliaia): questa misurazione include i costi accumulati per ogni chiamata al servizio Web di produzione.
 
 Oltre agli addebiti precedenti, nel caso dei servizi Web basati su Resource Manager vengono aggregati addebiti al piano selezionato.
 
 * Piano API S1/S2/S3 Standard (unità): questa misurazione rappresenta il tipo di istanza selezionato per i servizi Web basati su Resource Manager.
-* Ore di calcolo API S1/S2/S3 Standard in eccedenza: questa misurazione include i costi di calcolo accumulati dai servizi Web basati su Resource Manager che vengono eseguiti nell'ambiente di produzione dopo l'esaurimento delle quantità incluse delle istanze esistenti. L'utilizzo aggiuntivo viene addebitato alla tariffa di eccedenza associata al livello dei piani S1/S2/S3.
-* Transazioni API S1/S2/S3 Standard in eccedenza (in migliaia): questa misurazione include i costi accumulati per ogni chiamata al servizio Web basato su Resource Manager di produzione dopo l'esaurimento delle quantità incluse delle istanze esistenti. L'utilizzo aggiuntivo viene addebitato alla tariffa di eccedenza associata al livello dei piani S1/S2/S3.
+* Ore di calcolo API S1/S2/S3 Standard in eccedenza: questa misurazione include i costi di calcolo accumulati dai servizi Web basati su Resource Manager che vengono eseguiti nell'ambiente di produzione dopo l'esaurimento delle quantità incluse nelle istanze esistenti. L'utilizzo aggiuntivo viene addebitato alla tariffa di eccedenza associata al livello dei piani S1/S2/S3.
+* Transazioni API S1/S2/S3 Standard in eccedenza (in migliaia): questa misurazione include i costi accumulati per ogni chiamata al servizio Web basato su Resource Manager di produzione dopo l'esaurimento delle quantità incluse nelle istanze esistenti. L'utilizzo aggiuntivo viene addebitato alla tariffa di eccedenza associata al livello dei piani S1/S2/S3.
 * Quantità inclusa di ore di calcolo API: con i servizi Web basati su Resource Manager, questa misurazione rappresenta la quantità inclusa di ore di calcolo API.
 * Quantità inclusa di transazioni API (in migliaia): con i servizi Web basati su Resource Manager, questa misurazione rappresenta la quantità inclusa di transazioni API.
 

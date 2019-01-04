@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d24b2773aa056b33a4067d5d84677d186d25b195
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422797"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255075"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparare il backup delle macchine virtuali di Azure
 
@@ -39,7 +39,7 @@ Se nell'ambiente esistono già queste condizioni, passare all'articolo su come [
     > [!NOTE]
     > È possibile usare altre distribuzioni Bring Your Own Linux, a condizione che l'agente di macchine virtuali sia disponibile nella VM e che sia presente il supporto per Python. Tuttavia, queste distribuzioni non sono supportate.
     >
- * **Windows Server**, **Windows client**: le versioni precedenti a Windows Server 2008 R2 o Windows 7 non sono supportate.
+ * **Windows Server**, **client Windows**:  le versioni precedenti a Windows Server 2008 R2 o Windows 7 non sono supportate.
 
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitazioni durante il backup e il ripristino di una VM
@@ -295,7 +295,7 @@ HttpProxy.Port=<proxy port>
 
 Per il resto della procedura guidata accettare le impostazioni predefinite fino alla fine. Assegnare quindi un nome alla regola.
 
-#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Passaggio 3 Aggiungere una regola di eccezione al gruppo di sicurezza di rete
+#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Passaggio 3: Aggiungere una regola di eccezione al gruppo di sicurezza di rete (NSG)
 Il comando aggiunge un'eccezione per il gruppo di sicurezza di rete (NSG). Questa eccezione consente il traffico TCP da qualsiasi porta su 10.0.0.5 a qualsiasi indirizzo Internet sulla porta 80 (HTTP) o 443 (HTTPS). Se è necessario usare una porta specifica sulla rete Internet pubblica, assicurarsi di aggiungere tale porta a ```-DestinationPortRange```.
 
 In un prompt dei comandi di Azure PowerShell digitare il comando seguente:

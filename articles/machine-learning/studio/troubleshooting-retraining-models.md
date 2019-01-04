@@ -4,9 +4,8 @@ description: Identificare e correggere i problemi comuni rilevati durante la rip
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f12627e169af00f575347796d1f2e79fe1f6fa2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307203"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252780"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Azure Machine Learning Studio
 ## <a name="retraining-overview"></a>Panoramica sulla ripetizione del training
@@ -41,8 +40,8 @@ Quando è necessario ripetere il training del servizio Web, si devono aggiungere
 
 Quando tutto è pronto, i passaggi principali da eseguire per ripetere il training del modello sono i seguenti:
 
-1. Chiamare il servizio Web di training: la chiamata è per il servizio Esecuzione batch, non per il servizio di richiesta-risposta. È possibile usare il codice C# di esempio nella pagina della guida dell'API per eseguire la chiamata. 
-2. Trovare i valori di *BaseLocation*, *RelativeLocation* e *SasBlobToken*: questi valori vengono restituiti nell'output dalla chiamata al servizio Web di training. 
+1. Chiamare il servizio Web di training:  la chiamata è per il servizio Esecuzione batch, non per il servizio di richiesta-risposta. È possibile usare il codice C# di esempio nella pagina della guida dell'API per eseguire la chiamata. 
+2. Trovare i valori per *BaseLocation*, *RelativeLocation* e *SasBlobToken*: questi valori vengono restituiti nell'output dalla chiamata al servizio Web di training. 
    ![Visualizzazione dell'output dell'esempio di ripetizione del training e dei valori di BaseLocation, RelativeLocation e SasBlobToken.][image6]
 3. Aggiornare l'endpoint aggiunto dal servizio Web di assegnazione dei punteggi con il nuovo modello con training: usando il codice di esempio fornito in Ripetere il training dei modelli di Machine Learning a livello di codice, aggiornare il nuovo endpoint aggiunto al modello di assegnazione dei punteggi con il nuovo modello con training dal servizio Web di training.
 
@@ -71,7 +70,7 @@ Per ottenere l'URL PATCH corretto:
 7. Sotto all'URL **patch** fare clic su **API Help** (Guida API) per aprire la pagina della Guida relativa all'applicazione di patch.
 
 > [!NOTE]
-> Se l'endpoint è stato aggiunto al servizio Web di training invece che al servizio Web predittivo, quando si fa clic sul collegamento **Aggiorna risorsa** si riceve un messaggio di errore che indica che la funzionalità non è supportata o non è disponibile in questo contesto. Questo servizio Web non dispone di alcuna risorsa aggiornabile. Ci scusiamo per l'inconveniente e stiamo lavorando per migliorare questo flusso di lavoro.
+> Se l'endpoint è stato aggiunto al servizio Web di training invece che al servizio Web predittivo, quando si fa clic sul collegamento **Aggiorna risorsa**: si riceve un messaggio di errore che indica che la funzionalità non è supportata o non è disponibile in questo contesto. Questo servizio Web non dispone di alcuna risorsa aggiornabile. Ci scusiamo per l'inconveniente e stiamo lavorando per migliorare questo flusso di lavoro.
 > 
 > 
 
@@ -81,7 +80,7 @@ La pagina della guida di PATCH contiene l'URL PATCH da usare e fornisce il codic
 
 ### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Verificare di aggiornare l'endpoint di assegnazione dei punteggi corretto
 * Non applicare la patch al servizio Web di training: l'operazione di applicazione della patch deve essere eseguita sul servizio Web di assegnazione dei punteggi.
-* Non applicare la patch all'endpoint predefinito nel servizio Web: l'operazione di applicazione della patch deve essere eseguita sul nuovo endpoint del servizio Web di assegnazione dei punteggi aggiunto.
+* Non applicare la patch all'endpoint predefinito nel servizio Web: l'operazione di applicazione della patch deve essere eseguita sul nuovo endpoint di servizio Web di assegnazione dei punteggi aggiunto.
 
 Per verificare in quale servizio Web si trova l'endpoint, visitare il portale dei servizi Web. 
 

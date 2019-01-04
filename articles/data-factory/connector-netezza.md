@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1b7499990a049f276bf1af9e31b639ea4944d8f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 8e2b65f83395c9e8991338864d2037d0572dd269
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167569"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078007"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiare dati da Netezza usando Azure Data Factory 
 
@@ -50,7 +50,7 @@ Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<data
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| SecurityLevel | Il livello di sicurezza (SSL/TLS) che usa il driver per la connessione all'archivio dati. Esempio: `SecurityLevel=preferredSecured`. I valori supportati sono:<br/>- **Solo senza protezione** (**onlyUnSecured**): il driver non usa SSL.<br/>- **Preferibilmente senza protezione (preferredUnSecured) - Valore predefinito**: se il server consente di scegliere, il driver non usa SSL. <br/>- **Preferibilmente con protezione (preferredSecured)**: se il server consente di scegliere, il driver usa SSL. <br/>- **Solo con protezione (onlySecured)**: il driver non si connette a meno che non sia disponibile una connessione SSL. | No  |
+| SecurityLevel | Il livello di sicurezza (SSL/TLS) che usa il driver per la connessione all'archivio dati. Esempio: `SecurityLevel=preferredSecured`. I valori supportati sono:<br/>- **Solo senza protezione** (**onlyUnSecured**): Il driver non utilizza SSL.<br/>- **Preferiti senza protezione (preferredUnSecured) (impostazione predefinita)**: Se il server fornisce una scelta, il driver non utilizza SSL. <br/>- **Preferiti con protezione (preferredSecured)**: Se il server fornisce una scelta, il driver utilizza SSL. <br/>- **Solo con protezione (onlySecured)**: Il driver non si connette a meno che non sia disponibile una connessione SSL. | No  |
 | CaCertFile | Il percorso completo per il certificato SSL usato dal server. Esempio: `CaCertFile=<cert path>;`| Sì, se SSL è abilitato |
 
 **Esempio**
@@ -80,7 +80,12 @@ Questa sezione presenta un elenco delle proprietà supportate dal set di dati Ne
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
-Per copiare dati da Netezza, impostare la proprietà **type** del set di dati su **NetezzaTable**. Non sono presenti proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per copiare dati da Netezza, impostare la proprietà **type** del set di dati su **NetezzaTable**. Sono supportate le proprietà seguenti:
+
+| Proprietà | DESCRIZIONE | Obbligatoria |
+|:--- |:--- |:--- |
+| type | La proprietà type del set di dati deve essere impostata su: **NetezzaTable** | Yes |
+| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -92,7 +97,8 @@ Per copiare dati da Netezza, impostare la proprietà **type** del set di dati su
         "linkedServiceName": {
             "referenceName": "<Netezza linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -110,7 +116,7 @@ Per copiare dati da Netezza, impostare il tipo di **origine** nell'attività di 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **NetezzaSource**. | Yes |
-| query | Usare la query SQL personalizzata per leggere i dati. Esempio: `"SELECT * FROM MyTable"` | Yes |
+| query | Usare la query SQL personalizzata per leggere i dati. Esempio: `"SELECT * FROM MyTable"` | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

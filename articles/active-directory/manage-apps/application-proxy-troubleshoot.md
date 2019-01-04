@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 8be0e909ea391ed1b66fc78349cc2283d009e8cb
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2904de3243e37d7ee575a504934d5975789c00ef
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240376"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135067"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Risolvere i problemi e i messaggi di errore del proxy dell'applicazione
 Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante la pubblicazione di applicazioni, controllare le opzioni seguenti per verificare se il Proxy applicazione di Microsoft Azure AD funziona correttamente: 
@@ -49,9 +49,9 @@ Dopo aver individuato l'errore del connettore nel log eventi, usare questa tabel
 
 | Tipi di errore | Procedure consigliate |
 | ----- | ----------------- |
-| La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "Si sono verificati uno o più errori". | Se si è chiusa la finestra di registrazione senza aver eseguito l'accesso ad Azure AD, eseguire di nuovo la creazione guidata del connettore e registrarlo. <br><br> Se la finestra di registrazione si apre e poi si chiude immediatamente senza consentire all'utente di accedere, è probabile che venga visualizzato questo errore. L'errore si verifica quando viene rilevato un errore di rete nel sistema. Assicurarsi che sia possibile connettersi da un browser a un sito Web pubblico e che le porte siano aperte come specificato in [Prerequisiti del Proxy dell’applicazione](application-proxy-enable.md). |
+| La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il proxy di applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "Si sono verificati uno o più errori". | Se si è chiusa la finestra di registrazione senza aver eseguito l'accesso ad Azure AD, eseguire di nuovo la creazione guidata del connettore e registrarlo. <br><br> Se la finestra di registrazione si apre e poi si chiude immediatamente senza consentire all'utente di accedere, è probabile che venga visualizzato questo errore. L'errore si verifica quando viene rilevato un errore di rete nel sistema. Assicurarsi che sia possibile connettersi da un browser a un sito Web pubblico e che le porte siano aperte come specificato in [Prerequisiti del Proxy dell’applicazione](application-proxy-add-on-premises-application.md). |
 | Viene visualizzato un errore di cancellazione nella finestra di registrazione. Impossibile proseguire | Se viene visualizzato questo errore e la finestra si chiude, è stato commesso un errore durante l'immissione di nome utente o password. Riprovare. |
-| La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "AADSTS50059: non sono state trovate informazioni di identificazione del tenant nella richiesta o incluse in modo implicito nelle credenziali fornite e la ricerca in base all'URI dell'entità servizio non è riuscita". | Si sta provando ad accedere con un account Microsoft e non con un dominio che fa parte dell'ID organizzazione della directory a cui si vuole accedere. Assicurarsi che l'amministratore faccia parte dello stesso nome di dominio del dominio tenant. Ad esempio, se il dominio di Azure AD è contoso.com, l'amministratore dovrà essere admin@contoso.com. |
+| La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il proxy di applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "AADSTS50059: non sono state trovate informazioni di identificazione del tenant nella richiesta o incluse in modo implicito nelle credenziali fornite e la ricerca in base all'URI dell'entità servizio non è riuscita. | Si sta provando ad accedere con un account Microsoft e non con un dominio che fa parte dell'ID organizzazione della directory a cui si vuole accedere. Assicurarsi che l'amministratore faccia parte dello stesso nome di dominio del dominio tenant. Ad esempio, se il dominio di Azure AD è contoso.com, l'amministratore dovrà essere admin@contoso.com. |
 | Non è possibile recuperare i criteri di esecuzione correnti per l'esecuzione degli script PowerShell. | Se l'installazione del connettore non riesce, verificare che il criterio di esecuzione di PowerShell non sia disabilitato. <br><br>1. Aprire l'Editor Criteri di gruppo.<br>2. Passare a **Configurazione computer** > **Modelli amministrativi** > **Componenti di Windows** > **Windows PowerShell** e fare doppio clic su **Attiva l'esecuzione di script**.<br>3. L'esecuzione di questo criterio può essere impostata su **Non configurato** o **Abilitato**. Se l'impostazione è **Abilitato**, verificare che in Opzioni la voce Criteri di esecuzione sia impostata su **Consenti script locali e script remoti firmati** o su **Consenti tutti gli script**. |
 | Non è stato possibile configurare il connettore. | Il certificato client del connettore usato per l'autenticazione è scaduto. Questo errore può essere visualizzato anche se l'installazione del connettore è protetta da un proxy. In questo caso il connettore non può accedere a Internet e non riuscirà a fornire applicazioni agli utenti remoti. Rinnovare manualmente l'attendibilità con il cmdlet `Register-AppProxyConnector` in Windows PowerShell. Se il connettore è protetto da un proxy, è necessario concedere l'accesso a Internet agli account del connettore "servizi di rete" e "sistema locale". A questo scopo, è possibile concedere agli account l'accesso al proxy o impostarli perché ignorino il proxy. |
 | La registrazione del connettore non è riuscita: per registrare il connettore, è necessario essere un amministratore globale di Active Directory. Errore: "La richiesta di registrazione è stata negata". | L'alias con cui si sta provando ad accedere non è un amministratore nel dominio. Il connettore viene sempre installato per la directory a cui appartiene il dominio dell'utente. Assicurarsi che l'account amministratore con cui si sta provando ad accedere disponga delle autorizzazioni globali per il tenant di Azure AD. |
@@ -86,8 +86,8 @@ Questo elenco contiene gli errori che potrebbero verificarsi quando gli utenti f
 Se si verifica un errore o un problema con il Proxy dell'applicazione Azure AD che non è elencato in questa guida alla risoluzione dei problemi, è necessario segnalarlo. Invia un'email al [team che si occupa del feedback](mailto:aadapfeedback@microsoft.com) specificando i dettagli dell'errore che si è verificato.
 
 ## <a name="see-also"></a>Vedere anche 
-* [Abilitare il proxy di applicazione per Azure Active Directory](application-proxy-enable.md)
-* [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-publish-azure-portal.md)
+* [Abilitare il proxy di applicazione per Azure Active Directory](application-proxy-add-on-premises-application.md)
+* [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-add-on-premises-application.md)
 * [Abilita Single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md)
 * [Abilitare l'accesso condizionale](application-proxy-integrate-with-sharepoint-server.md)
 

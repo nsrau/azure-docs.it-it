@@ -1,5 +1,5 @@
 ---
-title: 'Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end | Documentazione Microsoft'
+title: Attività di data science scalabili con Azure Data Lake - Processo di data science per i team
 description: Come usare Azure Data Lake per eseguire attività di esplorazione di dati e di classificazione binaria su un set di dati.
 services: machine-learning
 author: marktab
@@ -10,16 +10,16 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 52518f8c9295f00b93dee0ea356513605450aed7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 8549a35eed0c1f61c087b9056e4564577170f5f6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443560"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141816"
 ---
-# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end
-Questa procedura dettagliata illustra come usare Azure Data Lake per eseguire attività di esplorazione dei dati e di classificazione binaria su un campione del set di dati relativo alle corse e alle tariffe dei taxi di NYC, in modo da prevedere se un passeggero pagherà la mancia. Vengono esaminati i passaggi del [processo di analisi scientifica dei dati del team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, dall'acquisizione dei dati al training modello e quindi alla distribuzione di un servizio Web che pubblica il modello.
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Attività di data science scalabili con Azure Data Lake: procedura dettagliata end-to-end
+Questa procedura dettagliata illustra come usare Azure Data Lake per eseguire attività di esplorazione dei dati e di classificazione binaria su un campione del set di dati relativo alle corse e alle tariffe dei taxi di NYC, in modo da prevedere se un passeggero pagherà la mancia. Vengono esaminati i passaggi del [processo di data science per i team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, dall'acquisizione dei dati al training modello e quindi alla distribuzione di un servizio Web che pubblica il modello.
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics.
 [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) include tutte le funzionalità che consentono ai data scientist di archiviare con facilità dati di qualsiasi dimensione, forma e velocità e di eseguire attività di elaborazione di dati, analisi avanzate e modellazione di Machine Learning con scalabilità elevata e costi contenuti.   Il pagamento viene effettuato per i singoli processi, solo quando i dati vengono effettivamente elaborati. Analisi Azure Data Lake include U-SQL, un linguaggio che unisce la natura dichiarativa di SQL all'efficacia espressiva di C# per offrire funzionalità di query distribuite e scalabili. Consente di elaborare dati non strutturati applicando lo schema in fase di lettura, nonché di inserire logica e funzioni UDF personalizzate e aggiungere estensibilità per permettere il controllo granulare sulle modalità di esecuzione in scala. Per altre informazioni sulla filosofia di progettazione alla base di U-SQL, vedere questo [post di blog su Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
@@ -53,7 +53,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 
 ## <a name="prepare-data-science-environment-for-azure-data-lake"></a>Preparare un ambiente di analisi scientifica dei dati per Azure Data Lake
-Per preparare l'ambiente di analisi scientifica dei dati per questa procedura guidata, creare le risorse seguenti:
+Per preparare l'ambiente di data science per questa procedura dettagliata, creare le risorse seguenti:
 
 * Archivio Azure Data Lake (ADLS) 
 * Analisi Azure Data Lake (ADLA)
@@ -300,7 +300,7 @@ Per ottenere una migliore comprensione dei dati, è possibile esplorarli usando 
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_4.csv"
     USING Outputters.Csv(); 
 
-È possibile trovare la distribuzione dell'importo della mancia con valori limite compresi tra 0, 5, 10 e 20 dollari.
+È possibile trovare la distribuzione dell'importo delle mance con valori limite pari a 0, 5, 10 e 20 dollari.
 
     //tip class/range distribution
     @tip_class =
@@ -452,7 +452,7 @@ Sono disponibili due opzioni per eseguire il pull dei dati in Azure Machine Lear
 * Nella prima opzione vengono usati i dati campionati scritti in un BLOB di Azure (nel passaggio **Campionamento dei dati** precedente), quindi viene usato Python per creare e distribuire modelli in Azure Machine Learning. 
 * Nella seconda opzione è possibile eseguire query sui dati direttamente in Azure Data Lake mediante una query Hive. Questa opzione richiede la creazione di un nuovo cluster HDInsight o l'uso di un cluster HDInsight esistente in cui le tabelle Hive facciano riferimento ai dati relativi alle corse dei taxi di New York in Archivio Azure Data Lake.  Entrambe le opzioni sono descritte nelle sezioni seguenti. 
 
-## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>Opzione 1: Usare Python per compilare e distribuire modelli di Machine Learning
+## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>Opzione 1: Usare Python per creare e distribuire modelli di Machine Learning
 Per creare e distribuire modelli di Machine Learning tramite Python, creare un notebook di Jupyter sul computer locale o in Azure Machine Learning Studio. Il notebook di Jupyter disponibile in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) include il codice completo per esplorare e visualizzare i dati, progettare funzionalità, creare modelli ed eseguire la distribuzione. Questo articolo illustra solo i passaggi relativi alla modellazione e alla distribuzione. 
 
 ### <a name="import-python-libraries"></a>Importare librerie Python
@@ -676,7 +676,7 @@ Il dashboard del servizio Web verrà visualizzato a breve:
 
  ![27](./media/data-lake-walkthrough/27-AML-web-api.PNG)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Seguendo questa procedura dettagliata è stato creato un ambiente di analisi scientifica dei dati per la creazione di soluzioni end-to-end scalabili in Azure Data Lake. Questo ambiente è stato quindi usato per analizzare un set di dati pubblico di grandi dimensioni, sottoposto ai passaggi del processo di analisi scientifica dei dati: dall'acquisizione dei dati al training del modello, fino alla distribuzione del modello come servizio Web. Per elaborare, esplorare e campionare i dati è stato usato U-SQL, mentre per creare e distribuire i modelli predittivi sono stati usati Python e Hive con Azure Machine Learning Studio.
 
 ## <a name="whats-next"></a>Passaggi successivi

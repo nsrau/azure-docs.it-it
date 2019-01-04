@@ -1,21 +1,22 @@
 ---
-title: Come installare ed eseguire i contenitori
-titlesuffix: Computer Vision - Cognitive Services - Azure
+title: Installare ed eseguire i contenitori
+titlesuffix: Computer Vision - Azure Cognitive Services
 description: Come scaricare, installare ed eseguire i contenitori per Visione artificiale in questa esercitazione dettagliata.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9964be07c578cd1cafd93328bffe972483123e03
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634643"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077036"
 ---
 # <a name="install-and-run-containers"></a>Installare ed eseguire i contenitori
 
@@ -31,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare il contenitore Riconoscimento del testo, è necessario soddisfare i prerequisiti seguenti:
 
-**Motore Docker**: il motore Docker deve essere installato localmente. Docker offre pacchetti per la configurazione dell'ambiente in [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). In Windows Docker deve essere configurato per supportare i contenitori Linux. I contenitori Docker possono anche essere distribuiti direttamente nel [servizio Kubernetes di Azure](/azure/aks/), in [Istanze di contenitore di Azure](/azure/container-instances/) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](/azure/azure-stack/). Per altre informazioni sulla distribuzione di Kubernetes in Azure Stack, vedere [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuzione di Kubernetes in Azure Stack).
+**Motore Docker**: il motore Docker deve essere installato in locale. Docker offre pacchetti per la configurazione dell'ambiente in [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). In Windows Docker deve essere configurato per supportare i contenitori Linux. I contenitori Docker possono anche essere distribuiti direttamente nel [servizio Kubernetes di Azure](/azure/aks/), in [Istanze di contenitore di Azure](/azure/container-instances/) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](/azure/azure-stack/). Per altre informazioni sulla distribuzione di Kubernetes in Azure Stack, vedere [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuzione di Kubernetes in Azure Stack).
 
 Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure.
 
@@ -39,7 +40,7 @@ Docker deve essere configurato per consentire ai contenitori di connettersi ai d
 
 Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).
 
-### <a name="server-requirements-and-recommendations"></a>Indicazioni e requisiti del server
+### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti dei contenitori
 
 Il contenitore Riconoscimento del testo richiede un minimo di 1 core CPU (almeno 2,6 GHz) e 8 GB di memoria allocata, ma sono consigliabili almeno 2 core CPU e 8 GB di memoria allocata.
 
@@ -59,7 +60,7 @@ Se si desidera usare il contenitore Riconoscimento del testo, è necessario crea
 Seguire i passaggi seguenti per creare e recuperare informazioni da una risorsa di Azure:
 
 1. Creare una risorsa di Azure nel portale di Azure.  
-   Per usare il contenitore Riconoscimento del testo, è necessario creare innanzitutto una risorsa Visione artificiale corrispondente nel portale di Azure. Per altre informazioni, vedere [Guida introduttiva: creare un account Servizi cognitivi nel portale di Azure](../cognitive-services-apis-create-account.md).
+   Per usare il contenitore Riconoscimento del testo, è necessario creare innanzitutto una risorsa Visione artificiale corrispondente nel portale di Azure. Per altre informazioni, vedere [Avvio rapido: Creare un account Servizi cognitivi nel portale di Azure](../cognitive-services-apis-create-account.md).
 
 1. Ottenere l'URL dell'endpoint e la chiave di sottoscrizione per la risorsa di Azure.  
    Una volta creata la risorsa di Azure, sarà necessario usare l'URL dell'endpoint e la chiave di sottoscrizione della risorsa per creare un'istanza del contenitore Riconoscimento del testo corrispondente. È possibile copiare l'URL dell'endpoint e la chiave di sottoscrizione rispettivamente dalle pagine di Avvio rapido e Chiavi della risorsa Visione artificiale nel portale di Azure.
@@ -153,7 +154,7 @@ Il contenitore Riconoscimento del testo invia le informazioni di fatturazione ad
 
 Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](computer-vision-resource-container-config.md).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori Visione artificiale. In sintesi:
 
@@ -162,7 +163,9 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
 * Le immagini dei contenitori vengono eseguite in Docker.
 * È possibile usare l'API REST o l'SDK per chiamare le operazioni nei contenitori Visione artificiale specificando l'URI dell'host del contenitore.
 * Quando si crea un'istanza di un contenitore, è necessario specificare le informazioni di fatturazione.
-* ** I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza connessione ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano i dati dei clienti (ad esempio, l'immagine o il testo analizzato) a Microsoft.  
+
+> [!IMPORTANT]
+> I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano i dati dei clienti (ad esempio, l'immagine o il testo analizzato) a Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

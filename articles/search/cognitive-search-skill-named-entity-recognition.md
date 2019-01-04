@@ -1,5 +1,5 @@
 ---
-title: Competenza Riconoscimento di entità denominate della ricerca cognitiva (Ricerca di Azure) | Microsoft Docs
+title: Competenza Riconoscimento delle entità denominate della ricerca cognitiva - Ricerca di Azure
 description: Estrarre le entità denominate per utente, posizione e organizzazione dal testo in una pipeline di ricerca cognitiva di Ricerca di Azure.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: f9ff3f66f3a73fbaf1a4c2ca280c85f4bde65444
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: e63354152f8821c5ce975563639c8b87fb332bd4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442030"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313990"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Competenza cognitiva di Riconoscimento di entità denominate
 
@@ -23,7 +24,9 @@ La competenza **Riconoscimento di entità denominate** estrae le entità denomin
 
 > [!NOTE]
 > <ul>
-> <li>La ricerca cognitiva è disponibile in anteprima pubblica. Le funzionalità di esecuzione di set di competenze e di estrazione e normalizzazione di immagini sono attualmente disponibili gratuitamente. Il prezzo per queste funzionalità verrà annunciato in un momento successivo. </li>
+> <li>
+> A partire dal 21 dicembre 2018 è possibile associare una risorsa dei Servizi cognitivi a un set di competenze della Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare per l'esecuzione del set di competenze. In questa data avrà inizio anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione del testo dai documenti continuerà a essere offerta gratuitamente.>
+> L'esecuzione delle competenze predefinite verrà addebitata in base ai[prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione delle immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).</li>
 > <li> La competenza Riconoscimento di entità denominate è considerata "deprecata" e non sarà più ufficialmente supportata a partire dal 15 febbraio 2019. Seguire le raccomandazioni elencate in <a href="cognitive-search-skill-deprecated.md">Competenze di ricerca cognitiva deprecate</a> per eseguire la migrazione a una competenza supportata</li>
 
 ## <a name="odatatype"></a>@odata.type  

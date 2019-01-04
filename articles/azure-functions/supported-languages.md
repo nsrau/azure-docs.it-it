@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 15d2e40127579fbd278cc3dc18653d782a515caa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f55122b3bf4bb7160459d524b20dd1303cc0fd8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957313"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835421"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Linguaggi supportati in Funzioni di Azure
 
@@ -37,11 +37,9 @@ Sono disponibili [due versioni del runtime di Funzioni di Azure](functions-versi
 
 ### <a name="experimental-languages"></a>Linguaggi sperimentali
 
-I linguaggi sperimentali supportati nella versione 1.x non garantiscono una corretta scalabilità e non supportano tutte le associazioni. Ad esempio, Python 1.x è lento perché il runtime di Funzioni esegue *python.exe* ogni volta che chiama una funzione. Python supporta le associazioni HTTP, ma non può accedere all'oggetto della richiesta.
+I linguaggi sperimentali supportati nella versione 1.x non garantiscono una corretta scalabilità e non supportano tutte le associazioni. Il supporto sperimentale per PowerShell nella versione 1.x, ad esempio, è disponibile solo per la versione 5.1 perché è la versione installata per impostazione predefinita nelle macchine virtuali in cui vengono eseguite le app per le funzioni. Se si vuole eseguire gli script PowerShell, prendere in considerazione [Automazione di Azure](https://azure.microsoft.com/services/automation/).
 
-Il supporto sperimentale per PowerShell in 1.x è disponibile solo per la versione 5.1 perché è la versione installata per impostazione predefinita sulle macchine virtuali in cui vengono eseguite le applicazioni di Funzioni. Se si vuole eseguire gli script PowerShell, prendere in considerazione [Automazione di Azure](https://azure.microsoft.com/services/automation/).
-
-Non usare i linguaggi sperimentali perché non è disponibile alcun supporto ufficiale. Non si possono aprire richieste di supporto per problemi con i linguaggi sperimentali. 
+Non usare le funzionalità sperimentali perché non è disponibile alcun supporto ufficiale. Non si possono aprire richieste di supporto per problemi con i linguaggi sperimentali. 
 
 La versione 2.x del runtime non supporta i linguaggi sperimentali. Il supporto per nuovi linguaggi viene aggiunto solo quando il linguaggio può essere supportato nell'ambiente di produzione. 
 
@@ -64,3 +62,6 @@ Per altre informazioni sull'uso dei linguaggi disponibili a livello generale o i
 
 > [!div class="nextstepaction"]
 > [Java](functions-reference-java.md)
+
+> [!div class="nextstepaction"]
+> [Python](functions-reference-python.md)

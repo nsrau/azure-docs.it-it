@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: da21a7c83a61b618646c4c4d2f422756b04dc300
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7656401115cc370d6eee60fb9bddb9bcd92e4201
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934149"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872213"
 ---
 # <a name="route-the-request-based-on-the-size-of-its-body"></a>Instradare la richiesta in base alle dimensioni del corpo
 
@@ -28,7 +28,7 @@ Questo articolo offre un esempio di criteri di Gestione API di Azure che illustr
 
 Incollare il codice nel blocco **inbound**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Route requests based on size.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Route requests based on size.policy.xml)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

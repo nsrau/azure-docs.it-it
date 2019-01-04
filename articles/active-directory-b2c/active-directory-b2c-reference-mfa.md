@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: eabae0f3575719c6cb93affefe0a393dd13d1439
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6c44bebad6b54ab673fcbf3b2ef5e5d34c8c6882
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014007"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847729"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Abilitare l'autenticazione a più fattori in Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C si integra direttamente con [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) per consentire l'aggiunta di un secondo livello di protezione alle esperienze di iscrizione e di accesso nelle applicazioni. È possibile abilitare l'autenticazione a più fattori senza scrivere una singola riga di codice. Se i criteri di iscrizione e accesso sono già stati creati, è ancora possibile abilitare l'autenticazione a più fattori.
+Azure Active Directory (Azure AD) B2C si integra direttamente con [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) per consentire l'aggiunta di un secondo livello di protezione alle esperienze di iscrizione e di accesso nelle applicazioni. È possibile abilitare l'autenticazione a più fattori senza scrivere una singola riga di codice. Se i flussi utente di iscrizione e accesso sono già stati creati, è ancora possibile abilitare l'autenticazione a più fattori.
 
 Questa funzionalità risulta utile per la gestione di scenari simili ai seguenti:
 
@@ -28,25 +28,24 @@ Questa funzionalità risulta utile per la gestione di scenari simili ai seguenti
 
 ## <a name="set-multi-factor-authentication"></a>Impostare l'autenticazione a più fattori
 
-Quando si crea un criterio, è possibile abilitare l'autenticazione a più fattori.
+Quando si crea un flusso utente, è possibile abilitare l'autenticazione a più fattori.
 
 ![Impostare l'autenticazione a più fattori](./media/active-directory-b2c-reference-mfa/add-policy.png)
 
-Impostare **Stato** su **On**.
+Impostare **Autenticazione a più fattori** su **Abilitato**.
 
-È possibile usare **Esegui ora** nei criteri per verificare l'esperienza. Confermare lo scenario seguente:
+È possibile usare **Esegui ora** per verificare l'esperienza. Confermare lo scenario seguente:
 
 Un account utente viene creato nel tenant prima che venga eseguito il passaggio di autenticazione a più fattori. Durante il passaggio, all'utente viene richiesto di fornire un numero di telefono e di verificarlo. Se la verifica ha esito positivo, il numero di telefono viene associato all'account per un utilizzo successivo. Anche se l'utente annulla o esce, al successivo accesso può venire richiesto all'utente di verificare nuovamente un numero di telefono (con l'autenticazione a più fattori abilitata).
 
 ## <a name="add-multi-factor-authentication"></a>Aggiungere l'autenticazione a più fattori
 
-È possibile abilitare l'autenticazione a più fattori in un criterio precedentemente creato. 
+È possibile abilitare l'autenticazione a più fattori in un flusso utente precedentemente creato. 
 
 Per abilitare l'autenticazione a più fattori:
 
-1. Aprire il criterio e quindi selezionare **Modifica**. 
-2. Selezionare **Autenticazione a più fattori**
-3. Impostare **Stato** su **On**.
-4. Fare clic su **Salva** nella parte superiore della pagina.
+1. Aprire il flusso utente e quindi selezionare **Proprietà**. 
+2. Accanto a **Autenticazione a più fattori**, selezionare **Abilitato**.
+3. Fare clic su **Salva** nella parte superiore della pagina.
 
 

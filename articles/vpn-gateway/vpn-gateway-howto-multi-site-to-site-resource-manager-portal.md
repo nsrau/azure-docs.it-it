@@ -1,5 +1,5 @@
 ---
-title: 'Aggiungere più connessioni gateway VPN da sito a sito a una rete virtuale: portale di Azure: Resource Manager | Documentazione Microsoft'
+title: 'Aggiungere più connessioni da sito a sito gateway VPN a una rete virtuale: Portale di Azure: Resource Manager | Microsoft Docs'
 description: Come aggiungere più connessioni da sito a sito (S2S) a un gateway VPN con una connessione esistente
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a0074cf703c5d30dca3c8353f4821e71684a190c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a814834be3225764c3b6f237bd515ca087f975a7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164559"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873122"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente
 
@@ -62,8 +62,8 @@ Verificare quanto segue:
     ![Pulsante Aggiungi connessione](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Pulsante Aggiungi connessione")<br>
 5. Nella pagina **Aggiungi connessione** compilare i campi seguenti:
    
-   * **Nome**: nome del sito a cui si sta creando la connessione.
-   * **Tipo di connessione**: selezionare **Da sito a sito (IPSec)**.
+   * **Nome:** nome del sito a cui si sta creando la connessione.
+   * **Tipo di connessione**: selezionare **Da sito a sito (IPsec)**.
      
      ![Pagina Aggiungi connessione](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Pagina Aggiungi connessione")<br>
 
@@ -76,7 +76,7 @@ Verificare quanto segue:
     ![Pagina Crea un gateway di rete locale](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Crea un gateway di rete locale")<br>
 3. Nella pagina **Crea un gateway di rete locale** compilare i campi seguenti:
    
-   * **Nome**: nome da assegnare alla risorsa gateway di rete locale.
+   * **Nome:** nome da assegnare alla risorsa gateway di rete locale.
    * **Indirizzo IP**: indirizzo IP pubblico del dispositivo VPN nel sito a cui si vuole connettersi.
    * **Spazio indirizzi**: spazio indirizzi che si vuole venga indirizzato al nuovo sito di rete locale.
 4. Fare clic su **OK** nella pagina **Crea un gateway di rete locale** per salvare le modifiche.
@@ -94,4 +94,4 @@ Verificare quanto segue:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) relativo alle macchine virtuali.
+Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere il [percorso di apprendimento relativo alle macchine virtuali](/learn/paths/deploy-a-website-with-azure-virtual-machines/).

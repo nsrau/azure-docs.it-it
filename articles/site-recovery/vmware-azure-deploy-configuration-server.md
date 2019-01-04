@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/18/2018
-ms.author: ramamill
-ms.openlocfilehash: 8b67947412055d0c0b9f39cb49961e435393cec9
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162603"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251029"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -148,6 +148,9 @@ Per evitare interruzioni nella replica in corso, verificare che l'indirizzo IP d
 7. Dove è possibile scaricare le chiavi di registrazione dell'insieme di credenziali?
 
     Nelle **credenziali di Servizi di ripristino**, **Gestisci** > **Infrastruttura di Site Recovery** > **Server di configurazione**. In Server, selezionare **Scarica chiave di registrazione** per scaricare il file di credenziali dell'insieme di credenziali.
+8. È possibile clonare un server di configurazione esistente e usarlo per l'orchestrazione della replica?
+
+    **No**, l'uso di un componente server di configurazione clonato non è supportato. 
 
 ## <a name="troubleshoot-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione
 

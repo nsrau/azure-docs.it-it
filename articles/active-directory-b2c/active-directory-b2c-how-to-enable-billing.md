@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 80ba42d7eab1726c7add6c4c9426b7dde3b55480
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1486e303e4e94ee6140bcd6ed4f52bc433b9aae6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445942"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100056"
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Collegamento di una sottoscrizione di Azure a un tenant di Azure AD B2C
 
 > [!IMPORTANT]
-> Le informazioni più aggiornate su fatturazione e prezzi per l'utilizzo di Azure AD B2C sono disponibili nella pagina [Prezzi di Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Le informazioni più aggiornate sulla fatturazione e i prezzi per l'utilizzo di Azure AD B2C sono disponibili nella pagina seguente: [Prezzi di Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 I costi per l'utilizzo di Azure AD B2C vengono addebitati a una sottoscrizione di Azure. Quando viene creato un tenant di Azure AD B2C, l'amministratore del tenant deve collegarlo in modo esplicito a una sottoscrizione di Azure. Questo articolo illustra i passaggi da eseguire.
 
 > [!NOTE]
-> Una sottoscrizione collegata a un tenant di Azure AD B2C può essere usata solo per la fatturazione dei costi di utilizzo di Azure AD B2C. La sottoscrizione non può essere usata per aggiungere altri servizi di Azure o licenze di Office 365 *nel tenant di Azure AD B2C*.
+> È possibile usare una sottoscrizione collegata a un tenant di Azure AD B2C solo per la fatturazione dei costi di utilizzo di Azure AD B2C o di altre risorse di Azure, tra cui le risorse di Azure AD B2C.  La sottoscrizione non può essere usata per aggiungere altri servizi basati su licenza di Azure o licenze di Office 365 nel tenant di Azure AD B2C.
 
  Questo collegamento alla sottoscrizione viene realizzato mediante la creazione di una "risorsa" di Azure AD B2C nella sottoscrizione di Azure di destinazione. È possibile creare molte "risorse" di Azure AD B2C all'interno di una singola sottoscrizione, insieme ad altre risorse di Azure, ad esempio macchine virtuali, archivi dati, app per la logica e così via. È possibile visualizzare tutte le risorse nella sottoscrizione passando al tenant di Azure AD cui è associata la sottoscrizione.
 

@@ -1,6 +1,6 @@
 ---
-title: Raccogliere e analizzare contatori delle prestazioni in Log Analytics di Axure| Documentazione Microsoft
-description: I contatori delle prestazioni vengono raccolti da Log Analytics per analizzare le prestazioni degli agenti Windows e Linux.  Questo articolo descrive come configurare la raccolta di contatori delle prestazioni per gli agenti Windows e Linux, i cui dettagli vengono archiviati nell'area di lavoro, e come analizzarli nel portale di Azure.
+title: Raccogliere e analizzare i contatori delle prestazioni in Monitoraggio di Azure| Microsoft Docs
+description: I contatori delle prestazioni vengono raccolti da Monitoraggio di Azure per analizzare le prestazioni degli agenti Windows e Linux.  Questo articolo descrive come configurare la raccolta di contatori delle prestazioni per gli agenti Windows e Linux, i cui dettagli vengono archiviati nell'area di lavoro, e come analizzarli nel portale di Azure.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -8,29 +8,27 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 11/28/2018l
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: ffc3443c0c4bca214cc576e1345ad09874287426
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336631"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438371"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Origini dati per le prestazioni di Windows e Linux in Log Analytics
-I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagliate sulle prestazioni di componenti hardware, sistemi operativi e applicazioni.  Log Analytics può raccogliere i contatori delle prestazioni a intervalli frequenti per l'analisi NRT (quasi in tempo reale) e l'aggregazione dei dati sulle prestazioni per l'analisi e la creazione di report più a lungo termine.
+# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Origini dati delle prestazioni di Windows e Linux in Monitoraggio di Azure
+I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagliate sulle prestazioni di componenti hardware, sistemi operativi e applicazioni.  Monitoraggio di Azure può raccogliere i contatori delle prestazioni a intervalli frequenti per l'analisi NRT (Near Real Time) e l'aggregazione di dati sulle prestazioni per l'analisi e la creazione di report a più lungo termine.
 
 ![Contatori delle prestazioni](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configurazione dei contatori delle prestazioni
-Configurare i contatori delle prestazioni nel [menu Dati delle impostazioni di Log Analytics](agent-data-sources.md#configuring-data-sources).
+Configurare i contatori delle prestazioni nel [menu Dati in Impostazioni avanzate](agent-data-sources.md#configuring-data-sources).
 
-Quando si configurano i contatori delle prestazioni di Windows o Linux per la prima volta per una nuova area di lavoro di Log Analytics, è possibile creare rapidamente numerosi contatori comuni.  Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.  Assicurarsi di aver selezionato tutti i contatori da creare e quindi fare clic su **Aggiungi i contatori delle prestazioni selezionati**.
+Quando si configurano per la prima volta i contatori delle prestazioni di Windows o Linux per una nuova area di lavoro, è possibile creare rapidamente alcuni contatori comuni.  Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.  Assicurarsi di aver selezionato tutti i contatori da creare e quindi fare clic su **Aggiungi i contatori delle prestazioni selezionati**.
 
 Per i contatori delle prestazioni di Windows è possibile scegliere un'istanza specifica per ogni contatore delle prestazioni. Per i contatori delle prestazioni di Linux, l'istanza di ogni contatore scelto viene applicata a tutti i contatori figlio del contatore padre. La tabella seguente illustra le istanze comuni disponibili ai contatori delle prestazioni di Linux e Windows.
 
@@ -90,7 +88,7 @@ I parametri di questo elemento sono descritti nella tabella seguente.
 | interval | Frequenza con cui vengono raccolti i contatori dell'oggetto. |
 
 
-La tabella seguente elenca gli oggetti e i contatori che è possibile specificare nel file di configurazione.  Per alcune applicazioni sono disponibili contatori aggiuntivi, come descritto in [Collect performance counters for Linux applications in Log Analytics](data-sources-linux-applications.md) (Raccogliere contatori delle prestazioni per applicazioni Linux in Log Analytics).
+La tabella seguente elenca gli oggetti e i contatori che è possibile specificare nel file di configurazione.  Per alcune applicazioni sono disponibili contatori aggiuntivi come descritto in [Raccogliere i contatori delle prestazioni per applicazioni Linux in Monitoraggio di Azure](data-sources-linux-applications.md).
 
 | Nome oggetto | Nome contatore |
 |:--|:--|
@@ -184,7 +182,7 @@ Di seguito è illustrata la configurazione predefinita per le metriche delle pre
     </source>
 
 ## <a name="data-collection"></a>Raccolta dei dati
-Log Analytics raccoglierà tutti i contatori delle prestazioni specificati in base all'intervallo di campionamento definito in tutti gli agenti in cui è installato il contatore.  I dati non vengono aggregati e i dati non elaborati sono disponibili in tutte le visualizzazioni di ricerca log per la durata specificata dalla sottoscrizione.
+Monitoraggio di Azure raccoglierà tutti i contatori delle prestazioni specificati in base all'intervallo di campionamento definito per tutti gli agenti in cui è installato il contatore.  I dati non vengono aggregati e i dati non elaborati sono disponibili in tutte le visualizzazioni di query di log per la durata specificata dalla sottoscrizione.
 
 ## <a name="performance-record-properties"></a>Proprietà dei record delle prestazioni
 Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate nella tabella seguente.
@@ -205,10 +203,10 @@ Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate n
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
-## <a name="log-searches-with-performance-records"></a>Ricerche di record delle prestazioni nei log
-La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i record delle prestazioni.
+## <a name="log-queries-with-performance-records"></a>Query di log con record delle prestazioni
+La tabella seguente mostra alcuni esempi di query di log che recuperano i record delle prestazioni.
 
-| Query | DESCRIZIONE |
+| Query | Descrizione |
 |:--- |:--- |
 | Perf |Tutti i dati sulle prestazioni |
 | Perf &#124; where Computer == "MyComputer" |Tutti i dati sulle prestazioni da un computer specifico |
@@ -227,5 +225,5 @@ La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i re
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Raccogliere i contatori delle prestazioni da applicazioni Linux](data-sources-linux-applications.md) come il server HTTP Apache e MySQL.
-* Altre informazioni sulle [ricerche nei log](../../log-analytics/log-analytics-queries.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
-* Esportare i dati raccolti in [Power BI](../../log-analytics/log-analytics-powerbi.md) per altre opzioni di visualizzazione e analisi.
+* Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
+* Esportare i dati raccolti in [Power BI](powerbi.md) per altre opzioni di visualizzazione e analisi.

@@ -5,16 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/12/2018
 ms.author: raynew
-ms.openlocfilehash: bc671a598d975fb732b668d579561a253f04ded3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 50f9027301e4a04cd5624deee084429c803e04f4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317722"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342715"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice di supporto per la replica da un'area di Azure a un'altra
 
@@ -41,9 +40,9 @@ Questo articolo riepiloga le configurazioni e i componenti supportati quando si 
 **Eseguire la migrazione di macchine virtuali tra aree all'interno dei cluster geografici supportati (all'interno e tra sottoscrizioni)** | Supportate nello stesso tenant di Azure Active Directory.
 **Migrazione di macchine virtuali all'interno della stessa area** | Non supportati.
 
-# <a name="region-support"></a>Supporto di area
+## <a name="region-support"></a>Supporto di area
 
-È possibile eseguire la replica e il ripristino di macchine virtuali tra due aree qualsiasi all'interno dello stesso cluster geografico.
+È possibile eseguire la replica e il ripristino di macchine virtuali tra due aree qualsiasi all'interno dello stesso cluster geografico. I cluster geografici vengono definiti tenendo presente la latenza e la sovranità dei dati.
 
 **Cluster geografico** | **Aree di Azure**
 -- | --
@@ -53,21 +52,21 @@ Asia | India meridionale, India centrale, Asia sud-orientale, Asia orientale, Gi
 Australia   | Australia orientale, Australia sud-orientale, Australia centrale, Australia centrale 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Germania | Germania centrale, Germania nord-orientale
-Cina | Cina orientale, Cina settentrionale
+Cina | Cina orientale, Cina settentrionale, Cina settentrionale2, Cina orientale 2
 
 >[!NOTE]
 >
-> Per il Brasile meridionale è possibile eseguire la replica e il failover in una delle aree seguenti: Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2 e Stati Uniti centro-settentrionali.
+> Per il Brasile meridionale, è possibile eseguire la replica e il failover in uno delle seguenti aree: Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2 e Stati Uniti centro-settentrionali.</br>
+> Si noti che Azure Site Recovery consente di usare solo il Brasile meridionale come area di origine da cui è possibile proteggere le macchine virtuali. Non può essere usata come area di ripristino di emergenza (DR) di destinazione per aree di Azure quali, ad esempio gli Stati Uniti centro-meridionali. A causa della latenza osservata per la distanza geografica, si consiglia di selezionare qualsiasi altra area dell'America che non sia il Brasile meridionale.  
 
 ## <a name="cache-storage"></a>Archiviazione cache
 
 Questa tabella riepiloga il supporto per l'account di archiviazione della cache usato da Site Recovery durante la replica.
 
-**Impostazione** | **Dettagli**
---- | ---
+**Impostazione** | **Supporto** | **Dettagli**
+--- | --- | ---
 Account di archiviazione V2 di utilizzo generico (livelli di accesso frequente e sporadico) | Non supportati. | La limitazione sussiste per l'archiviazione della cache, poiché i costi di transazione per V2 sono molto più elevati rispetto agli account di archiviazione V1.
-Firewall di Archiviazione di Azure per reti virtuali  | No  | L'accesso alle reti virtuali di Azure specifiche negli account di archiviazione della cache usati per archiviare i dati replicati non è supportato.
-
+Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si usano account di archiviazione cache o di archiviazione di destinazione abilitati per il firewall, assicurarsi di selezionare ["Consenti ai servizi Microsoft attendibili"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemi operativi di computer replicati
@@ -128,16 +127,16 @@ Debian 8 | 9.17, 9.18 | Da 3.16.0-4-amd64 a 3.16.0-6-amd64, da 4.9.0-0.bpo.4-amd
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.98 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.140-94.69 predefinita |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.98 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.162-94.69 predefinita |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.93 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.80 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.140-94.42 predefinita |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.93 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.80 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.138-94.39 predefinita |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.88 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4.4.121-92.73 SP2 (LTSS) predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.126-94.22 predefinita |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Computer replicati - File system/archiviazione guest Linux
 
-* File system: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS
+* File system: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS, BTRFS
 * Gestore volumi: LVM2
-* Software con percorsi multipli: mapper dispositivi
+* Software con percorsi multipli: Mapper dispositivi
 
 
 ## <a name="replicated-machines---compute-settings"></a>Computer replicati - Impostazioni di calcolo
@@ -146,7 +145,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | Da 3.12.49-11 SP1 prede
 --- | --- | ---
 Dimensione | Macchine virtuali di Azure di qualsiasi dimensione con almeno 2 core CPU e 1 GB di RAM | Verificare le [dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md).
 Set di disponibilità | Supportato | Se si abilita la replica per una VM di Azure con le opzioni predefinite, viene automaticamente creato un set di disponibilità in base alle impostazioni dell'area di origine. È possibile modificare queste impostazioni.
-Zone di disponibilità | Non supportate | Al momento non è possibile replicare le macchine virtuali distribuite nelle zone di disponibilità.
+Zone di disponibilità | Supportato |  
 Vantaggio Hybrid Use (HUB) | Supportato | Se la macchina virtuale di origine dispone di una licenza HUB abilitata, anche la macchina virtuale di failover o il failover di test userà la licenza HUB.
 Set di scalabilità di macchine virtuali | Non supportate |
 Immagini della raccolta di Azure - Pubblicate da Microsoft | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
@@ -180,6 +179,7 @@ Disco dati - Account di archiviazione Standard | Supportato |
 Disco dati - Account di archiviazione Premium | Supportato | Se una macchina virtuale dispone di dischi distribuiti tra account di archiviazione Standard e Premium, è possibile selezionare un account di archiviazione di destinazione diverso per ogni disco per assicurarsi di avere la stessa configurazione di archiviazione nell'area di destinazione.
 Managed Disks - Standard | Supportato nelle aree di Azure in cui è supportato Azure Site Recovery. |  
 Managed Disks - Premium | Supportato nelle aree di Azure in cui è supportato Azure Site Recovery. |
+SSD Standard | Non supportato |
 Ridondanza | Sono supportate le archiviazioni con ridondanza locale e geografica.<br/><br/> L'archiviazione con ridondanza della zona non è supportata.
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
 Spazi di archiviazione | Supportato |         
@@ -195,12 +195,24 @@ Archiviazione con ridondanza geografica | Supportato |
 RA-GRS | Supportato |
 ZRS | Non supportate |  
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
-Firewall di Archiviazione di Azure per reti virtuali  | Yes | Se si limita l'accesso alla rete virtuale agli account di archiviazione, assicurarsi che ai servizi Microsoft attendibili sia consentito l'accesso all'account di archiviazione.
+Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si limita l'accesso alla rete virtuale agli account di archiviazione, assicurarsi di selezionare ["Consenti ai servizi Microsoft attendibili"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | No  | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di osservare gli obiettivi di scalabilità e prestazioni per il disco della macchina virtuale per le macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Se si seguono le impostazioni predefinite, Site Recovery crea gli account di archiviazione e i dischi necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni specifiche, assicurarsi di rispettare gli obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali.
 
+## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Limiti di Azure Site Recovery per la replica delle frequenze di modifica dei dati
+La tabella seguente indica i limiti di Azure Site Recovery. Questi limiti si basano su test di Microsoft, ma non possono coprire tutte le possibili combinazioni di I/O delle applicazioni. I risultati effettivi possono variare in base alla combinazione di I/O delle applicazioni. È necessario considerare due limiti, la varianza dei dati per disco e la varianza dei dati per macchina virtuale.
+Ad esempio, se si esamina il disco P20 Premium nella tabella seguente, Site Recovery può gestire una varianza di 5 MB/s per disco con un massimo di cinque di questi dischi per macchina virtuale, a causa del limite di varianza totale di 25 MB/s per macchina virtuale.
+
+**Destinazione archiviazione di replica** | **Dimensioni medie I/O disco di origine** |**Varianza dati media disco di origine** | **Varianza dati totale giornaliera disco di origine**
+---|---|---|---
+Archiviazione standard | 8 KB | 2 MB/s | 168 GB per disco
+Disco P10 o P15 Premium | 8 KB  | 2 MB/s | 168 GB per disco
+Disco P10 o P15 Premium | 16 KB | 4 MB/s |  336 GB per disco
+Disco P10 o P15 Premium | 32 KB o superiori | 8 MB/s | 672 GB per disco
+Disco P20, P30, P40 o P50 Premium | 8 KB    | 5 MB/s | 421 GB per disco
+Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |10 MB/s | 842 GB per disco
 ## <a name="replicated-machines---networking"></a>Computer replicati - Reti
 **Configurazione** | **Supporto** | **Dettagli**
 --- | --- | ---

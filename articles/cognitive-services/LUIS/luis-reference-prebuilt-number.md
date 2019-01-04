@@ -1,27 +1,28 @@
 ---
-title: Riferimento al numero per le entità predefinite LUIS - Azure | Microsoft Docs
+title: Entità predefinita numero
 titleSuffix: Azure
 description: Questo articolo contiene informazioni sull'entità predefinita numero in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: b3ac42f5ecd1dc14055b0767e057a1da093042f9
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: bd42fbb85468ab652741573731515e499fe453da
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334568"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165674"
 ---
-# <a name="number-entity"></a>Entità numero
+# <a name="number-prebuilt-entity-for-a-luis-app"></a>Entità predefinita numero per un'app LUIS
 I modi in cui i valori numerici vengono usati per quantificare, esprimere e descrivere i tipi di informazioni sono diversi. Questo articolo illustra solo alcuni degli esempi possibili. LUIS interpreta le variazioni nelle espressioni utente e restituisce valori numerici coerenti. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti il numero per le finalità dell'applicazione. 
 
 ## <a name="types-of-number"></a>Tipi di numero
-Il numero viene gestito dal repository Github [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
+Il numero viene gestito dal repository GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
 
 ## <a name="examples-of-number-resolution"></a>Esempi di risoluzione dei numeri
 
@@ -42,7 +43,7 @@ LUIS include il valore riconosciuto di un'entità **`builtin.number`** nel campo
 ## <a name="resolution-for-prebuilt-number"></a>Risoluzione per il numero predefinito
 L'esempio seguente mostra una risposta JSON di LUIS, che include la risoluzione del valore 24, per l'espressione "due dozzine".
 
-```JSON
+```json
 {
   "query": "order two dozen eggs",
   "topScoringIntent": {

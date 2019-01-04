@@ -7,34 +7,33 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: juliako
-ms.openlocfilehash: 2261b8fa496beaf2a14c9b949047b6a5cbc6ea32
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: f29adb500401c9f5d6e177a0740ce54719c36a34
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292038"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253205"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
-Questo articolo illustra come caricare un video con Video Indexer di Azure. L'API Video Indexer offre due opzioni di caricamento: 
+Durante il caricamento di video con l'API Video Indexer, sono disponibili due opzioni di caricamento: 
 
 * caricare il video da un URL (scelta consigliata),
 * inviare il file video come matrice di byte nel corpo della richiesta,
 * Usare l'asset di Servizi multimediali di Azure esistente fornendo l'[id asset](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (supportato solo negli account a pagamento).
 
-Questo articolo illustra come usare l'API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) per caricare e indicizzare i video in base a un URL. L'esempio di codice nell'articolo include il codice impostato come commento che mostra come caricare la matrice di byte.  
+Questo articolo illustra come usare l'API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) per caricare e indicizzare i video in base a un URL. L'esempio di codice nell'articolo include il codice impostato come commento che mostra come caricare la matrice di byte. <br/>L'articolo illustra anche alcuni parametri che è possibile impostare per l'API per modificare il processo e l'output dell'API.
 
-L'articolo illustra anche alcuni parametri che è possibile impostare per l'API per modificare il processo e l'output dell'API.
-
-> [!Note]
-> Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). <br/>Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [connesso alla sottoscrizione di Azure e a un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account multimediale. 
+Una volta caricato il video, facoltativamente Video Indexer lo codifica (illustrato in questo articolo). Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [connesso alla sottoscrizione di Azure e a un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account multimediale. 
 
 ## <a name="uploading-considerations"></a>Considerazioni sul caricamento
     
 - Quando si carica il video in base all'URL (scelta preferita), l'endpoint deve essere protetto con il protocollo TLS 1.2 (o versione successiva)
-- L'opzione della matrice di byte è limitata a 2 GB e scade dopo 30 minuti
+- Le dimensioni di caricamento con l'opzione URL sono limitate a 10 GB
+- Le dimensioni di caricamento con l'opzione matrice di byte sono limitate a 2 GB 
+- L'opzione di matrice di byte scade dopo 30 minuti
 - L'URL fornito nel parametro `videoURL` deve essere codificato.
 
 > [!Tip]
@@ -91,7 +90,7 @@ Il prezzo dipende dall'opzione di indicizzazione selezionata.
 
 ### <a name="priority"></a>priority
 
-I video vengono indicizzati da Video Indexer in base alle rispettive priorità. Usare il parametro **priority** per specificare la priorità dell'indice. Sono validi i valori seguenti: **Basso**, **Normale** (predefinito) e **Alto**.
+I video vengono indicizzati da Video Indexer in base alle rispettive priorità. Usare il parametro **priority** per specificare la priorità dell'indice. I valori seguenti sono validi: **Bassa**, **Normale** (impostazione predefinita), e **Elevata**.
 
 Il parametro **priority** è supportato solo per gli account a pagamento.
 

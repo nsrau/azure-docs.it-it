@@ -1,6 +1,6 @@
 ---
-title: Identità gestite per le risorse di Azure con l'anteprima di Hub eventi di Azure | Microsoft Docs
-description: Usare le identità gestite per le risorse di Azure con Hub eventi di Azure
+title: Identità gestite per le risorse di Azure - Hub eventi di Azure | Microsoft Docs
+description: Questo articolo fornisce informazioni su come usare le identità gestite per le risorse di Azure con Hub eventi di Azure
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 815a6ff528e024ed1685b09b66f8fabce4d360c1
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784554"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087729"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identità gestite per le risorse di Azure con Hub eventi
 
@@ -47,19 +48,15 @@ Il primo passaggio consiste nel creare un'applicazione ASP.NET del servizio app.
 
 Una volta creata l'applicazione, passare all'app Web appena creata nel portale di Azure (come illustrato anche nella guida pratica) e quindi passare alla pagina **Identità del servizio gestito** e abilitare la funzionalità: 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![Pagina dell’Identità del servizio gestita](./media/event-hubs-managed-service-identity/msi1.png)
  
 Una volta abilitata la funzionalità, una nuova identità del servizio viene creata in Azure Active Directory e configurata nell'host del servizio app.
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Creare un nuovo spazio dei nomi di Hub eventi
 
-Successivamente, [creare uno spazio dei nomi di Hub eventi](event-hubs-create.md) in una delle aree di Azure con supporto di anteprima per l'identità gestite per le risorse di Azure: **Stati Uniti orientali**, **Stati Uniti orientali 2**, o **Europa occidentale**. 
+Successivamente, [creare uno spazio dei nomi di Hub eventi](event-hubs-create.md) in una delle aree di Azure con supporto di anteprima per l'identità gestite per le risorse di Azure: **Stati Uniti orientali**, **Stati Uniti orientali 2** o **Europa occidentale**. 
 
-Passare alla pagina **Controllo di accesso (IAM)** dello spazio dei nomi nel portale e quindi fare clic su **Aggiungi** per aggiungere l'identità gestita al ruolo **Proprietario**. A tale scopo, cercare il nome dell'applicazione Web nel campo **Seleziona** del pannello **Aggiungi autorizzazioni** e quindi fare clic sulla voce. Fare quindi clic su **Salva**.
-
-![](./media/event-hubs-managed-service-identity/msi2.png)
- 
-L'identità gestita per l'applicazione Web dispone ora dell'accesso allo spazio dei nomi di Hub eventi e all'hub eventi creato in precedenza. 
+Passare alla pagina **Controllo di accesso (IAM)** dello spazio dei nomi nel portale e quindi fare clic su **Aggiungi un'assegnazione di ruolo** per aggiungere l'identità gestita al ruolo **Proprietario**. A tale scopo, cercare il nome dell'applicazione Web nel campo **Seleziona** del pannello **Aggiungi autorizzazioni** e quindi fare clic sulla voce. Fare quindi clic su **Salva**. L'identità gestita per l'applicazione Web dispone ora dell'accesso allo spazio dei nomi di Hub eventi e all'hub eventi creato in precedenza. 
 
 ### <a name="run-the-app"></a>Esecuzione dell'app
 
@@ -71,7 +68,7 @@ Si noti come viene inizializzato l'oggetto [MessagingFactory](/dotnet/api/micros
 
 Dopo avere apportato queste modifiche, pubblicare ed eseguire l'applicazione. È possibile ottenere i dati di pubblicazione corretti scaricando e quindi importando un profilo di pubblicazione in Visual Studio:
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![Importa profilo di pubblicazione](./media/event-hubs-managed-service-identity/msi3.png)
  
 Per inviare o ricevere messaggi, immettere il nome dello spazio dei nomi e il nome dell'entità creata, quindi fare clic su **Invia** o **Ricevi**. 
  

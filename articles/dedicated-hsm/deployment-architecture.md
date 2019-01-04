@@ -1,24 +1,25 @@
 ---
-title: Architettura di distribuzione di HSM dedicato di Azure | Microsoft Docs
-description: HSM dedicato di Azure offre capacità di archiviazione chiavi in Azure che soddisfano la certificazione FIPS 140-2 Livello 3
+title: Architettura di distribuzione - HSM dedicato di Azure | Microsoft Docs
+description: Considerazioni sulla progettazione di base quando si usa il modulo HSM dedicato di Azure come parte di un'architettura di applicazione
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 8481f444464135a24d42612f334ac6096cba7b21
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 913be9d1ee6ce92d71f5f0c7eda46a618483ce8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318990"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078294"
 ---
-# <a name="deployment-architecture"></a>Architettura di distribuzione
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Architettura di distribuzione del modulo HSM dedicato di Azure
 
 HSM dedicato di Azure offre l'archiviazione di chiavi crittografiche in Azure. Soddisfa requisiti rigorosi di sicurezza. L'uso di HSM dedicato di Azure dedicato sarà utile ai clienti che:
 

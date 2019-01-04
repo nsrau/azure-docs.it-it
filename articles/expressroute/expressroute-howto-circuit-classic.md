@@ -1,18 +1,19 @@
 ---
-title: 'Modificare un circuito ExpressRoute: PowerShell: Azure classico| Microsoft Docs'
+title: 'Modificare un circuito ExpressRoute: PowerShell: Azure classico | Microsoft Docs'
 description: Questo articolo illustra i passaggi per verificare lo stato, aggiornare o eliminare ed effettuare il deprovisioning del circuito del modello di distribuzione classica ExpressRoute.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 2ac8403c5375c2448be0bf2348775ce3350570c0
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 0d6d8af9456f5f943eb70b5a63b69e2f7f16a4cb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161361"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104238"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificare un circuito ExpressRoute mediante PowerShell (versione classica)
 
@@ -24,7 +25,7 @@ ms.locfileid: "52161361"
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md) (PowerShell (classico))
 >
 
-L'articolo illustra anche le procedure di controllo di stato, aggiornamento, eliminazione e deprovisioning di un circuito ExpressRoute.
+Questo articolo illustra i passaggi per verificare lo stato, aggiornare o eliminare ed effettuare il deprovisioning del circuito del modello di distribuzione classica ExpressRoute. Questo articolo si applica al modello di distribuzione classica.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 

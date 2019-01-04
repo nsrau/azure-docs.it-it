@@ -1,5 +1,5 @@
 ---
-title: Attività del processo di data science per i team di un singolo collaboratore - Azure | Microsoft Docs
+title: Attività per un singolo collaboratore nel processo di data science per i team
 description: Descrizione delle attività di un singolo collaboratore in un progetto di data science in team.
 author: marktab
 manager: cgronlun
@@ -9,17 +9,17 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: d8e51dcf8434508664801f53391592aab34d7e4a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6684cc9a0166df9c6d230f6b2a8c05acec5f91b3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447062"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136762"
 ---
-# <a name="individual-contributor-tasks"></a>Attività del singolo collaboratore
+# <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Attività per un singolo collaboratore nel processo di data science per i team
 
-Questo argomento illustra le attività che un collaboratore singolo deve completare per il proprio team di data science. L'obiettivo è di stabilire un ambiente di collaborazione per normalizzare il [processo di data science per il team](overview.md) (TDSP, Team Data Science Process). Per una descrizione dei ruoli del personale e delle relative attività associate gestiti da un team di data science, che vengono standardizzati con il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
+Questo argomento illustra le attività che un collaboratore singolo deve completare per il proprio team di data science. L'obiettivo è di stabilire un ambiente di collaborazione per normalizzare il [processo di data science per il team](overview.md) (TDSP, Team Data Science Process). Per una descrizione dei ruoli del personale e delle relative attività associate gestiti da un team di data science, che vengono standardizzati con il processo, vedere [Ruoli e attività del processo di data science per i team](roles-tasks.md).
 
 Le attività dei singoli collaboratori al progetto (data scientist) per configurare l'ambiente TDSP per il progetto sono illustrate di seguito: 
 

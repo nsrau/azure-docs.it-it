@@ -1,114 +1,137 @@
 ---
-title: Personalizzare la pagina di accesso nel tenant di Azure AD | Microsoft Docs
-description: Informazioni su come aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure
+title: Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso - Azure Active Directory | Microsoft Docs
+description: Istruzioni su come aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 07/20/2018
+ms.topic: conceptual
+ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-custom: it-pro
-ms.openlocfilehash: 7804d6b0d4a100997fb545e678458424dac6ceed
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 0ce0d42e37bcc5c936798947bacf0232891c24ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227295"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090313"
 ---
-# <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Avvio rapido: Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso in Azure AD
-Per evitare confusione, molte aziende vogliono applicare un aspetto coerente a tutti i siti Web e servizi che gestiscono. Azure Active Directory (Azure AD) offre questa funzionalità consentendo di personalizzare l'aspetto della pagina di accesso, in modo da includere il logo e le combinazioni colori personalizzate dell'azienda. La pagina di accesso viene visualizzata quando si accede alle applicazioni basate sul Web, come Office 365, che usano Azure AD come provider di identità. Interagire con questa pagina per immettere le credenziali.
+# <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure Active Directory
+Usare il logo e combinazioni colori personalizzate dell'azienda per offrire un aspetto coerente per le pagine di accesso di Azure Active Directory (Azure AD). La pagina di accesso viene visualizzata quando si accede alle applicazioni basate sul Web dell'organizzazione, come Office 365, che usano Azure AD come provider di identità.
+
+>[!Note]
+>Per l'aggiunta di informazioni personalizzate distintive dell'azienda è necessario usare Azure Active Directory Premium 1, Premium 2 o le edizioni Basic, oppure disporre di una licenza di Office 365. Per altre informazioni sulle licenze e sulle edizioni, vedere [Iscriversi ad Azure AD Premium](active-directory-get-started-premium.md).<br><br>Le edizioni Premium e Basic di Azure AD sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Le edizioni Azure AD Premium e Basic non sono attualmente supportate nel servizio di Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+
+## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizzare la pagina di accesso di Azure AD
+È possibile personalizzare le pagine di accesso di Azure AD che vengono visualizzate quando gli utenti accedono alle applicazioni specifiche del tenant dell'organizzazione, quali [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com), o passando la variabile del dominio, ad esempio [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+
+Le personalizzazioni distintive non verranno visualizzate immediatamente quando gli utenti accedono a siti come www.office.com. L'utente dovrà effettuare invece l'accesso prima che vengano visualizzate le informazioni distintive.
 
 > [!NOTE]
-> * La possibilità di aggiungere informazioni personalizzate distintive dell'azienda è disponibile solo se è stata acquistata la licenza Premium o Basic di Azure AD o se si possiede una licenza di Office 365. Per determinare se una funzionalità sia o meno supportata da un tipo di licenza specifico, vedere la pagina [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
-> 
-> * Le edizioni Premium e Basic di Azure AD sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Azure AD Premium e le edizioni Basic non sono attualmente supportati nel servizio di Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> Tutti gli elementi personalizzati distintivi sono facoltativi. Se, ad esempio, si specifica un logo del banner senza immagine di sfondo, la pagina di accesso mostrerà il logo con un'immagine di sfondo predefinita ricavata dal sito di destinazione, ad esempio Office 365.<br><br>Inoltre, la personalizzazione della pagina di accesso non si applica agli account Microsoft personali. Se gli utenti o gli utenti guest aziendali accedono mediante un account Microsoft personale, la pagina di accesso non rifletterà le informazioni personalizzate distintive dell'azienda.
 
-## <a name="customizing-the-sign-in-page"></a>Personalizzazione della pagina di accesso
+### <a name="to-customize-your-branding"></a>Per personalizzare le informazioni personalizzate distintive
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un account amministratore globale per la directory.
 
-<!--You can customize the following elements on the sign-in page: <attach image>-->
+2. Selezionare **Azure Active Directory**, quindi selezionare **Informazioni personalizzate distintive dell'azienda** e selezionare **Configura**.
 
-Le personalizzazioni distintive dell'azienda vengono visualizzate nella pagina di accesso di Azure AD quando gli utenti accedono a un URL specifico del tenant, ad esempio [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com) o passando il dominio valido nell'URL, ad esempio [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com)
+    ![Contoso - Pagina delle informazioni personalizzate distintive dell'azienda, opzione Configura evidenziata](media/customize-branding/company-branding-configure-button.png)
 
-Ad esempio, quando gli utenti visitano il sito www.office.com, la pagina di accesso non contiene personalizzazioni distintive dell'azienda perché l'utente non ha ancora inserito le credenziali. Le informazioni personalizzate distintive dell'azienda vengono visualizzate non appena gli utenti immettono l'ID utente o selezionano un riquadro utente.
+3. Nella pagina **Configurare le informazioni personalizzate distintive dell'azienda**, indicare una o tutte le informazioni seguenti.
 
-> [!NOTE]
-> * Il nome di dominio deve essere visualizzato come "Attivo" nella sezione **Domini** del portale di Azure in cui è stata configurata la personalizzazione. Per altre informazioni, vedere [Add a custom domain name](add-custom-domain.md) (Aggiungere un nome di dominio personalizzato).
-> * La personalizzazione della pagina di accesso non si applica alla pagina di accesso dell'account Microsoft personale. Se i dipendenti o gli utenti guest aziendali accedono con un account Microsoft personale, la pagina di accesso non rifletterà le personalizzazioni distintive dell'azienda.
+    >[!Important]
+    >Tutte le immagini personalizzate che è possibile aggiungere in questa pagina hanno restrizioni relative alle dimensioni dell'immagine (pixel) e potenzialmente alle dimensioni del file (KB). A causa di queste restrizioni, sarà probabilmente necessario usare un editor di foto per creare immagini della giusta dimensione.
 
+    - **Impostazioni generali**
 
-### <a name="banner-logo"></a>Logo banner 
+        ![Configurare la pagina delle informazioni personalizzate distintive dell'azienda, con le impostazioni generali completate](media/customize-branding/configure-company-branding-general-settings.png)
 
-DESCRIZIONE | Vincoli | Consigli
-------- | ------- | ----------
-Il logo del banner viene visualizzato nella pagina di accesso e nelle pagine del pannello di accesso.<br>Nella pagina di accesso il logo viene visualizzato dopo l'immissione del nome utente. | JPG o PNG trasparente<br>Altezza massima: 36 pixel<br>Larghezza massima: 245 pixel | Usare il logo dell'organizzazione in questa posizione.<br>Usare un'immagine trasparente. Non dare per scontato che lo sfondo sarà bianco.<br>Non aggiungere spaziatura interna intorno al logo nell'immagine o il logo apparirà sproporzionatamente piccolo.
+        - **Lingua.** La lingua viene impostata automaticamente come predefinita e non può essere cambiata.
+        
+        - **Immagine di sfondo della pagina di accesso.** Selezionare un file di immagine .png o .jpg da visualizzare come sfondo per le pagine di accesso. 
+        
+            L'immagine non può essere più grande di 1920x1080 pixel e deve avere una dimensione del file inferiore a 300 kB.
 
-### <a name="username-hint"></a>Suggerimento per il nome utente   
-DESCRIZIONE | Vincoli | Consigli
-------- | ------- | ----------
-Questa opzione consente di personalizzare il testo di suggerimento nel campo del nome utente. | Testo Unicode contenente fino a 64 caratteri<br>Solo testo normale | Evitare di impostare questa opzione se si prevede che utenti guest esterni all'organizzazione accedano all'app.
+        - **Logo banner.** Selezionare una versione .png o .jpg del logo da visualizzare nella pagina di accesso dopo che l'utente ha inserito un nome utente nella pagina del portale **My Apps (Le mie applicazioni)**.
             
-### <a name="sign-in-page-text"></a>Testo della pagina di accesso   
-DESCRIZIONE | Vincoli | Consigli
-------- | ------- | ----------
-Questa opzione viene visualizzata nella parte inferiore del modulo di accesso e può essere usata per comunicare informazioni aggiuntive, ad esempio il numero di telefono dell'help desk o una nota legale. | Testo Unicode contenente fino a 256 caratteri<br>Solo testo normale, senza collegamenti o tag HTML    
+            L'immagine non può essere più alta di 36 pixel o più ampia di 245 pixel. È consigliabile usare un'immagine trasparente poiché lo sfondo potrebbe non corrispondere allo sfondo del logo. È inoltre consigliabile non aggiungere una spaziatura interna intorno all'immagine perché potrebbe far sembrare piccolo il logo.
 
-### <a name="sign-in-page-image"></a>Immagine della pagina di accesso  
-DESCRIZIONE | Vincoli | Consigli
-------- | ------- | ----------
-Questa opzione viene visualizzata sullo sfondo della pagina di accesso, è ancorata al centro dell'area visualizzabile e viene ridimensionata e ritagliata per riempire la finestra del browser.    <br>Negli schermi stretti, come quelli dei telefoni cellulari, l'immagine non viene visualizzata.<br>Quando la pagina viene caricata, viene applicata una maschera nera con opacità 0,55 sopra all'immagine. | JPG o PNG<br>Dimensioni immagine: 1920 x 1080 pixel<br>Dimensioni del file: &lt; 300 KB | <br>Usare le immagini nei casi in cui non è necessario richiamare l'attenzione sull'argomento. Il modulo di accesso opaco viene visualizzato sopra la parte centrale dell'immagine e può coprire qualsiasi parte dell'immagine, a seconda delle dimensioni della finestra del browser.<br>Mantenere le dimensioni del file piccole per garantire tempi di caricamento rapidi. 
+        - **Suggerimento per il nome utente.** Digitare il testo di suggerimento visualizzato agli utenti qualora non ricordino il loro nome utente. Questo testo deve essere Unicode, senza collegamenti o codice e non può superare i 64 caratteri. Se gli utenti guest accedono all'app, è consigliabile non aggiungere questo hint.
 
-### <a name="sign-in-page-background-color"></a>Colore di sfondo della pagina di accesso
-DESCRIZIONE | Vincoli | Consigli
-------- | ------- | ----------
-Questo colore viene usato al posto dell'immagine di sfondo con le connessioni con larghezza di banda ridotta. | Colore RGB in formato esadecimale (esempio: #FFFFFF) | È consigliabile usare il colore primario del logo del banner o il colore dell'organizzazione.
+        - **Testo della pagina di accesso.** Digitare il testo visualizzato in fondo alla pagina di accesso. Questo testo può essere usato per comunicare informazioni aggiuntive, ad esempio il numero di telefono dell'help desk o una nota legale. Questo testo deve essere in formato Unicode e non superare i 256 caratteri. È consigliabile, inoltre, non includere collegamenti o tag HTML.
 
-### <a name="square-logo-image"></a>Immagine con logo quadrato
-DESCRIZIONE | Vincoli | Consigli
-------- | ------- | ----------
-Questa immagine viene visualizzata durante la configurazione dei PC Windows 10 Enterprise. Fornisce il contesto quando i dipendenti configurano il loro nuovo PC aziendale. L'immagine viene visualizzata per i tenant che usano [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) per distribuire i dispositivi aziendali e nelle pagine di immissione della password in altri ambienti Windows 10. | Immagine PNG (preferibile) o JPG trasparente<br>Dimensioni dell'immagine: 240x240 px<br>Dimensioni del file: &lt; 10 KB | Usare il logo dell'organizzazione in questa posizione.<br> Usare un'immagine trasparente.<br>Non dare per scontato che lo sfondo sarà bianco.<br>Non aggiungere spaziatura interna al logo nell'immagine o il logo apparirà sproporzionatamente piccolo.
+    - **Impostazioni avanzate**
+            
+        ![Configurare la pagina delle informazioni personalizzate distintive dell'azienda, con le impostazioni avanzate completate](media/customize-branding/configure-company-branding-advanced-settings.png)   
 
-### <a name="show-option-to-remain-signed-in"></a>Impostazione Mostra l'opzione per mantenere l'accesso
-DESCRIZIONE | Vincoli | Consigli
-------- | ------- | ----------
-La pagina di accesso di Azure AD include un'opzione che consente a un utente di restare connesso quando chiude e riapre il browser. Questa impostazione nasconde l'opzione.<br>Impostare il valore su **No** per nascondere l'opzione agli utenti. | &nbsp; | Questa impostazione non influisce sulla durata della sessione.<br>Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dal fatto che gli utenti possano o meno scegliere se restare connessi. Se si imposta l'opzione su **No**, gli utenti potrebbero visualizzare prompt aggiuntivi e imprevisti con richieste di accesso.
+        - **Colore di sfondo della pagina di accesso.** Specificare il colore esadecimale (ad esempio, bianco è #FFFFFF) che verrà visualizzato al posto dell'immagine di sfondo in situazioni di connessione a larghezza di banda ridotta. È consigliabile usare il colore primario del logo del banner o il colore dell'organizzazione.
 
-> [!NOTE]
-> Tutti gli elementi sono facoltativi. Se, ad esempio, si specifica un logo del banner senza immagine di sfondo, la pagina di accesso mostrerà il logo e l'immagine di sfondo per il sito di destinazione, ad esempio Office 365.
+        - **Immagine con logo quadrato.** Selezionare un'immagine in formato .png (preferito) o .jpg del logo dell'organizzazione che sarà visualizzata dagli utenti durante il processo di installazione per i nuovi dispositivi Windows 10 Enterprise. Questa immagine viene usata solo per l'autenticazione di Windows e viene visualizzata solo sui tenant che usano [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) per la distribuzione o per le pagine di immissione della password in altre situazioni di Windows 10.
+        
+            L'immagine non può essere più grande di 240x240 pixel e il file deve essere inferiore a 10 kB. È consigliabile usare un'immagine trasparente poiché lo sfondo potrebbe non corrispondere allo sfondo del logo. È inoltre consigliabile non aggiungere una spaziatura interna intorno all'immagine perché potrebbe far sembrare piccolo il logo.
+    
+        - **Immagine con logo quadrato, tema scuro.** Uguale all'immagine con logo quadrato precedente. Questa immagine del logo sostituisce l'immagine con logo quadrato quando viene utilizzata con uno sfondo scuro, come ad esempio con le schermate unite di Windows 10 Azure AD durante la configurazione guidata.  Se il logo ha un aspetto corretto su sfondi bianchi, blu scuro e neri, non è necessario aggiungere questa immagine. 
+        
+        - **Mostra l'opzione per mantenere l'accesso.** È possibile scegliere di consentire agli utenti di restare connessi ad Azure AD fino alla disconnessione in modo esplicito. Se si sceglie **No**, questa opzione è nascosta e gli utenti devono accedere ogni volta che il browser viene chiuso e riaperto.
+        
+            >[!Note]
+            >Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dal fatto che gli utenti possano o meno scegliere se restare connessi. Se si imposta l'opzione su **No**, gli utenti potrebbero visualizzare prompt aggiuntivi e imprevisti con richieste di accesso.
+   
 
-## <a name="add-company-branding-to-your-directory"></a>Aggiungere informazioni personalizzate distintive dell'azienda alla directory
+3. Dopo aver aggiunto la personalizzazione, selezionare **Salva**.
 
-1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account amministratore globale per il tenant.
-2. Selezionare **Azure Active Directory** > **Informazioni personalizzate distintive dell'azienda** > **Modifica**.
-  
-  ![Apertura delle informazioni personalizzate](./media/customize-branding/navigation-to-branding.png)
-3. Modificare gli elementi da personalizzare. Tutti gli elementi sono facoltativi.
-  
-  ![Modificare le informazioni personalizzate](./media/customize-branding/edit-branding.png)
-4. Al termine, selezionare **Salva**.
+    Se questo processo crea la prima configurazione delle Informazioni personalizzate distintive dell'azienda, diventa il valore predefinito per il tenant. Se si dispone di configurazioni aggiuntive, sarà possibile scegliere la configurazione predefinita.
+    
+    >[!Important]
+    >Per aggiungere ulteriori configurazioni di Informazioni personalizzate distintive dell'azienda al tenant, è necessario scegliere **Nuova lingua** nella pagina **Contoso - Informazioni personalizzate distintive dell'azienda**. Verrà visualizzata la pagina **Configurare le informazioni personalizzate distintive dell'azienda**, in cui è possibile seguire gli stessi passaggi riportati in precedenza.
 
-Può trascorrere fino a un'ora prima che qualsiasi modifica apportata per la personalizzazione della pagina di accesso venga visualizzata.
+## <a name="update-your-custom-branding"></a>Aggiornare le informazioni personalizzate distintive dell'azienda
+Dopo aver creato le informazioni personalizzate distintive dell'azienda, è possibile tornare indietro e modificare qualsiasi informazione.
+
+### <a name="to-edit-your-custom-branding"></a>Per modificare le informazioni personalizzate distintive dell'azienda
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un account amministratore globale per la directory.
+
+2. Selezionare **Azure Active Directory**, quindi selezionare **Informazioni personalizzate distintive dell'azienda** e selezionare **Configura**.
+
+    ![Contoso - Informazioni personalizzate distintive dell'azienda, con la configurazione predefinita visualizzata](media/customize-branding/company-branding-default-config.png)
+
+3. Nella pagina **Configurare le informazioni personalizzate distintive dell'azienda**, aggiungere, rimuovere o modificare le informazioni, in base alle descrizioni riportate nella sezione [Personalizzare la pagina di accesso di Azure AD](#customize-your-azure-ad-sign-in-page) di questo articolo.
+
+4. Selezionare **Salva**.
+
+  Può trascorrere fino a un'ora prima che qualsiasi modifica apportata per la personalizzazione della pagina di accesso venga visualizzata.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>Per aggiungere alla directory informazioni personalizzate distintive dell'azienda specifiche di una lingua
+Non è possibile modificare la lingua della configurazione originale dalla lingua predefinita. Tuttavia, se è necessaria una configurazione in una lingua diversa, è possibile creare una nuova configurazione.
 
-1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account amministratore globale per la directory.
-2. Selezionare **Azure Active Directory** > **Informazioni personalizzate distintive dell'azienda** > **Nuova lingua**.
-  
-  ![Aggiungere elementi personalizzati distintivi dell'azienda specifiche della lingua](./media/customize-branding/add-language.png)
-3. Modificare gli elementi da personalizzare. Tutti gli elementi sono facoltativi.
-4. Al termine, selezionare **Salva**.
+### <a name="to-add-a-language-specific-branding-configuration"></a>Per aggiungere una configurazione di personalizzazione specifica di una lingua
 
-Può trascorrere fino a un'ora prima che qualsiasi modifica apportata per la personalizzazione della pagina di accesso venga visualizzata.
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un account amministratore globale per la directory.
 
-## <a name="next-steps"></a>Passaggi successivi
-In questa guida introduttiva si è appreso come aggiungere informazioni personalizzate distintive dell'azienda alla directory di Azure AD. 
+2. Selezionare **Azure Active Directory**, quindi selezionare **Informazioni personalizzate distintive dell'azienda** e selezionare **Nuova lingua**.
 
-È possibile usare il collegamento seguente per aggiungere informazioni personalizzate distintive dell'azienda in Azure AD dal portale di Azure.
+    ![Contoso - Pagina delle informazioni personalizzate distintive dell'azienda con l'opzione Nuova lingua evidenziata](media/customize-branding/company-branding-new-language.png)
 
-> [!div class="nextstepaction"]
-> [Configurare la personalizzazione aziendale](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/LoginTenantBrandingBlade) 
+3. Nella pagina **Configurare le informazioni personalizzate distintive dell'azienda**, selezionare la lingua (ad esempio francese) e aggiungere le informazioni tradotte, in base alle descrizioni riportate nella sezione [Personalizzare la pagina di accesso di Azure AD](#customize-your-azure-ad-sign-in-page) di questo articolo.
+
+4. Selezionare **Salva**.
+
+    La pagina **Contoso - Informazioni personalizzate distintive dell'azienda** viene aggiornata per indicare la nuova configurazione in francese.
+
+    ![Contoso - Informazioni personalizzate distintive dell'azienda, con la configurazione predefinita visualizzata](media/customize-branding/company-branding-french-config.png)
+
+## <a name="add-your-custom-branding-to-pages"></a>Aggiungere le informazioni personalizzate distintive dell'azienda alle pagine
+Aggiungere le informazioni personalizzate distintive dell'azienda alle pagine modificando la fine dell'URL con il testo, `?whr=yourdomainname`. Questa modifica funziona su più pagine, tra cui la pagina di configurazione dell'autenticazione a più fattori, la pagina di configurazione della reimpostazione delle password self-service (SSPR) e la pagina di accesso.
+
+**Esempi:**
+
+**URL originale:** https://aka.ms/MFASetup<br>
+**URL personalizzato:** https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com
+
+**URL originale:** https://aka.ms/SSPR<br>
+**URL personalizzato:** https://passwordreset.microsoftonline.com/?whr=contoso.com
+
+ 

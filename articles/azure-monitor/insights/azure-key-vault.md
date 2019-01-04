@@ -10,17 +10,15 @@ ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.component: ''
-ms.openlocfilehash: 72c7febe48c89041aad3c2e127eeb4e2d33d5eca
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 785ccba6766b6a4f7400f3fdacf7ac24a234adf5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430556"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192771"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Soluzione di Azure Key Vault Analytics in Log Analytics
 
@@ -103,7 +101,7 @@ Dopo avere selezionato il riquadro **Panoramica**, è possibile visualizzare i r
 ## <a name="log-analytics-records"></a>Record di Log Analytics
 La soluzione Insieme di credenziali delle chiavi di Azure analizza i record con tipo **KeyVaults**, raccolti dai [log AuditEvent](../../key-vault/key-vault-logging.md) in Diagnostica di Azure.  Le proprietà per questi record sono disponibili nella tabella seguente:  
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | type |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
@@ -138,9 +136,9 @@ Per utilizzare la soluzione aggiornata:
 1. [Configurare la diagnostica in modo che venga inviata direttamente a Log Analytics da Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
 2. Abilitare la soluzione Azure Key Vault seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md)
 3. Aggiornare tutte le query salvate, i dashboard o gli avvisi per utilizzare il nuovo tipo di dati
-  + Il tipo è cambiato da KeyVaults a AzureDiagnostics. È possibile utilizzare ResourceType per filtrare i log di Key Vault.
+  + Il tipo è cambiato da KeyVaults ad AzureDiagnostics. È possibile utilizzare ResourceType per filtrare i log di Key Vault.
   - Invece di: `KeyVaults`, utilizzare i campi `AzureDiagnostics | where ResourceType'=="VAULTS"`:
-  + I nomi dei campi distinguono tra maiuscole e minuscole
+  + Campi: (per i nomi degli attributi viene fatta distinzione tra maiuscole e minuscole)
   - Per ogni campo con suffisso \_s, \_d o \_g nel nome, modificare il primo carattere in lettere minuscole
   - Per ogni campo con suffisso \_o nel nome, i dati sono suddivisi in singoli campi in base ai nomi dei campi nidificati. Ad esempio, il nome UPN del chiamante viene archiviato in un campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    - Il campo CallerIpAddress viene modificato in CallerIPAddress
@@ -153,4 +151,4 @@ I dati raccolti prima della modifica non sono visibili nella nuova soluzione. È
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Usare le [Ricerche nei log in Log Analytics](../../log-analytics/log-analytics-queries.md) per visualizzare i dati dettagliati per l'Insieme di credenziali delle chiavi di Azure.
+* Usare le [Ricerche nei log in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) per visualizzare i dati dettagliati per l'Insieme di credenziali delle chiavi di Azure.

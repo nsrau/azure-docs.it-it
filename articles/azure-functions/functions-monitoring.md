@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 9fb25f21e9ff54baf0e297fad1601018af45e476
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497250"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876520"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -158,7 +158,7 @@ Le tabelle disponibili vengono mostrate nella scheda **Schema** del riquadro a s
 * **richieste**: uno per ogni chiamata alla funzione.
 * **eccezioni**: tutte le eccezioni generate dal runtime.
 * **customMetrics**: numero di chiamate con esito positivo e negativo, percentuale di successo, durata.
-* **customEvents**: eventi rilevati dal runtime, ad esempio richieste HTTP che attivano una funzione.
+* **customEvents**: eventi rilevati dal runtime, ad esempio  richieste HTTP che attivano una funzione.
 * **performanceCounters**: informazioni sulle prestazioni dei server su cui sono in esecuzione le funzioni.
 
 Le altre tabelle sono riservate ai test di disponibilità e ai dati di telemetria del browser o del client. È possibile implementare i dati di telemetria personalizzati per aggiungerne altri.
@@ -330,6 +330,21 @@ Come indicato nella sezione precedente, il runtime aggrega i dati sulle esecuzio
 ## <a name="configure-sampling"></a>Configurare il campionamento
 
 Application Insights ha una funzionalità di [campionamento](../application-insights/app-insights-sampling.md) che consente di evitare la produzione di un numero eccessivo di dati di telemetria nei picchi di carico. Quando la frequenza dei dati di telemetria supera una soglia specificata, Application Insights inizia a ignorare in modo casuale alcuni degli elementi in ingresso. Il valore predefinito per il numero massimo di elementi al secondo è 5. È possibile configurare il campionamento nel file [host.json](functions-host-json.md).  Ad esempio:
+
+### <a name="version-2x"></a>Versione 2.x 
+
+```json
+{
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond" : 5
+      }
+    }
+  }
+}
+```
 
 ### <a name="version-1x"></a>Versione 1.x 
 

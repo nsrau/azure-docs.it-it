@@ -2,19 +2,19 @@
 title: Pianificazione della capacità dei cluster in Azure HDInsight
 description: Come specificare un cluster HDInsight per capacità e prestazioni.
 services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/22/2017
-ms.author: maxluk
-ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/04/2018
+ms.author: hrasheed
+ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499102"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193859"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -32,7 +32,7 @@ Di seguito sono elencate alcune domande che consentono di pianificare correttame
 
 L'area di Azure determina il luogo in cui viene fisicamente eseguito il provisioning del cluster. Per ridurre al minimo la latenza di lettura e scrittura, è opportuno che il cluster si trovi vicino ai dati.
 
-HDInsight è disponibile in molte aree di Azure. Per trovare l'area più vicina, vedere la voce *HDInsight per Linux* nella sezione *Dati e analisi* della pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
+HDInsight è disponibile in molte aree di Azure. Per trovare l'area più vicina, vedere la voce *HDInsight* nella sezione *Analisi* della pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 
 ## <a name="choose-storage-location-and-size"></a>Scegliere le dimensioni e la posizione di archiviazione
 
@@ -57,7 +57,7 @@ Un cluster può accedere a una combinazione di account di archiviazione diversi.
 * Quando si vuole rendere disponibili per il cluster i dati già caricati in un contenitore BLOB.
 * Quando si preferisce isolare le varie parti della risorsa di archiviazione per motivi di sicurezza o per semplificare le attività di amministrazione.
 
-Per un cluster a 48 nodi si consigliano 4 o 8 account di archiviazione. Anche se è possibile che lo spazio di archiviazione complessivo sia già sufficiente, ogni account di archiviazione fornisce larghezza di banda di rete aggiuntiva per i nodi di calcolo. Se si ha più di un account di archiviazione, usare un nome casuale per ognuno di essi, senza prefisso. La denominazione casuale ha lo scopo di diminuire le probabilità di colli di bottiglia di archiviazione (limitazione) e di errori di modo comune negli account. Per prestazioni ottimali, usare solo un contenitore per ogni account archiviazione.
+Per un cluster a 48 nodi si consigliano da 4 a 8 account di archiviazione. Anche se è possibile che lo spazio di archiviazione complessivo sia già sufficiente, ogni account di archiviazione fornisce larghezza di banda di rete aggiuntiva per i nodi di calcolo. Se si ha più di un account di archiviazione, usare un nome casuale per ognuno di essi, senza prefisso. La denominazione casuale ha lo scopo di diminuire le probabilità di colli di bottiglia di archiviazione (limitazione) e di errori di modo comune negli account. Per prestazioni ottimali, usare solo un contenitore per ogni account archiviazione.
 
 ## <a name="choose-a-cluster-type"></a>Scegliere un tipo di cluster
 
@@ -75,7 +75,7 @@ Il tipo e le dimensioni della macchina virtuale variano in base alla potenza di 
 
 * RAM: le dimensioni della macchina virtuale determinano anche la quantità di RAM disponibile nella macchina virtuale. Per i carichi di lavoro che archiviano i dati in memoria per essere elaborati, anziché leggerli dal disco, accertarsi che i nodi di lavoro abbiano memoria sufficiente per contenere i dati.
 
-* Rete: nella maggior parte dei tipi di cluster, i dati elaborati dal cluster non si trovano sul disco locale, ma in un servizio di archiviazione esterna come Data Lake Store o Archiviazione di Azure. È necessario quindi tenere conto della larghezza di banda di rete e della velocità effettiva tra la macchina virtuale del nodo e il servizio di archiviazione. In genere, la larghezza di banda di rete disponibile per una macchina virtuale aumenta in caso di macchine di grandi dimensioni. Per informazioni dettagliate, vedere [Panoramica delle dimensioni di VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Rete: nella maggior parte dei tipi di cluster, i dati elaborati dal cluster non si trovano sul disco locale, ma in un servizio di archiviazione esterno come Data Lake Store o Archiviazione di Azure. È necessario quindi tenere conto della larghezza di banda di rete e della velocità effettiva tra la macchina virtuale del nodo e il servizio di archiviazione. In genere, la larghezza di banda di rete disponibile per una macchina virtuale aumenta in caso di macchine di grandi dimensioni. Per informazioni dettagliate, vedere [Panoramica delle dimensioni di VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## <a name="choose-the-cluster-scale"></a>Scegliere la scalabilità del cluster
 
@@ -95,19 +95,39 @@ In genere, i costi vengono addebitati per l'intera durata di un cluster. Se è n
 
 ### <a name="isolate-cluster-job-errors"></a>Isolare gli errori di processo del cluster
 
-L'esecuzione parallela di più componenti di mapping e riduzione su un cluster multi-nodo può generare talvolta degli errori. Per isolare il problema, provare a effettuare test distribuiti eseguendo prima più processi simultanei su un cluster a singolo nodo e quindi espandere questo approccio eseguendo contemporaneamente più processi su cluster a più nodi. Per creare un cluster HDInsight a singolo nodo in Azure, usare l'opzione *Avanzate*.
+L'esecuzione parallela di più componenti di mapping e la riduzione dei componenti su un cluster multinodo possono generare talvolta degli errori. Per isolare il problema, provare a effettuare test distribuiti eseguendo prima più processi simultanei su un cluster a singolo nodo e quindi espandere questo approccio eseguendo contemporaneamente più processi su cluster a più nodi. Per creare un cluster HDInsight a singolo nodo in Azure, usare l'opzione *Avanzate*.
 
-È possibile anche installare un ambiente di sviluppo a singolo nodo nel computer locale ed eseguire qui il test della soluzione. Hortonworks offre un ambiente di sviluppo locale a singolo nodo per soluzioni basate su Hadoop, particolarmente utile per le attività iniziali di sviluppo, la creazione di un modello di verifica e il testing. Per altre informazioni, vedere [Hortonworks Sandbox](http://hortonworks.com/products/hortonworks-sandbox/).
+È possibile anche installare un ambiente di sviluppo a singolo nodo nel computer locale ed eseguire qui il test della soluzione. Hortonworks offre un ambiente di sviluppo locale a singolo nodo per soluzioni basate su Hadoop, particolarmente utile per le attività iniziali di sviluppo, la creazione di un modello di verifica e il testing. Per altre informazioni, vedere [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
 
 Per identificare il problema in un cluster locale a singolo nodo, è possibile ripetere l'esecuzione dei processi non riusciti modificando i dati di input o usando set di dati più piccoli. Le modalità di esecuzione dei processi dipendono dalla piattaforma e dal tipo di applicazione.
 
 ## <a name="quotas"></a>Quote
 
-Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina virtuale del cluster di destinazione, è necessario verificare i limiti di capacità di quota della sottoscrizione. Quando si raggiunge un limite di quota, è possibile che non sia più consentito distribuire nuovi cluster o aumentare le istanze dei cluster esistenti aggiungendo più nodi di lavoro. Il limite di quota più comunemente raggiunto è la quota di core CPU, esistente a livello di sottoscrizione, di area e di serie di macchine virtuali. Una sottoscrizione, ad esempio, può avere un limite totale di 200 core, con un limite di 30 core relativo all'area geografica e un limite di 30 core per le istanze della macchina virtuale. È possibile [contattare il supporto tecnico per richiedere un aumento dei limiti di quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina virtuale del cluster di destinazione, è necessario verificare i limiti di capacità di quota della sottoscrizione. Quando si raggiunge un limite di quota, è possibile che non sia più consentito distribuire nuovi cluster o aumentare le istanze dei cluster esistenti aggiungendo più nodi di lavoro. L'unico limite di quota è la quota di core di CPU esistente a livello di area per ogni sottoscrizione. Ad esempio, la sottoscrizione può avere il limite di 30 core nell'area Stati Uniti orientali. Se è necessario richiedere un aumento della quota, eseguire questa procedura:
+
+1. Accedere al portale di Azure.
+1. Fare clic su **Guida e supporto tecnico** nell'angolo in basso a sinistra della pagina.
+1. Fare clic su **Nuova richiesta di supporto**.
+1. Nella pagina **Nuova richiesta di supporto** selezionare le opzioni seguenti nella scheda **Informazioni di base**:
+    - **Tipo di problema**: **Limiti del servizio e della sottoscrizione (quote)**
+    - **Sottoscrizione**: la sottoscrizione che si vuole modificare
+    - **Tipo di quota**: **HDInsight**
+    
+    ![Creare una richiesta di supporto per aumentare la quota di core HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+
+1. Fare clic su **Avanti**.
+1. Nella pagina **Dettagli** immettere una descrizione del problema, selezionare la gravità del problema e selezionare la modalità di contatto preferita.
+1. Fare clic su **Avanti: Rivedi e crea**.
+1. Nella pagina **Rivedi e crea** fare clic su **Crea**.
+
+> [!Note]
+> Se occorre aumentare la quota di core HDInsight in un'area privata, [inviare una richiesta di aggiunta all'elenco elementi consentiti](https://aka.ms/canaryintwhitelist).
+
+È possibile [contattare il supporto tecnico per richiedere un aumento dei limiti di quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 Esistono tuttavia alcuni limiti di quota fissi: una singola sottoscrizione di Azure, ad esempio, non può avere più di 10.000 core. Per informazioni dettagliate sui limiti, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare i cluster di HDInsight con Apache Hadoop, Spark, Kafka e altro ancora](hdinsight-hadoop-provision-linux-clusters.md): informazioni su come impostare e configurare i cluster di HDInsight con Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services o Storm.
+* [Configurare i cluster di HDInsight con Apache Hadoop, Spark, Kafka e altro](hdinsight-hadoop-provision-linux-clusters.md): informazioni su come installare e configurare i cluster di HDInsight con Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services o Storm.
 * [Monitorare le prestazioni del cluster](hdinsight-key-scenarios-to-monitor.md): informazioni sui principali scenari da monitorare per il cluster HDInsight che potrebbero influire sulla relativa capacità.

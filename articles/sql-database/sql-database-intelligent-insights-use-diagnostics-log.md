@@ -8,20 +8,20 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a0eac4344f1294ad2eddd4e05520c1f030a0c4d7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977098"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278220"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Usare il log di diagnostica delle prestazioni del database SQL di Azure generato da Intelligent Insights
 
-Questo articolo illustra come usare il log di diagnostica delle prestazioni del database SQL di Azure generato da [Intelligent Insights](sql-database-intelligent-insights.md). Ne illustra anche il formato e i dati in esso contenuti per chi ha esigenze di sviluppo personalizzato. Il log di diagnostica può essere inviato ad [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Hub eventi di Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-storage) oppure a una soluzione di terze parti per funzionalità di avvisi e report di DevOps personalizzate.
+Questo articolo illustra come usare il log di diagnostica delle prestazioni del database SQL di Azure generato da [Intelligent Insights](sql-database-intelligent-insights.md). Ne illustra anche il formato e i dati in esso contenuti per chi ha esigenze di sviluppo personalizzato. Il log di diagnostica può essere inviato ad [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Hub eventi di Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-storage) oppure a una soluzione di terze parti per funzionalità di avvisi e report di DevOps personalizzate.
 
 ## <a name="log-header"></a>Intestazione del log
 
@@ -102,7 +102,7 @@ La proprietà relativa all'impatto (Impact) indica quanto di un comportamento ri
 
 La sezione successiva del log di Intelligent Insights include informazioni sulle query specifiche che sono state interessate dai problemi di prestazioni rilevati. Queste informazioni vengono presentate come matrice di oggetti incorporati nella proprietà impact_s. La proprietà relativa all'impatto è costituita da entità e metriche. Le entità si riferiscono a una query specifica (Type: Query). L'hash di query univoco viene presentato come valore della proprietà (Value). Ognuna delle query fornite è inoltre seguita da una metrica e un valore che indica un problema di prestazioni rilevato.
 
-Nell'esempio di log seguente è possibile notare che la query con hash 0x9102EXZ4 ha mostrato un aumento della durata di esecuzione (metrica: DurationIncreaseSeconds). Il valore pari a 110 secondi indica che l'esecuzione di questa particolare query ha richiesto 110 secondi in più. È possibile rilevare più query in quanto questa specifica sezione del log può includere più voci di query.
+Nell'esempio di log seguente è possibile notare che la query con hash 0x9102EXZ4 ha mostrato un aumento della durata di esecuzione (Metric: DurationIncreaseSeconds). Il valore pari a 110 secondi indica che l'esecuzione di questa particolare query ha richiesto 110 secondi in più. È possibile rilevare più query in quanto questa specifica sezione del log può includere più voci di query.
 
 ```json
 "impact" : [{

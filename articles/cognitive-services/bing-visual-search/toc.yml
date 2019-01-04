@@ -5,46 +5,42 @@ items:
   items:
   - name: Informazioni sull'API Ricerca visiva Bing
     href: overview.md
-- name: Guide introduttive per l'API REST
+- name: Guide introduttive
   items:
-  - name: Prima query in C#
-    href: quickstarts/csharp.md
-  - name: Prima query in Java
-    href: quickstarts/java.md
-  - name: Prima di query per Node.js
-    href: quickstarts/nodejs.md
-  - name: Prima query in Python
-    href: quickstarts/python.md
-  expanded: true
-- name: SDK
-  items:
-  - name: Panoramica degli esempi di SDK
-    href: sdk.md
-  - name: SDK in C#
-    href: visual-search-sdk-c-sharp.md
-  - name: SDK in Node
-    href: visual-search-sdk-node.md
-  - name: SDK in Python
-    href: visual-search-sdk-python.md
-  expanded: true
+  - name: API REST
+    items:
+    - name: Uso di C#
+      href: quickstarts/csharp.md
+    - name: Uso di Java
+      href: quickstarts/java.md
+    - name: Uso di Node.js
+      href: quickstarts/nodejs.md
+    - name: Uso di Python
+      href: quickstarts/python.md
+    expanded: true
+  - name: SDK
+    items:
+    - name: Uso di C#
+      href: visual-search-sdk-c-sharp.md
+    - name: Uso di Node.js
+      href: visual-search-sdk-node.md
+    - name: Uso di Python
+      href: visual-search-sdk-python.md
+    expanded: true
 - name: Esercitazioni
   items:
-  - name: App Web per il caricamento di immagini
+  - name: Caricamento di un'immagine
     href: tutorial-visual-search-image-upload.md
-  - name: App Web a singola pagina
-    href: tutorial-bing-visual-search-single-page-app.md
-  - name: App Web a singola pagina (codice sorgente)
-    href: tutorial-bing-visual-search-single-page-app-source.md
-  - name: Area di ritaglio dell'immagine e risultati di Bing Visual Search SDK
+  - name: Ritagliare e cercare in un'area di un'immagine
     href: tutorial-visual-search-crop-area-results.md
-  - name: Token di informazioni dettagliate sull'immagine e risultati di Bing Visual Search SDK
-    href: tutorial-visual-search-insights-token.md
 - name: Esempi
   items:
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search
 - name: Concetti
   items:
+  - name: Invio di query
+    href: concepts/sending-queries.md
   - name: Informazioni dettagliate predefinite sulle immagini
     href: default-insights-tag.md
   - name: Uso di informazioni dettagliate Bing
@@ -59,11 +55,22 @@ items:
     href: use-and-display-requirements.md
   - name: Ridimensionare e ritagliare le anteprime
     href: resize-and-crop-thumbnails.md
-- name: riferimento
+  - name: Cercare un'immagine con i token delle informazioni dettagliate dell'immagine
+    href: tutorial-visual-search-insights-token.md
+  - name: Creare un'app Web a pagina singola
+    href: tutorial-bing-visual-search-single-page-app.md
+- name: Informazioni di riferimento
   items:
   - name: API REST v7
     href: https://aka.ms/bingvisualsearchreferencedoc
-  expanded: true
+  - name: SDK
+    items:
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python
 - name: Risorse
   items:
   - name: Supporto di lingua e area geografica
@@ -76,9 +83,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/555907-bing-search
-ms.openlocfilehash: f33e0fe7c13a7686c244d10297fd23e7ca59d452
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6291b480d8c1ba44f6c0306c090cdee3df1fec95
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432427"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789178"

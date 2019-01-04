@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 11/19/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: fe51419106f1164f9a9b5993261c61bad63333b5
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ecaceea42d64ab15676a9cb5a42ee8659e40d517
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262959"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847287"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Informazioni sulle verifiche di accesso di Azure AD
 
@@ -41,12 +41,12 @@ Azure AD consente di collaborare internamente nell'organizzazione e con utenti d
 
 ## <a name="when-to-use-access-reviews"></a>Quando è opportuno usare le verifiche di accesso?
 
-- **Troppi utenti in ruoli con privilegi**: è opportuno verificare quanti utenti hanno accesso amministrativo, quanti sono amministratori globali e se sono presenti utenti guest o partner invitati che non sono stati rimossi dopo l'assegnazione a un'attività amministrativa. È possibile ricertificare gli utenti a cui sono assegnati i [ruoli di Azure Active Directory](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), ad esempio gli amministratori globali, o i [ruoli delle risorse di Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), ad esempio il ruolo Amministratore Accesso utenti, tramite l'esperienza di [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
-- **Quando l'automazione non è realizzabile**: è possibile creare regole per l'appartenenza dinamica ai gruppi di sicurezza o ai gruppi di Office 365, ma cosa accade se i dati delle risorse umane non si trovano in Azure AD o se gli utenti necessitano ancora dell'accesso dopo aver lasciato il gruppo per aiutare nella formazione del loro sostituto? È possibile creare una verifica per tale gruppo per assicurarsi che gli utenti che necessitano ancora dell'accesso dispongano di accesso continuo.
+- **Troppi utenti nei ruoli con privilegi:** è opportuno verificare quanti utenti hanno accesso amministrativo, quanti sono amministratori globali e se sono presenti utenti guest o partner invitati che non sono stati rimossi dopo l'assegnazione a un'attività amministrativa. È possibile ricertificare gli utenti a cui sono assegnati i [ruoli di Azure Active Directory](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), ad esempio gli amministratori globali, o i [ruoli delle risorse di Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), ad esempio il ruolo Amministratore Accesso utenti, tramite l'esperienza di [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
+- **Quando l'automazione non è realizzabile:** è possibile creare regole per l'appartenenza dinamica ai gruppi di sicurezza o ai gruppi di Office 365, ma cosa accade se i dati delle risorse umane non si trovano in Azure AD o se gli utenti necessitano ancora dell'accesso dopo aver lasciato il gruppo per aiutare nella formazione del loro sostituto? È possibile creare una verifica per tale gruppo per assicurarsi che gli utenti che necessitano ancora dell'accesso dispongano di accesso continuo.
 - **Quando un gruppo viene usato per un nuovo scopo**: se c'è un gruppo che deve essere sincronizzato con Azure AD o se si prevede di abilitare l'applicazione Salesforce per tutti gli utenti nel gruppo del team di vendita, può essere utile chiedere al proprietario del gruppo di verificare l'appartenenza al gruppo prima che il gruppo venga usato in un ambito di rischio diverso.
 - **Accesso ai dati business critical**: per determinate risorse, può essere necessario chiedere alle persone esterne all'IT di disconnettersi regolarmente e di fornire una giustificazione in merito al motivo per cui devono eseguire l'accesso a scopo di controllo.
-- **Per mantenere l'elenco eccezioni dei criteri**: in una situazione ideale, tutti gli utenti seguono i criteri di accesso per proteggere l'accesso alle risorse dell'organizzazione. Esistono tuttavia casi aziendali che richiedono di introdurre eccezioni. L'amministratore IT può gestire questa attività, evitare problemi di supervisione delle eccezioni dei criteri e fornire ai revisori una prova che queste eccezioni vengono esaminate periodicamente.
-- **Chiedere ai proprietari dei gruppi di confermare che gli utenti guest siano ancora necessari nei loro gruppi**: l'accesso dei dipendenti può essere automatizzato con un sistema IAM locale, che non può tuttavia essere usato per gli utenti guest invitati. Se un gruppo assegna a utenti guest l'accesso a contenuti aziendali sensibili, è responsabilità del proprietario del gruppo confermare che gli utenti abbiano ancora un'esigenza aziendale legittima per tale accesso.
+- **Per mantenere l'elenco eccezioni dei criteri:** In una situazione ideale, tutti gli utenti seguono gli stessi criteri di accesso per proteggere l'accesso alle risorse dell'organizzazione. Esistono tuttavia casi aziendali che richiedono di introdurre eccezioni. L'amministratore IT può gestire questa attività, evitare problemi di supervisione delle eccezioni dei criteri e fornire ai revisori una prova che queste eccezioni vengono esaminate periodicamente.
+- **Chiedere ai proprietari dei gruppi di confermare che hanno ancora bisogno di guest nei loro gruppi:** l'accesso dei dipendenti potrebbe essere automatizzato con qualche IAM locale, ma non con guest invitati. Se un gruppo assegna a utenti guest l'accesso a contenuti aziendali sensibili, è responsabilità del proprietario del gruppo confermare che gli utenti abbiano ancora un'esigenza aziendale legittima per tale accesso.
 - **Impostare verifiche periodiche**: è possibile configurare verifiche di accesso periodiche per gli utenti in base a una frequenza specifica, ad esempio settimanale, mensile, trimestrale o annuale, e i revisori riceveranno una notifica all'inizio di ogni verifica. I revisori possono approvare o negare l'accesso con un'interfaccia utente semplice da usare e con l'aiuto di consigli intelligenti.
 
 ## <a name="where-do-you-create-reviews"></a>Dove si creano le verifiche?
@@ -67,7 +67,7 @@ Per usare le verifiche di accesso, è necessario avere una delle licenze seguent
 - Azure AD Premium P2
 - Licenza di Enterprise Mobility + Security (EMS) E5
 
-Per altre informazioni, vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) o [Versione di valutazione di Enterprise Mobility + Security E5](http://aka.ms/emse5trial).
+Per ulteriori informazioni, consultare [Come effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) o [Versione di valutazione di Enterprise Mobility + Security E5](https://aka.ms/emse5trial).
 
 ## <a name="get-started-with-access-reviews"></a>Introduzione alle verifiche di accesso
 

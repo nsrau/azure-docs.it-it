@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2018
 ms.author: mathoma
-ms.openlocfilehash: 44aee447c7f935cd67ca55902c53c5f6f9eb6fda
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 52036d8f5d25fc4a4f2d1b602428e9cba4762b7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52577088"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993151"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Note sulla versione di SQL Server in una macchina virtuale Azure
 
@@ -28,8 +28,8 @@ Azure consente di distribuire una macchina virtuale con un'immagine di SQL Serve
 
 
 ## <a name="november-2018"></a>Novembre 2018
-- **Nuovo provider di risorse SQL**: esiste un nuovo provider di risorse per le macchine virtuali di SQL per una migliore gestione della macchina virtuale. Per altre informazioni sulla registrazione di una macchina virtuale, vedere [Registrare una macchina virtuale SQL legacy con nuovo provider di risorse](virtual-machines-windows-sql-ahb.md#register-legacy-sql-vm-with-new-resource-provider).
-- **Cambiare il modello di licenza**: è ora possibile passare dal modello di licenza a pagamento in base all'utilizzo al modello di licenza Bring-Your-Own per la propria macchina virtuale SQL con l'interfaccia della riga di comando di Azure o Powershell. Per altre informazioni, vedere [Come cambiare il livello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md).
+- **Nuovo provider di risorse SQL**: esiste un nuovo provider di risorse per le macchine virtuali di SQL per una migliore gestione della macchina virtuale. Per altre informazioni sulla registrazione di una macchina virtuale, vedere [Registrare una macchina virtuale SQL esistente con un nuovo provider di risorse](virtual-machines-windows-sql-ahb.md#register-existing-sql-vm-with-new-resource-provider).
+- **Cambiare il modello di licenza**: è ora possibile passare dal modello di licenza a pagamento in base all'utilizzo al modello di licenza Bring-Your-Own per la propria macchina virtuale SQL con l'interfaccia della riga di comando di Azure o PowerShell. Per altre informazioni, vedere [Come cambiare il livello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md).
 
 
 

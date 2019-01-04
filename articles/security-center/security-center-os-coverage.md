@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: f4bc90b2d1a80125ae88b4b5c4c11e42a34a985a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4108355415d1230f98db36a4f83497de2fa848f7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240427"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185580"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Funzionalità e piattaforme supportate dal Centro sicurezza di Azure
 
-Il monitoraggio dello stato della sicurezza e le indicazioni in merito sono disponibili per le macchine virtuali (VM), create usando i modelli di distribuzione classica e Resource Manager, e i computer.
+Il monitoraggio dello stato della sicurezza e le raccomandazioni sono disponibili per le macchine virtuali (VM), create usando i modelli di distribuzione in versione classica e Resource Manager, e i computer.
 
 > [!NOTE]
 > È consigliabile leggere altre informazioni sui [modelli di distribuzione Azure Resource Manager e classica](../azure-classic-rm.md) per le risorse di Azure.
@@ -35,7 +35,7 @@ Il monitoraggio dello stato della sicurezza e le indicazioni in merito sono disp
 In questa sezione vengono elencate le piattaforme in cui può essere eseguito un agente del Centro sicurezza di Azure e da cui l'agente può raccogliere dati.
 
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Piattaforme supportate per i computer e le macchine virtuali Windows
-Sistemi operativi Windows supportati:
+Sono supportati i sistemi operativi Windows seguenti:
 
 * Windows Server 2008
 * Windows Server 2008 R2
@@ -45,24 +45,24 @@ Sistemi operativi Windows supportati:
 
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Piattaforme supportate per i computer e le macchine virtuali Linux
-Sistemi operativi Linux supportati:
+Sono supportati i sistemi operativi Linux seguenti:
 
-* Versioni di Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS
-* Versioni di Debian 6, 7, 8, 9
-* Versioni di CentOS 5, 6, 7
-* Versioni di Red Hat Enterprise Linux (RHEL) 5, 6, 7
-* Versioni di SUSE Linux Enterprise Server (SLES) 11, 12
-* Versioni di Oracle Linux 5, 6, 7
-* Amazon Linux dalla 2012.09 alla 2017
-* OpenSSL 1.1.0 è supportato solo su piattaforme x86_64 (64 bit)
+* Ubuntu versioni 12.04 LTS, 14.04 LTS e 16.04 LTS.
+* Debian versioni 6, 7, 8 e 9.
+* CentOS versioni 5, 6 e 7.
+* Red Hat Enterprise Linux (RHEL) versioni 5, 6 e 7.
+* SUSE Linux Enterprise Server (SLES) versioni 11 e 12.
+* Oracle Linux versioni 5, 6 e 7.
+* Amazon Linux da 2012.09 a 2017.
+* OpenSSL 1.1.0 è supportato solo sulle piattaforme x86_64 a 64 bit.
 
 > [!NOTE]
-> L'analisi comportamentali della macchina virtuale non è ancora disponibile per i sistemi operativi Linux.
+> L'analisi del comportamento delle macchine virtuali non è ancora disponibile per i sistemi operativi Linux.
 >
 >
 
 ## <a name="vms-and-cloud-services"></a>Macchine virtuali e servizi cloud
-Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli Web e di lavoro dei servizi cloud in esecuzione negli slot di produzione. Per altre informazioni sul servizio cloud, vedere [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md).
+Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli di lavoro e Web dei servizi cloud in esecuzione in slot di produzione. Per altre informazioni sui servizi cloud, vedere [Panoramica di Servizi Cloud di Azure](../cloud-services/cloud-services-choose-me.md).
 
 
 ## <a name="supported-iaas-features"></a>Funzionalità IaaS supportate
@@ -70,29 +70,29 @@ Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Veng
 > [!div class="mx-tableFixed"]
 > 
 
-|Server|Windows||Linux||
+|Server| Windows||Linux||
 |----|----|----|----|----|
 |Environment|Azure|Non Azure|Azure|Non Azure|
 |Avvisi di rilevamento minacce VMBA|✔|✔|✔ (nelle versioni supportate)|✔|
-|Avvisi di rilevamento minacce in base alla rete|✔|X|✔|X|
+|Avvisi di rilevamento delle minacce di rete|✔|X|✔|X|
 |Integrazione con Windows Defender ATP*|✔ (nelle versioni supportate)|✔|X|X|
 |Patch mancanti|✔|✔|✔|✔|
 |Configurazioni di sicurezza|✔|✔|✔|✔|
-|Antimalware|✔|✔|X|X|
+|Programmi antimalware|✔|✔|X|X|
 |Accesso JIT alle VM|✔|X|✔|X|
 |Controlli delle applicazioni adattivi|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |Crittografia del disco|✔|X|✔|X|
 |Distribuzione di terze parti|✔|X|✔|X|
 |Gruppi di sicurezza di rete|✔|X|✔|X|
-|Rilevamento delle minacce senza filess|✔|✔|X|X|
+|Rilevamento delle minacce senza file|✔|✔|X|X|
 |Mappa di rete|✔|X|✔|X|
 |Controlli adattivi della rete|✔|X|✔|X|
 
 \* Queste funzionalità sono attualmente supportate in anteprima pubblica.
 
 
-## <a name="supported-paas-features"></a>Funzionalità PaaS supportate
+## <a name="supported-paas-features"></a>Funzionalità PaaS supportate 
 
 
 |Service|Consigli|Introduzione al rilevamento delle minacce|
@@ -100,7 +100,7 @@ Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Veng
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Account di archiviazione BLOB*|✔| ✔|
+|Account di archiviazione BLOB di Azure*|✔| ✔|
 |Servizi app|✔| ✔|
 |Servizi cloud|✔| X|
 |Reti virtuali|✔| ND|
@@ -109,11 +109,11 @@ Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Veng
 |Gruppi di sicurezza di rete|✔| ND|
 |Sottoscrizione|✔| ✔|
 
-\* Queste funzionalità sono attualmente supportate in anteprima pubblica.
+\* Queste funzionalità sono attualmente supportate in anteprima pubblica. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md): informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure
-- [Avvisi di sicurezza per tipo nel Centro sicurezza di Azure](security-center-alerts-type.md#virtual-machine-behavioral-analysis): altre informazioni sull'analisi comportamentale della macchina virtuale e sull'analisi della memoria dump di arresto anomalo del sistema nel Centro sicurezza
-- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio
-- [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
+- Leggere le informazioni su come [pianificare e progettare l'adozione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md).
+- Leggere le informazioni su [analisi del comportamento delle macchine virtuali e analisi della memoria dump di arresto anomalo nel Centro sicurezza](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Vedere le [domande frequenti sull'uso del Centro sicurezza di Azure](security-center-faq.md).
+- Vedere i [post di blog sulla sicurezza e sulla conformità di Azure](https://blogs.msdn.com/b/azuresecurity/).

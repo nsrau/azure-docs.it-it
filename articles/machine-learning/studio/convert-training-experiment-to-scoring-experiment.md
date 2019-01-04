@@ -1,12 +1,11 @@
 ---
-title: Come preparare il modello per la distribuzione in Azure Machine Learning Studio | Microsoft Docs
+title: Preparare il modello per la distribuzione - Azure Machine Learning Studio | Microsoft Docs
 description: Come preparare il modello con training per la distribuzione come servizio Web convertendo l'esperimento di training di Machine Learning Studio in un esperimento predittivo.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 7849a21e2d005584030375e2193f74a99b3977bd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ef54281b91147060e9c00bcc6e45e0db0fb8933a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265237"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273103"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Come preparare il modello per la distribuzione in Azure Machine Learning Studio
 
@@ -29,11 +28,11 @@ Azure Machine Learning Studio offre gli strumenti necessari per sviluppare un mo
 
 A tale scopo, è necessario utilizzare Studio per creare un esperimento, chiamato *esperimento di training*, in cui eseguire il training del modello, assegnare un punteggio al modello e modificarlo. Quando si è soddisfatti del risultato, è possibile procedere alla distribuzione del modello convertendo l'esperimento di training in un *esperimento predittivo* configurato in modo da assegnare un punteggio ai dati utente.
 
-Un esempio di questo processo è disponibile in [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+Per un esempio di questo processo, vedere [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
 Questo articolo contiene informazioni approfondite su come convertire un esperimento di training in un esperimento predittivo e successivamente distribuirlo. La comprensione di questi dettagli è fondamentale per imparare a configurare il modello distribuito in modo da renderlo più efficace.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>Panoramica 
 

@@ -1,12 +1,11 @@
 ---
-title: 'Passaggio 5: Distribuire il servizio Web di Machine Learning Studio | Microsoft Docs'
-description: 'Passaggio 5 della procedura dettagliata Sviluppare una soluzione predittiva: Distribuire un esperimento predittivo in Machine Learning Studio come servizio Web.'
+title: 'Passaggio 5: Distribuire il servizio Web - Azure Machine Learning Studio | Microsoft Docs'
+description: 'Passaggio 5 della procedura dettagliata sullo sviluppo di una soluzione predittiva: distribuire un esperimento predittivo in Machine Learning Studio come servizio Web.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 33965270c2be6f70614def79a49f1c4aa1a8fbbc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ab23636aa0480532606268efedcc76ea1ddd339a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309930"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253732"
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Azure Machine Learning Studio
 Questo è il quinto passaggio della procedura dettagliata [Sviluppare una soluzione predittiva in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -205,7 +204,7 @@ Per monitorare le prestazioni del servizio Web:
 4. Fare clic su **Dashboard**
 
 - - -
-**Passaggio successivo:[Accedere al servizio Web](walkthrough-6-access-web-service.md)**
+**Passaggio successivo: [Accedere al servizio Web](walkthrough-6-access-web-service.md)**
 
 [3]: ./media/walkthrough-5-publish-web-service/publish3.png
 [3a]: ./media/walkthrough-5-publish-web-service/publish3a.png

@@ -1,5 +1,5 @@
 ---
-title: Monitorare l’utilizzo e le statistiche in Ricerca di Azure | Microsoft Docs
+title: Monitorare l'utilizzo e le statistiche per un servizio di ricerca - Ricerca di Azure
 description: Tenere traccia delle dimensioni di indice e consumo delle risorse per la Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795110"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314160"
 ---
-# <a name="monitoring-an-azure-search-service"></a>Monitoraggio di un servizio di Ricerca di Azure
+# <a name="monitor-an-azure-search-service-in-azure-portal"></a>Monitorare un servizio Ricerca di Azure nel portale di Azure
 
 Ricerca di Azure offre varie risorse per tenere traccia dell'utilizzo e delle prestazioni dei servizi di ricerca. Consente di accedere a metriche, log, statistiche di indice e funzionalità estese di monitoraggio in Power BI. L'articolo descrive come abilitare le diverse strategie di monitoraggio e come interpretare i dati risultanti.
 
@@ -26,9 +27,9 @@ Le metriche offrono una visibilità quasi in tempo reale nel servizio di ricerca
 
 Ricerca di Azure raccoglie i dati per tre metriche diverse:
 
-* Latenza ricerca: tempo necessario al servizio di ricerca per elaborare le query di ricerca, aggregate per minuto.
-* Query di ricerca al secondo: numero di query di ricerca ricevute al secondo, aggregate per minuto.
-* Percentuale query di ricerca limitate: percentuale di query di ricerca che sono state limitate, aggregate per minuto.
+* Latenza ricerca: tempo di cui il servizio di ricerca necessita per elaborare le query di ricerca, raggruppate per minuto.
+* Query di ricerca al secondo: numero di query di ricerca ricevute al secondo, raggruppate per minuto.
+* Percentuale query di ricerca limitate: la percentuale di query di ricerca limitate, raggruppate per minuto.
 
 ![Screenshot dell'attività delle query al secondo][1]
 
@@ -95,16 +96,17 @@ Ogni BLOB contiene record su tutte le operazioni eseguite nell'arco della stessa
 | NOME | type | Esempio | Note |
 | --- | --- | --- | --- |
 | time |Datetime |"2015-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
-| ResourceId |stringa |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
+| ResourceId |stringa |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
 | operationName |stringa |"Query.Search" |Nome dell'operazione |
 | operationVersion |stringa |"2015-02-28" |api-version usata |
 | category |stringa |"OperationLogs" |costante |
-| resultType |stringa |"Esito positivo" |Valori possibili: esito positivo o negativo |
+| resultType |stringa |"Esito positivo" |Valori possibili: Esito positivo o negativo |
 | resultSignature |int |200 |Codice risultato HTTP |
 | durationMS |int |50 |Durata dell'operazione in millisecondi |
 | properties |object |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione |
 
 **Schema delle proprietà**
+
 | NOME | type | Esempio | Note |
 | --- | --- | --- | --- |
 | DESCRIZIONE |stringa |"GET /indexes('content')/docs" |Endpoint dell'operazione |
@@ -113,9 +115,10 @@ Ogni BLOB contiene record su tutte le operazioni eseguite nell'arco della stessa
 | IndexName |stringa |"testindex" |Nome dell'indice associato all'operazione |
 
 #### <a name="metrics-schema"></a>Schema delle metriche
+
 | NOME | type | Esempio | Note |
 | --- | --- | --- | --- |
-| ResourceId |stringa |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa in uso |
+| ResourceId |stringa |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa in uso |
 | metricName |stringa |"Latenza" |Nome della metrica |
 | time |Datetime |"2015-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
 | average |int |64 |Valore medio degli esempi non elaborati nell'intervallo di tempo della metrica |

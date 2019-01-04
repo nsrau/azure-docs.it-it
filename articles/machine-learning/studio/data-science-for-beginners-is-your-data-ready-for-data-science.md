@@ -1,13 +1,12 @@
 ---
-title: Sono pronti i dati per l'analisi scientifica? Valutazione dei dati - Azure Machine Learning Studio | Microsoft Docs
+title: Valutazione dei dati - Azure Machine Learning Studio | Microsoft Docs
 description: Quattro criteri che i dati devono soddisfare per essere pronti per l'analisi scientifica. Questo video illustra esempi concreti per la valutazione dei dati di base.
 keywords: dati rilevanti, valutare i dati, preparare i dati, criteri dei dati, compatibilità con i dati
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
@@ -17,15 +16,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 5e7949edb13bfec72fa7d80d86d2e77214ceaa37
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2a9101ed510c617df81f422aea92ca1ef2b28cd8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316209"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261229"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Sono pronti i dati per l'analisi scientifica?
-## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Analisi scientifica dei dati per principianti
+## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Data science per principianti
 Informazioni su come valutare i dati per assicurarsi che questo processo soddisfi i criteri di base per la preparazione per l'analisi scientifica dei dati.
 
 Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
@@ -38,11 +37,11 @@ Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'ele
 ## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
-* Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
-* Video 2: Verifica della preparazione dei dati per l'analisi scientifica dei dati
+* Video 1: [5 domande a cui può rispondere la data science](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
+* Video 2: Sono pronti i dati per l'analisi scientifica?
 * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min e 17 sec)*
 * Video 4: [Prevedere una risposta con un modello semplice](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min e 42 sec)*
-* Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
+* Video 5: [Copiare il lavoro di altre persone per operazioni di data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
 
 ## <a name="transcript-is-your-data-ready-for-data-science"></a>Trascrizione: Sono pronti i dati per l'analisi scientifica?
 Questo è il video "I tuoi dati sono pronti per l'analisi scientifica?", il secondo della serie *Data Science for Beginners* (Analisi scientifica dei dati per principianti).  

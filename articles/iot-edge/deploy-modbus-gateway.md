@@ -1,5 +1,5 @@
 ---
-title: Distribuire Modbus in Azure IoT Edge | Microsoft Docs
+title: Convertire i protocolli Modbus con i gateway - Azure IoT Edge | Microsoft Docs
 description: Consentire ai dispositivi che usano Modbus TCP di comunicare con l'hub IoT di Azure creando un dispositivo gateway IoT Edge
 author: kgremban
 manager: philmea
@@ -8,37 +8,38 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: d8675042874ffaa824ccd1bf3b0017f0219268b8
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 0b94a57f04d9e4b5884162dcd4cfd89d6b4bf879
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566398"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341032"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Connettere dispositivi Modbus TCP tramite un dispositivo gateway IoT Edge
 
-Se si vuole connettere dispositivi IoT che usano il protocollo Modbus TCP o RTU a un hub IoT di Azure, usare un dispositivo IoT Edge come gateway. Il dispositivo gateway legge i dati dai dispositivi Modbus, quindi li comunica al cloud usando un protocollo supportato. 
+Se si vuole connettere dispositivi IoT che usano il protocollo Modbus TCP o RTU a un hub IoT di Azure, usare un dispositivo IoT Edge come gateway. Il dispositivo gateway legge i dati dai dispositivi Modbus, quindi li comunica al cloud usando un protocollo supportato.
 
 ![I dispositivi Modbus si connettono all'hub IoT tramite il gateway Edge](./media/deploy-modbus-gateway/diagram.png)
 
-Questo articolo descrive come creare un'immagine del contenitore personalizzata per un modulo Modbus (è anche possibile usare un esempio predefinito) e quindi distribuirla nel dispositivo IoT Edge che fungerà da gateway. 
+Questo articolo descrive come creare un'immagine del contenitore personalizzata per un modulo Modbus (è anche possibile usare un esempio predefinito) e quindi distribuirla nel dispositivo IoT Edge che fungerà da gateway.
 
-Questo articolo presuppone l'uso del protocollo Modbus TCP. Per altre informazioni su come configurare il modulo per supportare il protocollo Modbus RTU, vedere il progetto [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) (Modulo Modbus per Azure IoT Edge) in GitHub. 
+Questo articolo presuppone l'uso del protocollo Modbus TCP. Per altre informazioni su come configurare il modulo per supportare il protocollo Modbus RTU, vedere il progetto [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) (Modulo Modbus per Azure IoT Edge) in GitHub.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Un dispositivo Azure IoT Edge. Per una procedura dettagliata su come configurarne uno, vedere [Distribuire Azure IoT Edge su un dispositivo simulato in Windows](quickstart.md) o [Distribuire Azure IoT Edge su un dispositivo simulato in Linux](quickstart-linux.md). 
+* Un dispositivo Azure IoT Edge. Per una procedura dettagliata su come configurarne uno, vedere [Distribuire Azure IoT Edge su un dispositivo simulato in Windows](quickstart.md) o [Distribuire Azure IoT Edge su un dispositivo simulato in Linux](quickstart-linux.md).
 * La chiave primaria della stringa di connessione del dispositivo IoT Edge.
 * Un dispositivo Modbus fisico o simulato che supporta il protocollo Modbus TCP.
 
 ## <a name="prepare-a-modbus-container"></a>Preparare un contenitore Modbus
 
-Se si vuole testare la funzionalità del gateway Modbus, Microsoft offre un modulo di esempio che può essere usato a questo scopo. Per usare il modulo di esempio, passare alla sezione [Eseguire la soluzione](#run-the-solution) e immettere il valore seguente per l'URI immagine: 
+Se si vuole testare la funzionalità del gateway Modbus, Microsoft offre un modulo di esempio che può essere usato a questo scopo. Per usare il modulo di esempio, passare alla sezione [Eseguire la soluzione](#run-the-solution) e immettere il valore seguente per l'URI immagine:
 
 ```URL
 mcr.microsoft.com/azureiotedge/modbus:1.0
 ```
 
-Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponibile un [modulo Modbus per Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) open source in GitHub. Seguire le indicazioni nel progetto per creare l'immagine del contenitore personalizzata. Se si crea un'immagine del contenitore personalizzata, vedere [Sviluppare e distribuire un modulo C# per IoT Edge in un dispositivo simulato](tutorial-csharp-module.md) per istruzioni sulla pubblicazione di immagini del contenitore in un registro e sulla distribuzione di un modulo personalizzato nel dispositivo. 
+Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponibile un [modulo Modbus per Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) open source in GitHub. Seguire le indicazioni nel progetto per creare l'immagine del contenitore personalizzata. Se si crea un'immagine del contenitore personalizzata, vedere [Sviluppare e distribuire un modulo C# per IoT Edge in un dispositivo simulato](tutorial-csharp-module.md) per istruzioni sulla pubblicazione di immagini del contenitore in un registro e sulla distribuzione di un modulo personalizzato nel dispositivo.
 
 
 ## <a name="run-the-solution"></a>Eseguire la soluzione
@@ -53,14 +54,14 @@ Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponi
    5. Copiare il codice JSON seguente nella casella di testo. Modificare il valore di **SlaveConnection** in base all'indirizzo IPv4 del dispositivo Modbus.
 
       ```JSON
-      {  
+      {
         "properties.desired":{
           "PublishInterval":"2000",
           "SlaveConfigs":{
             "Slave01":{
               "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
               "Operations":{
-                "Op01":{  
+                "Op01":{
                   "PollingInterval": "1000",
                   "UnitId":"1",
                   "StartAddress":"400001",
@@ -76,7 +77,7 @@ Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponi
 
    6. Selezionare **Salva**.
 5. Nel passaggio **Aggiungi moduli** selezionare **Avanti**.
-7. Nel passaggio **Specify Routes** (Specifica route) copiare il codice JSON seguente nella casella di testo. Questa route invia tutti i messaggi raccolti dal modulo Modbus all'hub IoT. In questa route "modbusOutput" è l'endpoint usato dal modulo Modbus per restituire i dati, mentre "upstream" è una destinazione speciale che indica all'hub Edge di inviare i messaggi all'hub IoT. 
+7. Nel passaggio **Specify Routes** (Specifica route) copiare il codice JSON seguente nella casella di testo. Questa route invia tutti i messaggi raccolti dal modulo Modbus all'hub IoT. In questa route "modbusOutput" è l'endpoint usato dal modulo Modbus per restituire i dati, mentre "upstream" è una destinazione speciale che indica all'hub Edge di inviare i messaggi all'hub IoT.
    ```JSON
    {
     "routes": {
@@ -85,8 +86,8 @@ Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponi
    }
    ```
 
-8. Selezionare **Avanti**. 
-9. Nel passaggio **Review Deployment** (Verifica la distribuzione) fare clic su **Invia**. 
+8. Selezionare **Avanti**.
+9. Nel passaggio **Review Deployment** (Verifica la distribuzione) fare clic su **Invia**.
 10. Tornare alla pagina dei dettagli del dispositivo e selezionare **Aggiorna**. Dovrebbe essere visualizzato il nuovo modulo **modbus**, in esecuzione insieme al runtime IoT Edge.
 
 ## <a name="view-data"></a>Visualizzare i dati
@@ -95,7 +96,7 @@ Visualizzare i dati che passano attraverso il modulo modbus:
 docker logs -f modbus
 ```
 
-È anche possibile visualizzare i dati di telemetria inviati dal dispositivo usando l'[estensione IoT Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+È anche possibile visualizzare i dati di telemetria inviati dal dispositivo usando l'[estensione Azure IoT Hub Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (in precedenza estensione Azure IoT Toolkit).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

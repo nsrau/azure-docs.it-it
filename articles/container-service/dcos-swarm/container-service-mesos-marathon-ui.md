@@ -1,5 +1,5 @@
 ---
-title: Gestire un cluster DC/OS di Azure con l'interfaccia utente Marathon
+title: (DEPRECATO) Gestire un cluster DC/OS di Azure con l'interfaccia utente Marathon
 description: Distribuire contenitori in un cluster del servizio contenitore di Azure usando l'interfaccia utente Web di Marathon.
 services: container-service
 author: iainfoulds
@@ -9,21 +9,23 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a22bddf48f97d961d481e2aedb42f7d645f3e678
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 41b6ce24e7c2e8565d7c2f17c32b8b6e1f38ea4f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903082"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992488"
 ---
-# <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Gestire un cluster DC/OS del servizio contenitore di Azure tramite l'interfaccia utente Web di Marathon
+# <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(DEPRECATO) Gestire un cluster DC/OS del servizio contenitore di Azure tramite l'interfaccia utente Web di Marathon
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS offre un ambiente di distribuzione e ridimensionamento dei carichi di lavoro cluster con l'astrazione dell'hardware sottostante. In DC/OS è disponibile anche un framework che gestisce la pianificazione e l'esecuzione dei carichi di lavoro di calcolo.
 
 Sono disponibili framework per molti dei carichi di lavoro più comuni. Questo documento illustra come iniziare la distribuzione di contenitori con Marathon. 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di eseguire questi esempi, è necessario avere un cluster DC/OS configurato nel servizio contenitore di Azure. È necessaria anche la connettività remota a questo cluster. Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito:
 
 * [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md)

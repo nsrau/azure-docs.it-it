@@ -9,32 +9,32 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: ff905f34ab63027e9708082c4690e4275220854f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632295"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406794"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Esecuzione di processi MapReduce con Apache Hadoop in HDInsight usando REST
 
-Informazioni su come usare l'API REST WebHCat per l'esecuzione di processi MapReduce in un cluster Apache Hadoop in HDInsight. Curl viene usato per illustrare come sia possibile interagire con HDInsight usando richieste HTTP non elaborate per eseguire processi MapReduce.
+Informazioni su come usare l'API REST WebHCat di Apache Hive per l'esecuzione di processi MapReduce in un cluster Apache Hadoop in HDInsight. Curl viene usato per illustrare come sia possibile interagire con HDInsight usando richieste HTTP non elaborate per eseguire processi MapReduce.
 
-> [!NOTE]
-> Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere il documento [Informazioni utili su Hadoop basato su Linux in HDInsight](../hdinsight-hadoop-linux-information.md).
+> [!NOTE]  
+> Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere il documento [Informazioni sull'uso di HDInsight in Linux](../hdinsight-hadoop-linux-information.md).
 
 
 ## <a id="prereq"></a>Prerequisiti
 
 * Un cluster Hadoop in HDInsight
-* Windows PowerShell o [Curl](http://curl.haxx.se/) e [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell o [Curl](https://curl.haxx.se/) e [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Eseguire un processo MapReduce
 
-> [!NOTE]
+> [!NOTE]  
 > Quando si usa Curl o qualsiasi altra forma di comunicazione REST con WebHCat, è necessario autenticare le richieste fornendo il nome utente e la password da amministratore del cluster HDInsight. È necessario specificare il nome del cluster come parte dell'URI usato per inviare le richieste al server.
 >
-> L'API REST viene protetta tramite l' [autenticazione dell'accesso di base](http://en.wikipedia.org/wiki/Basic_access_authentication). È necessario effettuare sempre le richieste usando il protocollo HTTPS per essere certi che le credenziali vengano inviate in modo sicuro al server.
+> L'API REST viene protetta tramite l' [autenticazione dell'accesso di base](https://en.wikipedia.org/wiki/Basic_access_authentication). È necessario effettuare sempre le richieste usando il protocollo HTTPS per essere certi che le credenziali vengano inviate in modo sicuro al server.
 
 1. Per configurare l'accesso al cluster usato dagli script in questo documento, usare uno dei comandi seguenti:
 
@@ -75,7 +75,7 @@ Informazioni su come usare l'API REST WebHCat per l'esecuzione di processi MapRe
 
     I parametri usati in questo comando sono i seguenti:
 
-   * **-u**: il nome utente e la password usati per autenticare la richiesta.
+   * **-u**: indica il nome utente e la password usati per autenticare la richiesta
    * **-G**: indica che questa operazione è una richiesta GET
 
    La parte iniziale dell'URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, è uguale per tutte le richieste.
@@ -107,10 +107,10 @@ Informazioni su come usare l'API REST WebHCat per l'esecuzione di processi MapRe
     La fine dell'URI (/mapreduce/jar) indica a WebHCat che la richiesta avvia un processo MapReduce da una classe in un file con estensione jar. I parametri usati in questo comando sono i seguenti:
 
    * **-d**: `-G` non viene usato, quindi la richiesta userà il metodo POST per impostazione predefinita. `-d` specifica i valori di dati che vengono inviati con la richiesta.
-    * **user.name**: l'utente che esegue il comando.
-    * **jar**: il percorso del file con estensione jar che contiene la classe da eseguire.
-    * **class**: la classe che contiene la logica MapReduce.
-    * **arg**: gli argomenti da passare al processo MapReduce. In questo caso, il file di testo di input e la directory usata per l'output
+    * **user.name**: l'utente che esegue il comando
+    * **jar**: il percorso del file con estensione jar che contiene la classe da eseguire
+    * **class**: la classe che contiene la logica MapReduce
+    * **arg**: gli argomenti da passare al processo MapReduce In questo caso, il file di testo di input e la directory usata per l'output
 
    Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo:
 
@@ -136,7 +136,7 @@ Informazioni su come usare l'API REST WebHCat per l'esecuzione di processi MapRe
 
     Se il processo è stato completato, lo stato restituito è `SUCCEEDED`.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Questa richiesta curl restituisce un documento JSON con informazioni sul processo. Jq viene usato per recuperare solo il valore di stato.
 
 6. Dopo che lo stato del processo risulta essere `SUCCEEDED`, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output. In questo esempio la località è `/example/curl`. Questo indirizzo archivia l'output del processo nella risorsa di archiviazione predefinita dei cluster in `/example/curl`.
@@ -147,11 +147,11 @@ Informazioni su come usare l'API REST WebHCat per l'esecuzione di processi MapRe
 
 Per informazioni generali sui processi MapReduce in HDInsight:
 
-* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
+* [Usare MapReduce con Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)
 
 Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
-* [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
-* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
+* [Usare Apache Hive con Apache Hadoop su HDInsight](hdinsight-use-hive.md)
+* [Usare Apache Pig con Apache Hadoop su HDInsight](hdinsight-use-pig.md)
 
 Per altre informazioni sull'interfaccia REST usata in questo articolo, vedere le [informazioni di riferimento su WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

@@ -10,25 +10,23 @@ ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 17d1419501b4833d0abc3b5670827d57dfd7a286
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638496"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186804"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guida di riferimento per i riquadri di Progettazione viste in Log Analytics
 Progettazione viste in Azure Log Analytics consente di creare nel portale di Azure visualizzazioni personalizzate che mostrano una serie di viste di dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
 
-Per altre informazioni su Progettazione viste, vedere:
+Per altre informazioni su Progettazione visualizzazioni, vedere:
 
 * [Progettazione viste](view-designer.md): offre una panoramica di Progettazione viste e delle procedure per la creazione e la modifica di viste personalizzate.
-* [Informazioni di riferimento sulle parti della visualizzazione](view-designer-parts.md): offre una guida di riferimento sulle impostazioni relative alle parti della visualizzazione disponibili nelle visualizzazioni personalizzate.
+* [Informazioni di riferimento sulle parti di visualizzazione](view-designer-parts.md): guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
 
 
 I riquadri di Progettazione viste disponibili sono descritti nella tabella seguente:  
@@ -96,7 +94,7 @@ Il riquadro **Anello** visualizza un singolo numero che riepiloga una colonna di
 | Query |Query eseguita per il grafico ad anello. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. |
 | **Anello** |**> Centro** |
 | Text |Testo che viene visualizzato sotto il valore all'interno del grafico ad anello. |
-| Operazione |Operazione eseguita sulla proprietà value per riepilogarla come valore singolo.<ul><li>Somma: per aggiungere i valori di tutti i record con il valore di proprietà.</li><li>Percentuale: la percentuale dei valori sommati dai record con il valore di proprietà rispetto ai valori sommati di tutti i record.</li></ul> |
+| Operazione |Operazione eseguita sulla proprietà value per riepilogarla come valore singolo.<ul><li>Somma: sommare i valori di tutti i record con il valore della proprietà.</li><li>Percentuale: percentuale dei valori sommati dai record con il valore di proprietà rispetto ai valori sommati di tutti i record.</li></ul> |
 | I valori dei risultati usati nell'operazione centrale |Facoltativamente, fare clic sul segno più (+) per aggiungere uno o più valori. I risultati della query saranno limitati ai record con i valori di proprietà specificati. Se non vengono aggiunti valori, nella query vengono inclusi tutti i record. |
 | **Anello** |**> Opzioni aggiuntive** |
 | Colori |Colore che viene visualizzato per ognuna delle tre proprietà principali. Per specificare colori alternativi per valori di proprietà specifici, usare *Mappa colori avanzata*. |
@@ -142,7 +140,7 @@ Questo riquadro visualizza un grafico a linee con più serie provenienti da una 
 | **Grafico a linee** |**> Callout** |
 | Titolo del callout | Testo che viene visualizzato sopra il valore del callout. |
 | Nome della serie |Valore della proprietà per la serie da usare come valore di callout. Se non viene fornita alcuna serie, vengono usati tutti i record prodotti dalla query. |
-| Operazione |Operazione eseguita sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Media: media dei valori di tutti i record.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Max: valore massimo derivante dagli intervalli inclusi nel grafico.</li><li>Min: valore minimo derivante dagli intervalli inclusi nel grafico.</li><li>Somma: somma dei valori di tutti i record.</li></ul> |
+| Operazione |Operazione eseguita sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Media: media dei valori di tutti i record.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Max: valore massimo degli intervalli inclusi nel grafico.</li><li>Min: valore minimo degli intervalli inclusi nel grafico.</li><li>Somma: somma dei valori da tutti i record.</li></ul> |
 | **Grafico a linee** |**> Asse Y** |
 | Usa scala logaritmica |Selezionare questo collegamento per usare una scala logaritmica per l'asse Y. |
 | Unità |Specificare le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il tipo di *Unità* specifica la categoria dell'unità e definisce i valori del tipo *Unità corrente* disponibili. Se si seleziona un valore in *Converti in*, i valori numerici vengono convertiti dal tipo *Unità corrente* al tipo *Converti in*. |
@@ -166,12 +164,12 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 | Legenda |Testo che viene visualizzato sotto il callout per la prima serie. |
 | Colore |Colore usato per le colonne della prima serie. |
 | Query grafico |Query eseguita per la prima serie. Il numero di record in ogni intervallo di tempo è rappresentato dalle colonne del grafico. |
-| Operazione |Operazione eseguita sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Media: media dei valori di tutti i record.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Max: valore massimo derivante dagli intervalli inclusi nel grafico.</li></ul> |
+| Operazione |Operazione eseguita sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Media: media dei valori di tutti i record.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Max: valore massimo degli intervalli inclusi nel grafico.</li></ul> |
 | **Secondo grafico** | |
 | Legenda |Testo che viene visualizzato sotto il callout per la seconda serie. |
 | Colore |Colore usato per le colonne della seconda serie. |
 | Query grafico |Query eseguita per la seconda serie. Il numero di record in ogni intervallo di tempo è rappresentato dalle colonne del grafico. |
-| Operazione |Operazione eseguita sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Media: media dei valori di tutti i record.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Max: valore massimo derivante dagli intervalli inclusi nel grafico. |
+| Operazione |Operazione eseguita sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Media: media dei valori di tutti i record.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Max: valore massimo degli intervalli inclusi nel grafico. |
 | **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
 | Attivato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
@@ -179,5 +177,5 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [ricerche nei log](../../log-analytics/log-analytics-queries.md) per supportare le query nei riquadri.
+* Informazioni sulle [ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) per supportare le query nei riquadri.
 * Aggiungere [parti della visualizzazione](view-designer-parts.md) alla vista personalizzata.

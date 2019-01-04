@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: d784bf3637c83c724c3616a1a42b66c4914b4ff7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f4c687ff0d02c78b88b24834f6c3acfc563ecbfc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987240"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963573"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -60,7 +60,7 @@ Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](..
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>È possibile usare Gestione traffico con un nome di dominio di tipo "naked" (senza www)?
 
-No. Gli standard DNS non consentono la coesistenza tra record CNAME e altri record DNS dello stesso nome. Il vertice o la radice di una zona DNS contiene sempre due record DNS preesistenti: il record SOA e quello del server dei nomi autorevole. Non è quindi possibile creare un record CNAME al vertice della zona senza violare gli standard DNS.
+ No. Gli standard DNS non consentono la coesistenza tra record CNAME e altri record DNS dello stesso nome. Il vertice o la radice di una zona DNS contiene sempre due record DNS preesistenti: il record SOA e quello del server dei nomi autorevole. Non è quindi possibile creare un record CNAME al vertice della zona senza violare gli standard DNS.
 
 Gestione traffico richiede un record CNAME DNS per eseguire il mapping del nome DNS personalizzato. Ad esempio, eseguire il mapping `www.contoso.com` al nome DNS del profilo di traffico `contoso.trafficmanager.net`. Inoltre, il profilo di Gestione traffico restituisce un secondo record DNS CNAME per indicare l'endpoint a cui il client dovrebbe collegarsi.
 
@@ -444,7 +444,7 @@ Per informazioni dettagliate, vedere la pagina [Gestione traffico Prezzi](https:
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>I profili nidificati influiscono sulle prestazioni?
 
-No. Quando si usano i profili annidati non si verifica alcun impatto sulle prestazioni.
+ No. Quando si usano i profili annidati non si verifica alcun impatto sulle prestazioni.
 
 I server dei nomi di Gestione traffico attraversano internamente la gerarchia dei profili durante l'elaborazione di ogni query DNS, in modo che una query DNS inviata a un profilo padre possa ricevere una risposta DNS con un endpoint da un profilo figlio. Viene usato un singolo record CNAME, indipendentemente dal fatto che si usi un profilo singolo o profili annidati. Non è necessario quindi creare un record CNAME per ogni profilo della gerarchia.
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 1ed08562657eb0c50f05efb335c1790d35dcab01
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 761637a9c44cc490d6633aeb1a9b8d81f8885583
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976826"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972083"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -45,7 +45,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
     File di Azure è nello specifico un file system. File di Azure racchiude tutte le funzionalità per la gestione dei file che gli utenti hanno imparato a conoscere e ad apprezzare grazie ad anni di esperienza con i sistemi operativi in locale. Come Archiviazione BLOB di Azure, File di Azure offre un'interfaccia REST e librerie client basate su REST. Diversamente da Archiviazione BLOB di Azure, File di Azure consente l'accesso SMB alle condivisioni file di Azure. L'uso di SMB consente di montare direttamente una condivisione file di Azure in Windows, Linux o macOS, sia in macchine virtuali locali che nel cloud, senza dover scrivere codice o collegare driver speciali al file system. È anche possibile memorizzare nella cache le condivisioni file di Azure in file server locali tramite Sincronizzazione file di Azure (anteprima), per l'accesso rapido in prossimità della posizione in cui vengono usati i dati. 
    
-    Per una descrizione più dettagliata delle differenze tra File di Azure e Archiviazione BLOB di Azure, vedere [Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Per altre informazioni su Archiviazione BLOB di Azure, vedere [Introduzione all'archiviazione BLOB](../blobs/storage-blobs-introduction.md).
+    Per una descrizione più dettagliata delle differenze tra File di Azure e Archiviazione BLOB di Azure, vedere [Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure](../common/storage-decide-blobs-files-disks.md). Per altre informazioni su Archiviazione BLOB di Azure, vedere [Introduzione all'archiviazione BLOB](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Perché usare una condivisione file di Azure invece di Dischi di Azure?**  
     Un disco in Dischi di Azure è semplicemente un disco. Per ottenere valore da Dischi di Azure, è necessario collegare un disco a una macchina virtuale in esecuzione in Azure. È possibile usare Dischi di Azure per qualsiasi scopo per cui si può usare un disco per un server locale, come disco del sistema operativo, come spazio di swapping per un sistema operativo o come spazio di archiviazione dedicato per un'applicazione. Un uso interessante di Dischi di Azure consiste nella creazione di un file server nel cloud per usarlo esattamente negli stessi scenari in cui si potrebbe usare una condivisione file di Azure. La distribuzione di un file server in Macchine virtuali di Azure è una soluzione ad alte prestazioni per ottenere spazio di archiviazione per i file in Azure quando sono richieste opzioni di distribuzione attualmente non supportate da File di Azure (ad esempio, il supporto per il protocollo NFS o l'archiviazione Premium). 
@@ -54,7 +54,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
     Un approccio per sfruttare al meglio File di Azure e un file server ospitato in Macchine virtuali di Azure (oltre a usare Dischi di Azure come risorsa di archiviazione back-end) consiste nell'installare Sincronizzazione file di Azure in un file server ospitato in una macchina virtuale nel cloud. Se la condivisione file di Azure è nella stessa area del file server, è possibile abilitare la suddivisione in livelli nel cloud e impostare la percentuale di spazio disponibile nel volume sul massimo (99%). Ciò assicura una duplicazione minima dei dati. È anche possibile usare qualsiasi applicazione con i file server, ad esempio applicazioni che richiedono il supporto del protocollo NFS.
 
-    Per informazioni su un'opzione per configurare un file server ad alte prestazioni e a disponibilità elevata in Azure, vedere [Deploying IaaS VM Guest Clusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/) (Distribuzione di cluster guest di macchine virtuali IaaS in Microsoft Azure). Per una descrizione più dettagliata sulle differenze tra File di Azure e Dischi di Azure, vedere [Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Per altre informazioni su Dischi di Azure, vedere [Panoramica di Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+    Per informazioni su un'opzione per configurare un file server ad alte prestazioni e a disponibilità elevata in Azure, vedere [Deploying IaaS VM Guest Clusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/) (Distribuzione di cluster guest di macchine virtuali IaaS in Microsoft Azure). Per una descrizione più dettagliata sulle differenze tra File di Azure e Dischi di Azure, vedere [Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure](../common/storage-decide-blobs-files-disks.md). Per altre informazioni su Dischi di Azure, vedere [Panoramica di Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
 **Come iniziare a usare File di Azure?**  
@@ -182,7 +182,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="ad-support-regions"></a>
 **L'anteprima di Azure AD su SMB per File di Azure è disponibile in tutte le aree di Azure?**
 
-    L'anteprima è disponibile in tutte le aree pubbliche, ad eccezione dell'Europa settentrionale.
+    L'anteprima è disponibile in tutte le aree pubbliche, ad eccezione di: Europa settentrionale.
 
 * <a id="ad-support-on-premises"></a>
 **L'autenticazione di Azure AD tramite SMB per File di Azure (anteprima) supporta l'autenticazione tramite Azure AD per i computer locali?**
@@ -262,7 +262,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 ## <a name="share-snapshots"></a>Snapshot di condivisione
 
-### <a name="share-snapshots-general"></a>Snapshot di condivisione: informazioni generali
+### <a name="share-snapshots-general"></a>Snapshot di condivisione: Generale
 * <a id="what-are-snaphots"></a>
 **Cosa sono gli snapshot di condivisione file?**  
     È possibile usare gli snapshot di condivisione file di Azure per creare versioni di sola lettura delle condivisioni file. È anche possibile usare File di Azure per copiare una versione precedente del contenuto nella stessa condivisione o in un percorso alternativo in Azure o in locale per ulteriori modifiche. Per altre informazioni sugli snapshot di condivisione, vedere [Panoramica degli snapshot di condivisione per File di Azure (anteprima)](storage-snapshots-files.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con iWellnessNow | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con iWellnessNow | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e iWellnessNow.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: c260b32dc6f659ca4cc1b4c3f59859f75ba999d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b02a5ec5a68743e148bcfef3c631d7777fd0a067
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447374"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871695"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Esercitazione: Integrazione di Azure Active Directory con iWellnessNow
 
@@ -179,7 +179,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-an-iwellnessnow-test-user"></a>Creare un utente di test di iWellnessNow
 
-In questa sezione viene creato un utente di nome Britta Simon in iWellnessNow. Lavorare con il [team di supporto iWellnessNow](mailto:info@iwellnessnow.com) per aggiungere gli utenti nella piattaforma iWellnessNow. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On
+In questa sezione viene creato un utente di nome Britta Simon in iWellnessNow. Lavorare con il  [team di supporto iWellnessNow](mailto:info@iwellnessnow.com) per aggiungere gli utenti nella piattaforma iWellnessNow. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -216,7 +216,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro iWellnessNow nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione iWellnessNow.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

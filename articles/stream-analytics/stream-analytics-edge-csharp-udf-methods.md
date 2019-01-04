@@ -1,5 +1,5 @@
 ---
-title: Sviluppare funzioni .NET Standard definite dall'utente per i processi di Analisi di flusso di Azure in IoT Edge (anteprima)
+title: Sviluppare funzioni .NET Standard per i processi Edge di Analisi di flusso di Azure (anteprima)
 description: Informazioni su come scrivere funzioni C# definite dall'utente per i processi di Analisi di flusso di Azure in IoT Edge.
 services: stream-analytics
 author: mamccrea
@@ -8,13 +8,14 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: f0da25410fe81a93501df940ffbb0e115456a9e8
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5df4c9dfe18b02ade3a37717da9c68acbfcf1853
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247808"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106601"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Sviluppare funzioni .NET Standard definite dall'utente per i processi di Analisi di flusso di Azure in IoT Edge (anteprima)
 
@@ -82,15 +83,15 @@ In questo esempio **UDFTest** è un progetto di libreria di classi C# e **ASAEdg
 
 4. **UDFTest** verrà visualizzato nell'elenco **Riferimenti** in **Esplora soluzioni**.
 
-   ![Visualizzare il riferimento della funzione definita dall'utente in Esplora soluzioni di Analisi di flusso di Azure in IoT Edge](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
+   ![Visualizzare il riferimento della funzione definita dall'utente in Esplora soluzioni](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
 
 5. Fare clic con il pulsante destro del mouse sulla cartella **Funzioni** e scegliere **Nuovo elemento**.
 
-   ![Aggiungere un nuovo elemento alle funzioni nella soluzione di Analisi di flusso di Azure in IoT Edge in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
+   ![Aggiungere il nuovo elemento alle funzioni nella soluzione Edge di Analisi di flusso di Azure](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
 
 6. Aggiungere una funzione C# **SquareFunction.json** al progetto di Analisi di flusso di Azure.
 
-   ![Selezionare la funzione C Sharp dall'elenco degli elementi Analisi di flusso di Azure in IoT Edge in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
+   ![Selezionare la funzione CSharp dagli elementi Edge di Analisi di flusso di Azure in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
 
 7. Per aprire la finestra di dialogo di configurazione, fare doppio clic sulla funzione in **Esplora soluzioni**.
 
@@ -133,6 +134,6 @@ L'anteprima della funzione definita dall'utente attualmente presenta le limitazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: scrivere una funzione C# definita dall'utente per un processo di Analisi di flusso di Azure in IoT Edge (anteprima)](stream-analytics-edge-csharp-udf.md)
-* [Esercitazione: funzioni JavaScript definite dall'utente per l'Analisi di flusso di Azure](stream-analytics-javascript-user-defined-functions.md)
+* [Esercitazione: Scrivere una funzione C# definita dall'utente per un processo Edge di Analisi di flusso di Azure (anteprima)](stream-analytics-edge-csharp-udf.md)
+* [Esercitazione: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure](stream-analytics-javascript-user-defined-functions.md)
 * [Usare Visual Studio per visualizzare i processi di Analisi di flusso di Azure](stream-analytics-vs-tools.md)

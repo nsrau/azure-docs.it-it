@@ -5,16 +5,15 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 84462b98e1006cadf34adecf948efd39ad4f69d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308125"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313973"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Risolvere i problemi di replica delle VM da Azure ad Azure
 
@@ -38,7 +37,7 @@ Se nella VM non sono presenti tutti i certificati radice trusted più recenti, i
 
 **Codice errore** | **Causa possibile** | **Raccomandazioni**
 --- | --- | ---
-151066<br></br>**Messaggio**: La configurazione di Site Recovery non è riuscita. | I certificati radice trusted necessari usati per l'autorizzazione e l'autenticazione non sono presenti nel computer. | - Per una VM che esegue il sistema operativo Windows, assicurarsi che i certificati radice trusted siano presenti nel computer. Per informazioni, vedere [Configurare radici attendibili e certificati non consentiti](https://technet.microsoft.com/library/dn265983.aspx).<br></br>- Per una VM che esegue il sistema operativo Linux, seguire le indicazioni per i certificati radice trusted pubblicate dal distributore della versione del sistema operativo Linux.
+151066<br></br>**Messaggio**: la configurazione di Site Recovery non è riuscita (151197). | I certificati radice trusted necessari usati per l'autorizzazione e l'autenticazione non sono presenti nel computer. | - Per una VM che esegue il sistema operativo Windows, assicurarsi che i certificati radice trusted siano presenti nel computer. Per informazioni, vedere [Configurare radici attendibili e certificati non consentiti](https://technet.microsoft.com/library/dn265983.aspx).<br></br>- Per una VM che esegue il sistema operativo Linux, seguire le indicazioni per i certificati radice trusted pubblicate dal distributore della versione del sistema operativo Linux.
 
 ### <a name="fix-the-problem"></a>Risolvere il problema
 **Windows**
@@ -61,37 +60,37 @@ Poiché SuSE Linux usa i collegamenti simbolici per gestire un elenco di certifi
 
       ``# cd /etc/ssl/certs``
 
-3. Controllare se è presente il certificato CA della radice di Symantec.
+1. Controllare se è presente il certificato CA della radice di Symantec.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. Se il certificato CA della radice di Symantec non è reperibile, eseguire il comando seguente per scaricare il file. Verificare la presenza di eventuali errori e seguire le azioni consigliate per gli errori di rete.
+2. Se il certificato CA della radice di Symantec non è reperibile, eseguire il comando seguente per scaricare il file. Verificare la presenza di eventuali errori e seguire le azioni consigliate per gli errori di rete.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Controllare se è presente il certificato CA della radice Baltimore.
+3. Controllare se è presente il certificato CA della radice Baltimore.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. Se il certificato CA della radice Baltimore non è reperibile, scaricarlo.  
+4. Se il certificato CA della radice Baltimore non è reperibile, scaricarlo.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. Verificare che il certificato DigiCert_Global_Root_CA sia presente.
+5. Verificare che il certificato DigiCert_Global_Root_CA sia presente.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. Se il certificato DigiCert_Global_Root_CA non è reperibile, eseguire i comandi seguenti per scaricarlo.
+6. Se il certificato DigiCert_Global_Root_CA non è reperibile, eseguire i comandi seguenti per scaricarlo.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. Eseguire lo script rehash per aggiornare i codici hash dell'oggetto per i certificati appena scaricati.
+7. Eseguire lo script rehash per aggiornare i codici hash dell'oggetto per i certificati appena scaricati.
 
     ``# c_rehash``
 
-10. Controllare che gli hash dell'oggetto come collegamenti simbolici vengano creati per i certificati.
+8.  Controllare che gli hash dell'oggetto come collegamenti simbolici vengano creati per i certificati.
 
     - Comando
 
@@ -120,11 +119,11 @@ Poiché SuSE Linux usa i collegamenti simbolici per gestire un elenco di certifi
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Creare una copia del file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem con nome file b204d74a.0
+9.  Creare una copia del file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem con nome file b204d74a.0
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Creare una copia del file Baltimore_CyberTrust_Root.pem con nome file 653b494a.0
+10. Creare una copia del file Baltimore_CyberTrust_Root.pem con nome file 653b494a.0
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
@@ -185,15 +184,16 @@ Per il funzionamento della replica di Site Recovery, è necessaria la connettivi
 
 
  - **Risoluzione**
-  1.    L'agente del servizio Mobility rileva le impostazioni proxy da Internet Explorer in Windows e da /etc/environment in Linux.
-  2.  Se si preferisce impostare il proxy solo per il servizio Mobility di Azure Site Recovery, è possibile fornire i dettagli del proxy in ProxyInfo.conf, disponibile in:</br>
-      - ``/usr/local/InMage/config/`` su ***Linux***
-      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` su ***Windows***
-  3.    Il file ProxyInfo.conf deve includere le impostazioni proxy nel formato INI seguente. </br>
+   1.   L'agente del servizio Mobility rileva le impostazioni proxy da Internet Explorer in Windows e da /etc/environment in Linux.
+   2.  Se si preferisce impostare il proxy solo per il servizio Mobility di Azure Site Recovery, è possibile fornire i dettagli del proxy in ProxyInfo.conf, disponibile in:</br>
+       - ``/usr/local/InMage/config/`` su ***Linux***
+       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` su ***Windows***
+   3.   Il file ProxyInfo.conf deve includere le impostazioni proxy nel formato INI seguente.</br>
                    *[proxy]*</br>
                    *Address=http://1.2.3.4*</br>
                    *Port=567*</br>
-  4. L'agente del servizio Mobility di Azure Site Recovery supporta solo ***proxy non autenticati***.
+   4. L'agente del servizio Mobility di Azure Site Recovery supporta solo ***proxy non autenticati***.
+ 
 
 ### <a name="fix-the-problem"></a>Risolvere il problema
 Per includere nell'elenco elementi consentiti gli [URL necessari](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o gli [intervalli IP necessari](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), seguire i passaggi nel [documento di indicazioni sulle reti](site-recovery-azure-to-azure-networking-guidance.md).
@@ -217,7 +217,7 @@ Se il problema persiste, contattare il supporto tecnico.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Impossibile vedere la VM di Azure tra le opzioni per l'abilitazione della replica
 
- **Causa 1: Il gruppo di risorse e la macchina virtuale di origine si trovano in una posizione diversa** <br>
+ **Causa 1:  Il gruppo di risorse e la macchina virtuale di origine si trovano in una posizione diversa** <br>
 Attualmente, Azure Site Recovery richiede che il gruppo di risorse dell'area di origine e le macchine virtuali si trovino obbligatoriamente nella stessa posizione. Se non è questo il caso, non sarà possibile trovare la macchina virtuale durante il periodo di protezione.
 
 **Causa 2: Il gruppo di risorse non appartiene alla sottoscrizione selezionata** <br>
@@ -234,9 +234,9 @@ Se la macchina virtuale che si desidera abilitare per la replica non viene visua
 È possibile usare lo [script per la rimozione della configurazione non aggiornata di Azure Site Recovery](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e rimuovere la configurazione dalla VM di Azure. Dopo la rimozione della configurazione non aggiornata dovrebbe essere possibile visualizzare la macchina virtuale.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Impossibile selezionare la macchina virtuale per eseguire la procedura di protezione 
- **Causa 1: Un'estensione installata nella macchina virtuale si trova in stato di errore o non risponde** <br>
+ **Causa 1:  Un'estensione installata nella macchina virtuale si trova in stato di errore o non risponde** <br>
  Passare a Macchine virtuali > Impostazioni > Estensioni e verificare se esistono eventuali estensioni che si trovano in uno stato di errore. Disinstallare l'estensione in stato di errore e ripetere la procedura di protezione della macchina virtuale.<br>
- **Causa 2: [Lo stato di provisioning della VM non è valido](#vms-provisioning-state-is-not-valid-error-code-150019)**
+ **Causa 2:  [Lo stato di provisioning della VM non è valido](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Lo stato di provisioning della VM non è valido (codice errore 150019)
 
@@ -255,7 +255,7 @@ Per abilitare la replica sulla VM, lo stato di provisioning deve essere **Riusci
 
 ## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>Non è possibile selezionare la rete virtuale di destinazione: la scheda di selezione della rete è inattiva.
 
-**Causa 1: la macchina virtuale è collegata a una rete che è già mappata a una "rete di destinazione".**
+**Causa 1: La macchina virtuale è collegata a una rete che è già mappata a una "rete di destinazione".**
 - Se la macchina virtuale di origine fa parte di una rete virtuale e un'altra macchina virtuale della stessa rete virtuale è già mappata a una rete nel gruppo di risorse di destinazione, l'elenco a discesa di selezione della rete è disabilitato per impostazione predefinita.
 
 ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)

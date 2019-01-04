@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: barclayn
-ms.openlocfilehash: 4ae36f87c29975c82bb99f713893a9dc78a249e6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 9c02dc386852a32814669d38df6260822a5e4f99
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
-ms.locfileid: "23465406"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308795"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Raccomandazioni sulla sicurezza per le immagini di Azure Marketplace
 

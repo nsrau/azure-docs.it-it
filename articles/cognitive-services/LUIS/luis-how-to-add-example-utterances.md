@@ -1,21 +1,22 @@
 ---
-title: Aggiungere espressioni di esempio in app LUIS
-titleSuffix: Azure Cognitive Services
-description: Informazioni su aggiungere espressioni nelle applicazioni LUIS (Language Understanding).
+title: Aggiungere espressioni di esempio
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Le espressioni di esempio sono campioni di testo con domande o commenti degli utenti. Per l'apprendimento di LUIS (Language Understanding), è necessario aggiungere espressioni di esempio a una finalità.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: caf8628569481149ee41e8253f4759e15e49150f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 33c941f84952faca1961bb65687b4098b837a2fd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139124"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139171"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Aggiungere un'entità in espressioni di esempio 
 
@@ -89,7 +90,7 @@ Il nome del dipendente, John Smith, è un'entità [personName](luis-reference-pr
 
 1. Inserire il nome dell'entità composita nell'elenco a discesa.
 
-    ![Screenshot di immissione del nome dell'entità](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
+    ![Screenshot dell'immissione del nome dell'entità composita nell'elenco a discesa](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     Quando si esegue correttamente il wrapping delle entità, una linea verde viene aggiunta sotto l'intera frase.
 
@@ -117,7 +118,7 @@ Nell'emissione `Move John Smith from Seattle to Cairo`, Seattle è l'origine, me
 
 1. La parola nell'espressione viene etichettata con l'entità gerarchica padre. È necessario assegnare la parola a un'entità figlio. Tornare all'espressione nella pagina dei dettagli delle finalità. Selezionare la parola quindi nell'elenco a discesa scegliere il nome dell'entità creata e seguire il menu a destra per scegliere l'entità figlio corretta.
 
-    ![Screenshot della pagina dei dettagli delle finalità, con l'entità ToLocation evidenziata](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+    ![Screenshot della pagina di dettagli delle finalità, dove è necessario assegnare la parola a un'entità figlio](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >I nomi delle entità figlio devono essere univoci per tutte le entità in una singola app. Due diverse entità gerarchiche non possono contenere entità figlio con lo stesso nome. 
@@ -134,7 +135,7 @@ Selezionare le parole sottolineate in rosso nell'espressione.
 
 In caso di discrepanza della previsione la casella dell'entità visualizza un punto esclamativo rosso accanto a **Entity status** (Stato entità). Per visualizzare lo stato dell'entità unitamente alle informazioni sulla differenza tra entità etichettate e previste, selezionare **Entity status** (Stato entità) e quindi l'elemento a destra.
 
-![Screenshot relativo alla discrepanza della previsione dello stato dell'entità](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Screenshot della selezione dell'elemento corretto per correggere la discrepanza nella stima](./media/luis-how-to-add-example-utterances/entity-status.png)
 
 La linea rossa può essere presente nelle circostanze seguenti:
 

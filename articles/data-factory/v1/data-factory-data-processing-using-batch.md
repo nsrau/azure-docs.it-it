@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a20ba54226e5cdcec242e29344110840615a0c95
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976860"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317526"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -41,7 +41,7 @@ Il servizio Batch consente di definire le risorse di calcolo di Azure per esegui
 * [Nozioni di base di Batch](../../batch/batch-technical-overview.md)
 * [Panoramica delle funzionalità Batch](../../batch/batch-api-basics.md)
 
-Facoltativamente, per altre informazioni su Batch, vedere [la documentazione di Batch](https://docs.microsoft.com/en-us/azure/batch/).
+Facoltativamente, per altre informazioni su Batch, vedere [la documentazione di Batch](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Perché Azure Data Factory?
 Data factory è un servizio di integrazione delle informazioni basato sul cloud che permette di automatizzare lo spostamento e la trasformazione dei dati. È possibile usare Data Factory per creare pipeline di dati gestiti che spostino i dati da archivi locali e su cloud a un archivio dati centralizzato. Un esempio è l'archivio BLOB di Azure. È possibile usare Data Factory per elaborare o trasformare dati tramite servizi come Azure HDInsight e Azure Machine Learning. È anche possibile pianificare le pipeline di dati per eseguire operazioni in modo pianificato (ad esempio con intervalli orari, giornalieri e settimanali). È possibile monitorare e gestire le pipeline in modo immediato per identificare i problemi e definire gli interventi necessari.
@@ -51,7 +51,7 @@ Data factory è un servizio di integrazione delle informazioni basato sul cloud 
 * [Introduzione al servizio Data factory](data-factory-introduction.md)
 * [Creare la prima pipeline di dati](data-factory-build-your-first-pipeline.md)   
 
-Per altre informazioni su Data Factory, vedere facoltativamente la [documentazione di Data Factory](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
+Per altre informazioni su Data Factory, vedere facoltativamente la [documentazione di Data Factory](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory e Batch insieme
 Data Factory include attività predefinite. Ad esempio, è disponibile l'attività Copia per copiare e spostare dati da un archivio dati di origine a uno di destinazione. L'attività Hive viene usata per elaborare dati mediante i cluster Hadoop (HDInsight) in Azure. Per un elenco delle attività di trasformazione supportate, vedere le informazioni sulle [Attività di trasformazione dati](data-factory-data-transformation-activities.md).
@@ -84,7 +84,7 @@ Nell'elenco seguente vengono presentati i passaggi di base del processo. La solu
 ## <a name="implementation-of-the-sample-solution"></a>Implementazione della soluzione di esempio
 La soluzione di esempio è volutamente semplice. È progettata per illustrare come usare Data Factory e Batch insieme ai set di dati di processo. La soluzione conta semplicemente il numero di occorrenze del termine di ricerca ("Microsoft") nei file di input organizzati in una serie temporale. Restituisce quindi il numero in file di output.
 
-**Tempo**: se si ha familiarità con le nozioni di base di Azure, di Data Factory e di Batch e sono stati completati i prerequisiti elencati di seguito, si stima che il completamento di questa soluzione richieda 1-2 ore.
+**Tempo:** se si ha familiarità con le nozioni di base di Azure, Azure Data Factory e Azure Batch e sono stati completati i prerequisiti elencati di seguito, il completamento di questa soluzione richiede da una a due ore.
 
 ### <a name="prerequisites"></a>Prerequisiti
 #### <a name="azure-subscription"></a>Sottoscrizione di Azure
@@ -930,11 +930,11 @@ Il debug è costituito da alcune tecniche di base.
 #### <a name="extend-the-sample"></a>Estendere l'esempio
 È possibile estendere questo esempio per ottenere altre informazioni sulle funzionalità di Data Factory e di Batch. Ad esempio, per elaborare le sezioni in un intervallo di tempo diverso, seguire questa procedura:
 
-1. Aggiungere le sottocartelle seguenti in `inputfolder`: 2015-11-16-05, 2015-11-16-06, 07 201-11-16, 2011-11-16-08 e 2015-11-16-09. Posizionare i file di input in queste cartelle. Modificare l'ora di fine per la pipeline da `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. Nella vista **Diagramma** fare doppio clic su **InputDataset** e verificare che le sezioni di input siano pronte. Fare doppio clic su **OuptutDataset** per visualizzare lo stato delle sezioni di output. Se lo stato è **Pronto**, controllare i file di output nella cartella di output.
+1. Aggiungere le sottocartelle seguenti in `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 e 2015-11-16-09. Posizionare i file di input in queste cartelle. Modificare l'ora di fine per la pipeline da `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. Nella vista **Diagramma** fare doppio clic su **InputDataset** e verificare che le sezioni di input siano pronte. Fare doppio clic su **OuptutDataset** per visualizzare lo stato delle sezioni di output. Se lo stato è **Pronto**, controllare i file di output nella cartella di output.
 
-1. Aumentare o diminuire l'impostazione **concurrency** per comprenderne gli effetti sulle prestazioni della soluzione, in particolare l'elaborazione che si verifica in Batch. Per altre informazioni sull'impostazione **concurrency**, vedere "Passaggio 4: creare ed eseguire la pipeline con un'attività personalizzata."
+1. Aumentare o diminuire l'impostazione **concurrency** per comprenderne gli effetti sulle prestazioni della soluzione, in particolare l'elaborazione che si verifica in Batch. Per altre informazioni sull'impostazione **concurrency**, vedere "Passaggio 4: Creare ed eseguire la pipeline con un'attività personalizzata".
 
-1. Creare un pool con un **numero massimo di attività per ogni VM**più alto o più basso. Aggiornare il servizio collegato di Batch nella soluzione data factory per usare il nuovo pool creato. Per altre informazioni sull'impostazione del **Numero massimo di attività per ogni macchina virtuale**, vedere "Passaggio 4: creare ed eseguire la pipeline con un'attività personalizzata."
+1. Creare un pool con un **numero massimo di attività per ogni VM**più alto o più basso. Aggiornare il servizio collegato di Batch nella soluzione data factory per usare il nuovo pool creato. Per altre informazioni sull'impostazione **Numero massimo di attività per ogni macchina virtuale**, vedere "Passaggio 4: Creare ed eseguire la pipeline con un'attività personalizzata".
 
 1. Creare un pool di Batch con la funzionalità **scalabilità automatica**. Il ridimensionamento automatico dei nodi di calcolo in un pool di Batch è una regolazione dinamica della potenza di elaborazione usata dall'applicazione. 
 
@@ -962,7 +962,7 @@ Dopo l'elaborazione dei dati, è possibile usarli con strumenti online come Powe
 * [Esplorare un set di dati in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
 * [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 * [Aggiornamento dei dati in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
-* [Azure e Power BI - Panoramica di base](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+* [Azure e Power BI: panoramica di base](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Riferimenti
 * [Data factory di Azure](https://azure.microsoft.com/documentation/services/data-factory/)

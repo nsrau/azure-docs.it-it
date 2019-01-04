@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: b60be3db14a756407e62540bb89f3b0924597067
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 87e197821be7c7c72ca1704d6b0123d76d41b30f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959951"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721086"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedura: usare il portale per creare un'applicazione Azure AD e un'entità servizio che possano accedere alle risorse
 
 Se il codice che si sta usando deve accedere alle risorse o modificarle, è possibile creare un'identità per l'app. Questa identità è nota come entità servizio. È quindi possibile assegnare le autorizzazioni richieste all'entità servizio. Questo articolo illustra come usare il portale per creare l'entità servizio. È incentrato su un'applicazione con un tenant singolo dove si prevede che l'applicazione venga eseguita all'interno di una sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.
 
@@ -50,7 +50,7 @@ Sono state create un'applicazione e un'entità servizio di Azure AD.
 
 ## <a name="assign-the-application-to-a-role"></a>Assegnare l'applicazione a un ruolo
 
-Per accedere alle risorse della propria sottoscrizione è necessario assegnare l'applicazione a un ruolo. Decidere quale ruolo offre le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
+Per accedere alle risorse della propria sottoscrizione è necessario assegnare l'applicazione a un ruolo. Decidere quale ruolo offre le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [RBAC: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
 
 È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Se ad esempio si aggiunge un'applicazione al ruolo Lettore per un gruppo di risorse, l'applicazione può leggere il gruppo di risorse e le risorse in esso contenute.
 
@@ -65,9 +65,9 @@ Per accedere alle risorse della propria sottoscrizione è necessario assegnare l
    Se la sottoscrizione che si sta cercando non viene visualizzata, selezionare il **filtro per le sottoscrizioni globali**. Assicurarsi che la sottoscrizione desiderata sia selezionata per il portale. 
 
 1. Selezionare **Controllo di accesso (IAM)**.
-1. Selezionare **Aggiungi**.
+1. Selezionare **Aggiungi assegnazione ruolo**.
 
-   ![Selezionare Aggiungi](./media/howto-create-service-principal-portal/select-add.png)
+   ![Selezionare aggiungi assegnazione ruolo](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Selezionare il ruolo che si desidera assegnare all'applicazione. Per consentire all'applicazione di eseguire azioni quali istanze di **riavvio**, **avvio** e **arresto**, selezionare il ruolo **Collaboratore**. Per impostazione predefinita, le applicazioni di Azure AD non sono visualizzate nelle opzioni disponibili. Per trovare l'applicazione, cercare il nome e selezionarlo.
 

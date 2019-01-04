@@ -1,5 +1,5 @@
 ---
-title: "Esempio di criteri di Gestione API di Azure: usare OAuth2 per l'autorizzazione tra gateway e back-end | Microsoft Docs"
+title: "Esempio di criteri di Gestione API di Azure: usare OAuth2 per l'autorizzazione tra gateway e un back-end | Microsoft Docs"
 description: Esempio di criteri di Gestione API di Azure che illustra come usare OAuth2 per l'autorizzazione tra il gateway e un back-end. Mostra come ottenere un token di accesso da AAD e inoltrarlo al back-end.
 services: api-management
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 240f78bc66af681d0089c45229ab142adf515e60
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 519233cb9e77bf48f67d869a54af771c17c7827e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933318"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874569"
 ---
 # <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>Usare OAuth2 per l'autorizzazione tra gateway e back-end
 
@@ -32,7 +32,7 @@ Lo script seguente usa le proprietà incluse in {{property}}. Per informazioni s
 
 Incollare il codice nel blocco **inbound**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Get OAuth2 access token from AAD and forward it to the backend.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Get OAuth2 access token from AAD and forward it to the backend.policy.xml)]
   
 ## <a name="next-steps"></a>Passaggi successivi
 

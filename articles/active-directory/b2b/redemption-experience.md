@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7819ed3e18092e8b7bdf52225e7025b4b6d8146a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f580c78fa2114905a0ef28f51feee50361717a27
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981883"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435328"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Riscatto dell'invito di Collaborazione B2B di Azure Active Directory
 
@@ -26,7 +26,7 @@ Per collaborare con gli utenti delle organizzazioni partner usando Collaborazion
 
 ## <a name="redemption-through-a-direct-link"></a>Riscatto attraverso un collegamento diretto
 
-Un mittente dell'invito guest può invitare un utente guest inviando un collegamento diretto a un'app condivisa. Per l'utente guest, l'esperienza di riscatto è facile come accedere all'app condivisa. Può fare clic su un collegamento all'app, esaminare e accettare le condizioni di privacy e quindi accedere all'app senza problemi. Nella maggior parte dei casi, gli utenti guest non devono più fare clic su un URL di riscatto in un messaggio di invito.
+Un mittente dell'invito guest può invitare un utente guest inviando un [collegamento diretto a un'app condivisa](../manage-apps/end-user-experiences.md#direct-sign-on-links). Per l'utente guest, l'esperienza di riscatto è facile come accedere all'app condivisa. Può fare clic su un collegamento all'app, esaminare e accettare le condizioni di privacy e quindi accedere all'app senza problemi. Nella maggior parte dei casi, gli utenti guest non devono più fare clic su un URL di riscatto in un messaggio di invito.
 
 Se gli utenti guest sono stati invitati dall'interfaccia utente o si è scelto di inviare l'invito via posta elettronica nell'ambito dell'esperienza di invito di PowerShell, l'utente invitato riceve comunque un messaggio di posta elettronica di invito. Questo messaggio è utile per i casi seguenti:
 
@@ -51,7 +51,13 @@ Dopo che un utente guest effettua l'accesso per usare le risorse di un'organizza
 
 ![Screenshot che illustra le impostazioni utente nel riquadro di accesso](media/redemption-experience/ConsentScreen.png) 
 
-Per informazioni su come l'amministratore di un tenant può creare un collegamento all'informativa sulla privacy dell'organizzazione, vedere [Procedura: Aggiungere le informazioni sulla privacy dell'organizzazione in Azure AD](https://aka.ms/adprivacystatement).
+Per informazioni sul modo in cui un amministratore del tenant può collegarsi all'informativa sulla privacy dell'organizzazione, vedere [Procedura: Aggiungere le informazioni sulla privacy dell'organizzazione in Azure Active Directory](https://aka.ms/adprivacystatement).
+
+## <a name="terms-of-use"></a>Condizioni per l'utilizzo
+
+È possibile presentare le condizioni per l'utilizzo all'utente guest durante il processo di riscatto iniziale usando la funzionalità Condizioni per l'utilizzo di Azure AD. In Azure Active Directory è possibile accedere a questa funzionalità in **Gestisci** > **Relazioni aziendale** > **Condizioni per l'utilizzo** o in **Sicurezza** > **Accesso condizionale** > **Condizioni per l'utilizzo**. Per altre informazioni, vedere [Funzionalità Condizioni per l'utilizzo di Azure AD](../governance/active-directory-tou.md).
+
+![Screenshot che mostra le nuove condizioni per l'utilizzo](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

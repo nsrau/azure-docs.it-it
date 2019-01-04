@@ -1,5 +1,5 @@
 ---
-title: Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure | Microsoft Docs
+title: Uso avanzato dell'autenticazione e dell'autorizzazione - Servizio app di Azure | Microsoft Docs
 description: Viene illustrato come personalizzare l'autenticazione e l'autorizzazione nel servizio app e ottenere attestazioni utente e token diversi.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685328"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409752"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
 
@@ -26,13 +27,13 @@ Questo articolo illustra come personalizzare i processi predefiniti di [autentic
 
 Se si vuole iniziare subito, vedere una delle esercitazioni seguenti:
 
-* [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel Servizio app di Azure (Windows)](app-service-web-tutorial-auth-aad.md)
 * [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure per Linux](containers/tutorial-auth-aad.md)
-* [Come configurare un'applicazione per usare l'account di accesso di Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [Come configurare un'applicazione per usare l'account di accesso di Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [Come configurare un'applicazione per usare l'account di accesso di Google](app-service-mobile-how-to-configure-google-authentication.md)
-* [Come configurare un'applicazione per usare l'account di accesso Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [Come configurare un'applicazione per usare l'account di accesso di Twitter](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [Come configurare un'applicazione per usare l'account di accesso di Azure Active Directory](configure-authentication-provider-aad.md)
+* [Come configurare un'applicazione per usare l'account di accesso di Facebook](configure-authentication-provider-facebook.md)
+* [Come configurare un'applicazione per usare l'account di accesso di Google](configure-authentication-provider-google.md)
+* [Come configurare un'applicazione per usare l'account di accesso Microsoft](configure-authentication-provider-microsoft.md)
+* [Come configurare un'applicazione per usare l'account di accesso di Twitter](configure-authentication-provider-twitter.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>Usare più provider di accesso
 
@@ -179,11 +180,11 @@ Dal codice client (ad esempio un'app per dispositivi mobili o codice JavaScript 
 
 Quando il token di accesso del provider scade, è necessario ripetere l'autenticazione dell'utente. È possibile evitare la scadenza del token eseguendo una chiamata di `GET` nell'endpoint `/.auth/refresh` dell'applicazione. Quando il metodo viene chiamato, il servizio app aggiorna automaticamente i token di accesso nell'archivio di token per l'utente autenticato. Le successive richieste di token dal codice dell'app ottengono i token aggiornati. Affinché l'aggiornamento dei token funzioni, tuttavia, l'archivio di token deve contenere i [token di aggiornamento](https://auth0.com/learn/refresh-tokens/) per il provider. Il modo per ottenere i token di aggiornamento dipende dal provider, ma di seguito viene riportato un breve riepilogo:
 
-- **Google**: aggiungere un parametro di stringa di query `access_type=offline` alla chiamata API di `/.auth/login/google`. Se si usa Mobile Apps SDK, è possibile aggiungere il parametro a uno degli overload `LogicAsync`. Vedere [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Token di aggiornamento di Google).
-- **Facebook**: non vengono forniti token di aggiornamento. I token di lunga durata scadono dopo 60 giorni. Vedere [Scadenza ed estensione dei token d'accesso di Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension).
-- **Twitter**: i token di accesso non scadono. Vedere le [domande frequenti su OAuth di Twitter](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq).
-- **Account Microsoft**: in fase di [configurazione delle impostazioni di autenticazione dell'account Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md), selezionare l'ambito `wl.offline_access`.
-- **Azure Active Directory**: in [https://resources.azure.com](https://resources.azure.com) seguire questa procedura:
+- **Google**: Aggiungere un parametro di stringa di query `access_type=offline` alla chiamata API di `/.auth/login/google`. Se si usa Mobile Apps SDK, è possibile aggiungere il parametro a uno degli overload `LogicAsync`. Vedere [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Token di aggiornamento di Google).
+- **Facebook**: Non vengono forniti token di aggiornamento. I token di lunga durata scadono dopo 60 giorni. Vedere [Scadenza ed estensione dei token d'accesso di Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension).
+- **Twitter**: I token di accesso non scadono. Vedere le [domande frequenti su OAuth di Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ).
+- **Account Microsoft**: In fase di [configurazione delle impostazioni di autenticazione dell'account Microsoft](configure-authentication-provider-microsoft.md), selezionare l'ambito `wl.offline_access`.
+- **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com) seguire anche questa procedura:
     1. Nella parte superiore della pagina selezionare **Lettura/scrittura**.
     1. Nella finestra del browser a sinistra passare a **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
     1. Fare clic su **Modifica**.
@@ -242,5 +243,5 @@ Fare clic su **Modifica**, modificare la proprietà seguente e quindi fare clic 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Autenticare e autorizzare gli utenti end-to-end (Windows)](app-service-web-tutorial-auth-aad.md)
+> [Esercitazione: Autenticare e autorizzare gli utenti end-to-end(Windows)](app-service-web-tutorial-auth-aad.md)
 > [Esercitazione: Autenticare e autorizzare gli utenti end-to-end (Linux)](containers/tutorial-auth-aad.md)

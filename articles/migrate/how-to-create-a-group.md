@@ -3,31 +3,32 @@ title: Raggruppare i computer per la valutazione con Azure Migrate | Microsoft D
 description: Descrive come raggruppare i computer prima di eseguire una valutazione con il servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 5c5b5dc97c0faf43c9543422406c4fa1c30ed679
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c11d2f22fa08417107b0eecdd902b4521410b358
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203700"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252423"
 ---
 # <a name="group-machines-for-assessment"></a>Raggruppare i computer per la valutazione
 
-Questo articolo descrive come creare un gruppo di computer per la valutazione con [Azure Migrate](migrate-overview.md). Azure Migrate valuta i computer del gruppo per verificare se sono adatti per la migrazione ad Azure e fornisce stime riguardo a dimensioni e costi per l'esecuzione del computer in Azure.
+Questo articolo descrive come creare un gruppo di computer per la valutazione con [Azure Migrate](migrate-overview.md). Azure Migrate valuta i computer del gruppo per verificare se sono adatti per la migrazione ad Azure e fornisce stime riguardo a dimensioni e costi per l'esecuzione del computer in Azure. Se si sa quali macchine devono essere migrate insieme, è possibile creare manualmente il gruppo in Azure Migrate usando il metodo seguente. Se invece non si sa con certezza quali macchine devono essere raggruppate, è possibile usare la funzionalità di visualizzazione delle dipendenze in Azure Migrate per creare i gruppi. [Altre informazioni.](how-to-create-group-machine-dependencies.md)
 
+> [!NOTE]
+> La funzionalità di visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
 
 ## <a name="create-a-group"></a>Creare un gruppo
 
 1. Nella **Panoramica** del progetto di Azure Migrate, in Gestisci, fare clic su  **Gruppi** > **+Gruppo** e specificare un nome di gruppo.
-2. Aggiungere uno o più computer al gruppo e fare clic su  **Crea**. 
-3. Facoltativamente è possibile scegliere di eseguire una nuova valutazione per il gruppo. 
+2. Aggiungere uno o più computer al gruppo e fare clic su  **Crea**.
+3. Facoltativamente è possibile scegliere di eseguire una nuova valutazione per il gruppo.
 
     ![Creare un gruppo](./media/how-to-create-a-group/create-group.png)
 
-Dopo aver creato il gruppo, è possibile modificarlo selezionando la voce corrispondente nella pagina **Gruppi** e aggiungendo o rimuovendo computer.
+Dopo aver creato il gruppo, è possibile modificarlo selezionando la voce corrispondente nella pagina **Gruppi** e aggiungendo o rimuovendo i computer desiderati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Competenze cognitive (Ricerca di Azure) deprecate | Microsoft Docs
+title: Competenze cognitive deprecate - Ricerca di Azure
 description: Questa pagina contiene un elenco delle competenze di ricerca cognitiva considerate deprecate e che non saranno supportate nel prossimo futuro.
 services: search
 manager: pablocas
@@ -10,21 +10,22 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 6bd364ea9923b1c8cdd7c96fc29cb91dff88ec95
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 85f02acf05e89db3e22dd24ecd0e100a9ec4af6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447673"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311729"
 ---
-#    <a name="deprecated-cognitive-seach-skills"></a>Competenze di ricerca cognitiva deprecate
+#    <a name="deprecated-cognitive-search-skills"></a>Competenze di ricerca cognitiva deprecate
 
 Questo documento descrive le competenze cognitive considerate deprecate. Usare la guida seguente per il contenuto:
 
 * Nome della competenza: nome della competenza che sarà deprecata. Esegue il mapping all'attributo @odata.type.
 * Ultima versione disponibile dell'API: versione più recente dell'API pubblica di Ricerca di Azure tramite la quale i set di competenze contenenti la competenza deprecata corrispondente possono essere creati/aggiornati.
 * Fine del supporto: ultimo giorno dopo il quale la competenza corrispondente è considerata non supportata. I set di competenze creati in precedenza dovrebbero continuare a funzionare, ma si consiglia agli utenti di eseguire la migrazione da una competenza deprecata.
-* Raccomandazioni: percorso di migrazione per usare una competenza supportata. Gli utenti sono invitati a seguire le raccomandazioni per continuare a ricevere supporto.
+* Consigli: percorso di migrazione per usare una competenza supportata. Gli utenti sono invitati a seguire le raccomandazioni per continuare a ricevere supporto.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
 

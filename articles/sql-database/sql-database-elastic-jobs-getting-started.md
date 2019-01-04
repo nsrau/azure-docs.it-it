@@ -3,7 +3,7 @@ title: Introduzione a processi di database elastici | Documentazione Microsoft
 description: Usare i processi di database elastici per eseguire gli script T-SQL che si estendono su più database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,27 +12,27 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: ada95f9fc09aeb7e8dac67bc5f9c4af96f9700df
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241362"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863534"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introduzione ai processi di Database Elastici
 
-
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
 
 I processi di database elastico (anteprima) per il database SQL di Azure consentono di eseguire in modo affidabile script T-SQL che si estendono su più database, effettuando tentativi automatici per garantire il completamento delle operazioni. Per altre informazioni sulla funzionalità del processo Database elastico, vedere [Processi elastici](sql-database-elastic-jobs-overview.md).
 
 Questo articolo supporta l'esempio presentato in [Iniziare a utilizzare gli strumenti del database elastico](sql-database-elastic-scale-get-started.md). Al termine, si apprenderà come creare e gestire processi di gestione di un gruppo di database correlati. Non è necessario usare gli strumenti di scalabilità elastica per sfruttare i vantaggi dei processi elastici.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Scaricare ed eseguire [Introduzione allo strumento di esempio del Database elastico](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creare un gestore mappe partizione utilizzando l'applicazione di esempio
+
 Di seguito si crea un gestore mappe partizioni con diverse partizioni, seguita dall'inserimento di dati nelle partizioni. Se si dispone già di programma di installazione di partizioni con dati partizionati in essi, è possibile ignorare i passaggi seguenti e passare alla sezione successiva.
 
 1. Compilare ed eseguire l’applicazione di esempio **Introduzione agli strumenti del Database elastico** . Seguire la procedura fino al passaggio 7 nella sezione [Scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Alla fine del passaggio 7, verrà visualizzato il seguente prompt dei comandi:
@@ -48,8 +48,9 @@ Di seguito si crea un gestore mappe partizioni con diverse partizioni, seguita d
 
 Si creerà una destinazione di partizionamento della mappa, utilizzando il cmdlet **New-AzureSqlJobTarget** . Il database di gestione della mappa di partizione deve essere impostato come destinazione di database e quindi il mapping di partizione specifico viene specificato come destinazione. In questo caso, invece, tutti i database nel server dovranno essere enumerati e aggiunti alla nuova raccolta personalizzata, ad eccezione del database master.
 
-## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Crea una raccolta personalizzata e aggiunge tutti i database nel server alla destinazione della raccolta personalizzata ad eccezione del database master.
-   ```
+## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Crea una raccolta personalizzata e aggiunge tutti i database nel server alla destinazione della raccolta personalizzata ad eccezione del database master
+
+   ```Powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -258,20 +259,20 @@ I processi di database elastici supportano la creazione di criteri di esecuzione
 Criteri di esecuzione che attualmente consentono la definizione di:
 
 * Nome: Identificatore del criterio di esecuzione.
-* Timeout del processo: tempo totale prima che un processo venga annullato dai processi del database elastico.
-* Intervallo tra tentativi iniziale: intervallo di attesa prima del primo tentativo.
-* Intervallo massimo di tentativi: estremità degli intervalli tra i tentativi da utilizzare.
-* Coefficiente di backoff dell’intervallo tra tentativi: coefficiente utilizzato per calcolare l’intervallo successivo tra i tentativi.  Viene utilizzata la seguente formula: (Intervallo tentativi iniziale) * Math.pow((Coefficiente di backoff dell’intervallo), (Numero di tentativi) - 2).
-* Numero massimo di tentativi: Il numero massimo di tentativi all'interno di un processo.
+* Timeout del processo: Tempo totale prima che un processo venga annullato dai processi del database elastico.
+* Intervallo iniziale tra tentativi: Intervallo di attesa che precede il primo tentativo.
+* Intervallo massimo tra tentativi: Limite massimo degli intervalli tra tentativi da usare.
+* Coefficiente di backoff dell'intervallo tra tentativi: Coefficiente usato per calcolare l’intervallo successivo tra i tentativi.  Viene usata la formula seguente: (Intervallo iniziale tra tentativi) * Math.pow((Coefficiente di backoff intervallo), (Numero di tentativi) - 2).
+* Numero massimo di tentativi: Numero massimo di tentativi da eseguire all'interno di un processo.
 
 Il criterio di esecuzione predefinito utilizza i valori seguenti:
 
 * Nome: Criterio di esecuzione predefinito
 * Timeout del processo: 1 settimana
-* Intervallo tra tentativi iniziale: 100 millisecondi
+* Intervallo iniziale tra tentativi:  100 millisecondi
 * Intervallo massimo tra tentativi: 30 minuti
-* Coefficiente di intervallo tra tentativi: 2
-* Numero massimo di tentativi: 2,147,483,647
+* Coefficiente dell'intervallo tra tentativi: 2
+* Numero massimo di tentativi: 2.147.483.647
 
 Creare il criterio di esecuzione desiderato:
 
@@ -301,23 +302,25 @@ Aggiornare l'aggiornamento del criterio di esecuzione desiderato:
    ```
 
 ## <a name="cancel-a-job"></a>Annullare un processo
+
 I processi di database elastico supportano le richieste di annullamento dei processi.  Se i processi del database elastico rilevano una richiesta di annullamento per un processo in fase di esecuzione, verrà effettuato un tentativo di arresto del processo.
 
 E’ possibile cancellare un processo in due modi diversi tramite i processi di database elastici:
 
-1. Annullamento delle attività attualmente in esecuzione: se viene rilevato un annullamento mentre un'attività è attualmente in esecuzione, si tenterà di cancellare l'aspetto di esecuzione corrente dell'attività.  Ad esempio se viene eseguita una query con esecuzione prolungata quando si tenta di eseguire un annullamento, si verificherà un tentativo di annullare la query.
-2. Annullare i tentativi dell'attività: se viene rilevato un annullamento dal thread di controllo prima che venga avviata un'attività per l'esecuzione, il thread di controllo eviterà di avviare l'attività e dichiarerà annullata la richiesta.
+1. Annullando le attività attualmente in esecuzione: Se viene rilevato un annullamento mentre un'attività è in esecuzione, viene tentato un annullamento all'interno dell'aspetto di esecuzione corrente dell'attività.  Ad esempio:  Se una query a esecuzione prolungata è in esecuzione quando si tenta di eseguire un annullamento, viene eseguito un tentativo di annullare la query.
+2. Annullando i tentativi di esecuzione delle attività: Se viene rilevato un annullamento dal thread di controllo prima che venga avviata un'attività per l'esecuzione, il thread di controllo evita di avviare l'attività e dichiara annullata la richiesta.
 
 Se viene richiesto un annullamento del processo per un processo padre, tale richiesta verrà rispettata per il processo padre e per tutti i relativi processi figlio.
 
 Per inviare una richiesta di annullamento, usare il cmdlet **Stop-AzureSqlJobExecution** e impostare il parametro **JobExecutionId**.
 
-   ```
+   ```Powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Eliminare un processo in base al nome e la cronologia del processo
+
 I processi di database elastici supportano l'eliminazione asincrona dei processi. Un processo può essere contrassegnato per l'eliminazione e il sistema lo eliminerà con tutta la relativa cronologia dopo il completamento di tutte le esecuzioni di processo per tale processo. Il sistema non annulla automaticamente le esecuzioni di processo attive.  
 
 Al contrario, è necessario richiamare Stop-AzureSqlJobExecution per annullare le esecuzioni di processo attive.

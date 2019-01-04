@@ -1,21 +1,22 @@
 ---
-title: Informazioni su Speech Service SDK
+title: Informazioni su Speech Service SDK - Servizi di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Panoramica degli SDK disponibili per il servizio Voce.
+description: Speech Service Software Development Kit (SDK) fornisce alle applicazioni l'accesso nativo alle funzioni del servizio Voce, rendendo più semplice lo sviluppo di software. Questo articolo fornisce dettagli aggiuntivi sull'SDK per Windows, Linux e Android.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: b946428f7d3962b2ac4b34fe6524c2079327f1c9
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.custom: seodec18
+ms.openlocfilehash: 820176d60968f6072be4ad19475016be8a3d8ea3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218662"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096843"
 ---
 # <a name="about-the-speech-service-sdk"></a>Informazioni su Speech Service SDK
 
@@ -27,13 +28,13 @@ Speech Service Software Development Kit (SDK) fornisce alle applicazioni l'acces
 
 ## <a name="get-the-sdk"></a>Ottenere l'SDK
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 Per Windows sono supportati le lingue seguenti:
 
-* C#, (piattaforma UWP e .NET), C++: è possibile fare riferimento e usare la versione più recente del pacchetto riconoscimento vocale SDK NuGet. Il pacchetto include librerie client a 32 e 64 bit e librerie gestite (.NET). Per installare l'SDK in Visual Studio, è possibile usare NuGet. Cercare **Microsoft.CognitiveServices.Speech**.
+* C# (UWP e .NET), C++: è possibile fare riferimento alla versione più recente del pacchetto Speech SDK NuGet e usare tale versione. Il pacchetto include librerie client a 32 e 64 bit e librerie gestite (.NET). Per installare l'SDK in Visual Studio, è possibile usare NuGet. Cercare **Microsoft.CognitiveServices.Speech**.
 
-* Java: è possibile fare riferimento e usare la versione più recente del pacchetto Maven di Speech SDK, che supporta solo Windows x64. Nel progetto Maven aggiungere `https://csspeechstorage.blob.core.windows.net/maven/` come repository aggiuntivo e fare riferimento a `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0` come dipendenza. 
+* Java: è possibile fare riferimento alla versione più recente del pacchetto Speech SDK Maven, che supporta solo Windows x64, e usare tale versione. Nel progetto Maven aggiungere `https://csspeechstorage.blob.core.windows.net/maven/` come repository aggiuntivo e fare riferimento a `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0` come dipendenza.
 
 ### <a name="linux"></a>Linux
 
@@ -47,13 +48,13 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 ```
 
-* C#: è possibile fare riferimento e usare la versione più recente del pacchetto riconoscimento vocale SDK NuGet. Per fare riferimento all'SDK, aggiungere al progetto il riferimento al pacchetto seguente:
+* C#: è possibile fare riferimento alla versione più recente del pacchetto Speech SDK NuGet e usare tale versione. Per fare riferimento all'SDK, aggiungere al progetto il riferimento al pacchetto seguente:
 
   ```xml
   <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.1.0" />
   ```
 
-* Java: è possibile fare riferimento e usare la versione più recente del pacchetto riconoscimento vocale SDK Maven. Nel progetto Maven aggiungere `https://csspeechstorage.blob.core.windows.net/maven/` come repository aggiuntivo e fare riferimento a `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0` come dipendenza. 
+* Java: è possibile fare riferimento alla versione più recente del pacchetto Speech SDK Maven e usare tale versione. Nel progetto Maven aggiungere `https://csspeechstorage.blob.core.windows.net/maven/` come repository aggiuntivo e fare riferimento a `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0` come dipendenza.
 
 * C++: scaricare l'SDK come [pacchetto con estensione tar](https://aka.ms/csspeech/linuxbinary) e decomprimere i file nella directory desiderata. La tabella seguente illustra la struttura di cartelle dell'SDK:
 

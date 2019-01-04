@@ -1,6 +1,6 @@
 ---
-title: "DevOps per le applicazioni di intelligenza artificiale: creazione di una pipeline di integrazione continua in Azure mediante un'applicazione Docker, Kubernetes e Python Flask"
-description: 'DevOps per le applicazioni di intelligenza artificiale: creazione di una pipeline di integrazione continua in Azure mediante Docker e Kubernetes'
+title: Creare una pipeline di integrazione continua in Azure - Processo di data science per i team
+description: 'DevOps per le applicazioni di intelligenza artificiale: creazione di una pipeline di integrazione continua in Azure tramite Docker e Kubernetes'
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
-ms.custom: (previous author=jainr, ms.author=jainr)
-ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
+ms.openlocfilehash: a3c570d3d22742afcbba86f35a9dd1f6a85c0b8f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496754"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134285"
 ---
-# <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps per le applicazioni di intelligenza artificiale: creazione di una pipeline di integrazione continua in Azure mediante Docker e Kubernetes
+# <a name="creating-continous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Creazione di una pipeline di integrazione continua in Azure tramite Docker, Kubernetes e Python Flask
 Per un'applicazione di intelligenza artificiale sono spesso presenti due flussi di lavoro: i data scientist che compilano modelli di Machine Learning e gli sviluppatori di app che compilano l'applicazione e la espongono per gli utenti finali. Questo articolo illustra come implementare una pipeline di integrazione continua/recapito continuo per un'applicazione di intelligenza artificiale. L'applicazione di intelligenza artificiale è una combinazione del codice di applicazione incorporato con un modello di Machine Learning (ML) di cui è stato eseguito il training. In questo articolo viene recuperato un modello di cui è già stato eseguito il training da un account di archiviazione BLOB privato di Azure, ma è possibile usare anche un account AWS S3. Nell'articolo viene usata una semplice applicazione Web Python Flask.
 
 > [!NOTE]

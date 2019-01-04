@@ -1,62 +1,88 @@
 ---
-title: Aggiungere o eliminare utenti in Azure Active Directory | Microsoft Docs
-description: Viene illustrato come aggiungere nuovi utenti o eliminare utenti esistenti in Azure Active Directory
+title: 'Aggiungere o eliminare utenti: Azure Active Directory | Microsoft Docs'
+description: Informazioni su come aggiungere nuovi utenti o eliminare utenti esistenti tramite Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: e6e21ea09909a3bd92a21e15428af347e3f20b93
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: dd4a9132d5f04870239be3127f723afb60b3ecef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767475"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104680"
 ---
-# <a name="quickstart-add-new-users-to-azure-active-directory"></a>Guida introduttiva: Aggiungere nuovi utenti ad anteprima di Azure Active Directory
-L'articolo illustra come eliminare o aggiungere utenti nel tenant di Azure Active Directory (Azure AD) dell'organizzazione usando il portale di Azure o sincronizzando i dati dell'account utente Windows Server Active Directory locale. 
+# <a name="add-or-delete-users-using-azure-active-directory"></a>Aggiungere o eliminare utenti tramite Azure Active Directory
+Aggiungere nuovi utenti o eliminare utenti esistenti dalla tenant di Azure Active Directory (Azure AD).
 
-## <a name="add-cloud-based-users"></a>Aggiungere gli utenti basati su cloud
-1. Accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) con un account di amministratore globale per la directory del tenant.
-2. Selezionare **Azure Active Directory** e quindi **Utenti e gruppi**.
-3. In **Utenti e gruppi** selezionare **Tutti gli utenti** e quindi **Nuovo utente**.
-   ![Selezione del comando Aggiungi](./media/add-users-azure-active-directory/add-user.png)
-4. Immettere dettagli per gli utenti, ad esempio **nome** e **nome utente**. La parte del nome di dominio del nome utente deve essere il nome di dominio "[nome dominio]" del nome di dominio predefinito iniziale o un nome di dominio verificato, non federato, [personalizzato, ](add-custom-domain.md)ad esempio "contoso.com".
-5. Copiare o comunque annotare la password generata in modo da poterla fornire all'utente al termine del processo.
-6. Facoltativamente, è possibile aprire e immettere le informazioni in **Profilo**, **Gruppi** o **Ruolo della directory** per l'utente. Per altre informazioni sui ruoli utente e di amministratore, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
-7. In **Utente** selezionare **Crea**.
-8. Distribuire in modo sicuro la password generata al nuovo utente per consentirgli l'accesso.
+## <a name="add-a-new-user"></a>Aggiungere un nuovo utente
+Con il portale Azure Active Directory è possibile creare un nuovo utente.
 
-> [!TIP]
-> È inoltre possibile sincronizzare i dati dell'account utente locale Windows Server Active Directory. Le soluzioni di gestione delle identità di Microsoft abbracciano funzionalità locali e basate sul cloud, creando una singola identità utente per l’autenticazione e l’autorizzazione per tutte le risorse, indipendentemente dalla loro ubicazione. Tutto questo viene chiamato Identità ibrida. È possibile utilizzare [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)per integrare le directory locali con Azure Active Directory per gli scenari con identità ibrida. Consente quindi di fornire agli utenti un'identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD. 
+### <a name="to-add-a-new-user"></a>Per aggiungere un nuovo utente
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale o amministratore utenti per la directory.
 
-## <a name="delete-users-from-azure-ad"></a>Eliminare gli utenti da Azure Active Directory
-1. Accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) con un account di amministratore globale per la directory del tenant.
-2. Selezionare **Utenti e gruppi**.
-3. Nel pannello **Utenti e gruppi**, selezionare l'utente da eliminare dall'elenco. 
-4. Nel pannello dell'utente selezionare **Panoramica**, quindi nella barra dei comandi selezionare **Elimina**.
-   ![Selezione del comando Aggiungi](./media/add-users-azure-active-directory/delete-user.png)
+2. Selezionare **Azure Active Directory**, **Utenti** e quindi selezionare **Nuovo utente**.
 
+    ![Pagina Utenti - Tutti gli utenti con il comando Nuovo utente evidenziato](media/add-users-azure-active-directory/new-user-all-users-blade.png)
 
-### <a name="learn-more"></a>Altre informazioni 
-* [Aggiungere utenti guest da un'altra directory](../b2b/what-is-b2b.md) 
-* [Assegnare un utente a un ruolo in Azure AD](active-directory-users-assign-role-azure-portal.md)
-* [Gestire i profili utente](active-directory-users-profile-azure-portal.md)
-* [Ripristinare un utente eliminato](active-directory-users-restore.md)
+3. Nella pagina **Utente** inserire le informazioni richieste.
 
+    ![Aggiunta di un nuovo utente, pagina Utente con le informazioni sull'utente](media/add-users-azure-active-directory/new-user-user-blade.png)
 
+    - **Nome (obbligatorio).** Nome e cognome del nuovo utente. Ad esempio, Mary Parker.
+
+    - **Nome utente (obbligatorio).** Nome utente del nuovo utente. Ad esempio: mary@contoso.com. 
+    
+        La parte relativa al dominio del nome utente deve usare il nome di dominio predefinito iniziale, <_nomedominio_>.onmicrosoft.com o un nome di dominio personalizzato, ad esempio contoso.com. Per altre informazioni su come creare un nome di dominio personalizzato, vedere [Come aggiungere un nome di dominio personalizzato ad Azure Active Directory](add-custom-domain.md).
+
+    - **Profilo.** Facoltativamente, è possibile aggiungere altre informazioni sull'utente. È anche possibile aggiungere informazioni sull'utente in un secondo momento. Per altre informazioni sull'aggiunta di informazioni sull'utente, vedere [Come aggiungere o modificare informazioni di un profilo utente](active-directory-users-profile-azure-portal.md).
+
+    - **Gruppi.** Facoltativamente, è possibile aggiungere l'utente a uno o più gruppi esistenti. È anche possibile aggiungere l'utente a gruppi in un secondo momento. Per altre informazioni sull'aggiunta di utenti a gruppi, vedere [Come creare un gruppo di base e aggiungere membri](active-directory-groups-create-azure-portal.md).
+
+    - **Ruolo directory.** Facoltativamente, è possibile aggiungere l'utente a un ruolo della directory. È possibile assegnare all'utente il ruolo di amministratore globale o uno o più degli altri ruoli di amministratore in Azure AD. Per altre informazioni sull'assegnazione di ruoli, vedere [Come assegnare ruoli agli utenti](active-directory-users-assign-role-azure-portal.md).
+
+4. Copiare la password generata automaticamente nella casella **Password**. È necessario fornire la password all'utente per la procedura di accesso iniziale.
+
+5. Selezionare **Create**.
+
+    L'utente viene creato e aggiunto al tenant di Azure AD.
+
+## <a name="add-a-new-user-within-a-hybrid-environment"></a>Aggiungere un nuovo utente all'interno di un ambiente ibrido
+Se l'ambiente usa sia Azure Active Directory (cloud) che Windows Server Active Directory (locale), è possibile aggiungere nuovi utenti sincronizzando i dati degli account utente esistenti. Per altre informazioni sugli ambienti ibridi e sugli utenti, vedere [Integrare le directory locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+
+## <a name="delete-a-user"></a>Eliminare un utente
+Con il portale Azure Active Directory è possibile eliminare un utente esistente.
+
+### <a name="to-delete-a-user"></a>Per eliminare un utente
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un account amministratore globale per la directory.
+
+2. Selezionare **Azure Active Directory**, **Utenti** e quindi cercare e selezionare l'utente che si vuole eliminare dal tenant di Azure AD, ad esempio, _Mary Parker_.
+
+3. Selezionare **Elimina utente**.
+
+    ![Pagina Utenti - Tutti gli utenti con il comando Elimina utente evidenziato](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
+
+    L'utente viene eliminato e non è più visualizzato nella pagina **Utenti - Tutti gli utenti**. L'utente può essere visualizzato nella pagina **Utenti eliminati** per i 30 giorni successivi e durante tale periodo può essere ripristinato. Per altre informazioni sul ripristino di un utente, vedere [Come ripristinare o rimuovere definitivamente un utente eliminato di recente](active-directory-users-restore.md).
+
+    >[!Note]
+    >Per aggiornare l'identità, le informazioni di contatto o le informazioni professionali per gli utenti la cui origine dell'autorità è Windows Server Active Directory, è necessario usare Windows Server Active Directory. Dopo aver completato l'aggiornamento, è necessario attendere il ciclo di sincronizzazione successivo prima di poter visualizzare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa guida introduttiva si è appreso come aggiungere nuovi utenti ad Azure AD Premium. 
+Dopo aver aggiunto gli utenti, è possibile eseguire i processi di base seguenti:
 
-È possibile usare il collegamento seguente per creare un nuovo utente in Azure AD dal portale di Azure.
+- [Aggiungere o modificare le informazioni sul profilo utente](active-directory-users-profile-azure-portal.md)
 
->[!div class="nextstepaction"]
->[Aggiungere utenti ad Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/)
+- [Assegnare ruoli agli utenti](active-directory-users-assign-role-azure-portal.md)
+
+- [Creare un gruppo di base e aggiungere membri](active-directory-groups-create-azure-portal.md)
+
+- [Utilizzare gruppi e utenti dinamici](../users-groups-roles/groups-create-rule.md)
+
+In alternativa, è possibile eseguire altre attività di gestione degli utenti, ad esempio [aggiungere utenti guest da un'altra directory](../b2b/what-is-b2b.md) oppure [ripristinare un utente eliminato](active-directory-users-restore.md). Per altre informazioni sulle altre azioni disponibili, vedere [Documentazione sulla gestione degli utenti in Azure Active Directory](../users-groups-roles/index.yml).

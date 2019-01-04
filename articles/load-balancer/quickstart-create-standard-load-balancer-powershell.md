@@ -1,5 +1,6 @@
 ---
-title: "Guida introduttiva: Creare un'istanza di Load Balancer Standard - Azure PowerShell | Microsoft Docs"
+title: "Avvio rapido: Creare un'istanza di Load Balancer Standard - Azure PowerShell"
+titlesuffix: Azure Load Balancer
 description: Questa guida introduttiva mostra come creare un'istanza di Load Balancer Standard usando PowerShell
 services: load-balancer
 documentationcenter: na
@@ -13,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
-ms:custom: mvc
-ms.openlocfilehash: e4e66d18f9dcb7f020cdb881226f6e47118e5186
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms:custom: seodec18
+ms.openlocfilehash: 0db575ee6c04c0fb4639ea2e9e095200da781fe8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578553"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256316"
 ---
-# <a name="get-started"></a>Guida introduttiva - Creare un'istanza di Load Balancer Standard usando Azure PowerShell
+# <a name="get-started"></a>Avvio rapido: Creare un'istanza di Load Balancer Standard usando Azure PowerShell
 Questa guida introduttiva mostra come creare un'istanza di Load Balancer Standard usando Azure PowerShell. Per testare il servizio di bilanciamento del carico, si distribuiscono due macchine virtuali che eseguono Windows Server e si bilancia il carico di un'app Web tra le due macchine virtuali. Per saperne di più su Load Balancer Standard, vedere [Panoramica di Azure Load Balancer Standard](load-balancer-standard-overview.md).
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]

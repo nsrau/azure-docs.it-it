@@ -1,5 +1,5 @@
 ---
-title: Configurare la modalità trasporto IPSec per gli host Windows - Peering privato Azure ExpressRoute | Microsoft Docs
+title: 'Configurare la modalità di trasporto IPsec per host Windows - peering privato: ExpressRoute: Azure | Microsoft Docs'
 description: Come abilitare la modalità trasporto IPSec tra macchine virtuali Windows di Azure e host Windows locali tramite il peering privato ExpressRoute usando oggetti Criteri di gruppo e unità organizzative.
 services: expressroute
 author: fabferri
@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
-ms.openlocfilehash: 1b228f0238c678c0cea4a6be2a6c3e0b929ed4d6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 39bbe8a0ec11b90d506ce0d1c0bad37ddba46a5d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394330"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139121"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurare la modalità trasporto IPSec per il peering privato ExpressRoute
 
@@ -46,9 +47,9 @@ I **criteri IPSec** sono composti dagli elementi seguenti: **elenchi di filtri**
 
 Quando si configurano i criteri IPSec, è importante comprendere la terminologia seguente:
 
-* **Criteri IPSec:** raccolta di regole. In un determinato momento può essere attivo ("assegnato") un solo criterio. Ogni criterio può avere una o più regole, che possono essere attive contemporaneamente. A un computer può venire assegnato solo un criterio IPSec attivo in un determinato momento. Tuttavia, all'interno di un criterio IPSec, è possibile definire più operazioni che possono essere eseguite in situazioni diverse. Ogni set di regole IPSec è associato a un elenco di filtri che influiscono sul tipo di traffico di rete a cui si applica la regola.
+* **Criteri IPsec:** una raccolta di regole. In un determinato momento può essere attivo ("assegnato") un solo criterio. Ogni criterio può avere una o più regole, che possono essere attive contemporaneamente. A un computer può venire assegnato solo un criterio IPSec attivo in un determinato momento. Tuttavia, all'interno di un criterio IPSec, è possibile definire più operazioni che possono essere eseguite in situazioni diverse. Ogni set di regole IPSec è associato a un elenco di filtri che influiscono sul tipo di traffico di rete a cui si applica la regola.
 
-* **Elenchi di filtri:** gli elenchi di filtri sono gruppi di uno o più filtri. Un elenco può contenere più filtri. Un filtro definisce se la comunicazione è consentita, protetta o bloccata, in base a intervalli di indirizzi IP, protocolli o anche porte specifiche dei protocolli. Ogni filtro corrisponde a un particolare set di condizioni, ad esempio i pacchetti inviati da una subnet specifica a un determinato computer su una porta di destinazione specifica. Quando le condizioni di rete corrispondono a uno o più filtri, l'elenco di filtri viene attivato. Ogni filtro è definito all'interno di un elenco di filtri specifico. I filtri non possono essere condivisi tra elenchi di filtri. Un determinato elenco di filtri può tuttavia essere incorporato in diversi criteri IPSec. 
+* **Elenchi di filtri:** gli elenchi di filtri sono aggregazioni di uno o più filtri. Un elenco può contenere più filtri. Un filtro definisce se la comunicazione è consentita, protetta o bloccata, in base a intervalli di indirizzi IP, protocolli o anche porte specifiche dei protocolli. Ogni filtro corrisponde a un particolare set di condizioni, ad esempio i pacchetti inviati da una subnet specifica a un determinato computer su una porta di destinazione specifica. Quando le condizioni di rete corrispondono a uno o più filtri, l'elenco di filtri viene attivato. Ogni filtro è definito all'interno di un elenco di filtri specifico. I filtri non possono essere condivisi tra elenchi di filtri. Un determinato elenco di filtri può tuttavia essere incorporato in diversi criteri IPSec. 
 
 * **Operazioni di filtro:** un metodo di sicurezza definisce un set di algoritmi di sicurezza, protocolli e chiavi offerti da un computer durante le negoziazioni IKE. Le operazioni di filtro sono elenchi di metodi di sicurezza, classificati in ordine di preferenza.  Quando un computer negozia una sessione IPSec, accetta o invia proposte in base all'impostazione di sicurezza archiviata nell'elenco di operazioni di filtro.
 
@@ -131,7 +132,7 @@ Per applicare l'oggetto Criteri di gruppo all'unità organizzativa, non è suffi
 3. Nella pagina **Impostazione guidata operazione filtro sicurezza IP** fare clic su **Avanti**.
 
   [![17]][17]
-4. Assegnare all'operazione di filtro un nome intuitivo in modo che sia possibile trovarla in seguito. In questo esempio il nome dell'operazione di filtro è **myEncryption**. È anche possibile aggiungere una descrizione. Quindi fare clic su **Avanti**.
+4. Assegnare all'operazione di filtro un nome intuitivo in modo che sia possibile trovarla in seguito. In questo esempio il nome dell'operazione di filtro è **myEncryption**. È anche possibile aggiungere una descrizione. Quindi fare clic su **Next**.
 
   [![18]][18]
 5. L'opzione **Negozia sicurezza** consente di definire il comportamento se non è possibile abilitare IPSec per la comunicazione con un altro computer. Selezionare **Negozia sicurezza** e quindi fare clic su **Avanti**.
@@ -146,7 +147,7 @@ Per applicare l'oggetto Criteri di gruppo all'unità organizzativa, non è suffi
 8. Nella pagina **Impostazioni personalizzate metodo di sicurezza** selezionare **Integrità dati con crittografia (ESP): SHA1, 3DES**. Fare quindi clic su **OK**.
 
   [![22]][22]
-9. Nella pagina **Gestione operazioni filtro** è possibile vedere che il filtro **myEncryption** è stato aggiunto correttamente. Fare clic su **Chiudi**.
+9. Nella pagina **Gestione operazioni filtro** è possibile vedere che il filtro **myEncryption** è stato aggiunto correttamente. Fare clic su **Close**.
 
   [![23]][23]
 
@@ -160,7 +161,7 @@ Creare un elenco di filtri che specifica il traffico HTTP crittografato destinat
 2. Nel campo **Nome** digitare un nome per l'elenco di filtri IP. Ad esempio, **azure-onpremises-HTTP8080**. Fare quindi clic su **Aggiungi**.
 
   [![25]][25]
-3. Nella pagina **Descrizione filtro IP e proprietà Speculare** selezionare **Speculare**. L'impostazione speculare consente di definire una corrispondenza con i pacchetti che viaggiano in entrambe le direzioni, permettendo la comunicazione bidirezionale. Quindi fare clic su **Avanti**.
+3. Nella pagina **Descrizione filtro IP e proprietà Speculare** selezionare **Speculare**. L'impostazione speculare consente di definire una corrispondenza con i pacchetti che viaggiano in entrambe le direzioni, permettendo la comunicazione bidirezionale. Quindi fare clic su **Next**.
 
   [![26]][26]
 4. Nella pagina **Origine traffico IP**, nell'elenco a discesa **Indirizzo origine** scegliere **Subnet o indirizzo IP specifico**. 
@@ -169,13 +170,13 @@ Creare un elenco di filtri che specifica il traffico HTTP crittografato destinat
 5. Specificare l'indirizzo di origine in **Subnet o indirizzo IP** per il traffico IP e quindi fare clic su **Avanti**.
 
   [![28]][28]
-6. Specificare il valore di Subnet o indirizzo IP in **Indirizzo di destinazione**. Quindi fare clic su **Avanti**.
+6. Specificare il **Tipo di indirizzo di destinazione:** indirizzo IP o subnet. Quindi fare clic su **Next**.
 
   [![29]][29]
-7. Nella pagina **Tipo protocollo IP** selezionare **TCP**. Quindi fare clic su **Avanti**.
+7. Nella pagina **Tipo protocollo IP** selezionare **TCP**. Quindi fare clic su **Next**.
 
   [![30]][30]
-8. Nella pagina **Porta protocollo IP** selezionare **Da qualsiasi porta** e **A questa porta**. Digitare **8080** nella casella di testo. Queste impostazioni specificano che solo il traffico HTTP destinato alla porta 8080 verrà crittografato. Quindi fare clic su **Avanti**.
+8. Nella pagina **Porta protocollo IP** selezionare **Da qualsiasi porta** e **A questa porta**. Digitare **8080** nella casella di testo. Queste impostazioni specificano che solo il traffico HTTP destinato alla porta 8080 verrà crittografato. Quindi fare clic su **Next**.
 
   [![31]][31]
 9. Visualizzare l'elenco di filtri IP.  La configurazione dell'elenco di filtri IP **azure-onpremises-HTTP8080** attiva la crittografia per tutto il traffico che soddisfa i criteri seguenti:
@@ -213,7 +214,7 @@ Creare un criterio IPSec con regole di sicurezza.
 1. Selezionare la voce **Criteri di sicurezza IP su Active Directory** associata all'unità organizzativa. Fare clic con il pulsante destro del mouse e scegliere **Crea criterio di sicurezza IP**.
 
   [![37]][37]
-2. Assegnare un nome al criterio di sicurezza. Ad esempio, **policy-azure-onpremises**. Quindi fare clic su **Avanti**.
+2. Assegnare un nome al criterio di sicurezza. Ad esempio, **policy-azure-onpremises**. Quindi fare clic su **Next**.
 
   [![38]][38]
 3. Fare clic su **Avanti** senza selezionare la casella di controllo.
@@ -251,7 +252,7 @@ Aggiungere i criteri IPSec all'**elenco di filtri IP** e all'**operazione di fil
 6. Selezionare l'operazione di filtro esistente **myEncryption** creata in precedenza.
 
   [![46]][46]
-7. Windows supporta quattro tipi diversi di autenticazioni: Kerberos, certificati, NTLMv2 e chiave già condivisa. Poiché si stanno usando host aggiunti al dominio, selezionare **Impostazione predefinita di Active Directory (protocollo V5 Kerberos)** e quindi fare clic su **Avanti**.
+7. Windows supporta quattro diversi tipi di autenticazione: Kerberos, con certificati, NTLMv2 e con chiave precondivisa. Poiché si stanno usando host aggiunti al dominio, selezionare **Impostazione predefinita di Active Directory (protocollo V5 Kerberos)** e quindi fare clic su **Avanti**.
 
   [![47]][47]
 8. Il nuovo criterio crea la regola di sicurezza: **azure-onpremises-HTTP8080**. Fare clic su **OK**.

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 3686a90cb088dae99d20df619c161251b5bdfd60
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a7b6122638636193b363d0ac57aae22a9c7da57a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438944"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014753"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Esercitazione: Integrazione di Azure Active Directory con Predictix Price Reporting.
+# <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Esercitazione: Integrazione di Azure Active Directory con Predictix Price Reporting
 
 Questa esercitazione descrive come integrare Predictix Price Reporting con Azure Active Directory (Azure AD).
 
@@ -113,13 +113,14 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname-pricing>.predictix.com/sso/request`
 
     b. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente:
+    
     | |
     |--|
     | `https://<companyname-pricing>.predictix.com` |
     | `https://<companyname-pricing>.dev.predictix.com` |
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Predictix Price Reporting](http://www.infor.com/company/customer-center/). 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Predictix Price Reporting](https://www.infor.com/company/customer-center/). 
  
 1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -133,10 +134,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configurazione di Predictix Price Reporting](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_configure.png) 
 
-1. Per configurare l'accesso Single Sign-On sul lato **Predictix Price Reporting**, è necessario inviare il **Certificato (Base64)** scaricato e i valori di **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** (URL di disconnessione, ID entità SAML e URL servizio Single Sign-On SAML) al [team di supporto di Predictix Price Reporting](http://www.infor.com/company/customer-center/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On sul lato **Predictix Price Reporting**, è necessario inviare il **Certificato (Base64)** scaricato e i valori di **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** (URL di disconnessione, ID entità SAML e URL servizio Single Sign-On SAML) al [team di supporto di Predictix Price Reporting](https://www.infor.com/company/customer-center/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
@@ -173,7 +174,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-predictix-price-reporting-test-user"></a>Creare un utente test di Predictix Price Reporting
 
-In questa sezione viene creato un utente di nome Britta Simon in Predictix Price Reporting. Per aggiungere gli utenti nella piattaforma di Predictix Price Reporting, contattare il [team di supporto tecnico di Predictix Price Reporting](http://www.infor.com/company/customer-center/).
+In questa sezione viene creato un utente di nome Britta Simon in Predictix Price Reporting. Per aggiungere gli utenti nella piattaforma di Predictix Price Reporting, contattare il [team di supporto tecnico di Predictix Price Reporting](https://www.infor.com/company/customer-center/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

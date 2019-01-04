@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language
+title: Speech Synthesis Markup Language - Servizi di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Uso di Speech Synthesis Markup Language per controllare la pronuncia e la prosodia nella sintesi vocale.
 services: cognitive-services
@@ -8,22 +8,26 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/08/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: b32be520adeee2de50c8f49c2884dc9dc92c0ddd
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: f6a2d6a35200bc4dec169aae72415c1c2904c465
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469283"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341134"
 ---
 # <a name="speech-synthesis-markup-language"></a>Speech Synthesis Markup Language
 
-Speech Synthesis Markup Language (SSML) è un linguaggio di markup basato su XML che fornisce un modo per controllare la pronuncia e la *prosodia* della sintesi vocale. La prosodia è il ritmo e tono della voce, ovvero la sua musicalità, se si vuole. È possibile specificare le parole foneticamente, fornire suggerimenti per l'interpretazione dei numeri, inserire pause, controllare tono, volume e frequenza e altro ancora.
+Speech Synthesis Markup Language (SSML) è un linguaggio di markup basato su XML che fornisce un modo per controllare la pronuncia e la *prosodia* della sintesi vocale. La prosodia è il ritmo e tono della voce, ovvero la sua musicalità, se si vuole. È possibile specificare le parole foneticamente, fornire suggerimenti per l'interpretazione dei numeri, inserire pause, controllare tono, volume e frequenza e altro ancora. Per altre informazioni, vedere [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) (Speech Synthesis Markup Language (SSML) versione 1.0).
 
-Per altre informazioni, vedere [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) (Speech Synthesis Markup Language (SSML) versione 1.0) sul sito Web del W3C.
+Per un elenco completo delle lingue supportate, delle impostazioni locali e delle voci (neurale e standard), vedere [Supporto per le lingue](language-support.md#text-to-speech).
 
-Gli esempi seguenti illustrano come usare SSML per esigenze di sintesi vocale comuni:
+Le sezioni seguenti offrono esempi di attività di sintesi vocale comuni.
+
+>[!IMPORTANT]
+> Attualmente, l'assegnazione di tag alla prosodia è disponibile solo per le voci standard.
 
 ## <a name="add-a-break"></a>Aggiungere un'interruzione
 ```xml
@@ -89,5 +93,4 @@ Gli esempi seguenti illustrano come usare SSML per esigenze di sintesi vocale co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)
+* [Supporto per le lingue: voci, impostazioni locali, lingue](language-support.md)

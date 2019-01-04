@@ -5,9 +5,8 @@ keywords: guida introduttiva, linguaggio r, linguaggio di programmazione r, eser
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: eea61419e76f4363a286f796e6df28a4e90a9ed7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317671"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278662"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Esercitazione di avvio rapido per il linguaggio di programmazione R per Azure Machine Learning Studio
 
@@ -33,7 +32,7 @@ Questa esercitazione con guida rapida consente di iniziare rapidamente a estende
 
 Microsoft Azure Machine Learning contiene molti moduli validi per Machine Learning e per la manipolazione dei dati. Il potente linguaggio R è stato definito come la lingua franca dell'analisi. Per fortuna, le analisi e la manipolazione dei dati Azure Machine Learning possono essere estese usando R. Questa combinazione fornisce la scalabilità e la facilità di distribuzione di Azure Machine Learning con la flessibilità e l'analisi approfondita di R.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="forecasting-and-the-dataset"></a>Previsione e set di dati
 La previsione è un metodo analitico molto utile e ampiamente distribuito. Viene comunemente usata per vari scopi, dalla previsione di vendita di articoli stagionali alla definizione dei livelli di scorte ottimali, fino alla previsione di variabili macroeconomiche. In genere, inoltre, viene eseguita con modelli in serie temporale.
@@ -1228,7 +1227,7 @@ RStudio viene fornito con una documentazione molto dettagliata. In questa append
    
    Le funzionalità di risoluzione dei problemi del punto di interruzione sono documentate all'indirizzo https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
-## <a id="appendixb"></a>APPENDICE B: Letture di approfondimento
+## <a id="appendixb"></a>APPENDICE B: Altre informazioni
 Questa esercitazione sulla programmazione R illustra le nozioni di base sull'ambito di utilizzo del linguaggio R con Azure Machine Learning Studio. Se non si ha familiarità con R, in CRAN sono disponibili due introduzioni:
 
 * R for Beginners di Emmanuel Paradis è un buon punto partenza, disponibile all'indirizzo http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  

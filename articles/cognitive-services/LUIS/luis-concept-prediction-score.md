@@ -1,23 +1,24 @@
 ---
-title: Punteggio di stima - Finalità, entità - LUIS
-titleSuffix: Azure Cognitive Services
+title: Punteggi di stima
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Il punteggio di stima indica il grado di attendibilità rispetto ai risultati di stima di LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d082f8ee4d516e3c9571ec63653f39723cad8c77
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264387"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141986"
 ---
-# <a name="prediction-score"></a>Punteggio di previsione
+# <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>I punteggi di stima indicano l'accuratezza delle stime per la finalità e le entità
 Il punteggio di stima indica il grado di attendibilità rispetto ai risultati di stima di LUIS. 
 
 Un punteggio di stima è compreso tra zero (0) e uno (1). Un esempio di punteggio LUIS altamente attendibile è 0,99. Un esempio di punteggio poco attendibile è 0,01. 

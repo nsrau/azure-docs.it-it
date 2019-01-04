@@ -1,6 +1,6 @@
 ---
-title: Spostare i dati da e verso l'archivio BLOB di Azure | Microsoft Docs
-description: Spostare i dati da e verso l'archivio BLOB di Azure
+title: Spostare i dati da e verso una risorsa di archiviazione BLOB di Azure - Processo di data science per i team
+description: Spostare i dati da e verso una risorsa di archiviazione BLOB di Azure
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,18 +10,21 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: fa3fd5dfdd0fbdb8200b0c5c8df512caedbe735c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a37c19ac0d3c053644b2f1f970ef9f84eac2f1df
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441843"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139858"
 ---
-# <a name="move-data-to-and-from-azure-blob-storage"></a>Spostare i dati da e verso l'archivio BLOB di Azure
+# <a name="move-data-to-and-from-azure-blob-storage"></a>Spostare i dati da e verso una risorsa di archiviazione BLOB di Azure
 
-Il Processo di analisi scientifica dei dati per i team richiede l'inserimento o il caricamento di dati in una vasta gamma di ambienti di archiviazione diversi per l'elaborazione e l'analisi nei modi più appropriati in ogni fase del processo.
-Gli articoli seguenti descrivono come spostare i dati da e verso l'archivio BLOB di Azure usando tecnologie diverse.
+Il processo di data science per i team richiede l'inserimento o il caricamento di dati in una vasta gamma di ambienti di archiviazione diversi per l'elaborazione e l'analisi nei modi più appropriati in ogni fase del processo.
+
+## <a name="different-technologies-for-moving-data"></a>Tecnologie diverse per lo spostamento dei dati
+
+Gli articoli seguenti descrivono come spostare i dati da e verso una risorsa di archiviazione BLOB di Azure usando tecnologie diverse.
 
 * [Azure Storage Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
 * [AzCopy](move-data-to-azure-blob-using-azcopy.md)
@@ -35,6 +38,8 @@ Quale sia il metodo adatto dipenderà dallo scenario. L'articolo [Scenari per l'
 > 
 > 
 
+## <a name="using-azure-data-factory"></a>Uso di Data factory di Azure
+
 In alternativa, è possibile utilizzare [Data factory di Azure](https://azure.microsoft.com/services/data-factory/) per: 
 
 * creare e pianificare una pipeline che scarica i dati dall'archiviazione BLOB di Azure; 
@@ -45,7 +50,7 @@ In alternativa, è possibile utilizzare [Data factory di Azure](https://azure.mi
 Per altre informazioni, vedere [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-In questo documento si presuppone di avere una sottoscrizione di Azure, un account di archiviazione e chiavi di archiviazione corrispondenti per quell'account. Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave del proprio account di archiviazione di Azure.
+In questo articolo si presuppone che l'utente abbia una sottoscrizione di Azure, un account di archiviazione e chiavi di archiviazione corrispondenti per l'account. Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave del proprio account di archiviazione di Azure.
 
 * Per configurare una sottoscrizione di Azure, vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 * Per istruzioni sulla creazione di un account di archiviazione e per ottenere informazioni sull’account e la chiave, vedere [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md).

@@ -1,20 +1,21 @@
 ---
-title: Inviare eventi ad Hub eventi di Azure usando Go | Microsoft Docs
-description: Guida introduttiva all'invio di eventi ad Hub eventi tramite Go
+title: Inviare eventi tramite Go - Hub eventi di Azure | Microsoft Docs
+description: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione Go in grado di inviare eventi ad Hub eventi di Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: f5e30a103b09613caee8e9912a89a5bc2d390f65
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 44cbea8cc40f83ed5fdd2863da0cb0a01e8dc2b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458089"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091061"
 ---
 # <a name="send-events-to-event-hubs-using-go"></a>Inviare eventi ad Hub eventi usando Go
 
@@ -30,10 +31,11 @@ Questa esercitazione descrive come inviare eventi a un hub eventi da un'applicaz
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 * Go installato in locale. Seguire [queste istruzioni](https://golang.org/doc/install), se necessario.
-* Un hub eventi e uno spazio dei nomi di Hub eventi esistenti. È possibile creare queste entità seguendo le istruzioni di [questo articolo](event-hubs-create.md).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi
-Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md) e quindi procedere con i passaggi seguenti di questa esercitazione.
+Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md).
+
+Continuare ora con i passaggi seguenti dell'esercitazione.
 
 ## <a name="install-go-package"></a>Installare il pacchetto di Go
 

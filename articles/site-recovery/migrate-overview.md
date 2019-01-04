@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 6f510ac394b939996defe0a7ed49317ec0aabe3b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9a5c45b66e775ce83625e1f6d9507aaf456c7c7b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211996"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843989"
 ---
 # <a name="about-migration"></a>Informazioni sulla migrazione
 
@@ -21,9 +21,9 @@ Leggere questo articolo per una rapida panoramica del modo in cui il servizio [A
 
 Di seguito sono riportate le operazioni di migrazione che è possibile eseguire con Site Recovery:
 
-- **Eseguire la migrazione da locale ad Azure**: Eseguire la migrazione da server fisici e VM Hyper-V e VMware locali ad Azure. Al termine della migrazione, i carichi di lavoro in esecuzione nei computer locali verranno eseguiti in VM di Azure. 
-- **Eseguire la migrazione all'interno di Azure**. Eseguire la migrazione di VM di Azure tra aree di Azure. 
-- **Eseguire la migrazione da AWS**. Eseguire la migrazione di istanze Windows AWS a VM IaaS di Azure. 
+- **Eseguire la migrazione da locale ad Azure**: eseguire la migrazione da server fisici e macchine virtuali Hyper-V e VMware locali ad Azure. Al termine della migrazione, i carichi di lavoro in esecuzione nei computer locali verranno eseguiti in VM di Azure. 
+- **Eseguire la migrazione all'interno di Azure**: eseguire la migrazione di machine virtuali di Azure tra aree di Azure. 
+- **Eseguire la migrazione da AWS**: eseguire la migrazione di istanze di Windows per Amazon Web Services a macchine virtuali IaaS di Azure. 
 
 
 ## <a name="what-do-we-mean-by-migration"></a>Informazioni sulla migrazione

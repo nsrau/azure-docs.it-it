@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: fe6199aea91bbb7518ccdbfe640848a59edcee49
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2198d7520d660904423eabbec8df71e55e3011dd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215464"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338635"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurare il ripristino di emergenza di macchine virtuali VMware locali o server fisici in un sito secondario
 
@@ -29,7 +29,7 @@ A breve terminerà il supporto per lo scenario di Azure Site Recovery per la rep
 Durante il 2018 e il 2019 verranno rilasciati due aggiornamenti: 
 
 -   Aggiornamento 7: consente di risolvere problemi di conformità e di configurazione di rete e fornisce il supporto di TLS 1.2.
--   Aggiornamento 8: aggiunge il supporto per i sistemi operativi Linux RHEL/CentOS 7.3/7.4/7.5 e per SUSE 12.
+-   Aggiornamento 8: aggiunge il supporto per i sistemi operativi Linux RHEL/CentOS 7.3/7.4/7.5 e per SUSE 12
 
 Dopo l'Aggiornamento 8 non verranno rilasciati ulteriori aggiornamenti. Vi sarà un supporto limitato a hotfix per i sistemi operativi aggiunti nell'Aggiornamento 8 e correzioni di bug basate sul massimo sforzo.
 
@@ -97,16 +97,16 @@ Scaricare il file ZIP dell'[aggiornamento](https://aka.ms/asr-scout-update6). Il
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
   - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - Bit per update4 dell'agente utente per RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. Estrarre i file ZIP.
 2. **Server RX**: copiare **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** nel server RX ed estrarlo. Nella cartella estratta eseguire **/Install**.
 3. **Server di configurazione e server di elaborazione**: copiare **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** nel server di configurazione e in quello di elaborazione. Fare doppio clic per eseguirlo.<br>
-4. **Server di destinazione master Windows**: per aggiornare l'agente unificato, copiare **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** nel server. Fare doppio clic per eseguirlo. Lo stesso aggiornamento dell'agente unificato è applicabile anche per il server di origine. Se l'origine non è stata aggiornata alla versione Update 4, è consigliabile aggiornare l'agente unificato.
+4. **Server di destinazione master Windows**: Per aggiornare l'agente unificato, copiare **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** nel server. Fare doppio clic per eseguirlo. Lo stesso aggiornamento dell'agente unificato è applicabile anche per il server di origine. Se l'origine non è stata aggiornata alla versione Update 4, è consigliabile aggiornare l'agente unificato.
   Non è necessario che l'aggiornamento venga applicato al server di destinazione master preparato con **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**, perché questo è un programma di installazione disponibile a livello generale che include tutte le modifiche più recenti.
-5. **Server vContinuum**: copiare **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** nel server.  Assicurarsi che la procedura guidata vContinuum sia stata chiusa. Fare doppio clic sul file per eseguirlo.
+5. **Server vContinuum**:  copiare **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** nel server.  Assicurarsi che la procedura guidata vContinuum sia stata chiusa. Fare doppio clic sul file per eseguirlo.
     Non è necessario che l'aggiornamento venga applicato al server di destinazione master preparato con **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**, perché questo è un programma di installazione disponibile a livello generale che include tutte le modifiche più recenti.
 6. **Server di destinazione master Linux**: per aggiornare l'agente unificato, copiare **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** nel server di destinazione master ed estrarlo. Nella cartella estratta eseguire **/Install**.
-7. **Server di origine Windows**: per aggiornare l'agente unificato, copiare **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** nel server di origine. Fare doppio clic sul file per eseguirlo. 
+7. **Server di origine Windows**: Per aggiornare l'agente unificato, copiare **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** nel server di origine. Fare doppio clic sul file per eseguirlo. 
     Non è necessario installare l'agente della versione Update 5 nel server di origine se è già stato aggiornato a Update 4 o se l'agente di origine è stato installato con il programma di installazione di base più recente **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
 8. **Server di origine Linux**: per aggiornare l'agente unificato, copiare la versione corrispondente del file dell'agente unificato nel server Linux ed estrarlo. Nella cartella estratta eseguire **/Install**.  Esempio: per il server RHEL 6.7 a 64 bit, copiare **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** nel server ed estrarlo. Nella cartella estratta eseguire **/Install**.
 
@@ -124,7 +124,7 @@ Scaricare il file ZIP dell'[aggiornamento](https://aka.ms/asr-scout-update6). Il
 ## <a name="updates"></a>Aggiornamenti
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
-Ultimo aggiornamento: 12 ottobre 2017
+Aggiornato: 12 ottobre 2017
 
 Scaricare [Scout Update 6](https://aka.ms/asr-scout-update6).
 
@@ -142,7 +142,7 @@ Scout Update 6 è un aggiornamento cumulativo. Include tutte le correzioni appor
 > [!NOTE]
 > * Il programma di installazione di base dell'agente unificato per Windows è stato aggiornato per supportare Windows Server 2016. Il nuovo programma di installazione **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** è incluso nel pacchetto Scout di base disponibile a livello generale (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Lo stesso programma di installazione verrà usato per tutte le versioni di Windows supportate. 
 > * Il programma di installazione d base per Windows vContinuum e per il server di destinazione master è stato aggiornato per supportare Windows Server 2016. Il nuovo programma di installazione **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** è incluso nel pacchetto Scout di base disponibile a livello generale (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Lo stesso programma di installazione verrà usato per distribuire il server di destinazione master Windows 2016 e il server di destinazione master Windows 2012R2.
-> * Scaricare il pacchetto GA dal portale come descritto in [creare un insieme di credenziali](#create-a-vault).
+> * Windows Server 2016 su server fisico non è supportato da ASR Scout. Supporta solo Windows Server 2016 VMware VM. 
 >
 
 #### <a name="bug-fixes-and-enhancements"></a>Correzioni di bug e miglioramenti
@@ -168,7 +168,7 @@ Scout Update 5 è un aggiornamento cumulativo. Include tutte le correzioni appor
     * Correzione di un problema relativo alla protezione di un cluster a nodo singolo che non riesce a causa della mancata corrispondenza dell'interfaccia SCSI. 
     * Correzione di un problema relativo alla riprotezione del server del cluster Windows P2V che non riesce se sono presenti dischi del cluster di destinazione. 
     
-* Correzione del problema seguente: se durante la protezione di failback il server di destinazione master selezionato non si trova nello stesso server ESXi di quello del computer di origine protetto (durante la protezione avanzata), vContinuum sceglie il server di destinazione master non corretto durante il ripristino di failback e l'operazione di ripristino non riesce.
+* Correzione del problema seguente: se durante la protezione con failback il server di destinazione master selezionato non si trova nello stesso server ESXi di quello del computer di origine protetto (durante la protezione avanzata), vContinuum sceglie il server di destinazione master non corretto durante il ripristino di failback e l'operazione di ripristino non riesce.
 
 > [!NOTE]
 > * Le correzioni per il cluster P2V sono applicabili solo ai cluster MSCS fisici appena protetti con Site Recovery Scout Update 5. Per installare le correzioni per il cluster nei cluster MSCS P2V protetti con aggiornamenti precedenti, seguire i passaggi di aggiornamento descritti nella sezione 12 delle [Note sulla versione di Site Recovery Scout](https://aka.ms/asr-scout-release-notes).
@@ -203,7 +203,7 @@ Scout Update 4 è un aggiornamento cumulativo. Include tutte le correzioni appor
 * Sono stati aggiunti controlli e log aggiuntivi per le modifiche alla configurazione di rete durante le esercitazioni per il failover e il ripristino di emergenza.
 * Correzione di un problema che causava la mancata segnalazione delle informazioni di conservazione al server di configurazione.  
 * Per i cluster fisici è stato risolto un problema che impediva il ridimensionamento del volume nella procedura guidata di vContinuum durante l'operazione di riduzione del volume di origine.
-* Correzione di un problema di protezione del cluster che non riusciva con l'errore "Impossibile trovare la firma del disco" quando il disco del cluster è un disco PRDM.
+* Una correzione di un problema di protezione del cluster che ha presentato un errore: "Impossibile trovare la firma del disco" quando il disco del cluster è un disco PRDM.
 * Correzione per l'arresto anomalo del server di trasporto cxps a causa di un'eccezione relativa a un valore non compreso nell'intervallo.
 * Ora è possibile ridimensionare le colonne del nome del server e dell'indirizzo IP nella pagina **Installazione push** della procedura guidata di vContinuum.
 * Miglioramenti dell'API RX:
@@ -246,8 +246,8 @@ In Update 3 sono stati risolti i problemi seguenti:
   * CentOS 6 Update 7
 * Le console del server di configurazione e di RX ora visualizzano le notifiche per la coppia, che passa alla modalità bitmap.
 * In RX sono state aggiunte le correzioni per la sicurezza seguenti:
-    * Bypass dell'autorizzazione tramite manomissione dei parametri: accesso limitato agli utenti non applicabili.
-    * Richiesta intersito falsa: è stato implementato il concetto di token di pagina che viene generato in modo casuale per ogni pagina. Questo significa che esiste una sola istanza di accesso singolo per lo stesso utente e l'aggiornamento della pagina non funziona. L'utente viene invece reindirizzato al dashboard.
+    * Bypass dell'autorizzazione tramite manomissione dei parametri: Accesso limitato agli utenti non applicabili.
+    * Richiesta intersito falsa: Il concetto di token di pagina viene implementato e generato in modo casuale per ogni pagina. Questo significa che esiste una sola istanza di accesso singolo per lo stesso utente e l'aggiornamento della pagina non funziona. L'utente viene invece reindirizzato al dashboard.
     * Caricamento di file dannosi: i file sono limitati a estensioni specifiche: z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml e zip.
     * Scripting intersito persistente: sono state aggiunte convalide dell'input.
 

@@ -4,17 +4,17 @@ description: Questo articolo descrive come usare Visual Studio per monitorare e 
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/10/2018
-ms.openlocfilehash: 9cc65fc5119bedc816f825b7aae6120f4bca3b12
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: e673d4f1c2d58a61c541cca4f8448dffc003f9fa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246843"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101012"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Monitorare e gestire i processi di Analisi di flusso con Visual Studio
 
@@ -31,14 +31,14 @@ Questo articolo illustra come monitorare un processo di Analisi di flusso in Vis
 
 È possibile comprimere **Riepilogo processo** e fare clic sulla scheda **Metriche del processo** per visualizzare un grafico con le metriche importanti. Selezionare e deselezionare i tipi di metriche per aggiungerle e rimuoverle dal grafico.
 
-![Metriche di Analisi di flusso](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
+![Metrica di Analisi di flusso di Azure in Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
 
 
 ## <a name="error-monitoring"></a>Monitoraggio degli errori
 
 È anche possibile monitorare gli errori facendo clic sulla scheda **Errori**.
 
-![Errori di Analisi di flusso](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
+![Errori di Analisi di flusso di Azure in Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
 
 
 ## <a name="get-support"></a>Supporto

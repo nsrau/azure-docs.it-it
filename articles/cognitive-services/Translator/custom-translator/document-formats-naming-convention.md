@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: fef4ecd207fd32b5a92a4c072832f3ab45b58300
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 74b421691f5d3536c44af16e99dc54451dfde3f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626979"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872765"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Guida ai formati dei documenti e alle convenzioni di denominazione
 
@@ -43,11 +43,13 @@ Per i dizionari, Custom Translator supporta tutti i formati di file supportati p
 
 I documenti possono essere raggruppati in un unico file ZIP e caricati. Custom Translator supporta i formati di file ZIP (ZIP, GZ e TGZ).
 
-Ogni documento nel file ZIP deve seguire questa convenzione di denominazione:
+Ogni documento nel file zip con estensione TXT, HTML, HTM, PDF, DOCX, ALIGN deve seguire questa convenzione di denominazione:
 
 {nome documento}\_{codice lingua} dove {nome documento} è il nome del documento e {codice lingua} è l'ID lingua ISO (due caratteri), indicante che il documento contiene frasi in tale lingua. Deve essere presente un carattere di sottolineatura (_) prima del codice della lingua.
 
 Ad esempio, per caricare due documenti paralleli all'interno di un file ZIP per un sistema di traduzione dall'inglese allo spagnolo, i file dovrebbero essere denominati "dati_en" e "dati_es".
+
+I file di memoria di traduzione (con estensione TMX, XLF, XLIFF, LCL, XLSX) non devono seguire la convenzione di denominazione del linguaggio specifico.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

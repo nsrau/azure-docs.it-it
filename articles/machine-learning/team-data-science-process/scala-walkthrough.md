@@ -1,5 +1,5 @@
 ---
-title: Analisi scientifica dei dati tramite Scala e Spark in Azure | Documentazione Microsoft
+title: Data science con Scala e Spark in Azure - Processo di data science per i team
 description: Come usare Scala per attività di Machine Learning con supervisione con la libreria MLlib scalabile per Spark e pacchetti Spark ML in un cluster Spark di Azure HDInsight.
 services: machine-learning
 author: marktab
@@ -10,19 +10,19 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 836fdb5da13465d77c6e9e6ede4780f5d4048597
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: bf4e65b95211fc03ea4a319fd4e503396b893522
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447164"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135148"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analisi scientifica dei dati tramite Scala e Spark in Azure
-Questo articolo illustra come usare Scala per attività di Machine Learning con supervisione con la libreria MLlib scalabile per Spark e pacchetti Spark ML in un cluster Spark di Azure HDInsight. Vengono illustrate le attività che costituiscono il [processo di analisi scientifica dei dati](https://aka.ms/datascienceprocess), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione, la modellazione e l'uso dei modelli. I modelli in questo articolo includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti (GBT), oltre a due attività comuni di Machine Learning supervisionato:
+Questo articolo illustra come usare Scala per attività di Machine Learning con supervisione con la libreria MLlib scalabile per Spark e pacchetti Spark ML in un cluster Spark di Azure HDInsight. Vengono illustrate le attività che costituiscono il [processo di data science](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione di caratteristiche, la modellazione e l'uso dei modelli. I modelli in questo articolo includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti (GBT), oltre a due attività comuni di Machine Learning supervisionato:
 
-* Problema di regressione: stima dell'importo della mancia ($) per una corsa in taxi.
-* Classificazione binaria: stima di mancia o non mancia (1/0) per una corsa in taxi
+* Problema di regressione: stima dell'importo della mancia ($) per una corsa in taxi
+* Classificazione binaria: previsione riguardo al fatto che venga lasciata o meno una mancia (1/0) per una corsa in taxi
 
 Il processo di modellazione richiede il training e la valutazione su un set di dati di test e le metriche di precisione pertinenti. Questo articolo illustra come archiviare questi modelli nell'archiviazione BLOB di Azure e come classificare e valutare le relative prestazioni predittive. Questo articolo descrive anche gli argomenti più avanzati su come ottimizzare i modelli tramite la convalida incrociata e lo sweep degli iperparametri. Come dati di esempio sono stati presi i set di dati relativi alle corse e alle tariffe dei taxi di New York nel 2013, disponibili su GitHub.
 
@@ -41,7 +41,7 @@ La procedura e il codice di installazione riportati in questo articolo si riferi
 
 ## <a name="prerequisites"></a>Prerequisiti
 * È necessario disporre di una sottoscrizione di Azure. Se non è già disponibile, [ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* È necessario un cluster Azure HDInsight 3.4 Spark 1.6 per completare le procedure seguenti. Per crearne un cluster, vedere le istruzioni fornite in [Introduzione: creare cluster Apache Spark in Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Impostare il tipo e la versione del cluster nel menu **Selezionare il tipo di cluster** .
+* È necessario un cluster Azure HDInsight 3.4 Spark 1.6 per completare le procedure seguenti. Per creare un cluster, vedere le istruzioni riportate in [Guida introduttiva: Creare un cluster Apache Spark in Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Impostare il tipo e la versione del cluster nel menu **Selezionare il tipo di cluster** .
 
 ![Configurazione del tipo di cluster HDInsight](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -532,7 +532,7 @@ Di seguito è riportato il codice per queste due attività.
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modello di classificazione binaria: prevede se deve essere lasciata una mancia
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modello di classificazione binaria: prevedere se deve essere lasciata una mancia
 In questa sezione vengono creati tre tipi di modelli di classificazione binaria per prevedere se deve essere lasciata o meno una mancia:
 
 * Un **modello di regressione logistica** usando la funzione `LogisticRegression()` di Spark ML
@@ -544,7 +544,7 @@ Creare quindi un modello di regressione logistica usando la funzione `LogisticRe
 
 1. **Training dei dati del modello** con un set di parametri.
 2. **Valutazione del modello** su un set di dati di test con metriche.
-3. **Salvataggio del modello** in un'archiviazione BLOB per l'uso in futuro.
+3. **Salvataggio del modello** in un'archiviazione BLOB per l'utilizzo in futuro.
 4. **Assegnazione di un punteggio al modello** in base ai dati di test.
 5. **Tracciamento dei risultati** con curve ROC.
 
@@ -723,7 +723,7 @@ Successivamente, creare un modello GBT con la funzione `GradientBoostedTrees()` 
 
 **Output:**
 
-Area sotto la curva ROC = 0,9846895479241554
+Area sotto la curva ROC: 0,9846895479241554
 
 ## <a name="regression-model-predict-tip-amount"></a>Modello di regressione: stimare l'importo della mancia
 In questa sezione vengono creati due tipi di modelli di regressione per stimare l'importo della mancia:
@@ -848,7 +848,7 @@ Creare tracciati usando matplotlib di Python.
 
 **Output:**
 
-![Importo della mancia: effettivo rispetto a stimato](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
+![Importo della mancia: confronto tra effettivo e stimato](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>Creare un modello di regressione con boosting a gradienti
 Creare un modello di regressione GBT con la funzione `GBTRegressor()` di Spark ML e valutare il modello sui dati di test.
@@ -881,7 +881,7 @@ Creare un modello di regressione GBT con la funzione `GBTRegressor()` di Spark M
 
 **Output:**
 
-Il valore R-sqr del test è: 0.7655383534596654
+Il valore R-sqr del test è: 0,7655383534596654
 
 ## <a name="advanced-modeling-utilities-for-optimization"></a>Utilità di modellazione avanzate per l'ottimizzazione
 In questa sezione, usare le utilità di Machine Learning che gli sviluppatori spesso usano per l'ottimizzazione del modello. In particolare, è possibile ottimizzare i modelli di Machine Learning in tre diversi modi usando lo sweep dei parametri e la convalida incrociata:
@@ -938,7 +938,7 @@ Suddividere quindi i dati in set di training e convalida, usare lo sweep degli i
 
 **Output:**
 
-Il valore R-sqr del test è: 0.6226484708501209
+Il valore R-sqr del test è: 0,6226484708501209
 
 ### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Ottimizzare il modello di classificazione binaria usando la convalida incrociata e lo sweep di iperparametri
 Questa sezione illustra come ottimizzare un modello di classificazione binaria usando la convalida incrociata e lo sweep di iperparametri. Questo metodo usa la funzione `CrossValidator` di Spark ML.
@@ -1100,9 +1100,9 @@ Ottimizzare quindi il modello con codice personalizzato e identificare i paramet
 Tempo di esecuzione della cella: 61 secondi.
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Usare automaticamente i modelli di Machine Learning compilati con Spark con Scala
-Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle attività che costituiscono il processo di analisi scientifica dei dati in Azure, vedere [Processo di analisi scientifica dei dati per i team](https://aka.ms/datascienceprocess).
+Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle attività che costituiscono il processo di analisi scientifica dei dati in Azure, vedere [Processo di analisi scientifica dei dati per i team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 [Procedure dettagliate del Processo di analisi scientifica dei dati per i team](walkthroughs.md) descrive altre procedure dettagliate end-to-end che illustrano i passaggi del processo di analisi scientifica dei dati per i team in scenari specifici. Le procedure dettagliate illustrano anche come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente.
 
-[Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](spark-model-consumption.md) illustra come usare il codice di Scala per caricare automaticamente nuovi set di dati e assegnare loro un punteggio con modelli di Machine Learning compilati in Spark e salvati nell'archiviazione BLOB di Azure. È possibile seguire le istruzioni illustrate nell'argomento e sostituire semplicemente il codice Python con il codice Scala indicato in questo articolo per abilitare l'uso automatico.
+[Assegnare punteggi a modelli di Machine Learning compilati con Spark](spark-model-consumption.md) illustra come usare il codice di Scala per caricare automaticamente nuovi set di dati e assegnare loro un punteggio con modelli di Machine Learning compilati in Spark e salvati nell'archiviazione BLOB di Azure. È possibile seguire le istruzioni illustrate nell'argomento e sostituire semplicemente il codice Python con il codice Scala indicato in questo articolo per abilitare l'uso automatico.
 

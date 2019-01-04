@@ -1,28 +1,23 @@
 ---
-title: Esempi di configurazione di router ExpressRoute | Documentazione Microsoft
+title: Esempi di configurazione di router - NAT | Microsoft Docs
 description: In questa pagina vengono forniti esempi di configurazione di router per router Cisco e Juniper.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: d6ea716f-d5ee-4a61-92b0-640d6e7d6974
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 9764a03b0f3a3f70e59097359d5a714da821d3b1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23012976"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105989"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Esempi di configurazione del router per l'impostazione e la gestione NAT
-Questa pagina fornisce gli esempi di configurazione NAT per i router Cisco ASA e Juniper SRX. Devono essere intesi come esempi a solo scopo informativo e non devono essere usati per altri scopi. È possibile rivolgersi al fornitore per ottenere le configurazioni appropriate per la rete in uso. 
+
+Questa pagina fornisce esempi di configurazione NAT per i router Cisco ASA e Juniper SRX quando si usa ExpressRoute. Devono essere intesi come esempi a solo scopo informativo e non devono essere usati per altri scopi. È possibile rivolgersi al fornitore per ottenere le configurazioni appropriate per la rete in uso.
 
 > [!IMPORTANT]
 > Gli esempi inclusi in questa pagina devono essere intesi solo come linee guida. È necessario collaborare con il team di vendita/tecnico del fornitore e il team di rete per ottenere le configurazioni appropriate in base alle specifiche esigenze. Microsoft non offre supporto per i problemi relativi alle configurazioni elencate in questa pagina. È necessario contattare il fornitore del dispositivo per assistenza.

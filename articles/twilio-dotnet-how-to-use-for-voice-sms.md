@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 087dcfd10b191dcd80ec4a70be8eb2e373e1d56b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 254128d212dec3e6f51a98dc4435894e08377eb0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427541"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955225"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Come usare Twilio per le funzionalità voce ed SMS da Azure
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps) .
@@ -143,7 +143,7 @@ var call = CallResource.Create(
 
 Per altre informazioni sui parametri passati al metodo **CallResource.Create**, vedere [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
-Come indicato in precedenza, questo codice utilizza un sito fornito da Twilio per restituire la risposta TwiML. Per fornire la risposta TwiML, è tuttavia possibile utilizzare il proprio sito. Per altre informazioni, vedere [How to: Provide TwiML responses from your own website](#howto_provide_twiml_responses) (Procedura: Fornire risposte TwiML dal proprio sito Web).
+Come indicato in precedenza, questo codice utilizza un sito fornito da Twilio per restituire la risposta TwiML. Per fornire la risposta TwiML, è tuttavia possibile utilizzare il proprio sito. Per ulteriori informazioni, consultare [Come Fornire risposte TwiML dal proprio sito Web](#howto_provide_twiml_responses).
 
 ## <a id="howto_send_sms"></a>Procedura: Inviare un messaggio SMS
 Nella schermata seguente è illustrato come inviare un messaggio SMS tramite la classe **MessageResource**. Il numero in **from** per l'invio di messaggi SMS con gli account di valutazione è fornito da Twilio. Il numero in **to** deve essere verificato per l'account Twilio prima di eseguire il codice.
@@ -277,7 +277,7 @@ Per altre informazioni sull'utilizzo di Twilio in Azure con ASP.NET, vedere [Com
 
 [twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls
 
-[vs_project]:https://msdn.microsoft.com/library/windowsazure/ee405487.aspx
+[vs_project]:https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-azure-project-create
 [nuget]:https://nuget.org/
 [twilio_github_repo]:https://github.com/twilio/twilio-csharp
 

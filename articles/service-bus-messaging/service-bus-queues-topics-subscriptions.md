@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: spelluru
-ms.openlocfilehash: 047c4c37090db77f7a7a692604dd63c5effff9fa
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c4899db41f9c60bf6efb40c4d53aaa35f22ad275
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409762"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312885"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Code, argomenti e sottoscrizioni del bus di servizio
 
@@ -32,15 +32,15 @@ L'uso di code da interporre tra producer e consumer di messaggi fornisce un acco
 
 ### <a name="create-queues"></a>Creazione di code
 
-Creare le code usando il [portale di Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), l'[interfaccia della riga di comando](service-bus-quickstart-cli.md) o i [modelli di Resource Manager](service-bus-resource-manager-namespace-queue.md). Inviare e ricevere quindi i messaggi usando un oggetto [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient). 
+Creare le code usando il [portale di Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), l'[interfaccia della riga di comando](service-bus-quickstart-cli.md) o i [modelli di Resource Manager](service-bus-resource-manager-namespace-queue.md). Inviare e ricevere quindi i messaggi usando un oggetto [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient).
 
-Per imparare rapidamente a creare una coda, inviare e ricevere messaggi da e verso la coda, vedere i progetti di [avvio rapido](service-bus-quickstart-portal.md) per ogni metodo. Per un'esercitazione più dettagliata su come usare le code, vedere [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md). 
+Per imparare rapidamente a creare una coda, inviare e ricevere messaggi da e verso la coda, vedere i progetti di [avvio rapido](service-bus-quickstart-portal.md) per ogni metodo. Per un'esercitazione più dettagliata su come usare le code, vedere [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md).
 
 Per un esempio funzionante, vedere [BasicSendReceiveUsingQueueClient](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) su GitHub.
 
 ### <a name="receive-modes"></a>Modalità di ricezione
 
-È possibile specificare due diverse modalità con cui ricevere i messaggi del bus di servizio: *ReceiveAndDelete* o *PeekLock*. Quando si usa la modalità [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode), la ricezione è un'operazione a un'unica fase. Quando il bus di servizio riceve la richiesta, contrassegna il messaggio come usato e lo restituisce all'applicazione. La modalità **ReceiveAndDelete** rappresenta il modello più semplice ed è adatta per scenari in cui l'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo scenario, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come consumato, quando l'applicazione viene riavviata e inizia a consumare nuovamente i messaggi, il messaggio consumato prima dell'arresto anomalo risulterà perso.
+È possibile specificare due diverse modalità con cui il bus di servizio riceve i messaggi: *ReceiveAndDelete* o *PeekLock*. Quando si usa la modalità [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode), la ricezione è un'operazione a un'unica fase. Quando il bus di servizio riceve la richiesta, contrassegna il messaggio come usato e lo restituisce all'applicazione. La modalità **ReceiveAndDelete** rappresenta il modello più semplice ed è adatta per scenari in cui l'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo scenario, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come consumato, quando l'applicazione viene riavviata e inizia a consumare nuovamente i messaggi, il messaggio consumato prima dell'arresto anomalo risulterà perso.
 
 Con la modalità [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) il processo di ricezione diventa un'operazione in due fasi, che rende possibile il supporto di applicazioni che non riescono a tollerare messaggi mancanti. Quando il bus di servizio riceve la richiesta, individua il messaggio successivo da consumare, lo blocca per impedirne la ricezione da parte di altri consumer e lo restituisce quindi all'applicazione. Dopo avere elaborato il messaggio o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) sul messaggio ricevuto. Quando il bus di servizio rileva la chiamata **CompleteAsync**, contrassegna il messaggio come usato.
 
@@ -56,7 +56,7 @@ Ai fini di un confronto, la funzionalità di invio dei messaggi di una coda eseg
 
 ### <a name="create-topics-and-subscriptions"></a>Creare argomenti e sottoscrizioni
 
-La procedura per la creazione di un argomento è simile a quella per la creazione di una coda, descritta nella sezione precedente. È quindi possibile inviare messaggi usando la classe [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient). Per ricevere messaggi, si creano una o più sottoscrizioni all'argomento. Come accade per le code, i messaggi vengono ricevuti da una sottoscrizione usando un oggetto [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) invece di un oggetto [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient). Creare il client della sottoscrizione, passando il nome dell'argomento, il nome della sottoscrizione e (facoltativamente) la modalità di ricezione come parametri. 
+La procedura per la creazione di un argomento è simile a quella per la creazione di una coda, descritta nella sezione precedente. È quindi possibile inviare messaggi usando la classe [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient). Per ricevere messaggi, si creano una o più sottoscrizioni all'argomento. Come accade per le code, i messaggi vengono ricevuti da una sottoscrizione usando un oggetto [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) invece di un oggetto [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient). Creare il client della sottoscrizione, passando il nome dell'argomento, il nome della sottoscrizione e (facoltativamente) la modalità di ricezione come parametri.
 
 Per un esempio funzionante completo, vedere [BasicSendReceiveUsingTopicSubscriptionClient](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) su GitHub.
 
@@ -66,7 +66,7 @@ In molti scenari, i messaggi con caratteristiche specifiche devono essere elabor
 
 Per un esempio funzionante completo, vedere [TopicSubscriptionWithRuleOperationsSample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) su GitHub.
 
-Per altre informazioni sui valori di filtro possibili, vedere la documentazione relativa alle classi [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction). 
+Per altre informazioni sui valori di filtro possibili, vedere la documentazione relativa alle classi [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

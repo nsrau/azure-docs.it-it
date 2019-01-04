@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 5f7cbdd98d25855e9b8bb102413bd71148193318
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 488fbb2acbf43ac092a7834fc25f433ef09d2b00
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134364"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52973239"
 ---
 ### <a name="server-auth"></a>Procedura: Eseguire l'autenticazione con un provider (flusso server)
 Per consentire alle app per dispositivi mobili di gestire il processo di autenticazione nella propria app, è necessario effettuare la registrazione dell'app con il provider di identità. Nel proprio servizio app di Azure è quindi necessario configurare l'ID e il segreto dell'applicazione forniti dal provider.
@@ -52,27 +52,6 @@ client.login(
 
 ```
 In questo esempio si presuppone che il token fornito dall'SDK del rispettivo provider sia archiviato nella variabile token.
-
-#### <a name="microsoft-account-example"></a>Esempio di account Microsoft
-
-Nell'esempio seguente viene utilizzato Live SDK, che supporta Single-Sign-On per le app di Windows Store tramite un account Microsoft:
-
-```
-WL.login({ scope: "wl.basic"}).then(function (result) {
-      client.login(
-            "microsoftaccount",
-            {"authenticationToken": result.session.authentication_token})
-      .done(function(results){
-            alert("You are now signed in as: " + results.userId);
-      },
-      function(error){
-            alert("Error: " + err);
-      });
-});
-
-```
-
-Questo esempio ottiene un token da Live Connect, che viene fornito al servizio app chiamando la funzione login.
 
 ### <a name="auth-getinfo"></a>Procedura: Ottenere informazioni relative all'utente autenticato
 

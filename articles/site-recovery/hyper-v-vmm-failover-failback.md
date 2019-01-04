@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 80a26f7f2c97fdbc5342d8845277facd79f22a62
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 828f8e78f24380303f30260c39f837f0ba3524e6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210007"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832372"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Failover e failback di macchine virtuali Hyper-V replicate in un sito locale secondario
 
@@ -30,8 +30,8 @@ In questo articolo viene descritto come eseguire il failover di una macchina vir
 
 L'operazione di failover e failback comprende tre fasi:
 
-1. **Failover nel sito secondario**: failover di macchine dal sito primario a quello secondario.
-2. **Failback dal sito secondario**: replica di macchine virtuali dal sito secondario al sito primario ed esecuzione di un failover pianificato per eseguire il failback.
+1. **Failover in un sito secondario**: failover di macchine dal sito primario a quello secondario.
+2. **Failback in un sito secondario**: replica di macchine virtuali dal sito secondario al sito primario ed esecuzione di un failover pianificato per eseguire il failback.
 3. Dopo il failover pianificato, se lo si desidera avviare nuovamente la replica dal sito primario al sito secondario.
 
 
@@ -58,7 +58,7 @@ Questa procedura descrive come eseguire un failover regolare.
 3. Dopo la verifica della macchina virtuale, **eseguire il commit** del failover. In questo modo tutti i punti di ripristino disponibili verranno eliminati.
 
 > [!WARNING]
-> **Non annullare un failover in corso**: prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.  
+> **Non annullare un failover in corso**: Prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>Eseguire la replica inversa e il failover

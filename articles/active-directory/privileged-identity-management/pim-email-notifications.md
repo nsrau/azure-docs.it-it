@@ -11,76 +11,93 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 09/07/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: de1d29d3ab1b370257c3a2d6b6ff9f677197fc2a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 00b096f59e70962b6883a8024744e8c91a5f9ae3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303065"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846896"
 ---
 # <a name="email-notifications-in-pim"></a>Notifiche tramite posta elettronica in PIM
 
-Quando si verificano eventi chiave in Azure AD Privileged Identity Management (PIM), vengono inviate notifiche tramite posta elettronica. Ad esempio, PIM invia e-mail per gli eventi seguenti:
+Azure AD Privileged Identity Management (PIM) segnala gli eventi importanti, ad esempio l'assegnazione o l'attivazione di un ruolo. PIM informa l'utente e gli altri partecipanti mediante l'invio di notifiche di posta elettronica. I messaggi di posta elettronica possono includere collegamenti ad attività importanti, quali l'attivazione o il rinnovo di un ruolo. Questo articolo descrive l'aspetto dei messaggi di posta elettronica, quando vengono inviati e chi li riceve.
 
-- Quando l'attivazione di un ruolo con privilegi è in attesa di approvazione
-- Quando la richiesta di attivazione di un ruolo con privilegi viene completata
-- Quando viene attivato un ruolo con privilegi
-- Quando viene assegnato un ruolo con privilegi
-- Quando viene abilitato Azure AD Privileged Identity Management
+## <a name="sender-email-address-and-subject-line"></a>Indirizzo e-mail del mittente e riga dell'oggetto
 
-Le notifiche di posta elettronica vengono inviate ai seguenti amministratori:
-
-- Amministratore dei ruoli con privilegi
-- Amministratore della sicurezza
-
-Notifiche tramite posta elettronica vengono inviate anche all'utente finale che dispone di ruolo con privilegi, per gli eventi seguenti:
-
-- Quando la richiesta di attivazione di un ruolo con privilegi viene completata
-- Quando viene assegnato un ruolo con privilegi
-
-Dalla fine di luglio 2018, le notifiche tramite posta elettronica inviate con PIM hanno un nuovo indirizzo di posta elettronica del mittente e un nuovo design visivo. Questo aggiornamento influirà sia su PIM per Azure AD che su PIM per le risorse di Azure. Tutti gli eventi che hanno precedentemente attivato una notifica tramite posta elettronica continueranno a inviare un messaggio di posta elettronica. Alcuni messaggi di posta elettronica avranno contenuto aggiornato con informazioni più mirate.
-
-## <a name="sender-email-address"></a>Indirizzo di posta elettronica del mittente
-
-A partire dalla fine di luglio 2018, le notifiche tramite posta elettronica avranno l'indirizzo seguente:
+I messaggi di posta elettronica inviati da PIM per i ruoli di Azure e Azure AD hanno il seguente indirizzo e-mail del mittente:
 
 - Indirizzo di posta elettronica: **azure-noreply@microsoft.com**
 - Nome visualizzato: Microsoft Azure
 
-In precedenza, le notifiche tramite posta elettronica avevano l'indirizzo seguente:
+Questi messaggi di posta elettronica includono un prefisso **PIM** nella riga dell'oggetto. Ad esempio:
 
-- Indirizzo di posta elettronica: **azureadnotifications@microsoft.com**
-- Nome visualizzato: servizio di notifica di Microsoft Azure AD
-
-## <a name="email-subject-line"></a>Riga dell'oggetto del messaggio di posta elettronica
-
-A partire dalla fine di luglio 2018, le notifiche tramite posta elettronica per Azure AD e i ruoli delle risorse di Azure avranno un prefisso **PIM** nella riga dell'oggetto. Ad esempio:
-
-- PIM: Ad Alain Charon è stato assegnato in modo permanente il ruolo Lettore di backup.
+- PIM: Ad Alain Charon è stato assegnato in modo permanente il ruolo Lettore di backup
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>Messaggi di posta elettronica PIM per i ruoli di Azure AD
 
-A partire dalla fine di luglio 2018, le notifiche tramite posta elettronica PIM per i ruoli di Azure AD avranno un design aggiornato. Di seguito viene riportato un esempio di messaggio di posta elettronica inviato quando un utente attiva un ruolo privilegiato per l'organizzazione fittizia Contoso.
+PIM invia messaggi di posta elettronica quando si verificano gli eventi seguenti per i ruoli di Azure AD:
+
+- Quando l'attivazione di un ruolo con privilegi è in attesa di approvazione
+- Quando la richiesta di attivazione di un ruolo con privilegi viene completata
+- Quando un ruolo con privilegi viene assegnato come idoneo
+- Quando viene abilitato Azure AD Privileged Identity Management
+
+I destinatari di questi messaggi di posta elettronica per i ruoli di Azure AD variano a seconda del ruolo dell'utente, dell'evento e dell'impostazione di notifica:
+
+| Utente | Attivazione del ruolo in attesa di approvazione | Richiesta di attivazione del ruolo completata | Ruolo assegnato come idoneo | PIM è abilitato |
+| --- | --- | --- | --- | --- |
+| Amministratore dei ruoli con privilegi</br>(Attivato/Idoneo) | Yes</br>(solo se non è specificato nessun responsabile approvazione esplicito) | Sì* | Yes | Yes |
+| Amministratore della sicurezza</br>(Attivato/Idoneo) | No  | Sì* | Yes | Yes |
+| Amministratore globale</br>(Attivato/Idoneo) | No  | Sì* | Yes | Yes |
+
+\* Se l'impostazione di [**Notifiche**](pim-how-to-change-default-settings.md#notifications) è **Abilita**.
+
+Di seguito viene riportato un esempio di messaggio di posta elettronica inviato quando un utente attiva un ruolo di Azure AD per l'organizzazione fittizia Contoso.
 
 ![Nuovi messaggi di posta elettronica PIM per i ruoli di Azure AD](./media/pim-email-notifications/email-directory-new.png)
 
-In precedenza, quando un utente attivava un ruolo privilegiato, il messaggio di posta elettronica era simile al seguente.
+### <a name="weekly-pim-digest-email-for-azure-ad-roles"></a>Messaggio di posta elettronica digest PIM settimanale per i ruoli di Azure AD
 
-![Vecchi messaggi di posta elettronica PIM per i ruoli di Azure AD](./media/pim-email-notifications/email-directory-old.png)
+Un messaggio di posta elettronica riepilogativo PIM settimanale per i ruoli di Azure AD viene inviato ad amministratori dei ruoli con privilegi, amministratori della sicurezza e amministratori globali che hanno attivato PIM. Questo messaggio di posta elettronica settimanale offre uno snapshot delle attività PIM per la settimana, oltre alle assegnazioni di ruolo con privilegi. È disponibile solo per i tenant nel cloud pubblico. Di seguito è illustrato un messaggio di posta elettronica di esempio:
+
+![Messaggio di posta elettronica digest PIM settimanale per i ruoli di Azure AD](./media/pim-email-notifications/email-directory-weekly.png)
+
+Il messaggio di posta elettronica include quattro sezioni:
+
+| Riquadro | DESCRIZIONE |
+| --- | --- |
+| **Users activated** (Utenti attivati) | Numero di volte per cui gli utenti hanno attivato il proprio ruolo idoneo nel tenant. |
+| **Users made permanent** (Utenti resi permanenti) | Numero di volte per cui un utente con un'assegnazione idonea viene reso permanente. |
+| **Role assignments in PIM** (Assegnazioni di ruoli in PIM) | Numero di volte per cui viene assegnato un ruolo idoneo a un utente all'interno di PIM. |
+| **Role assignments outside of PIM** (Assegnazioni di ruoli all'esterno di PIM) | Numero di volte per cui viene assegnato agli utenti un ruolo permanente all'esterno di PIM (ma all'interno di Azure AD). |
+
+La sezione **Overview of your top roles** (Panoramica dei ruoli principali) elenca i cinque ruoli principali nel tenant in base al numero totale di amministratori permanenti e idonei per ogni ruolo. Il collegamento **Intervieni** apre la [procedura guidata PIM](pim-security-wizard.md), che consente di convertire gli amministratori permanenti in amministratori idonei in batch.
 
 ## <a name="pim-emails-for-azure-resource-roles"></a>Messaggi di posta elettronica PIM per i ruoli delle risorse di Azure
 
-A partire dalla fine di luglio 2018, le notifiche di posta elettronica PIM per i ruoli delle risorse di Azure avranno un design aggiornato. Di seguito viene riportato un esempio di messaggio di posta elettronica inviato quando a un utente viene assegnato un ruolo privilegiato per l'organizzazione fittizia Contoso.
+PIM invia messaggi di posta elettronica a proprietari e amministratori degli accessi utente quando si verificano gli eventi seguenti per i ruoli delle risorse di Azure:
+
+- Quando un'assegnazione di ruolo è in attesa di approvazione
+- Quando un ruolo viene assegnato
+- Quando un ruolo sta per scadere
+- Quando un ruolo è idoneo per l'estensione
+- Quando un ruolo viene rinnovato da un utente finale
+- Quando una richiesta di attivazione del ruolo viene completata
+
+PIM invia messaggi di posta elettronica agli utenti finali quando si verificano gli eventi seguenti per i ruoli delle risorse di Azure:
+
+- Quando viene assegnato un ruolo all'utente
+- Quando un ruolo utente è scaduto
+- Quando un ruolo utente è stato esteso
+- Quando la richiesta di attivazione del ruolo di un utente viene completata
+
+Di seguito viene riportato un esempio di messaggio di posta elettronica inviato quando a un utente viene assegnato un ruolo di risorsa di Azure per l'organizzazione fittizia Contoso.
 
 ![Nuovo messaggio di posta elettronica PIM per i ruoli delle risorse di Azure](./media/pim-email-notifications/email-resources-new.png)
-
-In precedenza, quando a un utente veniva assegnato un ruolo privilegiato il messaggio di posta elettronica era simile al seguente.
-
-![Vecchio messaggio di posta elettronica PIM per i ruoli delle risorse di Azure](./media/pim-email-notifications/email-resources-old.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,12 +13,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 55e262e1855eb6ab50c2d32e7e8cd4bb9175a593
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d382a71de34e6c1527d810b0576e518b9101cf7d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962555"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132755"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Application Proxy e Qlik Sense 
 Azure Active Directory Application Proxy e Qlik Sense hanno collaborato assieme per permettere di usare con facilità l'Application Proxy e fornire l'accesso remoto alla distribuzione Qlik Sense.  
@@ -27,13 +27,13 @@ Azure Active Directory Application Proxy e Qlik Sense hanno collaborato assieme 
 Nella parte restante di questo scenario si presuppone che siano state eseguite le operazioni seguenti:
  
 - [Qlik Sense](https://community.qlik.com/docs/DOC-19822) è stato configurato. 
-- [È stato installato un connettore proxy di applicazione](application-proxy-enable.md#install-and-register-a-connector) 
+- [È stato installato un connettore proxy di applicazione](application-proxy-add-on-premises-application.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Pubblicare applicazioni in Azure 
 Per pubblicare Qlik Sense è necessario pubblicare due applicazioni in Azure.  
 
 ### <a name="application-1"></a>Applicazione n°1: 
-Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettagliata dei passaggi 1-8, vedere [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-publish-azure-portal.md). 
+Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettagliata dei passaggi 1-8, vedere [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-add-on-premises-application.md). 
 
 
 1. Accedere al portale di Azure come amministratore globale. 
@@ -51,18 +51,18 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
 ### <a name="application-2"></a>Applicazione n°2: 
 Seguire gli stessi passaggi usati per l'applicazione n°1, con le eccezioni seguenti: 
 
-**Passaggio 5**: l'URL interno deve ora corrispondere all'URL Qlik Sense con la porta di autenticazione usata dall'applicazione. Il valore predefinito è **4244** per HTTPS e 4248 per HTTP. Ad esempio, **https&#58;//demo.qlik.com:4244**</br></br>**Passaggio 10:** non configurare SSO e lasciare il **Single Sign-On disabilitato** 
-
+**Passaggio 5**: l'URL interno deve ora corrispondere all'URL Qlik Sense con la porta di autenticazione usata dall'applicazione. Il valore predefinito è **4244** per HTTPS e 4248 per HTTP. Ad esempio, **https&#58;//demo.qlik.com:4244**</br></br> 
+**Passaggio 10:** non configurare SSO e lasciare l'accesso **Single Sign-On disabilitato**
  
  
 ## <a name="testing"></a>Test 
 L'applicazione è ora pronta per il test. Accedere all'URL esterno usato per pubblicare Qlik Sense nell'applicazione n°1 e accedere come utente assegnato a entrambe le applicazioni.  
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
-Per altre informazioni sulla pubblicazione di Qlik Sense con il proxy di applicazione, vedere l'articolo della community di Qlik: [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense](https://community.qlik.com/docs/DOC-20183) (Azure AD con l'autenticazione integrata di Windows usando una delega vincolata di Kerberos con Qlik Sense).
+Per altre informazioni sulla pubblicazione di Qlik Sense con il proxy applicazione, vedere l'articolo della community di Qlik: [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense](https://community.qlik.com/docs/DOC-20183) (Azure AD con l'autenticazione integrata di Windows tramite una delega vincolata di Kerberos con Qlik Sense).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-publish-azure-portal.md)
+- [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-add-on-premises-application.md)
 - [Uso di connettori del proxy di applicazione](application-proxy-connector-groups.md)
 

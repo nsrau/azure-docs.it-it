@@ -3,7 +3,7 @@ title: Ridimensionare le risorse dei pool elastici - Database SQL di Azure | Mic
 description: Questa pagina descrive come ridimensionare le risorse per i pool elastici nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,18 +12,18 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: cd9886f11685397cbfb82f88bb0b37c8ccc41b67
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 04fcb84b22e84060652b4a3743cb73e4543ee573
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240172"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868447"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Ridimensionare le risorse dei pool elastici nel database SQL di Azure
 
 Questo articolo illustra come ridimensionare le risorse di calcolo e di archiviazione disponibili per i pool elastici e i database in pool nel database SQL di Azure.
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>Modello di acquisto basato su vCore: modifica delle dimensioni di archiviazione del pool elastico
+## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>Modello di acquisto in base ai vCore: modifica delle dimensioni di archiviazione del pool elastico
 
 - Il provisioning dell'archiviazione può essere effettuato fino al limite massimo di dimensioni:
 
@@ -35,7 +35,7 @@ Questo articolo illustra come ridimensionare le risorse di calcolo e di archivia
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>Modello di acquisto basato su vCore: modifica delle risorse di calcolo del pool elastico (vCore)
+## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>Modello di acquisto in base ai vCore: modifica delle risorse di calcolo del pool elastico (vCore)
 
 È possibile aumentare o ridurre la dimensione di calcolo per un pool elastico in base alle risorse necessarie tramite il [portale di Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 

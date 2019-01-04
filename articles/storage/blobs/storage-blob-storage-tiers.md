@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253721"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014498"
 ---
-# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Archivio BLOB di Azure: livelli di archiviazione Premium (anteprima), ad accesso frequente, ad accesso sporadico e archivio
+# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Risorsa di archiviazione BLOB di Azure: livelli di archiviazione Premium (anteprima), ad accesso frequente, ad accesso sporadico e archivio
 
 ## <a name="overview"></a>Panoramica
 
@@ -62,7 +62,7 @@ Per usare questo livello, effettuare il provisioning di un nuovo account di arch
 Durante l'anteprima, il livello di accesso Premium:
 
 - È disponibile come risorsa di archiviazione con ridondanza locale
-- È disponibile solo nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti centrali e Stati Uniti occidentali
+- È disponibile solo nelle regioni seguenti: Stati Uniti orientali 2, Stati Uniti centrali e Stati Uniti occidentali
 - Non supporta la suddivisione automatica in livelli e la gestione del ciclo di vita dei dati
 
 Per informazioni su come registrarsi per l'anteprima del livello di accesso Premium, vedere [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob) (Presentazione dell'archiviazione BLOB Premium di Azure).
@@ -113,7 +113,7 @@ In tutti e tre i livelli di archiviazione i BLOB possono coesistere nello stesso
 I dati archiviati nel livello di accesso Premium non possono passare al livello ad accesso frequente, sporadico o archivio usando [Set Blob Tier](/rest/api/storageservices/set-blob-tier) o la gestione del ciclo di vita di Archiviazione BLOB di Azure. Per spostare i dati, è necessario copiare in modo sincrono i BLOB dall'accesso Premium a quello frequente usando [Put Block From URL](/rest/api/storageservices/put-block-from-url) o una versione di AzCopy che supporta questa API. L'API *Put Block From URL* copia in modo sincrono i dati nel server, vale a dire che la chiamata viene completata solo dopo che tutti i dati sono stati spostati dal percorso del server originale al percorso di destinazione.
 
 ### <a name="blob-lifecycle-management"></a>Gestione del ciclo di vita di Archiviazione BLOB
-La gestione del ciclo di vita di Archiviazione BLOB (anteprima) offre criteri avanzati basati su regole che è possibile usare per trasferire i dati al livello di accesso più appropriato e definirne la scadenza al termine del relativo ciclo di vita. Per altre informazioni, vedere [Gestire il ciclo di vita di Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts).  
+La gestione del ciclo di vita di Archiviazione BLOB (anteprima) offre criteri avanzati basati su regole che è possibile usare per trasferire i dati al livello di accesso più appropriato e definirne la scadenza al termine del relativo ciclo di vita. Per altre informazioni, vedere [Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md).  
 
 ### <a name="blob-level-tiering-billing"></a>Fatturazione per l'organizzazione a livello di BLOB
 
@@ -157,7 +157,7 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 3. Nel pannello Impostazioni fare clic su **Configurazione** per visualizzare e/o modificare la configurazione dell'account.
 
-4. Selezionare il livello di archiviazione corretto per le proprie esigenze: impostare il **livello di accesso** su **sporadico** o **frequente**.
+4. Selezionare il livello di archiviazione corretto per le proprie esigenze: Impostare il **livello di accesso** su **ad accesso sporadico** oppure **ad accesso frequente**.
 
 5. Fare clic su Salva nella parte superiore del pannello.
 
@@ -175,12 +175,12 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 Tutti gli account di archiviazione usano per l'archivio BLOB un modello di determinazione prezzi basato sul livello di ogni BLOB. Tenere presenti le considerazioni seguenti sulla fatturazione:
 
-* **Costi di archiviazione**: oltre alla quantità di dati archiviati, il costo di archiviazione dei dati varia a seconda del livello di archiviazione. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.
-* **Costi di accesso ai dati**: i costi di accesso ai dati aumentano passando a un livello ad accesso più sporadico. Per i dati nei livelli di archiviazione ad accesso sporadico e archivio vengono addebitati i costi per l'accesso ai dati per gigabyte per le operazioni di lettura.
-* **Costi delle transazioni**: sono previsti costi per transazione per tutti i livelli e tali costi aumentano passando a un livello ad accesso più sporadico.
-* **Costi di trasferimento dati con la replica geografica**: si applicano solo agli account per cui è configurata la replica geografica, incluse l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. Il trasferimento dati con la replica geografica comporta un addebito per gigabyte.
-* **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
-* **Modifica del livello di archiviazione**: la modifica del livello di archiviazione da sporadico a frequente comporta un addebito corrispondente a quello per la lettura di tutti i dati esistenti nell'account di archiviazione. Il passaggio dell'account dal livello di archiviazione ad accesso frequente a quello ad accesso sporadico comporta invece un addebito corrispondente a quello per la scrittura di tutti i dati nel livello ad accesso sporadico (solo per account per utilizzo generico v2).
+* **Costi della risorsa di archiviazione**: oltre alla quantità di dati archiviati, il costo per l'archiviazione dei dati varia a seconda del livello di archiviazione. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.
+* **Costi per l'accesso ai dati**: gli addebiti per l'accesso ai dati aumentano passando a un livello ad accesso più sporadico. Per i dati nei livelli di archiviazione ad accesso sporadico e archivio vengono addebitati i costi per l'accesso ai dati per gigabyte per le operazioni di lettura.
+* **Costi di transazione**: sono previsti costi per transazione per tutti i livelli e tali costi aumentano passando a un livello ad accesso più sporadico.
+* **Costi del trasferimento dati con replica geografica**: si applicano solo agli account con replica geografica, incluse l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. Il trasferimento dati con la replica geografica comporta un addebito per gigabyte.
+* **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo della larghezza di banda per singolo gigabyte, come per gli account di archiviazione per utilizzo generico.
+* **Modifica del livello di archiviazione**: la modifica del livello di archiviazione dell'account da sporadico a frequente comporta un addebito corrispondente a quello per la lettura di tutti i dati esistenti nell'account di archiviazione. Il passaggio dell'account dal livello di archiviazione ad accesso frequente a quello ad accesso sporadico comporta invece un addebito corrispondente a quello per la scrittura di tutti i dati nel livello ad accesso sporadico (solo per account per utilizzo generico v2).
 
 > [!NOTE]
 > Per altre informazioni sulla determinazione prezzi per gli account di archiviazione BLOB, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altre informazioni sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -245,7 +245,7 @@ L'archiviazione dati e gli altri limiti vengono impostati a livello di account e
 
 [Controllare la disponibilità di accesso frequente, accesso sporadico e archivio in base all'area](https://azure.microsoft.com/regions/#services)
 
-[Gestire il ciclo di vita di Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
+[Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)
 
 [Valutare l'utilizzo degli account di archiviazione attuali abilitando le metriche di Archiviazione di Azure](../common/storage-enable-and-view-metrics.md)
 

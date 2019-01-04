@@ -16,17 +16,17 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65f8eb0752a181eda312515e557bb733c091e2e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fd511a8a9d17bf79f1237bbfe2dc2ddbc5ec1b2e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505387"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867427"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gestire le quote e gli account Batch con la libreria client di gestione Batch per .NET
 
 > [!div class="op_single_selector"]
-> * [portale di Azure](batch-account-create-portal.md)
+> * [Portale di Azure](batch-account-create-portal.md)
 > * [.NET per la gestione di Batch](batch-management-dotnet.md)
 > 
 > 
@@ -153,7 +153,7 @@ La libreria della gestione .NET per Batch è un client del provider di risorse d
 
 ## <a name="sample-project-on-github"></a>Progetto di esempio su GitHub
 
-Il progetto di esempio [AccountManagment][acct_mgmt_sample] su GitHub permette di vedere Batch Management .NET in azione. L'applicazione di esempio AccountManagment illustra le operazioni seguenti:
+Il progetto di esempio [AccountManagement][acct_mgmt_sample] su GitHub permette di vedere Batch Management .NET in azione. L'applicazione di esempio AccountManagement illustra le operazioni seguenti:
 
 1. Acquisire un token di sicurezza da Azure AD con [ADAL][aad_adal]. Se l'utente non ha già eseguito l'accesso, gli viene richiesto di fornire le credenziali di Azure.
 2. Usando il token di sicurezza ottenuto da Azure AD, creare un oggetto [SubscriptionClient][resman_subclient] per richiedere ad Azure un elenco di sottoscrizioni associate all'account. L'utente può selezionare una sottoscrizione dall'elenco se contiene più di una sottoscrizione.

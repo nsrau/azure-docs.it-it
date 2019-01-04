@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345794"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105156"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -32,9 +32,9 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 * È possibile passare tre tipi diversi di argomenti nelle funzioni:
   
   1. Attributi, che devono essere racchiusi tra parentesi quadre. Ad esempio: [NomeAttributo]
-  2. Costanti di stringa, che devono essere racchiuse tra virgolette doppie. Ad esempio: "Stati Uniti"
-  3. Altre funzioni. Ad esempio: FunzioneUno(<<argument1>>, FunzioneDue(<<argument2>>))
-* Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio: "Nome società: \"Contoso\""
+  2. Costanti di stringa, che devono essere racchiuse tra virgolette doppie. Ad esempio:  "Stati Uniti"
+  3. Altre funzioni. Ad esempio:  FunzioneUno(<<argument1>>, FunzioneDue(<<argument2>>))
+* Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio:  "Nome società: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Elenco di funzioni
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
@@ -63,7 +63,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 | NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obbligatoria |string |Formato della data di output. |
 
 - - -
@@ -141,6 +141,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
   * Se **source** ha un valore, usa **regexPattern** e **regexGroupName** per estrarre il valore di sostituzione dalla proprietà con **replacementPropertyName**. Il valore di sostituzione viene restituito come risultato.
 
 **Parametri:**<br> 
+
 | NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
@@ -166,7 +167,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 | NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN ** |Sono necessari almeno 2 argomenti, nessun limite superiore |string | Elenco delle regole di generazione di valori univoci da valutare |
+| **uniqueValueRule1  … uniqueValueRuleN** |Sono necessari almeno 2 argomenti, nessun limite superiore |string | Elenco delle regole di generazione di valori univoci da valutare |
 
 
 - - -
@@ -242,7 +243,7 @@ Occorre generare un alias utente contenente le prime tre lettere del nome e le p
 
 * **INPUT** (givenName): "John"
 * **INPUT** (surname): "Doe"
-* **OUTPUT**: "JohDoe"
+* **OUTPUT**:  "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>Rimuovere i segni diacritici da una stringa
 È necessario sostituire i caratteri contenenti accenti con gli equivalenti caratteri non contenenti accenti.
@@ -253,7 +254,7 @@ NormalizeDiacritics([givenName])
 **Input/output di esempio:** <br>
 
 * **INPUT** (givenName): "Zoë"
-* **OUTPUT**: "Zoe"
+* **OUTPUT**:  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Eseguire l'output della data come stringa in un formato specifico
 
@@ -267,7 +268,7 @@ Ad esempio, formattare le date per ServiceNow.
 **Input/output di esempio:**
 
 * **INPUT** (extensionAttribute1): "20150123105347.1Z"
-* **OUTPUT**: "2015-01-23"
+* **OUTPUT**:  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Sostituire un valore in base a un set di opzioni predefinito
 

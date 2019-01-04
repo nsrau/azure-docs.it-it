@@ -1,11 +1,12 @@
 ---
 title: Panoramica degli strumenti della macchina virtuale per data science in Azure | Microsoft Docs
-description: Panoramica degli strumenti della macchina virtuale per data science.
+description: Informazioni su strumenti e utilità preinstallati in Data Science Virtual Machine.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9f10c30c8619a32e65063bbc83fd885aee93a4fa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7c51a44f7fcd46e9c15700fe91a4c86afbe02801
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407029"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100957"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Conoscere la macchina virtuale per data science
 

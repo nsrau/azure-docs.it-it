@@ -1,23 +1,25 @@
 ---
-title: Ricerca di immagini di tendenza nel Web | Microsoft Docs
-description: Illustra come usare l'API Ricerca immagini Bing per cercare immagini di tendenza nel Web.
+title: Ottenere immagini di tendenza con l'API Ricerca immagini Bing
+titleSuffix: Azure Cognitive Services
+description: Cercare le attuali immagini di tendenza nel Web con l'API Ricerca immagini Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: EAB92D35-5C0B-4A0A-8F49-02DF7FAD44B4
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: b12524cd4c1896501820209b3a45746b8f38b210
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.custom: seodec2018
+ms.openlocfilehash: 8d58c188275dc6b546d418b51835514c99f25d28
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372860"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258969"
 ---
-# <a name="get-trending-images"></a>Ottenere immagini di tendenza  
+# <a name="get-trending-images-from-the-web"></a>Ottenere immagini di tendenza dal Web
 
 Per ottenere le immagini di tendenza più recenti, inviare la richiesta GET seguente:  
 
@@ -38,7 +40,7 @@ L'API delle immagini di tendenza supporta attualmente solo i mercati seguenti:
 - zh-CN (cinese, Cina)
 
 La risposta contiene un oggetto [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#trendingimages) che elenca immagini per categoria. Usare la proprietà `title` della categoria per raggruppare le immagini nell'esperienza utente. Le categorie possono cambiare ogni giorno.  
-  
+
 ```json
 {
     "_type" : "TrendingImages",  
@@ -85,8 +87,8 @@ La risposta contiene un oggetto [TrendingImages](https://docs.microsoft.com/rest
     }]  
 }  
 ```  
-  
-Ogni riquadro contiene un'immagine e alcune opzioni che consentono di ottenere immagini correlate. Per ottenere le immagini correlate, è possibile usare `text` della query per chiamare l'[API Ricerca immagini](./search-the-web.md) e visualizzare personalmente le immagini correlate. In alternativa, è possibile usare l'URL in `webSearchUrl` per far passare l'utente alla pagina di Bing dei risultati della ricerca di immagini, contenente le immagini correlate. 
+
+Ogni riquadro contiene un'immagine e alcune opzioni che consentono di ottenere immagini correlate. Per ottenere le immagini correlate, è possibile usare `text` della query per chiamare l'[API Ricerca immagini](./search-the-web.md) e visualizzare personalmente le immagini correlate. In alternativa, è possibile usare l'URL in `webSearchUrl` per far passare l'utente alla pagina di Bing dei risultati della ricerca di immagini, contenente le immagini correlate.
 
 Se si chiama l'API Ricerca immagini per ottenere le immagini correlate, impostare il parametro [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) della query sull'ID presente nel campo `id`. L'indicazione dell'ID assicura che la risposta contenga l'immagine (la prima immagine nella risposta) e le relative immagini correlate. Impostare poi il parametro di query [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#q) sul testo nel campo `text` dell'oggetto `query`.
 

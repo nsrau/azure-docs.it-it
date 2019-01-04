@@ -8,21 +8,20 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: bfed4318d09a776f56a5a4b6218120d75a49fc80
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 676baa6947eaf8b3842b0100657f42a1e6438061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714347"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184883"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali (anteprima)
-Monitoraggio di Azure per le macchine virtuali raccoglie le metriche relative a prestazioni e connessione, i dati di inventario di computer e processi e le informazioni sullo stato di integrità e inoltra quanto raccolto all'archivio dati di Log Analytics in Monitoraggio di Azure.  Questi dati sono disponibili per la [ricerca](../../log-analytics/log-analytics-queries.md) in Log Analytics. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
+Monitoraggio di Azure per le macchine virtuali raccoglie le metriche relative a prestazioni e connessione, i dati di inventario di computer e processi e le informazioni sullo stato di integrità e inoltra quanto raccolto all'archivio dati di Log Analytics in Monitoraggio di Azure.  Questi dati sono disponibili per la [ricerca](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
 
 ## <a name="map-records"></a>Record della mappa
 Ogni ora viene generato un record per ogni computer e processo univoco, in aggiunta ai record generati all'avvio di un processo o computer o quando ne viene eseguito l'onboarding nella funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali. I record hanno le proprietà descritte nelle tabelle seguenti. I campi e i valori negli eventi ServiceMapComputer_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. I campi e i valori negli eventi ServiceMapProcess_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. Il campo ResourceName_s coincide con il campo del nome nella risorsa di Resource Manager corrispondente. 
@@ -238,5 +237,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Se non si ha familiarità con la scrittura di query in Log Analytics,vedere le informazioni su [come usare la pagina di Log Analytics](../../log-analytics/query-language/get-started-analytics-portal.md) nel portale di Azure per scrivere query di Log Analytics.
-* Leggere le informazioni su come [scrivere query di ricerca](../../log-analytics/query-language/search-queries.md).
+* Se non si ha familiarità con la scrittura di query in Log Analytics,vedere le informazioni su [come usare la pagina di Log Analytics](../../azure-monitor/log-query/get-started-portal.md) nel portale di Azure per scrivere query di Log Analytics.
+* Leggere le informazioni su come [scrivere query di ricerca](../../azure-monitor/log-query/search-queries.md).

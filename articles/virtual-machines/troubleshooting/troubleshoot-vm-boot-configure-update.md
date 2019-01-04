@@ -1,6 +1,6 @@
 ---
-title: L'avvio della VM si blocca su un messaggio analogo a "Preparazione di Windows. Non spegnere il computer". in Azure | Microsoft Docs
-description: Presentazione della procedura per risolvere il problema di blocco dell'avvio della macchina virtuale quando viene restituito un messaggio analogo a "Preparazione di Windows. Non spegnere il computer."
+title: L'avvio della macchina virtuale si blocca su un messaggio analogo a "Preparazione di Windows. Non spegnere il computer" in Azure | Microsoft Docs
+description: Presentazione della procedura per risolvere il problema di blocco dell'avvio della macchina virtuale quando viene restituito un messaggio analogo a "Preparazione di Windows. Non spegnere il computer".
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,42 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 2bcdb2b458327a5e87dc36e4a5f50f0ac46bf96a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: eb27b4e6c60f23a55a58cd2aae3cff927ffeaf03
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621035"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316098"
 ---
-# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>L'avvio della VM si blocca su un messaggio analogo a "Preparazione di Windows. Non spegnere il computer". in Azure
+# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>L'avvio della macchina virtuale si blocca su un messaggio analogo a "Preparazione di Windows. Non spegnere il computer" in Azure
 
-Questo articolo consente di risolvere il problema di blocco della macchina virtuale quando viene restituito un messaggio analogo a "Preparazione di Windows. Non spegnere il computer". in fase di avvio.
+Questo articolo consente di risolvere il problema di blocco della macchina virtuale quando viene restituito un messaggio analogo a "Preparazione di Windows. Non spegnere il computer" in fase di avvio.
 
 ## <a name="symptoms"></a>Sintomi
 
-Quando si usa **Diagnostica di avvio** per ottenere lo screenshot di una macchina virtuale, si riscontra che il sistema operativo non viene avviato completamente. Inoltre, la macchina virtuale visualizza un messaggio analogo a **"Preparazione di Windows. Non spegnere il computer."** criteri.).
+Quando si usa **Diagnostica di avvio** per ottenere lo screenshot di una macchina virtuale, si riscontra che il sistema operativo non viene avviato completamente. Sulla macchina virtuale viene visualizzato il messaggio "Preparazione di Windows. Non spegnere il computer".
 
-![Esempio di messaggio](./media/troubleshoot-vm-configure-update-boot/message1.png)
+![Esempio di messaggio per Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
 ![Esempio di messaggio](./media/troubleshoot-vm-configure-update-boot/message2.png)
 
 ## <a name="cause"></a>Causa
 
-Questo problema si verifica in genere quando il server esegue il riavvio finale dopo che è stata modificata la configurazione. La modifica della configurazione può essere stata inizializzata da aggiornamenti di Windows o da modifiche apportate ai ruoli o alle funzionalità del server. Per Windows Update, se l'entità degli aggiornamenti è stata notevole, il sistema operativo avrà bisogno di più tempo per riconfigurare le modifiche.
+Questo problema si verifica in genere quando il server esegue il riavvio finale dopo che è stata modificata la configurazione. È possibile che la modifica della configurazione sia stata inizializzata da aggiornamenti di Windows o da modifiche apportate ai ruoli o alle funzionalità del server. Per Windows Update, se l'entità degli aggiornamenti è stata notevole, il sistema operativo ha bisogno di più tempo per riconfigurare le modifiche.
 
 ## <a name="back-up-the-os-disk"></a>Eseguire il backup del disco del sistema operativo
 
-Prima di provare a risolvere il problema, eseguire il backup del disco del sistema operativo:
+Prima di provare a risolvere il problema, eseguire il backup del disco del sistema operativo.
 
 ### <a name="for-vms-with-an-encrypted-disk-you-must-unlock-the-disks-first"></a>Per le macchine virtuali con un disco crittografato, sbloccare prima i dischi
 
-Verificare se la macchina virtuale è crittografata. A questo scopo, seguire questa procedura:
+Seguire questa procedura per determinare se la macchina virtuale è crittografata.
 
-1. Nel portale aprire la macchina virtuale e quindi selezionare i dischi.
+1. Nel portale di Azure aprire la macchina virtuale e quindi selezionare i dischi.
 
-2. Verrà visualizzata una colonna denominata "Crittografia" che indicherà se la crittografia è abilitata.
+2. Verificare che la crittografia sia abilitata nella colonna **Crittografia**.
 
-Se il disco del sistema operativo è crittografato, sbloccare il disco crittografato. A questo scopo, seguire questa procedura:
+Se il disco del sistema operativo è crittografato, sbloccare il disco crittografato. Per sbloccare il disco, seguire questa procedura.
 
 1. Creare una macchina virtuale di ripristino che si trova nello stesso gruppo di risorse, lo stesso account di archiviazione e la stessa posizione della macchina virtuale interessata.
 
@@ -72,7 +72,7 @@ Se il disco del sistema operativo è crittografato, sbloccare il disco crittogra
     Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
     ```
 
-5. Dopo aver ottenuto il nome del segreto, eseguire i comandi seguenti in PowerShell:
+5. Dopo aver ottenuto il nome del segreto, eseguire i comandi seguenti in PowerShell.
 
     ```Powershell
     $secretName = 'SecretName'
@@ -83,7 +83,7 @@ Se il disco del sistema operativo è crittografato, sbloccare il disco crittogra
 6. Convertire in byte il valore con codifica Base64 e scrivere l'output in un file. 
 
     > [!Note]
-    > Se si usa l'opzione di sblocco USB, il nome del file BEK deve corrispondere al GUID BEK originale. È inoltre necessario creare nell'unità C una cartella denominata BEK prima di eseguire i passaggi seguenti.
+    > Se si usa l'opzione di sblocco USB, il nome del file BEK deve corrispondere al GUID BEK originale. Creare nell'unità C una cartella denominata BEK prima di eseguire la procedura seguente.
     
     ```Powershell
     New-Item -ItemType directory -Path C:\BEK
@@ -92,28 +92,28 @@ Se il disco del sistema operativo è crittografato, sbloccare il disco crittogra
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7. Dopo aver creato il file con estensione bek nel PC, copiare il file nella macchina virtuale di ripristino a cui è collegato il disco del sistema operativo bloccato. Eseguire il comando seguente usando il percorso del file con estensione bek:
+7. Dopo aver creato il file con estensione bek nel PC, copiare il file nella macchina virtuale di ripristino a cui è collegato il disco del sistema operativo bloccato. Eseguire i comandi seguenti usando il percorso del file BEK.
 
     ```Powershell
     manage-bde -status F:
     manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
     ```
-    **Facoltativo**: in alcuni scenari può anche essere necessario decrittografare il disco con questo comando.
+    **Facoltativo**: in alcuni scenari potrebbe essere necessario decrittografare il disco con questo comando.
    
     ```Powershell
     manage-bde -off F:
     ```
 
     > [!Note]
-    > Nel codice si presuppone che il disco da crittografare si trovi nell'unità F.
+    > Il comando precedente presuppone che il disco da crittografare si trovi nell'unità F.
 
-8. Se è necessario raccogliere i log, è possibile passare al percorso **LETTERA UNITÀ:\Windows\System32\winevt\Logs**.
+8. Se è necessario raccogliere i log, passare al percorso **LETTERA UNITÀ:\Windows\System32\winevt\Logs**.
 
 9. Scollegare l'unità dalla macchina di ripristino.
 
 ### <a name="create-a-snapshot"></a>Creare uno snapshot
 
-Per creare uno snapshot, seguire i passaggi descritti in [Creare uno snapshot di un disco](..\windows\snapshot-copy-managed-disk.md).
+Per creare uno snapshot, seguire i passaggi descritti in [Creare uno snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
 
 ## <a name="collect-an-os-memory-dump"></a>Raccogliere un dump di memoria del sistema operativo
 
@@ -124,14 +124,14 @@ Seguire la procedura descritta nella sezione [Raccogliere un dump del sistema op
 Dopo aver raccolto il file di dump, contattare il [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per analizzare la causa radice.
 
 
-## <a name="rebuild-the-vm-using-powershell"></a>Ricreare la macchina virtuale usando PowerShell
+## <a name="rebuild-the-vm-by-using-powershell"></a>Ricreare la macchina virtuale usando PowerShell
 
 Dopo aver raccolto il file di dump della memoria, seguire la procedura seguente per ricreare la macchina virtuale.
 
 **Per i dischi non gestiti**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -162,7 +162,7 @@ New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 **Per i dischi gestiti**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -183,7 +183,7 @@ $avName = "AvailabilitySetName";
 $osDiskName = "OsDiskName";
 $DataDiskName = "DataDiskName"
 
-#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below doesn't match
+#This can be found by selecting the Managed Disks you wish you use in the Azure portal if the format below doesn't match
 $osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 

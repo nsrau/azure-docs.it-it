@@ -1,6 +1,6 @@
 ---
-title: Elenco di controllo della distribuzione di Azure AD a 30 giorni, 90 giorni e oltre
-description: Elenco di controllo della distribuzione della funzione Azure Active Directory Premium P2
+title: Elenco di controllo delle licenze Premium P2 - Azure Active Directory | Microsoft Docs
+description: Elenco di controllo della distribuzione delle funzionalità di Azure Active Directory Premium P2 in 30, 90 e più giorni.
 services: active-directory
 ms.service: active-directory
 ms.component: ''
@@ -9,13 +9,13 @@ ms.date: 09/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: ''
-ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705652"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078237"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Elenco di controllo delle licenze di Azure Active Directory Premium P2
 
@@ -33,7 +33,7 @@ Questa guida presuppone che si possiedano licenze di Azure AD Premium P2, Enterp
 
 [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
-## <a name="plan-and-deploy-day-1-30"></a>Pianificare e distribuire: giorni 1-30
+## <a name="plan-and-deploy-day-1-30"></a>Pianificare e distribuire: Giorni 1-30
 
 - Designare più di un amministratore globale (account di emergenza)
    - [Gestire gli account amministrativi di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md)
@@ -64,7 +64,7 @@ Questa guida presuppone che si possiedano licenze di Azure AD Premium P2, Enterp
    - [Implementare Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
 - [Assegnare licenze agli utenti in base all'appartenenza ai gruppi in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
 
-## <a name="plan-and-deploy-day-31-90"></a>Pianificare e distribuire: giorni 31-90
+## <a name="plan-and-deploy-day-31-90"></a>Pianificare e distribuire: Giorni 31-90
 
 - [Pianificare l'accesso degli utenti guest](../b2b/what-is-b2b.md)
    - [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](../b2b/add-users-administrator.md)
@@ -75,7 +75,7 @@ Questa guida presuppone che si possiedano licenze di Azure AD Premium P2, Enterp
    - [Scenari di utilizzo e considerazioni sulla distribuzione per Aggiunta di Azure AD](../devices/azureadjoin-plan.md)
 - [Gestire Windows Hello for Business nell'organizzazione](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
 
-## <a name="plan-and-deploy-day-90-and-beyond"></a>Pianificare e distribuire: giorni 90 e oltre
+## <a name="plan-and-deploy-day-90-and-beyond"></a>Pianificare e distribuire: Giorni da 90 in avanti
 
 - [Gestione identità con privilegi di Azure AD](../privileged-identity-management/pim-configure.md)
    - [Configurare le impostazioni dei ruoli della directory di Azure AD in PIM](../privileged-identity-management/pim-how-to-change-default-settings.md)

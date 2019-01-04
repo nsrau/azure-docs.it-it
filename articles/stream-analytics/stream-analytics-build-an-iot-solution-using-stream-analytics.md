@@ -2,19 +2,19 @@
 title: Creare una soluzione IoT tramite Analisi di flusso di Azure
 description: Esercitazione introduttiva per la soluzione IoT di Analisi di flusso relativa allo scenario di un casello
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: jasonh, sngun
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/21/2018
-ms.openlocfilehash: e70a1210d44e5bfec914006afaf18eff772cac47
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4817efcb5cfa5f8692f2b7e5c65d411bc0d21942
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978792"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317390"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
 
@@ -33,10 +33,10 @@ Dopo aver completato questa soluzione, sarà possibile:
 Per completare questa soluzione, è necessario soddisfare i prerequisiti seguenti:
 * Una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>Presentazione dello scenario: il casello
+## <a name="scenario-introduction-hello-toll"></a>Introduzione dello scenario: "Ciao, casello!"
 Un casello rappresenta una situazione piuttosto comune. Se ne incontrano sulle autostrade e su molti ponti e tunnel in tutto il mondo. Ogni barriera è costituita da più caselli. In quelli manuali ci si ferma per pagare il pedaggio a un addetto. In quelli automatizzati al passaggio attraverso il casello un sensore posto al di sopra di esso analizza una scheda RFID posizionata sul parabrezza del veicolo. È semplice visualizzare il passaggio dei veicoli nei caselli come un flusso di eventi, sui quali è possibile eseguire alcune operazioni interessanti.
 
-![Immagine di automobili ai caselli](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+![Immagine di automobili ai caselli](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
 
 ## <a name="incoming-data"></a>Dati di ingresso
 Questa soluzione usa due flussi di dati. Il primo flusso viene prodotto da sensori installati all'entrata e all'uscita del casello. Il secondo flusso è un set di dati di ricerca statico contenente dati di registrazione dei veicoli.
@@ -113,7 +113,7 @@ Per completare la soluzione, è necessaria una sottoscrizione di Microsoft Azure
 
 Per poter usare al meglio il credito Azure gratuito, seguire la procedura riportata nella sezione "Eseguire la pulizia dell'account Azure" alla fine di questo articolo.
 
-## <a name="deploy-the-sample"></a>Distribuire l'esempio 
+## <a name="deploy-the-sample"></a>Distribuire l'esempio
 Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in pochi clic. La definizione della soluzione è ospitata nel repository GitHub all'indirizzo [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Distribuire il modello TollApp nel portale di Azure
@@ -123,11 +123,11 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
 
 3. Scegliere la sottoscrizione usata per la fatturazione delle diverse risorse.
 
-4. Specificare un nuovo gruppo di risorse con un nome univoco, ad esempio `MyTollBooth`. 
+4. Specificare un nuovo gruppo di risorse con un nome univoco, ad esempio `MyTollBooth`.
 
 5. Selezionare una località di Azure.
 
-6. Specificare un valore come numero di secondi in **Intervallo**. Questo valore viene usato nell'app Web di esempio per specificare come inviare i dati in Hub eventi. 
+6. Specificare un valore come numero di secondi in **Intervallo**. Questo valore viene usato nell'app Web di esempio per specificare come inviare i dati in Hub eventi.
 
 7. Fare clic su **Seleziona** per accettare i termini e le condizioni.
 
@@ -149,7 +149,7 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
    - Un hub eventi di Azure
    - Due app Web
 
-## <a name="examine-the-sample-tollapp-job"></a>Esaminare il processo TollApp di esempio 
+## <a name="examine-the-sample-tollapp-job"></a>Esaminare il processo TollApp di esempio
 1. Iniziando dal gruppo di risorse della sezione precedente, selezionare il processo di streaming di Analisi di flusso di Azure che inizia con il nome **tollapp** (il nome contiene caratteri casuali per scopi di univocità).
 
 2. Nella pagina **Panoramica** del processo notare la casella **Query**, in cui è visualizzata la sintassi di query.
@@ -195,7 +195,7 @@ Per avviare il processo di streaming, completare questi passaggi:
 
 6. Selezionare ogni ID per esaminare il documento JSON. Notare ogni ID casello, ogni momento di fine finestra e il numero di auto della finestra.
 
-7. Dopo altri tre minuti, è disponibile un altro set di quattro documenti, un documento per ogni ID casello. 
+7. Dopo altri tre minuti, è disponibile un altro set di quattro documenti, un documento per ogni ID casello.
 
 
 ## <a name="report-total-time-for-each-car"></a>Segnalare il tempo totale per ogni auto
@@ -229,9 +229,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 7. Nel riquadro **Avvia processo** selezionare **Ora**.
 
 ### <a name="review-the-total-time-in-the-output"></a>Esaminare il tempo totale nell'output
-Ripetere i passaggi nella sezione precedente per esaminare i dati di output di Cosmos DB dal processo di streaming. Esaminare i documenti JSON più recenti. 
+Ripetere i passaggi nella sezione precedente per esaminare i dati di output di Cosmos DB dal processo di streaming. Esaminare i documenti JSON più recenti.
 
-Ad esempio, questo documento mostra un'auto di esempio con una certa targa, l'ora di ingresso e l'ora di uscita e il campo della durata DATEDIFF calcolata in minuti che mostra la durata in casello come due minuti: 
+Ad esempio, questo documento mostra un'auto di esempio con una certa targa, l'ora di ingresso e l'ora di uscita e il campo della durata DATEDIFF calcolata in minuti che mostra la durata in casello come due minuti:
 ```JSON
 {
     "tollid": 4,
@@ -249,7 +249,7 @@ Ad esempio, questo documento mostra un'auto di esempio con una certa targa, l'or
 ```
 
 ## <a name="report-vehicles-with-expired-registration"></a>Segnalare i veicoli con registrazione scaduta
-Analisi di flusso di Azure può usare snapshot statici dei dati di riferimento da unire ai flussi di dati temporali. Per illustrare questa funzionalità, usare la domanda di esempio seguente. L'input Registration è un file JSON BLOB statico che elenca le scadenze delle targhe. Unendo la targa, i dati di riferimento vengono confrontati con ogni veicolo che attraversa il casello. 
+Analisi di flusso di Azure può usare snapshot statici dei dati di riferimento da unire ai flussi di dati temporali. Per illustrare questa funzionalità, usare la domanda di esempio seguente. L'input Registration è un file JSON BLOB statico che elenca le scadenze delle targhe. Unendo la targa, i dati di riferimento vengono confrontati con ogni veicolo che attraversa il casello.
 
 Se un veicolo commerciale è registrato presso l'azienda che gestisce il casello, lo può attraversare senza essere fermato per un controllo. Usare la tabella di ricerca relativa alla registrazione per identificare tutti i veicoli commerciali la cui registrazione è scaduta.
 
@@ -264,7 +264,7 @@ WHERE Registration.Expired = '1'
 
 1. Ripetere i passaggi indicati nella sezione precedente per aggiornare la sintassi di query del processo di streaming TollApp.
 
-2. Ripetere i passaggi nella sezione precedente per esaminare i dati di output di Cosmos DB dal processo di streaming. 
+2. Ripetere i passaggi nella sezione precedente per esaminare i dati di output di Cosmos DB dal processo di streaming.
 
 Output di esempio:
 ```json
@@ -289,28 +289,28 @@ Per scalare orizzontalmente la query nelle partizioni, modificare la sintassi di
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
-FROM EntryStream 
-TIMESTAMP BY EntryTime 
+FROM EntryStream
+TIMESTAMP BY EntryTime
 PARTITION BY PartitionId
 GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 ```
 
 Per ridimensionare il processo di streaming in base a più unità di streaming:
 
-1. Fare clic su **Arresta** per arrestare il processo corrente. 
+1. Fare clic su **Arresta** per arrestare il processo corrente.
 
 2. Aggiornare la sintassi di query nella pagina **Query < >** e salvare le modifiche.
 
 3. Nell'intestazione CONFIGURA nel processo di streaming selezionare **Scala**.
-   
+
 4. Spostare il dispositivo di scorrimento **Unità di streaming** da 1 a 6. Le unità di streaming definiscono la quantità di potenza di calcolo che il processo può ricevere. Selezionare **Salva**.
 
-5. Fare clic su **Avvia** per avviare il processo di streaming per provare la scalabilità aggiuntiva. Analisi di flusso di Azure distribuisce il lavoro tra più risorse di calcolo e ottiene velocità effettiva migliore, partizionando il lavoro tra risorse tramite la colonna designata nella clausola PARTITION BY. 
+5. Fare clic su **Avvia** per avviare il processo di streaming per provare la scalabilità aggiuntiva. Analisi di flusso di Azure distribuisce il lavoro tra più risorse di calcolo e ottiene velocità effettiva migliore, partizionando il lavoro tra risorse tramite la colonna designata nella clausola PARTITION BY.
 
 ## <a name="monitor-the-job"></a>Monitorare il processo
-L'area **MONITORAGGIO** contiene le statistiche relative al processo in esecuzione. La configurazione iniziale è necessaria per usare l'account di archiviazione nella stessa area (denominare il casello come nelle altre parti di questo documento).   
+L'area **MONITORAGGIO** contiene le statistiche relative al processo in esecuzione. La configurazione iniziale è necessaria per usare l'account di archiviazione nella stessa area (denominare il casello come nelle altre parti di questo documento).
 
-![Screenshot di monitoraggio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Monitoraggio dei processi di Analisi di flusso di Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
 È possibile accedere a **Log attività** anche dall'area **Impostazioni** del dashboard del processo.
 

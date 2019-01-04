@@ -9,21 +9,21 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: aab867e5c58ba9de17b3c68c8e507fca5354eb90
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a57e481093bca12a1726a4cc16fa090aa158c1d8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093442"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320895"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Piani tariffari di Database di Azure per PostgreSQL
 
-È possibile creare un server di Database di Azure per PostgreSQL in uno dei tre piani tariffari disponibili: Basic, Utilizzo generico e Con ottimizzazione per la memoria. I piani tariffari si differenziano per le risorse di calcolo in vCore di cui è possibile effettuare il provisioning, per la memoria in ogni vCore e per la tecnologia usata per l'archiviazione dei dati. Il provisioning di tutte le risorse viene effettuato a livello di server PostgreSQL. Un server può avere uno o più database.
+È possibile creare un server di Database di Azure per PostgreSQL in uno dei tre piani tariffari disponibili: piani Basic, Per utilizzo generico e Con ottimizzazione per la memoria. I piani tariffari si differenziano per le risorse di calcolo in vCore di cui è possibile effettuare il provisioning, per la memoria in ogni vCore e per la tecnologia usata per l'archiviazione dei dati. Il provisioning di tutte le risorse viene effettuato a livello di server PostgreSQL. Un server può avere uno o più database.
 
 |    | **Basic** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:---|:----------|:--------------------|:---------------------|
 | Generazione di calcolo | Generazione 4, Generazione 5 | Generazione 4, Generazione 5 | Generazione 5 |
-| vCore | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| vCore | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memoria per vCore | 2 GB | 5 GB | 10 GB |
 | Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
 | Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
@@ -43,6 +43,9 @@ Dopo aver creato un server, il numero di vCore, la generazione dell'hardware e i
 ## <a name="compute-generations-and-vcores"></a>Generazioni di calcolo e vCore
 
 Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Attualmente, è possibile scegliere tra due generazioni di calcolo: Generazione 4 e Generazione 5. Le CPU logiche Generazione 4 si basano sui processori Intel E5-2673 v3 (Haswell) a 2,4 GHz. Le CPU logiche Generazione 5 si basano sui processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz. Generazione 4 e Generazione 5 sono disponibili nelle aree seguenti ("X" indica la disponibilità). 
+
+> [!IMPORTANT]
+> A partire dal 12 dicembre 2018 i nuovi clienti non possono effettuare il provisioning di server di calcolo di quarta generazione in Brasile meridionale, Canada centrale, Canada orientale, Asia orientale, Stati Uniti orientali 2, India centrale, India occidentale, Giappone occidentale, Stati Uniti centro-settentrionali e Stati Uniti occidentali. Verrà eseguita la migrazione dei server di servizi di calcolo di quarta generazione creati in precedenza ai server di servizi di calcolo di quinta generazione a partire dal 1° febbraio 2019 in queste aree.
 
 | **Area di Azure** | **Generazione 4** | **Generazione 5** |
 |:---|:----------:|:--------------------:|

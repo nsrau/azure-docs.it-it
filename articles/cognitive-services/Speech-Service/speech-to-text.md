@@ -1,7 +1,7 @@
 ---
-title: Informazioni sul riconoscimento vocale
+title: Informazioni sul riconoscimento vocale - Servizi Voce
 titleSuffix: Azure Cognitive Services
-description: Panoramica delle funzionalità dell'API Riconoscimento vocale.
+description: L'API Riconoscimento vocale trascrive i flussi audio in testo che l'app può mostrare o che può fungere da input per eseguire operazioni. Il servizio è disponibile tramite l'SDK e un endpoint RESTful.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 041ec1c095ec604fed7906368ff266c1586df570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 050d395614fa4a08e6d0d0967200029e8fc36010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471340"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094713"
 ---
 # <a name="about-the-speech-to-text-api"></a>Informazioni sull'API Riconoscimento vocale
 
@@ -43,17 +44,17 @@ Alcune delle funzionalità dell'API **Riconoscimento vocale**, soprattutto per q
 
 | Caso d'uso | REST | SDK |
 |-----|-----|-----|----|
-| Trascrivere una breve espressione, ad esempio un comando (lunghezza < 15 s), senza risultati temporanei | Yes | Yes |
-| Trascrivere un'espressione più lunga (> 15 s) | No  | Yes |
-| Trascrivere lo streaming di audio con risultati temporanei facoltativi | No  | Yes |
-| Comprendere le finalità di chi parla tramite LUIS | No\* | Yes |
-| Creare test di accuratezza | Yes | No  |
-| Caricare set di dati per l'adattamento del modello | Yes | No  |
-| Creare e gestire modelli di conversione voce/testo | Yes | No  |
-| Creare e gestire distribuzioni dei modelli | Yes | No  |
-| Gestisci sottoscrizioni | Yes | No  |
-| Creare e gestire distribuzioni dei modelli | Yes | No  |
-| Creare e gestire distribuzioni dei modelli | Yes | No  |
+| Trascrivere una breve espressione, ad esempio un comando (lunghezza < 15 s), senza risultati temporanei | Sì | Sì |
+| Trascrivere un'espressione più lunga (> 15 s) | No | Sì |
+| Trascrivere lo streaming di audio con risultati temporanei facoltativi | No | Sì |
+| Comprendere le finalità di chi parla tramite LUIS | No\* | Sì |
+| Creare test di accuratezza | Sì | No |
+| Caricare set di dati per l'adattamento del modello | Sì | No |
+| Creare e gestire modelli di conversione voce/testo | Sì | No |
+| Creare e gestire distribuzioni dei modelli | Sì | No |
+| Gestisci sottoscrizioni | Sì | No |
+| Creare e gestire distribuzioni dei modelli | Sì | No |
+| Creare e gestire distribuzioni dei modelli | Sì | No |
 
 > [!NOTE]
 > L'API REST implementa la limitazione delle richieste dell'API a 25 ogni 5 secondi. Le intestazioni dei messaggi informeranno dei limiti

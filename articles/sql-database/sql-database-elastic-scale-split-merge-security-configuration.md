@@ -3,21 +3,21 @@ title: Configurazione della sicurezza del servizio di divisione e unione | Docum
 description: Configurare 409 certificati per la crittografia con il servizio di suddivisione/unione per la scalabilità elastica.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231398"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964833"
 ---
 # <a name="split-merge-security-configuration"></a>Configurazione della sicurezza del servizio di divisione e unione
 Per usare il servizio di "split and merge", è necessario configurare correttamente le impostazioni sulla sicurezza. Il servizio rientra nella funzionalità Scalabilità elastica di database SQL di Microsoft Azur. Per altre informazioni, vedere [Esercitazione relativa allo strumento divisione-unione del database elastico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -43,7 +43,7 @@ Se tali opzioni non sono disponibili, è possibile generare **certificati autofi
     Se installato, passare a:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Ottenere il WDK da [Windows 8.1: download di kit e strumenti](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Ottenere il WDK da [Windows 8.1: scaricare kit e strumenti](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Per configurare il certificato SSL
 Un certificato SSL è necessario per crittografare la comunicazione e autenticare il server. Scegliere il più appropriato dei tre seguenti scenari ed eseguirne tutti i passaggi:
@@ -142,7 +142,7 @@ Per rilevare e impedire attacchi Denial of Service sono supportati due diversi m
 Questi meccanismi si basano sulle funzionalità illustrate più estesamente nella documentazione relativa alla sicurezza degli IP dinamici in IIS. Quando si modifica questa configurazione, prestare attenzione ai seguenti fattori:
 
 * Comportamento del proxy e dei dispositivi NAT (Network Address Translation)rispetto alle informazioni sull'host remoto.
-* Viene considerata ogni richiesta a qualsiasi risorsa nel ruolo Web (ad esempio, caricamento di script, immagini e così via).
+* Viene considerata ogni richiesta a qualsiasi risorsa nel ruolo Web (ad esempio, caricamento di script, immagini e così via)
 
 ## <a name="restricting-number-of-concurrent-accesses"></a>Limitazione del numero di accessi simultanei
 Le impostazioni che configurano questo comportamento sono le seguenti:
@@ -178,7 +178,7 @@ Eseguire:
       -n "CN=myservice.cloudapp.net" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 Per personalizzare:
@@ -239,7 +239,7 @@ Per creare un certificato autofirmato che funga da autorità di certificazione, 
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -288,7 +288,7 @@ Seguire questa procedura nello stesso computer in cui è stato generato e archiv
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 

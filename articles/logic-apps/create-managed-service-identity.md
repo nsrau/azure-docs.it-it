@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/05/2018
-ms.openlocfilehash: 84529e1097678ba7a039ffaeec57a9293c93dafd
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 19e6693de673eae6fe0b885580975c4cefc35d60
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229640"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725149"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Eseguire l'autenticazione e accedere alle risorse con le identità gestite nelle App per la logica di Azure
 
@@ -128,13 +128,13 @@ Per fornire l'accesso a un'altra risorsa di Azure per l'identità gestita assegn
 
 1. Nel portale di Azure passare alla risorsa di Azure in cui si desidera assegnare l'accesso per l'identità gestita. 
 
-1. Nel menu della risorsa selezionare **Controllo di accesso (IAM)** e scegliere **Aggiungi**. 
+1. Nel menu della risorsa selezionare **Controllo di accesso (IAM)** e scegliere **Aggiungi assegnazione di ruolo**. 
 
-   ![Aggiungere autorizzazioni](./media/create-managed-service-identity/add-permissions-logic-app.png)
+   ![Aggiungi un'assegnazione di ruolo](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. In **Aggiungi autorizzazioni** selezionare il **Ruolo** desiderato per l'identità. 
+1. In **Aggiungi assegnazione di ruolo** selezionare il **Ruolo** desiderato per l'identità. 
 
-1. Nella proprietà **Assegna accesso a** selezionare **Applicazione, gruppo o utente di Azure AD**.
+1. Nella proprietà **Assegna accesso a** selezionare **Entità servizio, gruppo o utente di Azure AD**, se l'opzione non è già selezionata.
 
 1. Nella casella **Seleziona**, a partire dal primo carattere del nome dell'app per la logica, immettere il nome dell'app per la logica. Quando viene visualizzata l'app per la logica, selezionarla.
 

@@ -1,5 +1,5 @@
 ---
-title: Esempi di campioni vocali per la creazione di una voce personalizzata
+title: Registrare campioni vocali personalizzati - Servizi di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Creare una voce personalizzata di qualità di produzione grazie alla preparazione di uno script solido, all'assunzione di speaker di alto livello e a una registrazione professionale.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 07/5/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: b1b189db56eb3f70f23940a8612d310d2ba8566f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 6aaa638504dd441240879050531952b269d02d15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471187"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081082"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Esempi di campioni vocali per la creazione di una voce personalizzata
 
@@ -50,7 +51,7 @@ Scegliere uno speaker con la voce naturale che si preferisce. È possibile crear
 > [!TIP]
 > È consigliabile evitare, in genere, di usare voci riconoscibili per creare una voce personalizzata, a meno che, naturalmente, l'obiettivo non consista nel produrre una voce celebre. Le voci meno note, generalmente, provocano meno distrazione agli utenti.
 
-Il fattore più importante per la scelta di uno speaker è l'uniformità. Tutte le registrazioni devono sembrare come eseguite nello stesso giorno e nella stessa stanza. È possibile avvicinarsi a questa situazione ideale tramite procedure e tecniche ottimali di registrazione. 
+Il fattore più importante per la scelta di uno speaker è l'uniformità. Tutte le registrazioni devono sembrare come eseguite nello stesso giorno e nella stessa stanza. È possibile avvicinarsi a questa situazione ideale tramite procedure e tecniche ottimali di registrazione.
 
 Lo speaker rappresenta la seconda parte dell'equazione. Deve essere in grado di parlare con velocità, livello di volume e tono costanti e una dizione perfetta è naturalmente indispensabile. Lo speaker deve essere anche in grado di controllare rigorosamente la propria variazione di tono, l'effetto emotivo e i modi di parlare.
 
@@ -71,7 +72,7 @@ Le espressioni nello script possono provenire da origini diverse, ad esempio rom
 
 Le espressioni non devono provenire necessariamente dalla stessa origine o dallo stesso tipo di origine. e possono anche non essere correlate tra loro. Se tuttavia nell'applicazione di riconoscimento vocale si usano frasi standard, ad esempio "Accesso eseguito", assicurasi di includerle nello script. In questo modo la voce personalizzata avrà una migliore possibilità di pronunciare tali frasi correttamente. Se si decide di usare una registrazione anziché la sintesi vocale, si disporrà già della registrazione nella stessa voce.
 
-Se l'uniformità è il fattore chiave nella scelta dello speaker, la varietà è la caratteristica di base di uno script valido. Lo script deve includere molte parole e frasi diverse, con un'ampia gamma di lunghezze, strutture e intonazioni. Tutti i suoni del linguaggio devono essere rappresentati più volte e in numerosi contesti (condizione definita *copertura fonetica)*. 
+Se l'uniformità è il fattore chiave nella scelta dello speaker, la varietà è la caratteristica di base di uno script valido. Lo script deve includere molte parole e frasi diverse, con un'ampia gamma di lunghezze, strutture e intonazioni. Tutti i suoni del linguaggio devono essere rappresentati più volte e in numerosi contesti (condizione definita *copertura fonetica)*.
 
 Il testo deve anche incorporare tutti i modi in cui un suono specifico può essere rappresentato in forma scritta e posizionare ogni suono in punti diversi nelle frasi. È necessario includere sia frasi dichiarative che domande ed entrambe devono essere lette con l'intonazione appropriata.
 
@@ -188,9 +189,9 @@ Registrare cinque secondi di silenzio prima che la prima registrazione acquisisc
 > [!TIP]
 > Ciò che è effettivamente necessario è lo speaker, pertanto è possibile creare una registrazione monofonica (a singolo canale) delle sole righe. Se tuttavia si registra in formato stereo, è possibile usare il secondo canale per registrare la conversazione nella sala di controllo per acquisire le discussioni di righe o take particolari. Rimuovere questa traccia dalla versione caricata nel portale per la voce personalizzata.
 
-Ascoltare con attenzione, usando le cuffie, la prestazione dello speaker. Verificare che la dizione sia buona, ma naturale, che la pronuncia sia corretta e che non siano presenti suoni non desiderati. Non esitare a chiedere allo speaker di registrare nuovamente un'espressione che non soddisfa gli standard. 
+Ascoltare con attenzione, usando le cuffie, la prestazione dello speaker. Verificare che la dizione sia buona, ma naturale, che la pronuncia sia corretta e che non siano presenti suoni non desiderati. Non esitare a chiedere allo speaker di registrare nuovamente un'espressione che non soddisfa gli standard.
 
-> [!TIP] 
+> [!TIP]
 > Quando si usa un gran numero di espressioni, una singola espressione potrebbe non avere un effetto evidente sulla voce personalizzata risultante. Può risultare pertanto più vantaggioso prendere nota di eventuali espressioni con problemi, escluderle dal set di dati e scoprire com'è la voce personalizzata risultante. È sempre possibile tornare nello studio e registrare i campioni mancanti in un secondo momento.
 
 Prendere nota del numero del take o del time code per ogni espressione. Chiedere al tecnico se può contrassegnare ogni espressione nei metadati o nel foglio della segnalazione della registrazione.

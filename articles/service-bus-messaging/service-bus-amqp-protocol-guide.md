@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821549"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961145"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -94,7 +94,7 @@ Il contenitore che inizializza il collegamento chiede al contenitore opposto di 
 
 I collegamenti sono denominati e sono associati ai nodi. Come indicato all'inizio, i nodi sono entità comunicanti all'interno di un contenitore.
 
-Nel bus di servizio un nodo corrisponde direttamente a una coda, un argomento, una sottoscrizione o una coda secondaria di messaggi non recapitabili di una coda o una sottoscrizione. Il nome del nodo usato in AMQP è quindi il nome relativo dell'entità all'interno dello spazio dei nomi del bus di servizio. Se una coda è denominata `myqueue`, tale nome corrisponde anche al nome del nodo AMQP. Una sottoscrizione dell'argomento segue la convenzione dell'interfaccia API HTTP e viene ordinata in una raccolta di risorse "subscriptions". Pertanto una sottoscrizione **sub** o un argomento **mytopic** ha il nome di nodo AMQP **mytopic/subscriptions/sub**.
+Nel bus di servizio un nodo corrisponde direttamente a una coda, un argomento, una sottoscrizione o una coda secondaria di messaggi non recapitabili di una coda o una sottoscrizione. Il nome del nodo usato in AMQP è quindi il nome relativo dell'entità all'interno dello spazio dei nomi del bus di servizio. Se una coda è denominata `myqueue`, tale nome corrisponde anche al nome del nodo AMQP. Una sottoscrizione dell'argomento segue la convenzione dell'interfaccia API HTTP e viene ordinata in una raccolta di risorse "subscriptions". Pertanto una sottoscrizione **sub** su un argomento **mytopic** ha il nome di nodo AMQP **mytopic/subscriptions/sub**.
 
 Il client che si connette deve anche usare un nome di nodo locale per la creazione di collegamenti. Il bus di servizio non fornisce prescrizioni specifiche sui nomi dei nodi e non li interpreta. Gli stack del client AMQP 1.0 usano in genere uno schema per assicurare che i nomi di nodi temporanei siano univoci nell'ambito del client.
 
@@ -351,7 +351,7 @@ L'integrazione di AMQP con SASL presenta due svantaggi:
 * Tutte le credenziali e i token hanno come ambito la connessione. È possibile che in un'infrastruttura di messaggistica si desideri specificare un controllo di accesso differenziato in base alle singole entità. Ad esempio è possibile consentire al titolare di un token di inviare messaggi alla coda A ma non alla coda B. Se il contesto di autorizzazione è ancorato alla connessione, non è possibile usare una singola connessione e al tempo stesso usare token di accesso diversi per la coda A e la coda B.
 * I token di accesso sono in genere validi solo per un periodo limitato di tempo. L'utente dovrà quindi riacquisire periodicamente i token e l'autorità emittente dei token potrà rifiutare l'emissione di un nuovo token se le autorizzazioni di accesso dell'utente sono state modificate. Le connessioni AMQP possono durare per periodi di tempo lunghi. Il modello SASL consente solo di impostare un token in fase di connessione, ovvero l'infrastruttura di messaggistica deve disconnettere il client alla scadenza del token oppure deve accettare il rischio derivante dalla comunicazione continua con un client i cui diritti di accesso potrebbero essere stati revocati nel frattempo.
 
-La specifica CBS per AMQP, implementata dal bus di servizio, offre una soluzione ideale entrambi i problemi: consente al client di associare token di accesso a ogni nodo e di aggiornare questi token prima della scadenza, senza interrompere il flusso di messaggi.
+La specifica CBS per AMQP, implementata dal bus di servizio, offre una soluzione ideale per entrambi i problemi: Consente al client di associare token di accesso a ogni nodo e di aggiornare questi token prima della scadenza, senza interrompere il flusso di messaggi.
 
 CBS definisce un nodo di gestione virtuale, denominato *$cbs*, che deve essere specificato dall'infrastruttura di messaggistica. Il nodo di gestione accetta i token per conto di qualsiasi altro nodo nell'infrastruttura di messaggistica.
 
@@ -399,7 +399,7 @@ Il client è successivamente responsabile della verifica della scadenza del toke
 
 Con questa funzionalità, si crea un mittente e si stabilisce il collegamento a `via-entity`. Durante il tentativo di stabilire il collegamento, vengono trasmesse informazioni aggiuntive per stabilire la destinazione reale dei messaggi/trasferimenti a questo collegamento. Dopo che il collegamento è stato eseguito correttamente, tutti i messaggi inviati su questo collegamento vengono inoltrati automaticamente all'*entità di destinazione* mediante *tramite entità*. 
 
-> Nota: l'autenticazione server deve essere eseguita sia per *Entità tramite* e *Entità di destinazione* prima di stabilire il collegamento.
+> Note: l'autenticazione server deve essere eseguita sia per *Entità tramite* e *Entità di destinazione* prima di stabilire il collegamento.
 
 | Client | | Bus di servizio |
 | --- | --- | --- |

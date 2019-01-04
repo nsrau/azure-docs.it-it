@@ -1,13 +1,12 @@
 ---
 title: Copiare gli esempi di data science di altre persone - Azure Machine Learning Studio | Microsoft Docs
-description: "Il segreto commerciale dell'analisi scientifica dei dati: far svolgere il proprio lavoro ad altre persone. Esempi di Machine Learning dalla raccolta di intelligenza artificiale per Azure."
+description: 'Segreto commerciale della data science: Fare svolgere ad altri il proprio lavoro. Esempi di Machine Learning dalla raccolta di intelligenza artificiale per Azure.'
 keywords: esempi di analisi scientifica dei dati, esempio di Machine Learning, algoritmo di clustering
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
 ms.service: machine-learning
@@ -17,15 +16,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: e573a0394fa47cd6325fe582366242644232cf3d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313776"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260379"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
-## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Analisi scientifica dei dati per principianti
+## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Data science per principianti
 Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svolgere il proprio lavoro ad altre persone. È necessario individuare un esempio di algoritmo di clustering nella raccolta di intelligenza artificiale per Azure da usare per l'esperimento di Machine Learning.
 
 > [!IMPORTANT]
@@ -42,13 +41,13 @@ Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'ele
 ## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
-* Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
-* Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
+* Video 1: [5 domande a cui può rispondere la data science](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
+* Video 2: [Sono pronti i dati per la data science?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
 * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min e 17 sec)*
 * Video 4: [Prevedere una risposta con un modello semplice](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min e 42 sec)*
 * Video 5: Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 
-## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Trascrizione: Copiare il lavoro di altre persone per l'analisi scientifica dei dati
+## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Transcript: Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 Benvenuti al quinto video della serie "Data Science for Beginners" (Data Science per principianti).
 
 In questo video si scoprirà dove trovare esempi che è possibile usare come punto di partenza per la propria attività. Per ottenere il massimo da questo video, è consigliabile guardare prima i video precedenti di questa serie.

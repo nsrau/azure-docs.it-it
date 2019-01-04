@@ -5,14 +5,14 @@ author: bsiva
 manager: abhemra
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 07/19/2018
+ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: dc089e29889b12a5a6d3fcb17328cfc13fe8d0c9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e34409490f9e120cb39daf99b280cc52c59f54e2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211809"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845646"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorare e risolvere i problemi di Azure Site Recovery
 
@@ -155,7 +155,7 @@ Monitorare i processi come indicato di seguito:
 6. Fare clic su una macchina per visualizzare maggiori dettagli su di essa. I dettagli includono:
       - **Informazioni replica**: stato corrente e integrità della macchina.
       - **RPO** (obiettivo del punto di ripristino): RPO corrente per la macchina virtuale e ora dell'ultimo calcolo dell'RPO.
-      - **Punti di ripristino**: punti di ripristino più recenti disponibili per la macchina.
+      - **Punti di ripristino**: punti di ripristino disponibili più recenti per la macchina.
       - **Conformità failover**: indica se è stato eseguito un failover di test per la macchina, la versione dell'agente in esecuzione nella macchina (per le macchine che eseguono il servizio Mobility) ed eventuali problemi di configurazione.
       - **Errori**: elenco di sintomi di errore di replica attualmente osservati nella macchina, con le possibili cause e azioni.
       - **Eventi**: elenco cronologico di eventi recenti con conseguenze sulla macchina. I dettagli dell'errore indicano i sintomi di errore attualmente osservabili, mentre gli eventi sono costituiti da una registrazione cronologica dei problemi che potrebbero avere avuto effetto sulla macchina.

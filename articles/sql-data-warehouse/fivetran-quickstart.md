@@ -80,5 +80,5 @@ Per accedere a Fivetran, immettere le credenziali usate per accedere a SQL Data 
 * Host (nome del server).
 * Porta.
 * Database.
-* Utente (il nome utente deve essere **fivetran @_server_name_**  in cui *server_name* fa parte dell'URI host Azure: ***server_name*.database.windows.net** ).
+* Utente (il nome utente deve essere **fivetran @_server_name_** in cui *server_name* fa parte dell'URI host Azure: ***server_name*.database.windows.net**).
 * Password.

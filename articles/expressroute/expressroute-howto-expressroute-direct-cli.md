@@ -1,5 +1,5 @@
 ---
-title: Configurare Azure ExpressRoute Direct con l'interfaccia della riga di comando di Azure| Microsoft Docs
+title: Configurare ExpressRoute Direct -Interfaccia della riga di comando di Azure | Microsoft Docs
 description: Questo articolo illustra come configurare ExpressRoute Direct con l'interfaccia della riga di comando di Azure (anteprima)
 services: expressroute
 author: cherylmc
@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: dfc13d584abcd05cd15b7ce9e3034bbf246f3b8b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: seodec18
+ms.openlocfilehash: 285b429f565f8a2c7f8c20756f076e631223b10f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976609"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076720"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli-preview"></a>Configurare ExpressRoute Direct con l'interfaccia della riga di comando di Azure (anteprima)
 

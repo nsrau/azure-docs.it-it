@@ -8,20 +8,20 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae6ddea3860c7fc636e071b3c39c418ff4a10272
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230037"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273936"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights
 
-Questa pagina contiene informazioni sui problemi di prestazioni del database SQL di Azure e dell'istanza gestita rilevati tramite il log di diagnostica delle prestazioni del database di [Intelligent Insights](sql-database-intelligent-insights.md). I dati di telemetria del log di diagnostica possono essere trasmessi ad [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Hub eventi di Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-storage) oppure a una soluzione di terze parti per funzionalità di avvisi e report di DevOps personalizzate.
+Questa pagina contiene informazioni sui problemi di prestazioni del database SQL di Azure e dell'istanza gestita rilevati tramite il log di diagnostica delle prestazioni del database di [Intelligent Insights](sql-database-intelligent-insights.md). I dati di telemetria del log di diagnostica possono essere trasmessi ad [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Hub eventi di Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-storage) oppure a una soluzione di terze parti per funzionalità di avvisi e report di DevOps personalizzate.
 
 > [!NOTE]
 > Per una rapida guida alla risoluzione dei problemi di prestazioni del database SQL tramite Intelligent Insights, vedere il diagramma [Flusso di risoluzione dei problemi consigliato](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) in questo documento.
@@ -109,7 +109,7 @@ Il log di diagnostica restituisce i dettagli dell'archivio di oggetti di memoria
 
 È anche possibile ridurre il carico di lavoro ottimizzandolo o distribuendolo su più database. Oppure è possibile distribuire il carico di lavoro tra più database. Se queste soluzioni non sono praticabili, valutare il passaggio a un piano tariffario di livello superiore per la sottoscrizione del database SQL per incrementare la quantità di risorse di memoria disponibili per il database.
 
-Per altre informazioni sulla risoluzione dei problemi, vedere [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) (Riflessione sulle concessioni di memoria: il misterioso consumer di memoria di SQL Server con molti nomi).
+Per altri suggerimenti sulla risoluzione dei problemi, vedere [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) (Riflessione sulle concessioni di memoria: il misterioso consumer di memoria di SQL Server con molti nomi).
 
 ## <a name="locking"></a>Blocco
 
@@ -227,7 +227,7 @@ Questo modello di prestazioni rilevabili indica una condizione delle prestazioni
 
 ### <a name="troubleshooting"></a>risoluzione dei problemi
 
-Il log di diagnostica include informazioni dettagliate sulle contese di tempDB. È possibile usare queste informazioni come punto di partenza per la risoluzione dei problemi. Esistono due operazioni che è possibile eseguire per risolvere questo tipo di contesa e aumentare la velocità effettiva del carico di lavoro globale, ovvero è possibile interrompere l'uso di tabelle temporanee e usare tabelle ottimizzate per la memoria. 
+Il log di diagnostica include informazioni dettagliate sulle contese di tempDB. È possibile usare queste informazioni come punto di partenza per la risoluzione dei problemi. Esistono due operazioni che è possibile eseguire per risolvere questo tipo di contesa e aumentare la velocità effettiva del carico di lavoro globale: è possibile interrompere l'uso delle tabelle temporanee e usare tabelle ottimizzate per la memoria. 
 
 Per altre informazioni, vedere [Introduzione alle tabelle ottimizzate per la memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 

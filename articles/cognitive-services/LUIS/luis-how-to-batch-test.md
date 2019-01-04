@@ -1,21 +1,22 @@
 ---
-title: Test in batch con 1000 espressioni di esempio
-titleSuffix: Azure Cognitive Services
+title: Test in batch
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Eseguire il test in batch dell'app Language Understanding (LUIS) per trovare le espressioni con finalità ed entità errate.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9ad71c34bdf88023bcb0a4115fc02ddf3a8d7624
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333497"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086399"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test in batch con un set di espressioni di esempio
 

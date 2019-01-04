@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: c27c9c16e493dc596856288c4dbecff655e89396
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f6b7764bf994079f7f3ef9e6243720da0d2f4a28
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976350"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868226"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creare un trigger per l'esecuzione di una pipeline in base a una pianificazione
 Questo articolo fornisce informazioni sui trigger di pianificazione e sulla procedura per creare, avviare e monitorare un trigger di pianificazione. Per altri tipi di trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
@@ -67,7 +67,7 @@ Le sezioni successive illustrano la procedura per creare un trigger di pianifica
     ![Monitorare le esecuzioni del trigger](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Questa sezione illustra come usare Azure PowerShell per creare, avviare e monitorare un trigger di pianificazione. Per vedere l'esempio in esecuzione, fare riferimento ad [Avvio rapido: Creare una data factory con Azure PowerShell](quickstart-create-data-factory-powershell.md). Quindi, aggiungere il codice seguente al metodo principale, che crea e avvia un trigger di pianificazione che viene eseguito ogni 15 minuti. Il trigger è associato a una pipeline denominata **Adfv2QuickStartPipeline**, creata come parte dell'Avvio rapido.
+Questa sezione illustra come usare Azure PowerShell per creare, avviare e monitorare un trigger di pianificazione. Per visualizzare l'esempio in esecuzione, eseguire prima [Avvio rapido: Creare una data factory tramite Azure PowerShell](quickstart-create-data-factory-powershell.md). Quindi, aggiungere il codice seguente al metodo principale, che crea e avvia un trigger di pianificazione che viene eseguito ogni 15 minuti. Il trigger è associato a una pipeline denominata **Adfv2QuickStartPipeline**, creata come parte dell'Avvio rapido.
 
 1. Creare un file JSON denominato **MyTrigger.json** nella cartella C:\ADFv2QuickStartPSH con il contenuto seguente:
 
@@ -143,7 +143,7 @@ Questa sezione illustra come usare Azure PowerShell per creare, avviare e monito
 
 
 ## <a name="net-sdk"></a>.NET SDK
-Questa sezione illustra come usare .NET SDK per creare, avviare e monitorare un trigger. Per vedere l'esempio in esecuzione, fare riferimento ad [Avvio rapido: Creare una data factory con .NET SDK](quickstart-create-data-factory-dot-net.md). Quindi, aggiungere il codice seguente al metodo principale, che crea e avvia un trigger di pianificazione che viene eseguito ogni 15 minuti. Il trigger è associato a una pipeline denominata **Adfv2QuickStartPipeline**, creata come parte dell'Avvio rapido.
+Questa sezione illustra come usare .NET SDK per creare, avviare e monitorare un trigger. Per visualizzare l'esempio in esecuzione, eseguire prima [Avvio rapido: Creare una data factory tramite .NET SDK](quickstart-create-data-factory-dot-net.md). Quindi, aggiungere il codice seguente al metodo principale, che crea e avvia un trigger di pianificazione che viene eseguito ogni 15 minuti. Il trigger è associato a una pipeline denominata **Adfv2QuickStartPipeline**, creata come parte dell'Avvio rapido.
 
 Per creare e avviare un trigger di pianificazione che viene eseguito ogni 15 minuti, aggiungere il codice seguente al metodo principale:
 
@@ -223,7 +223,7 @@ Per monitorare le esecuzioni di trigger e di pipeline nel portale di Azure, vede
 
 
 ## <a name="python-sdk"></a>Python SDK
-Questa sezione illustra come usare Python SDK per creare, avviare e monitorare un trigger. Per vedere l'esempio in esecuzione, fare riferimento ad [Avvio rapido: Creare una data factory con Python SDK](quickstart-create-data-factory-python.md). Aggiungere quindi il blocco di codice seguente dopo il blocco di codice di "monitoraggio dell'esecuzione della pipeline" nello script Python. Questo codice crea un trigger di pianificazione che viene eseguito ogni 15 minuti tra le ore di inizio e di fine specificate. Aggiornare la variabile **start_time** impostandola sull'ora UTC corrente e la variabile **end_time** impostandola su un'ora dopo l'ora UTC corrente.
+Questa sezione illustra come usare Python SDK per creare, avviare e monitorare un trigger. Per visualizzare l'esempio in esecuzione, eseguire prima [Avvio rapido: Creare una data factory tramite Python SDK](quickstart-create-data-factory-python.md). Aggiungere quindi il blocco di codice seguente dopo il blocco di codice di "monitoraggio dell'esecuzione della pipeline" nello script Python. Questo codice crea un trigger di pianificazione che viene eseguito ogni 15 minuti tra le ore di inizio e di fine specificate. Aggiornare la variabile **start_time** impostandola sull'ora UTC corrente e la variabile **end_time** impostandola su un'ora dopo l'ora UTC corrente.
 
 ```python
     # Create a trigger
@@ -246,7 +246,7 @@ Per monitorare le esecuzioni di trigger e di pipeline nel portale di Azure, vede
 È possibile usare un modello di Azure Resource Manager per creare un trigger. Per istruzioni dettagliate, vedere [Creare una data factory di Azure usando un modello di Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Passare l'ora di inizio del trigger a una pipeline
-Azure Data Factory versione 1 supporta la lettura o la scrittura di dati partizionati usando le variabili di sistema **SliceStart**, **SliceEnd**, **WindowStart** e **WindowEnd**. Nella versione corrente di Azure Data Factory è possibile ottenere questo comportamento usando un parametro della pipeline. L'ora di inizio e l'ora pianificata per il trigger vengono impostate come valore per il parametro della pipeline. Nell'esempio seguente l'ora pianificata per il trigger viene passata come valore al parametro **scheduledRunTime** della pipeline:
+Azure Data Factory versione 1 supporta la lettura o la scrittura di dati partizionati usando le variabili di sistema: **SliceStart**, **SliceEnd**, **WindowStart** e **WindowEnd**. Nella versione corrente di Azure Data Factory è possibile ottenere questo comportamento usando un parametro della pipeline. L'ora di inizio e l'ora pianificata per il trigger vengono impostate come valore per il parametro della pipeline. Nell'esempio seguente l'ora pianificata per il trigger viene passata come valore al parametro **scheduledRunTime** della pipeline:
 
 ```json
 "parameters": {
@@ -275,7 +275,7 @@ La definizione JSON seguente illustra come creare un trigger di pianificazione c
           "weekDays": : [<<Monday-Sunday>>],
           "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
-          "monthlyOccurences": [
+          "monthlyOccurrences": [
                {
                     "day": <<Monday-Sunday>>,
                     "occurrence": <<1-5>>
@@ -362,7 +362,7 @@ La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 | **minutes** | Minuti dell'ora in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul>
 | **hours** | Ore del giorno in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul> |
 | **weekDays** | Giorni della settimana in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza settimanale. | <ul><li>I valori consentiti sono Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</li><li>Matrice di valori in giorni (la dimensione massima della matrice è 7)</li><li>I valori dei giorni non fanno distinzione tra maiuscole e minuscole</li></ul> |
-| **monthlyOccurrences** | Giorni del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. | <ul><li>Matrice di oggetti **monthlyOccurence**: `{ "day": day,  "occurrence": occurence }`.</li><li>L'attributo **day** è il giorno della settimana in cui verrà eseguito il trigger. Ad esempio, una proprietà **monthlyOccurrences** con un valore **day** uguale a `{Sunday}` indica ogni domenica del mese. L'attributo **day** è obbligatorio.</li><li>L'attributo **occurrence** indica l'occorrenza dell'attributo **day** specificato durante il mese. Ad esempio, una proprietà **monthlyOccurrences** con i valori **day** e **occurrence** uguali a `{Sunday, -1}` indica l'ultima domenica del mese. L'attributo **occurrence** è facoltativo.</li></ul> |
+| **monthlyOccurrences** | Giorni del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. | <ul><li>Matrice di oggetti **monthlyOccurrence**: `{ "day": day,  "occurrence": occurrence }`.</li><li>L'attributo **day** è il giorno della settimana in cui verrà eseguito il trigger. Ad esempio, una proprietà **monthlyOccurrences** con un valore **day** uguale a `{Sunday}` indica ogni domenica del mese. L'attributo **day** è obbligatorio.</li><li>L'attributo **occurrence** indica l'occorrenza dell'attributo **day** specificato durante il mese. Ad esempio, una proprietà **monthlyOccurrences** con i valori **day** e **occurrence** uguali a `{Sunday, -1}` indica l'ultima domenica del mese. L'attributo **occurrence** è facoltativo.</li></ul> |
 | **monthDays** | Giorno del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. | <ul><li>Qualsiasi valore <= -1 e >= -31</li><li>Qualsiasi valore >= 1 e <= 31</li><li>Matrice di valori</li></ul> |
 
 

@@ -1,23 +1,24 @@
 ---
-title: Dashboard dell'applicazione per le app di Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Dashboard dell'app
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Informazioni sulla dashboard dell'applicazione, uno strumento di visualizzazione di report che consente di monitorare le app in un solo momento.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6f6de278e802b83623413b0bf70e556d083818c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335011"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140609"
 ---
-# <a name="application-dashboard"></a>Dashboard dell'applicazione
+# <a name="model-and-usage-statistics-in-the-dashboard"></a>Modello e statistiche dell'utilizzo nella dashboard
 La dashboard dell'app consente di monitorare l'applicazione in un solo momento. La **Dashboard** viene visualizzata quando viene aperta un'app tramite la selezione del nome dell'applicazione nella pagina **App personali**, quindi della **Dashboard** nel riquadro superiore. 
 
 > [!CAUTION]
@@ -70,7 +71,7 @@ La **Scomposizione delle finalità** consente di visualizzare una suddivisione d
 
 Per controllare se la suddivisione è basata su espressioni o riscontri di endpoint etichettate/i è necessario:
 
-1. Fare clic su **Impostazioni aggiuntive** ![pulsante Impostazioni aggiuntive](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) per accedere all'elenco come nell'immagine seguente:
+1. Fare clic su **Impostazioni aggiuntive** ![pulsante Impostazioni aggiuntive per accedere all'elenco](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) per accedere all'elenco come nell'immagine seguente:
 
     ![Elenco di scomposizione della finalità](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
 2. Selezionare un valore dall'elenco e quindi fare clic sulla freccia indietro ![Freccia indietro](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) per visualizzare il grafico.
@@ -82,7 +83,7 @@ La dashboard consente di visualizzare una suddivisione delle entità sulla base 
 
 Per controllare se la suddivisione è basata su espressioni o riscontri di endpoint etichettate/i è necessario:
 
-1. Fare clic su **Impostazioni aggiuntive** ![pulsante Impostazioni aggiuntive](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) per accedere all'elenco come nell'immagine seguente:
+1. Fare clic su **Impostazioni aggiuntive** ![pulsante Impostazioni aggiuntive per visualizzare l'elenco](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) per accedere all'elenco come nell'immagine seguente:
 
     ![Elenco di scomposizione di entità](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
 2. Selezionare un valore dall'elenco e quindi fare clic sulla freccia indietro ![Freccia indietro](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) per visualizzare il grafico.

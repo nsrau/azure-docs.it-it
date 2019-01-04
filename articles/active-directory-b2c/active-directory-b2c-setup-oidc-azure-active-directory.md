@@ -1,28 +1,28 @@
 ---
-title: Configurare l'accesso per account Azure Active Directory usando criteri predefiniti in Azure Active Directory B2C | Microsoft Docs
-description: Configurare l'accesso per account Azure Active Directory usando criteri predefiniti in Azure Active Directory B2C.
+title: Configurare l'accesso per un'organizzazione Azure Active Directory in Azure Active Directory B2C | Microsoft Docs
+description: Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 86e5381096633e58d7a1a28ac94728136273c685
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c48e4696d572b87a4e1553f9d4a2dc9921361388
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312783"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719913"
 ---
-# <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Configurare l'accesso per account Azure Active Directory usando criteri predefiniti in Azure Active Directory B2C
+# <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C
 
 >[!NOTE]
 > Questa funzionalità è disponibile in anteprima pubblica. Non utilizzare la funzionalità negli ambienti di produzione.
 
-Questo articolo illustra come consentire l'accesso agli utenti di una specifica organizzazione di Azure Active Directory (Azure AD) usando criteri predefiniti in Azure Active Directory (Azure AD) B2C.
+Questo articolo illustra come consentire l'accesso agli utenti di una specifica organizzazione di Azure Active Directory (Azure AD) usando un flusso utente in Azure Active Directory (Azure AD) B2C.
 
 ## <a name="create-an-azure-ad-app"></a>Creare un'app di Azure AD
 

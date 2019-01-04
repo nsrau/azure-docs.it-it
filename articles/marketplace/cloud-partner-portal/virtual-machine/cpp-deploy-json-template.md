@@ -1,9 +1,9 @@
 ---
-title: Modello di distribuzione dei dischi rigidi virtuali (JSON) per Microsoft Azure | Microsoft Docs
-description: Esempio di modello di distribuzione di dischi rigidi virtuali per il portale di Azure.
+title: Modello di distribuzione di disco rigido virtuale Azure | Microsoft Docs
+description: Elenca il modello di Azure Resource Manager necessario per distribuire una nuova macchina virtuale di Azure da un disco rigido virtuale dell'utente.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: pbutlerm
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -11,22 +11,21 @@ ms.service: marketplace
 ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
-ms.topic: reference
-ms.date: 09/25/2018
+ms.topic: article
+ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 283eb1a7ce9bfcf7f57c7a2770b7b51bddc0be23
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 5b338f0b829a337bccf41af5ab9449a6b39b665d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639172"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186957"
 ---
-# <a name="vhd-deployment-template-json"></a>Modello di distribuzione di dischi rigidi virtuali (JSON) 
+# <a name="virtual-hard-disk-deployment-template"></a>Modello di distribuzione di disco rigido virtuale 
 
-Il codice JSON seguente rappresenta un modello di distribuzione che consente di distribuire un'immagine di macchina virtuale (VM) in Microsoft Azure.  Una risorsa di macchina virtuale è necessaria per creare un'offerta di macchina virtuale in Azure Marketplace. 
+Il modello di Azure Resource Manager seguente definisce una nuova istanza di macchina virtuale di Azure, creata da un disco rigido virtuale locale.  Questo modello viene usato nell'articolo [Deploy an Azure VM from a user VHD](./cpp-deploy-vm-user-image.md) (Distribuire una macchina virtuale di Azure da un disco rigido virtuale dell'utente). 
 
-
-``` json
+```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
@@ -47,7 +46,7 @@ Il codice JSON seguente rappresenta un modello di distribuzione che consente di 
         },
         "adminPassword": {
             "type": "securestring",
-            "defaultValue": ""
+            "defaultValue": "Password@123"
         },
         "osType": {
             "type": "string",
@@ -77,7 +76,25 @@ Il codice JSON seguente rappresenta un modello di distribuzione che consente di 
         },
         "nicName": {
             "type": "string"
-        },        
+        },
+        "vaultName": {
+            "type": "string",            
+            "metadata": {
+                "description": "Name of the KeyVault"
+            }
+        },
+        "vaultResourceGroup": {
+            "type": "string",           
+            "metadata": {
+                "description": "Resource Group of the KeyVault"
+            }
+        },
+        "certificateUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "Url of the certificate with version in KeyVault e.g. https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7"
+            }
+        },
         "vhdUrl": {
             "type": "string",
             "metadata": {
@@ -177,7 +194,35 @@ Il codice JSON seguente rappresenta un modello di distribuzione che consente di 
                     "osProfile": {
                         "computername": "[parameters('vmName')]",
                         "adminUsername": "[parameters('adminUsername')]",
-                        "adminPassword": "[parameters('adminPassword')]"                       
+                        "adminPassword": "[parameters('adminPassword')]",
+                        "secrets": [
+                            {
+                                "sourceVault": {
+                                    "id": "[resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+                                },
+                                "vaultCertificates": [
+                                    {
+                                        "certificateUrl": "[parameters('certificateUrl')]",
+                                        "certificateStore": "My"
+                                    }
+                                ]
+                            }
+                        ],
+                        "windowsConfiguration": {
+                            "provisionVMAgent": "true",
+                            "winRM": {
+                                "listeners": [
+                                    {
+                                        "protocol": "http"
+                                    },
+                                    {
+                                        "protocol": "https",
+                                        "certificateUrl": "[parameters('certificateUrl')]"
+                                    }
+                                ]
+                            },
+                            "enableAutomaticUpdates": "true"
+                        }
                     },
                     "storageProfile": {
                         "osDisk": {
@@ -199,9 +244,17 @@ Il codice JSON seguente rappresenta un modello di distribuzione che consente di 
                                 "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
                             }
                         ]
-                    }                
+                    },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('http://', parameters('userStorageAccountName'), '.blob.core.windows.net')]"
+                    }
+                }
+                
                 }
             }
         ]
     }
+
 ```

@@ -1,6 +1,6 @@
 ---
-title: Creare tabelle Hive e caricare i dati dall'archiviazione BLOB di Azure | Documentazione Microsoft
-description: Creare tabelle Hive e caricare dati in BLOB nelle tabelle Hive
+title: Creare tabelle Hive e caricare dati dall'archiviazione BLOB - Processo di analisi scientifica dei dati per i team
+description: Usare le query Hive per creare tabelle Hive e caricare i dati dall'archiviazione BLOB di Azure. Partizionare le tabelle Hive e usare la formattazione ORC per migliorare le prestazioni delle query.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 42911c347cd055f37f7fe8f31b6d22cc18a78662
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5d88974fd1fb3d8784416ad3895fe139a3275e01
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442881"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134948"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creare tabelle Hive e caricare i dati dall'archiviazione BLOB di Azure
 
@@ -65,14 +65,14 @@ Esistono tre modi per inviare query Hive nella riga di comando di Hadoop:
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Inviare query Hive direttamente nella riga di comando di Hadoop
 È possibile eseguire comandi come `hive -e "<your hive query>;` per inviare query Hive semplici direttamente nella riga di comando di Hadoop. In questo esempio, la casella rossa evidenzia il comando che consente di inviare la query Hive, mentre quella verde evidenzia l'output della query.
 
-![Creare un'area di lavoro](./media/move-hive-tables/run-hive-queries-1.png)
+![Comando per inviare query Hive con l'output dalla query Hive](./media/move-hive-tables/run-hive-queries-1.png)
 
 #### <a name="submit-hive-queries-in-hql-files"></a>Inviare query nei file con estensione hql
 Quando la query Hive è più complicata e presenta più righe, modificare le query nella riga di comando o nella console dei comandi di Hive non è pratico. Un'alternativa consiste nell'usare un editor di testo nel nodo head del cluster Hadoop per salvare le query Hive in un file con estensione hql in una directory locale del nodo head. Quindi la query Hive nel file con estensione hql può essere inviata usando l'argomento `-f` nel modo seguente:
 
     hive -f "<path to the .hql file>"
 
-![Creare un'area di lavoro](./media/move-hive-tables/run-hive-queries-3.png)
+![Query Hive in un file con estensione hql](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Eliminare la visualizzazione relativa allo stato di avanzamento delle query Hive sullo schermo**
 
@@ -84,7 +84,7 @@ Per impostazione predefinita, dopo l'invio della query Hive nella riga di comand
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Inviare query Hive nella console dei comandi di Hive
 Innanzitutto è possibile immettere la console dei comandi di Hive eseguendo il comando `hive` nella riga di comando di Hadoop, quindi inviare query Hive nella console dei comandi di Hive. Di seguito è fornito un esempio. In questo esempio, le due caselle rosse evidenziano i comandi usati per inserire la console dei comandi di Hive e la query Hive inviata nella console dei comandi. La casella verde evidenzia l'output dalla query Hive.
 
-![Creare un'area di lavoro](./media/move-hive-tables/run-hive-queries-2.png)
+![Aprire la console dei comandi di Hive, immettere il comando e visualizzare l'output della query Hive](./media/move-hive-tables/run-hive-queries-2.png)
 
 Negli esempi precedenti, i risultati della query Hive vengono visualizzati direttamente sullo schermo. È anche possibile salvare l'output su un file locale nel nodo head o in un BLOB di Azure. Quindi, è possibile usare altri strumenti per analizzare ulteriormente l'output delle query Hive.
 
@@ -95,7 +95,7 @@ Per restituire i risultati delle query Hive in una directory locale nel nodo hea
 
 Nell'esempio seguente, l'output della query Hive viene scritto in un file `hivequeryoutput.txt` all'interno della directory `C:\apps\temp`.
 
-![Creare un'area di lavoro](./media/move-hive-tables/output-hive-results-1.png)
+![Output della query Hive](./media/move-hive-tables/output-hive-results-1.png)
 
 **Restituire i risultati delle query Hive in un BLOB di Azure**
 
@@ -105,11 +105,11 @@ Si può anche restituire i risultati della query Hive in un BLOB di Azure, nel c
 
 Nell'esempio seguente, l'output della query Hive viene scritto in una directory del BLOB `queryoutputdir` nel contenitore predefinito del cluster Hadoop. In questo caso, è sufficiente fornire il nome della directory, senza il nome del BLOB. Viene generato un errore se si specificano i nomi della directory e del BLOB, ad esempio `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Creare un'area di lavoro](./media/move-hive-tables/output-hive-results-2.png)
+![Output della query Hive](./media/move-hive-tables/output-hive-results-2.png)
 
 Se si apre il contenitore predefinito del cluster Hadoop usando Esplora archivi di Azure, è possibile visualizzare l'output della query Hive come indicato nell'immagine di seguito. È possibile applicare il filtro (evidenziato da una casella rossa) per recuperare solo il BLOB con le lettere specificate nei nomi.
 
-![Creare un'area di lavoro](./media/move-hive-tables/output-hive-results-3.png)
+![Visualizzazione Azure Storage Explorer dell'output della query Hive](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Inviare le query Hive con l'editor Hive
 È anche possibile usare la Console query (editor Hive) immettendo un URL con formato *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* in un Web browser. La console è visualizzabile solo dopo aver eseguito l'accesso, pertanto è necessario disporre delle proprie credenziali del cluster Hadoop.
@@ -142,14 +142,14 @@ Di seguito sono presentate le descrizioni dei campi da collegare e altre configu
 * **<field separator>**: il separatore che delimita i campi nel file di dati da caricare nella tabella Hive.
 * **<line separator>**: il separatore che delimita le righe nel file di dati.
 * **<storage location>**: il percorso di archiviazione di Azure in cui salvare i dati delle tabelle Hive. Se il parametro *LOCATION <storage location>* non viene specificato, il database e le tabelle vengono archiviati per impostazione predefinita nella directory *hive/warehouse/* nel contenitore predefinito del cluster Hive. Se si desidera specificare il percorso di archiviazione, questo deve trovarsi nel contenitore predefinito per database e tabelle. Questo percorso deve essere definito come percorso relativo per il contenitore predefinito del cluster nel formato *'wasb:///<directory 1>/'* o *'wasb:///<directory 1>/<directory 2>/'* e così via. Dopo l'esecuzione della query, vengono create le relative directory nel contenitore predefinito.
-* **TBLPROPERTIES("skip.header.line.count"="1")**: se il file di dati presenta una riga di intestazione, si deve aggiungere questa proprietà **alla fine** della query di *creazione della tabella*. In caso contrario, la riga di intestazione verrà caricata come un record nella tabella. Se il file di dati non presenta una riga di intestazione, questa configurazione può essere omessa nella query.
+* **TBLPROPERTIES("skip.header.line.count"="1")**: Se il file di dati presenta una riga di intestazione, aggiungere questa proprietà **alla fine** della query di *creazione della tabella*. In caso contrario, la riga di intestazione verrà caricata come un record nella tabella. Se il file di dati non presenta una riga di intestazione, questa configurazione può essere omessa nella query.
 
 ## <a name="load-data"></a>Caricare dati nelle tabelle Hive
 Di seguito è presentata la query Hive che carica i dati in una tabella Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **<path to blob data>**: se il file BLOB da caricare nella tabella Hive si trova nel contenitore predefinito del cluster Hadoop di HDInsight, *<path to blob data>* deve essere nel formato *'wasb:///<directory in this container>/<blob file name>'*. Il file BLOB può trovarsi inoltre in un contenitore aggiuntivo del cluster Hadoop di HDInsight. In questo caso *<path to blob data>* deve essere nel formato *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **<path to blob data>**: Se il file BLOB da caricare nella tabella Hive si trova nel contenitore predefinito del cluster Hadoop di HDInsight, *<path to blob data>* deve essere nel formato *"wasb:///<directory in this container>/<blob file name>"*. Il file BLOB può trovarsi inoltre in un contenitore aggiuntivo del cluster Hadoop di HDInsight. In questo caso *<path to blob data>* deve essere nel formato *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
 
   > [!NOTE]
   > I dati BLOB da caricare nella tabella Hive devono trovarsi nel contenitore predefinito o aggiuntivo dell'account di archiviazione del cluster Hadoop. In caso contrario, la query di *LOAD DATA* avrà esito negativo perché non può accedere ai dati.

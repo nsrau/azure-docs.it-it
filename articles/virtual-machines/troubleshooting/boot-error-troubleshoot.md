@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/21/2018
+ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: 8253c4c84e38fc3b8279aa311c1627a540502a6c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b467618815f2bad8a6816425764fe60707c1db3d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351487"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308142"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Risolvere i problemi di avvio di macchine virtuali di Azure
 
@@ -29,6 +29,10 @@ Questo articolo elenca gli errori comuni che possono verificarsi all'avvio di un
 * [Errori di avvio di BitLocker](troubleshoot-bitlocker-boot-error.md) 
 * [All'avvio viene indicato il controllo in corso del file system](troubleshoot-check-disk-boot-error.md)
 * [Errori con schermata blu](troubleshoot-common-blue-screen-error.md)
+* [L'avvio della VM si blocca su un messaggio analogo a "Preparazione di Windows](troubleshoot-vm-boot-configure-update.md)
+* [Errore "SI È VERIFICATO UN ERRORE DI UN SERVIZIO CRITICO" sulla schermata blu](troubleshoot-critical-service-failed-boot-error.md)
+* [Problema del ciclo di riavvio](troubleshoot-reboot-loop.md)
+* [L'avvio di una macchina virtuale di Azure si blocca nella fase di Windows Update](troubleshoot-stuck-updating-boot-error.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

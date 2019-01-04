@@ -1,12 +1,11 @@
 ---
-title: Creare modelli di analisi del testo in Azure Machine Learning Studio | Microsoft Docs
+title: Creare modelli di analisi del testo - Azure Machine Learning Studio | Microsoft Docs
 description: Come creare modelli di analisi del testo in Azure Machine Learning Studio usando moduli di pre-elaborazione del testo, estrazione degli n-grammi o hashing delle caratteristiche
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=roastala, author=rastala)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: ''
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 10b4f8a494a9effc04db731f05eeb010f4fb0b6a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 11f4ad4ff1e8e2eab688596d393e63009f7e5624
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262483"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255483"
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Creare modelli di analisi del testo in Azure Machine Learning Studio
 È possibile usare Azure Machine Learning per creare modelli di analisi del testo e renderli operativi. Questi modelli consentono di risolvere, ad esempio, problemi di classificazione dei documenti o analisi di valutazione.
@@ -34,7 +33,7 @@ In un esperimento di analisi del testo è necessario in genere:
 4. Assegnare un punteggio e convalidare il modello
 5. Distribuire il modello in produzione
 
-In questa esercitazione si apprenderanno questi passaggi eseguendo un modello di analisi di valutazione mediante il set di dati di Amazon Book Reviews (vedere il documento di ricerca “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” di John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007). Questo set di dati è costituito da punteggi di recensione (1-2 o 4-5) e testo in formato libero. L'obiettivo consiste nella stima del punteggio di recensione: basso (1-2) o alto (4-5).
+In questa esercitazione si apprenderanno questi passaggi eseguendo un modello di analisi di valutazione usando il set di dati di Amazon Book Reviews (vedere il documento di ricerca “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” di John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007. Questo set di dati è costituito da punteggi di recensione (1-2 o 4-5) e testo in formato libero. L'obiettivo consiste nella stima del punteggio di recensione: basso (1-2) o alto (4-5).
 
 È possibile trovare gli esperimenti trattati in questa esercitazione nella raccolta Azure AI Gallery:
 
@@ -55,7 +54,7 @@ Se si desidera usare un elenco di parole non significative personalizzato? È po
 
 Dopo aver completato la pre-elaborazione, si suddividono i dati in set di addestramento e set di test.
 
-## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Passaggio 2: Estrarre vettori di caratteristiche numeriche dal testo pre-elaborato
+## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Passaggio 2: Estrarre i vettori di caratteristiche numeriche dal testo pre-elaborato
 Per compilare un modello per i dati di testo è necessario in genere convertire il testo in formato libero in vettori di caratteristiche numeriche. In questo esempio si usa il modulo [Extract N-Gram Features from Text](https://msdn.microsoft.com/library/azure/mt762916.aspx) per trasformare i dati di testo in tale formato. Il modulo accetta una colonna di parole separate da spazi e calcola un dizionario di parole, o n-grammi di parole, che vengono visualizzate nel set di dati. Quindi conta il numero di volte in cui ogni parola, o n-gramma, compare in ogni record e crea vettori di caratteristiche da questi conteggi. In questa esercitazione impostiamo la dimensione dell'n-gramma su 2 quindi i nostri vettori di caratteristiche includono singole parole e combinazioni di due parole consecutive.
 
 ![Estrazione degli n-grammi](./media/text-analytics-module-tutorial/extract-ngrams.png)

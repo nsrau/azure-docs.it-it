@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 06/21/2018
+ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 7d3361b44d47fd97c14f677e5e4bbc6c1ee5ad3f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: d3cc5f5a7642ba827a46ab5cbc2b0da2cda38731
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607641"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385126"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con le verifiche di accesso di Azure AD
 
@@ -39,7 +39,7 @@ Con Azure Active Directory (Azure AD) è possibile abilitare facilmente la colla
 
 Le verifiche di accesso sono disponibili con Azure AD edizione Premium P2, incluso in Microsoft Enterprise Mobility + Security E5. Per altre informazioni, vedere [Edizioni di Azure Active Directory](../fundamentals/active-directory-whatis.md). Ogni utente che interagisce con questa funzionalità, ad esempio per creare una verifica, compilarla oppure verificare il proprio accesso, necessita di una licenza. 
 
-Se si prevede di chiedere agli utenti guest di verificare il proprio accesso, leggere le informazioni sulle licenze per gli utenti guest. Per altre informazioni, vedere [Licenze di collaborazione B2B di Azure AD](../b2b/licensing-guidance.md).
+È anche possibile chiedere agli utenti guest di verificare il proprio accesso. Per ogni licenza di Azure AD Premium P2 a pagamento assegnata a uno degli utenti della propria organizzazione, è possibile usare B2B per invitare fino a cinque utenti guest in base al limite di utenti esterni. Questi utenti guest possono anche usare le funzionalità di Azure AD Premium P2. Per altre informazioni, vedere [Licenze di collaborazione B2B di Azure AD](../b2b/licensing-guidance.md).
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Creare ed eseguire una verifica di accesso per i guest
 

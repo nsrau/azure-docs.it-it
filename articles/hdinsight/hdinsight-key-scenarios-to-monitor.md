@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22b9a63ab595b4d0b003d999bcd0f131e50aeabf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255303"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383936"
 ---
 # <a name="monitor-cluster-performance"></a>Monitorare le prestazioni di un cluster
 
 Monitorare l'integrità e le prestazioni di un cluster HDInsight è fondamentale per mantenere livelli ottimali di prestazioni e di utilizzo delle risorse. Il monitoraggio agevola l'individuazione e la risoluzione degli errori di configurazione del cluster e dei problemi del codice utente.
 
-Le sezioni seguenti illustrano come monitorare e ottimizzare il carico nei cluster, le code YARN e come rilevare i problemi di limitazione del servizio di archiviazione.
+Le sezioni seguenti illustrano come monitorare e ottimizzare il carico nei cluster, le code Apache Hadoop YARN e come rilevare i problemi di limitazione del servizio di archiviazione.
 
 ## <a name="monitor-cluster-load"></a>Monitorare il carico del cluster
 
@@ -43,7 +43,7 @@ Selezionare uno dei nomi host per visualizzare informazioni dettagliate sui comp
 
 ![Dettagli dell'host](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
 
-Per informazioni dettagliate sull'impostazione degli avvisi e la visualizzazione delle metriche, vedere [Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md).
+Per informazioni dettagliate sull'impostazione degli avvisi e la visualizzazione delle metriche, vedere [Gestire i cluster HDInsight tramite l'utilizzo dell'interfaccia utente Web Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="yarn-queue-configuration"></a>Configurazione della coda YARN
 
@@ -79,14 +79,14 @@ Se si usa Archiviazione di Azure, per informazioni sul monitoraggio dei problemi
 
 Se l'archivio di backup del cluster è Azure Data Lake Store, la limitazione è determinata probabilmente da limiti di larghezza di banda. La limitazione, in questo caso, può essere identificata verificando la presenza di errori di limitazione nei log delle attività. Per Azure Data Lake Store, vedere la sezione sulla limitazione relativa al servizio desiderato in questi articoli:
 
-* [Linee guida per l'ottimizzazione delle prestazioni di Hive in HDInsight e di Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [Linee guida per l'ottimizzazione delle prestazioni di Apache Hive in HDInsight e di Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Linee guida per l'ottimizzazione delle prestazioni di MapReduce in HDInsight e di Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Linee guida per l'ottimizzazione delle prestazioni di Storm in HDInsight e di Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [Linee guida per l'ottimizzazione delle prestazioni di Apache Storm in HDInsight e di Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulla risoluzione dei problemi e il monitoraggio dei cluster, visitare i collegamenti seguenti:
 
 * [Analizzare i log di HDInsight](hdinsight-debug-jobs.md)
-* [Eseguire il debug delle app con i log di YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Eseguire il debug delle app con i log di Apache Hadoop YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

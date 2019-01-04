@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088052"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754051"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
-*Si applica a: i sistemi integrati di Azure Stack*
+*Si applica a: Sistemi integrati di Azure Stack*
 
 Questo articolo descrive il contenuto del pacchetto di aggiornamento 1809. Il pacchetto di aggiornamento include miglioramenti e correzioni di problemi noti per questa versione di Azure Stack. Questo articolo include anche un collegamento in modo che è possibile scaricare l'aggiornamento. Problemi noti sono suddivisi in problemi correlati direttamente al processo di aggiornamento e i problemi con la build (post-installazione).
 
@@ -60,10 +60,10 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
 - I seguenti problemi di disco gestito sono stati risolti in 1809 e sono stati inoltre corretti nel 1808 [Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - Risolto il problema in cui collegamento SSD i dischi dati premium di dimensioni delle macchine virtuali disco gestito (DS, DSv2, Fs, Fs_V2) non è riuscite con errore: *non è stato possibile aggiornare i dischi della macchina virtuale 'vmname' errore: non è possibile eseguire l'operazione perché richiesta tipo di account di archiviazione "Premium_LRS" non è supportata per dimensioni della macchina virtuale ' Standard_DS/Ds_V2/ADFS/Fs_v2)*. 
+   - Risolto il problema in cui collegamento SSD i dischi dati premium di dimensioni delle macchine virtuali disco gestito (DS, DSv2, Fs, Fs_V2) non è riuscite con errore:  *Non è stato possibile aggiornare i dischi della macchina virtuale 'vmname' errore: Non è possibile eseguire l'operazione perché il tipo di account di archiviazione "Premium_LRS" non è supportato per le dimensioni VM richiesta ' Standard_DS/Ds_V2/ADFS/Fs_v2)*. 
    
-   - Creazione di un disco gestito della macchina virtuale tramite **createOption**: **Attach** avrà esito negativo con l'errore seguente: *operazione a esecuzione prolungata non è riuscita con stato 'Failed'. Informazioni aggiuntive: 'si è verificato un errore di esecuzione interno.'*
-   ErrorCode: InternalExecutionError ErrorMessage: si è verificato un errore di esecuzione interno.
+   - Creazione di un macchina virtuale con disco gestito tramite **createOption**: **Collegare** ha esito negativo con l'errore seguente: *Operazione a esecuzione prolungata non è riuscita con stato 'Failed'. Informazioni aggiuntive: 'si è verificato un errore di esecuzione interno.'*
+   Codice di errore: InternalExecutionError ErrorMessage: Si è verificato un errore interno di esecuzione.
    
    Questo problema ora è stato risolto.
 
@@ -221,16 +221,16 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Si potrebbero visualizzare avvisi per i **controller integrità** componente con i dettagli seguenti:  
 
    Avviso #1:
-   - NOME: Ruolo di infrastruttura non integro
-   - GRAVITÀ: avviso
-   - COMPONENTI: Controllo di integrità
-   - Descrizione: Il controller di integrità Heartbeat Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.  
+   - NOME:  Ruolo di infrastruttura non integro
+   - GRAVITÀ: Avviso
+   - COMPONENTE: Controller di integrità
+   - DESCRIZIONE: Il controller di integrità dello Scanner di Heartbeat non è disponibile. Ciò può influire sulle metriche e i report sull'integrità.  
 
   Avviso #2:
-   - NOME: Ruolo di infrastruttura non integro
-   - GRAVITÀ: avviso
-   - COMPONENTI: Controllo di integrità
-   - Descrizione: Il controller di integrità errore Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.
+   - NOME:  Ruolo di infrastruttura non integro
+   - GRAVITÀ: Avviso
+   - COMPONENTE: Controller di integrità
+   - DESCRIZIONE: Il controller di integrità errore Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.
 
   Entrambi gli avvisi possono essere tranquillamente ignorati e si chiude automaticamente nel corso del tempo.  
 
@@ -239,9 +239,9 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Si potrebbe essere visualizzato un avviso per il **archiviazione** componente che contiene i dettagli seguenti:
 
    - NOME: Errore di comunicazione interna del servizio di archiviazione  
-   - GRAVITÀ: critico  
-   - COMPONENTE: archiviazione  
-   - Descrizione: Errore di comunicazione interna del servizio di archiviazione si è verificato durante l'invio di richieste per i nodi seguenti.  
+   - GRAVITÀ: Critico  
+   - COMPONENTE: Archiviazione  
+   - DESCRIZIONE: Errore di comunicazione interna del servizio di archiviazione si è verificato durante l'invio di richieste per i nodi seguenti.  
 
     L'avviso può essere tranquillamente ignorato, ma è necessario chiudere l'avviso manualmente.
 
@@ -257,12 +257,12 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Quando si crea una nuova macchina virtuale (VM) tramite il portale di Azure Stack, e si seleziona la dimensione di macchina virtuale, la colonna dollari/mese viene visualizzata con un **disponibile** messaggio. Questa colonna non deve essere visualizzato; visualizzare la macchina virtuale dei prezzi di colonna non è supportato in Azure Stack.
 
 <!-- 2869209 – IS, ASDK --> 
-- Quando si usa la [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), è necessario usare il **- OsUri** parametro come URI in cui è stato caricato il disco dell'account di archiviazione. Se si usa il percorso locale del disco, il cmdlet non riesce con l'errore seguente: *operazione a esecuzione prolungata non è riuscita con stato 'Non riuscita'*. 
+- Quando si usa la [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), è necessario usare il **- OsUri** parametro come URI in cui è stato caricato il disco dell'account di archiviazione. Se si usa il percorso locale del disco, il cmdlet non riesce con l'errore seguente: *Operazione a esecuzione prolungata non è riuscita con stato 'Non riuscita'*. 
 
 <!--  2795678 – IS, ASDK --> 
 - Quando si usa il portale per creare macchine virtuali (VM) in una dimensione di VM premium (DS, Ds_v2, ADFS, FSv2), viene creata la macchina virtuale in un account di archiviazione standard. La creazione di un account di archiviazione standard non influisce sul livello funzionale, numero di IOPs, o fatturazione. 
 
-   È possibile ignorare l'avviso con la dicitura: *si è scelto di usare un disco standard in una dimensione che supporta i dischi premium. Ciò potrebbe influire sulle prestazioni del sistema operativo e non è consigliato. Provare a utilizzare archiviazione premium (SSD).*
+   È possibile ignorare l'avviso con la dicitura: *Si è scelto di usare un disco standard in una dimensione che supporta i dischi premium. Ciò potrebbe influire sulle prestazioni del sistema operativo e non è consigliato. Provare a utilizzare archiviazione premium (SSD).*
 
 <!-- 2967447 - IS, ASDK --> 
 - L'esperienza di creazione macchina virtuale (VMSS) set di scalabilità offre basata su CentOS 7.2 come un'opzione per la distribuzione. Poiché tale immagine non è disponibile in Azure Stack, selezionare un altro sistema operativo per la distribuzione o usare un modello di Azure Resource Manager specificando un'altra immagine CentOS che è stata scaricata prima della distribuzione dal marketplace dall'operatore.  
@@ -287,12 +287,15 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
    - Per le quote create prima dell'aggiornamento 1808, la quota di Managed Disks visualizzerà i valori 0 nel portale di amministrazione, anche se viene allocata 2048 GiB. È possibile aumentare o diminuire il valore in base a esigenze effettive e appena impostato il valore della quota sostituisce il valore predefinito GiB di 2048.
    - Se si aggiorna il valore di quota a 0, è equivalente al valore predefinito di 2048 GiB. In alternativa, impostare il valore di quota a 1.
 
-<!-- TBD - IS ASDK --> Dopo aver applicato la 1809 aggiornare, possono verificarsi i problemi seguenti durante la distribuzione di macchine virtuali con Managed Disks:
+<!-- TBD - IS ASDK --> 
+- Dopo aver applicato la 1809 aggiornare, possono verificarsi i problemi seguenti durante la distribuzione di macchine virtuali con Managed Disks:
 
    - Se la sottoscrizione è stata creata prima dell'aggiornamento 1808, distribuzione di una VM con Managed Disks potrei avere esito negativo con un messaggio di errore interno. Per risolvere l'errore, seguire questi passaggi per ogni sottoscrizione:
       1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
       2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
    2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura nel [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
+
+- Una macchina virtuale 18.04 di Ubuntu creata con l'autorizzazione di SSH abilitato non consentirà di usare le chiavi SSH per accedere. In alternativa, usare VM l'accesso per l'estensione di Linux per implementare le chiavi SSH dopo il provisioning o usare l'autenticazione basata su password.
 
 ### <a name="networking"></a>Rete  
 

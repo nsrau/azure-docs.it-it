@@ -4,18 +4,18 @@ description: Anteprima del 1° agosto 2015 della versione aggiornata dello schem
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: stepsic-microsoft-com
-ms.author: stepsic
-ms.reviewer: klam, estfan, LADocs
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: dd05543c2a727f010432ecb54c2dc3e77a245de4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ec6f98ca0f0260a0d7bed16538f557931cd2e33e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122778"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080011"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Aggiornamenti dello schema per App per la logica di Azure: anteprima del 1° agosto 2015
 
@@ -72,12 +72,16 @@ In questa definizione, queste azioni sono denominate `APIConnection`. Di seguito
 }
 ```
 
-L'oggetto `host` è la parte di input univoca per le connessioni API e contiene queste parti: `api` e `connection`. L'oggetto `api` specifica l'URL di runtime per la posizione in cui è ospitata l'API gestita. Per visualizzare tutte le API gestite disponibili, è possibile chiamare `GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+L'oggetto `host` è la parte di input univoca per le connessioni API e contiene queste parti: `api` e `connection`. L'oggetto `api` specifica l'URL di runtime per la posizione in cui è ospitata l'API gestita. Per visualizzare tutte le API gestite disponibili, è possibile chiamare questo metodo:
+
+```text
+GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<location>/managedApis?api-version=2015-08-01-preview
+```
 
 Quando si usa un'API, questa può presentare o meno *parametri di connessione* definiti. Se l'API non definisce questi parametri, non è richiesta alcuna connessione. Se l'API definisce questi parametri, è necessario creare una connessione con un nome specificato.  
 Si fa quindi riferimento al nome nell'oggetto `connection` all'interno dell'oggetto `host`. Per creare una connessione in un gruppo di risorse, chiamare questo metodo:
 
-```
+```text
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
 ```
 
@@ -99,8 +103,8 @@ Con il corpo seguente:
 
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Distribuire API gestite in un modello di Azure Resource Manager
 
-È possibile creare un'app completa in un modello di Azure Resource Manager, purché non sia necessario l'accesso interattivo.
-Se è necessario l'accesso, è possibile impostare tutto con il modello di Azure Resource Manager, ma sarà comunque necessario visitare il portale di Azure per autorizzare le connessioni. 
+Quando l'accesso interattivo non è necessario, è possibile creare un'app completa tramite un modello di Resource Manager.
+Se è necessario l'accesso, è comunque possibile usare un modello di Resource Manager, ma sarà necessario autorizzare le connessioni tramite il portale di Azure. 
 
 ``` json
 "resources": [ {
@@ -194,7 +198,7 @@ Come si vede in questo esempio, le connessioni non sono altro che risorse presen
 
 ### <a name="your-custom-web-apis"></a>API Web personalizzate
 
-Se si usano API personalizzate, non quelle gestite da Microsoft, usare l'azione **HTTP** predefinita per chiamarle. Per un'esperienza ideale, si consiglia di esporre un endpoint swagger per l'API. Questo endpoint consente alla finestra di progettazione di app per la logica di eseguire il rendering degli input e degli output per l'API. Senza Swagger, la finestra di progettazione può mostrare gli input e gli output solo come oggetti JSON opachi.
+Se si usano API personalizzate, invece di quelle gestite da Microsoft, usare l'azione **HTTP** predefinita per chiamarle. In teoria, è necessario specificare un endpoint Swagger per l'API. Questo endpoint consente alla finestra di progettazione dell'app per la logica di mostrare gli input e output dell'API. Senza un endpoint Swagger, la finestra di progettazione può mostrare solo gli input e output come oggetti JSON opachi.
 
 Di seguito è riportato un esempio che mostra la nuova proprietà `metadata.apiDefinitionUrl` :
 
@@ -259,7 +263,7 @@ Ad esempio, se si usa Dropbox per elencare i file, la definizione della versione
 }
 ```
 
-A questo punto è possibile costruire l'azione HTTP equivalente come nell'esempio seguente, mentre la sezione parameters della definizione dell'app per la logica rimane invariata:
+A questo punto, è possibile compilare un'azione HTTP simile e lasciare la sezione `parameters` della definizione dell'app per la logica invariata, ad esempio:
 
 ``` json
 "actions": {
@@ -292,8 +296,8 @@ La tabella seguente illustra le singole proprietà:
 | `metadata.apiDefinitionUrl` | Per usare questa azione nella finestra di progettazione di app per la logica, includere l'endpoint dei metadati, costituito da: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
 | `inputs.uri` | Costituito da: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` | Sempre `POST` |
-| `inputs.body` | Identica ai parametri dell'app per le API |
-| `inputs.authentication` | Identica all'autenticazione dell'app per le API |
+| `inputs.body` | Come i parametri dell'app per le API |
+| `inputs.authentication` | Come l'autenticazione dell'app per le API |
 
 Questo approccio dovrebbe funzionare per tutte le azioni delle app per le API. Tenere tuttavia presente che queste app per le api precedenti non sono più supportate. È quindi consigliabile passare a una delle altre due opzioni precedenti, un'API gestita o l'hosting dell'API Web personalizzata.
 
@@ -407,15 +411,15 @@ Ora è possibile usare questa versione:
 
 ## <a name="native-http-listener"></a>Listener HTTP nativo
 
-Le funzionalità del listener HTTP ora sono predefinite. Non è quindi più necessario distribuire un'app per le API del listener HTTP. Per informazioni dettagliate, vedere [App per la logica come endpoint che è possibile chiamare](../logic-apps/logic-apps-http-endpoint.md). 
+Le funzionalità di listener HTTP ora sono incorporate, per cui non è necessario distribuire un'app per le API Listener HTTP. Per altre informazioni, vedere [come rendere possibile chiamare l'endpoint dell'app per la logica](../logic-apps/logic-apps-http-endpoint.md). 
 
-Con queste modifiche, è stata rimossa la funzione `@accessKeys()`, che è stata sostituita con la funzione `@listCallbackURL()` per ottenere l'endpoint, se necessario. Ora è anche necessario definire almeno un trigger nell'app per la logica. Per eseguire il comando `/run` sul flusso di lavoro, è necessario avere un trigger `manual`, `apiConnectionWebhook` o `httpWebhook`.
+Con queste modifiche, App per la logica sostituisce la funzione `@accessKeys()` con la funzione `@listCallbackURL()`, la quale ottiene l'endpoint quando necessario. Ora è anche necessario definire almeno un trigger nell'app per la logica. Per eseguire il comando `/run` sul flusso di lavoro, è necessario usare uno di questi tipi di trigger: `Manual`, `ApiConnectionWebhook` o `HttpWebhook`
 
 <a name="child-workflows"></a>
 
 ## <a name="call-child-workflows"></a>Chiamare flussi di lavoro figlio
 
-In precedenza, per la chiamata a flussi di lavoro figlio era necessario passare al flusso di lavoro, ottenere il token di accesso e incollare il token nella definizione dell'app per la logica in cui si vuole chiamare tale flusso di lavoro figlio. Con il nuovo schema, il motore di app per la logica genera automaticamente una firma di accesso condiviso in fase di esecuzione per il flusso di lavoro figlio, quindi non è necessario incollare segreti nella definizione. Di seguito è fornito un esempio: 
+In precedenza, per la chiamata a flussi di lavoro figlio era necessario passare al flusso di lavoro, ottenere il token di accesso e incollare il token nella definizione dell'app per la logica in cui si vuole chiamare tale flusso di lavoro figlio. Con questo schema, il motore di App per la logica genera automaticamente una firma di accesso condiviso in fase di esecuzione per il flusso di lavoro figlio, quindi non è necessario incollare segreti nella definizione. Di seguito è fornito un esempio: 
 
 ``` json
 "myNestedWorkflow": {
@@ -441,9 +445,9 @@ In precedenza, per la chiamata a flussi di lavoro figlio era necessario passare 
 }
 ```
 
-Un secondo miglioramento è l'accesso completo alla richiesta in ingresso per i flussi di lavoro figlio. Ciò significa che è possibile passare parametri nella sezione *queries* e nell'oggetto *headers* e che è possibile definire completamente l'intero corpo.
+Inoltre, i flussi di lavoro figlio hanno accesso completo alla richiesta in ingresso. Pertanto, è possibile passare parametri nella sezione `queries` e nell'oggetto `headers`. È anche possibile definire completamente l'intera sezione `body`.
 
-Infine, è stato necessario apportare modifiche al flusso di lavoro figlio. Mentre in precedenza era possibile chiamare direttamente un flusso di lavoro figlio, ora occorre definire un endpoint trigger nel flusso di lavoro che l'elemento padre possa chiamare. In genere, si aggiungerà un trigger con il tipo `manual` da usare nella definizione dell'elemento padre. Si noti che la proprietà `host` in particolare include un `triggerName`, perché è sempre necessario specificare quale trigger viene richiamato.
+Infine, sono state effettuate delle modifiche necessarie ai flussi di lavoro figlio. Mentre in precedenza era possibile chiamare direttamente un flusso di lavoro figlio, ora occorre definire un endpoint trigger nel flusso di lavoro che l'elemento padre possa chiamare. In genere, si aggiungerà un trigger con il tipo `Manual` da usare nella definizione dell'elemento padre. La proprietà `host` in particolare include un `triggerName`, perché è sempre necessario specificare il trigger che viene chiamato.
 
 ## <a name="other-changes"></a>Altre modifiche
 
@@ -453,8 +457,8 @@ Tutti i tipi di azione ora supportano un nuovo input denominato `queries`. Quest
 
 ### <a name="renamed-parse-function-to-json"></a>Funzione "parse()" rinominata come "json()"
 
-Verranno aggiunti a breve altri tipi di contenuti, quindi la funzione `parse()` è stata rinominata `json()`.
+La funzione `parse()` è stata rinominata funzione `json()` per i tipi di contenuto futuri.
 
-## <a name="coming-soon-enterprise-integration-apis"></a>Presto disponibile: API Enterprise Integration
+## <a name="enterprise-integration-apis"></a>API di Integrazione aziendale
 
-Non sono ancora disponibili versioni gestite delle API Enterprise Integration, ad esempio AS2. Per il momento è possibile usare le API di BizTalk distribuite tramite l'azione HTTP. Per informazioni dettagliate, vedere "Using your already deployed API apps" (Uso delle app per le API già distribuite) nella [guida di orientamento all'integrazione](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
+Questo schema non supporta ancora le versioni gestite per le API di Integrazione aziendale, ad esempio AS2. Tuttavia, è possibile usare le API di BizTalk distribuite esistenti tramite l'azione HTTP. Per altre informazioni, vedere "Uso delle app per le API già distribuite" nella [guida di orientamento all'integrazione](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

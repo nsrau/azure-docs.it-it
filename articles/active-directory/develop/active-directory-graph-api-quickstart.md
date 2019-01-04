@@ -18,12 +18,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: b8dba999ac6523aad29aae40b528fd010fec0550
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 7a3c3e39792119d296c849c012d4798ec85a0e03
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687351"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845487"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Procedura: Usare l'API Graph di Azure AD
 
@@ -66,7 +66,7 @@ Lo screenshot seguente mostra l'output che viene visualizzato se si passa ad Azu
 
 ![API Graph di Azure AD explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**Caricare Azure AD Graph Explorer**: per caricare lo strumento, usare l'indirizzo [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Fare clic su **Login** (Accedi) e accedere con le credenziali dell'account Azure AD per eseguire Azure AD Graph Explorer sul tenant personale. Se un utente esegue Azure AD Graph Explorer sul tenant personale, l'utente o il relativo amministratore deve fornire il proprio consenso in fase di accesso. Se si ha una sottoscrizione di Office 365, si ha automaticamente un tenant di Azure AD. Le credenziali usate per accedere a Office 365 corrispondono in realtà a un account Azure AD ed è possibile usare queste credenziali con Azure AD Graph Explorer.
+**Caricare Azure AD Graph Explorer**: Per caricare lo strumento, passare a [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Fare clic su **Login** (Accedi) e accedere con le credenziali dell'account Azure AD per eseguire Azure AD Graph Explorer sul tenant personale. Se un utente esegue Azure AD Graph Explorer sul tenant personale, l'utente o il relativo amministratore deve fornire il proprio consenso in fase di accesso. Se si ha una sottoscrizione di Office 365, si ha automaticamente un tenant di Azure AD. Le credenziali usate per accedere a Office 365 corrispondono in realtà a un account Azure AD ed è possibile usare queste credenziali con Azure AD Graph Explorer.
 
 **Eseguire una query**: per eseguire una query, digitarla nell'apposita casella di richiesta e fare clic su **OTTIENI** oppure premere il tasto **INVIO**. I risultati vengono visualizzati nella casella delle risposte. `https://graph.windows.net/myorganization/groups?api-version=1.6` elenca ad esempio tutti gli oggetti gruppo nella directory dell'utente connesso.
 
@@ -82,13 +82,13 @@ Azure AD Graph Explorer presenta le funzionalità e le limitazioni seguenti:
 
 ## <a name="using-fiddler-to-write-to-the-directory"></a>Uso di Fiddler per scrivere nella directory
 
-Ai fini di questa guida rapida, è possibile usare il debugger Web Fiddler per esercitarsi a eseguire operazioni di scrittura sulla directory di Azure AD. È ad esempio possibile ottenere e caricare foto del profilo dell'utente, mentre questo non è possibile con Azure AD Graph Explorer. Per altre informazioni e per l'installazione di Fiddler, vedere [http://www.telerik.com/fiddler](http://www.telerik.com/fiddler).
+Ai fini di questa guida rapida, è possibile usare il debugger Web Fiddler per esercitarsi a eseguire operazioni di scrittura sulla directory di Azure AD. È ad esempio possibile ottenere e caricare foto del profilo dell'utente, mentre questo non è possibile con Azure AD Graph Explorer. Per altre informazioni e per l'installazione di Fiddler, vedere [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler).
 
 L'esempio seguente usa il debugger Web Fiddler per creare un nuovo gruppo di sicurezza "MyTestGroup" nella directory di Azure AD.
 
 **Ottenere un token di accesso**: per accedere ad Azure AD Graph, è necessario che i client vengano prima correttamente autenticati in Azure AD. Per altre informazioni, vedere [Scenari di autenticazione per Azure AD](authentication-scenarios.md).
 
-**Creare ed eseguire una query**: completare i passaggi seguenti.
+**Comporre ed eseguire una query**: Completare questi passaggi:
 
 1. Aprire il debugger Web Fiddler e passare alla scheda **Composer** .
 2. Poiché si desidera creare un nuovo gruppo di sicurezza, scegliere **Post** come metodo HTTP dal menu a discesa. Per altre informazioni sulle operazioni e le autorizzazioni per un oggetto gruppo, vedere [Gruppo](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#group-entity) in [Riferimento all'API REST Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).

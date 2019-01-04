@@ -1,5 +1,5 @@
 ---
-title: Monitorare cluster DC/OS di Azure - Datadog
+title: (DEPRECATO) Monitorare un cluster del controller di dominio/sistema operativo di Azure - Datadog
 description: Monitorare un cluster del servizio contenitore di Azure con Datadog. Usare l'interfaccia utente Web del controller di dominio/sistema operativo per distribuire gli agenti Datadog al cluster.
 services: container-service
 author: sauryadas
@@ -9,18 +9,20 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 029f36e4362704fcec240f6e88da5c96e903c317
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d881a5c0f994b627b4c7c3da362672b3b887cd5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162756"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996148"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Monitorare un cluster DC/OS del servizio contenitore di Azure con Datadog
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(DEPRECATO) Monitorare un cluster del controller di dominio/sistema operativo del servizio contenitore di Azure con DataDog
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In questo articolo verranno distribuiti agenti di Datadog in tutti i nodi agente nel cluster del servizio contenitore di Azure. Per questa configurazione, sarà necessario un account con Datadog. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 [Distribuire](container-service-deployment.md) e [connettere](../container-service-connect.md) un cluster configurato dal servizio contenitore di Azure. Esplorare l' [interfaccia utente](container-service-mesos-marathon-ui.md)di Marathon. Passare a [http://datadoghq.com](http://datadoghq.com) per configurare un account Datadog. 
 
 ## <a name="datadog"></a>Datadog

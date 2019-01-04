@@ -1,25 +1,19 @@
 ---
-title: 'Ottimizzare il routing in ExpressRoute: Azure | Microsoft Docs'
+title: 'Ottimizzare il routing - Circuiti ExpressRoute: Azure | Microsoft Docs'
 description: Questa pagina contiene informazioni dettagliate su come ottimizzare il routing in presenza di più circuiti ExpressRoute per la connessione tra Microsoft e la rete aziendale.
-documentationcenter: na
 services: expressroute
 author: charwen
-manager: carmonm
-editor: ''
-ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/06/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: charwen
-ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 65c23b05cfcb623f8e2870df813f5516b3039d5c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22709998"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140932"
 ---
 # <a name="optimize-expressroute-routing"></a>Ottimizzare il routing in ExpressRoute
 In presenza di più circuiti ExpressRoute sono disponibili più percorsi per connettersi a Microsoft. Il routing può quindi risultare non ottimale, ovvero è possibile che il traffico usi un percorso più lungo per raggiungere Microsoft e da Microsoft la rete del cliente. Più lungo è il percorso di rete, maggiore sarà la latenza che ha un impatto diretto sull'esperienza utente e sulle prestazioni dell'applicazione. Questo articolo descrive il problema e illustra come ottimizzare il routing con tecnologie di routing standard.

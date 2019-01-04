@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f57a5a2413103ddcf7484f3b1fc5b4170b7bdc98
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 97352cdc89aabe312bf500901347acaf5238e871
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412858"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436994"
 ---
-# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS 
+# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS 
 
 Un nuovo modulo di PowerShell denominato [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) è stato introdotto con la build 1.1.880.0 (rilasciata nel mese di agosto 2018) che include una raccolta di cmdlet che consentono di configurare le autorizzazioni di Active Directory corrette per la distribuzione di Azure AD Connect. 
 
@@ -205,12 +205,12 @@ Questo cmdlet imposterà le autorizzazioni seguenti:
 Per impostare le autorizzazioni per l'account del connettore di AD DS quando si usa il writeback dei gruppi, eseguire: 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 oppure 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 Questo cmdlet imposterà le autorizzazioni seguenti: 
@@ -225,14 +225,14 @@ Questo cmdlet imposterà le autorizzazioni seguenti:
 Per impostare le autorizzazioni per l'account del connettore di AD DS quando si usa una distribuzione ibrida di Exchange, eseguire: 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
 
 oppure 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
 ```
 
 Questo cmdlet imposterà le autorizzazioni seguenti:  
@@ -299,7 +299,7 @@ Questo cmdlet imposterà le autorizzazioni seguenti:
 |CONSENTI |Utenti autenticati |Autorizzazioni di lettura |Questo oggetto 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Azure AD Connect: account e autorizzazioni](reference-connect-accounts-permissions.md)
+- [Azure AD Connect: Account e autorizzazioni](reference-connect-accounts-permissions.md)
 - [Installazione rapida](how-to-connect-install-express.md)
 - [Installazione personalizzata](how-to-connect-install-custom.md)
 - [Informazioni di riferimento su ADSyncConfig](reference-connect-adsyncconfig.md)

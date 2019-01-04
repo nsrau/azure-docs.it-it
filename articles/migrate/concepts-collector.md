@@ -4,15 +4,15 @@ description: L'articolo contiene informazioni sull'appliance Agente di raccolta 
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241192"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255976"
 ---
 # <a name="about-the-collector-appliance"></a>Informazioni sull'appliance Agente di raccolta
 
@@ -20,21 +20,9 @@ ms.locfileid: "50241192"
 
 Agente di raccolta di Azure Migrate è un'appliance leggera che può essere usata per individuare l'ambiente vCenter locale a scopo di valutazione con il servizio [Azure Migrate](migrate-overview.md), prima della migrazione ad Azure.  
 
-## <a name="discovery-methods"></a>Metodi di individuazione
+## <a name="discovery-method"></a>Metodo di individuazione
 
-Per l'appliance Agente di raccolta sono disponibili due opzioni, per l'individuazione una tantum o l'individuazione continua.
-
-### <a name="one-time-discovery"></a>Individuazione una tantum
-
-L'appliance Agente di raccolta comunica una sola volta con il server vCenter per raccogliere i metadati relativi alle macchine virtuali. Se viene usato questi metodo, si verificano le condizioni seguenti:
-
-- L'appliance non è connessa in modo continuativo al progetto Azure Migrate.
-- Le modifiche nell'ambiente locale non vengono riflesse in Azure Migrate al termine dell'individuazione. Per riflettere le modifiche, è necessario individuare nuovamente lo stesso ambiente nello stesso progetto.
-- Quando si raccolgono i dati sulle prestazioni per una macchina virtuale, l'appliance si basa sui dati cronologici archiviati nel server vCenter e raccoglie la cronologia delle prestazioni per il mese precedente.
-- Per la raccolta dei dati della cronologia delle prestazioni, è necessario configurare le impostazioni delle statistiche nel server vCenter sul livello tre. Dopo avere impostato il livello tre, è necessario attendere almeno un giorno per consentire a vCenter di raccogliere i dati dei contatori delle prestazioni. È pertanto consigliabile eseguire l'individuazione dopo almeno un giorno. Se si vuole valutare l'ambiente in base ai dati sulle prestazioni di una settimana o un mese, è necessario attendere di conseguenza.
-- In questo metodo di individuazione, Azure Migrate raccoglie i contatori dei valori medi per ogni metrica, anziché i contatori dei valori massimi, e ciò può comportare un sottodimensionamento. Per ottenere risultati di dimensionamento più precisi è consigliabile usare l'opzione di individuazione continua.
-
-### <a name="continuous-discovery"></a>Individuazione continua
+Per l'appliance Agente di raccolta, un tempo esistevano due opzioni, per l'individuazione una tantum e l'individuazione continua. Il modello di individuazione una tantum è ora deprecato, poiché si basava su impostazioni delle statistiche del server vCenter per la raccolta di dati delle prestazioni (con impostazioni delle statistiche necessariamente impostate sul livello 3) e raccoglieva anche i contatori medi (anziché di picco), con conseguente ridimensionamento insufficiente. Il modello di individuazione continua assicura la raccolta dei dati granulari e produce un ridimensionamento accurato grazie alla raccolta di contatori di picco. Ecco come funziona:
 
 L'appliance Agente di raccolta è connessa in modo continuativo al progetto Azure Migrate e raccoglie continuamente i dati sulle prestazioni delle macchine virtuali.
 
@@ -44,21 +32,23 @@ L'appliance Agente di raccolta è connessa in modo continuativo al progetto Azur
 - Questo modello non dipende dalle impostazioni delle statistiche del server vCenter per raccogliere i dati sulle prestazioni.
 - È possibile arrestare la profilatura continua in qualsiasi momento In Agente di raccolta.
 
-Si noti che l'appliance si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale (ad esempio, aggiunta ed eliminazione di macchine virtuali, aggiunta di dischi e così via). Se si apporta una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
+**Risultati immediati:** con l'appliance per l'individuazione continua, è possibile creare le valutazioni subito dopo che l'individuazione è completata. Il processo di individuazione richiede circa due ore, a seconda del numero di macchine virtuali. Poiché la raccolta dei dati sulle prestazioni inizia quando viene avviata l'individuazione, se si vogliono ottenere risultati immediati è necessario selezionare *Come in locale* come criterio di dimensionamento per la valutazione. Per le valutazioni basate sulle prestazioni, è consigliabile attendere almeno un giorno dall'avvio del processo di individuazione per ottenere indicazioni affidabili relative alle dimensioni.
+
+L'appliance si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale (ad esempio, aggiunta ed eliminazione di macchine virtuali, aggiunta di dischi e così via). Se si esegue una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
 
 - Aggiunta di elementi (macchine virtuali, dischi, core e così via): per riflettere tali modifiche nel portale di Azure, è possibile arrestare l'individuazione dall'appliance e quindi riavviarla. Ciò garantisce che le modifiche vengono aggiornate nel progetto Azure Migrate.
 
-- Eliminazione di macchine virtuali: a causa della modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
+- Eliminazione di macchine virtuali: a causa del modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
 
 > [!NOTE]
-> La funzionalità di individuazione continua è disponibile in anteprima. Si consiglia di usare questo metodo, poiché raccoglie dati granulari sulle prestazioni e consente un dimensionamento preciso.
+> L'appliance per l'individuazione una tantum è ora deprecata poiché questo metodo si basava sulle impostazioni delle statistiche del server vCenter relative alla disponibilità dei punti dati delle prestazioni e raccoglieva i contatori delle prestazioni medie, determinando così un sottodimensionamento delle macchine virtuali per la migrazione ad Azure.
 
 ## <a name="deploying-the-collector"></a>Distribuzione di Agente di raccolta
 
 Per distribuire l'appliance Agente di raccolta, usare un modello OVF nel modo indicato di seguito.
 
 - Scaricare il modello OVF da un progetto Azure Migrate nel portale di Azure. Importare il file scaricato per nel server vCenter per configurare la macchina virtuale dell'appliance Agente di raccolta.
-- In OVF VMware consente di configurare una macchina virtuale con 4 core, 8 GB di RAM e un disco da 80 GB. Il sistema operativo è Windows Server 2012 R2 (64 bit).
+- In OVF VMware consente di configurare una macchina virtuale con 8 core, 16 GB di RAM e un disco da 80 GB. Il sistema operativo è Windows Server 2016 (64 bit).
 - Quando si esegue Agente di raccolta, vengono controllati alcuni prerequisiti per verificare che l'appliance sia in grado di connettersi ad Azure Migrate.
 
 - [Altre informazioni](tutorial-assessment-vmware.md#create-the-collector-vm) sulla creazione di Agente di raccolta.
@@ -68,14 +58,18 @@ Per distribuire l'appliance Agente di raccolta, usare un modello OVF nel modo in
 
 Agente di raccolta deve superare alcuni controlli dei prerequisiti per verificare che possa connettersi al servizio Azure Migrate e caricare i dati individuati.
 
+- **Verificare il cloud di Azure**: Agente di raccolta deve conoscere il cloud di Azure a cui si prevede di eseguire la migrazione.
+    - Selezionare Azure per enti pubblici, se si prevede di eseguire la migrazione al cloud di Azure per enti pubblici.
+    - Selezionare Azure globale, se si prevede di eseguire la migrazione al cloud commerciale di Azure.
+    - In base al cloud specificato qui, l'appliance invia i metadati individuati ai rispettivi punti finali.
 - **Controllo della connessione Internet**: Agente di raccolta può connettersi a Internet direttamente o tramite un proxy.
     - Il controllo dei prerequisiti verifica la connettività a [URL necessari e facoltativi](#connect-to-urls).
     - Se si dispone di una connessione diretta a Internet, non è necessaria alcuna azione specifica, ma si deve solo verificare che Agente di raccolta possa accedere agli URL necessari.
     - Se ci si connette tramite un proxy, tenere presenti i [requisiti indicati di seguito](#connect-via-a-proxy).
-- **Verificare la sincronizzazione dell'ora**: Agente di raccolta deve essere sincronizzato con il server di riferimento ora Internet per verificare che le richieste al servizio vengano autenticate.
+- **Verificare sincronizzazione ora**: Agente di raccolta deve essere sincronizzato con il server di riferimento ora Internet per assicurarsi che le richieste al servizio siano autenticate.
     - Perché sia possibile convalidare l'orario, Agente di raccolta deve poter raggiungere l'URL portal.azure.com.
     - Se il computer non è sincronizzato, è necessario modificare l'ora dell'orologio della macchina virtuale di Agente di raccolta in modo che corrisponda all'ora corrente. A tale scopo, aprire una finestra del prompt dei comandi dell'amministratore sulla macchina virtuale e quindi eseguire **w32tm /tz** per verificare il fuso orario. Eseguire **w32tm /resync** per sincronizzare l'ora.
-- **Verificare che il servizio Agente di raccolta sia in esecuzione**: il servizio Agente di raccolta di Azure Migrate deve essere in esecuzione nella macchina virtuale di Agente di raccolta.
+- **Verificare che il servizio Agente di raccolta sia in esecuzione**:  il servizio Agente di raccolta di Azure Migrate deve essere in esecuzione nella macchina virtuale di Agente di raccolta.
     - Questo servizio viene avviato automaticamente all'avvio del computer.
     - Se il servizio non è in esecuzione, avviarlo dal Pannello di controllo.
     - Il servizio Agente di raccolta si connette al server vCenter, raccoglie informazioni sui metadati e sulle prestazioni della macchina virtuale e le invia al servizio Azure Migrate.
@@ -117,7 +111,8 @@ La verifica della connettività viene eseguita tramite la connessione a un elenc
 
 **URL** | **Dettagli**  | **Controllo dei prerequisiti**
 --- | --- | ---
-*.portal.azure.com | Viene controllata la connettività al servizio Azure e l'ora di sincronizzazione. | Accesso agli URL necessari.<br/><br/> Il controllo dei prerequisiti ha esito negativo se non è disponibile alcuna connettività.
+*.portal.azure.com | Applicabile ad Azure Globale. Viene controllata la connettività al servizio Azure e l'ora di sincronizzazione. | Accesso agli URL necessari.<br/><br/> Il controllo dei prerequisiti ha esito negativo se non è disponibile alcuna connettività.
+*.portal.azure.us | Applicabile solo ad Azure per enti pubblici. Viene controllata la connettività al servizio Azure e l'ora di sincronizzazione. | Accesso agli URL necessari.<br/><br/> Il controllo dei prerequisiti ha esito negativo se non è disponibile alcuna connettività.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Usato per scaricare il modulo PowerShell vCenter PowerCLI. | Accesso agli URL facoltativi.<br/><br/> Il controllo dei prerequisiti non riesce.<br/><br/> L'installazione automatica del modulo nella macchina virtuale di Agente di raccolta non riesce. Installare manualmente il modulo.
 
 
@@ -211,7 +206,7 @@ Dopo aver configurato l'appliance, è possibile eseguire l'individuazione il cui
 
 ### <a name="collected-metadata"></a>Metadati raccolti
 
-L'appliance Agente di raccolta individua i metadati statici seguenti per le macchine virtuali:
+Per ogni macchina virtuale, l'appliance Agente di raccolta individua i metadati di configurazione seguenti. I dati di configurazione per le macchine virtuali sono disponibili un'ora dopo l'avvio dell'individuazione.
 
 - Nome visualizzato della macchina virtuale (nel server vCenter)
 - Percorso di inventario della macchina virtuale (host/cartella nel server vCenter)
@@ -224,26 +219,18 @@ L'appliance Agente di raccolta individua i metadati statici seguenti per le macc
 
 #### <a name="performance-counters"></a>Contatori delle prestazioni
 
-- **Individuazione una tantum**: quando i contatori vengono raccolti per una individuazione una tantum, tenere presenti gli aspetti seguenti.
+ L'appliance Agente di raccolta raccoglie i contatori delle prestazioni seguenti per ogni macchina virtuale dall'host ESXi a intervalli di 20 secondi. Questi contatori sono i contatori di vCenter e, anche se la terminologia afferma Media, i campioni raccolti ogni 20 secondi sono di fatto contatori real-time. I dati sulle prestazioni per le macchine virtuali sono disponibili nel portale a partire da due ore dopo l'avvio dell'individuazione. È altamente consigliabile attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni per ottenere elementi consigliati affidabili relativi alle dimensioni. Per risultati immediati, è possibile creare valutazioni con un criterio di determinazione delle dimensioni *come in locale*, che non considera i dati sulle prestazioni per il dimensionamento corretto.
 
-    - La raccolta e l'invio dei metadati di configurazione al progetto possono richiedere fino a 15 minuti.
-    - Dopo che i dati di configurazione sono stati raccolti, la disponibilità dei dati sulle prestazioni nel portale può richiedere fino a un'ora.
-    - Dopo che i metadati sono disponibili nel portale, viene visualizzato l'elenco di macchine virtuali ed è possibile iniziare a creare gruppi per la valutazione.
-- **Individuazione continua**: per l'individuazione continua, tenere presenti gli aspetti seguenti.
-    - I dati di configurazione per la macchina virtuale sono disponibili un'ora dopo l'avvio dell'individuazione.
-    - I dati sulle prestazioni diventano nuovamente disponibili dopo 2 ore.
-    - Dopo avere avviato l'individuazione, prima di creare le valutazioni attendere almeno un giorno perché l'appliance esegua la profilatura dell'ambiente.
-
-**Contatore** | **Level** | **Livello per dispositivo** | **Impatto sulla valutazione**
---- | --- | --- | ---
-cpu.usage.average | 1 | ND | Dimensione e costi consigliati della macchina virtuale  
-mem.usage.average | 1 | ND | Dimensione e costi consigliati della macchina virtuale  
-virtualDisk.read.average | 2 | 2 | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
-virtualDisk.write.average | 2 | 2  | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
-virtualDisk.numberReadAveraged.average | 1 | 3 |  Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
-virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
-net.received.average | 2 | 3 |  Calcola le dimensioni della macchina virtuale                          |
-net.transmitted.average | 2 | 3 | Calcola le dimensioni della macchina virtuale     
+**Contatore** |  **Impatto sulla valutazione**
+--- | ---
+cpu.usage.average | Dimensione e costi consigliati della macchina virtuale  
+mem.usage.average | Dimensione e costi consigliati della macchina virtuale  
+virtualDisk.read.average | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
+virtualDisk.write.average | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
+virtualDisk.numberReadAveraged.average | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
+virtualDisk.numberWriteAveraged.average | Calcola le dimensioni del disco, i costi di archiviazione e le dimensioni della macchina virtuale
+net.received.average | Calcola le dimensioni della macchina virtuale                          
+net.transmitted.average | Calcola le dimensioni della macchina virtuale     
 
 ## <a name="next-steps"></a>Passaggi successivi
 

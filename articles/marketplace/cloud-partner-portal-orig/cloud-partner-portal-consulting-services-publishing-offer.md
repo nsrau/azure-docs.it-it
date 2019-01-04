@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7ea4a58f072071f60cf87d1e8817ae19658be5fb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037763"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310420"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Offerta di servizi di consulenza per Azure e Dynamics 365
 
 <table> <tr> <td>Questa sezione illustra come pubblicare un servizio di consulenza in Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> o <a href="https://appsource.microsoft.com">AppSource Marketplace</a>. Le soluzioni basate su Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> e <a href="https://powerapps.microsoft.com">PowerApps</a> sono idonee alla pubblicazione in AppSource. Altre offerte basate su altri <a href="https://azure.microsoft.com/services">servizi di Microsoft Azure</a> sono idonee alla pubblicazione in Azure Marketplace. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
 
 
-# <a name="publishing-benefits"></a>Vantaggi della pubblicazione
+## <a name="publishing-benefits"></a>Vantaggi della pubblicazione
 
 La pubblicazione in uno dei marketplace di Microsoft porta vantaggi sostanziali:
 
@@ -36,13 +36,11 @@ La pubblicazione in uno dei marketplace di Microsoft porta vantaggi sostanziali:
 - Far promuovere i propri servizi dai team sul campo e di televendita di Microsoft.
 
 
-<a name="define-your-consulting-services-offer"></a>Definire l'offerta di servizi di consulenza
--------------------------------------
+## <a name="define-your-consulting-services-offer"></a>Definire l'offerta di servizi di consulenza
 
 Definire l'offerta di un pacchetto di servizi di consulenza. Concentrarsi su offerte con ambito fisso, durata fissa, prezzo stimato, fisso (o gratuito) e principalmente su offerte pre-vendita per un cliente singolo. Selezionare i pacchetti di engagement ripetibili che hanno avuto successo e sono stati efficaci nell'attrarre nuove attività.
 
-<a name="publish-a-consulting-service-offer"></a>Pubblicare l'offerta di un servizio di consulenza
-----------------------------------
+## <a name="publish-a-consulting-service-offer"></a>Pubblicare l'offerta di un servizio di consulenza
 
 Le sezioni seguenti descrivono il processo di pubblicazione della propria offerta di servizi di consulenza
 
@@ -62,7 +60,7 @@ Per creare una nuova offerta, seguire questa procedura:
 
 ### <a name="define-offer-settings"></a>Definire le impostazioni dell'offerta
 
-Nella schermata Nuova offerta, il primo passaggio consiste nel creare l'identità dell'offerta.  L'identità offerta è costituita da tre parti: **Offer ID** (ID offerta), **Publisher ID** (ID editore) e **Name** (Nome).  Ciascuna di queste parti viene trattata nelle sezioni seguenti.
+Nella schermata Nuova offerta, il primo passaggio consiste nel creare l'identità dell'offerta.  L'identità dell'offerta è costituita da tre parti: **ID offerta**, **ID editore** e **Nome**.  Ciascuna di queste parti viene trattata nelle sezioni seguenti.
 
 #### <a name="offer-id"></a>Offer ID (ID offerta)
 
@@ -95,16 +93,16 @@ Il nome dell'offerta è costituito da quattro parti:
 
 L'elenco seguente propone diversi nomi di offerta appropriati:
 
--   Aspetti essenziali per servizi professionali: briefing di un'ora
--   Piattaforma di migrazione cloud: briefing di un'ora
+-   Aspetti essenziali per servizi professionali: briefing di 1 ora
+-   Piattaforma di migrazione cloud: briefing di 1 ora
 -   PowerApps e Microsoft Flow: workshop di 1 giorno
 -   Servizi di Azure Machine Learning: modello di verifica di 3 settimane
--   Soluzione di vendita al dettaglio tutto incluso: briefing di un'ora
--   Trasferisci i tuoi dati: workshop di 1 settimana
+-   Soluzione di vendita al dettaglio tutto incluso: briefing di 1 ora
+-   Inserimento di dati personali: workshop di 1 settimana
 -   Analisi cloud: workshop di 3 giorni
--   Formazione di Power BI: workshop di 3 giorni
+-   Training di Power BI: workshop di 3 giorni
 -   Soluzione di gestione delle vendite: implementazione di 1 settimana
--   Guida introduttiva CRM: workshop di 1 giorno
+-   Avvio rapido CRM: workshop di 1 giorno
 -   Dynamics 365 for Sales: valutazione di 2 giorni
 
 Dopo aver compilato la scheda **Impostazioni dell'offerta**, è possibile salvare l'invio. Il nome dell'offerta verrà visualizzato sopra all'editor e sarà possibile trovarlo in Tutte le offerte.
@@ -132,27 +130,27 @@ Il riepilogo offerta è una breve descrizione dell'offerta visualizzata immediat
 *Esempio 1*
 
 -   **Nome offerta:** Analisi cloud: workshop di 3 giorni
--   **Riepilogo offerta:** Panoramica di Microsoft Azure e Power BI, valutazione dell'ambiente corrente e mini PoC.
+-   **Riepilogo offerta:** panoramica di Microsoft Azure e Power BI, valutazione dell'ambiente corrente e mini modello di verifica.
 
 *Esempio 2*
 
--   **Nome offerta:** IoT industriale di Azure: modello di verifica di 30 giorni
--   **Riepilogo offerta:** creare un progetto pilota industriale di prodotti connessi per connettere in modo sicuro le apparecchiature sul campo a una soluzione IoT Hub di Azure con dashboard, report e notifiche.
+-   **Nome offerta:** Azure IoT industriale: modello di verifica di 30 giorni
+-   **Riepilogo offerta:** creare un progetto pilota industriale di prodotti connessi per connettere in modo sicuro le apparecchiature sul campo a una soluzione hub Azure IoT con dashboard, report e notifiche.
 
 *Esempio 3*
 
--   **Nome offerta:** Servizi professionali: briefing di un'ora
--   **Riepilogo offerta:** Panoramica e demo della soluzione Dynamics 365 for Operations pre-configurata ed estesa che fornisce una migliore gestione dei progetti, della fatturazione e delle risorse per i servizi professionali.
+-   **Nome offerta:** Servizi professionali: briefing di 1 ora
+-   **Riepilogo offerta:** panoramica e demo della soluzione Dynamics 365 for Operations preconfigurata ed estesa che fornisce una migliore gestione dei progetti, della fatturazione e delle risorse per i servizi professionali.
 
 *Esempio 4*
 
 -   **Nome offerta:** Power BI per il tuo ambiente: workshop di 4 ore
--   **Riepilogo offerta:** Inizia a operare con il primo dashboard e apprendi le procedure consigliate. Per un massimo di 12 studenti, svolto in loco.
+-   **Riepilogo offerta:** iniziare a operare con il primo dashboard e apprendere le procedure consigliate. Per un massimo di 12 studenti, svolto in loco.
 
 *Esempio 5*
 
 -   **Nome offerta:** Dynamics e progetti: valutazione di 3 giorni
--   **Riepilogo offerta:** Raccolta e valutazione dei requisiti per la soluzione ERP destinata a società di servizi professionali e imprese orientate ai progetti.
+-   **Riepilogo offerta:** raccolta e valutazione dei requisiti per la soluzione ERP destinata a società di servizi professionali e imprese orientate ai progetti.
 
 ##### <a name="offer-description"></a>Descrizione dell'offerta
 
@@ -170,7 +168,7 @@ L'esempio che segue illustra una descrizione dell'offerta ben composta e il rela
 
 **Nome offerta:** Analisi cloud: workshop di 3 giorni
 
-**Riepilogo offerta:** Panoramica di Microsoft Azure e Power BI, valutazione dell'ambiente corrente e mini PoC.
+**Riepilogo offerta:** panoramica di Microsoft Azure e Power BI, valutazione dell'ambiente corrente e mini modello di verifica.
 
 **Descrizione dell'offerta:** questo workshop di 3 giorni è rivolto ai responsabili tecnici e commerciali e si svolge presso la sede del cliente.
 
@@ -240,7 +238,7 @@ Sono inclusi i seguenti cinque tipi di offerte:
 -   **Briefing:** introduzione a una soluzione o a un servizio di consulenza per suscitare l'interesse del cliente con framework, demo ed esempi di clienti. I briefing devono essere condotti in loco.
 -   **Implementazione:** installazione completa che fornisce una soluzione perfettamente funzionante. Per questo progetto pilota, Microsoft raccomanda di limitarsi a soluzioni che possono essere implementate in una settimana o meno.
 -   **Modello di verifica:** implementazione di ambito limitato per determinare se una soluzione soddisferà i requisiti di un cliente.
--   **Workshop:** impegno interattivo condotto nella sede di un cliente che può includere sessioni di training, briefing, valutazioni o demo basati sui dati o sull'ambiente del cliente.
+-   **Workshop:** engagement interattivo condotto nella sede di un cliente che può includere sessioni di training, briefing, valutazioni o demo basati sui dati o sull'ambiente del cliente.
 
 **Disponibilità per paese/area geografica**
 

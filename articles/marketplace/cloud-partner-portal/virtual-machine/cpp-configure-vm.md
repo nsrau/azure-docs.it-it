@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c1db8c99b1bd3f9bbb768572ca1f5f7a4e1e0de4
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639148"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183472"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurare la macchina virtuale ospitata in Azure
 
@@ -28,14 +28,14 @@ Questo articolo illustra come ridimensionare, aggiornare e generalizzare una mac
 
 ## <a name="sizing-the-vhds"></a>Ridimensionamento dei dischi rigidi virtuali
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Se è stata selezionata una delle macchine virtuali preconfigurate con un sistema operativo (e, facoltativamente, se sono stati selezionati altri servizi), è già stata scelta una dimensione di macchina virtuale di Azure standard, come descritto nella [scheda SKU della macchina virtuale](./cpp-skus-tab.md).  Questo è l'approccio consigliato.  Se tuttavia si intende installare un sistema operativo manualmente, è necessario ridimensionare il disco rigido virtuale principale nell'immagine di macchina virtuale:
+<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Se è stata selezionata una delle macchine virtuali preconfigurate con un sistema operativo (e, facoltativamente, se sono stati selezionati altri servizi), è già stata scelta una dimensione di macchina virtuale di Azure standard, come descritto nella [scheda SKU della macchina virtuale](./cpp-skus-tab.md).  Avviare una soluzione con un sistema operativo preconfigurato è l'approccio consigliato.  Se tuttavia si intende installare un sistema operativo manualmente, è necessario ridimensionare il disco rigido virtuale principale nell'immagine di macchina virtuale:
 
 - Per Windows, il disco rigido virtuale del sistema operativo deve essere creato come disco rigido virtuale con formato fisso da 127-128 GB. 
 - Per Linux, questo disco rigido virtuale deve essere creato come disco rigido virtuale con formato fisso da 30-50 GB.
 
 Se la dimensione fisica è inferiore a 127-128 GB, il disco rigido virtuale deve essere di tipo sparse. Le immagini Windows e SQL Server di base fornite soddisfano già questi requisiti. Evitare di modificare il formato o la dimensione del VHD ottenuto. 
 
-I dischi dati possono avere dimensioni fino a 1 TB. Nello stabilire le dimensioni dei dischi, tenere presente che i clienti non possono ridimensionare i VHD all'interno di un'immagine in fase di distribuzione. I dischi rigidi virtuali per i dischi dati devono essere creati come dischi rigidi virtuali con formato fisso, ma devono anche essere di tipo sparse. I dischi dati inizialmente possono essere vuoti o contenere dati.
+I dischi dati possono avere dimensioni fino a 1 TB. Nello stabilirne le dimensioni, tenere presente che i clienti non possono ridimensionare i dischi rigidi virtuali all'interno di un'immagine in fase di distribuzione. I dischi rigidi virtuali per i dischi dati devono essere creati come dischi rigidi virtuali con formato fisso, ma devono anche essere di tipo sparse. I dischi dati inizialmente possono essere vuoti o contenere dati.
 
 
 ## <a name="install-the-most-current-updates"></a>Installare gli aggiornamenti più recenti
@@ -49,7 +49,7 @@ Per le distribuzioni Linux, gli aggiornamenti vengono in genere scaricati e inst
 
 ## <a name="perform-additional-security-checks"></a>Eseguire controlli di sicurezza aggiuntivi
 
-È necessario mantenere un livello di sicurezza elevato per le immagini delle soluzioni in Azure Marketplace.  L'articolo [Raccomandazioni sulla sicurezza per le immagini di Azure Marketplace](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images) semplifica questo obiettivo offrendo un elenco di configurazioni e procedure di sicurezza a cui attenersi.  Alcune di queste indicazioni sono destinate specificamente a immagini basate su Linux, ma la maggior parte si applica a qualsiasi immagine di macchina virtuale. 
+È necessario mantenere un livello di sicurezza elevato per le immagini delle soluzioni in Azure Marketplace.  L'articolo seguente semplifica questo obiettivo offrendo un elenco di configurazioni e procedure di sicurezza a cui attenersi: [Raccomandazioni sulla sicurezza per le immagini di Azure Marketplace](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Alcune di queste indicazioni sono destinate specificamente a immagini basate su Linux, ma la maggior parte si applica a qualsiasi immagine di macchina virtuale. 
 
 
 ## <a name="perform-custom-configuration-and-scheduled-tasks"></a>Eseguire una configurazione personalizzata e attività pianificate
@@ -65,7 +65,7 @@ Per altre informazioni sulle personalizzazioni di Linux, vedere [Estensioni dell
 
 Tutte le immagini in Azure Marketplace devono poter essere riutilizzate in modo generico. Per ottenere questa riusabilità, il disco rigido virtuale del sistema operativo deve essere *generalizzato*. La generalizzazione è un'operazione che rimuove tutti gli identificatori specifici di istanze e tutti i driver software da una macchina virtuale.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 La generalizzazione dei dischi con sistema operativo Windows viene eseguita con lo [strumento sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Se in seguito si aggiorna o si riconfigura il sistema operativo, è necessario eseguire nuovamente sysprep. 
 

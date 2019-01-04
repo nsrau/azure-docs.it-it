@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Domain Services: linee guida sulla rete | Documentazione Microsoft'
+title: 'Azure AD Domain Services: Linee guida per la rete | Microsoft Docs'
 description: Considerazioni sulla rete per Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: eb97e709e18daba3722dc43a869ef034dbe573cf
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c13a4606219ebdb1d23a83a0bd3bdf14f1a3882e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157429"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970910"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerazioni sulla rete per Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Come selezionare una rete virtuale di Azure
 Le indicazioni seguenti semplificano la selezione di una rete virtuale da usare con Azure AD Domain Services.
 
 ### <a name="type-of-azure-virtual-network"></a>Tipo di rete virtuale di Azure
-* **Reti virtuali di gestione risorse**: la funzionalità Azure AD Domain Services può essere abilitata nelle reti virtuali create usando Azure Resource Manager.
+* **Reti virtuali di Azure Resource Manager**: La funzionalità Azure AD Domain Services può essere abilitata nelle reti virtuali create usando Azure Resource Manager.
 * Non è possibile abilitare Azure AD Domain Services in una rete virtuale di Azure classica.
 * È possibile connettere altre reti virtuali alla rete virtuale in cui è abilitata la funzionalità Azure AD Domain Services. Per altre informazioni, vedere la sezione [Connettività di rete](active-directory-ds-networking.md#network-connectivity).
 
@@ -39,7 +39,7 @@ Le indicazioni seguenti semplificano la selezione di una rete virtuale da usare 
 ### <a name="requirements-for-the-virtual-network"></a>Requisiti per la rete virtuale
 * **Prossimità ai carichi di lavoro di Azure**: selezionare la rete virtuale che ospita o ospiterà le macchine virtuali che richiedono l'accesso ad Azure AD Domain Services. Se i carichi di lavoro vengono distribuiti in una rete virtuale diversa dal dominio gestito, è anche possibile scegliere di connettere le reti virtuali.
 * **Server DNS personalizzati/Bring-Your-Own**: assicurarsi che non siano presenti server DNS personalizzati configurati per la rete virtuale. Un esempio di server DNS personalizzato è un'istanza di DNS di Windows Server in esecuzione su una VM Windows Server distribuita nella rete virtuale. Azure AD Domain Services non si integra con i server DNS personalizzati distribuiti nella rete virtuale.
-* **Domini esistenti con lo stesso nome di dominio**: assicurarsi che non sia presente un dominio esistente con lo stesso nome di dominio disponibile nella rete virtuale. Ad esempio, si supponga che un dominio denominato 'contoso.com' sia già disponibile nella rete virtuale selezionata. Provare successivamente ad abilitare un dominio gestito di Azure AD Domain Services con lo stesso nome di dominio, ovvero 'contoso.com', alla rete virtuale. Si verifica un errore quando si prova ad abilitare Azure AD Domain Services. L'errore è dovuto a conflitti di nomi per il nome di dominio nella rete virtuale. In questa situazione è necessario usare un nome diverso per configurare il dominio gestito di Servizi di dominio Azure AD. In alternativa, è possibile eseguire il deprovisioning del dominio esistente e quindi abilitare Servizi di dominio Azure AD.
+* **Domini esistenti con lo stesso nome di dominio**: Assicurarsi che non sia presente un dominio esistente con lo stesso nome di dominio disponibile nella rete virtuale. Ad esempio, si supponga che un dominio denominato 'contoso.com' sia già disponibile nella rete virtuale selezionata. Provare successivamente ad abilitare un dominio gestito di Azure AD Domain Services con lo stesso nome di dominio, ovvero 'contoso.com', alla rete virtuale. Si verifica un errore quando si prova ad abilitare Azure AD Domain Services. L'errore è dovuto a conflitti di nomi per il nome di dominio nella rete virtuale. In questa situazione è necessario usare un nome diverso per configurare il dominio gestito di Servizi di dominio Azure AD. In alternativa, è possibile eseguire il deprovisioning del dominio esistente e quindi abilitare Servizi di dominio Azure AD.
 
 > [!WARNING]
 > Non è possibile spostare Domain Services in una rete virtuale diversa dopo l'abilitazione del servizio.
@@ -102,7 +102,7 @@ La tabella seguente illustra un gruppo di sicurezza di rete di esempio che è po
 
 Il gruppo di sicurezza di rete mostra anche come bloccare l'accesso LDAP sicuro tramite Internet. Ignorare questa regola se l'accesso LDAP sicuro al dominio gestito tramite Internet non è stato abilitato. Il gruppo di sicurezza di rete contiene alcune regole che consentono l'accesso LDAPS in ingresso sulla porta TCP 636 solo da un set specificato di indirizzi IP. La regola del gruppo di sicurezza di rete per consentire l'accesso LDAPS su Internet da indirizzi IP specificati ha una priorità superiore rispetto alla regola DenyAll del gruppo di sicurezza di rete.
 
-![Gruppo di sicurezza di rete di esempio per proteggere l'accesso LDAPS su Internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![Gruppo di sicurezza di rete di esempio per proteggere l'accesso LDAPS su Internet](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 **Altre informazioni** - [Creare un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md).
 
@@ -124,13 +124,13 @@ Un dominio gestito di Azure AD Domain Services può essere abilitato solo in una
 ![Connettività da rete virtuale basata su Resource Manager a rete virtuale classica](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
 
 ### <a name="network-connection-options"></a>Opzioni per le connessioni di rete
-* **Connessioni da rete virtuale a rete virtuale tramite il peering reti virtuali**: il peering reti virtuali è un meccanismo che connette due reti virtuali nella stessa area tramite la rete backbone di Azure. Una volta eseguito il peering, le due reti virtuali appaiono come una sola per qualsiasi scopo di connettività. Continuano a essere gestite come risorse separate, ma le macchine virtuali in queste reti virtuali possono comunicare direttamente tra di esse usando gli indirizzi IP privati.
+* **Connessioni VNET-VNET usando il peering di rete virtuale**: Peering di rete virtuale è un meccanismo che connette due reti virtuali nella stessa area tramite la rete backbone di Azure. Una volta eseguito il peering, le due reti virtuali appaiono come una sola per qualsiasi scopo di connettività. Continuano a essere gestite come risorse separate, ma le macchine virtuali in queste reti virtuali possono comunicare direttamente tra di esse usando gli indirizzi IP privati.
 
     ![Connettività di rete virtuale tramite peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [Altre informazioni: Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md)
 
-* **Connessioni da rete virtuale a rete virtuale tramite connessioni VPN da sito a sito**: la connessione di una rete virtuale a un'altra rete virtuale è simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività utilizzano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE.
+* **Connessioni VNet-VNet usando le connessioni VPN da sito a sito**: La connessione di una rete virtuale a un'altra rete virtuale è simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività utilizzano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE.
 
     ![Connettività di rete virtuale tramite gateway VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 

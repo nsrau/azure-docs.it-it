@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ed0001d8d88a2604e3128a4d5f7a365aeb7b00b1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c6b8312a08d1d92bccf70e7d3dda5f01811b4f87
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440792"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848528"
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>Configurare la complessità delle password nei criteri personalizzati
 
@@ -27,7 +27,7 @@ Questo articolo descrive in modo approfondito come funziona la complessità dell
 
 Azure Active Directory B2C (Azure AD B2C) supporta la modifica dei requisiti di complessità delle password specificate da un utente finale durante la creazione di un account.  Per impostazione predefinita, Azure AD B2C usa password di complessità **Alta**.  Azure AD B2C supporta anche opzioni di configurazione per controllare la complessità delle password che i clienti possono usare.  Questo articolo illustra come configurare la complessità delle password nei criteri personalizzati.  È possibile anche usare [Configurare la complessità delle password nei criteri predefiniti](active-directory-b2c-reference-password-complexity.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Un tenant di Azure AD B2C configurato per completare una procedura di iscrizione/accesso di un account locale, come descritto in [Introduzione](active-directory-b2c-get-started-custom.md).
 
@@ -51,7 +51,7 @@ Di seguito viene descritto lo scopo di questi elementi:
 
 ### <a name="defining-a-predicate-element"></a>Definizione di un elemento predicato
 
-Ai predicati possono essere associati due tipi di metodo: IsLengthRange e MatchesRegex. Di seguito viene riportato un esempio per ciascuno dei due metodi.  Si esaminerà per primo un esempio del metodo MatchesRegex, usato per trovare una corrispondenza con un'espressione regolare.  In questo esempio, viene trovata una corrispondenza con una stringa contenente numeri.
+I predicati hanno due tipi di metodi: IsLengthRange o MatchesRegex. Di seguito viene riportato un esempio per ciascuno dei due metodi.  Si esaminerà per primo un esempio del metodo MatchesRegex, usato per trovare una corrispondenza con un'espressione regolare.  In questo esempio, viene trovata una corrispondenza con una stringa contenente numeri.
 
 ```XML
       <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
@@ -124,8 +124,8 @@ Questo esempio contiene una convalida per le password di soli numeri (PIN) e una
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="yourtenant.onmicrosoft.com"

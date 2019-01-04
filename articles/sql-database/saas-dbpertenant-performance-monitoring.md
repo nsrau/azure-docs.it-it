@@ -1,5 +1,5 @@
 ---
-title: 'App Saas: monitorare le prestazioni di più database SQL di Azure | Microsoft Docs'
+title: 'App SaaS: monitorare le prestazioni di più database SQL di Azure | Microsoft Docs'
 description: Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 86fdd7b0bd8ac76ddb2ac30ff324b80101c177e8
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353901"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259138"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 
@@ -75,7 +75,7 @@ Se è già stato effettuato il provisioning di un batch di tenant in un'esercita
 
 Lo script distribuirà 17 tenant in meno di cinque minuti.
 
-Lo script *New-TenantBatch* usa un set annidato o collegato di modelli di [Resource Manager](../azure-resource-manager/index.md) che creano un batch di tenant, che copia per impostazione predefinita il database **basetenantdb** nel server di catalogo per creare i nuovi database tenant, quindi li registra nel catalogo e infine li inizializza con il nome del tenant e il tipo di sede. Questo comportamento è coerente con il modo in cui l'app effettua il provisioning di un nuovo tenant. Tutte le modifiche apportate a *basetenantdb* vengono applicate agli eventuali nuovi tenant di cui viene effettuato il provisioning in seguito. Vedere l'[esercitazione sulla gestione dello schema](saas-tenancy-schema-management.md) per informazioni su come apportare modifiche allo schema di database tenant *esistenti*, incluso il database *basetenantdb*.
+Lo script *New-TenantBatch* usa un set annidato o collegato di modelli di [Resource Manager](../azure-resource-manager/index.yml) che creano un batch di tenant, che copia per impostazione predefinita il database **basetenantdb** nel server di catalogo per creare i nuovi database tenant, quindi li registra nel catalogo e infine li inizializza con il nome del tenant e il tipo di sede. Questo comportamento è coerente con il modo in cui l'app effettua il provisioning di un nuovo tenant. Tutte le modifiche apportate a *basetenantdb* vengono applicate agli eventuali nuovi tenant di cui viene effettuato il provisioning in seguito. Vedere l'[esercitazione sulla gestione dello schema](saas-tenancy-schema-management.md) per informazioni su come apportare modifiche allo schema di database tenant *esistenti*, incluso il database *basetenantdb*.
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Simulare l'utilizzo in tutti i database tenant
 

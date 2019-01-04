@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Team Data Science Process | Microsoft Docs
+title: Introduzione a Team Data Science Process
 description: Fornisce una metodologia di data science per offrire soluzioni di analisi predittiva e applicazioni intelligenti.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 44da452b0ec07eaa1b1446de5dab5bedaac3bc30
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 94728bbc74d1864c76aa801628fcbfb133b97abd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446841"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435991"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Introduzione a Team Data Science Process
 
@@ -44,7 +44,7 @@ Questo ciclo di vita è stato messo a punto per i progetti di data science inclu
 
 Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
 
-* **Informazioni commerciali**
+* **Comprensione delle strategie aziendali**
 * **Acquisizione e comprensione dei dati**
 * **Modellazione**
 * **Distribuzione**
@@ -79,7 +79,7 @@ Sono forniti modelli per la struttura di cartelle e i documenti richiesti in pos
 
 [ ![TDSP-directories](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
 
-La struttura di directory può essere clonata da [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
+La struttura di directory può essere clonata da [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
 ## <a name="infrastructure-and-resources-for-data-science-projects"></a>Infrastruttura e risorse per i progetti di data science  
 
@@ -99,9 +99,9 @@ Di seguito è riportato un esempio di un team che lavora su più progetti e cond
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Strumenti e utilità per l'esecuzione dei progetti
 
-Introdurre processi nella maggior parte delle organizzazioni è complesso. Gli strumenti disponibili per implementare il processo e il ciclo di vita del data science contribuiscono a ridurre le barriere e ad aumentare la coerenza dell'adozione. Il TDSP fornisce un set iniziale di strumenti e script per una veloce adozione del TDSP stesso all'interno di un team. Consente inoltre di automatizzare alcune delle attività comuni nel ciclo di vita del data science, ad esempio l'esplorazione dei dati e la modellazione iniziale. Viene fornita una struttura ben definita in base alla quale i singoli possono contribuire con strumenti e utilità condivise nel repository di codice condiviso del team. Queste risorse possono quindi essere sfruttate da altri progetti all'interno di team o dell'organizzazione. Il TDSP prevede anche una pianificazione per elargire strumenti e utilità all'intera community. Le utilità TDSP possono essere clonate da [Github](https://github.com/Azure/Azure-TDSP-Utilities).
+Introdurre processi nella maggior parte delle organizzazioni è complesso. Gli strumenti disponibili per implementare il processo e il ciclo di vita del data science contribuiscono a ridurre le barriere e ad aumentare la coerenza dell'adozione. Il TDSP fornisce un set iniziale di strumenti e script per una veloce adozione del TDSP stesso all'interno di un team. Consente inoltre di automatizzare alcune delle attività comuni nel ciclo di vita del data science, ad esempio l'esplorazione dei dati e la modellazione iniziale. Viene fornita una struttura ben definita in base alla quale i singoli possono contribuire con strumenti e utilità condivise nel repository di codice condiviso del team. Queste risorse possono quindi essere sfruttate da altri progetti all'interno di team o dell'organizzazione. Il TDSP prevede anche una pianificazione per elargire strumenti e utilità all'intera community. Le utilità TDSP possono essere clonate da [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Processo di data science per i team: ruoli e attività](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) descrive i ruoli del personale chiave e le relative attività associate per un team di data science che standardizza il processo. 
+[Processo di data science per i team: ruoli e attività](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) descrive i ruoli del personale chiave e le relative attività associate per un team di data science che definisce i propri standard in base a questo processo. 

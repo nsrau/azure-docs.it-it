@@ -1,5 +1,5 @@
 ---
-title: Spostare i dati in o da un archiviazione BLOB di Azure tramite connettori SSIS | Microsoft Docs
+title: Spostare i dati di archiviazione BLOB con connettori SSIS - Processo di data science per i team
 description: Spostare i dati in o da un archivio BLOB di Azure mediante connettori SSIS.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2eda0490392e26d386faa4c1e379b50738a56cbb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 8cd7fc5b69fd3ef124a96f00466a0d9a8c4e2240
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443357"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134353"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Spostare dati da o verso un archivio BLOB di Azure con connettori SSIS
 [SQL Server Integration Services Feature Pack for Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornisce componenti per la connessione ad Azure, il trasferimento di dati tra Azure e origini dati locali e l'elaborazione di dati archiviati in Azure.
@@ -42,7 +42,7 @@ Per eseguire le attività illustrate in questo articolo, è necessario avere con
 
 Per usare i **connettori SSIS**è necessario scaricare:
 
-* **SQL Server 2014 o 2016 Standard (o versioni successive)**: l'installazione include SQL Server Integration Services.
+* **SQL Server 2014 o 2016 Standard (o versione successiva)**: l'installazione include SQL Server Integration Services.
 * **Microsoft SQL Server 2014 o 2016 Integration Services Feature Pack per Azure**: possono essere scaricati dalle pagine [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) e [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
 
 > [!NOTE]

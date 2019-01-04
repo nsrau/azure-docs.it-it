@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 62c89861d784931b2a13297abac578010e0fea5f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 61ec9d0639f4bee950be69ee951492974ac95c64
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250845"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867478"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orchestrare l'implementazione di Azure DevTest Labs
 Questo articolo descrive un approccio consigliato per la distribuzione e l'implementazione rapide di Azure DevTest Labs. L'immagine seguente evidenzia il processo complessivo come indicazione prescrittiva e al contempo osserva la flessibilità necessaria per supportare vari scenari e requisiti di settore.
@@ -29,7 +29,7 @@ Questo articolo presuppone la presenza degli elementi seguenti prima di implemen
 
 - **Sottoscrizione di Azure**: il team del progetto pilota ha accesso alla distribuzione delle risorse in una sottoscrizione di Azure. Se i carichi di lavoro sono solo per sviluppo e test, è consigliabile selezionare l'offerta Sviluppo/test Enterprise, che include immagini disponibili aggiuntive e tariffe ridotte per macchine virtuali Windows.
 - **Accesso in locale**: se necessario, l'accesso in locale è già stato configurato. Per l'accesso in locale è possibile configurare una connessione VPN da sito a sito o una connessione ExpressRoute. L'installazione di una connettività tramite ExpressRoute richiede in genere molte settimane, è pertanto consigliato installarla prima di iniziare il progetto.
-- **Team del progetto pilota**: il team del progetto di sviluppo iniziale che usa DevTest Labs è stato identificato insieme alle attività di sviluppo e test e sono stati stabiliti i requisiti, gli scopi e gli obiettivi di tale team.
+- **Team del progetto pilota**: I team del progetto di sviluppo iniziale che usano DevTest Labs sono stati identificati insieme alle attività di sviluppo e test applicabili e sono stati stabiliti i requisiti, gli scopi e gli obiettivi per questi team.
 
 ## <a name="milestone-1-establish-initial-network-topology-and-design"></a>Attività cardine 1: stabilire il progetto e la topologia di rete iniziali
 La prima area su cui concentrarsi quando si distribuisce una soluzione Azure DevTest Labs riguarda l'installazione della connettività pianificata per le macchine virtuali. I passaggi seguenti delineano le procedure necessarie:
@@ -46,7 +46,7 @@ Dopo avere determinato la topologia di rete, è possibile creare il primo lab o 
 2. Determinare le immagini di macchine virtuali consentite e le dimensioni per l'uso con il lab. Decidere se è possibile caricare immagini personalizzate in Azure da usare con DevTest Labs.
 3. Proteggere l'accesso al lab creando Controlli degli accessi in base al ruolo per il lab (proprietari del lab e utenti del lab). È consigliabile usare account di Active Directory sincronizzati con Azure Active Directory per l'identità con DevTest Labs.
 4. Configurare DevTest Labs per l'uso di criteri, ad esempio le pianificazioni, gestione dei costi, macchine virtuali richiedibili, immagini personalizzate o formule.
-5. Stabilire un repository online, ad esempio VSTS/GIT.
+5. Stabilire un repository online, ad esempio Azure Repos/Git.
 6. Decidere se usare repository pubblici o privati o una combinazione di entrambi. Organizzare modelli JSON per le distribuzioni e la manutenzione a lungo termine.
 7. Creare artefatti personalizzati, se necessario. Questo passaggio è facoltativo. 
 

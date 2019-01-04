@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: dbf21c7c22a9b3273a65f7e186a2ac02ccae6ba2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b933bc5f5ecb39c3462e4e9bd300f1e07fd718c0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436208"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838775"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Esercitazione: Integrazione di Azure Active Directory con Symantec Web Security Service (WSS)
 
@@ -131,7 +131,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato Symantec Web Security Service (WSS), fare riferimento alla documentazione online di WSS. Il file **XML metadati** scaricato dovrà essere importato nel portale di WSS. Per assistenza per la configurazione nel portale di WSS, contattare il [team di supporto di Symantec Web Security Service (WSS)](https://www.symantec.com/contact-us).
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -170,7 +170,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 In questa sezione viene creato un utente di nome Britta Simon in Symantec Web Security Service (WSS). Il nome utente corrispondente può essere creato manualmente nel portale di WSS oppure è possibile attendere alcuni minuti (circa 15) affinché venga eseguita la sincronizzazione con il portale di WSS degli utenti/gruppi di cui è stato effettuato il provisioning in Azure AD. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. È anche necessario effettuare il provisioning nel portale di Symantec Web Security Service (WSS) dell'indirizzo IP pubblico del computer dell'utente finale che verrà usato per esplorare i siti Web.
 
 > [!NOTE]
-> [Fare clic qui](http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) per ottenere l'indirizzo IP pubblico del computer.
+> [Fare clic qui](https://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) per ottenere l'indirizzo IP pubblico del computer.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 11/8/2018
+ms.date: 12/4/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 83f053a8815f31803f536920497fdc42e72d2a2d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9c774a463264a3df859ac097dce4aa21df1c1dd8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628611"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163362"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Creare il bridge di dispositivi IoT Central per connettere altri cloud IoT a IoT Central
 
@@ -25,7 +25,7 @@ Il bridge di dispositivi IoT Central è una soluzione open source che connette S
 Il bridge di dispositivi IoT Central è una soluzione open source in GitHub. È pronto per l'uso con un pulsante "Deploy to Azure" (Distribuisci in Azure) che consente di distribuire un modello di Azure Resource Manager personalizzato con diverse risorse di Azure nella sottoscrizione di Azure. Le risorse includono:
 -   App per le funzioni di Azure
 -   Account di archiviazione di Azure
--   Piano di servizio app (livello S1)
+-   Piano a consumo
 -   Azure Key Vault. L'app per le funzioni è la parte cruciale del bridge di dispositivi. Riceve le richieste HTTP POST da altre piattaforme IoT o da qualsiasi piattaforma personalizzata tramite un'integrazione webhook semplice. Sono disponibili esempi che illustrano come connettersi ai cloud Sigfox, Particle e TTN. È possibile estendere facilmente questa soluzione per la connessione al cloud IoT personalizzato se la piattaforma può inviare richieste HTTP POST all'app per le funzioni.
 L'app per le funzioni trasforma i dati in un formato accettato da IoT Central e li inoltra tramite le API DPS.
 
@@ -37,10 +37,9 @@ Se l'app IoT Central riconosce il dispositivo in base all'ID nel messaggio inolt
 Le istruzioni sono elencate in modo dettagliato nel file README nel repository GitHub. 
 
 ## <a name="pricing"></a>Prezzi
-Queste funzionalità sono tutte ospitate nella sottoscrizione di Azure. La maggior parte del costo stimato delle risorse sottoposte a provisioning proviene dal [prezzo di un piano di servizio app standard]( https://azure.microsoft.com/en-us/pricing/details/app-service/windows/). Nel file README sono disponibili altre informazioni su questo aspetto e sui modi potenziali per ridurre questi costi.
+Le risorse di Azure saranno ospitate nella sottoscrizione di Azure. Per altre informazioni sui prezzi, vedere il [file Leggimi](https://aka.ms/iotcentralgithubdevicebridge).
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Ora che si è appreso come creare il bridge di dispositivi IoT Central, ecco il passaggio successivo consigliato:
 
 > [!div class="nextstepaction"]

@@ -1,21 +1,22 @@
 ---
-title: Entità predefinite per Language Understanding (LUIS)
+title: Entità predefinite
 titleSuffix: Azure Cognitive Services
 description: LUIS include un insieme di entità predefinite per il riconoscimento di tipi comuni di informazioni, ad esempio date, ore, numeri, misurazioni e valuta. Il supporto dell'entità predefinita varia a seconda delle impostazioni cultura dell'app LUIS.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 9e0d1ae39431ca75b43680981802b82f16703d4d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139975"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103932"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entità predefinite per riconoscere tipi di dati comuni
 
@@ -54,6 +55,12 @@ Per testare la nuova finalità nell'endpoint, aggiungere un valore per il parame
 |Annulla l'appuntamento del 3 marzo|LUIS ha restituito i risultati relativi alla data del 3 marzo più recente nel passato (03/03/2018) e alla data del 3 marzo nel futuro (03/03/2019) perché nell'espressione non è stato specificato alcun anno.|
 |Pianifica una riunione alle 10:00|10:00:00|
 
+## <a name="marking-entities-containing-a-prebuilt-entity-token"></a>Contrassegno di entità contenenti un token di entità predefinita
+ Se è presente testo, ad esempio `HH-1234`, che si vuole contrassegnare come entità personalizzata _e_ al modello è stata aggiunta l'[entità numero predefinita](luis-reference-prebuilt-number.md), non sarà possibile contrassegnare l'entità personalizzata nel portale di LUIS. È possibile contrassegnarla con l'API. 
+
+ Per contrassegnare questo tipo di token, di cui una parte è già contrassegnata con un'entità predefinita, rimuovere l'entità predefinita dall'app LUIS. Non è necessario eseguire il training dell'app. Contrassegnare quindi il token con l'entità personalizzata. Aggiungere quindi l'entità di nuovo all'app LUIS.
+
+ Per un altro esempio, considerare l'espressione come elenco delle preferenze di classe: `I want first year spanish, second year calculus, and fourth year english lit.` Se nell'app LUIS è stata aggiunta l'entità predefinita Ordinal, gli elementi `first`, `second` e `fourth` saranno già contrassegnati come ordinali. Se si vuole acquisire l'ordinale e la classe, è possibile creare un'entità composita ed eseguirne il wrapping nell'entità Ordinal predefinita e nell'entità personalizzata per il nome di classe.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

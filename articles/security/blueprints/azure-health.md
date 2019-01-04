@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407555"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315775"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
 
@@ -59,9 +59,9 @@ L'architettura di base è costituita dai componenti seguenti:
 
 -   **[Matrice di implementazione del cliente](https://aka.ms/healthcrmblueprint)** Una cartella di lavoro di Microsoft Excel che elenca i requisiti di HITRUST pertinenti e spiega in che modo Microsoft e il cliente sono responsabili di soddisfare ognuno di questi requisiti.
 
--   **[Revisione dei dati sanitari.](https://aka.ms/healthreviewpaper)** La soluzione è stata sottoposta a revisione da parte di Coalfire systems, Inc. La revisione della conformità (HIPAA e HITRUST) per il settore sanitario e le indicazioni per l'implementazione presentano la revisione della soluzione da parte di un revisore\' e considerazioni per la trasformazione del progetto in una distribuzione pronta per la produzione.
+-   **[Revisione dei dati sanitari.](https://aka.ms/healthreviewpaper)** La soluzione è stata rivista da Coalfire Systems, Inc. La revisione della conformità (HIPAA e HITRUST) per il settore sanitario e le indicazioni per l'implementazione presentano la revisione della soluzione da parte di un revisore e considerazioni per la trasformazione del piano in una distribuzione pronta per la produzione.
 
-# <a name="architectural-diagram"></a>Diagramma dell'architettura
+## <a name="architectural-diagram"></a>Diagramma dell'architettura
 
 
 ![](images/ra2.png)
@@ -80,7 +80,7 @@ L'amministratore del sito è responsabile della sottoscrizione di Azure del clie
 
 -   Assegnazioni di ruolo personalizzate: N/D
 
--   Ambito: sottoscrizione
+-   Ambito: Sottoscrizione
 
 ### <a name="database-analyst"></a>Analista di database
 
@@ -91,25 +91,25 @@ Non ha accesso ai record dei pazienti.
 
 -   Assegnazioni di ruolo personalizzate: N/D
 
--   Ambito: gruppo di risorse
+-   Ambito: ResourceGroup
 
  ### <a name="data-scientist"></a>Data scientist
 
 
 Il data scientist gestisce Azure Machine Learning Studio. Può importare, esportare e gestire i dati ed eseguire report. Il data scientist ha accesso ai dati dei pazienti, ma non ha privilegi amministrativi.
 
--   Assegnazioni di ruolo predefinite: [Collaboratore Account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
+-   Assegnazioni di ruolo predefinite: [Collaboratore account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Assegnazioni di ruolo personalizzate: N/D
 
--   Ambito: gruppo di risorse
+-   Ambito: ResourceGroup
 
 ### <a name="chief-medical-information-officer-cmio"></a>Responsabile dei servizi informatici sanitari (CMIO, Chief Medical Information Officer)
 
 
 Il CMIO riveste un ruolo a metà strada tra informatica/tecnologia e professionisti del settore sanitario in un'organizzazione sanitaria. Questo ruolo richiede in genere l'uso delle analisi per determinare se le risorse sono allocate in modo appropriato nell'organizzazione.
 
--   Assegnazioni di ruolo predefinite: nessuna
+-   Assegnazioni di ruolo predefinite: Nessuna
 
 ### <a name="care-line-manager"></a>Responsabile sanitario
 
@@ -117,11 +117,11 @@ Il CMIO riveste un ruolo a metà strada tra informatica/tecnologia e professioni
 Il responsabile sanitario è coinvolto direttamente nella cura dei pazienti.
 Questo ruolo richiede il monitoraggio dello stato dei singoli pazienti, oltre alla verifica della disponibilità del personale per rispondere ai requisiti di assistenza specifici dei pazienti. Il responsabile sanitario si occupa dell'aggiunta e dell'aggiornamento dei record dei pazienti.
 
--   Assegnazioni di ruolo predefinite: nessuna
+-   Assegnazioni di ruolo predefinite: Nessuna
 
 -   Assegnazioni di ruolo personalizzate: ha il privilegio necessario per eseguire HealthcareDemo.ps1 sia per il ricovero che per le dimissioni dei pazienti.
 
--   Ambito: gruppo di risorse
+-   Ambito: ResourceGroup
 
 ### <a name="auditor"></a>Revisore
 
@@ -132,7 +132,7 @@ Il revisore valuta la soluzione per verificarne la conformità. Non ha accesso d
 
 -   Assegnazioni di ruolo personalizzate: N/D
 
--   Ambito: sottoscrizione
+-   Ambito: Sottoscrizione
 
 ## <a name="example-use-case"></a>Esempio di caso d'uso
 
@@ -150,19 +150,19 @@ Il progetto include un vasto set di cartelle cliniche anonime che illustrano le 
 
 **Amministratore del sito - Alex**
 
-*Posta elettronica: Alex\_SiteAdmin*
+*Indirizzo di posta elettronica: Alex\_SiteAdmin*
 
 Il lavoro di Alex consiste nel valutare le tecnologie che possono ridurre il carico di lavoro di gestione di una rete locale e i costi per la gestione. Alex sta valutando Azure da un po' di tempo, ma ha difficoltà a configurare i servizi necessari per soddisfare i requisiti di conformità HiTrust per l'archiviazione dei dati dei pazienti nel cloud. Alex ha scelto l'intelligenza artificiale di Integrità di Azure per distribuire una soluzione per il settore sanitario predisposta per la conformità, in grado di soddisfare i requisiti dei clienti per HiTrust.
 
 **Data scientist - Debra**
 
-*Posta elettronica: Debra\_DataScientist*
+*Indirizzo di posta elettronica: Debra\_DataScientist*
 
 Debra è responsabile dell'uso e della creazione di modelli che analizzano le cartelle cliniche per fornire informazioni approfondite sulla cura dei pazienti. Debra usa SQL e il linguaggio di programmazione statistica R per creare i modelli.
 
 **Analista di database - Danny**
 
-*Posta elettronica: Danny\_DBAnalyst*
+*Indirizzo di posta elettronica: Danny\_DBAnalyst*
 
 Danny è il contatto principale per tutto ciò che riguarda la soluzione Microsoft SQL Server che archivia tutti i dati dei pazienti per Contosoclinic. Danny è un amministratore esperto di SQL Server che ha di recente acquisito familiarità con il database SQL di Azure.
 
@@ -173,18 +173,18 @@ Caroline usa le stime dalla soluzione di calcolo della durata della degenza per 
 
 **Responsabile sanitario - Chris**
 
-*Posta elettronica: Chris\_CareLineManager*
+*Indirizzo di posta elettronica: Chris\_CareLineManager*
 
 In quanto diretto responsabile della gestione del ricovero e delle dimissioni dei pazienti presso Contosoclinic, Chris usa le stime generate dalla soluzione di calcolo della durata della degenza per garantire la disponibilità di personale adeguato per fornire assistenza ai pazienti durante la degenza.
 
 **Revisore - Han**
 
-*Posta elettronica: Han\_Auditor*
+*Indirizzo di posta elettronica: Han\_Auditor*
 
 Han è un revisore certificato con esperienza nel controllo della conformità a ISO, SOC e HiTrust. È stato assunto per la revisione della rete di Contosoclinc. Han può esaminare la matrice delle responsabilità del cliente fornita con la soluzione per assicurarsi che il progetto e la soluzione di calcolo della durata della degenza possano essere usati per archiviare, elaborare e visualizzare i dati personali sensibili.
 
 
-# <a name="design-configuration"></a>Configurazione del progetto
+## <a name="design-configuration"></a>Configurazione del progetto
 
 
 Questa sezione illustra nel dettaglio le configurazioni predefinite e le misure di sicurezza integrate nel progetto per:
@@ -345,8 +345,8 @@ La soluzione supporta Griglia di eventi di Azure, un singolo servizio per la ges
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [La registrazione è abilitata](/azure/machine-learning/studio/web-services-logging) per i servizi Web di Machine Learning Studio.
-- L'uso di [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench richiede lo sviluppo di esperimenti, per fornire la capacità di stima in un set di soluzioni. L'[integrazione con Workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) può semplificare la gestione degli esperimenti.
+- [La registrazione è abilitata](/azure/machine-learning/studio/web-services-logging) per i servizi Web di Machine Learning Studio.
+- L'uso di [Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio) richiede lo sviluppo di esperimenti, per fornire la capacità di stima in un set di soluzioni.
 
 ## <a name="security"></a>SICUREZZA
 

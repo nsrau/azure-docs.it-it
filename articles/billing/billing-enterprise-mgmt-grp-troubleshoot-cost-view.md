@@ -10,39 +10,39 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2017
+ms.date: 02/22/2017
 ms.author: cwatson
-ms.openlocfilehash: be74714667c2fed57a797a972ddcd7949cae5933
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 434f717d9590eff39df161a74931477bdf71bb67
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274671"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309567"
 ---
-# <a name="troubleshoot-enterprise-cost-views"></a>Risolvere i problemi delle visualizzazioni dei costi aziendali 
+# <a name="troubleshoot-enterprise-cost-views"></a>Risolvere i problemi delle visualizzazioni dei costi aziendali
 
-Nelle registrazioni Enterprise sono disponibili varie impostazioni che potrebbero impedire agli utenti di visualizzare i costi all'interno della registrazione.  Queste impostazioni sono gestite dall'amministratore delle registrazioni o dal partner nel caso di registrazioni non acquistate direttamente da Microsoft.  Questo articolo illustra queste impostazioni e l'impatto che hanno sulla registrazione. Queste impostazioni sono indipendenti dai [ruoli di Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
-
+Nelle registrazioni Enterprise sono disponibili varie impostazioni che potrebbero impedire agli utenti di visualizzare i costi all'interno della registrazione.  Queste impostazioni vengono gestite dall'amministratore delle registrazioni. In alternativa, se la registrazione non è stata acquistata direttamente tramite Microsoft, le impostazioni vengono gestite dal partner.  Questo articolo illustra queste impostazioni e l'impatto che hanno sulla registrazione. Queste impostazioni sono indipendenti dai ruoli di controllo degli accessi in base al ruolo di Azure.
 
 ## <a name="enabling-access-to-costs"></a>Abilitazione dell'accesso ai costi
 
-Viene visualizzato un messaggio Non autorizzato o in cui è indicato che *le visualizzazioni dei costi sono disabilitate nella registrazione* quando si cercano le informazioni sui costi? ![non autorizzato](media/billing-enterprise-mgmt-groups/unauthorized.png)
+Viene visualizzato un messaggio Non autorizzato o in cui è indicato che *le visualizzazioni dei costi sono disabilitate nella registrazione* quando si cercano le informazioni sui costi?
+![Screenshot che mostra il messaggio "non autorizzato" nel campo del costo corrente per la sottoscrizione.](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
 Il problema può dipendere da una delle cause seguenti:
 
-1. Azure è stato acquistato tramite un partner Enterprise, il quale non ha ancora rilasciato i prezzi. Per rilasciare i prezzi, contattare il partner per eseguire l'aggiornamento dell'impostazione in [Enterprise Portal](https://ea.azure.com).
-2. In alternativa, i clienti diretti con contratto Enterprise hanno altre due possibilità:
-    * Si è un proprietario di un account e l'amministratore delle registrazioni ha disabilitato l'impostazione di visualizzazione dei costi per i proprietari degli account.  
-    * Si è un amministratore di reparto e l'amministratore delle registrazioni ha disabilitato l'impostazione di visualizzazione dei costi per gli amministratori di reparto.
-    * Contattare l'amministratore delle registrazioni per ottenere l'accesso. L'amministratore delle registrazioni può accedere a [Enterprise Portal](https://ea.azure.com/manage/enrollment) e aggiornare l'impostazione, come illustrato di seguito:
+1. Azure è stato acquistato tramite un partner Enterprise, il quale non ha ancora rilasciato i prezzi. Contattare il partner per eseguire l'aggiornamento dell'impostazione dei prezzi in [Enterprise Portal](https://ea.azure.com).
+2. I clienti diretti con Contratto Enterprise hanno altre due possibilità:
+    * Si è un proprietario di un account e l'amministratore delle registrazioni ha disabilitato l'impostazione di **visualizzazione dei costi per i proprietari degli account**.  
+    * Si è un amministratore di reparto e l'amministratore delle registrazioni ha disabilitato l'impostazione di **visualizzazione dei costi per gli amministratori di reparto**.
+    * Contattare l'amministratore delle registrazioni per ottenere l'accesso. L'amministratore delle registrazioni può aggiornare le impostazioni nell'[Enterprise portal](https://ea.azure.com/manage/enrollment).
 
-![Impostazioni Enterprise Portal](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
+      ![Screenshot che mostra le impostazioni dell'Enterprise Portal per la visualizzazione degli addebiti.](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
 
+## <a name="asset-is-unavailable"></a>La risorsa non è disponibile.
 
-## <a name="asset-is-unavailable"></a>La risorsa non è disponibile? 
 Se si riceve un messaggio di errore del tipo "Questa risorsa non è disponibile" quando si tenta di accedere a una sottoscrizione o a un gruppo di gestione, significa che non si dispone del ruolo necessario per visualizzare questo elemento.  
 
-![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
+![Screenshot con il messaggio indicante che la risorsa non è disponibile.](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
-Contattare l'amministratore della sottoscrizione o dei gruppi di gestione per ottenere l'accesso.  
-* Per le sottoscrizioni, fare riferimento al documento [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) per informazioni sul ruolo necessario.
+Chiedere l'accesso all'amministratore del gruppo di gestione o della sottoscrizione di Azure. Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).

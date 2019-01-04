@@ -9,12 +9,12 @@ ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: fa77e117b8045be4ef0566e388c4e8df08c95fe2
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4016471be05c1062eb389ab4851330f3a80dbcb2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140747"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969027"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Introduzione all'identità del modulo e ai moduli gemelli dell'hub IoT usando il back-end Node.js e i dispositivi Node.js
 
@@ -35,18 +35,17 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * Un hub IoT.
 * Installare la versione di [Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) più recente.
 
-
 L'hub IoT è stato così creato e sono ora disponibili il nome host e la stringa di connessione dell'hub necessari per completare il resto di questa esercitazione.
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Creare un'identità del dispositivo e un'identità del modulo nell'hub IoT
 
 In questa sezione si scriverà un'app Node.js che crea un'identità del dispositivo e un'identità del modulo nel registro delle identità dell'hub IoT. Un dispositivo o un modulo non può connettersi all'hub IoT se non ha una voce nel registro delle identità. Per altre informazioni, vedere la sezione "Registro di identità" della [Guida per gli sviluppatori dell'hub IoT][lnk-devguide-identity]. Quando si esegue questa app console vengono generati un ID e una chiave univoci sia per il dispositivo che per il modulo. Il dispositivo e il modulo usano questi valori per identificarsi quando inviano messaggi da dispositivo a cloud all'hub IoT. Negli ID viene fatta distinzione tra maiuscole e minuscole.
 
-1.  Creare una directory per il codice.
-2. All'interno di tale directory, eseguire prima di tutto **npm init -y** per creare un file package.json vuoto con i valori predefiniti. Questo è il file di progetto per il codice.
-3. Eseguire **npm install -S azure-iothub@modules-preview** per installare l'SDK del servizio all'interno della sottodirectory **node_modules**. 
+1. Creare una directory per il codice.
+2. All'interno di tale directory, eseguire prima di tutto  **npm init -y** per creare un file package.json vuoto con i valori predefiniti. Questo è il file di progetto per il codice.
+3. Eseguire  **npm install -S azure-iothub@modules-preview** per installare l'SDK del servizio all'interno della sottodirectory  **node_modules**.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Nel nome di sottodirectory node_modules, il riferimento a modulo viene usato con il significato di "libreria del nodo". In questo contesto il termine non ha nulla a che fare con i moduli dell'hub IoT.
 
 4. Creare il file con estensione js seguente nella directory. Chiamarlo **add.js**. Copiare e incollare la stringa di connessione dell'hub e il nome dell'hub.
@@ -126,7 +125,7 @@ In questa sezione, nel dispositivo simulato viene creata un'app Node.js che aggi
     > [!NOTE]
     > L'esecuzione del comando npm install potrebbe sembrare lenta. Attendere pazientemente perché è richiesto il pull di molto codice dal repository dei pacchetti.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Se viene visualizzato un messaggio di errore per NPM che segnala un errore del Registro di sistema durante l'analisi JSON, è possibile ignorarlo. Se viene visualizzato un messaggio di errore per NPM che segnala un errore del Registro di sistema durante l'analisi JSON, è possibile ignorarlo.
 
 3. Creare un file denominato twin.js. Copiare e incollare la stringa di identità del modulo.
@@ -180,7 +179,7 @@ In questa sezione, nel dispositivo simulato viene creata un'app Node.js che aggi
     });
     ```
 
-2. A questo punto, eseguire il comando **node twin.js**.
+2. A questo punto, eseguire il comando  **node twin.js**.
 
     ```
     F:\temp\module_twin>node twin.js
@@ -200,9 +199,8 @@ Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare al
 * [Introduzione alla gestione dei dispositivi][lnk-device-management]
 * [Introduzione a IoT Edge][lnk-iot-edge]
 
-
 <!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

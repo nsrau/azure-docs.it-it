@@ -1,5 +1,5 @@
 ---
-title: Servizio Marathon specifico per un'applicazione o un utente
+title: (DEPRECATO) Servizio Marathon specifico per l'utente o l'applicazione
 description: Creare un servizio Marathon specifico per un'applicazione o un'utente
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 4ff263fe0ca4f435199127ed64faadee1c2527f9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164541"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996125"
 ---
-# <a name="create-an-application-or-user-specific-marathon-service"></a>Creare un servizio Marathon specifico per un'applicazione o un'utente
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(DEPRECATO) Creare un servizio Marathon specifico per un'applicazione o un'utente
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Il servizio contenitore di Azure fornisce un set di server master in cui vengono preconfigurati Apache Mesos e Marathon. È possibile usarli per orchestrare le applicazioni nel cluster, ma è consigliabile non usare i server master a questo scopo. La modifica della configurazione di Marathon richiede ad esempio l'accesso ai server master stessi per apportare modifiche. Per questa operazione sono consigliabili server master univoci, che risultano leggermente diversi dai server standard e devono essere gestiti in modo specifico e indipendente. La configurazione necessaria per un team potrebbe non essere ottimale per un altro team.
 
@@ -24,7 +26,7 @@ Questo articolo illustra come aggiungere un servizio Marathon specifico per un'a
 
 Dato che il servizio apparterrà a un singolo utente o team, sarà possibile configurarlo in base alle esigenze specifiche dell'utente o del team. Il servizio contenitore di Azure assicurerà la continuazione dell'esecuzione del servizio. In caso di errore, il servizio verrà riavviato dal servizio contenitore di Azure. Nella maggior parte dei casi il tempo di inattività non verrà percepito dall'utente.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 [Distribuire un'istanza del servizio contenitore di Azure](container-service-deployment.md) con un agente di orchestrazione di tipo DC/OS e [assicurarsi che il client possa connettersi al cluster](../container-service-connect.md). Seguire anche questa procedura.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]

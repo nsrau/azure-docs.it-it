@@ -8,21 +8,20 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: c1e5b420c4821732aa8cc19328b0955070100926
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 7da0717273892893bec03c164b9b297f28e5218d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138505"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995537"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Risolvere i problemi relativi agli strumenti di analisi del comportamento degli utenti in Application Insights
-Questo articolo prende in esame le domande degli utenti sugli [strumenti di analisi del comportamento degli utenti in Application Insights](app-insights-usage-overview.md), ad esempio [Utenti, Sessioni, Eventi](app-insights-usage-segmentation.md), [Imbuti](usage-funnels.md), [Flussi utente](app-insights-usage-flows.md), [Conservazione](app-insights-usage-retention.md) e Coorti, offrendo alcune utili risposte.
+Domande relative agli [strumenti di analisi del comportamento degli utenti in Application Insights](app-insights-usage-overview.md): [Utenti, sessioni ed eventi](app-insights-usage-segmentation.md), [Grafici a imbuto](usage-funnels.md), [Flussi utente](app-insights-usage-flows.md), [Conservazione](app-insights-usage-retention.md) oppure Coorte. offrendo alcune utili risposte.
 
 ## <a name="counting-users"></a>Conteggio degli utenti
 **Dagli strumenti di analisi del comportamento degli utenti risulta che l'app ha un solo utente e una sola sessione, mentre in realtà ha molti utenti e molte sessioni. Come si possono correggere questi errori nei conteggi?**
@@ -57,5 +56,5 @@ Se l'app invia troppi nomi di evento personalizzato, modificare il nome nel codi
 * [Panoramica sugli strumenti di analisi del comportamento degli utenti](app-insights-usage-overview.md)
 
 ## <a name="get-help"></a>Ottenere aiuto
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

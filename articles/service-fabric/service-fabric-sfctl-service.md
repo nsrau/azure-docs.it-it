@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 84c2faaf137e19d78e7e17527feb50baebf8041b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dbe234b3c6aaeed90f0b95e5118c1ff2f9e2bb24
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494575"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276877"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Creare, eliminare e gestire servizi, tipi di servizio e pacchetti di servizi.
@@ -520,7 +520,7 @@ Consente di risolvere una partizione del servizio di Service Fabric per ottenere
 | --- | --- |
 | --service-id [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
 | --partition-key-type | Tipo di chiave per la partizione. Questo parametro è obbligatorio se lo schema di partizione per il servizio è Int64Range o Named. I valori possibili sono i seguenti. -None (1): indica che il parametro PartitionKeyValue non è specificato. È valido per le partizioni con schema di partizionamento Singleton. Si tratta del valore predefinito. Il valore è uguale a 1. -Int64Range (2): indica che il parametro PartitionKeyValue è una chiave di partizione int64. È valido per le partizioni con schema di partizionamento Int64Range. Il valore è 2. - Named (3): indica che il parametro PartitionKeyValue è un nome della partizione. È valido per le partizioni con schema di partizionamento Named. Il valore è 3. |
-| --partition-key-value | Chiave di partizione. Questo parametro è obbligatorio se lo schema di partizione per il servizio è Int64Range o Named. |
+| --partition-key-value | Chiave di partizione. Questo parametro è obbligatorio se lo schema di partizione per il servizio è Int64Range o Named. Non si tratta dell'ID di partizione, ma piuttosto del valore chiave intero o del nome dell'ID di partizione. Se, ad esempio, il servizio usa partizioni a intervalli da 0 a 10, il valore di PartitionKeyValue sarà un numero intero compreso in tale intervallo. Eseguire una query sulla descrizione del servizio per visualizzare l'intervallo o il nome. |
 | --previous-rsp-version | Valore nel campo Version della risposta ricevuta in precedenza. È obbligatorio se l'utente riconosce che il risultato ottenuto in precedenza non è aggiornato. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 

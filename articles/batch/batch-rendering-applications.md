@@ -2,16 +2,16 @@
 title: Applicazioni per il rendering di Batch
 description: Applicazioni preinstallate per il rendering di Batch
 services: batch
-author: mscurrell
-ms.author: markscu
-ms.date: 08/02/2018
+author: laurenhughes
+ms.author: lahugh
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 28acd1b7275694d38a52f14d2b2c32b79cc8183e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 7cc19c8def9e162c752efab776d0b6f5118bfde2
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036806"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320949"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Applicazioni preinstallate nelle immagini di VM per il rendering
 
@@ -34,11 +34,11 @@ Alcune applicazioni supportano solo Windows, ma la maggior parte è supportata s
 ## <a name="applications-on-windows-server-2016-rendering-nodes"></a>Applicazioni nei nodi di rendering Windows Server 2016
 
 * Autodesk Maya I/O 2017 Update 5 (versione 17.4.5459)
-* Autodesk Maya I/O 2018 Update 3 (versione 18.3.0.7040)  
-* Autodesk 3ds Max I/O 2019 Update 1 (versione 21.10.1314)
+* Autodesk Maya I/O 2018 Update 4 (versione 18.4.0.7622)  
+* Autodesk 3ds Max I/O 2019 Update 1 (versione 21.2.0.2219)
 * Autodesk 3ds Max I/O 2018 Update 4 (versione 20.4.0.4254)
-* Autodesk Arnold per Maya (Arnold versione 5.0.1.1) MtoA-2.0.1.1-2017
-* Autodesk Arnold per Maya (Arnold versione 5.0.1.4) MtoA-2.0.2.3-2018
+* Autodesk Arnold per Maya 2017 (Arnold versione 5.2.0.1) MtoA-3.1.0.1-2017
+* Autodesk Arnold per Maya 2018 (Arnold versione 5.2.0.1) MtoA-3.1.0.1-2018
 * Autodesk Arnold per 3ds Max (Arnold versione 5.0.2.4 )(versione 1.2.926)
 * Chaos Group V-Ray per Maya (versione 3.52.03)
 * Chaos Group V-Ray per 3ds Max (versione 3.60.02)

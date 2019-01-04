@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f8ebb282d3f6abbc37739891c0f7228bef110d82
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581800"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842680"
 ---
-# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Esercitazione - Personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C
+# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Esercitazione: Personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C
 
-Per esperienze utente più comuni, come l'iscrizione, l'accesso e la modifica del profilo, è possibile usare i [criteri predefiniti](active-directory-b2c-reference-policies.md) di Azure Active Directory (Azure AD) B2C. Le informazioni fornite in questa esercitazione spiegano come [personalizzare l'interfaccia utente](customize-ui-overview.md) di queste esperienze usando i propri file HTML e CSS.
+Per esperienze utente più comuni, come l'iscrizione, l'accesso e la modifica del profilo, è possibile usare i [flussi utente](active-directory-b2c-reference-policies.md) di Azure Active Directory (Azure AD) B2C. Le informazioni fornite in questa esercitazione spiegano come [personalizzare l'interfaccia utente](customize-ui-overview.md) di queste esperienze usando i propri file HTML e CSS.
 
 In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Creare file di personalizzazione dell'interfaccia utente
-> * Creare criteri di iscrizione e di accesso che usano i file
+> * Creare un flusso utente di iscrizione e di accesso che usa i file
 > * Testare l'interfaccia utente personalizzata
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -61,7 +61,7 @@ I file possono essere archiviati in diversi modi, ma per questa esercitazione si
 
 ### <a name="enable-cors"></a>Abilitare CORS
 
- Il codice Azure AD B2C in un browser usa un approccio moderno e standard per caricare il contenuto personalizzato da un URL specificato in un criterio. La funzionalità Condivisione di risorse tra le origini (CORS) abilita la richiesta di un numero limitato di risorse in una pagina Web da parte di altri domini.
+ Il codice Azure AD B2C in un browser usa un approccio moderno e standard per caricare il contenuto personalizzato da un URL specificato in un flusso utente. La funzionalità Condivisione di risorse tra le origini (CORS) abilita la richiesta di un numero limitato di risorse in una pagina Web da parte di altri domini.
 
 1. Nel menu selezionare **CORS**.
 2. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
@@ -137,9 +137,9 @@ In questa esercitazione i file creati devono essere archiviati nell'account di a
 4. Copiare l'URL del file che era stato caricato per usarlo successivamente nell'esercitazione.
 5. Ripetere i passaggi 3 e 4 per il file *style.css*.
 
-## <a name="create-a-sign-up-and-sign-in-policy"></a>Creare criteri di iscrizione e di accesso
+## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Creare un flusso utente di iscrizione e accesso
 
-Per completare le procedure di questa esercitazione è necessario creare un'applicazione di test e un criterio di iscrizione o accesso in Azure AD B2C. È possibile applicare i principi descritti in questa esercitazione alle altre esperienze utente, come la modifica del profilo.
+Per completare le procedure di questa esercitazione è necessario creare un'applicazione di test e un flusso utente di iscrizione o accesso in Azure AD B2C. È possibile applicare i principi descritti in questa esercitazione alle altre esperienze utente, come la modifica del profilo.
 
 ### <a name="create-an-azure-ad-b2c-application"></a>Creare un'applicazione Azure AD B2C
 
@@ -153,29 +153,34 @@ La comunicazione con Azure AD B2C avviene tramite un'applicazione creata nel ten
 6. Per **App Web/API Web** selezionare `Yes` e quindi immettere `https://jwt.ms` in **URL di risposta**.
 7. Fare clic su **Create**(Crea).
 
-### <a name="create-the-policy"></a>Creare i criteri
+### <a name="create-the-user-flow"></a>Creare il flusso utente
 
-Per testare i file di personalizzazione, occorre creare un criterio predefinito di iscrizione o accesso che usa l'applicazione creata in precedenza.
+Per testare i file di personalizzazione, occorre creare un flusso utente predefinito di iscrizione o accesso che usa l'applicazione creata in precedenza.
 
-1. Nel tenant di Azure AD B2C selezionare **Criteri di iscrizione o di accesso** e fare clic su **Aggiungi**.
-2. Immettere un nome per il criterio. Ad esempio, *signup_signin*. Il prefisso *B2C_1* viene aggiunto automaticamente al nome al momento della creazione del criterio.
-3. Selezionare **Provider di identità**, impostare **Iscrizione posta elettronica** per un account locale e quindi fare clic su **OK**.
-4. Selezionare **Attributi di iscrizione** e scegliere gli attributi che si vuole raccogliere dall'utente durante l'iscrizione. Impostare ad esempio **Paese/area geografica**, **Nome visualizzato**, **Codice postale**, quindi fare clic su **OK**.
-5. Selezionare **Attestazioni dell'applicazione** e scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione dopo un'esperienza di iscrizione o accesso riuscita. Selezionare ad esempio **Nome visualizzato**, **Provider di identità**, **Codice postale**, **Nuovo utente** e **ID oggetto dell'utente**, quindi fare clic su **OK**.
-6. Selezionare **Personalizzazione dell'interfaccia utente della pagina** e **Pagina unificata per l'iscrizione o l'accesso**, quindi fare clic su **Sì** per **Usa la pagina personalizzata**.
-7. In **URI della pagina personalizzata** immettere l'URL del file *custom-ui.html* registrato in precedenza, quindi fare clic su **OK**.
-8. Fare clic su **Create**(Crea).
+1. Dal tenant di Azure AD B2C, selezionare **Flussi utente** e fare clic su **Nuovo flusso utente**.
+2. Nella scheda **Consigliati** fare clic su **Iscrizione e accesso**.
+3. Immettere un nome per il flusso utente. Ad esempio, *signup_signin*. Il prefisso *B2C_1* viene aggiunto automaticamente al nome al momento della creazione del flusso utente.
+4. In **Provider di identità** selezionare **Iscrizione posta elettronica**.
+5. In **Attributi e attestazioni utente** fare clic su **Mostra dettagli**.
+6. Nella colonna **Raccogli l'attributo** scegliere gli attributi da raccogliere dal cliente durante l'iscrizione. Impostare ad esempio **Paese/Area geografica**, **Nome visualizzato** e **Codice postale**.
+7. Nella colonna **Restituisci l'attestazione** scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione al completamento dell'esperienza di iscrizione o accesso. Selezionare ad esempio **Nome visualizzato**, **Provider di identità**, **Codice postale**, **Nuovo utente** e **ID oggetto dell'utente**.
+8. Fare clic su **OK**.
+9. Fare clic su **Create**(Crea).
+10. In **Personalizza**, selezionare **Layout di pagina**. Selezionare **Pagina unificata per l'iscrizione o l'accesso**, quindi fare clic su **Sì** per **Usa il contenuto della pagina personalizzata**.
+11. In **URI della pagina personalizzata** immettere l'URL del file *custom-ui.html* registrato in precedenza.
+12. Nella parte superiore della pagina fare clic su **Salva**.
 
-## <a name="test-the-policy"></a>Testare i criteri
+## <a name="test-the-user-flow"></a>Testare il flusso utente
 
-1. Nel tenant di Azure AD B2C selezionare **Criteri di iscrizione o di accesso** e quindi selezionare il criterio creato. Ad esempio, *B2C_1_signup_signin*.
-2. Assicurarsi che l'applicazione creata sia selezionata in **Selezionare l'applicazione** e quindi fare clic su **Esegui**.
+1. Dal tenant di Azure AD B2C, selezionare **Flussi utente** e selezionare il flusso utente creato. Ad esempio, *B2C_1_signup_signin*.
+2. Nella parte superiore della pagina, fare clic su **Esegui il flusso utente**.
+3. Fare clic sul pulsante **Esegui il flusso utente**.
 
-    ![Eseguire i criteri di iscrizione o di accesso](./media/tutorial-customize-ui/signup-signin.png)
+    ![Eseguire il flusso utente di iscrizione o accesso](./media/tutorial-customize-ui/run-user-flow.png)
 
     Dovrebbe essere visualizzata una pagina simile all'esempio seguente, con gli elementi allineati al centro in base al file CSS creato:
 
-    ![Risultati dei criteri](./media/tutorial-customize-ui/run-now.png) 
+    ![Risultati del flusso utente](./media/tutorial-customize-ui/run-now.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -183,7 +188,7 @@ In questo articolo si è appreso come:
 
 > [!div class="checklist"]
 > * Creare file di personalizzazione dell'interfaccia utente
-> * Creare criteri di iscrizione e di accesso che usano i file
+> * Creare un flusso utente di iscrizione e di accesso che usa i file
 > * Testare l'interfaccia utente personalizzata
 
 > [!div class="nextstepaction"]

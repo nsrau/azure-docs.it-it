@@ -1,5 +1,5 @@
 ---
-title: Scambiare eventi tra consumer e producer che usano protocolli diversi in Hub eventi di Azure | Microsoft Docs
+title: Scambiare eventi tra app che usano protocolli diversi - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo illustra in che modo i consumer e i producer che usano protocolli diversi (AMQP, Apache Kafka e HTTPS) possono scambiare eventi quando usano Hub eventi di Azure.
 services: event-hubs
 documentationcenter: ''
@@ -8,20 +8,20 @@ manager: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.custom: mvc
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/05/2018
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 54edeafbe950cde88c2c6051f95825cfaed52ac7
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1345a5814faefd4074e7d9548d374bd79d977514
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285313"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015586"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Scambiare eventi tra consumer e producer che usano protocolli diversi: AMQP, Kafka e HTTPS
-Hub eventi di Azure supporta tre protocolli per consumer e producer: Kafka, AMQP e HTTPS. Ognuno di questi protocolli rappresenta un messaggio in modo univoco, pertanto sorge la domanda seguente: se un'applicazione invia eventi a un hub eventi con un protocollo e li usa con un protocollo diverso, in che modo le varie parti e i valori dell'evento verranno visualizzati dal consumer? Questo articolo illustra le procedure consigliate per producer e consumer per garantire che i valori all'interno di un evento vengano interpretati correttamente dall'applicazione consumer.
+Hub eventi di Azure supporta tre protocolli per consumer e producer: AMQP, Kafka e HTTPS. Ognuno di questi protocolli rappresenta un messaggio in modo univoco, pertanto sorge la domanda seguente: se un'applicazione invia eventi a un hub eventi con un protocollo e li usa con un protocollo diverso, in che modo le varie parti e i valori dell'evento verranno visualizzati dal consumer? Questo articolo illustra le procedure consigliate per producer e consumer per garantire che i valori all'interno di un evento vengano interpretati correttamente dall'applicazione consumer.
 
 I consigli in questo articolo riguardano nello specifico questi client, con le versioni elencate usate nello sviluppo dei frammenti di codice:
 

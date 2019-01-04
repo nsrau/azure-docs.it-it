@@ -1,33 +1,34 @@
 ---
-title: Riferimento datetimeV2 per le entità predefinite LUIS - Azure | Microsoft Docs
+title: Entità predefinite DatetimeV2
 titleSuffix: Azure
 description: Questo articolo contiene informazioni sull'entità predefinita datetimeV2 in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: bd28981ae0c5b4d6ccff3168f92f0f99be768b10
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 0e2353107d6554a8ecbbd2e4d9850f8d8b5fda5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335777"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165181"
 ---
-# <a name="datetimev2-entity"></a>Entità DatetimeV2
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entità predefinita DatetimeV2 per un'app LUIS
 
 L'entità predefinita **datetimeV2** estrae i valori di data e ora. Questi valori vengono risolti in un formato standardizzato per l'uso da parte dei programmi client. Quando un'espressione ha una data o un'ora non complete, LUIS include _i valori passati e futuri_ nella risposta dell'endpoint. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti datetimeV2 per le finalità dell'applicazione. 
 
 ## <a name="types-of-datetimev2"></a>Tipi di datetimeV2
-DatetimeV2 viene gestita nel repository Github [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml)
+L'entità DatetimeV2 viene gestita dal repository GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml)
 
 ## <a name="example-json"></a>JSON di esempio 
 La risposta JSON di esempio seguente presenta un'entità `datetimeV2` con un sottotipo di `datetime`. Per esempi di altri tipi di entità datetimeV2, vedere [Sottotipi di datetimeV2](#subtypes-of-datetimev2)</a>.
 
-```JSON
+```json
 "entities": [
   {
     "entity": "8am on may 2nd 2017",
@@ -103,7 +104,7 @@ Ad esempio, data l'espressione "2 maggio":
 L'esempio seguente illustra la risoluzione dell'entità "may 2nd". Questa risoluzione presuppone che la data corrente sia compresa tra il 2 maggio 2017 e il 1° maggio 2018.
 I campi con `X` nel campo `timex` sono parti della data non specificati in modo esplicito nell'espressione.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "may 2nd",
@@ -132,7 +133,7 @@ I campi con `X` nel campo `timex` sono parti della data non specificati in modo 
 
 L'entità `datetimeV2` estrae gli intervalli di data e tempo. I campi `start` e `end` specificano l'inizio e la fine dell'intervallo. Per l'espressione "Dal 2 maggio a l 5 maggio", LUIS fornisce valori **daterange** per l'anno corrente e l'anno successivo. Nel campo `timex`, i valori `XXXX` indicano l'ambiguità dell'anno. `P3D` indica che il periodo di tempo è di tre giorni.
 
-```JSON
+```json
 "entities": [
     {
       "entity": "may 2nd to may 5th",
@@ -163,7 +164,7 @@ L'entità `datetimeV2` estrae gli intervalli di data e tempo. I campi `start` e 
 
 L'esempio seguente illustra come LUIS usa **datetimeV2** per risolvere l'espressione "Da martedì a giovedì". In questo esempio la data corrente è il 19 giugno. LUIS include valori **daterange** per entrambi gli intervalli di date che precedono e seguono la data corrente.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "tuesday to thursday",
@@ -196,7 +197,7 @@ La matrice di valori ha due elementi ora se l'ora o l'intervallo di tempo sono a
 
 L'esempio seguente illustra come LUIS usa **datetimeV2** per risolvere l'espressione con un intervallo di tempo.
 
-```
+```json
   "entities": [
     {
       "entity": "6pm to 7pm",

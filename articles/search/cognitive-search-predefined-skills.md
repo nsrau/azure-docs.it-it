@@ -1,23 +1,30 @@
 ---
-title: Estrazione dei dati predefinita, linguaggio naturale, competenze di elaborazione dell'immagine (Ricerca di Azure) | Microsoft Docs
+title: Estrazione di dati incorporata, linguaggio naturale, elaborazione delle immagini - Ricerca di Azure
 description: Estrazione dei dati, linguaggio naturale, competenze cognitive di elaborazione delle immagini, semantica e struttura per il contenuto non elaborato in una pipeline di Ricerca di Azure.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 870cf9629c7af8faee0ce5709199b64910b27ffb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec2018
+ms.openlocfilehash: bc1353ffb4514622ce0ef6e5c3ced76adc7f999f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786700"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314789"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Competenze predefinite per l'arricchimento del contenuto (Ricerca di Azure)
 
-Questo articolo illustra i concetti relativi alle competenze cognitive fornite con Ricerca cognitiva. Una *competenza cognitiva* è un'operazione che trasforma in qualche modo il contenuto. Spesso si tratta di un componente che consente di estrarre dati o dedurre la struttura e pertanto aumenta il riconoscimento dei dati di input. L'output è quasi sempre basato su testo. Un *set di competenze* è una raccolta di competenze che definiscono la pipeline di arricchimento. 
+Questo articolo illustra i concetti relativi alle competenze cognitive accluse a Ricerca di Azure. Una *competenza cognitiva* è un'operazione che trasforma in qualche modo il contenuto. Spesso si tratta di un componente che consente di estrarre dati o dedurre la struttura e pertanto aumenta il riconoscimento dei dati di input. L'output è quasi sempre basato su testo. Un *set di competenze* è una raccolta di competenze che definiscono la pipeline di arricchimento. 
+
+> [!NOTE]
+> A partire dal 21 dicembre 2018 è possibile associare una risorsa dei Servizi cognitivi a un set di competenze della Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare per l'esecuzione del set di competenze. In questa data avrà inizio anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione del testo dai documenti continuerà a essere offerta gratuitamente.
+>
+> L'esecuzione delle competenze predefinite verrà addebitata in base ai[prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione delle immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="predefined-skills"></a>Competenze predefinite
 

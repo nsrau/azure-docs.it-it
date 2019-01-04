@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 9fb28d618a9375dec19e75d04ef0a6bc5de334b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4e4d01371733a2292c69174e4cb135e995e5e935
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242637"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189099"
 ---
 # <a name="create-content-keys-with-rest"></a>Creazione di entità ContentKey mediante REST
 > [!div class="op_single_selector"]
@@ -71,9 +71,9 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
 
 Questo articolo non illustra come generare una chiave AES, eseguirne la crittografia e calcolare il checksum. 
 
->[!NOTE]
-
->Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
+> [!NOTE]
+> 
+> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
 

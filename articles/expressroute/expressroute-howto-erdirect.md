@@ -1,18 +1,19 @@
 ---
-title: Come configurare Azure ExpressRoute Direct | Microsoft Docs
-description: Questa pagina consente di configurare ExpressRoute Direct (anteprima)
+title: Configurare ExpressRoute Direct -Azure | Microsoft Docs
+description: Questa pagina illustra come configurare ExpressRoute Direct (anteprima).
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: jaredro
-ms.openlocfilehash: 857602cf9c3c743e91ea6dace64e71e03cdd879b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.custom: seodec18
+ms.openlocfilehash: 9dadd61c8c4c2d1cd2305aa852e4528bfb9a1421
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959669"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076611"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>Come configurare ExpressRoute Direct (anteprima)
 
@@ -228,7 +229,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
 
 Per impostazione predefinita, è possibile creare dieci circuiti nella sottoscrizione in cui si trova la risorsa di ExpressRoute Direct. Il limite può essere aumentato contattando il supporto tecnico. Si è responsabili del monitoraggio della larghezza di banda con provisioning e di quella utilizzata. La larghezza di banda con provisioning è la somma della larghezza di banda di tutti i circuiti della risorsa ExpressRoute Direct e la larghezza di banda utilizzata è l'utilizzo fisico delle interfacce fisiche sottostanti.
 
-Esistono altre larghezze di banda del circuito che è possibile utilizzare in ExpressRoute Direct solo per supportare gli scenari descritti in precedenza. Sono: 40 Gbps e 100 Gbps.
+Esistono altre larghezze di banda del circuito che è possibile utilizzare in ExpressRoute Direct solo per supportare gli scenari descritti in precedenza. Si tratta di: 40 Gbps e 100 Gbps.
 
 È possibile creare circuiti standard o premium. I circuiti standard sono inclusi nel costo, mentre quelli premium hanno un costo basato sulla larghezza di banda selezionata. I circuiti possono essere creati solo a consumo, in quanto l'opzione illimitata non è supportata in ExpressRoute Direct.
 
@@ -238,7 +239,7 @@ Creare un circuito nella risorsa di ExpressRoute Direct.
   New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
   ```
 
-  Altre larghezze di banda sono 5.0, 10.0 e 40.0
+  Altre larghezze di banda sono 5.0, 10.0 e 40.0.
 
   **Output di esempio**:
 

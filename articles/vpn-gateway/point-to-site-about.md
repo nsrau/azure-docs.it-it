@@ -2,25 +2,17 @@
 title: Informazioni sulle connessioni VPN da punto a sito di Azure | Microsoft Docs
 description: Questo articolo descrive le connessioni da punto a sito e consente di stabilire quale tipo di autenticazione gateway VPN da punto a sito usare.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 12/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8cdc80e8e4f8d3feb36ca82740d5610e60716ec6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bf84ec16d5d13439796b386a8ab4f40840ca4eaa
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003360"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438420"
 ---
 # <a name="about-point-to-site-vpn"></a>Informazioni sulla VPN da punto a sito
 
@@ -30,14 +22,15 @@ Una connessione gateway VPN da punto a sito (P2S) consente di creare una conness
 
 Per la VPN da punto a sito può essere usato uno dei protocolli seguenti:
 
+* OpenVPN, un protocollo VPN basato su SSL/TLS. Una soluzione VPN SSL può penetrare i firewall perché la maggior parte dei firewall apre la porta TCP 443 usata da SSL. OpenVPN può essere usato per connettersi da dispositivi Android, iOS, Linux e Mac (versioni OSX 10.11 e superiori).
+
 * Secure Socket Tunneling Protocol (SSTP), un protocollo VPN di proprietà basato su SSL. Una soluzione VPN SSL può penetrare i firewall perché la maggior parte dei firewall apre la porta TCP 443 usata da SSL. SSTP è supportato solo nei dispositivi Windows. Azure supporta tutte le versioni di Windows che hanno SSTP (Windows 7 e versioni successive).
 
 * VPN IKEv2, una soluzione VPN IPsec basata su standard. VPN IKEv2 può essere usato per connettersi da dispositivi Mac (versioni OSX 10.11 e successive).
 
-In presenza di un ambiente client misto con dispositivi Windows e Mac, configurare sia SSTP che IKEv2.
 
 >[!NOTE]
->IKEv2 per P2S è disponibile solo per il modello di distribuzione Resource Manager. Non è disponibile per il modello di distribuzione classica.
+>IKEv2 e OpenVPN per la connessione da punto a sito sono disponibili solo per il modello di distribuzione Resource Manager. Non sono disponibili per il modello di distribuzione classica.
 >
 
 ## <a name="authentication"></a>Modalità di autenticazione del client VPN da punto a sito
@@ -52,11 +45,17 @@ La convalida del certificato client viene eseguita dal gateway VPN quando viene 
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autenticazione con server di dominio Active Directory (AD)
 
-L'autenticazione con un dominio di AD consente agli utenti di connettersi ad Azure usando le credenziali di dominio dell'organizzazione. Richiede un server RADIUS che si integra con il server AD. Le organizzazioni possono anche sfruttare la distribuzione RADIUS esistente.   
-  Il server RADIUS può essere distribuito in locale o nella rete virtuale di Azure. Durante l'autenticazione, il gateway VPN di Azure funge da pass-through e inoltra i messaggi di autenticazione tra il server RADIUS e il dispositivo che si connette e viceversa. È quindi importante che il gateway possa raggiungere il server RADIUS. Se il server RADIUS si trova in locale, per la raggiungibilità è necessaria una connessione VPN da sito a sito da Azure al sito locale.  
-  È anche possibile integrare il server RADIUS con Servizi certificati AD. Ciò consente di usare il server RADIUS e la distribuzione di certificati dell'organizzazione per l'autenticazione del certificato da punto a sito in alternativa all'autenticazione del certificato di Azure. Il vantaggio è che non è necessario caricare i certificati radice e i certificati revocati in Azure.
+L'autenticazione con un dominio di AD consente agli utenti di connettersi ad Azure usando le credenziali di dominio dell'organizzazione. Richiede un server RADIUS che si integra con il server AD. Le organizzazioni possono anche sfruttare la distribuzione RADIUS esistente.   
+  
+Il server RADIUS può essere distribuito in locale o nella rete virtuale di Azure. Durante l'autenticazione, il gateway VPN di Azure funge da pass-through e inoltra i messaggi di autenticazione tra il server RADIUS e il dispositivo che si connette e viceversa. È quindi importante che il gateway possa raggiungere il server RADIUS. Se il server RADIUS si trova in locale, per la raggiungibilità è necessaria una connessione VPN da sito a sito da Azure al sito locale.  
+  
+È anche possibile integrare il server RADIUS con Servizi certificati AD. Ciò consente di usare il server RADIUS e la distribuzione di certificati dell'organizzazione per l'autenticazione del certificato da punto a sito in alternativa all'autenticazione del certificato di Azure. Il vantaggio è che non è necessario caricare i certificati radice e i certificati revocati in Azure.
 
 Un server RADIUS può anche integrarsi con altri sistemi di identità esterni, offrendo così molte opzioni di autenticazione per le VPN da punto a sito, incluse le opzioni a più fattori.
+
+>[!NOTE]
+>Il protocollo OpenVPN non è supportato con l'autenticazione RADIUS.
+>
 
 ![Da punto a sito](./media/point-to-site-about/p2s.png "Point-to-Site")
 
@@ -79,11 +78,9 @@ Il file ZIP fornisce anche i valori di alcune impostazioni importanti sul lato A
 
 ## <a name="gwsku"></a>Quali SKU del gateway supportano la connessione VPN da punto a sito?
 
-[!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
+[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* Il benchmark della velocità effettiva aggregata si basa sulle misurazioni di più tunnel aggregati tramite un singolo gateway. Non è una velocità effettiva garantita, perché può variare anche in funzione delle condizioni del traffico Internet e dei comportamenti dell'applicazione.
-* Le informazioni sui prezzi sono disponibili nella pagina Prezzi 
-* Le informazioni sul contratto di servizio sono disponibili nella pagina Contratto di servizio.
+* Per consigli sugli SKU del gateway, vedere [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 >[!NOTE]
 >Lo SKU Basic non supporta l'autenticazione IKEv2 o RADIUS.
@@ -96,6 +93,8 @@ La configurazione di una connessione da punto a sito richiede alcuni passaggi sp
 * [Configurare una connessione da punto a sito usando l'autenticazione RADIUS](point-to-site-how-to-radius-ps.md)
 
 * [Configurare una connessione da punto a sito usando l'autenticazione del certificato nativa di Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+* [Configurare OpenVPN](vpn-gateway-howto-openvpn.md)
 
 ## <a name="faqcert"></a>Domande frequenti per l'autenticazione del certificato di Azure nativo
 

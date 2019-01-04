@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165425"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956985"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
@@ -34,19 +34,19 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Parametro di query</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Query parameter (Parametro di query)</th>
+  <th>Descrizione</th>
   <tr>
     <td>api-version</td>
     <td>*Parametro obbligatorio*.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
   </tr>
   <tr>
     <td>from</td>
-    <td>*Parametro facoltativo*.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le [lingue supportate](.\v3-0-languages.md) con l'ambito `translation`. Se non si specifica il parametro `from`, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine.</td>
+    <td>*Parametro facoltativo*.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le [lingue supportate](./v3-0-languages.md) con l'ambito `translation`. Se non si specifica il parametro `from`, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>*Parametro obbligatorio*.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle [lingue supportate](.\v3-0-languages.md) incluse nell'ambito `translation`. Ad esempio, usare `to=de` per la traduzione in tedesco.<br/>È possibile tradurre in più lingue contemporaneamente ripetendo il parametro nella stringa di query. Ad esempio, usare `to=de&to=it` per la traduzione in tedesco e in italiano.</td>
+    <td>*Parametro obbligatorio*.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `translation`. Ad esempio, usare `to=de` per la traduzione in tedesco.<br/>È possibile tradurre in più lingue contemporaneamente ripetendo il parametro nella stringa di query. Ad esempio, usare `to=de&to=it` per la traduzione in tedesco e in italiano.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -94,8 +94,8 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Intestazioni</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Headers</th>
+  <th>Descrizione</th>
   <tr>
     <td>_Intestazione_<br/>_di autorizzazione_</td>
     <td>*Intestazione della richiesta obbligatoria*.<br/>Vedere le [opzioni disponibili per l'autenticazione](./v3-0-reference.md#authentication).</td>
@@ -161,7 +161,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
       * `srcSentLen`: matrice di interi che rappresenta le lunghezze delle frasi nel testo di input. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase.
 
-      * `transSentLen`: matrice di interi che rappresenta le lunghezze delle frasi nel testo tradotto. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase.
+      * `transSentLen`:  matrice di interi che rappresenta le lunghezze delle frasi nel testo tradotto. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase.
 
     I delimitatori di frase vengono inclusi solo quando il parametro della richiesta `includeSentenceLength` è `true`.
 
@@ -172,8 +172,8 @@ Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Intestazioni</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Headers</th>
+  <th>Descrizione</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -190,7 +190,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 <table width="100%">
   <th width="20%">Codice di stato</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
     <td>200</td>
     <td>Completamento della procedura.</td>
@@ -377,14 +377,14 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
     <td>`NoAction`</td>
     <td>Questo è il comportamento predefinito. Il contenuto volgare passerà dall'origine alla destinazione.<br/><br/>
     **Origine di esempio (giapponese)**: 彼はジャッカスです。<br/>
-    **Traduzione di esempio (italiano)**: è un cretino.
+    **Traduzione di esempio (italiano)**: È un cretino.
     </td>
   </tr>
   <tr>
     <td>`Deleted`</td>
     <td>Le parole volgari verranno rimosse dall'output senza sostituzione.<br/><br/>
     **Origine di esempio (giapponese)**: 彼はジャッカスです。<br/>
-    **Traduzione di esempio (italiano)**: è un.
+    **Traduzione di esempio (italiano)**: È un.
     </td>
   </tr>
   <tr>
@@ -392,10 +392,10 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
     <td>Le parole volgari vengono sostituite da un indicatore nell'output. L'indicatore dipende dal parametro `ProfanityMarker`.<br/><br/>
 Per `ProfanityMarker=Asterisk`, le parole volgari vengono sostituite con `***`:<br/>
     **Origine di esempio (giapponese)**: 彼はジャッカスです。<br/>
-    **Traduzione di esempio (italiano)**: è un \*\*\*.<br/><br/>
+    **Traduzione di esempio (italiano)**: È un \*\*\*.<br/><br/>
 Per `ProfanityMarker=Tag`, le parole volgari sono racchiuse tra i tag XML &lt;profanity&gt; e &lt;/profanity&gt;:<br/>
     **Origine di esempio (giapponese)**: 彼はジャッカスです。<br/>
-    **Traduzione di esempio (italiano)**: è un &lt;profanity&gt;cretino&lt;/profanity&gt;.
+    **Traduzione di esempio (italiano)**: È un &lt;profanity&gt;cretino&lt;/profanity&gt;.
   </tr>
 </table> 
 

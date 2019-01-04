@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 247c12fb15fe8aa82c3a29c4c2d1e704db40e424
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584099"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141510"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informazioni sui prezzi dell'hub IoT di Azure
 
@@ -35,6 +35,7 @@ ms.locfileid: "47584099"
 | Query su dispositivi e moduli gemelli | Le query vengono addebitate come messaggi in base alle dimensioni del risultato in blocchi di 512 byte. |
 | Operazioni dei processi <br/> (creazione, aggiornamento, elenco, eliminazione) | Nessun addebito. |
 | Operazioni dei processi per ogni dispositivo | Le operazioni dei processi, ad esempio gli aggiornamenti del dispositivo gemello e i metodi, vengono addebitati come messaggi normali. Un processo che esegue 1000 chiamate di metodo con richieste di 1 KB e risposte con corpo vuoto, ad esempio, viene addebitato come 1000 messaggi. |
+| Messaggi Keep-alive | Quando si usano i protocolli AMQP o MQTT, i messaggi scambiati per stabilire la connessione e quelli scambiati nella negoziazione non vengono addebitati. |
 
 > [!NOTE]
 > Tutte le dimensioni vengono calcolate considerando le dimensioni del payload in byte. Il frame del protocollo viene ignorato. Per i messaggi, che hanno proprietà e corpo, le dimensioni vengono calcolate in modo indipendente dal protocollo. Per altre informazioni, vedere i [Formato messaggio dell'hub IoT](iot-hub-devguide-messages-construct.md).

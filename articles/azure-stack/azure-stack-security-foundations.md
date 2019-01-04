@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2018
 ms.author: patricka
-ms.openlocfilehash: 32c268c1e4a0ff4d17c5b03f0ffd33b0ddf5b927
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901482"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727090"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Comportamento di sicurezza di Azure Stack dell'infrastruttura
 
-*Si applica a: i sistemi integrati di Azure Stack*
+*Si applica a: Sistemi integrati di Azure Stack*
 
 Considerazioni sulla sicurezza e conformità alle normative sono tra i driver principali per l'uso di cloud ibridi. Azure Stack è progettato per questi scenari. Questo articolo illustra i controlli di sicurezza in atto per Azure Stack.
 
@@ -40,7 +40,7 @@ Poiché l'infrastruttura viene eseguito su hardware ben definiti e software, Azu
 Perché Azure Stack viene recapitato come sistema integrato, il comportamento di sicurezza dell'infrastruttura di Azure Stack è definito da Microsoft. Proprio come in Azure, i tenant sono responsabili della definizione del comportamento di sicurezza di carichi di lavoro tenant. Questo documento fornisce una conoscenza di base sulle condizioni di sicurezza dell'infrastruttura di Azure Stack.
 
 ## <a name="data-at-rest-encryption"></a>Dati di crittografia dei dati inattivi
-Tutti i dati dell'infrastruttura e tenant di Azure Stack vengono crittografati a riposo mediante Bitlocker. Questa crittografia protegge da fisica perdita o furto di componenti di archiviazione di Azure Stack. 
+Tutti i dati dell'infrastruttura e tenant di Azure Stack vengono crittografati a riposo mediante Bitlocker. Questa crittografia protegge da fisica perdita o furto di componenti di archiviazione di Azure Stack. Per altre informazioni, vedere [dati crittografia dei dati inattivi in Azure Stack](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Dati nella crittografia di transito
 I componenti dell'infrastruttura di Azure Stack comunicano tramite i canali crittografati con TLS 1.2. I certificati di crittografia vengono self-gestiti dall'infrastruttura. 
