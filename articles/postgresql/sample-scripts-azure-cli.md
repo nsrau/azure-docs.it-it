@@ -1,22 +1,19 @@
 ---
 title: Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL
 description: Questo articolo elenca alcuni esempi di codice dell'interfaccia della riga di comando di Azure disponibili per l'interazione con i server di Database di Azure per PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: b44f23adfb69c250757248a3462317eabaf5f111
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b2364448f7994146bf79cdb23d5573003b87076a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29688123"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539869"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL 
 La tabella seguente include collegamenti a esempi di script dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL.

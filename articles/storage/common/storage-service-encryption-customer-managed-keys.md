@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5ef9c15d4edf62ef63b16765f16971a9be5ca58b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e2497233ec97ffc88bf13797f62d601d4da373a1
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970706"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628494"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault
 
@@ -32,6 +32,8 @@ Le chiavi personalizzate sono utili perché offrono maggiore flessibilità, cons
 
 Per usare chiavi gestite dal cliente con la crittografia SSE è possibile creare un nuovo insieme di credenziali delle chiavi e una nuova chiave oppure usare un insieme di credenziali delle chiavi e una chiave già esistenti. L'account di archiviazione e l'insieme di credenziali chiave devono essere nella stessa area, ma possono appartenere a sottoscrizioni diverse.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### <a name="step-1-create-a-storage-account"></a>Passaggio 1: Creare un account di archiviazione
 
 Creare prima di tutto un account di archiviazione, se non ne è già disponibile uno. Per altre informazioni, vedere [Creare un account di archiviazione](storage-quickstart-create-account.md).
@@ -45,7 +47,7 @@ Se si vogliono abilitare a livello di codice le chiavi gestite dal cliente per l
 Per usare chiavi gestite dal cliente con la crittografia SSE, è necessario assegnare un'identità all'account di archiviazione. È possibile impostare l'identità eseguendo il seguente comando di PowerShell o dell'interfaccia della riga di comando di Azure:
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
 ```
 
 ```azurecli-interactive
@@ -58,18 +60,18 @@ az storage account \
 È possibile abilitare l'eliminazione temporanea e la protezione dall'eliminazione eseguendo i seguenti comandi di PowerShell o dell'interfaccia della riga di comando di Azure:
 
 ```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enableSoftDelete -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enablePurgeProtection -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
@@ -121,11 +123,11 @@ Se l'account di archiviazione non ha accesso all'insieme di credenziali delle ch
 È possibile associare la chiave precedente con un account di archiviazione esistente usando i comandi di PowerShell seguenti:
 
 ```powershell
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
-$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Passaggio 5: copiare i dati nell'account di archiviazione
@@ -154,7 +156,7 @@ La crittografia del servizio di archiviazione è disponibile per Azure Managed D
 Crittografia dischi di Azure offre l'integrazione tra soluzioni basate sul sistema operativo, ad esempio BitLocker e DM-Crypt, e Azure Key Vault. La crittografia del servizio di archiviazione offre la crittografia in modo nativo a livello piattaforma di archiviazione di Azure, al di sotto della macchina virtuale.
 
 **È possibile revocare l'accesso alle chiavi di crittografia?**
-Sì, è possibile revocare l'accesso in qualsiasi momento. Esistono diversi modi per revocare l'accesso alle chiavi. Per altre informazioni, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) (Modulo PowerShell di Azure Key Vault) e [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) (Interfaccia della riga di comando di Azure Key Vault). La revoca dell'accesso blocca di fatto l'accesso a tutti i BLOB dell'account di archiviazione poiché il servizio Archiviazione di Azure non può accedere alla chiave di crittografia dell'account.
+Sì, è possibile revocare l'accesso in qualsiasi momento. Esistono diversi modi per revocare l'accesso alle chiavi. Per altre informazioni, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) (Modulo PowerShell di Azure Key Vault) e [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) (Interfaccia della riga di comando di Azure Key Vault). La revoca dell'accesso blocca di fatto l'accesso a tutti i BLOB dell'account di archiviazione poiché il servizio Archiviazione di Azure non può accedere alla chiave di crittografia dell'account.
 
 **È possibile creare un account di archiviazione e una chiave in aree diverse?**  
 No, l'account di archiviazione, Azure Key Vault e la chiave devono trovarsi nella stessa area.

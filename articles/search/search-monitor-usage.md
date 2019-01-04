@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: aaeb24b836b47f72d0be299738e6c90f599f8d1f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314160"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631897"
 ---
 # <a name="monitor-an-azure-search-service-in-azure-portal"></a>Monitorare un servizio Ricerca di Azure nel portale di Azure
 
@@ -70,7 +70,7 @@ L'API REST di Ricerca di Azure e .NET SDK forniscono l'accesso a livello di codi
 
 
 ### <a name="enabling-monitoring"></a>Abilitazione del monitoraggio
-Aprire il servizio Ricerca di Azure nel [portale di Azure](http://portal.azure.com) sotto l'opzione Abilita monitoraggio.
+Aprire il servizio Ricerca di Azure nel [portale di Azure](https://portal.azure.com) sotto l'opzione Abilita monitoraggio.
 
 Scegliere i dati da esportare: log, metriche o entrambi. È possibile copiare i dati in un account di archiviazione, inviarli a un hub eventi o esportarli in Log Analytics.
 

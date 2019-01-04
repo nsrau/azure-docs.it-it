@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270400"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541618"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Domande frequenti sul database SQL
 
@@ -51,11 +51,11 @@ I modelli basati su vCore e DTU continueranno a coesistere. Microsoft sta introd
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>In base a quali criteri scegliere tra il modello di acquisto basato su DTU e quello basato su vCore?
 
-La DTU (Database Transaction Unit) è basata su una misura combinata di CPU, memoria, operazioni di lettura e operazioni di scrittura. Le dimensioni di calcolo basate su DTU rappresentano bundle preconfigurati di risorse per ottenere diversi livelli di prestazioni delle applicazioni. Il modello basato su DTU può essere più adatto alle esigenze dei clienti che non vogliono occuparsi delle risorse sottostanti e preferiscono la semplicità di un bundle preconfigurato, pagando un importo fisso mensile. Per i clienti a cui invece servono informazioni dettagliate aggiuntive sulle risorse sottostanti o che devono ridimensionarle in modo indipendente per ottenere prestazioni ottimali, il modello basato su vCore sarà la scelta ideale.  I clienti con una licenza Software Assurance attiva per SQL Server possono inoltre sfruttare i vantaggi dei loro investimenti esistenti e risparmiare fino al 30% con il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Le opzioni presenti in ciascun modello di acquisto offrono i vantaggi di un servizio completamente gestito, come i backup automatizzati, gli aggiornamenti software e le patch.
+La DTU (Database Transaction Unit) è basata su una misura combinata di CPU, memoria, operazioni di lettura e operazioni di scrittura. Le dimensioni di calcolo basate su DTU rappresentano bundle preconfigurati di risorse per ottenere diversi livelli di prestazioni delle applicazioni. Il modello basato su DTU può essere più adatto alle esigenze dei clienti che non vogliono occuparsi delle risorse sottostanti e preferiscono la semplicità di un bundle preconfigurato, pagando un importo fisso mensile. Per i clienti a cui invece servono informazioni dettagliate aggiuntive sulle risorse sottostanti o che devono ridimensionarle in modo indipendente per ottenere prestazioni ottimali, il modello basato su vCore sarà la scelta ideale.  I clienti con una licenza Software Assurance attiva per SQL Server possono inoltre sfruttare i vantaggi dei loro investimenti esistenti e risparmiare fino al 30% con il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Le opzioni presenti in ciascun modello di acquisto offrono i vantaggi di un servizio completamente gestito, come i backup automatizzati, gli aggiornamenti software e le patch.
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>Che cos'è il Vantaggio Azure Hybrid per SQL Server?
 
-Il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) consente di massimizzare il valore degli investimenti correnti per la licenza e accelerare la migrazione nel cloud. Il Vantaggio Azure Hybrid per SQL Server è un vantaggio basato su Azure che consente di usare le licenze di SQL Server con Software Assurance per pagare una tariffa ridotta ("tariffa di base") per il database SQL. Il Vantaggio Azure Hybrid per SQL Server è disponibile come anteprima pubblica del modello di acquisto basato su vCore per i pool elastici e i database singoli del database SQL. È possibile applicare questo vantaggio anche se lo SKU è attivo, ma è opportuno notare che la tariffa di base viene applicata a partire dal momento della selezione nel portale di Azure. Non verranno rilasciati crediti retroattivamente.
+Il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) consente di massimizzare il valore degli investimenti correnti per la licenza e accelerare la migrazione nel cloud. Il Vantaggio Azure Hybrid per SQL Server è un vantaggio basato su Azure che consente di usare le licenze di SQL Server con Software Assurance per pagare una tariffa ridotta ("tariffa di base") per il database SQL. Il Vantaggio Azure Hybrid per SQL Server è disponibile come anteprima pubblica del modello di acquisto basato su vCore per i pool elastici e i database singoli del database SQL. È possibile applicare questo vantaggio anche se lo SKU è attivo, ma è opportuno notare che la tariffa di base viene applicata a partire dal momento della selezione nel portale di Azure. Non verranno rilasciati crediti retroattivamente.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Il Vantaggio Azure Hybrid per SQL Server include diritti di doppio uso della licenza?
 
@@ -127,13 +127,13 @@ Sì, è possibile convertire facilmente il database a qualsiasi obiettivo di pre
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>È possibile eseguire l'aggiornamento o il downgrade tra i livelli di servizio Utilizzo generico e Business Critical?
 
-Sì, con alcune restrizioni. Lo SKU di destinazione deve soddisfare i requisiti di dimensioni massime del database o del pool elastico configurate per la distribuzione esistente. Se si usa il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), lo SKU del livello Business Critical è disponibile solo per i clienti con licenze Enterprise Edition. Solo i clienti che hanno eseguito la migrazione dall'ambiente locale al livello Utilizzo generico usando il Vantaggio Azure Hybrid per SQL Server con licenze Enterprise Edition possono eseguire l'aggiornamento al livello Business Critical. Per informazioni dettagliate, vedere [Quali sono i diritti specifici inclusi nel Vantaggio Azure Hybrid per SQL Server?](../virtual-machines/windows/hybrid-use-benefit-licensing.md)
+Sì, con alcune restrizioni. Lo SKU di destinazione deve soddisfare i requisiti di dimensioni massime del database o del pool elastico configurate per la distribuzione esistente. Se si usa il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/), lo SKU del livello Business Critical è disponibile solo per i clienti con licenze Enterprise Edition. Solo i clienti che hanno eseguito la migrazione dall'ambiente locale al livello Utilizzo generico usando il Vantaggio Azure Hybrid per SQL Server con licenze Enterprise Edition possono eseguire l'aggiornamento al livello Business Critical. Per informazioni dettagliate, vedere [Quali sono i diritti specifici inclusi nel Vantaggio Azure Hybrid per SQL Server?](https://azure.microsoft.com/pricing/hybrid-benefit/)
 
 Questa conversione non comporta tempi di inattività e può essere avviata tramite il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, T-SQL o l'API REST. Vedere gli articoli per [gestire database singoli](sql-database-single-database-scale.md) e per [gestire pool elastici](sql-database-elastic-pool.md).
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>Se si usa un database Premium RS che non sarà disponibile a livello generale, è possibile aggiornarlo a un nuovo livello e ottenere un vantaggio simile come rapporto prezzo/prestazioni?
 
-Poiché il modello basato su vCore consente il controllo indipendente sulla quantità di risorse di calcolo e archiviazione di cui è stato eseguito il provisioning, offre la possibilità di gestire in modo più efficace i costi ed è quindi un'opzione interessante per i database Premium RS. Il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) offre anche uno sconto significativo quando viene usato il modello basato su vCore.
+Poiché il modello basato su vCore consente il controllo indipendente sulla quantità di risorse di calcolo e archiviazione di cui è stato eseguito il provisioning, offre la possibilità di gestire in modo più efficace i costi ed è quindi un'opzione interessante per i database Premium RS. Il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) offre anche uno sconto significativo quando viene usato il modello basato su vCore.
 
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>Con quale frequenza è possibile modificare le risorse per ogni pool?
 

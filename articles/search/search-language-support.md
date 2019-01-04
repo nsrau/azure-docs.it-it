@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 3f88965e0d48a9ed3e9a91b4df42a79b83d2a79b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a198fa7fe5e1ed81e30987990359f9ecedbe225b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313327"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631550"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Creare un indice per i documenti in più lingue in Ricerca di Azure
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Di seguito sono riportate schermate dei pannelli del portale di Azure relativi a
 ![][2]
 *Selezionare uno degli analizzatori supportati per ogni campo*
 
-Per impostazione predefinita, tutti i campi di ricerca usano l' [analizzatore Standard Lucene](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) che è indipendente dalla lingua. Per visualizzare l'elenco completo degli analizzatori supportati, vedere il post di blog relativo alle [lingue supportate in Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+Per impostazione predefinita, tutti i campi di ricerca usano l' [analizzatore Standard Lucene](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) che è indipendente dalla lingua. Per visualizzare l'elenco completo degli analizzatori supportati, vedere il post di blog relativo alle [lingue supportate in Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn879793.aspx).
 
 Dopo aver selezionato l'analizzatore della lingua per un campo, verrà usato per ogni richiesta di ricerca e indicizzazione relativa a quel campo. Quando viene eseguita una query su più campi usando analizzatori diversi, la query verrà elaborata in modo indipendente dagli analizzatori specifici di ciascun campo.
 
@@ -81,7 +81,7 @@ Se la lingua dell'agente che esegue una query è nota, è possibile definire per
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
-Per gli sviluppatori .NET, si noti che è possibile configurare analizzatori delle lingue mediante l' [SDK .NET di Ricerca di Azure](http://www.nuget.org/packages/Microsoft.Azure.Search). La versione più recente supporta anche gli analizzatori delle lingue di Microsoft.
+Per gli sviluppatori .NET, si noti che è possibile configurare analizzatori delle lingue mediante l' [SDK .NET di Ricerca di Azure](https://www.nuget.org/packages/Microsoft.Azure.Search). La versione più recente supporta anche gli analizzatori delle lingue di Microsoft.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 3/10/2017
+ms.date: 03/10/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 337ee5259e980509c73099f0e3417bb31ec3276d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 67cc955e4a265a2b29893bd0484dd905f4f2c2b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313939"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632434"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Come implementare l'esplorazione in base a facet in Ricerca di Azure
 L'esplorazione in base a facet è un meccanismo di filtro che consente un'esplorazione drill-down mirata nelle applicazioni di ricerca. Il termine "esplorazione in base a facet" può essere poco noto, ma probabilmente è già stato usato in precedenza. Come illustrato nell'esempio seguente, l'esplorazione in base a facet non è rappresentata dalle categorie usate per filtrare i risultati.
@@ -34,7 +34,7 @@ Nello sviluppo di applicazioni la scrittura di codice che crea query costituisce
 ## <a name="sample-code-and-demo"></a>Demo e codice di esempio
 Questo articolo usa un portale di ricerca dei processi come esempio. L'esempio viene implementato come applicazione MVC ASP.NET.
 
--   Esaminare e testare la demo di lavoro online in [Job Portal Demo di Ricerca di Azure](http://azjobsdemo.azurewebsites.net/).
+-   Esaminare e testare la demo di lavoro online in [Job Portal Demo di Ricerca di Azure](https://azjobsdemo.azurewebsites.net/).
 
 -   Scaricare il codice dal [repository di esempi di Azure su GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -371,7 +371,7 @@ Sono disponibili due funzioni geospaziali in Ricerca di Azure, **geo.distance** 
 ## <a name="try-the-demo"></a>Provare la demo
 Job Portal Demo di Ricerca di Azure contiene gli esempi descritti nel presente articolo.
 
--   Esaminare e testare la demo di lavoro online in [Job Portal Demo di Ricerca di Azure](http://azjobsdemo.azurewebsites.net/).
+-   Esaminare e testare la demo di lavoro online in [Job Portal Demo di Ricerca di Azure](https://azjobsdemo.azurewebsites.net/).
 
 -   Scaricare il codice dal [repository di esempi di Azure su GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -396,12 +396,12 @@ Quando si lavora con i risultati, controllare l'URL per le modifiche nella costr
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>Altre informazioni
-Guardare [Azure Search Deep Dive](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410) (Approfondimenti su Ricerca di Azure). Al minuto 45:25 è presente una dimostrazione su come implementare i facet.
+Guardare [Azure Search Deep Dive](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410) (Approfondimenti su Ricerca di Azure). Al minuto 45:25 è presente una dimostrazione su come implementare i facet.
 
 Per altre informazioni sui principi di progettazione per l'esplorazione in base a facet, è consigliabile usare i collegamenti seguenti:
 
 * [Progettazione per la ricerca con esplorazione in base a facet](http://www.uie.com/articles/faceted_search/)
-* [Schemi progettuali: Esplorazione in base a facet](http://alistapart.com/article/design-patterns-faceted-navigation)
+* [Schemi progettuali: Esplorazione in base a facet](https://alistapart.com/article/design-patterns-faceted-navigation)
 
 
 <!--Anchors-->
@@ -431,7 +431,7 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 
 <!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
+[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/

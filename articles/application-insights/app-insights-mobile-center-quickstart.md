@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e69cf8753fb0cc9326e047ec97cbe08ee6f26610
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 77fafb3f3a4c834c5a7f185d129a1c651db58089
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668462"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719847"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Avviare l'analisi dell'app per dispositivi mobili con App Center e Application Insights
 
@@ -74,7 +74,7 @@ Quando l'app invia eventi personalizzati e questi vengono ricevuti da App Center
 
     Verrà visualizzata una finestra di configurazione. Usare la tabella seguente per completare i campi di input.
 
-    | Impostazioni        |  Valore           | Descrizione  |
+    | Impostazioni        |  Valore           | DESCRIZIONE  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Un valore univoco a livello globale, ad esempio "myApp-iOS" | Nome che identifica l'app da monitorare |
    | **Tipo di applicazione** | Applicazione App Center | Tipo di app da monitorare |
@@ -126,7 +126,7 @@ Application Insights può eseguire query, segmentare, filtrare e analizzare i da
    1. Selezionare la query facendo clic su un punto qualsiasi della query nell'editor di testo.
    2. Quindi fare clic su **Vai** per eseguire la query. 
 
-   Altre informazioni su [Analytics di Application Insights](app-insights-analytics.md) e [il linguaggio di query di Log Analytics](https://docs.loganalytics.io/docs/Language-Reference).
+   Altre informazioni su [Analytics di Application Insights](../azure-monitor/app/analytics.md) e [il linguaggio di query di Log Analytics](https://aka.ms/LogAnalyticsLanguageReference).
 
 
 2. **Segmentare e filtrare i dati di telemetria relativi a un evento personalizzato.** Nella pagina **Panoramica** di Application Insights scegliere **Utenti** nella tabella dei contenuti.
