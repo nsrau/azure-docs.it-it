@@ -28,8 +28,14 @@ items:
     href: cli-samples.md
 - name: Concetti
   items:
-  - name: Eseguire la migrazione dalla versione 2 alla versione 3
-    href: migrate-from-v2-to-v3.md
+  - name: Account
+    items:
+    - name: Eseguire la migrazione dalla versione 2 alla versione 3
+      href: migrate-from-v2-to-v3.md
+    - name: Quote e limitazioni
+      href: limits-quotas-constraints.md
+    - name: Account di archiviazione
+      href: storage-account-concept.md
   - name: Entità
     href: entities-overview.md
     items:
@@ -79,15 +85,21 @@ items:
       href: live-event-states-billing.md
     - name: Latenza
       href: live-event-latency.md
-  - name: Account di archiviazione
-    href: storage-account-concept.md
+  - name: Azure Media Player
+    href: use-azure-media-player.md
 - name: Guide alle procedure
   items:
-  - name: Creare un account - Interfaccia della riga di comando
-    href: create-account-cli-how-to.md
-  - name: Accedere alle API - Interfaccia della riga di comando
-    href: access-api-cli-how-to.md
-  - name: Caricamento
+  - name: Attività iniziali
+    items:
+    - name: Creare un account - Interfaccia della riga di comando
+      href: create-account-cli-how-to.md
+    - name: Accedere alle API - Interfaccia della riga di comando
+      href: access-api-cli-how-to.md
+    - name: Ridimensionare le Media Reserved Unit - Interfaccia della riga di comando
+      href: media-reserved-units-cli-how-to.md
+  - name: Configurare Postman
+    href: media-rest-apis-with-postman.md
+  - name: Caricare contenuti
     items:
     - name: Da HTTP(S) - .NET
       href: job-input-from-http-how-to.md
@@ -95,6 +107,22 @@ items:
       href: job-input-from-local-file-how-to.md
     - name: Da un file locale - REST
       href: upload-files-rest-how-to.md
+  - name: Codificare contenuti
+    items:
+    - name: Personalizzare i set di impostazioni di trasformazione - .NET
+      href: customize-encoder-presets-how-to.md
+  - name: Usare Griglia di eventi
+    items:
+    - name: Monitorare gli eventi - Portale
+      href: monitor-events-portal-how-to.md
+    - name: Monitorare gli eventi - Interfaccia della riga di comando
+      href: job-state-events-cli-how-to.md
+  - name: Proteggere il contenuto
+    items:
+    - name: Con AES-128 - .NET
+      href: protect-with-aes128.md
+    - name: Con DRM - .NET
+      href: protect-with-drm.md
   - name: Creare filtri
     items:
     - name: Con .NET
@@ -103,27 +131,7 @@ items:
       href: filters-dynamic-manifest-rest-howto.md
     - name: Con l'interfaccia della riga di comando
       href: filters-dynamic-manifest-cli-howto.md
-  - name: Codificare
-    items:
-    - name: Personalizzare i set di impostazioni di trasformazione - .NET Core
-      href: customize-encoder-presets-how-to.md
-  - name: Usare Griglia di eventi
-    items:
-    - name: Monitorare gli eventi - Portale
-      href: monitor-events-portal-how-to.md
-    - name: Monitorare gli eventi - Interfaccia della riga di comando
-      href: job-state-events-cli-how-to.md
-  - name: Proteggere
-    items:
-    - name: Con AES-128 - .NET
-      href: protect-with-aes128.md
-    - name: Con DRM - .NET
-      href: protect-with-drm.md
-  - name: Configurare Postman
-    href: media-rest-apis-with-postman.md
-  - name: Ridimensionare le Media Reserved Unit - Interfaccia della riga di comando
-    href: media-reserved-units-cli-how-to.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Specifica OpenAPI (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
@@ -181,13 +189,11 @@ items:
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Note sulla versione
     href: release-notes.md
-  - name: Quote e limitazioni
-    href: limits-quotas-constraints.md
   - name: Domande frequenti
     href: frequently-asked-questions.md
-ms.openlocfilehash: 660052b4e82f6e005c096b5ac1edd7a80c2d5339
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 9acf8f3ce9f5886d5f61087a58d863047bd0b605
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744973"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014523"
