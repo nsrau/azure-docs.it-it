@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089702"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000564"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creare modelli di Azure Resource Manager per la distribuzione di app per la logica
 
@@ -187,7 +187,7 @@ Nel progetto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppCon
 <a name="team-services"></a>
 ## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Pipelines
 
-Uno scenario comune per la distribuzione e la gestione di ambienti consiste nell'usare uno strumento come Azure Pipelines in Azure DevOps con un modello di distribuzione di app per la logica. Azure DevOps include un'attività [Distribuisci gruppo di risorse di Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) che può essere aggiunta in una pipeline di versione o di compilazione. Per l'autorizzazione alla distribuzione è necessario avere un'[entità servizio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Sarà quindi possibile generare la pipeline di versione.
+Uno scenario comune per la distribuzione e la gestione di ambienti consiste nell'usare uno strumento come Azure Pipelines in Azure DevOps con un modello di distribuzione di app per la logica. Azure DevOps include un'attività [Distribuisci gruppo di risorse di Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) che può essere aggiunta in una pipeline di versione o di compilazione. Per l'autorizzazione alla distribuzione è necessario avere un'[entità servizio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Sarà quindi possibile generare la pipeline di versione.
 
 1. In Azure Pipelines selezionare **Vuoto** per creare una pipeline vuota.
 

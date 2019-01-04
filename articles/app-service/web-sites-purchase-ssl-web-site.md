@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268717"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714301"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
@@ -35,7 +35,7 @@ Questa esercitazione descrive come proteggere l'app Web tramite la creazione (ac
 Per completare questa guida pratica:
 
 - [Creare un'app del Servizio app](/azure/app-service/)
-- [Eseguire il mapping di un nome di dominio all'app Web](app-service-web-tutorial-custom-domain.md) o [acquistarlo e configurarlo in Azure](custom-dns-web-site-buydomains-web-app.md)
+- [Eseguire il mapping di un nome di dominio all'app Web](app-service-web-tutorial-custom-domain.md) o [acquistarlo e configurarlo in Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -91,7 +91,7 @@ Selezionare **Verifica del servizio app**. Poiché è già stato eseguito il map
 > Sono supportati quattro tipi di metodi di verifica del dominio: 
 > 
 > - **Servizio app**: opzione più pratica quando è già stato eseguito il mapping del dominio a un'app del servizio app nella stessa sottoscrizione. in quanto l'app del servizio app ha già verificato la proprietà del dominio.
-> - **Dominio**: verificare [un dominio del servizio app acquistato da Azure](custom-dns-web-site-buydomains-web-app.md). Azure aggiunge automaticamente il record TXT di verifica e completa il processo.
+> - **Dominio**: verificare [un dominio del servizio app acquistato da Azure](manage-custom-dns-buy-domain.md). Azure aggiunge automaticamente il record TXT di verifica e completa il processo.
 > - **Posta**: verificare il dominio inviando un messaggio di posta elettronica all'amministratore di dominio. Quando si seleziona questa opzione, vengono fornite istruzioni.
 > - **Manuale**: verificare il dominio usando una pagina HTML (solo per un certificato **Standard**) o un record TXT DNS. Quando si seleziona questa opzione, vengono fornite istruzioni.
 

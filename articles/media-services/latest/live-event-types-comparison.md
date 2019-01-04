@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: juliako
-ms.openlocfilehash: 2dbc2b4e316155e880d3baa900196d5cdd31be72
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3ed38ce75e5ee7c9f05533d64b28171482bfec51
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011777"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725933"
 ---
 # <a name="liveevent-types-comparison"></a>Confronto tra tipi di LiveEvent
 
@@ -28,7 +28,7 @@ In Servizi multimediali di Azure, un [LiveEvent](https://docs.microsoft.com/rest
 
 La tabella seguente mette a confronto le funzionalità dei due tipi di LiveEvent.
 
-| Funzionalità | LiveEvent pass-through | LiveEvent standard (Basic) |
+| Funzionalità | LiveEvent pass-through | LiveEvent standard |
 | --- | --- | --- |
 | Input a bitrate singolo codificato in bitrate multipli nel cloud |No  |Yes |
 | Risoluzione video massima per feed di contributo |4K (4096 x 2160 a 60 fotogrammi/sec) |1080p (1920 x 1088 a 30 fotogrammi/sec)|

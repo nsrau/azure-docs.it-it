@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: cf037000a047b02f3874c3bccc9678f2ea18ecec
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 31e4f4a8cfe9a82cf5320cd364905c7c91de0959
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011199"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653799"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creare cluster Apache HBase su HDInsight nella rete virtuale di Azure
 Informazioni su come creare cluster Apache HBase in Azure HDInsight in una [Rete virtuale di Azure][1].
@@ -34,7 +34,7 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 ## <a name="create-apache-hbase-cluster-into-virtual-network"></a>Creare cluster Apache HBase nella rete virtuale
 In questa sezione viene creato un cluster Apache HBase basato su Linux con l'account di Archiviazione di Azure dipendente in una rete virtuale di Azure tramite un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md). Per altri metodi di creazione di cluster e per informazioni sulle impostazioni, vedere l'articolo sulla [creazione di cluster HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Per altre informazioni sull'uso di un modello per creare cluster Apache Hadoop in HDInsight, vedere [Creare cluster Apache Hadoop in HDInsight tramite modelli di Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-> [!NOTE]
+> [!NOTE]  
 > Alcune proprietà sono state impostate come hardcoded nel modello. Ad esempio: 
 >
 > * **Posizione**: Stati Uniti orientali 2
@@ -74,10 +74,8 @@ Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le proced
    * **Rete virtuale**: &lt;Nome cluster>-vnet
    * **Subnet**: subnet1
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Sostituire &lt;Nome cluster> con il nome usato durante la creazione del cluster HDInsight nei passaggi precedenti.
-   >
-   >
 
    Applicando questi valori, la macchina virtuale viene configurata nella stessa rete virtuale e subnet del cluster HDInsight. Ciò consente la comunicazione bidirezionale diretta. È possibile creare un cluster HDInsight con un nodo perimetrale vuoto. Il nodo perimetrale può essere usato per gestire il cluster.  Per altre informazioni, vedere [Usare nodi perimetrali vuoti in HDInsight](../hdinsight-apps-use-edge-node.md).
 
@@ -232,10 +230,8 @@ Per usare queste informazioni in un'applicazione Java e creare un'applicazione, 
         <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
     </property>
 
-> [!NOTE]
+> [!NOTE]  
 > Per altre informazioni sulla risoluzione dei nomi in reti virtuali di Azure, comprese quelle relative all'uso del proprio server DNS, vedere [Risoluzione dei nomi (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
->
->
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come creare un cluster Apache HBase. Per altre informazioni, vedere:

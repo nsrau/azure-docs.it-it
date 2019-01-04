@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6ce51dc9bbcdc7b46593a4800c4fce07a42f3171
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9cb52aea56e9c1183af9ca76201ab65c62a58f22
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345350"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972172"
 ---
 # <a name="offer-settings-tab"></a>Scheda Impostazioni dell'offerta
 
@@ -43,9 +43,6 @@ Questo identificatore è correlato all'account. Una volta effettuato l'accesso c
 
 Questa stringa è il testo che verrà visualizzato come nome dell'offerta in AppSource o in Azure Marketplace. Il campo *Nome* prevede un limite di 50 caratteri.  Il revisore potrebbe dover modificare il titolo per consentire l'accodamento del nome dell'offerta con la durata e il tipo di offerta.
 
->[!Note]
->Importante: immettere solo il nome del servizio effettivo. Non includere la durata e il tipo di servizio.
-
 Nell'esempio seguente di Edgewater Fullscope viene visualizzata la modalità di assemblaggio del nome dell'offerta. Il nome dell'offerta viene visualizzato nel modo seguente:
 
 ![Creare una nuova offerta di servizi di consulenza](media/cppsampleconsultingoffer.png)
@@ -62,17 +59,17 @@ Il nome dell'offerta è costituito da quattro parti:
 
 L'elenco seguente propone diversi nomi di offerta appropriati:
 
--   Aspetti essenziali per servizi professionali: Briefing di 1 ora
--   Piattaforma di migrazione cloud: Briefing di 1 ora
--   PowerApps e Microsoft Flow: Workshop di 1 giorno
--   Servizi di Azure Machine Learning: Modello di verifica di 3 settimane
--   Soluzione di vendita al dettaglio tutto incluso: Briefing di 1 ora
--   Inserimento di dati personali: Workshop di 1 settimana
--   Cloud Analytics: Workshop di 3 giorni
--   Training di Power BI: Workshop di 3 giorni
--   Soluzione di gestione delle vendite: Implementazione di 1 settimana
--   Avvio rapido CRM: Workshop di 1 giorno
--   Dynamics 365 for Sales: Valutazione di 2 giorni
+-   Aspetti essenziali per servizi professionali: briefing di 1 ora
+-   Piattaforma di migrazione cloud: briefing di 1 ora
+-   PowerApps e Microsoft Flow: workshop di 1 giorno
+-   Servizi di Azure Machine Learning: modello di verifica di 3 settimane
+-   Soluzione di vendita al dettaglio tutto incluso: briefing di 1 ora
+-   Inserimento di dati personali: workshop di 1 settimana
+-   Analisi cloud: workshop di 3 giorni
+-   Training di Power BI: workshop di 3 giorni
+-   Soluzione di gestione delle vendite: implementazione di 1 settimana
+-   Avvio rapido CRM: workshop di 1 giorno
+-   Dynamics 365 for Sales: valutazione di 2 giorni
 
 Dopo aver compilato la scheda **Impostazioni dell'offerta**, è possibile salvare l'invio. Il nome dell'offerta verrà visualizzato sopra all'editor e sarà possibile trovarlo in Tutte le offerte.
 

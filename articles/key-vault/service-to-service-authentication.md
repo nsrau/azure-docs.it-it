@@ -12,12 +12,12 @@ ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 1eadea53dda60ef5ac8bbbc3d9e9cfe4b5b373dc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54449e26279e6c6d83a57daa9c8f40819fab4993
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423593"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715763"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
@@ -234,8 +234,8 @@ Sono supportate le opzioni seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulle [identità gestite per le risorse di Azure](/azure/app-service/app-service-managed-service-identity).
+- Altre informazioni sulle [identità gestite per le risorse di Azure](/azure/app-service/overview-managed-identity).
 
-- Informazioni sui diversi modi per [autenticare e autorizzare le app](/azure/app-service/app-service-authentication-overview).
+- Informazioni sui diversi modi per [autenticare e autorizzare le app](/azure/app-service/overview-authentication-authorization).
 
 - Altre informazioni sugli [scenari di autenticazione](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application) di Azure AD.

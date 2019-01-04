@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3a0b92e2c2a588fa8ef7edcddaa8c692780814f0
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388403"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721564"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
 
@@ -163,7 +163,7 @@ Per altre informazioni, vedere [Configurare le app Web nel servizio app](web-sit
 
 Azure Load Balancer ha un'impostazione predefinita di quattro minuti per il timeout di inattività. Si tratta in genere di un limite di tempo di risposta ragionevole per una richiesta Web. Se l'app Web richiede l'elaborazione in background, è consigliabile usare Processi Web di Azure. L'app Web di Azure può chiamare Processi Web e ricevere una notifica al termine dell'elaborazione in background. È possibile scegliere tra più metodi per l'uso di Processi Web, tra cui le code e i trigger.
 
-Processi Web è progettato per l'elaborazione in background. In un processo Web non vengono applicati limiti all'elaborazione in background. Per altre informazioni su Processi Web, vedere [Eseguire attività in background con Processi Web](web-sites-create-web-jobs.md).
+Processi Web è progettato per l'elaborazione in background. In un processo Web non vengono applicati limiti all'elaborazione in background. Per altre informazioni su Processi Web, vedere [Eseguire attività in background con Processi Web](webjobs-create.md).
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>A volte le applicazioni ASP.NET Core ospitate nel servizio app si bloccano. Come si risolve il problema?
 

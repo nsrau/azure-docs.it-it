@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409259"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725032"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Come usare Node.js SDK per App per dispositivi mobili
 
@@ -153,14 +153,14 @@ Quando si crea un back-end Node.js per App per dispositivi mobili usando il pann
 La procedura seguente usa un repository Git per scaricare il codice del progetto di avvio rapido:
 
 1. Se non è già stato fatto, installare Git. I passaggi necessari per installare Git variano a seconda del sistema operativo. Vedere [Installing Git](https://git-scm.com/book/en/Getting-Started-Installing-Git) (Installazione di Git) per istruzioni di installazione e distribuzione specifiche per i sistemi operativi.
-1. Vedere [Preparare il repository](../app-service/app-service-deploy-local-git.md#prepare-your-repository) per abilitare il repository Git per il sito di back-end. Prendere nota del nome utente e della password della distribuzione.
-1. Nel riquadro del back-end di App per dispositivi mobili annotare l'impostazione **URL clone Git**.
-1. Eseguire il comando `git clone` usando l'URL clone Git. Immettere la password quando richiesto, come nell'esempio seguente:
+2. Vedere [Preparare il repository](../app-service/deploy-local-git.md#prepare-your-repository) per abilitare il repository Git per il sito di back-end. Prendere nota del nome utente e della password della distribuzione.
+3. Nel riquadro del back-end di App per dispositivi mobili annotare l'impostazione **URL clone Git**.
+4. Eseguire il comando `git clone` usando l'URL clone Git. Immettere la password quando richiesto, come nell'esempio seguente:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
-1. Passare alla directory locale (`/todolist` nell'esempio precedente) e osservare che sono stati scaricati i file di progetto. Individuare il file todoitem.json nella directory `/tables`. Questo file definisce le autorizzazioni sulla tabella. Individuare anche il file todoitem.js nella stessa directory. Il file definisce gli script di operazioni CRUD per la tabella.
-1. Dopo aver apportato modifiche ai file di progetto, eseguire questi comandi per aggiungere ed eseguire il commit delle modifiche e quindi caricarle nel sito:
+5. Passare alla directory locale (`/todolist` nell'esempio precedente) e osservare che sono stati scaricati i file di progetto. Individuare il file todoitem.json nella directory `/tables`. Questo file definisce le autorizzazioni sulla tabella. Individuare anche il file todoitem.js nella stessa directory. Il file definisce gli script di operazioni CRUD per la tabella.
+6. Dopo aver apportato modifiche ai file di progetto, eseguire questi comandi per aggiungere ed eseguire il commit delle modifiche e quindi caricarle nel sito:
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -968,10 +968,10 @@ Il portale di Azure consente di modificare i file di script del back-end Node.js
 [Configurare l'autenticazione di Google]: ../app-service/configure-authentication-provider-google.md
 [Configurare l'autenticazione di Microsoft]: ../app-service/configure-authentication-provider-microsoft.md
 [Configurare l'autenticazione di Twitter]: ../app-service/configure-authentication-provider-twitter.md
-[Guida alla distribuzione del servizio app di Azure]: ../app-service/app-service-deploy-local-git.md
+[Guida alla distribuzione del servizio app di Azure]: ../app-service/deploy-local-git.md
 [Monitoraggio del servizio app di Azure]: ../app-service/web-sites-monitor.md
-[Abilitare la registrazione diagnostica nel servizio app di Azure]: ../app-service/web-sites-enable-diagnostic-log.md
-[Risolvere i problemi del servizio app di Azure in Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[Abilitare la registrazione diagnostica nel servizio app di Azure]: ../app-service/troubleshoot-diagnostic-logs.md
+[Risolvere i problemi del servizio app di Azure in Visual Studio]: ../app-service/troubleshoot-dotnet-visual-studio.md
 [specificare la versione di Node]: ../nodejs-specify-node-version-azure-apps.md
 [usare i moduli di Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/

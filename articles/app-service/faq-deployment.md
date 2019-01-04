@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388506"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549429"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla distribuzione per app Web in Azure
 
@@ -36,7 +36,7 @@ Di seguito sono riportate alcune opzioni per la pubblicazione del codice dell'ap
 *   Eseguire la distribuzione usando Visual Studio. Se è disponibile la soluzione Visual Studio, fare clic con il pulsante destro del mouse sul progetto dell'applicazione Web e quindi scegliere **Pubblica**.
 *   Eseguire la distribuzione usando un client FTP. Nel portale di Azure, scaricare il profilo di pubblicazione per l'app Web nella quale si intende distribuire il codice. Caricare quindi i file in \site\wwwroot usando le stesse credenziali FTP del profilo di pubblicazione.
 
-Per altre informazioni, vedere [Distribuire l'app nel servizio app](app-service-deploy-local-git.md).
+Per altre informazioni, vedere [Distribuire l'app nel servizio app](deploy-local-git.md).
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Viene visualizzato un messaggio di errore quando si prova a eseguire la distribuzione da Visual Studio. Come posso risolvere il problema?
 
@@ -51,7 +51,7 @@ L'esercitazione [Creare la prima app Web ASP.NET in Azure in cinque minuti](app-
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quali sono i diversi tipi di servizi di credenziali di distribuzione?
 
-Il servizio app supporta due tipi di credenziali per la distribuzione Git locale e la distribuzione FTP/S. Per altre informazioni su come configurare le credenziali di distribuzione, vedere [Configurare le credenziali di distribuzione per il servizio app](app-service-deployment-credentials.md).
+Il servizio app supporta due tipi di credenziali per la distribuzione Git locale e la distribuzione FTP/S. Per altre informazioni su come configurare le credenziali di distribuzione, vedere [Configurare le credenziali di distribuzione per il servizio app](deploy-configure-credentials.md).
 
 ## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>Qual è la struttura di file o directory dell'app Web del servizio app?
 
@@ -63,7 +63,7 @@ Se viene visualizzato questo messaggio, è probabile che sia stato raggiunto il 
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Come si configura la distribuzione continua dell'app Web del servizio app?
 
-È possibile impostare la distribuzione continua da diverse risorse, tra cui, Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox e altri repository Git. Queste opzioni sono disponibili nel portale. [Distribuzione continua nel servizio app](app-service-continuous-deployment.md) è un'utile esercitazione che illustra come configurare la distribuzione continua.
+È possibile impostare la distribuzione continua da diverse risorse, tra cui, Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox e altri repository Git. Queste opzioni sono disponibili nel portale. [Distribuzione continua nel servizio app](deploy-continuous-deployment.md) è un'utile esercitazione che illustra come configurare la distribuzione continua.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Come si risolvono i problemi con la distribuzione continua da GitHub e Bitbucket?
 
@@ -100,4 +100,4 @@ La distribuzione continua di codice per entrambe le opzioni dipende dai flussi d
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Come si usa FTP o FTPS per distribuire l'app nel servizio app?
 
-Per informazioni sull'uso di FTP o FTPS per distribuire l'app Web nel servizio app, vedere [Distribuire l'app nel servizio app usando FTP/S](app-service-deploy-ftp.md).
+Per informazioni sull'uso di FTP o FTPS per distribuire l'app Web nel servizio app, vedere [Distribuire l'app nel servizio app usando FTP/S](deploy-ftp.md).

@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310539"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631943"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analizzatori per elaborazione del testo in Ricerca di Azure
 
@@ -76,7 +76,7 @@ Se la ricerca non restituisce i risultati previsti, è molto probabile che esist
 
 ### <a name="compare-english-analyzers"></a>Confrontare gli analizzatori per la lingua inglese
 
-[Search Analyzer Demo](http://alice.unearth.ai/) è un'app dimostrativa di terze parti che illustra un confronto tra l'analizzatore Lucene standard, l'analizzatore di lingua inglese Lucene e il processore di lingua inglese di Microsoft. L'indice è fisso e contiene testo da una storia comune. Per ogni input di ricerca fornito vengono visualizzati i risultati di ogni analizzatore in riquadri adiacenti, in modo da poter verificare come ogni analizzatore elabora la stessa stringa. 
+[Search Analyzer Demo](https://alice.unearth.ai/) è un'app dimostrativa di terze parti che illustra un confronto tra l'analizzatore Lucene standard, l'analizzatore di lingua inglese Lucene e il processore di lingua inglese di Microsoft. L'indice è fisso e contiene testo da una storia comune. Per ogni input di ricerca fornito vengono visualizzati i risultati di ogni analizzatore in riquadri adiacenti, in modo da poter verificare come ogni analizzatore elabora la stessa stringa. 
 
 ## <a name="examples"></a>Esempi
 
@@ -150,7 +150,7 @@ Passaggi di questo esempio:
 ~~~~
 
 <a name="Example2"></a>
-### <a name="example-2-override-the-default-analyzer"></a>Esempio 2: Eseguire l'override dell'analizzatore predefinito
+### <a name="example-2-override-the-default-analyzer"></a>Esempio 2 Eseguire l'override dell'analizzatore predefinito
 
 L'analizzatore Standard è l'impostazione predefinita. Si supponga di volere sostituire l'elemento predefinito con un analizzatore predefinito diverso, ad esempio l'analizzatore Pattern. Se non si impostano delle opzioni personalizzate, occorre specificarlo in base al nome nella definizione del campo.
 
@@ -244,13 +244,13 @@ I campi contenenti stringhe in diverse lingue possono utsare un analizzatore del
 
 + Esaminare la descrizione dettagliata contenuta in [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md). Questo articolo usa alcuni esempi per illustrare i comportamenti che potrebbero sembrare poco plausibili in un primo momento.
 
-+ Provare la sintassi di query aggiuntiva dalla sezione di esempio [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) (Ricerca di documenti) o da [Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Esplora ricerche nel portale.
++ Provare la sintassi di query aggiuntiva dalla sezione di esempio [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) (Ricerca di documenti) o da [Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Esplora ricerche nel portale.
 
 + Informazioni su come applicare [analizzatori lessicali specifici della lingua](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configurare gli analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) per un'elaborazione minima o specializzata per settori specifici.
 
-+ [Fare un confronto degli analizzatori standard e in lingua inglese](http://alice.unearth.ai/) su riquadri adiacenti in questo sito Web demo. 
++ [Fare un confronto degli analizzatori standard e in lingua inglese](https://alice.unearth.ai/) su riquadri adiacenti in questo sito Web demo. 
 
 ## <a name="see-also"></a>Vedere anche 
 

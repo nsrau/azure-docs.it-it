@@ -7,16 +7,14 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 20d3d3d755a35927550064ddfdf3b983348f93d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1cc91f55d3895f06176875cb9ae620685dc09a26
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110850"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605552"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la gestione e la sicurezza delle immagini del contenitore nel servizio Azure Kubernetes
-
-La sicurezza dei contenitori è un fattore fondamentale da tenere in considerazione nello sviluppo e l'esecuzione di applicazioni nel servizio Azure Kubernetes. I contenitori che includono immagini di base o runtime applicazione non aggiornati introducono un rischio per la sicurezza e costituiscono un possibile vettore di attacco. Per ridurre al minimo questi rischi, è necessario integrare strumenti che siano in grado di cercare e correggere i problemi nei contenitori.
 
 La sicurezza dei contenitori e delle immagini che contengono è un fattore fondamentale da tenere in considerazione nello sviluppo e l'esecuzione di applicazioni nel servizio Azure Kubernetes. I contenitori che includono immagini di base non aggiornate o runtime applicazione senza patch introducono un rischio per la sicurezza e costituiscono un possibile vettore di attacco. Per ridurre al minimo questi rischi, è necessario integrare strumenti che siano in grado di cercare e correggere i problemi nei contenitori sia in fase di compilazione che di runtime. Prima vengono individuate le vulnerabilità o le immagini di base non aggiornate, più sicuro sarà il cluster. In questo articolo per *contenitori* si intendono sia le immagini del contenitore archiviate in un registro contenitori, sia i contenitori in esecuzione.
 

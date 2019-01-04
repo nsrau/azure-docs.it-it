@@ -9,26 +9,25 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e529b2276d2e68c67696ba9d142760f5881a25e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 65e0fed29909ad5714b35659a7dd453e095a3eeb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012811"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713722"
 ---
 # <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Usare l'interfaccia utente di Apache Tez per il debug di processi Tez in HDInsight basato su Windows
 L’interfaccia utente di [Apache TEZ](https://tez.apache.org/) può essere utilizzata per eseguire il debug di processi [Apache Hive](https://hive.apache.org/) che usano Tez come motore di esecuzione. L'interfaccia utente di Tez visualizza il processo come grafico di elementi connessi, consente di eseguire il drill-down in ogni specifico elemento e recuperare statistiche e informazioni di registrazione.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Un cluster HDInsight basato su Windows. Per la procedura di creazione di un nuovo cluster, vedere [Introduzione all'uso di HDInsight basato su Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > L'interfaccia utente di Apache Tez è disponibile solo nei cluster HDInsight basati su Windows creati dopo l'8 febbraio 2016.
-  >
-  >
+
 * Un client Desktop remoto basato su Windows.
 
 ## <a name="understanding-apache-tez"></a>Informazioni su Apache Tez
@@ -65,10 +64,8 @@ Usare la procedura seguente per eseguire una query Hive che usa Tez.
         en-GB   Nairobi Area    Kenya
 
 ## <a name="use-the-tez-ui"></a>Usare l'interfaccia utente di Tez
-> [!NOTE]
+> [!NOTE]  
 > Poiché l'interfaccia utente di Tez è disponibile solo nel desktop dei nodi head del cluster, è necessario usare Desktop remoto per connettersi ai nodi head.
->
->
 
 1. Nel [portale di Azure](https://portal.azure.com)selezionare il cluster HDInsight. Nella parte superiore del pannello HDInsight selezionare l'icona **Desktop remoto**. Questo collegamento consente di visualizzare il pannello Desktop remoto
 
@@ -77,10 +74,9 @@ Usare la procedura seguente per eseguire una query Hive che usa Tez.
 
     ![Icona Connetti di Desktop remoto](./media/hdinsight-debug-tez-ui/remotedesktopconnect.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Se la connettività Desktop remoto non è stata abilitata, specificare nome utente, password e data di scadenza e quindi selezionare **Abilita** per abilitare Desktop remoto. Una volta abilitata, seguire i passaggi precedenti per connettersi.
-   >
-   >
+
 3. Dopo aver stabilito la connessione, aprire Internet Explorer sul desktop remoto, selezionare l'icona a forma di ingranaggio in alto a destra nel browser e quindi selezionare **Impostazioni Visualizzazione Compatibilità**.
 4. Nella parte inferiore di **Impostazioni Visualizzazione Compatibilità** deselezionare le caselle di controllo **Visualizza siti Intranet in Visualizzazione Compatibilità** e **Usa elenchi di compatibilità Microsoft** e quindi selezionare **Chiudi**.
 5. In Internet Explorer passare a http://headnodehost:8188/tezui/#/. Viene visualizzata l'interfaccia utente di Tez
@@ -101,10 +97,8 @@ Usare la procedura seguente per eseguire una query Hive che usa Tez.
    * **All Tasks** (Tutte le attività) visualizza un elenco delle attività per tutti i vertici nel DAG.
    * **All TaskAttempts** (Tutti i tentativi di attività) visualizza informazioni sui tentativi di eseguire attività per il DAG.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Scorrendo la visualizzazione colonne per vertici, attività e tentativi di attività, si noti che sono presenti collegamenti per visualizzare i **contatori** e per **visualizzare o scaricare i log** per ogni riga.
-     >
-     >
 
      Se si è verificato un errore nel processo, in DAG Details viene visualizzato lo stato FAILED, con i collegamenti alle informazioni sull'attività non riuscita. Le informazioni di diagnostica vengono mostrate sotto i dettagli DAG.
 8. Selezionare **Graphical View** (Visualizzazione grafica). Viene visualizzata una rappresentazione grafica del DAG. È possibile posizionare il mouse su ogni vertice nella visualizzazione per accedere alle relative informazioni.
@@ -115,20 +109,17 @@ Usare la procedura seguente per eseguire una query Hive che usa Tez.
     ![Vertex Details](./media/hdinsight-debug-tez-ui/vertexdetails.png)
 10. Si noti che ora nella parte superiore della pagina sono presenti i collegamenti relativi ai vertici e alle attività.
 
-    > [!NOTE]
+    > [!NOTE]  
     > È possibile accedere a questa pagina anche tornando a **DAG Details** (Dettagli DAG) e selezionando **Vertex Details** (Dettagli vertice) e quindi il vertice **Map 1** (Mappa 1).
-    >
-    >
 
     * **Vertex Counters** (Contatori vertice) visualizza informazioni sui contatori per il vertice.
     * **Tasks** (Attività) visualizza le attività per il vertice.
     * **Task Attempts** (Tentativi attività) visualizza informazioni sui tentativi di eseguire attività per il vertice.
     * **Sources &amp; Sinks** (Origini e sink) visualizza le origini dati e i sink per il vertice.
 
-      > [!NOTE]
+      > [!NOTE]  
       > Come per il menu precedente, è possibile scorrere la visualizzazione colonne per Tasks, Task Attempts e Sources & Sinks per visualizzare i collegamenti ad altre informazioni per ogni elemento.
-      >
-      >
+
 11. Selezionare **Tasks** (Attività) e quindi l'elemento denominato **00_000000**. Questo collegamento consente di visualizzare i dati di **Task Details** (Dettagli attività) per questa attività. Da questa schermata è possibile visualizzare **Task Counters** (Contatori attività) e **Task Attempts** (Tentativi attività).
 
     ![Dettagli dell'attività](./media/hdinsight-debug-tez-ui/taskdetails.png)

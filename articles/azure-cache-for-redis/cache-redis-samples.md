@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: ea509d3804053f060ad551b6eff945b70cec8796
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c9a2d569641ab0f8f6aa1d7234da1d3cbb0ab147
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261059"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744990"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Esempi di Cache Redis di Azure
 Questo argomento fornisce un elenco di esempi di Cache Redis di Azure relativi a scenari come la connessione a una cache, la lettura e la scrittura di dati nella cache e l'uso di provider di Cache Redis ASP.NET. Alcuni esempi sono progetti scaricabili e alcuni forniscono informazioni dettagliate e includono frammenti di codice, ma non un collegamento a un progetto scaricabile.
@@ -40,7 +40,7 @@ In questo esempio viene illustrato come:
 * Utilizzare i set di Redis per implementare l'assegnazione di tag
 * Lavorare con Cluster Redis
 
-Per altre informazioni, vedere la documentazione di [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) in GitHub. Per altri scenari di utilizzo, vedere gli unit test [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests).
+Per altre informazioni, vedere la documentazione di [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) in GitHub. Per altri scenari di utilizzo, vedere gli unit test [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests).
 
 In [Come usare Cache Redis di Azure con Python](cache-python-get-started.md) viene illustrato come usare Cache Redis di Azure con Python e il client [redis-py](https://github.com/andymccurdy/redis-py).
 

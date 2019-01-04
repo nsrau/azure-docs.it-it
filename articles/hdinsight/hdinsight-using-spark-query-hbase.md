@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: f76dfc8499d294c2c682c4d9c4cf2cd2f858432f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 547cc30bdf3dedff30c28165a7a76093a6512b83
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408865"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993093"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Usare Apache Spark per leggere e scrivere dati Apache HBase
 
@@ -126,7 +126,7 @@ In questo passaggio viene creata e popolata una semplice tabella in Apache HBase
 1. Connettersi al nodo head del cluster Spark tramite SSH.
 2. Avviare la shell di Spark specificando il pacchetto del connettore HBase Spark:
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
 
 3. Tenere aperta l'istanza della shell di Spark e continuare con il passaggio successivo.
 

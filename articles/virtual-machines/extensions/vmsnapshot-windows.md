@@ -5,32 +5,25 @@ services: backup, virtual-machines-windows
 documentationcenter: ''
 author: trinadhk
 manager: jeconnoc
-editor: ''
-ms.assetid: 57759670-0baa-44db-ae14-8cdc00d3a906
 ms.service: backup, virtual-machines-windows
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 3/26/2018
+ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8426a2472a28cf287dfe574cb80da56108394ae8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4d942e21afbf1d87ab67d79e90119a4122d889da
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944863"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632196"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Estensione Windows VM Snapshot per Backup di Azure
 
-## <a name="overview"></a>Panoramica
-
 Backup di Azure fornisce supporto nel backup dei carichi di lavoro da locale al cloud e nel backup delle risorse cloud nel vault dei Servizi di ripristino. Backup di Azure usa l'estensione VM Snapshot per eseguire un backup coerente dell'applicazione della macchina virtuale di Azure senza la necessità di arrestare la VM. L'estensione VM Snapshot è pubblicata e supportata da Microsoft come parte del servizio Backup di Azure. Backup di Azure installerà l'estensione come parte del primo backup pianificato attivato dopo l'attivazione del backup. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione VM Snapshot.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
-Per un elenco dei sistemi operativi supportati, consultare i [sistemi operativi supportati da Backup di Azure](../../backup/backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup)
+Per un elenco dei sistemi operativi supportati, consultare i [sistemi operativi supportati da Backup di Azure](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
@@ -38,7 +31,7 @@ Per l'estensione VM Snapshot è necessario che la macchina virtuale di destinazi
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-Il codice JSON riportato di seguito mostra lo schema dell'estensione VM Snapshot. L'estensione richiede l'ID dell'attività che identifica il processo di backup che ha attivato la snapshot sulla macchina virtuale, lo stato dell'URI del BLOB, dove viene scritto lo stato della snapshot, l'ora di inizio pianificata della snapshot, registra l'URI del BLOB, dove i registri corrispondenti all'attività della snapshot vengono scritti, objstr- rappresentazione oggettiva di dischi VM e metadati.  Poiché queste impostazioni devono essere trattate come dati sensibili, occorre memorizzarle in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Si noti che si consiglia di passare queste impostazioni dal servizio di Backup di Azure solo come parte del processo di backup.
+Il codice JSON riportato di seguito mostra lo schema dell'estensione VM Snapshot. L'estensione richiede l'ID dell'attività (che identifica il processo di backup che ha attivato lo snapshot sulla VM), lo stato dell'URI del BLOB (in cui viene scritto lo stato dell'operazione dello snapshot), l'ora di inizio pianificata dello snapshot, l'URI del BLOB dei registri (dove vengono scritti i registri corrispondenti all'attività dello snapshot), la rappresentazione dei dischi di macchine virtuali objectStr e i metadati.  Poiché queste impostazioni devono essere trattate come dati sensibili, devono essere memorizzate in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Si noti che si consiglia di passare queste impostazioni dal servizio di Backup di Azure solo come parte del processo di backup.
 
 ```json
 {

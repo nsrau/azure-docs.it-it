@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: 5f03f4fe1422f1665d857269c98a50827ed75d55
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: b880a80e19c5a85a35d5e1d78022fe4acc74f0e1
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958359"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999170"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Aggiornare un'applicazione Java di Service Fabric precedente per recuperare le librerie Java da Maven
 I file binari Java di Service Fabric sono stati recentemente spostati da Service Fabric Java SDK all'hosting in Maven. È ora possibile usare **mavenCentral** per recuperare le dipendenze Java di Service Fabric più recenti. Questa guida introduttiva consente di aggiornare le applicazioni Java esistenti precedentemente create per l'uso con Service Fabric Java SDK, con un modello Yeoman o Eclipse, per garantirne la compatibilità con la compilazione basata su Maven.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 1. È prima di tutto necessario disinstallare l'istanza esistente di Java SDK.
 
   ```bash
@@ -220,7 +220,7 @@ task copyDeps <<{
     }
 }
 ```
-Per un'idea generale di come si presenterà lo script di compilazione per un servizio Java senza stato di Service Fabric, vedere uno qualsiasi degli esempi introduttivi, ad esempio il file [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/Services/EchoServer/EchoServer1.0/EchoServerService/build.gradle) per l'esempio EchoServer.
+Per un'idea generale di come si presenterà lo script di compilazione per un servizio Java senza stato di Service Fabric, vedere uno qualsiasi degli esempi introduttivi, ad esempio il file [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/reliable-services-actor-sample/build.gradle) per l'esempio EchoServer.
 
 ## <a name="migrating-service-fabric-actor-service"></a>Migrazione di un servizio Service Fabric Actors
 

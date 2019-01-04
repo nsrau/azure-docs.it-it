@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 855ee1b7396be97c6529480b8fa8200bb8167ee6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434017"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715427"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Eseguire processi Apache Pig con Apache Hadoop in HDInsight tramite REST
 
@@ -101,7 +101,7 @@ Informazioni su come eseguire processi Apache Pig Latin inviando richieste REST 
 
 Quando lo stato del processo viene modificato in **SUCCEEDED**, è possibile recuperare i risultati del processo. Il parametro `statusdir` passato con la query contiene il percorso del file di output; in questo caso `/example/pigcurl`.
 
-HDInsight usa l'Archiviazione di Microsoft Azure o Azure Data Lake Storage come archivio dati predefinito. In base all'archivio usato, sono disponibili vari modi per ottenere i dati. Per altre informazioni, vedere la sezione relativa all'archiviazione del documento [Informazioni sull'uso di HDInsight in Linux](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store).
+HDInsight usa l'Archiviazione di Microsoft Azure o Azure Data Lake Storage come archivio dati predefinito. In base all'archivio usato, sono disponibili vari modi per ottenere i dati. Per altre informazioni, vedere la sezione relativa all'archiviazione del documento [Informazioni sull'uso di HDInsight in Linux](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-storage).
 
 ## <a id="summary"></a>Riepilogo
 

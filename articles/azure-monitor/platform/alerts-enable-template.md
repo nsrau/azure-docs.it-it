@@ -7,20 +7,20 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
-ms.component: metric
-ms.openlocfilehash: 4fcde6773bcdfe7ac522c813151518785dc14e25
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: metrics
+ms.openlocfilehash: a5e38f1400b99c6030799121d37721c26e16649c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383562"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721139"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creare un avviso di metrica classico con un modello di Resource Manager
 Questo articolo mostra come usare un [modello di Resource Manager di Azure](../../azure-resource-manager/resource-group-authoring-templates.md) per configurare gli avvisi sulle metriche in Azure. Consente di configurare automaticamente gli avvisi relativi alle risorse al momento della loro creazione, per assicurarsi che tutte le risorse siano correttamente monitorate.
 
 > [!NOTE]
 > 
-> Questo articolo descrive la creazione di **avvisi per metriche classiche**tramite modelli di Resource Manager. Se si vuole creare [avvisi per metriche più nuove](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) tramite i modelli, [questo articolo](alerts-metric-create-templates.md) offre tutti i dettagli.
+> Questo articolo descrive la creazione di **avvisi per metriche classiche**tramite modelli di Resource Manager. Se si vuole creare [avvisi per metriche più nuove](../../azure-monitor/platform/alerts-metric-near-real-time.md) tramite i modelli, [questo articolo](alerts-metric-create-templates.md) offre tutti i dettagli.
 >
 
 

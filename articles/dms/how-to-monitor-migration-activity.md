@@ -4,19 +4,19 @@ description: Informazioni sull'uso del Servizio Migrazione del database di Azure
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 12/14/2018
-ms.openlocfilehash: a315e8b42ab8e0df659a3388a50fedf5dd3a54d2
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: a7fc48c149d488ab7860513b617b8a5806b1feb6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413065"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721156"
 ---
 # <a name="monitor-migration-activity"></a>Monitorare l'attività di migrazione
 Questo articolo illustra come monitorare lo stato di avanzamento di una migrazione sia a livello di database sia a livello di tabella.

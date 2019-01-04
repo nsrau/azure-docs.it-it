@@ -1,22 +1,25 @@
 ---
-title: Risoluzione dei problemi | Microsoft Docs
-description: Come risolvere i problemi quando si usa il Servizio di riconoscimento vocale Microsoft.
+title: Risoluzione dei problemi di Riconoscimento vocale Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Come risolvere i problemi quando si usa Riconoscimento vocale Bing.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04f3da19939d523d201d357b2b0293db1508431d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2da6795e938f1a0c0ed0495fb169007126501eea
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373809"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753661"
 ---
-# <a name="troubleshooting"></a>Risoluzione dei problemi
+# <a name="troubleshooting-bing-speech"></a>Risoluzione dei problemi di Riconoscimento vocale Bing
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## <a name="error-http-403-forbidden"></a>Errore `HTTP 403 Forbidden`
 
@@ -49,7 +52,7 @@ Per la verifica è possibile eseguire questo comando. Sostituire *YOUR_SUBSCRIPT
 > [!NOTE]
 > Sostituire `YOUR_SUBSCRIPTION_KEY` con la propria chiave di sottoscrizione.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -85,7 +88,7 @@ Questo passaggio è necessario solo se per l'autenticazione si usa il token di a
 > [!NOTE]
 > Sostituire `YOUR_AUDIO_FILE` con il percorso al file audio pre-registrato e `YOUR_ACCESS_TOKEN` con il token di autorizzazione restituito nel passaggio precedente.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -127,7 +130,7 @@ L'errore viene restituito dopo il timeout se al servizio non viene inviato alcun
 
 ## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>L'elemento `RecognitionStatus` nella risposta è `InitialSilenceTimeout`
 
-I dati audio sono in genere la causa del problema. Esempio:
+I dati audio sono in genere la causa del problema. Ad esempio,
 
 - L'audio ha un lungo tempo di silenzio all'inizio. Il servizio interrompe il riconoscimento dopo un certo numero di secondi e restituisce `InitialSilenceTimeout`.
 - L'audio usa un formato codec non supportato e pertanto i dati audio vengono trattati come silenzio.

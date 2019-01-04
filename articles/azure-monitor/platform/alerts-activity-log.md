@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 5657cfb40e9017918f5842c573895872940b307a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273706"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579329"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività in Monitoraggio di Azure  
 
@@ -96,7 +96,7 @@ Utilizzare la procedura seguente:
     È possibile abilitare, disabilitare, modificare o eliminare una regola. [Altre informazioni](#view-and-manage-activity-log-alert-rules-in-azure-portal) sulla gestione delle regole del log attività.
 
 
-In alternativa, una semplice analogia per comprendere le condizioni in cui è possibile creare le regole di avviso nel log attività è quella di esplorare o filtrare gli eventi tramite il [Log attività nel portale di Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). In Monitoraggio di Azure - Log attività, un utente può filtrare o trovare l'evento necessario e quindi creare un avviso usando il pulsante **Aggiungi avviso del log attività**, quindi seguire i passaggi dal 4 in poi come indicato in precedenza nell'esercitazione.
+In alternativa, una semplice analogia per comprendere le condizioni in cui è possibile creare le regole di avviso nel log attività è quella di esplorare o filtrare gli eventi tramite il [Log attività nel portale di Azure](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). In Monitoraggio di Azure - Log attività, un utente può filtrare o trovare l'evento necessario e quindi creare un avviso usando il pulsante **Aggiungi avviso del log attività**, quindi seguire i passaggi dal 4 in poi come indicato in precedenza nell'esercitazione.
     
  ![ Aggiungere un avviso dal log attività](media/alerts-activity-log/add-activity-log.png)
     
@@ -223,4 +223,4 @@ Il file *sampleActivityLogAlert.parameters.json* include i valori dei parametri 
 - [Schema dei webhook per i log attività](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 - [Panoramica dei log attività](../../azure-monitor/platform/activity-log-alerts.md) 
 - Altre informazioni sui [gruppi di azione](../../azure-monitor/platform/action-groups.md).  
-- Informazioni sulle [notifiche per l'integrità del servizio](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Informazioni sulle [notifiche per l'integrità del servizio](../../azure-monitor/platform/service-notifications.md).

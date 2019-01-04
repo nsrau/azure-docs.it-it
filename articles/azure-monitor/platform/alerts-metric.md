@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 3a106b0fe570fe44f96529d830271dfe4912437f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336494"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584310"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure
 
@@ -33,7 +33,7 @@ La procedura seguente descrive come creare una regola di avviso per la metrica n
 
 3. Fare clic su **Selezionare la destinazione** e, nel riquadro del contesto caricato, selezionare una risorsa di destinazione che si intende modificare. Usare gli elenchi a discesa **Sottoscrizione** e **Tipo di risorsa** per trovare la risorsa da monitorare. È anche possibile usare la barra di ricerca per trovare la risorsa.
 
-4. Se la risorsa selezionata include metriche su cui creare avvisi, **Segnali disponibili** nella parte inferiore destra includerà le metriche. È possibile visualizzare l'elenco completo dei tipi di risorse supportati per gli avvisi delle metriche in questo [articolo](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+4. Se la risorsa selezionata include metriche su cui creare avvisi, **Segnali disponibili** nella parte inferiore destra includerà le metriche. È possibile visualizzare l'elenco completo dei tipi di risorse supportati per gli avvisi delle metriche in questo [articolo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
 5. Dopo aver selezionato una risorsa di destinazione, fare clic su **Aggiungi criteri**
 
@@ -130,4 +130,4 @@ Le sezioni precedenti descrivono come creare, visualizzare e gestire le regole d
 
 - [Creare avvisi delle metriche mediante modelli di Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
 - [Comprendere il funzionamento degli avvisi delle metriche](alerts-metric-overview.md).
-- [Understand the web hook schema for metric alerts](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#payload-schema) (Comprendere lo schema webhook per gli avvisi delle metriche)
+- [Understand the web hook schema for metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema) (Comprendere lo schema webhook per gli avvisi delle metriche)
