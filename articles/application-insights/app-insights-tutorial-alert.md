@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 39e2f136e30ebb6dcfc003c435382f3384af1052
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4b608f9237b9f7f98173168e055b5e83635bc2d7
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23659344"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753762"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorare e inviare avvisi sullo stato di integrità dell'applicazione con Azure Application Insights
 
@@ -27,14 +27,14 @@ Azure Application Insights consente di monitorare l'applicazione e inviare avvis
 > * Usare un'app per la logica per inviare dati di telemetria riepilogati in una pianificazione.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
 - Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
     - Sviluppo Web e ASP.NET
     - Sviluppo di Azure
-    - Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](app-insights-asp-net.md). 
+    - Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../azure-monitor/app/asp-net.md). 
 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
@@ -88,7 +88,7 @@ Oltre a inviare avvisi da un test di disponibilità, è possibile creare un avvi
 ## <a name="proactively-send-information"></a>Inviare informazioni in modo proattivo
 Gli avvisi vengono creati in risposta a un particolare set di problemi identificati nell'applicazione e in genere si usano per le condizioni critiche che richiedono un'attenzione immediata.  È possibile ottenere informazioni sull'applicazione in modo proattivo con un'app per la logica che viene eseguita automaticamente in base a una pianificazione.  Ad esempio, è possibile fare in modo che gli amministratori ricevano quotidianamente un messaggio e-mail con informazioni di riepilogo che richiedono un'ulteriore valutazione.
 
-Per maggiori dettagli sulla creazione di un'app per la logica con Application Insights, vedere [Automatizzare i processi di Application Insights con app per la logica](automate-with-logic-apps.md).
+Per maggiori dettagli sulla creazione di un'app per la logica con Application Insights, vedere [Automatizzare i processi di Application Insights con app per la logica](../azure-monitor/app/automate-with-logic-apps.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere appreso come creare avvisi per gli eventuali problemi, passare all'esercitazione successiva per imparare ad analizzare il modo in cui gli utenti interagiscono con l'applicazione.

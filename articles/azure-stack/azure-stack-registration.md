@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: b036f0b1c38222b6bb3ebee1a3fab0d1613260f7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811019"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002485"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
@@ -309,6 +309,11 @@ Facoltativamente, è possibile usare il cmdlet Get-Content per puntare a un file
     [ ![Nel riquadro Gestione regione](media/azure-stack-registration/admin1sm.png "nel riquadro Gestione area") ](media/azure-stack-registration/admin1.png#lightbox)
 
 3. Selezionare **Proprietà**. Questo pannello mostra lo stato e i dettagli dell'ambiente. Lo stato può essere **Registered** oppure **non è registrato**. Se la registrazione, nonché l'ID sottoscrizione di Azure che è utilizzato per registrare Azure Stack, con il gruppo di risorse di registrazione e il nome.
+
+In alternativa, è possibile verificare se la registrazione è riuscita con la funzionalità di gestione di Marketplace. Se viene visualizzato un elenco di elementi del marketplace nel Pannello di gestione di Marketplace, la registrazione è riuscita. Tuttavia, in ambienti non connessi, non sarà in grado di visualizzare elementi del marketplace nella gestione di Marketplace. Tuttavia, è possibile utilizzare lo strumento offline per verificare la registrazione.
+
+> [!NOTE]
+> Dopo aver completata la registrazione, il messaggio di avviso attiva per la registrazione non verrà più visualizzato. Negli scenari disconnessi, si verrà visualizzato un messaggio nella gestione di Marketplace che richiede di registrare e attivare Azure Stack, anche se è stato registrato correttamente.
 
 ## <a name="renew-or-change-registration"></a>Rinnova o Modifica registrazione
 

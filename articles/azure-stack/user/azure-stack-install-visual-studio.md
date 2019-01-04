@@ -12,21 +12,21 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 2afbea68c017805e9bd7db43b03face0705608b7
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6bb3215e63e2fc672cde5746e6a9867df899ee88
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42358748"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016699"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Installare Visual Studio e connettersi ad Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-È possibile usare Visual Studio per scrivere e distribuire Azure Resource Manager [modelli](azure-stack-arm-templates.md) ad Azure Stack. I passaggi descritti in questo articolo illustrano come installare Visual Studio sul [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o in un computer esterno se si prevede di Azure Stack tramite il [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+È possibile usare Visual Studio per scrivere e distribuire Azure Resource Manager [modelli](azure-stack-arm-templates.md) ad Azure Stack. I passaggi descritti in questo articolo illustrano come installare Visual Studio sul [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o in un computer esterno se si prevede di usare Azure Stack tramite [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 ## <a name="install-visual-studio"></a>Installazione di Visual Studio
 
@@ -65,29 +65,30 @@ Dopo aver effettuato l'accesso, è possibile [distribuire modelli](azure-stack-d
 3. Espandere **ambiente** nel **riquadro di spostamento** e selezionare **account**.
 
 4. Selezionare **Add**e immettere l'endpoint di Azure Resource Manger di utente.  
-  Per Azure Stack Development kit, l'URL è: `https://management.local.azurestack/external`.  
-  Per Azure Stack integrati sistemi l'URL è: `https://management.[Region}.[External FQDN]`.
+  Per Azure Stack Development Kit, l'URL è: `https://management.local.azurestack/external`.  
+  Per i sistemi integrati di Azure Stack, l'URL è: `https://management.[Region}.[External FQDN]`.
 
     ![X](./media/azure-stack-install-visual-studio/image5.png)
 
 5. Selezionare **Aggiungi**.  
 
-    Visual Studio chiama il gestore delle risorse di Azure e consente di individuare gli endpoint inclusi l'endpoint di autenticazione per Azure Directory Federated Services (ADFS).
+    Visual Studio chiama Gestione risorse di Azure e consente di individuare gli endpoint, tra cui l'endpoint di autenticazione per Azure Directory Federated Services (ADFS).
 
     ![Screenshot di Esplora Cloud una volta effettuato l'accesso e connesse ad Azure Stack](./media/azure-stack-install-visual-studio/image6.png)
 
 6. Selezionare **Cloud Explorer** dalle **visualizzazione** menu.
-7. Selezionare **Add Account** e accedere con le credenziali di AD FS.  
 
-    ![X](./media/azure-stack-install-visual-studio/image7.png)
+1. Selezionare **Add Account** e accedere con le credenziali di AD FS.  
+
+    ![Cloud Explorer](./media/azure-stack-install-visual-studio/image7.png)
 
     Cloud Explorer esegue una query le sottoscrizioni disponibili. È possibile selezionare uno una sottoscrizione disponibile per la gestione.
 
-    ![X](./media/azure-stack-install-visual-studio/image8.png)
+    ![Cloud Explorer](./media/azure-stack-install-visual-studio/image8.png)
 
 8. Esplorazione di risorse esistente, i gruppi di risorse o la distribuzione dei modelli.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- - Altre informazioni, vedere [coesistenza](https://msdn.microsoft.com/library/ms246609.aspx) con altre versioni di Visual Studio.
- - [Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)
+ - Altre informazioni su Visual Studio [fianco a fianco](https://msdn.microsoft.com/library/ms246609.aspx) con altre versioni di Visual Studio.
+ - [Sviluppare modelli per Azure Stack](azure-stack-develop-templates.md).

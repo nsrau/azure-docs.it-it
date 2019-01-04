@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4b78675de2902736b90afa1df9ad66e2df2b0f77
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 8c63b97f9d4423bf57909da7716675915a5271ef
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386231"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994052"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Esercitazione: Informazioni su come chiamare le API di ricerca cognitiva (anteprima)
 
@@ -59,7 +59,7 @@ Prima di tutto, iscriversi al servizio Ricerca di Azure.
 
 1. Per Gruppo di risorse creare un gruppo di risorse per contenere tutte le risorse che verranno create in questa esercitazione. In questo modo è più semplice pulire le risorse dopo aver completato l'esercitazione.
 
-1. Per Località scegliere una delle [aree supportate](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions) per la ricerca cognitiva.
+1. Per Località scegliere una delle [aree supportate](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob#supported-regions) per la ricerca cognitiva.
 
 1. Per Piano tariffario è possibile creare un servizio **Gratuito** per completare le esercitazioni e le guide introduttive. Per eseguire altre analisi usando dati personali, creare un [servizio a pagamento](https://azure.microsoft.com/pricing/details/search/), ad esempio **Basic** o **Standard**. 
 

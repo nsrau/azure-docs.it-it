@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5f31d995ba4390eb5a893c3ebde49ee4e96e8023
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631482"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021136"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Preparare i certificati di infrastruttura a chiave pubblica di Azure Stack per l'uso nella distribuzione o la rotazione
 I file di certificato [ottenuto dalla CA di scelta](azure-stack-get-pki-certs.md) devono essere importati ed esportati con proprietà corrispondenti requisiti dei certificati di Azure Stack.
@@ -73,7 +73,14 @@ Aprire la console di gestione certificati MMC e connettersi all'archivio certifi
 
 1. Selezionare **Sì, Esporta la chiave privata**, quindi fare clic su **successivo**.
 
-1. Nella sezione formato File di esportazione, selezionare **Esporta tutte le proprietà estese** e quindi fare clic su **successivo**.
+1. Nella sezione formato File di esportazione:
+    
+    - Selezionare **se possibile, Includi tutti i certificati nel certificato**.  
+    - Selezionare **Esporta tutte le proprietà estese**.  
+    - Selezionare **Abilita privacy del certificato**.  
+    - Fare clic su **Avanti**.  
+    
+    ![Esportazione guidata certificati con opzioni selezionate](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
 1. Selezionare **Password** e fornire una password per i certificati. Prendere nota della password perché è usato come parametro di distribuzione. Selezionare **Avanti**.
 
@@ -82,4 +89,5 @@ Aprire la console di gestione certificati MMC e connettersi all'archivio certifi
 1. Selezionare **Fine**.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Convalidare i certificati PKI](azure-stack-validate-pki-certs.md)

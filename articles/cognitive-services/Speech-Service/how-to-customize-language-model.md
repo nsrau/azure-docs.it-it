@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Come creare un modello linguistico con il servizio di riconoscimento vocale'
 titlesuffix: Azure Cognitive Services
-description: Informazioni su come creare un modello linguistico con il servizio di riconoscimento vocale. Usare il modello linguistico personalizzato insieme ai modelli conversione voce/testo Microsoft avanzati esistenti per aggiungere l'interazione vocale alla propria applicazione.
+description: Informazioni su come creare un modello linguistico con il servizio Voce. Usare il modello linguistico personalizzato insieme ai modelli conversione voce/testo Microsoft avanzati esistenti per aggiungere l'interazione vocale alla propria applicazione.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e65fa21eefcc103f553f8e1bc47792ac372c59e3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093465"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975441"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Esercitazione: Creare un modello linguistico personalizzato
 
@@ -100,9 +100,7 @@ Prima di intraprendere qualsiasi azione, è necessario selezionare le impostazio
 
 Nella pagina Crea modello linguistico immettere **Nome** e **Descrizione** per tenere traccia delle informazioni pertinenti sul modello, ad esempio il set di dati usato. Quindi, selezionare **Modello linguistico di base** dal menu a discesa. Questo modello sarà il punto di partenza per la personalizzazione.
 
-Esistono due modelli linguistici di base tra cui scegliere. Il modello Search and Dictation (Ricerca e dettatura) è appropriato per un parlato diretto a un'applicazione, ad esempio comandi, query di ricerca o dettatura. Il modello Conversational (Colloquiale) è adatto per il riconoscimento vocale di una conversazione. Questo tipo di parlato è solitamente diretto a un'altra persona e si verifica nei call center o nelle riunioni.
-
-Il modello Search and Dictation (Ricerca e dettatura) è appropriato per un parlato diretto a un'applicazione, ad esempio comandi, query di ricerca o dettatura. Il modello Conversational (Colloquiale) è adatto per il riconoscimento vocale di una conversazione. Questo tipo di parlato è solitamente diretto a un'altra persona e si verifica nei call center o nelle riunioni. È inoltre disponibile al pubblico un nuovo modello chiamato "Universal" (Universale). Il modello universale mira ad affrontare tutti gli scenari e a sostituire il modello di ricerca e dettatura e il modello colloquiale.
+Esistono due modelli linguistici di base tra cui scegliere. Il modello Search and Dictation (Ricerca e dettatura) è appropriato per un parlato diretto a un'applicazione, ad esempio comandi, query di ricerca o dettatura. Il modello Conversational (Colloquiale) è adatto per il riconoscimento vocale di una conversazione. Questo tipo di parlato è solitamente diretto a un'altra persona e si verifica nei call center o nelle riunioni. È inoltre disponibile al pubblico un nuovo modello chiamato "Universal" (Universale). Il modello universale mira ad affrontare tutti gli scenari e a sostituire il modello di ricerca e dettatura e il modello colloquiale.
 
 Come mostrato nell'esempio seguente, dopo aver specificato il modello linguistico di base, usare menu a discesa **Dati Linguistici** per selezionare il set di dati linguistici che si desidera usare per la personalizzazione.
 
