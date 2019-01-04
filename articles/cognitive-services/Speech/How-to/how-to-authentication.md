@@ -1,24 +1,27 @@
 ---
-title: Eseguire l'autenticazione al Servizio di riconoscimento vocale | Microsoft Docs
-description: Richiedere l'autenticazione per usare Microsoft Speech API
+title: Eseguire l'autenticazione a Riconoscimento vocale Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Richiedere l'autenticazione per usare l'API Riconoscimento vocale Bing
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e36168cf3ff938af44f1028c2d26fd475d60b148
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 205eff6c79ba4699516a8898c5b1268eb3dfe644
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373841"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754017"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Eseguire l'autenticazione a Speech API
 
-Il Servizio di riconoscimento vocale supporta l'autenticazione tramite:
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+Riconoscimento vocale Bing supporta l'autenticazione tramite:
 
 - Una chiave di sottoscrizione.
 - Un token di autorizzazione.
@@ -31,7 +34,7 @@ Per l'uso a lungo termine o per una quota maggiore, iscriversi per ottenere un [
 
 Per usare l'API REST del Servizio di riconoscimento vocale, è necessario passare la chiave di sottoscrizione nel campo `Ocp-Apim-Subscription-Key` nell'intestazione della richiesta.
 
-Nome| Formato| Descrizione
+NOME| Format| DESCRIZIONE
 ----|-------|------------
 Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 
@@ -69,7 +72,7 @@ https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 
 L'esempio di codice seguente mostra come ottenere un token di accesso. Sostituire `YOUR_SUBSCRIPTION_KEY` con la propria chiave di sottoscrizione:
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -93,7 +96,7 @@ L'esempio usa curl in Linux con bash. Se non è disponibile nella piattaforma, p
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
     /*
@@ -156,7 +159,7 @@ L'esempio seguente mostra come usare un token di autorizzazione quando si chiama
 > [!NOTE]
 > Sostituire `YOUR_AUDIO_FILE` con il percorso del file audio preregistrato. Sostituire `YOUR_ACCESS_TOKEN` con il token di autorizzazione ottenuto nel passaggio precedente [Ottenere un token di autorizzazione](#get-an-authorization-token).
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -186,7 +189,7 @@ $RecoResponse
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 HttpWebRequest request = null;

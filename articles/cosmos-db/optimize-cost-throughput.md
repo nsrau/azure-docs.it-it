@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 501fe1d2da89b6968f5a3619fc8e02b01b1abd7a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f0d0442a8640a75b21e95e3ae024fd7994602b51
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263436"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807942"
 ---
 # <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>Ottimizzazione del costo della velocità effettiva in Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Come illustrato nella tabella seguente, a seconda della scelta dell'API, è poss
 |API|Per la velocità effettiva **condivisa**, configurare |Per la velocità effettiva **dedicata**, configurare |
 |----|----|----|
 |API SQL|Database|Contenitore|
-|API di MongoDB|Database|Raccolta|
+|API Azure Cosmos DB per MongoDB|Database|Raccolta|
 |API Cassandra|Keyspace|Tabella|
 |API Gremlin|Account di database|Grafico|
 |API di tabella|Account di database|Tabella|
@@ -177,9 +177,9 @@ La procedura seguente consente di rendere le soluzioni altamente scalabili ed ec
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto è possibile scoprire altre informazioni sull'ottimizzazione di costi in Azure Cosmos DB con gli articoli seguenti:
+È ora possibile passare ad altre informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 
-* Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
+* Altre informazioni sull'[Ottimizzazione di sviluppo e test](optimize-dev-test.md)
 * Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
 * Altre informazioni sull'[ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
 * Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)

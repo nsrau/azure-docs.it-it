@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 4e30b143a11e35fc83103abfa03e3fb7f29cf9dc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270134"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546862"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifiche di manutenzione pianificata per set di scalabilità di macchine virtuali
 
@@ -32,7 +32,7 @@ Azure esegue periodicamente aggiornamenti per migliorare l'affidabilità, le pre
 
 La manutenzione pianificata che richiede un riavvio viene pianificata in cicli. Ogni ciclo ha un ambito diverso (aree),
 
-- e inizia con un avviso ai clienti. Per impostazione predefinita, la notifica viene inviata ai proprietari della sottoscrizione e ai comproprietari. È possibile aggiungere destinatari e opzioni di messaggistica, come messaggi di posta elettronica, SMS e webhook, alle notifiche tramite gli [avvisi del log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) di Azure.  
+- e inizia con un avviso ai clienti. Per impostazione predefinita, la notifica viene inviata ai proprietari della sottoscrizione e ai comproprietari. È possibile aggiungere destinatari e opzioni di messaggistica, come messaggi di posta elettronica, SMS e webhook, alle notifiche tramite gli [avvisi del log attività](../azure-monitor/platform/activity-logs-overview.md) di Azure.  
 - Con la notifica viene resa disponibile una *finestra self-service*. Durante questa finestra, è possibile trovare le macchine virtuali incluse nel ciclo. È possibile avviare la manutenzione in modo proattivo in base alle proprie esigenze di pianificazione.
 - Dopo l'intervallo in modalità self-service, viene avviato un *intervallo di manutenzione pianificato*. In un determinato momento di questo intervallo, Azure pianifica e applica la manutenzione necessaria alla macchina virtuale. 
 
@@ -95,7 +95,7 @@ La colonna **Manutenzione self-service** è ora visualizzata nell'elenco dei set
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notifiche e avvisi del portale
 
-Azure comunica il programma di una manutenzione pianificata inviando un messaggio di posta elettronica al proprietario e ai comproprietari della sottoscrizione. È possibile aggiungere destinatari e canali a questa comunicazione creando avvisi del log attività. Per altre informazioni, vedere [Monitorare l'attività di sottoscrizione con il log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Azure comunica il programma di una manutenzione pianificata inviando un messaggio di posta elettronica al proprietario e ai comproprietari della sottoscrizione. È possibile aggiungere destinatari e canali a questa comunicazione creando avvisi del log attività. Per altre informazioni, vedere [Monitorare l'attività di sottoscrizione con il log attività di Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nel menu a sinistra selezionare **Monitoraggio**. 

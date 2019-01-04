@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: bwren
-ms.openlocfilehash: 160078787d28f43ef800d25c8b50fb316b38944f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: f1125c9d0ce543984393c99d70d511a3a162041e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436178"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975186"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -39,9 +39,7 @@ Per molte risorse di Azure, i dati raccolti da Monitoraggio di Azure sono visual
 
 ![Metriche](media/overview/metrics.png)
 
-<<<<<<< HEAD I dati di log raccolti da Monitoraggio di Azure possono essere analizzati con [query](log-query/log-query-overview.md) che recuperano, consolidano e analizzano rapidamente i dati raccolti.  È possibile creare e testare query usando [Log Analytics](../log-analytics/log-analytics-log-search-portals.md) nel portale di Azure e quindi analizzare direttamente i dati usando questi strumenti o salvare le query per l'uso con [visualizzazioni](visualizations.md) o [regole degli avvisi](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
-======= I dati di log raccolti da Monitoraggio di Azure sono archiviati in Log Analytics che include un [linguaggio di query avanzato](../azure-monitor/log-query/log-query-overview.md) per recuperare, consolidare e analizzare rapidamente i dati raccolti.  È possibile creare e testare query usando la pagina [Log Analytics](../azure-monitor/log-query/portals.md) nel portale di Azure e quindi analizzare direttamente i dati usando questi strumenti o salvare le query per l'uso con [visualizzazioni](visualizations.md) o [regole degli avvisi](../azure-monitor/platform/alerts-overview.md).
->>>>>>> 98b6f1655e9ada6d4b6a408ada0f1e4c9ed727d2
+I dati di log raccolti da Monitoraggio di Azure sono archiviati in Log Analytics che include un [linguaggio di query avanzato](../azure-monitor/log-query/log-query-overview.md) per recuperare, consolidare e analizzare rapidamente i dati raccolti.  È possibile creare e testare query usando la pagina [Log Analytics](../azure-monitor/log-query/portals.md) nel portale di Azure e quindi analizzare direttamente i dati usando questi strumenti o salvare le query per l'uso con [visualizzazioni](visualizations.md) o [regole degli avvisi](../azure-monitor/platform/alerts-overview.md).
 
 Monitoraggio di Azure usa una versione del [linguaggio di query di Esplora dati](/azure/kusto/query/) adatto a query semplici nei log, ma include anche funzionalità avanzate come le aggregazioni, i join e le analisi intelligenti. È possibile apprendere rapidamente il linguaggio di query usando le [numerose lezioni](log-query/get-started-queries.md) disponibili.  Indicazioni specifiche sono disponibili per gli utenti che hanno già familiarità con [SQL](log-query/sql-cheatsheet.md) e [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -56,11 +54,11 @@ Monitoraggio di Azure può raccogliere dati da diverse origini. Il monitoraggio 
 - **Dati di monitoraggio della sottoscrizione di Azure**: dati relativi al funzionamento e alla gestione di una sottoscrizione di Azure e dati relativi all'integrità e al funzionamento di Azure stesso. 
 - **Dati di monitoraggio del tenant di Azure**: dati relativi al funzionamento dei servizi di Azure a livello di tenant, ad esempio Azure Active Directory.
 
-Non appena si crea una sottoscrizione di Azure e si inizia ad aggiungere risorse quali macchine virtuali e app Web, Monitoraggio di Azure avvia la raccolta dei dati.  I [log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) registrano quando vengono create o modificate le risorse. Le [metriche](../monitoring-and-diagnostics/monitoring-overview-metrics.md) indicano le prestazioni della risorsa e quali risorse utilizza. 
+Non appena si crea una sottoscrizione di Azure e si inizia ad aggiungere risorse quali macchine virtuali e app Web, Monitoraggio di Azure avvia la raccolta dei dati.  I [log attività](../azure-monitor/platform/activity-logs-overview.md) registrano quando vengono create o modificate le risorse. Le [metriche](../monitoring-and-diagnostics/monitoring-overview-metrics.md) indicano le prestazioni della risorsa e quali risorse utilizza. 
 
-Per estendere i dati raccolti all'impiego effettivo delle risorse [abilitare la diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) e [aggiungere un agente](platform/agent-windows.md) per calcolare le risorse. In questo modo vengono raccolti i dati di telemetria per il funzionamento interno della risorsa ed è possibile configurare diverse [origini dati](platform/agent-data-sources.md) per raccogliere log e metriche dal sistema operativo guest Windows o Linux. 
+Per estendere i dati raccolti all'impiego effettivo delle risorse [abilitare la diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md) e [aggiungere un agente](platform/agent-windows.md) per calcolare le risorse. In questo modo vengono raccolti i dati di telemetria per il funzionamento interno della risorsa ed è possibile configurare diverse [origini dati](platform/agent-data-sources.md) per raccogliere log e metriche dal sistema operativo guest Windows o Linux. 
 
-[Aggiungere un pacchetto di strumentazione all'applicazione](../application-insights/app-insights-azure-web-apps.md) per abilitare Application Insights per raccogliere informazioni dettagliate sull'applicazione tra cui visualizzazioni pagina, richieste di applicazioni ed eccezioni. Verificare ulteriormente la disponibilità dell'applicazione configurando un [test di disponibilità](../application-insights/app-insights-monitor-web-app-availability.md) per simulare il traffico utente.
+[Aggiungere un pacchetto di strumentazione all'applicazione](../azure-monitor/app/azure-web-apps.md) per abilitare Application Insights per raccogliere informazioni dettagliate sull'applicazione tra cui visualizzazioni pagina, richieste di applicazioni ed eccezioni. Verificare ulteriormente la disponibilità dell'applicazione configurando un [test di disponibilità](../azure-monitor/app/monitor-web-app-availability.md) per simulare il traffico utente.
 
 ### <a name="custom-sources"></a>Origini personalizzate
 Monitoraggio di Azure può raccogliere dati di log da qualsiasi client REST usando l'[API dell'agente di raccolta dati](../azure-monitor/platform/data-collector-api.md). In questo modo è possibile creare scenari di monitoraggio personalizzati ed estendere il monitoraggio alle risorse che non espongono dati di telemetria tramite altre origini.
@@ -131,7 +129,7 @@ Le [visualizzazioni](../log-analytics/log-analytics-view-designer.md) presentano
 Spesso si ha l'esigenza di integrare Monitoraggio di Azure con altri sistemi e compilare soluzioni personalizzate che utilizzano i dati di monitoraggio. Altri servizi di Azure funzionano con Monitoraggio di Azure per fornire questa integrazione.
 
 ### <a name="event-hub"></a>Hub eventi
-[Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs) è una piattaforma di streaming e un servizio di inserimento di eventi che può trasformare e archiviare i dati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch o archiviazione. Usare Hub eventi per [lo streaming di dati di log da Monitoraggio di Azure](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) a strumenti di monitoraggio e informazioni di sicurezza e gestione degli eventi partner.
+[Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs) è una piattaforma di streaming e un servizio di inserimento di eventi che può trasformare e archiviare i dati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch o archiviazione. Usare Hub eventi per [lo streaming di dati di log da Monitoraggio di Azure](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) a strumenti di monitoraggio e informazioni di sicurezza e gestione degli eventi partner.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

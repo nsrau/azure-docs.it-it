@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 80f7d93037c0b900608301ebf6463f85be10f2de
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311321"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714356"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -56,7 +56,7 @@ Se si vuole usare il percorso più rapido per la pubblicazione di progetti basat
 
 È possibile creare app Web, back-end di app per dispositivi mobili e app per le API.
 
-Poiché tutti e tre i tipi di app condividono il runtime del servizio app, è possibile ospitare un sito Web, supportare i client per dispositivi mobili ed esporre le API in Azure nello stesso progetto o nella stessa soluzione. Per altre informazioni sulle app Web del servizio app di Azure, vedere [Che cos'è App Web di Azure](../../app-service/app-service-web-overview.md).
+Poiché tutti e tre i tipi di app condividono il runtime del servizio app, è possibile ospitare un sito Web, supportare i client per dispositivi mobili ed esporre le API in Azure nello stesso progetto o nella stessa soluzione. Per altre informazioni sulle app Web del servizio app di Azure, vedere [Che cos'è App Web di Azure](../../app-service/overview.md).
 
 Il servizio app, progettato su misura per DevOps, supporta vari strumenti per la pubblicazione e la distribuzione di integrazione continua, tra cui webhook GitHub, Jenkins, Azure DevOps, TeamCity e altri.
 
@@ -168,7 +168,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
     >**Uso consigliato**: quando si vuole abilitare l'autenticazione in un'app del servizio app tramite Azure AD, provider di identità basati su social network o entrambi.
 
-    >**Come iniziare**: per altre informazioni sull'autenticazione nel servizio app, vedere [Autenticazione e autorizzazione nel servizio app di Azure](../../app-service/app-service-authentication-overview.md).
+    >**Come iniziare**: per altre informazioni sull'autenticazione nel servizio app, vedere [Autenticazione e autorizzazione nel servizio app di Azure](../../app-service/overview-authentication-authorization.md).
 
 Per altre informazioni sulle procedure consigliate per la sicurezza in Azure, vedere [Procedure consigliate e modelli per la sicurezza di Azure](../../security/security-best-practices-and-patterns.md).
 
@@ -190,7 +190,7 @@ Sia che si tratti di eseguire il provisioning di VM o di pubblicare app Web con 
 
 >**Da provare subito:** [alcune integrazioni di DevOps](https://azure.microsoft.com/try/devops/).
 
->**Come iniziare**: per visualizzare le opzioni di DevOps per le app del servizio app, vedere [Distribuzione continua nel servizio app di Azure](../../app-service/app-service-continuous-deployment.md).
+>**Come iniziare**: per visualizzare le opzioni di DevOps per le app del servizio app, vedere [Distribuzione continua nel servizio app di Azure](../../app-service/deploy-continuous-deployment.md).
 
 
 ## <a name="azure-regions"></a>Aree di Azure

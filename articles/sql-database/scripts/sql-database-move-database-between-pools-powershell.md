@@ -3,7 +3,7 @@ title: Esempio di PowerShell - Spostare un database SQL di Azure tra pool elasti
 description: Script di esempio di Azure PowerShell per spostare un database SQL tra pool elastici usando PowerShell
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -12,12 +12,12 @@ ms.reviewer: ''
 ms.author: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 4a28ae1082f4efd62d4023d009a6ecb6d82728f4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8df4934efe49cff803c0c81bc62498e9b7361323
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961094"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53649925"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Usare Use PowerShell per creare pool elastici e spostare database tra pool elastici
 

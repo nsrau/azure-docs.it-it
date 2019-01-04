@@ -1,20 +1,17 @@
 ---
 title: Come ripristinare un server in Database di Azure per PostgreSQL | Microsoft Docs
 description: In questo articolo viene descritta la procedura per ripristinare un server nel Database di Azure per PostgreSQL usando il portale di Azure.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: b4fe1151337dc6f5874e6ad102c6e905e90fd963
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 26959425ec42870ec084146380c376d76e7029f3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412757"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542646"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per PostgreSQL usando il portale di Azure
 
@@ -61,9 +58,9 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 3. Compilare il modulo Ripristina con le informazioni obbligatorie:
 
    ![Database di Azure per PostgreSQL - Informazioni di ripristino ](./media/howto-restore-server-portal/3-restore.png)
-  - **Punto di ripristino**: selezionare il punto nel tempo per il ripristino.
-  - **Server di destinazione**: specificare un nome per il nuovo server.
-  - **Percorso**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
+  - **Punto di ripristino**: selezionare il punto di ripristino temporizzato desiderato.
+  - **Server di destinazione**: Specificare un nome per il nuovo server.
+  - **Posizione**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
   - **Piano tariffario**: non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
 
 4. Fare clic su **OK** per ripristinare il server a un momento specifico. 
@@ -81,7 +78,7 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
    ![Opzione "Database di Azure per PostgreSQL"](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
 
 2. Nell'elenco a discesa **Seleziona origine** scegliere **Backup**. Questa azione consente di caricare un elenco di server per i quali è stato abilitato il backup con ridondanza geografica. Selezionare uno di questi backup come origine del nuovo server.
-   ![Opzione Seleziona origine: Backup ed elenco di backup con ridondanza geografica](./media/howto-restore-server-portal/2-georestore.png)
+   ![Seleziona origine: backup ed elenco di backup con ridondanza geografica](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Quando un server viene creato per la prima volta, potrebbe non essere subito disponibile per il ripristino geografico. Potrebbero essere necessarie alcune ore per popolare i metadati necessari.

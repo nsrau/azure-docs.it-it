@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 30b5ae499d29b8b78b5852074362841ac1ceb49f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133421"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729408"
 ---
 1. Accedere al [portale di Azure].
 2. Selezionare **+NUOVO** > **Web e dispositivi mobili** > **App per dispositivi mobili** e quindi specificare un nome per il back-end di App per dispositivi mobili.
 3. Per **Gruppo di risorse** selezionare un gruppo di risorse esistente o crearne uno nuovo usando lo stesso nome dell'app. 
 4. Per **Piano di servizio app** viene selezionato il piano predefinito nel [livello Standard](https://azure.microsoft.com/pricing/details/app-service/). È anche possibile selezionare un piano diverso oppure [crearne uno nuovo](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
 
-   Le impostazioni del piano di servizio app determinano [località, funzionalità, costo e risorse di calcolo](https://azure.microsoft.com/pricing/details/app-service/) associati all'app. Per altre informazioni sui piani di servizio app e su come creare un nuovo piano in un diverso piano tariffario e nella località desiderata, vedere la [panoramica approfondita dei piani di servizio app di Azure](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+   Le impostazioni del piano di servizio app determinano [località, funzionalità, costo e risorse di calcolo](https://azure.microsoft.com/pricing/details/app-service/) associati all'app. Per altre informazioni sui piani di servizio app e su come creare un nuovo piano in un diverso piano tariffario e nella località desiderata, vedere la [panoramica approfondita dei piani di servizio app di Azure](../articles/app-service/overview-hosting-plans.md).
    
 5. Selezionare **Create**. Questo passaggio crea il back-end di App per dispositivi mobili. 
 6. Nel riquadro **Impostazioni** per il nuovo back-end di App per dispositivi mobili selezionare **Avvio rapido** > piattaforma app client > **Connettere un database**. 

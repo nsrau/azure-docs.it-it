@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310998"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974710"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 ##  <a name="introduction"></a>Introduzione
@@ -121,7 +121,7 @@ I servizi aziendali con certificazioni sottoposte a auditing, ad esempio ISO/IEC
 
 Se si eliminano dati, Microsoft Azure elimina i dati, comprese le eventuali copie memorizzate nella cache o di backup. Per i servizi nell'ambito, l'eliminazione verrà eseguita entro 90 giorni dal termine del periodo di conservazione. I servizi nell'ambito sono definiti nella sezione Condizioni per l'elaborazione dei dati delle [condizioni di Microsoft Online Services](https://aka.ms/Online-Services-Terms).
 
-Se in un'unità disco usata per l'archiviazione si verifica un errore hardware, l'unità verrà [cancellata o distrutta](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) in modo sicuro prima che Microsoft la restituisca al produttore per la sostituzione o la riparazione. I dati presenti nell'unità verranno sovrascritti per garantire che non possano essere recuperati in alcun modo.
+Se in un'unità disco usata per l'archiviazione si verifica un errore hardware, l'unità verrà [cancellata o distrutta](https://microsoft.com/trustcenter/privacy/you-own-your-data) in modo sicuro prima che Microsoft la restituisca al produttore per la sostituzione o la riparazione. I dati presenti nell'unità verranno sovrascritti per garantire che non possano essere recuperati in alcun modo.
 
 ## <a name="compute-isolation"></a>Isolamento del calcolo
 Microsoft Azure offre numerosi servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione. Tali istanze e servizi di calcolo offrono l'isolamento a più livelli per proteggere i dati senza sacrificare la flessibilità di configurazione richiesta dai clienti.
@@ -238,7 +238,7 @@ La crittografia in transito è un meccanismo di protezione dei dati durante la t
 -   [Crittografia lato client](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), per crittografare i dati prima che siano trasferiti nella risorsa di archiviazione e decrittografarli dopo il trasferimento dalla risorsa di archiviazione.
 
 #### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
-Per molte organizzazioni, [la crittografia dei dati inattivi](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) è un passaggio obbligatorio per assicurare la privacy dei dati, la conformità e la sovranità dei dati. Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi:
+Per molte organizzazioni, [la crittografia dei dati inattivi](https://docs.microsoft.com/azure/security/azure-isolation) è un passaggio obbligatorio per assicurare la privacy dei dati, la conformità e la sovranità dei dati. Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi:
 
 -   [Crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura in Archiviazione di Azure.
 

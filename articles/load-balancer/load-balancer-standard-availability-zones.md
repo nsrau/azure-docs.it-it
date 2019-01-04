@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/08/2018
 ms.author: kumud
-ms.openlocfilehash: d157c331b633617bacfb5cc7254d188516f10ad7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2c4503b6ff065e98c49fe3f4e06b63cbeb7d1770
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187059"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652745"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e zone di disponibilità
 
@@ -76,7 +76,7 @@ Usare lo script seguente per creare un indirizzo IP front-end con ridondanza del
             "apiVersion": "2017-08-01",
             "type": "Microsoft.Network/loadBalancers",
             "name": "load_balancer_standard",
-            "location": "[resourceGroup().location]",
+            "location": "region",
             "sku":
             {
                 "name": "Standard"
@@ -110,7 +110,7 @@ Usare lo script riportato di seguito per creare un indirizzo IP pubblico standar
             "apiVersion": "2017-08-01",
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "public_ip_standard",
-            "location": "[resourceGroup().location]",
+            "location": "region",
             "zones": [ "1" ],
             "sku":
             {

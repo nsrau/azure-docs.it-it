@@ -5,32 +5,28 @@ services: backup, virtual-machines-linux
 documentationcenter: ''
 author: trinadhk
 manager: jeconnoc
-editor: ''
-ms.assetid: 57759670-0baa-44db-ae14-8cdc00d3a906
 ms.service: backup, virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 3/26/2018
+ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: bed5716b6d4ea6d81214a95d0f2360f359048893
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1bcf326bde3ac5c97734393ee162b1f98d1553ce
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944793"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634202"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Estensione VM Snapshot Linux per Backup di Azure
 
-## <a name="overview"></a>Panoramica
+
 
 Backup di Azure fornisce supporto per il backup dei carichi di lavoro da locale al cloud e il backup delle risorse cloud nell'insieme di credenziali dei servizi di ripristino. Backup di Azure usa l'estensione VM Snapshot per eseguire un backup coerente dell'applicazione della macchina virtuale di Azure senza la necessità di arrestare la macchina virtuale. L'estensione VM Snapshot di Linux è pubblicata e supportata da Microsoft come parte del servizio Backup di Azure. Backup di Azure installerà l'estensione come parte del primo backup pianificato attivato dopo l'abilitazione del backup. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione VM Snapshot.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
-Per un elenco dei sistemi operativi supportati, consultare i [sistemi operativi supportati da Backup di Azure](../../backup/backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup)
+Per un elenco dei sistemi operativi supportati, consultare i [sistemi operativi supportati da Backup di Azure](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
@@ -82,7 +78,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione VM Snapshot
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
-Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Tuttavia, il modo consigliato per aggiungere un'estensione VM Snapshot a una macchina virtuale è quello di abilitare il backup sulla macchina virtuale. Ciò può essere ottenuto attraverso un modello di Resource Manager.  Un esempio di modello di Resource Manager che consente il backup su una macchina virtuale è disponibile nella [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
+Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Tuttavia, il modo consigliato per aggiungere un'estensione VM Snapshot a una macchina virtuale è quello di abilitare il backup sulla macchina virtuale. Ciò può essere ottenuto attraverso un modello di Gestione risorse.  Un esempio di modello di Gestione risorse che consente il backup su una macchina virtuale è disponibile nella [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
 
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure

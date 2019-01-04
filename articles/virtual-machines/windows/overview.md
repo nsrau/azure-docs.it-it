@@ -16,16 +16,16 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6ec151222bda3d87386cc3be4c54821775880795
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a58644deb8d1325fd466d2a4d3a1fc927c83b685
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816838"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720255"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Panoramica delle macchine virtuali Windows in Azure
 
-Le macchine virtuali (VM) di Azure sono uno dei vari tipi di [risorse di calcolo scalabili e su richiesta](../../app-service/choose-web-site-cloud-service-vm.md) offerte da Azure. In genere, la scelta ricade su una VM se è necessario maggiore controllo dell'ambiente di calcolo rispetto a quanto offerto dalle altre soluzioni. Questo articolo fornisce informazioni sugli aspetti da tenere in considerazione prima di creare una VM e sulla relativa modalità di creazione e gestione.
+Le macchine virtuali (VM) di Azure sono uno dei vari tipi di [risorse di calcolo scalabili e su richiesta](../../app-service/overview-compare.md) offerte da Azure. In genere, la scelta ricade su una VM se è necessario maggiore controllo dell'ambiente di calcolo rispetto a quanto offerto dalle altre soluzioni. Questo articolo fornisce informazioni sugli aspetti da tenere in considerazione prima di creare una VM e sulla relativa modalità di creazione e gestione.
 
 Una VM di Azure offre la flessibilità della virtualizzazione senza dover acquistare e gestire l'hardware fisico su cui è in esecuzione la macchina virtuale. È comunque necessario gestire la VM eseguendo determinate attività, ovvero configurazione, applicazione di patch e installazione del software in esecuzione sulla macchina virtuale.
 
@@ -58,7 +58,7 @@ Le risorse create in Azure vengono distribuite tra più [aree geografiche](https
 
 Questa tabella illustra alcuni dei metodi con cui è possibile ottenere un elenco di località disponibili.
 
-| Metodo | Descrizione |
+| Metodo | DESCRIZIONE |
 | --- | --- |
 | Portale di Azure |Quando si crea una VM, selezionare una località nell'elenco. |
 | Azure PowerShell |Usare il comando [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
@@ -80,7 +80,7 @@ Azure fornisce molte [immagini Marketplace](https://azure.microsoft.com/marketpl
 
 Questa tabella illustra alcuni metodi per ottenere informazioni relative a un'immagine.
 
-| Metodo | Descrizione |
+| Metodo | DESCRIZIONE |
 | --- | --- |
 | Portale di Azure |I valori vengono specificati automaticamente quando si seleziona un'immagine da usare. |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location *località*<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location *località* -Publisher *nomeEditore*<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location *località* -Publisher *nomeEditore* -Offer *nomeOfferta* |
@@ -101,7 +101,7 @@ Le [estensioni](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows
 ### <a name="related-resources"></a>Risorse correlate
 Le risorse in questa tabella vengono usate dalla VM e devono essere presenti o essere create quando si crea la VM.
 
-| Risorsa | Obbligatoria | Descrizione |
+| Risorsa | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
 | [Gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) |Yes |La VM deve essere contenuta in un gruppo di risorse. |
 | [Account di archiviazione](../../storage/common/storage-create-storage-account.md) |Yes |La VM richiede l'account di archiviazione per archiviare i dischi rigidi virtuali. |
@@ -132,7 +132,7 @@ Le VM possono essere gestite mediante un portale basato su browser, gli strument
 ### <a name="get-information-about-a-vm"></a>Visualizzare informazioni su una macchina virtuale
 Questa tabella illustra alcuni dei metodi attraverso i quali è possibile ottenere informazioni su una VM.
 
-| Metodo | Descrizione |
+| Metodo | DESCRIZIONE |
 | --- | --- |
 | Portale di Azure |Nel menu Hub fare clic su **Macchine virtuali** e quindi selezionare una VM dall'elenco. Nel pannello della VM è possibile accedere alle informazioni generali, ai valori di impostazione e alle metriche di monitoraggio. |
 | Azure PowerShell |Per informazioni sull'uso di PowerShell per gestire le macchine virtuali, vedere [Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |

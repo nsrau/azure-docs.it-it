@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ce2391014eb5e15650c0a81ebb8e2fd4a08ca96b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139225"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599945"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Distribuire un gateway perimetrale per l'acceleratore di soluzioni di connected factory in Windows o Linux
 
@@ -70,7 +70,7 @@ Per altri dettagli vedere le informazioni di riferimento sul motore di Docker re
 
 Prima di installare i componenti OPC, completare i passaggi seguenti per preparare l'ambiente:
 
-1. Per completare la distribuzione del gateway è necessaria la stringa di connessione  **iothubowner**  dell'hub IoT nella distribuzione della Connected Factory. Nel  [portale di Azure](http://portal.azure.com/) passare all'hub IoT nel gruppo di risorse creato durante la distribuzione della soluzione di Connected Factory. Fare clic su  **Criteri di accesso condiviso** per accedere alla stringa di connessione **iothubowner** :
+1. Per completare la distribuzione del gateway è necessaria la stringa di connessione  **iothubowner**  dell'hub IoT nella distribuzione della Connected Factory. Nel  [portale di Azure](https://portal.azure.com/) passare all'hub IoT nel gruppo di risorse creato durante la distribuzione della soluzione di Connected Factory. Fare clic su  **Criteri di accesso condiviso** per accedere alla stringa di connessione **iothubowner** :
 
     ![Trovare la stringa di connessione dell'hub IoT](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 

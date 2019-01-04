@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 6ecb87af9cc75898aa8734b329dce01f70511a27
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 58d1d47b548569f7542e24bd09a41299f12e496e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712909"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787886"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Trasferire oggetti da e verso un archivio BLOB di Azure con PHP
 Questa guida introduttiva illustra come usare PHP per caricare, scaricare ed elencare BLOB in blocchi in un contenitore in un archivio BLOB di Azure. 
@@ -43,14 +43,14 @@ Questo comando consente di duplicare il repository nella cartella locale git. Pe
 ## <a name="configure-your-storage-connection-string"></a>Configurare la stringa di connessione di archiviazione
 Nell'applicazione è necessario specificare il nome dell'account di archiviazione e la chiave dell'account per creare l'istanza di **BlobRestProxy** per l'applicazione. È consigliabile archiviare questi identificatori in una variabile di ambiente nel computer locale che esegue l'applicazione. Per creare la variabile di ambiente usare uno degli esempi riportati di seguito, in base al sistema operativo in uso. Sostituire i valori **youraccountname** e **youraccountkey** con il nome e la chiave dell'account.
 
-# <a name="linux-tablinux"></a>[Linux] (#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
 export ACCOUNT_NAME=<youraccountname>
 export ACCOUNT_KEY=<youraccountkey>
 ```
 
-# <a name="windows-tabwindows"></a>[Windows] (#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```cmd
 setx ACCOUNT_NAME=<youraccountname>

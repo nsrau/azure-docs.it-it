@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: bb427575d7cff69f0db778c5eb0e0bdf0671d8dd
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343290"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583732"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Creare gli avvisi del log attività per le notifiche del servizio
 ## <a name="overview"></a>Panoramica
@@ -196,7 +196,7 @@ Dopo la creazione, l'avviso sarà visibile nella sezione **Avvisi** di **Monitor
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [configurare le notifiche di webhook per i sistemi di gestione dei problemi esistenti](../../service-health/service-health-alert-webhook-guide.md).
-- Informazioni sulle [notifiche per l'integrità del servizio](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Informazioni sulle [notifiche per l'integrità del servizio](../../azure-monitor/platform/service-notifications.md).
 - Informazioni sulla [limitazione della frequenza delle notifiche](../../azure-monitor/platform/alerts-rate-limiting.md).
 - Esaminare lo [schema webhook degli avvisi del log attività](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Leggere una [panoramica degli avvisi del log attività](../../azure-monitor/platform/alerts-overview.md) e informazioni su come ricevere gli avvisi. 

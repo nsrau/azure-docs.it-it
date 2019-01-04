@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0ce230bc6a926229ed383c828f83aafd60117471
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 962c1cff91a5ac3f52dc67c30bd2c7a4e2e22b9d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317159"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631839"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Esempi di query con sintassi Lucene per compilare query avanzate in Ricerca di Azure
 Quando si costruiscono query per Ricerca di Azure, è possibile sostituire il [parser di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) predefinito con il [parser di query Lucene in Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), più ampio, per formulare definizioni di query avanzate e specializzate. 
@@ -94,7 +94,7 @@ La risposta per questa query dovrebbe essere simile alla seguente schermata.
 
 Si sarà notato il punteggio di ricerca nella risposta. Si ottengono punteggi uniformi pari a 1 in assenza di classificazione perché la ricerca non è una ricerca full-text o perché non sono stati applicati criteri. Per ricerche Null senza criteri le righe vengono restituite in ordine arbitrario. Se si includono criteri effettivi, i punteggi di ricerca si convertono in valori significativi.
 
-## <a name="example-2-intra-field-filtering"></a>Esempio 2: Filtro all'interno del campo
+## <a name="example-2-intra-field-filtering"></a>Esempio 2 Filtro all'interno del campo
 
 La sintassi Lucene completa supporta espressioni in un campo. Questa query cerca business_title che contengono il termine senior ma non junior:
 
@@ -174,7 +174,7 @@ Quando si imposta il fattore, maggiore è il fattore di aumento, maggiore è la 
 
 ## <a name="example-6-regex"></a>Esempio 6: Regex (Espressione regolare)
 
-Una ricerca con espressione regolare trova una corrispondenza in base al contenuto incluso tra le barre "/", come indicato nella [classe RegExp](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
+Una ricerca con espressione regolare trova una corrispondenza in base al contenuto incluso tra le barre "/", come indicato nella [classe RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
 In questa query cercare le opportunità di lavoro con il termine Senior o Junior: `search=business_title:/(Sen|Jun)ior/``.
 

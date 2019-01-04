@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ab2f1df72f04b6456f1083de6870fb86bad6616
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438290"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582712"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Come monitorare Cache Redis di Azure
 La Cache Redis di Azure usa [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) per offrire alcune opzioni per il monitoraggio delle istanze della cache. È possibile visualizzare le metriche, aggiungere i grafici delle metriche alla Schermata iniziale, personalizzare l'intervallo di data e ora per il monitoraggio dei grafici, aggiungere e rimuovere metriche dai grafici e impostare avvisi per le situazioni in cui vengono soddisfatte determinate condizioni. Questi strumenti consentono di monitorare l'integrità delle istanze di Cache Redis di Azure e aiutano a gestire le applicazioni di memorizzazione nella cache.
@@ -79,7 +79,7 @@ Per configurare un account di archiviazione per le metriche della cache:
 >
 >
 
-Per accedere alle metriche, è possibile visualizzarli nel portale di Azure, come illustrato in precedenza in questo articolo, e anche accedervi tramite l'[API REST Monitoraggio di Azure](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+Per accedere alle metriche, è possibile visualizzarli nel portale di Azure, come illustrato in precedenza in questo articolo, e anche accedervi tramite l'[API REST Monitoraggio di Azure](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > Se si modificano gli account di archiviazione, i dati nell'account di archiviazione configurato in precedenza rimangono disponibili per il download, ma non vengono visualizzati nel portale di Azure.  
@@ -96,7 +96,7 @@ In ogni metrica sono incluse due versioni. Una metrica misura la prestazione per
 > 
 > 
 
-| Metrica | Descrizione |
+| Metrica | DESCRIZIONE |
 | --- | --- |
 | Riscontri cache |Il numero di ricerche chiave riuscite durante l'intervallo di report specificato. Questo `keyspace_hits` è associato al comando [INFO](http://redis.io/commands/info) di Redis. |
 | Latenza della cache (anteprima) | La latenza della cache calcolata in base alla latenza internodo della cache. Questa metrica viene misurata in microsecondi e ha tre dimensioni: "Avg", "Min" e "Max" che rappresentano rispettivamente la latenza media, minima e massima della cache durante l'intervallo di report specificato. |
@@ -142,7 +142,7 @@ I log attività offrono informazioni dettagliate sulle operazioni eseguite nelle
 
 Per visualizzare i log attività per la cache, scegliere **Log attività** dal menu **Risorsa**.
 
-Per altre informazioni sui log attività, vedere [Panoramica del log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Per altre informazioni sui log attività, vedere [Panoramica del log attività di Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 
 

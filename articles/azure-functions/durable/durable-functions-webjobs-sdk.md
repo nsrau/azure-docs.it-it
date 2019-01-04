@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c1a778a006c7743b6ea19062d79cff3cfeaba3d8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343157"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713270"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Come eseguire funzioni durevoli come processi Web
 
-[Funzioni di Azure](../functions-overview.md) e l'estensione [Funzioni durevoli](durable-functions-overview.md) sono basate su [WebJobs SDK](../../app-service/web-sites-create-web-jobs.md). `JobHost` in WebJobs SDK è il runtime in Funzioni di Azure. Se è necessario controllare il comportamento di `JobHost` con modalità non disponibili in Funzioni di Azure, è possibile sviluppare ed eseguire funzioni durevoli usando manualmente WebJobs SDK. È quindi possibile eseguire le funzioni durevoli in un processo Web di Azure o in qualsiasi punto in cui sia in esecuzione un'applicazione console.
+[Funzioni di Azure](../functions-overview.md) e l'estensione [Funzioni durevoli](durable-functions-overview.md) sono basate su [WebJobs SDK](../../app-service/webjobs-create.md). `JobHost` in WebJobs SDK è il runtime in Funzioni di Azure. Se è necessario controllare il comportamento di `JobHost` con modalità non disponibili in Funzioni di Azure, è possibile sviluppare ed eseguire funzioni durevoli usando manualmente WebJobs SDK. È quindi possibile eseguire le funzioni durevoli in un processo Web di Azure o in qualsiasi punto in cui sia in esecuzione un'applicazione console.
 
 L'esempio di Funzioni durevoli di concatenamento è disponibile in una versione di WebJobs SDK: scaricare o clonare il [repository Funzioni durevoli](https://github.com/azure/azure-functions-durable-extension/) e andare alla cartella *samples\\webjobssdk\\chaining*.
 

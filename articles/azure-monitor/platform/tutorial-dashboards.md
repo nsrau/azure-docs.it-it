@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 417f542bcf1711b2ac8e986663353e29a3705fb3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c6bcc5a7948e87a8b887bd0ebd3abc8fc3d3a517
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388456"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545315"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servizi, schemi e categorie supportati per i log di Diagnostica di Azure
 
-I [log di diagnostica di Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) vengono generati dai servizi di Azure e descrivono il funzionamento di tale risorse o servizi. Tutti i log di diagnostica disponibili tramite Monitoraggio di Azure condividono uno schema di primo livello comune, con la flessibilità necessaria affinché ogni servizio crei proprietà univoche per i propri eventi.
+I [log di diagnostica di Monitoraggio di Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) vengono generati dai servizi di Azure e descrivono il funzionamento di tale risorse o servizi. Tutti i log di diagnostica disponibili tramite Monitoraggio di Azure condividono uno schema di primo livello comune, con la flessibilità necessaria affinché ogni servizio crei proprietà univoche per i propri eventi.
 
 Una combinazione del tipo di risorsa (disponibile nella proprietà `resourceId`) e del `category` identifica in modo univoco uno schema. Questo articolo descrive lo schema di primo livello per i log di diagnostica e i collegamenti agli schemi per ogni servizio.
 
@@ -205,7 +205,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni sui log di diagnostica](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Trasmettere log di diagnostica di Azure a **Hub eventi**](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Altre informazioni sui log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Trasmettere log di diagnostica di Azure a **Hub eventi**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Modificare le impostazioni di diagnostica di risorsa usando l'API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Analizzare i log di Archiviazione di Azure con Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 1493eb6978b00771aa8ed4d8cfc28c37a9dde5b6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c6a995c20beefb3a939aa1421eed537137037922
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139746"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994964"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Procedure consigliate per la configurazione della rete per i carichi di lavoro migrati in Azure
 
@@ -118,7 +118,7 @@ Per impostazione predefinita, Azure aggiunge un server DNS quando si distribuisc
 
 **Altre informazioni:**
 - [Informazioni sulla](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) risoluzione dei nomi quando si usa un proprio server DNS.
-- [Informazioni su](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) regole di denominazione e restrizioni per il DNS.
+- [Informazioni su](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) regole di denominazione e restrizioni per il DNS.
 
 
 ## <a name="best-practice-set-up-availability-zones"></a>Procedura consigliata: Configurazione delle zone di disponibilità
@@ -336,7 +336,7 @@ I tag di servizio eliminano le attività manuali dall'assegnazione di una regola
 
 **Altre informazioni:**
 
-- [Informazioni sui](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) gruppi di sicurezza di rete.
+- [Informazioni sui](https://docs.microsoft.com/azure/virtual-network/security-overview) gruppi di sicurezza di rete.
 - [Esaminare](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) i tag di servizio disponibili per i gruppi di sicurezza di rete.
 
 

@@ -1,5 +1,5 @@
 ---
-title: Ridimensionamento di Azure Time Series Insights - Come ridimensionare l'ambiente Azure Time Series Insights | Microsoft Docs
+title: Come scalare l'ambiente Time Series Insights di Azure | Microsoft Docs
 description: Questo articolo spiega come ridimensionare l'ambiente Time Series Insights. Per aggiungere o sottrarre capacità in uno SKU di prezzo, usare il portale di Azure.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 1adb93d935e16bdce23e35e306592a9575967452
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ee695798dc8a2a19d5cd3d94cbf43e0b58065f84
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271862"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556680"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Come scalare l'ambiente Time Series Insights
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 213bf0cc063fa1f756a6baeacc47aadec0857a7c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e406c80e408ddcf4d1d53f4e49925bded43b650f
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270519"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579482"
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>Configurare gli avvisi di integrità dei servizi con OpsGenie
 
@@ -96,5 +96,5 @@ Questo articolo illustra come configurare gli avvisi di integrità dei servizi d
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [configurare le notifiche di webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).
 - Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Informazioni sulle [notifiche per l'integrità del servizio](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Informazioni sulle [notifiche per l'integrità del servizio](../azure-monitor/platform/service-notifications.md).
 - Altre informazioni sui [gruppi di azione](../azure-monitor/platform/action-groups.md).

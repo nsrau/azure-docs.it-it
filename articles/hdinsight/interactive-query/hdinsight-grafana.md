@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7f33742fc5e765aa5ab0c66d13e844b3be2bab9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322295"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599877"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Accedere a Grafana in Azure HDInsight
 
@@ -34,7 +34,7 @@ In questa sezione viene creato un cluster Interactive Query in HDInsight usando 
 
 2. Immettere o selezionare i valori, come illustrato nello screenshot seguente:
 
-    > [!NOTE]
+    > [!NOTE]  
     > I valori immessi devono essere univoci e devono seguire le linee guida sulle convenzioni di denominazione. Il modello non esegue controlli di convalida. Se i valori immessi sono già in uso o non seguono le linee guida, viene visualizzato un errore dopo l'invio del modello.       
     > 
     >
@@ -66,10 +66,8 @@ In questa sezione viene creato un cluster Interactive Query in HDInsight usando 
 5. Il riquadro elenca anche la risorsa di archiviazione predefinita associata al cluster. Ogni cluster ha una dipendenza da un [account di archiviazione di Azure](../hdinsight-hadoop-use-blob-storage.md) o da un [account Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). Viene indicato come account di archiviazione predefinito. Il cluster HDInsight e l'account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione.
     
 
-> [!NOTE]
-> Per altri metodi di creazione di cluster e per informazioni sulle proprietà usate in questa esercitazione, vedere [Creare cluster HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).       
-> 
->
+> [!NOTE]  
+> Per altri metodi di creazione di cluster e per informazioni sulle proprietà usate in questa esercitazione, vedere [Creare cluster HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). 
 
 ## <a name="access-the-grafana-dashboard"></a>Accedere al dashboard di Grafana
 
@@ -94,10 +92,8 @@ In questa sezione viene creato un cluster Interactive Query in HDInsight usando 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Al termine dell'articolo, è consigliabile eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati. 
 
-> [!NOTE]
+> [!NOTE]  
 > Se si procede *subito* con l'esercitazione successiva per imparare come eseguire le operazioni ETL mediante Hadoop in HDInsight, è possibile mantenere il cluster in esecuzione, poiché nell'esercitazione è necessario creare nuovamente un cluster Hadoop. Se invece non si prevede di passare subito all'esercitazione successiva, è necessario eliminare il cluster ora.
-> 
-> 
 
 **Per eliminare il cluster e/o l'account di archiviazione predefinito**
 
@@ -124,7 +120,7 @@ Per altre informazioni sull'analisi dei dati con HDInsight, vedere gli articoli 
 
 * Per altre informazioni sull'uso di Hive con HDInsight, incluse le procedure per eseguire query Hive da Visual Studio, vedere [Usare Apache Hive con HDInsight](../hdinsight-use-hive.md).
 * Per informazioni su Pig, un linguaggio usato per la trasformazione dei dati, vedere [Usare Apache Pig con HDInsight](../hdinsight-use-pig.md).
-* Per altre informazioni su Apache Hadoop MapReduce, un framework software che consente di scrivere programmi per l'elaborazione dei dati in Hadoop, vedere [Usare Apache Hadoop MapReduce con HDInsight](../hdinsight-use-mapreduce.md).
+* Per altre informazioni su MapReduce, un framework software che consente di scrivere programmi per l'elaborazione dei dati in Hadoop, vedere [Usare MapReduce con HDInsight](../hdinsight-use-mapreduce.md).
 * Per altre informazioni sull'uso di HDInsight Tools per Visual Studio per analizzare i dati in HDInsight, vedere [Introduzione all'uso di Hadoop Tools per Visual Studio per HDInsight](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 

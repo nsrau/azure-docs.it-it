@@ -4,15 +4,15 @@ ms.service: application-insights
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: edd7492dba1352484e1a1e5c361c8041bcd966b0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 669aac4903b2de03fe845193b55e6538a3bf9d6c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572291"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53730692"
 ---
 ## <a name="analytics"></a>Analytics
-* [Panoramica](../articles/application-insights/app-insights-analytics.md)
+* [Panoramica](../articles/azure-monitor/app/analytics.md)
 * [Presentazione dello strumento Analisi in Application Insights](../articles/application-insights/app-insights-analytics-tour.md)
   * Inizia da qui. Un'esercitazione che copre le funzionalità principali.
 * [Query](../articles/application-insights/app-insights-analytics-reference.md)
@@ -25,5 +25,5 @@ ms.locfileid: "51572291"
   * Usare Analytics
 * [Informazioni di riferimento sul linguaggio](../articles/application-insights/app-insights-analytics-reference.md)
   * Riferimento di una pagina.
-* [Risoluzione dei problemi](../articles/application-insights/app-insights-analytics-troubleshooting.md)
+* [Risoluzione dei problemi](../articles/azure-monitor/app/analytics-troubleshooting.md)
 

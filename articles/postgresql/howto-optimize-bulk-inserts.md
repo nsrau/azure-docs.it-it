@@ -3,16 +3,15 @@ title: Ottimizzare gli inserimenti bulk nel server di Database di Azure per Post
 description: Questo articolo descrive come è possibile ottimizzare le operazioni di inserimento bulk nel server di Database di Azure per PostgreSQL.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 2fe3c3cc71823880d71223334b89816199561ca9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9d2bfcddc649e4fff68bdba49df0945e88067036
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628694"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545237"
 ---
 # <a name="optimizing-bulk-inserts-and-use-of-transient-data-on-azure-database-for-postgresql-server"></a>Ottimizzazione degli inserimenti bulk e uso dei dati temporanei nel server di Database di Azure per PostgreSQL 
 Questo articolo descrive come è possibile ottimizzare le operazioni di inserimento bulk e l'uso di dati temporanei in un server di Database di Azure per PostgreSQL.

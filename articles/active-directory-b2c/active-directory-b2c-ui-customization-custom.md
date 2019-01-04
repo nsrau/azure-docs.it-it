@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cc96da060a7a91e0e3118c436a93bdafca3b0372
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833944"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633011"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -50,9 +50,6 @@ Creare il contenuto HTML con il nome del marchio del prodotto nel titolo.
    </body>
    </html>
    ```
-
-   >[!NOTE]
-   >Per motivi di sicurezza non è attualmente possibile usare JavaScript per la personalizzazione.
 
 2. Incollare il frammento di codice copiato in un editor di testo e quindi salvare il file con il nome *customize-ui.html*.
 
@@ -124,7 +121,7 @@ Per configurare la personalizzazione dell'interfaccia utente, si copia **Content
 3. Aprire il file di estensione. ad esempio *TrustFrameworkExtensions.xml*. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
 4. Incollare l'intero contenuto dell'elemento **ContentDefinitions** copiato come figlio dell'elemento **BuildingBlocks**. 
 5. Cercare l'elemento **ContentDefinition** che contiene `Id="api.signuporsignin"` nel codice XML copiato.
-6. Cambiare il valore di **LoadUri** nell'URL del file HTML caricato nell'archivio. Ad esempio `https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+6. Cambiare il valore di **LoadUri** nell'URL del file HTML caricato nell'archivio. Ad esempio: https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html.
     
     I criteri personalizzati dovrebbero essere simili ai seguenti:
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 669d5995b66322a2a6ad346643444d5a46c4b6f8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969135"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744412"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rilevare e diagnosticare i problemi di prestazioni con Azure Application Insights
 
@@ -28,14 +28,14 @@ Azure Application Insights raccoglie i dati di telemetria dall'applicazione per 
 > * Analizzare i dettagli delle visualizzazioni pagina usando il linguaggio di query
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
 - Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
     - Sviluppo Web e ASP.NET
     - Sviluppo di Azure
-- Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](app-insights-asp-net.md).
+- Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../azure-monitor/app/asp-net.md).
 - [Abilitare Application Insights Profiler](app-insights-profiler.md#installation) per l'applicazione.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
@@ -53,27 +53,20 @@ Application Insights raccoglie i dettagli sulle prestazioni per le diverse opera
 
     ![Pannello Prestazioni](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. Il grafico mostra attualmente la durata media di tutte le operazioni nel corso del tempo.  Aggiungere le operazioni a cui si è interessati aggiungendole al grafico.  Quest'ultimo indica la presenza di alcuni picchi che sarebbe utile analizzare.  È possibile isolarli ulteriormente riducendo l'intervallo di tempo del grafico.
+3. Il grafico mostra attualmente la durata media delle operazioni selezionate nel tempo. È possibile passare al 95° percentile per trovare i problemi di prestazioni. Aggiungere le operazioni a cui si è interessati aggiungendole al grafico.  Quest'ultimo indica la presenza di alcuni picchi che sarebbe utile analizzare.  È possibile isolarli ulteriormente riducendo l'intervallo di tempo del grafico.
 
     ![Aggiungere operazioni](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  Fare clic su un'operazione per visualizzare il relativo pannello delle prestazioni a destra. È riportata la distribuzione delle durate per le diverse richieste.  In genere gli utenti si accorgono del rallentamento delle prestazioni quando impiegano circa metà secondo, pertanto ridurre l'intervallo di tempo alle richieste superiori ai 500 millisecondi.  
+4.  Il pannello delle prestazioni a destra illustra la distribuzione delle durate per le diverse richieste per l'operazione selezionata.  Ridurre l'intervallo di tempo per l'avvio al 95° percentile circa. La scheda con le informazioni dettagliate "3 dipendenze più frequenti" consente di verificare immediatamente che le dipendenze esterne stanno contribuendo al rallentamento delle transazioni.  Fare clic sul pulsante con il numero di campioni per visualizzare un elenco di campioni. È quindi possibile selezionare qualsiasi campione per visualizzare i dettagli della transazione.
 
     ![Distribuzione della durata](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  In questo esempio si può notare che un numero significativo di richieste impiega oltre un secondo per l'elaborazione. È possibile visualizzare i dettagli di questa operazione facendo clic su **Dettagli dell'operazione**.
+5.  È possibile verificare immediatamente che la chiamata alla tabella di Azure Fabrikamaccount sta contribuendo più di tutte alla durata totale della transazione. Noterete anche che un'eccezione ne ha causato l'esito negativo. È possibile fare clic su qualsiasi elemento nell'elenco per visualizzarne i dettagli sul lato destro. [Altre informazioni sull'esperienza di diagnostica delle transazioni](app-insights-transaction-diagnostics.md)
 
     ![Dettagli dell'operazione](media/app-insights-tutorial-performance/operation-details.png)
+    
 
-    > [!NOTE]
-    Abilitare la [versione di anteprima](app-insights-previews.md) di "Unified details: E2E Transaction Diagnostics" (Dettagli unificati: diagnostica della transazione end-to-end) per visualizzare in un'unica vista tutti i relativi dati di telemetria sul lato server come richieste, dipendenze, eccezioni, tracce, eventi e così via. 
-
-    Con l'anteprima abilitata è possibile visualizzare il tempo impiegato nelle chiamate di dipendenza, insieme a eventuali errori o eccezioni in un'esperienza unificata. Per le transazioni tra componenti, il diagramma di Gantt e il riquadro dei dettagli consentono di diagnosticare rapidamente il componente, la dipendenza o l'eccezione che provoca il problema. È possibile espandere la sezione nella parte inferiore per visualizzare la sequenza temporale di tracce o eventi raccolti per il funzionamento del componente selezionato. [Altre informazioni sulla nuova esperienza](app-insights-transaction-diagnostics.md)  
-
-    ![Diagnostica delle transazioni](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
-
-
-6.  Le informazioni raccolte finora confermano semplicemente un rallentamento delle prestazioni, senza individuarne la causa radice.  Il **Profiler** può essere utile poiché visualizza il codice effettivo che è stato eseguito per l'operazione e il tempo richiesto per ogni passaggio. Alcune operazioni potrebbero non avere una traccia dal momento che il profiler viene eseguito periodicamente.  Nel corso del tempo dovrebbero essere disponibili tracce per più operazioni.  Per avviare il profiler per l'operazione, fare clic su **Tracce Profiler**.
+6.  Il **Profiler** consente di analizzare più a fondo il problema con la diagnostica a livello di codice mostrando il codice effettivo che è stato eseguito per l'operazione e il tempo richiesto per ogni passaggio. Alcune operazioni potrebbero non avere una traccia dal momento che il profiler viene eseguito periodicamente.  Nel corso del tempo dovrebbero essere disponibili tracce per più operazioni.  Per avviare il profiler per l'operazione, fare clic su **Tracce Profiler**.
 5.  La traccia mostra i singoli eventi per ogni operazione, in modo da poter diagnosticare la causa radice per la durata dell'operazione complessiva.  Fare clic su uno dei primi esempi, che hanno una durata maggiore.
 6.  Fare clic su **Mostra percorso critico** per evidenziare il percorso specifico degli eventi che contribuiscono maggiormente alla durata totale dell'operazione.  In questo esempio è possibile vedere che la chiamata più lenta proviene dal metodo *FabrikamFiberAzureStorage.GetStorageTableData*. La parte che richiede più tempo è il metodo *CloudTable.CreateIfNotExist*. Se questa riga di codice viene eseguita ogni volta che viene chiamata la funzione, verranno usate chiamate di rete e risorse della CPU non necessarie. Il modo migliore per correggere il codice è inserire la linea in un metodo di avvio che si esegue solo una volta. 
 

@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: a88d4b09178ea32526cb8d035b47e1aef9c19dc3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ea2fe0f7e326db00a63529c0279c9c15d30c744c
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384242"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744820"
 ---
 # <a name="use-apache-maven-to-build-java-applications-that-use-apache-hbase-with-windows-based-hdinsight-apache-hadoop"></a>Usare Apache Maven per compilare applicazioni Java che usano Apache HBase con HDInsight basato su Windows (Apache Hadoop)
-In questo articolo si apprenderà come creare e compilare un'applicazione [Apache HBase](http://hbase.apache.org/) in Java usando Apache Maven. Quindi a usare l'applicazione con HDInsight di Azure (Apache Hadoop).
+In questo articolo si apprenderà come creare e compilare un'applicazione [Apache HBase](https://hbase.apache.org/) in Java usando Apache Maven. Quindi a usare l'applicazione con HDInsight di Azure (Apache Hadoop).
 
-[Apache Maven](http://maven.apache.org/) è un progetto di gestione software e uno strumento di esplorazione che consente di compilare software, documentazione e report per i progetti Java. In questo articolo si apprende come usarlo per creare un'applicazione Java di base che crea, interroga ed elimina una tabella HBase su un cluster HDInsight di Azure.
+[Apache Maven](https://maven.apache.org/) è un progetto di gestione software e uno strumento di esplorazione che consente di compilare software, documentazione e report per i progetti Java. In questo articolo si apprende come usarlo per creare un'applicazione Java di base che crea, interroga ed elimina una tabella HBase su un cluster HDInsight di Azure.
 
 > [!IMPORTANT]  
 > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Requisiti
 * [Piattaforma Java JDK](https://aka.ms/azure-jdks) 7 o versioni successive
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 * Un cluster HDInsight basato su Windows con HBase
 
     > [!NOTE]  
@@ -40,7 +40,7 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
 
     Questo comando crea una directory nel percorso corrente, con il nome specificato dal parametro **artifactID** (in questo esempio **hbaseapp**). La directory contiene gli elementi seguenti:
 
-   * **pom.xml**:  Il modello a oggetti dei progetti ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html), Project Object Model) contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
+   * **pom.xml**:  Il modello a oggetti dei progetti ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html), Project Object Model) contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
    * **src**: La directory che contiene la directory **main\java\com\microsoft\examples**, in cui verrà creata l'applicazione.
 3. Eliminare il file **src\test\java\com\microsoft\examples\apptest.java** perché non viene usato in questo esempio.
 
@@ -53,7 +53,7 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
           <version>1.1.2</version>
         </dependency>
 
-    Questa sezione indica a Maven che il progetto richiede la versione **1.1.2** di **hbase-client**. In fase di compilazione, questa dipendenza viene scaricata dal repository Maven predefinito. È possibile usare la [ricerca nel repository centrale Apache Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) per ottenere altre informazioni su questa dipendenza.
+    Questa sezione indica a Maven che il progetto richiede la versione **1.1.2** di **hbase-client**. In fase di compilazione, questa dipendenza viene scaricata dal repository Maven predefinito. È possibile usare la [ricerca nel repository centrale Apache Maven](https://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) per ottenere altre informazioni su questa dipendenza.
 
    > [!IMPORTANT]  
    > Il numero di versione deve corrispondere alla versione di HBase fornita con il cluster HDInsight. Usare la tabella seguente per trovare il numero di versione corretto.
@@ -127,7 +127,7 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
    >
    >
 
-    Questa sezione `<plugins>` configura i [plug-in compiler per Apache Maven](http://maven.apache.org/plugins/maven-compiler-plugin/) e i [plug-in shade per Apache Maven](http://maven.apache.org/plugins/maven-shade-plugin/). Il plug-in compiler viene usato per compilare la topologia, mentre il plug-in shade viene usato per impedire la duplicazione della licenza nel pacchetto JAR compilato da Maven. Il motivo per cui viene usato questo plug-in è che i file di licenza duplicati causano un errore in fase di esecuzione sul cluster HDInsight. L'uso di maven-shade-plugin con l'implementazione di `ApacheLicenseResourceTransformer` previene il verificarsi di questo errore.
+    Questa sezione `<plugins>` configura i [plug-in compiler per Apache Maven](https://maven.apache.org/plugins/maven-compiler-plugin/) e i [plug-in shade per Apache Maven](https://maven.apache.org/plugins/maven-shade-plugin/). Il plug-in compiler viene usato per compilare la topologia, mentre il plug-in shade viene usato per impedire la duplicazione della licenza nel pacchetto JAR compilato da Maven. Il motivo per cui viene usato questo plug-in è che i file di licenza duplicati causano un errore in fase di esecuzione sul cluster HDInsight. L'uso di maven-shade-plugin con l'implementazione di `ApacheLicenseResourceTransformer` previene il verificarsi di questo errore.
 
     Il plug-in maven-shade-plugin produce anche un file uberjar (o fatjar), che contiene tutte le dipendenze richieste dall'applicazione.
 4. Salvare il file **pom.xml** .
@@ -147,7 +147,7 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
           * "License"); you may not use this file except in compliance
           * with the License.  You may obtain a copy of the License at
           *
-          *     http://www.apache.org/licenses/LICENSE-2.0
+          *     https://www.apache.org/licenses/LICENSE-2.0
           *
           * Unless required by applicable law or agreed to in writing, software
           * distributed under the License is distributed on an "AS IS" BASIS,

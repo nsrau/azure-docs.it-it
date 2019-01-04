@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: a7e7c04b458575cdc9f2608d0c84f0df105bf202
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4a772977130f5679da2d879cc12738b89be09f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261756"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726732"
 ---
 # <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Creare le app Web del servizio app di Azure con Ansible
-Le [app Web del servizio app di Azure ](https://docs.microsoft.com/azure/app-service/app-service-web-overview), o semplicemente app Web, consentono l'hosting di applicazioni Web, API REST e back-end mobili. È possibile usare il linguaggio di sviluppo preferito &mdash; .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
+Le [app Web del servizio app di Azure ](https://docs.microsoft.com/azure/app-service/overview), o semplicemente app Web, consentono l'hosting di applicazioni Web, API REST e back-end mobili. È possibile usare il linguaggio di sviluppo preferito &mdash; .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
 
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. Questo articolo illustra come usare Ansible per creare un'app Web usando il runtime di Java. 
 
@@ -93,7 +93,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ## <a name="create-an-app-service-by-using-traffic-manager"></a>Creare un servizio app tramite Gestione traffico
 È possibile usare [Gestione traffico di Azure](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) per controllare il modo in cui le richieste dai client Web vengono distribuite alle app nel servizio app di Azure. Quando si aggiungono endpoint di servizio app a un profilo di Gestione traffico di Azure, Gestione traffico rileva lo stato delle app del servizio app. Lo stato può essere in esecuzione, arrestata ed eliminata. Gestione traffico può quindi decidere quali di questi endpoint devono ricevere il traffico.
 
-Nel servizio app un'app viene eseguita in un [piano di servizio app](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+Nel servizio app un'app viene eseguita in un [piano di servizio app](https://docs.microsoft.com/azure/app-service/overview-hosting-plans
 ). Un piano di servizio app definisce un set di risorse di calcolo per l'esecuzione di un'app Web. È possibile gestire il piano di servizio app e l'app Web in gruppi diversi.
 
 In questa sezione viene presentato un playbook Ansible di esempio che definisce le seguenti risorse:

@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: bd971b84b907d3fda1bea9922b2fd1881eb369e9
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 112a986efc11822f6c847511a33be6206b1f00da
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087237"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717485"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#
 
@@ -96,7 +96,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Registrazione
-Per registrare l'output nei [log in streaming](../app-service/web-sites-enable-diagnostic-log.md) in F#, la funzione deve accettare un argomento di tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Per coerenza è consigliabile denominare questo argomento `log`. Ad esempio: 
+Per registrare l'output nei [log in streaming](../app-service/troubleshoot-diagnostic-logs.md) in F#, la funzione deve accettare un argomento di tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Per coerenza è consigliabile denominare questo argomento `log`. Ad esempio: 
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =

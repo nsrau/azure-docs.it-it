@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: bc37b3b60a5ad7f4e2b4794e4fcb74c1a5004b75
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 33f8547721f499ed7b9a81088681fc2ade2d030c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336884"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723536"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analizzare i dati di Log Analytics in Monitoraggio di Azure
 
@@ -95,7 +95,7 @@ union Update, workspace("contoso-workspace").Update
 ## <a name="how-log-analytics-data-is-organized"></a>Organizzazione dei dati di Log Analytics
 Quando si compila una query, è necessario innanzitutto determinare quali tabelle contengono i dati da cercare. I diversi tipi di dati sono suddivisi in tabelle dedicate in ciascuna [area di lavoro di Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).  La documentazione per le diverse origini dati include il nome del tipo di dati che crea e una descrizione di ciascuna delle relative proprietà.  Molte query richiedono solo dati da una singola tabella, ma altre possono usare numerose opzioni per includere dati da più tabelle.
 
-Sebbene [Application Insights](../../application-insights/app-insights-overview.md) archivi i dati dell'applicazione, ad esempio richieste, eccezioni, tracce e utilizzo, in Log Analytics, questi dati vengono archiviati in una partizione diversa da quella degli altri dati di log. Per accedere a questi dati si utilizza lo stesso linguaggio di query, ma è necessario usare la [console di Application Insights](../../application-insights/app-insights-analytics.md) o l'[API REST di Application Insights](https://dev.applicationinsights.io/). È possibile usare [le query tra risorse](../../azure-monitor/log-query/cross-workspace-query.md) per combinare i dati di Application Insights con altri dati in Log Analytics.
+Sebbene [Application Insights](../../application-insights/app-insights-overview.md) archivi i dati dell'applicazione, ad esempio richieste, eccezioni, tracce e utilizzo, in Log Analytics, questi dati vengono archiviati in una partizione diversa da quella degli altri dati di log. Per accedere a questi dati si utilizza lo stesso linguaggio di query, ma è necessario usare la [console di Application Insights](../../azure-monitor/app/analytics.md) o l'[API REST di Application Insights](https://dev.applicationinsights.io/). È possibile usare [le query tra risorse](../../azure-monitor/log-query/cross-workspace-query.md) per combinare i dati di Application Insights con altri dati in Log Analytics.
 
 
 ![Tabelle](media/log-query-overview/queries-tables.png)

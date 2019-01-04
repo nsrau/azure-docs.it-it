@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 310a349aad4e6626033ca2f378e7c1b0ffa96560
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 47a957453bf5962f59518719895edc0f13fe7dc8
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388448"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584378"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
 Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Ad esempio, se si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto, tecnici DevOps) o si usa un provider di servizi gestiti, si consiglia di concedere loro l'accesso ai dati di monitoraggio solo limitandone la possibilità di creare, modificare o eliminare le risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
@@ -26,10 +26,10 @@ Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visual
 
 * Visualizzare i dashboard di monitoraggio nel portale e creare dashboard di monitoraggio privati.
 * Visualizzare le regole di avviso definite in [Avvisi di Azure](../../azure-monitor/platform/alerts-overview.md)
-* Eseguire query per le metriche usando l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931930.aspx), i [cmdlet di PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md) o l'[interfaccia della riga di comando multipiattaforma](../../azure-monitor/platform/cli-samples.md).
+* Eseguire query per le metriche usando l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931930.aspx), i [cmdlet di PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md) o l'[interfaccia della riga di comando multipiattaforma](../../azure-monitor/platform/cli-samples.md).
 * Eseguire query per il registro attività usando il portale, l'API REST di monitoraggio di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma.
-* Visualizzare le [impostazioni di diagnostica](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) per una risorsa.
-* Visualizzare il [profilo di registro](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) per una sottoscrizione.
+* Visualizzare le [impostazioni di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) per una risorsa.
+* Visualizzare il [profilo di registro](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) per una sottoscrizione.
 * Visualizzare le impostazioni di scalabilità automatica.
 * Visualizzare impostazioni e attività di avviso.
 * Accedere ai dati di Application Insights e visualizzarli in AI Analytics.
@@ -49,8 +49,8 @@ Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visual
 Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono visualizzare tutti i dati di monitoraggio in una sottoscrizione e creare o modificare le impostazioni, ma non possono modificare altre risorse. Questo ruolo è un soprainsieme del ruolo di lettore di monitoraggio ed è adatto ai membri del team di monitoraggio di un'organizzazione o ai fornitori di servizi gestiti che, oltre alle autorizzazioni di cui sopra, devono essere in grado di:
 
 * Pubblicare dashboard di monitoraggio come dashboard condivisi.
-* Configurare le [impostazioni di diagnostica](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) per una risorsa.*
-* Impostare il [profilo di registro](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) per una sottoscrizione.*
+* Configurare le [impostazioni di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) per una risorsa.*
+* Impostare il [profilo di registro](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) per una sottoscrizione.*
 * Configurare le attività e le impostazioni delle regole di avviso tramite [Avvisi di Azure](../../azure-monitor/platform/alerts-overview.md).
 * Creare componenti e test Web di Application Insights.
 * Elencare le chiavi condivise dell'area di lavoro di Log Analytics.

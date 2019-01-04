@@ -2,20 +2,17 @@
 title: Gestione degli errori di connettività temporanei per Database di Azure per MySQL | Microsoft Docs
 description: Informazioni su come gestire gli errori di connettività temporanei per Database di Azure per MySQL.
 keywords: connessione mysql,stringa di connessione,problemi di connettività,errore temporaneo,errore di connessione
-services: mysql
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 2d7b62d5f45f495d36b1ed103155f8f3178451e8
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 8942223ce233d424e2368e90d2fbac92b1a443f3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887815"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544074"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mysql"></a>Gestione degli errori di connettività temporanei per Database di Azure per MySQL
 
@@ -39,7 +36,7 @@ Il primo e il secondo caso sono abbastanza semplici da gestire. Provare ad aprir
 * Per ogni tentativo successivo, aumentare l'attesa in modo esponenziale, fino a 60 secondi.
 * Impostare un numero massimo di tentativi nel punto in cui l'applicazione considera l'operazione non riuscita.
 
-Quando una connessione con una transazione attiva ha esito negativo, la gestione corretta del ripristino è più difficile. I casi possibili sono due: Se la transazione era di sola lettura, è opportuno riaprire la connessione e riprovare la transazione. Se invece la transazione stava anche scrivendo nel database occorre stabilire se è stata sottoposta a rollback o se è riuscita prima che si verificasse l'errore temporaneo. In questo caso è possibile che la conferma di commit da parte del server di database non sia stata ricevuta.
+Quando una connessione con una transazione attiva ha esito negativo, la gestione corretta del ripristino è più difficile. I casi possibili sono due: Se la transazione è di sola lettura, è opportuno riaprire la connessione e ripetere la transazione. Se invece la transazione stava anche scrivendo nel database occorre stabilire se è stata sottoposta a rollback o se è riuscita prima che si verificasse l'errore temporaneo. In questo caso è possibile che la conferma di commit da parte del server di database non sia stata ricevuta.
 
 Un modo per superare il problema consiste nel generare un ID univoco sul client usato per tutti i tentativi. Passare questo ID univoco come parte della transazione al server e archiviarlo in una colonna con un vincolo univoco. In questo modo è possibile riprovare a eseguire la transazione in tutta sicurezza. Il tentativo ha esito positivo se la transazione precedente è stata sottoposta a rollback e l'ID univoco generato dal client non esiste ancora nel sistema. Il tentativo ha esito negativo quando indica una violazione della chiave duplicata se l'ID univoco è stato già archiviato, perché la transazione precedente è stata completata correttamente.
 

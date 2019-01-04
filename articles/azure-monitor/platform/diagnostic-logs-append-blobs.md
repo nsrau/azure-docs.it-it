@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: aae3454fc8de8455146fa1189b66e6498c32e20c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ba163b797cfaaf73c660f1ef3d8da18758e8139a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439638"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542000"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Prepararsi per la modifica del formato ai log di diagnostica del Monitoraggio di Azure memorizzati in un account di archiviazione
 
@@ -32,7 +32,7 @@ Il Monitoraggio di Azure offre una funzionalità che consente di inviare i dati 
 * Questa modifica verrà eseguita in una volta sola, in tutte le aree di cloud pubblico. La modifica non verrà ancora eseguita nei cloud di Azure per enti pubblici, Azure Germania o Azure Cina.
 * Questa modifica interessa i tipi di dati seguenti:
   * [I log di diagnostica di risorse Azure](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([vedere l'elenco delle risorse qui](./../../azure-monitor/platform/tutorial-dashboards.md))
-  * [Metriche delle risorse di Azure esportate da impostazioni di diagnostica](./../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)
+  * [Metriche delle risorse di Azure esportate da impostazioni di diagnostica](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
   * [Dati del log attività Azure esportati tramite i profili di log](./../../azure-monitor/platform/archive-activity-log.md)
 * Questa modifica non interessa:
   * Log dei flussi di rete

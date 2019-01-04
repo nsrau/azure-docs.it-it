@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a86a965a746ed659b73c359ee44fb9be250aae97
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015756"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714284"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
 Informazioni su come usare le azioni script per aggiungere altri account di archiviazione di Azure in HDInsight. Nella procedura descritta in questo documento viene aggiunto un account di archiviazione a un cluster HDInsight basato su Linux esistente.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Le informazioni in questo documento illustrano come aggiungere altre risorse di archiviazione a un cluster dopo la creazione. Per informazioni sull'aggiunta di account di archiviazione durante la creazione del cluster, vedere [Configurare cluster in HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Funzionamento
@@ -45,7 +45,7 @@ Durante l'elaborazione, lo script esegue le azioni seguenti:
 
 * Arrestare e riavviare i servizi [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) e [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html). L'arresto e l'avvio di questi servizi consente di usare il nuovo account di archiviazione.
 
-> [!WARNING]
+> [!WARNING]  
 > L'uso di un account di archiviazione in una località diversa rispetto al cluster HDInsight non è supportato.
 
 ## <a name="the-script"></a>Lo script
@@ -60,7 +60,7 @@ __Requisiti__:
 
 È possibile usare lo script tramite il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando classica di Azure. Per altre informazioni, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Nella procedura descritta nel documento di personalizzazione usare le informazioni seguenti per applicare questo script:
 >
 > * Sostituire l'URI di esempio dell'azione script con l'URI per questo script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
@@ -85,14 +85,14 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.windows.net"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Impostare `$clusterName` sul nome del cluster HDInsight. Impostare `$storageAccountName` sul nome dell'account di archiviazione. Quando richiesto, immettere (admin) e password di accesso al cluster.
 
 ```Bash
 curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Impostare `$PASSWORD` sulla password dell'account (admin) di accesso al cluster. Impostare `$CLUSTERNAME` sul nome del cluster HDInsight. Impostare `$STORAGEACCOUNTNAME` sul nome dell'account di archiviazione.
 >
 > Queste esempio usa [curl (https://curl.haxx.se/)](https://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) per recuperare e analizzare i dati JSON.
@@ -132,14 +132,14 @@ Per risolvere il problema, è necessario rimuovere la voce esistente per l'accou
 
 Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HDInsight, è possibile che le prestazioni non siano ottimali. L'accesso ai dati in un'area diversa comporta l'invio di traffico di rete all'esterno del data center di Azure di un'area specifica e la trasmissione tramite Internet pubblico e ciò può introdurre latenza.
 
-> [!WARNING]
+> [!WARNING]  
 > L'uso di un account di archiviazione in un'area diversa rispetto al cluster HDInsight non è supportato.
 
 ### <a name="additional-charges"></a>Costi aggiuntivi
 
 Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HDInsight, è possibile che la fatturazione di Azure includa addebiti di uscita aggiuntivi. Viene applicato un addebito di uscita quando i dati escono dal data center di un'area, anche se il traffico è destinato a un altro data center di Azure in un'area diversa.
 
-> [!WARNING]
+> [!WARNING]  
 > L'uso di un account di archiviazione in un'area diversa rispetto al cluster HDInsight non è supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi

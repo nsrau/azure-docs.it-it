@@ -8,17 +8,17 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: e87f8a0d168db02bf0e93216991767f5a9be584c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 89cf69ba8bc88a40582ea795b6a17fab4f286d64
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863517"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651981"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migrazione di un database SQL Server al database SQL di Azure
 
@@ -35,7 +35,7 @@ In entrambi i casi, è necessario assicurarsi che il database di origine sia com
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Metodo 1: Migrazione con tempi di inattività durante la migrazione
 
- Usare questo metodo per la migrazione a un database singolo o in pool se si è disposti a tollerare tempi di inattività o se si esegue una migrazione di prova di un database di produzione per una migrazione successiva. Per un'esercitazione, vedere [Eseguire la migrazione di un database SQL Server](sql-database-migrate-your-sql-server-database.md).
+ Usare questo metodo per la migrazione a un database singolo o in pool se si è disposti a tollerare tempi di inattività o se si esegue una migrazione di prova di un database di produzione per una migrazione successiva. Per un'esercitazione, vedere [Eseguire la migrazione di un database SQL Server](../dms/tutorial-sql-server-to-azure-sql.md).
 
 L'elenco seguente illustra un flusso di lavoro generico per eseguire la migrazione di un database SQL Server singolo o in pool usando questo metodo. Per la migrazione a Istanza gestita, vedere [Migrazione a Istanza gestita](sql-database-managed-instance-migrate.md).
 

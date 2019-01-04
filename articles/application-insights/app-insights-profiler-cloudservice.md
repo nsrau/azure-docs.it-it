@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bb70bf56efac28029401b69ee4f87c2738c52e3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 28e21180fde50d19154830694cd4959795ae9d5c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721851"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789382"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilare i servizi cloud di Azure attivi con Application Insights
 
 È anche possibile distribuire Application Insights Profiler in questi servizi:
-* [App Web di Azure](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Servizio app di Azure](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Applicazioni di Service Fabric](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
@@ -30,7 +30,7 @@ Application Insights Profiler viene installato con l'estensione Diagnostica di M
 
 ## <a name="enable-profiler-for-your-azure-cloud-service"></a>Abilitare il profiler per il servizio cloud di Azure
 1. Verificare che [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o versione successiva sia in uso.  È sufficiente confermare che i file *ServiceConfiguration.\*.cscfg* abbiano un valore di `osFamily` pari a "5" o maggiore.
-1. Aggiungere [Application Insights SDK al servizio cloud](app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json).
+1. Aggiungere [Application Insights SDK al servizio cloud](../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 1. Tenere traccia delle richieste con Application Insights:
 
     Per i ruoli Web ASP.Net, Application Insights può rilevare automaticamente le richieste.

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 763e1d20f707a1db1f559661089b55093f93a632
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999931"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606215"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Supporto per metadati OpenAPI 2.0 in Funzioni di Azure (anteprima)
 Il supporto per metadati OpenAPI 2.0 (in precedenza Swagger) in Funzioni di Azure è una funzionalità di anteprima che consente di scrivere una definizione di OpenAPI 2.0 all'interno di un'app per le funzioni. Con l'app per le funzioni è poi possibile ospitare quel file.
@@ -23,7 +23,7 @@ Il supporto per metadati OpenAPI 2.0 (in precedenza Swagger) in Funzioni di Azur
 > [!IMPORTANT]
 > La funzionalità di anteprima di OpenAPI è attualmente disponibile solo nella versione 1.x del runtime. [Qui](./functions-versions.md#creating-1x-apps) è possibile trovare informazioni su come creare un'app per le funzioni 1.x.
 
-I [metadati OpenAPI](https://swagger.io/) consentono a una funzione che ospita un'API REST di essere usata da una vasta gamma di altri software, tra cui le offerte Microsoft, quali PowerApps e la [funzionalità app per le api di Servizio app di Azure ](../app-service/app-service-web-overview.md), gli strumenti di sviluppo di terze parti come [Postman](https://www.getpostman.com/docs/importing_swagger) e [molti altri pacchetti](https://swagger.io/tools/).
+I [metadati OpenAPI](https://swagger.io/) consentono a una funzione che ospita un'API REST di essere usata da una vasta gamma di altri software, tra cui le offerte Microsoft, quali PowerApps e la [funzionalità app per le api di Servizio app di Azure ](../app-service/overview.md), gli strumenti di sviluppo di terze parti come [Postman](https://www.getpostman.com/docs/importing_swagger) e [molti altri pacchetti](https://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

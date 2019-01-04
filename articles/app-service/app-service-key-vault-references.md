@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 8add470048d3ead3f75ff85dd6f489d798af5e29
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c47de9fbe1b9923ff8ce1c38a9a9695af4311858
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253443"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723145"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Usare i riferimenti a Key Vault per Servizio app e Funzioni di Azure (anteprima)
 
@@ -32,7 +32,7 @@ Per leggere i segreti da Key Vault, è necessario avere creato un insieme di cre
 
 1. Creare un insieme di credenziali seguendo l'[avvio rapido per Key Vault](../key-vault/quick-create-cli.md).
 
-1. Creare un'[identità gestita assegnata dal sistema](app-service-managed-service-identity.md) per l'applicazione.
+1. Creare un'[identità gestita assegnata dal sistema](overview-managed-identity.md) per l'applicazione.
 
    > [!NOTE] 
    > I riferimenti a Key Vault supportano attualmente solo identità gestite assegnate dal sistema. Non è possibile usare identità assegnate dall'utente.

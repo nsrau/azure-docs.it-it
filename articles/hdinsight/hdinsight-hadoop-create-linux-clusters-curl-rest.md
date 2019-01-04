@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: b6ec48085d5dd2ea31543e208e8d32b954cb0bca
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fec87bf3af7f215b69a891c2d75cdd979a7b5a52
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872849"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789212"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creare i cluster Apache Hadoop tramite l'API REST di Azure
 
@@ -24,10 +24,10 @@ Informazioni su come creare un cluster HDInsight tramite un modello di Azure Res
 
 L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospitati nella piattaforma Azure, inclusa la creazione di nuove risorse, ad esempio cluster HDInsight.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-> [!NOTE]
+> [!NOTE]  
 > La procedura descritta in questo documento usa l'utilità [curl (https://curl.haxx.se/)](https://curl.haxx.se/) per comunicare con l'API REST di Azure.
 
 ## <a name="create-a-template"></a>Creare un modello
@@ -211,7 +211,7 @@ Il documento JSON seguente è una fusione dei file di modello e di parametri ric
 
 Questo esempio viene usato nei passaggi di questo documento. Sostituire i *valori* di esempio nella sezione **Parametri** con i valori relativi al cluster in uso.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Il modello usa il numero di nodi di lavoro predefinito (4) per un cluster HDInsight. Se si prevedono più di 32 nodi di lavoro, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 >
 > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -222,7 +222,7 @@ Seguire i passaggi illustrati in [Introduzione all'interfaccia della riga di com
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-> [!NOTE]
+> [!NOTE]  
 > Questa procedura costituisce una sintesi della sezione *Creare un'entità servizio con password* dell'articolo [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Con questi passaggi viene creata un'entità servizio usata per autenticare l'API REST di Azure.
 
 1. Dalla riga di comando, usare il comando seguente per elencare le sottoscrizioni di Azure.
@@ -241,7 +241,7 @@ Seguire i passaggi illustrati in [Introduzione all'interfaccia della riga di com
 
     Sostituire i valori di `--display-name`, `--homepage` e `--identifier-uris` con valori personalizzati. Specificare una password per la nuova voce di Active Directory.
 
-   > [!NOTE]
+   > [!NOTE]  
    > I valori `--home-page` e `--identifier-uris` non devono fare riferimento a una pagina Web reale ospitata in Internet. Devono essere URI univoci.
 
    Il valore restituito da questo comando è l'__ID app__ per la nuova applicazione. Salvare il valore.
@@ -323,14 +323,14 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -d "{set your body string to the template and parameters}"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Se il modello è stato salvato in un file, è possibile usare il comando seguente invece di `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
 Se la richiesta ha esito positivo, si riceve una risposta serie 200 e il corpo della risposta contiene un documento JSON che include le informazioni dell'operazione di distribuzione.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > La distribuzione è stata inviata, ma non è stata completata. Possono essere necessari diversi minuti, in genere circa 15, per completare la distribuzione.
 
 ## <a name="check-the-status-of-a-deployment"></a>Controllare lo stato di una distribuzione
@@ -347,7 +347,7 @@ Questo comando restituisce un documento JSON che contiene informazioni sull'oper
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
+Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -357,7 +357,7 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 
 * [Usare Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
 * [Usare Pig con Hadoop in HDInsight](hadoop/hdinsight-use-pig.md)
-* [Usare Apache Hadoop MapReduce in HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Usare MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Cluster Apache HBase
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315807"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633862"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Funzionamento della ricerca full-text in Ricerca di Azure
 
@@ -385,7 +385,7 @@ In questo articolo è stata illustrata la ricerca full-text nel contesto di Rice
 
 + Compilare l'indice di esempio, provare diverse query ed esaminare i risultati. Per le istruzioni, vedere [Eseguire query sull'indice](search-get-started-portal.md#query-index).
 
-+ Provare la sintassi di query aggiuntiva dalla sezione di esempio [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) (Ricerca di documenti) o da [Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Esplora ricerche nel portale.
++ Provare la sintassi di query aggiuntiva dalla sezione di esempio [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) (Ricerca di documenti) o da [Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Esplora ricerche nel portale.
 
 + Rivedere i [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) se si desidera ottimizzare la classificazione nell'applicazione di ricerca.
 
@@ -393,7 +393,7 @@ In questo articolo è stata illustrata la ricerca full-text nel contesto di Rice
 
 + [Configurare gli analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) per un'elaborazione minima o specializzati per settori specifici.
 
-+ [Fare un confronto affiancato degli analizzatori standard e in lingua inglese](http://alice.unearth.ai/) in questo sito Web demo. 
++ [Fare un confronto affiancato degli analizzatori standard e in lingua inglese](https://alice.unearth.ai/) in questo sito Web demo. 
 
 ## <a name="see-also"></a>Vedere anche 
 
