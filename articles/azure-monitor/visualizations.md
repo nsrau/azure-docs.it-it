@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 76e3a219d440bab4c6e277887aabb1e01f5e1d9c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435447"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728347"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -32,7 +32,7 @@ I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecno
 ### <a name="advantages"></a>Vantaggi
 - Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard da più pagine di Azure, tra cui analisi delle metriche, Log Analytics e Application Insights.
 - Supporto sia per le metriche sia per i log.
-- Combinazione dei provenienti da più origini, tra cui l'output da [Esplora metriche](../azure-monitor/platform/metrics-charts.md), [query di Log Analytics](../azure-monitor/log-query/log-query-overview.md), [mappe](../application-insights/app-insights-app-map.md) e [disponibilità]() in Application Insights.
+- Combinazione dei provenienti da più origini, tra cui l'output da [Esplora metriche](../azure-monitor/platform/metrics-charts.md), [query di Log Analytics](../azure-monitor/log-query/log-query-overview.md), [mappe](../azure-monitor/app/app-map.md) e [disponibilità]() in Application Insights.
 - Opzione per dashboard personali o condivisi, integrati con l'[autenticazione basata su ruoli (RBAC)](../role-based-access-control/overview.md) di Azure.
 - Aggiornamento automatico delle metriche in base a un intervallo di tempo con un valore minimo di cinque minuti e dei log con intervallo di un minuto.
 - Dashboard delle metriche con parametri con timestamp e parametri personalizzati.

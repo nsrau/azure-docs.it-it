@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 8690ffdca606bf45f306f9273441aaac52b385c8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8b46839d26130f37f4f4ba5559f5699498b0e60f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241362"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599400"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
@@ -86,7 +86,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Servizi cloud](https://go.microsoft.com/fwlink/?LinkId=314074)
 
-[App Web di Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
+[Servizio app di Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
 [Operazioni per Gestione traffico (informazioni di riferimento API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 

@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: 09a7f02df1102e42bc45b4615a2af4235372bcdc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: acd6d41e8b6d1fb834697ec3d026419ee6b69ec9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957028"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582355"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Informazioni sull'API Visione artificiale versione 1.0?
 
@@ -267,7 +268,7 @@ Nota: questa tecnologia è attualmente disponibile in anteprima e solo per testo
 ## <a name="generating-thumbnails"></a>Generazione di anteprime
 Un'anteprima è una rappresentazione di piccole dimensioni di un'immagine con le dimensioni originali. Diversi dispositivi, ad esempio telefoni, tablet e PC, comportano la necessità di layout e di dimensioni delle anteprime diversi per l'esperienza utente. Grazie a una funzione di ritaglio intelligente, l'API Visione artificiale consente di risolvere il problema.
 
-Dopo il caricamento di un'immagine, viene generata un'anteprima di alta qualità e l'algoritmo dell'API Visione artificiale consente di analizzare gli oggetti all'interno dell'immagine. L'immagine viene quindi ritagliata per soddisfare i requisiti dell'area di interesse. L'output viene visualizzato all'interno di un framework speciale come illustrato nella figura seguente. L'anteprima generata può essere visualizzata con proporzioni diverse da quelle dell'immagine originale per rispondere alle esigenze dell'utente.
+Dopo il caricamento di un'immagine, viene generata un'anteprima di alta qualità e l'algoritmo dell'API Visione artificiale consente di analizzare gli oggetti all'interno dell'immagine L'immagine viene quindi ritagliata per soddisfare i requisiti dell'area di interesse. L'output viene visualizzato all'interno di un framework speciale come illustrato nella figura seguente. L'anteprima generata può essere visualizzata con proporzioni diverse da quelle dell'immagine originale per rispondere alle esigenze dell'utente.
 
 L'algoritmo per la generazione delle anteprime algoritmo funziona nel modo seguente:
 

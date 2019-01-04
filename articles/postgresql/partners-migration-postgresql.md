@@ -1,25 +1,24 @@
 ---
-title: Partner della migrazione di Database di Azure per PostgreSQL | Microsoft Docs
+title: Partner della migrazione di Database di Azure per PostgreSQL
 description: Elenchi dei partner di migrazione di terze parti con soluzioni che supportano il Database di Azure per PostgreSQL.
-services: mysql
 author: HJToland3
 ms.author: jtoland
 manager: craigg
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.openlocfilehash: 11069e4e5ff9a6ad6b91fc554036955afa805443
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 63facf52531d1f58e4022085503da96a797f60df
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626455"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536237"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Partner della migrazione di Database di Azure per PostgreSQL
 Per supportare su vasta scala la soluzione Database di Azure per PostgreSQL, è possibile scegliere tra un'ampia gamma di strumenti e partner leader del settore. Questo articolo presenta i partner di Microsoft che offrono soluzioni di migrazione con supporto per Database di Azure per PostgreSQL.
 
 ## <a name="migration-partners"></a>Partner per la migrazione
-| Partner | Descrizione | Collegamenti | Video |
+| Partner | DESCRIZIONE | Collegamenti | Video |
 | --- | --- | --- | --- |
 | ![SNP Technologies][1] |**SNP Technologies**<br>SNP Technologies è un provider di servizi solo cloud, che fornisce soluzioni protette e affidabili per le aziende del futuro. L'azienda crede nella creazione di valore reale per il business. Dal pensiero all'azione, SNP Technologies ha uno scopo in comune con i clienti, quello di trasformare gli investimenti in vantaggi.|[Sito Web][snp_website]<br>[Twitter][snp_twitter]<br>[Contatto][snp_contact] | |
 | ![DB Best Technologies, LLC][2] |**DB Best Technologies, LLC**<br>DB Best aiuta i clienti a trarre il massimo vantaggio da un servizio gestito Database di Azure. L'azienda offre vari modi per iniziare, tra cui [Future-State Architectural Design](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [Data Management Optimization for Microsoft Data Platform](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fdata-management-optimization-for-microsoft-data-platform%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261204561&sdata=DYF9EeMaMdKZP%2FJ9d3mw%2F67hUAxWmINcI1rMbEQZ1DM%3D&reserved=0), [Microsoft Azure Deployment Planning Services](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fmicrosoft-azure-deployment-planning-services%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261214574&sdata=Q%2FNJaHWXrrln6eXaVmU1iVb4tJCoKVgSA8cEBQiZaDk%3D&reserved=0) e [Azure Data Platform Readiness Training](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fazure-data-platform-readiness-training%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261214574&sdata=dX%2BBGSCyq4x9ZPkTN74Y%2FUgHJ%2FqtsNgwEFDJft%2FTkc0%3D&reserved=0).|[Sito Web][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Contatto][dbbest_contact] | |

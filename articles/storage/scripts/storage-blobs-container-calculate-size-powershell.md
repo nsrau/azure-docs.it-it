@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.openlocfilehash: f6f421e780bfbb7922a4b11f758330f2a9a0b84b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b41366b89a0598d52ae973e2a6d27e60ed548765
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24814576"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634457"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Calcolare le dimensioni di un contenitore di archiviazione BLOB
 
@@ -42,7 +42,7 @@ Lo script consente di calcolare le dimensioni di un contenitore dell'Archiviazio
 Eseguire il comando seguente per rimuovere il gruppo di risorse, il contenitore e tutte le risorse correlate.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name bloblisttestrg
+Remove-AzResourceGroup -Name bloblisttestrg
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script
@@ -51,8 +51,8 @@ Lo script usa i comandi seguenti per calcolare le dimensioni del contenitore del
 
 | Comando | Note |
 |---|---|
-| [Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Ottiene un account di archiviazione specificato o tutti gli account di archiviazione in un gruppo di risorse o nella sottoscrizione. |
-| [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) | Elenca i BLOB di un contenitore. ||
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Ottiene un account di archiviazione specificato o tutti gli account di archiviazione in un gruppo di risorse o nella sottoscrizione. |
+| [Get-AzStorageBlob](/powershell/module/azure.storage/get-AzStorageblob) | Elenca i BLOB di un contenitore. ||
 
 ## <a name="next-steps"></a>Passaggi successivi
 

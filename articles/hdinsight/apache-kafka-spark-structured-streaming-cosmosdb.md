@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: c35082d7aa1e9d669bc9c5b89948f190d3edd2f3
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014532"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630161"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Usare Apache Spark Structured Streaming con Apache Kafka e Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Informazioni su come usare [Apache Spark](https://spark.apache.org/) [Structured
 
 Lo streaming strutturato Spark è un motore di elaborazione del flusso basato su Spark SQL. Consente di esprimere i calcoli di streaming come il calcolo di batch in dati statici. Per altre informazioni sullo streaming strutturato, vedere la pagina [Structured Streaming Programming Guide](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) di Apache.org.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > In questo esempio viene usato Spark 2.2 in HDInsight 3.6.
 >
 > La procedura descritta in questo documento permette di creare un gruppo di risorse di Azure che contiene sia un cluster Spark in HDInsight che un cluster Kafka in HDInsight. Entrambi questi cluster si trovano all'interno di una rete virtuale di Azure, che consente al cluster Spark di comunicare direttamente con il cluster Kafka.
@@ -37,7 +37,7 @@ Apache Kafka in HDInsight non fornisce l'accesso ai broker Kafka tramite Interne
 
 ![Diagramma dei cluster Spark e Kafka in una rete virtuale di Azure](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Il servizio Kafka è limitato alle comunicazioni all'interno della rete virtuale. Altri servizi nel cluster, ad esempio SSH e Ambari, sono accessibili tramite Internet. Per altre informazioni sulle porte pubbliche disponibili con HDInsight, vedere [Porte e URI usati da HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtuale di Azure, è più semplice usare un modello di Azure Resource Manager. Seguire questa procedura per distribuire cluster Spark e Kafka e una rete virtuale di Azure nella sottoscrizione di Azure.
@@ -58,12 +58,12 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
     * Una rete virtuale Azure contenente i cluster HDInsight.
 
-        > [!NOTE]
+        > [!NOTE]  
         > La rete virtuale creata dal modello usa lo spazio degli indirizzi 10.0.0.0/16.
 
     * Un database dell'API SQL di Azure Cosmos DB.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Il notebook di streaming strutturato che è stato usato in questo esempio richiede Spark in HDInsight 3.6. Se si usa una versione precedente di Spark in HDInsight, si ricevono errori durante l'uso del notebook.
 
 2. Usare le informazioni seguenti per popolare le voci nel pannello **Distribuzione personalizzata**:
@@ -82,7 +82,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
     * **Versione cluster**: versione del cluster HDInsight.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > In questo esempio è stato eseguito un test con HDInsight 3.6 e potrebbe non funzionare con altri tipi di cluster.
 
     * **Nome utente dell'account di accesso del cluster**: nome utente amministratore per i cluster Spark e Kafka.
@@ -97,7 +97,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
 4. Infine selezionare **Acquisto**. La creazione dei cluster richiede circa 20 minuti.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Potrebbero occorrere fino a 45 minuti per creare i cluster, la rete virtuale e l'account Cosmos DB.
 
 ## <a name="create-the-cosmos-db-database-and-collection"></a>Creare il database e la raccolta di Cosmos DB
@@ -140,7 +140,7 @@ I dati relativi all'endpoint documento e alla chiave primaria sono simili al tes
 "YqPXw3RP7TsJoBF5imkYR0QNA02IrreNAlkrUMkL8EW94YHs41bktBhIgWq4pqj6HCGYijQKMRkCTsSaKUO2pw=="
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Salvare i valori di endpoint e chiave, che serviranno nel Notebook di Jupyter.
 
 ## <a name="get-the-apache-kafka-brokers"></a>Recuperare i broker di Apache Kafka
@@ -158,7 +158,7 @@ $brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Questo Bash di esempio prevede che `$CLUSTERNAME` contenga il nome del cluster Kafka.
 >
 > Questo esempio usa l'utilità [jq](https://stedolan.github.io/jq/) per analizzare i dati del documento JSON.

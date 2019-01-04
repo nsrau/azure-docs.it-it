@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 7fdbbee27f83a4583390158e456270324967b28a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 17fbaa7efcdd9e0de675defb3958a61f29bbc3fe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961604"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714322"
 ---
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
 Con la [disponibilità generale del servizio app di Azure], è possibile eseguire facilmente la migrazione sul posto dei siti di Servizi mobili di Azure per sfruttare appieno tutte le funzionalità del servizio app di Azure.  Questo documento illustra cosa accade durante la migrazione del sito da Servizi mobili di Azure al servizio app di Azure.
@@ -176,7 +176,7 @@ Tutte le impostazioni di autenticazione sono disponibili come impostazioni app n
 | Google |**MS\_GoogleClientID** |**MS\_GoogleClientSecret** | |
 | Azure AD |**MS\_AadClientID** | |**MS\_AadTenants** |
 
-Nota: l'impostazione **MS\_AadTenants** viene archiviata come elenco delimitato da virgole dei domini del tenant, corrispondente al campo "Tenant consentiti" del portale di Servizi mobili.
+Note: l'impostazione **MS\_AadTenants** viene archiviata come elenco delimitato da virgole dei domini del tenant, corrispondente al campo "Tenant consentiti" del portale di Servizi mobili.
 
 > [!WARNING]
 > **Non usare i meccanismi di autenticazione nel menu Impostazioni**
@@ -376,25 +376,25 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Scalabilità automatica]: ../app-service/web-sites-scale.md
-[Servizio app di Azure]: ../app-service/app-service-web-overview.md
+[Servizio app di Azure]: ../app-service/overview.md
 [portale di Azure classico]: https://manage.windowsazure.com
 [Portale di Azure]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/
 [piani dell'utilità di pianificazione di Azure]: ../scheduler/scheduler-plans-billing.md
-[distribuzione continua]: ../app-service/app-service-continuous-deployment.md
+[distribuzione continua]: ../app-service/deploy-continuous-deployment.md
 [Convertire gli spazi dei nomi di tipo Misto]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: https://curl.haxx.se/
 [nomi di dominio personalizzati]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: https://www.telerik.com/fiddler
 [disponibilità generale del servizio app di Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[registrazione]: ../app-service/web-sites-enable-diagnostic-log.md
+[registrazione]: ../app-service/troubleshoot-diagnostic-logs.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [Servizi mobili e servizio app]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Hub di notifica]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [monitoraggio delle prestazioni]: ../app-service/web-sites-monitor.md
 [Postman]: https://www.getpostman.com/
-[slot di staging]: ../app-service/web-sites-staged-publishing.md
+[slot di staging]: ../app-service/deploy-staging-slots.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT transform samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Funzioni]: ../azure-functions/functions-overview.md

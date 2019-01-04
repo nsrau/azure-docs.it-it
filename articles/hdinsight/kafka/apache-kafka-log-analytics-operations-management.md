@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: bd8bfb8775bc9c988bb7484ac25f189c3ff46991
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 69eaa0028f1115cafbd1ed28b66940d7faaed062
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317280"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608546"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analizzare i log per Apache Kafka in HDInsight
 
@@ -30,7 +30,7 @@ I passaggi per abilitare Log Analytics per HDInsight sono uguali per tutti i clu
 
 3. Configurare il cluster Kafka per l'uso di Log Analytics. Per altre informazioni, vedere il documento su come [usare Log Analytics per monitorare HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > È anche possibile configurare il cluster per l'uso di Log Analytics tramite il cmdlet `Enable-AzureRmHDInsightOperationsManagementSuite`. Questo cmdlet richiede le informazioni seguenti:
     >
     > * Il nome del cluster HDInsight.
@@ -38,7 +38,7 @@ I passaggi per abilitare Log Analytics per HDInsight sono uguali per tutti i clu
     > * La chiave primaria per la connessione di Log Analytics. Per trovare la chiave primaria, aprire l'area di lavoro nel portale di Azure e selezionare __Impostazioni avanzate__ nel menu a sinistra. Da Impostazioni avanzate, selezionare __Origini connesse__>__Server Linux__.
 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Possono trascorrere circa 20 minuti prima che i dati siano disponibili per Log Analytics.
 
 ## <a name="query-logs"></a>Log di query
@@ -57,7 +57,7 @@ I passaggi per abilitare Log Analytics per HDInsight sono uguali per tutti i clu
 
     * Byte in uscita al secondo: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Sostituire i valori della query con le informazioni specifiche del cluster. Ad esempio, `ClusterName_s` deve essere impostato sul nome del cluster. `HostName_s` deve essere impostato sul nome di dominio di un nodo del ruolo di lavoro nel cluster.
 
     È anche possibile immettere `*` per cercare tutti i tipi registrati. Questi log sono attualmente disponibili per le query:

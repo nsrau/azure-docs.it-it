@@ -11,23 +11,23 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 17193bf3285a2052a913293ec3adc6f9b8884f72
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0c171ff768395540c123c4ef2a19168d926b0661
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435947"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633828"
 ---
-# <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio Azure Machine Learning
+# <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
 Il servizio Azure Machine Learning offre diversi modi per distribuire un modello con training usando l'SDK. In questo documento viene descritto come distribuire il modello come servizio Web nel cloud di Azure o nei dispositivi periferici IoT.
 
 È possibile distribuire i modelli per le destinazioni di calcolo seguenti:
 
-| Destinazione di calcolo | Tipo di distribuzione | DESCRIZIONE |
+| Destinazione del calcolo | Tipo di distribuzione | DESCRIZIONE |
 | ----- | ----- | ----- |
 | [Istanze di Azure Container](#aci) | Servizio Web | Distribuzione rapida. Soluzione ideale per lo sviluppo o il test. |
-| [Servizio Azure Kubernetes](#aks) | Servizio Web | Soluzione ideale per le distribuzioni di produzione su vasta scala. Fornisce la scalabilità automatica e tempi di risposta rapidi. |
+| [servizio Kubernetes di Azure](#aks) | Servizio Web | Soluzione ideale per le distribuzioni di produzione su vasta scala. Fornisce la scalabilità automatica e tempi di risposta rapidi. |
 | [Azure IoT Edge](#iotedge) | Modulo IoT | Distribuzione di modelli nei dispositivi IoT. Inferenza nel dispositivo. |
 | [Dispositivo FPGA (Field-Programmable Gate Array)](#fpga) | Servizio Web | Latenza estremamente bassa per inferenza in tempo reale. |
 
@@ -50,7 +50,7 @@ Il processo di distribuzione di un modello è simile per tutte le destinazioni d
 1. Creare una configurazione di immagine.
 1. Creare l'immagine.
 1. Distribuire l'immagine in una destinazione di calcolo.
-1. Eseguire il test della distribuzione.
+1. Test della distribuzione
 1. (Facoltativo) Eseguire la pulizia degli artefatti.
 
     * Quando si esegue la **distribuzione come servizio Web**, sono disponibili tre opzioni di distribuzione:
@@ -104,7 +104,7 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
 
 Questa configurazione usa un file `score.py` per passare le richieste al modello. Il file contiene due funzioni:
 
-* `init()`: questa funzione carica in genere il modello in un oggetto globale. Viene eseguita una sola volta all'avvio del contenitore Docker. 
+* `init()`: questa funzione carica in genere il modello in un oggetto globale. Questa funzione viene eseguita una sola volta all'avvio del contenitore Docker. 
 
 * `run(input_data)`: questa funzione usa il modello per stimare un valore in base ai dati di input. Per la serializzazione e la deserializzazione, gli input e gli output dell'esecuzione usano in genere JSON, ma sono supportati anche altri formati.
 
@@ -137,7 +137,7 @@ Per altre informazioni, vedere la documentazione di riferimento per la [classe C
 
 Quando si raggiunge la fase di distribuzione, il processo varia leggermente a seconda della destinazione di calcolo. Vedere le sezioni seguenti per informazioni su come eseguire la distribuzione in:
 
-* [Istanze di Azure Container](#aci)
+* [Istanze di contenitore di Azure](#aci)
 * [Servizio Azure Kubernetes](#aks)
 * [Project Brainwave (dispositivi FPGA)](#fpga)
 * [Dispositivi Azure IoT Edge](#iotedge)
@@ -146,7 +146,7 @@ Quando si raggiunge la fase di distribuzione, il processo varia leggermente a se
 
 Usare Istanze di Azure Container per distribuire i modelli come servizio Web se una o più delle condizioni seguenti sono vere:
 
-- È necessario distribuire e convalidare rapidamente il modello. La distribuzione di Istanze di Azure Container viene completata in meno di 5 minuti.
+- È necessario distribuire e convalidare rapidamente il modello. La distribuzione di ACI viene completata in meno di 5 minuti.
 - Si sta eseguendo il test di un modello in fase di sviluppo. Per informazioni sulla disponibilità di quote e aree per Istanze di Azure Container, vedere il documento [Quote e aree disponibili per Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances/container-instances-quotas).
 
 Per eseguire la distribuzione in Istanze di Azure Container, seguire questa procedura:
@@ -162,15 +162,15 @@ Per eseguire la distribuzione in Istanze di Azure Container, seguire questa proc
     **Tempo stimato**: circa 3 minuti.
 
     > [!TIP]
-    > Se si verificano errori durante la distribuzione, usare `service.get_logs()` per visualizzare i log del servizio Azure Kubernetes. Le informazioni registrate potrebbero indicare la causa dell'errore.
+    > Se si verificano errori durante la distribuzione, usare `service.get_logs()` per visualizzare i log del servizio AKS. Le informazioni registrate potrebbero indicare la causa dell'errore.
 
-Per altre informazioni, vedere la documentazione di riferimento per le classi [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.comS/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py).
+Per altre informazioni, vedere la documentazione di riferimento per le classi [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
 ### <a id="aks"></a> Eseguire la distribuzione nel servizio Azure Kubernetes
 
-Per distribuire il modello come servizio Web in uno scenario di produzione su vasta scala, usare il servizio Azure Kubernetes. È possibile usare un cluster del servizio Azure Kubernetes esistente o crearne uno nuovo tramite il SDK di Azure Machine Learning, l'interfaccia della riga di comando o il portale di Azure.
+Per distribuire il modello come servizio Web in uno scenario di produzione su vasta scala, usare il servizio Azure Kubernetes. È possibile usare un cluster AKS esistente o crearne uno nuovo tramite il SDK di Azure Machine Learning, l'interfaccia della riga di comando o il portale di Azure.
 
-La creazione di un cluster del servizio Azure Kubernetes si esegue una sola volta per l'area di lavoro. È possibile riutilizzare questo cluster per più distribuzioni. Se si elimina il cluster, per eseguire la distribuzione successiva sarà necessario creare un nuovo cluster.
+La creazione di un cluster AKS si esegue una sola volta per l'area di lavoro. È possibile riutilizzare questo cluster per più distribuzioni. Se si elimina il cluster, per eseguire la distribuzione successiva sarà necessario creare un nuovo cluster.
 
 Il servizio Kubernetes di Azure offre le funzionalità seguenti:
 
@@ -184,7 +184,7 @@ Per eseguire la distribuzione nel servizio Azure Kubernetes, seguire questa proc
 1. Per creare un cluster del servizio Azure Kubernetes, usare il codice seguente:
 
     > [!IMPORTANT]
-    > La creazione del cluster del servizio Azure Kubernetes si esegue una sola volta per l'area di lavoro. Dopo aver creato il cluster, è possibile riutilizzarlo per più distribuzioni. Se si elimina il cluster o il gruppo di risorse che lo contiene, per eseguire la distribuzione successiva sarà necessario creare un nuovo cluster.
+    > La creazione del cluster AKS si esegue una sola volta per l'area di lavoro. Dopo aver creato il cluster, è possibile riutilizzarlo per più distribuzioni. Se si elimina il cluster o il gruppo di risorse che lo contiene, per eseguire la distribuzione successiva sarà necessario creare un nuovo cluster.
     > Per [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), se si selezionano valori personalizzati per agent_count e vm_size, è necessario verificare che il valore di agent_count moltiplicato per il valore di vm_size sia maggiore o uguale a 12 CPU virtuali. Ad esempio, se come vm_size si usa "Standard_D3_v2", che dispone di 4 CPU virtuali, per agent_count è consigliabile selezionare 3 o un valore superiore.
 
     ```python
@@ -211,6 +211,7 @@ Per eseguire la distribuzione nel servizio Azure Kubernetes, seguire questa proc
     > Se nella sottoscrizione di Azure è già incluso un cluster del servizio Azure Kubernetes, nella versione 1.11.*, è possibile usarlo per distribuire l'immagine. Il codice seguente illustra come collegare un cluster alla propria area di lavoro:
     >
     > ```python
+    > from azureml.core.compute import AksCompute, ComputeTarget
     > # Set the resource group that contains the AKS cluster and the cluster name
     > resource_group = 'myresourcegroup'
     > cluster_name = 'mycluster'
@@ -218,7 +219,7 @@ Per eseguire la distribuzione nel servizio Azure Kubernetes, seguire questa proc
     > # Attatch the cluster to your workgroup
     > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
     >                                          cluster_name = cluster_name)
-    > compute = ComputeTarget.attach(ws, 'mycompute', attach_config)
+    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
     > 
     > # Wait for the operation to complete
     > aks_target.wait_for_completion(True)
@@ -244,13 +245,13 @@ Per eseguire la distribuzione nel servizio Azure Kubernetes, seguire questa proc
     ```
 
     > [!TIP]
-    > Se si verificano errori durante la distribuzione, usare `service.get_logs()` per visualizzare i log del servizio Azure Kubernetes. Le informazioni registrate potrebbero indicare la causa dell'errore.
+    > Se si verificano errori durante la distribuzione, usare `service.get_logs()` per visualizzare i log del servizio AKS. Le informazioni registrate potrebbero indicare la causa dell'errore.
 
 Per altre informazioni, vedere la documentazione di riferimento per le classi [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py).
 
 ### <a id="fpga"></a> Eseguire la distribuzione in dispositivi FPGA
 
-Project Brainwave consente di ottenere una latenza estremamente bassa per le richieste di inferenza in tempo reale. Project Brainwave accelera reti neurali profonde (DNN) distribuite in dispositivi FPGA nel cloud di Azure. I DNN comunemente usati sono disponibili come featurizers per il trasferimento induttivo o sottoposti a training personalizzabile con pesi formati a partire dai propri dati.
+Project Brainwave consente di ottenere una latenza estremamente bassa per le richieste di inferenza in tempo reale. Project Brainwave accelera reti neurali profonde (DNN) distribuite in field-programmable gate array nel cloud di Azure. I DNN comunemente usati sono disponibili come featurizers per il trasferimento induttivo o sottoposti a training personalizzabile con pesi formati a partire dai propri dati.
 
 Per una procedura dettagliata sulla distribuzione di un modello con Project Brainwave, vedere il documento [Distribuire un modello in un FPGA](how-to-deploy-fpga-web-service.md).
 
@@ -275,7 +276,7 @@ I moduli Azure IoT Edge vengono distribuiti nel dispositivo da un registro conte
 ssh <yourusername>@<yourdeviceip>
 sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
 sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you wnat to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
+sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
 ```
 
 Salvare la stringa di connessione risultante dopo "cs":"{copiare questa stringa}".

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: 6e1317084ce60fb8dce64ccd7d1d93fe1ae1d9e9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c1af73d57255b3c74bbab4c69767d1756b24a6da
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140762"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541575"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Usare Azure Cosmos DB Explorer per gestire i dati 
 
@@ -51,4 +51,4 @@ L'opzione **Apri a schermo intero** che consente di condividere l'accesso tempor
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che si è appreso come iniziare a usare Azure Cosmos DB Explorer per gestire i dati, è possibile eseguire questa operazione:
 
-* Iniziare a definire [query](sql-api-query-reference.md) usando la sintassi SQL ed eseguire la [programmazione sul lato server](programming.md) tramite stored procedure, funzioni definite dall'utente e trigger. 
+* Iniziare a definire [query](sql-api-query-reference.md) usando la sintassi SQL ed eseguire la [programmazione sul lato server](stored-procedures-triggers-udfs.md) tramite stored procedure, funzioni definite dall'utente e trigger. 

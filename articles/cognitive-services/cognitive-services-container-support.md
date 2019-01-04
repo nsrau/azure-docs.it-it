@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 8d98e428d60c0981385b842bcb4dfc77bdbbcf22
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 4ee98c2d8170df5ef5878f5b534b545eb105667e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413048"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543916"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
 
@@ -33,8 +33,8 @@ I servizi [Visione artificiale](Computer-vision/Home.md), [Viso](Face/Overview.m
 
 - **Controllo sui dati**: i clienti possono scegliere la posizione di elaborazione dei dati da parte di Servizi cognitivi. Questo aspetto è fondamentale per i clienti che non possono inviare dati al cloud, ma che richiedono l'accesso alla tecnologia offerta da Servizi cognitivi. È supportata la coerenza in ambienti ibridi, tra i dati e le funzionalità di gestione, identità e sicurezza.
 - **Controllo sugli aggiornamenti dei modelli**: ai clienti viene offerta la flessibilità necessaria per il controllo delle versioni e l'aggiornamento dei modelli distribuiti nelle soluzioni.
-- **Architettura portabile**: è consentita la creazione di un'architettura di applicazione portabile che può essere distribuita in Azure, nell'ambiente locale e a livello perimetrale. I contenitori possono essere distribuiti direttamente nel [servizio Azure Kubernetes](/azure/aks/), in [Istanze di Azure Container](/azure/container-instances/) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](/azure/azure-stack/). Per altre informazioni, vedere [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuire Kubernetes in Azure Stack).
-- **Velocità effettiva elevata e bassa latenza**: ai clienti vengono offerte opzioni di scalabilità per i requisiti di alta velocità effettiva e bassa latenza consentendo l'esecuzione di Servizi cognitivi fisicamente vicino alla logica e ai dati dell'applicazione. I contenitori non raggiungono il limite di transazioni al secondo e possono offrire scalabilità sia orizzontale che verticale per gestire la domanda, se si forniscono le risorse hardware necessarie.
+- **Architettura portabile**: è consentita la creazione di un'architettura di applicazione portabile che può essere distribuita in Azure, nell'ambiente locale e a livello perimetrale. I contenitori possono essere distribuiti direttamente nel [servizio Azure Kubernetes](../aks/index.yml), in [Istanze di Azure Container](../container-instances/index.yml) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](../azure-stack/index.yml). Per altre informazioni, vedere [Deploy Kubernetes to Azure Stack](../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md) (Distribuire Kubernetes in Azure Stack).
+- **Velocità effettiva elevata e bassa latenza**: ai clienti vengono offerte opzioni di scalabilità per i requisiti di alta velocità effettiva e bassa latenza consentendo l'esecuzione di Servizi cognitivi fisicamente vicino alla logica e ai dati dell'applicazione. I contenitori non raggiungono il limite di transazioni al secondo e possono offrire scalabilità sia orizzontale che verticale per gestire la domanda, se si forniscono le risorse hardware necessarie. 
 
 
 ## <a name="containers-in-azure-cognitive-services"></a>Contenitori in Servizi cognitivi di Azure
@@ -61,7 +61,7 @@ I contenitori di Servizi cognitivi di Azure sono disponibili pubblicamente attra
 
 Per usare i contenitori di Servizi cognitivi di Azure, è necessario soddisfare i prerequisiti seguenti:
 
-**Motore Docker**: il motore Docker deve essere installato in locale. Docker offre pacchetti per la configurazione dell'ambiente in [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). In Windows Docker deve essere configurato per supportare i contenitori Linux. I contenitori Docker possono anche essere distribuiti direttamente nel [servizio Kubernetes di Azure](/azure/aks/) o in [Istanze di contenitore di Azure](/azure/container-instances/).
+**Motore Docker**: il motore Docker deve essere installato in locale. Docker offre pacchetti per la configurazione dell'ambiente in [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). In Windows Docker deve essere configurato per supportare i contenitori Linux. I contenitori Docker possono anche essere distribuiti direttamente nel [servizio Kubernetes di Azure](../aks/index.yml) o in [Istanze di contenitore di Azure](../container-instances/index.yml).
 
 Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure.
 

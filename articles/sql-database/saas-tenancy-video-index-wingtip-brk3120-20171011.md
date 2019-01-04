@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: billgib
+ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 05/14/2018
-ms.openlocfilehash: ec3f286791a3a2c7a3bebd84ba17a11571e389f8
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ad1ae537038c84aac7bebe40a1db124521933f3d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163974"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608903"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Annotazioni e indicizzazione dei video per l'app SaaS multi-tenant con il database SQL di Azure
 
 Questo articolo è un indice con annotazioni nelle posizioni temporali di un video di 81 minuti sui criteri o sui modelli di tenancy SaaS. L'articolo consente di spostarsi avanti o indietro nel video fino alla parte di interesse. Il video illustra le principali opzioni di progettazione per un'applicazione di database multi-tenant nel database SQL di Azure. Il video include demo, procedure dettagliate di codice di gestione e, talvolta, dettagli ricavati dalle esperienze più approfonditi rispetto a quanto disponibile nella documentazione.
 
 Il video analizza maggiormente in dettaglio le informazioni disponibili nella nostra documentazione disponibile in: 
-- *Informazioni generali:* [Modelli di tenancy di database delle applicazioni SaaS multi-tenant][saas-concept-design-patterns-563e]
+- *Informazioni generali:* Modelli di tenancy di database delle applicazioni SaaS multi-tenant[saas-concept-design-patterns-563e]
 - *Esercitazioni:* [L'applicazione SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 Il video e gli articoli descrivono le varie fasi di creazione di un'applicazione multi-tenant nel database SQL di Azure nel cloud. Speciali funzionalità del database SQL di Azure agevolano lo sviluppo e l'implementazione di app multi-tenant più semplici da gestire e affidabili in termini di prestazioni.
@@ -294,7 +294,7 @@ Fare clic su uno screenshot per passare alla posizione temporale esatta nel vide
 
 - [Post del blog, 22 maggio 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Informazioni generali:* [Modelli di tenancy di database delle applicazioni SaaS multi-tenant][saas-concept-design-patterns-563e]
+- *Informazioni generali:* Modelli di tenancy di database delle applicazioni SaaS multi-tenant[saas-concept-design-patterns-563e]
 
 - *Esercitazioni:* [L'applicazione SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 

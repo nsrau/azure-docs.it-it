@@ -3,17 +3,15 @@ title: Come ripristinare un Server in Database di Azure per MariaDB
 description: In questo articolo viene descritta la procedura per ripristinare un server nel Database di Azure per MariaDB tramite il portale di Azure.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 899f0bfa3075c92ac31e2b4f5fab9093a1dc6806
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cf6d0399c790a42eaf74b3ec339bf8cf67495fb3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999045"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548760"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MariaDB tramite il portale di Azure
 
@@ -66,9 +64,9 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 3. Compilare il modulo Ripristina con le informazioni obbligatorie:
 
    ![Database di Azure per MariaDB - Informazioni di ripristino ](./media/howto-restore-server-portal/3-restore.png)
-  - **Punto di ripristino**: selezionare il punto nel tempo per il ripristino.
-  - **Server di destinazione**: specificare un nome per il nuovo server.
-  - **Percorso**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
+  - **Punto di ripristino**: selezionare il punto di ripristino temporizzato desiderato.
+  - **Server di destinazione**: Specificare un nome per il nuovo server.
+  - **Posizione**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
   - **Piano tariffario**: non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
 
 4. Fare clic su **OK** per ripristinare il server a un momento specifico. 
@@ -86,7 +84,7 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
    ![L'opzione "Database di Azure per MariaDB"](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 
 2. Nell'elenco a discesa **Seleziona origine** scegliere **Backup**. Questa azione consente di caricare un elenco di server per i quali è stato abilitato il backup con ridondanza geografica. Selezionare uno di questi backup come origine del nuovo server.
-   ![Opzione Seleziona origine: Backup ed elenco di backup con ridondanza geografica](./media/howto-restore-server-portal/2-georestore.png)
+   ![Seleziona origine: backup ed elenco di backup con ridondanza geografica](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Quando un server viene creato per la prima volta, potrebbe non essere subito disponibile per il ripristino geografico. Potrebbero essere necessarie alcune ore per popolare i metadati necessari.

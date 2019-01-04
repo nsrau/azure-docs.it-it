@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53399905"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594211"
 ---
 È possibile [ridimensionare automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) le [macchine virtuali (VM)](../articles/virtual-machines/windows/overview.md) con facilità usando [set di scalabilità di macchine virtuali](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e la [funzionalità di ridimensionamento automatico di Monitoraggio di Azure](../articles/azure-monitor/platform/autoscale-overview.md). Per poter essere ridimensionate automaticamente, le VM devono essere membri di un set di scalabilità. Questo articolo contiene informazioni che consentono di comprendere meglio come ridimensionare sia orizzontalmente che verticalmente le VM usando metodi automatici e manuali.
 
@@ -29,7 +29,7 @@ I set di scalabilità semplificano la distribuzione e la gestione di VM identich
 
 Il ridimensionamento automatico garantisce il numero appropriato di VM per gestire il carico dell'applicazione. Consente di aggiungere VM per gestire gli incrementi di carico e di risparmiare denaro rimuovendo le VM inattive. È possibile specificare un numero minimo e massimo di VM da eseguire in base a un set di regole. La definizione di un minimo assicura che l'applicazione sia sempre in esecuzione anche in assenza di carico. La definizione di un valore massimo limita il costo orario totale possibile.
 
-Il ridimensionamento automatico può essere abilitato quando si crea il set di scalabilità con [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings), nonché dopo la creazione del set di scalabilità. È possibile creare un set di scalabilità, installare l'estensione e configurare il ridimensionamento automatico usando un [modello di Azure Resource Manager](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Nel portale di Azure abilitare il ridimensionamento automatico da Monitoraggio di Azure oppure dalle impostazioni del set di scalabilità.
+Il ridimensionamento automatico può essere abilitato quando si crea il set di scalabilità con [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings), nonché dopo la creazione del set di scalabilità. È possibile creare un set di scalabilità, installare l'estensione e configurare il ridimensionamento automatico usando un [modello di Azure Resource Manager](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Nel portale di Azure abilitare il ridimensionamento automatico da Monitoraggio di Azure oppure dalle impostazioni del set di scalabilità.
 
 ![Abilitare il ridimensionamento automatico](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  

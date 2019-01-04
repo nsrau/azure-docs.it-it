@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3500a29c1cdd8b1997f67a3cf1918090dc4ca812
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e52a7cbb5c81f779ac4d12d2f3e5fd1e4ae62852
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383596"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714016"
 ---
 # <a name="install-and-use-apache-solr-on-hdinsight-hadoop-clusters"></a>Installare e usare Apache Solr nei cluster Hadoop di HDInsight
 
@@ -28,12 +28,12 @@ Informazioni su come installare Apache Solr in Azure HDInsight usando un'azione 
 
 ## <a name="whatis"></a>Che cos'è Solr
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) è una piattaforma di ricerca aziendale che permette di eseguire ricerche full-text avanzate sui dati. Mentre Hadoop consente di archiviare e gestire quantità elevate di dati, Apache Solr offre le funzionalità di ricerca necessarie per recuperare rapidamente i dati.
+[Apache Solr](https://lucene.apache.org/solr/features.html) è una piattaforma di ricerca aziendale che permette di eseguire ricerche full-text avanzate sui dati. Mentre Hadoop consente di archiviare e gestire quantità elevate di dati, Apache Solr offre le funzionalità di ricerca necessarie per recuperare rapidamente i dati.
 
 > [!WARNING]   
 > I componenti forniti con il cluster HDInsight sono completamente supportati da Microsoft.
 >
-> I componenti personalizzati, ad esempio Solr, ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. Il supporto tecnico Microsoft potrebbe non essere in grado di risolvere i problemi con componenti personalizzati. Potrebbe essere necessario coinvolgere le community open source per ricevere assistenza. È ad esempio possibile ricorrere a molti siti di community, come il [forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Anche per i progetti Apache sono disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio [Hadoop](http://hadoop.apache.org/).
+> I componenti personalizzati, ad esempio Solr, ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. Il supporto tecnico Microsoft potrebbe non essere in grado di risolvere i problemi con componenti personalizzati. Potrebbe essere necessario coinvolgere le community open source per ricevere assistenza. È ad esempio possibile ricorrere a molti siti di community, come il [forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Anche per i progetti Apache sono disponibili siti specifici in [https://apache.org](https://apache.org), per esempio: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>Funzionalità dello script
 
@@ -54,7 +54,7 @@ Per creare un cluster con Solr installato, usare la procedura nel documento [Cre
 
 1. Dal pannello __Riepilogo cluster__ selezionare__Impostazioni avanzate__ e quindi __Azioni script__. Usare le seguenti informazioni per popolare il modulo:
 
-   * **NOME**: immettere un nome descrittivo per l'azione script.
+   * **NOME**: Immettere un nome descrittivo per l'azione script.
    * **URI SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: selezionare questa opzione
    * **RUOLO DI LAVORO**: selezionare questa opzione
@@ -68,7 +68,7 @@ Per creare un cluster con Solr installato, usare la procedura nel documento [Cre
 ## <a name="usesolr"></a>Come si usa Solr in HDInsight
 
 > [!IMPORTANT]  
-> I passaggi in questa sezione illustrano le funzionalità di base di Solr. Per altre informazioni sull'uso di Solr, vedere il [sito Apache Solr](http://lucene.apache.org/solr/).
+> I passaggi in questa sezione illustrano le funzionalità di base di Solr. Per altre informazioni sull'uso di Solr, vedere il [sito Apache Solr](https://lucene.apache.org/solr/).
 
 ### <a name="index-data"></a>Dati dell'indice
 
