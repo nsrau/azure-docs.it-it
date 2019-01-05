@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4013b7136fd365b1d37348cfc1f0b46cce787ce2
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 63f0c1846a6e32dc5a5fcc9b1162d343890387a1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363124"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053518"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Distribuire modelli tramite il portale di Azure Stack
 
@@ -31,7 +31,7 @@ ms.locfileid: "46363124"
 ## <a name="to-deploy-a-template"></a>Distribuire un modello
 
 1. Accedere al portale, selezionare **+ crea una risorsa**, quindi selezionare **Custom**.
-2. Selezionare **distribuzione modello**.
+2. Selezionare **Distribuzione modello**.
 3. Selezionare **modifica modello**e quindi incollare il codice JSON del modello nella finestra del codice. Selezionare **Salva**.
 4. Selezionare **Upravit parametry**, specificare i valori per i parametri che vengono visualizzati e quindi selezionare **OK**.
 5. Selezionare **sottoscrizione**. Scegliere la sottoscrizione da usare e quindi selezionare **OK**.
@@ -40,6 +40,6 @@ ms.locfileid: "46363124"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla distribuzione dei modelli, vedere:
+Per altre informazioni sulla distribuzione dei modelli, vedere l'articolo seguente:
 
-[Distribuire modelli con PowerShell](azure-stack-deploy-template-powershell.md)
+- [Distribuire modelli con PowerShell](azure-stack-deploy-template-powershell.md)
