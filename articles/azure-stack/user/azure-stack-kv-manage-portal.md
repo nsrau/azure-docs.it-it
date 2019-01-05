@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/04/201
 ms.author: sethm
-ms.openlocfilehash: 51c04a567ff953c4e84930e3feae448f78627683
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 89a9a5418e0eab210c1132570beda20a39635677
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713936"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034663"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Gestire Key Vault in Azure Stack tramite il portale
 
-È possibile gestire Key Vault in Azure Stack tramite il portale di Azure Stack. Questo articolo consente di iniziare a creare e gestire un insieme di credenziali delle chiavi in Azure Stack.
+È possibile gestire Key Vault in Azure Stack tramite il portale di Azure Stack. Questo articolo descrive come creare e gestire un insieme di credenziali delle chiavi in Azure Stack.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,19 +33,17 @@ ms.locfileid: "44713936"
 
 1. Accedi per il [portale per gli utenti](https://portal.local.azurestack.external).
 
-2. Dal dashboard, selezionare **+ crea una risorsa** > **sicurezza e identità** > **Key Vault**.
+2. Dal dashboard, selezionare **+ crea una risorsa**, quindi **sicurezza e identità**, quindi **insieme di credenziali chiave**.
 
     ![Schermata di Key Vault](media/azure-stack-kv-manage-portal/image1.png)
 
-3. Nel **creazione Key Vault** riquadro, assegnare un **nome** dell'insieme di credenziali. I nomi dell'insieme di credenziali possono contenere solo caratteri alfanumerici e caratteri speciali trattini (-). Essi non devono iniziare con un numero.
+3. Nel **creazione Key Vault** riquadro, assegnare un **nome** dell'insieme di credenziali. I nomi dell'insieme di credenziali possono contenere solo caratteri alfanumerici e il carattere trattino (-). Essi non deve iniziare con un numero.
 
 4. Scegliere una **sottoscrizione** dall'elenco delle sottoscrizioni disponibili. Nell'elenco a discesa vengono visualizzate tutte le sottoscrizioni che offrono il servizio Key Vault.
 
-5. Selezionare un gruppo esistente in **Gruppo di risorse** oppure creare un nuovo gruppo.
+5. Selezionare un oggetto esistente **gruppo di risorse**, o crearne uno nuovo.
 
-6. Selezionare il **tariffario**.
-    >[!NOTE]
-    > Chiave di insiemi di credenziali di supporto di Azure Stack Development Kit **Standard** solo gli SKU.
+6. Selezionare il **tariffario**. Nel Azure Stack Development Kit (ASDK), chiave di insiemi di credenziali di supporto **Standard** solo gli SKU.
 
 7. Scegliere una delle esistente **criteri di accesso** o crearne uno nuovo. Un criterio di accesso consente di concedere le autorizzazioni per un utente, applicazione o un gruppo di sicurezza eseguire operazioni con questo insieme di credenziali.
 
@@ -67,7 +65,7 @@ Dopo aver creato un insieme di credenziali, usare la procedura seguente per crea
 
 4. Nel **creare una chiave** riquadro, dall'elenco dei **opzioni**, scegliere il metodo che si desidera utilizzare per creare una chiave. È possibile **genera** una nuova chiave **caricare** esistente della chiave oppure usare **Restore Backup** per selezionare un backup di una chiave.
 
-5. Immettere un **nome** relative alla chiave. Il nome della chiave può contenere solo caratteri alfanumerici e trattini (-) carattere speciale.
+5. Immettere un **nome** relative alla chiave. Il nome della chiave può contenere solo caratteri alfanumerici e il carattere trattino (-).
 
 6. Facoltativamente, configurare il **impostare la data di attivazione** e **impostare la data di scadenza** i valori per la chiave.
 
@@ -80,13 +78,14 @@ Dopo che la chiave viene creata correttamente, è possibile selezionarlo in **ch
 ### <a name="create-a-secret"></a>Creare un segreto
 
 1. Accedi per il [portale per gli utenti](https://portal.local.azurestack.external).
+
 2. Dal dashboard, selezionare **tutte le risorse**, selezionare l'insieme di credenziali delle chiavi creato in precedenza e quindi selezionare la **segreti** riquadro.
 
 3. Sotto **segreti**, selezionare **Add**.
 
-4. Sotto **creare un segreto**, nell'elenco dei **opzioni di caricamento**, scegliere un'opzione in base al quale si desidera creare un segreto. È possibile creare una chiave privata **manualmente** se si immette un valore per la chiave privata o caricare un **certificato** dal computer locale.
+4. Sotto **creare un segreto**, nell'elenco dei **opzioni di caricamento**, scegliere un'opzione con cui si desidera creare un segreto. È possibile creare una chiave privata **manualmente** se si immette un valore per la chiave privata o caricare un **certificato** dal computer locale.
 
-5. Immettere un **nome** per la chiave privata. Il nome del segreto può contenere solo caratteri alfanumerici e trattini (-) carattere speciale.
+5. Immettere un **nome** per la chiave privata. Il nome del segreto può contenere solo caratteri alfanumerici e il carattere trattino (-).
 
 6. Facoltativamente, specificare il **tipo di contenuto**, configurare i valori per **impostare la data di attivazione** e **impostare la data di scadenza** per la chiave privata.
 

@@ -143,7 +143,7 @@ items:
     - name: Log Analytics
       href: platform/log-faq.md
     - name: Application Insights
-      href: ../application-insights/app-insights-troubleshoot-faq.md?toc=/azure/azure-monitor/toc.json
+      href: app/troubleshoot-faq.md
 - name: Guide alle procedure
   items:
   - name: Pianificazione e preparazione
@@ -163,9 +163,9 @@ items:
       - name: Diagnostica completa dei servizi e delle app Web
         href: ../application-insights/app-insights-devops.md?toc=/azure/azure-monitor/toc.json
       - name: Monitorare le prestazioni di applicazioni Web
-        href: ../application-insights/app-insights-web-monitor-performance.md?toc=/azure/azure-monitor/toc.json
+        href: app/web-monitor-performance.md
       - name: Separare sviluppo, test e produzione
-        href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
+        href: app/separate-resources.md
       - name: Cosa fare in Application Insights?
         href: app/how-do-i.md
     - name: Gestire le aree di lavoro
@@ -267,7 +267,7 @@ items:
         - name: Servizi cloud di Azure
           href: app/cloudservices.md
         - name: Aggiungere il monitoraggio continuo
-          href: ../application-insights/app-insights-vsts-continuous-monitoring.md?toc=/azure/azure-monitor/toc.json
+          href: app/continuous-monitoring.md
         - name: Profiler
           items:
           - name: Panoramica
@@ -299,7 +299,7 @@ items:
         - name: Servizi Windows
           href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
         - name: Desktop di Windows
-          href: ../application-insights/app-insights-windows-desktop.md?toc=/azure/azure-monitor/toc.json
+          href: app/windows-desktop.md
         - name: ASP.NET Core
           href: app/asp-net-core.md
           items:
@@ -364,11 +364,11 @@ items:
       - name: Altre piattaforme
         items:
         - name: Siti di SharePoint
-          href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
+          href: app/sharepoint.md
         - name: Dynamics CRM
           href: app/sample-mscrm.md
       - name: Rilevamento intelligente
-        href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
+        href: app/proactive-diagnostics.md
         items:
         - name: Anomalie degli errori
           href: app/proactive-failure-diagnostics.md
@@ -401,7 +401,7 @@ items:
         - name: Java
           href: app/java-troubleshoot.md
         - name: Analisi dell'utilizzo
-          href: ../application-insights/app-insights-usage-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-troubleshoot.md
     - name: Risorse di Azure
       items:
       - name: Log attività di Azure
@@ -484,31 +484,31 @@ items:
       - name: Visual Studio
         items:
         - name: Approfondimenti F5
-          href: ../application-insights/app-insights-visual-studio.md?toc=/azure/azure-monitor/toc.json
+          href: app/visual-studio.md
         - name: Tendenze
-          href: ../application-insights/app-insights-visual-studio-trends.md?toc=/azure/azure-monitor/toc.json
+          href: app/visual-studio-trends.md
         - name: CodeLens
-          href: ../application-insights/app-insights-visual-studio-codelens.md?toc=/azure/azure-monitor/toc.json
+          href: app/visual-studio-codelens.md
       - name: Uso
         items:
         - name: Panoramica
-          href: ../application-insights/app-insights-usage-overview.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-overview.md
         - name: Inviare il contesto utente
-          href: ../application-insights/app-insights-usage-send-user-context.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-send-user-context.md
         - name: Utenti, sessioni ed eventi
-          href: ../application-insights/app-insights-usage-segmentation.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-segmentation.md
         - name: Grafici a imbuto
-          href: ../application-insights/usage-funnels.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-funnels.md
         - name: Coorte
-          href: ../application-insights/app-insights-usage-cohorts.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-cohorts.md
         - name: Impatto
-          href: ../application-insights/app-insights-usage-impact.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-impact.md
         - name: Conservazione
-          href: ../application-insights/app-insights-usage-retention.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-retention.md
         - name: Flussi degli utenti
-          href: ../application-insights/app-insights-usage-flows.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-flows.md
         - name: Workbooks
-          href: ../application-insights/app-insights-usage-workbooks.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-workbooks.md
       - name: Soluzione di analisi per app Web
         href: insights/azure-web-apps-analytics.md
     - name: Monitorare i contenitori
@@ -1004,9 +1004,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 0cfca3a41157065f2e64c0da8062ebd011375f70
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8fc518262ba4b1d1c53c8fd2622f724550cddb2e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016112"
+ms.locfileid: "54053654"
