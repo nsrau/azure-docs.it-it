@@ -17,7 +17,7 @@ ms.lasthandoff: 12/08/2018
 ms.locfileid: "53095347"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiare dati da e in Archiviazione BLOB di Azure usando Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
 > * [Versione 1](v1/data-factory-azure-blob-connector.md)
 > * [Versione corrente](connector-azure-blob-storage.md)
 
