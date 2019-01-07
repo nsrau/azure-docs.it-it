@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 9f26a51a8da2c3fec3ff180dbc8c8de08bb0a93a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a0f002266764ace07482023a0412366b90acec63
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833874"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789858"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -25,7 +25,7 @@ Questo articolo illustra le procedure di risoluzione dei problemi che possono es
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - L'agente delle VM non riesce a comunicare con Backup di Azure
 
 **Codice errore**: UserErrorGuestAgentStatusUnavailable <br>
-**Messaggio di errore**: L'agente di macchine virtuali non riesce a comunicare con Backup di Azure<br>
+**Messaggio di errore**: L'agente delle VM non riesce a comunicare con Backup di Azure.<br>
 
 Dopo la registrazione e la pianificazione di una macchina per il servizio Backup, tale servizio avvia il processo comunicando con l'agente di macchine virtuali per creare uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Quando uno snapshot non viene attivato, il backup potrebbe non riuscire. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:<br>
 **Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
@@ -34,10 +34,10 @@ Dopo la registrazione e la pianificazione di una macchina per il servizio Backup
 **Causa 4: [Non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 5: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**
 
-## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - Non è possibile comunicare con l'agente delle VM per lo stato dello snapshot
+## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - Non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot
 
 **Codice errore**: GuestAgentSnapshotTaskStatusError<br>
-**Messaggio di errore**: Non è stato possibile comunicare con l'agente di macchine virtuali per lo stato dello snapshot <br>
+**Messaggio di errore**: Non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot. <br>
 
 Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:  
 **Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -47,13 +47,12 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - È stato raggiunto il limite massimo di raccolte di punti di ripristino
 
 **Codice errore**: UserErrorRpCollectionLimitReached <br>
-**Messaggio di errore**: È stato raggiunto il limite massimo di raccolta di punti di ripristino. <br>
+**Messaggio di errore**: È stato raggiunto il limite massimo di raccolte di punti di ripristino. <br>
 * Questo problema può verificarsi se è presente un blocco sul gruppo di risorse dei punti di ripristino che impedisce la pulizia automatica dei punti di ripristino.
 * Questo problema può verificarsi anche se vengono attivate più operazioni di backup al giorno. Attualmente è consigliabile eseguire un solo backup al giorno perché i punti di ripristino immediati vengono conservati per 7 giorni e a una VM possono essere associati solo 18 punti di ripristino immediati in qualsiasi momento. <br>
 
 Azione consigliata:<br>
-Per risolvere questo problema, rimuovere il blocco sul gruppo di risorse e ripetere l'operazione per attivare la pulizia.
-
+Per risolvere il problema, rimuovere il blocco sul gruppo di risorse della macchina virtuale e ripetere l'operazione per attivare la pulizia. 
 > [!NOTE]
     > Il servizio di backup crea un gruppo di risorse distinto da quello della macchina virtuale per archiviare la raccolta di punti di ripristino. È consigliabile che i clienti non blocchino il gruppo di risorse creato per l'uso dal servizio di backup. Il formato di denominazione del gruppo di risorse creato dal servizio di backup è: AzureBackupRG_`<Geo>`_`<number>` Ad esempio: AzureBackupRG_northeurope_1
 
@@ -67,10 +66,10 @@ Per risolvere questo problema, rimuovere il blocco sul gruppo di risorse e ripet
 
 Per la corretta esecuzione di un'operazione di backup nelle macchine virtuali crittografate, è necessario disporre delle autorizzazioni per accedere all'insieme di credenziali delle chiavi. Questa operazione può essere eseguita tramite il [portale di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) o tramite [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
-## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - Operazione di creazione snapshot non riuscita a causa dell'assenza della connettività di rete nella macchina virtuale
+## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - L'operazione di creazione snapshot non è riuscita perché la connettività di rete è assente nella macchina virtuale
 
 **Codice errore**: ExtensionSnapshotFailedNoNetwork<br>
-**Messaggio di errore**: Operazione di creazione snapshot non riuscita a causa dell'assenza della connettività di rete nella macchina virtuale<br>
+**Messaggio di errore**: L'operazione di creazione snapshot non è riuscita perché la connettività di rete è assente nella macchina virtuale.<br>
 
 Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:    
 **Causa 1: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -80,7 +79,7 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 ## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - L'operazione di estensione VMSnapshot non è riuscita
 
 **Codice errore**: ExtentionOperationFailedForManagedDisks <br>
-**Messaggio di errore**: Operazione dell'estensione VMSnapshot non riuscita<br>
+**Messaggio di errore**: L'operazione di estensione VMSnapshot non è riuscita.<br>
 
 Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:  
 **Causa 1: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -88,10 +87,10 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Causa 3: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Causa 4: [L'agente installato nella macchina virtuale non è aggiornato (per macchine virtuali Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
-## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - Errore interno di backup
+## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - Il backup non è riuscito generando un errore interno
 
 **Codice errore**: BackUpOperationFailed / BackUpOperationFailedV2 <br>
-**Messaggio di errore**: Il backup non è riuscito e si è verificato un errore interno. Attendere qualche minuto prima di ripetere l'operazione. <br>
+**Messaggio di errore**: Il backup non è riuscito generando un errore interno. Attendere qualche minuto prima di ripetere l'operazione. <br>
 
 Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:  
 **Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -104,14 +103,14 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize: Currently Azure Backup does not support disk sizes greater than 1023GB (Attualmente Backup di Azure non supporta dischi di dimensioni maggiori di 1023 GB)
 
 **Codice errore**: UserErrorUnsupportedDiskSize <br>
-**Messaggio di errore**: Attualmente Backup di Azure non supporta dischi di dimensioni maggiori di 1023 GB <br>
+**Messaggio di errore**: Attualmente Backup di Azure non supporta dischi di dimensioni maggiori di 1023 GB. <br>
 
 L'operazione di backup potrebbe non riuscire quando si esegue il backup di macchine virtuali con dimensioni del disco superiori a 1023 GB, poiché l'insieme di credenziali non viene aggiornato alla versione 2 dello stack di backup delle macchine virtuali di Azure. L'aggiornamento alla versione 2 dello stack di backup delle macchine virtuali di Azure offrirà un supporto di fino a 4 TB. Esaminare questi [vantaggi](backup-upgrade-to-vm-backup-stack-v2.md) e queste [considerazioni](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) e quindi procedere all'aggiornamento seguendo queste [istruzioni](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported: Currently Azure Backup does not support Standard SSD disks (Attualmente Backup di Azure non supporta i dischi SSD Standard)
 
 **Codice errore**: UserErrorStandardSSDNotSupported <br>
-**Messaggio di errore**: Backup di Azure al momento non supporta i dischi SSD standard <br>
+**Messaggio di errore**: Backup di Azure al momento non supporta i dischi SSD standard. <br>
 
 Attualmente Backup di Azure supporta i dischi SSD Standard solo per gli insiemi di credenziali che vengono aggiornati alla versione 2 dello stack di backup delle macchine virtuali di Azure. Esaminare questi [vantaggi](backup-upgrade-to-vm-backup-stack-v2.md) e queste [considerazioni](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) e quindi procedere all'aggiornamento seguendo queste [istruzioni](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
 
