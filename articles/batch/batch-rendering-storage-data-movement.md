@@ -1,17 +1,17 @@
 ---
-title: Archiviazione e spostamento dati per il rendering di Azure Batch
+title: Archiviazione e spostamento dati per il rendering - Azure Batch
 description: Opzioni di archiviazione e spostamento dati per i carichi di lavoro del rendering
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: d5b006fd744e463c73ee0a32388f254017e96354
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 0d343ff5d7513500fa7803495dd42eb94b772935
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036759"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546097"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opzioni di archiviazione e spostamento dati per i file di asset e output del rendering
 
@@ -82,7 +82,7 @@ Le attività di processo specificano i percorsi dei file di input e di output tr
 
 Poiché i file sono semplicemente BLOB in Archiviazione di Azure, per copiare i file tra un file system locale e l'archiviazione BLOB è possibile usare API BLOB standard, strumenti e interfacce utente. Ad esempio, azcopy, Storage Explorer, Batch Explorer e così via.
 
-## <a name="using-azure-files-with-windows-vms"></a>Uso di File di Azure con VM Windows
+## <a name="using-azure-files-with-windows-vms"></a>Uso di archiviazione file con VM Windows
 
 [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB.  File di Azure si basa su Archiviazione BLOB di Azure, è [conveniente](https://azure.microsoft.com/pricing/details/storage/files/), può essere configurato con la replica dei dati in un'altra area ed è quindi ridondante a livello globale.  È necessario consultare gli [obiettivi di scalabilità](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets) per determinare se è opportuno usare File di Azure in base alla dimensione del pool di previsione e al numero di file di asset.
 

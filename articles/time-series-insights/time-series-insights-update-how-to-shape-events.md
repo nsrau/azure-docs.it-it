@@ -1,5 +1,5 @@
 ---
-title: Definizione della struttura degli eventi in Anteprima di Time Series Insights - Definire la struttura degli eventi con Anteprima di Azure Time Series Insights | Microsoft Docs
+title: Definire la forma degli eventi con Anteprima di Azure Time Series Insights | Microsoft Docs
 description: Informazioni su come definire la struttura degli eventi in Anteprima di Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: b0ce3b5bbd58c594147f64de9f06f248f4a87fc3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: eb398ad621167ad9f9b245fb8aa98c6942b87668
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269074"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557428"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Definire la struttura degli eventi con Anteprima di Time Series Insights
 

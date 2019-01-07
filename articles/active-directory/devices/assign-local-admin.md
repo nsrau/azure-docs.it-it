@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: 267e398305939048014038b7350b2a10481fdfbd
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 702ebdc0966a72396ac644b154ba13d2321fd5d4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238727"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631346"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 
@@ -88,7 +88,7 @@ Per impostazione predefinita, Azure AD aggiunge l'utente che esegue l'aggiunta a
 
 Oltre a usare il processo di aggiunta AD Azure, è anche possibile elevare manualmente un utente normale in modo che diventi un amministratore locale su un dispositivo specifico. Per eseguire questo passaggio, è necessario già essere un membro del gruppo Amministratori locale. 
 
-A partire dalla versione **Windows 10 1709**, è possibile eseguire questa attività da **Impostazioni -> Account -> Altri utenti** selezionando **Aggiungi un utente aziendale o dell'istituto di istruzione**.
+A partire dalla versione **Windows 10 1709**, è possibile eseguire questa attività da **Impostazioni -> Account -> Altri utenti**. Selezionare **Aggiungere un utente aziendale o dell'istituto di istruzione**, immettere l'UPN dell'utente in **Account utente** e selezionare *Amministratore* in **Tipo di account**  
  
 È anche possibile aggiungere gli utenti usando il prompt dei comandi:
 
