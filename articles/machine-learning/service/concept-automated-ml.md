@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 12/04/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7e55304fb02078c71b91b2904475a4bee4bcc018
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9e3297b2493ea12f9da50556e4fc9e72d625fd25
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436960"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583460"
 ---
-# <a name="what-is-automated-machine-learning"></a>Informazioni sul processo di Machine Learning automatizzato
+# <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
 Il processo di Machine Learning automatizzato consiste nell'acquisire dati di training con una determinata caratteristica e nell'eseguire più iterazioni con diverse combinazioni di algoritmi e selezioni di caratteristiche in modo da selezionare automaticamente il modello migliore per i dati in base ai punteggi di training. Il processo di sviluppo del modello di Machine Learning tradizionale richiede risorse ingenti, notevoli conoscenze settoriali e tempi estremamente lunghi per poter eseguire un elevato numero di modelli e confrontarne i risultati. Il Machine Learning automatizzato semplifica questo processo generando modelli ottimizzati in base agli obiettivi e ai vincoli definiti per l'esperimento, ad esempio il tempo necessario per l'esecuzione dell'esperimento o i modelli da inserire nella blacklist.
 
 ## <a name="how-it-works"></a>Funzionamento
 
 1. Configurare il tipo di problema di Machine Learning che si sta tentando di risolvere. Sono supportate le categorie di apprendimento supervisionato seguenti:
-   + Classificazione
+   + classificazione
    + Regressione
    + Previsione
 
@@ -65,9 +65,10 @@ Seguire questo [notebook di esempio](https://github.com/Azure/MachineLearningNot
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere esempi e informazioni su come creare modelli tramite le funzionalità automatizzate di Machine Learning:
++ [Esempi: Usare i notebook di Jupyter per esplorare il servizio Azure Machine Learning](samples-notebooks.md#automated-ml-setup)
 
 + [Esercitazione: Eseguire il training automatico di un modello di classificazione con Azure Automated Machine Learning](tutorial-auto-train-models.md)
 
-+ [Configurare le impostazioni per il training automatico](how-to-configure-auto-train.md)
++ [Usare il training automatico in una risorsa remota](how-to-auto-train-remote.md)
 
-+ [Usare il training automatico in una risorsa remota](how-to-auto-train-remote.md) 
++ [Configurare le impostazioni per il training automatico](how-to-configure-auto-train.md)

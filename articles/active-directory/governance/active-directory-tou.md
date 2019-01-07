@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/12/2018
+ms.date: 12/20/2018
 ms.author: rolyon
-ms.openlocfilehash: 6ec3ca7c1323b342612293c5ea3ca1443370c9b4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0a5d58d0403471d591ce2aa2ed9de9092127ea15
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386386"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744106"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare con Condizioni per l'utilizzo.
@@ -87,7 +87,9 @@ Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per
 
 1. Per richiedere agli utenti finali di visualizzare le Condizioni per l'utilizzo prima di accettarle, impostare **Richiedere agli utenti di espandere le condizioni d'utilizzo** su **On**.
 
-1. Per richiedere agli utenti finali di accettare le Condizioni per l'utilizzo in ogni dispositivo da cui accedono, impostare **Richiedere agli utenti di fornire il consenso in tutti i dispositivi** su **On**. Per altre informazioni, vedere le [Condizioni per l'utilizzo per ogni dispositivo](#per-device-terms-of-use).
+1. Per richiedere agli utenti finali di accettare le Condizioni per l'utilizzo in ogni dispositivo da cui accedono, impostare **Richiedere agli utenti di fornire il consenso in tutti i dispositivi** su **On**.
+
+    Se l’impostazione **Richiedi il consenso degli utenti in ogni dispositivo** non è presente, la funzione non è ancora stata distribuita nella regione dell’utente. La distribuzione completa di questa funzione è prevista per l’inizio di gennaio 2019. Per altre informazioni, vedere le [Condizioni per l'utilizzo per ogni dispositivo](#per-device-terms-of-use).
 
 1. Se si desidera impostare come scaduti i consensi alle Condizioni per l'utilizzo in una pianificazione, impostare **Scadenza consensi** su **On**. Se si imposta su On, vengono visualizzate due impostazioni aggiuntive di pianificazione.
 
@@ -128,9 +130,9 @@ Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per
     | **Creare criteri di accesso condizionale in seguito** | Queste condizioni per l'utilizzo verranno visualizzate nell'elenco di concessione del controllo durante la creazione di un criterio di accesso condizionale. |
 
     >[!IMPORTANT]
-    >L'applicazione dei controlli dei criteri di accesso condizionale (incluse le condizioni per l'utilizzo) non è supportata per gli account di servizio.  È consigliabile escludere tutti gli account di servizio dai criteri di accesso condizionale.
+    >L'applicazione dei controlli dei criteri di accesso condizionale (incluse le condizioni per l'utilizzo) non è supportata per gli account di servizio. È consigliabile escludere tutti gli account di servizio dai criteri di accesso condizionale.
 
-     I criteri personalizzati di accesso condizionale consentono condizioni per l'utilizzo granulari, fino a un'applicazione cloud o a un gruppo di utenti specifici.  Per ulteriori informazioni, consultare [Avvio rapido: Richiedere l'accettazione delle condizioni per l'utilizzo prima dell'accesso alle app cloud](../conditional-access/require-tou.md).
+     I criteri personalizzati di accesso condizionale consentono condizioni per l'utilizzo granulari, fino a un'applicazione cloud o a un gruppo di utenti specifici. Per ulteriori informazioni, consultare [Avvio rapido: Richiedere l'accettazione delle condizioni per l'utilizzo prima dell'accesso alle app cloud](../conditional-access/require-tou.md).
 
 1. Fare clic su **Create**(Crea).
 
@@ -208,7 +210,7 @@ Gli utenti possono visualizzare e verificare le condizioni per l'utilizzo accett
 
     ![Profilo - Verificare le condizioni d'uso](./media/active-directory-tou/tou13a.png)
 
-1. Sarà quindi possibile verificare le condizioni per l'utilizzo accettate. 
+1. Sarà quindi possibile verificare le condizioni per l'utilizzo accettate.
 
 ## <a name="edit-terms-of-use-details"></a>Modificare i dettagli delle condizioni per l'utilizzo
 È possibile modificare alcuni dettagli delle condizioni per l'utilizzo, ma non è possibile modificare un documento esistente. La procedura seguente descrive come modificare i dettagli.
@@ -251,6 +253,9 @@ La procedura seguente descrive come aggiungere una lingua delle condizioni per l
 ## <a name="per-device-terms-of-use"></a>Condizioni per l'utilizzo per ogni dispositivo
 
 L'impostazione **Richiedere agli utenti di fornire il consenso in tutti i dispositivi** consente di richiedere agli utenti finali di accettare le Condizioni per l'utilizzo in ogni dispositivo da cui accedono. All'utente finale verrà richiesto di aggiungere il dispositivo in Azure AD. Quando il dispositivo è stato aggiunto, l'ID del dispositivo consente di applicare le Condizioni per l'utilizzo in ogni dispositivo.
+
+> [!NOTE]
+> Se l’impostazione **Richiedi il consenso degli utenti in ogni dispositivo** non è presente quando si creano nuove Condizioni per l’utilizzo, la funzione non è ancora stata distribuita nella regione dell’utente. La distribuzione completa di questa funzione è prevista per l’inizio di gennaio 2019.
 
 Ecco un elenco dei software e delle piattaforme supportate.
 
@@ -300,7 +305,7 @@ Se un utente sta usando un browser che non è supportato, si dovrà usare un bro
     A questo punto le condizioni per l'utilizzo non dovrebbero più essere visualizzate.
 
 ## <a name="deleted-users-and-active-terms-of-use"></a>Utenti eliminati e condizioni per l'utilizzo attive
-Per impostazione predefinita, un utente eliminato rimane comunque in Azure AD per 30 giorni, periodo durante il quale un amministratore potrà eseguirne il ripristino se necessario.  Dopo 30 giorni l'utente verrà eliminato definitivamente.  Inoltre, tramite il portale di Azure Active Directory, un Amministratore globale può in modo esplicito [eliminare definitivamente un utente eliminato di recente](../fundamentals/active-directory-users-restore.md) prima della scadenza di tale periodo.  Dopo l'eliminazione definitiva di un utente, i dati riguardanti tale utente verranno rimossi dalle condizioni per l'utilizzo attive.  Le informazioni di controllo sugli utenti eliminati restano nel log di controllo.
+Per impostazione predefinita, un utente eliminato rimane comunque in Azure AD per 30 giorni, periodo durante il quale un amministratore potrà eseguirne il ripristino se necessario. Dopo 30 giorni l'utente verrà eliminato definitivamente. Inoltre, tramite il portale di Azure Active Directory, un Amministratore globale può in modo esplicito [eliminare definitivamente un utente eliminato di recente](../fundamentals/active-directory-users-restore.md) prima della scadenza di tale periodo. Dopo l'eliminazione definitiva di un utente, i dati riguardanti tale utente verranno rimossi dalle condizioni per l'utilizzo attive. Le informazioni di controllo sugli utenti eliminati restano nel log di controllo.
 
 ## <a name="policy-changes"></a>Modifiche dei criteri
 I criteri di accesso condizionale diventano effettivi immediatamente. In questo caso l'amministratore inizierà a vedere nuvolette "tristi" o messaggi relativi a problemi di token di Azure AD. Dovrà quindi disconnettersi e accedere nuovamente per soddisfare il nuovo criterio.
@@ -336,43 +341,43 @@ Le Condizioni per l'utilizzo possono essere usate per diverse app cloud, ad esem
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-**D: Come posso sapere se un utente ha accettato le condizioni per l'utilizzo?**</br>
+**D: Come posso sapere se un utente ha accettato le condizioni per l'utilizzo?**<br />
 R: Nel pannello Condizioni per l'utilizzo fare clic sul numero sotto **Accettato**. È anche possibile visualizzare o cercare l'attività accettata nei log di controllo di Azure AD. Per altre informazioni, vedere [Visualizzare il report degli utenti che hanno accettato e rifiutato](#view-who-has-accepted-and-declined) e [Visualizzare i log di controllo di Azure AD](#view-azure-ad-audit-logs).
 
-**D: Per quanto tempo sono archiviate le informazioni?**</br>
+**D: Per quanto tempo sono archiviate le informazioni?**<br />
 R: I conteggi inclusi nel report delle Condizioni per l'utilizzo e gli utenti che hanno accettato o rifiutato vengono archiviati per tutta la durata delle Condizioni per l'utilizzo. I log di controllo di Azure AD vengono archiviati per 30 giorni.
 
-**D: Perché viene visualizzato un numero diverso di consensi nel report delle Condizioni per l'utilizzo rispetto ai log di controllo di Azure AD?**</br>
+**D: Perché viene visualizzato un numero diverso di consensi nel report delle Condizioni per l'utilizzo rispetto ai log di controllo di Azure AD?**<br />
 R: Il report delle Condizioni per l'utilizzo viene archiviato per la durata di tale Condizioni per l'utilizzo, mentre i log di controllo di Azure AD vengono archiviati per 30 giorni. Inoltre, i report delle Condizioni per l'utilizzo mostrano solo lo stato di consenso corrente degli utenti. Ad esempio, se un utente rifiuta e in seguito accetta, il report delle Condizioni per l'utilizzo mostrerà solo quest'ultima azione dell'utente. Se è necessario visualizzare la cronologia, è possibile usare i log di controllo di Azure AD.
 
-**D: Se i termini delle condizioni per l'utilizzo vengono modificati, è necessario che gli utenti le accettino di nuovo?**</br>
+**D: Se i termini delle condizioni per l'utilizzo vengono modificati, è necessario che gli utenti le accettino di nuovo?**<br />
 R: No, se un amministratore modifica i dettagli delle Condizioni per l'utilizzo (nome, nome visualizzato, richiedere agli utenti di espandere o aggiungere un linguaggio), non richiede che gli utenti riaccettino i nuovi termini.
 
-**D: È possibile aggiornare un documento esistente sulle Condizioni per l'utilizzo?**</br>
+**D: È possibile aggiornare un documento esistente sulle Condizioni per l'utilizzo?**<br />
 R: Al momento non è possibile aggiornare un documento esistente sulle condizioni per l'utilizzo. Per modificare un documento sulle condizioni per l'utilizzo, è necessario creare una nuova istanza delle condizioni per l'utilizzo.
 
-**D: Se sono presenti collegamenti ipertestuali nel documento PDF delle Condizioni per l'utilizzo, gli utenti finali possono selezionarli?**</br>
+**D: Se sono presenti collegamenti ipertestuali nel documento PDF delle Condizioni per l'utilizzo, gli utenti finali possono selezionarli?**<br />
 R: Viene eseguito il rendering predefinito del file PDF in formato JPEG, in modo che i collegamenti ipertestuali non siano selezionabili. Gli utenti hanno la possibilità di selezionare **In caso di problemi di visualizzazione fare clic qui** per eseguire il rendering PDF in modo nativo in cui sono supportati i collegamenti ipertestuali.
 
-**D: Le condizioni per l'utilizzo possono supportare più lingue?**</br>
+**D: Le condizioni per l'utilizzo possono supportare più lingue?**<br />
 R: Sì. L'amministratore può attualmente configurare 108 lingue diverse per singole condizioni per l'utilizzo. Un amministratore può caricare più documenti PDF e contrassegnare i documenti con una lingua corrispondente (fino a 108). Quando gli utenti finali accedono, vengono esaminate le preferenze della lingua del browser e viene visualizzato il documento corrispondente. Se non viene trovata alcuna corrispondenza, verrà visualizzato il documento predefinito, ovvero il primo documento che viene caricato.
 
-**D: Quando vengono attivate le condizioni per l'utilizzo?**</br>
+**D: Quando vengono attivate le condizioni per l'utilizzo?**<br />
 R: Le condizioni per l'utilizzo vengono attivate durante l'accesso.
 
-**D: A quali altre applicazioni è possibile applicare le condizioni per l'utilizzo?**</br>
-R: È possibile creare un criterio di accesso condizionale per le applicazioni aziendali utilizzando l'autenticazione moderna.  Per altre informazioni, vedere le [applicazioni aziendali](./../manage-apps/view-applications-portal.md).
+**D: A quali altre applicazioni è possibile applicare le condizioni per l'utilizzo?**<br />
+R: È possibile creare un criterio di accesso condizionale per le applicazioni aziendali utilizzando l'autenticazione moderna. Per altre informazioni, vedere le [applicazioni aziendali](./../manage-apps/view-applications-portal.md).
 
-**D: È possibile aggiungere più condizioni per l'utilizzo a un utente o a un'app specifici?**</br>
+**D: È possibile aggiungere più condizioni per l'utilizzo a un utente o a un'app specifici?**<br />
 R: Sì, mediante la creazione di più criteri di accesso condizionale destinati a tali gruppi o applicazioni. Se un utente rientra nell'ambito di più condizioni per l'utilizzo, accetta una condizione alla volta.
- 
-**D: Cosa accade se un utente rifiuta le condizioni per l'utilizzo?**</br>
+
+**D: Cosa accade se un utente rifiuta le condizioni per l'utilizzo?**<br />
 R: Ne viene bloccato l'accesso all'applicazione. L'utente deve accedere nuovamente e accettare le condizioni.
- 
-**D: È possibile annullare l'accettazione di Condizioni per l'utilizzo accettate in precedenza?**</br>
+
+**D: È possibile annullare l'accettazione di Condizioni per l'utilizzo accettate in precedenza?**<br />
 R: È possibile [annullare l'accettazione di Condizioni per l'utilizzo accettate in precedenza](#how-users-can-review-their-terms-of-use), ma attualmente non esiste un modo per farlo.
 
-**D: Cosa succede se si usano anche termini e condizioni di Intune?**</br>
+**D: Cosa succede se si usano anche termini e condizioni di Intune?**<br />
 R: Se sono stati configurati sia Condizioni per l'utilizzo di Azure AD sia [termini e condizioni di Intune](/intune/terms-and-conditions-create), l'utente dovrà accettarli entrambi. Per altre informazioni, vedere il [post di blog sulla scelta della soluzione di Condizioni di utilizzo più adatta per l'organizzazione](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## <a name="next-steps"></a>Passaggi successivi

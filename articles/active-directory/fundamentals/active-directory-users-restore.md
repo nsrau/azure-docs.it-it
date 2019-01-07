@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 5f747d90368b636cb2ab8cf0e20ef5e676f99af6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 066c9189e0c3cea409a99217e0ab4b46002df1f9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080504"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556782"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Ripristinare o rimuovere un utente eliminato di recente con Azure Active Directory
 Dopo aver eliminato un utente, l'account rimane in uno stato di sospensione per 30 giorni. Durante tale intervallo di 30 giorni, l'account utente può essere ripristinato, con tutte le relative proprietà. Dopo il superamento di tale periodo di 30 giorni, l'utente viene automaticamente e definitivamente eliminato.
@@ -59,6 +59,9 @@ Mentre un account utente è sospeso, tutte le informazioni di directory correlat
 2. Selezionare **Ripristina utente**.
 
     ![Pagina Utenti - Utenti eliminati, con l'opzione Ripristina utente evidenziata](media/active-directory-users-restore/users-deleted-users-restore-user.png)
+
+>[!NOTE]
+>In precedenza, quando un utente veniva rimosso dall'ambito della sincronizzazione in locale ed eliminato nel cloud, lo stato DirSyncEnabled dell'account veniva impostato erroneamente su "False". Se in seguito, tale utente veniva ripristinato manualmente dal cestino di Azure AD, veniva visualizzato lo stato erroneo “Solo Cloud”. Questo problema ora è stato risolto e il valore dello stato DirSyncEnabled viene sempre mantenuto su "True" quando un utente viene rimosso dall'ambito di sincronizzazione, quindi eliminato e ripristinato manualmente dal cestino di Azure AD.
 
 ## <a name="permanently-delete-a-user"></a>eliminare in modo definitivo un utente
 È possibile eliminare definitivamente un utente dalla directory senza aspettare i 30 giorni per l'eliminazione automatica. Un utente eliminato in modo permanente non può essere ripristinato né dall'utente, né da un altro amministratore, né dal supporto tecnico Microsoft.

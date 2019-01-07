@@ -4,19 +4,19 @@ description: Informazioni sui servizi e gli strumenti disponibili per la migrazi
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 12/13/2018
-ms.openlocfilehash: 2eb263c6776453c4cae217168af969221485bfa3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9887860470632c37a586cb3029e2ef7d455a3a9c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386792"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713286"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Servizi e strumenti disponibili per gli scenari di migrazione dei dati
 
@@ -59,7 +59,7 @@ Le tabelle seguenti identificano il servizio e gli strumenti che è possibile us
 | SQL Server | Istanza gestita del database SQL di Azure |  | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | VM di Azure SQL |  | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | SQL DATA WAREHOUSE |  |  |  |
-| RDS SQL | Database SQL di Azure, Istanza gestita, Macchina virtuale |  | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [DEA](https://www.microsoft.com/download/details.aspx?id=54090) |
+| Servizi Desktop remoto SQL | Database SQL di Azure, Istanza gestita, Macchina virtuale |  | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [DEA](https://www.microsoft.com/download/details.aspx?id=54090) |
 | Oracle | Database SQL di Azure, Istanza gestita, Macchina virtuale |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [Simora*](http://www.simora.co.uk/) |
 | Oracle | SQL DATA WAREHOUSE |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [Simora*](http://www.simora.co.uk/) |
 | Oracle | Database di Azure per PostgreSQL |  |  |  |
@@ -125,4 +125,4 @@ Le tabelle seguenti identificano il servizio e gli strumenti che è possibile us
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una panoramica del Servizio Migrazione del database di Azure, vedere [Definizione della panoramica del Servizio Migrazione del database di Azure](dms-overview.md).
+Per una panoramica del Servizio Migrazione del database di Azure, vedere l’articolo [Definizione del Servizio Migrazione del database di Azure](dms-overview.md).
