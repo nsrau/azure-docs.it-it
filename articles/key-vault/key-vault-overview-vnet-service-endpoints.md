@@ -1,27 +1,27 @@
 ---
 ms.assetid: ''
-title: Endpoint del servizio di rete virtuale per Azure Key Vault | Microsoft Docs
+title: Endpoint del servizio di rete virtuale per Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Panoramica degli endpoint del servizio di rete virtuale per Key Vault
 services: key-vault
 author: amitbapat
 ms.author: ambapat
 manager: mbaldwin
-ms.date: 08/31/2018
+ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 656007268dcf57910e4a655d85285da4fbd37425
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 1d53fc6cef022f627bb1cd1f832ebf65698207a9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681518"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002425"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Endpoint del servizio di rete virtuale per Azure Key Vault
 
 Gli endpoint del servizio di rete virtuale per Azure Key Vault consentono di limitare l'accesso a una rete virtuale specifica. Gli endpoint consentono anche di limitare l'accesso a un elenco di intervalli di indirizzi IPv4 (protocollo internet versione 4). L'accesso viene negato a tutti gli utenti che si connettono all'insieme di credenziali delle chiavi dall'esterno di tali origini.
 
-Esiste un'importante eccezione a questa limitazione. Se un utente ha acconsentito esplicitamente a usare servizi Microsoft attendibili, le connessioni da tali servizi sono consentire attraverso il firewall. Ad esempio, questi servizi includono Office 365 Exchange Online, Office 365 SharePoint Online, Calcolo di Azure, Azure Resource Manager e Backup di Azure. Questi utenti devono comunque presentare un token di Azure Active Directory valido e devono avere le autorizzazioni, configurate come criteri di accesso, per eseguire l'operazione richiesta. Per altre informazioni, vedere [Endpoint del servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
+Esiste un'importante eccezione a questa limitazione. Se un utente ha acconsentito esplicitamente a usare servizi Microsoft attendibili, le connessioni da tali servizi sono consentire attraverso il firewall. Ad esempio, questi servizi includono Office 365 Exchange Online, Office 365 SharePoint Online, Calcolo di Azure, Azure Resource Manager e Backup di Azure. Questi utenti devono comunque presentare un token di Azure Active Directory valido e devono avere le autorizzazioni, configurate come criteri di accesso, per eseguire l'operazione richiesta. Per altre informazioni, vedere [Endpoint del servizio Rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="usage-scenarios"></a>Scenari di utilizzo
 
@@ -31,6 +31,7 @@ Esiste un'importante eccezione a questa limitazione. Se un utente ha acconsentit
 > I firewall di Key Vault e le regole di rete virtuale si applicano solo al [piano dati](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) di Key Vault. Le operazioni del piano di controllo Key Vault, ad esempio le operazioni di creazione, eliminazione e modifica, l'impostazione di criteri di accesso, la configurazione del firewall e delle regole di rete virtuale, non sono interessate dai firewall e dalle regole di rete virtuale.
 
 Di seguito sono riportati alcuni esempi di uso degli endpoint del servizio:
+
 * Si usa Key Vault per archiviare chiavi di crittografia, segreti dell'applicazione, certificati e si vuole bloccare l'accesso all'insieme di credenziali delle chiavi dalla rete Internet pubblica.
 * Si vuole bloccare l'accesso all'insieme di credenziali delle chiavi in modo che solo l'applicazione o un breve elenco di host designati possano connettesi all'insieme di credenziali delle chiavi.
 * Si ha un'applicazione in esecuzione nella rete virtuale di Azure e la rete virtuale è bloccata per tutto il traffico in ingresso e in uscita. L'applicazione deve comunque connettersi a Key Vault per recuperare segreti o certificati o usare le chiavi di crittografia.
@@ -38,12 +39,13 @@ Di seguito sono riportati alcuni esempi di uso degli endpoint del servizio:
 ## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Configurare firewall e reti virtuali Key Vault
 
 Ecco i passaggi necessari per configurare i firewall e le reti virtuali. Questi passaggi sono applicabili se si usa PowerShell, l'interfaccia della riga di comando di Azure o il portale di Azure.
+
 1. Abilitare la [registrazione in Key Vault](key-vault-logging.md) per visualizzare i log di accesso dettagliati. Ciò è utile nella diagnostica quando i firewall e le regole di rete virtuale impediscono l'accesso a un insieme di credenziali delle chiavi. Questo passaggio è facoltativo ma consigliato.
 2. Abilitare gli **endpoint del servizio per l'insieme di credenziali delle chiavi** per le reti virtuali di destinazione e le subnet.
 3. Configurare i firewall e le regole di rete virtuale per un insieme di credenziali delle chiavi per limitare l'accesso a tale insieme da reti virtuali, subnet e intervalli di indirizzi IPv4 specifici.
 4. Se questo insieme di credenziali delle chiavi deve essere accessibile da tutti i servizi Microsoft attendibili, abilitare l'opzione per consentire ai **servizi di Azure attendibili** di connettersi a Key Vault.
 
-Per maggiori dettagli, vedere [Configurare reti virtuali e firewall di Azure Key Vault](key-vault-network-security.md).
+Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Azure Key Vault](key-vault-network-security.md).
 
 > [!IMPORTANT]
 > Quando le regole del firewall sono operative, gli utenti possono eseguire le operazioni del [piano dati](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) Key Vault solo se le loro richieste hanno origine da reti virtuali o intervalli di indirizzi IPv4 consentiti. Questo vale anche per l'accesso a Key Vault dal portale di Azure. Benché gli utenti possano accedere a un insieme di credenziali delle chiavi dal portale di Azure, potrebbero non essere in grado di elencare chiavi, segreti o certificati se il computer client in uso non è presente nell'elenco dei computer consentiti. Ciò influisce anche sul selettore dell'insieme di credenziali delle chiavi di altri servizi di Azure. Se le regole del firewall bloccano i computer client, gli utenti potrebbero essere in grado di visualizzare l'elenco degli insiemi di credenziali delle chiavi ma non di elencare le chiavi.
@@ -57,6 +59,7 @@ Per maggiori dettagli, vedere [Configurare reti virtuali e firewall di Azure Key
 > * Attualmente sono supportati solo gli indirizzi IPv4.
 
 ## <a name="trusted-services"></a>Servizi attendibili
+
 Di seguito è riportato un elenco di servizi attendibili che sono autorizzati ad accedere a un insieme di credenziali delle chiavi se è abilitata l'opzione **Allow trusted services** (Consenti servizi attendibili).
 
 |Servizio attendibile|Scenari di utilizzo|
