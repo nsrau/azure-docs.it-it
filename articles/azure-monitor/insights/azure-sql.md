@@ -7,22 +7,22 @@ ms.subservice: performance
 ms.custom: ''
 ms.topic: conceptual
 author: danimir
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/26/2018
-ms.author: v-daljep
-ms.openlocfilehash: bf2cbdb57276fccd31af61f2df1b76eeba816e66
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 12/17/2018
+ms.openlocfilehash: f12aed12138b1b16fcce90401ea0d65bd083675f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341627"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546718"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorare il database SQL di Azure usando Analisi SQL di Azure (anteprima)
 
 ![Simbolo di Analisi SQL di Azure](./media/azure-sql/azure-sql-symbol.png)
 
-Analisi SQL di Azure è una soluzione cloud che consente di monitorare le prestazioni di database SQL di Azure, istanze gestite e pool elastici in scala e in più sottoscrizioni da una singola finestra. Raccoglie e Visualizza importanti metriche sulle prestazioni di Database SQL di Azure con funzionalità di intelligence integrata per la risoluzione dei problemi.
+Analisi SQL di Azure è una soluzione cloud avanzata che consente di monitorare le prestazioni di database SQL di Azure, istanze gestite e pool elastici in scala e in più abbonamenti da una singola finestra. Raccoglie e Visualizza importanti metriche sulle prestazioni di Database SQL di Azure con funzionalità di intelligence integrata per la risoluzione dei problemi.
 
 Usando le metriche raccolte con la soluzione, è possibile creare regole e avvisi di monitoraggio personalizzati. La soluzione consente di identificare i problemi a ogni livello dello stack di applicazioni. Usa le metriche di Diagnostica di Azure insieme alle viste di Log Analytics per presentare i dati su tutti i database SQL di Azure, i pool elastici e i database nelle istanze gestite in un'unica area di lavoro di Log Analytics. Log Analytics consente di raccogliere, correlare e visualizzare dati strutturati e non strutturati.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 3f7cfbea414561a50152f88ac9061d7f62c89e2a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc8688e06b430522d2aeb1bcc67f72dae2e9ac6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192410"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728406"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Gruppi di computer nelle ricerche nei log in Log Analytics
 
@@ -31,7 +31,7 @@ I gruppi di computer in Log Analytics consentono di limitare l'ambito delle [ric
 |:--- |:--- |
 | Ricerca log |Creare una ricerca log che restituisca un elenco di computer. |
 | API di ricerca nei log |Usare l'API di ricerca nei log per creare un gruppo di computer a livello di codice in base ai risultati di una ricerca nei log. |
-| Active Directory |Analizzare automaticamente l'appartenenza a gruppi di tutti i computer degli agenti che sono membri di un dominio di Active Directory e creare un gruppo in Log Analytics per ogni gruppo di sicurezza. |
+| Active Directory |Analizzare automaticamente l'appartenenza a gruppi di tutti i computer degli agenti che sono membri di un dominio di Active Directory e creare un gruppo in Log Analytics per ogni gruppo di sicurezza. (solo computer Windows)|
 | Gestione configurazione | Importare raccolte da System Center Configuration Manager e creare in Log Analytics un gruppo per ognuna. |
 | Windows Server Update Services |Analizzare automaticamente i server o i client WSUS per rilevare i gruppi di destinazione e creare in Log Analytics un gruppo per ognuno. |
 
@@ -60,7 +60,10 @@ Eseguire questa procedura per creare un gruppo di computer da una ricerca log ne
 
 
 ### <a name="active-directory"></a>Active Directory
-Quando si configura Log Analytics per importare le appartenenze ai gruppi di Active Directory, viene analizzata l'appartenenza ai gruppi di tutti i computer aggiunti a un dominio con l'agente Log Analytics.  Viene creato un gruppo di computer in Log Analytics per ogni gruppo di sicurezza in Active Directory e ogni computer viene aggiunto ai gruppi di computer corrispondenti ai gruppi di sicurezza di cui è membro.  L'appartenenza viene aggiornata continuamente ogni 4 ore.  
+Quando si configura Log Analytics per importare le appartenenze ai gruppi di Active Directory, viene analizzata l'appartenenza ai gruppi di tutti i computer aggiunti a un dominio Windows con l'agente Log Analytics.  Viene creato un gruppo di computer in Log Analytics per ogni gruppo di sicurezza in Active Directory e ogni computer Windows viene aggiunto ai gruppi di computer corrispondenti ai gruppi di sicurezza di cui è membro.  L'appartenenza viene aggiornata continuamente ogni 4 ore.  
+
+> [!NOTE]
+> I gruppi di Active Directory importati contengono solo computer Windows.
 
 È possibile configurare Log Analytics per l'importazione dei gruppi di sicurezza di Active Directory in **Impostazioni avanzate** di Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer**, **Active Directory** e quindi **Importa le appartenenze a gruppi di Active Directory dai computer**.  Non è richiesta alcuna ulteriore configurazione.
 

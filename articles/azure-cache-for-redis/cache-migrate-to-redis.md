@@ -14,15 +14,15 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: c3c1aa9abc6a7ba97bf7c95aa1c670c7239df3ab
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5a1febb80b5d3aaf0e5da2620f1b0a35d5d1144b
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021884"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556799"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Eseguire la migrazione da Servizio cache gestita a Cache Redis di Azure
-La migrazione di un'applicazione che usa Servizio cache gestita di Azure a Cache Redis di Azure può essere eseguita con modifiche minime all'applicazione, a seconda delle funzionalità di Servizio cache gestita usate dall'applicazione di memorizzazione nella cache. Le API non sono identiche, ma sono simili e gran parte del codice esistente che usa Servizio cache gestita per accedere a una cache può essere riutilizzata con modifiche minime. Questo articolo illustra come apportare le modifiche necessarie alla configurazione e all'applicazione per eseguire la migrazione delle applicazioni che usano Servizio cache gestita a Cache Redis di Azure e mostra come alcune delle funzioni di Cache Redis di Azure possono essere usate per implementare la funzionalità di una cache di Servizio cache gestita.
+La migrazione di un'applicazione che usa Servizio cache gestita di Azure a Cache Redis di Azure può essere eseguita con modifiche minime all'applicazione, a seconda delle funzionalità di Servizio cache gestita usate dall'applicazione di memorizzazione nella cache. Le API non sono identiche, ma sono simili e gran parte del codice esistente che usa il Servizio cache gestita per accedere a una cache può essere riutilizzata con modifiche minime. Questo articolo illustra come apportare le modifiche necessarie alla configurazione e all'applicazione per eseguire la migrazione delle applicazioni che usano Servizio cache gestita a Cache Redis di Azure e mostra come alcune delle funzioni di Cache Redis di Azure possono essere usate per implementare la funzionalità di una cache di Servizio cache gestita.
 
 >[!NOTE]
 >Servizio cache gestita e Cache nel ruolo sono stati [ritirati](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) il 30 novembre 2016. Se sono presenti distribuzioni di Cache nel ruolo di cui si vuole eseguire la migrazione a Cache Redis di Azure, è possibile seguire la procedura illustrata in questo articolo.
@@ -34,9 +34,9 @@ I passaggi seguenti sono necessari per eseguire la migrazione di un'applicazione
 * Scegliere un'offerta per il servizio cache
 * Creare una cache
 * Configurare i client della cache
-  * Rimuovere la configurazione di Servizio cache gestita
+  * Rimuovere la configurazione del Servizio cache gestita
   * Configurare un client della cache con il pacchetto NuGet StackExchange.Redis
-* Eseguire la migrazione del codice di Servizio cache gestita
+* Eseguire la migrazione del codice del Servizio cache gestita
   * Connettersi alla cache con la classe ConnectionMultiplexer
   * Accedere ai tipi di dati primitivi nella cache
   * Gestire gli oggetti .NET nella cache
@@ -45,9 +45,9 @@ I passaggi seguenti sono necessari per eseguire la migrazione di un'applicazione
 ## <a name="map-managed-cache-service-features-to-azure-cache-for-redis"></a>Eseguire il mapping delle funzionalità di Servizio cache gestita a Cache Redis di Azure
 Servizio cache gestita di Azure e Cache Redis di Azure sono simili, ma implementano alcune funzionalità in modi diversi. Questa sezione descrive alcune delle differenze e fornisce materiale sussidiario sull'implementazione delle funzionalità di Servizio cache gestita in Cache Redis di Azure.
 
-| Funzionalità di Servizio cache gestita | Supporto di Servizio cache gestita | Supporto di Cache Redis di Azure |
+| Funzionalità del Servizio cache gestita | Supporto del Servizio cache gestita | Supporto di Cache Redis di Azure |
 | --- | --- | --- |
-| Cache denominate |Viene configurata una cache predefinita e nelle offerte cache Standard e Premium possono essere configurate fino a nove cache denominate aggiuntive, se necessario. |Le istanze di Cache Redis di Azure prevedono un numero di database configurabile (16 database per impostazione predefinita) che è possibile usare per implementare una funzionalità simile alle cache denominate. Per altre informazioni, vedere [Informazioni sui database Redis](cache-faq.md#what-are-redis-databases) e [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration). |
+| Cache denominate |Viene configurata una cache predefinita e nelle offerte cache Standard e Premium possono essere configurate fino a nove cache denominate aggiuntive, se necessario. |Cache Redis di Azure ha un numero configurabile di database (16 come impostazione predefinita) che possono essere usati per implementare una funzione simile nelle cache denominate. Per altre informazioni, vedere [Informazioni sui database Redis](cache-faq.md#what-are-redis-databases) e [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration). |
 | Disponibilità elevata |Fornisce disponibilità elevata per gli elementi nella cache nelle offerte cache Standard e Premium. Se gli elementi vengono persi a causa di un errore, sono ancora disponibili le copie di backup degli elementi nella cache. Le scritture nella cache secondaria vengono eseguite in modo sincrono. |La disponibilità elevata è disponibile nelle offerte cache Standard e Premium, che hanno una configurazione primaria/di replica a due nodi (ogni condivisione in una cache Premium ha una coppia primaria/ di replica). Le scritture nella replica vengono eseguite in modo asincrono. Per altre informazioni, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/). |
 | Notifiche |Consente ai client di ricevere notifiche asincrone quando in una cache denominata si verificano svariate operazioni della cache. |Le applicazioni client possono usare la pubblicazione/sottoscrizione di Redis o le [notifiche dello spazio delle chiavi](cache-configure.md#keyspace-notifications-advanced-settings) per ottenere una funzionalità simile alle notifiche. |
 | Cache locale |Archivia una copia degli oggetti memorizzati nella cache in locale nel client per un accesso velocissimo. |Le applicazioni client dovrebbero implementare questa funzionalità usando un dizionario o una struttura di dati simile. |
@@ -55,18 +55,18 @@ Servizio cache gestita di Azure e Cache Redis di Azure sono simili, ma implement
 | Criteri di scadenza |Il criterio di scadenza predefinito è Assoluto e l'intervallo di scadenza predefinito è di 10 minuti. Sono disponibili anche i criteri Scorrevole e Mai. |Per impostazione predefinita, gli elementi nella cache non scadono, ma è possibile impostare una scadenza per ogni scrittura usando gli overload impostati della cache. |
 | Aree e aggiunta di tag |Le aree sono sottogruppi degli elementi memorizzati nella cache. Le aree supportano anche l'annotazione degli elementi memorizzati nella cache con stringhe descrittive aggiuntive chiamate tag. Le aree supportano l'esecuzione di operazioni di ricerca in tutti gli elementi con tag di tale area. Tutti gli elementi in un'area si trovano in un singolo nodo del cluster di cache. |Un'istanza di Cache Redis di Azure è costituita da un singolo nodo (a meno che non sia abilitato il cluster Redis), di conseguenza il concetto di aree di Servizio cache gestita non è applicabile. Poiché Redis supporta le operazioni di ricerca e con caratteri jolly quando si recuperano le chiavi, i tag descrittivi possono essere incorporati nei nomi delle chiavi e usati per recuperare gli elementi in seguito. Per un esempio di implementazione di una soluzione di aggiunta di tag con Redis, vedere la pagina relativa all' [implementazione dell'aggiunta di tag della cache con Redis](http://stackify.com/implementing-cache-tagging-redis/). |
 | Serializzazione |La cache gestita supporta NetDataContractSerializer, BinaryFormatter e l'uso di serializzatori personalizzati. Il valore predefinito è NetDataContractSerializer. |È responsabilità dell'applicazione client serializzare gli oggetti .NET prima di inserirli nella cache, con il serializzatore scelto dallo sviluppatore dell'applicazione client. Per altre informazioni e per il codice di esempio, vedere [Gestire gli oggetti .NET nella cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache). |
-| Emulatore di cache |Servizio Cache gestita offre un emulatore di cache locale. |Cache Redis di Azure non include un emulatore, ma per ottenere un'esperienza di emulazione è possibile [eseguire la build MSOpenTech di redis-server.exe in locale](cache-faq.md#cache-emulator). |
+| Emulatore di cache |Il servizio Cache gestita offre un emulatore di cache locale. |Cache Redis di Azure non include un emulatore, ma per ottenere un'esperienza di emulazione è possibile [eseguire la build MSOpenTech di redis-server.exe in locale](cache-faq.md#cache-emulator). |
 
 ## <a name="choose-a-cache-offering"></a>Scegliere un'offerta per il servizio cache
 Cache Redis di Microsoft Azure è disponibile nei livelli seguenti:
 
 * **Basic**: singolo nodo. Più dimensioni fino a 53 GB.
 * **Standard**: principale/replica a due nodi. Più dimensioni fino a 53 GB. Contratti di servizio del 99,9%.
-* **Premium**: principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB. Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del 99,9%.
+* **Premium** : principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB. Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del 99,9%.
 
 Ogni livello presenta differenze in termini di funzionalità e prezzi. Le funzionalità vengono illustrate più avanti in questa guida. Per altre informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache](https://azure.microsoft.com/pricing/details/cache/).
 
-Per iniziare la migrazione, scegliere la dimensione corrispondente a quella della cache di Servizio cache gestita precedente e quindi aumentarla o ridurla a seconda dei requisiti dell'applicazione. Per altre informazioni sulla scelta dell'offerta appropriata per Cache Redis di Azure, vedere [Quali offerte e dimensioni di Cache Redis di Azure è consigliabile usare?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
+Per iniziare la migrazione, scegliere la dimensione corrispondente a quella della cache del Servizio cache gestita precedente e quindi aumentarla o ridurla a seconda dei requisiti dell'applicazione. Per altre informazioni sulla scelta dell'offerta appropriata per Cache Redis di Azure, vedere [Quali offerte e dimensioni di Cache Redis di Azure è consigliabile usare?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 
 ## <a name="create-a-cache"></a>Creare una cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -74,17 +74,17 @@ Per iniziare la migrazione, scegliere la dimensione corrispondente a quella dell
 ## <a name="configure-the-cache-clients"></a>Configurare i client della cache
 Dopo aver creato e configurato la cache, il passaggio successivo consiste nel rimuovere la configurazione di Servizio cache gestita e nell'aggiungere la configurazione e i riferimenti di Cache Redis di Azure in modo che i client della cache possano accedere alla cache.
 
-* Rimuovere la configurazione di Servizio cache gestita
+* Rimuovere la configurazione del Servizio cache gestita
 * Configurare un client della cache con il pacchetto NuGet StackExchange.Redis
 
-### <a name="remove-the-managed-cache-service-configuration"></a>Rimuovere la configurazione di Servizio cache gestita
+### <a name="remove-the-managed-cache-service-configuration"></a>Rimuovere la configurazione del Servizio cache gestita
 Prima che le applicazioni client possano essere configurate per Cache Redis di Azure, è necessario rimuovere la configurazione e i riferimenti ad assembly di Servizio cache gestita esistenti disinstallando il pacchetto NuGet di Servizio cache gestita.
 
-Per disinstallare il pacchetto NuGet di Servizio cache gestita, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Selezionare il nodo  **installati** e digitare **WindowsAzure.Caching** nella casella di ricerca dei pacchetti installati. Selezionare **Windows** **Azure Cache** (o **Windows** **Azure Caching** a seconda della versione del pacchetto NuGet), fare clic su **Disinstalla** e su **Chiudi**.
+Per disinstallare il pacchetto NuGet del Servizio cache gestita, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Selezionare il nodo  **installati** e digitare **WindowsAzure.Caching** nella casella di ricerca dei pacchetti installati. Selezionare **Windows** **Azure Cache** (o **Windows** **Azure Caching** a seconda della versione del pacchetto NuGet), fare clic su **Disinstalla** e su **Chiudi**.
 
-![Disinstallare il pacchetto NuGet di Servizio cache gestita di Azure](./media/cache-migrate-to-redis/IC757666.jpg)
+![Disinstallare il pacchetto NuGet del Servizio cache gestita di Azure](./media/cache-migrate-to-redis/IC757666.jpg)
 
-La disinstallazione del pacchetto NuGet di Servizio cache gestita rimuove gli assembly di Servizio cache gestita e le voci di Servizio cache gestita dal file app.config o web.config dell'applicazione client. Poiché alcune impostazioni personalizzate potrebbero non essere rimosse quando si disinstalla il pacchetto NuGet, aprire web.config o app.config e verificare che gli elementi seguenti siano stati rimossi.
+La disinstallazione del pacchetto NuGet del Servizio cache gestita rimuove gli assembly del Servizio cache gestita e le voci del Servizio cache gestita dal file app.config o web.config dell'applicazione client. Poiché alcune impostazioni personalizzate potrebbero non essere rimosse quando si disinstalla il pacchetto NuGet, aprire web.config o app.config e verificare che gli elementi seguenti siano stati rimossi.
 
 Verificare che la voce `dataCacheClients` sia stata rimossa dall'elemento `configSections`. Non rimuovere l'intero elemento `configSections`, ma solo la voce `dataCacheClients`, se presente.
 
@@ -113,16 +113,16 @@ Verificare che la sezione `dataCacheClients` sia stata rimossa. La sezione `data
 </dataCacheClients>
 ```
 
-Una volta rimossa la configurazione di Servizio cache gestita, è possibile configurare il client della cache, come descritto nella sezione seguente.
+Una volta rimossa la configurazione del Servizio cache gestita, è possibile configurare il client della cache, come descritto nella sezione seguente.
 
 ### <a name="configure-a-cache-client-using-the-stackexchangeredis-nuget-package"></a>Configurare un client della cache con il pacchetto NuGet StackExchange.Redis
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
-## <a name="migrate-managed-cache-service-code"></a>Eseguire la migrazione del codice di Servizio cache gestita
+## <a name="migrate-managed-cache-service-code"></a>Eseguire la migrazione del codice del Servizio cache gestita
 L'API del client della cache StackExchange.Redis è simile a Servizio cache gestita. Questa sezione contiene una panoramica delle differenze.
 
 ### <a name="connect-to-the-cache-using-the-connectionmultiplexer-class"></a>Connettersi alla cache con la classe ConnectionMultiplexer
-In Servizio cache gestita le connessioni alla cache sono gestite dalle classi `DataCacheFactory` e `DataCache`. In Cache Redis di Azure queste connessioni sono gestite dalla classe `ConnectionMultiplexer`.
+Nel Servizio cache gestita le connessioni alla cache sono gestite dalle classi `DataCacheFactory` e `DataCache`. In Cache Redis di Azure queste connessioni sono gestite dalla classe `ConnectionMultiplexer`.
 
 Aggiungere l'istruzione using seguente nella parte superiore di ogni file da cui si vuole accedere alla cache.
 
@@ -173,7 +173,7 @@ int key2 = (int)cache.StringGet("key2");
 
 Il client StackExchange.Redis usa i tipi `RedisKey` e `RedisValue` per accedere agli elementi e archiviarli nella cache. Questi tipi eseguono il mapping ai tipi di linguaggio più primitivi, incluse le stringhe, e spesso non vengono usati direttamente. Le stringhe di Redis sono la tipologia più semplice di valore Redis e possono contenere diversi tipi di dati, inclusi i flussi binari serializzati, e, anche se non è possibile usare il tipo direttamente, si useranno metodi contenenti `String` nel nome. Per i tipi di dati più primitivi, gli elementi vengono archiviati e recuperati nella cache usando i metodi `StringSet` e `StringGet`, a meno che non si debbano archiviare raccolte o altri tipi di dati Redis nella cache. 
 
-`StringSet` e `StringGet` sono simili ai metodi `Put` e `Get` di Servizio cache gestita, con l'importante differenza che, prima di impostare e ottenere un oggetto .NET nella cache, è necessario serializzarlo. 
+`StringSet` e `StringGet` sono simili ai metodi `Put` e `Get` del Servizio cache gestita, con l'importante differenza che, prima di impostare e ottenere un oggetto .NET nella cache, è necessario serializzarlo. 
 
 Quando si chiama `StringGet`, viene restituito l'oggetto, se esistente; in caso contrario, viene restituito Null. In questo caso, è possibile recuperare il valore dall'origine dati desiderata e memorizzarlo nella cache per un uso successivo. Questo modello è noto come modello cache-aside.
 

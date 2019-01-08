@@ -4,19 +4,19 @@ description: Informazioni su come eseguire la migrazione da SQL Server locale a 
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c4ccbe8a6f1e1923e83d2bdcbeb2d61429083aee
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247166"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724199"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure con Azure PowerShell
 In questo articolo si esegue la migrazione del database **Adventureworks2012**, ripristinato in un'istanza locale di SQL Server 2005 o versione successiva, verso un'istanza gestita di database SQL di Azure tramite Microsoft Azure PowerShell. Per eseguire la migrazione di database da un'istanza di SQL Server locale a un'istanza gestita di database SQL di Azure è possibile usare il modulo `AzureRM.DataMigration` di Microsoft Azure PowerShell.
@@ -176,7 +176,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 ```
 
 ### <a name="select-logins"></a>Seleziona account di accesso
-Creare l'elenco degli account di accesso da sottoporre a migrazione come illustrato nell'esempio seguente: si noti che attualmente il Servizio Migrazione del database di Azure supporta esclusivamente la migrazione agli accessi SQL. 
+Creare l'elenco degli account di accesso da sottoporre a migrazione come illustrato nell'esempio seguente:  Si noti che il Servizio Migrazione del database di Azure supporta attualmente solo la migrazione di account di accesso SQL. 
 
 ```powershell
 $selectedLogins = @("user1", "user2")

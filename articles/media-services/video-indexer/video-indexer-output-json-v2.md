@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 8acb1c70dc21efc87e13e0e5e94d9a61acfe01e9
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292088"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554657"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Esaminare l'output di Video Indexer generato dall'API v2
 
@@ -78,8 +78,8 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |Attributo | DESCRIZIONE|
 |---|---|
 |name|Nome del video. Ad esempio, Monitoraggio di Azure.|
-|shortId|ID del video. Ad esempio, 63c6d532ff.|
-|privacyMode|La scomposizione può avere una delle modalità seguenti: **Private** o **Public**. **Public**: il video è visibile per tutti gli utenti nell'account e per chiunque disponga di un collegamento al video. **Private**: il video è visibile per tutti gli utenti nell'account.|
+|id|ID del video. Ad esempio, 63c6d532ff.|
+|privacyMode|La scomposizione può avere una delle modalità seguenti: **Private**, **Public**. **Public**: il video è visibile per tutti gli utenti nell'account e per chiunque disponga di un collegamento al video. **Private**: il video è visibile per tutti gli utenti nell'account.|
 |duration|Contiene una durata che definisce il tempo associato a un'informazione dettagliata. La durata è espressa in secondi.|
 |thumbnailVideoId|ID del video da cui è stata ottenuta l'anteprima.
 |thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettiva, chiamare Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passare thumbnailVideoId e thumbnailId.|
@@ -149,7 +149,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 
 Le informazioni dettagliate sono un set di dimensioni (ad esempio, righe di trascrizione, volti, marchi e così via), dove ogni dimensione è un elenco di elementi univoci (ad esempio, volto1, volto2, volto3) e ogni elemento ha i propri metadati e un elenco delle relative istanze (ovvero, intervalli di tempo con metadati aggiuntivi facoltativi).
 
-Un volto può avere un ID, un nome, un'anteprima, altri metadati e un elenco delle relative istanze temporali (ad esempio: 00:00:05-00:00:10, 01:00:00-00:02:30 e 00:41:21-00:41:49). Ogni istanza temporale può avere metadati aggiuntivi, ad esempio le coordinate del rettangolo del volto (20,230,60,60).
+Un volto può avere un ID, un nome, un'anteprima, altri metadati e un elenco delle relative istanze temporali (ad esempio: 00:00:05 - 00:00:10, 00:01:00 - 00:02:30 e 00:41:21 - 00:41:49.) Ogni istanza temporale può avere metadati aggiuntivi, ad esempio le coordinate del rettangolo del volto (20,230,60,60).
 
 |Version|Versione del codice|
 |---|---|
@@ -553,7 +553,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |NOME|DESCRIZIONE|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
-|WordCount|Numero di parole per ogni voce.|
+|SpeakerWordCount|Numero di parole per ogni voce.|
 |SpeakerNumberOfFragments|Quantità di frammenti della voce in un video.|
 |SpeakerLongestMonolog|Monologo più lungo della voce. Se la voce comprende periodi di silenzio all'interno del monologo, questi vengono inclusi. I periodi di silenzio all'inizio e alla fine del monologo vengono rimossi.| 
 |SpeakerTalkToListenRatio|Il calcolo è basato sul tempo impiegato per il monologo della voce (senza i periodi di silenzio intermedi) diviso per il tempo totale del video. Il tempo viene arrotondato alla terza posizione decimale.|
@@ -767,8 +767,8 @@ Video Indexer deduce gli argomenti principali dalle trascrizioni. Quando possibi
 |NOME|DESCRIZIONE|
 |---|---|
 |id|ID dell'argomento.|
-|name|Nome dell'argomento, ad esempio "Prodotti farmaceutici".|
-|referenceId|Percorsi di navigazione che riflettono la gerarchia di argomenti. Ad esempio: "Salute e benessere / Medicina e sanità / Prodotti farmaceutici".|
+|name|Nome dell'argomento, ad esempio: "Prodotti farmaceutici".|
+|referenceId|Percorsi di navigazione che riflettono la gerarchia di argomenti. Ad esempio:  "Salute e benessere / Medicina e sanità / Prodotti farmaceutici".|
 |confidence|Punteggio di attendibilità nell'intervallo [0,1]. A un punteggio maggiore corrisponde una maggiore attendibilità.|
 |Linguaggio|Lingua usata nell'argomento.|
 |iptcName|Nome del codice per i media IPTC, se rilevato.|

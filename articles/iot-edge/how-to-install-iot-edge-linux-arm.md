@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/10/2018
 ms.author: kgremban
-ms.openlocfilehash: ccd38dd7570dc451a1a5b87163bfdd7aea51dad5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dbe9f18f5a38284e2b263d636656c88b1743d7ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567435"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555643"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installare il runtime di Azure IoT Edge in Linux (ARM32v7/armhf)
 
@@ -76,7 +76,7 @@ Il daemon può essere configurato usando il file di configurazione in `/etc/iote
 
 È possibile effettuare il provisioning di un singolo dispositivo IoT Edge manualmente usando una stringa di connessione dispositivo fornita dall'hub IoT. In alternativa, è possibile usare il servizio di provisioning di dispositivi per effettuare il provisioning di dispositivi automaticamente. Ciò è utile quando si dispone di molti dispositivi di cui effettuare il provisioning. A seconda del provisioning, scegliere lo script di installazione appropriato. 
 
-### <a name="option-1-manual-provisioning"></a>Opzione 1: Provisioning manuale
+### <a name="option-1-manual-provisioning"></a>Opzione 1: provisioning manuale
 
 Per eseguire manualmente il provisioning di un dispositivo, è necessario fornire una [stringa di connessione del dispositivo](how-to-register-device-portal.md) che è possibile creare tramite la registrazione di un nuovo dispositivo nell'hub IoT.
 
@@ -111,7 +111,7 @@ Dopo aver immesso le informazioni di provisioning nel file di configurazione, ri
 sudo systemctl restart iotedge
 ```
 
-### <a name="option-2-automatic-provisioning"></a>Opzione 2: Provisioning automatico
+### <a name="option-2-automatic-provisioning"></a>Opzione 2: provisioning automatico
 
 Per eseguire il provisioning automatico di un dispositivo, [configurare il servizio Device Provisioning e recuperare l'ID di registrazione del dispositivo](how-to-auto-provision-simulated-device-linux.md). Il provisioning automatico funziona solo con i dispositivi che dispongono di un chip Trusted Platform Module (TPM). Ad esempio, i dispositivi Raspberry Pi non sono dotati di TPM per impostazione predefinita. 
 
@@ -175,6 +175,39 @@ Nei dispositivi con risorse vincolate si consiglia vivamente di impostare la var
 
 Se la rete è dotata di un server proxy, seguire i passaggi descritti in [Configurare il dispositivo IoT Edge per comunicare tramite un server proxy](how-to-configure-proxy-support.md).
 
+## <a name="uninstall-iot-edge"></a>Disinstallazione di IoT Edge
+
+Per rimuovere IoT Edge da un dispositivo Linux, usare i comandi seguenti dalla riga di comando. 
+
+Rimuovere il runtime IoT Edge. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+Quando il runtime IoT Edge viene rimosso, i contenitori creati vengono arrestati, ma rimangono sul dispositivo. Verificare tutti i contenitori per vedere quali vengono conservati. 
+
+```bash
+sudo docker ps -a
+```
+
+Eliminare i contenitori dal dispositivo, inclusi i due contenitori di runtime. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+Infine, rimuovere il runtime del contenitore dal dispositivo. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
+Dopo aver eseguito il provisioning del dispositivo IoT Edge con il runtime installato, è possibile [distribuire moduli IoT Edge](how-to-deploy-modules-portal.md).
+
 In caso di problemi durante l'installazione del runtime di Edge, vedere la pagina relativa alla [risoluzione dei problemi](troubleshoot.md#stability-issues-on-resource-constrained-devices).
+
+Per aggiornare un'installazione esistente alla versione più recente di IoT Edge, vedere [Aggiornare il daemon di sicurezza e il runtime di IoT Edge](how-to-update-iot-edge.md).

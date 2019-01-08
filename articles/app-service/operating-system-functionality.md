@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bb17748968d0875cae132730a02f490eab966690
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388512"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653510"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funzionalità del sistema operativo in Servizio app di Azure
 Questo articolo descrive le funzionalità di base comuni del sistema operativo disponibili in tutte le app Windows in esecuzione in [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica. 
@@ -131,11 +131,5 @@ L'accesso in scrittura al registro è bloccato, incluso l'accesso a qualsiasi ch
 
 ## <a name="more-information"></a>Altre informazioni
 
-[App Web Sandbox di Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox): informazioni aggiornate sull'ambiente di esecuzione del servizio App. Questa pagina è gestita direttamente dal team di sviluppo del servizio App.
-
-> [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-> 
-> 
-
+[Sandbox Servizio app di Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox): informazioni aggiornate sull'ambiente di esecuzione del servizio App. Questa pagina è gestita direttamente dal team di sviluppo del servizio App.
 
