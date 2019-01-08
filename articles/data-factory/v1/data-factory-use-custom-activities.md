@@ -22,7 +22,7 @@ ms.lasthandoff: 11/21/2018
 ms.locfileid: "52276007"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
 > * [Versione 1](data-factory-use-custom-activities.md)
 > * [Versione 2 (corrente)](../transform-data-using-dotnet-custom-activity.md)
 
