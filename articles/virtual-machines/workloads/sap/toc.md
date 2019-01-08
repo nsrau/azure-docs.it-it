@@ -52,12 +52,9 @@
 ## [Backup a livello di file di SAP HANA](sap-hana-backup-file-level.md)
 ## [Backup degli snapshot di archiviazione di SAP HANA](sap-hana-backup-storage-snapshots.md)
 # SAP NetWeaver e Business One nelle macchine virtuali di Azure
-## [SAP Business One nelle macchine virtuali di Azure](business-one-azure.md)
-## [Guida alla distribuzione di SAP IDES in Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
-## [SAP NetWeaver nelle VM Linux di Azure](suse-quickstart.md)
+## [Checklist per la pianificazione e la distribuzione di carichi di lavoro SAP](sap-deployment-checklist.md)
 ## [Pianificare e implementare SAP NetWeaver in Azure](planning-guide.md)
 ## [Guida alla distribuzione di SAP NetWeaver](deployment-guide.md)
-## [Connettore SAP LaMa per Azure](lama-installation.md)
 ## Guide alla distribuzione DBMS per un carico di lavoro SAP
 ### [Distribuzione DBMS generale di Macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_general.md)
 ### [Distribuzione DBMS per SQL Server di Macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_sqlserver.md)
@@ -69,6 +66,10 @@
 ### [Panoramica della disponibilità di SAP HANA in Azure](sap-hana-availability-overview.md)
 ### [Disponibilità di SAP HANA in un'area di Azure](sap-hana-availability-one-region.md)
 ### [Disponibilità di SAP HANA tra aree di Azure](sap-hana-availability-across-regions.md)
+## [SAP Business One nelle macchine virtuali di Azure](business-one-azure.md)
+## [Guida alla distribuzione di SAP IDES in Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
+## [SAP NetWeaver nelle VM Linux di Azure](suse-quickstart.md)
+## [Connettore SAP LaMa per Azure](lama-installation.md)
 ## Disponibilità elevata in Windows e Linux
 ### [Overview](sap-high-availability-guide-start.md)
 ### Architettura a disponibilità elevata
@@ -77,6 +78,7 @@
 #### [Disponibilità elevata in Windows con disco condiviso per l'istanza (A)SCS](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [Disponibilità elevata in Windows con condivisione file SOFS per l'istanza (A)SCS](sap-high-availability-guide-wsfc-file-share.md)
 #### [Disponibilità elevata in SUSE Linux per l'istanza (A)SCS](high-availability-guide-suse.md)
+#### [Disponibilità elevata in Red Hat Enterprise Linux per l'istanza (A)SCS](high-availability-guide-rhel.md)
 ### Preparazione dell'infrastruttura di Azure
 #### [Windows con disco condiviso per l'istanza (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows con condivisione file SOFS per l'istanza (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)

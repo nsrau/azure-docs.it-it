@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 9e8b9b24707577aba5df754984953ef2f59b9ff9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272865"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602347"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 
@@ -41,7 +41,7 @@ Per il monitoraggio e la risoluzione dei problemi di prestazioni del database so
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Monitorare i database tramite il portale di Azure
 
-Nel [portale di Azure](https://portal.azure.com/)è possibile monitorare l'utilizzo di un database singolo selezionandolo e facendo clic sul grafico **Monitoraggio**. Verrà visualizzata una finestra della **metrica** in cui è possibile apportare modifiche facendo clic su l pulsante **Modifica grafico**. Aggiungere le metriche seguenti
+Nel [portale di Azure](https://portal.azure.com/) è possibile monitorare l'utilizzo di un database singolo selezionandolo e facendo clic sul grafico **Monitoraggio**. Verrà visualizzata una finestra della **metrica** in cui è possibile apportare modifiche facendo clic su l pulsante **Modifica grafico**. Aggiungere le metriche seguenti
 
 - Percentuale CPU
 - Percentuale di DTU
@@ -104,7 +104,7 @@ Per altre informazioni sulla risoluzione di questi tipi di problemi, vedere:
 
 - Post di blog sull'[analisi di un parametro](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/)
 - Post di blog sul [problema di analisi dei parametri e soluzioni alternative](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/)
-- Post di blog [sull'analisi dei parametri per il problema dell'elefante e del topo](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/)
+- Post di blog [sull'analisi dei parametri per il problema dell'elefante e del topo](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/)
 - Post di blog su [SQL dinamico e la qualità del piano per le query con parametri](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Risoluzione dei problemi relativi all'attività di compilazione a causa della parametrizzazione non corretta

@@ -12,17 +12,17 @@ items:
   - name: APPLICAZIONI
     items:
     - name: Applicazione .NET
-      href: ../application-insights/quick-monitor-portal.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-monitor-portal.md
     - name: Applicazione .NET Core
-      href: ../application-insights/app-insights-dotnetcore-quick-start.md?toc=/azure/azure-monitor/toc.json
+      href: learn/dotnetcore-quick-start.md
     - name: Applicazione Node.js
-      href: ../application-insights/app-insights-nodejs-quick-start.md?toc=/azure/azure-monitor/toc.json
+      href: learn/nodejs-quick-start.md
     - name: Applicazione Java
-      href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
+      href: learn/java-quick-start.md
     - name: Applicazione per dispositivi mobili
-      href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
+      href: learn/mobile-center-quickstart.md
     - name: Applicazione Web
-      href: ../application-insights/app-insights-website-monitoring.md?toc=/azure/azure-monitor/toc.json
+      href: app/website-monitoring.md
   - name: Macchine virtuali
     items:
     - name: Raccolta - Macchine virtuali di Azure
@@ -45,15 +45,15 @@ items:
   - name: Scalabilità automatica su prestazioni e pianificazione
     href: learn/tutorial-autoscale-performance-schedule.md
   - name: Trovare le eccezioni di runtime dell'applicazione
-    href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-runtime-exceptions.md
   - name: Trovare problemi di prestazioni dell'applicazione
     href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
   - name: Avvisi sullo stato di integrità dell'applicazione
-    href: ../application-insights/app-insights-tutorial-alert.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-alert.md
   - name: Informazioni sugli utenti delle applicazioni
     href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
   - name: Creare dashboard personalizzati
-    href: ../application-insights/app-insights-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-app-dashboards.md
 - name: Esempi
   items:
   - name: Azure PowerShell
@@ -262,8 +262,8 @@ items:
       items:
       - name: App Azure
         items:
-        - name: App Web di Azure
-          href: app/azure-web-apps.md
+        - name: Servizio app di Azure
+          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
         - name: Servizi cloud di Azure
           href: app/cloudservices.md
         - name: Aggiungere il monitoraggio continuo
@@ -271,21 +271,21 @@ items:
         - name: Profiler
           items:
           - name: Panoramica
-            href: ../application-insights/app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-overview.md
           - name: Abilitare Profiler per un servizio app
             href: app/profiler.md
           - name: Abilitare Profiler per un servizio cloud
-            href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-cloudservice.md
           - name: Abilitare Profiler per un'applicazione di Service Fabric
-            href: ../application-insights/app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-servicefabric.md
           - name: Abilitare Profiler per una VM di Azure
-            href: ../application-insights/app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-vm.md
           - name: Impostazioni di Profiler
-            href: ../application-insights/app-insights-profiler-settings.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-settings.md
           - name: Tenere traccia delle richieste per la profilatura
-            href: ../application-insights/app-insights-profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-trackrequests.md
           - name: Risoluzione dei problemi di Profiler
-            href: ../application-insights/app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-troubleshooting.md
         - name: Diagnostica
           href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: Anteprime
@@ -297,7 +297,7 @@ items:
         - name: Monitoraggio stato
           href: app/monitor-performance-live-website-now.md
         - name: Servizi Windows
-          href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
+          href: app/windows-services.md
         - name: Desktop di Windows
           href: app/windows-desktop.md
         - name: ASP.NET Core
@@ -389,7 +389,7 @@ items:
         - name: Gestire le regole di rilevamento intelligente
           href: app/proactive-arm-config.md
       - name: Creare una risorsa
-        href: ../application-insights/app-insights-create-new-resource.md?toc=/azure/azure-monitor/toc.json
+        href: app/create-new-resource.md
       - name: Risolvere problemi
         items:
         - name: Nessun dato per .NET
@@ -645,7 +645,7 @@ items:
       - name: Esportare i dati di log
         href: platform/powerbi.md
       - name: Esportare i dati dell'applicazione
-        href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
+        href: app/export-power-bi.md
     - name: Inviare dati a Grafana
       href: platform/grafana-plugin.md
   - name: Analizzare i dati
@@ -713,6 +713,7 @@ items:
         - name: Dati dell'applicazione
           href: app/analytics.md
         - name: Proprietà standard
+          href: platform/log-standard-properties.md
         - name: Analizzare i dati di testo
           href: log-query/parse-text.md
       - name: Intervenire dai risultati della ricerca
@@ -930,7 +931,7 @@ items:
   - name: Interfaccia della riga di comando di Azure
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Funzioni di Azure
-    href: ../application-insights/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
+    href: app/azure-functions-supported-features.md
   - name: Azure PowerShell
     items:
     - name: Monitorare
@@ -1004,9 +1005,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 8fc518262ba4b1d1c53c8fd2622f724550cddb2e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: daba9eb12d568e3eb49a7aa4d21f1d2eaa367ab8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053654"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074615"
