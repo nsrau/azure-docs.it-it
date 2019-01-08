@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 16cf679f91dae185a857813ec27441b9a4440e37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.reviewer: ''
+ms.openlocfilehash: 34804dae53fcf06d1a18bf503cdabea61f272585
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244050"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065393"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Considerazioni sui modelli di Azure Resource Manager
 
@@ -34,7 +34,7 @@ Il modello che si prevede di distribuire deve usare solo servizi di Microsoft Az
 
 ## <a name="public-namespaces"></a>Spazi dei nomi pubblici
 
-Azure Stack ha spazi dei nomi degli endpoint di servizio diversi rispetto al cloud pubblico di Azure perché è ospitato nel data center. Di conseguenza, gli endpoint pubblici hardcoded nei modelli di Azure Resource Manager esito negativo quando si tenta di distribuire in Azure Stack. È possibile compilare in modo dinamico gli endpoint di servizio usando il *riferimento* e *concatenare* funzioni per recuperare i valori del provider di risorse durante la distribuzione. Ad esempio, anziché impostare come hardcoded *blob.core.windows.net* nel modello, recuperare il [primaryendpoints. BLOB](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) impostare dinamicamente le *osdisk. URI* endpoint:
+Azure Stack ha spazi dei nomi degli endpoint di servizio diversi rispetto al cloud pubblico di Azure perché è ospitato nel data center. Di conseguenza, gli endpoint pubblici hardcoded nei modelli di Azure Resource Manager esito negativo quando si tenta di distribuire in Azure Stack. È possibile compilare in modo dinamico gli endpoint di servizio usando il `reference` e `concatenate` funzioni per recuperare i valori del provider di risorse durante la distribuzione. Ad esempio, anziché impostare come hardcoded *blob.core.windows.net* nel modello, recuperare il [primaryendpoints. BLOB](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) impostare dinamicamente le *osdisk. URI* endpoint:
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":

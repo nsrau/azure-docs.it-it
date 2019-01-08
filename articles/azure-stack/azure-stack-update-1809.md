@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754051"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077964"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -48,6 +48,8 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
    Per altre informazioni, vedere [l'inoltro di syslog di Azure Stack](azure-stack-integrate-security.md).
 
 - Ora puoi [spostare la risorsa di registrazione](azure-stack-registration.md#move-a-registration-resource) in Azure tra gruppi di risorse senza dover registrare di nuovo. Cloud Solution Provider (CSP) possono anche spostare la risorsa di registrazione tra le sottoscrizioni, purché entrambe le sottoscrizioni di nuove e precedenti sono mappate allo stesso ID di partner CSP. Ciò non ha alcun impatto sui mapping dei tenant dei clienti esistenti. 
+
+- Aggiunta del supporto per l'assegnazione di più indirizzi IP per ogni interfaccia di rete.  Per altre informazioni, vedere [assegnare più indirizzi IP alle macchine virtuali usando PowerShell](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### <a name="fixed-issues"></a>Problemi risolti
 
