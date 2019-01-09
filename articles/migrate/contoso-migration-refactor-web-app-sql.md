@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 923a1ab9020925c17b3b19d24c7524ab2f8f3356
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: eb046ceebf9c6233fa5178d18603add2f0c26a29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092763"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608018"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migrazione di Contoso: Riprogettazione di un'app in locale in un contenitore di Azure e nel database SQL di Azure
 
@@ -25,16 +25,16 @@ Questo documento fa parte di una serie di articoli che descrivono in che modo la
 --- | --- | ---
 [Articolo 1: Panoramica](contoso-migration-overview.md) | Offre una panoramica della strategia di migrazione di Contoso e presenta la serie di articoli e le app di esempio usate. | Disponibile
 [Articolo 2: Distribuire un'infrastruttura di Azure](contoso-migration-infrastructure.md) | Descrive in che modo Contoso prepara l'infrastruttura locale e di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli articoli relativi alla migrazione. | Disponibile
-[Articolo 3: Valutare le risorse locali](contoso-migration-assessment.md)  | Spiega in che modo Contoso esegue una valutazione dell'app SmartHotel a due livelli locale in esecuzione su VMware. Valuta le VM dell'app con il servizio [Azure Migrate](migrate-overview.md) e il database SQL Server dell'app con [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponibile
+[Articolo 3: Valutare risorse locali](contoso-migration-assessment.md)  | Spiega in che modo Contoso esegue una valutazione dell'app SmartHotel a due livelli locale in esecuzione su VMware. Valuta le VM dell'app con il servizio [Azure Migrate](migrate-overview.md) e il database SQL Server dell'app con [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponibile
 [Articolo 4: Eseguire il rehosting di un'app in VM di Azure e in un'istanza gestita di SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Spiega in che modo Contoso esegue una migrazione ad Azure in modalità lift-and-shift per l'app SmartHotel, usando [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) per la migrazione della VM front-end dell'app e il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview) per la migrazione del database dell'app a un'istanza gestita di SQL. | Disponibile
 [Articolo 5: Eseguire il rehosting di un'app in VM di Azure](contoso-migration-rehost-vm.md) | Spiega in che modo Contoso esegue la migrazione delle VM dell'app SmartHotel solo con Site Recovery. | Disponibile
-[Articolo 6: Eseguire il rehosting di un'app a macchina virtuali di Azure e nel gruppo di disponibilità AlwaysOn di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Spiega in che modo Contoso esegue la migrazione dell'app SmartHotel. usando Site Recovery per la migrazione delle VM dell'app e il Servizio Migrazione del database per la migrazione del database dell'app a un cluster di SQL Server protetto da un gruppo di disponibilità AlwaysOn. | Disponibile
-[Articolo 7: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure](contoso-migration-rehost-linux-vm.md) | Spiega in che modo Contoso esegue una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle VM di Azure usando Site Recovery. | Disponibile
+[Articolo 6: Eseguire il rehosting di un'app in VM di Azure e nel gruppo di disponibilità AlwaysOn di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Spiega in che modo Contoso esegue la migrazione dell'app SmartHotel. usando Site Recovery per la migrazione delle VM dell'app e il Servizio Migrazione del database per la migrazione del database dell'app a un cluster di SQL Server protetto da un gruppo di disponibilità AlwaysOn. | Disponibile
+[Articolo 7: Eseguire il rehosting di un'app Linux in VM di Azure](contoso-migration-rehost-linux-vm.md) | Spiega in che modo Contoso esegue una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle VM di Azure usando Site Recovery. | Disponibile
 [Articolo 8: Eseguire il rehosting di un'app Linux in VM di Azure e in Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Spiega in che modo Contoso esegue la migrazione dell'app osTicket di Linux alle VM di Azure usando Site Recovery e del database dell'app a un'istanza di Azure MySQL Server mediante MySQL Workbench. | Disponibile
-Articolo 9: Effettuare il refactoring di un'app a un'app Web di Azure e un database SQL di Azure | Illustra come Contoso esegue la migrazione dell'app SmartHotel a un'app Web di Azure e come esegue la migrazione del database di un'app per istanza del Server SQL di Azure | Questo articolo
-[Articolo 10: Effettuare il refactoring di un'app Linux in app Web di Azure e MySQL di Azure ](contoso-migration-refactor-linux-app-service-mysql.md) | Viene illustrato come Contoso esegue la migrazione dell'app Linux osTicket alle app Web di Azure in più siti integrati con GitHub per il recapito continuo. Il database di app viene fatto migrare a un'istanza di MySQL di Azure. | Disponibile
-[Articolo 11: effettuare il refactoring di Team Foundation Server nei servizi di Azure DevOps](contoso-migration-tfs-vsts.md) | Viene illustrato come Contoso esegue la migrazione della distribuzione di Team Foundation Server (TFS) locale eseguendo la migrazione ad Azure DevOps Services in Azure. | Disponibile
-[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Illustra come Contoso esegue la migrazione e riprogetta l'app SmartHotel in Azure. Il livello dell'app Web viene riprogettato come un contenitore di Windows e il database di app come un database SQL di Azure. | Disponibile
+Articolo 9: Eseguire il refactoring di un'app in un'app Web di Azure e un database SQL di Azure | Illustra come Contoso esegue la migrazione dell'app SmartHotel a un'app Web di Azure, e come esegue la migrazione del database di app per istanza del Server SQL di Azure | Questo articolo
+[Articolo 10: Eseguire il refactoring di un'app Linux in app Web di Azure e MySQL di Azure](contoso-migration-refactor-linux-app-service-mysql.md) | Viene illustrato come Contoso esegue la migrazione dell'app Linux osTicket alle app Web di Azure in più siti integrati con GitHub per il recapito continuo. Il database di app viene fatto migrare a un'istanza di MySQL di Azure. | Disponibile
+[Articolo 11: Effettuare il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Viene illustrato come Contoso esegue la migrazione della distribuzione di Team Foundation Server (TFS) locale eseguendo la migrazione ad Azure DevOps Services in Azure. | Disponibile
+[Articolo 12: Riprogettare un'app nei contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Illustra come Contoso esegue la migrazione e riprogetta l'app SmartHotel in Azure. Il livello dell'app Web viene riprogettato come un contenitore di Windows e il database di app come un database SQL di Azure. | Disponibile
 [Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Illustra come Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizi app, Azure Kubernetes, Funzioni di Azure, servizi cognitivi e Cosmos DB. | Disponibile
 [Articolo 14: Passare a una migrazione completa in Azure](contoso-migration-scale.md) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Disponibile
 
@@ -44,10 +44,10 @@ In questo articolo Contoso esegue la migrazione dei due livelli Windows. App NET
 
 Il team di leadership IT collabora attivamente con i partner commerciali per capire gli obiettivi da raggiungere con questa migrazione:
 
-- **Gestire la crescita aziendale**: Contoso è in espansione e, di conseguenza, l'infrastruttura e i sistemi locali iniziano a sentirne la pressione.
-- **Aumentare l'efficienza**: Contoso deve rimuovere le procedure inutili e semplificare i processi per sviluppatori e utenti.  L'azienda richiede un settore IT rapido ed efficiente in termini di tempo e costi, in modo da soddisfare più velocemente le esigenze dei clienti.
-- **Migliorare l'agilità**: il settore IT di Contoso deve essere più reattivo alle esigenze dell'azienda. Deve essere in grado di reagire più rapidamente ai cambiamenti nel marketplace, in modo da raggiungere risultati di successo in un'economia globale.  Non deve rappresentare un ostacolo per le attività aziendali.
-- **Favorire la scalabilità**: il settore IT di Contoso deve fornire sistemi in grado di crescere di pari passo con l'espansione dell'azienda.
+- **Stare al passo con la crescita del business**: Contoso è in espansione e l'infrastruttura e i sistemi locali iniziano a sentirne la pressione.
+- **Aumentare l'efficienza**: occorre rimuovere le procedure inutili e semplificare i processi per sviluppatori e utenti.  L'azienda richiede un settore IT rapido ed efficiente in termini di tempo e costi, in modo da soddisfare più velocemente le esigenze dei clienti.
+- **Aumentare l'agilità**:  il settore IT di Contoso deve essere più reattivo alle esigenze dell'azienda. Deve essere in grado di reagire più rapidamente ai cambiamenti nel marketplace, in modo da raggiungere risultati di successo in un'economia globale.  Non deve rappresentare un ostacolo per le attività aziendali.
+- **Scalabilità**: il settore IT di Contoso deve fornire sistemi in grado di crescere di pari passo con l'espansione dell'azienda.
 - **Costi**: Contoso desidera ridurre al minimo i costi di licenza.
 
 ## <a name="migration-goals"></a>Obiettivi della migrazione
@@ -110,7 +110,7 @@ Contoso valuta la progettazione proposta elaborando un elenco di vantaggi e svan
 --- | --- | ---
 [Database Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso usa DMA per valutare e rilevare i problemi di compatibilità che possono compromettere le funzionalità del database in Azure. DMA valuta l'analogia nelle funzionalità tra le origini e le destinazioni SQL e consiglia miglioramenti nelle prestazioni e nell'affidabilità. | Questo strumento è scaricabile gratuitamente.
 [Database SQL di Azure](https://azure.microsoft.com/services/sql-database/) | Servizio di database cloud relazionale intelligente completamente gestito. | Costo in base a funzionalità, velocità effettiva e dimensioni. [Altre informazioni](https://azure.microsoft.com/pricing/details/sql-database/managed/)
-[App Web del Servizio app di Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview) | Crea app cloud avanzate usando una piattaforma completamente gestita | Costo in base a durata, dimensioni, posizione e utilizzo. [Altre informazioni](https://azure.microsoft.com/pricing/details/app-service/windows/)
+[App Web del Servizio app di Azure](https://docs.microsoft.com/azure/app-service/overview) | Crea app cloud avanzate usando una piattaforma completamente gestita | Costo in base a durata, dimensioni, posizione e utilizzo. [Altre informazioni](https://azure.microsoft.com/pricing/details/app-service/windows/)
 [Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Fornisce una pipeline di integrazione e distribuzione continua (CI/CD) per lo sviluppo delle app. La pipeline inizia con un repository GIT per la gestione del codice app, un sistema di compilazione per la produzione di pacchetti e altri artefatti di compilazione, nonché un sistema di Release Management per implementare le modifiche negli ambienti di sviluppo, test e produzione. 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -128,15 +128,15 @@ Di seguito vengono indicati i requisiti che Contoso deve soddisfare per questo s
 Ecco in che modo Contoso eseguirà la migrazione:
 
 > [!div class="checklist"]
-> * **Passaggio 1: Effettuare il provisioning di un'istanza di Database SQL in Azure**: Contoso effettua il provisioning di un'istanza di SQL in Azure. Dopo la migrazione del sito Web dell'app in Azure, l'app web del servizio WCF punta a questa istanza.
-> * **Passaggio 2: Eseguire la migrazione del database tramite DMA**. Contoso esegue la migrazione del database di app con Data Migration Assistant.
-> * **Passaggio 3: Effettuare il provisioning delle app Web**. Contoso effettua il privisioning di due app Web.
-> * **Passaggio 4: Configurare Azure DevOps**. Contoso crea un nuovo progetto di Azure DevOps e importa il repository GIT.
-> * **Passaggio 5: Configurare le stringhe di connessione**. Contoso configura le stringhe di connessione in modo che l'app Web di livello Web, l'app Web del servizio WCF e l'istanza SQL siano in grado di comunicare.
-> * **Passaggio 6: Configurare pipeline di compilazione e versione**. Come passaggio finale, Contoso configura pipeline di compilazione e versione per creare l'app e le distribuisce in due app Web di Azure separate.
+> * **Passaggio 1: Effettuare il provisioning di un'istanza di Database SQL in Azure**: Contoso esegue il provisioning di un'istanza SQL in Azure. Dopo la migrazione del sito Web dell'app in Azure, l'app web del servizio WCF punta a questa istanza.
+> * **Passaggio 2: Eseguire la migrazione del database tramite DMA**: Contoso esegue la migrazione del database di app con Database Migration Assistant.
+> * **Passaggio 3: Eseguire il provisioning di app Web**: Contoso esegue il provisioning di due app Web.
+> * **Passaggio 4: Configurare Azure DevOps**: Contoso crea un nuovo progetto di Azure DevOps e importa il repository Git.
+> * **Passaggio 5: Configurare le stringhe di connessione**: Contoso configura le stringhe di connessione in modo che l'app Web di livello Web, l'app Web del servizio WCF e l'istanza SQL siano in grado di comunicare.
+> * **Passaggio 6: Configurare pipeline di compilazione e versione**: Come passaggio finale, Contoso configura pipeline di compilazione e versione per creare l'app e le distribuisce in due app Web di Azure separate.
 
 
-## <a name="step-1-provision-an-azure-sql-database"></a>Passaggio 1: Effettuare il provisioning del database SQL di Azure
+## <a name="step-1-provision-an-azure-sql-database"></a>Passaggio 1: Eseguire il provisioning del database SQL di Azure
 
 1. Gli amministratori di Contoso scelgono di creare un database SQL di Azure. 
 
@@ -170,7 +170,7 @@ Ecco in che modo Contoso eseguirà la migrazione:
 - [Informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) sui limiti delle risorse basate su v-Core.
 
 
-## <a name="step-2-migrate-the-database-with-dma"></a>Passaggio 2: Eseguire la migrazione del database con DMA
+## <a name="step-2-migrate-the-database-with-dma"></a>Passaggio 2: Eseguire la migrazione del database tramite DMA
 
 Gli amministratori di Contoso eseguiranno la migrazione del database SmartHotel360 tramite DMA.
 
@@ -220,7 +220,7 @@ Gli amministratori di Contoso eseguiranno la migrazione del database SmartHotel3
     ![DMA](media/contoso-migration-refactor-web-app-sql/dma-9.png)
 
 
-## <a name="step-3-provision-web-apps"></a>Passaggio 3: Effettuare il provisioning di app Web
+## <a name="step-3-provision-web-apps"></a>Passaggio 3: Eseguire il provisioning di app Web
 
 Dopo la migrazione del database, gli amministratori di Contoso possono eseguire il provisioning delle due app Web.
 
@@ -280,7 +280,7 @@ Gli amministratori di Contoso devono verificare che le app Web e il database sia
 5. Dopo che le modifiche sono state apportate al codice, gli amministratori devono eseguire il commit delle modifiche. Il commit e la sincronizzazione vengono eseguiti tramite Team Explorer in Visual Studio.
 
 
-## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>Passaggio 6: Configurare pipeline di compilazione e di versione in Azure DevOps
+## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>Passaggio 6: Configurare pipeline di compilazione e versione in Azure DevOps
 
 Gli amministratori di Contoso configurano ora Azure DevOps per eseguire il processo di compilazione e versione.
 

@@ -4,14 +4,14 @@ description: Informazioni sui tipi di risorse di Azure che supportano i tag. Inc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 11/20/2018
+ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 580955d3c6fd7a33c152e49e601d8078eb169a22
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 50ea7a2446b5560bd208b2da128fa877068ce452
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409667"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000292"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](resource-group-using-tags.md).
@@ -24,15 +24,20 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 ## <a name="ad-hybrid-health-service"></a>Servizio ibrido per l'integrità di AD
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| services | No  | 
-| addsservices | No  | 
-| configurazione | No  | 
-| agents | No  | 
+| addsservices | No  |
 | aadsupportcases | No  | 
-| reports | No  | 
-| servicehealthmetrics | No  | 
-| logs | No  | 
+| agents | No  | 
 | anonymousapiusers | No  | 
+| configurazione | No  | 
+| logs | No  | 
+| reports | No  | 
+| services | No  | 
+| servicehealthmetrics | No  | 
+
+## <a name="aks"></a>Servizio contenitore di Azure
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| managedClusters | Yes | 
 
 ## <a name="analysis-services"></a>Analysis Services
 | Tipo di risorsa | Tag supportati |
@@ -43,11 +48,11 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | apiManagementAccounts | No  | 
-| apiManagementAccounts/connectionProviders | No  | 
-| apiManagementAccounts/connections | No  | 
-| apiManagementAccounts/connectionAcls | No  | 
-| apiManagementAccounts/connectionProviderAcls | No  | 
 | apiManagementAccounts/apis | No  | 
+| apiManagementAccounts/connectionAcls | No  | 
+| apiManagementAccounts/connectionProviders | No  | 
+| apiManagementAccounts/connectionProviderAcls | No  | 
+| apiManagementAccounts/connections | No  | 
 
 ## <a name="api-management"></a>Gestione API
 | Tipo di risorsa | Tag supportati |
@@ -58,11 +63,48 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | automationAccounts | Yes | 
-| automationAccounts/runbooks | Yes | 
 | automationAccounts/configurations | Yes | 
-| automationAccounts/webhooks | No  | 
-| automationAccounts/softwareUpdateConfigurations | No  | 
 | automationAccounts/jobs | No  | 
+| automationAccounts/runbooks | Yes | 
+| automationAccounts/softwareUpdateConfigurations | No  | 
+| automationAccounts/webhooks | No  | 
+
+## <a name="azure-database-for-mariadb"></a>Database di Azure per MariaDB
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| servers | Yes | 
+| servers/configurations | No  |
+| servers/databases | No  |
+| servers/firewallRules | No  |
+| servers/recoverableServers | No  | 
+| servers/securityAlertPolicies | No  |
+| servers/virtualNetworkRules | No  | 
+
+## <a name="azure-database-for-mysql"></a>Database di Azure per MySQL
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| servers | Yes | 
+| servers/configurations | No  |
+| servers/databases | No  |
+| servers/firewallRules | No  |
+| servers/recoverableServers | No  | 
+| servers/securityAlertPolicies | No  |
+| servers/virtualNetworkRules | No  | 
+
+## <a name="azure-database-for-postgresql"></a>Database di Azure per PostgreSQL
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| servers | Yes | 
+| servers/advisors | No  | 
+| servers/configurations | No  |
+| servers/databases | No  |
+| servers/firewallRules | No  |
+| servers/queryTexts | No  | 
+| servers/recoverableServers | No  | 
+| servers/securityAlertPolicies | No  |
+| servers/topQueryStatistics | No  | 
+| servers/virtualNetworkRules | No  | 
+| servers/waitStatistics | No  | 
 
 ## <a name="batch"></a>Batch
 | Tipo di risorsa | Tag supportati |
@@ -87,12 +129,12 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 ## <a name="cdn"></a>RETE CDN
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
+| edgenodes | No  | 
 | Profili | Yes | 
 | profiles/endpoints | Yes | 
-| profiles/endpoints/origins | No  | 
 | profiles/endpoints/customdomains | No  | 
+| profiles/endpoints/origins | No  | 
 | validateProbe | No  | 
-| edgenodes | No  | 
 
 ## <a name="classic-compute"></a>Calcolo classico
 | Tipo di risorsa | Tag supportati |
@@ -114,8 +156,8 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | virtualNetworks | No  | 
-| virtualNetworks/virtualNetworkPeerings | No  | 
 | virtualNetworks/remoteVirtualNetworkPeeringProxies | No  | 
+| virtualNetworks/virtualNetworkPeerings | No  | 
 
 ## <a name="classic-storage"></a>Archiviazione classica
 | Tipo di risorsa | Tag supportati |
@@ -127,23 +169,23 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | availabilitySets | Yes | 
-| virtualMachines | Yes | 
-| virtualMachines/extensions | Yes | 
-| virtualMachineScaleSets | Yes | 
-| virtualMachineScaleSets/extensions | No  | 
-| virtualMachineScaleSets/virtualMachines | No  | 
-| virtualMachineScaleSets/networkInterfaces | No  | 
-| virtualMachineScaleSets/virtualMachines/networkInterfaces | No  | 
-| virtualMachineScaleSets/publicIPAddresses | No  | 
+| disks | Yes | 
+| images | Yes | 
 | restorePointCollections | Yes | 
 | restorePointCollections/restorePoints | No  | 
-| virtualMachines/diagnosticSettings | No  | 
-| virtualMachines/metricDefinitions | No  | 
 | sharedVMImages | Yes | 
 | sharedVMImages/versions | Yes | 
-| disks | Yes | 
 | snapshots | Yes | 
-| images | Yes | 
+| virtualMachines | Yes | 
+| virtualMachines/diagnosticSettings | No  | 
+| virtualMachines/extensions | Yes | 
+| virtualMachines/metricDefinitions | No  | 
+| virtualMachineScaleSets | Yes | 
+| virtualMachineScaleSets/extensions | No  | 
+| virtualMachineScaleSets/networkInterfaces | No  | 
+| virtualMachineScaleSets/publicIPAddresses | No  | 
+| virtualMachineScaleSets/virtualMachines | No  | 
+| virtualMachineScaleSets/virtualMachines/networkInterfaces | No  | 
 
 ## <a name="container"></a>Contenitore
 | Tipo di risorsa | Tag supportati |
@@ -155,6 +197,14 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | ------------- | ----------- |
 | containerGroups | Yes | 
 | serviceAssociationLinks | No  | 
+
+## <a name="container-registry"></a>Registro di sistema del contenitore
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| registries | Yes | 
+| registries/replications | Yes |
+| registries/tasks | Yes |
+| registries/webhooks | Yes |
 
 ## <a name="container-service"></a>Servizio contenitore
 | Tipo di risorsa | Tag supportati |
@@ -177,6 +227,11 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | ------------- | ----------- |
 | Connettori | Yes | 
 
+## <a name="data-box"></a>Data Box
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| jobs | Yes | 
+
 ## <a name="data-box-edge"></a>Data Box Edge
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
@@ -196,11 +251,11 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | dataFactories | Yes | 
-| factories | Yes | 
-| factories/integrationRuntimes | No  | 
 | dataFactories/diagnosticSettings | No  | 
 | dataFactories/metricDefinitions | No  | 
 | dataFactorySchema | No  | 
+| factories | Yes | 
+| factories/integrationRuntimes | No  | 
 
 ## <a name="devices"></a>Dispositivi
 | Tipo di risorsa | Tag supportati |
@@ -218,9 +273,24 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | labs | Yes | 
-| schedules | Yes | 
-| labs/virtualMachines | Yes | 
+| labs/artifactsources | Yes |
+| labs/costs | Yes |
+| labs/customimages | Yes |
+| labs/formulas | Yes |
+| labs/notificationchannels | Yes |
+| labs/policysets/policies | Yes |
+| labs/schedules | Yes |
 | labs/serviceRunners | Yes | 
+| labs/users | Yes |
+| labs/users/disks | Yes |
+| labs/users/environments | Yes |
+| labs/users/secrets | Yes |
+| labs/users/servicefabrics | Yes |
+| labs/users/servicefabrics/schedules | Yes |
+| labs/virtualMachines | Yes | 
+| labs/virtualmachines/schedules | Yes |
+| labs/virtualnetworks | Yes |
+| schedules | Yes | 
 
 ## <a name="dynamics-lcs"></a>Dynamics LCS
 | Tipo di risorsa | Tag supportati |
@@ -232,18 +302,23 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 ## <a name="event-grid"></a>Griglia di eventi
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| eventSubscriptions | No  | 
-| topics | Yes | 
 | domains | Yes | 
 | domains/topics | No  | 
-| topicTypes | No  | 
+| eventSubscriptions | No  | 
 | extensionTopics | No  | 
+| topics | Yes | 
+| topicTypes | No  | 
 
 ## <a name="event-hub"></a>Hub eventi
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| spazi dei nomi | Yes | 
 | clusters | Yes | 
+| spazi dei nomi | Yes | 
+| namespaces/AuthorizationRules | No  |
+| namespaces/disasterRecoveryConfigs | No  |
+| namespaces/eventhubs | No  |
+| namespaces/eventhubs/authorizationRules | No  |
+| namespaces/eventhubs/consumergroups | No  |
 
 ## <a name="hana-on-azure"></a>HANA in Azure
 | Tipo di risorsa | Tag supportati |
@@ -264,28 +339,32 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 ## <a name="insights"></a>Informazioni dettagliate
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| components | Yes | 
-| components/query | No  | 
-| components/metrics | No  | 
-| components/events | No  | 
-| webtests | Yes | 
-| query | No  | 
-| scheduledqueryrules | Yes | 
-| components/pricingPlans | No  | 
-| migrateToNewPricingModel | No  | 
-| rollbackToLegacyPricingModel | No  | 
+| actionGroups | Yes |
+| activityLogAlerts | Yes |
+| alertrules | Yes |
 | automatedExportSettings | No  | 
-| workbooks | Yes | 
-| myWorkbooks | No  | 
+| components | Yes | 
+| components/events | No  | 
+| components/metrics | No  | 
+| components/pricingPlans | No  | 
+| components/query | No  | 
 | logs | No  | 
+| metricAlerts | Yes |
+| migrateToNewPricingModel | No  | 
+| myWorkbooks | No  | 
+| query | No  | 
+| rollbackToLegacyPricingModel | No  | 
+| scheduledqueryrules | Yes | 
+| webtests | Yes | 
+| workbooks | Yes | 
 
 ## <a name="key-vault"></a>Key Vault
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| insiemi di credenziali | Yes | 
-| vaults/secrets | No  | 
-| vaults/accessPolicies | No  | 
 | deletedVaults | No  | 
+| insiemi di credenziali | Yes | 
+| vaults/accessPolicies | No  | 
+| vaults/secrets | No  | 
 
 ## <a name="log-analytics"></a>Log Analytics
 | Tipo di risorsa | Tag supportati |
@@ -295,8 +374,8 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 ## <a name="logic"></a>Logica
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| flussi di lavoro | Yes | 
 | integrationAccounts | Yes | 
+| flussi di lavoro | Yes | 
 
 ## <a name="machine-learning-services"></a>Machine Learning Services
 | Tipo di risorsa | Tag supportati |
@@ -309,13 +388,6 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | ------------- | ----------- |
 | Identities | No  | 
 | userAssignedIdentities | Yes | 
-
-## <a name="mariadb"></a>MariaDB
-| Tipo di risorsa | Tag supportati |
-| ------------- | ----------- |
-| servers | Yes | 
-| servers/recoverableServers | No  | 
-| servers/virtualNetworkRules | No  | 
 
 ## <a name="marketplace-apps"></a>App del marketplace
 | Tipo di risorsa | Tag supportati |
@@ -332,64 +404,57 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | mediaservices | Yes | 
+| mediaservices/accountFilters | No  | 
 | mediaservices/assets | No  | 
+| mediaservices/assets/assetFilters | No  | 
 | mediaservices/contentKeyPolicies | No  | 
-| mediaservices/streamingLocators | No  | 
-| mediaservices/streamingPolicies | No  | 
 | mediaservices/eventGridFilters | No  | 
-| mediaservices/transforms | No  | 
-| mediaservices/transforms/jobs | No  | 
-| mediaservices/streamingEndpoints | Yes | 
+| mediaservices/liveEventOperations | No  | 
 | mediaservices/liveEvents | Yes | 
 | mediaservices/liveEvents/liveOutputs | No  | 
-| mediaservices/streamingEndpointOperations | No  | 
-| mediaservices/liveEventOperations | No  | 
 | mediaservices/liveOutputOperations | No  | 
-| mediaservices/assets/assetFilters | No  | 
-| mediaservices/accountFilters | No  | 
-
-## <a name="mysql"></a>MySQL
-| Tipo di risorsa | Tag supportati |
-| ------------- | ----------- |
-| servers | Yes | 
-| servers/recoverableServers | No  | 
-| servers/virtualNetworkRules | No  | 
+| mediaservices/streamingEndpoints | Yes | 
+| mediaservices/streamingEndpointOperations | No  | 
+| mediaservices/streamingLocators | No  | 
+| mediaservices/streamingPolicies | No  | 
+| mediaservices/transforms | No  | 
+| mediaservices/transforms/jobs | No  | 
 
 ## <a name="network"></a>Rete
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| virtualNetworks | Yes | 
-| publicIPAddresses | Yes | 
-| networkInterfaces | Yes | 
+| applicationGateways | Yes | 
+| applicationSecurityGroups | Yes | 
+| azureFirewalls | Yes | 
+| connections | Yes | 
+| ddosProtectionPlans | Yes | 
+| expressRouteCircuits | Yes | 
+| frontdoors | Yes | 
+| frontdoorWebApplicationFirewallPolicies | Yes | 
 | interfaceEndpoints | Yes | 
 | loadBalancers | Yes | 
-| networkSecurityGroups | Yes | 
-| applicationSecurityGroups | Yes | 
-| serviceEndpointPolicies | Yes | 
+| localNetworkGateways | Yes | 
 | networkIntentPolicies | Yes | 
-| routeTables | Yes | 
-| publicIPPrefixes | Yes | 
+| networkInterfaces | Yes | 
+| networkProfiles | Yes | 
+| networkSecurityGroups | Yes | 
 | networkWatchers | Yes | 
 | networkWatchers/connectionMonitors | Yes | 
 | networkWatchers/lenses | Yes | 
 | networkWatchers/pingMeshes | Yes | 
-| virtualNetworkGateways | Yes | 
-| localNetworkGateways | Yes | 
-| connections | Yes | 
-| applicationGateways | Yes | 
-| expressRouteCircuits | Yes | 
-| routeFilters | Yes | 
-| virtualWans | Yes | 
-| vpnSites | Yes | 
-| virtualHubs | Yes | 
-| vpnGateways | Yes | 
-| azureFirewalls | Yes | 
-| virtualNetworkTaps | Yes | 
 | privateLinkServices | Yes | 
-| ddosProtectionPlans | Yes | 
-| networkProfiles | Yes | 
-| frontdoors | Yes | 
-| frontdoorWebApplicationFirewallPolicies | Yes | 
+| publicIPAddresses | Yes | 
+| publicIPPrefixes | Yes | 
+| routeFilters | Yes | 
+| routeTables | Yes | 
+| serviceEndpointPolicies | Yes | 
+| virtualHubs | Yes | 
+| virtualNetworks | Yes | 
+| virtualNetworkGateways | Yes | 
+| virtualNetworkTaps | Yes | 
+| virtualWans | Yes | 
+| vpnGateways | Yes | 
+| vpnSites | Yes | 
 | webApplicationFirewallPolicies | Yes | 
 
 ## <a name="notification-hubs"></a>Hub di notifica
@@ -397,6 +462,20 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | ------------- | ----------- |
 | spazi dei nomi | Yes | 
 | namespaces/notificationHubs | Yes | 
+
+## <a name="operational-insights"></a>Operational Insights
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| aree di lavoro | Yes |
+| workspaces/dataSources | Yes |
+| workspaces/linkedServices | Yes |
+| workspaces/savedSearches | No  |
+| workspaces/storageInsightConfigs | Yes |
+
+## <a name="operations-management"></a>Operations Management
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| solutions | No  |
 
 ## <a name="portal"></a>Portale
 | Tipo di risorsa | Tag supportati |
@@ -408,17 +487,6 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | ------------- | ----------- |
 | rootResources | Yes | 
 
-## <a name="postgresql"></a>PostgreSQL
-| Tipo di risorsa | Tag supportati |
-| ------------- | ----------- |
-| servers | Yes | 
-| servers/recoverableServers | No  | 
-| servers/virtualNetworkRules | No  | 
-| servers/topQueryStatistics | No  | 
-| servers/queryTexts | No  | 
-| servers/waitStatistics | No  | 
-| servers/advisors | No  | 
-
 ## <a name="power-bi"></a>Power BI
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
@@ -427,8 +495,8 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 ## <a name="recovery-services"></a>Servizi di ripristino
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| insiemi di credenziali | Yes | 
 | backupProtectedItems | No  | 
+| insiemi di credenziali | Yes | 
 
 ## <a name="relay"></a>Relay
 | Tipo di risorsa | Tag supportati |
@@ -450,8 +518,8 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 ## <a name="search"></a>Ricerca
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| searchServices | Yes | 
 | resourceHealthMetadata | No  | 
+| searchServices | Yes | 
 
 ## <a name="security"></a>Sicurezza
 | Tipo di risorsa | Tag supportati |
@@ -494,6 +562,64 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | applicationDefinitions | Yes | 
 | jitRequests | Yes | 
 
+## <a name="sql"></a>SQL
+| Tipo di risorsa | Tag supportati |
+| ------------- | ----------- |
+| locations/instanceFailoverGroups | No  |
+| managedInstances | Yes |
+| managedInstances/databases | Yes |
+| managedInstances/databases/backupShortTermRetentionPolicies | No  |
+| managedInstances/databases/schemas/tables/columns/sensitivityLabels | No  |
+| managedInstances/databases/vulnerabilityAssessments | No  |
+| managedInstances/databases/vulnerabilityAssessments/rules/baselines | No  |
+| managedInstances/encryptionProtector | No  |
+| managedInstances/keys | No  |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | No  |
+| managedInstances/vulnerabilityAssessments | No  |
+| servers | Yes |
+| servers/administrators | No  |
+| servers/advisors | No  |
+| servers/auditingSettings | No  |
+| servers/backupLongTermRetentionVaults | No  |
+| servers/communicationLinks | No  |
+| servers/connectionPolicies | No  |
+| servers/databases | Yes |
+| servers/databases/advisors | No  |
+| servers/databases/auditingSettings | No  |
+| servers/databases/backupLongTermRetentionPolicies | No  |
+| servers/databases/backupShortTermRetentionPolicies | No  |
+| servers/databases/connectionPolicies | No  |
+| servers/databases/dataMaskingPolicies | No  |
+| servers/databases/dataMaskingPolicies/rules | No  |
+| servers/databases/extendedAuditingSettings | No  |
+| servers/databases/extensions | No  |
+| servers/databases/geoBackupPolicies | No  |
+| servers/databases/schemas/tables/columns/sensitivityLabels | No  |
+| servers/databases/securityAlertPolicies | No  |
+| servers/databases/syncGroups | No  |
+| servers/databases/syncGroups/syncMembers | No  |
+| servers/databases/transparentDataEncryption | No  |
+| servers/databases/vulnerabilityAssessments | No  |
+| servers/databases/vulnerabilityAssessments/rules/baselines | No  |
+| servers/disasterRecoveryConfiguration | No  |
+| servers/dnsAliases | No  |
+| servers/elasticPools | Yes |
+| servers/encryptionProtector | No  |
+| servers/extendedAuditingSettings | No  |
+| servers/failoverGroups | Yes |
+| servers/firewallRules | No  |
+| servers/jobAgents | Yes |
+| servers/jobAgents/credentials | No  |
+| servers/jobAgents/jobs | No  |
+| servers/jobAgents/jobs/executions | No  |
+| servers/jobAgents/jobs/steps | No  |
+| servers/jobAgents/targetGroups | No  |
+| servers/keys | No  |
+| servers/securityAlertPolicies | No  |
+| servers/syncAgents | No  |
+| servers/virtualNetworkRules | No  |
+| servers/vulnerabilityAssessments | No  |
+
 ## <a name="sql-virtual-machine"></a>Macchina virtuale SQL
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
@@ -504,20 +630,20 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | ------------- | ----------- |
 | storageAccounts | Yes | 
 | storageAccounts/blobServices | No  | 
-| storageAccounts/tableServices | No  | 
-| storageAccounts/queueServices | No  | 
 | storageAccounts/fileServices | No  | 
+| storageAccounts/queueServices | No  | 
 | storageAccounts/services | No  | 
 | storageAccounts/services/metricDefinitions | No  | 
+| storageAccounts/tableServices | No  | 
 
 ## <a name="storage-sync"></a>Sincronizzazione archiviazione
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | storageSyncServices | Yes | 
+| storageSyncServices/registeredServers | No  | 
 | storageSyncServices/syncGroups | No  | 
 | storageSyncServices/syncGroups/cloudEndpoints | No  | 
 | storageSyncServices/syncGroups/serverEndpoints | No  | 
-| storageSyncServices/registeredServers | No  | 
 | storageSyncServices/workflows | No  | 
 
 ## <a name="storsimple"></a>Storsimple
@@ -547,53 +673,50 @@ Questo articolo descrive se un tipo di risorsa supporta l'[assegnazione di tag](
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
 | account | Yes | 
-| account/project | Yes | 
 | account/extension | Yes | 
-| account | Yes | 
 | account/project | Yes | 
-| account/extension | Yes | 
 
 ## <a name="web"></a>Web
 | Tipo di risorsa | Tag supportati |
 | ------------- | ----------- |
-| sites/instances | No  | 
-| sites/slots/instances | No  | 
-| sites/instances/extensions | No  | 
-| sites/slots/instances/extensions | No  | 
-| publishingUsers | No  | 
-| validate | No  | 
-| sourceControls | No  | 
-| sites/hostNameBindings | No  | 
-| sites/domainOwnershipIdentifiers | No  | 
-| sites/slots/hostNameBindings | No  | 
+| apiManagementAccounts | No  | 
+| apiManagementAccounts/apiAcls | No  | 
+| apiManagementAccounts/apis | No  | 
+| apiManagementAccounts/apis/apiAcls | No  | 
+| apiManagementAccounts/apis/connectionAcls | No  | 
+| apiManagementAccounts/apis/connections | No  | 
+| apiManagementAccounts/apis/connections/connectionAcls | No  | 
+| apiManagementAccounts/apis/localizedDefinitions | No  | 
+| apiManagementAccounts/connectionAcls | No  | 
+| apiManagementAccounts/connections | No  | 
+| billingMeters | No  | 
 | certificates | Yes | 
+| connectionGateways | Yes | 
+| connections | Yes | 
+| customApis | Yes | 
+| deletedSites | No  | 
+| functions | No  | 
+| hostingEnvironments | Yes | 
+| hostingEnvironments/metrics | No  | 
+| hostingEnvironments/multiRolePools | No  | 
+| hostingEnvironments/workerPools | No  | 
+| publishingUsers | No  | 
 | serverFarms | Yes | 
 | serverFarms/workers | No  | 
 | siti | Yes | 
-| sites/slots | Yes | 
+| sites/domainOwnershipIdentifiers | No  | 
+| sites/hostNameBindings | No  | 
+| sites/instances | No  | 
+| sites/instances/extensions | No  | 
 | sites/metrics | No  | 
-| sites/slots/metrics | No  | 
 | sites/premieraddons | Yes | 
-| hostingEnvironments | Yes | 
-| hostingEnvironments/multiRolePools | No  | 
-| hostingEnvironments/workerPools | No  | 
-| hostingEnvironments/metrics | No  | 
-| functions | No  | 
-| deletedSites | No  | 
-| apiManagementAccounts | No  | 
-| apiManagementAccounts/connections | No  | 
-| apiManagementAccounts/connectionAcls | No  | 
-| apiManagementAccounts/apis/connections/connectionAcls | No  | 
-| apiManagementAccounts/apis/connectionAcls | No  | 
-| apiManagementAccounts/apiAcls | No  | 
-| apiManagementAccounts/apis/apiAcls | No  | 
-| apiManagementAccounts/apis | No  | 
-| apiManagementAccounts/apis/localizedDefinitions | No  | 
-| apiManagementAccounts/apis/connections | No  | 
-| connections | Yes | 
-| customApis | Yes | 
-| connectionGateways | Yes | 
-| billingMeters | No  | 
+| sites/slots | Yes | 
+| sites/slots/hostNameBindings | No  | 
+| sites/slots/instances | No  | 
+| sites/slots/instances/extensions | No  | 
+| sites/slots/metrics | No  | 
+| sourceControls | No  | 
+| validate | No  | 
 | verifyHostingEnvironmentVnet | No  | 
 
 ## <a name="xrm"></a>XRM

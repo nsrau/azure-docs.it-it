@@ -4,19 +4,19 @@ description: Informazioni su problemi noti e limitazioni per le migrazioni onlin
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282877"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724141"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemi noti e limitazioni per le migrazioni online a Database di Azure per PostgreSQL
 
@@ -76,32 +76,32 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
 ## <a name="datatype-limitations"></a>Limitazioni relative ai tipi di dati
 
-- **Limitazione**: se è presente un tipo di dati ENUM nel database PostgreSQL di origine, la migrazione ha esito negativo durante la sincronizzazione continua.
+- **Limitazione**: Se è presente un tipo di dati ENUM nel database PostgreSQL di origine, la migrazione ha esito negativo durante la sincronizzazione continua.
 
-    **Soluzione alternativa**: modificare il tipo di dati ENUM nella variante carattere nell'istanza di Database di Azure per PostgreSQL.
+    **Soluzione alternativa**: Modificare il tipo di dati ENUM nella variante carattere nell'istanza di Database di Azure per PostgreSQL.
 
-- **Limitazione**: se non è presente alcuna chiave primaria nelle tabelle, la sincronizzazione continua ha esito negativo.
+- **Limitazione**: Se non è presente alcuna chiave primaria nelle tabelle, la sincronizzazione continua ha esito negativo.
 
-    **Soluzione alternativa**: impostare temporaneamente una chiave primaria per la tabella per consentire alla migrazione di continuare. Al termine della migrazione dei dati, è possibile rimuovere la chiave primaria.
+    **Soluzione alternativa**: Impostare temporaneamente una chiave primaria per la tabella per consentire alla migrazione di procedere. Al termine della migrazione dei dati, è possibile rimuovere la chiave primaria.
 
 ## <a name="lob-limitations"></a>Limitazioni relative ai tipi di dati LOB
 Le colonne LOB (Large Object) sono colonne che possono raggiungere dimensioni elevate. Per PostgreSQL, gli esempi di tipi di dati LOB includono XML, JSON, IMAGE, TEXT e così via.
 
-- **Limitazione**: se come chiavi primarie vengono usati tipi di dati LOB, la migrazione ha esito negativo.
+- **Limitazione**: Se come chiavi primarie vengono usati tipi di dati LOB, la migrazione ha esito negativo.
 
-    **Soluzione alternativa**: sostituire la chiave primaria con altri tipi di dati o colonne non LOB.
+    **Soluzione alternativa**: Sostituire la chiave primaria con altri tipi di dati o colonne non LOB.
 
-- **Limitazione**: se la lunghezza della colonna LOB è maggiore di 32 kB, è possibile che nella destinazione i dati vengano troncati. È possibile controllare la lunghezza della colonna LOB usando questa query:
+- **Limitazione**: Se la lunghezza della colonna LOB (Large Object) è maggiore a 32 kB, è possibile che i dati vengano troncati nella destinazione. È possibile controllare la lunghezza della colonna LOB usando questa query:
 
     ```
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Soluzione alternativa**: se si ha un oggetto LOB maggiore di 32 kB, contattare il team tecnico all'indirizzo [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+    **Soluzione alternativa**: Se si ha un oggetto LOB maggiore a 32 kB, contattare il team tecnico all'indirizzo [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
 
-- **Limitazione**: se nella tabella sono presenti colonne LOB e non viene impostata una chiave primaria per la tabella, è possibile che la migrazione dei dati non venga eseguita per questa tabella.
+- **Limitazione**: Se nella tabella sono presenti colonne LOB e non viene impostata una chiave primaria per la tabella, è possibile che la migrazione dei dati non venga eseguita per questa tabella.
 
-    **Soluzione alternativa**: impostare temporaneamente una chiave primaria per la tabella per consentire alla migrazione di continuare. Al termine della migrazione dei dati, è possibile rimuovere la chiave primaria.
+    **Soluzione alternativa**: Impostare temporaneamente una chiave primaria per la tabella per consentire alla migrazione di procedere. Al termine della migrazione dei dati, è possibile rimuovere la chiave primaria.
 
 ## <a name="postgresql10-workaround"></a>Soluzione alternativa per PostgreSQL10
 PostgreSQL 10.x apporta diverse modifiche ai nomi delle cartelle pg_xlog e per questo la migrazione non viene eseguita come previsto. Se si esegue la migrazione da PostgreSQL 10.x al Database di Azure per PostgreSQL 10.3, eseguire lo script seguente nel database PostgreSQL di origine per creare una funzione wrapper intorno alle funzioni pg_xlog.
