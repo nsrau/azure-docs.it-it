@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 298d4a7a003963e3466b595243c294679f581346
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625437"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582192"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Log attività di Azure AD in Monitoraggio di Azure (anteprima)
 
@@ -38,8 +38,8 @@ ms.locfileid: "51625437"
 
 Usando questa funzionalità, è possibile instradare i log di accesso e i log di controllo di Azure AD all'account di archiviazione di Azure, a un hub eventi, a Log Analytics o a una soluzione personalizzata. 
 
-* **Log di controllo**: il [report sull'attività relativo ai log di controllo](concept-audit-logs.md) consente di accedere alla cronologia di ogni attività eseguita nel tenant.
-* **Log di accesso**: il [report sull'attività di accesso](concept-sign-ins.md) consente di determinare chi ha eseguito le attività segnalate nei log di controllo.
+* **Log di controllo**: Il [report delle attività del log di controllo](concept-audit-logs.md) consente di accedere alla cronologia di ogni attività eseguita nel tenant.
+* **Log di accesso**: Il [report delle attività di accesso](concept-sign-ins.md) consente di determinare chi ha eseguito le attività segnalate nei log di controllo.
 
 > [!NOTE]
 > I log attività di controllo e di accesso correlati a B2C non sono al momento supportati.
@@ -109,7 +109,7 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 
 **D: Quanto tempo dopo un'azione i log corrispondenti vengono visualizzati nell'hub eventi?**
 
-**R**: i log verranno visualizzati nell'hub eventi entro 2-5 minuti dall'esecuzione dell'azione. Per altre informazioni su Hub eventi, vedere [Informazioni su Hub eventi di Azure](../../event-hubs/event-hubs-about.md).
+**R**: I log verranno visualizzati nell'hub eventi entro 2-5 minuti dall'esecuzione dell'azione. Per altre informazioni su Hub eventi, vedere [Informazioni su Hub eventi di Azure](../../event-hubs/event-hubs-about.md).
 
 ---
 
@@ -127,13 +127,13 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 
 **D: Qual è il costo della trasmissione dei dati ad Hub eventi?**
 
-**R:** Il costo per la trasmissione dipende dal numero di messaggi ricevuti al minuto. Questo articolo illustra come vengono calcolati i costi ed elenca le stime dei costi, che si basano sul numero di messaggi. 
+**R**: Il costo per la trasmissione dipende dal numero di messaggi ricevuti al minuto. Questo articolo illustra come vengono calcolati i costi ed elenca le stime dei costi, che si basano sul numero di messaggi. 
 
 ---
 
 **D: Come è possibile integrare i log attività di Azure AD con il sistema di informazioni di sicurezza e gestione degli eventi?**
 
-**R**: È possibile procedere in due modi:
+**R**: Questa operazione può essere eseguita in due modi:
 
 - Usare Monitoraggio di Azure con Hub eventi per trasmettere i log nel sistema di informazioni di sicurezza e gestione degli eventi. Prima di tutto, [trasmettere i log a un hub eventi](tutorial-azure-monitor-stream-logs-to-event-hub.md) e quindi [configurare il sistema di informazioni di sicurezza e gestione degli eventi](tutorial-azure-monitor-stream-logs-to-event-hub.md#access-data-from-your-event-hub) con l'hub eventi configurato. 
 
@@ -143,7 +143,7 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 
 **D: Quali strumenti SIEM sono attualmente supportati?** 
 
-**R**: Attualmente, Monitoraggio di Azure è supportato da [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar e [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Per altre informazioni sul funzionamento dei connettori, vedere [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+**R**: Attualmente, Monitoraggio di Azure è supportato da [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar e [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Per altre informazioni sul funzionamento dei connettori, vedere [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 

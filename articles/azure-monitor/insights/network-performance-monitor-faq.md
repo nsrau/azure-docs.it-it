@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c792881b02eba7207b20c4b4807d8afbc1adb87f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166609"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543989"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -70,6 +70,9 @@ Lo script configura Windows Firewall solo in locale. Se sono definite regole del
 
 ### <a name="how-many-agents-should-i-use"></a>Quanti agenti è consigliabile usare?
 È consigliabile usare almeno un agente per ogni subnet che si vuole monitorare.
+
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>Qual è il numero massimo di agenti che è possibile usare prima che venga visualizzato l'errore "... limite di configurazione raggiunto"?
+NPM limita il numero di indirizzi IP a 5000 IP per ogni area di lavoro. Se un nodo dispone sia di indirizzi IPv4 che IPv6, questo vale come 2 indirizzi IP per tale nodo. Di conseguenza, il limite di 5000 IP stabilisce il limite massimo del numero di agenti. È possibile eliminare gli agenti inattivi dalla scheda Nodi in NPM >> Configura. Monitoraggio prestazioni rete (NPM) gestisce anche la cronologia di tutti gli indirizzi IP assegnati alla macchina virtuale che ospita l'agente, questi ultimi conteggiati altrettanto come IP distinti che contribuiscono al limite massimo di 5000 IP. Per liberare gli indirizzi IP per l'area di lavoro, è possibile usare la pagina Nodi per eliminare gli indirizzi IP non in uso.
 
 ## <a name="monitoring"></a>Monitoraggio
 

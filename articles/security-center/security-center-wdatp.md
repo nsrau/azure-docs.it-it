@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 12/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 1109e72d00ccddd6fc0f120ee71c88adaae72fed
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b73bf3e542801e58fbda6232eb063305785ce643
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337598"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536271"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -57,7 +57,21 @@ Questa funzionalità supporta il rilevamento in Windows Server 2012 R2 e Windows
 
 Sono supportati solo i server in sottoscrizioni per il livello di servizio Standard.
 
-## <a name="onboarding-instructions"></a>Istruzioni per l'onboarding
+## <a name="onboarding-servers-to-security-center"></a>Onboarding dei server al Centro sicurezza 
+
+Per eseguire l'onboarding dei server al Centro sicurezza, fare clic su **Go to Azure Security Center to onboard servers** (Vai al Centro sicurezza di Azure per effettuare l'onboarding dei server) dall'onboarding del server Windows Defender ATP.
+
+1. Nel pannello **Onboarding** selezionare o creare un'area di lavoro in cui archiviare i dati. <br>
+2. Se non è possibile visualizzare tutte le aree di lavoro, ciò potrebbe dipendere dalla mancanza di autorizzazioni. Verificare che l'area di lavoro sia impostata sul livello Standard del Centro sicurezza di Azure. Per altre informazioni vedere [Eseguire l'aggiornamento al piano Standard del Centro sicurezza per la sicurezza avanzata](security-center-pricing.md).
+    
+3.  Selezionare **Aggiungi server** per visualizzare le istruzioni su come installare Microsoft Monitoring Agent. 
+
+4.  Dopo l'onboarding, è possibile monitorare i computer in **Compute and apps** (Servizi di calcolo e app).
+
+  ![Onboarding di computer](media/security-center-wdatp/onboard-computers.png)
+
+
+## <a name="enable-windows-defender-atp-integration"></a>Abilitare l'integrazione di Windows Defender ATP
 
 Per verificare se l'integrazione di Windows Defender ATP è abilitata, selezionare **Centro sicurezza** > **Criteri di sicurezza** > **Sottoscrizione** > **Modifica impostazioni**.
 

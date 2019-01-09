@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: d5e10e04ea9567e2656f592407855a53a70d7b0f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0ec603df7005b9151f1cf760df80de9aaffc78b3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263356"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539705"
 ---
 # <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Ottimizzare i costi per le distribuzioni in più aree in Azure Cosmos DB
 
@@ -21,7 +21,7 @@ ms.locfileid: "53263356"
 
 1. `T x (N+1) RU/s`, se nell'account Azure Cosmos sono configurate tutte le aree in grado di elaborare operazioni di scrittura. 
 
-La velocità effettiva di cui è stato effettuato il provisioning con un'area di scrittura singola costa $0,008/l'ora per 100 UR/s, mentre la velocità effettiva di cui è stato effettuato il provisioning con più aree scrivibili costa $0,016/l'ora per 100 UR/s. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) di Cosmos DB.
+La velocità effettiva di cui è stato effettuato il provisioning con un'area di scrittura singola costa $0,008/l'ora per 100 UR/s, mentre la velocità effettiva di cui è stato effettuato il provisioning con più aree scrivibili costa $0,016/l'ora per 100 UR/s. Per altre informazioni, vedere la [Pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) di Azure Cosmos DB.
 
 ## <a name="costs-for-multiple-write-regions"></a>Costi per più aree di scrittura
 
@@ -57,6 +57,6 @@ Nel caso di un uso inefficiente, ad esempio per una o più aree sottoutilizzate 
 * Altre informazioni sulla [Fatturazione in Azure Cosmos DB](understand-your-bill.md)
 * Altre informazioni sull'[Ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
 * Altre informazioni sull'[Ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
-* Altre informazioni sull'[Ottimizzazione dei costi delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
+* Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
 * Altre informazioni sull'[Ottimizzazione dei costi delle query](optimize-cost-queries.md)
 

@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 36b4fbac13e012de2fbef137c6637fd7e2daea8f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161294"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598891"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 Gli account per utilizzo generico v2 di Archiviazione di Azure consentono di usare contenuti statici (file HTML, CSS, JavaScript e di immagine) direttamente da un contenitore di archiviazione denominato *$web*. Sfruttando i vantaggi dell'hosting in Archiviazione di Azure è possibile di usare le architetture serverless tra cui [Funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi PaaS.
 
-A differenza dell'hosting di siti Web statici, i siti dinamici che dipendono dal codice sul lato server sono meglio ospitati con [App Web di Azure](/azure/app-service/app-service-web-overview).
+A differenza dell'hosting di siti Web statici, i siti dinamici che dipendono dal codice sul lato server sono meglio ospitati con il [Servizio app di Azure](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Come funziona?
 Quando si abilita l'hosting di siti Web statici nell'account di archiviazione, è possibile selezionare il nome del file predefinito e, facoltativamente, fornire un percorso a una pagina 404 personalizzata. Poiché la funzionalità è abilitata, viene creato un contenitore denominato *$web* se non esiste già. 
@@ -161,6 +161,6 @@ Sì, l'endpoint Web fa distinzione tra maiuscole e minuscole esattamente come l'
 * [Usare la rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md)
 * [Configurare un nome di dominio personalizzato per l'endpoint BLOB o Web](storage-custom-domain-name.md)
 * [Funzioni di Azure](/azure/azure-functions/functions-overview)
-* [App Web di Azure](/azure/app-service/app-service-web-overview)
+* [Servizio app di Azure](/azure/app-service/overview)
 * [Compilare la prima app Web serverless](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Esercitazione: Ospitare un dominio in DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md)

@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: cf3c30d33e618ae3fd9d4ad942c77d211a414e82
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288545"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601152"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. Si apprenderà come distribuire i microservizi in contenitori Docker locali. Una distribuzione di microservizi locale usa i servizi cloud seguenti: hub IoT, Cosmos DB, Analisi di flusso di Azure e Azure Time Series Insights nel cloud.
+Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. Si apprenderà come distribuire i microservizi in contenitori Docker locali. Una distribuzione di microservizi locale usa i servizi cloud seguenti: servizi IoT Hub, Cosmos DB, Azure Streaming Analytics e Azure Time Series Insights.
 
 Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in un IDE nel computer locale, vedere [Distribuire l'acceleratore di soluzioni di monitoraggio remoto localmente - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -27,7 +27,7 @@ Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in un 
 
 Per distribuire i servizi di Azure usati dall'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Impostazioni del computer
 
@@ -72,11 +72,11 @@ Alla prima esecuzione di questo comando, Docker scarica le immagini dei microser
 > [!TIP]
 > Microsoft pubblica spesso nuove immagini di Docker con nuove funzionalità. È possibile usare il set di comandi seguente per la pulizia dei contenitori Docker locali e delle immagini corrispondenti prima di eseguire il pull di quelli più recenti:
 
-    ```cmd/sh
-    docker list
-    docker rm <list_of_containers>
-    docker rmi <list_of_images>
-    ```
+```cmd/sh
+docker list
+docker rm <list_of_containers>
+docker rmi <list_of_images>
+```
 
 È possibile usare una shell separata per visualizzare i log del contenitore. Per prima cosa trovare l'ID contenitore con il comando `docker ps`. Usare quindi `docker logs {container-id} --tail 1000` per visualizzare le ultime 1000 voci per il contenitore specificato.
 

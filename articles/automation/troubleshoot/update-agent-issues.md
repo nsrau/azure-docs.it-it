@@ -9,20 +9,26 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9a16498c527af2d23840c53af11103f7580d80bb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434767"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582559"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Windows in Gestione aggiornamenti
 
 Sono molti i motivi possibili per cui un computer non viene visualizzato come **Pronto** in Gestione aggiornamenti. In Gestione aggiornamenti è possibile controllare l'integrità di un agente del ruolo di lavoro ibrido per determinare il problema sottostante. Questo articolo illustra come eseguire la risoluzione dei problemi per i computer Azure dal portale di Azure e per i computer non Azure nello [scenario offline](#troubleshoot-offline).
 
+L'elenco seguente indica i tre possibili stati di conformità di un computer:
+
+* **Pronto**: l'agente di aggiornamento è implementato e l'ultima visualizzazione risale a meno di 1 ora fa.
+* **Disconnesso**: l'agente di aggiornamento è implementato e l'ultima visualizzazione risale a più di 1 ora fa.
+* **Non configurato**: l'agente di aggiornamento non viene trovato o non è stato completato l'onboarding.
+
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
-Per i computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Aggiorna idoneità agente** del portale, si avvia la pagina **Risoluzione dei problemi dell'agente di aggiornamento**. Nel caso di computer non Azure, facendo clic sul collegamento, si accede a questo articolo. Per risolvere i problemi di un computer non Azure, vedere le [istruzioni relative allo scenario offline](#troubleshoot-offline).
+Nel caso di computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si apre la pagina **Troubleshoot Update Agent** (Risoluzione dei problemi dell'agente di aggiornamento). Nel caso di computer non Azure, facendo clic sul collegamento, si accede a questo articolo. Per risolvere i problemi di un computer non Azure, vedere le [istruzioni relative allo scenario offline](#troubleshoot-offline).
 
 ![Aggiornare l'elenco di gestione delle macchine virtuali](../media/update-agent-issues/vm-list.png)
 
