@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5361c8940c8c7dba5338a3f5a0ed18910f7e45a0
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: dcb2d1741a8e62bd317881d3f224d3358cad8778
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410330"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557207"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-ad"></a>Eseguire la migrazione dalla federazione all'autenticazione pass-through per Azure AD
 Il documento seguente presenta le linee guida relative alla migrazione da AD FS all'autenticazione pass-through.
@@ -145,7 +145,7 @@ Per assicurarsi che la funzionalità di aggiunta a un ambiente ibrido continui a
 
 Per altre informazioni su questo requisito, vedere [Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
 
-#### <a name="branding"></a>Uso di informazioni personalizzate distintive dell'azienda
+#### <a name="branding"></a>Personalizzazione
 
 Un'organizzazione potrebbe aver definito [pagine di accesso di AD FS personalizzate](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) in modo da mostrare informazioni più pertinenti relative alle proprie attività. In tal caso, è consigliabile applicare [personalizzazioni simili alla pagina di accesso di AD Azure](https://docs.microsoft.com/azure/active-directory/customize-branding).
 
@@ -243,7 +243,7 @@ Prima di tutto, è necessario modificare il metodo di accesso:
    6. Nella schermata **Pronto per la configurazione** verificare che la casella di controllo **Avvia il processo di sincronizzazione al termine della configurazione** sia selezionata. Selezionare quindi **Configura**.</br>
    ![figura](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)</br>
    7. Aprire il **portale di Azure AD**, selezionare **Azure Active Directory** e quindi **Azure AD Connect**.
-   8. Verificare che lo stato di **Federazione** sia Disabilitato e che invece quello di **Accesso Single Sign-on facile** e **Autenticazione pass-through** sia **Abilitato**.</br>
+   8. Verificare che lo stato di **Federazione sia Disabilitato** e che invece quello di **Accesso Single Sign-on facile** e **Autenticazione pass-through** sia **Abilitato**.</br>
    ![figura](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)</br>
 
 È quindi necessario distribuire i metodi di autenticazione aggiuntivi. Aprire il **portale di Azure**, passare ad **Azure Active Directory, Azure AD Connect** e fare clic su **Autenticazione pass-through**.
@@ -324,7 +324,7 @@ La conversione viene eseguita tramite il modulo Azure AD PowerShell.
  ```
  
    3. Aprire il **portale di Azure AD**, selezionare **Azure Active Directory** e quindi **Azure AD Connect**.  
-   4. Dopo aver convertito tutti i domini federati, verificare che lo stato di **Federazione** sia Disabilitato e che invece quello di **Accesso Single Sign-on facile** e **Autenticazione pass-through** sia **Abilitato**.</br>
+   4. Dopo aver convertito tutti i domini federati, verificare che lo stato di **Federazione sia Disabilitato** e che invece quello di **Accesso Single Sign-on facile** e **Autenticazione pass-through** sia **Abilitato**.</br>
    ![figura](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)</br>
 
 ## <a name="testing-and-next-steps"></a>Test e passaggi successivi
