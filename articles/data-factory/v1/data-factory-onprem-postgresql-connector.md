@@ -22,7 +22,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51235871"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Spostare i dati da PostgreSQL mediante Data factory di Azure
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
 > * [Versione 1](data-factory-onprem-postgresql-connector.md)
 > * [Versione 2 (corrente)](../connector-postgresql.md)
 
