@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: f754242d0cf7ee30572b21a3f4daf6fd2c0f63ff
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 63a198b082c7486de2392153291a11be5bcb2f9e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275908"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103224"
 ---
 # <a name="validate-azure-stack-system-state"></a>Convalidare lo stato del sistema Azure Stack
 
@@ -125,7 +125,7 @@ I seguenti scenari di cloud sono testati tramite lo strumento di convalida:
 
 - **BackupSharePath** e **BackupShareCredential** vengono utilizzati quando le impostazioni di backup dell'infrastruttura di test come illustrato nella [esempi casi d'uso](azure-stack-diagnostic-test.md#use-case-examples) sezione.
 
-- Lo strumento di convalida inoltre supporta parametri PowerShell comuni: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable e OutVariable. Per altre informazioni, vedere [sui parametri comuni](http://go.microsoft.com/fwlink/?LinkID=113216).  
+- Lo strumento di convalida inoltre supporta parametri PowerShell comuni: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable e OutVariable. Per altre informazioni, vedere [sui parametri comuni](https://go.microsoft.com/fwlink/?LinkID=113216).  
 
 ## <a name="use-case-examples"></a>Esempi di casi di utilizzo
 

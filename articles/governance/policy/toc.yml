@@ -284,6 +284,14 @@ items:
       href: /rest/api/policy-insights/remediations
     - name: Configurazione guest (anteprima)
       href: /rest/api/guestconfiguration/
+  - name: Modelli di Gestione risorse
+    items:
+    - name: Assegnazioni
+      href: /azure/templates/microsoft.authorization/policyassignments
+    - name: Definizioni dei criteri
+      href: /azure/templates/microsoft.authorization/policydefinitions
+    - name: Definizioni delle iniziative
+      href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Risorse
   items:
   - name: GitHub - Esempi di Criteri di Azure
@@ -308,9 +316,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: 6b71365c05180db643bfc9a693f40db97dd89729
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e23ca5bd5826feda30c632bbf888c19d1227498e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312545"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105900"

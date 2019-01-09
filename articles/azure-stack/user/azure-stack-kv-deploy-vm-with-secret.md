@@ -1,58 +1,58 @@
 ---
-title: Distribuire una macchina virtuale con password archiviate in modo sicuro nello Stack di Azure | Documenti Microsoft
-description: Informazioni su come distribuire una macchina virtuale usando una password archiviate nell'insieme di credenziali chiave di Azure Stack
+title: Distribuire una VM con password archiviate in modo sicuro in Azure Stack | Microsoft Docs
+description: Informazioni su come distribuire una macchina virtuale usando una password archiviata nell'insieme di credenziali delle chiavi di Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/07/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4239eb31afd4abc8b3555f0ee353f5d96716d623
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2ccfe09e35dc819542739df77d26a6f8a08152f5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068977"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102823"
 ---
-# <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Creare una macchina virtuale usando una password sicura archiviata nell'insieme di credenziali chiave di Azure Stack
+# <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Creare una macchina virtuale con una password sicura archiviata nell'insieme di credenziali delle chiavi di Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-In questo articolo esaminato distribuisce una macchina virtuale di Windows Server utilizzando una password archiviate nell'insieme di credenziali chiave di Azure dello Stack. Utilizzando la password dell'insieme di credenziali chiave è più sicura del passaggio di una password in testo normale.
+Questo articolo illustra la distribuzione di una macchina virtuale di Windows Server usando una password archiviata nell'insieme di credenziali delle chiavi di Azure Stack. Usare una password dell'insieme di credenziali chiave è più sicura del passaggio di una password in testo normale.
 
 ## <a name="overview"></a>Panoramica
 
-È possibile archiviare i valori, ad esempio una password come una chiave privata in un insieme di credenziali delle chiavi di Azure Stack. Dopo aver creato una chiave privata, è possibile farvi riferimento nei modelli di gestione risorse di Azure. Utilizzo di segreti con Gestione risorse offre i vantaggi seguenti:
+È possibile archiviare i valori, ad esempio una password come segreto in un insieme di credenziali delle chiavi di Azure Stack. Dopo aver creato una chiave privata, è possibile farvi riferimento nei modelli di Azure Resource Manager. Uso dei segreti con Resource Manager offre i vantaggi seguenti:
 
 * Non è necessario immettere manualmente segreto ogni volta che si distribuisce una risorsa.
-* È possibile specificare quali utenti o le entità servizio possono accedere a una chiave privata.
+* È possibile specificare quali utenti o entità servizio possono accedere a un segreto.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* È necessario sottoscrivere un'offerta che include il servizio insieme di credenziali chiave.
-* [Installare PowerShell per Azure dello Stack.](azure-stack-powershell-install.md)
-* [Configurare l'ambiente di PowerShell di Azure Stack dell'utente.](azure-stack-powershell-configure-user.md)
+* È necessario sottoscrivere un'offerta che include il servizio Key Vault.
+* [Installare PowerShell per Azure Stack.](azure-stack-powershell-install.md)
+* [Configurare l'ambiente di PowerShell.](azure-stack-powershell-configure-user.md)
 
-I passaggi seguenti descrivono il processo necessario per creare una macchina virtuale per il recupero della password archiviata in un insieme di credenziali chiave:
+I passaggi seguenti descrivono il processo necessario per creare una macchina virtuale per il recupero della password archiviata in un insieme di credenziali delle chiavi:
 
-1. Creare un insieme di credenziali chiave segreta.
-2. Aggiornare il file azuredeploy.parameters.json.
+1. Creare un insieme di credenziali di chiave privata.
+2. Aggiornare il file azuredeploy.
 3. Distribuire il modello.
 
->[NOTA] Se si è connessi tramite VPN, è possibile utilizzare questi passaggi dal Kit di sviluppo dello Stack di Azure o da un client esterno.
+> ! [NOTA]  
+> È possibile usare questi passaggi da Azure Stack Development Kit o da un client esterno se si è connessi tramite VPN.
 
-## <a name="create-a-key-vault-secret"></a>Creare un insieme di credenziali chiave segreta
+## <a name="create-a-key-vault-secret"></a>Creare un Key Vault secret
 
-Lo script seguente crea un insieme di credenziali chiave e archivia una password nell'insieme di credenziali chiave come chiave privata. Utilizzare il `-EnabledForDeployment` parametro quando si crea l'insieme di credenziali chiave. Questo parametro assicura che l'insieme di credenziali chiave possono far riferimento dai modelli di gestione risorse di Azure.
+Lo script seguente crea un insieme di credenziali delle chiavi e archivia una password nell'insieme di credenziali chiave come chiave privata. Usare il `-EnabledForDeployment` parametro quando si crea l'insieme di credenziali delle chiavi. Questo parametro assicura che l'insieme di credenziali delle chiavi è possibile fare riferimento dai modelli di Azure Resource Manager.
 
-```powershell
+```PowerShell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -78,17 +78,17 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-Quando si esegue lo script precedente, l'output include l'URI segreta. Prendere nota dell'URI. È necessario farvi riferimento nel [macchina virtuale di distribuzione Windows con password nel modello di insieme di credenziali chiave](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv). Scaricare il [101-vm--password di protezione](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) cartella sul computer di sviluppo. Questa cartella contiene il `azuredeploy.json` e `azuredeploy.parameters.json` file, sarà necessario nei passaggi successivi.
+Quando si esegue lo script precedente, l'output include l'URI del segreto. Prendere nota di questo URI. È necessario farvi riferimento nel [macchina virtuale di distribuzione Windows con password nel modello di insieme di credenziali delle chiavi](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv). Scaricare il [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) cartella nel computer di sviluppo. Questa cartella contiene il `azuredeploy.json` e `azuredeploy.parameters.json` file, che sarà necessario nei passaggi successivi.
 
-Modificare il `azuredeploy.parameters.json` file in base ai valori ambiente. I parametri di particolare interesse sono il nome dell'insieme di credenziali, il gruppo di risorse dell'insieme di credenziali e il segreto URI (generati da script precedente). Il file seguente è riportato un esempio di un file di parametro:
+Modificare il `azuredeploy.parameters.json` file in base ai valori di ambiente. I parametri di particolare interesse sono il nome dell'insieme di credenziali, il gruppo di risorse dell'insieme di credenziali e il segreto, URI (come generati da script precedente). Il file seguente è un esempio di un file di parametri:
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Aggiornare il file azuredeploy.parameters.json
+## <a name="update-the-azuredeployparametersjson-file"></a>Aggiornare il file azuredeploy
 
-Aggiornare il file azuredeploy.parameters.json con l'URI KeyVault, secretName, adminUsername dei valori di macchina virtuale in base al proprio ambiente. Il file JSON seguente mostra un esempio di file dei parametri di modello:
+Aggiornare il file azuredeploy con l'URI di KeyVault, secretName, adminUsername dei valori di macchina virtuale in base all'ambiente. Il file JSON seguente mostra un esempio del file di parametri del modello:
 
 ```json
 {
-    "$schema":  "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema":  "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion":  "1.0.0.0",
     "parameters":  {
        "adminUsername":  {
@@ -115,9 +115,9 @@ Aggiornare il file azuredeploy.parameters.json con l'URI KeyVault, secretName, a
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
-Ora è possibile distribuire il modello utilizzando lo script di PowerShell seguente:
+A questo punto è possibile distribuire il modello usando lo script di PowerShell seguente:
 
-```powershell
+```PowerShell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `
@@ -125,12 +125,12 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-Quando il modello viene distribuito correttamente, otterrà l'output seguente:
+Quando il modello viene distribuito correttamente, viene generato l'output seguente:
 
 ![Output di distribuzione](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire un'app di esempio con l'insieme di credenziali chiave](azure-stack-kv-sample-app.md)
+[Distribuire un'app di esempio con Key Vault](azure-stack-kv-sample-app.md)
 
-[Distribuire una macchina virtuale con un certificato di chiave dell'insieme di credenziali](azure-stack-kv-push-secret-into-vm.md)
+[Distribuire una macchina virtuale con un certificato di Key Vault](azure-stack-kv-push-secret-into-vm.md)

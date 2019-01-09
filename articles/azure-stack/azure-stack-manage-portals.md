@@ -1,9 +1,9 @@
 ---
-title: Tramite il portale dell'amministratore in Azure Stack | Microsoft Docs
-description: Un operatore di Azure Stack, informazioni su come usare il portale dell'amministratore.
+title: Tramite il portale di amministrazione in Azure Stack | Microsoft Docs
+description: Un operatore di Azure Stack, informazioni su come usare il portale di amministrazione.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 02c7ff03-874e-4951-b591-28166b7a7a79
@@ -11,86 +11,90 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/04/2018
-ms.author: mabrigg
-ms.openlocfilehash: 58856875fa7d7bb3ba63c489fb17790e68f99aec
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 01/07/2019
+ms.author: jeffgilb
+ms.reviewer: ''
+ms.openlocfilehash: f60bc6a446309bacc300c5bc3fcee430232e295d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872187"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107600"
 ---
-# <a name="using-the-administrator-portal-in-azure-stack"></a>Tramite il portale dell'amministratore in Azure Stack
+# <a name="quickstart-use-the-azure-stack-administration-portal"></a>Guida introduttiva: usare il portale di amministrazione di Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Sono disponibili due portali in Azure Stack. il portale dell'amministratore e il portale utenti (talvolta detto il *tenant* portale.) Un operatore di Azure Stack, è possibile usare il portale dell'amministratore per la gestione quotidiana e operazioni di Azure Stack.
+Sono disponibili due portali in Azure Stack. nel portale di amministrazione e il portale utenti (talvolta detto il *tenant* portale.) Come operatore, Stack di Azure è usare il portale di amministrazione per la gestione quotidiana e operazioni di Azure Stack.
 
 ## <a name="access-the-administrator-portal"></a>Accedere al portale di amministrazione
 
-Un ambiente di sviluppo kit, è necessario verificare innanzitutto che sia possibile [connettersi all'host del kit di sviluppo](azure-stack-connect-azure-stack.md) tramite connessione Desktop remoto o tramite una rete privata virtuale (VPN).
-
-Per accedere al portale di amministratore, passare al portale di accesso usando le credenziali di un operatore di Azure Stack e URL. Per un sistema integrato, il portale che varia URL basato sul nome di area e nome di dominio completo esterno (FQDN) della distribuzione di Azure Stack.
+Per accedere al portale di amministratore, passare al portale di accesso usando le credenziali di un operatore di Azure Stack e URL. Per un sistema integrato, il portale che varia URL basato sul nome di area e nome di dominio completo esterno (FQDN) della distribuzione di Azure Stack. Nel portale di amministrazione URL è sempre lo stesso per le distribuzioni di Azure Stack Development Kit (ASDK). 
 
 | Environment | URL portale amministratore |   
 | -- | -- | 
-| Kit di sviluppo| https://adminportal.local.azurestack.external  |
+| ASDK| https://adminportal.local.azurestack.external  |
 | Sistemi integrati | https://adminportal.&lt; *regione*&gt;.&lt; *FQDN*&gt; | 
 | | |
 
- ![Il portale dell'amministratore](media/azure-stack-manage-portals/admin-portal.png)
+> [!TIP]
+> Per un ambiente ASDK, è necessario verificare innanzitutto che sia possibile [connettersi all'host del kit di sviluppo](azure-stack-connect-azure-stack.md) tramite connessione Desktop remoto o tramite una rete privata virtuale (VPN).
 
-Si noti che il fuso orario predefinito per tutte le distribuzioni di Azure Stack è impostato a Coordinated Universal Time (UTC). È possibile selezionare un fuso orario durante l'installazione di Azure Stack, tuttavia, la raccomandazione Annulla automaticamente all'ora UTC come impostazione predefinita durante l'installazione.
+ ![Nel portale di amministrazione](media/azure-stack-manage-portals/admin-portal.png)
 
-Nel portale di amministrazione, è possibile eseguire operazioni, ad esempio:
+Il fuso orario predefinito per tutte le distribuzioni di Azure Stack è impostato a Coordinated Universal Time (UTC). 
 
-* Gestire l'infrastruttura (inclusi integrità del sistema, gli aggiornamenti, capacità e così via).
-* Popolare Marketplace
-* Creare sottoscrizioni per gli utenti
-* Creare offerte e piani
+Nel portale di amministrazione, è possibile eseguire operazioni come:
+
+* [Registrare Azure Stack con Azure](azure-stack-registration.md)
+* [Popolare marketplace](azure-stack-download-azure-marketplace-item.md)
+* [Creare piani, offerte e sottoscrizioni per gli utenti](azure-stack-plan-offer-quota-overview.md)
+* [Monitorare l'integrità e gli avvisi](azure-stack-monitor-health.md)
+* [Gestire gli aggiornamenti di Azure Stack](azure-stack-updates.md)
 
 Il **esercitazione introduttiva** riquadro vengono forniti collegamenti alla documentazione online per le attività più comuni.
 
-Anche se ha un operatore può creare risorse quali macchine virtuali, reti virtuali e gli account di archiviazione nel portale di amministrazione, dovrebbe [accedere al portale per gli utenti](user/azure-stack-use-portal.md) per creare e testare le risorse.
+Anche se un operatore può creare risorse quali macchine virtuali, reti virtuali e gli account di archiviazione nel portale di amministrazione, dovrebbe [accedere al portale per gli utenti](user/azure-stack-use-portal.md) per creare e testare le risorse.
 
 >[!NOTE]
->Il **creare una macchina virtuale** collegamento nella sezione dell'esercitazione Guida introduttiva contiene è creare una macchina virtuale nel portale di amministrazione, ma solo allo scopo di convalidare Azure Stack dopo la prima distribuzione.
+>Il **creare una macchina virtuale** collegamento nella sezione dell'esercitazione Guida introduttiva contiene è creare una macchina virtuale nel portale di amministrazione, ma solo allo scopo di verificare che Azure Stack è stato distribuito correttamente.
 
 ## <a name="understand-subscription-behavior"></a>Comprendere il comportamento di sottoscrizione
 
-È presente una sola sottoscrizione disponibile per l'uso nel portale dell'amministratore. Questa sottoscrizione è il *sottoscrizione del Provider predefinito*. È possibile aggiungere tutte le altre sottoscrizioni e usarle nel portale di amministrazione.
+Esistono tre sottoscrizioni create per impostazione predefinita nel portale di amministrazione; consumo di provider predefinito e di controllo. Un operatore, si userà principalmente il *sottoscrizione del Provider predefinito*. È possibile aggiungere tutte le altre sottoscrizioni e usarle nel portale di amministrazione. 
 
-Un operatore di Azure Stack, è possibile aggiungere sottoscrizioni per gli utenti (inclusi manualmente) dal portale di amministratore. Gli utenti (compreso te stesso) possono accedere e utilizzare queste sottoscrizioni dal **utente** portale. Tuttavia, il portale per gli utenti non fornisce accesso a qualsiasi funzionalità amministrative o operative del portale di amministratore.
+Altre sottoscrizioni create dagli utenti nel portale per gli utenti in base i piani e offerte create per loro. Tuttavia, il portale per gli utenti non fornisce accesso a qualsiasi funzionalità amministrative o operative del portale di amministrazione.
 
-I portali di amministratore e utente sono supportati da istanze separate di Azure Resource Manager. A causa di questa separazione di Resource Manager, le sottoscrizioni non sono valide tra i portali. Ad esempio, se, come un operatore di Azure Stack, accedi al portale utenti, sarà possibile accedere la *sottoscrizione del Provider predefinito*. Anche se non si ha accesso a tutte le funzioni amministrative, è possibile creare sottoscrizioni per se stessi dal offerte disponibili a pubbliche. Fino a quando si è connessi al portale utenti si è considerati un utente del tenant.
+I portali di amministrazione e l'utente sono supportati da istanze separate di Azure Resource Manager. A causa di questa separazione di Azure Resource Manager, le sottoscrizioni non sono valide tra i portali. Ad esempio, se, come un operatore di Azure Stack, accedi al portale utenti, sarà possibile accedere la *sottoscrizione del Provider predefinito*. Anche se non si ha accesso a tutte le funzioni amministrative, è possibile creare sottoscrizioni per se stessi dal offerte disponibili a pubbliche. Fino a quando si è connessi al portale utenti si è considerati un utente del tenant.
 
   >[!NOTE]
-  >Nell'ambiente di kit di sviluppo, se un utente appartiene alla stessa directory tenant come l'operatore di Azure Stack, essi non sono impediti l'accesso al portale di amministrazione. Tuttavia, non possono accedere tutte le funzioni amministrative. Inoltre, dal portale di amministratore, non possono aggiungere accesso o le sottoscrizioni offerte che sono disponibili nel portale per gli utenti.
+  >In un ambiente ASDK, se un utente appartiene alla stessa directory tenant come l'operatore di Stack di Azure, non sono bloccati dall'accesso al portale di amministrazione. Tuttavia, questi non possono accedere tutte le funzioni amministrative o aggiungere sottoscrizioni per accedere a offerte che sono disponibili nel portale per gli utenti.
 
-## <a name="administrator-portal-tips"></a>Suggerimenti per gli amministratori del portale
+## <a name="administration-portal-tips"></a>Suggerimenti del portale di amministrazione
 
 ### <a name="customize-the-dashboard"></a>Personalizzare il dashboard
 
 Il dashboard contiene un set di riquadri predefiniti. È possibile selezionare **modifica dashboard** per modificare il dashboard predefinito o selezionare **nuovo dashboard** per aggiungere un dashboard personalizzato. È facilmente possibile aggiungere riquadri a un dashboard. Ad esempio, è possibile selezionare **+ crea una risorsa**, fare doppio clic su **offre + piani**, quindi selezionare **Aggiungi al dashboard**.
 
-In alcuni casi, è possibile visualizzare un dashboard vuoto nel portale. Per ripristinare il dashboard, fare clic su **modifica Dashboard**, quindi fare clic e selezionare **predefinite reimpostati**.
+In alcuni casi, è possibile visualizzare un dashboard vuoto nel portale. Per ripristinare il dashboard, fare clic su **modifica Dashboard**, quindi fare doppio clic e selezionare **predefinite reimpostati**.
 
 ### <a name="quick-access-to-online-documentation"></a>Accesso rapido alla documentazione online
 
-Per accedere alla documentazione di operatore di Azure Stack, usare la Guida e supporto di icona (punto interrogativo) nell'angolo superiore destro del portale di amministratore. Spostare il cursore sull'icona e quindi selezionare **Guida e supporto**.
+Per accedere alla documentazione di Azure Stack operatore, utilizzare la Guida e supporto icona (punto interrogativo) nell'angolo superiore destro del portale di amministratore. Spostare il cursore sull'icona e quindi selezionare **Guida e supporto**.
 
 ### <a name="quick-access-to-help-and-support"></a>Accesso rapido alla assistenza e supporto
 
-Se si seleziona l'icona della Guida e supporto (punto interrogativo) nell'angolo superiore destro del portale di amministratore e quindi selezionare **nuova richiesta di supporto**, che si verifichi una dei risultati seguenti:
+Se si seleziona l'icona della Guida e supporto (punto interrogativo) nell'angolo superiore destro del portale di amministratore e quindi selezionare **nuova richiesta di supporto**, si verifica una delle seguenti risultati:
 
 - Se si usa un sistema integrato, questa azione apre un sito in cui è possibile aprire direttamente un ticket di supporto con Microsoft dei clienti supporto tecnico clienti Microsoft. Fare riferimento a [come ottenere supporto](azure-stack-manage-basics.md#where-to-get-support) comprendere quando deve passare attraverso il supporto tecnico Microsoft o attraverso il supporto dei fornitori di hardware (OEM) original equipment manufacturer.
-- Se si utilizza il kit di sviluppo, questa azione apre direttamente sul sito dei forum Azure Stack. Questi forum vengono regolarmente monitorati. Poiché il kit di sviluppo è un ambiente di valutazione, non è previsto alcun supporto ufficiale offerto tramite Microsoft CSS.
+- Se si usa il ASDK, questa azione apre la [sito dei forum di Azure Stack](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) direttamente. Questi forum vengono regolarmente monitorati. Poiché il ASDK è un ambiente di valutazione, non è previsto alcun supporto ufficiale offerto tramite Microsoft CSS.
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>Accesso rapido per la roadmap per Azure
 
-Se si seleziona **Guida in linea e supporto** (il punto interrogativo) nell'angolo superiore destro dell'amministratore del portale e quindi seleziona **roadmap per Azure**, una nuova scheda del browser si apre e consente di visualizzare la roadmap per Azure. Digitando **Azure Stack** nel **prodotti** casella di ricerca, è possibile visualizzare tutti gli aggiornamenti della roadmap per Azure Stack.
+Se si seleziona **Guida in linea e supporto** (il punto interrogativo) nell'angolo superiore destro dell'amministrazione del portale e quindi seleziona **roadmap per Azure**, una nuova scheda del browser si apre e consente di visualizzare la roadmap per Azure. Digitando **Azure Stack** nel **prodotti** casella di ricerca, è possibile visualizzare tutti gli aggiornamenti della roadmap per Azure Stack.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Gestione area nello Stack di Azure](azure-stack-region-management.md)
+[Registrazione in Azure Stack Azure](azure-stack-registration.md) e popolare il [marketplace Azure Stack](azure-stack-marketplace.md) con elementi da offrire agli utenti. 

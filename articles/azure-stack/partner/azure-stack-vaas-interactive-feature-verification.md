@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: dc0c6a37e11574cef857a7af773a9d90bea57357
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a483a8e5e4c37c51c4efce13ad69b4abc83a402d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972066"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105373"
 ---
 # <a name="interactive-feature-verification-testing"></a>Test di verifica di caratteristiche interattive  
 
@@ -104,7 +104,7 @@ Le istruzioni di prova di identificazione del disco Visualizza nel computer che 
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-4.  Dopo aver completato lo script relativi alle verifiche preliminari viene completato correttamente, eseguire lo scenario manuale (sostituzione del disco) in base il **documentazione** e **convalida** si collega il **informazioni**scheda.
+4.  Al termine dello script relativi alle verifiche preliminari, è possibile eseguire lo scenario manuale (sostituzione del disco) come per il **documentazione** e **convalida** collegamenti dal **informazioni**scheda.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 

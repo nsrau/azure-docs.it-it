@@ -11,24 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f3a83352e5aa7591d3f7b325adb542ba89e57fe5
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 1205bb636c01ff03e7e5d6f245c7469c186fca6f
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515829"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121176"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Convalidare i certificati di infrastruttura a chiave pubblica di Azure Stack
 
-Lo strumento di controllo di conformità di Azure Stack descritto in questo articolo è disponibile [da PowerShell Gallery](https://aka.ms/AzsReadinessChecker). È possibile usare lo strumento per verificare che il [i certificati PKI generati](azure-stack-get-pki-certs.md) adatti per la pre-distribuzione. Se si lascia un tempo sufficiente per testare ed eseguire nuovamente i certificati se necessario, è necessario convalidare i certificati.
+Lo strumento di controllo di conformità di Azure Stack descritto in questo articolo è disponibile [da PowerShell Gallery](https://aka.ms/AzsReadinessChecker). È possibile usare lo strumento per verificare che il [i certificati PKI generati](azure-stack-get-pki-certs.md) adatti per la pre-distribuzione. Convalidare i certificati se si lascia un tempo sufficiente per testare ed eseguire nuovamente i certificati se necessario.
 
 Lo strumento controllo Readiness esegue le convalide di certificato seguenti:
 
 - **Leggere file PFX**  
-    Verifica la presenza di file PFX valido, la password corretta e genera un avviso se le informazioni pubbliche non sono protetta da password. 
+    Verifica la presenza di file PFX valido, la password corretta, e se le informazioni pubbliche non sono protetto da password. 
 - **Algoritmo di firma**  
     Verifica che l'algoritmo di firma non è SHA1.
 - **Chiave privata**  
@@ -86,8 +86,8 @@ Usare questi passaggi per preparare e per convalidare i certificati di infrastru
     
      - Inserire i certificati nelle directory appropriate creata nel passaggio precedente. Ad esempio:   
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
+        - `c:\certificates\Admin Portal\CustomerCertificate.pfx`
+        - `c:\certificates\ARM Admin\CustomerCertificate.pfx`
 
 3. Nella finestra di PowerShell, modificare i valori delle **RegionName** e **FQDN** appropriati all'ambiente Azure Stack ed eseguire il comando seguente:
 
@@ -145,7 +145,7 @@ Invoke-AzsCertificateValidation Completed
 
 ### <a name="known-issues"></a>Problemi noti
 
-**Sintomo**: test vengono ignorati
+**Sintomo**: I test vengono ignorati
 
 **Causa**: AzsReadinessChecker Ignora determinati test se non viene soddisfatta delle dipendenze:
 
@@ -172,7 +172,7 @@ Invoke-AzsCertificateValidation Completed
     Invoke-AzsCertificateValidation Completed
     ```
 
-**Risoluzione**: segui le istruzioni dello strumento nella sezione dei dettagli in ogni set di test per ogni certificato.
+**Risoluzione**: Segui le istruzioni dello strumento nella sezione dei dettagli in ogni set di test per ogni certificato.
 
 ## <a name="perform-platform-as-a-service-certificate-validation"></a>La piattaforma come la convalida di un certificato di servizio
 

@@ -12,45 +12,46 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 12310c088777d65bef211747806f942433857e40
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: ''
+ms.openlocfilehash: 6c8a2cd746f1090e802f90a49f9a1f7469e98f5f
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632349"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121521"
 ---
-# <a name="the-azure-stack-marketplace-overview"></a>La panoramica del Marketplace Azure Stack
+# <a name="azure-stack-marketplace-overview"></a>Panoramica di Azure Stack Marketplace
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Il Marketplace è una raccolta di servizi, applicazioni e risorse personalizzate per Azure Stack. Le risorse includono reti, le macchine virtuali, archiviazione e così via. Gli utenti si qui per creare nuove risorse e distribuire nuove applicazioni. Essere considerato un catalogo degli acquisti in cui gli utenti possono esplorare e selezionare gli elementi che desiderano utilizzare. Per usare un elemento del Marketplace, gli utenti devono sottoscrivere un'offerta che consente l'accesso all'elemento.
+Il Marketplace di Azure Stack è una raccolta di servizi, applicazioni e risorse personalizzate per Azure Stack. Le risorse includono reti, le macchine virtuali, archiviazione e altro ancora. Usa il Marketplace per creare nuove risorse e distribuire nuove applicazioni; oppure individuare e selezionare gli elementi da usare. Per usare un elemento del Marketplace, gli utenti devono sottoscrivere un'offerta che consente l'accesso all'elemento.
 
-Un operatore di Azure Stack, si decide quali elementi da aggiungere (pubblica) nel Marketplace. È possibile pubblicare elementi quali database, servizi App e così via. Pubblicazione li rende visibile a tutti gli utenti. È possibile pubblicare gli elementi personalizzati creati. È anche possibile pubblicare gli elementi da un aumento delle dimensioni [elenco di elementi di Azure Marketplace](azure-stack-marketplace-azure-items.md). Quando si pubblica un elemento nel Marketplace, gli utenti possono visualizzarlo entro cinque minuti.
+Un operatore di Azure Stack, si decide quali elementi da aggiungere (pubblica) nel Marketplace. È possibile pubblicare gli elementi, ad esempio database, servizi App e così via. Pubblicazione li rende visibile a tutti gli utenti. È possibile pubblicare gli elementi personalizzati creati, o è possibile pubblicare elementi da un aumento delle dimensioni [elenco di elementi di Azure Marketplace](azure-stack-marketplace-azure-items.md). Quando si pubblica un elemento nel Marketplace, gli utenti possono visualizzarlo entro cinque minuti.
 
-> [!Caution]  
-> Tutti gli elementi di elemento della raccolta noti come immagini e i file json sono accessibili senza autenticazione dopo rendendole disponibili nel marketplace di Azure Stack. Per altre considerazioni quando si pubblicano elementi personalizzato del marketplace, vedere [creare e pubblicare un elemento del Marketplace](azure-stack-create-and-publish-marketplace-item.md).
+> [!CAUTION]  
+> Tutti gli artefatti elemento della raccolta, tra cui immagini e i file JSON, sono accessibili senza autenticazione dopo rendendoli disponibili in Azure Stack Marketplace. Per altre considerazioni quando si pubblicano elementi personalizzato del marketplace, vedere [creare e pubblicare un elemento del Marketplace](azure-stack-create-and-publish-marketplace-item.md).
 
-Per aprire il Marketplace, nella console di amministrazione selezionare **+ crea una risorsa**.
+Per aprire il Marketplace, nel portale selezionare amministratore **+ crea una risorsa**.
 
-![](media/azure-stack-publish-custom-marketplace-item/image1.png)
+![Marketplace](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
 ## <a name="marketplace-items"></a>Elementi del Marketplace
-Un elemento del Marketplace Azure Stack è un servizio, applicazione o risorse che gli utenti possono scaricare e usare. Tutti gli elementi di Marketplace Azure Stack sono visibili a tutti gli utenti, inclusi gli elementi di amministrazione, come i piani e offerte. Questi elementi non richiedono una sottoscrizione di visualizzazione, ma non funzionali per gli utenti sono.
+
+Un elemento del Marketplace Azure Stack è un servizio, applicazione o risorse che gli utenti possono scaricare e usare. Tutti gli elementi di Marketplace Azure Stack sono visibili a tutti gli utenti, inclusi gli elementi di amministrazione, ad esempio i piani e offerte. Questi elementi non richiedono una sottoscrizione di visualizzazione, ma non funzionali per gli utenti sono.
 
 Ogni un elemento del Marketplace include:
 
-* Modello di Gestione risorse di Azure per il provisioning delle risorse
-* Metadati, ad esempio stringhe, icone e altro materiale aggiuntivo di marketing
-* Informazioni di formattazione per visualizzare l'elemento nel portale
+* Un modello di Azure Resource Manager per il provisioning delle risorse.
+* Metadati, ad esempio stringhe, icone e altro materiale di marketing.
+* Informazioni di formattazione per visualizzare l'elemento nel portale.
 
-Ogni elemento pubblicato nel Marketplace Usa il formato Azure Gallery Package (con estensione azpkg). Aggiungere le risorse di runtime o di distribuzione (ad esempio di codice, i file zip con software o immagini di macchine virtuali) in Azure Stack separatamente, non come parte dell'elemento del Marketplace. 
+Ogni elemento pubblicato nel Marketplace Usa il formato Azure Gallery Package (con estensione azpkg). Aggiungere le risorse di runtime o di distribuzione (code, file zip con software o immagini di macchine virtuali) in Azure Stack separatamente, non come parte dell'elemento del Marketplace.
 
-Con la versione 1803 e versioni successive, Azure Stack converte le immagini per i file sparse al download di Azure o quando si caricano immagini personalizzate. Questo processo aggiunge tempo quando si aggiunge un'immagine, ma consente di risparmiare spazio e velocizzare la distribuzione di queste immagini. La conversione si applica solo alle nuove immagini.  Immagini esistenti non vengono modificate. 
+Con la versione 1803 e versioni successive, Azure Stack converte le immagini per i file sparse al download di Azure o quando si caricano immagini personalizzate. Questo processo aggiunge tempo quando si aggiunge un'immagine, ma consente di risparmiare spazio e velocizzare la distribuzione di queste immagini. La conversione si applica solo alle nuove immagini. Immagini esistenti non vengono modificate.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Scaricare elementi di Marketplace](azure-stack-download-azure-marketplace-item.md)  
-[Creare e pubblicare un elemento del Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 
+* [Scaricare elementi di Marketplace](azure-stack-download-azure-marketplace-item.md)  
+* [Creare e pubblicare un elemento del Marketplace](azure-stack-create-and-publish-marketplace-item.md)

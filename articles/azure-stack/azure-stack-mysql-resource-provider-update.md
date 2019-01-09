@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 01/08/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: ee76d71f89fb94c8c05c6a733dac241a9e4fa13c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: georgel
+ms.openlocfilehash: 790a8bfed693f03cdadd036cab17eb94dee1c1ed
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965139"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119292"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Aggiornare il provider di risorse MySQL 
 
-*Si applica a: i sistemi integrati di Azure Stack.*
+*Si applica a: Sistemi integrati di Azure Stack.*
 
 Una nuova scheda del provider di risorse SQL potrebbe essere rilasciata quando vengono aggiornate le compilazioni di Azure Stack. Mentre la scheda esistente continua a funzionare, è consigliabile aggiornare alla build più recente quanto prima. 
 
@@ -110,7 +110,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 | **RetryDuration** | L'intervallo di timeout tra i tentativi, in secondi. | 120 | 
 | **Disinstallare** | Rimuovere il provider di risorse e tutte le risorse associate (vedere le note seguenti). | No  | 
 | **DebugMode** | Impedisce la pulizia automatica in caso di errore. | No  | 
-| **AcceptLicense** | Ignora la richiesta di accettazione della licenza GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+| **AcceptLicense** | Ignora la richiesta di accettazione della licenza GPL.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
  
 
 ## <a name="next-steps"></a>Passaggi successivi

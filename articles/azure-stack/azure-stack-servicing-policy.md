@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 49d49553a9375baa92160d9d9a89936acc7dd461
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632790"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102619"
 ---
 # <a name="azure-stack-servicing-policy"></a>Criteri di manutenzione Azure Stack
 
@@ -30,7 +30,7 @@ Questo articolo descrive i criteri di manutenzione per i sistemi integrati di Az
 
 Microsoft rilascerà i pacchetti di aggiornamento completo mensile oltre a pacchetti di hotfix per risolvere problemi specifici. 
 
-I pacchetti di aggiornamento mensile sono ospitati in un endpoint protetto a Azure. È possibile scaricare manualmente tramite il [dello strumento downloader gli aggiornamenti di Azure Stack](http://aka.ms/azurestackupdatedownload). Se è connessa l'unità di scala, l'aggiornamento viene visualizzato automaticamente nel portale di amministrazione come **aggiornamento disponibile**. Completa, ogni mese dei pacchetti di aggiornamento sono ben documentati a ogni rilascio. Per altre informazioni su ogni versione, è possibile fare clic su qualsiasi versione dal [ritmo di rilascio del pacchetto di aggiornamento](#update-package-release-cadence) sezione di questo articolo.
+I pacchetti di aggiornamento mensile sono ospitati in un endpoint protetto a Azure. È possibile scaricare manualmente tramite il [dello strumento downloader gli aggiornamenti di Azure Stack](https://aka.ms/azurestackupdatedownload). Se è connessa l'unità di scala, l'aggiornamento viene visualizzato automaticamente nel portale di amministrazione come **aggiornamento disponibile**. Completa, ogni mese dei pacchetti di aggiornamento sono ben documentati a ogni rilascio. Per altre informazioni su ogni versione, è possibile fare clic su qualsiasi versione dal [ritmo di rilascio del pacchetto di aggiornamento](#update-package-release-cadence) sezione di questo articolo.
 
 I pacchetti di aggiornamento hotfix sono ospitati nello stesso endpoint di Azure protetto. È possibile scaricarli manualmente usando i collegamenti incorporati in ognuno di articoli della Knowledge Base hotfix rispettivi; ad esempio, [Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Come per i pacchetti di aggiornamento complete, mensile, operatori di Azure Stack possono scaricare i file con estensione XML, con estensione bin e .exe e importarli usando la procedura descritta in [applicare gli aggiornamenti in Azure Stack](azure-stack-apply-updates.md). Gli operatori di Azure Stack con unità di scala connessa visualizzeranno i hotfix vengono visualizzati automaticamente nel portale di amministrazione con il messaggio **aggiornamento disponibile**.
 

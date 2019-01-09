@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 871df693878611b0322a0f06634c62a7a9efd90a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6a14a806b48b30d84b021a84a1ef0a2f4318ea94
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335164"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106472"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Convalida di un concetti chiave di servizio
 
@@ -44,7 +44,7 @@ I flussi di lavoro sono classificati per tipo di scenario di test. Durante i tes
 ![Riquadri del flusso di lavoro VaaS](media/tile_all-workflows.png)
 
 > [!NOTE]
-> Il **convalida dei pacchetti** flusso di lavoro supporta attualmente due scenari: [pacchetti OEM convalidare](azure-stack-vaas-validate-oem-package.md) e [convalidare gli aggiornamenti software da Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
+> Il **soluzione convalida** flusso di lavoro supporta attualmente due scenari: [Convalida pacchetti OEM](azure-stack-vaas-validate-oem-package.md) e [convalidare gli aggiornamenti software da Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 Per altre informazioni sui tipi di flusso di lavoro, vedere [What ' s convalida come servizio per Azure Stack?](azure-stack-vaas-overview.md).
 
@@ -52,10 +52,10 @@ Per altre informazioni sui tipi di flusso di lavoro, vedere [What ' s convalida 
 
 1. Nel dashboard soluzioni, creare una nuova soluzione o selezionarne uno esistente. In questo viene aggiornato e i riquadri del flusso di lavoro.
 2. Per creare un nuovo flusso di lavoro, selezionare nella **avviare** su qualsiasi riquadro. Per informazioni specifiche per ogni flusso di lavoro, vedere gli articoli seguenti:
-    - Superamento test: [Guida introduttiva: usare la convalida come portale del servizio per pianificare il primo test](azure-stack-vaas-schedule-test-pass.md)
-    - Convalida di soluzioni: [convalidare una nuova soluzione di Azure Stack](azure-stack-vaas-validate-solution-new.md)
-    - Convalida del pacchetto: [convalidare gli aggiornamenti software da Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
-    - Convalida del pacchetto: [OEM convalida pacchetti](azure-stack-vaas-validate-oem-package.md)
+    - Superamento test: [Avvio rapido: Usare la convalida di un portale del servizio per pianificare il primo test](azure-stack-vaas-schedule-test-pass.md)
+    - Convalida di soluzioni: [Convalidare una nuova soluzione di Azure Stack](azure-stack-vaas-validate-solution-new.md)
+    - Convalida di soluzioni: [Convalidare gli aggiornamenti software da Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
+    - Convalida di soluzioni: [Convalidare i pacchetti dell'OEM](azure-stack-vaas-validate-oem-package.md)
 
 3. Per gestire o monitorare un flusso di lavoro esistente, selezionare nella **Gestisci** sul riquadro del flusso di lavoro. Selezionare il nome del flusso di lavoro e usare la **modifica** pulsante per visualizzare le proprietà o modificare i parametri comuni di test.
 

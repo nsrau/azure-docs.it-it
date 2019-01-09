@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: 0723d0e2a60c0f43633e5e5ca771ccfe88d2db68
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 188b14c3199f9e4496a3c197aba0bb7f5b31d9ab
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808061"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104560"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Creare una macchina virtuale e installare un certificato recuperato da un insieme di credenziali delle chiavi di Azure Stack
 
@@ -128,7 +128,7 @@ Aggiorna il `azuredeploy.parameters.json` file con il `vaultName`, URI del segre
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "newStorageAccountName": {

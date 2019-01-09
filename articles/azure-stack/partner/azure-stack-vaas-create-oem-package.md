@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: John.Haskin
-ms.openlocfilehash: fc2659fb9bbe043a61f1ad49bb4290b7ccf834f8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 245826e816f77db3394d1fc3858246ec5d1d605a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422015"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102007"
 ---
 # <a name="create-an-oem-package"></a>Creare un pacchetto dell'OEM
 
@@ -28,7 +28,7 @@ Il pacchetto di estensione OEM di Azure Stack è il meccanismo dal quale OEM con
 
 ## <a name="creating-the-package"></a>Creazione del pacchetto
 
-Dopo aver creato e convalidato, il pacchetto di estensione OEM può essere usato in VaaS.  Prima di continuare, assicurarsi di aver completato i passaggi per la [creazione di un pacchetto di OEM](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Il pacchetto viene quindi inviato a Microsoft insieme ai risultati del test VaaS per la firma del flusso di lavoro di convalida del pacchetto. La procedura seguente illustra come aggregare i file generati in un unico file zip che VaaS possono utilizzare.
+Dopo aver creato e convalidato, il pacchetto di estensione OEM può essere usato in VaaS.  Prima di continuare, assicurarsi di aver completato i passaggi per la [creazione di un pacchetto di OEM](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Il pacchetto viene quindi inviato a Microsoft insieme ai risultati del test VaaS per la firma del flusso di lavoro di convalida di soluzioni. La procedura seguente illustra come aggregare i file generati in un unico file zip che VaaS possono utilizzare.
 
 1. Identificare il contenuto seguente per il pacchetto:
     - Un eseguibile denominato `<Publisher>-<Model>-<Version>.exe`
@@ -49,7 +49,7 @@ Per convalidare la struttura del file zip, esaminarlo e non verificare che sia p
 
 ![Contenuto del pacchetto compresso in modo corretto](media/vaas-create-oem-package-3.png)
 
-Il file zip può essere caricato in VaaS e firmato da Microsoft nel flusso di lavoro di convalida del pacchetto.
+Il file zip può essere caricato in VaaS e firmato da Microsoft nel flusso di lavoro di convalida di soluzioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

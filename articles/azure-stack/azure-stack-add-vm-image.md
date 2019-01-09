@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 11/05/2018
+ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 9f5f3c4ce08cde81c883bfdac87012dcfd80b8a4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036598"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119731"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Adottare un'immagine di macchina virtuale disponibili in Azure Stack
 
@@ -154,7 +154,7 @@ Le immagini devono essere in grado di farvi riferimento da un URI di archiviazio
 
 3. Accedere ad Azure Stack come operatore. Per istruzioni, vedere [accedi ad Azure Stack come operatore](azure-stack-powershell-configure-admin.md).
 
-4. Creare un account di archiviazione in Azure globale o Azure Stack per archiviare l'immagine di macchina virtuale personalizzata. Per istruzioni, vedi [Guida introduttiva: caricare, scaricare ed elencare BLOB con il portale di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+4. Creare un account di archiviazione in Azure globale o Azure Stack per archiviare l'immagine di macchina virtuale personalizzata. Per istruzioni, vedere [Guida introduttiva: Caricare, scaricare ed elencare BLOB con il portale di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 5. Preparare un'immagine del sistema operativo Windows o Linux in formato VHD (non VHDX), caricare l'immagine nell'account di archiviazione e ottenere l'URI in cui l'immagine di macchina virtuale può essere recuperato tramite PowerShell.  
 

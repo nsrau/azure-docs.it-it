@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 07f77a8390edcde1128a7381a54d622611637d78
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257377"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118303"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
 È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -27,7 +27,7 @@ Nella tabella seguente illustra le differenze tra le scelte di due identità:
 |Fatturazione|Deve essere la capacità<br> Enterprise Agreement (EA)|Come è a pagamento o la capacità<br>Contratto Enterprise o Cloud Solution Provider (CSP)|
 |Identità|Deve essere ADFS|Azure AD o AD FS|
 |Marketplace |Supportato<br>Gestione delle licenze BYOL|Supportato<br>Gestione delle licenze BYOL|
-|Registrazione|Consigliato, richiede un supporto rimovibile<br> e un dispositivo connesso separato.|Automatizzata|
+|Registrazione|Obbligatorio, è necessario un supporto rimovibile<br> e un dispositivo connesso separato.|Automatizzata|
 |Aggiornamenti e patch|Obbligatorio, è necessario un supporto rimovibile<br> e un dispositivo connesso separato.|Pacchetto di aggiornamento può essere scaricato direttamente<br> da Internet ad Azure Stack.|
 
 > [!IMPORTANT]

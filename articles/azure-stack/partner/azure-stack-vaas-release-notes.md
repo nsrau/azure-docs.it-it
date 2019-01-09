@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: a6245472f0fc3f65dcbeebdf251387efed5f02b8
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 687e47eff000679f24088a59297a258a1469f3fd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333019"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106274"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Note sulla versione per la convalida come servizio
 
@@ -49,7 +49,7 @@ Questo articolo contiene le note sulla versione per la convalida di Azure Stack 
 
 - Gli aggiornamenti prerequisiti VaaS e disco rigido virtuale
 
-    `Install-VaaSPrerequisites` è ora necessario cloud le credenziali di amministratore per risolvere un problema durante la convalida del pacchetto. La documentazione all'indirizzo [scaricare e installare l'agente](azure-stack-vaas-local-agent.md#download-and-install-the-agent) è stato aggiornato con il codice seguente:
+    `Install-VaaSPrerequisites` è ora necessario cloud le credenziali di amministratore per risolvere un problema durante la convalida della soluzione. La documentazione all'indirizzo [scaricare e installare l'agente](azure-stack-vaas-local-agent.md#download-and-install-the-agent) è stato aggiornato con il codice seguente:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -76,7 +76,7 @@ Questo articolo contiene le note sulla versione per la convalida di Azure Stack 
 
   - Le notifiche di firma del pacchetto
 
-    Quando viene inviato un pacchetto di personalizzazione OEM come parte del flusso di lavoro di convalida del pacchetto, il formato del pacchetto verrà convalidato per assicurarsi che segue la specifica pubblicata. Se il pacchetto non è conforme, l'esecuzione avrà esito negativo. Notifiche tramite posta elettronica verranno inviate all'indirizzo di posta elettronica del contatto per il tenant Azure Active Directory registrato.
+    Quando viene inviato un pacchetto di personalizzazione OEM come parte del flusso di lavoro di convalida di soluzioni, il formato del pacchetto verrà convalidato per assicurarsi che segue la specifica pubblicata. Se il pacchetto non è conforme, l'esecuzione avrà esito negativo. Notifiche tramite posta elettronica verranno inviate all'indirizzo di posta elettronica del contatto per il tenant Azure Active Directory registrato.
 
   - Categoria di test interattiva
 

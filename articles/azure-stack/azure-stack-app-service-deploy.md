@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 504cd5a0bfbae1ff91f7914abe12aa35b699ee80
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635374"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104761"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App in Azure Stack
 
@@ -204,13 +204,13 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 
     Se si distribuisce in una rete virtuale esistente e si usa un indirizzo IP interno per la connessione per il file server, è necessario aggiungere una regola di sicurezza in uscita. Questa regola consente il traffico tra la subnet del ruolo di lavoro e file server SMB.  A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
 
-    - Origine: tutti
+    - Origine: Qualsiasi
     - Intervallo di porte di origine: *
-    - Destinazione: Gli indirizzi IP
-    - Intervallo di indirizzi IP di destinazione: intervallo di indirizzi IP per il file server
+    - Destinazione: Indirizzi IP
+    - Intervallo di indirizzi IP di destinazione: Intervallo di indirizzi IP per il file server
     - Intervallo di porte di destinazione: 445
     - Protocollo: TCP
-    - Azione: Consenti
+    - Azione: CONSENTI
     - Priorità: 700
     - Nome: Outbound_Allow_SMB445
 
@@ -260,9 +260,9 @@ Per creare un'app web di test, seguire questa procedura:
  - [Provider di risorse MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy/app-service-installer.png

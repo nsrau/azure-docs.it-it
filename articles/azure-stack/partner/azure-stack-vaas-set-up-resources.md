@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0830deaaa1161880706c39aee741af06a41b4b6f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 58c69840e7b8ebdc2bd367859184ab54460c9426
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426347"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103477"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Esercitazione: Configurare le risorse per la convalida come servizio
 
@@ -90,7 +90,7 @@ Come amministratore di Azure AD, assegnare all'applicazione di Azure AD VaaS le 
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 
-Durante l'esecuzione dei test VaaS genera i log di diagnostica a un account di archiviazione di Azure. Oltre ai log di test, l'account di archiviazione può anche utilizzabile per i pacchetti di estensione caricamento OEM per il flusso di lavoro di convalida del pacchetto.
+Durante l'esecuzione dei test VaaS genera i log di diagnostica a un account di archiviazione di Azure. Oltre ai log di test, l'account di archiviazione può anche utilizzabile per i pacchetti di estensione caricamento OEM per il flusso di lavoro di convalida di soluzioni.
 
 L'account di archiviazione di Azure è ospitata nel cloud pubblico di Azure, non nell'ambiente Azure Stack.
 

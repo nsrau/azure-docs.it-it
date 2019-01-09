@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e3b0de577186cb7eb032a2042d234a0ffa2e3bb9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261803"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105544"
 ---
 # <a name="validate-oem-packages"></a>Convalidare i pacchetti dell'OEM
 
@@ -35,7 +35,7 @@ ms.locfileid: "52261803"
 
 Quando si usa la **la convalida del pacchetto** flusso di lavoro per convalidare un pacchetto, si dovrà fornire un URL a un **archiviazione blob di Azure**. Questo blob è il pacchetto OEM che è stato installato sulla soluzione in fase di distribuzione. Crea il blob usando l'Account di archiviazione di Azure creato durante l'installazione (vedere [configurare la convalida come le risorse di un servizio](azure-stack-vaas-set-up-resources.md)).
 
-### <a name="prerequisite-provision-a-storage-container"></a>Prerequisito: Effettuare il provisioning di un contenitore di archiviazione
+### <a name="prerequisite-provision-a-storage-container"></a>Prerequisiti: Effettuare il provisioning di un contenitore di archiviazione
 
 Creare un contenitore nell'account di archiviazione per i BLOB di pacchetto. Questo contenitore è utilizzabile per tutti i viene eseguita la convalida del pacchetto.
 
@@ -56,7 +56,7 @@ Creare un contenitore nell'account di archiviazione per i BLOB di pacchetto. Que
 
 Quando si crea una **convalida dei pacchetti** flusso di lavoro nel portale di VaaS, si dovrà fornire un URL del blob di archiviazione di Azure contenente il pacchetto.
 
-#### <a name="option-1-generating-an-account-sas-url"></a>Opzione 1: Generare un URL di firma di accesso condiviso dell'account
+#### <a name="option-1-generating-an-account-sas-url"></a>Opzione 1: Generazione di un URL di firma di accesso condiviso dell'account
 
 1. Nel [portale di Azure](https://portal.azure.com/), passare all'account di archiviazione e individuare il file zip contenente il pacchetto
 
@@ -70,7 +70,7 @@ Quando si crea una **convalida dei pacchetti** flusso di lavoro nel portale di V
 
 Uso **URL di firma di accesso condiviso di Blob** quando si avvia un nuovo **convalida dei pacchetti** flusso di lavoro nel portale di VaaS.
 
-#### <a name="option-2-using-public-read-container"></a>Opzione 2: Uso di contenitore di lettura pubblico
+#### <a name="option-2-using-public-read-container"></a>Opzione 2: Utilizzo di contenitore di lettura pubblico
 
 > [!CAUTION]
 > Questa opzione apre il contenitore per l'accesso anonimo di sola lettura.
@@ -113,9 +113,23 @@ Uso **URL di firma di accesso condiviso di Blob** quando si avvia un nuovo **con
 
 ## <a name="run-package-validation-tests"></a>Eseguire i test di convalida del pacchetto
 
-Nel **riepilogo test di convalida del pacchetto** pagina, verrà visualizzato un elenco dei test necessari per completare la convalida. Test in questo flusso di lavoro eseguito circa 24 ore.
+1. Nel **riepilogo test di convalida del pacchetto** pagina, verrà visualizzato un elenco dei test necessari per completare la convalida. Test in questo flusso di lavoro eseguito circa 24 ore.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+    Nei flussi di lavoro di convalida **pianificazione** un test Usa i parametri comuni del flusso di lavoro a livello specificato durante la creazione del flusso di lavoro (vedere [parametri comuni del flusso di lavoro per la convalida dello Stack di Azure come servizio](azure-stack-vaas-parameters.md)). Se uno qualsiasi dei valori dei parametri di test diventano non valido, è necessario resupply li come indicato nelle [modificare i parametri del flusso di lavoro](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+
+    > [!NOTE]
+    > Pianificazione di un test di convalida su un'istanza esistente creerà una nuova istanza al posto di istanza precedente nel portale. I log per l'istanza precedente verranno mantenuti ma non sono accessibili dal portale.  
+    Una volta che un test è stata completata, il **pianificazione** azione viene disabilitata.
+
+2. Selezionare l'agente che verrà eseguito il test. Per informazioni sull'aggiunta di locale l'esecuzione agenti di test, vedere [distribuire l'agente locale](azure-stack-vaas-local-agent.md).
+
+3. Per ognuno dei test seguente, eseguire l'istruzione quattro e cinque:
+    - Verifica del pacchetto estensione di OEM
+    - Motore di simulazione di cloud
+
+4. Selezionare **pianificazione** dal menu di scelta rapida per aprire un prompt dei comandi per la pianificazione dell'istanza di test.
+
+5. Esaminare i parametri di test e quindi selezionare **Submit** per il test per l'esecuzione.
 
 Quando tutti i test è sono completata, invia il nome della soluzione VaaS e convalida del pacchetto per [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) per richiedere la firma del pacchetto.
 

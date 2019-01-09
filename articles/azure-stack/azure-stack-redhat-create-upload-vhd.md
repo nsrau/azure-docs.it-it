@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: 932b4c80912fa516a08c18cd581f96b5ea91e1dc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 397f07c23d1c272e540741a339b57a8e1bcce198
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232308"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104013"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Preparare una macchina virtuale basata su Red Hat per Azure Stack
 
 In questo articolo si apprenderà come preparare una macchina virtuale Red Hat Enterprise Linux (RHEL) per l'uso in Azure Stack. Le versioni di RHEL trattate in questo articolo sono 7.1 +. Gli hypervisor per la preparazione illustrati in questo articolo sono Hyper-V, KVM (Kernel-based Virtual Machine) e VMware.
 
-Per informazioni sul supporto di Red Hat Enterprise Linux, vedere [Red Hat e Azure Stack: domande frequenti](https://access.redhat.com/articles/3413531).
+Per informazioni sul supporto di Red Hat Enterprise Linux, fare riferimento a [Red Hat e Azure Stack: Domande frequenti](https://access.redhat.com/articles/3413531).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Preparare una macchina virtuale basata su Red Hat dalla console di gestione di Hyper-V
 
@@ -347,7 +347,7 @@ In questa sezione presuppone che sia già presente un file ISO dal sito Web di R
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Preparare una macchina virtuale basata su Red Hat da VMware
 
-In questa sezione si presuppone che una macchina virtuale RHEL sia già stata installata in VMware. Per informazioni dettagliate su come installare un sistema operativo in VMware, vedere la [guida all'installazione del sistema operativo guest VMware](http://partnerweb.vmware.com/GOSIG/home.html).
+In questa sezione si presuppone che una macchina virtuale RHEL sia già stata installata in VMware. Per informazioni dettagliate su come installare un sistema operativo in VMware, vedere la [guida all'installazione del sistema operativo guest VMware](https://partnerweb.vmware.com/GOSIG/home.html).
 
 * Quando si installa il sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che è spesso l'impostazione predefinita per numerose installazioni. Ciò consente di evitare conflitti di nome LVM con macchina virtuale clonata, in particolare se fosse necessario un disco di sistema operativo da collegare a un'altra macchina virtuale per la risoluzione dei problemi. Se si preferisce, su dischi di dati si può usare LVM o RAID.
 * Non configurare una partizione di swapping sul disco del sistema operativo. È possibile configurare l'agente Linux per poter creare un file di scambio sul disco temporaneo delle risorse. Altre informazioni su questo argomento sono disponibili nei passaggi riportati di seguito.
