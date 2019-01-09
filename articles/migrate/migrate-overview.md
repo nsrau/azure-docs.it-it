@@ -4,15 +4,15 @@ description: Panoramica del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fcf26b8a5eff407d6dde092ae645084fb20a14a8
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c511ef8fc4ae580f869ef90da3e2c8764a146881
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250584"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969132"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -37,8 +37,9 @@ Azure Migrate consente di eseguire le operazioni seguenti.
 -  È possibile creare un progetto Azure Migrate nelle seguenti aree geografiche. Tuttavia, ciò non limita la possibilità di creare le valutazioni per gli altri percorsi di destinazione di Azure.
     **Area geografica** | **Posizione di archiviazione**
     --- | ---
-    Stati Uniti | Stati Uniti centro-occidentali, Stati Uniti orientali
     Azure Government | US Gov Virginia
+    Europa | Europa settentrionale o Europa occidentale
+    Stati Uniti | Stati Uniti orientali o Stati Uniti centro-occidentali
 
     L'area geografica associata al progetto di migrazione viene usata per l'archiviazione dei metadati individuati nell'ambiente locale. I metadati vengono archiviati in una delle aree in base all'area geografica specificata per il progetto di migrazione. Se si usa la visualizzazione delle dipendenze creando una nuova area di lavoro di Log Analytics, questa viene creata nella stessa area del progetto.
 - La funzionalità di visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.

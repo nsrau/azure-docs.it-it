@@ -1,20 +1,18 @@
 ---
-title: 'Guida introduttiva: Creare un server di Database di Azure per MariaDB - Portale di Azure'
+title: 'Avvio rapido: Creare un server di Database di Azure per MariaDB - Portale di Azure'
 description: Questo articolo illustra come usare il portale di Azure per creare rapidamente un server di Database di Azure per MariaDB in circa cinque minuti.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 721cd87dcf58a2b5a7a8fd32fdfa8b2d65453b24
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: fb02cfd2419d1c98a92d1eae8b59256499d017a8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321938"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541388"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Creare un database di Azure per il server MariaDB con il portale di Azure
 
@@ -129,7 +127,7 @@ Prima di tutto verrà usato lo strumento da riga di comando [mysql](https://dev.
     ---|---|---
     --host | *nome del server* | Valore del nome del server usato per creare il server di Database di Azure per MariaDB. Il server dell'esempio è **mydemoserver.mariadb.database.azure.com**. Usare il nome di dominio completo (**\*.mariadb.database.azure.com**) come illustrato nell'esempio. Se non si ricorda il nome del server, completare la procedura descritta nella sezione precedente per ottenere le informazioni di connessione.
     --user | *nome di accesso amministratore server* |Valore del nome di accesso dell'amministratore server usato per creare il server di Database di Azure per MariaDB. Se non si ricorda il nome utente, completare la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. Il formato è *username@servername*.
-    -p | *Password*<br>(attendere finché non viene richiesta) |Quando richiesto, immettere la password usata per creare il server. I caratteri della password digitati non vengono visualizzati nel prompt di Bash durante la digitazione. Dopo aver immesso la password, premere INVIO.
+    -p | *password*<br>(attendere finché non viene richiesta) |Quando richiesto, immettere la password usata per creare il server. I caratteri della password digitati non vengono visualizzati nel prompt di Bash durante la digitazione. Dopo aver immesso la password, premere INVIO.
 
    Quando l'utilità mysql è connessa, viene visualizzato un prompt `mysql>`. Nel prompt è possibile immettere comandi. 
 
@@ -154,7 +152,7 @@ Prima di tutto verrà usato lo strumento da riga di comando [mysql](https://dev.
     > [!TIP]
     > Se il firewall non è configurato per consentire l'indirizzo IP di Azure Cloud Shell, verrà visualizzato l'errore seguente:
     >
-    >   ERROR 2003 (28000): Client with IP address 123.456.789.0 is not allowed to access the server.
+    >   ERRORE 2003 (28000): Al client con indirizzo IP 123.456.789.0 non è consentito l'accesso al server.
     >
     > Per risolvere l'errore, assicurarsi che la configurazione del server corrisponda alla procedura illustrata nella sezione [Configurare una regola del firewall a livello di server](#configure-firewall-rule).
 
@@ -200,12 +198,12 @@ Per connettersi al server usando MySQL Workbench:
 
     |Impostazione |Valore consigliato|Descrizione campo|
     |---|---|---|
-     Nome connessione | **Demo connection** | Etichetta per la connessione. |
+     Nome connessione | **Demo Connection** | Etichetta per la connessione. |
     Connection Method (Metodo di connessione) | **Standard (TCP/IP)** | Standard (TCP/IP) è sufficiente. |
     Nome host | *nome del server* | Valore del nome del server usato per creare il server di Database di Azure per MariaDB. Il server dell'esempio è **mydemoserver.mariadb.database.azure.com**. Usare il nome di dominio completo (**\*.mariadb.database.azure.com**) come illustrato nell'esempio. Se non si ricorda il nome del server, completare i passaggi descritti in precedenza in questo articolo per ottenere le informazioni di connessione.|
      Porta | 3306 | Porta da usare per la connessione al server di Database di Azure per MariaDB. |
     Username |  *nome di accesso amministratore server* | Informazioni di accesso dell'amministratore server usate per creare il server di Database di Azure per MariaDB. Il nome utente dell'esempio è **myadmin@mydemoserver**. Se non si ricorda il nome utente, completare i passaggi descritti in precedenza in questo articolo per ottenere le informazioni di connessione. Il formato è *username@servername*.
-    Password | *Password* | Per salvare la password, selezionare **Store in Vault** (Archivia nell'insieme di credenziali). |
+    Password | *password* | Per salvare la password, selezionare **Store in Vault** (Archivia nell'insieme di credenziali). |
 
 4. Per verificare che tutti i parametri siano configurati correttamente, selezionare **Test Connection** (Test connessione). Selezionare quindi **OK** per salvare la connessione. 
 

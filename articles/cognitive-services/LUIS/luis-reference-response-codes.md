@@ -11,14 +11,15 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 478727a4d3628fbe6a385e3beb28201c228f9e2d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8ea180131ce2f9e1288c3ffb928170be55a77de7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078236"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598451"
 ---
-# <a name="luis-api-http-response-codes"></a>Codici di risposta HTTP delle API LUIS
+# <a name="common-api-response-codes-and-their-meaning"></a>Codici di risposta comuni API e relativo significato
+
 Le API di [creazione](https://aka.ms/luis-authoring-apis) e per [endpoint](https://aka.ms/luis-endpoint-apis) restituiscono codici di risposta HTTP. Mentre i messaggi di risposta includono informazioni specifiche per una richiesta, il codice di stato di risposta HTTP è generale. 
 
 ## <a name="common-status-codes"></a>Codici di stato comuni
@@ -38,3 +39,7 @@ La tabella seguente elenca alcuni dei codici di stato di risposta HTTP più comu
 |410|Endpoint|è necessario ripetere il training e pubblicare nuovamente l'applicazione|
 |414|Endpoint|la query supera il limite massimo di caratteri|
 |429|Creazione, Endpoint|È stato superato il limite di velocità (richieste/sec)|
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* API REST documentazione per [creazione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) ed [endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)

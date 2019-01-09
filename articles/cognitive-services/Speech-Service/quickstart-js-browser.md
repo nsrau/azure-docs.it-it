@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale, Javascript (Browser) - servizi Voce'
+title: 'Avvio rapido: Riconoscimento vocale, JavaScript (Browser) - servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in JavaScript in un browser con l'SDK del servizio Voce
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b6add6ac94e45789033cfe9913ec64e69f394f45
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087916"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715138"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Guida introduttiva: Riconoscimento vocale in JavaScript in un browser con l'SDK del servizio Voce
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Questo articolo spiega come creare un sito Web usando il binding JavaScript di Speech SDK di Servizi cognitivi per la trascrizione del riconoscimento vocale.
-L'applicazione si basa su Speech SDK di Servizi cognitivi Microsoft ([download della versione 1.1.0](https://aka.ms/csspeech/jsbrowserpackage)).
+L'applicazione si basa su Speech SDK di Servizi cognitivi Microsoft ([download della versione 1.2.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,8 +40,8 @@ Creare una nuova cartella vuota. Se si vuole ospitare l'esempio in un server Web
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Scaricare Speech SDK come [pacchetto con estensione zip](https://aka.ms/csspeech/jsbrowserpackage) e decomprimerlo nella nuova cartella. Verranno decompressi due file, `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-Quest'ultimo file è facoltativo e viene usato per consentire operazioni di debug nel codice SDK, se necessario.
+Scaricare Speech SDK come [pacchetto con estensione zip](https://aka.ms/csspeech/jsbrowserpackage) e decomprimerlo nella nuova cartella. Vengono decompressi due file, `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+Quest'ultimo file è facoltativo ed è utile per eseguire il debug nel codice dell'SDK.
 
 ## <a name="create-an-indexhtml-page"></a>Creare una pagina index.html
 
@@ -103,10 +103,7 @@ Per avviare l'app, fare doppio clic sul file index.html o aprirlo con il Web bro
 
 Per avviare l'app, aprire il Web browser preferito e passare all'URL pubblico in cui è ospitata, immettere l'[area](regions.md) e attivare un riconoscimento tramite il microfono. Se il comportamento è configurato, verrà acquisito un token dall'origine del token.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Ricercare questo esempio nella cartella `quickstart/js-browser`.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Scaricare gli esempi](speech-sdk.md#get-the-samples)
+> [Esplorare gli esempi JavaScript in GitHub](https://aka.ms/csspeech/samples)

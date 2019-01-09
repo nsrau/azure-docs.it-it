@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
-ms.reviwer: ''
+ms.reviwer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 9b38e1b6ba55fab46965fdc7a73ab608e1e6b754
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 13054ed0da2ad3fc38bdd4a39d9092dc72e39de9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877803"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601662"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Creare un agente processo elastico con PowerShell
 
@@ -209,7 +209,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 Un [gruppo di destinazione](elastic-jobs-overview.md#target-group) definisce il set di uno o più database in cui verrà eseguito il passaggio di un processo. 
 
-Il frammento di codice seguente crea due gruppi di destinazione: *ServerGroup* e *ServerGroupExcludingDb2*. *ServerGroup* ha come destinazione tutti i database esistenti nel server durante la fase di esecuzione, mentre *ServerGroupExcludingDb2* ha come destinazione tutti i database nel server, ad eccezione di *TargetDb2*:
+Il frammento di codice seguente crea due gruppi di destinazione: *ServerGroup*, e *ServerGroupExcludingDb2*. *ServerGroup* ha come destinazione tutti i database esistenti nel server durante la fase di esecuzione, mentre *ServerGroupExcludingDb2* ha come destinazione tutti i database nel server, ad eccezione di *TargetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."

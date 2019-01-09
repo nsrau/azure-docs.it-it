@@ -1,0 +1,116 @@
+---
+title: Eseguire la migrazione di pacchetti SQL Server Integration Services in Azure | Microsoft Docs
+description: Informazioni su come eseguire la migrazione di pacchetti SQL Server Integration Services in Azure.
+services: database-migration
+author: pochiraju
+ms.author: rajpo
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
+ms.workload: data-services
+ms.custom: mvc
+ms.topic: article
+ms.date: 12/15/2018
+ms.openlocfilehash: 2fa37d31e984399c1b676cf6c6112617fac43fd9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721938"
+---
+# <a name="migrate-sql-server-integration-services-packages-to-azure"></a>Eseguire la migrazione di pacchetti SQL Server Integration Services in Azure
+Se si usa SQL Server Integration Services (SSIS) e si desidera eseguire la migrazione di progetti/pacchetti SSIS dal database SSISDB di origine ospitato da SQL Server al database SSISDB di destinazione ospitato dal server del database SQL di Azure o dall'istanza gestita di database SQL di Azure, è possibile ridistribuirli tramite la procedura guidata di distribuzione di Integration Services. È possibile avviare la procedura guidata all'interno di SQL Server Management Studio (SSMS).
+
+Se la versione di SSIS usata è precedente al 2012, prima di ridistribuire progetti/pacchetti SSIS nel modello di distribuzione del progetto, è necessario convertirli con la procedura guidata di conversione del progetto Integration Services, che può essere avviata anche da SSMS. Per altre informazioni, vedere l'articolo [Converting projects to the project deployment model](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert) (Conversione di progetti nel modello di distribuzione del progetto).
+
+> [!NOTE]
+> Il Servizio Migrazione del database di Azure (DMS) attualmente non supporta la migrazione di un database di origine SSISDB, ma è possibile ridistribuire progetti/pacchetti SSIS usando la procedura seguente. 
+
+In questo articolo viene spiegato come:
+> [!div class="checklist"]
+> * Valutare i progetti/pacchetti SSIS di origine.
+> * Eseguire la migrazione di pacchetti/progetti SSIS in Azure.
+
+## <a name="prerequisites"></a>Prerequisiti
+Per completare questi passaggi è necessario disporre di:
+
+- Versione SSMS 17.2 o successiva.
+- Un'istanza del server di database di destinazione per ospitare SSISDB.
+ 
+  Se non si dispone di un'istanza:
+    - Per il database SQL di Azure, creare un server di database SQL di Azure (senza un database) tramite il portale di Azure, passando al [modulo](https://ms.portal.azure.com/#create/Microsoft.SQLServer) SQL Server (solo server logico).
+    - Per l'istanza gestita di database SQL di Azure, seguire le istruzioni riportate nell'articolo [Creare un'Istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
+
+- Il provisioning di SSIS deve essere eseguito in Azure Data Factory (ADF) che contiene Azure-SSIS Integration Runtime (IR) con il database SSISDB di destinazione ospitato dall'istanza del server di database SQL di Azure (come descritto nell'articolo [Eseguire il provisioning del runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)) o dall'istanza gestita di database SQL di Azure (come descritto nell'articolo [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)). 
+
+## <a name="assess-source-ssis-projectspackages"></a>Consente di valutare i progetti/pacchetti SSIS di origine
+Anche se la valutazione del database SSISDB di origine non è ancora integrata nel Database Migration Assistant (DMA) o nel Servizio Migrazione del database di Azure (DMS), i progetti/pacchetti SSIS verranno valutati/convalidati quando vengono ridistribuiti nel database SSISDB di destinazione ospitato nel server di database SQL di Azure o nell'Istanza gestita di database SQL di Azure.
+
+## <a name="migrate-ssis-projectspackages"></a>Eseguire la migrazione di pacchetti/progetti SSIS
+Per eseguire la migrazione di progetti/pacchetti SSIS nel server di database SQL di Azure o nell'istanza gestita di database SQL di Azure, seguire la procedura seguente.
+
+1.  Aprire SSMS e selezionare **Opzioni** per visualizzare la finestra di dialogo **Connetti a server**.
+
+2.  Nella scheda **Accesso**, specificare le informazioni necessarie per connettersi al server di database SQL di Azure o all'istanza gestita di database SQL di Azure che ospita il database SSISDB di destinazione.
+
+    ![Scheda Accesso SSIS](media/how-to-migrate-ssis-packages/dms-ssis-login-tab.png)
+ 
+3.  Nella scheda **Proprietà connessione**, nella casella di testo **Connetti al database**, selezionare o immettere **SSISDB** e selezionare **Connetti**.
+
+    ![Scheda Proprietà connessione SSIS](media/how-to-migrate-ssis-packages/dms-ssis-conncetion-properties-tab.png)
+
+4.  In Esplora oggetti di SQL Server Management Studio, espandere il nodo **Cataloghi di Integration Services**, espandere **SSISDB** e se non esistono già cartelle, fare clic con il tasto destro del mouse su **SSISDB** e creare una nuova cartella.
+
+5.  In **SSISDB**, espandere una cartella specifica, fare clic con il tasto destro del mouse su **Progetti** e selezionare **Distribuisci progetto**.
+
+    ![Nodo SSISDB SSIS espanso](media/how-to-migrate-ssis-packages/dms-ssis-ssisdb-node-expanded.png)
+
+6.  Nella procedura guidata di distribuzione di Integration Services, nella pagina **Introduzione**, esaminare le informazioni e selezionare **Avanti**.
+
+    ![Pagina di introduzione alla procedura guidata di distribuzione](media/how-to-migrate-ssis-packages/dms-deployment-wizard-introduction-page.png)
+
+7.  Nella pagina **Seleziona origine**, specificare il progetto SSIS esistente che si desidera distribuire.
+
+    Se SSMS è connesso anche a SQL Server che ospita il database di origine SSISDB, selezionare **catalogo di Integration Services**, quindi immettere il nome del server e il percorso del progetto nel catalogo per distribuire direttamente il progetto.
+
+    In alternativa, selezionare **File di distribuzione progetto** e specificare il percorso di un file di distribuzione del progetto esistente (.ispac) per distribuire il progetto.
+
+    ![Pagina di origine di selezione della procedura guidata di distribuzione](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-source-page.png)
+ 
+8.  Selezionare **Avanti**.
+9.  Nella pagina **Seleziona destinazione**, specificare la destinazione per il progetto.
+
+       a. Nella casella di testo Nome del server, immettere il nome completo del server di database SQL di Azure (<nome_server>.database.windows.net) o il nome dell'Istanza gestita di database SQL di Azure (<nome_server.dns_prefisso>.database.windows.net).
+ 
+       b. Specificare le informazioni di autenticazione e selezionare **Connetti**.
+    
+       ![Pagina di destinazione di selezione della procedura guidata di distribuzione](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-destination-page.png)
+
+    c. Selezionare Sfoglia per specificare la cartella di destinazione in SSISDB, quindi fare clic su Avanti.
+
+    > [!NOTE]
+    > Il pulsante **Avanti** viene abilitato solo dopo aver selezionato **Connetti**. 
+
+10. Nella pagina **Convalida**, visualizzare eventuali errori o avvisi e, se necessario, modificare i pacchetti di conseguenza.
+
+    ![Pagina di convalida della procedura guidata di distribuzione](media/how-to-migrate-ssis-packages/dms-deployment-wizard-validate-page.png)
+
+11. Selezionare **Avanti**.
+
+12. Nella pagina **Revisione**, esaminare le impostazioni di distribuzione.
+
+    > [!NOTE]
+    > È possibile modificare le impostazioni selezionando Indietro oppure uno dei collegamenti ai passaggi nel riquadro di sinistra.
+
+13. Fare clic su **Distribuisci** per avviare il processo di distribuzione.
+
+14. Al termine del processo di distribuzione, è possibile visualizzare la Pagina risultati, che indica l'esito positivo o negativo di ogni azione di distribuzione.
+    a. Se un'azione ha esito negativo, nella colonna **Risultato**, selezionare **Non riuscita** per visualizzare una spiegazione dell'errore.
+    b. Facoltativamente, selezionare **Salva report** per salvare i risultati in un file XML.
+
+15. Selezionare **Chiudi** per uscire dalla procedura guidata di distribuzione di Integration Services.
+
+Se la distribuzione del progetto ha esito positivo senza errori, è possibile selezionare tutti i pacchetti contenuti per eseguirli su Azure-SSIS Integration Runtime.
+
+## <a name="next-steps"></a>Passaggi successivi
+- Rivedere le linee guida sulla migrazione nella [Guida alla migrazione di database](https://datamigration.microsoft.com/) di Microsoft.

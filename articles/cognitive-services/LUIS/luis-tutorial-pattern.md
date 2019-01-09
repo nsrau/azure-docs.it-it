@@ -9,23 +9,23 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 05af52ab492fcfe509b547efdd182a366642b9ed
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075523"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754408"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Esercitazione 3: Aggiungere i formati delle espressioni comuni
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Esercitazione: Aggiungere formati comuni di espressione modello di criterio
 
 In questa esercitazione, i criteri vengono usati per migliorare le stime in termini di finalità ed entità fornendo poche espressioni di esempio. Il criterio viene fornito tramite un esempio di espressione modello, che include la sintassi per identificare le entità e il testo che può essere ignorato. Un criterio è una combinazione di corrispondenza a espressioni e apprendimento automatico.  L'esempio di espressione modello, insieme alle espressioni della finalità, offrono a LUIS una migliore comprensione delle espressioni appropriate per la finalità. 
 
 **In questa esercitazione si imparerà come:**
 
 > [!div class="checklist"]
-> * Usare l'app di esercitazione esistente 
+> * Importare l'app di esempio 
 > * Creare finalità
 > * Eseguire il training
 > * Pubblica
@@ -37,13 +37,13 @@ In questa esercitazione, i criteri vengono usati per migliorare le stime in term
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Usare l'app esistente
+## <a name="import-example-app"></a>Importare l'app di esempio
 
 Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
-Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
+Seguire questa procedura:
 
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
 2. Importare il file JSON in una nuova app.
 

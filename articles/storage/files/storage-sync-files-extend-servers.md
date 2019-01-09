@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc34411cc27870dbd9c707a34ebf34b96c7253dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3ebf450f4e84fed572307a18f20f36013e32c7a5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986118"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630700"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Esercitazione: Estendere i file server Windows con Sincronizzazione file di Azure
 Questa esercitazione illustra i passaggi di base per estendere la capacità di archiviazione di un Windows Server con Sincronizzazione file di Azure. Anche se ai fini dell'esercitazione si usa una macchina virtuale Windows Server in Azure, in genere questa procedura andrebbe eseguita per i server locali. Se si è pronti a distribuire Sincronizzazione file di Azure nel proprio ambiente, consultare invece l'articolo [Distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
@@ -163,14 +163,14 @@ Nella macchina virtuale **Windows Server 2016 Datacenter**, **Server Manager** s
 
 1. Chiudere **Explorer** e **Server Manager**.
 
-### <a name="download-the-azurerm-powershell-module"></a>Scaricare il modulo AzureRM di PowerShell
-Successivamente, nella macchina virtuale **Windows Server 2016 Datacenter**, installare il **modulo AzureRM di PowerShell** nel server.
+### <a name="download-the-azure-powershell-module"></a>Scaricare il modulo di Azure PowerShell
+Successivamente, nella macchina virtuale **Windows Server 2016 Datacenter** installare il **modulo di Azure PowerShell** nel server.
 
 1. Nella VM, aprire una finestra di Windows PowerShell con privilegi elevati
 1. Eseguire il comando seguente:
 
    ```powershell
-   Install-Module -Name AzureRM -AllowClobber
+   Install-Module -Name Az -AllowClobber
    ```
 
    > [!NOTE]
@@ -189,7 +189,7 @@ Successivamente, nella macchina virtuale **Windows Server 2016 Datacenter**, ins
 
 1. Rispondere `Yes` o `Yes to All` per continuare l'installazione.
 
-Il modulo `AzureRM` è un modulo di rollup per i cmdlet di Azure PowerShell. Con la sua installazione vengono scaricati tutti i moduli di Azure Resource Manager disponibili e vengono messi a disposizione i relativi cmdlet.
+Il modulo `Az` è un modulo di rollup per i cmdlet di Azure PowerShell. Con la sua installazione vengono scaricati tutti i moduli di Azure Resource Manager disponibili e vengono messi a disposizione i relativi cmdlet.
 
 A questo punto, è stata completata la configurazione dell'ambiente per l'esercitazione e si è pronti per iniziare a distribuire il **servizio di sincronizzazione archiviazione**.
 
@@ -204,7 +204,7 @@ La distribuzione di Sincronizzazione file di Azure inizia con l'inserimento di u
 
    Nel pannello che viene visualizzato immettere le informazioni seguenti:
 
-   | Valore | Descrizione |
+   | Valore | DESCRIZIONE |
    | ----- | ----- |
    | **Nome** | Un nome univoco (per ogni sottoscrizione) per il servizio di sincronizzazione archiviazione.<br><br>In questa esercitazione si usa *afssyncservice02*. |
    | **Sottoscrizione** | Sottoscrizione usata per questa esercitazione. |
@@ -237,7 +237,7 @@ L'agente Sincronizzazione file di Azure è un pacchetto scaricabile che consente
 ## <a name="register-windows-server"></a>Registrare Windows Server
 La registrazione di Windows Server con un servizio di sincronizzazione archiviazione consente di stabilire una relazione di trust tra il server, o il cluster, in uso e il servizio di sincronizzazione archiviazione. Un server può essere registrato solo in un servizio di sincronizzazione archiviazione e può eseguire la sincronizzazione con altri server e condivisioni file di Azure associati allo stesso servizio di sincronizzazione archiviazione.
 
-L'interfaccia utente di Registrazione Server viene visualizzata automaticamente al termine dell'installazione dell'**agente Sincronizzazione file di Azure**. In caso contrario, è possibile aprirla manualmente dal percorso: c:\Programmi\Microsoft Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+L'interfaccia utente di Registrazione Server viene visualizzata automaticamente al termine dell'installazione dell'**agente Sincronizzazione file di Azure**. In caso contrario, è possibile aprirla manualmente dal percorso file: C:\Programmi\Azure\StorageSyncAgent\ServerRegistration.exe.
 
 1. Dopo avere aperto l'interfaccia utente di Registrazione server fare clic su **OK**.
 1. Fare clic su **Accedi** per iniziare.
@@ -248,7 +248,7 @@ L'interfaccia utente di Registrazione Server viene visualizzata automaticamente 
 
    | | |
    | ----- | ----- |
-   | Valore | Descrizione |
+   | Valore | DESCRIZIONE |
    | **Sottoscrizione di Azure** | La sottoscrizione contenente il servizio di sincronizzazione archiviazione per questa esercitazione. |
    | **Gruppo di risorse** | Il gruppo di risorse contenente il servizio di sincronizzazione archiviazione per questa esercitazione. In questa esercitazione è stato usato *afsresgroup101918*. |
    | **Servizio di sincronizzazione archiviazione** | Il nome del servizio di sincronizzazione archiviazione usato per questa esercitazione. In questa esercitazione è stato usato *afssyncservice02*. |
@@ -266,7 +266,7 @@ Un gruppo di sincronizzazione definisce la topologia di sincronizzazione per un 
 
 1. Nel riquadro che viene visualizzato immettere le informazioni seguenti per creare un gruppo di sincronizzazione con un endpoint cloud:
 
-   | Valore | Descrizione |
+   | Valore | DESCRIZIONE |
    | ----- | ----- |
    | **Nome gruppo di sincronizzazione** | Questo nome deve essere univoco all'interno del servizio di sincronizzazione archiviazione, ma può essere qualsiasi nome logico per l'utente. In questa esercitazione si usa *afssyncgroup*.|
    | **Sottoscrizione** | La sottoscrizione in cui è stato distribuito il servizio di sincronizzazione archiviazione per questa esercitazione. |
@@ -288,7 +288,7 @@ Un endpoint server rappresenta una posizione specifica in un server registrato, 
 
    | | |
    | ----- | ----- |
-   | Valore | Descrizione |
+   | Valore | DESCRIZIONE |
    | **Server registrato** | Il nome del server creato per questa esercitazione. In questa esercitazione è stato usato *afsvm101918* |
    | **Percorso** | Il nome del percorso di Windows Server all'unità creato per questa esercitazione. Nell'esempio sarà *f:\filestosync*. |
    | **Suddivisione in livelli nel cloud** | Lasciare disattivato per questa esercitazione. |

@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: a130351131f59511ef4f60b579197da96f9334e6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444785"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720732"
 ---
-# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Esercitazione: monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric usando Application Insights
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Esercitazione: Monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric usando Application Insights
 
 Questa è la quinta di una serie di esercitazioni. Analizza i passaggi per configurare il monitoraggio e la diagnostica per un'applicazione ASP.NET Core in esecuzione in un cluster di Service Fabric con Application Insights. Verranno raccolti i dati di telemetria dall'applicazione sviluppata nella prima parte dell'esercitazione, [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-create-dotnet-app.md).
 
@@ -181,7 +181,7 @@ Passare alla risorsa di Application Insights nel portale di Azure.
 Fare clic su **Panoramica** per tornare alla pagina di destinazione della risorsa. Quindi fare clic su **Ricerca** nella parte superiore per visualizzare le tracce in arrivo. Sono necessari alcuni minuti per visualizzare le tracce in Application Insights. Nel caso in cui non ne venga visualizzata alcuna, attendere un minuto e premere il pulsante **Aggiorna** nella parte superiore.
 ![Visualizzazione tracce in AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
 
-Scorrendo verso il basso nella finestra *Ricerca* verranno visualizzati tutti i dati di telemetria in ingresso ottenuti in modo predefinito con Application Insights. Per ogni azione eseguita nell'applicazione di voto dovrebbe esserci una richiesta PUT in uscita da *VotingWeb* (PUT Votes/Put [name]), una richiesta PUT in ingresso da *VotingData* (PUT VoteData/Put [name]), seguita da una coppia di richieste GET per l'aggiornamento dei dati visualizzati. Sarà presente, inoltre, una traccia di dipendenza per il protocollo HTTP su localhost, poiché si tratta di richieste HTTP. Di seguito è riportato un esempio di ciò che viene visualizzato per la modalità di aggiunta di un voto: ![traccia di richiesta di esempio AI](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
+Scorrendo verso il basso nella finestra *Ricerca* verranno visualizzati tutti i dati di telemetria in ingresso ottenuti in modo predefinito con Application Insights. Per ogni azione eseguita nell'applicazione di voto dovrebbe esserci una richiesta PUT in uscita da *VotingWeb* (PUT Votes/Put [name]), una richiesta PUT in ingresso da *VotingData* (PUT VoteData/Put [name]), seguita da una coppia di richieste GET per l'aggiornamento dei dati visualizzati. Sarà presente, inoltre, una traccia di dipendenza per il protocollo HTTP su localhost, poiché si tratta di richieste HTTP. Di seguito è riportato un esempio di ciò che viene visualizzato per la modalità di aggiunta di un voto: ![Traccia della richiesta di esempio di intelligenza artificiale](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
 
 È possibile fare clic su una delle tracce per visualizzare ulteriori dettagli al riguardo. Sono presenti informazioni utili sulla richiesta prodotte da Application Insights, compreso il *Tempo di risposta* e l'*URL della richiesta*. Inoltre, poiché è stato aggiunto il NuGet specifico di Service Fabric, verranno prodotti anche i dati relativi all'applicazione nel contesto di un cluster di Service Fabric nella sezione *Dati personalizzati* riportata di seguito. Ciò include il contesto del servizio, in modo da visualizzare il *PartitionID* e *ReplicaId* dell'origine della richiesta e una migliore localizzazione dei problemi durante la diagnosi di errori nell'applicazione.
 
@@ -191,11 +191,11 @@ Scorrendo verso il basso nella finestra *Ricerca* verranno visualizzati tutti i 
 
 ![Dettagli traccia AI](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
-La mappa app può aiutare a comprendere meglio la topologia dell'applicazione, soprattutto quando si inizia ad aggiungere più servizi diversi che interagiscono tra di loro. Inoltre, offre dati di base sulle percentuali di successo della richiesta e può aiutare a diagnosticare le richieste non riuscite per comprendere dove può essersi verificato un errore. Per ulteriori informazioni sull'utilizzo della mappa app, vedere [Mappa delle applicazioni in Application Insights](../application-insights/app-insights-app-map.md).
+La mappa app può aiutare a comprendere meglio la topologia dell'applicazione, soprattutto quando si inizia ad aggiungere più servizi diversi che interagiscono tra di loro. Inoltre, offre dati di base sulle percentuali di successo della richiesta e può aiutare a diagnosticare le richieste non riuscite per comprendere dove può essersi verificato un errore. Per ulteriori informazioni sull'utilizzo della mappa app, vedere [Mappa delle applicazioni in Application Insights](../azure-monitor/app/app-map.md).
 
 ## <a name="add-custom-instrumentation-to-your-application"></a>Aggiungere la strumentazione personalizzata all'applicazione
 
-Application Insights offre molti dati di telemetria predefiniti, tuttavia, si potrebbe voler aggiungere ulteriore strumentazione personalizzata, in base alle esigenze dell'azienda o per migliorare la diagnostica in caso di errori nell'applicazione. Application Insights dispone di un'API per l'inserimento di eventi e metrica personalizzati, in merito alla quale sono disponibili altre informazioni [qui](../application-insights/app-insights-api-custom-events-metrics.md).
+Application Insights offre molti dati di telemetria predefiniti, tuttavia, si potrebbe voler aggiungere ulteriore strumentazione personalizzata, in base alle esigenze dell'azienda o per migliorare la diagnostica in caso di errori nell'applicazione. Application Insights dispone di un'API per l'inserimento di eventi e metrica personalizzati, in merito alla quale sono disponibili altre informazioni [qui](../azure-monitor/app/api-custom-events-metrics.md).
 
 Aggiungere alcuni eventi personalizzati a *VoteDataController.cs* (in *VotingData* > *Controller*) per tenere traccia del momento in cui i voti vengono aggiunti ed eliminati dal *votesDictionary* sottostante.
 

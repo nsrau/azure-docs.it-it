@@ -1,21 +1,21 @@
 ---
-title: Copiare i dati in Microsoft Azure Data Box | Microsoft Docs
-description: Informazioni su come copiare i dati in Azure Data Box
+title: Copiare dati in Microsoft Azure Data Box tramite SMB | Microsoft Docs
+description: Informazioni su come copiare dati in Azure Data Box tramite SMB
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 12/19/2018
 ms.author: alkohli
-ms.openlocfilehash: b59830677ac8c07c6b7adbab24c82ca25d71f5a0
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 6349ced07385ede42b21c9a8401dd3e0a23bcfbe
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093460"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790301"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box"></a>Esercitazione: Copiare i dati in Azure Data Box 
+# <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Esercitazione: Copiare dati in Azure Data Box tramite SMB
 
 Questa esercitazione descrive come connettersi al computer host e copiarne i dati usando l'Interfaccia utente Web locale, quindi preparare il Data Box per la spedizione.
 
@@ -28,34 +28,31 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, verificare che:
+Prima di iniziare, assicurarsi di:
 
-1. Sia stata completata l'[Esercitazione: Configurare Azure Data Box](data-box-deploy-set-up.md).
-2. Sia stato ricevuto il Data Box e lo stato dell'ordine nel portale sia **Recapitato**.
+1. Aver completato l'esercitazione descritta in [Esercitazione: Configurare Azure Data Box](data-box-deploy-set-up.md).
+2. Aver ricevuto Data Box e che lo stato dell'ordine nel portale sia **Recapitati**.
 3. Sia disponibile un computer host con i dati da copiare nel Data Box. Il computer host deve:
     - Eseguire un [sistema operativo supportato](data-box-system-requirements.md).
-    - Essere connesso a una rete ad alta velocità. È consigliabile disporre di una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE, ma la velocità dell'operazione di copia ne risentirà. 
+    - Essere connesso a una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. In assenza di una connessione a 10 GbE, è possibile usare un collegamento dati a 1 GbE, ma la velocità delle operazioni di copia ne risentirà. 
 
 ## <a name="connect-to-data-box"></a>Connettersi al Data Box
 
 In base all'account di archiviazione selezionato, Data Box crea fino a:
 - Tre condivisioni per ogni account di archiviazione associato per GPv1 e GPv2.
-- Una condivisione per l'account di archiviazione Premium o BLOB. 
+- Una condivisione per l'account di archiviazione Premium o BLOB.
 
 Nelle condivisioni per BLOB di pagine e BLOB in blocchi, le entità di primo livello sono contenitori e le entità di secondo livello sono BLOB. Nelle condivisioni per File di Azure le entità di primo livello sono condivisioni, mentre le entità di secondo livello sono file.
 
-Si consideri l'esempio seguente. 
+La tabella seguente mostra il percorso UNC delle condivisioni in Data Box e l'URL del percorso di Archiviazione di Azure in cui vengono caricati i dati. L'URL del percorso finale di Archiviazione di Azure può essere derivato dal percorso UNC della condivisione.
+ 
+|                   |                                                            |
+|-------------------|--------------------------------------------------------------------------------|
+| BLOB in blocchi di Azure | <li>Percorso UNC delle condivisioni: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>URL di Archiviazione di Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| BLOB di pagine di Azure  | <li>Percorso UNC delle condivisioni: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>URL di Archiviazione di Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| File di Azure       |<li>Percorso UNC delle condivisioni: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>URL di Archiviazione di Azure: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
 
-- Account di archiviazione: *Mystoracct*
-- Condivisione per BLOB in blocchi: *Mystoracct_BlockBlob/my-container/blob*
-- Condivisione per BLOB di pagine: *Mystoracct_BlockBlob/my-container/blob*
-- Condivisione per File: *Mystoracct_AzFile/my-share*
-
-La procedura da eseguire per la connessione e la copia può variare a seconda che il Data Box sia connesso a un computer host Windows Server o a un host Linux.
-
-### <a name="connect-via-smb"></a>Connettersi tramite SMB 
-
-Se si usa un computer host Windows Server, eseguire la procedura seguente per connettersi al Data Box.
+Se si usa un computer host Windows Server, eseguire le operazioni seguenti per connettersi a Data Box.
 
 1. Innanzitutto è necessario autenticare e avviare una sessione. Selezionare **Connetti e copia**. Fare clic su **Ottieni credenziali** per ottenere le credenziali di accesso per le condivisioni associate all'account di archiviazione. 
 
@@ -65,16 +62,16 @@ Se si usa un computer host Windows Server, eseguire la procedura seguente per co
     
     ![Ottenere le credenziali delle condivisioni 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Accedere alle condivisioni associate all'account di archiviazione (Mystoracct nell'esempio che segue). Usare il percorso `\\<IP of the device>\ShareName` per accedere alle condivisioni. A seconda del formato dei dati, connettersi alle condivisioni (usando il nome condivisione) all'indirizzo seguente: 
-    - *\\<IP address of the device>\Mystoracct_Blob*
-    - *\\<IP address of the device>\Mystoracct_Page*
-    - *\\<IP address of the device>\Mystoracct_AzFile*
-    
-    Per connettersi alle condivisioni dal computer host, aprire una finestra di comando. Al prompt dei comandi digitare:
+3. Per accedere alle condivisioni associate all'account di archiviazione (*devicemanagertest1* nell'esempio seguente) dal computer host, aprire una finestra di comando. Al prompt dei comandi digitare:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-    Quando richiesto, immettere la password della condivisione. L'esempio seguente mostra la connessione a una condivisione tramite il comando precedente.
+    A seconda del formato dei dati, i percorsi delle condivisioni sono i seguenti:
+    - BLOB in blocchi di Azure: `\\10.126.76.172\devicemanagertest1_BlockBlob`
+    - BLOB di pagine di Azure: `\\10.126.76.172\devicemanagertest1_PageBlob`
+    - File di Azure: `\\10.126.76.172\devicemanagertest1_AzFile`
+    
+4. Quando richiesto, immettere la password della condivisione. L'esempio seguente mostra la connessione a una condivisione tramite il comando precedente.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
@@ -82,53 +79,29 @@ Se si usa un computer host Windows Server, eseguire la procedura seguente per co
     The command completed successfully.
     ```
 
-4. Premere WINDOWS+R. Nella finestra **Esegui** specificare `\\<device IP address>`. Fare clic su **OK**. Si apre Esplora file. Ora le condivisioni dovrebbero essere visualizzate come cartelle.
+4. Premere WINDOWS+R. Nella finestra **Esegui** specificare `\\<device IP address>`. Fare clic su **OK** per aprire Esplora file.
     
     ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5.  **Creare sempre una cartella per i file che si intendono copiare nella condivisione e quindi copiare i file in tale cartella**. A volte sulle cartelle potrebbe essere visualizzata una croce grigia. Questa croce non denota una condizione di errore. Le cartelle vengono contrassegnate dall'applicazione per indicarne lo stato.
+    Le condivisioni verranno ora visualizzate come cartelle.
     
-    ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
-
-### <a name="connect-via-nfs"></a>Connettersi tramite NFS 
-
-Se si usa un computer host Linux, eseguire la procedura seguente per configurare il Data Box in modo da consentire l'accesso ai client NFS.
-
-1. Specificare l'indirizzo IP dei client autorizzati ad accedere alla condivisione. Nell'interfaccia utente Web locale passare alla pagina **Connetti e copia**. In **Impostazioni NFS** fare clic su **Accesso client NFS**. 
-
-    ![Configurare l'accesso dei client NFS 1](media/data-box-deploy-copy-data/nfs-client-access.png)
-
-2. Specificare l'indirizzo IP del client NFS e fare clic su **Aggiungi**. Per configurare l'accesso per più client NFS, ripetere questa procedura. Fare clic su **OK**.
-
-    ![Configurare l'accesso dei client NFS 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
-
-2. Verificare che nel computer host Linux sia installata una [versione supportata](data-box-system-requirements.md) del client NFS. Usare la versione specifica della distribuzione Linux in uso. 
-
-3. Dopo l'installazione del client NFS, usare il comando seguente per montare la condivisione NFS nel dispositivo Data Box:
-
-    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
-
-    L'esempio seguente mostra come connettersi tramite NFS a una condivisione del Data Box. L'indirizzo IP del dispositivo Data Box è `10.161.23.130` e la condivisione `Mystoracct_Blob` viene montata sulla macchina virtuale Ubuntu, dato che il punto di montaggio è `/home/databoxubuntuhost/databox`.
-
-    `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
-
+    **Creare sempre una cartella per i file che si intendono copiare nella condivisione e quindi copiare i file in tale cartella**. La cartella creata nelle condivisioni di BLOB in blocchi e BLOB di pagine rappresenta un contenitore in cui i dati vengono caricati come BLOB. Non è possibile copiare direttamente i file nella cartella *$root* nell'account di archiviazione.
+    
+    ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
 ## <a name="copy-data-to-data-box"></a>Copiare i dati nel Data Box
 
-Una volta stabilita la connessione alle condivisioni del Data Box, è necessario copiare i dati. Prima di procedere con la copia, esaminare le considerazioni seguenti:
+Dopo aver stabilito la connessione alle condivisioni Data Box, il passaggio successivo consiste nel copiare i dati. Prima di procedere alla copia dei dati, tenere conto delle considerazioni seguenti:
 
-- Assicurarsi di copiare i dati nelle condivisioni corrispondenti al formato dati appropriato. Ad esempio, copiare i dati del BLOB in blocchi nella condivisione per i BLOB in blocchi. Se il formato dei dati non corrisponde al tipo di condivisione appropriato, il caricamento dei dati in Azure non riuscirà.
--  Durante la copia dei dati assicurarsi che le dimensioni dei dati siano conformi ai valori descritti nei [limiti per il servizio di archiviazione di Azure e per Azure Data Box](data-box-limits.md). 
+- Assicurarsi di copiare i dati nelle condivisioni corrispondenti al formato dei dati appropriato. Ad esempio, copiare i dati del BLOB in blocchi nella condivisione per i BLOB in blocchi. Se il formato dei dati non corrisponde al tipo di condivisione appropriato, il caricamento dei dati in Azure non riuscirà.
+-  Durante la copia dei dati, assicurarsi che le dimensioni dei dati siano conformi ai limiti di dimensione descritti in [Limiti per l'archiviazione di Azure e per Azure Data Box](data-box-limits.md).
 - Se i dati caricati dal Data Box vengono caricati contemporaneamente da altre applicazioni all'esterno del Data Box, è possibile che si verifichino errori del processo di caricamento e il danneggiamento dei dati.
-- È consigliabile non usare SMB e NFS contemporaneamente né copiare gli stessi dati nella stessa destinazione finale in Azure. In questi casi il risultato finale non può essere determinato.
+- È consigliabile non usare SMB e NFS contemporaneamente né copiare gli stessi dati nella stessa destinazione finale in Azure. In questi casi, non è possibile prevedere il risultato finale.
+- Creare sempre una cartella per i file che si intende copiare nella condivisione e quindi copiare i file in questa cartella. La cartella creata nelle condivisioni di BLOB in blocchi e BLOB di pagine rappresenta un contenitore in cui i dati vengono caricati come BLOB. Non è possibile copiare direttamente i file nella cartella *$root* nell'account di archiviazione.
 
-### <a name="copy-data-via-smb"></a>Copiare i dati tramite SMB
-
-Dopo aver stabilito la connessione alla condivisione SMB, iniziare la copia dei dati. 
-
-È possibile usare qualsiasi strumento di copia file compatibile con SMB, ad esempio Robocopy, per copiare i dati. È possibile avviare più processi di copia tramite Robocopy. Usare il comando seguente:
+Dopo aver stabilito la connessione alla condivisione SMB, avviare la copia dei dati. È possibile usare qualsiasi strumento di copia file compatibile con SMB, ad esempio Robocopy, per copiare i dati. È possibile avviare più processi di copia tramite Robocopy. Usare il comando seguente:
     
-    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
+    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
   
  Gli attributi sono descritti nella tabella seguente.
     
@@ -138,8 +111,8 @@ Dopo aver stabilito la connessione alla condivisione SMB, iniziare la copia dei 
 |/r:     |Specifica il numero di tentativi per le copie non riuscite.         |
 |/w:     |Specifica il tempo di attesa tra i tentativi, in secondi.         |
 |/is     |Include gli stessi file.         |
-|/nfl     |Specifica che i nomi dei file non devono essere inseriti nei log.         |
-|/ndl    |Specifica che i nomi di directory non devono essere inseriti nei log.        |
+|/nfl     |Specifica che i nomi dei file non vengono registrati.         |
+|/ndl    |Specifica che i nomi delle directory non vengono registrati.        |
 |/np     |Specifica che lo stato dell'operazione di copia (il numero di file o directory copiati finora) non deve essere visualizzato. La visualizzazione dello stato riduce notevolmente le prestazioni.         |
 |/MT     | Specifica l'uso del multithreading (consigliati 32 o 64 thread). Questa opzione non può essere usata con i file crittografati. Potrebbe essere necessario separare i file crittografati da quelli non crittografati. Tuttavia, la copia a thread singolo riduce notevolmente le prestazioni.           |
 |/fft     | Usare questa opzione per ridurre la granularità del timestamp per qualsiasi file system.        |
@@ -223,80 +196,11 @@ Per assicurare l'integrità dei dati, il checksum viene calcolato inline durante
     
    ![Verificare lo spazio occupato e lo spazio disponibile nel dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-### <a name="copy-data-via-nfs"></a>Copiare i dati tramite NFS
-
-Se si usa un computer host Linux, usare un'utilità di copia simile a Robocopy. Alcune soluzioni alternative disponibili in Linux sono [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) e [Ultracopier](https://ultracopier.first-world.info/).  
-
-Il comando `cp` è una delle opzioni migliori per copiare una directory. Per altre informazioni sulla sintassi, vedere [cp man-pages](http://man7.org/linux/man-pages/man1/cp.1.html).
-
-Se si usa l'opzione rsync per una copia multithread, seguire queste indicazioni:
-
- - Installare il pacchetto **CIFS Utils** o **NFS Utils** in base al file system usato dal client Linux.
-
-    `sudo apt-get install cifs-utils`
-
-    `sudo apt-get install nfs-utils`
-
- -  Installare **Rsync** e **Parallel** (varia in base alla versione distribuita di Linux).
-
-    `sudo apt-get install rsync`
-   
-    `sudo apt-get install parallel` 
-
- - Creare un punto di montaggio.
-
-    `sudo mkdir /mnt/databox`
-
- - Montare il volume.
-
-    `sudo mount -t NFS4  //Databox IP Address/share_name /mnt/databox` 
-
- - Eseguire il mirroring della struttura di directory delle cartelle.  
-
-    `rsync -za --include='*/' --exclude='*' /local_path/ /mnt/databox`
-
- - Copiare i file. 
-
-    `cd /local_path/; find -L . -type f | parallel -j X rsync -za {} /mnt/databox/{}`
-
-     dove j specifica il numero di parallelizzazione, X = numero di copie parallele
-
-     È consigliabile iniziare con 16 copie parallele e aumentare il numero di thread in base alle risorse disponibili.
 
 ## <a name="prepare-to-ship"></a>Preparare per la spedizione
 
-Il passaggio finale consiste nel preparare il dispositivo per la spedizione. In questo passaggio tutte le condivisioni del dispositivo vengono portate offline. Una volta avviata la preparazione del dispositivo per la spedizione, le condivisioni non sono più accessibili.
-1. Selezionare **Prepara per la spedizione** e fare clic su **Avvia preparazione**. 
-   
-    ![Preparare per la spedizione 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
-2. Per impostazione predefinita, i checksum vengono calcolati inline durante la preparazione per la spedizione. Il calcolo dei checksum potrebbe richiedere alcuni minuti in base alle dimensioni dei dati. Fare clic su **Avvia preparazione**.
-    1. Le condivisioni del dispositivo vengono portate offline e il dispositivo viene bloccato durante la preparazione per la spedizione.
-        
-        ![Preparare per la spedizione 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 
-   
-    2. Completata la preparazione, lo stato del dispositivo viene aggiornato a *Pronto per la spedizione*. 
-        
-        ![Preparare per la spedizione 1](media/data-box-deploy-copy-data/prepare-to-ship3.png)
-
-    3. Scaricare l'elenco dei file (manifesto) copiati in questo processo. In seguito è possibile usare questo elenco per verificare i file caricati in Azure.
-        
-        ![Preparare per la spedizione 1](media/data-box-deploy-copy-data/prepare-to-ship4.png)
-
-3. Arrestare il dispositivo. Passare alla pagina **Arresta o riavvia** e fare clic su **Arresta**. Alla richiesta di conferma fare clic su **OK** per continuare.
-4. Rimuovere i cavi. Il passaggio successivo consiste nella spedizione del dispositivo a Microsoft.
-
- 
-<!--## Appendix - robocopy parameters
-
-This section describes the robocopy parameters used when copying the data to optimize the performance.
-
-|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |  |
-|    Data Box Heavy     |    6 Robocopy sessions <br> 24 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |   
-|    Data Box Disk         |    4 Robocopy sessions <br> 16 threads per sessions             |    2 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 16 threads per sessions    |   
--->
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -307,7 +211,7 @@ In questa esercitazione sono stati presentati argomenti relativi ad Azure Data B
 > * Copiare i dati nel Data Box
 > * Preparare il Data Box per la spedizione
 
-Passare all'esercitazione successiva per informazioni su come configurare e copiare i dati nel Data Box.
+Passare all'esercitazione successiva per informazioni su come riconsegnare Data Box a Microsoft.
 
 > [!div class="nextstepaction"]
 > [Spedire Azure Data Box a Microsoft](./data-box-deploy-picked-up.md)

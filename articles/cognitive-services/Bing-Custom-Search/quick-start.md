@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Creare la prima istanza di Ricerca personalizzata Bing'
+title: 'Avvio rapido: Creare una prima istanza di Ricerca personalizzata Bing | Microsoft Docs'
 titlesuffix: Azure Cognitive Services
-description: Per usare Ricerca personalizzata Bing è necessario creare un'istanza di ricerca personalizzata che definisce la visualizzazione o sezione del Web. L'istanza contiene le impostazioni che specificano i domini pubblici, i siti secondari e le pagine Web in cui si vuole eseguire la ricerca con Bing e le modifiche di classificazione.
+description: Usare questo articolo per creare un'istanza di Bing personalizzata che può eseguire ricerche in domini e pagine Web definiti dall'utente.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,37 +10,46 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2017
 ms.author: aahi
-ms.openlocfilehash: c9b37486d664920bbc4b85a0715ce7f5ea910365
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: ba1444b3115ffd2c73e1773aa926d11fed81f830
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161541"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556119"
 ---
-# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Guida introduttiva: Creare la prima istanza di Ricerca personalizzata Bing
-Per usare Ricerca personalizzata Bing è necessario creare un'istanza di ricerca personalizzata che definisce la visualizzazione o sezione del Web. L'istanza contiene le impostazioni che specificano i domini pubblici, i siti Web e le pagine Web in cui si vuole eseguire la ricerca con Bing e le modifiche di classificazione. Per creare l'istanza, usare il [portale](https://customsearch.ai) di Ricerca personalizzata Bing. 
+# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Avvio rapido: Creare la prima istanza di Ricerca personalizzata Bing
+
+Per usare Ricerca personalizzata Bing è necessario creare un'istanza di ricerca personalizzata che definisce la visualizzazione o sezione del Web. L'istanza contiene i domini pubblici, i siti Web e le pagine Web in cui eseguire la ricerca e le eventuali modifiche di classificazione desiderate. 
+
+Per creare l'istanza, usare il [portale di Ricerca personalizzata Bing](https://customsearch.ai). 
+
+![Immagine del portale di Ricerca personalizzata Bing](media/blockedCustomSrch.png)
+
+## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## <a name="create-a-custom-search-instance"></a>Creare un'istanza di Ricerca personalizzata
 
 Per creare un'istanza di Ricerca personalizzata Bing:
 
-1.  Ottenere una chiave per l'API Ricerca personalizzata. Vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-2.  Fare clic sul pulsante **Accedi** per accedere al portale usando un account Microsoft (account del servizio gestito). 
-    - Se non si ha un account Microsoft, fare clic su **Crea un account Microsoft**. Verranno chieste le autorizzazioni necessarie per accedere ai dati. Fare clic su **Sì**.
-    - Accettare le condizioni di Servizi cognitivi. Selezionare **Accetto** e fare clic su **Accetto**.  
-3.  Dopo aver eseguito l'accesso, fare clic su **Nuova istanza** e assegnare un nome all'istanza. Usare un nome significativo che descriva il tipo di contenuto restituito dalla ricerca. È possibile modificare il nome in qualsiasi momento. 
-4.  Nell'**esperienza di ricerca** fare clic sulla scheda **Elementi attivi** e immettere l'URL di uno o più siti Web da includere nella ricerca.
-5.  Per verificare che l'istanza restituisca risultati, immettere una query nel riquadro di anteprima a destra. Se non sono presenti risultati, specificare un nuovo sito Web. Bing restituisce risultati solo per i siti pubblici che ha indicizzato.
-6.  Fare clic su **Pubblica** per pubblicare le modifiche di configurazione in produzione. Quando richiesto, fare clic su **Pubblica** per confermare.
-7.  Fare clic su **Produzione** > **Endpoint** e copiare l'**ID di configurazione personalizzato**. Questo ID è necessario per chiamare l'API Ricerca personalizzata.
+1. Fare clic su **Inizia** nel [portale di Ricerca personalizzata Bing](https://customsearch.ai) e accedere con il proprio account Microsoft.
+
+2. Fare clic su **Nuova istanza**, quindi immettere un nome descrittivo. È possibile modificare il nome dell'istanza in qualsiasi momento.
+ 
+3. Nell'**esperienza di ricerca** fare clic sulla scheda **Elementi attivi** e immettere l'URL di uno o più siti Web da includere nella ricerca. 
+
+    > [!NOTE]
+    > Le istanze di ricerca personalizzata Bing restituiranno risultati solo per i domini e le pagine Web che sono pubblici e sono stati indicizzati da Bing.
+
+4. È possibile usare il lato destro del portale di Ricerca personalizzata Bing per immettere una query ed esaminare i risultati restituiti dall'istanza di ricerca. Se viene restituito alcun risultato, provare a immettere un URL diverso.  
+
+5. Fare clic su **Pubblica** per pubblicare le modifiche nell'ambiente di produzione e aggiornare gli endpoint dell'istanza.
+
+6.  Fare clic sulla scheda **Produzione**. In **Endpoint**, copiare l'**ID di configurazione personalizzato**. Questo ID è necessario per chiamare l'API Ricerca personalizzata. Va aggiunto al parametro di query `customconfig=` nelle chiamate.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Continuare a usare l'istanza di ricerca personalizzata creata seguendo le istruzioni contenute in queste guide alla procedure:
-
-- [Configurare un'esperienza di ricerca personalizzata](./define-your-custom-view.md)
-- [Chiamare la ricerca personalizzata](./search-your-custom-view.md)
-- [Condividere una ricerca personalizzata](./share-your-custom-search.md)
-- [Configurare l'esperienza dell'interfaccia utente ospitata](./hosted-ui.md)
-- [Usare indicatori di effetto per evidenziare il testo](./hit-highlighting.md)
-- [Sfogliare pagine Web](./page-webpages.md)
+> [!div class="nextstepaction"]
+> [Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing](./call-endpoint-csharp.md)

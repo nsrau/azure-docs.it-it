@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2018
-ms.openlocfilehash: cff7d0dea27dd21ac4f7bb133e297e4f5928d2c2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8ef4e9917623f43e5c9900150deb22d62169c836
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680600"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555966"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Testare i moduli Terraform in Azure con Terratest
 
@@ -22,7 +22,7 @@ ms.locfileid: "52680600"
 
 Quando si creano moduli Terraform, è importante implementare il controllo di qualità. Sfortunatamente è disponibile solo poca documentazione che spiega come creare unit test e test di integrazione nei moduli Terraform. Questa esercitazione presenta un'infrastruttura di test e le procedure consigliate adottate durante la creazione dei [moduli Terraform per Azure](https://registry.terraform.io/browse?provider=azurerm).
 
-Sono state analizzate tutte le infrastrutture di test più diffuse ed è stato scelto [Terratest](https://github.com/gruntwork-io/terratest) per testare i moduli Terraform. Terratest viene implementato come file di libreria Go. Terratest fornisce una raccolta di funzioni helper e modelli per le comuni attività di test delle infrastrutture, ad esempio per effettuare richieste HTTP e per usare SSH per accedere a macchina virtuale specifica. L'elenco seguente illustra alcuni dei principali vantaggi dell'uso di Terratest:
+Sono state analizzate tutte le infrastrutture di test più diffuse ed è stato scelto [Terratest](https://github.com/gruntwork-io/terratest) per testare i moduli Terraform. Terratest viene implementato come file di libreria Go, Terratest fornisce una raccolta di funzioni helper e modelli per le comuni attività di test delle infrastrutture, ad esempio per effettuare richieste HTTP e per usare SSH per accedere a macchina virtuale specifica. L'elenco seguente illustra alcuni dei principali vantaggi dell'uso di Terratest:
 
 - **Fornisce comodi componenti helper per il controllo dell'infrastruttura**. Questa funzionalità è utile quando si vuole verificare l'infrastruttura reale nell'ambiente reale.
 - **La struttura di cartelle è organizzata in modo chiaro**. I test case sono organizzati in modo chiaro e seguono la [struttura di cartelle dei moduli Terraform standard](https://www.terraform.io/docs/modules/create.html#standard-module-structure).
@@ -298,7 +298,7 @@ Si inizierà prima di tutto con gli esempi. Viene creata una nuova cartella di e
 </head>
 <body>
     <h1>Hi, Terraform Module</h1>
-    <p>This is a sample webpage to demostrate Terratest.</p>
+    <p>This is a sample webpage to demonstrate Terratest.</p>
 </body>
 </html>
 ```
@@ -365,7 +365,7 @@ func TestIT_HelloWorldExample(t *testing.T) {
     http_helper.HttpGetWithCustomValidation(t, homepage, func(status int, content string) bool {
         return status == 200 &&
             strings.Contains(content, "Hi, Terraform Module") &&
-            strings.Contains(content, "This is a sample web page to demostrate Terratest.")
+            strings.Contains(content, "This is a sample web page to demonstrate Terratest.")
     })
 }
 ```
@@ -504,7 +504,7 @@ func Clean() error {
 $ cd [Your GoPath]/src/staticwebpage
 GoPath/src/staticwebpage$ dep init    # Run only once for this folder
 GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in magefile or test cases
-GoPath/src/staticwebpage$ go fmt      # Only requied when you change the magefile
+GoPath/src/staticwebpage$ go fmt      # Only required when you change the magefile
 GoPath/src/staticwebpage$ az login    # Required when no service principal environment variables are present
 GoPath/src/staticwebpage$ mage
 ```
@@ -515,7 +515,7 @@ Con mage, è anche possibile condividere i passaggi usando il sistema di pacchet
 
 **Facoltativo: impostare variabili di ambiente di entità servizio per eseguire i test di accettazione**
  
-Invece di eseguire `az login` prima dei test, è possibile completare l'autenticazione di Azure impostando variabili di ambiente di entità servizio. Terraform pubblica un [elenco di nomi di variabile di ambiente](https://www.terraform.io/docs/providers/azurerm/index.html#testing). Solo le prime quattro di queste variabili sono necessarie. Terraform pubblica anche istruzioni dettagliate che spiegano come [ottenere il valore di queste variabili di ambiente](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
+Invece di eseguire `az login` prima dei test, è possibile completare l'autenticazione di Azure impostando variabili di ambiente di entità servizio. Terraform pubblica un [elenco di nomi di variabile di ambiente](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (di cui solo le prime quattro sono necessarie). Terraform pubblica anche istruzioni dettagliate che spiegano come [ottenere il valore di queste variabili di ambiente](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

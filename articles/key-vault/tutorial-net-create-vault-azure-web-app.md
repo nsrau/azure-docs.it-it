@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Usare Azure Key Vault con un'app web di Azure in .NET | Microsoft Docs"
+title: Usare Azure Key Vault con un'app Web di Azure in .NET - Azure Key Vault | Microsoft Docs
 description: "Esercitazione: Configurare un'applicazione ASP.NET Core per la lettura di un segreto da un insieme di credenziali delle chiavi"
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b6dbae0f721983920c2073927fff74100528678e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322142"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998796"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Esercitazione: Usare Azure Key Vault con un'app Web di Azure in .NET
 
 Azure Key Vault consente di proteggere i segreti, ad esempio le chiavi API e le stringhe di connessione del database. Fornisce accesso ai propri servizi, applicazioni e risorse IT.
 
-In questa esercitazione si apprenderà come creare un'applicazione web di Azure in grado di leggere informazioni da Azure Key Vault. Il processo usa le identità gestite per le risorse di Azure. Per altre informazioni sulle applicazioni Web di Azure, vedere [App Web di Azure](../app-service/app-service-web-overview.md).
+In questa esercitazione si apprenderà come creare un'applicazione web di Azure in grado di leggere informazioni da Azure Key Vault. Il processo usa le identità gestite per le risorse di Azure. Per altre informazioni sulle applicazioni Web di Azure, vedere [Servizio app di Azure](../app-service/overview.md).
 
 L'articolo illustra come:
 
@@ -256,4 +256,4 @@ Quando si esegue l'applicazione, dovrebbe essere visualizzato il valore del segr
 ## <a name="next-steps"></a>Passaggi successivi
 
 >[!div class="nextstepaction"]
->[Guida per gli sviluppatori per Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
+>[Guida per gli sviluppatori per Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)

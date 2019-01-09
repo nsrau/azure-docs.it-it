@@ -1,21 +1,19 @@
 ---
 title: Script dell'interfaccia della riga di comando di Azure - Ripristinare un server Database di Azure per MariaDB
 description: Questo script di esempio dell'interfaccia della riga di comando di Azure mostra come ripristinare un server di Database di Azure per MariaDB e i relativi database a un momento precedente.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: 5c7e3f96488ef5142c19920b7f14282fe3c89b9a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2d294f5b43ba3fb7587ca1d03903e39d75291754
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585187"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544380"
 ---
 # <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Ripristinare un server di Database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure
 Questo script di esempio dell'interfaccia della riga di comando di Azure consente di ripristinare un server singolo di Database di Azure per MariaDB a un momento precedente.
@@ -43,5 +41,5 @@ Questo script usa i comandi illustrati nella tabella seguente:
 | [az group delete](/cli/azure/group#az-group-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sull'interfaccia della riga di comando di Azure: [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
-- Provare a eseguire altri script: [esempi dell'interfaccia della riga di comando di Azure per Database di Azure per MariaDB](../sample-scripts-azure-cli.md)
+- Per altre informazioni sull'interfaccia della riga di comando di Azure: [Documentazione dell'interfaccia della riga di comando di Azure](/cli/azure).
+- Provare altri script: [Esempi dell'interfaccia della riga di comando di Azure per Database di Azure per MariaDB](../sample-scripts-azure-cli.md)

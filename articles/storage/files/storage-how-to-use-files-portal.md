@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 12e6b3a3fe790183a35c71fbb87243890ad22236
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: f295245cc14000e48cb3db55dc291edf02bb660e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944839"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634389"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure con il portale di Azure 
+# <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Avvio rapido: Creare e gestire condivisioni file di Azure con il portale di Azure 
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows, Linux e macOS. Questa guida contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con il [portale di Azure](https://portal.azure.com/).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -45,7 +45,7 @@ Per montare una condivisione file con SMB, vedere il documento riportato di segu
 - [macOS](storage-how-to-use-files-mac.md)
 
 ### <a name="using-an-azure-file-share-from-the-azure-portal"></a>Uso di una condivisione file di Azure dal portale di Azure
-Tutte le richieste effettuate tramite il portale di Azure vengono eseguite con l'API REST di File, che consente di creare, modificare ed eliminare file e directory nei client senza accesso SMB. È possibile usare il protocollo REST di File direttamente, ossia creando personalmente chiamate HTTP REST, ma il modo più comune (oltre al portale di Azure) consiste nell'usare il [modulo AzureRM di PowerShell](storage-how-to-use-files-powershell.md), l'[interfaccia della riga di comando di Azure](storage-how-to-use-files-cli.md) o Azure Storage SDK, perché offrono un pratico wrapper per il protocollo REST di File nel linguaggio di scripting/programmazione preferito. 
+Tutte le richieste effettuate tramite il portale di Azure vengono eseguite con l'API REST di File, che consente di creare, modificare ed eliminare file e directory nei client senza accesso SMB. È possibile usare il protocollo REST di File direttamente, ossia creando personalmente chiamate HTTP REST, ma il modo più comune (oltre al portale di Azure) consiste nell'usare il [modulo di Azure PowerShell](storage-how-to-use-files-powershell.md), l'[interfaccia della riga di comando di Azure](storage-how-to-use-files-cli.md) o Azure Storage SDK, perché offrono un pratico wrapper per il protocollo REST di File nel linguaggio di scripting/programmazione preferito. 
 
 È previsto che la maggior parte degli utenti di File di Azure vorrà usare la propria condivisione file di Azure tramite il protocollo SMB, perché questo consente loro di usare le applicazioni e gli strumenti esistenti con cui possono avere familiarità, ma esistono diversi motivi per cui è vantaggioso usare l'API REST di File invece di SMB, ad esempio:
 

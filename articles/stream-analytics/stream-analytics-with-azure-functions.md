@@ -2,8 +2,7 @@
 title: 'Esercitazione: Eseguire Funzioni di Azure con processi di Analisi di flusso di Azure | Microsoft Docs'
 description: Questa esercitazione descrive come configurare Funzioni di Azure come sink di output per i processi di Analisi di flusso.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
@@ -11,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 818c75feffc5dcf09421b22d82b8b0c767cbed7f
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164161"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993009"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
 
@@ -152,7 +151,7 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
 1. Nel portale di Azure aprire il processo di Analisi di flusso.  
 
-2. Passare alla funzione e selezionare **Panoramica** > **Output** > **Aggiungi**. Per aggiungere un nuovo output, selezionare **Funzione di Azure** per l'opzione di sink. Il nuovo adattatore di output di Funzioni di Azure è disponibile con le proprietà seguenti:  
+2. Passare alla funzione e selezionare **Panoramica** > **Output** > **Aggiungi**. Per aggiungere un nuovo output, selezionare **Funzione di Azure** per l'opzione di sink. L'adattatore di output di Funzioni ha le proprietà seguenti:  
 
    |**Nome proprietà**|**Descrizione**|
    |---|---|
@@ -160,7 +159,7 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
    |Opzione di importazione| È possibile usare la funzione dalla sottoscrizione corrente oppure specificare manualmente le impostazioni se la funzione si trova in un'altra sottoscrizione. |
    |App per le funzioni| Nome dell'app Funzioni. |
    |Funzione| Nome della funzione nell'app Funzioni (nome della funzione di run.csx).|
-   |Dimensioni massime batch|Imposta la dimensione massima per ogni batch di output inviato alla funzione. Per impostazione predefinita, questo valore è impostato su 256 kB.|
+   |Dimensioni massime batch|Imposta la dimensione massima, in byte, per ogni batch di output inviato alla funzione. Per impostazione predefinita, questo valore è impostato su 262.144 byte (256 KB).|
    |Numero massimo di batch|Specifica il numero massimo di eventi in ogni batch inviato alla funzione. Il valore predefinito è 100. Questa proprietà è facoltativa.|
    |Chiave|Consente di usare una funzione di un'altra sottoscrizione. Specificare il valore della chiave per accedere alla funzione. Questa proprietà è facoltativa.|
 

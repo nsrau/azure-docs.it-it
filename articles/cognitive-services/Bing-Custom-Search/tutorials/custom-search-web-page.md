@@ -10,14 +10,14 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: aahi
-ms.openlocfilehash: d39ec856d628a8a607c6a8ea214f5dd9fbd63a9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0c98f75417bbcba13e179502eb1c8b4488b17d78
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427353"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558023"
 ---
-# <a name="tutorial-build-a-custom-search-web-page"></a>Esercitazione: Creare una pagina Web di ricerca personalizzata
+# <a name="tutorial-build-a-custom-search-web-page"></a>Esercitazione: Compilare una pagina Web di Ricerca personalizzata
 
 Ricerca personalizzata Bing consente di creare esperienze di ricerca personalizzata per gli argomenti a cui si è interessati. Ad esempio, se si è proprietari di un sito Web di arti marziali che offre un'esperienza di ricerca, è possibile specificare i domini, i siti secondari e le pagine Web cercati da Bing. Gli utenti visualizzano risultati di ricerca specifici per il contenuto a cui sono interessati anziché scorrere risultati generali che possono includere contenuto irrilevante. 
 
@@ -79,7 +79,7 @@ Per escludere i risultati da siti Web o URL specifici, aggiungerli alla scheda *
 
 ## <a name="add-pinned-entries"></a>Aggiungere voci fissate in alto
 
-Per aggiungere una specifica pagina Web in cima ai risultati della ricerca, aggiungere la pagina Web e il termine di query alla scheda **Pinned** (Elementi aggiunti in alto). La scheda **Pinned** (Elementi aggiunti in alto) contiene un elenco di coppie costituite da termine di query e pagina Web che specificano la pagina Web che viene visualizzata come primo risultato per una query specifica. La pagina Web viene aggiunta in alto solo se la stringa di query dell'utente corrisponde alla stringa di query dell'elemento aggiunto in alto in base alla condizione di corrispondenza dell'elemento aggiunto in alto. Nelle ricerche verranno visualizzate solo le pagine Web indicizzate. Per altre informazioni, vedere [Definire una vista personalizzata](../define-your-custom-view.md#pin-to-top).
+Per aggiungere una specifica pagina Web in cima ai risultati della ricerca, aggiungere la pagina Web e il termine di query alla scheda **Pinned** (Elementi aggiunti in alto). La scheda **Pinned** (Elementi aggiunti in alto) contiene un elenco di coppie costituite da termine di query e pagina Web che specificano la pagina Web che viene visualizzata come primo risultato per una query specifica. La pagina Web viene aggiunta in alto solo se la stringa di query dell'utente corrisponde alla stringa di query dell'elemento aggiunto in alto in base alla condizione di corrispondenza dell'elemento aggiunto in alto. Nelle ricerche verranno visualizzate solo le pagine Web indicizzate. Per altre informazioni, vedere [Definire una vista personalizzata](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. Nella pagina **Configuration** (Configurazione) fare clic sulla scheda **Pinned** (Elementi aggiunti in alto) e immettere la pagina Web e il termine di query della pagina Web da restituire come primo risultato.  
   

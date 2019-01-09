@@ -1,6 +1,6 @@
 ---
 title: Esercitazione sulla preparazione del portale di Azure per la distribuzione di Data Box Edge | Microsoft Docs
-description: La prima esercitazione per la distribuzione di Azure Data Box Edge include la preparazione del portale di Azure.
+description: La prima esercitazione sulla distribuzione di Azure Data Box Edge include la preparazione del portale di Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 35ac28d687c8bc6636a7d8e10f54ffb5b219a776
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 25f68b011d1fcba450903e9a691b98dfe9e87281
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167463"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726120"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-edge-preview"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Edge (anteprima)
+# <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Edge  
 
 
-Questa è la prima di una serie di esercitazioni sulla distribuzione necessarie per distribuire completamente Azure Data Box Edge. Descrive come preparare il portale di Azure per la distribuzione della risorsa Data Box Edge. 
+Questa è la prima di una serie di esercitazioni sulla distribuzione necessarie per distribuire completamente Azure Data Box Edge. Questa esercitazione descrive come preparare il portale di Azure per la distribuzione di una risorsa Data Box Edge. 
 
 Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. La preparazione del portale richiede meno di 10 minuti.
 
@@ -33,11 +33,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 
 > [!IMPORTANT]
-> Data Box Edge è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione. 
+> Data Box Edge è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.  
 
 ### <a name="get-started"></a>Attività iniziali
 
-Per distribuire il Data Box Edge, vedere le esercitazioni seguenti nella sequenza indicata.
+Per distribuire Data Box Edge, fare riferimento alle esercitazioni seguenti nella sequenza indicata.
 
 | **#** | **In questo passaggio** | **Usare questi documenti** |
 | --- | --- | --- | 
@@ -51,7 +51,7 @@ Per distribuire il Data Box Edge, vedere le esercitazioni seguenti nella sequenz
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Di seguito sono elencati i prerequisiti di configurazione per la risorsa Data Box Edge, il dispositivo Data Box Edge e la rete del data center.
+Di seguito sono indicati i prerequisiti di configurazione per la risorsa Data Box Edge, il dispositivo Data Box Edge e la rete del data center.
 
 ### <a name="for-the-data-box-edge-resource"></a>Per la risorsa Data Box Edge
 
@@ -63,10 +63,9 @@ Prima di iniziare, verificare che:
 ### <a name="for-the-data-box-edge-device"></a>Per il dispositivo Data Box Edge
 
 Prima di distribuire un dispositivo fisico, è necessario:
-
-- Che sia disponibile 1 slot a U in un rack standard da 19 pollici nel data center per montare in rack il dispositivo. 
-- Assicurarsi di avere accesso a una superficie di lavoro orizzontale, stabile e piana su cui collocare il dispositivo in sicurezza.
-- Verificare che nell'ambiente in cui si intende effettuare l'installazione del dispositivo sia disponibile una fonte di alimentazione CA standard indipendente o un'unità PDU (Power Distribution Unit) rack con un gruppo di continuità.
+- Che sia disponibile uno slot 1U in un rack standard da 19" nel data center per montare in rack il dispositivo. 
+- Avere accesso a una superficie di lavoro orizzontale, stabile e piana su cui collocare il dispositivo in sicurezza.
+- Che sia disponibile una fonte di alimentazione CA standard indipendente o un'unità PDU rack con un gruppo di continuità (UPS) nell'ambiente in cui si intende configurare il dispositivo.
 - Avere accesso a un dispositivo fisico.
 
 
@@ -74,9 +73,9 @@ Prima di distribuire un dispositivo fisico, è necessario:
 
 Prima di iniziare, verificare che:
 
-* La rete nel data center sia configurata in base ai requisiti di rete per il dispositivo Data Box Edge. Per altre informazioni, vedere i [requisiti di sistema di Data Box Edge](data-box-gateway-system-requirements.md).
+* La rete nel data center sia configurata in base ai requisiti di rete per il dispositivo Data Box Edge. Per altre informazioni, vedere [Requisiti di sistema di Data Box Edge](data-box-gateway-system-requirements.md).
 
-* Data Box Edge deve avere una larghezza di banda Internet dedicata a 20 Mbps (o superiore) sempre disponibile. La larghezza di banda non deve essere condivisa con altre applicazioni. Se si usa la limitazione della larghezza di banda della rete, per assicurarne il funzionamento è consigliabile usare una larghezza di banda Internet ad almeno 32 Mbps.
+* Data Box Edge abbia una larghezza di banda Internet dedicata di almeno 20 Mbps sempre disponibile. La larghezza di banda non deve essere condivisa con altre applicazioni. Se si usa la limitazione della larghezza di banda della rete, per assicurarne il funzionamento è consigliabile usare una larghezza di banda Internet di almeno 32 Mbps.
 
 ## <a name="create-a-new-resource"></a>Creare una nuova risorsa
 
@@ -84,11 +83,11 @@ Per creare una nuova risorsa Data Box Edge, eseguire la procedura seguente.
 
 Se si ha già una risorsa Data Box Edge per la gestione del dispositivo fisico, saltare questo passaggio e procedere con il passaggio [Ottenere la chiave di attivazione](#get-the-activation-key).
 
-Eseguire la procedura seguente nel portale di Azure per creare una risorsa Data Box.
+Per creare la risorsa Data Box Edge, completare i passaggi seguenti nel portale di Azure.
 
 1. Usare le credenziali di Microsoft Azure per accedere al portale di anteprima di Azure all'URL [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
 
-2. Selezionare la sottoscrizione che si vuole usare per l'anteprima di Data Box Edge. Selezionare l'area in cui si vuole distribuire la risorsa Data Box Edge. Nell'opzione **Data Box Edge** fare clic su **Crea**.
+2. Selezionare la sottoscrizione che si vuole usare per l'anteprima di Data Box Edge. Selezionare l'area in cui si vuole distribuire la risorsa Data Box Edge. Nell'opzione **Data Box Edge** selezionare **Crea**.
 
     ![Cercare nel servizio Data Box Edge](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 
@@ -98,28 +97,28 @@ Eseguire la procedura seguente nel portale di Azure per creare una risorsa Data 
     |---------|---------|
     |Nome risorsa   | Nome descrittivo per identificare la risorsa.<br>Il nome della risorsa deve contenere da 2 a 50 caratteri tra lettere, numeri e trattini.<br> Il nome deve iniziare e finire con una lettera o un numero.        |
     |Sottoscrizione    |La sottoscrizione viene collegata all'account di fatturazione. |
-    |Gruppo di risorse  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/resource-group-overview.md).     |
+    |Gruppo di risorse  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Per altre informazioni, vedere [Gruppi di risorse di Azure](../azure-resource-manager/resource-group-overview.md).     |
     |Località     |Per questa versione sono disponibili le località Stati Uniti orientali, Stati Uniti occidentali 2, Asia sud-orientale ed Europa occidentale. <br> Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo.|
     
-    ![Crea risorsa Data Box Edge](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
+    ![Creare una risorsa Data Box Edge](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
     
-4. Fare clic su **OK**.
+4. Selezionare **OK**.
  
-La creazione della risorsa richiede alcuni minuti. Al termine della creazione, si riceverà la relativa notifica.
+La creazione della risorsa richiede alcuni minuti. Al termine della creazione della risorsa, si riceverà una notifica.
 
 
 ## <a name="get-the-activation-key"></a>Ottenere la chiave di attivazione
 
-Ora che la risorsa Data Box Edge è configurata e funzionante, occorre ottenere la chiave di attivazione. Questa chiave viene usata per attivare il dispositivo Data Box Edge e connetterlo alla risorsa. È possibile ottenere questa chiave ora nel portale di Azure.
+Quando la risorsa Data Box Edge è configurata e operativa, è necessario ottenere la chiave di attivazione. Questa chiave viene usata per attivare il dispositivo Data Box Edge e connetterlo alla risorsa. È possibile ottenere questa chiave ora nel portale di Azure.
 
-1. Fare clic sulla risorsa creata e quindi su **Panoramica**.
+1. Selezionare la risorsa creata e quindi selezionare **Panoramica**.
 
-2. Fare clic su **Genera chiave** per creare una chiave di attivazione. Fare clic sull'icona di copia per copiare la chiave e salvarla per un utilizzo successivo.
+2. Selezionare **Genera chiave** per creare una chiave di attivazione. Selezionare l'icona di copia per copiare la chiave e salvarla, in modo da poterla usare in seguito.
 
     ![Ottenere una chiave di attivazione](media/data-box-edge-deploy-prep/get-activation-key.png)
 
 > [!IMPORTANT]
-> - La chiave di attivazione scade 3 giorni dopo la generazione. 
+> - La chiave di attivazione scade tre giorni dopo la generazione. 
 > - Se la chiave è scaduta, generarne una nuova. La chiave precedente non è più valida.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -127,13 +126,13 @@ Ora che la risorsa Data Box Edge è configurata e funzionante, occorre ottenere 
 In questa esercitazione sono stati presentati argomenti relativi a Data Box Edge, ad esempio:
 
 > [!div class="checklist"]
-> * Creare una nuova risorsa
-> * Ottenere la chiave di attivazione
+> * Creazione di una nuova risorsa
+> * Ottenimento della chiave di attivazione
 
-Passare all'esercitazione successiva per informazioni su come installare il Data Box Edge. 
+Passare all'esercitazione successiva per informazioni su come installare Data Box Edge. 
 
 > [!div class="nextstepaction"]
-> [Installare un Data Box Edge](./data-box-edge-deploy-install.md)
+> [Installare Data Box Edge](./data-box-edge-deploy-install.md)
 
 
 

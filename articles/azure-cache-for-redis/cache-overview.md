@@ -14,16 +14,16 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 1f41172a493f3e5e1b98cbba32b0180cee16c072
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: eab4365b6b86a82f29dbd1a79d4fda6dc9b30e0e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018960"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971325"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>Informazioni su Cache Redis di Azure
 
-Cache Redis di Azure si basa sulla popolare [cache Redis](https://redis.io/) open source. In genere viene usato come cache per aumentare le prestazioni e la scalabilità dei sistemi che si basano su archivi dati back-end. Le prestazioni vengono aumentate copiando temporaneamente i dati usati di frequente all'interno di una risorsa di archiviazione rapida vicina all'applicazione. Con [Cache Redis di Azure ](https://redis.io/), questa risorsa di archiviazione rapida è situata all'interno della memoria invece di essere caricata dal disco da un database.
+Cache Redis di Azure si basa sul noto software [Redis](https://redis.io/). In genere viene usato come cache per aumentare le prestazioni e la scalabilità dei sistemi che si basano su archivi dati back-end. Le prestazioni vengono aumentate copiando temporaneamente i dati usati di frequente all'interno di una risorsa di archiviazione rapida vicina all'applicazione. Con [Cache Redis di Azure ](https://redis.io/), questa risorsa di archiviazione rapida è situata all'interno della memoria invece di essere caricata dal disco da un database.
 
 Cache Redis di Azure può essere usato anche come archivio della struttura dei dati interno alla memoria, database non relazionale distribuito e broker di messaggi. Le prestazioni dell'applicazione vengono aumentate grazie alle prestazioni a bassa latenza ed elevata velocità effettiva del motore Redis.
 

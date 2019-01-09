@@ -3,22 +3,21 @@ title: Esercitazione su Kubernetes in Azure - Distribuire un cluster
 description: In questa esercitazione sul servizio Kubernetes di Azure (AKS) si crea un cluster AKS e si usa kubectl per connettersi al nodo master Kubernetes.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 80b011f9df389098095f58c02008da891b2aa8a7
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 7e5c78e1b30b311c6ce918453fe728ae86060dda
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918954"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720663"
 ---
-# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: Distribuire un cluster del servizio Kubernetes di Azure (AKS)
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: Distribuire un cluster Azure Kubernetes Service (AKS)
 
-Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori. Il servizio contenitore di Azure consente di eseguire rapidamente il provisioning di un cluster Kubernetes per la produzione. In questa esercitazione, la terza di sette parti, viene distribuito un cluster Kubernetes in AKS. Si apprenderà come:
+Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori. Il servizio Azure Kubernetes consente di creare rapidamente un cluster Kubernetes per la produzione. In questa esercitazione, la terza di sette parti, viene distribuito un cluster Kubernetes in AKS. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un'entità servizio per le interazioni delle risorse
@@ -26,19 +25,19 @@ Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori.
 > * Installare l'interfaccia della riga di comando di Kubernetes (kubectl)
 > * Configurare kubectl per connettersi al cluster AKS
 
-Nelle esercitazioni successive l'applicazione Azure Vote viene distribuita nel cluster, ridimensionata e aggiornata.
+In altre esercitazioni l'applicazione Azure Vote viene distribuita nel cluster, ridimensionata e aggiornata.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nelle esercitazioni precedenti, un'immagine del contenitore è stata creata e caricata in un'istanza di Registro contenitori di Azure. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Esercitazione 1: Creare immagini del contenitore][aks-tutorial-prepare-app].
+Nelle esercitazioni precedenti, un'immagine del contenitore è stata creata e caricata in un'istanza di Registro contenitori di Azure. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, iniziare dall'[Esercitazione 1: Creare immagini del contenitore][aks-tutorial-prepare-app].
 
-Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.44 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.53 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
 Per consentire a un cluster AKS di interagire con altre risorse di Azure viene usata un'entità servizio di Azure Active Directory. Questa entità servizio può essere creata automaticamente dall'interfaccia della riga di comando di Azure o dal portale di Azure oppure è possibile crearne una in anticipo e assegnarle autorizzazioni aggiuntive. In questa esercitazione viene creata un'entità servizio, viene concesso l'accesso all'istanza del Registro contenitori di Azure creata nell'esercitazione precedente e viene quindi creato un cluster AKS.
 
-Creare un'entità servizio usando il comando [az ad sp create-for-rbac][]. Il parametro `--skip-assignment` limita l'assegnazione di autorizzazioni aggiuntive.
+Creare un'entità servizio usando il comando [az ad sp create-for-rbac][]. Il parametro `--skip-assignment` limita l'assegnazione di autorizzazioni aggiuntive. Per impostazione predefinita, questa entità servizio è valida per un anno.
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -76,7 +75,7 @@ az role assignment create --assignee <appId> --scope <acrId> --role Reader
 
 ## <a name="create-a-kubernetes-cluster"></a>Creare un cluster Kubernetes
 
-I cluster AKS possono usare i controlli degli accessi in base al ruolo di Kubernetes. Questi controlli consentono di definire l'accesso alle risorse in base ai ruoli assegnati agli utenti. È possibile combinare le autorizzazioni, se a un utente sono assegnati più ruoli, e definire l'ambito delle autorizzazioni in un unico spazio dei nomi o nell'intero cluster. Il controllo degli accessi in base al ruolo di Kubernetes è attualmente in anteprima per i cluster AKS. Per impostazione predefinita, l'interfaccia della riga di comando di Azure abilita automaticamente il Controllo degli accessi in base al ruolo quando si crea un cluster AKS.
+I cluster AKS possono usare i controlli degli accessi in base al ruolo di Kubernetes. Questi controlli consentono di definire l'accesso alle risorse in base ai ruoli assegnati agli utenti. È possibile combinare le autorizzazioni, se a un utente sono assegnati più ruoli, e definire l'ambito delle autorizzazioni in un unico spazio dei nomi o nell'intero cluster. Per impostazione predefinita, l'interfaccia della riga di comando di Azure abilita automaticamente il Controllo degli accessi in base al ruolo quando si crea un cluster AKS.
 
 Creare un cluster AKS usando [az aks create][]. L'esempio seguente crea un cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Questo gruppo di risorse è stato creato nell'[esercitazione precedente][aks-tutorial-prepare-acr]. Specificare `<appId>` e `<password>`, definiti nel passaggio precedente in cui è stata creata l'entità servizio.
 
@@ -90,7 +89,7 @@ az aks create \
     --generate-ssh-keys
 ```
 
-Dopo alcuni minuti, la distribuzione viene completata e restituisce le informazioni in formato JSON sulla distribuzione del servizio contenitore di Azure.
+Dopo alcuni minuti, la distribuzione viene completata e restituisce le informazioni in formato JSON sulla distribuzione del servizio Azure Kubernetes.
 
 ## <a name="install-the-kubernetes-cli"></a>Installare l'interfaccia della riga di comando di Kubernetes
 
@@ -104,7 +103,7 @@ az aks install-cli
 
 ## <a name="connect-to-cluster-using-kubectl"></a>Connettersi al cluster usando kubectl
 
-Per configurare `kubectl` per la connessione al cluster Kubernetes, usare [az aks get-credentials][]. L'esempio seguente ottiene le credenziali per il nome del cluster AKS *myAKSCluster* in *myResourceGroup*:
+Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][]. L'esempio seguente ottiene le credenziali per il cluster AKS denominato *myAKSCluster* in *myResourceGroup*:
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -115,8 +114,8 @@ Per verificare la connessione al cluster, eseguire il comando [kubectl get nodes
 ```
 $ kubectl get nodes
 
-NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.9
+NAME                       STATUS   ROLES   AGE     VERSION
+aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

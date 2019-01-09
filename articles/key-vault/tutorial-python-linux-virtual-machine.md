@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: acc926151e5abd1d6f9d0992591575198d1fdf44
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: f5d74c2283d25d5774bd46bb9fe94795ff98fe9b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890535"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720571"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>Esercitazione: Come usare Azure Key Vault con una macchina virtuale Linux di Azure in Python
 
 Azure Key Vault facilita la protezione di segreti come le chiavi API, le stringhe di connessione di database necessarie per accedere alle applicazioni, i servizi e le risorse IT.
 
-In questa esercitazione si eseguiranno i passaggi necessari per ottenere un'applicazione Web di Azure per leggere le informazioni da Azure Key Vault usando le identità gestite per le risorse di Azure. L'esercitazione è basata su [App Web di Azure](../app-service/app-service-web-overview.md). Nel corso dell'esercitazione si apprenderà come:
+In questa esercitazione si eseguiranno i passaggi necessari per ottenere un'applicazione Web di Azure per leggere le informazioni da Azure Key Vault usando le identità gestite per le risorse di Azure. Nel corso dell'esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un insieme di credenziali delle chiavi.
@@ -82,7 +82,7 @@ Viene ora creato un insieme di credenziali delle chiavi nel gruppo di risorse cr
 
 * Nome dell'insieme di credenziali delle chiavi: il nome deve essere una stringa di 3-24 caratteri e deve contenere solo (0-9, a-z, A-Z e -).
 * Nome del gruppo di risorse.
-* Località: **Stati Uniti occidentali**.
+* Percorso: **Stati Uniti occidentali**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -160,7 +160,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## <a name="create-and-run-sample-python-app"></a>Creare ed eseguire un'app Python di esempio
 
-Quello che segue è un file di esempio denominato "Sample.py". Usa la libreria [Requests](http://docs.python-requests.org/master/) per effettuare chiamate HTTP GET.
+Quello che segue è un file di esempio denominato "Sample.py". Usa la libreria [Requests](https://pypi.org/project/requests/2.7.0/) per effettuare chiamate HTTP GET.
 
 ## <a name="edit-samplepy"></a>Modificare Sample.py
 Dopo aver creato Sample.py, aprire il file e copiare il codice riportato di seguito

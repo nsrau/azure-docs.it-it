@@ -1,5 +1,5 @@
 ---
-title: "Esempio: Chiamare l'API Visione artificiale"
+title: "Esempio: Chiamare l'API di analisi immagine - Visione artificiale"
 titlesuffix: Azure Cognitive Services
 description: Informazioni su come chiamare l'API Visione artificiale con REST in Servizi cognitivi di Azure.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: e8297fbe59ebe2dea9caf112ebea4517447cf9e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981746"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581709"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Esempio: Come chiamare l'API Visione artificiale
 
@@ -26,9 +27,9 @@ Questa guida illustra come chiamare l'API Visione artificiale tramite REST. Gli 
 
 ### <a name="Prerequisites">Prerequisiti</a> 
 URL o percorso di un'immagine archiviata in locale.
-  * Metodi di input supportati: file binario dell'immagine RAW di tipo application/octet-stream o URL dell'immagine
+  * Metodi di input supportati: file binario di immagine non elaborato di tipo application/octet-stream o URL di immagine
   * Formati di immagine supportati: JPEG, PNG, GIF, BMP
-  * Dimensioni file di immagine: inferiori a 4 MB
+  * Dimensioni file di immagine: meno di 4 MB
   * Dimensioni immagine: maggiori di 50 x 50 pixel
   
 Negli esempi seguenti vengono illustrate le funzionalità seguenti:
@@ -41,7 +42,7 @@ Le funzionalità sono suddivise in:
   * **Opzione uno:** analisi con ambito - analizzare solo un determinato modello
   * **Opzione due:** analisi avanzata - analizzare per fornire dettagli aggiuntivi con le [86 categorie di tassonomia](../Category-Taxonomy.md)
   
-### <a name="Step1">Passaggio 1: Autorizzare la chiamata all'API</a> 
+### <a name="Step1">Passaggio 1: Autorizzare la chiamata API</a> 
 Per ogni chiamata all'API Visione artificiale è richiesta una chiave di sottoscrizione. Questa chiave deve essere passata tramite un parametro di stringa di query o essere specificata nell'intestazione della richiesta. 
 
 Per ottenere una chiave di sottoscrizione, vedere [Come ottenere le chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md
@@ -221,7 +222,7 @@ Si noti che in caso di corrispondenza di più categorie (ad esempio, il classifi
 ### <a name="Errors">Risposte di errore</a>
 Sono identiche a vision.analyze, con l'aggiunta dell'errore NotSupportedModel (HTTP 400), che può essere restituito in entrambi gli scenari per l'opzione uno e due. Per l'opzione due (analisi avanzata), se uno qualsiasi dei modelli specificati nei dettagli non viene riconosciuto, l'API restituirà un errore NotSupportedModel, anche se uno o più modelli risultano validi.  Gli utenti possono chiamare listModels per scoprire quali modelli sono supportati.
 
-### <a name="Summary">Riepilogo</a>
+### <a name="Summary">Summary</a>
 
 Queste sono le funzionalità di base dell'API Visione artificiale: come è possibile caricare immagini e recuperare metadati utili.
 

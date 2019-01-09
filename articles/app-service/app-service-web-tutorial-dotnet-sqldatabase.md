@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ffa6e44a4be8813b74dc707f161bd5c17f72f350
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257778"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720051"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Esercitazione: Creare un'app ASP.NET in Azure con un database SQL
 
-Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa esercitazione illustra come distribuire un'app Web ASP.NET basata sui dati in Azure e connetterla al [database SQL di Azure](../sql-database/sql-database-technical-overview.md). Al termine sarà disponibile un'applicazione ASP.NET in esecuzione in Azure e connessa al database SQL.
+[Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Questa esercitazione illustra come distribuire un'app ASP.NET basata sui dati nel servizio app e connetterla al [database SQL di Azure](../sql-database/sql-database-technical-overview.md). Al termine sarà disponibile un'applicazione ASP.NET in esecuzione in Azure e connessa al database SQL.
 
-![Applicazione ASP.NET pubblicata nell'app Web di Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Applicazione ASP.NET pubblicata in Servizio app di Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 In questa esercitazione si apprenderà come:
 
@@ -65,7 +65,7 @@ Digitare `Ctrl+F5` per eseguire l'app senza debug. L'app viene visualizzata nel 
 
 Testare i collegamenti **Modifica**, **Dettagli** ed **Elimina**.
 
-L'app usa un contesto di database per connettersi al database. Nell'esempio il contesto di database usa una stringa di connessione denominata `MyDbConnection`. La stringa di connessione è impostata nel file *Web.config* e il file *Models\MyDatabaseContext.cs* include un riferimento alla stringa. Il nome della stringa di connessione è usato più avanti nell'esercitazione per connettere l'app Web di Azure a un database SQL di Azure. 
+L'app usa un contesto di database per connettersi al database. Nell'esempio il contesto di database usa una stringa di connessione denominata `MyDbConnection`. La stringa di connessione è impostata nel file *Web.config* e il file *Models\MyDatabaseContext.cs* include un riferimento alla stringa. Il nome della stringa di connessione viene usato più avanti nell'esercitazione per connettere l'app Azure a un database SQL di Azure. 
 
 ## <a name="publish-to-azure-with-sql-database"></a>Pubblicare in Azure con il database SQL
 
@@ -77,7 +77,7 @@ Verificare che **Servizio app di Microsoft Azure** sia selezionato e fare clic s
 
 ![Pubblicare dalla pagina di panoramica progetto](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-La pubblicazione apre la finestra di dialogo **Crea servizio app** che consente di creare tutte le risorse di Azure necessarie per eseguire l'app Web ASP.NET in Azure.
+Con la pubblicazione viene visualizzata la finestra di dialogo **Crea servizio app**, che consente di creare tutte le risorse di Azure necessarie per eseguire l'app ASP.NET in Azure.
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -118,7 +118,7 @@ Nella finestra di dialogo **Configura piano di servizio app** configurare il nuo
 
 | Impostazione  | Valore consigliato | Per altre informazioni |
 | ----------------- | ------------ | ----|
-|**Piano di servizio app**| myAppServicePlan | [Piani del servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
+|**Piano di servizio app**| myAppServicePlan | [Piani del servizio app](../app-service/overview-hosting-plans.md) |
 |**Posizione**| Europa occidentale | [Aree di Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**Dimensione**| Gratuito | [Piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
@@ -139,7 +139,7 @@ Aggiungere un nome utente e una password di amministratore. Per i requisiti di c
 Prendere nota del nome utente e della password. Saranno necessari per gestire l'istanza del server logico in seguito.
 
 > [!IMPORTANT]
-> Anche se la password nelle stringhe di connessione è mascherata (sia in Visual Studio che nel servizio app), il fatto che venga mantenuta da qualche parte amplia la superficie di attacco dell'app. Il servizio app può usare [identità del servizio gestito](app-service-managed-service-identity.md) per eliminare tale rischio rimuovendo del tutto l'esigenza di mantenere i segreti nel codice o nella configurazione dell'app. Per altre informazioni, vedere [Passaggi successivi](#next-steps).
+> Anche se la password nelle stringhe di connessione è mascherata (sia in Visual Studio che nel servizio app), il fatto che venga mantenuta da qualche parte amplia la superficie di attacco dell'app. Il servizio app può usare [identità del servizio gestito](overview-managed-identity.md) per eliminare tale rischio rimuovendo del tutto l'esigenza di mantenere i segreti nel codice o nella configurazione dell'app. Per altre informazioni, vedere [Passaggi successivi](#next-steps).
 
 ![Creare un'istanza di SQL Server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -163,7 +163,7 @@ Dopo aver creato le risorse di Azure, la procedura guidata pubblica l'app ASP.NE
 
 Aggiungere alcune attività.
 
-![Applicazione ASP.NET pubblicata nell'app Web di Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Applicazione ASP.NET pubblicata nell'app Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 Congratulazioni! L'applicazione ASP.NET basata sui dati è in esecuzione nel Servizio app di Azure.
 
@@ -189,7 +189,7 @@ Digitare la password di amministratore di database creata in precedenza e fare c
 
 ### <a name="allow-client-connection-from-your-computer"></a>Consentire la connessione client dal computer
 
-Viene visualizzata la finestra di dialogo **Crea nuova regola del firewall**. Per impostazione predefinita, l'istanza del database SQL consente solo le connessioni da servizi di Azure, ad esempio dall'app Web di Azure. Per connettersi al database, creare una regola del firewall nell'istanza del database SQL. La regola del firewall autorizza l'indirizzo IP pubblico del computer locale.
+Viene visualizzata la finestra di dialogo **Crea nuova regola del firewall**. Per impostazione predefinita, l'istanza di database SQL consente solo le connessioni dai servizi di Azure, ad esempio dall'app Azure. Per connettersi al database, creare una regola del firewall nell'istanza del database SQL. La regola del firewall autorizza l'indirizzo IP pubblico del computer locale.
 
 Nella finestra di dialogo è già specificato l'indirizzo IP pubblico del computer.
 
@@ -207,7 +207,7 @@ Espandere la connessione > **Database** > **&lt;database >** > **Tabelle**. Fare
 
 ## <a name="update-app-with-code-first-migrations"></a>Aggiornare l'app con Migrazioni Code First
 
-Per aggiornare il database e l'app Web in Azure è possibile usare gli strumenti noti di Visual Studio. In questo passaggio si usa Migrazioni Code First di Entity Framework per apportare una modifica allo schema del database e pubblicarlo in Azure.
+Per aggiornare il database e l'app in Azure è possibile usare gli strumenti noti di Visual Studio. In questo passaggio si usa Migrazioni Code First di Entity Framework per apportare una modifica allo schema del database e pubblicarlo in Azure.
 
 Per altre informazioni sull'uso di Migrazioni Code First di Entity Framework, vedere [Getting Started with Entity Framework 6 Code First using MVC 5](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) (Introduzione a Code First di Entity Framework 6 con MVC 5).
 
@@ -301,7 +301,7 @@ Digitare `Ctrl+F5` per eseguire l'app.
 
 ### <a name="enable-code-first-migrations-in-azure"></a>Abilitare Migrazioni Code First in Azure
 
-Dopo aver completato la modifica al codice, inclusa la migrazione del database, la modifica viene pubblicata nell'app Web di Azure e viene eseguito l'aggiornamento del database SQL con Migrazioni Code First.
+Dopo aver completato la modifica al codice, inclusa la migrazione del database, è possibile eseguire la pubblicazione nell'app Azure e aggiornare anche il database SQL con Migrazioni Code First.
 
 Fare di nuovo clic con il pulsante destro del mouse sul progetto e selezionare **Pubblica**.
 
@@ -315,40 +315,40 @@ Assicurarsi che la stringa di connessione per il database SQL sia popolata in **
 
 Selezionare **Esegui migrazione primo codice (inizia all'avvio dell'applicazione)**, quindi fare clic su **Salva**.
 
-![Abilitare Migrazioni Code First nell'app Web di Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
+![Abilitare Migrazioni Code First nell'app Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
 ### <a name="publish-your-changes"></a>Pubblicare le modifiche
 
-Dopo aver abilitato Migrazioni Code First nell'app Web di Azure pubblicare le modifiche al codice.
+Dopo aver abilitato Migrazioni Code First nell'app Azure pubblicare le modifiche al codice.
 
 Nella pagina di pubblicazione fare clic su **Pubblica**.
 
 Provare di nuovo ad aggiungere attività e selezionare **Fine**. Le attività verranno visualizzate nella home page come completate.
 
-![App Web di Azure dopo la migrazione Code First](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![App Azure dopo la migrazione Code First](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 Tutte le attività esistenti rimangono visualizzate. Quando si pubblica nuovamente l'applicazione ASP.NET, i dati esistenti nel database SQL non vengono persi. Inoltre, solo Migrazioni Code First modifica lo schema dei dati lasciando intatti i dati esistenti.
 
 
 ## <a name="stream-application-logs"></a>Eseguire lo streaming dei log delle applicazioni
 
-È possibile eseguire lo streaming dei messaggi di traccia direttamente dall'app Web di Azure in Visual Studio.
+È possibile eseguire lo streaming dei messaggi di traccia direttamente dall'app Azure in Visual Studio.
 
 Aprire _Controllers\TodosController.cs_.
 
-Ogni azione inizia con un metodo `Trace.WriteLine()`. Questo codice viene aggiunto per illustrare come aggiungere messaggi di traccia all'app Web di Azure.
+Ogni azione inizia con un metodo `Trace.WriteLine()`. Questo codice viene aggiunto per illustrare come aggiungere messaggi di traccia all'app Azure.
 
 ### <a name="open-server-explorer"></a>Aprire Esplora server
 
-Dal menu **Visualizza** selezionare **Esplora server**. È possibile configurare la registrazione per l'app Web di Azure in **Esplora server**. 
+Dal menu **Visualizza** selezionare **Esplora server**. È possibile configurare la registrazione per l'app Azure in **Esplora server**. 
 
 ### <a name="enable-log-streaming"></a>Abilitare lo streaming dei log
 
 In **Esplora server** espandere **Azure** > **Servizio app**.
 
-Espandere il gruppo di risorse **myResourceGroup** creato al momento della creazione dell'app Web di Azure.
+Espandere il gruppo di risorse **myResourceGroup** creato al momento della creazione dell'app Azure.
 
-Fare clic con il pulsante destro del mouse sull'app Web di Azure e scegliere **Visualizza log in streaming**.
+Fare clic con il pulsante destro del mouse sull'app Azure e scegliere **Visualizza log in streaming**.
 
 ![Abilitare lo streaming dei log](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
@@ -356,13 +356,13 @@ Lo streaming dei log viene eseguito nella finestra **Output**.
 
 ![Streaming dei log nella finestra Output](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
-I messaggi di traccia tuttavia non sono ancora visibili. Ciò avviene perché la prima volta che si seleziona **Visualizza log in streaming** l'app Web di Azure imposta il livello di traccia su `Error` che comporta soltanto la registrazione degli eventi di errore (con il metodo `Trace.TraceError()`).
+I messaggi di traccia tuttavia non sono ancora visibili. Ciò avviene perché la prima volta che si seleziona **Visualizza log in streaming** l'app Azure imposta il livello di traccia su `Error` che comporta soltanto la registrazione degli eventi di errore (con il metodo `Trace.TraceError()`).
 
 ### <a name="change-trace-levels"></a>Modificare i livelli di traccia
 
 Per modificare i livelli di traccia per generare altri messaggi di traccia, tornare a **Esplora server**.
 
-Fare di nuovo clic con il pulsante destro del mouse sull'app Web di Azure e selezionare **Visualizza impostazioni**.
+Fare di nuovo clic con il pulsante destro del mouse sull'app Azure e scegliere **Visualizza impostazioni**.
 
 Nell'elenco a discesa **Registrazione applicazioni (file system)** selezionare **Dettagli**. Fare clic su **Save**.
 
@@ -373,7 +373,7 @@ Nell'elenco a discesa **Registrazione applicazioni (file system)** selezionare *
 >
 >
 
-Nel browser passare di nuovo all'app Web in *http://&lt;nome dell'app >. azurewebsites.net*, quindi fare clic sull'elenco delle applicazioni da eseguire in Azure. Viene eseguito lo streaming dei messaggi di traccia nella finestra **Output** in Visual Studio.
+Nel browser passare di nuovo all'app in *http://&lt;nome dell'app>.azurewebsites.net* e quindi provare a fare clic nell'applicazione di elenco attività in Azure. Viene eseguito lo streaming dei messaggi di traccia nella finestra **Output** in Visual Studio.
 
 ```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
@@ -390,17 +390,17 @@ Per arrestare il servizio di streaming dei log, fare clic sul pulsante **Interro
 
 ![Arrestare lo streaming dei log](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## <a name="manage-your-azure-web-app"></a>Gestire l'app Web di Azure
+## <a name="manage-your-azure-app"></a>Gestire l'app Azure
 
-Accedere al [portale di Azure](https://portal.azure.com) per visualizzare l'app Web creata. 
+Passare al [portale di Azure](https://portal.azure.com) per visualizzare l'app creata. 
 
 
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web di Azure.
+Nel menu a sinistra fare clic su **Servizio app** e quindi sul nome dell'app di Azure.
 
-![Passare all'app Web di Azure nel portale](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
+![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 
-Viene visualizzata la pagina dell'app Web. 
+Viene visualizzata la pagina dell'app. 
 
 Per impostazione predefinita, il portale visualizza la pagina **Panoramica**. che offre una visualizzazione dello stato dell'app. In questa pagina è anche possibile eseguire attività di gestione di base come esplorare, arrestare, avviare, riavviare ed eliminare. Le schede sul lato sinistro della pagina mostrano le diverse pagine di configurazione che è possibile aprire. 
 

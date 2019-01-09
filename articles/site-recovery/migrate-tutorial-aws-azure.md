@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd3229773b19b9f6c4d9ff76402f1841a4810bc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851129"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793071"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
@@ -136,7 +136,7 @@ Nella pagina **Prepara origine** selezionare **+ Server di configurazione**.
     11. **Stato dell'installazione** visualizza informazioni sullo stato del processo di installazione. Al termine, selezionare **Fine**. Viene visualizzata una finestra di messaggio per il riavvio. Selezionare **OK**. Viene poi visualizzata una finestra con un messaggio sulla passphrase di connessione al server di configurazione. Copiare la passphrase negli Appunti e salvarla in una posizione sicura.
 6. Nella macchina virtuale eseguire cspsconfigtool.exe per creare uno o più account di gestione nel server di configurazione. Assicurarsi che gli account di gestione abbiano le autorizzazioni di amministratore per le istanze EC2 di cui si vuole eseguire la migrazione.
 
-Al termine della configurazione del server di configurazione, tornare al portale e selezionare il server appena creato come **Server di configurazione**. Selezionare **OK** per passare al passaggio 3: Preparare la destinazione.
+Al termine della configurazione del server di configurazione, tornare al portale e selezionare il server appena creato come **Server di configurazione**. Selezionare **OK** per passare a 3: Preparare la destinazione.
 
 ### <a name="3-prepare-target"></a>3: Preparare la destinazione
 
@@ -222,9 +222,9 @@ Nel portale eseguire il failover di test:
 
 1. Nella pagina dell'insieme di credenziali passare a **Elementi protetti** > **Elementi replicati**. Selezionare la macchina virtuale e quindi selezionare **Failover di test**.
 2. Selezionare un punto di recupero in cui eseguire il failover:
-    - **Ultima elaborazione**: viene eseguito il failover della macchina virtuale al punto di recupero più recente elaborato da Site Recovery. Viene visualizzato il timestamp. Con questa opzione, non viene dedicato alcun tempo all'elaborazione dei dati, quindi si ottiene un RTO (Recovery Time Objective) basso.
-    - **Coerente con l'app più recente**: questa opzione esegue il failover su tutte le macchine virtuali al punto di ripristino coerente con l'app. Viene visualizzato il timestamp.
-    - **Personalizzazione**: selezionare qualsiasi punto di ripristino.
+    - **Elaborato più recente**: viene eseguito il failover della macchina virtuale al punto di recupero più recente elaborato da Site Recovery. Viene visualizzato il timestamp. Con questa opzione, non viene dedicato alcun tempo all'elaborazione dei dati, quindi si ottiene un RTO (Recovery Time Objective) basso.
+    - **Coerente con l'app più recente**: questa opzione esegue il failover di tutte le macchine virtuali al più recente punto di recupero coerente con l'app. Viene visualizzato il timestamp.
+    - **Personalizzato**: selezionare qualsiasi punto di recupero.
 
 3. In **Failover di test** selezionare la rete di Azure di destinazione a cui vengono connesse le macchine virtuali di Azure dopo il failover. Selezionare la rete creata in [Preparare le risorse di Azure](#prepare-azure-resources).
 4. Selezionare **OK** per iniziare il failover. Per verificare lo stato dell'operazione, selezionare la macchina virtuale per visualizzarne le proprietà. Oppure è possibile selezionare il progetto **Failover di test** nella pagina per l'insieme di credenziali. A tale scopo, selezionare **Monitoraggio e report** > **Processi** >  **Processi di Site Recovery**.

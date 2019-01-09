@@ -1,21 +1,18 @@
 ---
 title: "Esercitazione: Progettare un'istanza di Database di Azure per MySQL con il portale di Azure"
 description: In questa esercitazione viene illustrato come creare e gestire il database di Azure per il server e il database MySQL tramite il portale di Azure.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 395ebbe3879660ce31abd570e936a010536db4de
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bf46b047af69dcd1a751661a701b1eb9b7f75563
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266534"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537734"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Esercitazione: Progettare un database di Database di Azure per MySQL con il portale di Azure
 Il database di Azure per MySQL è un servizio gestito che consente di eseguire, gestire e scalare dei database MySQL a disponibilità elevata nel cloud. Tramite il portale di Azure, è possibile gestire facilmente il server e progettare un database.
@@ -34,7 +31,7 @@ In questa esercitazione si userà il portale di Azure per imparare a:
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 Aprire il Web browser preferito e visitare il [portale di Microsoft Azure](https://portal.azure.com/). Immettere le credenziali per accedere al portale. La visualizzazione predefinita è il dashboard del servizio.
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Creare un'istanza di Database di Azure per il server MySQL
+## <a name="create-an-azure-database-for-mysql-server"></a>Creare un server Database di Azure per MySQL
 Verrà creato un database di Azure per MySQL con un set definito di [risorse di calcolo e di archiviazione](./concepts-compute-unit-and-storage.md). Il server viene creato all'interno di un [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1. Passare a **database** > **Database di Azure per MySQL**. Se non si trova MySQL Server nella categoria **Database**, fare clic su **Visualizza tutto** per mostrare tutti i servizi di database disponibili. È possibile anche digitare **Database di Azure per MySQL** nella casella di ricerca per trovare rapidamente il servizio.
@@ -60,7 +57,7 @@ Verrà creato un database di Azure per MySQL con un set definito di [risorse di 
     
    ![Piano tariffario](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
-3. Fare clic su **Crea**. Dopo pochi minuti, un nuovo database di Azure per il server MySQL sarà in esecuzione nel cloud. È possibile fare clic sul pulsante **Notifiche** sulla barra degli strumenti per monitorare il processo di distribuzione.
+3. Fare clic su **Create**(Crea). Dopo pochi minuti, un nuovo database di Azure per il server MySQL sarà in esecuzione nel cloud. È possibile fare clic sul pulsante **Notifiche** sulla barra degli strumenti per monitorare il processo di distribuzione.
 
 ## <a name="configure-firewall"></a>Configurare il firewall
 I database di Azure per MySQL sono protetti da un firewall. Per impostazione predefinita, vengono rifiutate tutte le connessioni al server e ai database all'interno del server. Prima di connettersi per la prima volta al database di Azure per MySQL, configurare il firewall per aggiungere l'indirizzo IP della rete pubblica del computer client (o un intervallo di indirizzi IP).
@@ -151,10 +148,10 @@ Si supponga di avere eliminato un'importante tabella di database e di non poter 
    
    ![10-2 Modulo di ripristino](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Punto di ripristino**: selezionare un punto nel tempo a cui si vuole ripristinare, entro l'intervallo di tempo elencato. Assicurarsi di convertire il fuso orario locale in ora UTC.
-   - **Ripristina nel nuovo server**: fornire il nome del nuovo server in cui si vuole memorizzare il database da ripristinare.
-   - **Posizione**: l'area è identica a quella del server di origine e non può essere modificata.
-   - **Piano tariffario**: il piano tariffario è identico a quello del server di origine e non può essere modificato.
+   - **Punto di ripristino**: selezionare un punto nel tempo per il ripristino, all'interno dell'intervallo di tempo elencato. Assicurarsi di convertire il fuso orario locale in ora UTC.
+   - **Ripristina nel nuovo server**: specificare il nome del nuovo server in cui eseguire il ripristino
+   - **Località**: l'area corrisponde a quella del server di origine e non può essere modificata.
+   - **Piano tariffario**: il piano tariffario corrisponde a quello del server di origine e non può essere modificato.
    
 3. Fare clic su **OK** per ripristinare il server da [ripristinare in un punto nel tempo](./howto-restore-server-portal.md) precedente all'eliminazione della tabella. Il ripristino di un server crea una nuova copia del server, a partire dal momento nel tempo specificato. 
 

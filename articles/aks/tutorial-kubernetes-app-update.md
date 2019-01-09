@@ -3,22 +3,21 @@ title: Esercitazione su Kubernetes in Azure - Aggiornare un'applicazione
 description: In questa esercitazione sul servizio Kubernetes di Azure (AKS) viene illustrato come aggiornare la distribuzione di un'applicazione esistente in AKS con una nuova versione del codice dell'applicazione.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2dd52fec112b879e072d3ac5598dd7978e68cbc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ed4a65e9e4e579277866bdafda67eb577a76bbfe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920545"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714815"
 ---
-# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Esercitazione: aggiornare un'applicazione in Azure Kubernetes Service (AKS)
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Esercitazione: Aggiornare un'applicazione nel servizio Azure Kubernetes
 
-Dopo la distribuzione di un'applicazione in Kubernetes, è possibile aggiornarla specificando una nuova immagine del contenitore o una nuova versione dell'immagine. A questo scopo, l'aggiornamento viene eseguito a fasi in modo che solo una parte della distribuzione venga aggiornata contemporaneamente. Questo aggiornamento a fasi consente all'applicazione di rimanere in esecuzione durante l'aggiornamento. Fornisce inoltre un meccanismo di ripristino dello stato precedente se si verifica un errore di distribuzione.
+Dopo la distribuzione di un'applicazione in Kubernetes, è possibile aggiornarla specificando una nuova immagine del contenitore o una nuova versione dell'immagine. L'aggiornamento viene eseguito a fasi in modo che solo una parte della distribuzione venga aggiornata nello stesso momento. Questo aggiornamento a fasi consente all'applicazione di rimanere in esecuzione durante l'aggiornamento. Fornisce inoltre un meccanismo di ripristino dello stato precedente se si verifica un errore di distribuzione.
 
 In questa esercitazione, parte sei di sette, viene aggiornata l'app Azure Vote di esempio. Si apprenderà come:
 
@@ -30,21 +29,21 @@ In questa esercitazione, parte sei di sette, viene aggiornata l'app Azure Vote d
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in un'immagine del contenitore, caricata poi in Registro contenitori di Azure, ed è stato creato un cluster Kubernetes. L'applicazione è stata quindi eseguita nel cluster Kubernetes.
+Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in un'immagine del contenitore. L'immagine è stata poi caricata in Registro Azure Container ed è stato creato un cluster AKS. L'applicazione è stata quindi distribuita nel cluster AKS.
 
-È stato clonato anche un repository di applicazione che include il codice sorgente dell'applicazione e un file Docker Compose creato in precedenza usato in questa esercitazione. Verificare che sia stato creato un clone del repository e che si abbia cambiato le directory nella directory clonata. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Esercitazione 1 - Creare immagini del contenitore][aks-tutorial-prepare-app].
+È stato clonato anche un repository di applicazione che include il codice sorgente dell'applicazione e un file Docker Compose creato in precedenza usato in questa esercitazione. Verificare di aver creato un clone del repository e di aver cambiato le directory nella directory clonata. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, iniziare con l'[Esercitazione 1 - Creare immagini del contenitore][aks-tutorial-prepare-app].
 
-Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.44 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.53 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="update-an-application"></a>Aggiornare un'applicazione
 
-Verrà apportata una modifica all'applicazione di esempio, quindi verrà aggiornata la versione già distribuita nel cluster AKS. Il codice sorgente dell'applicazione di esempio è disponibile nella directory *azure-vote*. Aprire il file *config_file.cfg* con un editor, ad esempio `vi`:
+Verrà apportata una modifica all'applicazione di esempio, quindi verrà aggiornata la versione già distribuita nel cluster AKS. Assicurarsi di essere nella directory clonata *azure-voto-app-redis*. Il codice sorgente dell'applicazione di esempio è disponibile nella directory *azure-vote*. Aprire il file *config_file.cfg* con un editor, ad esempio `vi`:
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
 ```
 
-Sostituire i valori di *VOTE1VALUE* e *VOTE2VALUE* con colori diversi. L'esempio seguente illustra i valori dei colori aggiornati:
+Sostituire i valori di *VOTE1VALUE* e *VOTE2VALUE* con valori diversi, ad esempio colori. L'esempio seguente illustra i valori aggiornati:
 
 ```
 # UI Configurations
@@ -54,7 +53,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Salvare e chiudere il file.
+Salvare e chiudere il file. In `vi` usare `:wq`.
 
 ## <a name="update-the-container-image"></a>Aggiornare l'immagine del contenitore
 
@@ -70,7 +69,7 @@ Per verificare che l'immagine del contenitore aggiornata mostri le modifiche, ap
 
 ![Immagine del cluster Kubernetes in Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
-I valori dei colori aggiornati specificati nel file *config_file.cfg* vengono visualizzati nell'applicazione in esecuzione.
+I valori aggiornati specificati nel file *config_file.cfg* vengono visualizzati nell'applicazione in esecuzione.
 
 ## <a name="tag-and-push-the-image"></a>Applicare tag ed eseguire il push dell'immagine
 
@@ -144,13 +143,13 @@ Per visualizzare l'applicazione aggiornata, ottenere prima l'indirizzo IP estern
 kubectl get service azure-vote-front
 ```
 
-Aprire ora un Web browser locale all'indirizzo IP.
+Aprire ora un Web browser locale all'indirizzo IP del servizio:
 
 ![Immagine del cluster Kubernetes in Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata aggiornata un'applicazione e l'aggiornamento è stato distribuito in un cluster Kubernetes. Si è appreso come:
+In questa esercitazione è stata aggiornata un'applicazione e l'aggiornamento è stato distribuito in un cluster del servizio Azure Kubernetes. Si è appreso come:
 
 > [!div class="checklist"]
 > * Aggiornare il codice dell'applicazione front-end

@@ -1,22 +1,19 @@
 ---
 title: "Esercitazione: Progettare un'istanza di Database di Azure per MySQL con l'interfaccia della riga di comando di Azure"
 description: In questa esercitazione viene illustrato come creare e gestire il database di Azure per il server e il Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure dalla riga di comando.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 60cfb5e1c5fa44952ca6a5e6fc411f4a6ab0e8be
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 352444dcb3beace0e1618aadba50b56cdcd9d003
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966980"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545791"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per MySQL con l'interfaccia della riga di comando di Azure
 
@@ -175,19 +172,19 @@ Si supponga di aver eliminato accidentalmente questa tabella. Si tratta di un el
 
 Per il ripristino sono necessarie le informazioni seguenti:
 
-- Punto di ripristino: selezionare un punto nel tempo precedente alla modifica del server. Il punto deve essere maggiore o equivalente al valore del backup meno recente del database di origine.
-- Server di destinazione: fornire un nuovo nome del server che si desidera ripristinare.
-- Server di origine: fornire il nome del server che si desidera ripristinare
-- Posizione: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
+- Punto di ripristino: selezionare un punto nel tempo precedente la modifica del server. Il punto deve essere maggiore o equivalente al valore del backup meno recente del database di origine.
+- Server di destinazione: specificare il nome del nuovo server in cui eseguire il ripristino
+- Server di origine: specificare il nome del server da cui eseguire il ripristino
+- Percorso: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
 
 ```azurecli-interactive
 az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver
 ```
 
 Il comando `az mysql server restore` richiede i parametri seguenti:
-| Impostazione | Valore consigliato | DESCRIZIONE  |
+| Impostazione | Valore consigliato | DESCRIZIONE  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
+| resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Selezionare un punto di ripristino temporizzato. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. È possibile usare il fuso orario locale, ad esempio `2017-04-13T05:59:00-08:00`, o il formato UTC Zulu `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Il nome o l'ID del server di origine da cui eseguire il ripristino. |

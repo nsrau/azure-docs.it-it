@@ -1,7 +1,7 @@
 ---
 title: Prevedere finalità
 titleSuffix: Azure Cognitive Services
-description: Creare un'app personalizzata che stima l'intenzione dell'utente. Questa app è il tipo più semplice di app LUIS perché non estrae i vari elementi di dati dal testo dell'espressione, come gli indirizzi di posta elettronica o le date.
+description: In questa esercitazione si crea un'app personalizzata che stima l'intenzione dell'utente. Questa app è il tipo più semplice di app LUIS perché non estrae i vari elementi di dati dal testo dell'espressione, come gli indirizzi di posta elettronica o le date.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,22 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b1a9718fdf7222dae06f7fe9b3a0f14b50293c08
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 20cd3931488f3d3cf4728b3022316b685da3277a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097795"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754261"
 ---
-# <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Esercitazione 1: Creare un'app personalizzata per determinare le intenzioni dell'utente
+# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Esercitazione: Creare un'app LUIS per determinare le intenzioni dell'utente
 
-In questa esercitazione verrà creata un'app Human Resources (HR) personalizzata che consente di prevedere l'intenzione dell'utente in base all'espressione (testo). Al termine, sarà disponibile un endpoint Language Understanding in esecuzione nel cloud.
-
-Lo scopo dell'app è di determinare l'intenzione della conversazione di un testo discorsivo e con linguaggio naturale. Queste intenzioni sono suddivise in **Finalità**. Questa applicazione ha poche finalità. La prima finalità, **`GetJobInformation`**, identifica quando un utente desidera informazioni sui lavori disponibili all'interno di un'azienda. La seconda finalità, **`None`**, viene usata per le espressioni provenienti dall'utente che non rientrano nel _dominio_ (ambito) di questa app. Successivamente, una terza finalità, **`ApplyForJob`**, sarà aggiunta per le espressioni riguardanti la candidatura per un lavoro. Questa terza finalità è diversa da `GetJobInformation` perché le informazioni sul lavoro dovrebbero essere già note quando un utente presenta la propria candidatura per il lavoro stesso. Tuttavia, a seconda della scelta di parole, determinare la finalità potrebbe risultare difficile poiché entrambe fanno riferimento a un lavoro.
-
-Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non risponde alle espressioni dell'utente, si limita a identificare il tipo di informazione richiesta in linguaggio naturale. 
+In questa esercitazione verrà creata un'app Human Resources (HR) personalizzata che consente di prevedere l'intenzione dell'utente in base all'espressione (testo). 
 
 **In questa esercitazione si imparerà come:**
 
@@ -36,120 +32,138 @@ Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non 
 > * Pubblicare l'app
 > * Ottenere finalità dall'endpoint
 
+
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="user-intentions-as-intents"></a>Intenzioni dell'utente come finalità
+
+Lo scopo dell'app è di determinare l'intenzione della conversazione di un testo discorsivo e con linguaggio naturale: 
+
+`Are there any new positions in the Seattle office?`
+
+Queste intenzioni sono suddivise in **Finalità**. 
+
+Questa applicazione ha poche finalità. 
+
+|Finalità|Scopo|
+|--|--|
+|ApplyForJob|Determinare se l'utente si sta candidando per un lavoro.|
+|GetJobInformation|Determinare se l'utente sta cercando informazioni sul lavoro in generale o su un lavoro specifico.|
+|Nessuna|Determinare se l'utente sta chiedendo a cui l'app non è in grado di rispondere. Questa finalità viene fornita come parte della creazione dell'app e non può essere eliminata. |
 
 ## <a name="create-a-new-app"></a>Creare una nuova app
 
-1. Accedere al portale LUIS con l'URL [https://www.luis.ai](https://www.luis.ai). 
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-2. Selezionare **Create new app** (Crea nuova app).  
+## <a name="create-intent-for-job-information"></a>Creare una finalità per informazioni sul lavoro
 
-    [![Screenshot della pagina Language Understanding (LUIS) My Apps](media/luis-quickstart-intents-only/app-list.png "Screenshot della pagina Language Understanding (LUIS) My Apps")](media/luis-quickstart-intents-only/app-list.png#lightbox)
-
-3. Nella finestra di dialogo popup, immettere il nome `HumanResources` e non modificare le impostazioni cultura predefinite (**English**). Lasciare vuota la descrizione.
-
-    ![Creare una nuova app HumanResources LUIS](./media/luis-quickstart-intents-only/create-app.png)
-
-    Successivamente, l'app visualizza la pagina **Intents** (Finalità) con la finalità **None** (Nessuna).
-
-## <a name="getjobinformation-intent"></a>Finalità GetJobInformation
-
-1. Selezionare **Create new intent** (Crea nuova finalità). Immettere il nome della nuova finalità `GetJobInformation`. Questa finalità è prevista ogni volta che un utente desidera informazioni sulle mansioni aperte all'interno dell'azienda.
+1. Selezionare **Create new intent** (Crea nuova finalità). Immettere il nome della nuova finalità `GetJobInformation`. Questa finalità è stimata quando un utente vuole informazioni sulle posizioni aperte all'interno dell'azienda. 
 
     ![Screenshot della finestra di dialogo Language Understanding (LUIS) New intent](media/luis-quickstart-intents-only/create-intent.png "Screenshot della finestra di dialogo Language Understanding (LUIS) New intent")
 
-2. Fornendo _espressioni di esempio_, LUIS impara quali sono i tipi di espressione che dovranno essere stimate per la finalità in questione. Aggiungere a questa finalità diverse espressioni di esempio che verranno presumibilmente usate dagli utenti, ad esempio:
+1. Selezionare **Operazione completata**.
+
+2. Aggiungere a questa finalità diverse espressioni di esempio che verranno presumibilmente usate dagli utenti:
 
     | Espressioni di esempio|
     |--|
     |Any new jobs posted today?|
-    |What positions are available for Senior Engineers?|
-    |Is there any work in databases?|
-    |Looking for a new situation with responsibilities in accounting|
-    |Where is the job listings|
-    |New jobs?|
     |Are there any new positions in the Seattle office?|
+    |Are there any remote worker or telecommute jobs open for engineers?|
+    |Is there any work in databases?|
+    |I'm looking for a co-working situation in the tampa office.|
+    |Is there an internship in the san francisco office?|
+    |Is there any part-time work for people in college?|
+    |Looking for a new situation with responsibilities in accounting|
+    |Looking for a job in new york city for bilingual speakers.|
+    |Looking for a new situation with responsibilities in accounting.|
+    |New jobs?|
+    |Show me all the jobs for engineers that were added in the last 2 days.|
+    |Today's job postings?|
+    |What accounting positions are open in the london office?|
+    |What positions are available for Senior Engineers?|
+    |Where is the job listings|
 
     [![Screenshot dell'immissione di nuove espressioni per finalità MyStore](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot dell'immissione di nuove espressioni per finalità MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
+    Fornendo _espressioni di esempio_, LUIS impara quali sono i tipi di espressione che dovranno essere stimate per la finalità in questione. 
+
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
+## <a name="add-example-utterances-to-the-none-intent"></a>Aggiungere espressioni di esempio alla finalità None (Nessuna) 
 
-## <a name="none-intent"></a>Finalità None 
-L'applicazione client deve sapere se un'espressione non rientra nel dominio soggetto dell'applicazione. Se LUIS restituisce la finalità **None** (Nessuna) per un'espressione, l'applicazione client può chiedere se l'utente intende terminare la conversazione. L'applicazione client può anche dare altre indicazioni per proseguire la conversazione, se l'utente non intende terminarla. 
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-Queste espressioni di esempio, che non rientrano nel dominio soggetto, sono raggruppate nella finalità **None** (Nessuna). Non lasciarla vuota. 
-
-1. Selezionare **Intents** (Finalità) dal pannello di sinistra.
-
-2. Selezionare la finalità **None** (Nessuna). Aggiungere tre espressioni che l'utente potrebbe usare, ma che non sono pertinenti per l'app Human Resources. Se l'applicazione riguarda gli annunci di lavoro, alcune espressioni **None** (Nessuna) sono:
-
-    | Espressioni di esempio|
-    |--|
-    |Barking dogs are annoying|
-    |Order a pizza for me|
-    |Penguins in the ocean|
-
-
-## <a name="train"></a>Eseguire il training 
+## <a name="train-the-app-before-testing-or-publishing"></a>Eseguire il training dell'app prima del test o della pubblicazione
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Pubblica
+## <a name="publish-the-app-to-query-from-the-endpoint"></a>Pubblicare l'app per eseguire query dall'endpoint
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
-## <a name="get-intent"></a>Ottenere la finalità
+## <a name="get-intent-prediction-from-the-endpoint"></a>Ottenere una stima della finalità dall'endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Passare alla fine dell'URL nella barra degli indirizzi e immettere `I'm looking for a job with Natural Language Processing`. L'ultimo parametro della stringa di query è `q`, la **query** dell'espressione. Questa espressione non è uguale a nessuna delle espressioni di esempio. Si tratta di un test valido che dovrebbe restituire la finalità `GetJobInformation` come finalità con il punteggio più alto. 
+1. Passare alla fine dell'URL nella barra degli indirizzi e immettere `I'm looking for a job with Natural Language Processing`. L'ultimo parametro della stringa di query è `q`, la **query** dell'espressione. Questa espressione non è uguale a nessuna delle espressioni di esempio. Si tratta di un test valido che dovrebbe restituire la finalità `GetJobInformation` come finalità con il punteggio più alto. 
 
     ```JSON
     {
       "query": "I'm looking for a job with Natural Language Processing",
       "topScoringIntent": {
         "intent": "GetJobInformation",
-        "score": 0.8965092
+        "score": 0.9923871
       },
       "intents": [
         {
           "intent": "GetJobInformation",
-          "score": 0.8965092
+          "score": 0.9923871
         },
         {
           "intent": "None",
-          "score": 0.147104025
+          "score": 0.007810574
         }
       ],
       "entities": []
     }
     ```
 
-    I risultati includono **tutte le finalità** nell'app, attualmente 2. La matrice delle entità è vuota perché questa app attualmente non dispone di entità. 
+    Il parametro della stringa di query `verbose=true` indica di includere **tutte le finalità** nei risultati della query dell'app. La matrice delle entità è vuota perché questa app attualmente non dispone di entità. 
 
     Il risultato JSON identifica la finalità con il punteggio più alto come proprietà **`topScoringIntent`**. Tutti i punteggi sono compresi tra 1 e 0, il punteggio migliore è prossimo a 1. 
 
-## <a name="applyforjob-intent"></a>Finalità ApplyForJob
-Tornare al sito Web LUIS e creare una nuova finalità per determinare se l'espressione dell'utente riguarda la candidatura per un lavoro.
+## <a name="create-intent-for-job-applications"></a>Creare una finalità per le candidature di lavoro
+
+Tornare al portale LUIS e creare una nuova finalità per determinare se l'espressione dell'utente riguarda la candidatura per un lavoro.
 
 1. Selezionare **Compilazione** dalla parte superiore, menu a destra per tornare alla compilazione delle applicazioni.
 
-2. Selezionare **Intents** (Finalità) dal menu a sinistra.
+1. Selezionare **Intents** (Finalità) nel menu a sinistra per visualizzare l'elenco di finalità.
 
-3. Selezionare **Crea nuova finalità** e immettere il nome `ApplyForJob`. 
+1. Selezionare **Crea nuova finalità** e immettere il nome `ApplyForJob`. 
 
     ![Finestra di dialogo di Language Understanding per creare nuove finalità](./media/luis-quickstart-intents-only/create-applyforjob-intent.png)
 
-4. Aggiungere a questa finalità diverse espressioni che verranno presumibilmente usate dagli utenti, ad esempio:
+1. Aggiungere a questa finalità diverse espressioni che verranno presumibilmente usate dagli utenti, ad esempio:
 
     | Espressioni di esempio|
     |--|
-    |I want to apply for the new accounting job.|
     |Fill out application for job 123456|
-    |Submit resume for engineering position|
     |Here is my c.v. for position 654234|
+    |Here is my resume for the part-time receptionist post.|
+    |I'm applying for the art desk job with this paperwork.|
+    |I'm applying for the summer college internship in Research and Development in San Diego|
+    |I'm requesting to submit my resume to the temporary position in the cafeteria.|
+    |I'm submitting my resume for the new Autocar team in Columbus, OH|
+    |I want to apply for the new accounting job.|
+    |Job 456789 accounting internship paperwork is here|
     |Job 567890 and my paperwork|
+    |My papers for the tulsa accounting internship are attached.|
+    |My paperwork for the holiday delivery position|
+    |Please send my resume for the new accounting job in seattle|
+    |Submit resume for engineering position|
+    |This is my c.v. for post 234123 in Tampa.|
 
     [![Screenshot dell'immissione di nuove espressioni per finalità ApplyForJob](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot dell'immissione di nuove espressioni per finalità ApplyForJob")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
@@ -163,7 +177,7 @@ Tornare al sito Web LUIS e creare una nuova finalità per determinare se l'espre
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
-## <a name="get-intent-again"></a>Ottenere nuovamente la finalità
+## <a name="get-intent-prediction-again"></a>Ottenere di nuovo la stima della finalità
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -174,20 +188,20 @@ Tornare al sito Web LUIS e creare una nuova finalità per determinare se l'espre
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {
         "intent": "ApplyForJob",
-        "score": 0.9166808
+        "score": 0.9634406
       },
       "intents": [
         {
           "intent": "ApplyForJob",
-          "score": 0.9166808
+          "score": 0.9634406
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.07162977
+          "score": 0.0171300638
         },
         {
           "intent": "None",
-          "score": 0.0262826588
+          "score": 0.00670867041
         }
       ],
       "entities": []
@@ -196,13 +210,28 @@ Tornare al sito Web LUIS e creare una nuova finalità per determinare se l'espre
 
     I risultati includono la nuova finalità **ApplyForJob**, nonché le finalità esistenti. 
 
+## <a name="client-application-next-steps"></a>Passaggi successivi dell'applicazione client
+
+Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non risponde alle espressioni dell'utente, si limita a identificare il tipo di informazione richiesta in linguaggio naturale. Il follow-up discorsivo viene fornito dall'applicazione client, ad esempio il servizio Azure Bot. 
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>Informazioni correlate
+
+* [Tipi di entità](luis-concept-entity-types.md)
+* [Come eseguire il training](luis-how-to-train.md)
+* [Come eseguire la pubblicazione](luis-how-to-publish-app.md)
+* [Come testare nel portale LUIS](luis-interactive-test.md)
+* [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione sono state create l'app Human Resources (HR) e 2 finalità, sono state aggiunte espressioni di esempio a ognuna di queste finalità e alla finalità None (Nessuna) e sono stati eseguiti il training, la pubblicazione e il test a livello dell'endpoint. Questi sono i passaggi di base per la creazione di un modello LUIS. 
+
+Continuare con questa app [aggiungendo un'entità semplice e un elenco di frasi](luis-quickstart-primary-and-secondary-data.md).
 
 > [!div class="nextstepaction"]
 > [Aggiungere finalità ed entità predefinite a questa app](luis-tutorial-prebuilt-intents-entities.md)

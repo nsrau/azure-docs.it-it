@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
-ms.openlocfilehash: a15a704cfba9260daac0cd5edfdf8b4566348628
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 419ad6681af39aee468a23319b773de23619984d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263446"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555456"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Costo totale di proprietà (TCO) con Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Il modello di provisioning serverless di Azure Cosmos DB elimina la necessità d
 
 * **Ottimo rapporto qualità/prezzo:** i partner, i clienti e gli analisti di mercato hanno confermato un ottimo rapporto qualità/prezzo di tutte le funzionalità offerte da Azure Cosmos DB rispetto a ciò che i clienti possono ottenere implementando queste soluzioni in modo autonomo o tramite altri fornitori. Le funzionalità del database come distribuzione globale, multimaster, modelli di coerenza ben definiti e intuitivi, indicizzazione automatica, sono notevolmente semplificate con Azure Cosmos DB senza alcuna complessità, sovraccarico o tempi di inattività.
 
-* **Non è necessaria alcuna amministrazione DevOps su NoSQL:** con Azure Cosmos DB non è necessario utilizzare DevOps per gestire le distribuzioni, eseguire la manutenzione, implementare la scalabilità o applicare le patch. È possibile eseguire tutti i carichi di lavoro che si eseguirebbero con il cluster OSS NoSQL ospitato in locale o nell'infrastruttura cloud.
+* **Non è necessaria alcuna amministrazione DevOps su NoSQL:** con Azure Cosmos DB non è necessario usare DevOps per gestire le distribuzioni, eseguire la manutenzione, ridimensionare o installare patch. È possibile eseguire tutti i carichi di lavoro che si eseguirebbero con il cluster OSS NoSQL ospitato in locale o nell'infrastruttura cloud.
 
 ![Costo di proprietà di Azure Cosmos DB](./media/total-cost-ownership/tco.png)
 
@@ -37,7 +37,7 @@ Il modello di provisioning serverless di Azure Cosmos DB elimina la necessità d
 
 * **Ottimizzato per il cloud:** Azure Cosmos DB è stato progettato da zero con multi-tenancy con granularità fine e isolamento delle prestazioni. Ciò consente di posizionare, eseguire e bilanciare in modo ottimale migliaia di tenant e i relativi carichi di lavoro in cluster e data center. Al contrario, la generazione corrente di database OSS NoSQL opera in locale con l'intera macchina virtuale che si presume possa eseguire il carico di lavoro di un singolo tenant. Inoltre, questi database non sono progettati per sfruttare appieno l'infrastruttura e l'hardware di un provider di servizi cloud. Ad esempio, un motore di database OSS NoSQL non tiene conto delle differenze tra una macchina virtuale inattiva e un aggiornamento di routine dell'immagine o del fatto che il disco Premium è stato già replicato in tre livelli. Non riesce a sfruttare questi vantaggi e a trasmettere i vantaggi e i risparmi ai clienti.
 
-* **Pagamento su base oraria:** per i carichi di lavoro su larga scala, che devono essere scalati in qualsiasi momento, l'addebito avviene su base oraria. I carichi di lavoro di un'applicazione variano in genere a seconda dei periodi dell'anno e dei dati sottoposti a query. Con Azure Cosmos DB, passare a un piano superiore o inferiore in base alle proprie esigenze e pagare solo per ciò che serve. Con i sistemi locali o ospitati su IaaS, non è possibile usare questo modello, perché non c'è un modo per rimuovere l'hardware ogni ora. In questi casi, con Azure Cosmos DB è possibile risparmiare in media da 10 a 14 volte.
+* **Pagamento su base oraria:** per i carichi di lavoro su larga scala, che devono essere ridimensionati in qualsiasi momento, l'addebito avverrà unicamente su base oraria. I carichi di lavoro di un'applicazione, in genere, variano a seconda dei periodi dell'anno e dei dati sottoposti a query. Con Azure Cosmos DB, passare a un piano superiore o inferiore in base alle proprie esigenze e pagare solo per ciò che serve. Con i sistemi locali o ospitati su IaaS, non è possibile usare questo modello, perché non c'è un modo per rimuovere l'hardware ogni ora. In questi casi, con Azure Cosmos DB è possibile risparmiare in media da 10 a 14 volte.
 
 * **Si ottengono gratuitamente numerose funzionalità:** in Azure Cosmos DB, i carichi di lavoro di scrittura sono sostanzialmente più economici rispetto ad altri servizi di database. Inoltre, Azure Cosmos DB offre funzionalità come l'[indicizzazione automatica](indexing-policies.md), la [durata (TTL)](time-to-live.md), il [feed di modifiche](change-feed.md) e altre senza costi aggiuntivi, mentre in genere vengono addebitate con altri servizi di database.
 
@@ -60,8 +60,8 @@ Il modello di provisioning serverless di Azure Cosmos DB elimina la necessità d
 * Altre informazioni su [come il modello di determinazione dei prezzi di Azure Cosmos DB sia conveniente per i clienti](total-cost-ownership.md)
 * Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
 * Altre informazioni sull'[ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
-* Altre informazioni sull'[ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
-* Altre informazioni sull'[ottimizzazione dei costi delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
-* Altre informazioni sull'[ottimizzazione dei costi delle query](optimize-cost-queries.md)
+* Altre informazioni sull'[Ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
+* Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
+* Altre informazioni sull'[Ottimizzazione dei costi delle query](optimize-cost-queries.md)
 * Altre informazioni sull'[ottimizzazione dei costi degli account Cosmos multiarea](optimize-cost-regions.md)
 * Altre informazioni sul [costo totale di non proprietà di un servizio cloud di database NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)

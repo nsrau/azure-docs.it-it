@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: d3d83e240fec692d5aa655923637910006c7a62f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 53c719fbeb31d605bd9dff170a798b262d44698a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261471"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634270"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Archiviare dati critici in Archiviazione BLOB di Azure
 
@@ -25,23 +25,23 @@ L'archiviazione non modificabile aiuta le istituzioni finanziarie e i settori co
 
 Le applicazioni tipiche includono:
 
-- **Conformità alle normative**: l'archiviazione non modificabile per Archiviazione BLOB di Azure aiuta le organizzazioni a soddisfare i requisiti di SEC 17a-4(f), CFTC 1.31(d), FINRA e altre normative.
+- **Conformità alle normative**: l'archiviazione non modificabile per l'Archiviazione BLOB di Azure aiuta le organizzazioni a soddisfare i requisiti di SEC 17a-4(f), CFTC 1.31(d), FINRA e altre normative.
 
-- **Conservazione sicura dei documenti**: l'archiviazione BLOB assicura che i dati non possano essere modificati o eliminati da alcun utente, inclusi quelli con privilegi amministrativi dell'account.
+- **Conservazione sicura dei documenti**: Archiviazione BLOB assicura che i dati non possano essere modificati o eliminati da alcun utente, inclusi gli utenti con privilegi di amministratore account.
 
-- **Blocco a fini giudiziari**: l'archiviazione non modificabile per Archiviazione BLOB di Azure consente agli utenti di archiviare informazioni riservate di importanza critica per una controversia legale o un'indagine giudiziaria in uno stato antimanomissione per il periodo di tempo desiderato.
+- **Blocco a fini giudiziari**: l'archiviazione non modificabile per Archiviazione BLOB di Azure consente agli utenti di archiviare le informazioni riservate di importanza critica in caso di una controversia legale o di un'indagine giudiziaria in uno stato a prova di manomissione per il periodo di tempo desiderato.
 
 L'archiviazione non modificabile offre:
 
-- **Supporto per i criteri di conservazione basati sul tempo**: gli utenti impostano criteri per archiviare i dati per un intervallo di tempo specificato.
+- **Supporto per i criteri di conservazione basati sul tempo**: gli utenti impostano i criteri per archiviare i dati per un intervallo di tempo specificato.
 
-- **Supporto per i criteri di blocco a fini giudiziari**: quando l'intervallo di conservazione non è noto, gli utenti possono impostare blocchi a fini giudiziari per archiviare i dati in modo non modificabile finché non viene rimosso il blocco.  Quando viene impostato un blocco a fini giudiziari, i BLOB possono essere creati e letti, ma non modificati o eliminati. Ogni blocco a fini giudiziari è associato a un tag alfanumerico definito dall'utente che viene usato come stringa di identificazione, ad esempio un ID del caso.
+- **Supporto per i criteri di blocco a fini giudiziari**: quando l'intervallo di conservazione non è noto, gli utenti possono impostare blocchi a fini giudiziari per archiviare i dati in modo non modificabile finché non verrà rimosso il blocco.  Quando viene impostato un blocco a fini giudiziari, i BLOB possono essere creati e letti, ma non modificati o eliminati. Ogni blocco a fini giudiziari è associato a un tag alfanumerico definito dall'utente che viene usato come stringa di identificazione, ad esempio un ID del caso.
 
-- **Supporto per tutti i livelli BLOB**: i criteri WORM sono indipendenti dal livello di Archiviazione BLOB di Azure e si applicano a tutti i livelli (ad accesso frequente, ad accesso sporadico e archivio). Gli utenti possono trasferire i dati nel livello con i costi ottimali per i carichi di lavoro, mantenendo al tempo stesso la non modificabilità dei dati.
+- **Supporto per tutti i livelli di BLOB**: i criteri WORM sono indipendenti dal livello di Archiviazione BLOB di Azure e si applicano a tutti i livelli (ad accesso frequente, ad accesso sporadico e archivio). Gli utenti possono trasferire i dati nel livello con i costi ottimali per i carichi di lavoro, mantenendo al tempo stesso la non modificabilità dei dati.
 
 - **Configurazione a livello di contenitore**: gli utenti possono configurare criteri di conservazione basati sul tempo e tag di blocco a fini giudiziari a livello di contenitore. Grazie a semplici impostazioni a livello di contenitore, gli utenti possono creare e bloccare i criteri di conservazione basati sul tempo, estendere gli intervalli di conservazione, impostare e rimuovere i blocchi a fini giudiziari e così via. Questi criteri si applicano a tutti i BLOB nel contenitore, nuovi ed esistenti.
 
-- **Supporto della registrazione di controllo**: ogni contenitore include un log di controllo. Sono presenti fino a cinque comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati, con un massimo di tre log per le estensioni dell'intervallo di conservazione. Per la conservazione basata sul tempo, il log contiene l'ID utente, il tipo di comando, i timestamp e l'intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per tutta la durata del contenitore, in conformità alle linee guida delle normative SEC 17a-4(f). Il [log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornisce un log più completo di tutte le attività del piano di controllo. È responsabilità dell'utente archiviare questi log in modo permanente, come potrebbe essere richiesto per scopi legali o di altro tipo.
+- **Supporto per la registrazione di controllo**: ogni contenitore include un log di controllo. Sono presenti fino a cinque comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati, con un massimo di tre log per le estensioni dell'intervallo di conservazione. Per la conservazione basata sul tempo, il log contiene l'ID utente, il tipo di comando, i timestamp e l'intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per tutta la durata del contenitore, in conformità alle linee guida delle normative SEC 17a-4(f). Il [log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornisce un log più completo di tutte le attività del piano di controllo. È responsabilità dell'utente archiviare questi log in modo permanente, come potrebbe essere richiesto per scopi legali o di altro tipo.
 
 L'archiviazione non modificabile è abilitata in tutte le aree pubbliche di Azure.
 
@@ -95,7 +95,7 @@ Per l'uso di questa funzionalità non sono previsti costi aggiuntivi. Il prezzo 
 
 ## <a name="getting-started"></a>Introduzione
 
-Le versioni più recenti del [portale di Azure](http://portal.azure.com) e dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e la versione di anteprima di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) supportano l'archiviazione non modificabile per Archiviazione BLOB di Azure.
+Le versioni più recenti del [portale di Azure](http://portal.azure.com) e dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e la versione di anteprima di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) supportano l'archiviazione non modificabile per Archiviazione BLOB di Azure.
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -137,13 +137,12 @@ La funzionalità è inclusa nei gruppi di comandi seguenti: `az storage containe
 
 ### <a name="powershell"></a>PowerShell
 
-[PowerShell versione 4.4.0-preview](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May20180) supporta l'archiviazione non modificabile.
-Per abilitare la funzionalità, seguire questa procedura:
+Il modulo di anteprima Az.Storage supporta l'archiviazione non modificabile.  Per abilitare la funzionalità, seguire questa procedura:
 
 1. Assicurarsi di avere la versione più recente di PowerShellGet installata: `Install-Module PowerShellGet –Repository PSGallery –Force`.
 2. Rimuovere eventuali installazioni precedenti di Azure PowerShell.
-3. Installare AzureRM: `Install-Module AzureRM –Repository PSGallery –AllowClobber`. È possibile installare Azure in modo analogo da questo repository.
-4. Installare la versione di anteprima dei cmdlet del piano di gestione dell'archiviazione: `Install-Module -Name AzureRM.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`.
+3. Installare Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
+4. Installare la versione di anteprima del modulo di Archiviazione di Azure PowerShell: `Install-Module Az.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`.
 
 La sezione [Codice PowerShell di esempio](#sample-powershell-code) più avanti in questo articolo illustra l'utilizzo della funzionalità.
 
@@ -202,6 +201,8 @@ L'archiviazione non modificabile è attualmente disponibile solo nelle aree pubb
 
 ## <a name="sample-powershell-code"></a>Codice PowerShell di esempio
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Lo script di PowerShell di esempio seguente viene fornito a scopo di riferimento. Questo script crea un nuovo account di archiviazione e un nuovo contenitore. Viene quindi illustrato come impostare e rimuovere i blocchi a fini giudiziari, creare e bloccare i criteri di conservazione basati sul tempo (noti anche come criteri di immutabilità) ed estendere l'intervallo di conservazione.
 
 Configurare e testare l'account di archiviazione di Azure:
@@ -214,122 +215,122 @@ $container2 = "<Enter another container name>”
 $location = "<Enter the storage account location>"
 
 # Log in to the Azure Resource Manager account
-Login-AzureRMAccount
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Storage"
+Login-AzAccount
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
 
 # Create your Azure resource group
-New-AzureRmResourceGroup -Name $ResourceGroup -Location $location
+New-AzResourceGroup -Name $ResourceGroup -Location $location
 
 # Create your Azure storage account
-New-AzureRmStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
+New-AzStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
     $StorageAccount -SkuName Standard_LRS -Location $location -Kind StorageV2
 
 # Create a new container
-New-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+New-AzStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container
 
 # Create Container 2 with a storage account object
-$accountObject = Get-AzureRmStorageAccount -ResourceGroupName $ResourceGroup `
+$accountObject = Get-AzStorageAccount -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount
-New-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
+New-AzStorageContainer -StorageAccount $accountObject -Name $container2
 
 # Get a container
-Get-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container
 
 # Get a container with an account object
-$containerObject = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container
+$containerObject = Get-AzStorageContainer -StorageAccount $accountObject -Name $container
 
 # List containers
-Get-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount
 
 # Remove a container (add -Force to dismiss the prompt)
-Remove-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+Remove-AzStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container2
 
 # Remove a container with an account object
-Remove-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
+Remove-AzStorageContainer -StorageAccount $accountObject -Name $container2
 
 # Remove a container with a container object
-$containerObject2 = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
-Remove-AzureRmStorageContainer -InputObject $containerObject2
+$containerObject2 = Get-AzStorageContainer -StorageAccount $accountObject -Name $container2
+Remove-AzStorageContainer -InputObject $containerObject2
 ```
 
 Impostare e cancellare i blocchi a fini giudiziari:
 
 ```powershell
 # Set a legal hold
-Add-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
+Add-AzStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container -Tag <tag1>,<tag2>,...
 
 # with an account object
-Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>
+Add-AzStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>
 
 # with a container object
-Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>,<tag5>,...
+Add-AzStorageContainerLegalHold -Container $containerObject -Tag <tag4>,<tag5>,...
 
 # Clear a legal hold
-Remove-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
+Remove-AzStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container -Tag <tag2>
 
 # with an account object
-Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
+Remove-AzStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
 
 # with a container object
-Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>
+Remove-AzStorageContainerLegalHold -Container $containerObject -Tag <tag4>
 ```
 
 Creare o aggiornare i criteri di immutabilità:
 ```powershell
 # with an account name or container name
-Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
+Set-AzStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container -ImmutabilityPeriod 10
 
 # with an account object
-Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+Set-AzStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -ImmutabilityPeriod 1 -Etag $policy.Etag
 
 # with a container object
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
+$policy = Set-AzStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 7
 
 # with an immutability policy object
-Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
+Set-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
 ```
 
 Recuperare i criteri di immutabilità:
 ```powershell
 # Get an immutability policy
-Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
+Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container
 
 # with an account object
-Get-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+Get-AzStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container
 
 # with a container object
-Get-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject
+Get-AzStorageContainerImmutabilityPolicy -Container $containerObject
 ```
 
 Bloccare i criteri di immutabilità (aggiungere -Force per ignorare il prompt):
 ```powershell
 # with an immutability policy object
-$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
+$policy = Lock-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
 
 # with an account name or container name
-$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Lock-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
 # with an account object
-$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
+$policy = Lock-AzStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -Etag $policy.Etag
 
 # with a container object
-$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container `
+$policy = Lock-AzStorageContainerImmutabilityPolicy -Container `
     $containerObject -Etag $policy.Etag -force
 ```
 
@@ -337,45 +338,45 @@ Estendere i criteri di immutabilità:
 ```powershell
 
 # with an immutability policy object
-$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
+$policy = Set-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
     $policy -ImmutabilityPeriod 11 -ExtendPolicy
 
 # with an account name or container name
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Set-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -ImmutabilityPeriod 11 -Etag $policy.Etag -ExtendPolicy
 
 # with an account object
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
+$policy = Set-AzStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -ImmutabilityPeriod 12 -Etag `
     $policy.Etag -ExtendPolicy
 
 # with a container object
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
+$policy = Set-AzStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
 ```
 
 Rimuovere un criterio di immutabilità (aggiungere -Force per ignorare il prompt):
 ```powershell
 # with an immutability policy object
-$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
-Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+Remove-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
 # with an account object
-Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+Remove-AzStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -Etag $policy.Etag
 
 # with a container object
-Remove-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject `
+Remove-AzStorageContainerImmutabilityPolicy -Container $containerObject `
     -Etag $policy.Etag
 
 ```

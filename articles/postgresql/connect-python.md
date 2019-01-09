@@ -1,22 +1,19 @@
 ---
 title: Connettersi a Database di Azure per PostgreSQL da Python
 description: Questa guida introduttiva fornisce un esempio di codice Python che può essere usato per connettersi ai dati ed eseguire query da Database di Azure per PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 557d4217819449cd0513d4a21e331e660e37037b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: eb6b23d8f8c476ba41bea918456fdf7fb9782920
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987682"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541133"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: usare Python per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come usare [Python](https://python.org) per connettersi a un database di Azure per PostgreSQL. Descrive anche come usare istruzioni SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database dalle piattaforme macOS, Ubuntu Linux e Windows. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con Python, ma non con Database di Azure per PostgreSQL.
@@ -66,7 +63,7 @@ Questo articolo contiene in totale quattro esempi di codice, ognuno dei quali es
 -  Per eseguire il codice, digitare il comando Python seguito dal nome del file, ad esempio `Python postgres.py`.
 
 > [!NOTE]
-> A partire da Python versione 3, è possibile che venga visualizzato l'errore `SyntaxError: Missing parentheses in call to 'print'` durante l'esecuzione dei blocchi di codice seguente: in tal caso, sostituire ogni chiamata al comando `print "string"` con una chiamata di funzione usando le parentesi, ad esempio `print("string")`.
+> A partire da Python versione 3, quando si eseguono i blocchi di codice seguenti può essere visualizzato l'errore `SyntaxError: Missing parentheses in call to 'print'`. In tal caso, sostituire ogni chiamata al comando `print "string"` con una chiamata di funzione con parentesi, ad esempio `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Connettersi, creare tabelle e inserire dati
 Usare il codice seguente per connettersi e caricare i dati usando la funzione [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) con un'istruzione SQL **INSERT**. La funzione [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) viene usata per eseguire la query SQL sul database PostgreSQL. Sostituire i parametri host, dbname, user e password con i valori specificati al momento della creazione del server e del database.

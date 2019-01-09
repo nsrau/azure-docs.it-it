@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: API Visione artificiale, Python'
+title: 'Esercitazione: Eseguire operazioni sulle immagini - Python'
 titlesuffix: Azure Cognitive Services
 description: Informazioni sull'uso dell'API Visione artificiale con Python usando Jupyter Notebook. Visualizzare i risultati usando le librerie comuni.
 services: cognitive-services
@@ -8,24 +8,25 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: kefre
-ms.openlocfilehash: 16054d19c1ce6f211ebd3e2f0bbc4d152a255dda
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: 55e5168c36eb16944142c2deaae9bc94d60d2fe4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276968"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582015"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>Esercitazione: API Visione artificiale, Python
 
-Questa esercitazione illustra come usare l'API Visione artificiale di Python e come visualizzare i risultati usando alcune librerie comuni. Per eseguire l'esercitazione si userà Jupyter. Per informazioni su come iniziare a usare Jupyter Notebook interattivi, fare riferimento alla [documentazione di Jupyter](http://jupyter.readthedocs.io/en/latest/index.html).
+Questa esercitazione illustra come usare l'API Visione artificiale di Python e come visualizzare i risultati usando alcune librerie comuni. Per eseguire l'esercitazione si userà Jupyter. Per informazioni su come iniziare a usare Jupyter Notebook interattivi, fare riferimento alla [documentazione di Jupyter](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Python 2.7 o 3.5 e versioni successive](https://www.python.org/downloads/)
 - Strumento [pip](https://pip.pypa.io/en/stable/installing/)
-- [Jupyter Notebook](http://jupyter.org/install) installato
+- [Jupyter Notebook](https://jupyter.org/install) installato
 
 ## <a name="open-the-tutorial-notebook-in-jupyter"></a>Aprire il notebook dell'esercitazione in Jupyter 
 

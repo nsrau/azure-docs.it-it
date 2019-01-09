@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427523"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791320"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Esercitazione: Cablare e connettersi ad Azure Data Box
 
@@ -27,9 +27,9 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, verificare che:
+Prima di iniziare, assicurarsi di:
 
-1. Sia stata completata l'[Esercitazione: Ordinare Azure Data Box](data-box-deploy-ordered.md).
+1. Aver completato l'esercitazione descritta in [Esercitazione: Ordinare Azure Data Box](data-box-deploy-ordered.md).
 2. Sia stato ricevuto il Data Box e lo stato dell'ordine nel portale sia **Recapitato**. 
     - L'involucro trasparente fissato al dispositivo sotto l'attuale etichetta contenga un'etichetta di spedizione. Tenere al sicuro quest'etichetta perché servirà per la spedizione di restituzione.
     - In alcune aree in Europa, il dispositivo potrebbe arrivare confezionato in una scatola. Assicurarsi di disimballare il dispositivo e di conservare la scatola per la spedizione di ritorno.
@@ -69,7 +69,7 @@ Per cablare il dispositivo, eseguire la procedura seguente.
 Eseguire la procedura seguente per configurare il dispositivo usando l'interfaccia utente Web locale e l'interfaccia utente del portale.
 
 1. Configurare la scheda Ethernet nel portatile usato per connettersi al dispositivo impostando l'indirizzo IP statico 192.168.100.5 e la subnet 255.255.255.0. 
-2. Connettersi alla porta MGMT del dispositivo e accedere alla relativa interfaccia utente Web locale all'indirizzo https://192.168.100.10. Questa operazione potrebbe richiedere fino a 5 minuti dopo l'accensione del dispositivo.
+2. Connettersi alla porta MGMT del dispositivo e accedere all'interfaccia utente Web locale del dispositivo all'indirizzo https\://192.168.100.10. Questa operazione potrebbe richiedere fino a 5 minuti dopo l'accensione del dispositivo.
 3. Fare clic su **Dettagli** e quindi su **Continua per la pagina Web**.
 
    ![Connettersi all'interfaccia utente Web locale](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0aa7b7f3558bab7f3553527e03c44d71dd5a87ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 60ecf08d7f0c40a04472b3e2bf5ef739e51c32e8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833143"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794431"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria
 
@@ -148,13 +148,13 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
       >Se si usano account di archiviazione abilitati per il firewall, assicurarsi di selezionare "Consenti ai servizi Microsoft attendibili". [Altre informazioni.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **Account di archiviazione di destinazione (se la VM di origine non usa i dischi gestiti)**: per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione nell'area di destinazione per eseguire il mirroring dell'account di archiviazione della macchina virtuale di origine.
+    - **Account di archiviazione di destinazione (se la macchina virtuale di origine non usa i dischi gestiti)**: per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione nell'area di destinazione per eseguire il mirroring dell'account di archiviazione della macchina virtuale di origine.
       >[!NOTE]
       >Se si usano account di archiviazione di origine o destinazione abilitati per il firewall, assicurarsi di selezionare "Consenti ai servizi Microsoft attendibili". [Altre informazioni.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **Dischi gestiti di replica (se la VM di origine usa i dischi gestiti)**: per impostazione predefinita, Site Recovery crea dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della VM di origine con lo stesso tipo di archiviazione (Standard o Premium) del disco gestito della VM di origine.
-    - **Set di disponibilità di destinazione**: per impostazione predefinita, Azure Site Recovery crea nell'area di destinazione un nuovo set di disponibilità il cui nome include il suffisso "asr" relativo alla parte delle macchine virtuali di un set di disponibilità nell'area di origine. Nel caso in cui il set di disponibilità creato da Azure Site Recovery esista già, verrà riusato.
+    - **Dischi gestiti di replica (se la macchina virtuale di origine usa i dischi gestiti)**: per impostazione predefinita, Site Recovery crea dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della macchina virtuale di origine con lo stesso tipo di archiviazione (Standard o Premium) del disco gestito della macchina virtuale di origine.
+    - **Set di disponibilità di destinazione**: per impostazione predefinita, Azure Site Recovery crea nell'area di destinazione un nuovo set di disponibilità il cui nome include il suffisso "asr" per la parte attinente alle macchine virtuali di un set di disponibilità nell'area di origine. Nel caso in cui il set di disponibilità creato da Azure Site Recovery esista già, verrà riusato.
     - **Zone di disponibilità di destinazione**: per impostazione predefinita, Site Recovery assegna nell'area di origine lo stesso numero di zona dell'area di origine se l'area di destinazione supporta le zone di disponibilità. 
 
     Se l'area di destinazione non supporta le zone di disponibilità, per impostazione predefinita le macchine virtuali di destinazione vengono configurate come istanze singole. Se necessario, è possibile configurare tali macchine virtuali in modo che siano incluse nel set di disponibilità dell'area di destinazione facendo clic su 'Personalizza'.
@@ -165,10 +165,10 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
 
 4. Per personalizzare le impostazioni per i criteri di replica, fare clic su **Personalizza** accanto a **Criteri di replica** e modificare le impostazioni seguenti in base alle esigenze:
 
-    - **Nome del criterio di replica**: nome del criterio.
+    - **Replication policy name** (Nome criteri di replica): nome dei criteri.
     - **Conservazione del punto di ripristino**: per impostazione predefinita, Site Recovery conserva i punti di ripristino per 24 ore. È possibile configurare un valore compreso tra 1 e 72 ore.
     - **Frequenza snapshot coerenti con l'app**: per impostazione predefinita, Site Recovery accetta uno snapshot coerente con l'app ogni 4 ore. È possibile configurare un valore compreso tra 1 e 12 ore. Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'applicazione all'interno della macchina virtuale. Il servizio Copia Shadow del volume assicura che lo stato dell'app nella macchina virtuale sia coerente quando viene creato lo snapshot.
-    - **Gruppo di replica**: se l'applicazione richiede la coerenza tra le macchine virtuali, è possibile creare un gruppo di replica per tali macchine virtuali. Per impostazione predefinita, le VM selezionate non fanno parte di gruppi di replica.
+    - **Gruppo di replica**: se l'applicazione richiede la coerenza tra più macchine virtuali, è possibile creare un gruppo di replica per tali macchine virtuali. Per impostazione predefinita, le VM selezionate non fanno parte di gruppi di replica.
 
 5. Per aggiungere VM a un gruppo di replica nuovo o esistente, in **Personalizza** selezionare **Sì** per la coerenza tra più macchine virtuali . Fare quindi clic su **OK**.
 
@@ -180,8 +180,8 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
 Se nella macchina virtuale di origine è abilitata la Crittografia dischi di Azure, verranno visualizzate le impostazioni di crittografia:
 
 1. Rivedere le impostazioni di crittografia.
-    - **Insiemi di credenziali delle chiavi di crittografia del disco**: per impostazione predefinita, Azure Site Recovery crea un nuovo insieme di credenziali delle chiavi nell'area di destinazione il cui nome contiene il suffisso "asr" basato sulle chiavi di crittografia del disco della macchina virtuale di origine. Nel caso in cui l'insieme di credenziali delle chiavi creato da Azure Site Recovery esista già, verrà riutilizzato.
-    - **Insiemi di credenziali delle chiavi di crittografia della chiave**: per impostazione predefinita, Azure Site Recovery crea un nuovo insieme di credenziali delle chiavi nell'area di destinazione il cui nome contiene il suffisso "asr" basato sulle chiavi di crittografia della chiave della macchina virtuale di origine. Nel caso in cui l'insieme di credenziali delle chiavi creato da Azure Site Recovery esista già, verrà riutilizzato.
+    - **Insieme di credenziali delle chiavi di crittografia del Data Box Disk**: per impostazione predefinita, Azure Site Recovery crea un nuovo insieme di credenziali delle chiavi nell'area di destinazione il cui nome contiene il suffisso "asr" basato sulle chiavi di crittografia del disco della macchina virtuale di origine. Nel caso in cui l'insieme di credenziali delle chiavi creato da Azure Site Recovery esista già, verrà riutilizzato.
+    - **Insieme di credenziali delle chiavi di crittografia della chiave**: per impostazione predefinita, Azure Site Recovery crea un nuovo insieme di credenziali delle chiavi nell'area di destinazione il cui nome contiene il suffisso "asr" basato sulle chiavi di crittografia della chiave della macchina virtuale di origine. Nel caso in cui l'insieme di credenziali delle chiavi creato da Azure Site Recovery esista già, verrà riutilizzato.
 
 2. Fare clic su **Personalizza** per selezionare gli insiemi di credenziali delle chiavi personalizzati.
 

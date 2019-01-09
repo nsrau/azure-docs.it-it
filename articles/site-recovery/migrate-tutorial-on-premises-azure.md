@@ -4,15 +4,15 @@ description: Questo articolo illustra come eseguire la migrazione di computer lo
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1df09a885d6c636ff6bd4bcbec03d27ff7b44ff9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5023171c4f943b7e698a0b6bbcadef209965e2df
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836985"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789247"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Eseguire la migrazione di computer locali ad Azure
 
@@ -63,9 +63,9 @@ Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 1. Fare clic su **Insiemi di credenziali dei servizi di ripristino** e quindi sull'insieme di credenziali.
 2. Nel menu Risorsa fare clic su **Site Recovery** > **Preparare l'infrastruttura** > **Obiettivo di protezione**.
 3. In **Protection goal** (Obiettivo di protezione) selezionare ciò che si intende migrare.
-    - **VMware**: selezionare **In Azure** > **Sì con VMWare vSphere Hypervisor**.
-    - **Computer fisico**: selezionare **In Azure** > **Non virtualizzato/Altro**.
-    - **Hyper-V**: selezionare **In Azure** > **Sì con Hyper-V**. Se le macchine virtuali Hyper-V sono gestite da VMM, selezionare **Sì**.
+    - **VMware**: Selezionare **In Azure** > **Sì, con VMWare vSphere Hypervisor**.
+    - **Computer fisico**: Selezionare **In Azure** > **Non virtualizzato/Altro**.
+    - **Hyper-V**: Selezionare **In Azure** > **,** . Se le macchine virtuali Hyper-V sono gestite da VMM, selezionare **Sì**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
@@ -119,7 +119,7 @@ Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
 
 
 > [!WARNING]
-> **Non annullare un failover in corso**: prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.
+> **Non annullare un failover in corso**: Prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.
 
 In alcuni scenari il failover richiede un'ulteriore elaborazione il cui completamento richiede da 8 a 10 minuti. L'esecuzione del failover di test potrebbe richiedere più tempo per server fisici, computer Linux VMware, macchine virtuali VMware per cui non è abilitato il servizio DHCP e macchine virtuali VMware che non hanno i driver di avvio seguenti: storvsc, vmbus, storflt, intelide, atapi.
 

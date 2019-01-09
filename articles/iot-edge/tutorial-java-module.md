@@ -9,12 +9,12 @@ ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 53be0f36e79d5691d8531c46bf7f554c53f641ee
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f099d280615607382bd424063d39bb26cdeea793
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342834"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557860"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Esercitazione: Sviluppare un modulo Java per IoT Edge e distribuirlo in un dispositivo simulato
 
@@ -36,8 +36,8 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 
 Un dispositivo Azure IoT Edge:
 
-* È possibile usare il computer di sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per [Linux](quickstart-linux.md).
-* I moduli Java per IoT Edge non supportano i dispositivi Windows.
+* È possibile configurare un dispositivo IoT Edge seguendo i passaggi descritti negli argomenti di avvio rapido per [Linux](quickstart-linux.md) p [Windows](quickstart.md).
+* Per IoT Edge nei dispositivi Windows, la versione 1.0.5 non supporta i moduli Java. Per altre informazioni, vedere le [Note sulla versione 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Per istruzioni su come installare una versione specifica, vedere [Aggiornare il daemon di sicurezza e il runtime di IoT Edge](how-to-update-iot-edge.md).
 
 Risorse cloud:
 
@@ -70,7 +70,7 @@ Se non è ancora disponibile alcun registro contenitori, seguire questa procedur
    | ----- | ----- |
    | Nome registro | Specificare un nome univoco. |
    | Sottoscrizione | Selezionare una sottoscrizione nell'elenco a discesa. |
-   | Gruppo di risorse | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |
+   | Gruppo di risorse | Per una gestione più semplice, usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide di avvio rapido di IoT Edge. Ad esempio, **IoTEdgeResources**. |
    | Località | Scegliere una località vicina. |
    | Utente amministratore | Impostare su **Abilita**. |
    | SKU | Selezionare **Basic**. | 
@@ -82,7 +82,7 @@ Se non è ancora disponibile alcun registro contenitori, seguire questa procedur
 7. Copiare i valori nei campi **Server di accesso**, **Nome utente** e **Password**. Usare questi valori più avanti nell'esercitazione per fornire l'accesso al registro contenitori. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Creare un progetto di modulo IoT Edge
-La procedura seguente consente di creare un progetto di modulo di IoT Edge basato sul pacchetto di modelli Maven per Azure IoT Edge e su Azure IoT SDK per dispositivi Java usando Visual Studio Code e l'estensione Azure IoT Edge.
+La procedura seguente consente di creare un progetto di modulo IoT Edge basato sul pacchetto di modelli Maven per Azure IoT Edge e su Azure IoT SDK per dispositivi Java. Il progetto si crea usando Visual Studio Code e l'estensione Azure IoT Edge.
 
 ### <a name="create-a-new-solution"></a>Creare una nuova soluzione
 
@@ -136,7 +136,7 @@ Il file dell'ambiente archivia le credenziali per il registro contenitori e le c
     import com.microsoft.azure.sdk.iot.device.DeviceTwin.TwinPropertyCallBack;
     ```
 
-5. Aggiungere la definizione seguente alla classe **App**. Questa variabile imposta il valore che la temperatura misurata deve superare per inviare i dati all'hub IoT. 
+5. Aggiungere la definizione seguente alla classe **App**. Questa variabile imposta una soglia di temperatura. La temperatura misurata della macchina non viene segnalata all'hub IoT finché non supera questo valore. 
 
     ```java
     private static final String TEMP_THRESHOLD = "TemperatureThreshold";
@@ -175,7 +175,7 @@ Il file dell'ambiente archivia le credenziali per il registro contenitori e le c
         }
     ```
 
-8. Aggiungere le due classi interne statiche seguenti alla classe **App**. Queste classi ricevono gli aggiornamenti delle proprietà desiderate dal modulo gemello e aggiornano la variabile **tempThreshold**. Tutti i moduli hanno un modulo gemello che consente di configurare il codice in esecuzione all'interno di un modulo direttamente dal cloud.
+8. Aggiungere le due classi interne statiche seguenti alla classe **App**. Queste classi aggiornano la variabile tempThreshold al variare della proprietà desiderata del modulo gemello. Tutti i moduli hanno un modulo gemello che consente di configurare il codice in esecuzione all'interno di un modulo direttamente dal cloud.
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
@@ -240,9 +240,9 @@ Il file dell'ambiente archivia le credenziali per il registro contenitori e le c
 
 ## <a name="build-your-iot-edge-solution"></a>Compilare la soluzione IoT Edge
 
-Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggiunto codice a **JavaModule** per filtrare i messaggi in cui la temperatura segnalata del computer è inferiore alla soglia accettabile. È ora necessario compilare la soluzione come immagine del contenitore ed eseguirne il push nel registro contenitori. 
+Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggiunto codice a **JavaModule** per filtrare i messaggi in cui la temperatura segnalata del computer è inferiore al limite accettabile. Compilare ora la soluzione come immagine del contenitore ed eseguirne il push nel registro contenitori. 
 
-1. Accedere a Docker immettendo il comando seguente nel terminale integrato di Visual Studio Code. È quindi possibile eseguire il push dell'immagine del modulo nel registro contenitori di Azure.
+1. Accedere a Docker immettendo il comando seguente nel terminale di Visual Studio Code. È quindi possibile eseguire il push dell'immagine del modulo nel registro contenitori di Azure.
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -281,7 +281,7 @@ Dopo aver applicato il manifesto della distribuzione al dispositivo IoT Edge, il
 
 È possibile visualizzare lo stato del dispositivo IoT Edge tramite la sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure) della finestra di esplorazione di Visual Studio Code. Espandere i dettagli del dispositivo per visualizzare un elenco dei moduli distribuiti e in esecuzione. 
 
-Nel dispositivo IoT Edge stesso è possibile visualizzare lo stato dei moduli della distribuzione usando il comando `iotedge list`. Devono essere presenti quattro moduli: i due moduli di runtime di IoT Edge, tempSensor e il modulo personalizzato creato in questa esercitazione. L'avvio di tutti i moduli può richiedere qualche minuto. Rieseguire quindi il comando se inizialmente non sono visualizzati tutti. 
+Nel dispositivo IoT Edge è possibile visualizzare lo stato dei moduli della distribuzione usando il comando `iotedge list`. Devono essere presenti quattro moduli: i due moduli di runtime di IoT Edge, tempSensor e il modulo personalizzato creato in questa esercitazione. L'avvio di tutti i moduli può richiedere qualche minuto. Rieseguire quindi il comando se inizialmente non sono visualizzati tutti. 
 
 Per visualizzare i messaggi generati da un qualsiasi modulo, usare il comando `iotedge logs <module name>`. 
 
@@ -289,7 +289,7 @@ Per visualizzare i messaggi generati da un qualsiasi modulo, usare il comando `i
 
 1. Per monitorare i dati che arrivano all'hub IoT, selezionare i puntini di sospensione (**...**) e quindi selezionare **Start Monitoring D2C Messages** (Avvia il monitoraggio dei messaggi D2C).
 2. Per monitorare il messaggio D2C per un dispositivo specifico, fare clic con il pulsante destro del mouse sul dispositivo nell'elenco e scegliere **Start Monitoring D2C Messages** (Avvia il monitoraggio dei messaggi D2C).
-3. Per arrestare il monitoraggio dei dati, eseguire il comando **hub IoT di Azure: Arrestare il monitoraggio di messaggi D2C** nel riquadro comandi. 
+3. Per interrompere il monitoraggio dei dati, eseguire il comando **hub IoT di Azure: Interrompere il monitoraggio di messaggi D2C** nel riquadro comandi. 
 4. Per visualizzare o aggiornare il modulo gemello, fare clic con il pulsante destro del mouse sul modulo nell'elenco e scegliere **Edit module twin** (Modifica il modulo gemello). Per aggiornare il modulo gemello, salvare il file JSON gemello, fare clic con il pulsante destro del mouse sull'area degli editor e scegliere **Update Module Twin** (Aggiorna il modulo gemello).
 5. Per visualizzare i log di Docker, installare [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) per Visual Studio Code. È possibile trovare i moduli in esecuzione in locale nello strumento di esplorazione di Docker. Dal menu di scelta rapida selezionare **Mostra log** per visualizzarli nel terminale integrato.
  

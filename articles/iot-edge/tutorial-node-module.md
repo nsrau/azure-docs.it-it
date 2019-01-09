@@ -9,12 +9,12 @@ ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 76bc59b41bf35f6427b1dcb273f3f50c5e70b748
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f69babb4520b4829a8cf59e2dac7763471a2db65
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344058"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557097"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Esercitazione: Sviluppare e distribuire un modulo Node.js per IoT Edge in un dispositivo simulato
 
@@ -36,6 +36,7 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 Un dispositivo Azure IoT Edge:
 
 * È possibile usare il computer per lo sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md).
+* Se si esegue IoT Edge su Windows, IoT Edge versione 1.0.5 non supporta i moduli Node.js. Per altre informazioni, vedere le [Note sulla versione 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Per istruzioni su come installare una versione specifica, vedere [Aggiornare il daemon di sicurezza e il runtime di IoT Edge](how-to-update-iot-edge.md).
 
 Risorse cloud:
 

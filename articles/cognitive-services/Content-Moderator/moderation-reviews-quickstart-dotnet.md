@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: creare revisioni usando .NET - Content Moderator'
+title: 'Avvio rapido: Creare revisioni usando .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Come creare revisioni usando Content Moderator SDK di Azure per .NET.
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: ce90c5f691a0a8a333161f3135856d720d1de310
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6409011c1a7c125dd03bb706f49ccad1a1fd49a4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226586"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538872"
 ---
-# <a name="quickstart-create-reviews-using-net"></a>Guida introduttiva: creare revisioni usando .NET
+# <a name="quickstart-create-reviews-using-net"></a>Avvio rapido: Creare revisioni usando .NET
 
-Questo articolo contiene informazioni ed esempi di codice per iniziare a usare [Content Moderator SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) allo scopo di:
+Questo articolo contiene informazioni ed esempi di codice per iniziare a usare l'[SDK di Content Moderator per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) allo scopo di:
  
 - Creare un set di revisioni per moderatori umani
 - Ottenere lo stato delle revisioni esistenti per i moderatori umani
 
-Prima di essere pianificato per la revisione umana, il contenuto passa in genere attraverso alcune funzioni di moderazione automatizzate. Questo articolo descrive solo come creare la revisione per la moderazione eseguita da umani. Per uno scenario più complesso, vedere le esercitazioni [Moderazione dei contenuti di Facebook](facebook-post-moderation.md) e [Moderazione del catalogo di e-commerce](ecommerce-retail-catalog-moderation.md).
+Prima di essere pianificato per la revisione umana, il contenuto passa in genere attraverso alcune funzioni di moderazione automatizzate. Questo articolo descrive solo come creare la revisione per la moderazione eseguita da umani. Per uno scenario più complesso, vedere le esercitazioni [Moderazione dei contenuti di Facebook](facebook-post-moderation.md) e [Moderare immagini di prodotti per l'e-commerce](ecommerce-retail-catalog-moderation.md).
 
 Questo articolo presuppone che si abbia già familiarità con Visual Studio e C#.
 
@@ -520,4 +520,4 @@ Viene visualizzata una risposta simile all'esempio seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ottenere il [SDK di Content Moderator per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e la [soluzione Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) per questa e altre guide introduttive di Content Moderator per .NET e iniziare a implementare l'integrazione.
+Consultare questa e altre guide introduttive di Content Moderator .NET per usare [Content Moderator SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e la [soluzione Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) prima di iniziare a implementare l'integrazione.

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ea372b4363ce506b926a37686b85cb36e51546eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03b8dd9bd0a7acc63fdae66330904142384429a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833458"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794210"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Failover e failback di macchine virtuali Hyper-V replicate in Azure
 
@@ -39,9 +39,9 @@ Assicurarsi che non siano presenti snapshot nella macchina virtuale e che la mac
 
 Le operazioni di failover e failback includono tre fasi:
 
-1. **Failover in Azure**: eseguire il failover delle macchine virtuali Hyper-V dal sito locale ad Azure.
-2. **Failover nel sito locale**: eseguire il failover delle macchine virtuali di Azure nel sito locale, quando questo è disponibile. Inizia la sincronizzazione dei dati da Azure in locale e al completamento, vengono visualizzate le macchine virtuali in locale.  
-3. **Replica inversa delle macchine virtuali locali**: dopo il failback dei dati in locale, eseguire la replica inversa delle macchine virtuali locali per avviarne la replica in Azure.
+1. **Failover in Azure**: failover delle macchine virtuali Hyper-V dal sito locale ad Azure.
+2. **Failback nel sito locale**: failover delle macchine virtuali di Azure nel sito locale, quando questo è disponibile. Inizia la sincronizzazione dei dati da Azure in locale e al completamento, vengono visualizzate le macchine virtuali in locale.  
+3. **Replica inversa delle macchine virtuali locali**: dopo il failback nel sito locale, replica inversa delle macchine virtuali locali per avviarne la replica in Azure.
 
 ## <a name="verify-vm-properties"></a>Verificare le proprietà della macchina virtuale
 
@@ -65,7 +65,7 @@ In **Elementi protetti** fare clic su **Elementi replicati** > macchina virtuale
 4. Dopo la verifica del failover, fare clic su **Esegui commit**. Vengono eliminati tutti i punti di ripristino disponibili.
 
 > [!WARNING]
-> **Non annullare un failover in corso**: se si annulla l'operazione in corso, il failover viene arrestato, ma la macchina virtuale non viene più replicata.
+> **Non annullare un failover in corso**: Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.
 
 ## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>Eseguire il failback della macchina virtuale di Azure nel sito locale ed eseguire la replica inversa delle macchine virtuali locali
 

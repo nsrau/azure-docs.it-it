@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887213"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000020"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Come risolvere il problema del "runtime di Funzioni di Azure non raggiungibile"
 
@@ -37,6 +37,7 @@ Verranno esaminati i quattro casi di errore più comuni, come identificare e com
 1. Impostazioni di applicazione dell'account di archiviazione eliminate
 1. Credenziali dell'account di archiviazione non valide
 1. Account di archiviazione inaccessibile
+1. Quota di esecuzione giornaliera completa
 
 ## <a name="storage-account-deleted"></a>Account di archiviazione eliminato
 
@@ -79,18 +80,25 @@ L'app per le funzioni deve essere in grado di accedere all'account di archiviazi
 * L'app per le funzioni distribuita agli ambienti del servizio app senza le regole di rete corrette per consentire il traffico da e verso l'account di archiviazione
 * Il firewall dell'account di archiviazione è abilitato e non è configurato per consentire il traffico da e verso le funzioni. [Altre informazioni sulla configurazione del firewall dell'account di archiviazione sono reperibili qui](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
+## <a name="daily-execution-quota-full"></a>Quota di esecuzione giornaliera completa
+
+Se si dispone di una Quota di esecuzione giornaliera configurata, verrà disabilitata temporaneamente l'app per le funzioni e molti dei controlli del portale non saranno più disponibili. 
+
+* Per verificare, selezionare Apri Funzionalità della piattaforma > Impostazioni dell'app per le funzioni nel portale. Nel caso di superamento di quota, viene inviato il messaggio seguente
+    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+* Rimuovere la quota e riavviare l'app per risolvere il problema.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora che l'app per le funzioni è nuovamente operativa, esaminare i riferimenti per sviluppatori e i modelli di avvio rapido per iniziare a usare nuovamente l'app.
 
 * [Creare la prima funzione di Azure](functions-create-first-azure-function.md)  
-  Informazioni su come iniziare immediatamente a creare la prima funzione tramite Avvio rapido di Funzioni di Azure. 
+   Informazioni su come iniziare immediatamente a creare la prima funzione tramite Avvio rapido di Funzioni di Azure. 
 * [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)  
-  Include informazioni più tecniche sul runtime di Funzioni di Azure, nonché informazioni di riferimento per la codifica di funzioni e la definizione di trigger e associazioni.
+   Include informazioni più tecniche sul runtime di Funzioni di Azure, nonché informazioni di riferimento per la codifica di funzioni e la definizione di trigger e associazioni.
 * [Test di Funzioni di Azure](functions-test-a-function.md)  
-  Descrive diversi strumenti e tecniche per il test delle funzioni.
+   Descrive diversi strumenti e tecniche per il test delle funzioni.
 * [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md)  
   Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di hosting A consumo, e spiega come scegliere quello più appropriato. 
-* [Informazioni sul servizio app di Azure](../app-service/app-service-web-overview.md)  
+* [Informazioni sul servizio app di Azure](../app-service/overview.md)  
   Funzioni di Azure sfrutta il servizio app di Azure per le funzionalità di base, ad esempio distribuzioni, variabili di ambiente e diagnostica. 

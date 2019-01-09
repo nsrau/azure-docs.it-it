@@ -1,7 +1,7 @@
 ---
-title: 'Esercitazione: Visione artificiale in C#'
+title: Servizi connessi di Visual Studio - Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Connettersi all'API Visione artificiale da un'applicazione Web ASP.NET Core.
+description: Connettersi all'API Visione artificiale da un'applicazione Web ASP.NET Core usando la funzionalità Servizi connessi di Visual Studio.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: Tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: ebfcabdea1e83a83af5eea8025ba5a411c3f9880
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.custom: seodec18
+ms.openlocfilehash: e9207fe19272dac23db165e160ce9f7a7e802c14
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077951"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579737"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Usare Servizi connessi in Visual Studio per connettersi all'API Visione artificiale
 
@@ -37,15 +38,15 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso di
 1. In **Esplora soluzioni** scegliere **Aggiungi** > **Servizio connesso**.
    Nella pagina Servizio connesso visualizzata sono elencati i servizi che è possibile aggiungere al progetto.
 
-   ![Aggiungere la voce di menu Servizio connesso](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Screenshot di un menu di scelta rapida in un progetto di Visual Studio: Aggiungi > Servizio connesso](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. Nel menu dei servizi disponibili scegliere **API Visione artificiale di Servizi cognitivi**.
 
-   ![Scegliere il servizio a cui connettersi](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Menu Servizi connessi, con l'opzione per l'analisi delle immagini con Visione artificiale evidenziata](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Se è stato effettuato l'accesso a Visual Studio e al proprio account è associata una sottoscrizione di Azure, viene visualizzata una pagina contenente un elenco a discesa con le sottoscrizioni.
 
-   ![Selezionare la propria sottoscrizione](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Una finestra di Visual Studio "API visione artificiale" con l'elenco a discesa Sottoscrizione evidenziato](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Selezionare la sottoscrizione da usare e quindi scegliere un nome per l'API Visione artificiale oppure scegliere il collegamento di modifica per cambiare il nome generato automaticamente, scegliere il gruppo di risorse e il piano tariffario.
 
@@ -93,11 +94,11 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso di
 
 1. Nella cartella wwwroot del progetto aggiungere una cartella immagini e salvarvi un file di immagine. Si può ad esempio usare una delle immagini in questa [pagina dell'API Visione artificiale](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Fare clic con il pulsante destro del mouse su una delle immagini, salvarla nel disco rigido locale, quindi in Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella delle immagini e scegliere **Aggiungi** > **Elemento esistente** per aggiungerla al progetto. Il progetto in Esplora soluzioni avrà un aspetto simile al seguente: 
   
-   ![Cartella delle immagini con file di immagine](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
+   ![Screenshot della visualizzazione Esplora soluzioni con un file di immagine selezionato](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 
 1. Fare clic sul file di immagine, scegliere Proprietà e quindi scegliere **Copia se più recente**. 
 
-   ![Copia se più recente](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![Finestra di proprietà dell'immagine. Copia nella directory di output è impostato su Copia se più recente](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Sostituire il metodo Configure con il codice seguente per accedere all'API Visione artificiale e testare un'immagine.
 

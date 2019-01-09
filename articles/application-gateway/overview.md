@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679172"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714751"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -49,7 +49,7 @@ Per altre informazioni sulle funzionalità dell'anteprima pubblica del gateway a
 
 Il gateway applicazione supporta la terminazione SSL nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Questa funzionalità consente ai server Web di non gestire il costoso carico di crittografia e decrittografia. In alcuni casi, tuttavia, le comunicazioni non crittografate verso i server non rappresentano un'opzione accettabile. Questo può dipendere dai requisiti di sicurezza e conformità o dal fatto che l'applicazione può accettare solo connessioni protette. Per queste applicazioni, il gateway applicazione supporta la crittografia SSL end-to-end.
 
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Anteprima del controller di ingresso del servizio Azure Kubernetes (AKS) 
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Anteprima del controller di ingresso del servizio Kubernetes di Azure (AKS) 
 
 Il controller di ingresso del gateway applicazione viene eseguito come pod all'interno del cluster AKS e consente al gateway applicazione di fungere da ingresso per un cluster AKS. 
 
@@ -106,10 +106,18 @@ Il gateway applicazione offre il supporto nativo per i protocolli WebSocket e HT
 
 I protocolli WebSocket HTTP/2 consentono una comunicazione full duplex tra un server e un client su una connessione TCP con esecuzione prolungata. Questo consente una comunicazione più interattiva tra il server Web e il client che può essere bidirezionale senza necessità di polling che invece è richiesto nelle implementazioni basate su HTTP. A differenza del protocollo HTTP, questi protocolli presentano un sovraccarico ridotto e possono riutilizzare la stessa connessione TCP per più richieste/risposte garantendo così un uso più efficiente delle risorse. Questi protocolli sono progettati per usare le porte HTTP 80 e 443 tradizionali.
 
+## <a name="rewrite-http-headers-public-preview"></a>Riscrivere le intestazioni HTTP (anteprima pubblica)
+
+Le intestazioni HTTP consentono al client e al server di passare informazioni aggiuntive insieme alla richiesta o alla risposta. Riscrivere le intestazioni HTTP consente di affrontare diversi scenari importanti, ad esempio l'aggiunta di campi di intestazione correlati come HSTS/X-XSS-Protection o la rimozione di campi di intestazione di risposta, che potrebbero rivelare informazioni riservate come il nome del server back-end. 
+
+Il gateway applicazione supporta ora la possibilità di riscrivere le intestazioni delle richieste HTTP in ingresso e in uscita. Sarà possibile aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP, mentre i pacchetti di richiesta/risposta si spostano tra client e pool di back-end. È possibile riscrivere sia i campi di intestazione standard, definiti in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt), sia i campi di intestazione non standard.  
+
+Per altre informazioni su questa funzionalità in anteprima pubblica, vedere [Riscrivere le intestazioni HTTP](rewrite-http-headers.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 A seconda dei requisiti e dell'ambiente, è possibile creare un'applicazione gateway di test usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure:
 
-- [Avvio rapido: Indirizzare il traffico Web con un gateway applicazione di Azure dal portale di Azure](quick-create-portal.md).
-- [Avvio rapido: Indirizzare il traffico Web con un gateway applicazione di Azure da Azure PowerShell](quick-create-powershell.md)
-- [Avvio rapido: Indirizzare il traffico Web con un gateway applicazione di Azure dall'interfaccia della riga di comando di Azure](quick-create-cli.md)
+- [Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure](quick-create-portal.md).
+- [Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Azure PowerShell](quick-create-powershell.md)
+- [Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure](quick-create-cli.md)

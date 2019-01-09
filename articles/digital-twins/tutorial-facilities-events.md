@@ -1,18 +1,19 @@
 ---
-title: Acquisire eventi da uno spazio di Gemelli digitali di Azure | Microsoft Docs
+title: 'Esercitazione: Acquisire eventi da uno spazio di Gemelli digitali di Azure | Microsoft Docs'
 description: Informazioni su come ricevere notifiche dagli spazi grazie all'integrazione di Gemelli digitali di Azure con App per la logica seguendo i passaggi descritti in questa esercitazione.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a52a3be8c3023893569e95b566a18c032be26459
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583262"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556017"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Esercitazione: Ricevere notifiche dagli spazi di Gemelli digitali di Azure usando App per la logica
 

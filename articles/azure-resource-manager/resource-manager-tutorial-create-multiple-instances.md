@@ -13,16 +13,18 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f355604e2bff1c3f03c8237f30cbe41ce7e5810
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: b50609449d6144d2bb013d82e2eb29e94b5b01be
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616148"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754119"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Esercitazione: Creare più istanze di risorse con modelli di Resource Manager
 
 Informazioni su come eseguire un'iterazione del modello di Gestione risorse di Azure per creare più istanze di una risorsa di Azure. In questa esercitazione si modifica un modello per creare tre istanze di account di archiviazione.
+
+Questa esercitazione illustra le attività seguenti:
 
 > [!div class="checklist"]
 > * Aprire un modello di avvio rapido
@@ -120,14 +122,14 @@ Vedere la sezione [Distribuire il modello](./resource-manager-quickstart-create-
 
 Per elencare tutti e tre gli account di archiviazione, omettere il --parametro nome:
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -149,7 +151,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato descritto come creare più istanze dell'account di archiviazione. Finora è stato creato un account di archiviazione o più istanze dell'account di archiviazione. Nell'esercitazione successiva verrà sviluppato un modello con più risorse e più tipi di risorse. alcune con risorse dipendenti.
+In questa esercitazione è stato descritto come creare più istanze dell'account di archiviazione. Nella prossima esercitazione verrà illustrato come spostare una risorsa da un gruppo di risorse a un altro.
 
 > [!div class="nextstepaction"]
-> [Creare le risorse dipendenti](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Spostare le risorse](./resource-manager-tutorial-move-resources.md)

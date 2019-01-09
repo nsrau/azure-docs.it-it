@@ -1,32 +1,34 @@
 ---
-title: Esercitazione su indicizzazione, query e filtri nel portale di Azure - Ricerca di Azure
-description: In questa esercitazione si useranno il portale di Azure e i dati di esempio predefiniti per generare un indice in Ricerca di Azure. È possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy, la ricerca geografica e altro ancora.
+title: Esercitazione di avvio rapido per l'indicizzazione e le query con il portale di Azure - Ricerca di Azure
+description: In questa esercitazione di avvio rapido si useranno il portale di Azure e i dati di esempio predefiniti per generare un indice in Ricerca di Azure. È possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy, la ricerca geografica e altro ancora.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314024"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001788"
 ---
-# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>Esercitazione: Usare gli strumenti predefiniti del portale per indicizzazione e query in Ricerca di Azure
+# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Avvio rapido: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
 
-Per un rapido esame e una migliore comprensione dei concetti relativi a Ricerca di Azure, è possibile usare gli strumenti predefiniti forniti nella pagina del servizio Ricerca di Azure nel portale di Azure. Questi strumenti possono non offrire la funzionalità completa delle API .NET e REST. Tuttavia, le procedure guidate e gli editor offrono un'introduzione senza codice a Ricerca di Azure, per poter scrivere query interessanti direttamente su un set di dati di esempio.
+Per approfondire rapidamente i concetti relativi a Ricerca di Azure, provare gli strumenti predefiniti nel portale di Azure. Procedure guidate ed editor non offrono esattamente le stesse funzionalità di .NET e delle API REST, ma è possibile iniziare rapidamente con un'introduzione senza codice, scrivendo query interessanti per i dati di esempio in pochi minuti.
 
 > [!div class="checklist"]
-> * Iniziare con i dati di esempio pubblici e generare automaticamente un indice di Ricerca di Azure tramite la procedura guidata **Importa dati**.
-> * Visualizzare lo schema dell'indice e gli attributi per qualsiasi indice pubblicato in Ricerca di Azure.
-> * Con **Esplora ricerche** è possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy e la ricerca geografica.  
+> * Iniziare con un set di dati di esempio pubblico gratuito ospitato in Azure
+> * Eseguire la procedura guidata **Importa dati** in Ricerca di Azure per caricare i dati e generare un indice
+> * Monitorare l'avanzamento dell'indicizzazione nel portale
+> * Visualizzare un indice esistente e le opzioni per modificarlo
+> * Esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy e la ricerca geografica con **Esplora ricerche**
 
-Se gli strumenti sono troppo vincolanti, è possibile esaminare un'[introduzione basata su codice alla programmazione di Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) oppure provare a usare gli [strumenti di test Web per effettuare chiamate API REST](search-fiddler.md).
+Se gli strumenti sono troppo vincolanti, è possibile esaminare un'[introduzione basata su codice alla programmazione di Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) oppure usare [Postman o Fiddler per effettuare chiamate API REST](search-fiddler.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. È anche possibile guardare una dimostrazione della durata di sei minuti dei passaggi illustrati in questa esercitazione, partendo circa dal terzo minuto di questa [panoramica video su Ricerca di Azure](https://channel9.msdn.com/Events/Connect/2016/138).
 
@@ -44,82 +46,95 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Molti clienti iniziano con il servizio gratuito. Questa versione è limitata a tre indici, tre origini dati e tre gli indicizzatori. Assicurarsi di avere spazio per gli elementi aggiuntivi prima di iniziare, perché ne verrà creato uno per ogni oggetto.
 
-> [!TIP]
-> Riquadri del dashboard del servizio mostrano il numero di indici, indicizzatori e origini dati già disponibili. Il riquadro Indicizzatore mostra gli indicatori di esito positivo e negativo. Fare clic sul riquadro per visualizzare il numero di indicizzatori.
->
-> ![Riquadri degli indicizzatori e delle origini dati][1]
->
+Sezioni del dashboard del servizio mostrano il numero di indici, indicizzatori e origini dati già disponibili. 
+
+![Elenchi di indici, indicizzatori e origini dati][media/search-get-started-portal/tiles-indexers-datasources2.png]
 
 ## <a name="create-index"></a> Creare un indice e caricare i dati
 
 Le query di ricerca eseguono iterazioni su un [*indice*](search-what-is-an-index.md) contenente dati ricercabili, metadati e costrutti aggiuntivi usati per l'ottimizzazione di determinati comportamenti di ricerca.
 
-Ai fini di questa esercitazione, viene usato un set di dati di esempio predefinito su cui è possibile eseguire una ricerca per indicizzazione con un [*indicizzatore*](search-indexer-overview.md) tramite la procedura guidata **Importa dati**. Un indicizzatore è un crawler specifico dell'origine in grado di leggere i metadati e il contenuto da origini dati di Azure supportate. Gli indicizzatori sono visibili nel portale tramite la procedura guidata **Importa dati**. Successivamente, è possibile creare indicizzatori a livello di codice e gestirli come risorse indipendenti.
+Ai fini di questa esercitazione, viene usato un set di dati di esempio predefinito su cui è possibile eseguire una ricerca per indicizzazione con un [*indicizzatore*](search-indexer-overview.md) tramite la procedura guidata **Importa dati**. Un indicizzatore è un crawler specifico dell'origine in grado di leggere i metadati e il contenuto da origini dati di Azure supportate. Gli indicizzatori in genere vengono usati a livello di codice, ma nel portale è possibile accedervi tramite la procedura guidata **Importa dati**. 
 
-### <a name="step-1-start-the-import-data-wizard"></a>Passaggio 1: Avviare la procedura guidata Importa dati
+### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Passaggio 1: Avviare la procedura guidata Importa dati e creare un'origine dati
 
-1. Dal dashboard del servizio Ricerca di Azure fare clic su **Importa dati** sulla barra dei comandi per avviare la procedura guidata. Questa procedura guidata semplifica la creazione e il completamento di un indice di ricerca.
+1. Nel dashboard del servizio Ricerca di Azure fare clic su **Importa dati** sulla barra dei comandi per creare e popolare un indice di ricerca.
 
-    ![Comando Importa dati][2]
+   ![Comando Importa dati](media/search-get-started-portal/import-data-cmd2.png)
 
-2. Nella procedura guidata fare clic su **Definisci la connessione ai dati** > **Esempi** > **realestate-us-sample**. Questa origine dati è preconfigurata con un nome, un tipo e informazioni di connessione. Dopo la creazione, diventa una "origine dati esistente" che può essere riutilizzata in altre operazioni di importazione.
+2. Nella procedura guidata fare clic su **Definisci la connessione ai dati** > **Esempi** > **realestate-us-sample**. Questa origine dati è predefinita. Se si crea un'origine dati personalizzata, è necessario specificare un nome, un tipo e le informazioni di connessione. Dopo la creazione, diventa una "origine dati esistente" che può essere riutilizzata in altre operazioni di importazione.
 
-    ![Selezionare il set di dati di esempio][9]
+   ![Selezionare il set di dati di esempio](media/search-get-started-portal/import-datasource-sample2.png)
 
-3. Fare clic su **OK** per usarla.
+3. Passare alla pagina successiva.
 
-### <a name="skip-cognitive-skills"></a>Ignorare le competenze cognitive
+   ![Pulsante Pagina successiva per la ricerca cognitiva](media/search-get-started-portal/next-button-add-cog-search.png)
 
-La procedura guidata **Importa dati** include un passaggio facoltativo per le competenze cognitive che permette di aggiungere algoritmi di intelligenza artificiale personalizzati all'indicizzazione. Ignorare questo passaggio per il momento e passare a **Personalizza indice di destinazione**.
+### <a name="step-2---skip-cognitive-skills"></a>Passaggio 2: Ignorare le competenze cognitive
+
+La procedura guidata supporta la creazione di una [pipeline di competenze cognitive](cognitive-search-concept-intro.md) per incorporare nell'indicizzazione gli algoritmi di intelligenza artificiale di Servizi cognitivi. 
+
+Questo passaggio per il momento verrà ignorato e si passerà direttamente a **Personalizza indice di destinazione**.
+
+   ![Ignorare il passaggio delle competenze cognitive](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
 > È possibile provare a eseguire la nuova funzionalità di anteprima di ricerca cognitiva per Ricerca di Azure presentata nella [guida introduttiva alla ricerca cognitiva](cognitive-search-quickstart-blob.md) oppure in questa [esercitazione](cognitive-search-tutorial-blob.md).
 
-   ![Ignorare il passaggio delle competenze cognitive][11]
+### <a name="step-3---configure-index"></a>Passaggio 3: Configurare l'indice
 
-### <a name="step-2-define-the-index"></a>Passaggio 2: Definire l'indice
-
-In genere, la creazione dell'indice è un esercizio manuale svolto tramite codice. Ai fini di questa esercitazione, la procedura guidata può generare un indice per qualsiasi origine dati su cui è possibile eseguire ricerche per indicizzazione. Come minimo, un indice richiede un nome e una raccolta di campi, con un campo contrassegnato come chiave del documento per identificare in modo univoco ogni documento.
+La creazione dell'indice è in genere un esercizio basato sul codice, completato prima del caricamento dei dati. Come suggerisce questa esercitazione, tuttavia, la procedura guidata può generare un indice di base per qualsiasi origine dati su cui è possibile eseguire ricerche per indicizzazione. Come minimo, un indice richiede un nome e una raccolta di campi, con un campo contrassegnato come chiave del documento per identificare in modo univoco ogni documento. È anche possibile specificare gli analizzatori di linguaggi o gli strumenti suggerimenti per completare automaticamente o suggerire le query.
 
 I campi hanno tipi di dati e attributi. Le caselle di controllo nella parte superiore sono *attributi dell'indice* che controllano il modo in cui viene usato il campo.
 
 * **Recuperabile** indica che viene visualizzato nell'elenco dei risultati della ricerca. Deselezionando questa casella di controllo è possibile contrassegnare i singoli campi perché siano esclusi dai risultati della ricerca, ad esempio quando vengono usati solo nelle espressioni di filtro.
-* **Filtrabile**, **Ordinabile** e **Con facet** determinano se un campo può essere usato in un filtro, un ordinamento o una struttura di esplorazione in base a facet.
+* La **chiave** è l'identificatore univoco del documento. È sempre una stringa ed è obbligatoria.
+* **Filtrabile**, **Ordinabile** e **Con facet** determinano se i campi sono usati in un filtro, un ordinamento o una struttura di esplorazione in base a facet.
 * **Ricercabile** indica che un campo è incluso nella ricerca full-text. Le stringhe sono ricercabili. I campi numerici e i campi booleani sono spesso contrassegnati come non ricercabili.
+
+I requisiti di archiviazione non cambiano a seconda della selezione. Se ad esempio si imposta l'attributo **Recuperabile** per più campi, i requisiti di archiviazione non aumentano.
 
 Per impostazione predefinita, la procedura guidata analizza l'origine dati alla ricerca di identificatori univoci come base per il campo chiave. Le stringhe vengono attribuite come recuperabili e ricercabili. Gli Integer vengono attribuiti come recuperabili, filtrabili, ordinabili e con facet.
 
-  ![Indice realestate generato][3]
+1. Accettare tutte le impostazioni predefinite.
 
-Fare clic su **OK** per creare l'indice.
+  ![Indice realestate generato](media/search-get-started-portal/realestateindex2.png)
 
-### <a name="step-3-define-the-indexer"></a>Passaggio 3: Definire l'indicizzatore
+2. Passare alla pagina successiva.
+
+  ![Pagina successiva: creazione indicizzatore](media/search-get-started-portal/next-button-create-indexer.png)
+
+### <a name="step-4---configure-indexer"></a>Passaggio 4: Configurare l'indicizzatore
 
 Sempre nella procedura guidata **Importa dati** fare clic su **Indicizzatore** > **Nome** e quindi digitare un nome per l'indicizzatore.
 
-Questo oggetto definisce un processo eseguibile. È possibile inserirlo nella pianificazione ricorrente. Per il momento, tuttavia, usare l'opzione predefinita per eseguire l'indicizzatore una volta, immediatamente, facendo clic su **OK**.  
+Questo oggetto definisce un processo eseguibile. È possibile inserirlo nella pianificazione ricorrente. Per il momento, tuttavia, usare l'opzione predefinita per eseguire l'indicizzatore una volta, immediatamente.
 
-  ![Indicizzatore realestate][8]
+Fare clic su **Invia** per creare e contemporaneamente eseguire l'indicizzatore.
 
-### <a name="check-progress"></a>Verificare l'avanzamento
+  ![Indicizzatore realestate](media/search-get-started-portal/realestate-indexer2.png)
 
-Per monitorare l'importazione dei dati, tornare al dashboard del servizio, scorrere verso il basso e fare doppio clic sul riquadro **Indicizzatori** per aprire l'elenco corrispondente. L'indicizzatore appena creato verrà visualizzato nell'elenco con lo stato "in corso" oppure "operazione riuscita", insieme al numero di documenti indicizzati.
+## <a name="monitor-progress"></a>Monitorare lo stato
 
-   ![Messaggio di stato dell'indicizzatore][4]
+La procedura guidata dovrebbe consentire di visualizzare l'elenco Indicizzatori in cui è possibile monitorarne lo stato. In caso contrario, passare alla pagina Panoramica e fare clic su **Indicizzatori**.
 
-### <a name="step-4-view-the-index"></a>Passaggio 4: Visualizzare l'indice
+L'aggiornamento della pagina nel portale può richiedere alcuni minuti, ma l'indicizzatore appena creato verrà visualizzato nell'elenco con lo stato "in corso" oppure "operazione riuscita", insieme al numero di documenti indicizzati.
 
-I riquadri nel dashboard del servizio offrono sia informazioni di riepilogo sui diversi oggetti in una risorsa sia l'accesso a informazioni dettagliate. Il riquadro **Indici** elenca gli indici esistenti, incluso l'indice*realestate-us-sample* appena creato nel passaggio precedente.
+   ![Messaggio di stato dell'indicizzatore](media/search-get-started-portal/indexers-inprogress2.png)
 
-Fare ora clic sull'indice *realestate-us-sample* per visualizzare le opzioni del portale per la definizione dell'indice. L'opzione **Aggiungi/modifica campi** consente di creare nuovi campi e definire attributi completi per tali campi. I campi esistenti hanno una rappresentazione fisica in Ricerca di Azure e pertanto non sono modificabili, nemmeno nel codice. Per modificare in modo sostanziale un campo esistente, crearne uno nuovo ed eliminare l'originale.
+## <a name="view-the-index"></a>Visualizzare l'indice
 
-   ![definizione di indice di esempio][10]
+L'elenco **Indici** mostra gli indici esistenti, incluso l'indice*realestate-us-sample* appena creato nella procedura guidata.
+
+In questo elenco è possibile visualizzare lo schema dell'indice e, facoltativamente, aggiungere nuovi campi, ma non è possibile modificare i campi esistenti. I campi esistenti hanno una rappresentazione fisica in Ricerca di Azure e pertanto non sono modificabili, nemmeno nel codice. Per modificare in modo sostanziale un campo esistente, creare un nuovo indice, eliminando l'originale.
+
+   ![definizione di indice di esempio](media/search-get-started-portal/sample-index-def.png)
 
 Altri costrutti, ad esempio i profili di punteggio e le opzioni CORS, possono essere aggiunti in qualsiasi momento.
 
-Per capire chiaramente cosa è possibile o meno modificare durante la progettazione di indici, prendersi un po' di tempo per controllare le opzioni di definizione dell'indice. Le opzioni di grigio indicano che un valore non può essere modificato o eliminato. Analogamente, ignorare le caselle di controllo Analizzatore e Strumento suggerimenti per il momento.
+Per capire chiaramente cosa è possibile o meno modificare durante la progettazione di indici, prendersi un po' di tempo per controllare le opzioni di definizione dell'indice. Le opzioni di grigio indicano che un valore non può essere modificato o eliminato. 
 
-## <a name="query-index"></a> Eseguire query sull'indice
+## <a name="query-index"></a> Eseguire query usando Esplora ricerche
 
 A questo punto dovrebbe essere disponibile un indice di ricerca pronto per le query tramite la pagina predefinita per le query [**Esplora ricerche**](search-explorer.md). In questa pagina è disponibile una casella di ricerca che consente di testare stringhe di query arbitrarie.
 
@@ -129,11 +144,11 @@ A questo punto dovrebbe essere disponibile un indice di ricerca pronto per le qu
 
 1. Fare clic su **Esplora ricerche** nella barra dei comandi.
 
-   ![Comando di Esplora ricerche][5]
+   ![Comando di Esplora ricerche](media/search-get-started-portal/search-explorer-cmd2.png)
 
 2. Fare clic su **Cambia indice** nella barra dei comandi per passare a *realestate-us-sample*. Fare clic su **Imposta versione API** nella barra dei comandi per verificare quali API REST sono disponibili. Per le query seguenti, usare la versione disponibile a livello generale (2017-11-11).
 
-   ![Comandi dell'indice e dell'API][6]
+   ![Comandi dell'indice e dell'API](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
 3. Nella barra di ricerca immettere le stringhe di query riportate di seguito e fare clic su **Ricerca**.
 
@@ -141,17 +156,21 @@ A questo punto dovrebbe essere disponibile un indice di ricerca pronto per le qu
     > **Esplora ricerche** è progettato per gestire unicamente [richieste all'API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Accetta sia la [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) che la [sintassi completa del parser di query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), oltre a tutti i parametri di ricerca disponibili nelle operazioni di [ricerca nei documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents).
     >
 
+## <a name="example-queries"></a>Query di esempio
+
+È possibile immettere termini e frasi, come si farebbe in una ricerca in Bing o Google, oppure espressioni di query complete. I risultati vengono restituiti come documenti JSON dettagliati.
+
 ### <a name="simple-query-with-top-n-results"></a>Query semplice con i primi N risultati
 
-#### <a name="example-string-searchseattle"></a>Esempio (di stringa): `search=seattle`
+#### <a name="example-string-query-searchseattle"></a>Esempio (stringa di query): `search=seattle`
 
 * Il parametro **search** permette di inserire una ricerca per parole chiave per la ricerca full-text. In questo caso la ricerca restituisce voci nella contea di King, nello stato di Washington, contenenti il termine *Seattle* in qualsiasi campo ricercabile del documento.
 
-* **Esplora ricerche** restituisce i risultati in JSON, un formato dettagliato e difficile da leggere se i documenti hanno una struttura densa. Si tratta di una scelta intenzionale. La visibilità dell'intero documento è importante per finalità di sviluppo, in particolare durante i test. Per migliorare l'esperienza utente, è necessario scrivere codice che [gestisce i risultati della ricerca](search-pagination-page-layout.md) per mettere in evidenza gli elementi importanti.
+* **Esplora ricerche** restituisce i risultati in JSON, un formato dettagliato e difficile da leggere se i documenti hanno una struttura densa. Si tratta di una scelta intenzionale. La visibilità sull'intero documento è importante per finalità di sviluppo, in particolare durante i test. Per migliorare l'esperienza utente, è necessario scrivere codice che [gestisce i risultati della ricerca](search-pagination-page-layout.md) per mettere in evidenza gli elementi importanti.
 
-* I documenti sono costituiti da tutti i campi contrassegnati come recuperabili nell'indice. Per visualizzare gli attributi dell'indice nel portale, fare clic su *realestate-us-sample* nel riquadro **Indici**.
+* I documenti sono costituiti da tutti i campi contrassegnati come recuperabili nell'indice. Per visualizzare gli attributi dell'indice nel portale, fare clic su *realestate-us-sample* nell'elenco **Indici**.
 
-#### <a name="example-parameterized-searchseattlecounttruetop100"></a>Esempio (con parametri): `search=seattle&$count=true&$top=100`
+#### <a name="example-parameterized-query-searchseattlecounttruetop100"></a>Esempio (query con parametri): `search=seattle&$count=true&$top=100`
 
 * Il simbolo **&** permette di aggiungere parametri di ricerca, che possono essere specificati in qualsiasi ordine.
 
@@ -231,13 +250,13 @@ La ricerca geospaziale risulta utile se l'applicazione di ricerca include una fu
 
 ## <a name="takeaways"></a>Risultati
 
-Questa esercitazione ha presentato una breve introduzione all'uso di Ricerca di Azure dal portale di Azure.
+Questa esercitazione ha presentato una breve introduzione a Ricerca di Azure tramite il portale di Azure.
 
 Si è appreso come creare un indice di ricerca tramite la procedura guidata **Importa dati**. È stata acquisita familiarità con gli [indicizzatori](search-indexer-overview.md), nonché con il flusso di lavoro di base per la progettazione di indici, tra cui le [modifiche supportate a un indice pubblicato](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
 Usando **Esplora ricerche** nel portale di Azure, è stata acquisita la sintassi di query di base tramite esempi pratici che hanno mostrato le principali funzionalità, come filtri, evidenziazione dei risultati, ricerca fuzzy e ricerca geografica.
 
-Si è inoltre appreso come usare i riquadri nel dashboard del portale per l'indice di ricerca, l'indicizzatore e le origini dati. Considerando qualsiasi nuova origine dati in futuro, è possibile usare il portale per controllarne rapidamente le definizioni o le raccolte di campi in modo semplice.
+È stato anche illustrato come trovare indici, indicizzatori e origini dati nel portale. Considerando qualsiasi nuova origine dati in futuro, è possibile usare il portale per controllarne rapidamente le definizioni o le raccolte di campi in modo semplice.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
@@ -247,19 +266,6 @@ Se il servizio Ricerca di Azure è stato usato per la prima volta con questa ese
 
 È possibile esplorare ancora Ricerca di Azure usando gli strumenti a livello di codice:
 
-* [Creazione di un indice tramite .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Creazione di un indice tramite API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Strumenti di test Web come Postman o Fiddler per chiamare le API REST di Ricerca di Azure](search-fiddler.md)
-
-<!--Image references-->
-[1]: ./media/search-get-started-portal/tiles-indexers-datasources2.png
-[2]: ./media/search-get-started-portal/import-data-cmd2.png
-[3]: ./media/search-get-started-portal/realestateindex2.png
-[4]: ./media/search-get-started-portal/indexers-inprogress2.png
-[5]: ./media/search-get-started-portal/search-explorer-cmd2.png
-[6]: ./media/search-get-started-portal/search-explorer-changeindex-se2.png
-[7]: ./media/search-get-started-portal/search-explorer-query2.png
-[8]: ./media/search-get-started-portal/realestate-indexer2.png
-[9]: ./media/search-get-started-portal/import-datasource-sample2.png
-[10]: ./media/search-get-started-portal/sample-index-def.png
-[11]: ./media/search-get-started-portal/skip-cog-skill-step.png
+* [Creare un indice tramite .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+* [Creare un indice tramite API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
+* [Creare un indice usando Postman o Fiddler e le API REST di Ricerca di Azure](search-fiddler.md)

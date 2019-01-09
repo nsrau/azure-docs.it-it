@@ -4,24 +4,22 @@ description: Informazioni su come progettare il primo database SQL di Azure e co
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 11/01/2018
-ms.openlocfilehash: 82cf0303019d2cbb620c442fd6f750f733930f84
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/10/2018
+ms.openlocfilehash: cf180f6e2970ac4435602f1cceeb98a4dd9e8724
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912340"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727166"
 ---
 # <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Esercitazione: Progettare un database SQL di Azure e connettersi con C&#x23; e ADO.NET
 
-Il database SQL di Azure è un database relazionale distribuito come servizio, ovvero DBaaS, in Microsoft Cloud (Azure). In questa esercitazione viene illustrato come usare il portale di Azure e ADO.NET con Visual Studio per eseguire queste operazioni:
+Il database SQL di Azure è un database relazionale distribuito come servizio in Microsoft Cloud (Azure). In questa esercitazione viene illustrato come usare il portale di Azure e ADO.NET con Visual Studio per eseguire queste operazioni:
 
 > [!div class="checklist"]
 > * Creare un database nel portale di Azure
@@ -35,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un'installazione di [Visual Studio Community 2017, Visual Studio Professional 2017 o Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
+Un'installazione di [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -51,16 +49,16 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato le attività di base che è possibile eseguire con i database, come creare database e tabelle, caricare dati, eseguire query sui dati e ripristinare un database a un momento precedente. Si è appreso come:
+Questa esercitazione ha illustrato le attività di base che è possibile eseguire con i database, ad esempio creare database e tabelle, connettersi al database, caricare dati ed eseguire query. Si è appreso come:
+
 > [!div class="checklist"]
 > * Creare un database
 > * Configurare una regola del firewall
 > * Connettersi al database con [Visual Studio e C#](sql-database-connect-query-dotnet-visual-studio.md)
 > * Creare tabelle
-> * Inserire, aggiornare ed eliminare i dati
-> * Eseguire query sui dati
+> * Inserire, aggiornare ed eliminare dati ed eseguire query su di essi
 
-Passare all'esercitazione successiva per ottenere informazioni sulla migrazione dei dati.
+Passare all'esercitazione successiva per informazioni sulla migrazione di dati.
 
 > [!div class="nextstepaction"]
-> [Eseguire la migrazione di un database SQL Server a un database SQL di Azure](sql-database-migrate-your-sql-server-database.md)
+> [Eseguire la migrazione di SQL Server al database SQL di Azure offline con Servizio Migrazione del database](../dms/tutorial-sql-server-to-azure-sql.md)

@@ -1,9 +1,9 @@
 ---
-title: Panoramica di Azure Batch per sviluppatori | Microsoft Docs
+title: Panoramica per sviluppatori - Azure Batch | Microsoft Docs
 description: Informazioni sulle funzionalità del servizio Batch e le relative API dal punto di vista dello sviluppatore.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 08/22/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b6e543a4835410368e752e70e7e8cb6d8805c0e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735580"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754068"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
 
@@ -264,7 +264,7 @@ Quando si crea un'attività, è possibile specificare:
 * Un riferimento all'**immagine del contenitore** nell'hub Docker oppure in un registro privato e altre impostazioni per creare un contenitore Docker in cui l'attività viene eseguita nel nodo. Queste informazioni vengono specificate solo se il pool è definito con una configurazione del contenitore.
 
 > [!NOTE]
-> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 7 giorni. Le attività completate persistono per un tempo illimitato. I dati per le attività non completate entro la durata massima non sono accessibili.
+> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 180 giorni. Le attività completate vengono conservate per 7 giorni. I dati per le attività non completate entro la durata massima non sono accessibili.
 
 Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il servizio Batch fornisce anche le attività speciali seguenti:
 
@@ -314,8 +314,8 @@ Un'attività di gestione dei processi viene avviata prima di tutte le altre atti
 ### <a name="job-preparation-and-release-tasks"></a>Attività di preparazione e rilascio dei processi
 Il servizio Batch offre attività di preparazione dei processi per la configurazione dell'esecuzione pre-processo. Le attività di rilascio dei processi vengono usate per manutenzione o pulizia post-processo.
 
-* **Attività di preparazione del processo**: viene eseguita in tutti i nodi di calcolo pianificati per l'esecuzione di attività, prima dell'esecuzione di qualsiasi altra attività di un processo. Per copiare i dati condivisi da tutte le attività, ma univoci per il processo, ad esempio, è possibile usare l'attività di preparazione del processo.
-* **Attività di rilascio del processo**: dopo aver completato il processo, viene eseguita un'attività di rilascio del processo in ogni nodo del pool che ha eseguito almeno un'attività. È possibile, ad esempio, usare l'attività di rilascio del processo per eliminare i dati copiati dall'attività di preparazione del processo o comprimere e caricare i dati del log di diagnostica.
+* **Attività di preparazione del processo**: un'attività di preparazione del processo viene eseguita in tutti i nodi di calcolo pianificati per l'esecuzione di attività, prima dell'esecuzione di qualsiasi altra attività di un processo. Per copiare i dati condivisi da tutte le attività, ma univoci per il processo, ad esempio, è possibile usare l'attività di preparazione del processo.
+* **Attività di rilascio del processo**: dopo il completamento di un processo, viene eseguita un'attività di rilascio del processo in ogni nodo del pool che ha eseguito almeno un'attività. È possibile, ad esempio, usare l'attività di rilascio del processo per eliminare i dati copiati dall'attività di preparazione del processo o comprimere e caricare i dati del log di diagnostica.
 
 Sia le attività di preparazione del processo sia quelle di rilascio del processo consentono di specificare una riga di comando da eseguire quando viene richiamata l'attività. Le attività offrono funzionalità quali download di file, esecuzione con privilegi elevati, variabili di ambiente personalizzate, durata massima di esecuzione, numero di tentativi e periodo di conservazione dei file.
 
@@ -357,7 +357,7 @@ La directory radice contiene la struttura di directory seguente:
 
 * **shared**: questa directory fornisce l'accesso in lettura/scrittura a *tutte* le attività eseguite in un nodo. Le attività eseguite nel nodo possono creare, leggere, aggiornare ed eliminare file in questa directory. Le attività possono accedere a questa directory facendo riferimento alla variabile di ambiente `AZ_BATCH_NODE_SHARED_DIR`.
 * **startup**: questa directory viene usata da un'attività di avvio come directory di lavoro. Tutti i file scaricati nel nodo dall'attività di avvio vengono archiviati qui. L'attività di avvio può creare, leggere, aggiornare ed eliminare file in tale directory. Le attività possono accedere a questa directory facendo riferimento alla variabile di ambiente `AZ_BATCH_NODE_STARTUP_DIR`.
-* **Attività**: viene creata una directory per ogni attività in esecuzione sul nodo, accessibile tramite un riferimento alla variabile di ambiente `AZ_BATCH_TASK_DIR`.
+* **Tasks** (Attività): viene creata una directory per ogni attività in esecuzione nel nodo. La directory è accessibile tramite un riferimento alla variabile di ambiente `AZ_BATCH_TASK_DIR`.
 
     All'interno di ogni directory di attività, il servizio Batch crea una directory di lavoro (`wd`), il cui percorso univoco viene specificato dalla variabile di ambiente `AZ_BATCH_TASK_WORKING_DIR`. Questa directory fornisce l'accesso in lettura/scrittura all'attività. L'attività può creare, leggere, aggiornare ed eliminare file in tale directory. Questa directory viene mantenuta in base al vincolo *RetentionTime* specificato per l'attività.
 
@@ -508,7 +508,7 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 * Informazioni sulle [API e gli strumenti di Batch](batch-apis-tools.md) disponibili per la compilazione di soluzioni Batch.
 * Apprendere le nozioni di base dello sviluppo di un'applicazione abilitata per Batch con la [libreria client Batch .NET](quick-run-dotnet.md) o con [Python](quick-run-python.md). Queste guide introduttive illustrano un'applicazione di esempio che usa il servizio Batch per eseguire un carico di lavoro su più nodi di calcolo e include l'uso di Archiviazione di Azure per lo staging e il recupero dei file del carico di lavoro.
 * Scaricare e installare [Batch Explorer][batch_labs] da usare durante lo sviluppo di soluzioni Batch. Usare Batch Explorer per la creazione, il debug e il monitoraggio delle applicazioni Azure Batch. 
-* Vedere le risorse della comunità che includono l'[overflow dello stack](http://stackoverflow.com/questions/tagged/azure-batch), il [repository della community di Batch](https://github.com/Azure/Batch) e il [forum su Azure Batch][batch_forum] in MSDN. 
+* Vedere le risorse della comunità che includono l'[overflow dello stack](https://stackoverflow.com/questions/tagged/azure-batch), il [repository della community di Batch](https://github.com/Azure/Batch) e il [forum su Azure Batch][batch_forum] in MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 

@@ -1,29 +1,29 @@
 ---
-title: "Azure Cosmos DB: procedura per l'esecuzione di query con l'API MongoDB"
-description: Informazioni su come eseguire query con l'API MongoDB per Azure Cosmos DB
+title: Eseguire query sui dati con l'API Azure Cosmos DB per MongoDB
+description: Informazioni su come eseguire query sui dati con l'API Azure Cosmos DB per MongoDB.
 services: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/29/2018
-ms.openlocfilehash: 8c865ab7fa997b169e481612ce791d960688da56
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/26/2018
+ms.openlocfilehash: b2bfc48fa0ba8aab0bbdf19e1b127155633e2271
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841507"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793207"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Esercitazione: Eseguire query in Azure Cosmos DB con l'API di MongoDB
+# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Eseguire query sui dati usando l'API Azure Cosmos DB per MongoDB
 
-L'[API per MongoDB](mongodb-introduction.md) supporta l'esecuzione di [query nella shell di MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+L'[API Azure Cosmos DB per MongoDB](mongodb-introduction.md) supporta l'esecuzione di [query su MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
 Questo articolo illustra le attività seguenti: 
 
 > [!div class="checklist"]
-> * Esecuzione di query sui dati con MongoDB
+> * Esecuzione di query sui dati archiviati nel database Cosmos tramite la shell MongoDB
 
 Per iniziare, è possibile usare gli esempi in questo documento e guardare il video sull'[esecuzione di query su Azure Cosmos DB con la shell MongoDB](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/).
 
@@ -303,7 +303,7 @@ Non verranno restituiti risultati perché non ci sono famiglie con più di due f
 In questa esercitazione sono state eseguite le operazioni seguenti:
 
 > [!div class="checklist"]
-> * È stato appreso come eseguire una query usando MongoDB 
+> * Si è appreso come eseguire una query usando l'API Cosmos DB per MongoDB
 
 È ora possibile passare all'esercitazione successiva per imparare a distribuire i dati a livello globale.
 

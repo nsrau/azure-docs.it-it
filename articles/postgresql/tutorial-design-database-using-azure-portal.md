@@ -1,23 +1,20 @@
 ---
-title: "Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL con il portale di Azure"
+title: "Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL usando il portale di Azure"
 description: In questa esercitazione viene illustrato come progettare il primo Database di Azure per PostgreSQL tramite il portale di Azure.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 6a3241e15cc72d1d50862a9dec14c23712ec4226
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 441b56aa683ac01566d2fd2877b9b8b912194f3a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406383"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536526"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL con il portale di Azure
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL usando il portale di Azure
 
 Il database di Azure per PostgreSQL è un servizio gestito che consente di eseguire, gestire e ridimensionare database PostgreSQL a disponibilità elevata nel cloud. Tramite il portale di Azure, è possibile gestire facilmente il server e progettare un database.
 
@@ -51,7 +48,7 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
     ![Creare un server](./media/tutorial-design-database-using-azure-portal/2-create.png)
 
     - Nome server: **mydemoserver** (il nome di un server viene mappato a un nome DNS e deve quindi essere univoco a livello globale) 
-    - Sottoscrizione: se si hanno più sottoscrizioni, scegliere la sottoscrizione appropriata in cui si trova o viene fatturata la risorsa.
+    - Sottoscrizione: Se si dispone di più sottoscrizioni, scegliere la sottoscrizione appropriata in cui la risorsa esiste o per cui è configurata.
     - Gruppo di risorse: **myresourcegroup**
     - L'accesso dell'amministratore del server e la password scelta
     - Località
@@ -195,9 +192,9 @@ Si supponga di aver eliminato accidentalmente questa tabella. Questa situazione 
 
    ![Portale di Azure - Opzioni del modulo di ripristino](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
 
-   - **Punto di ripristino**: selezionare un punto nel tempo precedente alla modifica del server
-   - **Server di destinazione**: fornire un nuovo nome del server che si desidera ripristinare
-   - **Posizione**: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
+   - **Punto di ripristino**: selezionare un punto nel tempo precedente la modifica del server
+   - **Server di destinazione**: specificare il nome del nuovo server in cui eseguire il ripristino
+   - **Località**: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
    - **Piano tariffario**: non è possibile modificare questo valore quando si ripristina un server. È uguale al server di origine. 
 3.  Fare clic su **OK** per [ripristinare il server a un momento specifico](./howto-restore-server-portal.md) precedente all'eliminazione della tabella. Il ripristino di un server a un momento diverso crea un nuovo server duplicato uguale al server originale nel momento specificato, a condizione che rientri nel periodo di conservazione previsto per il [piano tariffario](./concepts-pricing-tiers.md).
 
@@ -212,4 +209,4 @@ In questa esercitazione si apprenderà come usare il portale di Azure e altre ut
 > * Aggiornare i dati
 > * Ripristinare i dati
 
-Successivamente, per informazioni su come usare l'Interfaccia della riga di comando di Azure per eseguire attività simili, esaminare questa esercitazione: [Progettare il primo Database di Azure per PostgreSQL tramite l'Interfaccia della riga di comando di Azure](tutorial-design-database-using-azure-cli.md)
+Per apprendere come usare l'interfaccia della riga di comando di Azure per eseguire attività simili, vedere quindi questa esercitazione: [Progettare la prima istanza di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure](tutorial-design-database-using-azure-cli.md)

@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8ebaab260d38a3fe4f492f2545c5ec8b07990235
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409410"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715240"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel Servizio app di Azure in Linux
 
-Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Il servizio app include anche il supporto predefinito per [l'autenticazione e l'autorizzazione degli utenti](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Questa esercitazione illustra come proteggere le app con le funzionalità di autenticazione e autorizzazione del servizio app. Viene usata un'app ASP.NET Core con un front-end Angular.js, ma solo a titolo di esempio. Le funzionalità di autenticazione e autorizzazione del servizio app supportano runtime di tutti i linguaggi e seguendo l'esercitazione si può apprendere come applicarle al linguaggio preferito.
+Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Il servizio app include anche il supporto predefinito per [l'autenticazione e l'autorizzazione degli utenti](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Questa esercitazione illustra come proteggere le app con le funzionalità di autenticazione e autorizzazione del servizio app. Viene usata un'app ASP.NET Core con un front-end Angular.js, ma solo a titolo di esempio. Le funzionalità di autenticazione e autorizzazione del servizio app supportano runtime di tutti i linguaggi e seguendo l'esercitazione si può apprendere come applicarle al linguaggio preferito.
 
 L'esercitazione usa l'app di esempio per illustrare come proteggere un'app autonoma (vedere [Abilitare l'autenticazione e l'autorizzazione per l'app back-end](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -86,7 +86,7 @@ In questo passaggio si distribuisce il progetto in due app del servizio app: una
 
 ### <a name="create-azure-resources"></a>Creare le risorse di Azure
 
-In Cloud Shell eseguire questi comandi per creare due app Web. Sostituire _&lt;front\_end\_app\_name>_ e _&lt;back\_end\_app\_name>_ con due nomi di app univoci a livello globale. I caratteri validi sono `a-z`, `0-9` e `-`. Per altre informazioni su ogni comando, vedere [Creare un'app Web .NET Core nel Servizio app in Linux](quickstart-dotnetcore.md).
+In Cloud Shell eseguire questi comandi per creare due app del servizio app. Sostituire _&lt;front\_end\_app\_name>_ e _&lt;back\_end\_app\_name>_ con due nomi di app univoci a livello globale. I caratteri validi sono `a-z`, `0-9` e `-`. Per altre informazioni su ogni comando, vedere [Creare un'app .NET Core nel Servizio app in Linux](quickstart-dotnetcore.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -129,7 +129,7 @@ git commit -m "add CORS to back end"
 
 ### <a name="push-to-azure-from-git"></a>Effettuare il push in Azure da Git
 
-Nella finestra del terminale locale eseguire questi comandi Git per la distribuzione nell'app back-end. Sostituire _&lt;deploymentLocalGitUrl-of-back-end-app>_ con l'URL dell'elemento Git remoto salvato in [Creare le risorse di Azure](#create-azure-resources). Quando Git Credential Manager richiede le credenziali, assicurarsi di immettere le [credenziali per la distribuzione](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) e non quelle usate per accedere al portale di Azure.
+Nella finestra del terminale locale eseguire questi comandi Git per la distribuzione nell'app back-end. Sostituire _&lt;deploymentLocalGitUrl-of-back-end-app>_ con l'URL dell'elemento Git remoto salvato in [Creare le risorse di Azure](#create-azure-resources). Quando Git Credential Manager richiede le credenziali, assicurarsi di immettere le [credenziali per la distribuzione](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) e non quelle usate per accedere al portale di Azure.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -143,7 +143,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>Passare alle app Web di Azure
+### <a name="browse-to-the-azure-apps"></a>Passare alle app Azure
 
 Passare agli URL seguenti in un browser e visualizzare le due app in esecuzione.
 
@@ -453,7 +453,7 @@ Contenuto dell'esercitazione:
 > * Usare token di accesso dal codice del server
 > * Usare token di accesso dal codice del client (browser)
 
-Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app Web.
+Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app.
 
 > [!div class="nextstepaction"]
-> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+> [Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

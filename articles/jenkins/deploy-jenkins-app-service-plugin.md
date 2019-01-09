@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 98e69c7759f736c132601305156290f7a43eeaf9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319354"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537580"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins 
 
@@ -55,7 +55,7 @@ Per eseguire la distribuzione in app Web per contenitori, installare Docker nel 
 Per la distribuzione in Azure è necessaria un'entità servizio di Azure. 
 
 
-1. Per creare un'entità servizio di Azure, usare l'[interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) o il [portale di Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+1. Per creare un'entità servizio di Azure, usare l'[interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) o il [portale di Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 2. Nel dashboard di Jenkins selezionare **Credentials** > **System** (Credenziali > Sistema). Quindi, selezionare **Global credentials(unrestricted)** (Credenziali globali senza restrizioni).
 3. Per aggiungere un'entità servizio di Microsoft Azure, selezionare **Add Credentials** (Aggiungi credenziali). Immettere i valori per i campi relativi a **ID sottoscrizione**, **ID client**, **segreto client** e **endpoint di token OAuth 2.0**. Impostare il campo **ID** su **mySp**. Questo ID verrà usato nei passaggi successivi di questo articolo.
 
@@ -64,9 +64,9 @@ Per la distribuzione in Azure è necessaria un'entità servizio di Azure.
 
 Per distribuire il progetto in App Web, è possibile caricare gli artefatti di compilazione tramite il caricamento di file. Il Servizio app di Azure supporta più opzioni di distribuzione. Il plug-in Jenkins del Servizio app di Azure semplifica le operazioni e determina l'opzione di distribuzione in base al tipo di file. 
 
-* Per le applicazioni Java EE viene usata la [distribuzione WAR](/azure/app-service/app-service-deploy-zip#deploy-war-file).
-* Per le applicazioni Java SE viene usata la [distribuzione ZIP](/azure/app-service/app-service-deploy-zip#deploy-zip-file).
-* Per gli altri linguaggi viene usata la [distribuzione GIT](/azure/app-service/app-service-deploy-local-git).
+* Per le applicazioni Java EE viene usata la [distribuzione WAR](/azure/app-service/deploy-zip#deploy-war-file).
+* Per le applicazioni Java SE viene usata la [distribuzione ZIP](/azure/app-service/deploy-zip#deploy-zip-file).
+* Per gli altri linguaggi viene usata la [distribuzione GIT](/azure/app-service/deploy-local-git).
 
 Prima di configurare il processo in Jenkins sono necessari un piano di servizio app di Azure e un'app Web per l'esecuzione dell'app Java.
 
@@ -100,7 +100,7 @@ Prima di configurare il processo in Jenkins sono necessari un piano di servizio 
 4. Aggiungere un'azione post-compilazione selezionando **Publish an Azure Web App** (Pubblica un'App Web di Azure).
 5. Inserire **mySp** come entità servizio di Azure. Questa entità servizio è stata archiviata come [Credenziali di Azure](#service-principal) in un passaggio precedente.
 6. Nella sezione **App Configuration** (Configurazione app) scegliere l'app Web e il gruppo di risorse nella sottoscrizione. Il plug-in Jenkins rileva automaticamente se l'app Web è basata su Windows o Linux. Per un'app Web basata su Windows, viene visualizzata l'opzione **Publish Files** (Pubblica file).
-7. Compilare i file che si vogliono distribuire. Se si usa Java, ad esempio, specificare il pacchetto WAR. Usare i parametri facoltativi **Source Directory** (Directory di origine) e **Target Directory** (Directory di destinazione) per specificare le cartelle di origine e di destinazione da usare per il caricamento dei file. L'app Web Java in Azure viene eseguita in un server Tomcat. Per Java, pertanto, si carica il pacchetto war nella cartella webapps. Per questo esempio, impostare il valore **Source Directory** (Directory di origine) su **target** e il valore **Target Directory** (Directory di destinazione) su **webapps**.
+7. Compilare i file che si vogliono distribuire. Se si usa Java, ad esempio, specificare il pacchetto WAR. Usare i parametri facoltativi **Source Directory** (Directory di origine) e **Target Directory** (Directory di destinazione) per specificare le cartelle di origine e di destinazione da usare per il caricamento dei file. L'app Web Java in Azure viene eseguita in un server Tomcat. Di conseguenza, per Java è necessario caricare il pacchetto WAR nella cartella webapps. Per questo esempio, impostare il valore **Source Directory** (Directory di origine) su **target** e il valore **Target Directory** (Directory di destinazione) su **webapps**.
 8. Se si vuole eseguire la distribuzione in uno slot di diverso dalla produzione, è possibile anche impostare il nome dello **Slot**.
 9. Salvare e compilare il progetto. L'app web viene distribuita in Azure al termine della compilazione.
 
@@ -131,7 +131,7 @@ Il plug-in Jenkins Servizio app di Azure è pronto per la pipeline. È possibile
 
 ## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Configurare Jenkins per distribuire app Web per contenitori
 
-App Web in Linux supporta la distribuzione tramite Docker. Per distribuire l'app Web usando Docker, è necessario fornire un Dockerfile che includa l'app Web con un runtime di servizio in un'immagine Docker. Il plug-in Jenkins compila l'immagine, la inserisce in un registro Docker e la distribuisce nell'app Web.
+App Web in Linux supporta la distribuzione tramite Docker. Per distribuire l'app Web tramite Docker, è necessario fornire un documento Dockerfile che includa l'app Web con un runtime di servizio in un'immagine Docker. Il plug-in Jenkins compila l'immagine, la inserisce in un registro Docker e la distribuisce nell'app Web.
 
 App Web in Linux supporta anche metodi di distribuzione tradizionali, come GIT e il caricamento di file, ma solo per i linguaggi predefiniti come .NET Core, Node.js, PHP e Ruby. Per altri linguaggi, è necessario creare un pacchetto del runtime di servizio e del codice dell'applicazione in un'immagine Docker e usare Docker per la distribuzione.
 
@@ -206,7 +206,7 @@ Per il valore **Docker registry URL** (URL registro Docker) immettere l'URL nel 
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. Passare a http://&lt;nome_app>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Sostituire &lt;x> e &lt;y> con numeri qualsiasi per ottenere la somma di x e y. La calcolatrice mostra la somma: ![Calcolatrice: aggiungi](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. Passare a http://&lt;nome_app>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Sostituire &lt;x> e &lt;y> con numeri qualsiasi per ottenere la somma di x e y. La calcolatrice mostra la somma: ![Calcolatrice: somma](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-azure-app-service-on-linux"></a>Per Servizio app di Azure in Linux
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Analizzare dati di Apache Spark con Power BI in Azure HDInsight '
+title: 'Esercitazione: Analizzare dati di Apache Spark usando Power BI in Azure HDInsight '
 description: Usare Microsoft Power BI per visualizzare i dati Apache Spark archiviati nei cluster HDInsight
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: e862000df1edc5101c0768f1f96c11953f1485c7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c058cfa3bc9fa976726731cedeb80eb76a1f0810
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583279"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999272"
 ---
-# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Esercitazione: Analizzare dati di Apache Spark con Power BI in HDInsight 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Esercitazione: Analizzare dati di Apache Spark usando Power BI in HDInsight 
 
 Informazioni sull'uso di [Microsoft Power BI](https://powerbi.microsoft.com/) per visualizzare i dati nel cluster [Apache Spark](https://spark.apache.org/) in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -29,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Completare l'articolo [Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight](./apache-spark-load-data-run-query.md)**.
-* **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) e [sottoscrizione di valutazione di Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (facoltativa).
+* **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) e [sottoscrizione di prova di Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (facoltativo).
 
 
 ## <a name="verify-the-data"></a>Verificare i dati
@@ -69,7 +69,7 @@ In questa sezione si usa Power BI per creare visualizzazioni, report e dashboard
 ### <a name="create-a-report-in-power-bi-desktop"></a>Creare un report in Power BI Desktop
 I primi passaggi nell'uso di Spark sono la connessione al cluster in Power BI Desktop, il caricamento dei dati dal cluster e la creazione di una visualizzazione basata su tali dati.
 
-> [!NOTE]
+> [!NOTE]  
 > Il connettore illustrato in questo articolo è attualmente in anteprima. Inviare eventuali commenti tramite il sito della [Community di Power BI](https://community.powerbi.com/) o il forum [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
 1. Aprire [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
@@ -103,7 +103,7 @@ I primi passaggi nell'uso di Spark sono la connessione al cluster in Power BI De
 
         Il diagramma è simile al seguente:
 
-        ![Creare le visualizzazioni di dati usando Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Creare le visualizzazioni di dati usando Apache Spark BI")
+        ![Creare le visualizzazioni di dati usando Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Creare le visualizzazioni di dati usando Apache Spark BI")
 
         Per impostazione predefinita, la visualizzazione mostra la somma di **ActualTemp** e **TargetTemp**. Fare clic sulla freccia verso il basso accanto ad **ActualTemp** e a **TragetTemp** nel riquadro Visualizzazioni per osservare che è selezionato **Somma**.
 
@@ -113,7 +113,7 @@ I primi passaggi nell'uso di Spark sono la connessione al cluster in Power BI De
 
         La visualizzazione dei dati sarà simile a quella nello screenshot. Spostare il cursore sopra la visualizzazione per ottenere suggerimenti con i dati rilevanti.
 
-        ![Creare le visualizzazioni di dati usando Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Creare le visualizzazioni di dati usando Apache Spark BI")
+        ![Creare le visualizzazioni di dati usando Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Creare le visualizzazioni di dati usando Apache Spark BI")
 
 7. Fare clic su **File**, su **Salva** e quindi immettere il nome `BuildingTemperature.pbix` per il file. 
 
@@ -174,7 +174,7 @@ L'oggetto visivo è stato aggiunto al dashboard. È possibile aggiungere altri o
 >
 >
 
-1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
+1. Install [Tableau Desktop](https://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
 2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](https://go.microsoft.com/fwlink/?LinkId=616229).
 

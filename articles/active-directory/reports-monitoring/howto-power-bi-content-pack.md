@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622967"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651453"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Come usare il pacchetto di contenuto Power BI di Azure Active Directory
 
@@ -32,7 +32,7 @@ Il pacchetto di contenuto Power BI per Azure Active Directory (Azure AD) contien
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare il pacchetto di contenuto, è necessario avere una licenza di Azure AD Premium (P1/P2). 
+Per usare il pacchetto di contenuto, è necessario avere una licenza di Azure AD Premium (P1/P2). vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso.
 
 ## <a name="install-the-content-pack"></a>Installare il pacchetto di contenuto
 
@@ -42,9 +42,9 @@ Leggere la [guida introduttiva](quickstart-install-power-bi-content-pack.md) per
 
 I report seguenti sono inclusi nel pacchetto di contenuto di Azure AD Power BI. I report contengono dati per gli **ultimi 30 giorni**.
 
-**App Usage and trends (Utilizzo app e tendenze)**: questo report offre informazioni dettagliate sulle applicazioni usate nell'organizzazione. È possibile ottenere un elenco delle applicazioni più diffuse o comprendere come viene usata un'applicazione distribuita di recente nell'organizzazione. In questo modo è possibile tenere traccia dell'utilizzo nel tempo e introdurre miglioramenti.
+**Report di utilizzo app e tendenze**:  Questo report offre informazioni dettagliate sulle applicazioni usate all'interno dell'organizzazione. È possibile ottenere un elenco delle applicazioni più diffuse o comprendere come viene usata un'applicazione distribuita di recente nell'organizzazione. In questo modo è possibile tenere traccia dell'utilizzo nel tempo e introdurre miglioramenti.
 
-**Sign-ins by location and users (Accessi in base a posizioni e utenti)**: questo report include dati su tutti gli accessi eseguiti con l'identità di Azure. Con questo report è possibile eseguire il drill down di singoli accessi e rispondere a domande come:
+**Accessi in base a posizioni e utenti**: Questo report include dati su tutti gli accessi eseguiti con l'identità di Azure. Con questo report è possibile eseguire il drill down di singoli accessi e rispondere a domande come:
 
 - Da dove ha effettuato l'accesso questo utente?
 - Quale utente ha il maggior numero di accessi e da dove accede? 
@@ -52,34 +52,34 @@ I report seguenti sono inclusi nel pacchetto di contenuto di Azure AD Power BI. 
  
 È anche possibile filtrare i risultati selezionando una data o una posizione specifica.
 
-**Unique users per app (Utenti univoci per ogni app)**: questo report offre una visualizzazione di tutti gli utenti univoci che usano un'app specifica. Include solo gli utenti che hanno completato "*correttamente*" l'accesso a un'applicazione.
+**Utenti univoci per ogni app**:  Questo report offre una visualizzazione di tutti gli utenti univoci che usano un'app specifica. Include solo gli utenti che hanno completato "*correttamente*" l'accesso a un'applicazione.
 
-**Device sign-ins (Accessi dispositivi)**:questo report consente di conoscere i diversi profili dei dispositivi usati all'interno dell'organizzazione e determinare i criteri dei dispositivi in base all'utilizzo. Fornisce dati relativi al tipo di sistema operativo e browser usati per accedere alle applicazioni, oltre a informazioni dettagliate sugli utenti, inclusi:
+**Accessi dispositivi**: Questo report consente di conoscere i diversi profili dei dispositivi usati all'interno dell'organizzazione e di determinare i criteri dei dispositivi in base all'utilizzo. Fornisce dati relativi al tipo di sistema operativo e browser usati per accedere alle applicazioni, oltre a informazioni dettagliate sugli utenti, inclusi:
 
-- Nome utente
+- User Name
 - Indirizzo IP
 - Località 
 - Stato accesso 
 
-**SSPR Funnel (Grafico a imbuto SSPR)**: questo report consente di comprendere come viene usato lo strumento SSPR all'interno dell'organizzazione. È possibile scoprire il numero di reimpostazioni delle password tentate tramite lo strumento SSPR e quante di esse hanno avuto esito positivo. È anche possibile analizzare gli errori di reimpostazione delle password e comprendere perché si sono verificati determinati errori. 
+**Grafico a imbuto SSPR**: Questo report consente di comprendere come viene usato lo strumento SSPR all'interno dell'organizzazione. È possibile scoprire il numero di reimpostazioni delle password tentate tramite lo strumento SSPR e quante di esse hanno avuto esito positivo. È anche possibile analizzare gli errori di reimpostazione delle password e comprendere perché si sono verificati determinati errori. 
 
 ## <a name="customize-azure-ad-activity-content-pack"></a>Personalizzare il pacchetto di contenuto per le attività di Azure AD
 
-**Modificare la visualizzazione**: è possibile modificare la visualizzazione di un report facendo clic su **Modifica Report** e selezionando la visualizzazione desiderata.
+**Modificare la visualizzazione**:  È possibile modificare la visualizzazione di un report facendo clic su **Modifica Report** e selezionando la visualizzazione desiderata.
  
 ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/howto-power-bi-content-pack/09.png) 
  
 ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/howto-power-bi-content-pack/10.png) 
 
-**Aggiungere altri campi**: è possibile aggiungere o rimuovere un campo per il report selezionando l'oggetto visivo per il quale si intende aggiungere o rimuovere il campo. Ad esempio, è possibile aggiungere il campo "Sign-in Status" (Stato di accesso) alla visualizzazione tabella, come illustrato di seguito. 
+**Aggiungere altri campi**:  È possibile aggiungere o rimuovere un campo al report selezionando l'oggetto visivo per il quale si intende aggiungere o rimuovere il campo. Ad esempio, è possibile aggiungere il campo "Sign-in Status" (Stato di accesso) alla visualizzazione tabella, come illustrato di seguito. 
  
 ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/howto-power-bi-content-pack/11.png) 
 
-**Aggiungere visualizzazioni al dashboard**: è possibile personalizzare il dashboard includendo visualizzazioni personalizzate del report e aggiungendolo al dashboard. 
+**Aggiungere visualizzazioni al dashboard**:  È possibile personalizzare il dashboard includendo visualizzazioni personalizzate del report e aggiungendole a esso. 
 
 ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/howto-power-bi-content-pack/13.png) 
  
-**Condivisione del dashboard**: è anche possibile condividere il dashboard con gli utenti nell'organizzazione. Dopo aver condiviso il report, gli utenti possono vedere i campi selezionati nel report stesso.
+**Condivisione del dashboard**: È anche possibile condividere il dashboard con gli utenti nell'organizzazione. Dopo aver condiviso il report, gli utenti possono vedere i campi selezionati nel report stesso.
  
 ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/howto-power-bi-content-pack/14.png) 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 90623981f67bbed15ade743192525676e58a0a83
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 30fc36f29a7602e2bc3f192b445474bfc50e9434
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318398"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632636"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>Usare PowerShell per eseguire il backup e il ripristino di condivisioni file di Azure
 
@@ -34,11 +34,11 @@ Per visualizzare il riferimento al cmdlet AzureRm.RecoveryServices.Backup di Pow
 ## <a name="setup-and-registration"></a>Installazione e registrazione
 
 > [!NOTE]
-> Come indicato [qui](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), il supporto per nuove funzionalità nel modulo AzureRM è terminato nel novembre 2018. Di conseguenza, il supporto per il backup di condivisioni file di Azure viene fornito con il nuovo modulo PS "Az". È anche previsto l'onboarding nella versione di disponibilità generale del modulo Az.
+> Come indicato [qui](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), il supporto per nuove funzionalità nel modulo AzureRM è terminato nel novembre 2018. Di conseguenza, il supporto per il backup di condivisioni file di Azure viene fornito con il nuovo modulo PS "Az" in GA.
 
 Per iniziare:
 
-1. [Scaricare la versione più recente di PowerShell 'Az'](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (la versione minima richiesta è: 0.7.0)
+1. [Scaricare la versione più recente di PowerShell 'Az'](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (la versione minima richiesta è: 1.0.0)
 
 2. Cercare i cmdlet PowerShell di Azure Backup disponibili digitando il comando seguente:
 
@@ -158,6 +158,8 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 ----                 ------------       -------------------- ----------                ----------
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
 ```
+
+“NewAFSPolicy” effettua un backup giornaliero e lo conserva per 30 giorni.
 
 ### <a name="enable-protection"></a>Abilitare la protezione
 

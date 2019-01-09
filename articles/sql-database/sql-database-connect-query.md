@@ -3,7 +3,7 @@ title: Guide introduttive sulla connessione e l'esecuzione di query sui database
 description: Guide introduttive sui database SQL di Azure che illustrano come connettersi a un database SQL di Azure ed eseguire query su di esso.
 services: sql-database
 ms.service: sql-database
-ms.subservice: scenario
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -12,14 +12,14 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: ab1f96b2348c24a746aaa7bdd670f396884ee3f5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 613b4cf2b08269259a4608a6960b815777cd0ae9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870198"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608035"
 ---
-# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Guide introduttive: connessione ed esecuzione di query sui database SQL di Azure
+# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Argomenti di avvio rapido: connessione ed esecuzione di query sui database SQL di Azure
 
 Il documento seguente include collegamenti ad esempi di Azure che mostrano come connettersi a un database SQL di Azure ed eseguire query su di esso. Contiene anche alcune indicazioni per la sicurezza a livello di trasporto.
 

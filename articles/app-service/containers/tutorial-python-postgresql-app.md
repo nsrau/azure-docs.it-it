@@ -1,5 +1,5 @@
 ---
-title: Compilare un'app Web Python con PostgreSQL in Linux - Servizio app di Azure | Microsoft Docs
+title: Compilare un'app Python con PostgreSQL in Linux - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come eseguire un'app Python basata sui dati con connessione a un database PostgreSQL.
 services: app-service\web
 documentationcenter: python
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8846ec386ad1776172ae1949b5e0f26e03ddf1df
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c70c7e8b893c511aae36f122c5983fd0958eac8e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337990"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975390"
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Creare un'app Web Python e PostgreSQL in Servizio app di Azure
+# <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Creare un'app Python e PostgreSQL in Servizio app di Azure
 
-Il [Servizio app in Linux](app-service-linux-intro.md) fornisce un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa esercitazione illustra come creare un'app Web Python basata sui dati usando PostgreSQL come back-end del database. Al termine, si avrà un'applicazione Django in esecuzione nel servizio app in Linux.
+Il [Servizio app in Linux](app-service-linux-intro.md) fornisce un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa esercitazione illustra come creare un'app Python basata sui dati usando PostgreSQL come back-end del database. Al termine, si avrà un'applicazione Django in esecuzione nel servizio app in Linux.
 
 ![App Python Django nel servizio app in Linux](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -203,9 +203,9 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 ```
 
 > [!NOTE]
-> Questa impostazione consente le connessioni di rete da tutti gli indirizzi IP all'interno della rete di Azure. Per l'uso nell'ambiente di produzione, provare a configurare le regole del firewall più restrittive possibile [usando solo gli indirizzi IP in uscita usati dall'app](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> Questa impostazione consente le connessioni di rete da tutti gli indirizzi IP all'interno della rete di Azure. Per l'uso nell'ambiente di produzione, provare a configurare le regole del firewall più restrittive possibile [usando solo gli indirizzi IP in uscita usati dall'app](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal computer locale sostituendo *\<your_ip_address>* con l'[indirizzo IPv4 locale](https://www.whatsmyip.org/).
+In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal computer locale sostituendo *\<your_ip_address>* con l'[indirizzo IPv4 locale](http://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
@@ -371,9 +371,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 Il server di distribuzione del servizio app vede il file _requirements.txt_ nella radice del repository ed esegue automaticamente la gestione dei pacchetti Python dopo `git push`.
 
-### <a name="browse-to-the-azure-web-app"></a>Passare all'app Web di Azure
+### <a name="browse-to-the-azure-app"></a>Passare all'app Azure
 
-Passare all'app Web distribuita. L'avvio richiede tempo perché il contenitore deve essere scaricato ed eseguito quando l'app viene richiesta per la prima volta. Se si verifica il timeout della pagina o se viene visualizzato un messaggio di errore, attendere alcuni minuti e aggiornare la pagina.
+Passare all'app distribuita. L'avvio richiede tempo perché il contenitore deve essere scaricato ed eseguito quando l'app viene richiesta per la prima volta. Se si verifica il timeout della pagina o se viene visualizzato un messaggio di errore, attendere alcuni minuti e aggiornare la pagina.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -403,15 +403,15 @@ Dopo che la registrazione del contenitore è attivata, eseguire il comando segue
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-## <a name="manage-your-web-app-in-the-azure-portal"></a>Gestire l'app Web nel portale di Azure
+## <a name="manage-your-app-in-the-azure-portal"></a>Gestire l'app nel portale di Azure
 
-Accedere al [portale di Azure](https://portal.azure.com) per visualizzare l'app Web creata.
+Passare al [portale di Azure](https://portal.azure.com) per visualizzare l'app creata.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web di Azure.
+Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
 
-![Passare all'app Web di Azure nel portale](./media/tutorial-python-postgresql-app/app-resource.png)
+![Passaggio all'app di Azure nel portale](./media/tutorial-python-postgresql-app/app-resource.png)
 
-Per impostazione predefinita, il portale visualizza la pagina **Panoramica** dell'app Web. che offre una visualizzazione dello stato dell'app. In questa pagina è anche possibile eseguire attività di gestione di base come esplorare, arrestare, avviare, riavviare ed eliminare. Le schede sul lato sinistro della pagina mostrano le diverse pagine di configurazione che è possibile aprire.
+Per impostazione predefinita, il portale visualizza la pagina **Panoramica** dell'app. che offre una visualizzazione dello stato dell'app. In questa pagina è anche possibile eseguire attività di gestione di base come esplorare, arrestare, avviare, riavviare ed eliminare. Le schede sul lato sinistro della pagina mostrano le diverse pagine di configurazione che è possibile aprire.
 
 ![Pagina del servizio app nel portale di Azure](./media/tutorial-python-postgresql-app/app-mgmt.png)
 
@@ -428,10 +428,10 @@ Questa esercitazione illustra come:
 > * Visualizzare i log di diagnostica
 > * Gestire l'app nel portale di Azure
 
-Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app Web.
+Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app.
 
 > [!div class="nextstepaction"]
-> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](../app-service-web-tutorial-custom-domain.md)
+> [Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure](../app-service-web-tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
 > [Configurare l'immagine Python predefinita e risolvere gli errori](how-to-configure-python.md)

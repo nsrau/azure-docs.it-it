@@ -1,5 +1,5 @@
 ---
-title: Provare una soluzione di monitoraggio remoto IoT basata sul cloud in Azure | Microsoft Docs
+title: Provare una soluzione di monitoraggio remoto IoT basata sul cloud - Azure | Microsoft Docs
 description: In questa guida introduttiva si distribuisce l'acceleratore della soluzione IoT di Azure per il monitoraggio remoto, quindi si accede al dashboard della soluzione e lo si utilizza.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824779"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608358"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Guida introduttiva: Provare una soluzione di monitoraggio remoto basata sul cloud
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Avvio rapido: Provare una soluzione di monitoraggio remoto basata sul cloud
 
 Questa guida introduttiva illustra come distribuire l'acceleratore di soluzione Monitoraggio remoto di IoT di Azure. In questa soluzione basata sul cloud viene usata la pagina **Dashboard** per visualizzare i dispositivi simulati su una mappa e la pagina **Maintenance** (Manutenzione) per rispondere a un avviso di pressione da un dispositivo refrigeratore simulato. È possibile usare questo acceleratore di soluzione come punto di partenza per un'implementazione personalizzata o come strumento di apprendimento.
 
@@ -142,4 +142,4 @@ In questa guida introduttiva, è stato distribuito l'acceleratore della soluzion
 Per altre informazioni sull'acceleratore di soluzione con dispositivi simulati, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: monitorare i dispositivi IoT](iot-accelerators-remote-monitoring-monitor.md)
+> [Esercitazione: Monitorare i dispositivi IoT](iot-accelerators-remote-monitoring-monitor.md)

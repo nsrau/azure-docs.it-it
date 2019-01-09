@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: API Visione artificiale con JavaScript'
+title: 'Esercitazione: Eseguire operazioni sulle immagini - JavaScript'
 titlesuffix: Azure Cognitive Services
 description: In questa esercitazione si esamina un'app JavaScript di base che usa l'API Visione artificiale in Servizi cognitivi di Azure. Si effettua il riconoscimento ottico dei caratteri (OCR), si creano anteprime e si usano le caratteristiche visive in un'immagine.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: c024e517eb59c7d3b61408e477c94004ccb01a54
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 46d992fc44a0c3b2d355861d5753aa6f8c22215e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341311"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581376"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>Esercitazione: API Visione artificiale con JavaScript
 
@@ -494,7 +495,7 @@ La funzionalità di riconoscimento ottico dei caratteri (OCR) di Visione artific
 
 Per completare la funzionalità OCR dell'applicazione dell'esercitazione, procedere come segue:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR, passaggio 1: aggiungere il codice del gestore dell'evento per il pulsante del modulo
+### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR passaggio1: Aggiungere il codice del gestore dell'evento per il pulsante del modulo
 
 Aprire il file **ocr.html** in un editor di testo e individuare la funzione **ocrButtonClick** nella parte inferiore del file.
 

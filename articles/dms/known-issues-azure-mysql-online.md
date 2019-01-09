@@ -4,19 +4,19 @@ description: Informazioni su problemi noti e limitazioni per le migrazioni onlin
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 6e82c10d8e9109279045095c1b856520245a5a6f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884511"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721649"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problemi noti e limitazioni per le migrazioni online a Database di Azure per MySQL
 
@@ -75,12 +75,12 @@ Le colonne LOB (Large Object) sono colonne che possono raggiungere dimensioni el
 
     **Soluzione alternativa**: sostituire la chiave primaria con altri tipi di dati o colonne non LOB.
 
-- **Limitazione**: se la lunghezza della colonna LOB è maggiore di 32 kB, è possibile che nella destinazione i dati vengano troncati. È possibile controllare la lunghezza della colonna LOB usando questa query:
+- **Limitazione**: se la lunghezza della colonna LOB (Large Object) è maggiore a 32 kB, è possibile che i dati vengano troncati nella destinazione. È possibile controllare la lunghezza della colonna LOB usando questa query:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Soluzione alternativa**: se si ha un oggetto LOB maggiore di 32 kB, contattare il team tecnico all'indirizzo [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). 
+    **Soluzione alternativa**: se si ha un oggetto LOB maggiore a 32 kB, contattare il team tecnico all'indirizzo [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). 
 
 ## <a name="other-limitations"></a>Altre limitazioni
 - Le stringhe di password con parentesi graffe di apertura e chiusura {} all'inizio e alla fine non sono supportate. Questa limitazione si applica a entrambe le connessioni, sia al server MySQL di origine sia all'istanza di Database di Azure per MySQL.

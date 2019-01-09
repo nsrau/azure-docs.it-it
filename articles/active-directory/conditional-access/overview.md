@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f0ba365096808954c24beb073f3570499fd23523
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 06866b1a0b986190ab6770e5484fb7d950d10b26
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408277"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753915"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Che cos'è l'accesso condizionale in Azure Active Directory?
 
 La sicurezza è una priorità assoluta per le organizzazioni che usano il cloud. Identità e accesso rappresentano aspetti chiave della sicurezza cloud in ambito di gestione delle risorse cloud. In un mondo dominato dai dispositivi mobili e basato sul cloud, gli utenti possono accedere alle risorse dell'organizzazione con una serie di dispositivi e app ovunque si trovino. Di conseguenza, non è più sufficiente concentrarsi solo su chi può accedere a una risorsa. Per ottenere un equilibrio ideale tra produttività e sicurezza, nelle decisioni relative al controllo di accesso è anche necessario considerare il modo in cui si accede a una risorsa. Con l'accesso condizionale di Azure Active Directory (Azure AD) è possibile soddisfare questo requisito. L'accesso condizionale è una funzionalità di Azure Active Directory. Con l'accesso condizionale è possibile implementare decisioni di controllo di accesso automatiche per l'accesso alle app cloud in base a determinate condizioni. 
 
-I criteri di accesso condizionale vengono applicati dopo il completamento dell'autenticazione con primo fattore. In altre parole, l'accesso condizionale non deve essere considerato un meccanismo che, ad esempio, consente di contrastare gli attacchi Denial of Service.  
+I criteri di accesso condizionale vengono applicati dopo il completamento dell'autenticazione con primo fattore. Pertanto l'accesso condizionale non è da intendersi come una prima misura difensiva da attacchi Denial of Service (DoS), ma può utilizzare segnali da questi eventi, come il livello di rischio di accesso, la posizione della richiesta e così via, per determinare l'accesso.  
 
 ![Controllo](./media/overview/81.png)
 

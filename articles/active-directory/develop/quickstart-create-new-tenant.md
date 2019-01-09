@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 731b68e3f7dbb46f2fa51a18cb5b3da6b4626fa6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 57c207af3a48eb03b9d526197aed85d7755ad370
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963935"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975951"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>Guida introduttiva: Configurare un ambiente di sviluppo
+# <a name="quickstart-set-up-a-dev-environment"></a>Avvio rapido: Configurare un ambiente di sviluppo
 
-Microsoft Identity Platform consente agli sviluppatori di creare app che si rivolgono a un'ampia gamma di identità e ambienti Microsoft 365 personalizzati. Per iniziare a usare Microsoft Identity Platform, si accederà a un ambiente, detto anche tenant di Azure AD, in grado di registrare e gestire le app, accedere ai dati di Microsoft 365 e distribuire le restrizioni di accesso condizionale e tenant personalizzate. 
+Microsoft Identity Platform consente agli sviluppatori di creare app che si rivolgono a un'ampia gamma di identità e ambienti Microsoft 365 personalizzati. Per iniziare a usare Microsoft Identity Platform occorre accedere a un ambiente, detto anche tenant di Azure AD, in grado di registrare e gestire le app, accedere ai dati di Microsoft 365 e distribuire le restrizioni di accesso condizionale e tenant personalizzate.
 
-Un tenant è la rappresentazione di un'organizzazione. È un'istanza dedicata di Azure AD che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft, come l'iscrizione ad Azure, Microsoft Intune o Microsoft 365. 
+Un tenant è una rappresentazione di un'organizzazione. È un'istanza dedicata di Azure AD che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft, come l'iscrizione ad Azure, Microsoft Intune o Microsoft 365.
 
-Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e possiede una propria rappresentazione di identità aziendali e dell'istituto di istruzione, identità di consumer (se si tratta di un tenant di Azure AD B2C) e registrazioni di app. La registrazione di un'app all'interno del tenant può consentire le autenticazioni dagli account solo all'interno del tenant o in tutti i tenant. 
+Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e possiede una propria rappresentazione di identità aziendali e dell'istituto di istruzione, identità di consumer (se si tratta di un tenant di Azure AD B2C) e registrazioni di app. La registrazione di un'app all'interno del tenant può consentire le autenticazioni dagli account solo all'interno del tenant o in tutti i tenant.
 
 ## <a name="determining-environment-type"></a>Scelta del tipo di ambiente
 
@@ -69,7 +69,7 @@ Se non si dispone ancora di un tenant di Azure AD o se ne vuole creare uno nuovo
 
 ## <a name="social-and-local-accounts"></a>Account di social e locali
 
-Per iniziare a creare app che consentono l'accesso agli account di social e locali, è necessario creare un tenant di Azure AD B2C. Per iniziare, seguire la procedura descritta in [Creazione di un tenant di Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md). 
+Per iniziare a creare app che consentono l'accesso agli account di social e locali, è necessario creare un tenant di Azure AD B2C. Per iniziare, seguire la procedura descritta in [Creazione di un tenant di Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

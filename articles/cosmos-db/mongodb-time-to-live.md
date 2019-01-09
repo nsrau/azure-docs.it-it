@@ -1,23 +1,23 @@
 ---
 title: Funzionalità di durata (TTL) per documenti di MongoDB in Azure Cosmos DB
-description: Informazioni sull'impostazione del valore di durata (TTL) per i documenti Azure Cosmos DB creati tramite l'API di MongoDB per eliminarli automaticamente dal sistema dopo un periodo di tempo
+description: Informazioni sull'impostazione del valore di durata (TTL) per i documenti tramite l'API di Azure Cosmos DB per MongoDB, per eliminarli automaticamente dal sistema dopo un periodo di tempo.
 services: cosmos-db
-author: orestis-ms
-ms.author: orkostak
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 08/10/2018
-ms.openlocfilehash: 547ee489581b7e7e9203151fbfcdaad45dca8ea1
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.openlocfilehash: d7c811dba3ad9b894fd5dae47e898f51ec4d05e5
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868762"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790096"
 ---
-# <a name="expire-data-in-azure-cosmos-db-mongodb-api"></a>Scadenza dei dati nell'API di MongoDB di Azure Cosmos DB
+# <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Impostare la scadenza dei dati con l'API di Azure Cosmos DB per MongoDB
 
-La funzionalità di durata (TTL) consente di impostare la scadenza automatica dei dati nel database. L'API di MongoDB usa le funzionalità di durata (TTL) di Azure Cosmos DB. Sono supportate due modalità: l'impostazione di un valore di durata predefinito per l'intera raccolta e l'impostazione di valori di durata specifici per ogni documento. La logica che regola gli indici di durata e i valori di durata per singolo documento nell'API di MongoDB è la [stessa usata per Azure Cosmos DB](../cosmos-db/mongodb-indexing.md).
+La funzionalità di durata (TTL) consente di impostare la scadenza automatica dei dati nel database. L'API di Azure Cosmos DB per MongoDB usa le funzionalità di base per la durata di Cosmos DB. Sono supportate due modalità: l'impostazione di un valore di durata predefinito per l'intera raccolta e l'impostazione di valori di durata specifici per ogni documento. La logica che regola gli indici di durata e i valori di durata per singolo documento nell'API di Cosmos DB per MongoDB è la [stessa usata per Cosmos DB](../cosmos-db/mongodb-indexing.md).
 
 ## <a name="ttl-indexes"></a>Indici TTL
 Per abilitare la durata per tutti i documenti di una raccolta, è necessario creare un ["indice TTL" (time-to-live)](../cosmos-db/mongodb-indexing.md). L'indice TTL è un indice sul campo _ts con un valore "expireAfterSeconds".
@@ -72,10 +72,11 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 ``` 
 
 ## <a name="how-to-activate-the-per-document-ttl-feature"></a>Come attivare la funzionalità di durata per singolo documento
-La funzionalità di durata per singolo documento può essere attivata tramite la scheda "Funzionalità di anteprima" dell'account API di MongoDB nel portale di Azure.
+
+La funzionalità di durata per singolo documento può essere attivata con l'API di Azure Cosmos DB per MongoDB.
 
 ![Screenshot dell'attivazione della funzionalità di durata per singolo documento nel portale](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Impostare la scadenza automatica dei dati nelle raccolte di Azure Cosmos DB con la durata (TTL)](../cosmos-db/time-to-live.md)
-* [Indicizzazione in Azure Cosmos DB: API MongoDB](../cosmos-db/mongodb-indexing.md)
+* [Impostare la scadenza automatica dei dati in Azure Cosmos DB con la durata (TTL)](../cosmos-db/time-to-live.md)
+* [Indicizzazione del database Cosmos DB configurato con l'API di Azure Cosmos DB per MongoDB](../cosmos-db/mongodb-indexing.md)

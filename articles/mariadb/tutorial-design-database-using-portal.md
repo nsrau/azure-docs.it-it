@@ -3,18 +3,16 @@ title: "Esercitazione: Progettare un'istanza di Database di Azure per MariaDB co
 description: Questa esercitazione illustra come creare e gestire un database e un server di Database di Azure per MariaDB usando il portale di Azure.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 20714bed5c36cd93d11cb4ade6640798775f5055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322057"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538107"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Esercitazione: Progettare un database di Database di Azure per MariaDB con il portale di Azure
 

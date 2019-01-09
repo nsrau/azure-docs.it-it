@@ -11,42 +11,46 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: bc27ece2eddc842a81698aaa685cbe6d63c6a1df
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/14/2018
+ms.openlocfilehash: 40d07827cbd856fe3be3d797dde793b1a7f50207
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912255"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653239"
 ---
-# <a name="quickstart-restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Guida introduttiva: Ripristinare un backup di database in un'istanza gestita di database SQL di Azure
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Avvio rapido: Ripristinare un database in un'istanza gestita 
 
-La guida introduttiva spiega come ripristinare il backup di un database presente nell'archivio BLOB di Azure in Istanza gestita attraverso i file di backup standard del database Wide World Importers. Questo metodo prevede un tempo di inattività. 
+In questa Guida introduttiva si userà SQL Server Management Studio (SSMS) per ripristinare un database (Wide World Importers, file di backup standard) da Archiviazione BLOB di Azure in un'[Istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) di database SQL di Azure. 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
-Per un'esercitazione sull'uso di Servizio Migrazione del database di Azure per la migrazione, vedere l'articolo relativo alla [migrazione a Istanza gestita con Servizio Migrazione del database](../dms/tutorial-sql-server-to-managed-instance.md). Per informazioni sui vari metodi di migrazione, vedere [Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure](sql-database-managed-instance-migrate.md).
+> [!NOTE]
+> * Per altre informazioni sulla migrazione tramite Servizio Migrazione del database di Azure, vedere [Migrazione in un'Istanza gestita con Servizio Migrazione del database](../dms/tutorial-sql-server-to-managed-instance.md). 
+> * Per altre informazioni sui vari metodi di migrazione, vedere [Migrazione di un'istanza di SQL Server in Istanza gestita di database SQL di Azure](sql-database-managed-instance-migrate.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 La guida introduttiva:
-- Usa come punto iniziale le risorse in essa create: [Creazione di un'Istanza gestita](sql-database-managed-instance-get-started.md).
-- Richiede la versione più recente di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) nel computer client locale
-- Richiede la connettività all'Istanza gestita attraverso SQL Server Management Studio. Consultare le guide introduttive per le opzioni di connettività:
-  - [Connessione a un'Istanza gestita di database SQL di Azure da una macchina virtuale di Azure](sql-database-managed-instance-configure-vm.md)
-  - [Connessione a un'Istanza gestita di database SQL di Azure da locale attraverso una connessione da punto a sito](sql-database-managed-instance-configure-p2s.md).
-- Uso di un account di archiviazione BLOB di Azure preconfigurato che contiene i file di backup standard del database Wide World Importers (scaricati da https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak).
+- Usa le risorse della Guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).
+- Richiede che nel computer in uso sia installata la versione più recente di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms).
+- Richiede l'uso di SSMS per connettersi all'istanza gestita. Per informazioni su come effettuare la connessione, vedere queste guide introduttive:
+  * [Connessione a un'Istanza gestita di database SQL di Azure da una macchina virtuale di Azure](sql-database-managed-instance-configure-vm.md)
+  * [Configurare una connessione da punto a sito a un'Istanza gestita di database SQL di Azure da un computer locale](sql-database-managed-instance-configure-p2s.md).
+
 
 > [!NOTE]
-> Per altre informazioni sul backup e sul ripristino di un database SQL Server attraverso l'archiviazione BLOB di Azure e la firma di accesso condiviso, vedere [Backup di SQL Server in un URL](sql-database-managed-instance-get-started-restore.md).
+> Per altre informazioni sul backup e sul ripristino di un database SQL Server attraverso Archiviazione BLOB di Azure e una [chiave di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), vedere [Backup di SQL Server in un URL](sql-database-managed-instance-get-started-restore.md).
 
-## <a name="restore-the-wide-world-importers-database-from-a-backup-file"></a>Ripristinare il database Wide World Importers da un file di backup
+## <a name="restore-the-database-from-a-backup-file"></a>Ripristinare il database da un file di backup
 
-Con SSMS, usare la procedura seguente per ripristinare il database Wide World Importers nell'istanza gestita da un file di backup.
+In SSMS seguire questa procedura per ripristinare il database Wide World Importers nell'istanza gestita. Il file di backup del database è archiviato in un account di Archiviazione BLOB di Azure configurato in precedenza.
 
-1. Aprire SQL Server Management Studio (SSMS) e connettersi a Istanza gestita.
-2. In SSMS aprire una nuova finestra di query.
-3. Usare lo script seguente per creare un titolo nell'Istanza gestita attraverso l'account di archiviazione preconfigurato e la chiave di firma di accesso condiviso.
+1. Aprire SMSS e connettersi all'istanza gestita.
+
+2. Nel menu a sinistra fare clic con il pulsante destro del mouse sull'istanza gestita e selezionare **Nuova query** per aprire una nuova finestra di query.
+
+3. Eseguire lo script SQL seguente, che usa un account di archiviazione preconfigurato e una chiave di firma di accesso condiviso per [creare le credenziali](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) nell'istanza gestita.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 
@@ -56,10 +60,8 @@ Con SSMS, usare la procedura seguente per ripristinare il database Wide World Im
 
     ![creare le credenziali](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
-    > [!NOTE]
-    > Rimuovere sempre il **?** iniziale dalla chiave di firma di accesso condiviso generata.
   
-3. Usare lo script seguente per controllare le credenziali di firma di accesso condiviso e la validità del backup, specificando l'URL del contenitore con il file di backup:
+3. Per controllare le credenziali, eseguire lo script seguente, che usa un URL [contenitore](https://azure.microsoft.com/services/container-instances/) per ottenere un elenco file di backup.
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
@@ -68,7 +70,7 @@ Con SSMS, usare la procedura seguente per ripristinare il database Wide World Im
 
     ![Elenco file](./media/sql-database-managed-instance-get-started-restore/file-list.png)
 
-4. Usare lo script seguente per ripristinare il database Wide World Importers da un file di backup, specificando l'URL del contenitore con il file di backup:
+4. Eseguire lo script seguente per ripristinare il database Wide World Importers.
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =
@@ -77,20 +79,20 @@ Con SSMS, usare la procedura seguente per ripristinare il database Wide World Im
 
     ![ripristinare](./media/sql-database-managed-instance-get-started-restore/restore.png)
 
-5. Per monitorare lo stato del ripristino, eseguire questa query in una nuova sessione di query:
+5. Eseguire lo script seguente per tenere traccia dello stato del ripristino.
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
       , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time 
    FROM sys.dm_exec_requests r 
    CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a 
-   WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')`
+   WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
 6. Al termine del ripristino, visualizzarlo in Esplora oggetti. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per la risoluzione dei problemi di backup nell'URL, consultare le [Procedure consigliate per il backup di SQL Server nell'URL e risoluzione dei problemi](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
-- Per una panoramica delle opzioni di connessione delle applicazioni, consultare [Connessione delle applicazioni a un'Istanza gestita](sql-database-managed-instance-connect-app.md).
-- Per eseguire query usando gli strumenti o i linguaggi preferiti, consultare [Connessione e query](sql-database-connect-query.md).
+- Per la risoluzione dei problemi di backup in un URL, vedere [Procedure consigliate e risoluzione dei problemi per il backup di SQL Server nell'URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
+- Per una panoramica delle opzioni di connessione delle app, vedere [Connettere le applicazioni a un'Istanza gestita](sql-database-managed-instance-connect-app.md).
+- Per eseguire query usando gli strumenti o i linguaggi preferiti, vedere [Guide introduttive: connessione ed esecuzione di query sui database SQL di Azure](sql-database-connect-query.md).

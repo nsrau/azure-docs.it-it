@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 964f91f412645e141ca003d511480f6f6eb438a3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343299"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536050"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Architettura della connettività di Istanza gestita di database SQL di Azure
 
@@ -113,7 +113,10 @@ Quando le connessioni vengono avviate dall'interno di Istanza gestita (backup, l
 
   > [!Note]
   > Anche se le regole di sicurezza in ingresso obbligatorie consentono il traffico da _qualsiasi_ origine sulle porte 9000, 9003, 1438, 1440 e 1452, tali porte sono protette dal firewall incorporato. Questo [articolo](sql-database-managed-instance-find-management-endpoint-ip-address.md) illustra come è possibile individuare l'indirizzo IP degli endpoint di gestione e verificare le regole del firewall. 
-
+  
+  > [!Note]
+  > Se si usa la replica transazionale in Istanza gestita e qualsiasi database nell'Istanza gestita viene utilizzato come server di pubblicazione o di distribuzione, anche la porta 445 (TCP in uscita) deve essere aperta nelle regole di sicurezza della subnet per accedere alla condivisione file di Azure.
+  
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica, vedere  [Informazioni su Istanza gestita](sql-database-managed-instance.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 4b5f884fe6e1f1fdc12d7993418f7a10614a4cbe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 76a509c1cb9277ac72f99ec9ebfc239bfd71390c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602956"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969183"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importare un'app per la logica come API
 
@@ -31,10 +31,10 @@ In questo articolo viene spiegato come:
 > * Testare l'API nel portale di Azure
 > * Testare l'API nel portale per sviluppatori
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-+ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
-+ Verificare che nella sottoscrizione sia disponibile un'app per la logica. Per altre informazioni, vedere l'articolo su come [creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
+* Verificare che nella sottoscrizione sia disponibile un'app per la logica che espone un endpoint HTTP. Per altre informazioni, vedere [Attivare flussi di lavoro con endpoint HTTP](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -44,7 +44,7 @@ In questo articolo viene spiegato come:
 2. Selezionare **App per la logica** nell'elenco **Add a new API** (Aggiungere una nuova API).
 
     ![App per la logica](./media/import-logic-app-as-api/logic-app-api.png)
-3. Fare clic su **Sfoglia** per visualizzare l'elenco delle app per la logica nella sottoscrizione.
+3. Fare clic su **Sfoglia** per visualizzare l'elenco delle app per la logica nella sottoscrizione che è possibile richiamare.
 4. Selezionare l'app. Gestione API trova lo swagger associato all'app selezionata, lo recupera e lo importa. 
 5. Aggiungere un suffisso dell'URL dell'API. Il suffisso è un nome che identifica questa specifica API in questa istanza di Gestione API. Deve essere univoco nell'istanza di Gestione API.
 6. Pubblicare l'API associandola a un prodotto. In questo caso viene usato il prodotto "*Unlimited*".  Per fare in modo che l'API venga pubblicata e sia disponibile per gli sviluppatori, aggiungerla a un prodotto. È possibile eseguire questa operazione durante la creazione dell'API o in un secondo momento.

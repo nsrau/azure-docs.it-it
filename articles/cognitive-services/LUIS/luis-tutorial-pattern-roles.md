@@ -9,18 +9,36 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8b66895e1ae37947c995ffc643505d466c42b93b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094407"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753116"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Esercitazione: 4: Estrarre criteri correlati in base al contesto
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Esercitazione: Estrarre criteri correlati in base al contesto usando i ruoli
 
 Questa esercitazione illustra come usare un criterio per estrarre dati da un'espressione modello formattata in modo corretto. L'espressione modello usa un'entità semplice e i ruoli per estrarre i dati correlati, ad esempio il percorso di origine e destinazione.  Quando si usano i criteri, per la finalità sono necessarie meno espressioni di esempio.
+
+
+**In questa esercitazione si imparerà come:**
+
+> [!div class="checklist"]
+> * Importare l'app di esempio
+> * Creare nuove entità
+> * Creare una nuova finalità
+> * Eseguire il training
+> * Pubblica
+> * Ottenere finalità ed entità dall'endpoint
+> * Creare criteri con ruoli
+> * Creare un elenco di frasi con città
+> * Ottenere finalità ed entità dall'endpoint
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-roles-in-patterns"></a>Uso dei ruoli nei criteri
 
 Lo scopo dei ruoli è quello di estrarre le entità correlate in base al contesto in un'espressione. Nell'espressione `Move new employee Robert Williams from Sacramento and San Francisco` i valori della città di origine e di destinazione sono correlati tra loro e usano il linguaggio comune per denotare ogni luogo. 
 
@@ -37,27 +55,12 @@ Poiché l'espressione di esempio `Move new employee Robert Williams from Sacrame
 
 Se si hanno difficoltà con il rilevamento di entità semplici perché l'entità è un nome, ad esempio una città, prendere in considerazione l'aggiunta di un elenco di frasi con valori simili. In questo modo il rilevamento del nome della città viene semplificato perché si indica a LUIS un'informazione aggiuntiva sul tipo di parola o frase specifica. Gli elenchi di frasi sono utili al criterio solo perché facilitano il rilevamento di entità, operazione necessaria per la corrispondenza del criterio. 
 
-**In questa esercitazione si imparerà come:**
-
-> [!div class="checklist"]
-> * Usare l'app di esercitazione esistente
-> * Creare nuove entità
-> * Creare una nuova finalità
-> * Eseguire il training
-> * Pubblica
-> * Ottenere finalità ed entità dall'endpoint
-> * Creare criteri con ruoli
-> * Creare un elenco di frasi con città
-> * Ottenere finalità ed entità dall'endpoint
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Usare l'app esistente
+## <a name="import-example-app"></a>Importare l'app di esempio
 Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
-Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
+Seguire questa procedura:
 
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
 
 2. Importare il file JSON in una nuova app.
 

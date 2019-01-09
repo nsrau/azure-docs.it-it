@@ -8,15 +8,15 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 7e654e070ce64b0f5e7f9fb5734bf0ec1584dbf6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9db223075284b02de1cf3de8cfa7a0b5aa35f286
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423610"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754221"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Esercitazione: Eseguire un carico di lavoro parallelo con Azure Batch usando l'API .NET
 
@@ -248,11 +248,14 @@ await job.CommitAsync();
 
 L'esempio crea le attività del processo con una chiamata al metodo `AddTasksAsync`, che crea un elenco di oggetti [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Ogni oggetto `CloudTask` esegue ffmpeg per elaborare un oggetto `ResourceFile` di input usando una proprietà [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). Lo strumento ffmpeg è stato installato in precedenza in ogni nodo al momento della creazione del pool. In questo caso, la riga di comando esegue ffmpeg per convertire ogni file (video) MP4 di input in un file (audio) MP3.
 
-L'esempio crea un oggetto [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) per il file MP3 dopo l'esecuzione della riga di comando. I file di output di ogni attività, in questo caso uno, vengono caricati in un contenitore nell'account di archiviazione collegato, usando la proprietà [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) dell'attività.
+L'esempio crea un oggetto [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) per il file MP3 dopo l'esecuzione della riga di comando. I file di output di ogni attività, in questo caso uno, vengono caricati in un contenitore nell'account di archiviazione collegato, usando la proprietà [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) dell'attività. In precedenza nell'esempio di codice è stato ottenuto un URL di firma di accesso condiviso (`outputContainerSasUrl`) per fornire accesso in scrittura al contenitore di output. Notare le condizioni impostate sull'oggetto `outputFile`. Un file di output da un'attività viene caricato nel contenitore solo dopo il completamento corretto dell'attività (`OutputFileUploadCondition.TaskSuccess`). Vedere l'[esempio di codice](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) completo su GitHub per altri dettagli sull'implementazione.
 
 L'esempio aggiunge quindi le attività al processo con il metodo [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), che le accoda per l'esecuzione nei nodi di calcolo.
 
 ```csharp
+ // Create a collection to hold the tasks added to the job.
+List<CloudTask> tasks = new List<CloudTask>();
+
 for (int i = 0; i < inputFiles.Count; i++)
 {
     string taskId = String.Format("Task{0}", i);
@@ -265,7 +268,7 @@ for (int i = 0; i < inputFiles.Count; i++)
         ".mp3");
     string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
-    // Create a cloud task (with the task ID and command line) 
+    // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
 

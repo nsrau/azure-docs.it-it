@@ -1,22 +1,22 @@
 ---
-title: "Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node | Microsoft Docs"
-description: "Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET"
+title: "Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node - Azure Key Vault | Microsoft Docs"
+description: "Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET"
 services: key-vault
 author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686671"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002604"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET
 
 In questa guida introduttiva vengono seguiti i passaggi necessari per ottenere un'applicazione Web di Azure per leggere le informazioni da Azure Key Vault usando le identità gestite per le risorse di Azure. Si apprenderà come:
 
@@ -79,7 +79,7 @@ Viene ora creato un insieme di credenziali delle chiavi nel gruppo di risorse cr
 
 * Nome dell'insieme di credenziali delle chiavi: il nome deve essere una stringa di 3-24 caratteri e deve contenere solo (0-9, a-z, A-Z e -).
 * Nome del gruppo di risorse.
-* Località: **Stati Uniti orientali**.
+* Percorso: **Stati Uniti orientali**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "East US"

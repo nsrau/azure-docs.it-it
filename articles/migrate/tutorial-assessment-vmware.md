@@ -4,15 +4,15 @@ description: Questo articolo descrive come individuare e valutare le macchine vi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 8971bba1e25a8e87ed57463dcc9b013fea56a0ff
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257812"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976835"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -58,8 +58,9 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 **Area geografica** | **Posizione di archiviazione**
 --- | ---
-Stati Uniti | Stati Uniti centro-occidentali, Stati Uniti orientali
 Azure Government | US Gov Virginia
+Europa | Europa settentrionale o Europa occidentale
+Stati Uniti | Stati Uniti orientali o Stati Uniti centro-occidentali
 
 ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
@@ -253,7 +254,7 @@ I costi mensili stimati per il calcolo e l'archiviazione vengono aggregati per t
 
 #### <a name="confidence-rating"></a>Classificazione di attendibilità
 
-Ogni valutazione basata sulle prestazioni in Azure Migrate è associata a una classificazione di attendibilità compresa tra 1 stella e 5 stelle, dove 1 stella corrisponde al livello minimo e 5 stelle corrispondono al livello massimo. La classificazione di attendibilità viene assegnata a una valutazione in base alla disponibilità dei punti dati necessari per calcolare la valutazione. La classificazione di attendibilità di una valutazione aiuta a stimare l'affidabilità delle indicazioni relative alla dimensione fornite da Azure Migrate. La classificazione di attendibilità non è applicabile alle valutazioni locali.
+Ogni valutazione basata sulle prestazioni in Azure Migrate è associata a una classificazione di attendibilità compresa tra 1 stella e 5 stelle, dove 1 stella corrisponde al livello minimo e 5 stelle corrispondono al livello massimo. La classificazione di attendibilità viene assegnata a una valutazione in base alla disponibilità dei punti dati necessari per calcolare la valutazione. La classificazione di attendibilità di una valutazione aiuta a stimare l'affidabilità delle indicazioni relative alla dimensione fornite da Azure Migrate. La classificazione di attendibilità non è applicabile alle valutazioni locali "così come sono".
 
 Per una determinazione delle dimensioni in base alle prestazioni, Azure Migrate deve avere a disposizione i dati sull'uso di CPU e memoria della macchina virtuale. Per ogni disco collegato alla macchina virtuale, il servizio deve anche avere i dati relativi alle operazioni di I/O al secondo e alla velocità effettiva del disco. Analogamente, per ogni scheda di rete collegata a una VM, Azure Migrate deve disporre dei dati sull'ingresso/uscita di rete per applicare la determinazione delle dimensioni in base alle prestazioni. Se una qualsiasi delle cifre sull'utilizzo indicate sopra non è disponibile nel server vCenter, l'indicazione relativa alla dimensione fornita da Azure Migrate potrebbe non essere affidabile. Di seguito è indicata la classificazione di attendibilità per la valutazione in base alla percentuale dei punti dati disponibili come riportato di seguito:
 

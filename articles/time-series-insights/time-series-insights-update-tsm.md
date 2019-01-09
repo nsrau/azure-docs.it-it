@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights - Modello di serie temporale | Microsoft Docs
+title: Modello Time Series in Anteprima di Azure Time Series Insights | Microsoft Docs
 description: Informazioni sul modello di serie temporale di Azure Time Series.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2ead7a9a71c0afe72736bef8796107cae42009f1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a6eb142cf607c286ccce1282bb5c67a30c040c62
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278186"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716583"
 ---
 # <a name="time-series-model"></a>Modello Time Series
 
@@ -136,7 +136,7 @@ Si consideri l'esempio seguente dove *building*, *floor* e *room* fanno parte de
  H1 = [“building”, “floor”, “room”]
 ```
 
-A seconda dei *campi di istanza*, vengono visualizzati gli attributi e i valori della gerarchia, come illustrato nella tabella seguente: 
+A seconda dei *campi di istanza*, vengono visualizzati gli attributi e i valori della gerarchia, come illustrato nella tabella seguente:
 
 | ID serie temporale | Campi di istanza |
 | --- | --- |
@@ -144,9 +144,9 @@ A seconda dei *campi di istanza*, vengono visualizzati gli attributi e i valori 
 | ID2 | "building" = "1000", "room" = "55" |
 | ID3 | "floor" = "10" |
 | ID4 | "building" = "1000", "floor" = "10"  |
-| ID5 | |
+| ID5 | Non è impostato nessun "building", "floor" o "room" |
 
-Nell'esempio precedente ID1 viene visualizzato come parte della gerarchia H1 nell'interfaccia utente/esperienza utente e gli altri ID vengono classificati come *istanze senza padre* perché non sono conformi alla gerarchia di dati specificata.
+Nell'esempio precedente ID1 e ID4 vengono visualizzati come parte della gerarchia H1 nell'explorer di Azure Time Series Insights, mentre gli altri ID vengono classificati come *istanze senza padre* poiché non sono conformi alla gerarchia di dati specificata.
 
 ## <a name="time-series-model-instances"></a>Istanze di modello serie temporale
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 8/2/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b0d920c1a41ff679c3dedcb6745e250b77cb769a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878327"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631162"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Panoramica delle funzionalità di Backup di Azure
 Backup di Azure è il servizio basato su Azure che consente di eseguire il backup, la protezione e il ripristino dei dati in Microsoft Cloud. Backup di Azure sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e conveniente. Backup di Azure offre più componenti che vengono scaricati e distribuiti nel computer o server appropriato o nel cloud. Il componente o l'agente distribuito dipende da ciò che si intende proteggere. Tutti i componenti di Backup di Azure consentono di eseguire il backup dei dati in un insieme di credenziali di Servizi di ripristino, a prescindere che i dati da proteggere si trovino in locale o nel cloud. Vedere la [tabella dei componenti di Backup di Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) più avanti in questo articolo per informazioni sul componente da usare per proteggere dati, applicazioni o carichi di lavoro specifici.
@@ -78,17 +78,17 @@ La tabella seguente descrive una matrice dei dati e dei carichi di lavoro che po
 | VM IaaS di Azure (Linux) |in esecuzione in Azure |[Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
 
 ## <a name="linux-support"></a>Supporto Linux
-La tabella seguente illustra i componenti di Backup di Azure che hanno il supporto per Linux.  
+La tabella seguente illustra i componenti di Backup di Azure supportati per Linux.  
 
-| Componente | Supporto Linux (approvato per Azure) |
-| --- | --- |
-| Agente di Backup di Azure (MARS) |No (solo agente basato su Windows) |
-| System Center DPM |<li> Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/> <li> Ripristino di macchine virtuali guest Linux in Hyper-V e VMWare </br> </br>  *Backup coerente con i file non disponibile per le VM di Azure* <br/> |
-| Server di backup di Azure |<li>Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/> <li> Ripristino di macchine virtuali guest Linux in Hyper-V e VMWare </br></br> *Backup coerente con i file non disponibile per le VM di Azure*  |
-| Backup di VM IaaS di Azure |Backup coerente con le applicazioni tramite il [framework dello script di pre-backup e post-backup](backup-azure-linux-app-consistent.md)<br/> [Ripristino granulare di file](backup-azure-restore-files-from-vm.md)<br/> [Ripristinare tutti i dischi di macchina virtuale](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Ripristino della macchina virtuale](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+**Componente** | **Linux (approvato per Azure)**
+--- | --- 
+Agente di Backup di Azure (MARS) | No (solo agente basato su Windows) 
+System Center DPM | Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/><br/> Ripristino di macchine virtuali guest Linux in Hyper-V e VMWare</br></br> Backup coerente con i file non disponibile per le macchine virtuali di Azure
+Server di backup di Azure | Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/><br/> Ripristino di macchine virtuali guest Linux Hyper-V e VMWare</br></br> Backup coerente con i file non disponibile per le macchine virtuali di Azure 
+Backup di VM IaaS di Azure | Backup coerente con le app tramite il [framework di script di pre-backup e post-backup](backup-azure-linux-app-consistent.md)<br/><br/> [Ripristino a livello di file](backup-azure-restore-files-from-vm.md)<br/><br/> [Creare una macchina virtuale da un disco ripristinato](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Creare una macchina virtuale da un punto di recupero](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Uso di macchine virtuali di Archiviazione Premium con Backup di Azure
-Backup di Azure protegge le macchine virtuali di Archiviazione Premium. Archiviazione Premium di Azure è una soluzione di archiviazione basata su unità SSD progettata per supportare carichi di lavoro con attività di I/O intensive. Archiviazione Premium è una soluzione interessante per i carichi di lavoro delle macchine virtuali. Per altre informazioni su Archiviazione Premium, vedere l'articolo [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../virtual-machines/windows/premium-storage.md).
+Backup di Azure protegge le macchine virtuali di Archiviazione Premium. Archiviazione Premium di Azure è una soluzione di archiviazione basata su unità SSD progettata per supportare carichi di lavoro con attività di I/O intensive. Archiviazione Premium è una soluzione interessante per i carichi di lavoro delle macchine virtuali. Per altre informazioni su Archiviazione Premium, vedere l'articolo [Archiviazione Premium: Archiviazione ad alte prestazioni per i carichi di lavoro delle macchine virtuali di Azure](../virtual-machines/windows/premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Backup di macchine virtuali di Archiviazione Premium
 Durante il backup di macchine virtuali di Archiviazione Premium, il servizio Backup crea un percorso di gestione temporanea, denominato "AzureBackup-", nell'account di archiviazione Premium. Il percorso di staging ha le stesse dimensioni dello snapshot del punto di ripristino. Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di staging. Per altre informazioni, vedere l'articolo [premium storage limitations](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) (Limiti di Archiviazione Premium). Al termine del processo di backup, il percorso di gestione temporanea viene eliminato. Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con gli altri [prezzi di Archiviazione Premium](../virtual-machines/windows/premium-storage.md#pricing-and-billing).

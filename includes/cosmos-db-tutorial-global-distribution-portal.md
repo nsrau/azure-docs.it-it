@@ -2,25 +2,19 @@
 title: Distribuzione globale di Azure Cosmos DB
 description: Informazioni su come replicare i dati a livello globale con Azure Cosmos DB nel portale di Azure
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 03/26/2018
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: fb9418d47d2888467e1c1c40862833029111b75b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 751571820d52c003a7e740bd63af8c9d9e071c7a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38747562"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53796114"
 ---
-È possibile ottenere maggiori informazioni sulla distribuzione globale di Azure Cosmos DB nel video seguente in cui Andrew Liu, Program Manager di Azure Cosmos DB, illustra in dettaglio la funzionalità di distribuzione globale.
-
->[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
-
-Per informazioni sul funzionamento della replica di database globale in Azure Cosmos DB, vedere [Distribuire i dati a livello globale con Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
-
 ## <a id="addregion"></a>Aggiungere aree di database globali tramite il portale di Azure
 Azure Cosmos DB è disponibile in tutte le [aree di Azure][azureregions] del mondo. Dopo aver selezionato il livello di coerenza predefinito per l'account di database, è possibile associare una o più aree, a seconda del livello di coerenza predefinito e delle esigenze di distribuzione globale scelti.
 
@@ -41,7 +35,7 @@ Esistono due scenari comuni per la configurazione di due o più aree:
 
 Per offrire l'accesso con bassa latenza agli utenti finali, è consigliabile distribuire l'applicazione e Azure Cosmos DB nelle aree corrispondenti alla località in cui si trovano gli utenti dell'applicazione.
 
-Per finalità BCDR, è consigliabile aggiungere le aree in base alle coppie di aree descritte nell'articolo [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure][bcdr].
+Per finalità di continuità aziendale e ripristino di emergenza (BCDR), è consigliabile aggiungere le aree in base alle coppie di aree descritte nell'articolo [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure][bcdr].
 
 <!--
 

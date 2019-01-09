@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40886f54083a1619635f31af57841138f1706d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e055d1e10ddf8c18c84af5376cf4a284d48fde6b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086607"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603328"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Modificare una knowledge base in QnA Maker
 
@@ -71,7 +71,7 @@ Aggiungere domande alternative a una coppia domanda/risposta esistente per aumen
 ## <a name="add-metadata"></a>Aggiungere metadati
 
 
-Aggiungere coppie di metadati selezionando l'icona del filtro
+Aggiungere coppie di metadati selezionando l'icona dei metadati
 
 ![Aggiungere metadati](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -80,11 +80,17 @@ Aggiungere coppie di metadati selezionando l'icona del filtro
 
 ## <a name="manage-large-knowledge-bases"></a>Gestire Knowledge Base di grandi dimensioni
 
-1. Le domande e risposte sono **raggruppate** in base all'origine dati da cui sono state estratte. È possibile espandere o comprimere l'origine dati.
-2. È possibile **eseguire ricerche** nella Knowledge Base digitando nella casella di testo nella parte superiore della tabella della Knowledge Base. Premere INVIO per eseguire la ricerca nelle domande, nelle risposte o nei metadati. Fare clic sull'icona X per rimuovere il filtro di ricerca.
-3. La **paginazione** consente di gestire Knowledge Base di grandi dimensioni
+* **Gruppi di origine dati**: le domande e le risposte sono raggruppate in base all'origine dati da cui sono state estratte. È possibile espandere o comprimere l'origine dati.
 
-    ![Ricerca, paginazione, gruppo](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Usare la barra di origine dati di QnA Maker per comprimere ed espandere le risposte e le domande sull'origine dati](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+
+* **Ricerca nella Knowledge Base**: è possibile eseguire ricerche nella Knowledge Base digitando nella casella di testo nella parte superiore della tabella della Knowledge Base. Premere INVIO per eseguire la ricerca nelle domande, nelle risposte o nei metadati. Fare clic sull'icona X per rimuovere il filtro di ricerca.
+
+    ![Usare la casella di ricerca di QnA Maker sopra alle domande e risposte, per limitare la visualizzazione solo agli elementi corrispondenti al filtro](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+* **Paginazione**: spostarsi rapidamente tra origini dati per gestire Knowledge Base di grandi dimensioni
+
+    ![Usare le funzionalità di paginazione QnA Maker sopra alle domande e risposte, per spostarsi tra le pagine di domande e risposte](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## <a name="delete-knowledge-bases"></a>Eliminare le knowledge base
 

@@ -1,6 +1,6 @@
 ---
-title: Eseguire il caricamento, la codifica e lo streaming con Servizi multimediali di Azure - REST | Microsoft Docs
-description: Seguire i passaggi di questa esercitazione per caricare un file, codificare il video ed eseguire lo streaming dei contenuti con Servizi multimediali di Azure usando REST.
+title: Codificare un file remoto basato su URL ed eseguire lo streaming con Servizi multimediali di Azure - REST | Microsoft Docs
+description: Seguire i passaggi di questa esercitazione per codificare un file basato su un URL ed eseguire lo streaming dei contenuti con Servizi multimediali di Azure usando REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd020566b61dac7da37b24f10eebfc69b19073cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615773"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720952"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Esercitazione: Eseguire il caricamento, la codifica e lo streaming di video con REST
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST
 
 Servizi multimediali di Azure consente di codificare i file multimediali nei formati che possono essere riprodotti in una vasta gamma di browser e dispositivi. Ad esempio, potrebbe essere necessario trasmettere il contenuto nei formati HLS o MPEG DASH di Apple. Prima dello streaming, è consigliabile codificare il file multimediale digitale di alta qualità. Per indicazioni per la codifica, vedere i [concetti correlati alla codifica](encoding-concept.md).
 
-Questa esercitazione illustra come eseguire il caricamento, la codifica e lo streaming di file video con Servizi multimediali di Azure usando REST. 
+Questa esercitazione illustra come codificare un file basato su un URL ed eseguire lo streaming del video con Servizi multimediali di Azure usando REST. 
 
 ![Riprodurre il video](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -42,9 +42,9 @@ Questa esercitazione illustra come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versioni successive. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
-    Attualmente, non tutti i comandi delle [interfacce della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando solo in locale.
+    Attualmente, non tutti i comandi dell'[interfaccia della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando in locale.
 
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
 
@@ -52,7 +52,7 @@ Questa esercitazione illustra come:
 
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in alcune delle esercitazioni REST di AMS. 
 
-    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Tra le alternative vi sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
+    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Scaricare i file Postman
 
@@ -111,7 +111,7 @@ In questa sezione vengono inviate le richieste rilevanti per la codifica e la cr
 
 ### <a name="get-azure-ad-token"></a>Ottenere il token di Azure AD 
 
-1. Nella finestra di sinistra di Postman selezionare "Step 1: Get AAD Auth token" (Passaggio 1: Ottenere token di autenticazione AAD).
+1. Nella finestra a sinistra di Postman selezionare "Step 1: Get AAD Auth token" (Passaggio 1: Ottenere token di autenticazione AAD).
 2. Selezionare quindi "Get Azure AD Token for Service Principal Authentication" (Ottieni token Azure AD per autenticazione basata su entità servizio).
 3. Fare clic su **Invia**.
 
@@ -174,7 +174,7 @@ Quando si crea una nuova istanza dell'oggetto [Transform](https://docs.microsoft
         ```json
         {
             "properties": {
-                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "description": "Standard Transform using an Adaptive Streaming encoding preset from the library of built-in Standard Encoder presets",
                 "outputs": [
                     {
                     "onError": "StopProcessingJob",
@@ -228,7 +228,7 @@ In questo esempio, l'input del processo si basa su un URL HTTPS ("https://nimbus
 
 Il completamento del processo richiede tempo e al termine dell'elaborazione può essere opportuno ricevere una notifica. Per visualizzare lo stato del processo, è consigliabile usare Griglia di eventi. Si tratta di un servizio progettato per garantire disponibilità elevata, coerenza nelle prestazioni e scalabilità dinamica. Con Griglia di eventi, le app possono rimanere in ascolto e reagire agli eventi praticamente da tutti i servizi di Azure, oltre che da origini personalizzate. Questo semplice servizio di gestione degli eventi, reattivo e basato su HTTP, consente di creare soluzioni efficienti tramite funzioni intelligenti di filtraggio e routing di eventi.  Vedere [Instradare gli eventi verso un endpoint Web personalizzato](job-state-events-cli-how-to.md).
 
-L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (lo stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Error**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Canceling** e, al termine, lo stato **Canceled**.
+L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Error**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Canceling** e, al termine, lo stato **Canceled**.
 
 ### <a name="create-a-streaming-locator"></a>Creare un localizzatore di streaming
 

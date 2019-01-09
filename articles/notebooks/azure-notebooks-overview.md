@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 92cfdea12dc51884ea04ed894a79ded7f532d88b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2640316ce8915018df30fc94df0e1fbb207e894b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085400"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713608"
 ---
 # <a name="overview-of-azure-notebooks"></a>Panoramica di Azure Notebooks
 
@@ -48,7 +48,7 @@ Poiché Azure Notebooks è una piattaforma per la creazione, l'esecuzione e la c
 - Consentire agli utenti di GitHub di caricare ed eseguire direttamente i notebook [creando una notifica di avvio di GitHub](https://notebooks.azure.com/help/projects/sharing/create-a-github-badge)
 - Creare [presentazioni di PowerPoint](https://notebooks.azure.com/help/jupyter-notebooks/slides) con diapositive contenenti codice eseguibile.
 
-In breve, Azure Notebooks consente di svolgere il proprio lavoro in modo più efficiente e produttivo.
+In breve, Azure Notebook consente di svolgere il proprio lavoro in modo più efficiente e produttivo.
 
 > [!Note]
 > Per altre informazioni su Jupyter, vedere [jupyter.org](https://jupyter.org/) e la [documentazione di Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/).
@@ -66,7 +66,7 @@ Per ogni notebook, si seleziona il kernel (ovvero l'ambiente di runtime) usato p
 - Python 2.7 + Anaconda2-5.3.0
 - Python 3.6 + Anaconda3-5.3.0
 - Python 3.5 + Anaconda3-4.2.0 (sarà deprecato)
-- R 3.3 + Microsoft R Open 3.3.0
+- R 3.4.1 + Microsoft R Open 3.4.1
 - F# 4.1.9
 
 Azure Notebooks include anche pacchetti aggiuntivi oltre alle distribuzioni di base. I kernel Python, ad esempio, includono le librerie numpy, pandas, scikit-learn, matplotlib e bokeh.

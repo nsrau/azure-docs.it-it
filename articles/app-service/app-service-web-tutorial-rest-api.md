@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b22ea49367009a4c76135d979d783c5b73449d9d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b8c1130a45f60b9caaacd365cd1c256f50ed7675
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261569"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629568"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Esercitazione: Ospitare un'API RESTful con CORS nel servizio app di Azure
 
-[Servizio app di Azure](app-service-web-overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Il servizio app mette anche a disposizione il supporto integrato per la [condivisione di risorse tra le origini (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) per le API RESTful. Questa esercitazione illustra come distribuire un'app per le API ASP.NET Core nel servizio app con supporto per CORS. L'app verrà configurata usando gli strumenti da riga di comando e distribuita tramite Git. 
+[Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Il servizio app mette anche a disposizione il supporto integrato per la [condivisione di risorse tra le origini (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) per le API RESTful. Questa esercitazione illustra come distribuire un'app per le API ASP.NET Core nel servizio app con supporto per CORS. L'app verrà configurata usando gli strumenti da riga di comando e distribuita tramite Git. 
 
 In questa esercitazione si apprenderà come:
 
@@ -132,7 +132,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Passare all'app Web di Azure
+### <a name="browse-to-the-azure-app"></a>Passare all'app Azure
 
 Passare a `http://<app_name>.azurewebsites.net/swagger` in un browser e provare a usare l'interfaccia utente Swagger.
 

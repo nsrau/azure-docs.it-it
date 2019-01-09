@@ -1,5 +1,5 @@
 ---
-title: "Esempio: Analisi dei video in tempo reale con l'API Visione artificiale"
+title: 'Esempio: Analisi video in tempo reale - Visione artificiale'
 titlesuffix: Azure Cognitive Services
 description: Informazioni su come eseguire l'analisi near real time di fotogrammi acquisiti da un video in diretta streaming usando l'API Visione artificiale.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: 058f2ad58665a88d2d3cf3ce20b43ac0fad30000
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 140e45270cf29eec48df260efa29b8aacac2d855
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983196"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580468"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Come analizzare video in tempo reale
 Questa guida mostra come eseguire l'analisi near real time su fotogrammi acquisiti da un video in diretta streaming. Le fasi fondamentali di questo tipo di sistema sono:
@@ -61,20 +62,20 @@ while (true)
     }
 }
 ```
-Questo approccio avvia ciascuna analisi in un'attività separata, che può essere eseguita in background mentre si continua ad acquisire nuovi fotogrammi. Questa soluzione evita il blocco del thread principale durante l'attesa dei risultati di una chiamata API, ma fa perdere alcune delle garanzie offerte dalla versione semplice. Possono infatti verificarsi più chiamate API in parallelo e i risultati potrebbero venire restituiti in un ordine non corretto. Questo approccio può anche fare in modo che più thread entrino nella funzione ConsumeResult() simultaneamente. Questo comportamento può essere pericoloso, se la funzione non è thread-safe. Questo codice semplice, inoltre, non tiene traccia delle attività che vengono create, pertanto le eventuali eccezioni scompaiono silenziosamente. L'ingrediente finale da aggiungere, quindi, è un thread "consumer" che tenga traccia delle attività di analisi, generi eccezioni, interrompa le attività a esecuzione prolungata e assicuri che i risultati vengano usati nell'ordine corretto e uno alla volta.
+Questo approccio avvia ciascuna analisi in un'attività separata, che può essere eseguita in background mentre si continua ad acquisire nuovi fotogrammi. Questa soluzione evita il blocco del thread principale durante l'attesa dei risultati di una chiamata API, ma fa perdere alcune delle garanzie offerte dalla versione semplice. Possono infatti verificarsi più chiamate API in parallelo e i risultati potrebbero venire restituiti in un ordine non corretto. Questo approccio può anche fare in modo che più thread entrino nella funzione ConsumeResult() simultaneamente. Questo comportamento può essere pericoloso, se la funzione non è thread-safe. Questo codice semplice, inoltre, non tiene traccia delle attività che vengono create, pertanto le eventuali eccezioni scompaiono silenziosamente. L'ingrediente finale da aggiungere, quindi, è un thread "consumer" che tenga traccia delle attività di analisi, generi eccezioni, interrompa le attività a esecuzione prolungata e assicuri che i risultati vengano usati nell'ordine corretto e uno alla volta.
 
 ### <a name="a-producer-consumer-design"></a>Progetto producer-consumer
 Nel sistema "producer-consumer" finale è presente un thread producer simile al ciclo infinito precedente. Invece di usare i risultati dell'analisi man mano che diventano disponibili, il producer inserisce semplicemente le attività in una coda per tenerne traccia.
 ```CSharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
-     
+     
 // Producer thread. 
 while (true)
 {
     // Grab a frame. 
     Frame f = GrabFrame();
- 
+ 
     // Decide whether to analyze the frame. 
     if (ShouldAnalyze(f))
     {
@@ -106,10 +107,10 @@ while (true)
 {
     // Get the oldest task. 
     Task<ResultWrapper> analysisTask = taskQueue.Take();
- 
+ 
     // Await until the task is completed. 
     var output = await analysisTask;
-     
+     
     // Consume the exception or result. 
     if (output.Exception != null)
     {
@@ -126,7 +127,7 @@ while (true)
 ### <a name="getting-started"></a>Introduzione
 Per fare in modo che l'app sia operativa il più rapidamente possibile, è stato implementato il sistema descritto in precedenza in modo che sia sufficientemente flessibile per implementare molti scenari e al contempo sia facile da usare. Per accedere al codice, passare a [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis).
 
-La libreria contiene la classe FrameGrabber, che implementa il sistema producer-consumer discusso in precedenza per elaborare i fotogrammi di video ripresi da una webcam. L'utente può specificare il formato esatto della chiamata all'API e la classe usa gli eventi per indicare al codice chiamante quando viene acquisito un nuovo fotogramma o quando è disponibile un nuovo risultato dell'analisi.
+La libreria contiene la classe FrameGrabber, che implementa il sistema producer-consumer discusso in precedenza per elaborare i fotogrammi di video ripresi da una webcam. L'utente può specificare il formato esatto della chiamata all'API e la classe usa gli eventi per indicare al codice chiamante quando viene acquisito un nuovo fotogramma o quando è disponibile un nuovo risultato dell'analisi.
 
 Per illustrare alcune delle possibilità, sono disponibili due app di esempio che usano la libreria. La prima è una semplice app console ed è una versione semplificata di quella riprodotta di seguito. Acquisisce i fotogrammi dalla webcam predefinita e li invia all'API Viso per il rilevamento del volto.
 ```CSharp
@@ -134,7 +135,7 @@ using System;
 using VideoFrameAnalyzer;
 using Microsoft.ProjectOxford.Face;
 using Microsoft.ProjectOxford.Face.Contract;
-     
+     
 namespace VideoFrameConsoleApplication
 {
     class Program
@@ -175,9 +176,9 @@ namespace VideoFrameConsoleApplication
 ```
 La seconda app di esempio è un po' più interessante e consente di scegliere quale API chiamare sui fotogrammi video. Sul lato sinistro, l'app visualizza un'anteprima del video in diretta, mentre sul lato destro visualizza il risultato più recente dell'API sovrapposto al frame corrispondente.
 
-Nella maggior parte delle modalità, vi sarà un ritardo visibile tra il video in diretta a sinistra e l'analisi visualizzata a destra. Il ritardo è il tempo necessario per effettuare la chiamata all'API. La modalità "EmotionsWithClientFaceDetect" fa eccezione. Questa modalità esegue il rilevamento del viso localmente nel computer client usando OpenCV, prima di inviare le immagini a Servizi cognitivi. In questo modo è possibile visualizzare immediatamente il viso rilevato e quindi aggiornare le emozioni in un secondo momento dopo che la chiamata all'API ha prodotto il risultato. Ciò dimostra la possibilità di un approccio "ibrido", in cui è possibile eseguire una semplice elaborazione nel client e successivamente usare le API Servizi cognitivi per potenziare l'elaborazione con questa analisi più avanzata quando necessario.
+Nella maggior parte delle modalità, vi sarà un ritardo visibile tra il video in diretta a sinistra e l'analisi visualizzata a destra. Il ritardo è il tempo necessario per effettuare la chiamata all'API. La modalità "EmotionsWithClientFaceDetect" fa eccezione. Questa modalità esegue il rilevamento del viso localmente nel computer client usando OpenCV, prima di inviare le immagini a Servizi cognitivi. In questo modo è possibile visualizzare immediatamente il viso rilevato e quindi aggiornare le emozioni in un secondo momento dopo che la chiamata all'API ha prodotto il risultato. Ciò dimostra la possibilità di un approccio "ibrido", in cui è possibile eseguire una semplice elaborazione nel client e successivamente usare le API Servizi cognitivi per potenziare l'elaborazione con questa analisi più avanzata quando necessario.
 
-![HowToAnalyzeVideo](../../Video/Images/FramebyFrame.jpg)
+![Screenshot dell'app LiveCameraSample che mostra un'immagine con tag visualizzati](../../Video/Images/FramebyFrame.jpg)
 
 ### <a name="integrating-into-your-codebase"></a>Integrazione nella codebase
 Per iniziare a usare questo esempio, seguire questa procedura:
@@ -189,7 +190,7 @@ Per iniziare a usare questo esempio, seguire questa procedura:
 2. Clonare il repository di GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)
 
 3. Aprire l'esempio in Visual Studio 2015, compilare ed eseguire le applicazioni di esempio:
-    - Per BasicConsoleSample, la chiave dell'API Viso è hardcoded direttamente in [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - Per BasicConsoleSample, la chiave dell'API Viso è hardcoded direttamente in [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - Per LiveCameraSample, le chiavi devono essere immesse nel riquadro Impostazioni dell'app. Queste chiavi saranno persistenti tra le sessioni come i dati dell'utente.
         
 
@@ -201,11 +202,11 @@ Quando si è pronti per l'integrazione, **fare semplicemente riferimento alla li
 Come con tutti i Servizi cognitivi, gli sviluppatori che usano le API e gli esempi Microsoft sono tenuti a rispettare il "[Codice di comportamento per lo sviluppatore per Servizi cognitivi Microsoft](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)". 
 
 
-Le funzionalità di riconoscimento delle immagini, della voce, dei video o del testo di VideoFrameAnalyzer usano Servizi cognitivi di Azure. Microsoft riceve le immagini, l'audio, i video e altri dati che vengono caricati (tramite questa app) e può usarli per migliorare i servizi. Gli sviluppatori devono aiutare a proteggere i dati degli utenti inviati dall'app a Servizi cognitivi di Azure. 
+Le funzionalità di riconoscimento delle immagini, della voce, dei video o del testo di VideoFrameAnalyzer usano Servizi cognitivi di Azure. Microsoft riceve le immagini, l'audio, i video e altri dati che vengono caricati (tramite questa app) e può usarli per migliorare i servizi. Gli sviluppatori devono contribuire a proteggere i dati degli utenti inviati dall'app a Servizi cognitivi di Azure. 
 
 
 ## <a name="summary"></a>Summary
 In questa guida è stato appreso come eseguire l'analisi near real time di video in diretta streaming usando le API Viso, Visione artificiale ed Emozioni e come usare il codice di esempio per iniziare. È possibile iniziare a creare la propria app con chiavi API gratuite nella [pagina di accesso a Servizi cognitivi Microsoft](https://azure.microsoft.com/try/cognitive-services/). 
 
-È gradito ricevere commenti e suggerimenti nel [repository GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) o, per commenti più approfonditi sulle API, nel [sito UserVoice](https://cognitive.uservoice.com/).
+È gradito ricevere commenti e suggerimenti nel [repository GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) o, per commenti più approfonditi sulle API, nel  [sito UserVoice](https://cognitive.uservoice.com/).
 

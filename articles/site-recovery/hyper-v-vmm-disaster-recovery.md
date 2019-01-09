@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 040d0dae7bb16e0c2a79640812b18ad75754ca3e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846607"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794516"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurare il ripristino di emergenza per macchine virtuali Hyper-V in un sito locale secondario
 
@@ -134,7 +134,7 @@ Prima di iniziare, assicurarsi che tutti gli host che usano i criteri abbiano lo
 2. In **Conservazione del punto di recupero**specificare la durata in ore dell'intervallo di conservazione per ogni punto di recupero. I computer replicati possono essere ripristinati in qualsiasi punto all'interno di un intervallo.
 3. In **Frequenza snapshot coerenti con l'app** specificare la frequenza, da 1 a 12 ore, per la creazione di punti di ripristino contenenti snapshot coerenti con l'applicazione. Hyper-V usa due tipi di snapshot:
     - **Snapshot standard**: fornisce uno snapshot incrementale dell'intera macchina virtuale.
-    - **Snapshot coerente con l'app**: è uno snapshot temporizzato dei dati dell'applicazione all'interno della macchina virtuale. Il servizio Copia Shadow del volume assicura che lo stato dell'app sia coerente quando viene creato lo snapshot. L'abilitazione di snapshot coerenti con l'app influisce sulle prestazioni dell'app su macchine virtuali di origine. Impostare un valore inferiore al numero di punti di ripristino aggiuntivi configurati.
+    - **Snapshot coerente con l'app**: snapshot temporizzato dei dati dell'applicazione all'interno della macchina virtuale. Il servizio Copia Shadow del volume assicura che lo stato dell'app sia coerente quando viene creato lo snapshot. L'abilitazione di snapshot coerenti con l'app influisce sulle prestazioni dell'app su macchine virtuali di origine. Impostare un valore inferiore al numero di punti di ripristino aggiuntivi configurati.
 4. In **Compressione trasferimento dati**, specificare se i dati replicati che vengono trasferiti devono essere compressi.
 5. Selezionare **Eliminare la macchina virtuale di replica** per specificare che la macchina virtuale di replica deve essere eliminata nel caso in cui si disabiliti la protezione per la VM di origine. Con questa impostazione abilitata, quando si disabilita la protezione per la macchina virtuale di origine, questa viene rimossa dalla console di Site Recovery, le impostazioni di Site Recovery relative a VMM vengono rimosse dalla console VMM e la replica viene eliminata.
 6. Se si esegue la replica in rete, in **Metodo di replica iniziale** specificare se si preferisce avviare la replica iniziale o pianificarla. Per risparmiare larghezza di banda di rete, è opportuno pianificarla al di fuori dell'orario di lavoro. Fare quindi clic su **OK**.

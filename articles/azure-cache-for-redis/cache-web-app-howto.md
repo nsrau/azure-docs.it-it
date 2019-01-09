@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 11e674771e9f4a8afbe820aa91dfee1c8b8ab6db
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fd5a995bf03d530ccbcf9b839ccc840d202b47d6
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018654"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556188"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Guida introduttiva: Creare un'app Web ASP.NET 
 
@@ -118,7 +118,7 @@ Poiché il file *CacheSecrets.config* non viene distribuito in Azure con l'appli
 * Prima: `<appSettings>`
 * Dopo: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
-Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'elemento `<appSettings>` . Il runtime ignora l'attributo file, se non è possibile trovare il file specificato. I segreti, ovvero la stringa di connessione alla cache, non sono inclusi come parte del codice sorgente per l'applicazione. Quando si distribuisce l'app Web in Azure, il file *CacheSecrests.config* non viene distribuito.
+Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'elemento `<appSettings>` . Il runtime ignora l'attributo file, se non è possibile trovare il file specificato. I segreti, ovvero la stringa di connessione alla cache, non sono inclusi come parte del codice sorgente per l'applicazione. Quando si distribuisce l'app Web in Azure, il file *CacheSecrets.config* non viene distribuito.
 
 ### <a name="to-configure-the-application-to-use-stackexchangeredis"></a>Per configurare l'applicazione per l'uso di StackExchange.Redis
 
@@ -173,7 +173,7 @@ Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'eleme
             ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
             ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
 
-            // Demostrate "SET Message" executed as expected...
+            // Demonstrate "SET Message" executed as expected...
             ViewBag.command4 = "GET Message";
             ViewBag.command4Result = cache.StringGet("Message").ToString();
 
@@ -274,7 +274,7 @@ Dopo avere testato correttamente l'app in locale, è possibile distribuirla in A
 
 3. Nella finestra di dialogo **Crea servizio app** apportare le modifiche seguenti:
 
-    | Impostazione | Valore consigliato | Descrizione |
+    | Impostazione | Valore consigliato | DESCRIZIONE |
     | ------- | :---------------: | ----------- |
     | **Nome app** | Usare il valore predefinito. | Il nome dell'app è il nome host per l'app quando viene distribuita in Azure. Se necessario, per rendere il nome univoco è possibile aggiungere un suffisso timestamp. |
     | **Sottoscrizione** | Scegliere la sottoscrizione di Azure. | Eventuali costi di hosting correlati vengono addebitati in questa sottoscrizione. Se si hanno più sottoscrizioni di Azure, verificare che sia selezionata la sottoscrizione desiderata.|

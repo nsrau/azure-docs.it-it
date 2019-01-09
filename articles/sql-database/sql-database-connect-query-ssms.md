@@ -4,7 +4,7 @@ description: Informazioni su come connettersi a un database SQL in Azure tramite
 keywords: connettersi al database sql,sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b3342164aec49967e819c316827dca9a65f2674f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 636adcf15479fe8e072b833b59ddc78b5f820550
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098953"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745075"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare SQL Server Management Studio per connettersi a un database SQL di Azure ed eseguire query
 
-È possibile usare [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) per gestire qualsiasi infrastruttura SQL, da SQL Server al database SQL per Microsoft Windows. Questa guida introduttiva illustra come usare SSMS per connettersi a un database SQL di Azure e quindi eseguire query e inserire, eliminare e aggiornare dati con istruzioni Transact-SQL. 
+In questa Guida introduttiva, si userà [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) per connettersi a un database SQL di Azure. Si eseguiranno quindi istruzioni Transact-SQL per eseguire query e per inserire, aggiornare ed eliminare dati. È possibile usare SSMS per gestire qualsiasi infrastruttura SQL, da SQL Server al database SQL per Microsoft Windows.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -75,11 +75,11 @@ In SMSS connettersi al database SQL di Azure.
 
 ## <a name="query-data"></a>Eseguire query sui dati
 
-Usare il codice dell'istruzione [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL seguente per eseguire una query per individuare i primi 20 prodotti per categoria.
+Eseguire questo codice Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) per eseguire una query e individuare i primi 20 prodotti per categoria.
 
-1. In Esplora oggetti fare clic con il pulsante destro del mouse su **mySampleDatabase** e scegliere **Nuova query**. Viene visualizzata una finestra di query vuota, connessa al database.
+1. In Esplora oggetti fare clic con il pulsante destro del mouse su **mySampleDatabase** e scegliere **Nuova query**. Viene visualizzata una nuova finestra di query connessa al database.
 
-1. Incollare questa query SQL nella finestra di query.
+2. Incollare questa query SQL nella finestra di query.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -90,11 +90,11 @@ Usare il codice dell'istruzione [SELECT](https://msdn.microsoft.com/library/ms18
 
 3. Sulla barra degli strumenti selezionare **Esegui** per recuperare i dati dalle tabelle `Product` e `ProductCategory`.
 
-    ![Eseguire una query per recuperare dati da 2 tabelle](./media/sql-database-connect-query-ssms/query2.png)
+    ![Query per recuperare dati da due tabelle](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Inserire dati
 
-Usare il codice dell'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL seguente per creare un nuovo prodotto nella tabella `SalesLT.Product`.
+Eseguire questo codice Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) per creare un nuovo prodotto nella tabella `SalesLT.Product`.
 
 1. Sostituire la query precedente con questa.
 
@@ -117,7 +117,7 @@ Usare il codice dell'istruzione [INSERT](https://msdn.microsoft.com/library/ms17
            ,GETDATE() );
    ```
 
-2. Selezionare **Esegui** per inserire una nuova riga nella tabella Product. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)**.
+2. Selezionare **Esegui** per inserire una nuova riga nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)**.
 
 ## <a name="view-the-result"></a>Visualizzare il risultato
 
@@ -134,7 +134,7 @@ Usare il codice dell'istruzione [INSERT](https://msdn.microsoft.com/library/ms17
  
 ## Update data
 
-Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify the new product you just added.
+Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one.
 
@@ -144,11 +144,11 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selezionare **Esegui** per aggiornare la riga specificata nella tabella Product. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)**.
+2. Selezionare **Esegui** per aggiornare la riga specificata nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)**.
 
 ## <a name="delete-data"></a>Eliminare i dati
 
-Usare il codice dell'istruzione [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL seguente per rimuovere il nuovo prodotto aggiunto in precedenza.
+Eseguire questo codice Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) per rimuovere il nuovo prodotto.
 
 1. Sostituire la query precedente con questa.
 
@@ -157,7 +157,7 @@ Usare il codice dell'istruzione [DELETE](https://msdn.microsoft.com/library/ms18
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selezionare **Esegui** per eliminare la riga specificata nella tabella Product. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)**.
+2. Selezionare **Esegui** per eliminare la riga specificata nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

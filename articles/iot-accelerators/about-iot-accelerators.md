@@ -1,5 +1,5 @@
 ---
-title: Introduzione agli acceleratori di soluzioni Azure IoT | Microsoft Docs
+title: Introduzione agli acceleratori di soluzioni IoT - Azure | Microsoft Docs
 description: Informazioni sugli acceleratori di soluzioni di Azure IoT. Gli acceleratori di soluzioni IoT sono soluzioni complete, end-to-end, pronte per la distribuzione.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 79c8f0f1c987de6320770416641300f3b8bb7c1d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824541"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607203"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Informazioni sugli acceleratori di soluzioni Azure IoT
 
@@ -34,7 +34,7 @@ Attualmente, sono disponibili per la distribuzione quattro acceleratori di soluz
 
 ### <a name="remote-monitoring"></a>Monitoraggio remoto
 
-Usare questo acceleratore di soluzione per raccogliere i dati di telemetria dai dispositivi remoti e per controllarli. I dispositivi di esempio includono sistemi di raffreddamento installati presso i clienti o valvole installate in stazioni di pompaggio remote.
+Usare l'[acceleratore di soluzione Monitoraggio remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md) per raccogliere i dati di telemetria dai dispositivi remoti e per controllarli. I dispositivi di esempio includono sistemi di raffreddamento installati presso i clienti o valvole installate in stazioni di pompaggio remote.
 
 È possibile usare un dashboard di monitoraggio remoto per visualizzare la telemetria dai dispositivi connessi, effettuare il provisioning di nuovi dispositivi o aggiornare il firmware sui dispositivi connessi:
 
@@ -42,7 +42,7 @@ Usare questo acceleratore di soluzione per raccogliere i dati di telemetria dai 
 
 ### <a name="connected-factory"></a>Connected Factory
 
-Usare questo acceleratore di soluzioni per raccogliere la telemetria da asset industriali con un'interfaccia [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) e per controllarli. Gli asset industriali possono includere stazioni di assemblaggio e prova su una linea di produzione factory.
+Usare l'[acceleratore di soluzione Connected Factory](iot-accelerators-connected-factory-sample-walkthrough.md) per raccogliere i dati di telemetria da asset industriali con un'interfaccia [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) e per controllarli. Gli asset industriali possono includere stazioni di assemblaggio e prova su una linea di produzione factory.
 
 È possibile usare il dashboard di fabbrica connessa per monitorare e gestire i dispositivi industriali:
 
@@ -50,15 +50,15 @@ Usare questo acceleratore di soluzioni per raccogliere la telemetria da asset in
 
 ### <a name="predictive-maintenance"></a>Manutenzione predittiva
 
-Usare questo acceleratore di soluzione per prevedere il guasto di un dispositivo remoto, in modo da poter eseguire la manutenzione prima che tale guasto si verifichi. Questo acceleratore di soluzioni usa algoritmi di apprendimento macchina per prevedere i guasti a partire dalla telemetria del dispositivo. I dispositivi di esempio possono essere motori di aereo o ascensori.
+Usare l'[acceleratore di soluzione Manutenzione predittiva](iot-accelerators-predictive-walkthrough.md) per prevedere i guasti di un dispositivo remoto e poter eseguire la manutenzione prima che si verifichino. Questo acceleratore di soluzioni usa algoritmi di apprendimento macchina per prevedere i guasti a partire dalla telemetria del dispositivo. I dispositivi di esempio possono essere motori di aereo o ascensori.
 
 È possibile usare il dashboard di manutenzione predittiva per visualizzare le analisi di manutenzione predittiva:
 
 [![Dashboard della soluzione di fabbrica connessa](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
 
-### <a name="device-simulation"></a>Simulazione dei dispositivi
+### <a name="device-simulation"></a>Simulazione dispositivi
 
-Usare questo acceleratore di soluzione per eseguire i dispositivi simulati che generano dati di telemetria realistici. È possibile usare questo acceleratore di soluzioni per testare il comportamento degli altri acceleratori di soluzioni o per testare le proprie soluzioni IoT personalizzate.
+Usare l'[acceleratore di soluzione Simulazione dispositivi](iot-accelerators-device-simulation-overview.md) per eseguire dispositivi simulati che generano dati di telemetria realistici. È possibile usare questo acceleratore di soluzioni per testare il comportamento degli altri acceleratori di soluzioni o per testare le proprie soluzioni IoT personalizzate.
 
 È possibile usare l'app Web di simulazione dei dispositivi per configurare ed eseguire simulazioni:
 
@@ -85,7 +85,7 @@ Gli acceleratori di soluzioni originali sono stati scritti tramite .NET e un'arc
 | Connected Factory      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Simulazione dei dispositivi      | Microservizi | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-Per altre informazioni sulle architetture dei microservizi, vedere [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (Architettura delle applicazioni .NET) e [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservizi: una rivoluzione delle applicazioni basata sul cloud).
+Per altre informazioni sull'architettura di microservizi, vedere [Introduction to the Azure IoT reference architecture](iot-accelerators-architecture-overview.md) (Introduzione all'architettura di riferimento di Azure IoT).
 
 ## <a name="deployment-options"></a>Opzioni di distribuzione
 
@@ -95,7 +95,7 @@ Per altre informazioni sulle architetture dei microservizi, vedere [.NET Applica
 
 * **Standard:** distribuzione di infrastruttura estesa per lo sviluppo di una distribuzione di produzione. Il servizio contenitore di Azure distribuisce i microservizi in diverse macchine virtuali di Azure. Kubernetes orchestra i contenitori Docker che ospitano i singoli microservizi.
 * **Basic:** versione a costo ridotto a scopo di dimostrazione o per testare una distribuzione. Tutti i microservizi vengono distribuiti in un'unica macchina virtuale di Azure.
-* **Locale:** distribuzione della macchina locale a scopo di test e sviluppo. Questo approccio prevede la distribuzione dei microservizi in un contenitore Docker locale e la connessione a Hub IoT, Cosmos DB e ai servizi di archiviazione di Azure nel cloud.
+* **Locale:** distribuzione nel computer locale a scopo di test e sviluppo. Questo approccio prevede la distribuzione dei microservizi in un contenitore Docker locale e la connessione a Hub IoT, Cosmos DB e ai servizi di archiviazione di Azure nel cloud.
 
 Il costo di esecuzione di un acceleratore di soluzione è un'aggregazione del [costo di esecuzione dei servizi di Azure sottostanti](https://azure.microsoft.com/pricing). Vengono visualizzati i dettagli dei servizi Azure usati quando si scelgono le opzioni di distribuzione.
 

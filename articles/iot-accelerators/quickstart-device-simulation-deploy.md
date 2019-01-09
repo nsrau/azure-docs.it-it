@@ -1,5 +1,5 @@
 ---
-title: Provare ed eseguire una soluzione di simulazione dei dispositivi in Azure | Microsoft Docs
+title: Provare ed eseguire una soluzione di simulazione dei dispositivi - Azure | Microsoft Docs
 description: In questa guida introduttiva si distribuisce la soluzione Simulazione dispositivi di Azure IoT e si esegue una simulazione
 author: troyhopwood
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/28/2018
 ms.author: troyhop
-ms.openlocfilehash: a109f3536ea8709313de3d1d6d17ce69c5652289
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 12f993f606fc1ef44280142d5acfa2687cd4e043
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50753934"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601594"
 ---
-# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Guida introduttiva: Distribuire ed eseguire una soluzione di simulazione dei dispositivi IoT in Azure
+# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Avvio rapido: Distribuire ed eseguire una soluzione di simulazione dei dispositivi IoT in Azure
 
 Questa guida introduttiva illustra come distribuire la soluzione Simulazione dispositivi di Azure IoT per testare la soluzione IoT. Dopo aver distribuito l'acceleratore di soluzione, si esegue una simulazione di esempio per iniziare.
 
