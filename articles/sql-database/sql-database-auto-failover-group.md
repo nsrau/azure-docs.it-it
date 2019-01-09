@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 3da4d6ffe8660c490d39f223dff105ed126fa10b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e20b18afb579839343fc4c079c039d7b9e5438f7
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283117"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994641"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -203,7 +203,7 @@ Se l'applicazione usa Istanza gestita come livello dati, seguire queste linee gu
 
 - **Prepararsi a un calo delle prestazioni**
 
-  La decisione di failover di SQL è indipendente dal resto dell'applicazione o dagli altri servizi usati. L'applicazione potrebbe essere "mista" con alcuni componenti in un'area e alcuni componenti in un'altra. Per evitare la riduzione delle prestazioni, verificare la distribuzione dell'applicazione ridondante nell'area di ripristino di emergenza e seguire queste [linee guida sulla sicurezza di rete](#Failover groups-and-network-security).
+  La decisione di failover di SQL è indipendente dal resto dell'applicazione o dagli altri servizi usati. L'applicazione potrebbe essere "mista" con alcuni componenti in un'area e alcuni componenti in un'altra. Per evitare la riduzione delle prestazioni, verificare la distribuzione dell'applicazione ridondante nell'area di ripristino di emergenza e seguire queste [linee guida sulla sicurezza di rete](#failover-groups-and-network-security).
 
 - **Prepararsi alla perdita di dati**
 
@@ -262,7 +262,7 @@ Quando si configura un gruppo di failover tra le istanze gestite primaria e seco
     > [!IMPORTANT]
     > Regole di sicurezza dei gruppi di sicurezza di rete non configurate correttamente determinano il blocco delle operazioni di copia del database.
 
-7. È necessario configurare il partner della zona DNS nell'istanza secondaria. Una zona DNS è una proprietà di un'istanza gestita. Rappresenta la parte del nome host che segue il nome dell'istanza gestita e precede il prefisso `.database.windows.net`. Viene generata come stringa casuale durante la creazione della prima istanza gestita in ogni rete virtuale. La zona DNS non può essere modificata dopo la creazione dell'istanza gestita e tutte le istanze gestite all'interno della stessa subnet condividono lo stesso valore di zona DNS. Per la configurazione dei gruppi di failover di istanze gestite l'istanza gestita primaria e secondaria devono condividere lo stesso valore di zona DNS. A tale scopo, specificare il parametro DnsZonePartner durante la creazione dell'istanza gestita secondaria. La proprietà relativa al partner della zona DNS definisce l'istanza gestita con cui condividere il gruppo di failover di un'istanza. Passando l'ID risorsa di un'altra istanza gestita come input di DnsZonePartner, l'istanza gestita attualmente creata eredita lo stesso valore di zona DNS dell'istanza gestita del partner.
+7. È necessario configurare il partner della zona DNS nell'istanza secondaria. Una zona DNS è una proprietà di un'istanza gestita. Rappresenta la parte del nome host che segue il nome dell'istanza gestita e precede il prefisso `.database.windows.net`. Viene generata come stringa casuale durante la creazione della prima istanza gestita in ogni rete virtuale. La zona DNS non può essere modificata dopo la creazione dell'istanza gestita e tutte le istanze gestite all'interno della stessa subnet condividono lo stesso valore di zona DNS. Per la configurazione dei gruppi di failover di Istanza gestita di database SQL di Azure, l'istanza gestita primaria e secondaria devono condividere lo stesso valore di zona DNS. A tale scopo, specificare il parametro DnsZonePartner durante la creazione dell'istanza gestita secondaria. La proprietà relativa al partner della zona DNS definisce l'istanza gestita con cui condividere il gruppo di failover di un'istanza. Passando l'ID risorsa di un'altra istanza gestita come input di DnsZonePartner, l'istanza gestita attualmente creata eredita lo stesso valore di zona DNS dell'istanza gestita del partner.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Aggiornamento o downgrade di un database primario
 
@@ -306,17 +306,17 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 #### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installare la versione non definitiva più recente di PowerShell
 
-1. Aggiornare il modulo powershellget alla versione 1.6.5 (o versione di anteprima più recente). Vedere il [sito di anteprima di PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
+1. Aggiornare il modulo PowerShellGet alla versione 1.6.5 (o versione di anteprima più recente). Vedere il [sito di anteprima di PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
    ```Powershell
-      install-module powershellget -MinimumVersion 1.6.5 -force
+      install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. In una nuova finestra di PowerShell eseguire i comandi seguenti:
 
    ```Powershell
-      import-module powershellget
-      get-module powershellget #verify version is 1.6.5 (or newer)
+      import-module PowerShellGet
+      get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a251eb3915ee3043ab4b69e0cd4cef8fa2170486
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1ad8435626b35859968bdf93589f22dc81e74e02
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101603"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557700"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM Edge in Windows
 
@@ -61,14 +61,13 @@ Dopo aver creato la singola registrazione, salvare il valore di **ID registrazio
 
 Dopo aver completato la sezione precedente, verrà visualizzato il nuovo dispositivo, elencato come dispositivo IoT Edge nell'hub IoT. Sarà quindi necessario installare il runtime IoT Edge nel dispositivo. 
 
-Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale. Nei dispositivi che eseguono Windows, è possibile scegliere se usare contenitori Windows o Linux. Scegliere il tipo di contenitori da usare e seguire la procedura. Assicurarsi di configurare il runtime IoT Edge per il provisioning automatico, non manuale. 
+Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale.  
 
-Seguire le istruzioni per installare il runtime IoT Edge nel dispositivo che esegue il dispositivo TPM simulato della sezione precedente. 
+Seguire le istruzioni per installare il runtime IoT Edge nel dispositivo che esegue il dispositivo TPM simulato della sezione precedente. Assicurarsi di configurare il runtime IoT Edge per il provisioning automatico, non manuale.
 
-Prima di iniziare gli articoli seguenti, assicurarsi di conoscere il valore di **Ambito ID** del servizio Device Provisioning e il valore di **ID registrazione** del dispositivo. 
+Prima di installare IoT Edge sul dispositivo, assicurarsi di conoscere il valore di **Ambito ID** del servizio Device Provisioning e il valore di **ID registrazione** del dispositivo. 
 
-* [Contenitori Windows](how-to-install-iot-edge-windows-with-windows.md)
-* [Contenitori Linux](how-to-install-iot-edge-windows-with-linux.md)
+[Installare ed effettuare automaticamente il provisioning di IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
 

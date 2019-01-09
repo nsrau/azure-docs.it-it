@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: b110a57526d6e23ba53afce0a91d735fad6d247c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215903"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604100"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurare Postman per le chiamate API REST di Servizi multimediali
 
@@ -30,7 +30,7 @@ In questo articolo viene illustrato come configurare **Postman** in modo da usar
 - Ottenere le informazioni necessarie per [accedere alle API](access-api-cli-how-to.md)
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in alcune delle esercitazioni REST di AMS. 
 
-    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Tra le alternative vi sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
+    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative possibili: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Scaricare i file Postman
 
@@ -75,7 +75,7 @@ Questa sezione consente di configurare Postman.
 
 Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft Azure v3 è necessario ottenere e impostare token di Azure AD per l'autenticazione dell'entità servizio.
 
-1. Nella finestra di sinistra di Postman selezionare "Step 1: Get AAD Auth token" (Passaggio 1: Ottenere token di autenticazione AAD).
+1. Nella finestra a sinistra di Postman selezionare "Step 1: Get AAD Auth token" (Passaggio 1: Ottenere un token di autenticazione AAD).
 2. Selezionare quindi "Get Azure AD Token for Service Principal Authentication" (Ottieni token Azure AD per autenticazione basata su entità servizio).
 3. Fare clic su **Invia**.
 
@@ -85,7 +85,7 @@ Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft
     https://login.microsoftonline.com/:tenantId/oauth2/token
     ```
 
-4. La risposta viene restituita con il token e imposta la variabile di ambiente "AccessToken" sul valore del token. Per visualizzare il codice che imposta "AccessToken", fare clic sulla scheda **Test**. 
+4. La risposta viene restituita con il token e imposta la variabile di ambiente "AccessToken" sul valore del token.  
 
     ![Ottenere il token AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 

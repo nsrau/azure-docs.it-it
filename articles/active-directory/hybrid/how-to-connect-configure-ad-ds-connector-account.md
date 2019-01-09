@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 97352cdc89aabe312bf500901347acaf5238e871
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b05b3fee5c49f69979f5e778f897d4be863a3715
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436994"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809880"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS 
 
@@ -219,7 +219,7 @@ Questo cmdlet imposterà le autorizzazioni seguenti:
 |-----|-----|-----|-----| 
 |CONSENTI |Account del connettore di AD DS |Lettura/scrittura generica |Oggetti Group discendenti| 
 |CONSENTI |Account del connettore di AD DS |Crea/Elimina oggetti figli |Questo oggetto e tutti i discendenti| 
-|CONSENTI |Account del connettore di AD DS |Eliminazione/Eliminazione di un oggetto e di tutti i suoi figli |Questo oggetto e tutti i discendenti|
+|CONSENTI |Account del connettore di AD DS |Crea/Elimina un oggetto e tutti i suoi figli |Questo oggetto e tutti i discendenti|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Autorizzazioni per una distribuzione ibrida di Exchange 
 Per impostare le autorizzazioni per l'account del connettore di AD DS quando si usa una distribuzione ibrida di Exchange, eseguire: 

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315639"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584497"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse del database SQL di Azure per le istanze gestite
 
@@ -48,16 +48,20 @@ Istanza gestita ha due livelli di servizio: per utilizzo generico e business cri
 | **Funzionalità** | **Utilizzo generico** | **Business Critical** |
 | --- | --- | --- |
 | Numero di vCore\* | Quarta generazione: 8, 16, 24<br/>Quinta generazione: 8, 16, 24, 32, 40, 64, 80 | Quarta generazione: 8, 16, 24, 32 <br/> Quinta generazione: 8, 16, 24, 32, 40, 64, 80 |
-| Memoria | Quarta generazione: 56 GB-156 GB<br/>Quinta generazione: 44 GB-440 GB<br/>\*Proporzionale al numero di vCore | Quarta generazione: 56 GB-156 GB <br/> Quinta generazione: 44 GB-440 GB<br/>\*Proporzionale al numero di vCore |
+| Memoria | Quarta generazione: 56 GB-156 GB<br/>Quinta generazione: 44 GB-440 GB<br/>\*Proporzionale al numero di vCore | Quarta generazione: 56 GB-156 GB <br/> Quinta generazione: 41GB-408GB<br/>\*Proporzionale al numero di vCore |
 | Dimensione massima archiviazione | 8 TB | Quarta generazione: 1 TB <br/> 5° generazione: <br/>- 1 TB per 8, 16 vCore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
 | Quantità massima di risorse di archiviazione per database | Determinata dalla dimensione massima di archiviazione per ogni istanza | Determinata dalla dimensione massima di archiviazione per ogni istanza |
 | Numero massimo di database per istanza | 100 | 100 |
 | Numero massimo di file di database per istanza | Fino a 280 | 32.767 file per ogni database |
-| IOPS (circa) | 500-7.500 per ogni file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes). | 11.000 - 110.000 (1375 per ogni vCore) |
+| Dati/Log di IOPS (approssimativi) | 500-7.500 per ogni file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes). | 11.000 - 110.000 (1375 per ogni vCore) |
+| Istanza effettiva del Log | 22 MB/s per ogni istanza | 3 MB/s per ogni vCore<br/>Max 48 MB/s |
+| Dati effettivi (approssimativi) | 100-250 MB/s per ogni file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes). | 24-48 MB/s per ogni vCore |
 | Latenza di I/O (approssimativa) | 5-10 ms | 1-2 ms |
-| Dimensioni max di tempDB | 192-1920 GB (24 GB per vCore) | Determinata dalla dimensione massima di archiviazione per ogni istanza |
+| Dimensioni max di tempDB | 192-1920 GB (24 GB per vCore) | Nessun vincolo; limitato dalla dimensione massima di archiviazione dell'istanza |
 
-- La dimensione di archiviazione dell'istanza, che viene confrontata con la dimensione massima di archiviazione, include sia i database degli utenti che quelli di sistema. Usare la vista di sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> per determinare lo spazio totale usato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.
+**Note**:
+- La dimensione di archiviazione dell'istanza, che viene confrontata con la dimensione massima di archiviazione, include la dimensione dei dati e dei file di log presenti sia nel database utenti che in quello di sistema. Usare la vista di sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> per determinare lo spazio totale usato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.
+- Anche IOPS e velocità effettiva dipendono dalle dimensioni pagina che non vengono limitate in modo esplicito dall'Istanza gestita di database SQL di Azure.
 
 ## <a name="supported-regions"></a>Aree supportate
 

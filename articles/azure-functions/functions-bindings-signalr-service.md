@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 74092f57b3531a037aee71d433c33dddf8c2b694
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7a7063b9177774c5207746283dc7cd25e3dd5793
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001788"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721887"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associazioni del servizio SignalR per Funzioni di Azure
 
@@ -62,7 +62,7 @@ public static SignalRConnectionInfo GetSignalRInfo(
 
 #### <a name="authenticated-tokens"></a>Token autenticati
 
-Se la funzione viene attivata da un client autenticato, è possibile aggiungere un'attestazione ID utente al token generato. Per aggiungere l'autenticazione a un'app per le funzioni, usare [Autenticazione servizio app] (.. /App-Service/App-Service-Authentication-Overview.MD).
+Se la funzione viene attivata da un client autenticato, è possibile aggiungere un'attestazione ID utente al token generato. Per aggiungere l'autenticazione a un'app per le funzioni, usare [Autenticazione servizio app] (../App-Service/Overview-Authentication-Authorization.MD).
 
 Autenticazione servizio App imposta le intestazioni HTTP denominate `x-ms-client-principal-id` e `x-ms-client-principal-name` contenenti rispettivamente l'ID e il nome dell'entità client dell'utente autenticato. È possibile impostare la proprietà `UserId` dell'associazione sul valore ottenuto da una delle intestazioni con un'[espressione di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`. 
 
@@ -108,7 +108,7 @@ module.exports = function (context, req, connectionInfo) {
 
 #### <a name="authenticated-tokens"></a>Token autenticati
 
-Se la funzione viene attivata da un client autenticato, è possibile aggiungere un'attestazione ID utente al token generato. Per aggiungere l'autenticazione a un'app per le funzioni, usare [Autenticazione servizio app] (.. /App-Service/App-Service-Authentication-Overview.MD).
+Se la funzione viene attivata da un client autenticato, è possibile aggiungere un'attestazione ID utente al token generato. Per aggiungere l'autenticazione a un'app per le funzioni, usare [Autenticazione servizio app] (../App-Service/Overview-Authentication-Authorization.MD).
 
 Autenticazione servizio App imposta le intestazioni HTTP denominate `x-ms-client-principal-id` e `x-ms-client-principal-name` contenenti rispettivamente l'ID e il nome dell'entità client dell'utente autenticato. È possibile impostare la proprietà `userId` dell'associazione sul valore ottenuto da una delle intestazioni con un'[espressione di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`. 
 

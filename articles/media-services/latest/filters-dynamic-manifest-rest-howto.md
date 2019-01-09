@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/17/2018
 ms.author: juliako
-ms.openlocfilehash: 5cc670a94958b123ac71b49cbf25661d567e4629
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083412"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650842"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali
 
@@ -31,12 +31,13 @@ Questo argomento illustra come definire un filtro per un asset Video on demand e
 Per completare i passaggi descritti in questo argomento, è necessario:
 
 - Leggere [Filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di Servizi multimediali. 
 - [Configurare Postman per le chiamate API REST Servizi multimediali di Azure](media-rest-apis-with-postman.md).
+
+    Assicurarsi di seguire l'ultimo passaggio nell'argomento [Ottieni Token in Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-filter"></a>Definire un filtro  
 
-Di seguito è riportato l'esempio del **Corpo della richiesta** che definisce le condizioni di selezione brano che vengono aggiunte al manifesto. Questo filtro include i brani audio in lingua inglese con EC-3 e i brani video con velocità in bit nell’intervallo 0-1000000.
+Di seguito è riportato l'esempio del **Corpo della richiesta** che definisce le condizioni di selezione brano che vengono aggiunte al manifesto. Questo filtro include tracce audio EC-3 e tracce video con velocità in bit nell'intervallo 0-1000000.
 
 ```json
 {
@@ -50,14 +51,9 @@ Di seguito è riportato l'esempio del **Corpo della richiesta** che definisce le
                         "operation": "Equal"
                     },
                     {
-                        "property": "Language",
-                        "value": "en",
-                        "operation": "Equal"
-                    },
-                    {
                         "property": "FourCC",
                         "value": "EC-3",
-                        "operation": "NotEqual"
+                        "operation": "Equal"
                     }
                 ]
             },
@@ -80,13 +76,15 @@ Di seguito è riportato l'esempio del **Corpo della richiesta** che definisce le
 }
 ```
 
-## <a name="create-account-filters"></a>Crea filtri account
+## <a name="create-account-filters"></a>Creare filtri account
 
 Nella raccolta di Postman che è stata scaricata, selezionare **Filtri account**->**Crea o aggiorna un filtro account**.
 
 Il metodo di richiesta HTTP **PUT** è simile a:
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/accountFilters/{filterName}?api-version=2018-07-01
+```
 
 Selezionare la scheda **Corpo** e incollare il codice json [definito in precedenza](#define-a-filter).
 
@@ -98,11 +96,13 @@ Per altre informazioni, vedere [Creare o aggiornare](https://docs.microsoft.com/
 
 ## <a name="create-asset-filters"></a>Creare filtri asset  
 
-Nella raccolta Postman "Servizi multimediali v3" scaricata, selezionare **Asset**->**Crea o aggiorna filtro asset.
+Nella raccolta Postman "Servizi multimediali v3" scaricata, selezionare **Asset**->**Crea o aggiorna filtro asset**.
 
 Il metodo di richiesta HTTP **PUT** è simile a:
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/assetFilters/{filterName}?api-version=2018-07-01
+```
 
 Selezionare la scheda **Corpo** e incollare il codice json [definito in precedenza](#define-a-filter).
 

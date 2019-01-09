@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c226eb19dbd2049c486acfb1ffb9423fdb1dad43
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cad368cb968b94d1327cc99ed4dfa6df0aedd2cd
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410262"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555099"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Eseguire la migrazione dalla federazione alla sincronizzazione degli hash delle password per Azure AD
 Il documento seguente presenta le linee guida relative alla migrazione da AD FS alla sincronizzazione degli hash delle password.
@@ -157,7 +157,7 @@ Per assicurarsi che la funzionalità di aggiunta a un ambiente ibrido continui a
 
 Per altre informazioni, vedere [Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
 
-#### <a name="branding"></a>Uso di informazioni personalizzate distintive dell'azienda
+#### <a name="branding"></a>Personalizzazione
 
 Un'organizzazione potrebbe aver definito [pagine di accesso di AD FS personalizzate](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) in modo da mostrare informazioni più pertinenti relative alle proprie attività. In tal caso, è consigliabile applicare [personalizzazioni simili alla pagina di accesso di AD Azure](https://docs.microsoft.com/azure/active-directory/customize-branding).
 
@@ -208,7 +208,7 @@ La pianificazione della strategia di comunicazione comprende diverse attività, 
 
 Ora che la soluzione è stata pianificata, si è pronti per l'implementazione. L'implementazione include i componenti seguenti:
 
-1. Abilitazione della sincronizzazione degli hash delle password
+1. Abilitazione della sincronizzazione dell'hash delle password
 
 2. Preparazione dell'accesso Single Sign-On facile
 
@@ -295,7 +295,7 @@ Usare questo metodo quando AD FS è stato inizialmente configurato tramite Azure
    > A questo punto, tutti i domini federati saranno passati all'autenticazione gestita che userà la sincronizzazione degli hash delle password come metodo di autenticazione.
        
    7. Aprire il portale di Azure AD, selezionare Azure Active Directory e quindi Azure AD Connect.
-   8. Verificare che lo stato di Federazione sia Disabilitato e che invece quello di Accesso Single Sign-on facile e Sincronizzazione hash password sia Abilitato.  
+   8. Verificare che lo stato di Federazione sia disabilitato e che invece quelli di accesso Single Sign-on facile e di Sincronizzazione password siano abilitati.  
   ![Figura 37](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)</br>
    9. Proseguire con la sezione [Test e passaggi successivi](#testing-and-next-steps).
    
@@ -336,7 +336,7 @@ Nel corso di questo processo, si abiliterà l'accesso Single Sign-On facile e si
    > [!IMPORTANT]
    > A questo punto non verranno apportate modifiche al modo in cui gli utenti eseguono l'accesso.  
    
-   7. Nel portale di Azure AD verificare che lo stato di Federazione sia rimasto Abilitato e che ora lo stato di Accesso Single Sign-On facile sia Abilitato.
+   7. Nel portale di Azure AD verificare che lo stato di Federazione sia rimasto abilitato e che ora lo stato di Accesso Single Sign-On facile sia abilitato.
    ![Figura 42](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image16.png)
 
 #### <a name="convert-domains-from-federated-to-managed"></a>Convertire i domini da federati a gestiti
@@ -424,7 +424,7 @@ Per istruzioni su come verificare o abilitare questa funzionalità, vedere l'art
 
 [Sincronizzare gli aggiornamenti di userPrincipalName](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features).
 
-### <a name="troubleshooting"></a>Risoluzione dei problemi
+### <a name="troubleshooting"></a>risoluzione dei problemi
 
 Il team di supporto della propria organizzazione dovrebbe essere in grado di comprendere come risolvere i problemi di autenticazione che si verificano durante o dopo la conversione dei domini da federati a gestiti. Usare la documentazione seguente per consentire al team di supporto di acquisire familiarità con i passaggi comuni per la risoluzione dei problemi e le azioni appropriate che possono essere utili per isolare e risolvere un problema.
 

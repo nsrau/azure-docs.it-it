@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 78c840efebd2e451747e2490fc4d2f363afa9a09
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 618be936ef0326a1b9f5db426d4c37bb2bd1c760
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263256"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535659"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Ottimizzare i costi di archiviazione in Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Per prestazioni ottimali e vantaggi economici Azure Cosmos DB prevede che le dim
 
 ## <a name="optimize-cost-with-indexing"></a>Ottimizzare i costi con l'indicizzazione
 
-Per impostazione predefinita, i dati vengono indicizzati automaticamente, il che può aumentare lo spazio di archiviazione totale utilizzato. Tuttavia, è possibile applicare alcuni criteri di indicizzazione personalizzati per ridurre questo sovraccarico. L'indicizzazione automatica che non è stata ottimizzata tramite i criteri è pari a circa il 10-20% delle dimensioni dell'elemento. Rimuovendo o personalizzando i criteri di indicizzazione, non si pagano costi aggiuntivi per le scritture e non si richiede una capacità di elaborazione aggiuntiva. Per configurare i criteri di indicizzazione personalizzati, vedere [Indicizzazione in Cosmos DB](indexing-policies.md). Se in precedenza si è lavorato con i database relazionali, si potrebbe pensare che "indicizzare tutto" significhi raddoppiare se non di più lo spazio di archiviazione. Tuttavia, nel caso medio in Azure Cosmos DB lo spazio di archiviazione utilizzato risulta essere molto più basso. In Azure Cosmos DB, l'overhead di archiviazione dell'indice è in genere basso (10-20%) anche con l'indicizzazione automatica, perché è progettato per occupare uno spazio di archiviazione ridotto. Grazie alla gestione dei criteri di indicizzazione, è possibile controllare il compromesso di spazio occupato per gli indici e prestazioni delle query in modo più dettagliato.
+Per impostazione predefinita, i dati vengono indicizzati automaticamente, il che può aumentare lo spazio di archiviazione totale utilizzato. Tuttavia, è possibile applicare alcuni criteri di indicizzazione personalizzati per ridurre questo sovraccarico. L'indicizzazione automatica che non è stata ottimizzata tramite i criteri è pari a circa il 10-20% delle dimensioni dell'elemento. Rimuovendo o personalizzando i criteri di indicizzazione, non si pagano costi aggiuntivi per le scritture e non si richiede una capacità di elaborazione aggiuntiva. Per configurare i criteri di indicizzazione personalizzati, vedere [Indicizzazione in Azure Cosmos DB](indexing-policies.md). Se in precedenza si è lavorato con i database relazionali, si potrebbe pensare che "indicizzare tutto" significhi raddoppiare se non di più lo spazio di archiviazione. Tuttavia, nel caso medio in Azure Cosmos DB lo spazio di archiviazione utilizzato risulta essere molto più basso. In Azure Cosmos DB, l'overhead di archiviazione dell'indice è in genere basso (10-20%) anche con l'indicizzazione automatica, perché è progettato per occupare uno spazio di archiviazione ridotto. Grazie alla gestione dei criteri di indicizzazione, è possibile controllare il compromesso di spazio occupato per gli indici e prestazioni delle query in modo più dettagliato.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Ottimizzare i costi con la durata e il feed di modifiche
 
@@ -54,10 +54,10 @@ Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuo
 
 È ora possibile passare ad altre informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 
-* Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
-* Altre informazioni [sulla fattura di Azure Cosmos DB](understand-your-bill.md)
+* Altre informazioni sull'[Ottimizzazione di sviluppo e test](optimize-dev-test.md)
+* Altre informazioni sulla [Fatturazione in Azure Cosmos DB](understand-your-bill.md)
 * Altre informazioni sull'[ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
 * Altre informazioni sull'[ottimizzazione dei costi delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
-* Altre informazioni sull'[ottimizzazione dei costi delle query](optimize-cost-queries.md)
+* Altre informazioni sull'[ottimizzazione del costo delle query](optimize-cost-queries.md)
 * Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multiarea](optimize-cost-regions.md)
 

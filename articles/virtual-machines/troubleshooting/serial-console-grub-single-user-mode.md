@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 43f9d7d39cfcdd7b670aca6184533def0b6966f5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f22e5159acc93d9632c8cd268e24e8f972cbd7dd
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211384"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580145"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usare la Console seriale per accedere a GRUB e alla modalità utente singolo
 GRUB è l'acronimo di GRand Unified Bootloader. Da GRUB è possibile, tra le altre cose, modificare la configurazione di avvio per eseguire l'avvio in modalità utente singolo.
@@ -28,10 +28,10 @@ La modalità utente singolo è un ambiente minimo con funzionalità minime. Può
 
 La modalità utente singolo è utile anche nelle situazioni in cui la macchina virtuale può essere configurata solo in modo da accettare chiavi SSH per l'accesso. In questo caso, è possibile usare la modalità utente singolo per creare un account con autenticazione della password.
 
-Per attivare la modalità utente singolo, è necessario accedere a GRUB durante la fase di avvio della macchina virtuale e modificare la configurazione di avvio in GRUB. Questa operazione può essere eseguita con la console seriale della macchina virtuale. 
+Per attivare la modalità utente singolo, è necessario accedere a GRUB durante la fase di avvio della macchina virtuale e modificare la configurazione di avvio in GRUB. Questa operazione può essere eseguita con la console seriale della macchina virtuale.
 
 ## <a name="general-grub-access"></a>Informazioni generali sull'accesso a GRUB
-Per accedere a GRUB, è necessario riavviare la macchina virtuale mantenendo aperto il pannello della console seriale. Per mostrare GRUB alcune distribuzioni richiedono l'input da tastiera, mentre altre distribuzioni mostrano GRUB automaticamente per alcuni secondi e consentono l'input da tastiera dell'utente per annullare il timeout. 
+Per accedere a GRUB, è necessario riavviare la macchina virtuale mantenendo aperto il pannello della console seriale. Per mostrare GRUB alcune distribuzioni richiedono l'input da tastiera, mentre altre distribuzioni mostrano GRUB automaticamente per alcuni secondi e consentono l'input da tastiera dell'utente per annullare il timeout.
 
 È opportuno verificare che GRUB sia abilitato nella macchina virtuale per poter essere in grado di accedere alla modalità utente singolo. A seconda del tipo di distribuzione, potrebbero essere necessarie alcune operazioni di configurazione per assicurarsi che GRUB sia abilitato. Informazioni specifiche per le distribuzioni sono disponibili di seguito e in [questo collegamento](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
@@ -56,18 +56,18 @@ RHEL passerà in modalità utente singolo automaticamente se è impossibile avvi
 ### <a name="grub-access-in-rhel"></a>Accesso GRUB in RHEL
 RHEL dotata di GRUB abilitata per impostazione predefinita. Per immettere GRUB, riavviare la macchina virtuale con `sudo reboot` e premere un tasto qualsiasi. Verrà visualizzata la schermata GRUB visualizzati.
 
-> Nota: Red Hat fornisce anche la documentazione per l'avvio in modalità di ripristino, modalità di emergenza, modalità di Debug e la reimpostazione della password radice. [Fai clic qui per accedere](https://aka.ms/rhel7grubterminal).
+> Note: Red Hat fornisce anche la documentazione per l'avvio in modalità di ripristino, modalità di emergenza, modalità di debug e la reimpostazione della password radice. [Fai clic qui per accedere](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Configurare l'accesso radice per la modalità utente singolo in RHEL
 La modalità utente singolo in Red Hat richiede che sia abilitato l'utente ROOT, che è disabilitato per impostazione predefinita. Per abilitare la modalità utente singolo, seguire le istruzioni seguenti:
 
 1. Accedere al sistema Red Hat tramite SSH
 1. Passa alla radice
-1. Abilitare la password per l'utente ROOT 
+1. Abilitare la password per l'utente ROOT
     * `passwd root` (impostare una password complessa per l'utente ROOT)
 1. Verificare che l'utente ROOT possa eseguire l'accesso solo tramite ttyS0
     * `edit /etc/ssh/sshd_config` e assicurarsi che l'opzione PermitRootLogin sia impostata su no
-    * `edit /etc/securetty file` per consentire l'accesso solo tramite ttyS0 
+    * `edit /etc/securetty file` per consentire l'accesso solo tramite ttyS0
 
 Se il sistema viene ora avviato in modalità utente singolo, è possibile accedervi tramite la password ROOT.
 
@@ -83,14 +83,14 @@ Se è stata impostata una radice e GRUB accedere con le istruzioni riportate sop
 1. Aggiungere quanto segue alla fine della riga: `systemd.unit=rescue.target`
     * Consente di avviare in modalità utente singolo. Se si desidera utilizzare la modalità di emergenza, aggiungere `systemd.unit=emergency.target` alla fine della riga di anziché `systemd.unit=rescue.target`
 1. Premere Ctrl + X per uscire e riavviare il sistema con le impostazioni applicate
-1. Verrà richiesta la password dell'amministratore prima di attivare la modalità utente singolo; questa è la stessa password creata nelle istruzioni riportate sopra    
+1. Verrà richiesta la password dell'amministratore prima di attivare la modalità utente singolo; questa è la stessa password creata nelle istruzioni riportate sopra
 
     ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Accedere alla modalità utente singolo senza account radice abilitato in RHEL
 Se non sono stati esaminati i passaggi sopra per abilitare l'utente root, è ancora possibile reimpostare la password radice. Usare le istruzioni seguenti:
 
-> Nota: Se si usa SELinux, assicurarsi di aver eseguito i passaggi aggiuntivi descritti nella documentazione di Red Hat [qui](https://aka.ms/rhel7grubterminal) quando si reimposta la password radice.
+> Note: Se si usa SELinux, assicurarsi di aver eseguito i passaggi aggiuntivi descritti nella documentazione di Red Hat [qui](https://aka.ms/rhel7grubterminal) durante la reimpostazione della password radice.
 
 1. Premere “Esc” durante il riavvio per immettere GRUB nella macchina virtuale
 1. In GRUB, premere “e” per modificare il sistema operativo selezionato di cui si desidera eseguire l'avvio (in genere la prima riga)
@@ -104,11 +104,11 @@ Se non sono stati esaminati i passaggi sopra per abilitare l'utente root, è anc
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
-> Nota: tramite l’esecuzione delle istruzioni riportate si passerà alla shell di emergenza, in modo che sia anche possibile eseguire attività quali la modifica `fstab`. Tuttavia, il suggerimento generalmente accettato consiste nel reimpostare la password radice e usarla per accedere alla modalità utente singolo. 
+> Note: Tramite l’esecuzione delle istruzioni riportate si passerà alla shell di emergenza, in modo da poter eseguire attività quali la modifica `fstab`. Tuttavia, il suggerimento generalmente accettato consiste nel reimpostare la password radice e usarla per accedere alla modalità utente singolo.
 
 
 ## <a name="access-for-centos"></a>Accesso per CentOS
-Red Hat Enterprise Linux, modalità utente singolo in CentOS richiede GRUB e l'utente root deve essere abilitato. 
+Red Hat Enterprise Linux, modalità utente singolo in CentOS richiede GRUB e l'utente root deve essere abilitato.
 
 ### <a name="grub-access-in-centos"></a>Accesso GRUB in CentOS
 CentOS dotata di GRUB abilitata per impostazione predefinita. Per immettere GRUB, riavviare la macchina virtuale con `sudo reboot` e premere un tasto qualsiasi. Verrà visualizzata la schermata GRUB visualizzati.
@@ -116,8 +116,8 @@ CentOS dotata di GRUB abilitata per impostazione predefinita. Per immettere GRUB
 ### <a name="single-user-mode-in-centos"></a>Modalità utente singolo in CentOS
 Seguire le istruzioni per RHEL sopra per abilitare la modalità utente singolo in CentOS.
 
-## <a name="access-for-ubuntu"></a>Accesso per Ubuntu 
-Le immagini di Ubuntu non richiedono una password radice. Se il sistema viene ora avviato in modalità utente singolo, è possibile usarlo senza credenziali aggiuntive. 
+## <a name="access-for-ubuntu"></a>Accesso per Ubuntu
+Le immagini di Ubuntu non richiedono una password radice. Se il sistema viene ora avviato in modalità utente singolo, è possibile usarlo senza credenziali aggiuntive.
 
 ### <a name="grub-access-in-ubuntu"></a>Accesso GRUB in RHEL
 Per accedere a GRUB, premere e tenere premuto “Esc” durante l'avvio della macchina virtuale di backup.
@@ -137,8 +137,17 @@ Ubuntu passerà in modalità utente singolo automaticamente se è impossibile av
 1. Aggiungere `single` dopo `ro`, assicurandosi che sia presente uno spazio prima e dopo `single`
 1. Premere Ctrl + X per riavviare il sistema con queste impostazioni e attivare la modalità utente singolo
 
+### <a name="using-grub-to-invoke-bash-in-ubuntu"></a>Usare GRUB per richiamare bash su Ubuntu
+In certe situazioni (ad esempio se si dimentica la password radice) potrebbe non essere possibile accedere alla modalità utente singolo nella VM Ubuntu dopo aver seguito le istruzioni riportate. È anche possibile indicare al kernel di eseguire /bin/bash come init, invece dell'init di sistema, che offre una shell bash e consente la manutenzione del sistema. Usare le istruzioni seguenti:
+
+1. Da GRUB, premere “e” per modificare la voce di avvio (la voce di Ubuntu)
+1. Cercare la riga che inizia con `linux`, quindi cercare `ro`
+1. Sostituire `ro` con `rw init=/bin/bash`.
+    - Questa operazione monterà il file system in lettura e scrittura e userà /bin/bash come processo init
+1. Premere Ctrl + X per riavviare il sistema con queste impostazioni
+
 ## <a name="access-for-coreos"></a>Accesso per CoreOS
-La modalità utente singolo in CoreOS richiede GRUB abilitato. 
+La modalità utente singolo in CoreOS richiede GRUB abilitato.
 
 ### <a name="grub-access-in-coreos"></a>Accesso GRUB in CoreOS
 Per accedere a GRUB, premere un tasto quando la macchina virtuale è in fase di avvio.
@@ -151,13 +160,13 @@ CoreOS passerà in modalità utente singolo automaticamente se è impossibile av
 1. Premere Ctrl + X per riavviare il sistema con queste impostazioni e attivare la modalità utente singolo
 
 ## <a name="access-for-suse-sles"></a>Accesso per SUSE SLES
-Le immagini di SLES 12 SP3+ più recenti consentono l'accesso tramite la console seriale nel caso in cui il sistema venga avviato in modalità di emergenza. 
+Le immagini di SLES 12 SP3+ più recenti consentono l'accesso tramite la console seriale nel caso in cui il sistema venga avviato in modalità di emergenza.
 
 ### <a name="grub-access-in-suse-sles"></a>Accesso GRUB in SUSE SLES
 L’accesso GRUB in SLES richiede la configurazione del caricatore di avvio tramite YaST. A questo scopo, seguire queste istruzioni:
 
-1. SSH in una VM SLES ed eseguire `sudo yast bootloader`. Usare la chiave `tab`, chiave `enter` e i tasti di direzione per spostarsi tra i menu. 
-1. Passare a `Kernel Parameters` e controllare `Use serial console`. 
+1. SSH in una VM SLES ed eseguire `sudo yast bootloader`. Usare la chiave `tab`, chiave `enter` e i tasti di direzione per spostarsi tra i menu.
+1. Passare a `Kernel Parameters` e controllare `Use serial console`.
 1. Aggiungere `serial --unit=0 --speed=9600 --parity=no` agli argomenti della Console
 
 1. Premere F10 per salvare le impostazioni e chiudere
@@ -176,7 +185,7 @@ Si passerà automaticamente alla shell di emergenza se non è possibile avviare 
 > Si passerà alla shell di emergenza con file system di _sola lettura_. Se si vuole apportare le modifiche ai file, è necessario rimontare il file system con autorizzazioni di lettura/scrittura. A tale scopo, immettere `mount -o remount,rw /` nella shell
 
 ## <a name="access-for-oracle-linux"></a>Accesso per Oracle Linux
-Red Hat Enterprise Linux, modalità utente singolo in Oracle Linux richiede GRUB e l'utente root deve essere abilitato. 
+Red Hat Enterprise Linux, modalità utente singolo in Oracle Linux richiede GRUB e l'utente root deve essere abilitato.
 
 ### <a name="grub-access-in-oracle-linux"></a>Accesso a GRUB in Oracle Linux
 Oracle Linux dotata di GRUB abilitata per impostazione predefinita. Per accedere a GRUB, riavviare la macchina virtuale con `sudo reboot` e premere “Esc”. Verrà visualizzata la schermata GRUB visualizzati.

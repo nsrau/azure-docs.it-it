@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7df4cb5e988b4037675d5bf1c45ee103d5939568
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322773"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999323"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Esercitazione: configurare Zendesk per il provisioning utenti automatico
 
@@ -168,6 +168,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 * Zendesk supporta l'utilizzo dei gruppi solo per gli utenti con il ruolo di agente. Per altre informazioni, vedere la [documentazione di Zendesk](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
+* Quando un ruolo personalizzato viene assegnato a un utente e/o gruppo, il servizio di provisioning utenti automatico Azure AD assegnerà anche il ruolo predefinito **Agente**. È possibile assegnare un ruolo predefinito solo agli **Agenti**. Per altre informazioni, vedere la [Documentazione dell'API Zendesk](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests).  
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

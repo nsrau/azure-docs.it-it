@@ -8,16 +8,16 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: d02ae48bab6a17cbf5568996b30ccb39ccb81c59
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994006"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755020"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuire le istanze di contenitore che usano risorse della GPU
 
-Per eseguire determinati carichi di lavoro a elevato utilizzo di calcolo in istanze di Azure Container, distribuire i gruppi di contenitori con *risorse della GPU*. Le istanze di contenitore possono accedere a una o più GPU NVIDIA Tesla durante l'esecuzione dei carichi di lavoro dei contenitori, ad esempio CUDA e applicazioni di Deep Learning.
+Per eseguire determinati carichi di lavoro a elevato utilizzo di calcolo in istanze di Azure Container, distribuire i [gruppi di contenitori](container-instances-container-groups.md) con le *risorse della GPU*. Le istanze di contenitore nel gruppo possono accedere a una o più GPU NVIDIA Tesla durante l'esecuzione dei carichi di lavoro dei contenitori, ad esempio CUDA e applicazioni di Deep Learning.
 
 Come illustrato in questo articolo, è possibile aggiungere risorse GPU quando si distribuisce un gruppo di contenitori tramite un [file YAML](container-instances-multi-container-yaml.md) o un [modello di Resource Manager](container-instances-multi-container-group.md).
 
@@ -87,7 +87,7 @@ Quando si distribuiscono le risorse della GPU, impostare le risorse della CPU e 
 
 ## <a name="yaml-example"></a>Esempio YAML
 
-Copiare il file YAML seguente in un nuovo file denominato *gpu-deploy-aci.yaml*, quindi salvare il file. Il file YAML crea un gruppo di contenitori denominato *gpucontainergroup* specificando un'istanza di contenitore con una GPU K80. L'istanza esegue un'applicazione di aggiunta vettore CUDA di esempio. Le richieste di risorse sono sufficienti per eseguire il carico di lavoro.
+Un modo per aggiungere risorse GPU consiste nel distribuire un gruppo di contenitori tramite un [file YAML](container-instances-multi-container-yaml.md). Copiare il file YAML seguente in un nuovo file denominato *gpu-deploy-aci.yaml*, quindi salvare il file. Il file YAML crea un gruppo di contenitori denominato *gpucontainergroup* specificando un'istanza di contenitore con una GPU K80. L'istanza esegue un'applicazione di aggiunta vettore CUDA di esempio. Le richieste di risorse sono sufficienti per eseguire il carico di lavoro.
 
 ```YAML
 additional_properties: {}
@@ -134,7 +134,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Esempio di modello di Resource Manager
 
-Per iniziare, creare un file denominato `gpudeploy.json` e quindi copiarvi il codice JSON seguente. L'esempio distribuisce un'istanza di contenitore con una GPU V100 che esegue un processo di training [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) nel [set di dati MNIST](http://yann.lecun.com/exdb/mnist/). Le richieste di risorse sono sufficienti per eseguire il carico di lavoro.
+Un altro modo per distribuire un gruppo di contenitori con le risorse GPU consiste nell'usare un [modello di Resource Manager](container-instances-multi-container-group.md). Per iniziare, creare un file denominato `gpudeploy.json` e quindi copiarvi il codice JSON seguente. L'esempio distribuisce un'istanza di contenitore con una GPU V100 che esegue un processo di training [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) nel [set di dati MNIST](http://yann.lecun.com/exdb/mnist/). Le richieste di risorse sono sufficienti per eseguire il carico di lavoro.
 
 ```JSON
 {

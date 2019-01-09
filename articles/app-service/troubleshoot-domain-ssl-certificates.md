@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi relativi al dominio e al certificato SSL - Servizio app di Azure | Microsoft Docs
-description: Risolvere i problemi relativi al dominio e al certificato SSL nelle app Web di Azure
+description: Risolvere i problemi relativi al dominio e al certificato SSL in Servizio app di Azure
 services: app-service\web
 documentationcenter: ''
 author: genlin
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 726bc78532cfe621eb3f3787aa05a7a54571a8c3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6f88079c5baac8cef677fd3afc5696cec5c00d92
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388571"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653663"
 ---
-# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Risolvere i problemi relativi al dominio e al certificato SSL nelle app Web di Azure
+# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Risolvere i problemi relativi al dominio e al certificato SSL in Servizio app di Azure
 
-Questo articolo elenca i problemi comuni riscontrabili quando si configura un dominio o un certificato SSL per le app Web di Azure. L'articolo descrive anche le possibili cause e soluzioni per tali problemi.
+Questo articolo elenca i problemi comuni riscontrabili quando si configura un dominio o un certificato SSL per le app Web in Servizio app di Azure. L'articolo descrive anche le possibili cause e soluzioni per tali problemi.
 
 Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiesta di supporto**.
 
 ## <a name="certificate-problems"></a>Problemi certificati
 
-### <a name="you-cant-add-an-ssl-certificate-binding-to-a-web-app"></a>Non è consentito aggiungere un'associazione di certificato SSL a un'app Web 
+### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>Non è consentito aggiungere un'associazione di certificato SSL a un'app 
 
 #### <a name="symptom"></a>Sintomo
 
@@ -40,13 +40,13 @@ Quando si aggiunge un'associazione SSL, si riceve il messaggio di errore seguent
 
 #### <a name="cause"></a>Causa
 
-Questo problema può verificarsi se si dispone di più associazioni SSL basate su IP per lo stesso indirizzo IP tra più app Web. Ad esempio, l'app Web A dispone di un SSL basato su IP con un certificato precedente. L'app Web B ha un SSL basato su IP con un nuovo certificato per lo stesso indirizzo IP. Quando si aggiorna l'associazione SSL dell'app Web con il nuovo certificato, l'operazione ha esito negativo con questo errore, in quanto lo stesso indirizzo IP è in uso per un'altra app. 
+Questo problema può verificarsi se si dispone di più associazioni SSL basate su IP per lo stesso indirizzo IP tra più app. Ad esempio, l'app A dispone di un SSL basato su IP con un certificato precedente. L'app B ha un SSL basato su IP con un nuovo certificato per lo stesso indirizzo IP. Quando si aggiorna l'associazione SSL dell'app con il nuovo certificato, l'operazione ha esito negativo con questo errore, in quanto lo stesso indirizzo IP è in uso per un'altra app. 
 
 #### <a name="solution"></a>Soluzione 
 
 Per risolvere il problema, usare uno dei metodi seguenti:
 
-- Eliminare l'associazione SSL basata su IP nell'app Web che usa il certificato precedente. 
+- Eliminare l'associazione SSL basata su IP nell'app che usa il certificato precedente. 
 - Creare una nuova associazione SSL basata su IP che usi il nuovo certificato.
 
 ### <a name="you-cant-delete-a-certificate"></a>Non è possibile eliminare un certificato 
@@ -59,11 +59,11 @@ Quando si tenta di eliminare un certificato, viene visualizzato il messaggio di 
 
 #### <a name="cause"></a>Causa
 
-Questo problema può verificarsi se il certificato è usato da un'altra app Web.
+Questo problema può verificarsi se il certificato è usato da un'altra app.
 
 #### <a name="solution"></a>Soluzione
 
-Rimuovere l'associazione SSL per il certificato dalle app Web, quindi provare a eliminare il certificato. Se non è ancora possibile eliminare il certificato, cancellare la cache del browser Internet e riaprire il portale di Azure in una nuova finestra del browser. quindi provare a eliminare il certificato.
+Rimuovere l'associazione SSL per il certificato dalle app, quindi provare a eliminare il certificato. Se non è ancora possibile eliminare il certificato, cancellare la cache del browser Internet e riaprire il portale di Azure in una nuova finestra del browser. quindi provare a eliminare il certificato.
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>Non è possibile acquistare un certificato del servizio app 
 
@@ -75,7 +75,7 @@ Questo problema può verificarsi per uno dei motivi seguenti:
 
 - Il piano di servizio app è Gratuito o Condiviso. Questi livelli di prezzo non supportano SSL. 
 
-    **Soluzione**: aggiornare il piano di servizio app per l'app Web a Standard.
+    **Soluzione**: Aggiornare il piano di servizio app per l'app su Standard.
 
 - La sottoscrizione non dispone di una carta di credito valida.
 
@@ -110,14 +110,14 @@ Eliminare il certificato e quindi acquistare un nuovo certificato.
 
 Se il certificato corrente che utilizza il dominio non corretto è nello stato "Rilasciato", si riceverà un addebito anche per tale certificato. I certificati del servizio app non sono rimborsabili, ma è possibile contattare il [supporto di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per verificare se siano disponibili altre opzioni. 
 
-### <a name="an-app-service-certificate-was-renewed-but-the-web-app-shows-the-old-certificate"></a>Un certificato del servizio app è stato rinnovato ma nell'app Web viene mostrato il certificato precedente 
+### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>Un certificato del servizio app è stato rinnovato ma nell'app viene mostrato il certificato precedente 
 
 #### <a name="symptom"></a>Sintomo
 
-Il certificato del servizio app è stato rinnovato, ma l'app Web in questione usa ancora il certificato precedente. Inoltre, è stato ricevuto un avviso che indica che è necessario il protocollo HTTPS.
+Il certificato del servizio app è stato rinnovato, ma l'app in questione usa ancora il certificato precedente. Inoltre, è stato ricevuto un avviso che indica che è necessario il protocollo HTTPS.
 
 #### <a name="cause"></a>Causa 
-La funzione app Web del servizio app di Azure esegue un processo in background ogni otto ore e sincronizza la risorsa del certificato in caso di modifiche. Quando si ruota o si aggiorna un certificato, in alcuni casi l'applicazione recupera ancora il certificato precedente e non il certificato appena aggiornato. Questo avviene perché il processo di sincronizzazione della risorsa certificato non è stato ancora eseguito. 
+Servizio app di Azure esegue un processo in background ogni otto ore e sincronizza la risorsa del certificato in caso di modifiche. Quando si ruota o si aggiorna un certificato, in alcuni casi l'applicazione recupera ancora il certificato precedente e non il certificato appena aggiornato. Questo avviene perché il processo di sincronizzazione della risorsa certificato non è stato ancora eseguito. 
  
 #### <a name="solution"></a>Soluzione
 
@@ -156,7 +156,7 @@ Ad esempio, se si acquista un certificato standard per azure.com con il token di
 ### <a name="you-cant-purchase-a-domain"></a>Non è possibile acquistare un dominio
 
 #### <a name="symptom"></a>Sintomo
-Non è possibile acquistare un dominio dalle app Web o dal dominio del servizio app nel portale di Azure.
+Non è possibile acquistare un dominio del servizio app nel portale di Azure.
 
 #### <a name="cause-and-solution"></a>Causa e soluzione
 
@@ -176,7 +176,7 @@ Questo problema si verifica per uno dei motivi seguenti:
 
     **Soluzione**: aggiornare la sottoscrizione di Azure ad altri tipi di sottoscrizione, ad esempio Pagamento in base al consumo.
 
-### <a name="you-cant-add-a-host-name-to-a-web-app"></a>Non è possibile aggiungere un nome host a un'app Web 
+### <a name="you-cant-add-a-host-name-to-an-app"></a>Non è possibile aggiungere un nome host a un'app 
 
 #### <a name="symptom"></a>Sintomo
 
@@ -191,11 +191,11 @@ Questo problema si verifica per uno dei motivi seguenti:
     **Soluzione**: chiedere all'amministratore della sottoscrizione di concedere l'autorizzazione per aggiungere un nome host.
 - Non è stato possibile verificare la proprietà del dominio.
 
-    **Soluzione**: verificare che il record CNAME o il record A sia configurato correttamente. Per eseguire il mapping di un dominio personalizzato all'app Web, creare un record CNAME o un record A. Se si desidera usare un dominio radice, è necessario usare i record A e TXT:
+    **Soluzione**: verificare che il record CNAME o il record A sia configurato correttamente. Per eseguire il mapping di un dominio personalizzato all'app, creare un record CNAME o un record A. Se si desidera usare un dominio radice, è necessario usare i record A e TXT:
 
     |Tipo di record|Host|Punta a|
     |------|------|-----|
-    |Una |@|Indirizzo IP per un'app Web|
+    |Una |@|Indirizzo IP per l'app|
     |TXT|@|<nome-app>.azurewebsites.net|
     |CNAME|www|<nome-app>.azurewebsites.net|
 
@@ -216,7 +216,7 @@ Questo problema si verifica per uno dei motivi seguenti:
 #### <a name="solution"></a>Soluzione
 - Attendere 48 ore affinché il problema si risolva da solo.
 - Se è possibile modificare l'impostazione di durata (TTL) nella configurazione del DNS, modificare il valore su 5 minuti e controllare se il problema si risolve.
-- Usare [WhatsmyDNS.net](https://www.whatsmydns.net/) per verificare che il dominio punti all'indirizzo IP dell'app Web. In caso contrario, configurare il record A con l'indirizzo IP corretto dell'app Web.
+- Usare [WhatsmyDNS.net](https://www.whatsmydns.net/) per verificare che il dominio punti all'indirizzo IP dell'app. In caso contrario, configurare il record A con l'indirizzo IP corretto dell'app.
 
 ### <a name="you-need-to-restore-a-deleted-domain"></a>È necessario ripristinare un dominio eliminato 
 
@@ -247,7 +247,7 @@ Nel dominio personalizzato configurato mancano un record CNAME o un record A.
 **Soluzione per la causa 1**
 
 - Se è stato aggiunto un record A, assicurarsi che sia stato aggiunto anche un record TXT. Per altre informazioni, vedere [Creazione di un record A](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- Se non è necessario usare il dominio radice per l'app Web, è consigliabile usare un record CNAME anziché un record A.
+- Se non è necessario usare il dominio radice per l'app, è consigliabile usare un record CNAME anziché un record A.
 - Non usare sia un record CNAME sia un record A per lo stesso dominio. Ciò può provocare un conflitto e impedire la risoluzione del dominio. 
 
 **Causa 2** 
@@ -256,18 +256,18 @@ Nella cache del browser Internet potrebbe ancora essere memorizzato l'indirizzo 
 
 **Soluzione per la causa 2**
 
-Eliminare i dati del browser. Per i dispositivi Windows, è possibile eseguire il comando `ipconfig /flushdns`. Usare [WhatsmyDNS.net](https://www.whatsmydns.net/) per verificare che il dominio punti all'indirizzo IP dell'app Web. 
+Eliminare i dati del browser. Per i dispositivi Windows, è possibile eseguire il comando `ipconfig /flushdns`. Usare [WhatsmyDNS.net](https://www.whatsmydns.net/) per verificare che il dominio punti all'indirizzo IP dell'app. 
 
 ### <a name="you-cant-add-a-subdomain"></a>Non è possibile aggiungere un sottodominio 
 
 #### <a name="symptom"></a>Sintomo
 
-Non è possibile aggiungere un nuovo nome host a un'app Web per assegnare un sottodominio.
+Non è possibile aggiungere un nuovo nome host a un'app per assegnare un sottodominio.
 
 #### <a name="solution"></a>Soluzione
 
-- Rivolgersi all'amministratore della sottoscrizione per assicurarsi di avere l'autorizzazione ad aggiungere un nome host all'app Web.
-- Se sono necessari più sottodomini, si consiglia di modificare l'hosting del dominio in DNS di Azure. Usando DNS Azure, è possibile aggiungere 500 nomi host all'app Web. Per altre informazioni, vedere [Mapping a custom subdomain to an Azure Website](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/) (Mapping di un sottodominio personalizzato a un sito Web Azure).
+- Rivolgersi all'amministratore della sottoscrizione per assicurarsi di avere l'autorizzazione ad aggiungere un nome host all'app.
+- Se sono necessari più sottodomini, si consiglia di modificare l'hosting del dominio in DNS di Azure. Usando DNS Azure, è possibile aggiungere 500 nomi host all'app. Per altre informazioni, vedere [Mapping a custom subdomain to an Azure Website](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/) (Mapping di un sottodominio personalizzato a un sito Web Azure).
 
 
 
