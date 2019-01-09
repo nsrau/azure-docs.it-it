@@ -22,7 +22,7 @@ ms.lasthandoff: 07/10/2018
 ms.locfileid: "37047044"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiare dati da e in un file system locale usando Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
 > * [Versione 1](data-factory-onprem-file-system-connector.md)
 > * [Versione 2 (corrente)](../connector-file-system.md)
 
