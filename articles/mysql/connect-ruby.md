@@ -1,24 +1,21 @@
 ---
 title: Connettersi a Database di Azure per MySQL con Ruby
 description: Questa guida introduttiva fornisce diversi esempi di codice Ruby che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: cfaf6cc5b93ee80017a8fe5634c7afa7b9ce0ccf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2a5b05985494602e73fa949033958f4a974602b0
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986799"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542544"
 ---
-# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Ruby per connettersi ed eseguire query sui dati
+# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Database di Azure per MySQL: Usare Ruby per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione [Ruby](https://www.ruby-lang.org) e Gem [mysql2](https://rubygems.org/gems/mysql2) dalle piattaforme Windows, Ubuntu Linux e Mac. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con Ruby, ma non con Database di Azure per MySQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -29,7 +26,7 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 ## <a name="install-ruby"></a>Installare Ruby
 Installare Ruby, Gem e la libreria MySQL2 nel computer. 
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 1. Scaricare e installare la versione 2.3 di [Ruby](https://rubyinstaller.org/downloads/).
 2. Avviare un nuovo prompt dei comandi (cmd) dal menu Start.
 3. Passare alla directory di Ruby per la versione 2.3. `cd c:\Ruby23-x64\bin`

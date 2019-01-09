@@ -1,5 +1,5 @@
 ---
-title: 'Configurazione della versione di anteprima di Azure Time Series Insights: esercitazione su come configurare un ambiente di anteprima di Azure Time Series Insights | Microsoft Docs'
+title: 'Esercitazione: Configurare un ambiente di anteprima di Azure Time Series Insights | Microsoft Docs'
 description: Informazioni su come configurare l'ambiente nella versione di anteprima di Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9ad957d6378b1279f1ca51939eb4802b0ce7d78f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 1b09c0e31b217d7d67f936aefe9045d190241389
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322619"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633114"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Esercitazione: Configurare un ambiente di anteprima di Azure Time Series Insights
 
@@ -23,38 +23,38 @@ Questa esercitazione illustra il processo di creazione di un ambiente di antepri
 
 * Creare un ambiente di anteprima di Azure Time Series Insights.
 * Connettere l'ambiente di anteprima di Azure Time Series Insights a un hub eventi in Hub eventi di Azure.
-* Eseguire una simulazione relativa a una centrale eolica per trasmettere dati nell'ambiente di anteprima di Azure Time Series Insights.
+* Eseguire un esempio di acceleratore di soluzione per trasmettere dati nell'ambiente di anteprima di Azure Time Series Insights.
 * Eseguire un'analisi di base sui dati.
-* Definire un tipo di modello di serie temporale e una gerarchia da associare alle istanze.
+* Definire un tipo di modello di serie temporale e una gerarchia e associarli alle istanze.
 
 # <a name="create-a-device-simulation"></a>Creare una simulazione di dispositivi
 
-In questa sezione si creeranno tre dispositivi simulati che invieranno dati a un hub IoT.
+In questa sezione vengono creati tre dispositivi simulati che invieranno dati a un hub IoT.
 
-1. Accedere alla [home page degli acceleratori di soluzione di Azure IoT](https://www.azureiotsolutions.com/Accelerators). La home page degli acceleratori di soluzione di Azure IoT mostra diversi esempi preesistenti. Accedere tramite l'account di Azure personale. Quindi, selezionare **Simulazione dispositivi**.
+1. Accedere alla [pagina degli acceleratori di soluzione di Azure IoT](https://www.azureiotsolutions.com/Accelerators). La pagina mostra diversi esempi predefiniti. Accedere tramite l'account di Azure personale. Selezionare quindi **Simulazione dispositivi**.
 
-   ![Home page degli acceleratori di soluzione di Azure IoT][1]
+   ![Pagina degli acceleratori di soluzioni di Azure IoT][1]
 
-   Infine, fare clic su **Prova adesso**.
+   Selezionare **Prova adesso**.
 
-1. Immettere i parametri richiesti nella pagina della soluzione **Crea simulazione dispositivo**:
+1. Immettere i parametri richiesti nella pagina **Crea soluzione Simulazione dispositivi**:
 
-   | Parametro | DESCRIZIONE |
+   | Parametro | Descrizione |
    | --- | --- |
-   | Nome soluzione |    Un valore univoco usato per la creazione di un nuovo gruppo di risorse. Le risorse di Azure elencate vengono | create e assegnate al gruppo di risorse. |
-   | Sottoscrizione | Specificare la stessa sottoscrizione usata per la creazione dell'ambiente TSI |
-   | Region |   Specificare la stessa area usata per la creazione di TSI. |
-   | Distribuire risorse di Azure facoltative    | Lasciare selezionato Hub IoT, che verrà usato dai dispositivi simulati per la connessione/trasmissione dei dati. |
+   | **Nome soluzione** |    Immettere un valore univoco per la creazione di un nuovo gruppo di risorse. Le risorse di Azure elencate vengono create e assegnate al gruppo di risorse. |
+   | **Sottoscrizione** | Specificare la stessa sottoscrizione usata per la creazione dell'ambiente Time Series Insights. |
+   | **Area** |   Specificare la stessa area usata per la creazione dell'ambiente Time Series Insights. |
+   | **Distribuisci risorse di Azure facoltative**    | Lasciare selezionato Hub IoT, perché verrà usato dai dispositivi simulati per la connessione e la trasmissione dei dati. |
 
-   Dopo aver immesso i parametri obbligatori, fare clic su **Crea soluzione**. Attendere circa 10-15 minuti per la distribuzione della soluzione.
+   Selezionare quindi **Crea soluzione**. Attendere 10-15 minuti che la soluzione venga distribuita.
 
-   ![Creare una soluzione Simulazione dispositivi][2]
+   ![Pagina Crea soluzione Simulazione dispositivi][2]
 
-1. Nel **dashboard dell'acceleratore di soluzione** fare clic sul pulsante **Avvia**:
+1. Nel dashboard dell'acceleratore di soluzione selezionare il pulsante **Avvia**:
 
    ![Avviare la soluzione Simulazione dispositivi][3]
 
-1. Si verrà reindirizzati alla pagina **Simulazione dispositivo IoT di Microsoft Azure**. Fare clic su **+ Nuova simulazione** in alto a destra nella schermata.
+1. Si verrà reindirizzati alla pagina **Microsoft Azure IoT Device Simulation** (Simulazione dispositivi di Microsoft Azure IoT). Selezionare **+ New simulation** (+ Nuova simulazione) in alto a destra nella pagina.
 
    ![Pagina di simulazione di Azure IoT][4]
 
@@ -64,29 +64,29 @@ In questa sezione si creeranno tre dispositivi simulati che invieranno dati a un
 
     |||
     | --- | --- |
-    | **Nome** | Immettere un nome univoco per un simulatore |
-    | **Descrizione** | Immettere una definizione |
-    | **Durata simulazione** | Impostare su `Run indefinitely` |
-    | **Modello del dispositivo** | **Nome**: Immettere `Chiller` **Quantità**: Immettere `3` |
-    | **Target IoT Hub** (Hub IoT di destinazione) | Impostare su `Use pre-provisioned IoT Hub` |
+    | **Name** (Nome) | Immettere un nome univoco per un simulatore. |
+    | **Description** (Descrizione) | Immettere una definizione. |
+    | **Simulation duration** (Durata simulazione) | Impostare su **Run indefinitely** (Esecuzione a tempo indefinito). |
+    | **Device model** (Modello del dispositivo) | **Name** (Nome): immettere **Chiller** (Refrigeratore). </br>**Amount** (Quantità): immettere **3**. |
+    | **Target IoT Hub** (Hub IoT di destinazione) | Impostare su **Use pre-provisioned IoT Hub** (Usa l'hub IoT di cui è già stato eseguito il provisioning). |
 
-    Dopo aver immesso i parametri obbligatori, fare clic su **Avvia simulazione**.
+    Selezionare quindi **Start simulation** (Avvia simulazione).
 
-1. Nel dashboard di simulazione del dispositivo, vedere i **Dispositivi attivi** e i **Messaggi al secondo**.
+1. Nel dashboard di simulazione dei dispositivi esaminare **Active devices** (Dispositivi attivi) e **Messages per second** (Messaggi al secondo).
 
     ![Dashboard di simulazione di Azure IoT][6]
 
 ## <a name="list-device-simulation-properties"></a>Elencare le proprietà della simulazione del dispositivo
 
-Prima di creare un ambiente di Azure Time Series Insights, saranno necessari i nomi dell'hub IoT, della sottoscrizione e del gruppo di risorse.
+Prima di creare un ambiente di Azure Time Series Insights, sono necessari i nomi dell'hub IoT, della sottoscrizione e del gruppo di risorse.
 
-1. Accedere al **dashboard dell'acceleratore di soluzione** con lo stesso account di sottoscrizione di Azure. Trovare la simulazione del dispositivo creata nei passaggi precedenti.
+1. Accedere al dashboard dell'acceleratore di soluzioni con lo stesso account di sottoscrizione di Azure. Trovare la simulazione del dispositivo creata nei passaggi precedenti.
 
-1. Fare clic sul simulatore di dispositivi e quindi fare clic su **Avvia**. Fare clic sul collegamento **Portale di gestione di Microsoft Azure** visualizzato sul lato destro.
+1. Selezionare il simulatore di dispositivi e quindi **Launch** (Avvia). Selezionare il collegamento del **portale di gestione di Azure** visualizzato sul lato destro.
 
     ![Elenchi di simulatori][7]
 
-1. Annotare i nomi dell'hub IoT, della sottoscrizione e del gruppo di risorse.
+1. Prendere nota dei nomi dell'hub IoT, della sottoscrizione e del gruppo di risorse.
 
     ![Portale di Azure][8]
 
@@ -100,7 +100,7 @@ Questa sezione illustra come creare un ambiente di anteprima di Azure Time Serie
 
 1. Selezionare la categoria **Internet delle cose** e quindi **Time Series Insights**.
 
-   ![Selezionare Crea una risorsa, quindi selezionare Internet delle cose, quindi Time Series Insights][9]
+   ![Selezionare Internet delle cose e quindi Time Series Insights][9]
 
 1. Compilare i campi nella pagina come segue:
 
@@ -110,198 +110,190 @@ Questa sezione illustra come creare un ambiente di anteprima di Azure Time Serie
    | **Sottoscrizione** | Immettere la sottoscrizione in cui si desidera creare l'ambiente di anteprima di Azure Time Series Insights. È consigliabile usare la stessa sottoscrizione delle altre risorse di IoT create dal simulatore di dispositivi. |
    | **Gruppo di risorse** | Un gruppo di risorse è un contenitore per le risorse di Azure. Scegliere un gruppo di risorse esistente per la risorsa dell'ambiente di anteprima di Azure Time Series Insights oppure crearne uno nuovo. È consigliabile usare lo stesso gruppo di risorse delle altre risorse di IoT create dal simulatore di dispositivi. |
    | **Posizione** | Scegliere un'area del data center per l'ambiente di anteprima di Azure Time Series Insights. Per evitare un aumento della latenza e dei costi della larghezza di banda, è consigliabile mantenere l'ambiente di anteprima di Azure Time Series Insights nella stessa area delle altre risorse IoT. |
-   | **Livello** |  Selezionare `PAYG`, ovvero l'acronimo del pagamento in base al consumo. Si tratta dello SKU per il prodotto di anteprima di Azure Time Series Insights. |
-   | **ID proprietà** | Identifica in modo univoco la serie temporale. Si noti che questo campo è invariabile e non può essere modificato in un secondo momento. Per questa esercitazione impostare il campo su `iothub-connection-device-id`. Per altre informazioni sull'ID serie temporale, leggere [Come scegliere un ID serie temporale](./time-series-insights-update-how-to-id.md). |
-   | **Storage Account Name** | Immettere un nome univoco globale per un nuovo account di archiviazione da creare. |
+   | **Livello** |  Selezionare **PAYG**, ovvero l'acronimo del pagamento in base al consumo. Si tratta dello SKU per il prodotto di anteprima di Azure Time Series Insights. |
+   | **ID proprietà** | Immettere un nome che identifichi in modo univoco la serie temporale. Si noti che questo campo è invariabile e non può essere modificato in un secondo momento. Per questa esercitazione usare **iothub-connection-device-id**. Per altre informazioni sull'ID serie temporale, leggere [Come scegliere un ID serie temporale](./time-series-insights-update-how-to-id.md). |
+   | **Nome account di archiviazione** | Immettere un nome univoco globale per un nuovo account di archiviazione da creare. |
 
-   Dopo aver compilato i campi precedenti, fare clic su **Avanti: Origine evento**.
+   Selezionare quindi **Avanti: Origine evento**.
 
-   ![Fare clic su Avanti: Origine evento][10]
+   ![Pagina per la creazione di un ambiente Time Series Insights][10]
 
-1. Compilare i campi nella pagina come segue:
+1. Nella pagina relativa all'origine evento compilare i campi come indicato di seguito:
 
    | | |
    | --- | --- |
-   | **Creare un origine evento?** | Immettere `Yes`|
-   | **Nome** | Richiede un valore univoco, usato per assegnare un nome all'origine evento.|
-   | **Tipo di origine** | Immettere `IoT Hub` |
-   | **Selezionare un hub?** | Immettere `Select Existing` |
+   | **Create an event source?** (Creare un origine evento?) | Immettere **Yes** (Sì).|
+   | **Name** (Nome) | Immettere un valore univoco che viene usato per assegnare un nome all'origine evento.|
+   | **Source type** (Tipo di origine) | Immettere **IoT Hub** (Hub IoT). |
+   | **Select a hub?** (Selezionare un hub?) | Immettere **Select existing** (Seleziona esistente). |
    | **Sottoscrizione** | Immettere la sottoscrizione usata per il simulatore di dispositivo. |
    | **Nome hub IoT** | Immettere il nome dell'hub IoT creato per il simulatore di dispositivo. |
-   | **Criteri di accesso dell'hub IoT** | Immettere `iothubowner` |
-   | **Gruppo di consumer dell'hub IoT** | È necessario un gruppo di consumer univoco per un'anteprima di Azure Time Series Insights. |
-   | **Timestamp** | Questo campo viene usato per identificare la proprietà timestamp nei dati di telemetria in ingresso. Per questa esercitazione, non compilare il campo. Questo simulatore usa il timestamp in arrivo dall'hub IoT predefinito di Time Series Insights.|
+   | **Criteri di accesso dell'hub IoT** | Immettere **iothubowner**. |
+   | **Gruppo di consumer dell'hub IoT** | È necessario un gruppo di consumer univoco per l'anteprima di Azure Time Series Insights. Selezionare **Nuovo**, immettere un nome univoco e quindi selezionare **Aggiungi**. |
+   | **Timestamp property** (Proprietà timestamp) | Questo campo viene usato per identificare la proprietà timestamp nei dati di telemetria in ingresso. Per questa esercitazione, non compilare il campo. Questo simulatore usa il timestamp in arrivo dall'hub IoT predefinito di Time Series Insights.|
 
-   Per creare un gruppo di consumer univoco:
+   Selezionare quindi **Rivedi e crea**.
 
-   1. Fare clic su **Nuovo** accanto al campo **Gruppo di consumer dell'hub IoT**:
+   ![Pagina per la configurazione di un'origine evento][13]
 
-      ![Fare clic su Avanti: Origine evento][11]
+1. Esaminare tutti i campi nella pagina di revisione e selezionare **Crea**.
 
-   1. Assegnare un nome univoco al gruppo di consumer e fare clic su **Aggiungi**:
-
-      ![Fare clic su Aggiungi.][12]
-
-   Dopo aver compilato i campi precedenti, fare clic su **Rivedi e crea**.
-
-      ![Rivedi e crea][13]
-
-1. Esaminare tutti i campi nella pagina di revisione e fare clic su **Crea**.
-
-   ![Create][14]
+   ![Pagina Rivedi e crea, con pulsante Crea][14]
 
 1. È possibile visualizzare lo stato della distribuzione.
 
-   ![Distribuzione completata][15]
+   ![Notifica del completamento della distribuzione][15]
 
-1. Se si è proprietari del tenant, si dovrebbe ricevere l'accesso per l'ambiente della serie temporale. Assicurarsi di avere accesso:
+1. Se si è proprietari del tenant, si dovrebbe ricevere l'accesso all'ambiente di anteprima di Azure Time Series Insights. Assicurarsi di avere accesso:
 
-   * Passare all'ambiente di anteprima di Azure Time Series Insights appena creato. È possibile farlo cercando il gruppo di risorse. Quindi, fare clic sull'ambiente della serie temporale:
+   a. Cercare il gruppo di risorse e selezionare l'ambiente di anteprima di Azure Time Series Insights:
 
-      ![Distribuzione completata][16]
+      ![Ambiente selezionato][16]
 
-   * Nella pagina di anteprima di Azure Time Series Insights, passare a **Criteri di accesso ai dati**.
+   b. Nella pagina di anteprima di Azure Time Series Insights passare a **Criteri di accesso ai dati**.
 
      ![Criteri di accesso ai dati][17]
 
-   * Verificare che le credenziali siano elencate.
+   c. Verificare che le credenziali siano elencate.
 
-     ![Verificare le credenziali][18]
+     ![Credenziali elencate][18]
 
-   Se le credenziali non sono elencate, è necessario assegnarsi manualmente l'autorizzazione per accedere all'ambiente. Leggere [Concedere l'accesso ai dati](./time-series-insights-data-access.md) per altre informazioni sull'impostazione delle autorizzazioni.
+   Se le credenziali non sono elencate, è necessario assegnarsi manualmente l'autorizzazione per accedere all'ambiente. Per altre informazioni sull'impostazione delle autorizzazioni, leggere [Concedere l'accesso ai dati](./time-series-insights-data-access.md).
 
 ## <a name="analyze-data-in-your-environment"></a>Analizzare i dati nell'ambiente
 
 In questa sezione verranno eseguite attività di analisi di base sui dati delle serie temporali usando lo [strumento di esplorazione aggiornato dell'anteprima di Azure Time Series Insights](./time-series-insights-update-explorer.md).
 
-1. Passare allo strumento di esplorazione dell'anteprima di Azure Time Series Insights facendo clic sull'URL nella pagina delle risorse nel [portale di Azure](https://portal.azure.com/).
+1. Passare allo strumento di esplorazione dell'anteprima di Azure Time Series Insights selezionando l'URL nella pagina delle risorse nel [portale di Azure](https://portal.azure.com/).
 
-   ![URL dello strumento di esplorazione di Azure Time Series Insights][19]
+   ![URL dello strumento di esplorazione dell'anteprima di Time Series Insights][19]
 
-1. Nello strumento di esplorazione selezionare i nodi **Unparented Instances** (Istanze senza padre) per visualizzare tutte le istanze della versione di anteprima di Azure Time Series Insights nell'ambiente.
+1. Nello strumento di esplorazione selezionare il nodo **Unparented Instances** (Istanze senza padre) per visualizzare tutte le istanze della versione di anteprima di Azure Time Series Insights nell'ambiente.
 
    ![Elenco di istanze senza padre][20]
 
-1. Nella serie temporale visualizzata, fare clic sulla prima istanza. Quindi, fare clic su **Mostra pressione media**.
+1. Nella serie temporale visualizzata selezionare la prima istanza. Selezionare quindi **Show Avg pressure** (Mostra pressione media).
 
-   ![Mostra pressione media][21]
+   ![Istanza selezionata con il comando di menu per visualizzare la pressione media][21]
 
-1. Viene visualizzato un grafico della serie temporale a destra:
+   Viene visualizzato un grafico della serie temporale a destra:
 
    ![Grafico serie temporale][22]
 
-1. Ripetere il **passaggio 3** con le altre due serie temporali. È possibile visualizzare tutte le serie temporali come illustrato di seguito:
+1. Ripetere il passaggio 3 con le altre due serie temporali. È quindi possibile visualizzare tutte le serie temporali come illustrato in questo grafico:
 
-   ![Grafico di tutte le serie temporali][23]
+   ![Grafico relativo a tutte le serie temporali][23]
 
-1. Modificare l'**intervallo di tempo** per visualizzare le tendenze nelle serie temporali dell'ultima ora. Selezionare la casella dell'opzione **Da** come mostrato di seguito:
+1. Modificare l'intervallo di tempo per visualizzare le tendenze nelle serie temporali dell'ultima ora. 
 
-   ![Selezionare l'opzione Da][24]
+   a. Selezionare la casella di opzione **From** (Da):
 
-1. Modificare il tempo entro il quale visualizzare gli eventi dell'ultima ora nella casella di opzione **Da**:
+      ![Casella di opzione From (Da)][24]
 
-   ![Selezionare l'opzione Da][25]
+   b. Nella casella modificare il tempo entro il quale visualizzare gli eventi dell'ultima ora:
+
+      ![Modifiche apportate al tempo][25]
 
 1. È quindi possibile confrontare la pressione i tutti e tre i dispositivi nell'ultima ora:
 
-   ![Selezionare l'opzione Da][26]
+   ![Confronto tra tre dispositivi][26]
 
 ## <a name="define-and-apply-a-model"></a>Definire e applicare un modello
 
-In questa sezione si applicherà un modello per strutturare i dati. Per completare il modello, si definiranno i tipi, le gerarchie e le istanze. Per altre informazioni sulla modellazione dei dati, passare a [Modelli Time Series](./time-series-insights-update-tsm.md).
+In questa sezione si applica un modello per strutturare i dati. Per completare il modello, vengono definiti i tipi, le gerarchie e le istanze. Per altre informazioni sulla modellazione dei dati, passare a [Modello Time Series](./time-series-insights-update-tsm.md).
 
-1. Nella finestra di esplorazione, selezionare la scheda **Modello**:
+1. Nello strumento di esplorazione selezionare la scheda **Modello**:
 
-   ![Selezionare la scheda Modello][27]
+   ![Scheda Model (Modello) nello strumento di esplorazione][27]
 
-1. Quindi, fare clic su **+ Aggiungi** per aggiungere un tipo. A destra verrà aperto un editor di tipi.
+1. Selezionare **+ Add** (+ Aggiungi) per aggiungere un tipo. A destra verrà aperto un editor di tipi.
 
-   ![Fare clic su Aggiungi.][28]
+   ![Pulsante Add (Aggiungi) per i tipi][28]
 
-1. Quindi, definire tre variabili: Pressione, Temperatura e Umidità in un tipo. Immettere i campi seguenti:
+1. Definire tre variabili per il tipo, ovvero pressure (pressione), temperature (temperatura) e humidity (umidità). Immettere le seguenti informazioni:
 
    | | |
    | --- | ---|
-   | **Nome** | Immettere `Chiller` |
-   | **Descrizione** | Immettere `This is a type definition of Chiller` |
+   | **Nome** | Immettere **Chiller** (Refrigeratore). |
+   | **Descrizione** | Immettere **This is a type definition of Chiller** (Definizione del tipo per Refrigeratore). |
 
-   * A questo punto, definire la Pressione con tre variabili:
-
-      | | |
-      | --- | ---|
-      | **Nome** | Immettere `Avg Pressure` |
-      | **Valore** | Selezionare **pressione (doppia)**. Potrebbero volerci alcuni minuti per popolare il campo dopo l'avvio della ricezione di eventi in Azure Time Series Insights |
-      | **Operazione di aggregazione** | Selezionare `AVG`. |
-
-      ![Aggiungere una variabile][29]
-
-      Fare clic su **+ Variabile** per aggiungere la variabile successiva.
-
-   * A questo punto, definire la Temperatura:
+   * Definire la pressione con tre variabili:
 
       | | |
       | --- | ---|
-      | **Nome** | Immettere `Avg Temperature` |
-      | **Valore** | Selezionare **temperatura (doppia)**. Potrebbero volerci alcuni minuti per popolare il campo dopo l'avvio della ricezione di eventi in Azure Time Series Insights |
-      | **Operazione di aggregazione** | Selezionare `AVG`.|
+      | **Nome** | Immettere **Avg Pressure** (Pressione media). |
+      | **Valore** | Selezionare **pressione (doppia)**. Tenere presente che il popolamento di questo campo potrebbe richiedere alcuni minuti dopo l'inizio della ricezione di eventi in Azure Time Series Insights. |
+      | **Operazione di aggregazione** | Selezionare **AVG** (MEDIA). |
 
-      ![Definire la Temperatura][30]
+      ![Selezioni per la definizione della pressione][29]
 
-   * Ora, definire l'Umidità:
+      Selezionare **+ Add Variable** (+ Aggiungi variabile) per aggiungere la variabile successiva.
+
+   * Definire la temperatura:
 
       | | |
       | --- | ---|
-      | **Nome** | Immettere `Max Humidity` |
-      | **Valore** | Selezionare **umidità (doppia)**. Potrebbero volerci alcuni minuti per popolare il campo dopo l'avvio della ricezione di eventi in Azure Time Series Insights |
-      | **Operazione di aggregazione** | Selezionare `MAX`.|
+      | **Nome** | Immettere **Avg Temperature** (Temperatura media). |
+      | **Valore** | Selezionare **temperatura (doppia)**. Tenere presente che il popolamento di questo campo potrebbe richiedere alcuni minuti dopo l'inizio della ricezione di eventi in Azure Time Series Insights. |
+      | **Operazione di aggregazione** | Selezionare **AVG** (MEDIA).|
 
-      ![Definire la Temperatura][31]
+      ![Selezioni per la definizione della temperatura][30]
 
-   Dopo aver definito le variabili, fare clic su **Crea**.
+   * Definire l'umidità:
+
+      | | |
+      | --- | ---|
+      | **Nome** | Immettere **Max Humidity** (Umidità massima). |
+      | **Valore** | Selezionare **umidità (doppia)**. Tenere presente che il popolamento di questo campo potrebbe richiedere alcuni minuti dopo l'inizio della ricezione di eventi in Azure Time Series Insights. |
+      | **Operazione di aggregazione** | Selezionare **MAX** (MASSIMA).|
+
+      ![Selezioni per la definizione della temperatura][31]
+
+   Scegliere quindi **Create** (Crea).
 
 1. È possibile visualizzare il tipo aggiunto:
 
-   ![Vedere il tipo aggiunto][32]
+   ![Informazioni sul tipo aggiunto][32]
 
-1. Il passaggio successivo consiste nell'aggiungere una gerarchia. Nella sezione **Gerarchie**, selezionare **+ Aggiungi** per creare una nuova gerarchia:
+1. Il passaggio successivo consiste nell'aggiungere una gerarchia. Nella sezione **Hierarchies** (Gerarchie) selezionare **+ Add** (+ Aggiungi):
 
-   ![Aggiungere una gerarchia][33]
+   ![Scheda Hierarchies (Gerarchie) con pulsante Add (Aggiungi)][33]
 
-1. Definire una gerarchia. Compilare i campi come indicato di seguito:
+1. Definire la gerarchia. Compilare i campi come indicato di seguito:
 
    | | |
    | --- | ---|
-   | **Nome** | Immettere `Location Hierarchy` |
-   | **Livello 1** | Immettere `Country` |
-   | **Livello 2** | Immettere `City` |
-   | **Livello 3** | Immettere `Building` |
+   | **Nome** | Immettere **Location Hierarchy** (Gerarchia località). |
+   | **Livello 1** | Immettere **Country** (Paese). |
+   | **Livello 2** | Immettere **City** (Città). |
+   | **Livello 3** | Immettere **Building** (Edificio). |
 
-   Dopo aver compilato i campi precedenti, fare clic su **Crea**.
+   Scegliere quindi **Create** (Crea).
 
-   ![Definire una gerarchia][34]
+   ![Campi della gerarchia con pulsante Create (Crea)][34]
 
 1. È possibile visualizzare la gerarchia creata:
 
-   ![Vedere la gerarchia creata][35]
+   ![Informazioni sulla gerarchia][35]
 
-1. Dopo aver definito la gerarchia, fare clic su **Istanze** a sinistra. Quando le istanze vengono visualizzate, fare clic sulla prima e selezionare **Modifica**:
+1. Selezionare **Instances** (Istanze) sulla sinistra. Quando le istanze vengono visualizzate, selezionare la prima e quindi fare clic su **Edit** (Modifica):
 
-   ![Modificare un'istanza][36]
+   ![Selezione del pulsante Edit (Modifica) per un'istanza][36]
 
-1. A destra verrà aperto un editor di testo. Aggiungere i campi seguenti:
+1. A destra verrà aperto un editor di testo. Aggiungere le informazioni seguenti:
 
    | | |
    | --- | --- |
-   | **Tipo** | Selezionare `Chiller`. |
-   | **Descrizione** | Immettere `Instance for Chiller-01.1` |
-   | **Gerarchie** | Abilitare `Location Hierarchy` |
-   | **Paese** | Immettere `USA` |
-   | **Città** | Immettere `Seattle` |
-   | **Edificio** | Immettere `Space Needle` |
+   | **Tipo** | Selezionare **Chiller** (Refrigeratore). |
+   | **Descrizione** | Immettere **Instance for Chiller-01.1** (Istanza per Refrigeratore-01.1). |
+   | **Gerarchie** | Abilitare **Location Hierarchy** (Gerarchia località). |
+   | **Paese** | Immettere **USA** (Stati Uniti). |
+   | **Città** | Immettere **Seattle**. |
+   | **Edificio** | Immettere **Space Needle**. |
 
-    Dopo aver compilato i campi precedenti, fare clic su **Salva**.
+    Selezionare quindi **Salva**.
 
-   ![Salvare un refrigeratore][37]
+   ![Campi dell'istanza con pulsante Save (Salva)][37]
 
 1. Ripetere il passaggio precedente per gli altri sensori. Usare i campi seguenti:
 
@@ -309,47 +301,43 @@ In questa sezione si applicherà un modello per strutturare i dati. Per completa
 
      | | |
      | --- | --- |
-     | **Tipo** | Selezionare `Chiller`. |
-     | **Descrizione** | Immettere `Instance for Chiller-01.2` |
-     | **Gerarchie** | Abilitare `Location Hierarchy` |
-     | **Paese** | Immettere `USA` |
-     | **Città** | Immettere `Seattle` |
-     | **Edificio** | Immettere `Pacific Science Center` |
+     | **Tipo** | Selezionare **Chiller** (Refrigeratore). |
+     | **Descrizione** | Immettere **Instance for Chiller-01.2** (Istanza per Refrigeratore-01.2). |
+     | **Gerarchie** | Abilitare **Location Hierarchy** (Gerarchia località). |
+     | **Paese** | Immettere **USA** (Stati Uniti). |
+     | **Città** | Immettere **Seattle**. |
+     | **Edificio** | Immettere **Pacific Science Center**. |
 
    * Per Chiller 01.3:
 
      | | |
      | --- | --- |
-     | **Tipo** | Selezionare `Chiller`. |
-     | **Descrizione** | Immettere `Instance for Chiller-01.1` |
-     | **Gerarchie** | Abilitare `Location Hierarchy` |
-     | **Paese** | Immettere `USA` |
-     | **Città** | Immettere `New York` |
-     | **Edificio** | Immettere `Empire State Building` |
+     | **Tipo** | Selezionare **Chiller** (Refrigeratore). |
+     | **Descrizione** | Immettere **Instance for Chiller-01.1** (Istanza per Refrigeratore-01.1). |
+     | **Gerarchie** | Abilitare **Location Hierarchy** (Gerarchia località). |
+     | **Paese** | Immettere **USA** (Stati Uniti). |
+     | **Città** | Immettere **New York**. |
+     | **Edificio** | Immettere **Empire State Building**. |
 
 1. Aprire la scheda **Analizza** e aggiornare la pagina. Espandere tutti i livelli della gerarchia per trovare la serie temporale.
 
-   ![Visualizzare la scheda Analizza][38]
+   ![Scheda Analizza][38]
 
-1. Per esplorare le serie temporali dell'ultima ora, modificare **tempi rapidi** all'ultima ora:
+1. Per esplorare le serie temporali dell'ultima ora, modificare **Tempi rapidi** in **Ultima ora**:
 
-   ![Esplorare l'ultima ora][39]
+   ![Casella Tempi rapidi con opzione Ultima ora selezionata][39]
 
-1. Fare clic sulle serie di tempi in **Pacific Science Center** e fare clic su **Mostra umidità massima**.
+1. Selezionare la serie temporale in **Pacific Science Center** e quindi **Show Max Humidity** (Mostra umidità massima).
 
-   ![Mostra umidità massima][40]
+   ![Serie temporale selezionata con selezione del menu Show Max Humidity (Mostra umidità massima)][40]
 
-1. Si aprirà la serie temporale per **Umidità massima** con un intervallo di dimensioni pari a 1 minuto. Fare clic su un'area per filtrare un intervallo. Quindi, fare clic con il tasto destro del mouse e fare zoom avanti per analizzare gli eventi nell'intervallo di tempo:
+1. Si aprirà la serie temporale per **Max Humidity** (Umidità massima) con un intervallo di dimensioni pari a 1 minuto. Selezionare un'area per filtrare un intervallo. Fare quindi clic con il pulsante destro del mouse e selezionare **Zoom** per analizzare gli eventi nell'intervallo di tempo:
 
-   ![Visualizzare, filtrare e fare zoom avanti][41]
+   ![Intervallo selezionato con comando Zoom in un menu di scelta rapida][41]
 
-   ![Visualizzare, filtrare e fare zoom avanti][42]
+1. È anche possibile selezionare un'area e quindi fare clic con il pulsante destro del mouse per visualizzare i dettagli dell'evento:
 
-1. È possibile anche fare clic su un'area geografica e quindi fare clic con il tasto destro del mouse per visualizzare i dettagli dell'evento:
-
-   ![Visualizzare, filtrare e fare zoom avanti][43]
-
-   ![Visualizzare, filtrare e fare zoom avanti][44]
+   ![Elenco dettagliato di eventi][44]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -358,7 +346,7 @@ Questa esercitazione illustra come:
 * Creare e usare un acceleratore di simulazione dispositivi.
 * Creare un ambiente di anteprima di Azure Time Series Insights con pagamento in base al consumo.
 * Connettere l'ambiente di anteprima di Azure Time Series Insights a un hub eventi.
-* Eseguire una simulazione relativa a una centrale eolica per trasmettere dati nell'ambiente di anteprima di Azure Time Series Insights.
+* Eseguire un esempio di acceleratore di soluzione per trasmettere dati nell'ambiente di anteprima di Azure Time Series Insights.
 * Eseguire un'analisi di base sui dati.
 * Definire un tipo di modello di serie temporale e una gerarchia da associare alle istanze.
 
@@ -367,7 +355,7 @@ Ora che si è appreso come creare un ambiente di anteprima di Azure Time Series 
 Leggere informazioni sulla configurazione dell'archiviazione di Azure Time Series Insights:
 
 > [!div class="nextstepaction"]
-> [Archiviazione e ingresso nell'anteprima di Azure Time Series Insights](./time-series-insights-update-storage-ingress.md)
+> [Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights](./time-series-insights-update-storage-ingress.md)
 
 Leggere altre informazioni sui modelli di serie temporali:
 
@@ -380,8 +368,8 @@ Leggere altre informazioni sui modelli di serie temporali:
 [3]: media/v2-update-provision/device-three-launch.png
 [4]: media/v2-update-provision/device-four-iot-sim-page.png
 [5]: media/v2-update-provision/device-five-params.png
-[6]: media/v2-update-provision/device-six-listings.png
-[7]: media/v2-update-provision/device-seven-dashboard.png
+[6]: media/v2-update-provision/device-seven-dashboard.png
+[7]: media/v2-update-provision/device-six-listings.png
 [8]: media/v2-update-provision/device-eight-portal.png
 
 [9]: media/v2-update-provision/payg-one-azure.png

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: API REST Servizio Azure SignalR'
+title: 'Guida introduttiva: API REST Servizio Azure SignalR'
 description: Una guida introduttiva per l'uso dell'API REST del servizio Azure SignalR.
 author: sffamily
 ms.service: signalr
@@ -7,14 +7,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: fdbdbe77c6541d62acef0d23d599d9687f5301b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1443508985c7c7fef313a7eea3f622e7759a71ef
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251862"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540097"
 ---
-# <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Avvio rapido: Trasmettere messaggi in tempo reale dall'app console
+# <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Guida introduttiva: Trasmettere messaggi in tempo reale dall'app console
 
 Il servizio Azure SignalR fornisce l'[API REST](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) per supportare scenari di comunicazione da server a client, ad esempio la trasmissione. È possibile scegliere qualsiasi linguaggio di programmazione che possa effettuare chiamate all'API REST. È possibile inviare messaggi a tutti i client connessi, a un client specifico in base al nome o a un gruppo di client.
 
@@ -129,13 +129,13 @@ L'elenco delle API disponibili per ogni versione specifica è disponibile nell'e
 
 API | `1.0-preview` | `1.0`
 --- | --- | ---
-[Trasmettere a tutti](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
-[Trasmettere a un gruppo](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
-Trasmettere ad alcuni gruppi | :heavy_check_mark: (Deprecato) | `N / A`
-[Inviare a utenti specifici](#send-user) | :heavy_check_mark: | :heavy_check_mark:
-Inviare ad alcuni utenti | :heavy_check_mark: (Deprecato) | `N / A`
-[Aggiunta di un utente a un gruppo](#add-user-to-group) | `N / A` | :heavy_check_mark:
-[Rimozione di un utente da un gruppo](#remove-user-from-group) | `N / A` | :heavy_check_mark:
+[Trasmettere a tutti](#broadcast) | **&#x2713;** | **&#x2713;**
+[Trasmettere a un gruppo](#broadcast-group) | **&#x2713;** | **&#x2713;**
+Trasmettere ad alcuni gruppi | **&#x2713;** (deprecato) | `N / A`
+[Inviare a utenti specifici](#send-user) | **&#x2713;** | **&#x2713;**
+Inviare ad alcuni utenti | **&#x2713;** (deprecato) | `N / A`
+[Aggiunta di un utente a un gruppo](#add-user-to-group) | `N / A` | **&#x2713;**
+[Rimozione di un utente da un gruppo](#remove-user-from-group) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Trasmettere a tutti

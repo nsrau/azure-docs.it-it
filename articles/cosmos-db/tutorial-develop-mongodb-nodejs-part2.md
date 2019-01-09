@@ -1,5 +1,5 @@
 ---
-title: App Node.js e Angular con l'API MongoB (parte 2)
+title: Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Creare un'app Node.js Express
 titleSuffix: Azure Cosmos DB
 description: Parte 2 della serie di esercitazioni sulla creazione di un'app MongoDB con Angular e Node in Azure Cosmos DB mediante le stesse API usate per MongoDB.
 author: johnpapa
@@ -7,19 +7,19 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 842a321f63bce11207e6144705e9c4f68df21760
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8e122ab62009463ae12d5635323655be708aa29d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133976"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788056"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app"></a>Creare un'app MongoDB con Angular e Azure Cosmos DB - Parte 2: Creare un'app Node.js Express
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Creare un'app Node.js Express
 
-Questa esercitazione in più parti illustra come creare una nuova app per le [API MongoDB](mongodb-introduction.md) scritta in Node.js con Express, Angular e il database di Azure Cosmos DB.
+Questa esercitazione in più parti illustra come creare una nuova app scritta in Node.js con Express e Angular e quindi connetterla all'[account Cosmos configurato con l'API di Cosmos DB per MongoDB](mongodb-introduction.md).
 
 La Parte 2 dell'esercitazione è basata sull'[introduzione](tutorial-develop-mongodb-nodejs.md) e illustra le attività seguenti:
 
@@ -43,7 +43,7 @@ Per completare questa esercitazione, sono necessari anche:
 * [Visual Studio Code](https://code.visualstudio.com/) o un altro editor di codice.
 
 > [!TIP]
-> Questa esercitazione illustra in modo dettagliato la procedura per la creazione dell'applicazione. Se si vuole scaricare il progetto finito, è possibile ottenere l'applicazione completa dal [repository angular-cosmosdb](https://github.com/Azure-Samples/angular-cosmosdb) in GitHub.
+> Questa esercitazione illustra in modo dettagliato la procedura per la creazione dell'applicazione. Se si vuole scaricare il progetto finito, è possibile ottenere l'applicazione completa dal [repository angular-cosmosdb](https://github.com/Azure-Samples/angular-cosmosdb) su GitHub.
 
 ## <a name="install-the-angular-cli-and-typescript"></a>Installare l'interfaccia della riga di comando di Angular e TypeScript
 

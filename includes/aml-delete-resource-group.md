@@ -8,18 +8,18 @@ ms.topic: include
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: de24478a39b656c1326bc53825aab317e652d672
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 6af620f54acb3bf782f05b81f12aca2103cddf47
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53007927"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654924"
 ---
 >[!IMPORTANT]
 >Le risorse create possono essere usate come prerequisiti per altre esercitazioni e procedure dettagliate per il servizio Azure Machine Learning. 
 
 
-Se non si prevede di usare le risorse create in questa sede, è consigliabile eliminarle per non incorrere in alcun addebito.
+Se non si prevede di usare le risorse create, eliminarle per non incorrere in alcun addebito:
 
 1. Nel portale di Azure fare clic su **Gruppi di risorse** all'estrema sinistra.
  
@@ -29,4 +29,4 @@ Se non si prevede di usare le risorse create in questa sede, è consigliabile el
 
 1. Selezionare **Elimina gruppo di risorse**.
 
-1. Immettere il nome del gruppo di risorse e quindi selezionare **Elimina**.
+1. Immettere il nome del gruppo di risorse. Selezionare **Elimina**.

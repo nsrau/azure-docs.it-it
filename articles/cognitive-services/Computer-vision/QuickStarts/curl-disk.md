@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Analizzare un'immagine locale - REST, cURL - Visione artificiale"
+title: "Guida introduttiva: Analizzare un'immagine locale - REST, cURL"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizzerà un'immagine locale usando l'API Visione artificiale con cURL.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: c7c3cf2bae66e1739c4a62e1ce823542d0dfce36
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: c5e3de438593a6fb960edaffd14fa18ebe03f548
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339917"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579389"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine locale usando l'API REST e cURL in Visione artificiale
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST e cURL in Visione artificiale
 
 In questa guida introduttiva si analizza un'immagine archiviata in locale per estrarre le caratteristiche visive usando l'API REST di Visione artificiale. Con il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) è possibile estrarre caratteristiche visive in base al contenuto di un'immagine.
 

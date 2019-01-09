@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: fc8ec5c3bbe0157f5737e2eb757478357aa6e867
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 8ec41c6db8c8e5c62d15dc0638762f2649c637b8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414303"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631652"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegare una subnet ad Azure NetApp Files 
 
@@ -28,7 +28,7 @@ ms.locfileid: "53414303"
 ## <a name="about-this-task"></a>Informazioni sull'attività
 * La procedura guidata per la creazione di una nuova subnet una maschera di rete /24, che serve 251 indirizzi IP disponibili. Per il servizio, è sufficiente l'uso di una maschera di rete /28, la quale serve 16 indirizzi IP utili.
 * Non è possibile designare un gruppo di sicurezza di rete o un endpoint di servizio nella subnet delegata. In questo modo, la delegazione della subnet ha esito negativo.
-* In ogni rete virtuale di Azure (VNet), è possibile delegare solo una subnet in Azure NetApp Files.
+* In ogni rete virtuale di Azure è possibile delegare una sola subnet ad Azure NetApp Files.
 * L'accesso a un volume da una rete virtuale con peering non è attualmente supportato.
 
 ## <a name="steps"></a>Passaggi 

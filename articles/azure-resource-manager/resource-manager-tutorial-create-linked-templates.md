@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a861a88c8534fa50405109efd738deb8486081e4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fd2c5c0aab9b9b9f2977b3a38b9e08c51e98d451
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075564"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973486"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Esercitazione: Creare modelli collegati di Azure Resource Manager
 
@@ -158,7 +158,7 @@ Il modello collegato crea un account di archiviazione. Il modello collegato è q
 
 ## <a name="upload-the-linked-template"></a>Caricamento del modello collegato
 
-Il modello principale e quello collegato devono essere accessibili dalla posizione in cui si esegue la distribuzione. In questa esercitazione si usa il metodo di distribuzione di Cloud Shell come nell'[esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./resource-manager-tutorial-create-templates-with-dependent-resources.md). Nella shell viene caricato il modello principale (azuredeploy.json). Il modello collegato (linkedTemplate.json) deve essere condiviso in modo sicuro da qualche parte. Lo script di PowerShell seguente crea un account di archiviazione di Azure, carica il modello nell'account di archiviazione e quindi genera un token di firma di accesso condiviso per fornire accesso limitato al file del modello. Per semplificare l'esercitazione, lo script scarica un modello collegato completato da un percorso condiviso. Se si desidera usare il modello collegato creato, è possibile usare [Cloud Shell](https://shell.azure.com) per caricare il modello collegato e quindi modificare lo script per usarlo.
+Il modello principale e quello collegato devono essere accessibili dalla posizione in cui si esegue la distribuzione. In questa esercitazione si usa il metodo di distribuzione di Cloud Shell come nell'[esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./resource-manager-tutorial-create-templates-with-dependent-resources.md). Nella shell viene caricato il modello principale (azuredeploy.json). Il modello collegato (linkedTemplate.json) deve essere condiviso in modo sicuro da qualche parte. Lo script di PowerShell seguente crea un account di archiviazione di Azure, carica il modello nell'account di archiviazione e quindi genera un token di firma di accesso condiviso per concedere accesso limitato al file del modello. Per semplificare l'esercitazione, lo script scarica un modello collegato completato da un percorso condiviso. Se si desidera usare il modello collegato creato, è possibile usare [Cloud Shell](https://shell.azure.com) per caricare il modello collegato e quindi modificare lo script per usarlo.
 
 > [!NOTE]
 > Lo script limita l'uso del token di firma di accesso condiviso a otto ore. Se è necessario più tempo per completare questa esercitazione, aumentare il tempo di scadenza.

@@ -1,5 +1,5 @@
 ---
-title: Provare una soluzione di manutenzione predittiva IoT basata sul cloud in Azure | Microsoft Docs
+title: Provare una soluzione di manutenzione predittiva IoT basata sul cloud - Azure | Microsoft Docs
 description: In questa guida introduttiva si vedrà come distribuire l'acceleratore della soluzione IoT di Azure per la manutenzione predittiva e quindi come accedere al dashboard della soluzione e usarlo.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: c56bdb5968b5f5ada902aa9212282c3cfebe2eaf
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139840"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604338"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Guida introduttiva: Provare una soluzione basata sul cloud per eseguire un'analisi di manutenzione predittiva sui dispositivi connessi
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: beaedf754df2b1c4739c5dfb2abcdc40c163dc81
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: be44a233c2b09aa91ec04b5a64b523a2d0b00db1
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254123"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599860"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Esercitazione: autenticazione del servizio Azure SignalR
 
@@ -59,7 +59,7 @@ Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
 
 3. Usare le seguenti impostazioni per la nuova app OAuth, quindi fare clic su **Register application**(Registra applicazione):
 
-    | Nome impostazione | Valore consigliato | DESCRIZIONE |
+    | Nome impostazione | Valore consigliato | Descrizione |
     | ------------ | --------------- | ----------- |
     | Nome dell'applicazione | *Chat Azure SignalR* | L'utente di GitHub deve essere in grado di riconoscere e considerare attendibile l'app con cui sta eseguendo l'autenticazione.   |
     | URL della home page | *http://localhost:5000/home* | |
@@ -378,7 +378,7 @@ In questa sezione si attiverà l'autenticazione reale aggiungendo l'attributo `A
 
 ## <a name="deploy-the-app-to-azure"></a>Distribuire l'app in Azure
 
-In questa sezione si userà l'interfaccia della riga di comando (CLI) da Azure Cloud Shell per creare una nuova [App Web di Azure](https://docs.microsoft.com/azure/app-service/) per ospitare l'applicazione ASP.NET in Azure. L'app Web verrà configurata per usare la distribuzione Git locale. L'app Web verrà configurata anche con la stringa di connessione SignalR, i segreti dell'app OAuth di GitHub e un utente di distribuzione.
+In questa sezione si userà l'interfaccia della riga di comando di Azure da Azure Cloud Shell per creare una nuova app Web in [Servizio app di Azure](https://docs.microsoft.com/azure/app-service/) per ospitare l'applicazione ASP.NET in Azure. L'app Web verrà configurata per usare la distribuzione Git locale. L'app Web verrà configurata anche con la stringa di connessione SignalR, i segreti dell'app OAuth di GitHub e un utente di distribuzione.
 
 I passaggi di questa sezione usano l'estensione *signalr* per l'interfaccia della riga di comando di Azure. Eseguire il comando seguente per installare l'estensione *signalr* per l'interfaccia della riga di comando di Azure:
 
@@ -468,7 +468,7 @@ az webapp config appsettings set --name $WebAppName \
     --settings "GitHubClientSecret=$GitHubClientSecret"
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | -------------------- | --------------- |
 | GitHubClientId | Assegnare a questa variabile l'ID client segreto per l'app OAuth di GitHub. |
 | GitHubClientSecret | Assegnare a questa variabile la password segreta per l'app OAuth di GitHub. |
@@ -503,7 +503,7 @@ az webapp deployment source config-local-git --name $WebAppName \
     --query [url] -o tsv
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | -------------------- | --------------- |
 | DeploymentUserName | Scegliere un nuovo nome utente di distribuzione. |
 | DeploymentUserPassword | Scegliere una password per il nuovo utente di distribuzione. |

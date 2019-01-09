@@ -1,23 +1,25 @@
 ---
-title: Cercare dati non strutturati nell'archiviazione cloud di Azure
-description: Ricerca di dati non strutturati tramite Ricerca di Azure.
+title: "Esercitazione: Cercare dati non strutturati nell'archiviazione BLOB di Azure"
+description: "Esercitazione: Ricerca di dati non strutturati nell'archiviazione BLOB tramite Ricerca di Azure."
 author: roygara
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 902009d7807b1ce340000c271350af1c37231d77
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 42c67d73ee776488fbe932676f61cb7166c2984b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181193"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599841"
 ---
-# <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Esercitazione: eseguire una ricerca all'interno di dati non strutturati in una risorsa di archiviazione nel cloud
+# <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Esercitazione: Cercare dati non strutturati nell'archiviazione cloud
 
-In questa esercitazione viene illustrato come eseguire una ricerca di dati non strutturati tramite [Ricerca di Azure](../../search/search-what-is-azure-search.md) usando i dati archiviati nel BLOB di Azure. I dati non strutturati sono dati non organizzati in modo predefinito o che non dispongono di un modello di dati. Un esempio è rappresentato da un file con estensione TXT.
+In questa esercitazione viene illustrato come eseguire una ricerca di dati non strutturati tramite [Ricerca di Azure](../../search/search-what-is-azure-search.md) usando i dati archiviati nell'archiviazione BLOB di Azure. I dati non strutturati sono dati non organizzati in modo predefinito o che non dispongono di un modello di dati. Un esempio è rappresentato da un file TXT.
+
+Per completare questa esercitazione, è necessario avere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 In questa esercitazione si apprenderà come:
 
@@ -27,41 +29,23 @@ In questa esercitazione si apprenderà come:
 > * Creare un contenitore
 > * Caricare dati nel contenitore
 > * Creare un servizio di ricerca tramite il portale
+> * Connettere un servizio di ricerca a un account di archiviazione
+> * Creare un'origine dati
+> * Configurare l'indice
+> * Creare un indicizzatore
 > * Usare il servizio di ricerca per cercare il contenitore
 
-## <a name="download-the-sample"></a>Scaricare l'esempio
+## <a name="prerequisites"></a>Prerequisiti
 
-È disponibile un set di dati di esempio. **Scaricare [clinical-trials.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** e decomprimerlo nella relativa cartella.
+Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. Un gruppo di risorse è un contenitore logico per raggruppare i servizi di Azure. Quando si crea un account di archiviazione, è possibile creare un nuovo gruppo di risorse o usarne uno esistente. In questa esercitazione viene creato un nuovo gruppo di risorse.
 
-L'esempio è costituito da file di testo ottenuti da [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). È possibile usarli come file di testo di esempio per la ricerca con Azure.
+Accedere al [portale di Azure](http://portal.azure.com).
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-Accedere al [Portale di Azure](http://portal.azure.com).
+È stato preparato un set di dati di esempio per consentirne l'uso durante l'esercitazione. Scaricare [clinical-trials.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip) e decomprimere il file nella cartella.
 
-## <a name="create-a-storage-account"></a>Creare un account di archiviazione
-
-Un account di archiviazione offre uno spazio univoco per archiviare e accedere agli oggetti dati di Archiviazione di Azure.
-
-Attualmente esistono due tipi di account di archiviazione, **BLOB** e **generico**. Per questa esercitazione creare un account di archiviazione **generico**.
-
-Se non si ha familiarità con il processo di creazione dell'account di archiviazione generico, di seguito viene illustrato come crearne uno:
-
-1. Nel menu a sinistra selezionare **Account di archiviazione** e quindi selezionare **Aggiungi**.
-
-2. Immettere un nome univoco per l'account di archiviazione. 
-
-3. Selezionare **Gestione risorse** per il **Modello di distribuzione** e **Utilizzo generico** dall'elenco a discesa **Tipologia account**.
-
-4. Nell'elenco a discesa **Replica** scegliere **Archiviazione con ridondanza locale**.
-
-5. In **Gruppo di risorse** selezionare **Crea nuovo** e immettere un nome univoco.
-
-6. Scegliere la sottoscrizione appropriata.
-
-7. Scegliere un percorso e selezionare **Crea.**
-
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/storagepanes2.png)
+L'esempio è costituito da file di testo ottenuti da [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). In questa esercitazione i file vengono usati come file di testo di esempio in cui vengono eseguite le ricerche tramite servizi di ricerca di Azure.
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
@@ -69,15 +53,15 @@ I contenitori sono simili alle cartelle e vengono usati per archiviare BLOB.
 
 Per questa esercitazione usare un solo contenitore per archiviare i file di testo ottenuti da clinicaltrials.gov.
 
-1. Passare all'account di archiviazione nel portale di Azure.
+1. Passare al proprio account di archiviazione nel portale di Azure.
 
 2. Selezionare **Esplora BLOB** in **Servizio BLOB**.
 
 3. Aggiungere un nuovo contenitore.
 
-4. Denominare il contenitore "dati" e selezionare **Contenitore** per il livello di accesso pubblico.
+4. Assegnare al contenitore il nome **data** e selezionare **Contenitore** per il livello di accesso pubblico.
 
-5. Fare clic su **OK** per creare il contenitore. 
+5. Fare clic su **OK** per creare il contenitore.
 
   ![Ricerca su dati non strutturati](media/storage-unstructured-search/storageactinfo.png)
 
@@ -87,29 +71,29 @@ Dopo aver creato il contenitore, è possibile caricarvi i dati di esempio.
 
 1. Selezionare il contenitore e **Carica**.
 
-2. Selezionare l'icona della cartella blu accanto al campo File e passare alla cartella locale in cui sono stati estratti i dati di esempio.
+2. Selezionare l'icona di cartella blu accanto al campo **File** e passare alla cartella locale in cui sono stati estratti i dati di esempio.
 
-3. Selezionare tutti i file estratti e scegliere **Apri**
+3. Selezionare tutti i file estratti e scegliere **Apri**.
 
 4. Selezionare **Carica** per avviare il processo di caricamento.
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/upload.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/upload.png)
 
-Il processo di caricamento potrebbe richiedere qualche istante.
+Il processo di caricamento può richiedere alcuni istanti.
 
-Al termine tornare al contenitore dati per verificare i file di testo caricati.
+Al termine, tornare al contenitore dati per verificare i file di testo caricati.
 
   ![Ricerca su dati non strutturati](media/storage-unstructured-search/clinicalfolder.png)
 
 ## <a name="create-a-search-service"></a>Creare un servizio di ricerca
 
-Ricerca di Azure è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti per ottenere un'esperienza di ricerca avanzata tra i dati nelle applicazioni Web, per dispositivi mobili ed enterprise.
+Ricerca di Azure è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti necessari per aggiungere un'esperienza di ricerca sui dati.
 
-Se non si ha familiarità con il processo di creazione del servizio di ricerca, di seguito viene illustrato come crearne uno:
+Per questa esercitazione, usare un servizio di ricerca per cercare nei file di testo ottenuti da clinicaltrials.gov.
 
-1. Passare all'account di archiviazione nel portale di Azure.
+1. Passare al proprio account di archiviazione nel portale di Azure.
 
-2. Scorrere verso il basso e fare clic su **Aggiungi Ricerca di Azure** in **SERVIZIO BLOB**.
+2. Scorrere verso il basso e selezionare **Aggiungi Ricerca di Azure** in **SERVIZIO BLOB**.
 
 3. In **Importa dati** scegliere **Selezionare il servizio**.
 
@@ -133,70 +117,64 @@ Dopo aver creato il servizio di ricerca, è possibile collegarlo nell'archiviazi
 
 2. Selezionare **Aggiungi Ricerca di Azure** in **SERVIZIO BLOB**.
 
-3. Selezionare **Servizio di ricerca** all'interno di **Importa dati** e quindi fare clic sul servizio di ricerca creato nella sezione precedente. Verrà visualizzato **Nuova origine dati**.
+3. Selezionare **Servizio di ricerca** all'interno di **Importa dati** e quindi fare clic sul servizio di ricerca creato nella sezione precedente. Viene visualizzato **Nuova origine dati**.
 
-### <a name="new-data-source"></a>Nuova origine dati
+### <a name="create-a-data-source"></a>Creare un'origine dati
 
   Un'origine dati specifica i dati da indicizzare e come accedervi. Questa può essere usata più volte nello stesso servizio di ricerca.
 
 1. Immettere un nome per l'origine dati. In **Dati da estrarre** selezionare **Contenuto e metadati**. L'origine dati specifica quali parti del BLOB vengono indicizzate.
-    
-    a. In altri scenari è anche possibile selezionare **Solo metadati archiviazione**. Eseguire questa selezione se si desidera limitare i dati che vengono indicizzati alle proprietà BLOB standard o alle proprietà definite dall'utente.
-    
-    b. È anche possibile scegliere **All metadata** (Tutti i metadati) per ottenere proprietà BLOB standard e *tutti* i metadati specifici per il tipo di contenuto. 
 
-2. Poiché i BLOB in uso sono file di testo, impostare **Modalità di analisi** su **Testo**.
-    
-    a. In altri scenari potrebbe essere necessario selezionare [altre modalità di analisi](../../search/search-howto-indexing-azure-blob-storage.md) in base al contenuto dei BLOB.
+2. Poiché i BLOB usati sono file di testo, impostare **Modalità di analisi** su **Testo**.
 
   ![Ricerca su dati non strutturati](media/storage-unstructured-search/datasources.png)
 
 3. Selezionare **Contenitore di archiviazione** per elencare gli account di archiviazione disponibili.
 
-4. Selezionare l'account di archiviazione, quindi scegliere il contenitore creato in precedenza.
-
-5. Fare clic su **Seleziona** per tornare a **Nuova origine dati** e selezionare **OK** per continuare.
+4. Selezionare l'account di archiviazione e quindi il contenitore creato in precedenza.
 
   ![Ricerca su dati non strutturati](media/storage-unstructured-search/datacontainer.png)
 
+5. Fare clic su **Seleziona** per tornare a **Nuova origine dati** e selezionare **OK** per continuare.
+
 ### <a name="configure-the-index"></a>Configurare l'indice
 
-  Un indice è una raccolta di campi dell'origine dati in cui è possibile eseguire ricerche. L'indice indica le modalità note al servizio di ricerca per eseguire le ricerche dei dati.
+  Un indice è una raccolta di campi dell'origine dati in cui è possibile eseguire ricerche. È necessario impostare e configurare parametri in questi campi per indicare al servizio di ricerca i modi in cui cercare i dati.
 
 1. In **Importa dati** selezionare **Personalizza indice di destinazione**.
- 
+
 2. Immettere un nome per l'indice nel campo **Nome indice**.
 
 3. Selezionare la casella di controllo dell'attributo **Recuperabile** in **metadata_storage_name**.
 
   ![Ricerca su dati non strutturati](media/storage-unstructured-search/valuestoselect.png)
 
-4. Fare clic su **OK**; viene visualizzato **Crea un indicizzatore**.
+4. Selezionare **OK**. Verrà visualizzato **Crea un indicizzatore**.
 
 I parametri dell'indice e gli attributi assegnati a tali parametri sono importanti. I parametri specificano *quali* dati archiviare, mentre gli attributi specificano *come* archiviarli.
 
 La colonna **NOME CAMPO** contiene i parametri. La tabella seguente contiene un elenco degli attributi disponibili e delle relative descrizioni.
 
-### <a name="field-attributes"></a>Attributi dei campi
-| Attributo | DESCRIZIONE |
+#### <a name="field-attributes"></a>Attributi dei campi
+
+| Attributo | Descrizione |
 | --- | --- |
 | *Chiave* |Stringa che fornisce l'ID univoco di ogni documento, usata per la ricerca di documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.String. |
 | *Recuperabile* |Specifica se il campo può essere restituito nel risultato di una ricerca. |
 | *Filtrabile* |Consente di usare il campo nelle query di filtro. |
 | *Ordinabile* |Consente a una query ordinare i risultati della ricerca usando questo campo. |
-| *Con facet* |Consente di usare un campo in una struttura di esplorazione in base a facet per i filtri autoindirizzati. In genere, i campi che contengono valori ricorrenti che è possibile usare per raggruppare più documenti, ad esempio, più documenti che rientrano in una categoria di servizi o una singola marca, funzionano meglio come facet. |
+| *Con facet* |Consente di usare un campo in una struttura di esplorazione in base a facet per i filtri autoindirizzati. In genere, i campi che contengono valori ricorrenti che è possibile usare per raggruppare più documenti, ad esempio più documenti che rientrano in una categoria di servizi o un singolo marchio, funzionano meglio come facet. |
 | *Ricercabile* |Contrassegna il campo come disponibile per la ricerca full-text. |
 
-
 ### <a name="create-an-indexer"></a>Creare un indicizzatore
-    
+
   Un indicizzatore connette un'origine dati con un indice di ricerca e consente di pianificare una nuova indicizzazione dei dati.
 
 1. Immettere un nome per il campo **Nome** e selezionare **OK**.
 
   ![Ricerca su dati non strutturati](media/storage-unstructured-search/exindexer.png)
 
-2. Verrà visualizzato nuovamente **Importa dati**, selezionare **OK** per completare il processo di connessione.
+2. Verrà visualizzato di nuovo **Importa dati**. Selezionare **OK** per completare il processo di connessione.
 
 A questo punto il BLOB è stato collegato correttamente al servizio di ricerca. Sono necessari alcuni minuti affinché il portale mostri che l'indice è stato compilato. Tuttavia, il servizio di ricerca inizia l'indicizzazione subito per consentire all'utente di iniziare la ricerca immediatamente.
 
@@ -210,49 +188,50 @@ I passaggi seguenti illustrano dove trovare Esplora ricerche e indicano alcuni e
 
   ![Ricerca su dati non strutturati](media/storage-unstructured-search/exampleurl.png)
 
-3. Selezionare l'indice per aprirlo. 
+2. Selezionare l'indice per aprirlo.
 
   ![Ricerca su dati non strutturati](media/storage-unstructured-search/overview.png)
 
-4. Selezionare **Esplora ricerche** per aprire Esplora ricerche e poter effettuare query in tempo reale sui dati.
+3. Selezionare **Esplora ricerche** per aprire Esplora ricerche, in cui è possibile eseguire query in tempo reale sui dati.
 
   ![Ricerca su dati non strutturati](media/storage-unstructured-search/indexespane.png)
 
-5. Selezionare **Cerca** quando il campo della stringa di query è vuoto. Una query vuota restituisce *tutti* i dati dei BLOB.
+4. Selezionare **Cerca** quando il campo della stringa di query è vuoto. Una query vuota restituisce *tutti* i dati dei BLOB.
 
   ![Ricerca su dati non strutturati](media/storage-unstructured-search/emptySearch.png)
 
-### <a name="full-text-search"></a>Ricerca full-text 
+### <a name="perform-a-full-text-search"></a>Eseguire una ricerca full-text
 
-Immettere "Myopia" nel campo **Stringa di query** e selezionare **Cerca**. Viene avviata una ricerca dei contenuti dei file che ne restituisce un sottoinsieme contenente la parola "Myopia".
+Immettere **Myopia** nel campo **Stringa di query** e selezionare **Cerca**. Viene avviata una ricerca nel contenuto dei file che ne restituisce il sottoinsieme contenente la parola "Myopia".
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/secondMyopia.png) 
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/secondMyopia.png)
 
-### <a name="system-properties-search"></a>Ricerca delle proprietà di sistema
+### <a name="perform-a-system-properties-search"></a>Eseguire una ricerca delle proprietà di sistema
 
-È anche possibile creare query che effettuano la ricerca per proprietà di sistema usando il parametro `$select`. Se si immette `$select=metadata_storage_name` nella stringa di query e si preme Invio, viene restituito solo quel campo specifico.
-    
+Oltre a una ricerca full-text, è possibile creare query per la ricerca in base a proprietà di sistema tramite il parametro `$select`.
+
+Immettere `$select=metadata_storage_name` nella stringa di query e premere **INVIO**. In questo modo, viene restituito solo il campo specifico.
+
 La stringa di query modifica direttamente l'URL, pertanto non sono consentiti spazi. Per eseguire una ricerca con più campi usare la virgola, ad esempio: `$select=metadata_storage_name,metadata_storage_path`
-    
+
 Il parametro `$select` può essere usato solo con i campi contrassegnati come recuperabili durante la definizione dell'indice.
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/metadatasearchunstructured.png) 
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/metadatasearchunstructured.png)
 
 Questa esercitazione è terminata e ha consentito all'utente di avere un set di dati non strutturati ricercabile.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Il metodo più semplice per rimuovere le risorse create consiste nell'eliminare il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le risorse che contiene. Nell'esempio seguente la rimozione del gruppo di risorse rimuove l'account di archiviazione e il gruppo di risorse stesso.
+
+1. Nel portale di Azure passare all'elenco dei gruppi di risorse nella sottoscrizione.
+2. Scegliere il gruppo di risorse che si vuole eliminare.
+3. Selezionare il pulsante **Elimina gruppo di risorse** e immettere il nome del gruppo di risorse nel campo di eliminazione.
+4. Selezionare **Elimina**.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato descritto come eseguire una ricerca di dati non strutturati tramite Ricerca di Azure, ad esempio come:
-
-> [!div class="checklist"]
-> * Creare un gruppo di risorse
-> * Creare un account di archiviazione
-> * Creare un contenitore
-> * Caricare dati nel contenitore
-> * Creare un servizio di ricerca
-> * Usare il servizio di ricerca per cercare il contenitore
-
-Fare clic sul collegamento per altre informazioni sull'indicizzazione di documenti mediante Ricerca di Azure.
+Fare clic su questo collegamento per altre informazioni sull'indicizzazione di documenti con Ricerca di Azure:
 
 > [!div class="nextstepaction"]
 > [Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure](../../search/search-howto-indexing-azure-blob-storage.md)

@@ -1,21 +1,18 @@
 ---
 title: Panoramica del servizio di database relazionale Database di Azure per PostgreSQL
 description: Offre una panoramica del servizio di database relazionale Database di Azure per PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/14/2018
-ms.openlocfilehash: c1e90e9e39bb9ff698b2e53a2b7cf02340e1111f
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 775c9990c85feb3e9e180af6470e7c9a1aa124f3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685855"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808979"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Che cos'è Database di Azure per PostgreSQL
 
@@ -40,7 +37,7 @@ Per un set di esempi dell'interfaccia della riga di comando di Azure, vedere:
 - [Azure CLI samples for Azure Database for PostgreSQL](./sample-scripts-azure-cli.md) (Esempi di interfaccia della riga di comando di Azure per Database di Azure per PostgreSQL)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Regolare prestazioni e scalabilità in pochi secondi
-Il servizio Database di Azure per PostgreSQL offre tre piani tariffari: Basic, Utilizzo generico e Con ottimizzazione per la memoria. Ognuno offre diverse funzionalità in termini di risorse per il supporto dei carichi di lavoro dei database. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere  [Piani tariffari](concepts-pricing-tiers.md).
+Il servizio Database di Azure per PostgreSQL offre tre piani tariffari: piani Basic, Per utilizzo generico e Con ottimizzazione per la memoria. Ognuno offre diverse funzionalità in termini di risorse per il supporto dei carichi di lavoro dei database. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere  [Piani tariffari](concepts-pricing-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
 Per decidere quando aumentare o ridurre le prestazioni, si usano le funzionalità di monitoraggio e avviso predefinite di Azure. Con questi strumenti, è possibile valutare rapidamente l'impatto del passaggio a un piano superiore o inferiore in base alle esigenze attuali o previste in termini di prestazioni o archiviazione. Per informazioni dettagliate, vedere [Avvisi](howto-alert-on-metric.md).
@@ -49,7 +46,7 @@ Per decidere quando aumentare o ridurre le prestazioni, si usano le funzionalit�
 Il Contratto di servizio per la disponibilità del 99,99% leader del settore di Azure, fornito da una rete globale di datacenter gestiti da Microsoft, consente di mantenere l'applicazione in esecuzione 24 ore su 24, 7 giorni su 7. Con ogni database di Azure per il server PostgreSQL, è possibile sfruttare i vantaggi delle funzionalità di sicurezza, tolleranza di errore e protezione dei dati predefinite che sarebbe altrimenti necessario acquistare o progettare, creare e gestire. Con Database di Azure per PostgreSQL, ogni piano tariffario offre un set completo di funzionalità e opzioni per la continuità aziendale utilizzabili per diventare e rimanere operativi. È possibile usare un [ripristino temporizzato](howto-restore-server-portal.md) per riportare un database a uno stato precedente, risalente anche a 35 giorni fa. Se nel data center che ospita i database si verifica un'interruzione, è anche possibile ripristinare i database dalle copie con ridondanza geografica di backup recenti.
 
 ## <a name="secure-your-data"></a>Protezione dei dati
-I servizi di database di Azure vantano una tradizione di sicurezza dei dati rispettata anche da Database di Azure per PostgreSQL con funzionalità che limitano l'accesso, proteggono i dati inattivi e in transito e consentono di monitorare l'attività. Visitare il [Centro protezione di Azure](https://www.microsoft.com/en-us/trustcenter/security) per informazioni sulla sicurezza della piattaforma Azure.
+I servizi di database di Azure vantano una tradizione di sicurezza dei dati rispettata anche da Database di Azure per PostgreSQL con funzionalità che limitano l'accesso, proteggono i dati inattivi e in transito e consentono di monitorare l'attività. Visitare il [Centro protezione di Azure](https://azure.microsoft.com/overview/trusted-cloud/) per informazioni sulla sicurezza della piattaforma Azure.
 
 Il servizio Database di Azure per PostgreSQL usa la crittografia di archiviazione per i dati at-rest. I dati, inclusi i backup, vengono crittografati su disco, ad eccezione dei file temporanei creati dal motore durante l'esecuzione di query. Il servizio usa la crittografia AES a 256 bit inclusa nella crittografia di archiviazione di Azure e le chiavi vengono gestite dal sistema. La crittografia di archiviazione è sempre attiva e non può essere disabilitata.
 

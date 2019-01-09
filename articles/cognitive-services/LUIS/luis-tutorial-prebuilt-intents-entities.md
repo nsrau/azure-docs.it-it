@@ -1,7 +1,7 @@
 ---
 title: Finalità ed entità predefinite
 titleSuffix: Azure Cognitive Services
-description: Aggiungere finalità ed entità predefinite all'app dell'esercitazione relativa alle risorse umane per ottenere rapidamente le previsioni delle finalità e l'estrazione dei dati. Non è necessario etichettare ogni espressione con entità predefinite. L'entità viene rilevata automaticamente.
+description: In questa esercitazione, aggiungere finalità ed entità predefinite a un'app per ottenere rapidamente le previsioni delle finalità e l'estrazione dei dati. Non è necessario etichettare ogni espressione con entità predefinite. L'entità viene rilevata automaticamente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,24 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b6fb603b84cdcf3cb0f75d0020fa2047a0a838d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 804224898f90aa9af587d6d5b4b80c6afcfa586d
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074077"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754986"
 ---
-# <a name="tutorial-2-identify-common-intents-and-entities"></a>Esercitazione 2: Identificare finalità ed entità comuni
-Questa esercitazione illustra come modificare l'app delle risorse umane. Aggiungere finalità ed entità predefinite all'app dell'esercitazione relativa alle risorse umane per ottenere rapidamente le previsioni delle finalità e l'estrazione dei dati. Non è necessario etichettare ogni espressione con entità predefinite perché l'entità viene rilevata automaticamente.
+# <a name="tutorial-identify-common-intents-and-entities"></a>Esercitazione: Identificare finalità ed entità comuni
 
-I modelli predefiniti di tipi di domini soggetto e di dati comuni aiutano a creare rapidamente il modello e forniscono un esempio dell'aspetto di un modello analogo. 
+In questa esercitazione, aggiungere finalità ed entità predefinite a un'app dell'esercitazione relativa alle risorse umane per ottenere rapidamente le previsioni delle finalità e l'estrazione dei dati. Non è necessario contrassegnare ogni espressione con entità predefinite perché l'entità viene rilevata automaticamente.
 
-**Questa esercitazione apprenderà come:**
+I modelli predefiniti (domini, finalità ed entità) aiutano a compilare il modello rapidamente.
+
+**In questa esercitazione si apprenderà come:**
 
 > [!div class="checklist"]
-> * Usare l'app di esercitazione esistente
+> * Creare una nuova app
 > * Aggiungere finalità predefinite 
 > * Aggiungere entità predefinite 
 > * Eseguire il training 
@@ -35,29 +36,24 @@ I modelli predefiniti di tipi di domini soggetto e di dati comuni aiutano a crea
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Usare l'app esistente
-Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
+## <a name="create-a-new-app"></a>Creare una nuova app
 
-Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json).
 
-2. Importare il file JSON in una nuova app.
+## <a name="add-prebuilt-intents-to-help-with-common-user-intentions"></a>Aggiungere finalità predefinite per le intenzioni comuni degli utenti
 
-3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `prebuilts`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL. 
-
-## <a name="add-prebuilt-intents"></a>Aggiungere finalità predefinite
 LUIS fornisce diverse finalità predefinite per le intenzioni comuni degli utenti.  
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Selezionare **Add prebuilt intent** (Aggiungere finalità predefinita). 
+1. Selezionare **Add prebuilt domain intent** (Aggiungi finalità di dominio predefinita). 
 
-3. Cercare `Utilities`. 
+1. Cercare `Utilities`. 
 
     [![Screenshot della finestra di dialogo delle finalità predefinite con Utilities (Utilità) nella casella di ricerca](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-4. Selezionare le finalità seguenti e quindi scegliere **Done** (Fine): 
+1. Selezionare le finalità seguenti e quindi scegliere **Done** (Fine): 
 
     * Utilities.Cancel
     * Utilities.Confirm
@@ -65,118 +61,118 @@ LUIS fornisce diverse finalità predefinite per le intenzioni comuni degli utent
     * Utilities.StartOver
     * Utilities.Stop
 
+    Queste finalità sono utili a determinare in quale punto della conversazione si trova l'utente e cosa sta chiedendo di fare. 
 
-## <a name="add-prebuilt-entities"></a>Aggiungere entità predefinite
+
+## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Aggiungere entità predefinite per aiutare nell'estrazione del tipo di dati comune
+
 LUIS fornisce varie entità predefinite per l'estrazione di dati comuni. 
 
 1. Scegliere **Entities** (Entità) dal menu di spostamento a sinistra.
 
-2. Selezionare **Manage prebuilt entity** (Gestisci entità predefinita).
+1. Selezionare il pulsante **Add prebuilt entity** (Aggiungi entità predefinite).
 
-3. Selezionare **number** e **datetimeV2** nell'elenco delle entità predefinite e quindi scegliere **Done** (Fine).
+1. Selezionare le entità seguenti dall'elenco delle entità predefinite e quindi selezionare **Done** (Fine):
+
+    * **[PersonName](luis-reference-prebuilt-person.md)** 
+    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
     ![Screenshot dell'entità number selezionata nella finestra di dialogo relativa alle entità predefinite](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-## <a name="train"></a>Eseguire il training
+    Queste entità consentono di aggiungere il riconoscimento di nome e posizione all'applicazione client.
+
+## <a name="add-example-utterances-to-the-none-intent"></a>Aggiungere espressioni di esempio alla finalità None (Nessuna) 
+
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Eseguire il training dell'app in modo che sia possibile testare la finalità 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Pubblica
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Pubblicare l'app in modo che sia possibile eseguire query dall'endpoint sul modello con training
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Ottenere finalità ed entità dall'endpoint
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Ottenere la stima di finalità ed entità dall'endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Andare alla fine dell'URL nella barra degli indirizzi del browser e immettere `I want to cancel on March 3`. L'ultimo parametro della stringa di query è `q`, la **query** dell'espressione. 
+1. Andare alla fine dell'URL nella barra degli indirizzi del browser e immettere `I want to cancel my trip to Seattle to see Bob Smith`. L'ultimo parametro della stringa di query è `q`, la **query** dell'espressione. 
 
     ```json
     {
-      "query": "I want to cancel on March 3",
+      "query": "I want to cancel my trip to Seattle to see Bob Smith",
       "topScoringIntent": {
         "intent": "Utilities.Cancel",
-        "score": 0.7818295
+        "score": 0.807676256
       },
       "intents": [
         {
           "intent": "Utilities.Cancel",
-          "score": 0.7818295
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0237864349
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.017576348
+          "score": 0.807676256
         },
         {
           "intent": "Utilities.StartOver",
-          "score": 0.0130122062
+          "score": 0.0487322025
         },
         {
           "intent": "Utilities.Help",
-          "score": 0.006731322
+          "score": 0.0208660364
         },
         {
           "intent": "None",
-          "score": 0.00524190161
+          "score": 0.008789532
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.004912514
+          "score": 0.006929268
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 0.00092950504
+          "score": 0.00136293867
         }
       ],
       "entities": [
         {
-          "entity": "march 3",
-          "type": "builtin.datetimeV2.date",
-          "startIndex": 20,
-          "endIndex": 26,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03",
-                "type": "date",
-                "value": "2018-03-03"
-              },
-              {
-                "timex": "XXXX-03-03",
-                "type": "date",
-                "value": "2019-03-03"
-              }
-            ]
-          }
+          "entity": "seattle",
+          "type": "builtin.geographyV2.city",
+          "startIndex": 28,
+          "endIndex": 34
         },
         {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 26,
-          "endIndex": 26,
-          "resolution": {
-            "value": "3"
-          }
+          "entity": "bob smith",
+          "type": "builtin.personName",
+          "startIndex": 43,
+          "endIndex": 51
         }
       ]
     }
     ```
 
-    Il risultato ha previsto la finalità Utilities.Cancel e ha estratto la data del 3 marzo e il numero 3. 
+    Il risultato ha previsto la finalità Utilities.Cancel con una sicurezza dell'80% e ha estratto i dati relativi a città e nome della persona. 
 
-    Sono presenti due valori per il 3 marzo, perché l'espressione non ha indicato se il 3 marzo è relativo al passato o al futuro. L'applicazione client deve farà una supposizione o richiederà chiarimenti, se necessario. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>Informazioni correlate
+
+Altre informazioni sui modelli predefiniti:
+
+* [Domini predefiniti](luis-reference-prebuilt-domains.md): si tratta dei domini comuni che riducono le operazioni generali di creazione dell'app LUIS
+* Finalità predefinite: si tratta delle finalità singole dei domini comuni. È possibile aggiungere le finalità singolarmente anziché aggiungere l'intero dominio.
+* [Entità predefinite](luis-prebuilt-entities.md): si tratta di tipi di dati comuni utili per la maggior parte delle app LUIS.
+
+Altre informazioni sull'uso dell'app LUIS:
+
+* [Come eseguire il training](luis-how-to-train.md)
+* [Come eseguire la pubblicazione](luis-how-to-publish-app.md)
+* [Come testare nel portale LUIS](luis-interactive-test.md)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Aggiungendo finalità ed entità predefinite, l'applicazione client può stabilire intenzioni dell'utente comuni ed estrarre i datatype comuni. 
+Aggiungendo finalità ed entità predefinite, l'applicazione client può stabilire intenzioni dell'utente comuni ed estrarre i datatype comuni.  
 
 > [!div class="nextstepaction"]
 > [Aggiungere un'entità di espressione regolare all'app](luis-quickstart-intents-regex-entity.md)

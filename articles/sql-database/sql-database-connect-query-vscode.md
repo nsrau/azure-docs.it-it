@@ -4,7 +4,7 @@ description: Informazioni su come connettersi a un database SQL in Azure tramite
 keywords: connettersi al database SQL
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: 786b4fab42fb49cd44c1985bfa04ce33e77cadf0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 994f7d300b1e9a76e109e73467a2e7f0d4c1584d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098985"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652116"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare Visual Studio Code per connettersi a un database SQL di Azure ed eseguire query
 
-[Visual Studio Code](https://code.visualstudio.com/docs) è un editor grafico di codice per Linux, macOS e Windows. Supporta estensioni, tra cui l'[estensione mssql](https://aka.ms/mssql-marketplace) per l'esecuzione di query su Microsoft SQL Server, database SQL di Azure e SQL Data Warehouse. Questa guida introduttiva illustra come usare Visual Studio Code per connettersi a un database SQL di Azure e quindi eseguire query e inserire, aggiornare ed eliminare dati con istruzioni Transact-SQL.
+[Visual Studio Code](https://code.visualstudio.com/docs) è un editor grafico di codice per Linux, macOS e Windows. Supporta estensioni, tra cui l'[estensione mssql](https://aka.ms/mssql-marketplace) per l'esecuzione di query su Microsoft SQL Server, database SQL di Azure e SQL Data Warehouse. In questa guida introduttiva si usa Visual Studio Code per connettersi a un database SQL di Azure e quindi eseguire query e inserire, aggiornare ed eliminare dati con istruzioni Transact-SQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -77,12 +77,12 @@ In Visual Studio Code impostare la modalità di linguaggio su **SQL** per abilit
 Usare Visual Studio Code per stabilire una connessione al server del database SQL di Azure.
 
 > [!IMPORTANT]
-> Prima di continuare, assicurarsi di avere a disposizione le informazioni su server e account di accesso. Se dopo aver iniziato a immettere le informazioni del profilo di connessione si sposta lo stato attivo da Visual Studio Code, sarà necessario iniziare di nuovo la creazione del profilo.
+> Prima di continuare, assicurarsi di avere a disposizione le informazioni di accesso e del server. Se dopo aver iniziato a immettere le informazioni del profilo di connessione si sposta lo stato attivo da Visual Studio Code, sarà necessario iniziare di nuovo la creazione del profilo.
 >
 
 1. In Visual Studio Code premere **CTRL+MAIUSC+P** o **F1** per aprire il riquadro comandi.
 
-2. Selezionare **MS SQL: Connect** (MS SQL: Connetti) e premere **INVIO**.
+2. Selezionare **MS SQL:Connect** (MS SQL: Connetti) e premere **INVIO**.
 
 3. Selezionare **Create Connection Profile** (Crea profilo di connessione).
 
@@ -102,7 +102,7 @@ Usare Visual Studio Code per stabilire una connessione al server del database SQ
 
 ## <a name="query-data"></a>Eseguire query sui dati
 
-Usare l'istruzione [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL seguente per eseguire una query per individuare i primi 20 prodotti per categoria.
+Eseguire l'istruzione [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL seguente per eseguire una query per individuare i primi 20 prodotti per categoria.
 
 1. Nella finestra dell'editor incollare la query SQL seguente.
 
@@ -119,7 +119,7 @@ Usare l'istruzione [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Tr
 
 ## <a name="insert-data"></a>Inserire dati
 
-Usare l'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL seguente per aggiungere un nuovo prodotto nella tabella `SalesLT.Product`.
+Eseguire l'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL seguente per aggiungere un nuovo prodotto nella tabella `SalesLT.Product`.
 
 1. Sostituire la query precedente con questa.
 
@@ -147,7 +147,7 @@ Usare l'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tr
 
 ## <a name="update-data"></a>Aggiornare i dati
 
-Usare l'istruzione [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL seguente per aggiornare il prodotto aggiunto.
+Eseguire l'istruzione [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL seguente per aggiornare il prodotto aggiunto.
 
 1. Sostituire la query precedente con questa:
 
@@ -161,7 +161,7 @@ Usare l'istruzione [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tr
 
 ## <a name="delete-data"></a>Eliminare i dati
 
-Usare l'istruzione [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL seguente per rimuovere il nuovo prodotto.
+Eseguire l'istruzione [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL seguente per rimuovere il nuovo prodotto.
 
 1. Sostituire la query precedente con questa:
 

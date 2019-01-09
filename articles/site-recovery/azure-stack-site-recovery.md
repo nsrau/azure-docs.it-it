@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 8285632d8dea76763c65dd06e8be2d7494a47188
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838992"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976580"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
 
@@ -234,10 +234,10 @@ Verificare di aver completato tutte le attività nel [Passaggio 1: Preparare la 
 3. In **Tipo di computer**, selezionare **Computer fisici**.
 4. Selezionare il server di elaborazione (server di configurazione). Fare quindi clic su **OK**.
 5. In **Destinazione** selezionare la sottoscrizione e il gruppo di risorse in cui creare le macchine virtuali dopo il failover. Scegliere il modello di distribuzione da usare per le macchine virtuali sottoposte a failover.
-6. Selezionare l'account di archiviazione di Azure in cui archiviare i dati replicati.
+6. Selezionare l'account di archiviazione di Azure in cui si desiderano archiviare i dati replicati.
 7. Selezionare la rete di Azure e la subnet a cui dovranno connettersi le macchine virtuali di Azure create dopo il failover.
 8. Scegliere **Configurare ora per le macchine virtuali selezionate** per applicare le impostazioni di rete a tutti i computer selezionati per la protezione. Selezionare **Configura in seguito** se si intende selezionare la rete di Azure separatamente per ogni macchina.
-9. In **Computer fisici** fare clic su **+Computer fisico**. Specificare il nome dell'indirizzo IP di ogni computer e il sistema operativo da replicare.
+9. In **Computer fisici** fare clic su **+Computer fisico**. Specificare il nome, l'indirizzo IP e il tipo di sistema operativo di ciascun computer che si desidera replicare.
 
     - Usare l'indirizzo IP interno del computer.
     - Se si specifica l'indirizzo IP pubblico, la replica potrebbe non funzionare come previsto.
@@ -279,8 +279,8 @@ Quando si esegue un failover di test, si verifica quanto segue:
 1. Viene eseguito un controllo dei prerequisiti per verificare che tutte le condizioni necessarie per il failover siano in atto.
 2. Il failover elabora i dati usando il punto di ripristino specificato:
     - **Elaborato più recente**: il computer esegue il failover sull'ultimo punto di ripristino elaborato da Site Recovery. Viene visualizzato il timestamp. Con questa opzione, non viene impiegato alcun tempo di elaborazione dati, pertanto viene fornito un RTO (Recovery Time Objective) basso.
-    - **Coerente con l'app più recente**: il computer esegue il failover sul punto di ripristino coerente con l'app più recente.
-    - **Personalizzato**. Selezionare il punto di ripristino usato per il failover.
+    - **Coerente con l'app più recente**: Il computer esegue il failover sul punto di ripristino coerente con l'app più recente.
+    - **Personalizzato**: Selezionare il punto di ripristino usato per il failover.
 
 3. Viene creata una macchina virtuale di Azure usando i dati elaborati.
 4. Il failover di test può pulire automaticamente le macchine virtuali di Azure create durante l'analisi.

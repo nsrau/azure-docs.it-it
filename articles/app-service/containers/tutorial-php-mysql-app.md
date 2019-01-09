@@ -1,5 +1,5 @@
 ---
-title: Compilare un'app Web PHP con MySQL su Linux - Servizio app di Azure | Microsoft Docs
+title: Compilare un'app PHP con MySQL su Linux - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come far funzionare un'app PHP nel Servizio app di Azure su Linux, con connessione a un database MySQL in Azure.
 services: app-service\web
 author: cephalin
@@ -11,20 +11,20 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5d9843eecfed56f09c3a6d659976ca1ce5f42d80
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0470c12f7965ec5d7e151bb6b03163d6946b83e6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342360"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743239"
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web PHP e MySQL nel servizio app di Azure in Linux
+# <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Compilare un'app PHP e MySQL nel Servizio app di Azure in Linux
 
 > [!NOTE]
-> Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app Web PHP e MySQL in Azure](../app-service-web-tutorial-php-mysql.md).
+> Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app PHP e MySQL in Azure](../app-service-web-tutorial-php-mysql.md).
 >
 
-Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa esercitazione illustra come creare un'app Web PHP e connetterla a un database MySQL. Al termine, sarà disponibile un'app [Laravel](https://laravel.com/) in esecuzione nel Servizio app in Linux.
+Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa esercitazione illustra come creare un'app PHP e connetterla a un database MySQL. Al termine, sarà disponibile un'app [Laravel](https://laravel.com/) in esecuzione nel Servizio app in Linux.
 
 ![App PHP in esecuzione nel Servizio app di Azure](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -161,7 +161,7 @@ In questo passaggio viene creato un database MySQL in [Database di Azure per MyS
 
 Creare un server in Database di Azure per MySQL con il comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-Nel comando seguente sostituire il segnaposto *\<mysql_server_name>* con un nome di server univoco, *\<admin_user>* con un nome utente e il segnaposto *\<admin_password>* con una password. Poiché il nome del server viene usato come parte dell'endpoint MySQL (`https://<mysql_server_name>.mysql.database.azure.com`), il nome deve essere univoco in tutti i server in Azure.
+Nel comando seguente sostituire il segnaposto *\<mysql_server_name>* con un nome di server univoco, *\<admin_user>* con un nome utente e il segnaposto *\<admin_password>* con una password. Poiché il nome del server viene usato come parte dell'endpoint MySQL (`https://<mysql_server_name>.mysql.database.azure.com`), il nome deve essere univoco in tutti i server in Azure. Per informazioni dettagliate sulla selezione dello SKU del database per MySQL, vedere [Creare un database di Azure per il server MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <admin_password> --sku-name B_Gen5_1
@@ -191,7 +191,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 ```
 
 > [!TIP] 
-> È possibile rendere ancora più restrittiva la regola del firewall [usando solo gli indirizzi IP in uscita usati dall'app](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> È possibile rendere ancora più restrittiva la regola del firewall [usando solo gli indirizzi IP in uscita usati dall'app](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
 In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal computer locale sostituendo *\<your_ip_address>* con l'[indirizzo IPv4 locale](https://www.whatsmyip.org/).
@@ -373,13 +373,13 @@ Usare `php artisan` per generare una nuova chiave applicazione senza salvarla in
 php artisan key:generate --show
 ```
 
-Impostare la chiave applicazione nell'app Web del servizio app usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Sostituire i segnaposto _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+Impostare la chiave applicazione nell'app del servizio app usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Sostituire i segnaposto _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"` indica a Laravel di restituire le informazioni di debug quando l'app Web distribuita rileva errori. Quando si esegue un'applicazione di produzione, è consigliabile impostarla su `false`.
+`APP_DEBUG="true"` indica a Laravel di restituire le informazioni di debug quando l'app distribuita rileva errori. Quando si esegue un'applicazione di produzione, è consigliabile impostarla su `false`.
 
 ### <a name="push-to-azure-from-git"></a>Effettuare il push in Azure da Git
 
@@ -422,7 +422,7 @@ remote: Running deployment command...
 > È possibile usare questo approccio per aggiungere uno o più passaggi alla distribuzione basata su Git al servizio app. Per altre informazioni, vedere [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) (Script di distribuzione personalizzata).
 >
 
-### <a name="browse-to-the-azure-web-app"></a>Passare all'app Web di Azure
+### <a name="browse-to-the-azure-app"></a>Passare all'app Azure
 
 Passare a `http://<app_name>.azurewebsites.net` e aggiungere alcune attività all'elenco.
 
@@ -566,21 +566,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Dopo aver completato `git push`, passare all'app Web di Azure e testare la nuova funzionalità.
+Dopo aver completato `git push`, passare all'app Azure e testare la nuova funzionalità.
 
 ![Modifiche al modello e al database pubblicate in Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
 Le attività aggiunte vengono mantenute nel database. Gli aggiornamenti allo schema di dati non modificano i dati esistenti.
 
-## <a name="manage-the-azure-web-app"></a>Gestire l'app Web di Azure
+## <a name="manage-the-azure-app"></a>Gestire l'app Azure
 
-Accedere al [portale di Azure](https://portal.azure.com) per gestire l'app Web creata.
+Accedere al [portale di Azure](https://portal.azure.com) per gestire l'app creata.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web di Azure.
+Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
 
-![Passare all'app Web di Azure nel portale](./media/tutorial-php-mysql-app/access-portal.png)
+![Passaggio all'app di Azure nel portale](./media/tutorial-php-mysql-app/access-portal.png)
 
-Verrà visualizzata la pagina di panoramica dell'app Web. Nella pagina è possibile eseguire attività di gestione di base come l'arresto, l'avvio, il riavvio e l'eliminazione.
+Verrà visualizzata la pagina Panoramica dell'app. Nella pagina è possibile eseguire attività di gestione di base come l'arresto, l'avvio, il riavvio e l'eliminazione.
 
 Il menu a sinistra consente di visualizzare le pagine di configurazione dell'app.
 
@@ -602,7 +602,7 @@ Questa esercitazione illustra come:
 > * Eseguire lo streaming dei log di diagnostica in Azure
 > * Gestire l'app nel portale di Azure
 
-Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato a un'app Web.
+Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app.
 
 > [!div class="nextstepaction"]
-> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](../app-service-web-tutorial-custom-domain.md)
+> [Eseguire il mapping di un nome DNS personalizzato esistente al servizio app di Azure](../app-service-web-tutorial-custom-domain.md)

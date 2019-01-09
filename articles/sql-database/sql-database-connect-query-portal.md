@@ -13,16 +13,16 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86120e65ad6a3b7fab2a5db78a338bed0e277cb8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091391"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651948"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Guida introduttiva: Usare l'editor di query SQL del portale di Azure per connettersi ed eseguire query sui dati
 
-L'editor di query SQL è uno strumento del browser nel portale di Azure che consente di eseguire facilmente query SQL sul database SQL di Azure o su Azure SQL Data Warehouse. Questa guida introduttiva illustra come usare l'editor di query per connettersi a un database SQL e quindi eseguire query e inserire, aggiornare ed eliminare dati con istruzioni Transact-SQL.
+L'editor di query SQL è uno strumento del browser nel portale di Azure che consente di eseguire facilmente query SQL sul database SQL di Azure o su Azure SQL Data Warehouse. In questa guida introduttiva si usa l'editor di query per connettersi a un database SQL e quindi eseguire query e inserire, aggiornare ed eliminare dati con istruzioni Transact-SQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -92,7 +92,7 @@ La configurazione di un amministratore di Active Directory (AD) consente di usar
 
 ## <a name="insert-data"></a>Inserire dati
 
-Usare l'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL seguente per aggiungere un nuovo prodotto nella tabella `SalesLT.Product`.
+Eseguire l'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL seguente per aggiungere un nuovo prodotto nella tabella `SalesLT.Product`.
 
 1. Sostituire la query precedente con questa.
 
@@ -117,12 +117,12 @@ Usare l'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tr
    ```
 
 
-2. Selezionare **Esegui** per inserire una nuova riga nella tabella Product. Nel riquadro **Messaggi** verrà visualizzato **Query succeeded: Affected rows: 1** (Query riuscita. Righe interessate: 1).
+2. Selezionare **Esegui** per inserire una nuova riga nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **Query succeeded: Affected rows: 1** (Query riuscita. Righe interessate: 1).
 
 
 ## <a name="update-data"></a>Aggiornare i dati
 
-Usare l'istruzione [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL seguente per modificare il nuovo prodotto.
+Eseguire l'istruzione [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL seguente per modificare il nuovo prodotto.
 
 1. Sostituire la query precedente con questa.
 
@@ -132,11 +132,11 @@ Usare l'istruzione [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tr
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selezionare **Esegui** per aggiornare la riga specificata nella tabella Product. Nel riquadro **Messaggi** verrà visualizzato **Query succeeded: Affected rows: 1** (Query riuscita. Righe interessate: 1).
+2. Selezionare **Esegui** per aggiornare la riga specificata nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **Query succeeded: Affected rows: 1** (Query riuscita. Righe interessate: 1).
 
 ## <a name="delete-data"></a>Eliminare i dati
 
-Usare l'istruzione [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL seguente per rimuovere il nuovo prodotto.
+Eseguire l'istruzione [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL seguente per rimuovere il nuovo prodotto.
 
 1. Sostituire la query precedente con questa:
 
@@ -145,7 +145,7 @@ Usare l'istruzione [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Tr
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selezionare **Esegui** per eliminare la riga specificata nella tabella Product. Nel riquadro **Messaggi** verrà visualizzato **Query succeeded: Affected rows: 1** (Query riuscita. Righe interessate: 1).
+2. Selezionare **Esegui** per eliminare la riga specificata nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **Query succeeded: Affected rows: 1** (Query riuscita. Righe interessate: 1).
 
 
 ## <a name="query-editor-considerations"></a>Considerazioni sull'editor di query
@@ -156,7 +156,7 @@ Quando si usa l'editor di query è necessario tenere presente quanto segue.
 
 * Premendo F5, la pagina dell'editor di query verrà aggiornata e qualsiasi query su cui si sta lavorando andrà persa.
 
-* L'editor di query non supporta la connessione al database master.
+* L'editor di query non supporta la connessione al database `master`.
 
 * Esiste un timeout di 5 minuti per l'esecuzione delle query.
 

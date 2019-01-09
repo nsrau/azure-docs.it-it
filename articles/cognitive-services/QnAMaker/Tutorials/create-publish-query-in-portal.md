@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 581c47d84466f37d7c7c3ad3e98ae1749f8d9524
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164433"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608648"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Esercitazione: Creare una knowledge base e quindi rispondere a una domanda tramite il portale di QnA Maker
 
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 * Usare Curl per eseguire una query sulla knowledge base
 
 > [!NOTE] 
-> La versione programmatica di questa esercitazione è disponibile con una soluzione completa nel [repository GitHub  **Azure-Samples/cognitive-services-qnamaker-csharo**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> La versione programmatica di questa esercitazione è disponibile con una soluzione completa nel [repository GitHub  **Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -83,9 +83,9 @@ Questa esercitazione richiede un [servizio QnA Maker](../How-To/set-up-qnamaker-
 
 1. Selezionare l'ultima pagina di domande e risposte nella parte inferiore della tabella. La pagina mostra le domande e le risposte della personalità Chit-chat. 
 
-1. Nella barra degli strumenti sopra l'elenco di domande e risposte selezionare l'icona dell'ingranaggio. Vengono mostrati i filtri per ogni domanda e risposta. Le domande Chit-chat hanno il filtro **editorial: chit-chat** (editoriale: Chit-chat) già impostato. Questo filtro viene restituito all'applicazione client insieme alla risposta selezionata. L'applicazione client, come ad esempio un chat bot, può usare questo filtro per determinare ulteriori elaborazioni o interazioni con l'utente.
+1. Sulla barra degli strumenti sopra l'elenco di domande e risposte selezionare l'icona di metadati. Vengono visualizzati i tag dei metadati per ogni domanda e risposta. Per le domande Chit-chat sono già impostati i metadati **editorial: chit-chat**. Questi metadati vengono restituiti all'applicazione client insieme alla risposta selezionata. L'applicazione client, ad esempio un chat bot, può usare questi metadati filtrati per determinare altre elaborazioni o interazioni con l'utente.
 
-    ![Filtri di visualizzazione](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![Visualizzare i tag dei metadati](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Selezionare **Save and train** (Salva ed esegui training) nella barra dei menu in alto.
 
@@ -171,7 +171,7 @@ Dopo la pubblicazione della knowledge base viene visualizzato l'endpoint
    
     ```
 
-    Poiché la domanda di `Thank you` corrisponde esattamente a una domanda Chit chat, QnA Maker è assolutamente attendibile con il punteggio di 100. QnA Maker ha restituito anche tutte le domande correlate e la proprietà dei metadati contenente le informazioni del filtro Chit-chat.  
+    Poiché la domanda di `Thank you` corrisponde esattamente a una domanda Chit chat, QnA Maker è assolutamente attendibile con il punteggio di 100. QnA Maker ha restituito anche tutte le domande correlate e la proprietà dei metadati contenente le informazioni dei tag dei metadati Chit-chat.  
 
 ## <a name="use-curl-to-query-for-the-default-answer"></a>Usare curl per eseguire una query per ottenere la risposta predefinita
 

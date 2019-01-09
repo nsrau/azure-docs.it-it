@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 814d558efee4a72a25d956828e0db237424cab24
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 12/17/2018
+ms.openlocfilehash: aea95c245b86905b7bef0a35ffaa6c5e00567111
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409769"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558635"
 ---
 # <a name="tutorial-secure-a-single-database-in-azure-sql-database"></a>Esercitazione: Proteggere un database singolo di database SQL di Azure
 
@@ -136,6 +136,9 @@ Effettuare il provisioning di un amministratore di Azure Active Directory per il
     ![choose-ad](./media/sql-database-aad-authentication/8choose-ad.png)
 
 2. Nella pagina **SQL Server** selezionare **Amministratore di Active Directory** e, nella pagina **Amministratore di Active Directory**, selezionare **Imposta amministratore**. ![Selezionare Active Directory](./media/sql-database-aad-authentication/select-active-directory.png)  
+
+   > [!IMPORTANT]
+   > Per eseguire questa attività, è necessario essere un amministratore della società o un amministratore globale.
 
 3. Nella pagina **Aggiungi amministratore** cercare un utente, selezionare l'utente o il gruppo da impostare come amministratore e quindi scegliere **Seleziona**. La pagina Amministratore di Active Directory mostra tutti i membri e i gruppi di Active Directory. Gli utenti e i gruppi non disponibili (in grigio) non possono essere selezionati, perché non sono supportati come amministratori di Azure AD. Per l'elenco degli amministratori supportati, vedere la sezione **Funzionalità e limitazioni di Azure AD** in [Usare l'autenticazione di Azure Active Directory per l'autenticazione di un database SQL o di SQL Data Warehouse](sql-database-aad-authentication.md). Il controllo di accesso basata sui ruoli (RBAC) si applica solo al portale e non viene propagato a SQL Server.
     ![Selezionare l'amministratore](./media/sql-database-aad-authentication/select-admin.png)  

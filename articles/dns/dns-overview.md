@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 9535ad73300406408a94a6f38f001e45ba7409a2
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: df890eb0e07c13d0757c706a3cabbbad67b6eac2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093096"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716277"
 ---
 # <a name="what-is-azure-dns"></a>Che cos'è DNS di Azure?
 
 DNS di Azure è un servizio di hosting per i domini DNS che offre la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. L'hosting dei domini in Azure consente di gestire i record DNS usando gli stessi strumenti, credenziali, API e fatturazione usati per altri servizi Azure.
 
-Non è possibile usare DNS di Azure per acquistare un nome di dominio. Per una tariffa annuale, è possibile acquistare un nome di dominio usando [App Web di Azure](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) o un registrar di nomi di dominio di terze parti. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md).
+Non è possibile usare DNS di Azure per acquistare un nome di dominio. Per una tariffa annuale, è possibile acquistare un nome di dominio usando [Domini del servizio app](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) o un registrar di nomi di dominio di terze parti. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md).
 
 DNS di Azure offre le funzionalità seguenti.
 
@@ -57,7 +57,7 @@ Per altre informazioni, vedere [Usare DNS di Azure per i domini privati](private
 
 DNS di Azure supporta i set di record alias. È possibile usare un set di record alias per fare riferimento a una risorsa di Azure, come ad esempio un indirizzo IP pubblico di Azure o un profilo di Gestione traffico di Azure. Se l'indirizzo IP della risorsa sottostante viene modificato, il set di record alias si aggiorna automaticamente durante la risoluzione DNS. Il set di record alias fa riferimento all'istanza del servizio e l'istanza del servizio è associata a un indirizzo IP. 
 
-Inoltre, ora è possibile indirizzare il dominio radice o di tipo naked a un profilo di Gestione traffico usando un record alias. Un esempio è contoso.com.
+Inoltre, ora è possibile indirizzare il dominio radice o di tipo naked a un profilo di Gestione traffico usando un record alias. ad esempio contoso.com.
 
 Per altre informazioni, vedere la [panoramica dei record alias DNS di Azure](dns-alias.md).
 

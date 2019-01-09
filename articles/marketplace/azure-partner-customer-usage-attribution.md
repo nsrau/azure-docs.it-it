@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262602"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602172"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -29,8 +29,8 @@ Microsoft offre ora un metodo per aiutare i partner a monitorare meglio l'uso di
 
 I partner Microsoft possono associare l'utilizzo di Azure a qualsiasi risorsa Azure fornita per conto di un cliente. È possibile creare l'associazione tramite Azure Marketplace, il repository Quickstart, i repository privati GitHub e il coinvolgimento individuale dei clienti. Per tenere traccia dell'associazione, sono disponibili due approcci:
 
-- Modelli di Azure Resource Manager: i modelli di Resource Manager o i modelli di soluzione per distribuire i servizi Azure al fine di eseguire il software del partner. I partner possono creare i modelli di Resource Manager che definiscono l'infrastruttura e la configurazione della soluzione Azure. Un modello di Resource Manager consente a partner e rispettivi clienti di distribuire la propria soluzione per tutto il suo ciclo di vita. È possibile essere certi che le risorse vengano distribuite in uno stato coerente. 
-- API di Azure Resource Manager: i partner possono chiamare le API di Resource Manager direttamente per distribuire un modello di Resource Manager o per generare le chiamate API per la fornitura diretta di servizi Azure. 
+- Modelli di Azure Resource Manager: I modelli di Gestione risorse o i modelli di soluzione per distribuire i servizi Azure al fine di eseguire il software del partner. I partner possono creare i modelli di Resource Manager che definiscono l'infrastruttura e la configurazione della soluzione Azure. Un modello di Resource Manager consente a partner e rispettivi clienti di distribuire la propria soluzione per tutto il suo ciclo di vita. È possibile essere certi che le risorse vengano distribuite in uno stato coerente. 
+- API di Azure Resource Manager: I partner possono chiamare le API di Gestione risorse direttamente per distribuire un modello di Gestione risorse o per generare le chiamate API per la fornitura diretta di servizi Azure. 
 
 L'attribuzione dell'utilizzo dei clienti è necessaria in tutti i [modelli di soluzione](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) pubblicati in Azure Marketplace. 
 
@@ -270,15 +270,11 @@ Microsoft fornisce ai partner una panoramica delle distribuzioni dei clienti dei
 
 **Chi può aggiungere un GUID a un modello?**
 
-La risorsa di rilevamento è destinata a collegare la soluzione del partner all'uso di Azure da parte dei clienti. I dati di utilizzo sono legati all'identità di un partner in Microsoft Partner Network (MPN ID). La creazione di report è disponibile per i partner nel CPP.
+La risorsa di rilevamento è destinata a collegare la soluzione del partner all'uso di Azure da parte dei clienti. I dati di utilizzo sono legati all'identità di un partner in Microsoft Partner Network (MPN ID). 
 
 **Dopo essere stato aggiunto, un GUID può essere modificato?**
  
 Sì, un cliente o un partner di implementazione può personalizzare il modello e può modificare o rimuovere il GUID. Si consiglia ai partner di descrivere in modo proattivo il ruolo della risorsa e del GUID ai propri clienti e al partner per impedire la rimozione o la modifica del GUID di rilevamento. La modifica del GUID ha effetto solo su implementazioni e risorse nuove e non esistenti.
-
-**Quando sarà disponibile la funzione di creazione report?**
-
-Una versione beta della funzione di creazione report sarà disponibile a breve. La funzione di creazione report verrà integrata nel portale CPP.
 
 **È possibile monitorare i modelli distribuiti da un repository non Microsoft, ad esempio GitHub?**
 

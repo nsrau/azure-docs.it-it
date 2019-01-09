@@ -1,21 +1,19 @@
 ---
 title: Script dell'interfaccia della riga di comando di Azure - Creare un'istanza di Database di Azure per MariaDB
 description: Questo script dell'interfaccia della riga di comando di Azure di esempio consente di creare un singolo server Database di Azure per MariaDB e di configurare una regola del firewall a livello di server.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: 80609035933e45ea9b7cc911a908f6ed24b9f6a7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a7e8a4c8f8572cfdd236b1752e89b3a1b4e7b758
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585242"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546811"
 ---
 # <a name="create-a-mariadb-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Creare un server MariaDB e configurare una regola del firewall tramite l'interfaccia della riga di comando di Azure
 Questo script dell'interfaccia della riga di comando di Azure di esempio consente di creare un singolo server Database di Azure per MariaDB e di configurare una regola del firewall a livello di server. Dopo che lo script è stato eseguito correttamente, il server MariaDB è accessibile da tutti i servizi di Azure e dall'indirizzo IP configurato.
@@ -43,5 +41,5 @@ Questo script usa i comandi illustrati nella tabella seguente:
 | [az group delete](/cli/azure/group#az-group-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sull'interfaccia della riga di comando di Azure: [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
-- Provare a eseguire altri script: [esempi dell'interfaccia della riga di comando di Azure per Database di Azure per MariaDB](../sample-scripts-azure-cli.md)
+- Per altre informazioni sull'interfaccia della riga di comando di Azure: [Documentazione dell'interfaccia della riga di comando di Azure](/cli/azure).
+- Provare altri script: [Esempi dell'interfaccia della riga di comando di Azure per Database di Azure per MariaDB](../sample-scripts-azure-cli.md)

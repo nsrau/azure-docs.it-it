@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: db4a9a43a971f66870c2079762b9c62802122baa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093324"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602818"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Esercitazione: Aggiungere una rete CDN a un'app Web del Servizio app di Azure
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Esercitazione: Aggiungere una rete CDN di Azure a un'app Web di Servizio app di Azure
 
-Questa esercitazione illustra come aggiungere la [rete CDN di Azure](cdn-overview.md) a un'[app Web nel servizio app di Azure](../app-service/app-service-web-overview.md). Le app Web sono un servizio per l'hosting di applicazioni Web, API REST e back-end mobili. 
+Questa esercitazione illustra come aggiungere la [rete CDN di Azure](cdn-overview.md) a un'[app Web nel servizio app di Azure](../app-service/overview.md). Le app Web sono un servizio per l'hosting di applicazioni Web, API REST e back-end mobili. 
 
 Di seguito è riportata la home page del sito HTML statico di esempio che verrà usato:
 
@@ -72,7 +72,7 @@ Nella pagina **Rete per la distribuzione di contenuti di Azure** specificare le 
 
 ![Creare un profilo e un endpoint nel portale](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
-| Impostazione | Valore consigliato | DESCRIZIONE |
+| Impostazione | Valore consigliato | Descrizione |
 | ------- | --------------- | ----------- |
 | **Profilo CDN** | myCDNProfile | Un profilo di rete CDN è una raccolta di endpoint della rete CDN con lo stesso piano tariffario. |
 | **Piano tariffario** | Standard Akamai | Il [piano tariffario](cdn-features.md) specifica il provider e le funzionalità disponibili. Questa esercitazione usa *Akamai standard*. |

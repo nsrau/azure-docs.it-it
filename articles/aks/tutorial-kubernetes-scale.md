@@ -3,35 +3,34 @@ title: "Esercitazione su Kubernetes in Azure: ridimensionare un'applicazione"
 description: In questa esercitazione sul servizio Kubernetes di Azure (AKS) viene illustrato come ridimensionare nodi e pod in Kubernetes e implementare la scalabilità automatica orizzontale dei pod.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2ba61ada16c922dc89d9d6c9aa6a0fce8b0941
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8d07c87a1849a25738c433b7a4c2753b51661947
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414182"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722720"
 ---
-# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Kubernetes di Azure (AKS)
+# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Azure Kubernetes
 
-Se sono state eseguite le esercitazioni, si dispone di un cluster Kubernetes funzionante nel servizio contenitore di Azure ed è stata distribuita l'app Azure Voting. In questa esercitazione, la quinta di sette, si aumenterà il numero di istanze dei pod nell'app e si proverà la scalabilità automatica dei pod. Si apprenderà anche come ridimensionare il numero di nodi delle macchine virtuali di Azure per modificare la capacità del cluster per l'hosting dei carichi di lavoro. Si apprenderà come:
+Se si sono eseguite le esercitazioni, si dispone di un cluster Kubernetes funzionante nel servizio Azure Kubernetes ed è stata distribuita l'app Azure Voting di esempio. In questa esercitazione, la quinta di sette, si aumenterà il numero di istanze dei pod nell'app e si proverà la scalabilità automatica dei pod. Si apprenderà anche come ridimensionare il numero di nodi delle macchine virtuali di Azure per modificare la capacità del cluster per l'hosting dei carichi di lavoro. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Ridimensionare i nodi Kubernetes
 > * Ridimensionare manualmente i pod Kubernetes che eseguono l'applicazione
 > * Configurare la scalabilità automatica dei pod che eseguono il front-end dell'app
 
-Nelle esercitazioni successive l'applicazione Azure Vote viene aggiornata a una nuova versione.
+Nelle altre esercitazioni l'applicazione Azure Vote viene aggiornata a una nuova versione.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in un'immagine del contenitore, caricata poi nel Registro contenitori di Azure, ed è stato creato un cluster Kubernetes. L'applicazione è stata quindi eseguita nel cluster Kubernetes. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Esercitazione 1: Creare immagini del contenitore][aks-tutorial-prepare-app].
+Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in un'immagine del contenitore. L'immagine è stata poi caricata in Registro Azure Container ed è stato creato un cluster del servizio Azure Kubernetes. L'applicazione è stata quindi distribuita nel cluster del servizio Azure Kubernetes. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, iniziare con l'[Esercitazione 1: Creare immagini del contenitore][aks-tutorial-prepare-app].
 
-Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.38 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.53 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="manually-scale-pods"></a>Scalare manualmente i pod
 
@@ -55,7 +54,7 @@ Per modificare manualmente il numero di pod nella distribuzione *azure-vote-fron
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Eseguire di nuovo [kubectl get pods][kubectl-get] per verificare che Kubernetes crei i pod aggiuntivi. Dopo circa un minuto i pod aggiuntivi sono disponibili nel cluster:
+Eseguire di nuovo [kubectl get pods][kubectl-get] per verificare che il servizio Azure Kubernetes crei i pod aggiuntivi. Dopo circa un minuto i pod aggiuntivi sono disponibili nel cluster:
 
 ```console
 $ kubectl get pods
@@ -77,14 +76,14 @@ Kubernetes supporta la [scalabilità automatica orizzontale dei pod][kubernetes-
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-Se la versione del cluster AKS in uso è inferiore a *1.10*, installare il server delle metriche, in caso contrario ignorare questo passaggio. Clonare il repository GitHub `metrics-server` e installare le definizioni di risorsa di esempio. Per visualizzare il contenuto di queste definizioni YAML, vedere [Metrics Server for Kuberenetes 1.8+][metrics-server-github] (Server delle metriche per Kuberenetes 1.8 +).
+Se la versione del cluster AKS in uso è inferiore a *1.10*, installare il server delle metriche, in caso contrario ignorare questo passaggio. Per eseguire l'installazione, clonare il repository GitHub `metrics-server` e installare le definizioni di risorsa di esempio. Per visualizzare il contenuto di queste definizioni YAML, vedere [Metrics Server for Kuberenetes 1.8+][metrics-server-github] (Server delle metriche per Kuberenetes 1.8 +).
 
 ```console
 git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-Per usare la scalabilità automatica, i pod devono avere richieste e limiti di CPU definiti. Nella distribuzione di `azure-vote-front` il contenitore front-end richiede un valore di 0,25 della CPU, con un limite pari a 0,5 della CPU. Le impostazioni sono simili:
+Per usare la scalabilità automatica, i pod devono avere richieste e limiti di CPU definiti. Nella distribuzione di `azure-vote-front` con il contenitore front-end è richiesto già un valore di 0,25 della CPU, con un limite pari a 0,5 della CPU. Le richieste e i limiti delle risorse vengono definiti come illustrato nel frammento di codice di esempio seguente:
 
 ```yaml
 resources:
@@ -94,7 +93,7 @@ resources:
      cpu: 500m
 ```
 
-L'esempio seguente usa il comando [kubectl autoscale][kubectl-autoscale] per ridimensionare automaticamente il numero di pod nella distribuzione *azure-vote-front*. Se l'utilizzo della CPU supera il 50%, la scalabilità automatica aumenta il numero di pod fino a un massimo di 10 istanze:
+L'esempio seguente usa il comando [kubectl autoscale][kubectl-autoscale] per ridimensionare automaticamente il numero di pod nella distribuzione *azure-vote-front*. Se l'utilizzo della CPU supera il 50%, la scalabilità automatica aumenta il numero di pod fino a un massimo di *10* istanze. Viene quindi definito un minimo di *3* istanze per la distribuzione:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -121,7 +120,7 @@ Nell'esempio seguente il numero di nodi viene aumentato a tre nel cluster Kubern
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
 
-L'output è simile a:
+Al termine del ridimensionamento del cluster, l'output è simile all'esempio seguente:
 
 ```
 "agentPoolProfiles": [
@@ -144,9 +143,9 @@ L'output è simile a:
 In questa esercitazione sono state usate diverse funzionalità di scalabilità nel cluster Kubernetes. Si è appreso come:
 
 > [!div class="checklist"]
-> * Ridimensionare i nodi Kubernetes
 > * Ridimensionare manualmente i pod Kubernetes che eseguono l'applicazione
 > * Configurare la scalabilità automatica dei pod che eseguono il front-end dell'app
+> * Ridimensionare manualmente i nodi Kubernetes
 
 Passare all'esercitazione successiva per apprendere come aggiornare l'applicazione in Kubernetes.
 

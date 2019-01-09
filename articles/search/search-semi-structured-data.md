@@ -1,5 +1,5 @@
 ---
-title: Esercitazione per la ricerca di dati semistrutturati nell'archiviazione cloud di Azure - Ricerca di Azure
+title: Esercitazione per la ricerca di dati JSON nell'archivio BLOB di Azure - Ricerca di Azure
 description: Questa esercitazione descrive come cercare dati BLOB di Azure semistrutturati tramite Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5608495ff2975cabefdb83e5794a7d92b318b5a5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ba9b34dbd9d0959e79c755abc8dad9fe1d358a50
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313824"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632943"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Esercitazione: Cercare dati semistrutturati nell'archiviazione cloud di Azure
 
@@ -60,7 +60,7 @@ L'esempio contiene file JSON di esempio, ovvero file di testo ottenuti originari
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al [portale di Azure](http://portal.azure.com).
+Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="upload-the-sample-data"></a>Caricare i dati di esempio
 

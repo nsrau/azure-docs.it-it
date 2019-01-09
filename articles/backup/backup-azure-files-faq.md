@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9ef3525d7867d0ef01b6f17035039d4a4e6def93
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 51952196bd2c44ba79e96266436860106a0753c4
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874565"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793513"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 Questo articolo risponde a domande comuni sul backup di file di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -39,31 +39,34 @@ Sì. Sarà tuttavia necessario [interrompere la protezione](backup-azure-files.m
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>In quali aree geografiche è possibile eseguire il backup di condivisioni file di Azure? <br/>
 Il backup di condivisioni file di Azure è attualmente disponibile in anteprima e solo nelle aree geografiche seguenti: 
--   Australia orientale (AE) 
+- Australia orientale (AE) 
 - Australia sud-orientale (ASE) 
 - Brasile meridionale (BRS)
 - Canada centrale (CNC)
--   Canada orientale (CE)
--   Stati Uniti centrali (CUS)
--   Asia orientale (EA)
--   Stati Uniti orientali (EUS)
--   Stati Uniti orientali 2 (EUS2)
+- Canada orientale (CE)
+- Stati Uniti centrali (CUS)
+- Asia orientale (EA)
+- Stati Uniti orientali (EUS)
+- Stati Uniti orientali 2 (EUS2)
 - Giappone orientale (JPE)
 - Giappone occidentale (JPW)
--   India centrale (INC) 
+- India centrale (INC) 
 - India meridionale (INS)
 - Corea del Sud centrale (KRC)
 - Corea del Sud meridionale (KRS)
--   Stati Uniti centro-settentrionali (NCUS) 
--   Europa settentrionale (NE) 
--   Stati Uniti a centro-meridionali (SCUS) 
--   Asia sud-orientale (SEA)
--   Regno Unito meridionale (UKS) 
--   Regno Unito occidentale (UKW) 
--   Europa occidentale (OE) 
--   Stati Uniti occidentali (WUS)
--   Stati Uniti centro occidentali (WCUS)
--   Stati Uniti occidentali 2 (WUS 2)
+- Stati Uniti centro-settentrionali (NCUS) 
+- Europa settentrionale (NE) 
+- Stati Uniti a centro-meridionali (SCUS) 
+- Asia sud-orientale (SEA)
+- Regno Unito meridionale (UKS) 
+- Regno Unito occidentale (UKW) 
+- Europa occidentale (OE) 
+- Stati Uniti occidentali (WUS)
+- Stati Uniti centro occidentali (WCUS)
+- Stati Uniti occidentali 2 (WUS 2)
+- US Gov Arizona (UGA)
+- US Gov Texas (UGT)
+- US Gov Virginia (UGV)
 
 Inviare un messaggio a [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) se è necessario usare la funzionalità in un'area geografica non indicata nell'elenco.
 

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 629189b9dbe2327763d364abc95f49539a312c53
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 18ca854f1e04127a900c1b753245ed6e2a331d68
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25983899"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628169"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Eliminare i contenitori in base al prefisso del nome
 
@@ -39,7 +39,7 @@ Lo script elimina i contenitori nell'Archiviazione BLOB di Azure in base a un pr
 Eseguire il comando seguente per rimuovere il gruppo di risorse, i contenitori rimanenti e tutte le risorse correlate.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name containerdeletetestrg
+Remove-AzResourceGroup -Name containerdeletetestrg
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script
@@ -48,9 +48,9 @@ Lo script usa i comandi seguenti per eliminare i contenitori in base al prefisso
 
 | Comando | Note |
 |---|---|
-| [Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Ottiene un account di archiviazione specificato o tutti gli account di archiviazione in un gruppo di risorse o nella sottoscrizione. |
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/get-azurestoragecontainer) | Elenca i contenitori di archiviazione associati a un account di archiviazione. |
-| [Remove-AzureStorageContainer](/powershell/module/azure.storage/remove-azurestoragecontainer) | Elimina il contenitore di archiviazione specificato. |
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Ottiene un account di archiviazione specificato o tutti gli account di archiviazione in un gruppo di risorse o nella sottoscrizione. |
+| [Get-AzStorageContainer](/powershell/module/azure.storage/get-AzStoragecontainer) | Elenca i contenitori di archiviazione associati a un account di archiviazione. |
+| [Remove-AzStorageContainer](/powershell/module/azure.storage/remove-AzStoragecontainer) | Elimina il contenitore di archiviazione specificato. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

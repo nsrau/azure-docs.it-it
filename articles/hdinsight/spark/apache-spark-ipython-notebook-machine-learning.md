@@ -1,6 +1,6 @@
 ---
-title: "Esercitazione: Creare un'applicazione di apprendimento automatico Spark in Azure HDInsight"
-description: Istruzioni dettagliate su come creare applicazioni di apprendimento automatico Apache Spark in cluster HDInsight Spark usando Jupyter Notebook.
+title: "Esercitazione: Compilare un'applicazione di apprendimento automatico Spark in Azure HDInsight"
+description: Istruzioni dettagliate su come compilare applicazioni di Machine Learning Apache Spark nei cluster HDInsight Spark usando Jupyter notebook.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0a0712e4985414263d1e90299d78d5e30fe78a3e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580571"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608512"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Esercitazione: Creare un'applicazione di apprendimento automatico Apache Spark in HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Esercitazione: Compilare un'applicazione di apprendimento automatico Apache Spark in HDInsight 
 
 In questa esercitazione si apprenderà come usare [Jupyter Notebook](https://jupyter.org/) per creare un'applicazione di apprendimento automatico [Apache Spark](https://spark.apache.org/) per Azure HDInsight. 
 
-[MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) è la libreria di apprendimento automatico scalabile di Spark costituita da utilità e algoritmi di apprendimento comuni, tra cui classificazione, regressione, clustering, filtro collaborativo, riduzione della dimensionalità, nonché primitive di ottimizzazione sottostanti.
+[MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) è la libreria di Machine Learning scalabile di Spark costituita da utilità e algoritmi di apprendimento comuni, tra cui classificazione, regressione, clustering, filtro collaborativo, riduzione della dimensionalità, nonché primitive di ottimizzazione sottostanti.
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -86,7 +86,7 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
     training = documents.toDF()
     ```
 
-    Nel frammento di codice definire una funzione che confronta la temperatura effettiva con quella di destinazione. Se la temperatura effettiva è maggiore, l'edificio è caldo ed è contrassegnato dal valore **1.0**. In caso contrario, l'edificio è freddo ed è contrassegnato dal valore **0.0**. 
+    Nel frammento di codice definire una funzione che confronta la temperatura effettiva con quella di destinazione. Se la temperatura effettiva è maggiore, l’edificio è caldo ed è contrassegnato dal valore **1.0**. In caso contrario, l'edificio è freddo ed è contrassegnato dal valore **0.0**. 
 
 4. Configurare la pipeline di machine learning Spark che è costituita da tre fasi: tokenizer, hashingTF, e lr. 
 
@@ -97,7 +97,7 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    Per altre informazioni su una pipeline e sul suo funzionamento vedere <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Pipeline di Machine Learning Spark</a>.
+    Per altre informazioni sulla pipeline e sul suo funzionamento, vedere <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Pipeline di apprendimento automatico di Apache Spark</a>.
 
 5. Adattare la pipeline al documento di formazione.
    
@@ -180,11 +180,11 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
    
-   Nella prima riga di stima si noterà che per un sistema HVAC con ID 20 e 25 anni di utilizzo 25 anni, l'edificio è caldo (**stima = 1.0**). Il primo valore per DenseVector (0.49999) corrisponde alla stima 0.0 e il secondo valore (0.5001) corrisponde alla stima 1.0. Nell'output, anche se il secondo valore è solo leggermente superiore, viene illustrato il modello **stima=1.0**.
+   Nella prima riga di stima, si noterà che per un sistema HVAC con ID 20 e 25 anni di utilizzo 25 anni, l’edificio è caldo (**stima = 1.0**). Il primo valore per DenseVector (0.49999) corrisponde alla stima 0.0 e il secondo valore (0.5001) corrisponde alla stima 1.0. Nell'output, anche se il secondo valore è solo leggermente superiore, viene illustrato il modello **stima=1.0**.
 10. Arrestare il notebook per rilasciare le risorse. Per fare ciò, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Questa azione spegne e chiude il notebook.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Usare la libreria Anaconda scikit-learn per Machine Learning Spark
-I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre la libreria **scikit-learn** per Machine Learning. La libreria include inoltre diversi set di dati che è possibile usare per compilare applicazioni di esempio direttamente da un notebook Jupyter. Per esempi sull'uso della libreria scikit-learn, vedere [ http://scikit-learn.org/stable/auto_examples/index.html ](http://scikit-learn.org/stable/auto_examples/index.html).
+I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre la libreria **scikit-learn** per Machine Learning. La libreria include inoltre diversi set di dati che è possibile usare per compilare applicazioni di esempio direttamente da un notebook Jupyter. Per esempi sull'uso della libreria scikit-learn, vedere [ https://scikit-learn.org/stable/auto_examples/index.html ](https://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

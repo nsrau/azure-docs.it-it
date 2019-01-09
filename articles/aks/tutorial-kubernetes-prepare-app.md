@@ -3,20 +3,19 @@ title: Esercitazione su Kubernetes in Azure - Preparare un'applicazione
 description: In questa esercitazione sul servizio Kubernetes di Azure (AKS) viene illustrato come preparare e compilare con Docker Compose un'app multicontenitore che è quindi possibile distribuire in AKS.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297061"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724165"
 ---
-# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Esercitazione: Preparare un'applicazione per il servizio Kubernetes di Azure (AKS)
+# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Esercitazione: Preparare un'applicazione per il servizio Azure Kubernetes
 
 In questa esercitazione, parte uno di sette, si prepara un'applicazione multi-contenitore per l'uso in Kubernetes. Per compilare e testare in locale un'applicazione, si usano strumenti di sviluppo esistenti, ad esempio Docker Compose. Si apprenderà come:
 
@@ -29,7 +28,7 @@ Al termine, l'applicazione seguente viene eseguita nell'ambiente di sviluppo loc
 
 ![Immagine del cluster Kubernetes in Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-Nelle esercitazioni successive, l'immagine del contenitore verrà caricata in un'istanza di Registro contenitori di Azure e quindi distribuita in un cluster AKS.
+In altre esercitazioni l'immagine del contenitore verrà caricata in un'istanza di Registro Azure Container e quindi distribuita in un cluster del servizio Azure Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -49,7 +48,7 @@ Usare [git][] per clonare l'applicazione di esempio nell'ambiente di sviluppo:
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Cambiare directory in modo da usare la directory clonata.
+Passare alla directory clonata.
 
 ```console
 cd azure-voting-app-redis

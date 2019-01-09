@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 93928d7eb84ce986c8a9322188183e4c3dd76d99
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1866a5d86d3ee47371a5eb6e14c2976798d2b4da
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847865"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787850"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Eseguire il failover e il failback delle macchine virtuali di Azure tra aree di Azure
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come eseguire il failover di una singola macchina 
 > * Eseguire il failover della macchina virtuale di Azure
 > * Riproteggere la macchina virtuale secondaria di Azure in modo che possa essere replicata nell'area primaria
 > * Eseguire il failback della macchina virtuale secondaria
-> * Riprotteggere la macchina virtuale primaria anche nell'area secondaria
+> * Riproteggere la macchina virtuale primaria anche nell'area secondaria
 
 > [!NOTE]
 > In questa esercitazione l'utente viene guidato nella procedura di failover in un'area di destinazione, seguita dal failback, con una personalizzazione minima. Se si desidera approfondire i vari aspetti associati al failover, incluse considerazioni sulla rete, automazione o risoluzione dei problemi, vedere i documenti relativi alle procedure per le macchine virtuali di Azure.
@@ -45,7 +45,7 @@ Questa esercitazione descrive come eseguire il failover di una singola macchina 
 2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
 
    * **Più recente** (impostazione predefinita): con questa opzione vengono elaborati tutti i dati presenti nel servizio Site Recovery e viene fornito il valore RPO (Recovery Point Objective) più basso.
-   * **Latest processed** (Punto di ripristino elaborato più recente): con questa opzione la macchina virtuale viene ripristinata all'ultimo punto di ripristino elaborato dal servizio Site Recovery.
+   * **Elaborato più recente**: con questa opzione la macchina virtuale viene ripristinata all'ultimo punto di ripristino elaborato dal servizio Site Recovery.
    * **Personalizzato**: questa opzione consente di eseguire il failover in un determinato punto di ripristino ed è particolarmente utile per eseguire un failover di test.
 
 3. Selezionare **Arrestare la macchina prima di iniziare il failover** se si vuole provare ad arrestare le macchine virtuali di origine tramite Site Recovery prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo.

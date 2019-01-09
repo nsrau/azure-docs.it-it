@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Rilevare i problemi dei dispositivi in una soluzione di monitoraggio remoto basata su Azure | Microsoft Docs'
+title: 'Esercitazione: Rilevare i problemi dei dispositivi in una soluzione di monitoraggio remoto - Azure | Microsoft Docs'
 description: Questa esercitazione mostra come usare regole e azioni per rilevare automaticamente problemi dei dispositivi in base alle soglie nella soluzione di monitoraggio remoto.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7ebe81565bc6bd28747f3a251b39a3c010493307
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819101"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598681"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Esercitazione: rilevare i problemi con i dispositivi connessi alla soluzione di monitoraggio
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Esercitazione: Rilevare i problemi con i dispositivi connessi alla soluzione di monitoraggio
 
 In questa esercitazione si configura l'acceleratore della soluzione di monitoraggio remoto per rilevare i problemi con i dispositivi IoT connessi. Per rilevare i problemi con i dispositivi, vengono aggiunte regole che generano avvisi nel dashboard della soluzione.
 
@@ -54,7 +54,7 @@ Per creare una regola che generi un avviso quando la pressione in un dispositivo
 | Impostazione          | Valore                                 |
 | ---------------- | ------------------------------------- |
 | Nome regola        | Chiller warning (Avviso refrigeratore)                       |
-| DESCRIZIONE      | Chiller pressure has exceeded 150 PSI (La pressione del refrigeratore è maggiore di 150 PSI) |
+| Descrizione      | Chiller pressure has exceeded 150 PSI (La pressione del refrigeratore è maggiore di 150 PSI) |
 | Gruppo di dispositivi     | Gruppo di dispositivi **Chillers** (Refrigeratori)             |
 | Calcolo      | Istantaneo                               |
 | Campo condizione 1| pressure                              |
@@ -77,7 +77,7 @@ Per creare una regola con più condizioni che genera un avviso critico quando ne
 | Impostazione          | Valore                                 |
 | ---------------- | ------------------------------------- |
 | Nome regola        | Umidità refrigeratore e temperatura critiche    |
-| DESCRIZIONE      | Temperatura e umidità sono critiche |
+| Descrizione      | Temperatura e umidità sono critiche |
 | Gruppo di dispositivi     | Gruppo di dispositivi **Chillers** (Refrigeratori)             |
 | Calcolo      | Media                               |
 | Periodo di tempo      | 5                                     |

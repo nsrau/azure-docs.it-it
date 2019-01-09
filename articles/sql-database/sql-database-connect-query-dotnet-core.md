@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 471d2b0b8d98651d4b9ef4e88df0e863715b0c88
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5f2c8c2a9a2b21a15aa997ff0cc98860ceec76cc
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341780"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744837"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare .NET Core (C#) per eseguire query su un database SQL di Azure
 
-Questa guida introduttiva illustra come usare [.NET Core](https://www.microsoft.com/net/) e C# per connettersi a un database SQL di Azure e quindi eseguire un'istruzione Transact-SQL per eseguire query sui dati.
+In questa guida introduttiva si userà [.NET Core](https://www.microsoft.com/net/) e il codice C# per la connessione a un database SQL di Azure. Si eseguirà quindi un'istruzione Transact-SQL per eseguire query sui dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -53,7 +53,7 @@ Per eseguire questa esercitazione, è necessario avere:
   
 ## <a name="create-a-new-net-core-project"></a>Creare un nuovo progetto .NET Core
 
-1. Aprire un prompt dei comandi e creare una cartella denominata **sqltest**. Passare a questa cartella ed eseguire il seguente comando.
+1. Aprire un prompt dei comandi e creare una cartella denominata **sqltest**. Passare a questa cartella ed eseguire questo comando.
 
     ```cmd
     dotnet new console
@@ -173,7 +173,7 @@ namespace sqltest
 
    Done. Press enter.
    ```
-3. Premere **INVIO** per chiudere la finestra dell'applicazione.
+3. Scegliere **INVIO** per chiudere la finestra dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

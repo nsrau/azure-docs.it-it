@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: generare un'anteprima - REST, Java - Visione artificiale"
+title: "Guida introduttiva: Generare un'anteprima - REST, Java"
 titleSuffix: Azure Cognitive Services
 description: Grazie a questa guida introduttiva, si può generare l'anteprima di un'immagine usando API Visione artificiale con Java.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d30d6d073ad1e18aa2acb4c4a73c21c0d7243536
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 43c78acb89180cda5c0eb4df18bab00d47ee1174
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972031"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583494"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Guida introduttiva: generare un'anteprima mediante API REST e Java in Visione artificiale
 
@@ -164,7 +165,7 @@ public class Main {
 
 ## <a name="examine-the-response"></a>Esaminare i risultati
 
-Una risposta positiva viene inviata sotto forma di dati binari, come rappresentazione dei dati dell'immagine per l'anteprima. Se la richiesta ha esito positivo, l'anteprima viene generata dai dati binari della risposta e visualizzata in una finestra separata, creata dall'applicazione di esempio. Se la richiesta ha esito negativo, la risposte viene visualizzata nella finestra della console. La risposta a una richiesta con esito negativo contiene un codice di errore e un messaggio utile per determinarne la causa.
+Una risposta positiva viene inviata sotto forma di dati binari, come rappresentazione dei dati dell'immagine per l'anteprima. Se la richiesta ha esito positivo, l'anteprima viene generata dai dati binari della risposta e visualizzata in una finestra separata, creata dall'applicazione di esempio. Se la richiesta ha esito negativo, la risposta viene visualizzata nella finestra della console. La risposta a una richiesta con esito negativo contiene un codice di errore e un messaggio utile per determinarne la causa.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

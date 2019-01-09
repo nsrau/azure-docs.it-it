@@ -1,36 +1,36 @@
 ---
-title: Esercitazione sulla distribuzione globale in Azure Cosmos DB per l'API MongoDB
-description: Informazioni su come configurare la distribuzione globale in Azure Cosmos DB usando l'API MongoDB.
+title: Esercitazione sulla distribuzione globale con l'API di Azure Cosmos DB per MongoDB
+description: Informazioni su come configurare la distribuzione globale usando l'API di Azure Cosmos DB per MongoDB.
 services: cosmos-db
 keywords: distribuzione globale, MongoDB
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: mvc
-ms.openlocfilehash: 27fa9849c13de151f6922e829514cc8838f295ea
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a5bcfcac891a80807a15657a91eb44df1921f7ee
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874764"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787190"
 ---
-# <a name="set-up-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Configurare la distribuzione globale in Azure Cosmos DB usando l'API MongoDB
+# <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>Configurare un database distribuito a livello globale usando l'API di Azure Cosmos DB per MongoDB
 
-Questo articolo illustra come usare il portale di Azure per configurare la distribuzione globale in Azure Cosmos DB e quindi connettersi tramite l'API MongoDB.
+Questo articolo illustra come usare il portale di Azure per configurare un database distribuito a livello globale e quindi connettersi a esso usando l'API di Azure Cosmos DB per MongoDB.
 
 Questo articolo illustra le attività seguenti: 
 
 > [!div class="checklist"]
 > * Configurare la distribuzione globale tramite il portale di Azure
-> * Configurare la distribuzione globale tramite l'[API MongoDB](mongodb-introduction.md)
+> * Configurare la distribuzione globale usando l'[API di Azure Cosmos DB per MongoDB](mongodb-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>Verifica della configurazione a livello di area usando l'API MongoDB
-Il modo più semplice per verificare in modo approfondito la configurazione globale nell'API per MongoDB consiste nell'eseguire il comando *isMaster()* da Mongo Shell.
+## <a name="verifying-your-regional-setup"></a>Verifica della configurazione a livello di area 
+Un modo semplice per verificare la configurazione globale con l'API di Cosmos DB per MongoDB consiste nell'eseguire il comando *isMaster()* da Mongo Shell.
 
 Da Mongo Shell:
 
@@ -64,9 +64,9 @@ Risultati dell'esempio:
       }
    ```
 
-## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>Connessione a un'area preferita tramite l'API MongoDB
+## <a name="connecting-to-a-preferred-region"></a>Connessione a un'area preferita 
 
-L'API MongoDB consente di specificare le preferenze di lettura della raccolta per un database distribuito globalmente. Per ottenere letture a bassa latenza e disponibilità elevata globale, è consigliabile impostare le preferenze di lettura della raccolta su *nearest*. Una preferenza di lettura di tipo *nearest* viene configurata per la lettura dall'area più vicina.
+L'API di Azure Cosmos DB per MongoDB consente di specificare le preferenze di lettura della raccolta per un database distribuito globalmente. Per ottenere letture a bassa latenza e disponibilità elevata globale, è consigliabile impostare le preferenze di lettura della raccolta su *nearest*. Una preferenza di lettura di tipo *nearest* viene configurata per la lettura dall'area più vicina.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -96,9 +96,9 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Configurare la distribuzione globale tramite il portale di Azure
-> * Configurare la distribuzione globale tramite le API SQL
+> * Configurare la distribuzione globale usando l'API di Cosmos DB per MongoDB
 
 È ora possibile passare all'esercitazione successiva per imparare a sviluppare in locale usando l'emulatore locale di Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Sviluppare in locale con l'emulatore](local-emulator.md)
+> [Sviluppare in locale con l'emulatore di Azure Cosmos DB](local-emulator.md)

@@ -5,18 +5,18 @@ services: database-migration
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
-ms.service: database-migration
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/09/2018
-ms.openlocfilehash: 7df19efc52f0771a10535c10625dd959a6edc90a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2b3ec4a09fb2baee7d532f348fc18cb3d428d092
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958016"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53711823"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Guida introduttiva: Creare un'istanza del Servizio Migrazione del database di Azure usando il portale di Azure
 In questa guida introduttiva usare il portale di Azure per creare un'istanza del servizio Migrazione del database di Azure.  Dopo aver creato il servizio, è possibile usarlo per eseguire la migrazione dei dati da SQL Server locale a un database SQL di Azure.
@@ -56,7 +56,7 @@ Prima di creare la prima istanza del servizio Migrazione del database, registrar
 
         Per altre informazioni su come creare una rete virtuale nel portale di Azure, vedere l'articolo [Creare una rete virtuale con il portale di Azure](https://aka.ms/vnet).
 
-    - Selezionare Basic: 1 vCore per il **Piano tariffario**.
+    - Selezionare Basic: 1 vCore come **piano tariffario**.
 
         ![Creare il servizio migrazione](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
 

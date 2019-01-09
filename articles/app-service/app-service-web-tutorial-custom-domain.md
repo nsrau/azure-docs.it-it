@@ -1,5 +1,5 @@
 ---
-title: Eseguire il mapping di un nome DNS personalizzatro esistente - Servizio app di Azure | Microsoft Docs
+title: Eseguire il mapping di un nome DNS personalizzato esistente - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come aggiungere un nome di dominio DNS personalizzato esistente, ad esempio il dominio personale, in un'app Web, nel back-end dell'app per dispositivi mobili o nell'app per le API del servizio app di Azure.
 keywords: servizio app, servizio app di Azure, mapping di dominio, nome di dominio, dominio esistente, nome host
 services: app-service\web
@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 89852e30929cc26aa0cbe63ed4e334c4e878b90b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270264"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714339"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Esercitazione: Esecuzione del mapping di un nome DNS personalizzato esistente con un app Web di Azure
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
-Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa esercitazione illustra come eseguire il mapping di un nome DNS personalizzato esistente alle app Web di Azure.
+[Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Questa esercitazione illustra come eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure.
 
 ![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
@@ -48,7 +48,7 @@ Per completare questa esercitazione:
   Ad esempio, per aggiungere le voci DNS per `contoso.com` e `www.contoso.com` è necessario essere autorizzati a configurare le impostazioni DNS per il dominio radice `contoso.com`.
 
   > [!NOTE]
-  > Se non è disponibile un nome di dominio esistente, può essere utile [acquistare un dominio tramite il portale di Azure](custom-dns-web-site-buydomains-web-app.md). 
+  > Se non è disponibile un nome di dominio esistente, può essere utile [acquistare un dominio tramite il portale di Azure](manage-custom-dns-buy-domain.md). 
 
 ## <a name="prepare-the-app"></a>Preparare l'app
 
@@ -156,7 +156,7 @@ La visualizzazione del nuovo nome host nella pagina **Domini personalizzati** de
 ![Record CNAME aggiunto](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Per aggiungere un binding SSL, vedere [Associare un certificato SSL personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-ssl.md).
+> Per aggiungere un binding SSL, vedere [Associare un certificato SSL personalizzato esistente al Servizio app di Azure](app-service-web-tutorial-custom-ssl.md).
 
 Se è stato saltato un passaggio o è stato inserito un errore di digitazione, nella parte inferiore della pagina viene visualizzato un errore di verifica.
 
@@ -193,7 +193,7 @@ Per eseguire il mapping di un record A a un'app, il servizio app richiede **due*
 - Un record **A** di cui eseguire il mapping all'indirizzo IP dell'app.
 - Un record **TXT** di cui eseguire il mapping al nome host predefinito dell'app `<app_name>.azurewebsites.net`. Il servizio app usa questo record solo in fase di configurazione per verificare che si è proprietari del dominio personalizzato. Dopo che il dominio personalizzato è stato convalidato e configurato nel servizio app, è possibile eliminare il record TXT. 
 
-Per l’esempio di dominio `contoso.com`, creare i record A e TXT in base alla tabella seguente (`@` rappresenta in genere il dominio radice). 
+Per l'esempio di dominio `contoso.com`, creare i record A e TXT in base alla tabella seguente (`@` rappresenta in genere il dominio radice). 
 
 | Tipo di record | Host | Valore |
 | - | - | - |
@@ -231,7 +231,7 @@ La visualizzazione del nuovo nome host nella pagina **Domini personalizzati** de
 ![Record A aggiunto](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Per aggiungere un binding SSL, vedere [Associare un certificato SSL personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-ssl.md).
+> Per aggiungere un binding SSL, vedere [Associare un certificato SSL personalizzato esistente al Servizio app di Azure](app-service-web-tutorial-custom-ssl.md).
 
 Se è stato saltato un passaggio o è stato inserito un errore di digitazione, nella parte inferiore della pagina viene visualizzato un errore di verifica.
 
@@ -286,7 +286,7 @@ Fare di nuovo clic sull'icona **+** per aggiungere un altro nome host corrispond
 ![Record CNAME aggiunto](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> Per aggiungere un binding SSL, vedere [Associare un certificato SSL personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-ssl.md).
+> Per aggiungere un binding SSL, vedere [Associare un certificato SSL personalizzato esistente al Servizio app di Azure](app-service-web-tutorial-custom-ssl.md).
 
 ## <a name="test-in-browser"></a>Prova nel browser
 
@@ -305,7 +305,7 @@ Se si riceve un errore HTTP 404 (non trovato) quando si seleziona l'URL del domi
 
 ## <a name="migrate-an-active-domain"></a>Eseguire la migrazione di un dominio attivo
 
-Per eseguire la migrazione di un sito in tempo reale e del relativo nome di dominio DNS al Servizio app senza tempi di inattività, vedere [Eseguire la migrazione di un nome DNS attivo al Servizio app di Azure](app-service-custom-domain-name-migrate.md).
+Per eseguire la migrazione di un sito in tempo reale e del relativo nome di dominio DNS al Servizio app senza tempi di inattività, vedere [Eseguire la migrazione di un nome DNS attivo al Servizio app di Azure](manage-custom-dns-migrate-domain.md).
 
 ## <a name="redirect-to-a-custom-directory"></a>Reindirizzare a una directory personalizzata
 
@@ -334,7 +334,7 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-Per altre informazioni, vedere [Eseguire il mapping di un dominio personalizzato a un'app Web](scripts/app-service-cli-configure-custom-domain.md). 
+Per altre informazioni, vedere [Eseguire il mapping di un dominio personalizzato a un'app Web](scripts/cli-configure-custom-domain.md). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
@@ -347,7 +347,7 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-Per ulteriori informazioni, vedere [Assegnazione di un dominio personalizzato a un’app Web](scripts/app-service-powershell-configure-custom-domain.md).
+Per altre informazioni, vedere [Assegnazione di un dominio personalizzato a un'app Web](scripts/powershell-configure-custom-domain.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -363,4 +363,4 @@ Questa esercitazione illustra come:
 Passare all'esercitazione successiva per apprendere come associare un certificato SSL personalizzato a un'app Web.
 
 > [!div class="nextstepaction"]
-> [Associare un certificato SSL personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-ssl.md)
+> [Associare un certificato SSL personalizzato esistente al servizio app di Azure](app-service-web-tutorial-custom-ssl.md)

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: a7b61702feb062c57fdec84f335ace44a47d0283
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 86c169c84e905362e8fdb069e8ceadcb5e19fe67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249482"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602393"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quote e aree disponibili per Istanze di contenitore di Azure
 
@@ -24,16 +24,17 @@ Tutti i servizi di Azure prevedono determinati limiti predefiniti e quote per le
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Istanze di contenitore di Azure è disponibile nelle aree seguenti con i limiti di CPU e memoria specificati.
+Istanze di contenitore di Azure è disponibile nelle aree seguenti con i limiti di CPU e memoria specificati. I valori sono aggiornati al momento della pubblicazione. Per informazioni aggiornate, usare l'API di [elenco delle funzionalità](/rest/api/container-instances/listcapabilities/listcapabilities).
 
 | Località | OS | CPU | Memoria (GB) |
 | -------- | -- | :---: | :-----------: |
+| Canada centrale | Linux | 4 | 16 |
 | Stati Uniti orientali, Europa settentrionale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2 | Linux | 4 | 14 |
 | Giappone orientale | Linux | 2 | 8 |
 | Australia orientale, Stati Uniti orientali 2, Asia sud-orientale | Linux | 2 | 7 |
-| Canada centrale, India centrale, Asia orientale, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali | Linux | 2 | 3,5 |
+| India centrale, Asia orientale, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, India meridionale | Linux | 2 | 3,5 |
 | Stati Uniti orientali, Europa occidentale, Stati Uniti occidentali |  Windows | 4 | 14 |
-| Australia orientale, Canada centrale, India centrale, Asia orientale, Stati Uniti orientali 2, Giappone orientale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Stati Uniti occidentali 2 |  Windows | 2 | 3,5 |
+| Australia orientale, Canada centrale, India centrale, Asia orientale, Stati Uniti orientali 2, Giappone orientale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, India meridionale, Asia sud-orientale, Stati Uniti occidentali 2 |  Windows | 2 | 3,5 |
 
 La disponibilità di Istanze di contenitore con questi limiti di risorse dipende dell'area di distribuzione. Quando un'area ha un carico elevato, può verificarsi un errore durante la distribuzione delle istanze. Per mitigare tale errore di distribuzione, provare a distribuire le istanze con impostazioni di memoria e CPU inferiori oppure provare a eseguire la distribuzione in un secondo momento.
 

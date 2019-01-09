@@ -1,24 +1,21 @@
 ---
 title: Connettersi a Database di Azure per PostgreSQL con PHP
 description: Questa guida introduttiva fornisce un esempio di codice PHP che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 8f45191d7844700906aac0a206aaaf8dc8cf6202
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f07dfabf854cf56e1c3cae87bbd0736839be8039
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985558"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608733"
 ---
-# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: usare PHP per connettersi ai dati ed eseguire query
+# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: Usare PHP per connettersi ai dati ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per PostgreSQL usando un'applicazione [PHP](https://secure.php.net/manual/intro-whatis.php). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con PHP, ma non con Database di Azure per PostgreSQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -27,9 +24,9 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 - [Creare un database: interfaccia della riga di comando di Azure](quickstart-create-server-database-azure-cli.md)
 
 ## <a name="install-php"></a>Installare PHP
-Installare PHP nel server o creare un'[app Web](../app-service/app-service-web-overview.md) di Azure che includa PHP.
+Installare PHP nel server o creare un'[app Web](../app-service/overview.md) di Azure che includa PHP.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 - Scaricare [PHP versione 7.1.4 non thread-safe (x64)](https://windows.php.net/download#php-7.1)
 - Installare PHP e vedere il [manuale di PHP](https://secure.php.net/manual/install.windows.php) per le altre opzioni di configurazione
 - Il codice usa la classe **pgsql** (ext/php_pgsql.dll) inclusa nell'installazione di PHP. 

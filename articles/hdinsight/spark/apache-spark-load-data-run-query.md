@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: f279d7ca40eac1764ec5549aecec36b0f62034e8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4dd9634d5d5e6ce749a4ee563903b07e22bc45ee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495773"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652333"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight
 
@@ -58,7 +58,7 @@ Le applicazioni possono creare frame di dati direttamente da file o cartelle nel
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Usando il kernel PySpark per creare un notebook, la sessione `spark` viene creata automaticamente quando si esegue la prima cella di codice. Non è necessario creare in modo esplicito la sessione.
 
 
@@ -87,7 +87,7 @@ Dopo aver creato la tabella, è possibile eseguire una query interattiva sui dat
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Con HDInsight i dati e i notebook Jupyter vengono salvati in Archiviazione di Azure o Azure Data Lake Store, in modo che sia possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati. Se si prevede di lavorare immediatamente nell'esercitazione successiva, si potrebbe voler mantenere il cluster.
+Con HDInsight i dati e i notebook Jupyter vengono salvati in Archiviazione di Azure o Azure Data Lake Storage, in modo che sia possibile eliminare un cluster in modo sicuro quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati. Se si prevede di lavorare immediatamente nell'esercitazione successiva, si potrebbe voler mantenere il cluster.
 
 Aprire il cluster nel portale di Azure e selezionare **Elimina**.
 

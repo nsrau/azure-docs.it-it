@@ -9,22 +9,22 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a85e7c46aa41309bc031f59ed841dc8149d878b3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667237"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723961"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Usare Terraform per effettuare il provisioning dell'infrastruttura con slot di distribuzione di Azure
 
-È possibile usare [slot di distribuzione di Azure](/azure/app-service/web-sites-staged-publishing) per alternare versioni diverse di un'app. Queste funzionalità consentono di ridurre al minimo l'impatto delle distribuzioni non funzionanti. 
+È possibile usare [slot di distribuzione di Azure](/azure/app-service/deploy-staging-slots) per alternare versioni diverse di un'app. Queste funzionalità consentono di ridurre al minimo l'impatto delle distribuzioni non funzionanti. 
 
 Questo articolo presenta un esempio di uso degli slot di distribuzione descrivendo in modo dettagliato la distribuzione di due app tramite GitHub e Azure. Un'app è ospitata in uno slot di produzione. La seconda app è ospitata in uno slot di staging. I nomi "produzione" e "gestione temporanea" sono arbitrari ed è possibile usare i nomi desiderati in base al proprio scenario. Dopo aver configurato gli slot di distribuzione, è possibile usare Terraform per alternare i due slot in base alle esigenze.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+- **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
 - **Account GitHub**: è necessario un account [GitHub](http://www.github.com) per creare una copia tramite fork e usare il repository GitHub di test.
 

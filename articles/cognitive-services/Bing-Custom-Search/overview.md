@@ -1,7 +1,7 @@
 ---
-title: Informazioni su Ricerca personalizzata Bing
+title: Informazioni sull'API Ricerca personalizzata Bing
 titlesuffix: Azure Cognitive Services
-description: Panoramica generale di Ricerca personalizzata Bing.
+description: L'API Ricerca personalizzata Bing permette di creare esperienze di ricerca personalizzate per specifici argomenti di interesse.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,48 +10,42 @@ ms.component: bing-custom-search
 ms.topic: overview
 ms.date: 09/29/2017
 ms.author: aahi
-ms.openlocfilehash: 2be1d76cc37de2ce2965cc08c116b37286bd8b52
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8dae58b1ae58a634ca6a566424a7c2d3fcf6add2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163240"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554606"
 ---
-# <a name="what-is-bing-custom-search"></a>Informazioni su Ricerca personalizzata Bing
+# <a name="what-is-the-bing-custom-search-api"></a>Informazioni sull'API Ricerca personalizzata Bing
 
-Ricerca personalizzata Bing consente di creare esperienze di ricerca personalizzata per gli argomenti a cui si è interessati. Ad esempio, se si è proprietari di un sito Web che offre un'esperienza di ricerca, è possibile specificare i domini, i siti Web e le pagine Web cercati da Bing. Gli utenti visualizzano risultati della ricerca specifici per il contenuto a cui sono interessati anziché scorrere i risultati della ricerca che possono includere contenuto irrilevante.
+L'API Ricerca personalizzata Bing permette di creare esperienze di ricerca personalizzate senza annunci per specifici argomenti di interesse. È possibile specificare i domini e le pagine Web per la ricerca in Bing, nonché evidenziare o innalzare o abbassare di livello contenuti specifici in modo da creare una visualizzazione personalizzata del Web e aiutare gli utenti a trovare rapidamente i risultati pertinenti. 
 
-Per creare una visualizzazione personalizzata del Web, usare il [portale](https://customsearch.ai) di Ricerca personalizzata Bing. Il portale consente di creare un'istanza di ricerca personalizzata che specifica i domini, i siti Web e le pagine Web in cui si vuole eseguire la ricerca con Bing e i siti Web in cui non si vuole eseguire la ricerca. Oltre a specificare gli URL del contenuto che si conosce, è anche possibile usare il portale per trovare contenuto pertinente che potrebbe essere utile aggiungere.
+## <a name="features"></a>Funzionalità
 
-Il portale consente anche di aggiungere una pagina Web specifica in alto nei risultati della ricerca, se l'utente immette un termine di ricerca specifico. 
+|Funzionalità  |Descrizione  |
+|---------|---------|
+|[Suggerimenti per la ricerca in tempo reale personalizzati](define-custom-suggestions.md)     | Suggerimenti per la ricerca che possono essere visualizzati come elenchi a discesa man mano che l'utente digita.       | 
+|[Esperienze di ricerca di immagini personalizzate](get-images-from-instance.md)     | Permettono agli utenti di cercare immagini dai domini e dai siti Web specificati nell'istanza di ricerca personalizzata.        |        
+|[Esperienze di ricerca di video personalizzate](get-videos-from-instance.md)     | Permettono agli utenti di cercare video dai domini e dai siti specificati nell'istanza di ricerca personalizzata.        |    
+|[Condivisione dell'istanza di ricerca personalizzata](share-your-custom-search.md)     | Possibilità di collaborare alla modifica e alla verifica dell'istanza di ricerca condividendola con i membri del team.        | 
+|[Configurazione di un'interfaccia utente per le applicazioni e i siti Web ](hosted-ui.md)     | Possibilità di collaborare alla modifica e alla verifica dell'istanza di ricerca condividendola con i membri del team.        | 
+## <a name="workflow"></a>Flusso di lavoro
 
-Dopo aver definito l'istanza, è possibile integrare la ricerca personalizzata nel sito Web, nell'app desktop o nell'app per dispositivi mobili chiamando l'API Ricerca personalizzata. Se è disponibile un sito o un'applicazione basato su Web, è possibile delegare all'interfaccia utente ospitata il rendering dell'interfaccia di ricerca.
+È possibile creare un'istanza di ricerca personalizzata usando il portale [Ricerca personalizzata Bing](https://customsearch.ai). Il portale permette di creare un'istanza di ricerca personalizzata che specifica i domini, i siti Web e le pagine Web in cui si vuole eseguire la ricerca con Bing, insieme a quelli da escludere per la ricerca. È anche possibile usare il portale per: visualizzare in anteprima l'esperienza di ricerca, modificare le priorità di ricerca fornite dall'API e, facoltativamente, configurare un'interfaccia utente da visualizzare nei siti Web e nelle applicazioni.
 
-La figura seguente mostra la semplicità di integrazione della ricerca personalizzata.
+Dopo aver creato l'istanza di ricerca, è possibile integrarla (insieme, facoltativamente, a un'interfaccia utente) nel sito Web o nell'applicazione chiamando l'API Ricerca personalizzata Bing:
 
-![alt immagine](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/cognitive-services/Bing-Custom-Search/media/BCS-Overview.png "Come funziona Ricerca personalizzata Bing.")
+![Immagine che mostra che è possibile connettersi a Ricerca personalizzata Bing tramite l'API](media/BCS-Overview.png "Funzionamento di Ricerca personalizzata Bing")
 
-## <a name="adding-custom-search-box-suggestions"></a>Aggiunta di suggerimenti personalizzati della casella di ricerca
-
-È possibile arricchire la propria esperienza di ricerca con i suggerimenti personalizzati della casella di ricerca. Questa funzionalità consente di offrire suggerimenti di ricerca personalizzati pertinenti all'esperienza di ricerca dell'utente. Man mano che l'utente digita nella casella di ricerca, nell'elenco a discesa vengono suggerite stringhe di query in base alla stringa di query parziale dell'utente. È possibile specificare se restituire solo i suggerimenti personalizzati o se includere anche i suggerimenti di Bing. [Altre informazioni](define-custom-suggestions.md).
-
-## <a name="adding-custom-image-search-experience"></a>Aggiunta dell'esperienza di ricerca di immagini personalizzata
-
-È possibile arricchire la propria esperienza di ricerca con le immagini. Come per i risultati Web, la ricerca personalizzata supporta la ricerca di immagini nell'elenco di siti Web dell'istanza. [Altre informazioni](get-images-from-instance.md).
-
-## <a name="adding-custom-video-search-experience"></a>Aggiunta dell'esperienza di ricerca di video personalizzata
-
-È possibile arricchire la propria esperienza di ricerca con i video. Come per i risultati Web, la ricerca personalizzata supporta la ricerca di video nell'elenco di siti Web dell'istanza. [Altre informazioni](get-videos-from-instance.md).
-
-## <a name="sharing-your-custom-search-instance-with-others"></a>Condivisione dell'istanza di ricerca personalizzata con altri utenti
-
-È possibile condividere l'istanza con i membri del team per eseguire con facilità la modifica e il test dell'istanza stessa in modo collaborativo. [Altre informazioni](share-your-custom-search.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per iniziare rapidamente, vedere [Create your first Bing Custom Search instance](quick-start.md) (Creare la prima istanza di Ricerca personalizzata Bing).
 
 Per informazioni dettagliate sulla personalizzazione dell'istanza di ricerca, vedere [Definire un'istanza di ricerca personalizzata](define-your-custom-view.md).
+
+Per informazioni sull'uso dei risultati delle ricerche nei servizi e nelle applicazioni, vedere [Requisiti per l'uso e la visualizzazione di Bing](./use-and-display-requirements.md).
 
 È consigliabile acquisire familiarità con il contenuto di riferimento per ognuno degli endpoint di ricerca personalizzata. La documentazione di riferimento contiene gli endpoint, le intestazioni e i parametri di query da usare per richiedere risultati della ricerca. Include anche le definizioni degli oggetti della risposta.
 
@@ -60,5 +54,3 @@ Per informazioni dettagliate sulla personalizzazione dell'istanza di ricerca, ve
 - [API Video personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
 - [API Suggerimenti automatici personalizzati](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
 
-
-Per non violare nessuna delle regole relative all'uso dei risultati della ricerca, vedere [Bing Use and Display Requirements](./use-and-display-requirements.md) (Requisiti per l'uso e la visualizzazione di Bing).

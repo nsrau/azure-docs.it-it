@@ -1,7 +1,7 @@
 ---
 title: Usare Speech SDK per C#
 titleSuffix: Azure Cognitive Services
-description: Il Servizio di riconoscimento vocale consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS.
+description: Il servizio Voce consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162632"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714581"
 ---
-# <a name="integrate-speech-service"></a>Integrare il Servizio di riconoscimento vocale
+# <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integrare il servizio Voce con l'app Language Understanding
 Il [Servizio di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS. Il progetto usa il pacchetto Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) già incluso come riferimento. 
 
 Per questo articolo è necessario un account del sito Web [LUIS][LUIS] gratuito per importare l'applicazione.
@@ -27,7 +27,7 @@ Per questo articolo è necessario un account del sito Web [LUIS][LUIS] gratuito 
 Nel portale di Azure [creare](luis-how-to-azure-subscription.md#create-luis-endpoint-key) una chiave **Language Understanding** (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importare l'app LUIS per le risorse umane
-Le finalità e le espressioni usate in questo articolo derivano dall'app LUIS per le risorse umane disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Scaricare il file [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), salvarlo con l'estensione `.json` e [importarlo](luis-how-to-start-new-app.md#import-new-app) in LUIS. 
+Le finalità e le espressioni usate in questo articolo derivano dall'app LUIS per le risorse umane disponibile nel repository GitHub [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Scaricare il file [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json), salvarlo con l'estensione `.json` e [importarlo](luis-how-to-start-new-app.md#import-new-app) in LUIS. 
 
 Questa app include le finalità, le entità e le espressioni correlate al dominio Human Resources (Risorse umane). Le espressioni di esempio includono:
 
@@ -62,7 +62,7 @@ Dopo aver importato l'app, selezionare **Entities** (Entità) e quindi **Add pre
 Questo articolo usa il dispositivo audio del computer. Il dispositivo può essere costituito da cuffie con microfono o da un dispositivo audio incorporato. Controllare i livelli di input audio per verificare se è necessario parlare a voce più alta del solito per consentire il riconoscimento vocale da parte del dispositivo audio. 
 
 ## <a name="download-the-luis-sample-project"></a>Scaricare il progetto di esempio LUIS
- Clonare o scaricare il repository [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) (Esempi LUIS). Aprire il [progetto di riconoscimento finalità voce](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) con Visual Studio e ripristinare i pacchetti NuGet. Il file della soluzione VS è .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
+ Clonare o scaricare il repository [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Aprire il [progetto di riconoscimento finalità voce](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-speech-intent-recognition) con Visual Studio e ripristinare i pacchetti NuGet. Il file della soluzione VS è documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
 
 Speech SDK è già incluso come riferimento. 
 
@@ -93,7 +93,7 @@ Speech SDK restituisce la risposta LUIS completa.
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Quando non è più necessaria, eliminare l'app LUIS per le risorse umane. A tale scopo, selezionare l'app e nella barra degli strumenti contestuale disponibile sopra l'elenco selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
-Ricordarsi di eliminare la directory LUIS-Samples (Esempi LUIS) dopo aver usato il codice di esempio.
+Non dimenticare di eliminare la directory dopo aver usato il codice di esempio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

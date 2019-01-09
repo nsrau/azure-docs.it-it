@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 467484824ec3a3ceffb6dfa692953406ed6acc1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec282bc1159e8a8cf21b88b8430bbf3067686528
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963322"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788623"
 ---
-# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Esercitazione: Distribuire un'applicazione Service Fabric Mesh
+# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Esercitazione: Distribuire un'applicazione Azure Service Fabric Mesh
 
 Questa esercitazione è la terza parte di una serie e illustra come pubblicare un'applicazione Web Azure Service Fabric Mesh direttamente da Visual Studio.
 
@@ -113,10 +113,10 @@ Per i passaggi rimanenti è possibile usare Azure Cloud Shell o un'installazione
 
 A questo punto l'applicazione è stata distribuita. È possibile verificarne lo stato con il comando `app show`. 
 
-Il nome dell'applicazione per l'app dell'esercitazione è `ServiceMeshApp`. Per raccogliere i dettagli sull'applicazione, usare il comando seguente:
+Il nome dell'applicazione per l'app dell'esercitazione è `todolistapp`. Per raccogliere i dettagli sull'applicazione, usare il comando seguente:
 
 ```azurecli-interactive
-az mesh app show --resource-group $rg --name ServiceMeshApp
+az mesh app show --resource-group $rg --name todolistapp
 ```
 
 ## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>Visualizzare tutte le applicazioni attualmente distribuite nella sottoscrizione

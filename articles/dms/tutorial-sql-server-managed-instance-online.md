@@ -5,24 +5,21 @@ services: dms
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: 030cd89bbd6407cd2e83a9b56942adbf419e069b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: f23b297acdd8de0c26bf5fc02bc2d5415845b828
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956704"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718181"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Esercitazione: Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure online con Servizio Migrazione del database
 È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza locale di SQL Server a [Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance.md) con tempi di inattività minimi. Per altri metodi che potrebbero richiedere un qualche intervento manuale, vedere [Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-migrate.md).
-
->[!IMPORTANT]
->I progetti di migrazione online da SQL Server a Istanza gestita di database SQL di Azure sono in anteprima e sono soggetti alle [condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In questa esercitazione si eseguirà la migrazione del database **Adventureworks2012** da un'istanza locale di SQL Server a Istanza gestita di database SQL di Azure con tempi di inattività minimi usando Servizio Migrazione del database di Azure.
 
@@ -34,7 +31,7 @@ In questa esercitazione si apprenderà come:
 > * Eseguire il cutover della migrazione quando si è pronti.
 
 > [!NOTE]
-> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium (anteprima).
+> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium.
 
 > [!IMPORTANT]
 > Per un'esperienza di migrazione ottimale, Microsoft consiglia di creare un'istanza del Servizio Migrazione del database di Azure nella stessa area di Azure del database di destinazione. Lo spostamento dei dati tra regioni o aree geografiche può rallentare il processo di migrazione e causare errori.
@@ -95,10 +92,10 @@ Per completare questa esercitazione, è necessario:
 
     Per altre informazioni, vedere l'articolo [Topologie di rete per le migrazioni di istanze gestite del database SQL di Azure tramite il Servizio Migrazione del database di Azure](https://aka.ms/dmsnetworkformi).
 
-6. Selezionare uno SKU nel piano tariffario "Business critical (anteprima)".
+6. Selezionare uno SKU del piano tariffario Premium.
 
     > [!NOTE]
-    > Le migrazioni online sono supportate solo quando viene usato il piano "Business critical (anteprima)". 
+    > Le migrazioni online sono supportate solo quando viene usato il piano tariffario Premium. 
    
     Per altre informazioni sui costi e i piani tariffari, vedere la [pagina relativa ai prezzi](https://aka.ms/dms-pricing).
    
@@ -118,7 +115,7 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
  
 3. Selezionare **+ Nuovo progetto di migrazione**.
 
-4. Nella schermata **Nuovo progetto di migrazione** specificare un nome per il progetto e quindi selezionare **SQL Server** nella casella di testo **Tipo del server di origine**, **Istanza gestita di database SQL di Azure** nella casella di testo **Tipo del server di destinazione** e **Migrazione dei dati online (anteprima)** per **Scegli il tipo di attività**.
+4. Nella schermata **Nuovo progetto di migrazione** specificare un nome per il progetto e quindi selezionare **SQL Server** nella casella di testo **Tipo del server di origine**, **Istanza gestita di database SQL di Azure** nella casella di testo **Tipo del server di destinazione** e **Migrazione dei dati online** per **Scegli il tipo di attività**.
 
    ![Creare il progetto del Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 

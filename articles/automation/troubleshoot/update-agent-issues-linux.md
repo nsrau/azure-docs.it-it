@@ -9,16 +9,22 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 491f60b55843957bf9ec904f7310ef67219ba3c5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: dff24fb28a4129aa7f29d5f9ed1db10d533d005e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438643"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578853"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Linux in Gestione aggiornamenti
 
 Sono molti i motivi possibili per cui un computer non viene visualizzato come **Pronto** in Gestione aggiornamenti. In Gestione aggiornamenti è possibile controllare l'integrità di un agente del ruolo di lavoro ibrido per determinare il problema sottostante. Questo articolo illustra come eseguire la risoluzione dei problemi per i computer Azure dal portale di Azure e per i computer non Azure nello [scenario offline](#troubleshoot-offline).
+
+L'elenco seguente indica i tre possibili stati di conformità di un computer:
+
+* **Pronto**: l'agente di aggiornamento è implementato e l'ultima visualizzazione risale a meno di 1 ora fa.
+* **Disconnesso**: l'agente di aggiornamento è implementato e l'ultima visualizzazione risale a più di 1 ora fa.
+* **Non configurato**: l'agente di aggiornamento non viene trovato o non è stato completato l'onboarding.
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 

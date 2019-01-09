@@ -1,7 +1,7 @@
 ---
 title: Revisione delle espressioni endpoint
 titleSuffix: Azure Cognitive Services
-description: Migliorare le stime delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTP di cui LUIS non è sicuro. Potrebbe essere necessario verificare l'entità o la finalità di alcune espressioni. È consigliabile includere l'esaminazione delle espressioni endpoint come parte normale della manutenzione programmata di LUIS.
+description: Migliorare le stime delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTP di cui LUIS non è sicuro. Potrebbe essere necessario verificare l'entità o la finalità di alcune espressioni.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: bc641732d74dac4f566420ada6338362932df4d7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6cbeb44e5dfca84bc85a6be4c4b44cb59bad783a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080453"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755122"
 ---
-# <a name="tutorial-1-fix-unsure-predictions"></a>Esercitazione 1: Correggere le stime dubbie
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Esercitazione: Correggere le stime dubbie con la revisione delle espressioni di endpoint
 Questa esercitazione illustra come migliorare le stime delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTPS di cui LUIS non è sicuro. Potrebbe essere necessario verificare l'entità o la finalità di alcune espressioni. È consigliabile includere l'esaminazione delle espressioni endpoint come parte normale della manutenzione programmata di LUIS. 
 
 Questo processo di revisione è un altro approccio usato da LUIS per conoscere il dominio dell'app. LUIS ha selezionato le espressioni che appaiono nell'elenco di revisione. L'elenco ha le caratteristiche seguenti:
@@ -33,7 +33,7 @@ La revisione delle espressioni endpoint consente di verificare o correggere la f
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usare l'app di esercitazione esistente
+> * Importare l'app di esempio
 > * Esaminare le espressioni endpoint
 > * Aggiornare un elenco di frasi
 > * Eseguire il training dell'app
@@ -42,19 +42,19 @@ La revisione delle espressioni endpoint consente di verificare o correggere la f
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Usare l'app esistente
+## <a name="import-example-app"></a>Importare l'app di esempio
 
 Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
-Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
+Seguire questa procedura:
 
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 
 2. Importare il file JSON in una nuova app.
 
 3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `review`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 
-    Se si usa questa esercitazione come nuova app importata, è inoltre necessario eseguire il training, pubblicare e quindi aggiungere le espressioni all'endpoint tramite uno [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) o dall'endpoint in un browser. Le espressioni da aggiungere sono le seguenti:
+    Se si usa questa esercitazione come nuova app importata, è inoltre necessario eseguire il training, pubblicare e quindi aggiungere le espressioni all'endpoint tramite uno [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) o dall'endpoint in un browser. Le espressioni da aggiungere sono le seguenti:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 

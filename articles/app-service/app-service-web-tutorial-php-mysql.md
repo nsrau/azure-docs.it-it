@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d26f51d05ef97e15c47183e87f44aecec247723c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251675"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722329"
 ---
-# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Esercitazione: Creare un'app Web PHP e MySQL in Azure
+# <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Esercitazione: Creare un'app PHP e MySQL in Azure
 
 > [!NOTE]
-> Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere [Creare un'app Web PHP e MySQL nel servizio app di Azure in Linux](./containers/tutorial-php-mysql-app.md).
+> Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere [Creare un'app PHP e MySQL nel servizio app di Azure in Linux](./containers/tutorial-php-mysql-app.md).
 >
 
-Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa esercitazione illustra come creare un'app Web PHP in Azure e connetterla a un database MySQL. Al termine, sarà disponibile un'app [Laravel](https://laravel.com/) in esecuzione nelle app Web del servizio app di Azure.
+[Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Questa esercitazione illustra come creare un'app PHP in Azure e connetterla a un database MySQL. Al termine, sarà disponibile un'app [Laravel](https://laravel.com/) in esecuzione nel servizio app di Azure.
 
 ![App PHP in esecuzione nel Servizio app di Azure](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -51,7 +51,7 @@ Per completare questa esercitazione:
 * [Installare Git](https://git-scm.com/)
 * [Installare PHP 5.6.4 o versione successiva](https://php.net/downloads.php)
 * [Installare Composer](https://getcomposer.org/doc/00-intro.md)
-* Abilitare le estensioni PHP seguenti richieste da Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* Abilitare le seguenti estensioni PHP richieste da Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Installare e avviare MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Preparare MySQL in locale
@@ -66,7 +66,7 @@ In una finestra terminale connettersi al server MySQL locale. È possibile usare
 mysql -u root -p
 ```
 
-Se viene richiesto di immettere una password, immettere la password per l'account `root`. Se non si ricorda la password dell'account radice, vedere [MySQL: Come reimpostare la password radice](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Se viene richiesto di immettere una password, immettere la password per l'account `root`. Se non si ricorda la password dell'account radice, vedere [MySQL: come reimpostare la password radice](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Se il comando viene eseguito correttamente, il server MySQL è in esecuzione. In caso contrario, assicurarsi che il server MySQL locale sia stato avviato seguendo la [procedura successiva all'installazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
@@ -206,7 +206,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 ```
 
 > [!TIP] 
-> È possibile rendere ancora più restrittiva la regola del firewall [usando solo gli indirizzi IP in uscita usati dall'app](app-service-ip-addresses.md#find-outbound-ips).
+> È possibile rendere ancora più restrittiva la regola del firewall [usando solo gli indirizzi IP in uscita usati dall'app](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
 In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal computer locale sostituendo *\<your_ip_address>* con l'[indirizzo IPv4 locale](http://www.whatsmyip.org/).
@@ -384,17 +384,17 @@ Nella finestra del terminale locale usare `php artisan` per generare una nuova c
 php artisan key:generate --show
 ```
 
-In Cloud Shell impostare la chiave applicazione nell'app Web del servizio app usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Sostituire i segnaposto _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+In Cloud Shell impostare la chiave applicazione nell'app del servizio app usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Sostituire i segnaposto _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"` indica a Laravel di restituire le informazioni di debug quando l'app Web distribuita rileva errori. Quando si esegue un'applicazione di produzione, è consigliabile impostarla su `false`.
+`APP_DEBUG="true"` indica a Laravel di restituire le informazioni di debug quando l'app distribuita rileva errori. Quando si esegue un'applicazione di produzione, è consigliabile impostarla su `false`.
 
 ### <a name="set-the-virtual-application-path"></a>Impostare il percorso virtuale dell'applicazione
 
-Impostare il percorso virtuale dell'applicazione per l'app Web. Questo passaggio è necessario perché il [ciclo di vita dell'applicazione Laravel](https://laravel.com/docs/5.4/lifecycle) ha inizio nella directory _public_ anziché nella directory radice dell'applicazione. Gli altri framework PHP il cui ciclo di vita si avvia nella directory radice funzionano anche senza la configurazione manuale del percorso dell'applicazione virtuale.
+Impostare il percorso virtuale dell'applicazione per l'app. Questo passaggio è necessario perché il [ciclo di vita dell'applicazione Laravel](https://laravel.com/docs/5.4/lifecycle) ha inizio nella directory _public_ anziché nella directory radice dell'applicazione. Gli altri framework PHP il cui ciclo di vita si avvia nella directory radice funzionano anche senza la configurazione manuale del percorso dell'applicazione virtuale.
 
 In Cloud Shell impostare il percorso virtuale dell'applicazione con il comando [`az resource update`](/cli/azure/resource#az-resource-update). Sostituire il segnaposto _&lt;appname>_ .
 
@@ -433,7 +433,7 @@ remote: Running deployment command...
 > È possibile usare questo approccio per aggiungere uno o più passaggi alla distribuzione basata su Git al servizio app. Per altre informazioni, vedere [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) (Script di distribuzione personalizzata).
 >
 
-### <a name="browse-to-the-azure-web-app"></a>Passare all'app Web di Azure
+### <a name="browse-to-the-azure-app"></a>Passare all'app Azure
 
 Passare a `http://<app_name>.azurewebsites.net` e aggiungere alcune attività all'elenco.
 
@@ -577,7 +577,7 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Dopo aver completato `git push`, passare all'app Web di Azure e testare la nuova funzionalità.
+Dopo aver completato `git push`, passare all'app Azure e testare la nuova funzionalità.
 
 ![Modifiche al modello e al database pubblicate in Azure](media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -593,7 +593,7 @@ Per avviare lo streaming dei log, usare il comando [`az webapp log tail`](/cli/a
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-Dopo avere avviato lo streaming dei log, aggiornare l'app Web di Azure nel browser per ricevere traffico Web. I log di console vengono inviati tramite pipe al terminale. Se i log di console non sono immediatamente visibili, controllare nuovamente dopo 30 secondi.
+Dopo avere avviato lo streaming dei log, aggiornare l'app di Azure nel browser per ricevere traffico Web. I log di console vengono inviati tramite pipe al terminale. Se i log di console non sono immediatamente visibili, controllare nuovamente dopo 30 secondi.
 
 Per interrompere lo streaming dei log in qualsiasi momento, digitare `Ctrl`+`C`.
 
@@ -604,15 +604,15 @@ Per interrompere lo streaming dei log in qualsiasi momento, digitare `Ctrl`+`C`.
 >
 >
 
-## <a name="manage-the-azure-web-app"></a>Gestire l'app Web di Azure
+## <a name="manage-the-azure-app"></a>Gestire l'app Azure
 
-Accedere al [portale di Azure](https://portal.azure.com) per gestire l'app Web creata.
+Accedere al [portale di Azure](https://portal.azure.com) per gestire l'app creata.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web di Azure.
+Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
 
-![Passare all'app Web di Azure nel portale](./media/app-service-web-tutorial-php-mysql/access-portal.png)
+![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-php-mysql/access-portal.png)
 
-Verrà visualizzata la pagina di panoramica dell'app Web. Nella pagina è possibile eseguire attività di gestione di base come l'arresto, l'avvio, il riavvio e l'eliminazione.
+Verrà visualizzata la pagina Panoramica dell'app. Nella pagina è possibile eseguire attività di gestione di base come l'arresto, l'avvio, il riavvio e l'eliminazione.
 
 Il menu a sinistra consente di visualizzare le pagine di configurazione dell'app.
 
@@ -634,7 +634,7 @@ Questa esercitazione illustra come:
 > * Eseguire lo streaming dei log di diagnostica in Azure
 > * Gestire l'app nel portale di Azure
 
-Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato a un'app Web.
+Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app.
 
 > [!div class="nextstepaction"]
-> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-domain.md)
+> [Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure](app-service-web-tutorial-custom-domain.md)

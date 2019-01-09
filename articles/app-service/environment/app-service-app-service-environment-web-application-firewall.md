@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 6bc354ef3451862e3567adbe5ff8ee6da0eacaf6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314874"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631499"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app
 ## <a name="overview"></a>Panoramica
@@ -74,12 +74,12 @@ Dopo avere eseguito l'accesso, dovrebbe essere visualizzato un dashboard come qu
 
 ![Dashboard di gestione][ManagementDashboard]
 
-Fare clic sulla scheda **Services** (Servizi) per configurare il firewall WAF per i servizi protetti. Per altri dettagli sulla configurazione di Barracuda WAF, vedere la [relativa documentazione](https://techlib.barracuda.com/waf/getstarted1). Nell'esempio seguente è stata configurata un'app Web di Azure che gestisce il traffico su HTTP e HTTPS.
+Fare clic sulla scheda **Services** (Servizi) per configurare il firewall WAF per i servizi protetti. Per altri dettagli sulla configurazione di Barracuda WAF, vedere la [relativa documentazione](https://techlib.barracuda.com/waf/getstarted1). Nell'esempio seguente è stata configurata un'app del servizio app che gestisce il traffico HTTP e HTTPS.
 
 ![Aggiunta di servizi di gestione][ManagementAddServices]
 
 > [!NOTE]
-> A seconda di come sono configurate le applicazioni e di quali funzionalità sono in uso nell'ambiente del servizio app, è necessario inoltrare il traffico per le porte TCP diverse dalla 80 e dalla 443, ad esempio se IP SSL è configurato per un'app Web. Per un elenco di porte di rete usate negli ambienti del servizio app, vedere la sezione Porte di rete della [documentazione sul controllo del traffico in ingresso](app-service-app-service-environment-control-inbound-traffic.md).
+> A seconda di come sono configurate le applicazioni e di quali funzionalità sono in uso nell'ambiente del servizio app, è necessario inoltrare il traffico a porte TCP diverse dalla 80 e dalla 443, ad esempio in caso di configurazione di IP SSL per un'app del servizio app. Per un elenco di porte di rete usate negli ambienti del servizio app, vedere la sezione Porte di rete della [documentazione sul controllo del traffico in ingresso](app-service-app-service-environment-control-inbound-traffic.md).
 > 
 > 
 

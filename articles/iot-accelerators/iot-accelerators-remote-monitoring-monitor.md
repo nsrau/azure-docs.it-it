@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Monitorare i dispositivi IoT da una soluzione di Azure | Microsoft Docs'
+title: 'Esercitazione: Monitorare i dispositivi IoT da una soluzione di Azure - Azure | Microsoft Docs'
 description: In questa esercitazione si impara a monitorare i dispositivi IoT usando l'acceleratore della soluzione di monitoraggio remoto.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d8afe474f88f0881de5b0e7b132009c6e03ac2af
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7dd7612817f83fe713759965fc28f6f86a0d624a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824745"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602529"
 ---
-# <a name="tutorial-monitor-your-iot-devices"></a>Esercitazione: monitorare i dispositivi IoT
+# <a name="tutorial-monitor-your-iot-devices"></a>Esercitazione: Monitorare i dispositivi IoT
 
 In questa esercitazione si usa l'acceleratore della soluzione di monitoraggio remoto per controllare i dispositivi IoT connessi. Usare il dashboard della soluzione per visualizzare i dati di telemetria, le informazioni sul dispositivo, gli avvisi e gli indicatori KPI.
 

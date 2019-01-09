@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7af18272c335c835a2aa406fc635f3e7afda2a3a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 182dada35e0bea7101cc58ff62fde76fbcb8971e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003453"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722278"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure
 
@@ -28,7 +28,7 @@ Questa esercitazione illustra come creare una semplice applicazione Node.js in e
 Per altre informazioni su Servizi cloud e sulle differenze rispetto ai servizi Siti Web e Macchine virtuali di Azure, vedere [Confronto tra siti Web, servizi cloud e macchine virtuali].
 
 > [!TIP]
-> Come creare un semplice sito Web Se lo scenario prevede un semplice sito Web front-end, è possibile [usare un'app Web leggera]. È possibile procedere all'aggiornamento a un Servizio cloud con facilità, in base alla crescita dell’app Web e all'insorgere di nuove esigenze.
+> Come creare un semplice sito Web Se lo scenario prevede un semplice sito Web front-end, è possibile [usare un'app Web leggera]. È possibile procedere all'aggiornamento a un Servizio cloud con facilità, in base alla crescita dell'app Web e all'insorgere di nuove esigenze.
 
 Questa esercitazione consente di creare una semplice applicazione Web ospitata in un ruolo Web. Si utilizzerà l'emulatore di calcolo per testare in locale l'applicazione, che verrà quindi distribuita con gli strumenti della riga di comando di PowerShell.
 
@@ -58,10 +58,10 @@ Per creare un nuovo progetto di Servizi cloud di Azure, oltre allo scaffolding d
 
     Il cmdlet **New-AzureServiceProject** genera una struttura di base per la pubblicazione di un'applicazione Node.js in un servizio cloud. Contiene i file di configurazione necessari per la pubblicazione in Azure. Il cmdlet modifica inoltre la directory di lavoro nella directory per il servizio.
 
-    Il cmdlet crea i seguenti file:
+    Il cmdlet crea i file seguenti:
 
-   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** e **ServiceDefinition.csdef** sono file specifici di Azure, necessari per la pubblicazione dell'applicazione. Per altre informazioni, vedere [Creazione di un servizio ospitato per Azure].
-   * **deploymentSettings.json**: archivia le impostazioni locali utilizzate dai cmdlet di distribuzione di Azure PowerShell.
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** e **ServiceDefinition.csdef**: File specifici di Azure necessari per la pubblicazione dell'applicazione. Per altre informazioni, vedere [Creazione di un servizio ospitato per Azure].
+   * **deploymentSettings.json**: archivia le impostazioni locali usate dai cmdlet di distribuzione di Azure PowerShell.
 4. Immettere il seguente comando per aggiungere un nuovo ruolo Web:
 
        Add-AzureNodeWebRole
@@ -164,7 +164,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node. js].
 
 <!-- URL List -->
 
-[Confronto tra siti Web, servizi cloud e macchine virtuali]: ../app-service/choose-web-site-cloud-service-vm.md
+[Confronto tra siti Web, servizi cloud e macchine virtuali]: ../app-service/overview-compare.md
 [usare un'app Web leggera]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK per .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178

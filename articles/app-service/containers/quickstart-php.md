@@ -1,5 +1,5 @@
 ---
-title: "Creare un'app Web PHP su Linux: Servizio app di Azure | Microsoft Docs"
+title: Creare un'app PHP in Linux - Servizio app di Azure | Microsoft Docs
 description: Distribuire in pochi minuti la prima app Hello World PHP in un'app Web del Servizio app in Linux.
 services: app-service\web
 documentationcenter: ''
@@ -15,20 +15,20 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 2c9586bb5abce66e4043e3df80b420174a582cbb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: af413528c279c5fcab472347d247b17dd5061167
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257404"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628409"
 ---
-# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Creare un'app Web PHP nel Servizio app in Linux
+# <a name="create-a-php-app-in-app-service-on-linux"></a>Creare un'app PHP nel servizio app in Linux
 
 > [!NOTE]
-> Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app Web PHP in Azure](../app-service-web-get-started-php.md).
+> Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app PHP in Azure](../app-service-web-get-started-php.md).
 >
 
-Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva illustra come distribuire un'app PHP nel Servizio app di Azure in Linux. È necessario creare l'app Web con immagine incorporata usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell e Git per distribuire il codice PHP nell'app Web.
+Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva illustra come distribuire un'app PHP nel Servizio app di Azure in Linux. È necessario creare l'app con l'immagine predefinita usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell e usare Git per distribuire il codice PHP nell'app del servizio app.
 
 ![App di esempio in esecuzione in Azure](media/quickstart-php/hello-world-in-browser.png)
 
@@ -80,15 +80,15 @@ Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
-Passare al sito per visualizzare l'app Web con immagine incorporata appena creata. Sostituire _&lt;app name>_ con il nome dell'app Web.
+Passare al sito per visualizzare la nuova app creata con l'immagine predefinita. Sostituire _&lt;app name>_ con il nome dell'app.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Ecco l'aspetto che avrà la nuova app Web:
+Ecco l'aspetto che avrà la nuova app:
 
-![Pagina dell'app Web vuota](media/quickstart-php/app-service-web-service-created.png)
+![Pagina dell'app vuota](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -125,7 +125,7 @@ Passare all'applicazione distribuita con il Web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-Il codice di esempio PHP è in esecuzione in un'app Web con immagine incorporata.
+Il codice di esempio PHP è in esecuzione nel servizio app in Linux con l'immagine predefinita.
 
 ![App di esempio in esecuzione in Azure](media/quickstart-php/hello-world-in-browser.png)
 
@@ -150,15 +150,15 @@ Al termine della distribuzione, tornare alla finestra del browser aperta nel pas
 
 ![App di esempio aggiornata in esecuzione in Azure](media/quickstart-php/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gestire la nuova app Web di Azure
+## <a name="manage-your-new-azure-app"></a>Gestire la nuova app Azure
 
-Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app Web creata.
+Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app creata.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web di Azure.
+Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
 
-![Passare all'app Web di Azure nel portale](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
+![Passaggio all'app di Azure nel portale](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 
-Verrà visualizzata la pagina di panoramica dell'app Web. Qui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app.
+Verrà visualizzata la pagina Panoramica dell'app. Qui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app.
 
 ![Pagina del servizio app nel portale di Azure](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 

@@ -1,5 +1,5 @@
 ---
-title: "Creare un'app Web Python su Linux: Servizio app di Azure | Microsoft Docs"
+title: Creare un'app Python in Linux - Servizio app di Azure | Microsoft Docs
 description: Distribuire la prima app Hello World Python nel servizio app di Azure in Linux in pochi minuti.
 services: app-service\web
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d9d6f3549ec5db914536400fac53de60f2ad4a94
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3af8f57cab6e420a7c7515bdf32b7ef382441cf9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261851"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633148"
 ---
-# <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Creare un'app Web Python nel Servizio app di Azure in Linux (anteprima)
+# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Creare un'app Python nel Servizio app di Azure in Linux (anteprima)
 
 Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva illustra come distribuire un'app Python nella parte superiore dell'immagine Python predefinita (anteprima) nel Servizio app di Azure in Linux mediante l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -85,17 +85,17 @@ Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
-Passare al sito per visualizzare l'app Web con immagine incorporata appena creata. Sostituire _&lt;app name>_ con il nome dell'app Web.
+Passare al sito per visualizzare la nuova app creata con l'immagine predefinita. Sostituire _&lt;app name>_ con il nome dell'app.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Ecco l'aspetto che avrà la nuova app Web:
+Ecco l'aspetto che avrà la nuova app:
 
-![Pagina dell'app Web vuota](media/quickstart-php/app-service-web-service-created.png)
+![Pagina dell'app vuota](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -129,7 +129,7 @@ Passare all'applicazione distribuita con il Web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-Il codice di esempio Python è in esecuzione in un'app Web con l'immagine predefinita.
+Il codice di esempio Python è in esecuzione nel servizio app in Linux con un'immagine predefinita.
 
 ![App di esempio in esecuzione in Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -154,15 +154,15 @@ Al termine della distribuzione, tornare alla finestra del browser aperta nel pas
 
 ![App di esempio aggiornata in esecuzione in Azure](media/quickstart-python/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gestire la nuova app Web di Azure
+## <a name="manage-your-new-azure-app"></a>Gestire la nuova app Azure
 
-Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app Web creata.
+Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app creata.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web di Azure.
+Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
 
-![Passare all'app Web di Azure nel portale](./media/quickstart-python/app-service-list.png)
+![Passaggio all'app di Azure nel portale](./media/quickstart-python/app-service-list.png)
 
-Verrà visualizzata la pagina di panoramica dell'app Web. Qui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app.
+Verrà visualizzata la pagina Panoramica dell'app. Qui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app.
 
 ![Pagina del servizio app nel portale di Azure](media/quickstart-python/app-service-detail.png)
 

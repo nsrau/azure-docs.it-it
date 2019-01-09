@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: eseguire il debug di un'applicazione Web Azure Service Fabric Mesh in esecuzione nel cluster di sviluppo locale | Documentazione Microsoft"
+title: "Esercitazione: Eseguire il debug di un'applicazione Web Azure Service Fabric Mesh in esecuzione nel cluster di sviluppo locale | Microsoft Docs"
 description: In questa esercitazione viene eseguito il debug di un'applicazione Azure Service Fabric Mesh in esecuzione nel cluster locale.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 6e7f6499a78b21ad81af5d541966e18090467532
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887509"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787631"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Esercitazione: eseguire il debug di un'applicazione Azure Service Fabric Mesh in esecuzione nel cluster di sviluppo locale
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Esercitazione: Eseguire il debug di un'applicazione Azure Service Fabric Mesh in esecuzione nel cluster di sviluppo locale
 
 Questa esercitazione è la seconda parte di una serie e illustra come compilare ed eseguire il debug di un'applicazione Azure Service Fabric Mesh nel cluster di sviluppo locale.
 
@@ -93,8 +93,8 @@ Se sono presenti errori di compilazione in **service.yaml**, assicurarsi che per
 ### <a name="debug-in-visual-studio"></a>Eseguire il debug in Visual Studio
 
 Per il debug di un'applicazione Service Fabric Mesh in Visual Studio viene usato un cluster di sviluppo locale di Service Fabric. Per scoprire in che modo gli elementi attività vengono recuperati dal servizio back-end, eseguire il debug nel metodo OnGet().
-1. Nel progetto **WebFrontEnd** aprire **Pages** > **Index.cshtml** > **Index.cshtml.cs** e impostare un punto di interruzione nel metodo **Get** (riga 17).
-2. Nel progetto **ToDoService** aprire **TodoController.cs** e impostare un punto di interruzione nel metodo **OnGet** (riga 15).
+1. Nel progetto **WebFrontEnd** aprire **Pages** > **Index.cshtml** > **Index.cshtml.cs** e impostare un punto di interruzione nel metodo **OnGet** (riga 17).
+2. Nel progetto **ToDoService** aprire **TodoController.cs** e impostare un punto di interruzione nel metodo **Get** (riga 15).
 3. Tornare al browser e aggiornare la pagina. È stato raggiunto il punto di interruzione nel metodo `OnGet()` del front-end Web. È possibile esaminare la variabile `backendUrl` per conoscere la combinazione delle variabili di ambiente definite nel file **service.yaml** nell'URL usato per contattare il servizio back-end.
 4. Eseguire l'istruzione/routine (F10) della chiamata `client.GetAsync(backendUrl).GetAwaiter().GetResult())` per raggiungere il punto di interruzione `Get()` del controller. In questo metodo è possibile scoprire in che modo l'elenco degli elementi attività viene recuperato dall'elenco in memoria.
 5. Al termine, premere **MAIUSC+F5** per arrestare il debug del progetto in Visual Studio.

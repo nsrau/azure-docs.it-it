@@ -1,5 +1,5 @@
 ---
-title: Provare una soluzione in Azure per gestire dispositivi IoT industriali | Microsoft Docs
+title: Provare una soluzione per gestire dispositivi IoT industriali - Azure | Microsoft Docs
 description: In questa guida introduttiva si vedrà come accedere all'acceleratore di soluzione Connected Factory di Azure IoT, quindi come accedere al dashboard della soluzione e usarlo.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139013"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602648"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Guida introduttiva: Provare una soluzione basata sul cloud per gestire dispositivi IoT industriali
 
@@ -76,7 +76,7 @@ Il pannello **Efficienza complessiva delle attrezzature** mostra i valori di eff
 
 [![Efficienza complessiva delle attrezzature](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
-Il valore di efficienza complessiva delle attrezzature valuta l'efficienza del processo di produzione usando parametri operativi correlati alla produzione. Il valore di OEE è una misura standard di settore calcolata moltiplicando la disponibilità, le prestazioni e la qualità: OEE = disponibilità x prestazioni x qualità.
+Il valore di efficienza complessiva delle attrezzature valuta l'efficienza del processo di produzione usando parametri operativi correlati alla produzione. Il valore di OEE è una misura standard del settore calcolata moltiplicando la disponibilità, le prestazioni e la qualità: Valore di OEE = disponibilità x prestazioni x qualità.
 
 È possibile analizzare ulteriormente l'efficienza complessiva delle attrezzature per qualsiasi livello della gerarchia dei dati. Fare clic sul comando radiale della percentuale di efficienza complessiva, disponibilità, prestazioni o qualità. Viene visualizzato un pannello contestuale con visualizzazioni che mostrano i dati su scale cronologiche diverse:
 

@@ -9,18 +9,32 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 4551968cc446bb949d0b18cb77211808169cb907
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 58a62a5a882c6883c6fed31a7b95d949247e1bf1
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103473"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752606"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Esercitazione 5: Estrarre dati in formato libero
+# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Esercitazione: Estrarre dati in formato libero con entità pattern.any
 
 Questa esercitazione illustra come usare l'entità pattern.any per estrarre dati da espressioni formattate in modo corretto e in cui la fine dei dati potrebbe essere facilmente confusa con le ultime parole dell'espressione. 
+
+**In questa esercitazione si apprenderà come:**
+
+> [!div class="checklist"]
+> * Importare l'app di esempio
+> * Aggiungere espressioni di esempio alla finalità esistente
+> * Creare l'entità pattern.any
+> * Creare criteri
+> * Eseguire il training
+> * Eseguire il test del nuovo criterio
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-patternany-entity"></a>Uso dell'entità pattern.any
 
 L'entità pattern.any consente di trovare i dati in formato libero nel caso in cui la formulazione dell'entità renda difficile determinare la fine dell'entità dal resto dell'espressione. 
 
@@ -50,24 +64,12 @@ La lunghezza variabile include parole che potrebbero confondere LUIS circa la fi
 |Chi ha creato {NomeModulo}[?]|
 |{NomeModulo} viene pubblicato in francese[?]|
 
-**In questa esercitazione si apprenderà come:**
-
-> [!div class="checklist"]
-> * Usare l'app di esercitazione esistente
-> * Aggiungere espressioni di esempio alla finalità esistente
-> * Creare l'entità pattern.any
-> * Creare criteri
-> * Eseguire il training
-> * Eseguire il test del nuovo criterio
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Usare l'app esistente
+## <a name="import-example-app"></a>Importare l'app di esempio
 Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
-Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
+Seguire questa procedura:
 
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
 2. Importare il file JSON in una nuova app.
 

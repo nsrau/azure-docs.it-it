@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b7d8a9b0ef48f7daed74fb15263e516d820a6a38
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6af6eb0dd6473b9fe947f7cc4939da4e0cbc77cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259070"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718505"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Esercitazione: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita
 
-Il [Servizio app](app-service-web-overview.md) fornisce un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione in Azure. Offre anche un'[identità gestita](app-service-managed-service-identity.md) per l'app, una soluzione chiavi in mano per proteggere l'accesso al [database SQL di Azure](/azure/sql-database/) e ad altri servizi di Azure. Le identità gestite nel servizio app rendono l'app più sicura eliminando i segreti dall'app, ad esempio le credenziali nelle stringhe di connessione. In questa esercitazione si aggiungerà un'identità gestita all'app Web ASP.NET di esempio creata in [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Al termine, l'app di esempio si connetterà al database SQL in modo sicuro senza che siano necessari nome utente e password.
+Il [Servizio app](overview.md) fornisce un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione in Azure. Offre anche un'[identità gestita](overview-managed-identity.md) per l'app, una soluzione chiavi in mano per proteggere l'accesso al [database SQL di Azure](/azure/sql-database/) e ad altri servizi di Azure. Le identità gestite nel servizio app rendono l'app più sicura eliminando i segreti dall'app, ad esempio le credenziali nelle stringhe di connessione. In questa esercitazione si aggiungerà un'identità gestita all'app Web ASP.NET di esempio creata in [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Al termine, l'app di esempio si connetterà al database SQL in modo sicuro senza che siano necessari nome utente e password.
 
 > [!NOTE]
 > Questo scenario è attualmente supportato da .NET Framework 4.6 e versioni successive, ma non da [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows). [.NET core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) supporta lo scenario, ma non è stato ancora incluso nelle immagini predefinite nel servizio app. 
@@ -123,7 +123,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-Questo costruttore configura un oggetto SqlConnection per l'uso di un token di accesso per il database SQL di Azure dal servizio app. Con il token di accesso, l'app del servizio app esegue l'autenticazione al database SQL di Azure con l'identità gestita. Per altre informazioni, vedere [Ottenimento di token per le risorse di Azure](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). L'istruzione `if` consente di continuare a testare l'app in locale con Local DB.
+Questo costruttore configura un oggetto SqlConnection per l'uso di un token di accesso per il database SQL di Azure dal servizio app. Con il token di accesso, l'app del servizio app esegue l'autenticazione al database SQL di Azure con l'identità gestita. Per altre informazioni, vedere [Ottenimento di token per le risorse di Azure](overview-managed-identity.md#obtaining-tokens-for-azure-resources). L'istruzione `if` consente di continuare a testare l'app in locale con Local DB.
 
 > [!NOTE]
 > `SqlConnection.AccessToken` è attualmente supportato solo in .NET Framework 4.6 e versioni successive e in [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2), non in [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows).
@@ -147,7 +147,7 @@ In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto
 
 Nella pagina di pubblicazione fare clic su **Pubblica**. Quando nella nuova pagina Web viene visualizzato l'elenco attività, l'app si connette al database con l'identità gestita.
 
-![App Web di Azure dopo la migrazione Code First](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![App Azure dopo la migrazione Code First](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 Dovrebbe ora essere possibile modificare l'elenco attività come prima.
 
@@ -211,4 +211,4 @@ Contenuto dell'esercitazione:
 Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app Web.
 
 > [!div class="nextstepaction"]
-> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-domain.md)
+> [Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure](app-service-web-tutorial-custom-domain.md)

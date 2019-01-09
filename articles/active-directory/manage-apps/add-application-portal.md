@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/24/2018
 ms.author: barbkess
-ms.openlocfilehash: 9cb3cb16e0eba30f98767efd0d1c0d9123304c27
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 5cdadd93273b6010200b7211b75ca86dfa126b9d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394995"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604823"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Guida introduttiva: Aggiungere un'applicazione al tenant di Azure Active Directory
 
-Azure Active Directory (Azure AD) offre una raccolta contenente migliaia di applicazioni preintegrate. Alcune delle applicazioni usate dall'organizzazione sono probabilmente incluse nella raccolta. Questa guida introduttiva usa il portale di Azure per aggiungere un'applicazione della raccolta al tenant di Azure Active Directory (Azure AD). 
- 
+Azure Active Directory (Azure AD) offre una raccolta contenente migliaia di applicazioni preintegrate. Alcune delle applicazioni usate dall'organizzazione sono probabilmente incluse nella raccolta. Questa guida introduttiva usa il portale di Azure per aggiungere un'applicazione della raccolta al tenant di Azure Active Directory (Azure AD).
+
 Dopo l'aggiunta di un'applicazione al tenant di Azure AD, è possibile:
 
 - Gestire l'accesso degli utenti all'applicazione con criteri di accesso condizionale.
@@ -41,13 +41,13 @@ Per testare i passaggi di questa esercitazione è consigliabile usare un ambient
 
 Per aggiungere un'applicazione della raccolta al tenant di Azure AD:
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel pannello di spostamento a sinistra. 
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel pannello di spostamento a sinistra.
 
-2. Nel pannello **Azure Active Directory** fare clic su **Applicazioni aziendali**. 
+2. Nel pannello **Azure Active Directory** fare clic su **Applicazioni aziendali**.
 
     ![Aprire Applicazioni aziendali](media/add-application-portal/open-enterprise-apps.png)
 
-3. Verrà visualizzato il pannello **Tutte le applicazioni**, contenente un campione casuale delle applicazioni nel tenant di Azure AD. 
+3. Verrà visualizzato il pannello **Tutte le applicazioni**, contenente un campione casuale delle applicazioni nel tenant di Azure AD.
 
     ![Pannello Tutte le applicazioni](media/add-application-portal/applications-blade.png)
 
@@ -56,7 +56,7 @@ Per aggiungere un'applicazione della raccolta al tenant di Azure AD:
 
     ![Nuova applicazione](media/add-application-portal/new-application.png)
 
-5. Per visualizzare un elenco delle applicazioni nella raccolta, è più semplice usare **Categorie**, perché le icone in **Applicazioni in primo piano** sono un campione casuale delle applicazioni della raccolta. 
+5. Per visualizzare un elenco delle applicazioni nella raccolta, è più semplice usare **Categorie**, perché le icone in **Applicazioni in primo piano** sono un campione casuale delle applicazioni della raccolta.
 
     ![Ricerca per nome o categoria](media/add-application-portal/categories.png)
 
@@ -70,23 +70,23 @@ Per aggiungere un'applicazione della raccolta al tenant di Azure AD:
 
 8. Dopo aver apportato le modifiche alle proprietà, fare clic su **Aggiungi**.
 
-9. Verrà visualizzata una pagina Attività iniziali con le opzioni per configurare l'applicazione per l'organizzazione. 
+9. Verrà visualizzata una pagina Attività iniziali con le opzioni per configurare l'applicazione per l'organizzazione.
 
     ![Menu delle attività iniziali](media/add-application-portal/get-started.png)
 
-L'aggiunta dell'applicazione è completata. È ora possibile fare una pausa.  Le sezioni successive illustreranno come modificare il logo e altre proprietà dell'applicazione.
+L'aggiunta dell'applicazione è completata. È ora possibile fare una pausa. Le sezioni successive illustreranno come modificare il logo e altre proprietà dell'applicazione.
 
 ## <a name="find-your-azure-ad-tenant-application"></a>Trovare l'applicazione del tenant di Azure AD
 
 Si supponga di aver dovuto interrompere e di riprendere ora la configurazione dell'applicazione. La prima operazione da eseguire è trovare l'applicazione.
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic su **Azure Active Directory** nel pannello di spostamento a sinistra. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic su **Azure Active Directory** nel pannello di spostamento a sinistra.
 
-2. Nel pannello Azure Active Directory fare clic su **Applicazioni aziendali**. 
+2. Nel pannello Azure Active Directory fare clic su **Applicazioni aziendali**.
 
 3. Nel menu a discesa **Tipo di applicazione** selezionare **Tutte le applicazioni** e fare clic su **Applica**. Per altre informazioni sulle opzioni di visualizzazione, vedere [Visualizzare le applicazioni del tenant](view-applications-portal.md).
 
-4. Verrà visualizzato un elenco di tutte le applicazioni nel tenant di Azure AD.  L'elenco è un campione casuale. Per visualizzare altre applicazioni, fare clic su **Mostra altro** una o più volte. 
+4. Verrà visualizzato un elenco di tutte le applicazioni nel tenant di Azure AD. L'elenco è un campione casuale. Per visualizzare altre applicazioni, fare clic su **Mostra altro** una o più volte.
 
 5. Per trovare rapidamente un'applicazione nel tenant, immettere il nome dell'applicazione nella casella di ricerca e fare clic su **Applica**. In questo esempio viene trovata l'applicazione GitHub-test aggiunta in precedenza.
 
@@ -104,41 +104,41 @@ Per modificare le proprietà dell'applicazione
 
     ![Pannello per la modifica delle proprietà](media/add-application-portal/edit-properties.png)
 
-3. Esaminare le opzioni di accesso. La combinazione di **Abilitata per l'accesso degli utenti**, **Assegnazione utenti obbligatoria** e **Visibile agli utenti** determina se gli utenti assegnati o non assegnati all'applicazione potranno eseguire l'accesso,  nonché se l'applicazione verrà visualizzata agli utenti nel pannello di accesso. 
+3. Esaminare le opzioni di accesso. La combinazione di **Abilitata per l'accesso degli utenti**, **Assegnazione utenti obbligatoria** e **Visibile agli utenti** determina se gli utenti assegnati o non assegnati all'applicazione potranno eseguire l'accesso, nonché se l'applicazione verrà visualizzata agli utenti nel pannello di accesso.
 
     - **Abilitata per l'accesso degli utenti** determina se gli utenti assegnati all'applicazione potranno eseguire l'accesso.
     - **Assegnazione di utenti obbligatoria** determina se gli utenti non assegnati all'applicazione potranno eseguire l'accesso.
-    - **Visibile agli utenti** determina se un'app verrà visualizzata agli utenti assegnati nel pannello di accesso e nell'icona di avvio delle app di O365. 
+    - **Visibile agli utenti** determina se un'app verrà visualizzata agli utenti assegnati nel pannello di accesso e nell'icona di avvio delle app di O365.
 
-4. Usare le tabelle seguenti per scegliere le opzioni ottimali per le proprie esigenze. 
+4. Usare le tabelle seguenti per scegliere le opzioni ottimali per le proprie esigenze.
 
-     - Comportamento per gli utenti **assegnati**:
+    - Comportamento per gli utenti **assegnati**:
 
-       | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti assegnati | |
-       |---|---|---|---|---|
-       | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti assegnati?* |
-       | Sì | Sì | Sì | Sì | Sì  |
-       | Sì | Sì | no  | Sì | no   |
-       | Sì | no  | Sì | Sì | Sì  |
-       | Sì | no  | no  | Sì | no   |
-       | no  | Sì | Sì | no  | no   |
-       | no  | Sì | no  | no  | no   |
-       | no  | no  | Sì | no  | no   |
-       | no  | no  | no  | no  | no   |
+        | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti assegnati | |
+        |---|---|---|---|---|
+        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti assegnati?* |
+        | Sì | Sì | Sì | Sì | Sì  |
+        | Sì | Sì | no  | Sì | no   |
+        | Sì | no  | Sì | Sì | Sì  |
+        | Sì | no  | no  | Sì | no   |
+        | no  | Sì | Sì | no  | no   |
+        | no  | Sì | no  | no  | no   |
+        | no  | no  | Sì | no  | no   |
+        | no  | no  | no  | no  | no   |
 
-     - Comportamento per gli utenti **non assegnati**:
-  
-       | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti non assegnati | |
-       |---|---|---|---|---|
-       | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti non assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti non assegnati?* |
-       | Sì | Sì | Sì | no  | no   |
-       | Sì | Sì | no  | no  | no   |
-       | Sì | no  | Sì | Sì | no   |
-       | Sì | no  | no  | Sì | no   |
-       | no  | Sì | Sì | no  | no   |
-       | no  | Sì | no  | no  | no   |
-       | no  | no  | Sì | no  | no   |
-       | no  | no  | no  | no  | no   |
+    - Comportamento per gli utenti **non assegnati**:
+
+        | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti non assegnati | |
+        |---|---|---|---|---|
+        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti non assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti non assegnati?* |
+        | Sì | Sì | Sì | no  | no   |
+        | Sì | Sì | no  | no  | no   |
+        | Sì | no  | Sì | Sì | no   |
+        | Sì | no  | no  | Sì | no   |
+        | no  | Sì | Sì | no  | no   |
+        | no  | Sì | no  | no  | no   |
+        | no  | no  | Sì | no  | no   |
+        | no  | no  | no  | no  | no   |
 
     *L'applicazione viene visualizzata agli utenti nel pannello di accesso e nell'icona di avvio delle app di Office 365?
 
@@ -157,9 +157,9 @@ Per usare un logo personalizzato:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come aggiungere un'applicazione della raccolta al tenant di Azure AD. Si è anche appreso come modificare le proprietà di un'applicazione. 
+In questa guida introduttiva si è appreso come aggiungere un'applicazione della raccolta al tenant di Azure AD. Si è anche appreso come modificare le proprietà di un'applicazione.
 
-È ora possibile configurare l'applicazione per l'accesso Single Sign-On. 
+È ora possibile configurare l'applicazione per l'accesso Single Sign-On.
 
 > [!div class="nextstepaction"]
 > [Configurare l'accesso Single Sign-On](configure-single-sign-on-portal.md)

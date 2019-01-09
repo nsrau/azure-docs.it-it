@@ -1,27 +1,27 @@
 ---
-title: 'Avvio rapido: Riconoscere i contenuti vocali, C++ (Linux) - Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Riconoscere i contenuti vocali, C++ (Linux) - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in C++ su Linux con l'SDK del servizio Voce
+description: Informazioni sul riconoscimento vocale in C++ in Linux con Speech Service SDK
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
-ms.openlocfilehash: e26190b46a79d581e5996e51bfd104f1d4beb6f6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d741550fc64ef7544e33304f8608ad6e6ee3426e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094033"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723647"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in C++ su Linux con Speech SDK
+# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscere i contenuti vocali in C++ in Linux con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In questo articolo, viene creata un'applicazione console C++ per Linux Ubuntu 16.04. Utilizzare i Servizi cognitivi [Speech SDK](speech-sdk.md) per trascrivere il riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione viene compilata con il [Speech SDK per Linux](https://aka.ms/csspeech/linuxbinary) e il compilatore C++ della distribuzione di Linux (ad esempio, `g++`).
+In questo articolo viene creata un'applicazione console C++ per Ubuntu Linux 16.04 o 18.04. Utilizzare i Servizi cognitivi [Speech SDK](speech-sdk.md) per trascrivere il riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione viene compilata con il [Speech SDK per Linux](https://aka.ms/csspeech/linuxbinary) e il compilatore C++ della distribuzione di Linux (ad esempio, `g++`).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,9 +31,9 @@ In questo articolo, viene creata un'applicazione console C++ per Linux Ubuntu 16
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.1.0`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.2.0`.
 
-Speech SDK per Linux è utilizzabile per compilare applicazioni sia a 64 bit che a 32 bit. Le librerie necessarie e i file di intestazione possono essere scaricati come un tarfile da https://aka.ms/csspeech/linuxbinary.
+Speech SDK per Linux è utilizzabile per compilare applicazioni sia a 64 bit che a 32 bit. Le librerie necessarie e i file di intestazione possono essere scaricati come file tar da https://aka.ms/csspeech/linuxbinary.
 
 Scaricare e installare SDK come indicato di seguito:
 
@@ -129,16 +129,12 @@ Scaricare e installare SDK come indicato di seguito:
    We recognized: What's the weather like?
    ```
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Ricercare questo esempio nella cartella `quickstart/cpp-linux`.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Riconoscere le finalità dai contenuti vocali con Speech SDK per C++](how-to-recognize-intents-from-speech-cpp.md)
+> [Esaminare gli esempi di codice C++ su GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [Traduzione vocale](how-to-translate-speech-csharp.md)
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

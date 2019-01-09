@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Servizi cloud di Azure e ASP.NET | Documentazione Microsoft
+title: Introduzione a Servizi cloud di Azure e ASP.NET | Microsoft Docs
 description: Informazioni sulla creazione di un app a più livelli con ASP.NET MVC e Azure. L'app viene eseguita in un servizio cloud, con un ruolo Web e un ruolo di lavoro. Usa Entity Framework, il database SQL e le code e i BLOB di archiviazione di Azure.
 services: cloud-services, storage
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242127"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716107"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -35,8 +35,8 @@ Questa applicazione è un BBS pubblicitario. Gli utenti creano un'inserzione tra
 
 L'applicazione usa il [modello di lavoro incentrato sulle code](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) per delegare a un processo back-end il lavoro di creazione delle anteprime, che comporta un utilizzo elevato della CPU.
 
-## <a name="alternative-architecture-web-apps-and-webjobs"></a>Architettura alternativa: app Web e processi Web
-Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un'[app Web di Azure](/azure/app-service/) e si può usare la funzionalità [Processi Web](https://go.microsoft.com/fwlink/?LinkId=390226) per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](../app-service/choose-web-site-cloud-service-vm.md).
+## <a name="alternative-architecture-app-service-and-webjobs"></a>Architettura alternativa: servizio app e processi Web
+Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un [servizio app di Azure](/azure/app-service/) e usare la funzionalità [Processi Web](https://go.microsoft.com/fwlink/?LinkId=390226) per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](../app-service/overview-compare.md).
 
 ## <a name="what-youll-learn"></a>Contenuto dell'esercitazione
 * Abilitare il sistema per lo sviluppo in Azure installando Azure SDK.
@@ -232,7 +232,7 @@ Le stringhe di connessione per l'account di archiviazione di Azure per il proget
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **ContosoAdsWeb** nella sezione **Ruoli** del progetto **ContosoAdsCloudService**, quindi scegliere **Proprietà**.
 
     ![Proprietà del ruolo](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Fare clic sulla scheda **Impostazioni** . Nella casella di riepilogo Configurazione servizio selezionare **Cloud**.
+2. Fare clic sulla scheda **Impostazioni** . Nella casella di riepilogo **Configurazione servizio** selezionare **Cloud**.
 
     ![Configurazione del cloud](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Se si seleziona la voce **StorageConnectionString**, verrà visualizzato un pulsante con puntini di sospensione (**...**) all'estremità destra della riga. Fare clic su tale pulsante per aprire la finestra di dialogo **Crea Stringa di connessione all'account di archiviazione** .
@@ -603,7 +603,7 @@ if (imageFile != null && imageFile.ContentLength != 0)
 }
 ```
 
-L’esempio successivo riporta il codice per l'eliminazione dei BLOB in caso di eliminazione di un'inserzione.
+L'esempio successivo riporta il codice per l'eliminazione dei BLOB in caso di eliminazione di un'inserzione.
 
 ```csharp
 private async Task DeleteAdBlobsAsync(Ad ad)
@@ -775,7 +775,7 @@ Per un video introduttivo relativo alle procedure consigliate e ai modelli per A
 
 Per altre informazioni, vedere le seguenti risorse:
 
-* [Servizi cloud di Azure - Parte 1: Introduzione](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/) (Servizi cloud di Azure parte 1: Introduzione)
 * [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md)
 * [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/)
 * [Come scegliere un provider di servizi cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

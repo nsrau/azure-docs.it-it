@@ -1,24 +1,23 @@
 ---
 title: Esercitazione su Kubernetes in Azure - Creare un registro contenitori
-description: In questa esercitazione sul servizio Kubernetes di Azure (AKS), si crea un'istanza di Registro contenitori di Azure e si carica un'immagine del contenitore dell'applicazione di esempio.
+description: In questa esercitazione sul servizio Kubernetes di Azure (AKS), si crea un'istanza di Registro Azure Container e si carica un'immagine del contenitore dell'applicazione di esempio.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4f240d346457717c66a6ed189cfd8610c7a764da
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 51cfc62adaf9d9c780888477aa6eab2a812fe98c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918263"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718034"
 ---
-# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Esercitazione: Distribuire e usare Registro contenitori di Azure
+# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Esercitazione: Distribuire e usare Registro Azure Container
 
-Registro contenitori di Azure è un registro privato basato su Azure per le immagini del contenitore Docker. Un registro contenitori privato consente di compilare e distribuire le applicazioni e il codice personalizzato in modo sicuro. In questa esercitazione, parte due di sette, si distribuisce un'istanza di Registro contenitori di Azure, in cui si esegue il push di un'immagine del contenitore. Si apprenderà come:
+Registro Azure Container è un registro privato per le immagini dei contenitori. Un registro contenitori privato consente di compilare e distribuire le applicazioni e il codice personalizzato in modo sicuro. In questa esercitazione, parte due di sette, si distribuisce un'istanza di Registro contenitori di Azure, in cui si esegue il push di un'immagine del contenitore. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un'istanza di Registro contenitori di Azure
@@ -26,13 +25,13 @@ Registro contenitori di Azure è un registro privato basato su Azure per le imma
 > * Caricare l'immagine in Registro contenitori di Azure
 > * Visualizzare le immagini nel registro
 
-Nelle esercitazioni successive questa istanza di Registro contenitori di Azure verrà integrata con un cluster Kubernetes in AKS e verrà distribuita un'applicazione dall'immagine.
+In altre esercitazioni questa istanza di Registro Azure Container verrà integrata con un cluster Kubernetes nel servizio Azure Kubernetes e verrà distribuita un'applicazione dall'immagine.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Nell'[esercitazione precedente][aks-tutorial-prepare-app] è stata creata un'immagine del contenitore per una semplice applicazione Azure Voting. Se l'immagine dell'app Azure Voting non è stata creata, tornare all'[Esercitazione 1 - Creare immagini del contenitore][aks-tutorial-prepare-app].
 
-Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.44 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.53 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="create-an-azure-container-registry"></a>Creare un Registro contenitori di Azure
 
@@ -44,7 +43,7 @@ Creare un gruppo di risorse con il comando [az group create][az-group-create]. N
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare un'istanza di Registro contenitori di Azure con il comando [az acr create][az-acr-create] e specificare il nome del registro. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nella parte restante di questa esercitazione viene usato `<acrName>` come segnaposto per il nome del registro contenitori. Lo SKU *Basic* è un punto di ingresso con costi ottimali a fini di sviluppo, che assicura l'equilibrio tra spazio di archiviazione e velocità effettiva.
+Creare un'istanza di Registro contenitori di Azure con il comando [az acr create][az-acr-create] e specificare il nome del registro. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nella parte restante di questa esercitazione viene usato `<acrName>` come segnaposto per il nome del registro contenitori. Specificare un nome di registro univoco. Lo SKU *Basic* è un punto di ingresso con costi ottimali a fini di sviluppo, che assicura l'equilibrio tra spazio di archiviazione e velocità effettiva.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -101,7 +100,7 @@ tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313 
 
 ## <a name="push-images-to-registry"></a>Eseguire il push delle immagini nel registro
 
-È ora possibile eseguire il push dell'immagine *azure-vote-front* nell'istanza del Registro contenitori di Azure. Usare [docker push][docker-push] e specificare l'indirizzo *acrLoginServer* per l'immagine come di seguito:
+Dopo aver creato e contrassegnato l'immagine, eseguire il push dell'immagine *azure-vote-front* nell'istanza di Registro Azure Container. Usare [docker push][docker-push] e specificare l'indirizzo *acrLoginServer* per l'immagine come di seguito:
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1

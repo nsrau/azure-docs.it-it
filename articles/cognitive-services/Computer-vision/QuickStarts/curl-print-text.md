@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Estrarre testo stampato (OCR) - REST, cURL - Visione artificiale'
+title: 'Guida introduttiva: Estrarre testo stampato - REST, cURL'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrarrà testo stampato da un'immagine usando l'API Visione artificiale con cURL.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 6917e6f4ba0c2f8045d3f7da9a2e23acd949cf48
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 0eb276aa3af3cefb19a0659ec3188062deeddd0e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341243"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583630"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-curl-in-computer-vision"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST e cURL in Visione artificiale
 

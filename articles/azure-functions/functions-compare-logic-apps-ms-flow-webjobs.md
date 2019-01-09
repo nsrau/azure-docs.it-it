@@ -1,6 +1,6 @@
 ---
 title: Confrontare Flow, App per la logica, Funzioni e Processi Web - Azure
-description: È possibile confrontare i servizi cloud Microsoft ottimizzati per attività di integrazione, ovvero Flow, App per la logica, Funzioni e Processi Web.
+description: È possibile confrontare i servizi cloud Microsoft ottimizzati per attività di integrazione,  ovvero Flow, App per la logica, Funzioni e Processi Web.
 services: functions, logic-apps
 documentationcenter: na
 author: ggailey777
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: c22d75b4eb058942da5a3b0699cbb4a23eec42f3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec2c7a25c5108ee3c6f861defd8403ff40113075
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634932"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722218"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Confrontare Flow, App per la logica, Funzioni e Processi Web
 
@@ -26,7 +26,7 @@ Questo articolo confronta i servizi cloud Microsoft seguenti:
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/)
 * [Funzioni di Azure](https://azure.microsoft.com/services/functions/)
-* [Processi Web del servizio app di Azure](../app-service/web-sites-create-web-jobs.md)
+* [Processi Web del servizio app di Azure](../app-service/webjobs-create.md)
 
 Tutti questi servizi consentono di risolvere i problemi di integrazione e automatizzare i processi aziendali. Possono definire input, azioni, condizioni e output e ognuno può essere eseguito in base a una pianificazione o un trigger. Ogni servizio offre tuttavia vantaggi esclusivi e questo articolo ne illustra le differenze.
 
@@ -70,7 +70,7 @@ Per Funzioni di Azure è possibile sviluppare orchestrazioni scrivendo codice e 
 
 ## <a name="compare-functions-and-webjobs"></a>Confrontare Funzioni e Processi Web
 
-Analogamente a Funzioni di Azure, Processi Web del servizio app di Azure con WebJobs SDK è un servizio di integrazione di tipo *code first* progettato per gli sviluppatori. Entrambi i servizi si basano sul [servizio app di Azure](../app-service/app-service-web-overview.md) e supportano funzionalità come [integrazione del controllo del codice sorgente](../app-service/app-service-continuous-deployment.md), [autenticazione](../app-service/app-service-authentication-overview.md) e [monitoraggio con l'Integrazione di Application Insights](functions-monitoring.md).
+Analogamente a Funzioni di Azure, Processi Web del servizio app di Azure con WebJobs SDK è un servizio di integrazione di tipo *code first* progettato per gli sviluppatori. Entrambi i servizi si basano sul [servizio app di Azure](../app-service/overview.md) e supportano funzionalità come [integrazione del controllo del codice sorgente](../app-service/deploy-continuous-deployment.md), [autenticazione](../app-service/overview-authentication-authorization.md) e [monitoraggio con l'Integrazione di Application Insights](functions-monitoring.md).
 
 ### <a name="webjobs-and-the-webjobs-sdk"></a>Processi Web e WebJobs SDK
 

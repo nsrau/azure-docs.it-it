@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c7d01d4c079eacfd2af1ebad4ac41d70f792a0bb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ae37befe2ae2220feaf17ae4354b6fc780147f7e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253578"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634236"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Creare un'app Web HTML statica in Azure
 
-Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa guida introduttiva illustra come distribuire un sito HTML e CSS di base in un'app Web di Azure. Questa guida introduttiva verrà completata in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+[Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Questa guida introduttiva illustra come distribuire un sito HTML e CSS di base nel servizio app di Azure. Questa guida introduttiva verrà completata in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ![Home page dell'app di esempio](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -84,7 +84,7 @@ Il comando `az webapp up` esegue le azioni seguenti:
 
 - Crea un'app con il nome specificato.
 
-- [Distribuisce con zipdeploy](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) i file dalla directory di lavoro corrente all'app Web.
+- [Distribuisce con zipdeploy](https://docs.microsoft.com/azure/app-service/deploy-zip) i file dalla directory di lavoro corrente all'app Web.
 
 L'esecuzione del comando può richiedere alcuni minuti. Durante l'esecuzione, il comando visualizza informazioni simili all'esempio seguente:
 
@@ -106,7 +106,7 @@ Annotare il valore `resourceGroup`. È necessario per la sezione [Pulire le riso
 
 ## <a name="browse-to-the-app"></a>Passare all'app
 
-In un browser passare all'URL dell'app Web di Azure: `http://<app_name>.azurewebsites.net`.
+In un browser passare all'URL dell'app: `http://<app_name>.azurewebsites.net`.
 
 La pagina è in esecuzione come un'app Web del servizio app di Azure.
 
@@ -132,13 +132,13 @@ Al termine della distribuzione, tornare alla finestra del browser aperta nel pas
 
 ![Home page dell'app di esempio aggiornata](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gestire la nuova app Web di Azure
+## <a name="manage-your-new-azure-app"></a>Gestire la nuova app Azure
 
 Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app Web creata.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web di Azure.
+Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
 
-![Passare all'app Web di Azure nel portale](./media/app-service-web-get-started-html/portal1.png)
+![Passaggio all'app di Azure nel portale](./media/app-service-web-get-started-html/portal1.png)
 
 Verrà visualizzata la pagina di panoramica dell'app Web. Qui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app.
 

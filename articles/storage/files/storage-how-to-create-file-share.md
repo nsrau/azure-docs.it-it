@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 83829264f16fb295a1f5fa4f2efc74d8b35ec6eb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 318ecf03853e151040622ef0863f4c6986a96bd2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309192"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628511"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Creare una condivisione file in File di Azure
 Per creare condivisioni file di Azure, è possibile usare il  [portale di Azure](https://portal.azure.com/), i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. In questa esercitazione si apprenderà:
@@ -34,14 +34,17 @@ Per creare una condivisione file di Azure, è possibile usare un account di arch
 3. **Specificare il nome e la quota. Il valore massimo corrente per la quota è 5 TB**:    
     ![Specificare un nome e una quota desiderata per la nuova condivisione file](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
-4. **Visualizzare la nuova condivisione file**: ![Visualizzare la nuova condivisione file](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
+4. **Visualizzare la nuova condivisione file**:  ![Visualizzare la nuova condivisione file](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
 
-5. **Caricare un file**: ![Caricare un file](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
+5. **Caricare un file**:  ![Caricare un file](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
 
-6. **Esplorare la condivisione file e gestire le directory e i file**: ![Esplorare la condivisione file](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
+6. **Esplorare la condivisione file e gestire le directory e i file**:  ![Esplorare la condivisione file](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
 
 
 ## <a name="create-file-share-through-powershell"></a>Creare la condivisione file tramite PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure PowerShell. Vedere [Come installare e configurare Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) per le istruzioni relative al punto di installazione e all'installazione.
 
 > [!Note]  
@@ -50,13 +53,13 @@ Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure P
 1. **Creare un contesto per l'account di archiviazione e la chiave** Il contesto incapsula il nome dell'account di archiviazione e la chiave dell'account. Per istruzioni sulla copia della chiave dell'account dal  [portale di Azure](https://portal.azure.com/), vedere  [Chiavi di accesso all'account di archiviazione](../common/storage-account-manage.md#access-keys).
 
     ```powershell
-    $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
+    $storageContext = New-AzStorageContext <storage-account-name> <storage-account-key>
     ```
     
 2. **Creare una nuova condivisione file**:    
     
     ```powershell
-    $share = New-AzureStorageShare logs -Context $storageContext
+    $share = New-AzStorageShare logs -Context $storageContext
     ```
 
 > [!Note]  

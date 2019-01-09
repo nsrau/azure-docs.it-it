@@ -2,25 +2,18 @@
 title: Eseguire il backup dei database di SQL Server in Azure | Microsoft Docs
 description: Questo tutorial spiega come eseguire il backup di SQL Server in Azure. L'articolo spiega inoltre il recupero di SQL Server.
 services: backup
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/02/2018
-ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.topic: tutorial
+ms.date: 12/21/2018
+ms.author: raynew
+ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410364"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790175"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Eseguire un backup dei database SQL Server in Azure
 
@@ -44,9 +37,9 @@ Gli elementi seguenti sono limitazioni note per l'anteprima pubblica:
 - La macchina virtuale (VM) SQL richiede la connettività Internet per accedere agli indirizzi IP pubblici di Azure. Per maggiori dettagli, vedere [Stabilire la connettività di rete](backup-azure-sql-database.md#establish-network-connectivity).
 - È possibile proteggere fino a 2,000 database SQL in un insieme di credenziali di Servizi di ripristino. I database SQL aggiuntivi devono essere archiviati in un insieme di credenziali di Servizi di ripristino separato.
 - [I backup dei gruppi di disponibilità distribuiti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) presentano limitazioni.
-- Le istanze del cluster di failover Always On di SQL Server (FCI) non sono supportate.
+- Le istanze del cluster di failover di SQL Server Always On non sono supportate per il backup.
 - Usare il portale di Azure per configurare Backup di Azure per proteggere i database di SQL Server. Azure PowerShell, l’interfaccia della riga di comando di Azure e le API REST non sono attualmente supportate.
-- Le operazioni di backup/ripristino per i database mirror, gli snapshot di database e i database in istanze di cluster di failover non sono supportate.
+- Le operazioni di backup/ripristino per gli snapshot del database, i database e i database mirror di istanze del cluster di failover non sono supportate.
 - I database con un numero elevato di file non possono essere protetti. Il numero massimo di file supportati non è un numero molto deterministico, perché dipende non solo dal numero di file ma anche dalla lunghezza del percorso dei file. Questi casi sono tuttavia meno frequenti. Microsoft sta creando una soluzione per gestire situazioni di questo tipo.
 
 Per ulteriori dettagli sugli scenari supportati e non supportati, vedere la [sezione delle domande frequenti](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq).
@@ -136,7 +129,7 @@ I compromessi tra le opzioni disponibili sono: gestibilità, controllo granulare
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Impostare le autorizzazioni per le macchine virtuali SQL non del marketplace
 
-Per eseguire il backup di una macchina virtuale, Backup di Azure richiede l'installazione dell'estensione **AzureBackupWindowsWorkload**. Se si usano macchine virtuali di Azure Marketplace, continuare fino a [Individuare database di SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Se la macchina virtuale che ospita i database SQL non è stata creata da Azure Marketplace, completare la procedura seguente per installare l'estensione e impostare le autorizzazioni appropriate. Oltre all'estensione **AzureBackupWindowsWorkload**, Backup di Azure richiede privilegi sysadmin SQL per proteggere i database SQL. Per individuare i database nella macchina virtuale, Backup di Azure crea l'account **NT Service\AzureWLBackupPluginSvc**. Questo account viene usato per il backup e il ripristino e deve disporre dell'autorizzazione sysadmin SQL. Inoltre, Backup di Azure userà l'account **NT AUTHORITY\SYSTEM** per l'individuazione o l'interrogazione dei database e pertanto questo account deve essere un account di accesso pubblico in SQL.
+Per eseguire il backup di una macchina virtuale, Backup di Azure richiede l'installazione dell'estensione **AzureBackupWindowsWorkload**. Se si usano macchine virtuali di Azure Marketplace, continuare fino a [Individuare database di SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Se la macchina virtuale che ospita i database SQL non è stata creata da Azure Marketplace, completare la procedura seguente per installare l'estensione e impostare le autorizzazioni appropriate. Oltre all'estensione **AzureBackupWindowsWorkload**, Backup di Azure richiede privilegi sysadmin SQL per proteggere i database SQL. Per individuare i database nella macchina virtuale, Backup di Azure crea l'account **NT SERVICE\AzureWLBackupPluginSvc**. Questo account viene usato per il backup e il ripristino e deve disporre dell'autorizzazione sysadmin SQL. Inoltre, Backup di Azure userà l'account **NT AUTHORITY\SYSTEM** per l'individuazione o l'interrogazione dei database e pertanto questo account deve essere un account di accesso pubblico in SQL.
 
 Per configurare le autorizzazioni:
 
@@ -182,7 +175,7 @@ Durante il processo di installazione, se viene visualizzato l'errore `UserErrorS
 
     ![Nella finestra di dialogo Account di accesso - Nuovo selezionare Cerca](./media/backup-azure-sql-database/new-login-search.png)
 
-3. L'account di servizio virtuale di Windows **NT Service\AzureWLBackupPluginSvc** è stato creato durante la fase di registrazione della macchina virtuale e di rilevamento SQL. Immettere il nome dell'account, come illustrato nella casella **Immettere il nome dell'oggetto da selezionare**. Selezionare **Controlla nomi** per risolvere il nome.
+3. L'account di servizio virtuale di Windows **NT SERVICE\AzureWLBackupPluginSvc** è stato creato durante la fase di registrazione della macchina virtuale e di individuazione SQL. Immettere il nome dell'account, come illustrato nella casella **Immettere il nome dell'oggetto da selezionare**. Selezionare **Controlla nomi** per risolvere il nome.
 
     ![Selezionare Controlla nomi per risolvere il nome del servizio sconosciuto](./media/backup-azure-sql-database/check-name.png)
 

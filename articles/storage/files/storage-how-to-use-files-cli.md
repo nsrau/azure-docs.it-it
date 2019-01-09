@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc94e309db3fd0e97e06b5be5884a0b6e7337cea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 236a4e4f79e6da89154e1e52bb9f45daf3a54d59
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158976"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632044"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure tramite l'interfaccia della riga di comando di Azure
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con l'interfaccia della riga di comando di Azure. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -87,7 +87,7 @@ Per montare una condivisione file con SMB, vedere il documento riportato di segu
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Uso di una condivisione file di Azure con il protocollo REST di File 
-È possibile usare il protocollo REST di File direttamente, ossia creando personalmente chiamate HTTP REST, ma il modo più comune consiste nell'usare l'interfaccia della riga di comando di Azure, il [modulo AzureRM di PowerShell](storage-how-to-use-files-powershell.md) o Azure Storage SDK, perché offrono un pratico wrapper per il protocollo REST di File nel linguaggio di scripting/programmazione preferito.  
+È possibile usare il protocollo REST File direttamente, ovvero creando personalmente chiamate HTTP REST, ma il metodo più comune consiste nell'usare l'interfaccia della riga di comando di Azure, il [modulo di Azure PowerShell](storage-how-to-use-files-powershell.md) o Azure Storage SDK, perché offrono un pratico wrapper per il protocollo REST File nel linguaggio di scripting/programmazione preferito.  
 
 È previsto che la maggior parte degli utenti di File di Azure vorrà usare la propria condivisione file di Azure tramite il protocollo SMB, perché questo consente loro di usare le applicazioni e gli strumenti esistenti con cui possono avere familiarità, ma esistono diversi motivi per cui è vantaggioso usare l'API REST di File invece di SMB, ad esempio:
 
@@ -95,7 +95,7 @@ Per montare una condivisione file con SMB, vedere il documento riportato di segu
 - È necessario eseguire uno script o un'applicazione da client in cui non può essere montata una condivisione SMB, ad esempio client locali in cui la porta 445 non è sbloccata.
 - Si sfruttano risorse serverless, ad esempio [Funzioni di Azure](../../azure-functions/functions-overview.md). 
 
-Gli esempi seguenti illustrano come usare il modulo AzureRM di PowerShell per modificare la condivisione file di Azure con il protocollo REST di File. 
+Gli esempi seguenti mostrano come usare l'interfaccia della riga di comando di Azure per modificare la condivisione file di Azure con il protocollo REST File. 
 
 ### <a name="create-a-directory"></a>Creare una directory
 Per creare una nuova directory denominata *myDirectory* nella radice della condivisione file di Azure, usare il comando [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create):

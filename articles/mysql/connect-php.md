@@ -1,23 +1,20 @@
 ---
 title: Connettersi a Database di Azure per MySQL da PHP
 description: Questa guida introduttiva fornisce diversi esempi di codice PHP che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 7fa9272a8609d933a3f12abb0f33e78c4bdc1b12
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 76d721ca102ae0affeba23c46d5da9fd44743f5b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984809"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608767"
 ---
-# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Database di Azure per MySQL: usare PHP per connettersi ed eseguire query sui dati
+# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Database di Azure per MySQL: Usare PHP per connettersi ai dati ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione [PHP](https://secure.php.net/manual/intro-whatis.php). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con PHP, ma non con Database di Azure per MySQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -26,7 +23,7 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 - [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-php"></a>Installare PHP
-Installare PHP nel server o creare un'[app Web](../app-service/app-service-web-overview.md) di Azure che includa PHP.
+Installare PHP nel server o creare un'[app Web](../app-service/overview.md) di Azure che includa PHP.
 
 ### <a name="macos"></a>MacOS
 - Scaricare [PHP versione 7.1.4](https://secure.php.net/downloads.php).
@@ -36,7 +33,7 @@ Installare PHP nel server o creare un'[app Web](../app-service/app-service-web-o
 - Scaricare [PHP versione 7.1.4 non thread-safe (x64)](https://secure.php.net/downloads.php).
 - Installare PHP e vedere il [manuale di PHP](https://secure.php.net/manual/install.unix.php) per le altre opzioni di configurazione.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 - Scaricare [PHP versione 7.1.4 non thread-safe (x64)](https://windows.php.net/download#php-7.1).
 - Installare PHP e vedere il [manuale di PHP](https://secure.php.net/manual/install.windows.php) per le altre opzioni di configurazione.
 

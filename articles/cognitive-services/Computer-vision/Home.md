@@ -1,5 +1,5 @@
 ---
-title: Informazioni sull'API Visione artificiale
+title: Che cos'è l'API Visione artificiale? - Visione artificiale
 titlesuffix: Azure Cognitive Services
 description: Il servizio Visione artificiale consente agli sviluppatori di accedere ad algoritmi avanzati per l'elaborazione delle immagini e la restituzione delle informazioni.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: c5340599bc4ed400ce11ea8ba997d03c4df7cc05
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 4c952c847aa56b385065a878b664b3d1d98763f4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963216"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584021"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -33,7 +34,7 @@ Il servizio Visione artificiale basato sul cloud consente agli sviluppatori di a
 
 Visione artificiale può eseguire le azioni seguenti durante l'analisi di un'immagine:
 
-| Azione | DESCRIZIONE |
+| Azione | Descrizione |
 | ------ | ----------- |
 |**[Assegnare tag agli elementi visivi](concept-tagging-images.md)**|Identificare e assegnare tag agli elementi visivi di un'immagine in base a un set di migliaia di oggetti riconoscibili, esseri viventi, panorami e azioni. Quando i tag sono ambigui o non di conoscenza comune, la risposta dell'API indica suggerimenti per chiarire il significato del tag nel contesto di uno scenario noto. L'assegnazione di tag non è limitata al soggetto principale, ad esempio una persona in primo piano, ma include anche scenari (interni o esterni), arredamenti, strumenti, piante, animali, accessori, gadget e così via.|
 |**[Rilevare gli oggetti](concept-object-detection.md)**| Il rilevamento di oggetti è simile all'assegnazione di tag, ma l'API restituisce le coordinate del rettangolo di selezione per ogni tag applicato. Se, ad esempio, un'immagine contiene un cane, gatto e una persona, l'operazione di rilevamento elencherà tali oggetti insieme alle relative coordinate nell'immagine. È possibile usare questa funzionalità per elaborare ulteriormente le relazioni tra gli oggetti in un'immagine. Questa funzionalità consente anche di sapere quando sono presenti più istanze dello stesso tag in un'immagine.|

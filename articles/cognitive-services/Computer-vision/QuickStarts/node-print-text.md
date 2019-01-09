@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Estrarre testo stampato (OCR) - REST, Node.js - Visione artificiale'
+title: 'Guida introduttiva: Estrarre testo stampato - REST, Node.js'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrarrà testo stampato da un'immagine usando l'API Visione artificiale con Node.js.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 02ff205f2408fed19d7831e7a1344eac2bc6f261
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: b75e5863d461eaca50470b6d042bbb86fd95c792
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344269"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579057"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST e Node.js in Visione artificiale
 

@@ -1,5 +1,5 @@
 ---
-title: Creare un'App Web Node.js in Linux - Servizio app di Azure | Microsoft Docs
+title: Creare un'app Node.js in Linux - Servizio app di Azure | Microsoft Docs
 description: Distribuire la prima app Hello World Node.js in un Servizio app di Azure in Linux in pochi minuti.
 services: app-service\web
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 22a022b12e931fd4edf139038eb7506e69422f8e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c739aa4fb510bd5ebe9e3ffff67f93a2dd49cf0c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253577"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631533"
 ---
-# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web Node.js nel Servizio app di Azure in Linux
+# <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Creare un'app Node.js nel servizio app di Azure in Linux
 
 > [!NOTE]
-> Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app Web Node.js in Azure](../app-service-web-get-started-nodejs.md).
+> Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app Node.js in Azure](../app-service-web-get-started-nodejs.md).
 >
 
 Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva illustra come distribuire un'app Node.js nel Servizio app in Linux usando [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
@@ -136,17 +136,17 @@ Il comando `az webapp up` esegue le azioni seguenti:
 
 - Crea un'app con il nome specificato.
 
-- [Distribuisce con zipdeploy](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) i file dalla directory di lavoro corrente all'app Web.
+- [Distribuire file ZIP](https://docs.microsoft.com/azure/app-service/deploy-zip) i dalla directory di lavoro corrente all'app.
 
 ## <a name="browse-to-the-app"></a>Passare all'app
 
-Passare all'applicazione distribuita con il Web browser. Sostituire <app name> con il nome dell'app Web.
+Passare all'applicazione distribuita con il Web browser. Sostituire <app_name> con il nome dell'app.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Il codice di esempio Node.js è in esecuzione in un'app Web con immagine incorporata.
+Il codice di esempio Node.js è in esecuzione nel servizio app in Linux con un'immagine predefinita.
 
 ![App di esempio in esecuzione in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -166,7 +166,7 @@ response.end("Hello Azure!");
 
 Salvare le modifiche e uscire da Nano. Usare il comando `^O` per salvare e `^X` per uscire.
 
-A questo punto occorre ridistribuire l'app. Sostituire `<app_name>` con l'app Web.
+A questo punto occorre ridistribuire l'app. Sostituire `<app_name>` con l'app.
 
 ```bash
 az webapp up -n <app_name>
@@ -176,15 +176,15 @@ Al termine della distribuzione, tornare alla finestra del browser aperta nel pas
 
 ![App di esempio aggiornata in esecuzione in Azure](media/quickstart-nodejs/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gestire la nuova app Web di Azure
+## <a name="manage-your-new-azure-app"></a>Gestire la nuova app Azure
 
-Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app Web creata.
+Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app creata.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web di Azure.
+Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
 
-![Passare all'app Web di Azure nel portale](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
+![Passaggio all'app di Azure nel portale](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
 
-Verrà visualizzata la pagina di panoramica dell'app Web. Qui è possibile completare attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app.
+Verrà visualizzata la pagina Panoramica dell'app. Qui è possibile completare attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app.
 
 ![Pagina del servizio app nel portale di Azure](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
 

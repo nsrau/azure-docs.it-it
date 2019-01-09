@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: beda9fa096dd8308822a5cd5a816b569712b8c05
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9945b0aad32fe9abc6a51132a287da10f1b28daa
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086088"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557751"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installare il runtime di Azure IoT Edge in Linux (x64)
 
@@ -206,7 +206,39 @@ Nei dispositivi con risorse vincolate si consiglia vivamente di impostare la var
 
 Se la rete è dotata di un server proxy, seguire i passaggi descritti in [Configurare il dispositivo IoT Edge per comunicare tramite un server proxy](how-to-configure-proxy-support.md).
 
+## <a name="uninstall-iot-edge"></a>Disinstallazione di IoT Edge
+
+Per rimuovere IoT Edge da un dispositivo Linux, usare i comandi seguenti dalla riga di comando. 
+
+Rimuovere il runtime IoT Edge. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+Quando il runtime IoT Edge viene rimosso, i contenitori creati vengono arrestati, ma rimangono sul dispositivo. Verificare tutti i contenitori per vedere quali vengono conservati. 
+
+```bash
+sudo docker ps -a
+```
+
+Eliminare i contenitori dal dispositivo, inclusi i due contenitori di runtime. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+Infine, rimuovere il runtime del contenitore dal dispositivo. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
+
+Dopo aver eseguito il provisioning del dispositivo IoT Edge con il runtime installato, è possibile [distribuire moduli IoT Edge](how-to-deploy-modules-portal.md).
 
 In caso di problemi durante l'installazione del runtime di Edge, vedere la pagina relativa alla [risoluzione dei problemi](troubleshoot.md).
 
+Per aggiornare un'installazione esistente alla versione più recente di IoT Edge, vedere [Aggiornare il daemon di sicurezza e il runtime di IoT Edge](how-to-update-iot-edge.md).

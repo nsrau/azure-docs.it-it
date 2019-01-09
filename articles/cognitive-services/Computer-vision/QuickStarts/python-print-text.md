@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Estrarre testo stampato (OCR) - REST, Python - Visione artificiale'
+title: 'Guida introduttiva: Estrarre testo stampato - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrarrà testo stampato da un'immagine usando l'API Visione artificiale con Python.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 8a435df6c30f625752339bfdf89884ce4a77ddde
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 4c89ab58e214080855d9ce707ab60a8462ae930c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853796"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583528"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST e Python in Visione artificiale
 

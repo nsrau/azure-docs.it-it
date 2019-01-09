@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7c1e07d73d110d5ef7f681486479ec65ff436b19
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408855"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716413"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel Servizio app di Azure
 
-[Servizio app di Azure](app-service-web-overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Il servizio app include anche il supporto predefinito per [l'autenticazione e l'autorizzazione degli utenti](app-service-authentication-overview.md). Questa esercitazione illustra come proteggere le app con le funzionalità di autenticazione e autorizzazione del servizio app. Viene usata un'app ASP.NET Core con un front-end Angular.js, ma solo a titolo di esempio. Le funzionalità di autenticazione e autorizzazione del servizio app supportano runtime di tutti i linguaggi e seguendo l'esercitazione si può apprendere come applicarle al linguaggio preferito.
+[Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Il servizio app include anche il supporto predefinito per [l'autenticazione e l'autorizzazione degli utenti](overview-authentication-authorization.md). Questa esercitazione illustra come proteggere le app con le funzionalità di autenticazione e autorizzazione del servizio app. Viene usata un'app ASP.NET Core con un front-end Angular.js, ma solo a titolo di esempio. Le funzionalità di autenticazione e autorizzazione del servizio app supportano runtime di tutti i linguaggi e seguendo l'esercitazione si può apprendere come applicarle al linguaggio preferito.
 
 L'esercitazione usa l'app di esempio per illustrare come proteggere un'app autonoma (vedere [Abilitare l'autenticazione e l'autorizzazione per l'app back-end](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -105,7 +105,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>Effettuare il push in Azure da Git
 
-Nella _finestra del terminale locale_ eseguire questi comandi Git per la distribuzione nell'app back-end. Sostituire _&lt;deploymentLocalGitUrl-of-back-end-app>_ con l'URL dell'elemento Git remoto salvato in [Creare le risorse di Azure](#create-azure-resources). Quando Git Credential Manager richiede le credenziali, assicurarsi di immettere le [credenziali per la distribuzione](app-service-deployment-credentials.md) e non quelle usate per accedere al portale di Azure.
+Nella _finestra del terminale locale_ eseguire questi comandi Git per la distribuzione nell'app back-end. Sostituire _&lt;deploymentLocalGitUrl-of-back-end-app>_ con l'URL dell'elemento Git remoto salvato in [Creare le risorse di Azure](#create-azure-resources). Quando Git Credential Manager richiede le credenziali, assicurarsi di immettere le [credenziali per la distribuzione](deploy-configure-credentials.md) e non quelle usate per accedere al portale di Azure.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -119,7 +119,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>Passare alle app Web di Azure
+### <a name="browse-to-the-apps"></a>Passare alle app
 
 Passare agli URL seguenti in un browser e visualizzare le due app in esecuzione.
 
@@ -331,7 +331,7 @@ Accedere di nuovo a `https://<front_end_app_name>.azurewebsites.net`. Nella pagi
 
 Dovrebbe ora essere possibile creare, leggere, aggiornare ed eliminare i dati dell'app back-end come prima. L'unica differenza consiste nel fatto che ora entrambe le app, incluse le chiamate da servizio a servizio, sono protette dall'autenticazione e dall'autorizzazione del servizio app.
 
-Congratulazioni! Il codice del server accede ora ai dati del back-end per conto dell'utente autenticato.
+Congratulazioni Il codice del server accede ora ai dati del back-end per conto dell'utente autenticato.
 
 ## <a name="call-api-securely-from-browser-code"></a>Chiamare l'API in modo sicuro dal codice del browser
 
@@ -413,7 +413,7 @@ git push frontend master
 
 Passare di nuovo a `https://<front_end_app_name>.azurewebsites.net`. Dovrebbe ora essere possibile creare, leggere, aggiornare ed eliminare i dati dell'app back-end direttamente nell'app Angular.js.
 
-Congratulazioni! Il codice del client accede ora ai dati del back-end per conto dell'utente autenticato.
+Congratulazioni Il codice del client accede ora ai dati del back-end per conto dell'utente autenticato.
 
 ## <a name="when-access-tokens-expire"></a>Quando scadono i token di accesso
 
@@ -446,4 +446,4 @@ Contenuto dell'esercitazione:
 Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app Web.
 
 > [!div class="nextstepaction"]
-> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-domain.md)
+> [Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure](app-service-web-tutorial-custom-domain.md)

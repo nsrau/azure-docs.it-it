@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: ae9da43ac40a3da188e6030659cfb6de166c53bb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62cdc50b40fb1273fdc2eece050869fc2284cf6c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256078"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632977"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Usare un'immagine Docker personalizzata per l'app Web per contenitori
 
@@ -193,7 +193,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>Distribuire l'app in Azure
 
-È possibile ospitare applicazioni Linux native nel cloud usando App Web di Azure. Per creare un'app Web per contenitori, è necessario eseguire i comandi dell'interfaccia della riga di comando di Azure che creano un gruppo, quindi un piano di servizio e infine l'app Web vera e propria. 
+Per creare un'app che usa l'immagine di cui è stato appena eseguito il push, si eseguono i comandi dell'interfaccia della riga di comando di Azure che creano un gruppo, quindi un piano di servizio e infine l'app Web vera e propria. 
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -347,7 +347,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Congratulazioni! Si è configurata un'immagine Docker personalizzata per un'app Web per contenitori.
+Congratulazioni Si è configurata un'immagine Docker personalizzata per un'app Web per contenitori.
 
 ## <a name="use-a-private-image-from-docker-hub-optional"></a>Usare un'immagine privata dal Docker Hub (facoltativo)
 

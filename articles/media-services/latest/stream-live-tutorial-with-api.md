@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/28/2018
 ms.author: juliako
-ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613393"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969336"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Esercitazione: Streaming live con Servizi multimediali v3 usando le API
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Esercitazione: Eseguire lo streaming live con Servizi multimediali v3 usando le API
 
 In Servizi multimediali di Azure le entità [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità LiveEvent fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al codificatore live. L'entità LiveEvent riceve flussi di input live dal codificatore live e li rende disponibili per lo streaming mediante uno o più [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Le entità LiveEvent forniscono anche un endpoint di anteprima (URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito. Questa esercitazione illustra come usare .NET Core per creare un evento live di tipo **pass-through**. 
 
@@ -44,9 +44,9 @@ L'esercitazione illustra come:
 Per completare l'esercitazione è necessario quanto segue.
 
 - Installare Visual Studio Code o Visual Studio.
-- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versioni successive. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
-    Attualmente, non tutti i comandi delle [interfacce della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando solo in locale.
+    Attualmente, non tutti i comandi dell'[interfaccia della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando in locale.
 
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
 
@@ -89,7 +89,7 @@ Per iniziare a usare le API di Servizi multimediali con .NET, è necessario crea
 
 ### <a name="create-a-live-event"></a>Creare un evento live
 
-Questa sezione mostra come creare un LiveEvent di tipo **pass-through** (LiveEventEncodingType impostato su None). Se si vuole creare un LiveEvent abilitato per la codifica live, impostare LiveEventEncodingType su Basic. 
+Questa sezione mostra come creare un LiveEvent di tipo **pass-through** (LiveEventEncodingType impostato su None). Se si vuole creare un LiveEvent abilitato per la codifica live, impostare LiveEventEncodingType su Standard. 
 
 Altre caratteristiche che è possibile specificare durante la creazione dell'evento live sono:
 
@@ -107,7 +107,7 @@ Quando si crea l'evento, è possibile impostarne l'avvio automatico.
 
 ### <a name="get-ingest-urls"></a>Ottenere gli URL di inserimento
 
-Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da fornire al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.
+Al termine della creazione di LiveEvent, è possibile ottenere gli URL di inserimento che verranno passati al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 

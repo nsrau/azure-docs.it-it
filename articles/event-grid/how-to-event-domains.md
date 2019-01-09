@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/17/2018
+ms.openlocfilehash: 08faef2eaf5c9cd09172d455c464531e293d5f3e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298531"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554589"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gestire argomenti e pubblicare eventi con Domini eventi
 
@@ -139,7 +139,7 @@ Le autorizzazioni impostate per un argomento vengono archiviate in Azure Active 
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Pubblicare eventi in un dominio di Griglia di eventi
 
-La procedura di pubblicazione di eventi in un dominio è identica a quella di [pubblicazione in un argomento personalizzato](./post-to-custom-topic.md). L'unica differenza è che è necessario specificare l'argomento al quale si vuole recapitare l'evento. Con la matrice di eventi seguente l'evento con `"id": "1111"` viene inviato all'argomento `foo`, mentre l'evento con `"id": "2222"` viene inviato all'argomento `bar`:
+La procedura di pubblicazione di eventi in un dominio è identica a quella di [pubblicazione in un argomento personalizzato](./post-to-custom-topic.md). Tuttavia, tutti gli eventi vengono pubblicati all'endpoint di dominio invece che nell'argomento personalizzato. Nei dati evento JSON, specificare l'argomento a cui si desidera che vengano inviati gli eventi. Con la matrice di eventi seguente l'evento con `"id": "1111"` viene inviato all'argomento `demotopic1`, mentre l'evento con `"id": "2222"` viene inviato all'argomento `demotopic2`:
 
 ```json
 [{
@@ -168,7 +168,15 @@ La procedura di pubblicazione di eventi in un dominio è identica a quella di [p
 }]
 ```
 
-Per ottenere le chiavi per un dominio con l'interfaccia della riga di comando di Azure, usare:
+Per ottenere l'endpoint di dominio con l'interfaccia della riga di comando di Azure, usare
+
+```azurecli-interactive
+az eventgrid domain show \
+  -g <my-resource-group> \
+  -n <my-domain>
+```
+
+Per ottenere le chiavi per un dominio usare:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -176,7 +184,15 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-Per PowerShell, usare:
+Per ottenere l'endpoint di dominio con PowerShell, usare
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
+Per ottenere le chiavi per un dominio usare:
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `

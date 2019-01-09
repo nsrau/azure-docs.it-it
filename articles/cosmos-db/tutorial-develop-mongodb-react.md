@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: bd72aad51d2649ba6f110ab07b3f85d58da2a09d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c6086c3d3bc025feaf9da2d4c26d7f008b304b57
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867036"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788124"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Creare un'app MongoDB con React e Azure Cosmos DB  
 
-Questa esercitazione video in più parti illustra come creare un'app di verifica hero con un front-end React. L'app usa Node ed Express per il server, si connette ad Azure Cosmos DB con l'[API MongoDB](mongodb-introduction.md) e quindi connette il front-end React alla parte server dell'app. L'esercitazione illustra anche come puntare e fare clic per eseguire il ridimensionamento di Azure Cosmos DB nel portale di Azure e come distribuire l'app in Internet in modo che ognuna possa tenere traccia degli elementi hero preferiti. 
+Questa esercitazione video in più parti illustra come creare un'app di verifica hero con un front-end React. L'app usa Node ed Express per il server, si connette al database Cosmos con configurato con l'[API di Azure Cosmos DB per MongoDB](mongodb-introduction.md) e quindi connette il front-end React alla parte server dell'app. L'esercitazione illustra anche come puntare e fare clic per eseguire il ridimensionamento di Cosmos DB nel portale di Azure e come distribuire l'app in Internet in modo che ognuna possa tenere traccia degli elementi hero preferiti. 
 
-Poiché [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) supporta le connessioni client MongoDB, è possibile usare Azure Cosmos DB invece di MongoDB, usando però lo stesso codice usato per le app MongoDB, ma con più vantaggi, ad esempio distribuzione nel cloud semplice, ridimensionamento e operazioni di lettura e scrittura estremamente rapide.  
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) supporta la compatibilità con il protocollo di collegamento con MongoDB, consentendo ai client di usare Azure Cosmos DB invece di MongoDB.  
 
 Questa esercitazione in più parti illustra le attività seguenti:
 
