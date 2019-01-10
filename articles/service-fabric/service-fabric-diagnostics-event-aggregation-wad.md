@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: d670b90404d441876727336fc50a848965082de5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232495"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002400"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregazione e raccolta di eventi con Diagnostica di Microsoft Azure
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Dopo aver impostato l'aggregazione di eventi in Archiviazione di Azure, [configu
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Distribuire l'estensione Diagnostica tramite Azure Resource Manager
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Creare un cluster con l'estensione Diagnostica
-Per creare un cluster tramite Resource Manager, è necessario aggiungere il file JSON di configurazione di Diagnostica al modello di Resource Manager completo prima di creare il cluster. Gli esempi relativi ai modelli di Gestione risorse includono un modello di cluster con 5 VM con aggiunta della configurazione di Diagnostica, disponibile nella raccolta di esempi di Azure nella pagina relativa all'[esempio di modello di Resource Manager di cluster con cinque nodi con Diagnostica](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Per creare un cluster tramite Resource Manager, è necessario aggiungere il file JSON di configurazione di Diagnostica al modello completo di Resource Manager. Gli esempi relativi ai modelli di Gestione risorse includono un modello di cluster con 5 VM con aggiunta della configurazione di Diagnostica, disponibile in questa posizione nella raccolta di esempi di Azure relativa all'[esempio di modello di Resource Manager con cluster a cinque nodi con Diagnostica](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Per visualizzare l'impostazione di Diagnostica nel modello di Resource Manager, aprire il file azuredeploy.json e cercare **IaaSDiagnostics**. Per creare un cluster con questo modello, è sufficiente selezionare il pulsante di **distribuzione in Azure** disponibile nel collegamento precedente.
 
@@ -196,24 +196,24 @@ Dato che le tabelle popolate dall'estensione aumentano fino al raggiungimento de
 ## <a name="log-collection-configurations"></a>Configurazioni di raccolta log
 Sono disponibili per la raccolta anche log da canali aggiuntivi; di seguito sono riportare alcune delle configurazioni più comuni che è possibile apportare nel modello per i cluster in esecuzione in Azure.
 
-* Canale operativo - Base: abilitato per impostazione predefinita, operazioni generali eseguite da Service Fabric e dal cluster, inclusi gli eventi per l'attivazione di un nodo, la distribuzione di una nuova applicazione, il ripristino dello stato precedente a un aggiornamento e così via. Per un elenco di eventi, consultare gli [Eventi del canale operativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Canale operativo - Base: Abilitato per impostazione predefinita. Operazioni di alto livello eseguite da Service Fabric e dal cluster, inclusi gli eventi per l'attivazione di un nodo, la distribuzione di una nuova applicazione, il ripristino dello stato precedente a un aggiornamento e così via. Per un elenco di eventi, consultare gli [Eventi del canale operativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Canale operativo - Dettagliato: sono inclusi i rapporti sull'integrità e le decisioni sul bilanciamento del carico, oltre a tutti gli elementi del canale operativo di base. Questi eventi sono generati dal sistema o dal codice usando le API di creazione di report di integrità o caricamento, ad esempio [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) o [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Per visualizzare tali eventi nel visualizzatore eventi di diagnostica di Visual Studio, aggiungere "Microsoft-ServiceFabric:4:0x4000000000000008" all'elenco di provider ETW.
+* Canale operativo - Dettagliato: include i report sull'integrità e le decisioni sul bilanciamento del carico, oltre a tutti gli elementi del canale operativo di base. Questi eventi sono generati dal sistema o dal codice usando le API di creazione di report di integrità o caricamento, ad esempio [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) o [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Per visualizzare tali eventi nel visualizzatore eventi di diagnostica di Visual Studio, aggiungere "Microsoft-ServiceFabric:4:0x4000000000000008" all'elenco di provider ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* Canale per la messaggistica e i dati - Base: registri ed eventi critici generati nella messaggistica (attualmente solo il ReverseProxy) e il percorso dei dati, oltre ai log dettagliati sul canale operativo. Questi eventi riguardano errori di elaborazione delle richieste e altri problemi critici nel ReverseProxy, oltre alle richieste elaborate. **Questa è l'indicazione per la registrazione completa**. Per visualizzare tali eventi nel visualizzatore eventi di diagnostica di Visual Studio, aggiungere "Microsoft-ServiceFabric:4:0x4000000000000010" all'elenco di provider ETW.
+* Canale dati e messaggistica - Base: log ed eventi critici generati nella messaggistica (attualmente solo ReverseProxy) e nel percorso dei dati, oltre ai log dettagliati del canale operativo. Questi eventi riguardano errori di elaborazione delle richieste e altri problemi critici nel ReverseProxy, oltre alle richieste elaborate. **Questa è l'indicazione per la registrazione completa**. Per visualizzare tali eventi nel visualizzatore eventi di diagnostica di Visual Studio, aggiungere "Microsoft-ServiceFabric:4:0x4000000000000010" all'elenco di provider ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
   ```
 
-* Canale per la messaggistica e i dati - Dettagliato: canale dettagliato che contiene tutti i registri non critici di dati e messaggistica nel cluster, oltre ai log dettagliati sul canale operativo. Per informazioni dettagliate sulla risoluzione dei problemi relativi a tutti gli eventi del proxy inverso, vedere la [guida alla diagnostica dei problemi relativi al proxy inverso](service-fabric-reverse-proxy-diagnostics.md).  Per visualizzare tali eventi nel visualizzatore eventi di diagnostica di Visual Studio, aggiungere "Microsoft-ServiceFabric:4:0x4000000000000020" all'elenco di provider ETW.
+* Canale dati e messaggistica - Dettagliato: canale dettagliato che contiene tutti i log non critici di dati e messaggistica del cluster, oltre ai log dettagliati del canale operativo. Per informazioni dettagliate sulla risoluzione dei problemi relativi a tutti gli eventi del proxy inverso, vedere la [guida alla diagnostica dei problemi relativi al proxy inverso](service-fabric-reverse-proxy-diagnostics.md).  Per visualizzare tali eventi nel visualizzatore eventi di diagnostica di Visual Studio, aggiungere "Microsoft-ServiceFabric:4:0x4000000000000020" all'elenco di provider ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387944"
