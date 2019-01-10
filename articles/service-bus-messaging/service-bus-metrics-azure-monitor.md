@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 1627e6bc5290277329633aa086d0fdbbbb12d971
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5175d768f4aa62365e4151b4c8fed372038f1d95
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821294"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548800"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metriche del bus di sevizio di Azure in Monitoraggio di Azure (anteprima)
 
@@ -29,7 +29,7 @@ Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di d
 
 Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedere alle metriche dal [portale di Azure](https://portal.azure.com) o usare le API di Monitoraggio di Azure (REST e .NET) e soluzioni di analisi come Log Analytics e Hub eventi. Per altre informazioni, consultare [Monitoraggio dei dati raccolti da Monitoraggio di Azure](../azure-monitor/platform/data-collection.md).
 
-Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo valore viene configurato nelle [impostazioni di diagnostica ](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Monitoraggio di Azure.
+Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo valore viene configurato nelle [impostazioni di diagnostica ](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) in Monitoraggio di Azure.
 
 ## <a name="access-metrics-in-the-portal"></a>Accedere alle metriche nel portale
 
@@ -60,11 +60,11 @@ Conta il numero di richieste di operazioni di dati e gestione.
 
 | Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
-| Richieste in ingresso (anteprima) | Numero di richieste inviate al servizio del bus di servizio in un periodo specificato. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Richieste completate (anteprima)|Numero di richieste completate inviate al servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Errori server (anteprima)|Numero di richieste non elaborate a causa di un errore nel servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Errori utente (anteprima: vedere la sottosezione seguente)|Numero di richieste non elaborate a causa di errori utente in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Richieste limitate (anteprima)|Numero di richieste che sono state limitate perché è stata superata la soglia di utilizzo.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+| Richieste in ingresso (anteprima) | Numero di richieste inviate al servizio del bus di servizio in un periodo specificato. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Richieste completate (anteprima)|Numero di richieste completate inviate al servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Errori server (anteprima)|Numero di richieste non elaborate a causa di un errore nel servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Errori utente (anteprima: vedere la sottosezione seguente)|Numero di richieste non elaborate a causa di errori utente in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Richieste limitate (anteprima)|Numero di richieste che sono state limitate perché è stata superata la soglia di utilizzo.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 
 ### <a name="user-errors"></a>Errori utente
 
@@ -78,18 +78,18 @@ I due tipi di errori seguenti sono classificati come errori utente:
 
 | Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
-|Messaggi in ingresso (anteprima)|Numero di eventi o messaggi inviati al bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Messaggi in uscita (anteprima)|Numero di eventi o messaggi inviati dal bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-| Messaggi (anteprima) | Numero di messaggi contenuti in una coda o in un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Dimensione: EntityName |
-| Messaggi attivi (anteprima) | Numero di messaggi attivi in una coda o in un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Dimensione: EntityName |
+|Messaggi in ingresso (anteprima)|Numero di eventi o messaggi inviati al bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Messaggi in uscita (anteprima)|Numero di eventi o messaggi inviati dal bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+| Messaggi (anteprima) | Numero di messaggi contenuti in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Dimensione: EntityName |
+| Messaggi attivi (anteprima) | Numero di messaggi attivi in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Dimensione: EntityName |
 
 ## <a name="connection-metrics"></a>Metriche di connessione
 
 | Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
-|ActiveConnections (anteprima)|Numero di connessioni attive in uno spazio dei nomi e in un'entità.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Connessioni aperte (anteprima)|Numero di connessioni aperte.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Connessioni chiuse (anteprima)|Numero di connessioni chiuse.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName |
+|ActiveConnections (anteprima)|Numero di connessioni attive in uno spazio dei nomi e in un'entità.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Connessioni aperte (anteprima)|Numero di connessioni aperte.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Connessioni chiuse (anteprima)|Numero di connessioni chiuse.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Metriche di utilizzo delle risorse
 
@@ -98,8 +98,8 @@ I due tipi di errori seguenti sono classificati come errori utente:
 
 | Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
-|Uso della CPU per spazio dei nomi (anteprima)|Utilizzo percentuale della CPU dello spazio dei nomi.<br/><br/> Unità: percentuale <br/> Tipo di aggregazione: massimo <br/> Dimensione: EntityName|
-|Utilizzo delle dimensioni della memoria per ogni spazio dei nomi (anteprima)|Utilizzo percentuale della memoria dello spazio dei nomi.<br/><br/> Unità: percentuale <br/> Tipo di aggregazione: massimo <br/> Dimensione: EntityName|
+|Uso della CPU per spazio dei nomi (anteprima)|Utilizzo percentuale della CPU dello spazio dei nomi.<br/><br/> Unità: Percentuale <br/> Tipo di aggregazione: Massima <br/> Dimensione: EntityName|
+|Utilizzo delle dimensioni della memoria per ogni spazio dei nomi (anteprima)|Utilizzo percentuale della memoria dello spazio dei nomi.<br/><br/> Unità: Percentuale <br/> Tipo di aggregazione: Massima <br/> Dimensione: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensioni delle metriche
 
@@ -123,7 +123,7 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
         ![Selezionare lo spazio dei nomi](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Selezionare **Aggiungi criteri** ed eseguire le azioni seguenti nella pagina **Configura logica dei segnali**:
     1. Selezionare **Metriche** per **Tipo segnale**. 
-    2. Selezionare un segnale, ad esempio **Service errors (Preview)** (Errori del servizio - Anteprima). 
+    2. Selezionare un segnale, Ad esempio:  **Errori del servizio (anteprima)**. 
 
         ![Selezionare gli errori del server](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Selezionare **Greater than** (Maggiore di) per **Condizione**.
