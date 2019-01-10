@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ec8fabfce8c26aef98217947da33a56222288b3c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6399e1838b00fc533ab42a76e4f1f1667e3a434a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077563"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159520"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Creare un piano in Azure Stack
 
@@ -28,9 +28,9 @@ ms.locfileid: "49077563"
 
 I [piani](azure-stack-key-features.md) sono raggruppamenti di uno o più servizi. Come provider, è possibile creare i piani da offrire agli utenti. A sua volta, gli utenti sottoscrivono le offerte per usare i piani e servizi che inclusi. In questo esempio illustra come creare un piano che include il calcolo, rete e i provider di risorse di archiviazione. Questo piano offre abbonati la possibilità di effettuare il provisioning di macchine virtuali.
 
-1. Accedere al portale di amministrazione di Azure Stack (https://adminportal.local.azurestack.external).
+1. Accedi per il [portale di amministrazione di Azure Stack](https://adminportal.local.azurestack.external).
 
-2. Per creare un piano e offerta che gli utenti possono sottoscrivere, selezionare **+ crea una risorsa** > **offre + piani** > **piano**.
+2. Per creare un piano e offerta che gli utenti possono sottoscrivere, selezionare **+ crea una risorsa**, quindi **offre + piani**, quindi **piano**.
   
    ![Selezionare un piano](media/azure-stack-create-plan/select-plan.png)
 
@@ -44,7 +44,7 @@ I [piani](azure-stack-key-features.md) sono raggruppamenti di uno o più servizi
 
 5. Selezionare **Services** e quindi selezionare la casella di controllo **Microsoft. COMPUTE**, **Microsoft. Network**, e **Microsoft. Storage**. Scegliere quindi **seleziona** per salvare la configurazione. Le caselle di controllo vengono visualizzate quando il puntatore del mouse viene posizionato su ogni opzione.
   
-   ![Seleziona servizi](media/azure-stack-create-plan/services.png)
+   ![Selezionare i servizi](media/azure-stack-create-plan/services.png)
 
 6. Selezionare **quote**, **(locale) di Microsoft. Storage**e quindi scegliere la quota predefinita o select **Crea nuova quota** per creare una quota personalizzata.
   
@@ -72,4 +72,4 @@ I [piani](azure-stack-key-features.md) sono raggruppamenti di uno o più servizi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare un'offerta](azure-stack-create-offer.md)
+* [Creare un'offerta](azure-stack-create-offer.md)

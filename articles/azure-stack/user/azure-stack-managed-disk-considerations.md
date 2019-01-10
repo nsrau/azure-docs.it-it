@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: e86e1d862644aa143046045e74ec994d42a5598e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050167"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159367"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: differenze e considerazioni
 
@@ -29,7 +29,7 @@ Questo articolo riepiloga le differenze tra note [Managed Disks di Azure Stack](
 Managed Disks semplifica la gestione dei dischi per le macchine virtuali IaaS gestendo il [gli account di archiviazione](../azure-stack-manage-storage-accounts.md) associati ai dischi della macchina virtuale.
 
 > [!Note]  
-> Managed Disks in Azure Stack è disponibile dalla versione 1808.
+> Managed Disks in Azure Stack è disponibile da 1808 update. Si è abilitato per impostazione predefinita durante la creazione di macchine virtuali usando il portale di Azure Stack da 1811 update.
   
 
 ## <a name="cheat-sheet-managed-disk-differences"></a>Foglio informativo: Differenze di disco gestito
@@ -67,7 +67,7 @@ Azure Stack Managed Disks supporta le versioni dell'API seguente:
 
 ## <a name="known-issues"></a>Problemi noti
 
-Dopo aver applicato il [1811 aggiornare](../azure-stack-update-1811.md), si possono verificarsi i problemi seguenti durante la distribuzione di macchine virtuali con Managed Disks:
+Dopo aver applicato gli aggiornamenti dopo 1808, si potrebbero riscontrare i problemi seguenti durante la distribuzione di macchine virtuali con Managed Disks:
 
 - Se la sottoscrizione è stata creata prima dell'aggiornamento 1808, distribuzione di una VM con Managed Disks potrei avere esito negativo con un messaggio di errore interno. Per risolvere l'errore, seguire questi passaggi per ogni sottoscrizione:
    1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.

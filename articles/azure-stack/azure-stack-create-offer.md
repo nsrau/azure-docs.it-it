@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ccff997c7e9f29aafc6966730ab36dfcf72ca9f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 079f45e37bef24ac974a0e2df7b1e81f1002cac0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077341"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159078"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Creare un'offerta in Azure Stack
 
-[Offre](azure-stack-key-features.md) sono gruppi di uno o più piani che i provider propongono agli utenti di acquistare o alla sottoscrizione. Questo documento illustra come creare un'offerta che include il [piano creato](azure-stack-create-plan.md). Questa offerta fornisce abbonati la possibilità di configurare le macchine virtuali.
+[Offre](azure-stack-key-features.md) sono gruppi di uno o più piani che i provider propongono agli utenti, che è possano acquistare o la sottoscrizione a tali utenti. Questo articolo descrive come creare un'offerta che include il [piano creato](azure-stack-create-plan.md). Questa offerta fornisce abbonati la possibilità di configurare le macchine virtuali (VM).
 
-1. Accedere al portale di amministrazione di Azure Stack (https://adminportal.local.azurestack.external) e selezionare **+ crea una risorsa** > **Tenant offerte e piani** > **offrono**.
+1. Accedi per il [portale di amministrazione di Azure Stack](https://adminportal.local.azurestack.external) e selezionare **+ crea una risorsa**, quindi **Tenant offerte e piani**e quindi **offrono**.
 
    ![Creare un'offerta](media/azure-stack-create-offer/image01.png)
   
-2. Sotto **offrono nuove**, immettere un **nome visualizzato** e un **nome della risorsa**, quindi nella sezione **gruppo di risorse**, selezionare **crea nuove** oppure **Usa esistente**. Il nome visualizzato è il nome descrittivo per l'offerta. Questo nome descrittivo è l'unica informazione sull'offerta, visibile agli utenti quando hanno eseguito la sottoscrizione a un'offerta. Usare un nome intuitivo che consente agli utenti di comprendere ciò che viene fornito con l'offerta. e può essere visualizzato solo dall'amministratore. È il nome usato dagli amministratori per lavorare con l'offerta come risorsa di Azure Resource Manager.
+2. Sotto **offrono nuove**, immettere un **nome visualizzato** e un **nome della risorsa**, quindi nella sezione **gruppo di risorse**, selezionare **crea nuove** oppure **Usa esistente**. Il nome visualizzato è il nome descrittivo per l'offerta. Questo nome descrittivo è l'unica informazione sull'offerta, gli utenti visualizzano quando hanno eseguito la sottoscrizione a un'offerta. Usare un nome intuitivo che consente agli utenti di comprendere ciò che viene fornito con l'offerta. Solo l'amministratore può visualizzare il nome della risorsa. È il nome usato dagli amministratori per lavorare con l'offerta come risorsa di Azure Resource Manager.
 
    ![Nuova offerta](media/azure-stack-create-offer/image01a.png)
   
@@ -37,17 +37,17 @@ ms.locfileid: "49077341"
 
    ![Seleziona piano](media/azure-stack-create-offer/image02.png)
   
-4. Dopo aver creato l'offerta, è possibile modificare il relativo stato. Le offerte devono essere apportate *pubblica* agli utenti di ottenere una visione completa quando hanno eseguito la sottoscrizione. Possono essere offerte:
+4. Dopo aver creato l'offerta, è possibile modificare il relativo stato. Le offerte devono essere apportate **pubblica** agli utenti di ottenere una visione completa quando hanno eseguito la sottoscrizione. Possono essere offerte:
 
-   - **Pubblica**: visibile agli utenti.
-   - **Privato**: visibili solo agli amministratori di cloud. Questa impostazione è utile durante la progettazione del piano o offerta, o se l'amministratore cloud desidera [creare tutte le sottoscrizioni per gli utenti](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Rimossi**: chiusi ai nuovi sottoscrittori. L'amministratore del cloud è possibile usare autorizzazioni rimosse per evitare future sottoscrizioni, ma lasciare inalterate sottoscrittori correnti.
+   - **Pubblica**: Visibile agli utenti.
+   - **Privato**: Visibili solo agli amministratori di cloud. Questa impostazione è utile durante la progettazione del piano o offerta, o se l'amministratore cloud desidera [creare tutte le sottoscrizioni per gli utenti](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+   - **Rimuovere le autorizzazioni**: Chiusi ai nuovi sottoscrittori. L'amministratore del cloud è possibile rimuovere le autorizzazioni offerte per evitare future sottoscrizioni, ma lasciare inalterate sottoscrittori correnti.
 
    > [!TIP]  
-   > Le modifiche all'offerta non sono immediatamente visibili all'utente. Per visualizzare le modifiche, gli utenti potrebbero essere necessario disconnettersi e accedere nuovamente al portale utenti per visualizzare la nuova offerta.
+   > Modifiche all'offerta non sono immediatamente visibili all'utente. Per visualizzare le modifiche, gli utenti potrebbero essere necessario disconnettersi e accedere nuovamente al portale utenti per visualizzare la nuova offerta.
 
-   Nella panoramica dell'offerta, selezionare **lo stato di accessibilità**. Scegliere lo stato da usare (ad esempio, **pubbliche**) e quindi selezionare **salvare**.
- 
+   Nella schermata di panoramica dell'offerta, selezionare **lo stato di accessibilità**. Scegliere lo stato da usare (ad esempio, **pubbliche**) e quindi selezionare **salvare**.
+
      ![Scegliere lo stato](media/azure-stack-create-offer/change-stage-1807.png)
 
      In alternativa, selezionare **modifica stato** e quindi scegliere uno stato.
@@ -55,7 +55,7 @@ ms.locfileid: "49077341"
     ![Selezionare lo stato di accesso facilitato](media/azure-stack-create-offer/change-stage-select-1807.png)
 
    > [!NOTE]
-   > È anche possibile usare PowerShell per creare predefinite offerte, quote e piani. Per altre informazioni, vedere [modulo di PowerShell di Azure Stack 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
+   > È anche possibile usare PowerShell per creare predefinite offerte, quote e piani. Per altre informazioni, vedere [modulo di PowerShell di Azure Stack 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

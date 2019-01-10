@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 1/09/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
-ms.openlocfilehash: 7bcec2d17f61345986c1676d13011946a0036666
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 5cbbc3c1c2371264e3e29028d4b9d68533cc59ff
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164729"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54154947"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Note sulla versione SQL resource provider 1.1.30.0
 
@@ -81,7 +81,10 @@ Questa versione del provider di risorse SQL di Azure Stack include le correzioni
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
+- **Provider di risorse SQL non riesce ad aggiungere i listener di SQL Server Always On**. Quando si usa l'indirizzo IP del listener del SQL Server Always sul Listener, il provider di risorse della macchina virtuale di SQL non è possibile risolvere il nome del listener host.
 
+    **Soluzione alternativa**: Assicurarsi di che DNS funzioni correttamente per risolvere l'indirizzo IP del listener per nome host del listener.
+    
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Problemi noti per gli amministratori Cloud Azure Stack operativo
 Vedere la documentazione nel [note sulla versione di Azure Stack](azure-stack-servicing-policy.md).
 

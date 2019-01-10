@@ -11,27 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 77819c5592fe8b61ed4e3fcb5f874fc0bf5ca602
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1efe64d2057a4dccc0d82a8a99bfbf3eaa719521
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077985"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159112"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegare offerte in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-L'operatore di Azure Stack, è spesso necessario inserire altri utenti responsabile di effettuare l'iscrizione agli utenti e la creazione di sottoscrizioni. Ad esempio, se sei un provider di servizi, è possibile i rivenditori a effettuare l'iscrizione ai clienti e gestirli per tuo conto. In alternativa, se si fa parte di un gruppo IT centrale in un'organizzazione, è possibile delegare l'accesso degli utenti fino al personale IT.
+L'operatore di Azure Stack, è spesso necessario inserire altri utenti responsabile di effettuare l'iscrizione agli utenti e la creazione di sottoscrizioni. Ad esempio, se sei un provider di servizi, è possibile i rivenditori a effettuare l'iscrizione ai clienti e gestirli per tuo conto. In alternativa, se si fa parte di un gruppo IT centrale in un'organizzazione, è possibile delegare l'iscrizione dell'utente per il personale IT.
 
-Delega rende più semplice accedere e gestire più utenti che è possibile eseguire da soli, come illustrato nella figura seguente. 
+Delega rende più semplice accedere e gestire più utenti, è possibile eseguire da soli, come illustrato nella figura seguente:
 
 ![Livelli di delega](media/azure-stack-delegated-provider/image1.png)
 
-Con la delega, il provider delegato gestisce un'offerta (l'offerta delegata) e i clienti finali ottenere sottoscrizioni per tale offerta senza coinvolgere l'amministratore di sistema. 
+Con la delega, il provider delegato gestisce un'offerta (l'offerta delegata) e i clienti finali ottenere sottoscrizioni per tale offerta senza coinvolgere l'amministratore di sistema.
 
 ## <a name="understand-delegation-roles-and-steps"></a>Comprendere i passaggi e i ruoli di delega
 
@@ -49,17 +49,17 @@ I ruoli seguenti fanno parte della delega:
 
 Esistono due passaggi di base per la configurazione di delega:
 
-1. *Creare una sottoscrizione del Provider delegata* sottoscrivendo un utente a un'offerta che contiene solo il servizio di abbonamenti. Gli utenti che sottoscrivono questa offerta è quindi possono estendere le offerte delegate ad altri utenti mediante la firma per le offerte.
+1. **Creare una sottoscrizione del provider delegata**: Eseguire la sottoscrizione all'utente di un'offerta che contiene solo il servizio di abbonamenti. Gli utenti che sottoscrivono questa offerta è quindi possono estendere le offerte delegate ad altri utenti mediante la firma per le offerte.
 
-2. *Delegare un'offerta per il provider delegato*. Questa offerta consente al provider delegato per creare le sottoscrizioni oppure per estendere l'offerta agli utenti. Il provider delegato può ora richiedere l'offerta e offrirlo ad altri utenti.
+2. **Delegare un'offerta per il provider delegato**: Questa offerta consente al provider delegato per creare le sottoscrizioni oppure per estendere l'offerta agli utenti. Il provider delegato può ora richiedere l'offerta e offrirlo ad altri utenti.
 
-La figura successiva illustra i passaggi per configurare la delega.
+Nella figura seguente vengono illustrati i passaggi per configurare la delega:
 
 ![Creare il provider delegato e consentirne l'accesso degli utenti](media/azure-stack-delegated-provider/image2.png)
 
-**Requisiti del provider delegata**
+#### <a name="delegated-provider-requirements"></a>Requisiti del provider delegata
 
-Per agire come un provider delegata, un utente deve essere stabilita una relazione con il provider principale mediante la creazione di una sottoscrizione. Questa sottoscrizione identifica il provider delegato come avente il diritto per presentare le offerte delegate per conto di principale provider.
+Per agire come un provider delegata, un utente stabilisce una relazione con il provider principale mediante la creazione di una sottoscrizione. Questa sottoscrizione identifica il provider delegato come avente il diritto per presentare le offerte delegate per conto di principale provider.
 
 Dopo aver stabilita questa relazione, l'operatore di Azure Stack può delegare un'offerta per il provider delegato. Il provider delegato può sfruttare l'offerta, rinominarlo (ma non modificare la sostanza) e offrono ai clienti.
 
@@ -83,11 +83,11 @@ Per usare questa procedura dettagliata, sono necessari due account di Azure AD o
 1. Per creare un'offerta che consente a un utente a diventare un provider di delegato:
 
    a.  [Creare un piano](azure-stack-create-plan.md).
-       Questo piano deve includere solo il servizio di abbonamenti. Questo articolo usa un piano denominato **PlanForDelegation** come esempio.
+       Questo piano deve includere solo il servizio di sottoscrizione. Questo articolo usa un piano denominato **PlanForDelegation** come esempio.
 
    b.  [Creare un'offerta](azure-stack-create-offer.md) basato su questo piano. Questo articolo si usa un'offerta denominata **OfferToDP** come esempio.
 
-   c.  Aggiungere il provider delegato come sottoscrittore per questa offerta selezionando **abbonamenti** > **Add** > **nuova sottoscrizione di Tenant**.
+   c.  Aggiungere il provider delegato come sottoscrittore per questa offerta selezionando **abbonamenti**, quindi **Add**, quindi **nuova sottoscrizione di Tenant**.
 
    ![Aggiungere il provider delegato come sottoscrittore](media/azure-stack-delegated-provider/image3.png)
 
@@ -96,16 +96,16 @@ Per usare questa procedura dettagliata, sono necessari due account di Azure AD o
 
 ### <a name="azure-stack-operator-creates-the-delegated-offer"></a>Operatore di Azure Stack consente di creare l'offerta delegata
 
-Il passaggio successivo consiste nel creare il piano e offerta che si desidera delegare e che verrà usato dagli utenti. È consigliabile definire questa offerta, esattamente come si desidera che gli utenti visualizzato perché il provider delegato non è possibile modificare i piani e le quote che sono incluse.
+Il passaggio successivo consiste nel creare il piano e offerta che si desidera delegare e che verrà usato dagli utenti. È consigliabile definire questa offerta, esattamente come si desidera che gli utenti a vederla, perché il provider delegato non è possibile modificare i piani e le quote che sono incluse.
 
 1. Un operatore, Azure Stack [creare un piano](azure-stack-create-plan.md) e [un'offerta](azure-stack-create-offer.md) in base al piano. Questo articolo si usa un'offerta denominata **DelegatedOffer** come esempio.
 
    > [!NOTE]
-   > Questa offerta non deve essere pubblico, ma è possibile renderlo pubblico se si desidera. Tuttavia, nella maggior parte dei casi solo necessario provider delegati per avere accesso all'offerta. Dopo la delega di un'offerta privata, come descritto nei passaggi seguenti, il provider delegato possa accedervi.
+   > Questa offerta non deve essere pubblico, ma è possibile renderlo pubblico. Tuttavia, nella maggior parte dei casi solo necessario provider delegati per avere accesso all'offerta. Dopo la delega di un'offerta privata, come descritto nei passaggi seguenti, il provider delegato possa accedervi.
 
-1. Delegare l'offerta. Passare a **DelegatedOffer**. Sotto **le impostazioni**, selezionare **provider delegata** > **Aggiungi**.
+2. Delegare l'offerta. Passare a **DelegatedOffer**. Sotto **le impostazioni**, selezionare **provider delegata**, quindi selezionare **Add**.
 
-1. Selezionare la sottoscrizione per il provider delegati nell'elenco a discesa e quindi selezionare **delegato**.
+3. Selezionare la sottoscrizione per il provider delegato nell'elenco a discesa e quindi selezionare **delegato**.
 
    ![Aggiungere un provider delegato](media/azure-stack-delegated-provider/image4.png)
 
@@ -113,28 +113,28 @@ Il passaggio successivo consiste nel creare il piano e offerta che si desidera d
 
 Accedere al portale per gli utenti come provider di delegato e quindi creare una nuova offerta tramite l'offerta delegata come modello.
 
-1. Selezionare **+ crea una risorsa** > **Tenant offerte e piani** > **offrono**.
+1. Selezionare **+ crea una risorsa**, quindi **Tenant offerte e piani**, quindi selezionare **offrono**.
 
     ![Creare una nuova offerta](media/azure-stack-delegated-provider/image5.png)
 
-1. Assegnare un nome per l'offerta. Questo articolo viene usato **ResellerOffer** come esempio. Selezionare l'offerta delegata su cui basare, e quindi selezionare **Create**.
+2. Assegnare un nome per l'offerta. Questo esempio viene usato **ResellerOffer**. Selezionare l'offerta delegata su cui basare, e quindi selezionare **Create**.
 
    ![Assegnare un nome](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >È importante comprendere che i provider delegati è possono selezionare solo le offerte che vengono delegate a essi. Non possono apportare modifiche a tali offerte. Solo un operatore di Azure Stack è possibile modificare queste offerte, ad esempio, modificare i piani e le quote. Un provider delegato non ne crea un'offerta da piani di base e i piani aggiuntivi. 
+   >È importante comprendere che i provider delegati è possono selezionare solo le offerte che vengono delegate a essi. Non possono apportare modifiche a tali offerte. Solo un operatore di Azure Stack è possibile modificare queste offerte, ad esempio, modificare le quote e piani. Un provider delegata non ne crea un'offerta da piani di base e i piani aggiuntivi.
 
 3. Il provider delegato può rendere queste offerte pubblici tramite i propri portale URL. Per rendere pubblico l'offerta, selezionare **esplorare**e quindi **offre**. Selezionare l'offerta e quindi selezionare **Cambia stato**.
 
 4. Le offerte delegate pubbliche ora sono visibili solo tramite il portale di delegato. Per trovare e modificare questo URL:
 
-    a.  Selezionare **esplorare** > **tutti i servizi**, quindi nel **generali** categoria, seleziona **sottoscrizioni**. Selezionare la sottoscrizione del Provider delegata. Ad esempio, **DPSubscription** > **proprietà**.
+    a.  Selezionare **esplorare**, quindi **tutti i servizi**, quindi nel **generali** categoria, seleziona **sottoscrizioni**. Selezionare la sottoscrizione del provider delegata; ad esempio, **DPSubscription**, quindi **proprietà**.
 
     b.  Copiare il portale di URL in un percorso distinto, ad esempio Blocco note.
 
     ![Selezionare la sottoscrizione del Provider delegata](media/azure-stack-delegated-provider/dpportaluri.png)  
 
-   È stata completata la creazione di un'offerta delegata come provider di delegato. Disconnettersi come provider di delegati e chiudere la finestra del browser in uso.
+   È stata completata la creazione di un'offerta delegata come provider di delegato. Disconnettersi come provider di delegati e chiudere la finestra del browser.
 
 ### <a name="sign-up-for-the-offer"></a>Effettuare l'iscrizione all'offerta
 
@@ -147,17 +147,17 @@ Accedere al portale per gli utenti come provider di delegato e quindi creare una
 
    ![Visualizzare e selezionare le offerte](media/azure-stack-delegated-provider/image8.png)
 
-Il processo di delega di un'offerta è stato completato. A questo punto un utente può iscriversi a questa offerta tramite il recupero di una sottoscrizione per tale.
+Il processo di delega di un'offerta è stato completato. A questo punto un utente può iscriversi a questa offerta tramite il recupero di una sottoscrizione a esso.
 
 ## <a name="move-subscriptions-between-delegated-providers"></a>Spostare sottoscrizioni tra i provider delegati
 
-Se necessario, una sottoscrizione può essere spostata tra le sottoscrizioni nuove o esistenti del provider delegata che appartengono allo stesso tenant di Directory. È possibile usare il cmdlet di PowerShell [Move-AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin).
+Se necessario, una sottoscrizione può essere spostata tra le sottoscrizioni nuove o esistenti del provider delegata che appartengono allo stesso tenant di directory. Questa operazione viene eseguita usando il cmdlet di PowerShell [Move-AzsSubscription](/powershell/module/azs.subscriptions.admin).
 
 Il valore è utile se:
-- Caricare un nuovo membro del team che sarà eseguite nel ruolo del provider delegata e si da assegnare a questo team membro-sottoscrizioni utente creati in precedenza nella sottoscrizione del Provider predefinito.
-- Si hanno più sottoscrizioni di provider delegati nello stesso-tenant di Directory (Azure Active Directory) e dobbiamo spostare sottoscrizioni utente tra di essi. Ciò potrebbe essere il caso in cui un membro del team si sposta tra i team e la sottoscrizione a pagamento deve essere allocata al nuovo team.
 
+* Caricare un nuovo membro del team che sarà eseguite nel ruolo del provider delegata e si da assegnare a questo sottoscrizioni utente membro del team creati in precedenza nella sottoscrizione del provider predefinito.
+* Si hanno più sottoscrizioni di provider delegati dello stesso tenant di directory (Azure Active Directory) ed è necessario spostare le sottoscrizioni utente tra di essi. Questo scenario potrebbe essere un caso in cui un membro del team si sposta tra i team e la sottoscrizione a pagamento deve essere allocata al nuovo team.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Effettuare il provisioning di una macchina virtuale](azure-stack-provision-vm.md)
+* [Effettuare il provisioning di una macchina virtuale](azure-stack-provision-vm.md)

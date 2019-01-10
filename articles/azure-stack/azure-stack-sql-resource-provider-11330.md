@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
-ms.openlocfilehash: eb330a782681b8923b95157f28732d89c32100d4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: edca29cfe53f7aa313eb1178a6a2ef19aa7178d0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122370"
+ms.locfileid: "54159622"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>Note sulla versione SQL resource provider 1.1.33.0
 
@@ -33,7 +33,7 @@ Scaricare il provider di risorse SQL binario e quindi eseguire il programma di a
 
 > |Versione minima di Azure Stack|Versione del provider di risorse SQL|
 > |-----|-----|
-> |Versione 1811 (1.1811.0.101)|[SQL RP versione 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
+> |Versione 1808 (1.1808.0.97)|[SQL RP versione 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
 > |     |     |
 
 > [!IMPORTANT]

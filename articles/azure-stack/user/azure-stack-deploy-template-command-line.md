@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: d40f9e8bf319f327879a71b23f9d9b82da924c2f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: fec5378b9165ca7e240f52c629c47cdda799ef51
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365435"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155185"
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>Distribuire modelli in Azure Stack tramite la riga di comando
 
@@ -30,9 +30,9 @@ Usare la riga di comando per distribuire i modelli di Azure Resource Manager nel
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
- - [Installare e connettere](azure-stack-version-profiles-azurecli2.md) ad Azure Stack con CLI di Azure.
- - Scaricare i file *azuredeploy. JSON* e *azuredeploy* dal [creare modello di esempio di account di archiviazione](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
- 
+- [Installare e connettere](azure-stack-version-profiles-azurecli2.md) ad Azure Stack con CLI di Azure.
+- Scaricare i file *azuredeploy. JSON* e *azuredeploy* dal [creare modello di esempio di account di archiviazione](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
+
 ## <a name="deploy-template"></a>Distribuire il modello
 
 Passare alla cartella in cui sono stati scaricati questi file ed eseguire il comando seguente per distribuire il modello:
@@ -45,7 +45,7 @@ Questo comando distribuisce il modello per il gruppo di risorse **cliRG** nel pe
 
 ## <a name="validate-template-deployment"></a>Convalidare la distribuzione dei modelli
 
-Per visualizzare questo gruppo di risorse e l'account di archiviazione, usare i comandi seguenti:
+Per visualizzare questo account di archiviazione e del gruppo di risorse, usare i comandi CLI seguenti:
 
 ```azurecli
 az group list
@@ -55,7 +55,6 @@ az storage account list
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla distribuzione dei modelli, vedere:
+- Per altre informazioni sulla distribuzione dei modelli, vedere:
 
 [Distribuire modelli con PowerShell](azure-stack-deploy-template-powershell.md)
-

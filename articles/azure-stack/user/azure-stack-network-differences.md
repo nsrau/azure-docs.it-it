@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: de98387b0c7d5eb3c5ca99f9aa31619397e2aadf
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 4aa62319ee37b2f82455d1a3c7ad2d224988d93e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944580"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160064"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerazioni per la rete di Azure Stack
 
@@ -25,7 +25,7 @@ La rete di Azure Stack ha molte delle funzionalità fornite dalla rete di Azure.
 
 Questo articolo offre una panoramica delle considerazioni univoche per la rete di Azure Stack e le relative funzionalità. Per altre informazioni sulle differenze generali tra Azure e Azure Stack, vedere la [considerazioni chiave](azure-stack-considerations.md) articolo.
 
-## <a name="cheat-sheet-networking-differences"></a>Foglio informativo: differenze di funzionalità di rete
+## <a name="cheat-sheet-networking-differences"></a>Foglio informativo: Differenze di funzionalità di rete
 
 | Service | Funzionalità | Azure (globale) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,7 +54,6 @@ Questo articolo offre una panoramica delle considerazioni univoche per la rete d
 |  | Sito Gateway predefinito | Azure supporta la configurazione di un sito predefinito per il tunneling forzato. | Non è ancora supportata. |
 |  | Ridimensionamento di gateway | Azure supporta il ridimensionamento del gateway dopo la distribuzione. | Modifica delle dimensioni non supportato. |
 |  | Configurazione attiva/attiva | Supportato | Non è ancora supportata. |
-|  | Criteri IPSec/IKE | Azure supporta IPSec criteri configurazioni personalizzate. | Non è ancora supportata. |
 |  | UsePolicyBasedTrafficSelectors | Azure supporta l'uso dei selettori di traffico basata su criteri con le connessioni del gateway basato su route. | Non è ancora supportata. |
 | Bilanciamento del carico | SKU | Base e Load Balancer Standard sono supportate | È supportato solo il servizio Load Balancer Basic.  La proprietà SKU non è supportata. |
 |  | Zone | Sono supportate le zone di disponibilità. | Non è ancora supportata |
@@ -65,11 +64,9 @@ Questo articolo offre una panoramica delle considerazioni univoche per la rete d
 |  | Ottenere gli ACL efficaci | Supportato | Non è ancora supportata. |
 |  | Abilitare Rete accelerata | Supportato | Non è ancora supportata. |
 |  | Inoltro IP | Disattivata per impostazione predefinita.  Può essere abilitata. | Attivare e disattivare questa impostazione non è supportato.  In per impostazione predefinita. |
-|  | Più configurazioni IP per ogni interfaccia | Supportato | Non è ancora supportata. |
 |  | Gruppi di sicurezza delle applicazioni | Supportato | Non è ancora supportata. |
 |  | Etichetta del nome DNS interno | Supportato | Non è ancora supportata. |
 |  | Versione indirizzo IP privato | Sono supportati sia IPv4 che IPv6. | È supportato solo il protocollo IPv4. |
-|  | Configurazione IP primaria | Supportato. Identifica la configurazione IP primaria dell'interfaccia. | Non è ancora supportata. |
 | Network Watcher | Le funzionalità di monitoraggio della rete tenant Watcher di rete | Supportato | Non è ancora supportata. |
 | RETE CDN | Profili di rete per la distribuzione del contenuto | Supportato | Non è ancora supportata. |
 | gateway applicazione | Bilanciamento del carico di livello 7 | Supportato | Non è ancora supportata. |
