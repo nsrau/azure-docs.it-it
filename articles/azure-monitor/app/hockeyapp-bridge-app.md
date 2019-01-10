@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 73e1fac5ba9fbb981c92ff8d32064f7d34729ef7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 4115ec5add9ac523852b4c60c4f9d750bc430a37
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53813671"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121448"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Esplorazione dei dati HockeyApp in Application Insights
 
 > [!NOTE]
-> HockeyApp non è più disponibile per le nuove applicazioni. Le distribuzioni HockeyApp esistenti continueranno a funzionare. Visual Studio App Center è ora il servizio consigliato di Microsoft per il monitoraggio delle nuove app per dispositivi mobili. [Informazioni su come configurare le app con App Center e Application Insights](../../application-insights/app-insights-mobile-center-quickstart.md).
+> HockeyApp non è più disponibile per le nuove applicazioni. Le distribuzioni HockeyApp esistenti continueranno a funzionare. Visual Studio App Center è ora il servizio consigliato di Microsoft per il monitoraggio delle nuove app per dispositivi mobili. [Informazioni su come configurare le app con App Center e Application Insights](../../azure-monitor/learn/mobile-center-quickstart.md).
 
-[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) è un servizio per il monitoraggio di live app per desktop e per dispositivi mobili. Da HockeyApp è possibile inviare dati di telemetria di traccia e personalizzata per monitorare l'utilizzo e facilitare la diagnosi, oltre a ottenere dati di arresto anomalo. È possibile effettuare una query di questo flusso di dati di telemetria con la funzionalità [Analytics](../../azure-monitor/app/analytics.md) di [Azure Application Insights](../../application-insights/app-insights-overview.md). È anche possibile [esportare i dati di telemetria di traccia e personalizzata](export-telemetry.md). Per abilitare queste funzionalità, configurare un bridge che inoltra i dati HockeyApp personalizzati ad Application Insights.
+[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) è un servizio per il monitoraggio di live app per desktop e per dispositivi mobili. Da HockeyApp è possibile inviare dati di telemetria di traccia e personalizzata per monitorare l'utilizzo e facilitare la diagnosi, oltre a ottenere dati di arresto anomalo. È possibile effettuare una query di questo flusso di dati di telemetria con la funzionalità [Analytics](../../azure-monitor/app/analytics.md) di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). È anche possibile [esportare i dati di telemetria di traccia e personalizzata](export-telemetry.md). Per abilitare queste funzionalità, configurare un bridge che inoltra i dati HockeyApp personalizzati ad Application Insights.
 
 ## <a name="the-hockeyapp-bridge-app"></a>App bridge HockeyApp
 L'app bridge HockeyApp è la funzionalità di base che consente di accedere ai dati di telemetria di traccia e personalizzata HockeyApp in Application Insights tramite le funzionalità Analisi ed Esportazione continua. Gli eventi di traccia e personalizzati raccolti da HockeyApp dopo la creazione dell'app bridge HockeyApp saranno accessibili da queste funzionalità. Ora verrà descritto come configurare una di queste app bridge.
@@ -33,7 +33,7 @@ In HockeyApp aprire Account Settings (Impostazioni account), [API Tokens](https:
 
 ![Ottenere un token API HockeyApp](./media/hockeyapp-bridge-app/01.png)
 
-Accedere al portale di Microsoft Azure e [creare una risorsa di Application Insights](../../application-insights/app-insights-create-new-resource.md). Impostare il tipo di applicazione su "Applicazione bridge HockeyApp":
+Accedere al portale di Microsoft Azure e [creare una risorsa di Application Insights](../../azure-monitor/app/create-new-resource.md ). Impostare il tipo di applicazione su "Applicazione bridge HockeyApp":
 
 ![Nuova risorsa di Application Insights](./media/hockeyapp-bridge-app/02.png)
 

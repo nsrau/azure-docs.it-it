@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b269b8db59c4aeecf182b6ea11b92a3980a2cd6d
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567418"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583069"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Backup e ripristino di macchine virtuali crittografate con Backup di Azure
 Questo articolo illustra i passaggi per eseguire il backup e il ripristino di macchine virtuali tramite Backup di Azure. L'articolo contiene anche informazioni sugli scenari supportati, sui prerequisiti e sui passaggi per la risoluzione dei problemi per i casi di errore.
@@ -25,8 +25,12 @@ Questo articolo illustra i passaggi per eseguire il backup e il ripristino di ma
 
    |  | VM con BEK + KEK | Macchine virtuali solo con crittografia BEK |
    | --- | --- | --- |
-   | **Macchine virtuali non gestite**  | Yes | Yes  |
-   | **Macchine virtuali gestite**  | Yes | Yes  |
+   | **Macchine virtuali non gestite**  | Sì | Sì  |
+   | **Macchine virtuali gestite**  | Sì | Sì  |
+
+   > [!NOTE]
+   > Backup di Azure supporta le macchine virtuali crittografate usando chiavi autonome. Qualsiasi chiave che fa parte di un certificato usato per crittografare una macchina virtuale non è attualmente supportata.
+   >   
 
 ## <a name="prerequisites"></a>Prerequisiti
 * La macchina virtuale è stata crittografata usando [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md).

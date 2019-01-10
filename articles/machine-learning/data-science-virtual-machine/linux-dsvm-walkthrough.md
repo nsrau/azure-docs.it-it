@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190646"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157174"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Data science con una macchina virtuale di data science Linux in Azure
 Questa procedura dettagliata illustra come eseguire varie attività comuni di analisi scientifica dei dati con la macchina virtuale Linux per l'analisi scientifica dei dati. La macchina virtuale Linux per l'analisi scientifica dei dati (DSVM) è un'immagine di macchina virtuale, disponibile in Azure, in cui è preinstallata una raccolta di strumenti usati comunemente per l'analisi dei dati e l'apprendimento automatico. I componenti software principali sono elencati nell'argomento [Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati](linux-dsvm-intro.md). L'immagine di macchina virtuale permette di iniziare le attività di analisi scientifica dei dati in pochi minuti, senza dover installare e configurare ogni strumento singolarmente. Se necessario, è possibile aumentare facilmente le prestazioni della macchina virtuale e arrestarla quando non viene usata, caratteristiche che rendono questa risorsa flessibile e conveniente.
@@ -101,7 +101,7 @@ La colonna *spam* è stata letta come Integer, ma in realtà si tratta di un fat
 
     data$spam <- as.factor(data$spam)
 
-Per effettuare alcune analisi esplorative, usare il pacchetto [ggplot2](http://ggplot2.org/) , una diffusa libreria grafica per R già installata nella macchina virtuale. Grazie ai dati di riepilogo visualizzati in precedenza, sono disponibili statistiche di riepilogo sulla frequenza del carattere punto esclamativo. I comandi seguenti permettono di tracciare tali frequenze:
+Per effettuare alcune analisi esplorative, usare il pacchetto [ggplot2](https://ggplot2.tidyverse.org/) , una diffusa libreria grafica per R già installata nella macchina virtuale. Grazie ai dati di riepilogo visualizzati in precedenza, sono disponibili statistiche di riepilogo sulla frequenza del carattere punto esclamativo. I comandi seguenti permettono di tracciare tali frequenze:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)

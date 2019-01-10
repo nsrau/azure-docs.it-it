@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a152efb3979b4ffe3402ed668c0f683f5e9cc651
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 337d71c84ace7f44c2668cf2344d9083c4a85bee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337156"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651063"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Restrizioni IP statico del Servizio app di Azure #
 
 Le restrizioni IP consentono di definire un elenco consenti/nega basato sulle priorità di indirizzi IP a cui è consentito accedere all'app. L'elenco consenti può includere gli indirizzi IPv4 e IPv6. In presenza di una o più voci, alla fine dell'elenco è presente un nega tutto implicito. 
 
-La funzionalità Restrizioni IP funziona con tutti i carichi di lavoro ospitati dal servizio app, incluse app Web, app api, app linux, app contenitore linux e funzioni. 
+La funzionalità Restrizioni IP è applicabile a tutti i carichi di lavoro ospitati dal servizio app, incluse app Web, app API, app Linux, app contenitore Linux e Funzioni. 
 
 Quando viene avanzata una richiesta all'app, l'indirizzo IP FROM viene valutato rispetto all'elenco Restrizioni IP. Se all'indirizzo non viene consentito l'accesso in base alle regole nell'elenco, il servizio replica con un codice di stato [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
 

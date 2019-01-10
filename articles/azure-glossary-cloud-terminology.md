@@ -1,5 +1,5 @@
 ---
-title: Glossario di Azure - Dizionario di Azure | Documentazione Microsoft
+title: Glossario di Azure - Dizionario di Azure | Microsoft Docs
 description: Usare il glossario di Azure per comprendere la terminologia cloud della piattaforma Azure. Questo breve dizionario di Azure include le definizioni dei termini comuni relativi al cloud usati in Azure.
 keywords: Dizionario di Azure, terminologia cloud, glossario di Azure, definizioni terminologiche, termini del cloud
 services: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 84766ba4cf9e844184752bc44d2e0a471b97db27
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159129"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600305"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
 
@@ -31,13 +31,13 @@ Il glossario di Microsoft Azure è un breve dizionario di terminologia cloud per
 
 ## <a name="account"></a>account
 Account usato per accedere alla sottoscrizione di Azure e gestirla. Viene spesso definito account Azure anche se un account può essere un account Microsoft aziendale, dell'istituto di istruzione o personale esistente oppure un nome utente e una password di Office 365. È anche possibile creare un account per gestire una sottoscrizione di Azure quando ci si iscrive alla [versione di valutazione gratuita](https://azure.microsoft.com).  
-Vedere [Iscriversi a una sottoscrizione di Azure con il proprio account di Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) e [Account che si possono usare per l'accesso](active-directory/active-directory-how-subscriptions-associated-directory.md).
+Vedere [Iscriversi a una sottoscrizione di Azure con il proprio account di Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) e [Account che si possono usare per l'accesso](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>App per le API
 Nome alternativo per [app del servizio app](#app-service-app).
 
 ## <a name="app-service-app"></a>app del servizio app
-Risorse di calcolo fornite da [Servizio app di Azure](app-service/app-service-web-overview.md) per l'hosting di siti Web o applicazioni Web, API Web o [back-end per app per dispositivi mobili](app-service-mobile/app-service-mobile-value-prop.md). Le app del servizio app vengono chiamate anche *servizi app*, *app Web*, *app per le API* e *app per dispositivi mobili*.
+Risorse di calcolo fornite da [Servizio app di Azure](app-service/overview.md) per l'hosting di siti Web o applicazioni Web, API Web o [back-end per app per dispositivi mobili](app-service-mobile/app-service-mobile-value-prop.md). Le app del servizio app vengono chiamate anche *servizi app*, *app Web*, *app per le API* e *app per dispositivi mobili*.
 
 ## <a name="availability-set"></a>set di disponibilità
 Raccolta di macchine virtuali gestite insieme per offrire ridondanza delle applicazioni e affidabilità. Durante un evento di manutenzione pianificato o non pianificato, l'uso di un set di disponibilità assicura la disponibilità di almeno una macchina virtuale.  
@@ -47,7 +47,7 @@ Vedere [Gestire la disponibilità delle macchine virtuali Windows](virtual-machi
 Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usati per la distribuzione delle risorse in Azure. Il nuovo modello è Azure Resource Manager. Alcuni servizi di Azure supportano solo il modello di sviluppo di Resource Manager, alcuni supportano solo il modello di sviluppo classico e alcuni supportano entrambi. La documentazione per ogni servizio di Azure specifica i modelli supportati.
 
 ## <a name="cli"></a>interfaccia della riga di comando di Azure
-Interfaccia della riga di comando che può essere usata per la gestione dei servizi di Azure da PC Windows, OSX e Linux.  Alcuni servizi o funzionalità dei servizi possono essere gestite solo tramite PowerShell o l'interfaccia della riga di comando. Vedere [Interfaccia della riga di comando di Azure 2.0](/cli/azure)
+Interfaccia della riga di comando che può essere usata per la gestione dei servizi di Azure da PC Windows, OSX e Linux.  Alcuni servizi o funzionalità dei servizi possono essere gestite solo tramite PowerShell o l'interfaccia della riga di comando. Vedere [Interfaccia della riga di comando di Azure](/cli/azure)
 
 ## <a name="powershell"></a>Azure PowerShell
 Interfaccia della riga di comando per la gestione dei servizi di Azure tramite la riga di comando da PC Windows. Alcuni servizi o funzionalità dei servizi possono essere gestite solo tramite PowerShell o l'interfaccia della riga di comando.
@@ -69,7 +69,7 @@ Processo di replica automatica del contenuto, ad esempio di BLOB, tabelle e code
 Vedere [Replica geografica attiva per il database SQL di Azure](sql-database/sql-database-geo-replication-overview.md)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
-## <a name="image"></a>immagine
+## <a name="image"></a>image
 File che contiene il sistema operativo e la configurazione delle applicazioni che può essere usato per creare qualsiasi numero di macchine virtuali. In Azure sono disponibili due tipi di immagini: l'immagine della macchina virtuale e l'immagine del sistema operativo. Immagine di macchina virtuale include un sistema operativo e tutti i dischi collegati a una macchina virtuale quando viene creata l'immagine. L'immagine del sistema operativo contiene solo un sistema operativo generalizzato senza configurazioni del disco dati.  
 Vedere [Esplorare e selezionare immagini di macchine virtuali Windows in Azure con PowerShell o l'interfaccia della riga di comando](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -78,7 +78,7 @@ Numero di risorse che è possibile creare o benchmark delle prestazioni che può
 Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](azure-subscription-service-limits.md)
 
 ## <a name="load-balancer"></a>bilanciamento del carico
-Risorsa che distribuisce il traffico in ingresso nei computer di una rete. In Azure, il servizio di bilanciamento del carico distribuisce il traffico nelle macchine virtuali definite in un set di bilanciamento del carico . Il servizio di [bilanciamento del carico](load-balancer/load-balancer-overview.md) può essere connesso a Internet oppure interno.  
+Risorsa che distribuisce il traffico in ingresso nei computer di una rete. In Azure, il servizio di bilanciamento del carico distribuisce il traffico nelle macchine virtuali definite in un set di bilanciamento del carico. Il servizio di [bilanciamento del carico](load-balancer/load-balancer-overview.md) può essere connesso a Internet oppure interno.  
 
 ## <a name="mobile-app"></a>app per dispositivi mobili
 Nome alternativo per [app del servizio app](#app-service-app).
@@ -112,7 +112,7 @@ Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/resource-gr
 
 ## <a name="role"></a>role
 Mezzo per il controllo dell'accesso che può essere assegnato a utenti, gruppi e servizi. I ruoli sono in grado di eseguire azioni, ad esempio la creazione, la gestione e la lettura nelle risorse di Azure.  
-Vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](role-based-access-control/built-in-roles.md)
+Vedere [RBAC: ruoli predefiniti](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>contratto di servizio
 Contratto di servizio che definisce gli impegni di Microsoft in merito a tempi di attività e connettività. Ogni servizio di Azure ha un contratto di servizio specifico.  
@@ -127,7 +127,7 @@ Vedere [Informazioni sugli account di archiviazione di Azure](storage/common/sto
 
 ## <a name="subscription"></a>sottoscrizione
 Contratto tra il cliente e Microsoft che consente di ricevere i servizi di Azure. Le tariffe della sottoscrizione e i relativi termini dipendono dall'offerta scelta per la sottoscrizione.
-Vedere [Contratto di Sottoscrizione Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/) e [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
+Vedere [Contratto di Sottoscrizione Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/) e [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 ## <a name="tag"></a>tag
 Termine di indicizzazione che consente di suddividere le risorse in categorie in base ai requisiti di gestione o fatturazione. Quando è presente una raccolta complessa di risorse, è possibile usare tag per visualizzare gli asset nel modo più logico possibile. Ad esempio, è possibile contrassegnare le risorse che svolgono un ruolo simile nell'organizzazione o che appartengono allo stesso reparto.  

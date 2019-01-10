@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 9d7266e75d863ab5c024217e137566c109e79f70
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997898"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120666"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modello di dati di Application Insights Telemetry
 
-[Azure Application Insights](../../application-insights/app-insights-overview.md) invia dati di telemetria dall'applicazione Web al portale di Azure, in modo da poter analizzare le prestazioni e l'uso dell'applicazione. Il modello di dati di telemetria è standardizzato e di conseguenza è possibile creare scenari di monitoraggio indipendenti dalla piattaforma e dal linguaggio. 
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) invia dati di telemetria dall'applicazione Web al portale di Azure, in modo da poter analizzare le prestazioni e l'uso dell'applicazione. Il modello di dati di telemetria è standardizzato e di conseguenza è possibile creare scenari di monitoraggio indipendenti dalla piattaforma e dal linguaggio. 
 
 I dati raccolti da Application Insights creano questo tipico modello di esecuzione dell'applicazione:
 
@@ -55,5 +55,5 @@ Per segnalare problemi e suggerimenti relativi al modello di dati e allo schema,
 
 - [Scrivere dati di telemetria personalizzati](../../azure-monitor/app/api-custom-events-metrics.md)
 - Informazioni su come [estendere e filtrare i dati di telemetria](../../azure-monitor/app/api-filtering-sampling.md).
-- Usare il [campionamento](../../application-insights/app-insights-sampling.md) per ridurre al minimo la quantità di dati di telemetria in base al modello di dati.
+- Usare il [campionamento](../../azure-monitor/app/sampling.md) per ridurre al minimo la quantità di dati di telemetria in base al modello di dati.
 - Verificare quali [piattaforme](../../azure-monitor/app/platforms.md) supportano Application Insights.

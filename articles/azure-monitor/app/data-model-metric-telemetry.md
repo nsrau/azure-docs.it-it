@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 5a3fe90da0b469707c67c852784468455bbec95d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999189"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117691"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Dati di telemetria metrica: Modello di dati di Application Insights
 
-Esistono due tipi di telemetria della metrica supportata da [Application Insights](../../application-insights/app-insights-overview.md): la metrica a misura singola e la metrica preaggregata. La misura singola è costituita semplicemente da un nome e un valore. La metrica preaggregata specifica i valori minimo e massimo della metrica nell'intervallo di aggregazione e la relativa deviazione standard.
+Esistono due tipi di telemetria della metrica supportata da [Application Insights](../../azure-monitor/app/app-insights-overview.md): la metrica a misura singola e la metrica preaggregata. La misura singola è costituita semplicemente da un nome e un valore. La metrica preaggregata specifica i valori minimo e massimo della metrica nell'intervallo di aggregazione e la relativa deviazione standard.
 
 La metrica dei dati di telemetria preaggregata presuppone che il periodo di aggregazione sia di un minuto.
 

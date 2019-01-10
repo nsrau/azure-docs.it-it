@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857823"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603828"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Panoramica di Servizi Cloud di Azure
-Servizi cloud di Azure è un esempio di [piattaforma distribuita come servizio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Analogamente a [Servizio app di Azure](../app-service/app-service-web-overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come Servizio app, anche Servizi cloud di Azure è ospitato in macchine virtuali (VM). Tuttavia, il controllo sulle macchine virtuali è maggiore. È possibile installare software personalizzato nelle macchine virtuali che usano Servizi cloud di Azure e accedervi in remoto.
+Servizi cloud di Azure è un esempio di [piattaforma distribuita come servizio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Analogamente a [Servizio app di Azure](../app-service/overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come Servizio app, anche Servizi cloud di Azure è ospitato in macchine virtuali (VM). Tuttavia, il controllo sulle macchine virtuali è maggiore. È possibile installare software personalizzato nelle macchine virtuali che usano Servizi cloud di Azure e accedervi in remoto.
 
 ![Schema di Servizi cloud di Azure](./media/cloud-services-choose-me/diagram.png)
 

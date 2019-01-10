@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/1/2018
 ms.author: victorh
-ms.openlocfilehash: c0084580a2e4860f24aecd37232f38da2e55ccc8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e5f48e42a2a677622dae0b733f9d5af484d1c51
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578433"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605807"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Supporto del gateway applicazione per i back-end multi-tenant
 
-Il gateway applicazione di Azure supporta set di scalabilità di macchine virtuali, interfacce di rete, indirizzi IP pubblici/privati o il nome di dominio completo (FQDN) come parte dei propri pool back-end. Per impostazione predefinita, il gateway applicazione non modifica l'intestazione host HTTP in ingresso dal client e invia l'intestazione invariata al back-end. Molti servizi, come [App Web di Azure](../app-service/app-service-web-overview.md), sono di natura multi-tenant e si basano su un'estensione SNI o un'intestazione host specifica per la risoluzione nell'endpoint corretto. Il gateway applicazione consente ora agli utenti di sovrascrivere l'intestazione host HTTP in ingresso in base alle impostazioni HTTP del back-end. Questa funzionalità garantisce il supporto di App Web di Azure e Gestione API come back-end multi-tenant ed è disponibile sia per lo SKU standard che per lo SKU WAF. Il supporto di back-end multi-tenant può essere usato anche con scenari di terminazione SSL e SSL end-to-end.
+Il gateway applicazione di Azure supporta set di scalabilità di macchine virtuali, interfacce di rete, indirizzi IP pubblici/privati o il nome di dominio completo (FQDN) come parte dei propri pool back-end. Per impostazione predefinita, il gateway applicazione non modifica l'intestazione host HTTP in ingresso dal client e invia l'intestazione invariata al back-end. Molti servizi, come [Servizio app di Azure](../app-service/overview.md), sono di natura multi-tenant e si basano su un'estensione SNI o un'intestazione host specifica per la risoluzione nell'endpoint corretto. Il gateway applicazione consente ora agli utenti di sovrascrivere l'intestazione host HTTP in ingresso in base alle impostazioni HTTP del back-end. Questa funzionalità garantisce il supporto di App Web di Azure e Gestione API come back-end multi-tenant ed è disponibile sia per lo SKU standard che per lo SKU WAF. Il supporto di back-end multi-tenant può essere usato anche con scenari di terminazione SSL e SSL end-to-end.
 
 > [!NOTE]
 > L'installazione di certificati di autenticazione non è necessaria per servizi di Azure attendibili, come ad esempio App Web di Azure.
@@ -36,4 +36,4 @@ Con questa funzionalità, i clienti specificano le opzioni nelle impostazioni HT
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come configurare un gateway applicazione con un'app Web come membro del pool back-end, vedere [Configurare app Web del servizio app con il gateway applicazione](application-gateway-web-app-powershell.md)
+Per informazioni su come configurare un gateway applicazione con un'app Web come membro del pool back-end, vedere: [Configurare le app Web del servizio app con il gateway applicazione](application-gateway-web-app-powershell.md)

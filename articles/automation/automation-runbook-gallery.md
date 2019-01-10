@@ -9,15 +9,18 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a518d00a50c0fc6ec83626852f30f739d64b18ea
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 5b87d04466a2c94ed233edf4069ec1a30b10d03a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283294"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634321"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Raccolte di runbook e moduli per l'automazione di Azure
 Anziché creare runbook e moduli personalizzati in Automazione di Azure, si può ricorrere a una serie di scenari già creati da Microsoft e dalla community.  Questi scenari possono essere usati senza alcuna modifica oppure possono essere utilizzati come punto di partenza apportando tutte le modifiche necessarie in base alle specifiche esigenze.
+
+> [!NOTE]
+> Il nuovo [modulo di Azure PowerShell Az](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) non è supportato in Automazione di Azure. Tutti gli script scaricati da PowerShell Gallery usando questi cmdlet non funzionano in Automazione di Azure.
 
 È possibile trovare runbook nella [raccolta di runbook](#runbooks-in-runbook-gallery) e moduli in [PowerShell Gallery](#modules-in-powerShell-gallery).  Si può anche contribuire alla community condividendo gli scenari sviluppati personalmente, vedere [Aggiunta di un runbook alla raccolta](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
 
@@ -38,7 +41,7 @@ La [raccolta di runbook](https://gallery.technet.microsoft.com/scriptcenter/site
    
     ![Sfoglia raccolta](media/automation-runbook-gallery/browse-gallery.png)
 5. Fare clic su **Visualizza progetto di origine** per visualizzare l'elemento nello [Script Center di TechNet](https://gallery.technet.microsoft.com/).
-6. Per importare un elemento, fare clic su di esso per visualizzarne i dettagli e quindi scegliere il pulsante **Importa** .
+6. Per importare un elemento, fare clic su di esso per visualizzarne i dettagli e quindi scegliere il pulsante **Importa**.
    
     ![Pulsante Importa](media/automation-runbook-gallery/gallery-item-detail.png)
 7. Facoltativamente, modificare il nome del runbook e quindi fare clic su **OK** per importare il runbook.
@@ -50,7 +53,7 @@ Microsoft consiglia di aggiungere alla raccolta dei runbook i runbook ritenuti p
 * Per il runbook da visualizzare nella procedura guidata, è necessario specificare *Windows Azure* nel campo **Categoria** e *Automazione* nel campo **Sottocategoria**.  
 * Il caricamento deve interessare un singolo file con estensione PS1 o GRAPHRUNBOOK.  Se il runbook richiede eventuali moduli, runbook figlio o asset, è consigliabile elencare questi elementi nella descrizione dell'invio e nella sezione dei commenti del runbook.  Se si dispone di uno scenario che richiede più runbook, caricare ciascuna soluzione separatamente ed elencare i nomi dei runbook correlati in ognuna delle relative descrizioni. Assicurarsi di usare gli stessi tag in modo che vengano visualizzati nella stessa categoria. L'utente dovrà fare riferimento alla descrizione per sapere se sono necessari altri runbook per il corretto funzionamento dello scenario.
 * Se si pubblica un **runbook grafico** (non un flusso di lavoro grafico), aggiungere il tag "GraficoPS". 
-* Inserire un frammento di codice di PowerShell o di un flusso di lavoro PowerShell nella descrizione mediante l’icona **Inserisci sezione di codice** .
+* Inserire un frammento di codice di PowerShell o di un flusso di lavoro PowerShell nella descrizione mediante l’icona **Inserisci sezione di codice**.
 * Nei risultati della raccolta di runbook viene visualizzato il riepilogo del caricamento. Sarà pertanto necessario fornire informazioni dettagliate che consentano a un utente di identificare le funzionalità del runbook.
 * È consigliabile assegnare da uno a tre dei seguenti tag al caricamento.  Il runbook viene elencato nella procedura guidata nelle categorie corrispondenti ai relativi tag.  Qualsiasi tag non incluso nell'elenco viene ignorato dalla procedura guidata. Se non si specifica alcun tag corrispondente, il runbook viene elencato nella categoria Altro.
   
@@ -86,7 +89,7 @@ I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei 
    Quando si analizza un modulo specifico, è possibile visualizzare altre informazioni sul modulo, inclusi un collegamento a PowerShell Gallery, eventuali dipendenze necessarie e tutte le risorse cmdlet/DSC contenute nel modulo.
    
     ![Informazioni sul modulo di PowerShell](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
-7. Per installare il modulo direttamente in Automazione di Azure, fare clic sul pulsante **Importa** .
+7. Per installare il modulo direttamente in Automazione di Azure, fare clic sul pulsante **Importa**.
 8. Quando si fa clic sul pulsante Importa, nel riquadro **Importa**  viene visualizzato il nome del modulo che verrà importato. Se tutte le dipendenze sono installate, il pulsante **OK** è attivo. Se non sono presenti tutte le dipendenze richieste, è necessario importarle prima di importare il modulo.
 9. Nella pagina **Importa** fare clic su **OK** per importare il modulo. Durante l'importazione del modulo nell'account, Automazione di Azure estrae i metadati sul modulo e i cmdlet. Poiché ogni attività deve essere estratta potrebbero volerci alcuni minuti.
 10. Si riceverà una notifica iniziale per indicare che è in corso la distribuzione del modulo e un'altra notifica al termine dell'operazione.

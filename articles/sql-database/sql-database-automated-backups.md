@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 2d6df569a2b5b813bd832adf5ef2e1d193de9364
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187569"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001278"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -105,13 +105,19 @@ Quando si migra il database da un livello di servizio basato su DTU con una cons
 È possibile modificare il periodo di conservazione dei backup per il recupero temporizzato predefinito usando il portale di Azure, PowerShell o l'API REST. I valori supportati sono: 7, 14, 21, 28 giorni o 35 giorni. Gli esempi che seguono illustrano come modificare la conservazione di ripristino temporizzato a 28 giorni.
 
 > [!NOTE]
-> Queste API avranno un impatto solo sul periodo di conservazione di ripristino temporizzato. Se è configurata una conservazione a lungo termine per il database, questo non sarà interessato. Per altre informazioni su come modificare i periodi di conservazione a lungo termine, vedere [Conservazione a lungo termine](sql-database-long-term-retention.md).
+> Queste API avranno un impatto solo sul periodo di conservazione del recupero temporizzato. Se è configurata una conservazione a lungo termine per il database, questo non sarà interessato. Per altre informazioni su come modificare i periodi di conservazione a lungo termine, vedere [Conservazione a lungo termine](sql-database-long-term-retention.md).
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Modificare il periodo di conservazione dei backup per il recupero temporizzato usando il portale di Azure
 
-Per modificare il periodo di conservazione dei backup per il recupero temporizzato usando il portale di Azure, passare al database di cui si vuole modificare il periodo di conservazione e quindi fare clic su **Panoramica**.
+Per modificare il periodo di conservazione dei backup per il recupero temporizzato nel portale di Azure, passare all'oggetto server di cui si vuole modificare il periodo di conservazione all'interno del portale e quindi selezionare l'opzione appropriata in base nell'oggetto server da modificare. 
 
-![Modificare il portale di Azure per il recupero temporizzato](./media/sql-database-automated-backup/configure-backup-retention.png)
+#### <a name="change-pitr-for-a-logical-server"></a>Modificare il recupero temporizzato per un server logico
+
+![Modificare il portale di Azure per il recupero temporizzato](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
+
+#### <a name="change-pitr-for-a-managed-instance"></a>Modificare il recupero temporizzato per un'istanza gestita
+
+![Modificare il portale di Azure per il recupero temporizzato](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Modificare il periodo di conservazione dei backup di ripristino temporizzato usando PowerShell
 

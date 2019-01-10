@@ -1,6 +1,6 @@
 ---
 title: Configurare l'autenticazione reciproca TLS - Servizio app di Azure
-description: Informazioni su come configurare un'app Web per l'uso dell'autenticazione del certificato client in TLS.
+description: Informazioni su come configurare un'app per l'uso dell'autenticazione del certificato client in TLS.
 services: app-service
 documentationcenter: ''
 author: naziml
@@ -15,40 +15,38 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: f08e8f60f0e23cce9546e45dcf7b249d38224736
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d441329bc3f279e95b2ee302db53d78f786c3470
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252882"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650398"
 ---
-# <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Come configurare l'autenticazione reciproca TLS per un'app Web
+# <a name="how-to-configure-tls-mutual-authentication-for-azure-app-service"></a>Come configurare l'autenticazione reciproca TLS per Servizio app di Azure
 ## <a name="overview"></a>Panoramica
-È possibile limitare l'accesso all'app web di Azure abilitandone diversi tipi di autenticazione. A questo scopo è possibile eseguire l'autenticazione usando un certificato client quando la richiesta è per TLS/SSL. Questo meccanismo è detto l'autenticazione reciproca TLS o autenticazione del certificato client. Questo articolo illustra come configurare un'app Web per l'uso dell'autenticazione del certificato client.
+È possibile limitare l'accesso all'app di Servizio app di Azure abilitandone diversi tipi di autenticazione. A questo scopo è possibile eseguire l'autenticazione usando un certificato client quando la richiesta è per TLS/SSL. Questo meccanismo è definito autenticazione reciproca TLS o autenticazione del certificato client. Questo articolo illustra come configurare l'app per l'uso dell'autenticazione del certificato client.
 
 > **Nota:** se si accede al sito tramite HTTP e non HTTPS, non si riceveranno i certificati client. Pertanto, se l'applicazione richiede i certificati client è consigliabile non consentire le richieste all'applicazione tramite HTTP.
 > 
 > 
 
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-## <a name="configure-web-app-for-client-certificate-authentication"></a>Configurare l'app Web per l'autenticazione del certificato client
-Per configurare l'app Web per richiedere certificati client, è necessario aggiungere l'impostazione del sito clientCertEnabled per l'app Web e impostarla su true. Questa impostazione può anche essere configurata nel portale di Azure nel pannello dei certificati SSL.
+## <a name="configure-app-service-for-client-certificate-authentication"></a>Configurare l'app di Servizio app per l'autenticazione del certificato client
+Per configurare l'app per richiedere certificati client, è necessario aggiungere l'impostazione del sito clientCertEnabled per l'app e impostarla su true. Questa impostazione può anche essere configurata nel portale di Azure nel pannello dei certificati SSL.
 
 Per semplificare la definizione della chiamata all'API REST, è possibile usare lo [strumento ARMClient](https://github.com/projectkudu/ARMClient). Dopo l'accesso con lo strumento, sarà necessario eseguire il comando seguente:
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 
-sostituire tutti gli elementi tra {} con le informazioni per l'app Web e la creare un file denominato enableclientcert.json con il contenuto JSON seguente:
+sostituire tutti gli elementi tra parentesi graffe, {}, con le informazioni per l'app e creare un file denominato enableclientcert.json con il contenuto JSON seguente:
 
     {
-        "location": "My Web App Location",
+        "location": "My App Location",
         "properties": {
             "clientCertEnabled": true
         }
     }
 
-Assicurarsi di modificare il valore di "posizione" con la posizione in cui si trova l'app Web, ad esempio Stati Uniti centro-settentrionali o Stati Uniti occidentali e così via.
+Assicurarsi di modificare il valore di "posizione" con la posizione in cui si trova l'app, ad esempio Stati Uniti centro-settentrionali o Stati Uniti occidentali e così via.
 
 È anche possibile usare https://resources.azure.com per capovolgere la proprietà `clientCertEnabled` tramite in `true`.
 
@@ -56,11 +54,11 @@ Assicurarsi di modificare il valore di "posizione" con la posizione in cui si tr
 > 
 > 
 
-## <a name="accessing-the-client-certificate-from-your-web-app"></a>Accesso al certificato client dall'app Web
+## <a name="accessing-the-client-certificate-from-app-service"></a>Accesso al certificato client da Servizio app
 Se si usa ASP.NET e si configura l'applicazione per l'uso dell'autenticazione del certificato client, il certificato sarà disponibile tramite la proprietà **HttpRequest.ClientCertificate**. Per gli altri stack di applicazioni, il certificato client è disponibile nell'app tramite un valore con codifica Base64 nell'intestazione della richiesta "X-ARR ClientCert". L'applicazione può creare un certificato da questo valore e quindi usarlo a scopo di autenticazione e autorizzazione nell'applicazione.
 
 ## <a name="special-considerations-for-certificate-validation"></a>Considerazioni speciali per la convalida del certificato
-Il certificato client inviato all'applicazione non viene sottoposto ad alcuna convalida da parte della piattaforma di app Web di Azure. La convalida il certificato è responsabilità dell'app Web. Ecco un esempio di codice ASP.NET che convalida le proprietà del certificato a scopo di autenticazione.
+Il certificato client inviato all'applicazione non viene sottoposto ad alcuna convalida da parte della piattaforma di Servizio app di Azure. La convalida del certificato viene eseguita dall'app. Ecco un esempio di codice ASP.NET che convalida le proprietà del certificato a scopo di autenticazione.
 
     using System;
     using System.Collections.Specialized;

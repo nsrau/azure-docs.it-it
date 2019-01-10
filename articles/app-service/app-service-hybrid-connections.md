@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 084d5e9453ea5a55bdeeff839e4c70890575c83d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258016"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653391"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connessioni ibride del Servizio app di Azure #
 
@@ -177,7 +177,7 @@ A Gestione connessione ibrida vengono apportati aggiornamenti periodici per corr
 
 ## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>Aggiunta di una connessione ibrida all'app a livello di codice ##
 
-Le API indicate di seguito possono essere usate direttamente per gestire le connessioni ibride connesse alle app Web. 
+Le API seguenti possono essere usate direttamente per gestire le connessioni ibride connesse alle app. 
 
     /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
 
@@ -198,7 +198,7 @@ L'oggetto JSON associato a una connessione ibrida ha un aspetto simile al seguen
       }
     }
 
-Queste informazioni possono essere usate con armclient, che è possibile ottenere dal progetto GitHub [ARMClient][armclient]. Ecco un esempio di collegamento di una connessione ibrida preesistente all'app Web. Creare un file JSON in base allo schema sopra, simile al seguente:
+Queste informazioni possono essere usate con armclient, che è possibile ottenere dal progetto GitHub [ARMClient][armclient]. Ecco un esempio di collegamento di una connessione ibrida preesistente all'app. Creare un file JSON in base allo schema sopra, simile al seguente:
 
     {
       "name": "relay-demo-hc",
@@ -230,7 +230,7 @@ Nel Servizio app è possibile richiamare lo strumento tcpping dalla console Stru
 
 ## <a name="biztalk-hybrid-connections"></a>Connessioni ibride BizTalk ##
 
-La forma precedente di questa funzionalità è nota come Connessioni ibride BizTalk. Questa funzionalità ha raggiunto la fine del ciclo di vita il 31 maggio 2018 e ha smesso di funzionare. Le connessioni ibride BizTalk sono state rimosse da tutte le app Web e non sono più accessibili tramite il portale o l'API. Se queste connessioni obsolete sono ancora configurate in Gestione connessione ibrida, continuerà a essere indicato lo stato Sospeso e verrà visualizzata una nota sulla fine del ciclo di vita nella parte inferiore.
+La forma precedente di questa funzionalità è nota come Connessioni ibride BizTalk. Questa funzionalità ha raggiunto la fine del ciclo di vita il 31 maggio 2018 e ha smesso di funzionare. Le connessioni ibride BizTalk sono state rimosse da tutte le app e non sono più accessibili tramite il portale o l'API. Se queste connessioni obsolete sono ancora configurate in Gestione connessione ibrida, continuerà a essere indicato lo stato Sospeso e verrà visualizzata una nota sulla fine del ciclo di vita nella parte inferiore.
 
 ![Connessioni ibride BizTalk in Gestione connessione ibrida][12]
 

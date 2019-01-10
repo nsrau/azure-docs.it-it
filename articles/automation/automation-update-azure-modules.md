@@ -9,16 +9,19 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f461bc1fd17ee957be5f223de731608011d021f5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5a60dd9af60328759e332514c8af061e50382798
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959360"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634865"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Come aggiornare i moduli di Azure PowerShell in Automazione di Azure
 
 I moduli di Azure PowerShell più comuni sono forniti per impostazione predefinita in ogni account di Automazione. Il team di Azure aggiorna regolarmente i moduli di Azure. Nell'account di Automazione viene fornito un modo per aggiornare i moduli nell'account quando diventano disponibili nuove versioni dal portale.
+
+> [!NOTE]
+> Il nuovo [modulo di Azure PowerShell Az](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) non è supportato in Automazione di Azure.
 
 Dato che i moduli vengono aggiornati regolarmente dal gruppo di prodotto, possono subentrare modifiche per i cmdlet inclusi. Questa azione può influire negativamente sui runbook in base al tipo di modifica, ad esempio la ridenominazione di un parametro o la completa deprecazione di un cmdlet. Per evitare conseguenze sui runbook e sui processi che vengono automatizzati, eseguire test e convalide prima di procedere. Se non è disponibile un account di Automazione dedicato a questo scopo, è consigliabile crearne uno in modo da poter testare numerosi scenari diversi durante lo sviluppo dei runbook. Questo test deve includere modifiche iterative, ad esempio l'aggiornamento dei moduli di PowerShell. Se si sviluppano gli script in locale, è consigliabile avere in locale le stesse versioni del modulo usate nell'account di Automazione durante i test, per assicurarsi di ottenere gli stessi risultati. Dopo aver convalidato i risultati e applicato le modifiche necessarie, è possibile spostare le modifiche in produzione.
 

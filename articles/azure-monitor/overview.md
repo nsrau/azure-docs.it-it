@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: bwren
-ms.openlocfilehash: f1125c9d0ce543984393c99d70d511a3a162041e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: b499f6e1b05e42c7af71dedd81fd15bc7574b0aa
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975186"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118848"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -66,10 +66,10 @@ Monitoraggio di Azure può raccogliere dati di log da qualsiasi client REST usan
 
 
 ## <a name="insights"></a>Informazioni dettagliate
-I dati di monitoraggio sono utili solo se possono aumentare la visibilità del funzionamento dell'ambiente di elaborazione. Monitoraggio di Azure include diverse funzionalità e vari strumenti che offrono preziose informazioni dettagliate sulle applicazioni e su altre risorse da cui dipendono. Le [soluzioni di monitoraggio](insights/solutions.md) e le funzionalità quali [Application Insights](../application-insights/app-insights-overview.md) e Informazioni dettagliate sul contenitore offrono informazioni approfondite su diversi aspetti dell'applicazione e su specifici servizi di Azure. 
+I dati di monitoraggio sono utili solo se possono aumentare la visibilità del funzionamento dell'ambiente di elaborazione. Monitoraggio di Azure include diverse funzionalità e vari strumenti che offrono preziose informazioni dettagliate sulle applicazioni e su altre risorse da cui dipendono. Le [soluzioni di monitoraggio](insights/solutions.md) e le funzionalità quali [Application Insights](../azure-monitor/app/app-insights-overview.md) e Informazioni dettagliate sul contenitore offrono informazioni approfondite su diversi aspetti dell'applicazione e su specifici servizi di Azure. 
 
 ### <a name="application-insights"></a>Application Insights
-[Application Insights](../application-insights/app-insights-overview.md) monitora disponibilità, prestazioni e utilizzo delle applicazioni Web indipendentemente dal fatto che siano ospitate nel cloud o in locale. Utilizza la piattaforma avanzata di analisi dei dati di Monitoraggio di Azure per fornire informazioni molto dettagliate sulle operazioni dell'applicazione e diagnosticare gli errori senza attendere che un utente li segnali. Application Insights include punti di connessione a una gamma di strumenti di sviluppo e si integra con Visual Studio per supportare i processi DevOps.
+[Application Insights](../azure-monitor/app/app-insights-overview.md) monitora disponibilità, prestazioni e utilizzo delle applicazioni Web indipendentemente dal fatto che siano ospitate nel cloud o in locale. Utilizza la piattaforma avanzata di analisi dei dati di Monitoraggio di Azure per fornire informazioni molto dettagliate sulle operazioni dell'applicazione e diagnosticare gli errori senza attendere che un utente li segnali. Application Insights include punti di connessione a una gamma di strumenti di sviluppo e si integra con Visual Studio per supportare i processi DevOps.
 
 ![Informazioni sull'app](media/overview/app-insights.png)
 

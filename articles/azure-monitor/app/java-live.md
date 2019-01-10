@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: 4510c66dc0a64f65de9f9ee57563b847e20e25de
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5d0866bdd96a1b0f626c369cfd646f6249a4da54
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000479"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121380"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights per le applicazioni web Java che sono già live
 
-Se è disponibile un'applicazione Web già in esecuzione nel server J2EE, è possibile avviare il monitoraggio con [Application Insights](../../application-insights/app-insights-overview.md) senza dover apportare modifiche al codice o ricompilare il progetto. Con questa opzione è possibile ottenere informazioni sulle richieste HTTP inviate al server, le eccezioni non gestite e i contatori delle prestazioni.
+Se è disponibile un'applicazione Web già in esecuzione nel server J2EE, è possibile avviare il monitoraggio con [Application Insights](../../azure-monitor/app/app-insights-overview.md) senza dover apportare modifiche al codice o ricompilare il progetto. Con questa opzione è possibile ottenere informazioni sulle richieste HTTP inviate al server, le eccezioni non gestite e i contatori delle prestazioni.
 
 È necessaria una sottoscrizione di [Microsoft Azure](https://azure.com).
 

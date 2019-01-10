@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193859"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716141"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -38,17 +38,17 @@ HDInsight è disponibile in molte aree di Azure. Per trovare l'area più vicina,
 
 ### <a name="location-of-default-storage"></a>Posizione della risorsa di archiviazione predefinita
 
-La risorsa di archiviazione predefinita, che può essere un account di archiviazione di Azure o Azure Data Lake Store, deve trovarsi nella stessa posizione del cluster. Archiviazione di Azure è disponibile in tutte le posizioni, mentre Data Lake Store Gen1 è disponibile solo in alcune aree. Per vedere la disponibilità corrente di Data Lake Store, consultare la sezione *Archiviazione* della pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
+La risorsa di archiviazione predefinita, che può essere un account di Archiviazione di Azure o Azure Data Lake Storage, deve trovarsi nella stessa posizione del cluster. Archiviazione di Azure è disponibile in tutte le posizioni, mentre Data Lake Storage Gen1 è disponibile solo in alcune aree. Per vedere la disponibilità corrente di Data Lake Storage, consultare la sezione *Archiviazione* della pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Posizione dei dati esistenti
 
-Se si dispone già di Data Lake Store o di un account di archiviazione contenente i dati personali e si vuole usare questa risorsa di archiviazione come risorsa di archiviazione predefinita del cluster, è necessario distribuire il cluster nella stessa posizione.
+Se si dispone già di un account di archiviazione o di Data Lake Storage contenente i dati personali e si vuole usare questa risorsa di archiviazione come predefinita del cluster, è necessario distribuire il cluster nella stessa posizione.
 
 ### <a name="storage-size"></a>Dimensioni della risorsa di archiviazione
 
-Dopo aver distribuito un cluster HDInsight, è possibile associare altri account di archiviazione di Azure o accedere ad altri archivi Data Lake Store. Tutti gli account di archiviazione devono trovarsi nella stessa posizione del cluster, mentre un Data Lake Store può trovarsi anche in una posizione diversa, ma questo può comportare una certa latenza di lettura/scrittura dei dati.
+Dopo aver distribuito un cluster HDInsight, è possibile associare altri account di Archiviazione di Azure o accedere ad altri archivi Data Lake Storage. Tutti gli account di archiviazione devono trovarsi nella stessa posizione del cluster, mentre un archivio Data Lake Storage può trovarsi anche in una posizione diversa, ma questo può comportare una certa latenza di lettura/scrittura dei dati.
 
-Archiviazione di Azure presenta inoltre alcuni [limiti di capacità](../azure-subscription-service-limits.md#storage-limits), mentre Data Lake Store Gen1 è pressoché illimitato.
+Archiviazione di Azure presenta inoltre alcuni [limiti di capacità](../azure-subscription-service-limits.md#storage-limits), mentre Data Lake Storage Gen1 è pressoché illimitato.
 
 Un cluster può accedere a una combinazione di account di archiviazione diversi. Di seguito sono riportati alcuni esempi comuni:
 
@@ -75,7 +75,7 @@ Il tipo e le dimensioni della macchina virtuale variano in base alla potenza di 
 
 * RAM: le dimensioni della macchina virtuale determinano anche la quantità di RAM disponibile nella macchina virtuale. Per i carichi di lavoro che archiviano i dati in memoria per essere elaborati, anziché leggerli dal disco, accertarsi che i nodi di lavoro abbiano memoria sufficiente per contenere i dati.
 
-* Rete: nella maggior parte dei tipi di cluster, i dati elaborati dal cluster non si trovano sul disco locale, ma in un servizio di archiviazione esterno come Data Lake Store o Archiviazione di Azure. È necessario quindi tenere conto della larghezza di banda di rete e della velocità effettiva tra la macchina virtuale del nodo e il servizio di archiviazione. In genere, la larghezza di banda di rete disponibile per una macchina virtuale aumenta in caso di macchine di grandi dimensioni. Per informazioni dettagliate, vedere [Panoramica delle dimensioni di VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Rete: nella maggior parte dei tipi di cluster, i dati elaborati dal cluster non si trovano sul disco locale, ma in un servizio di archiviazione esterno come Data Lake Storage o Archiviazione di Azure. È necessario quindi tenere conto della larghezza di banda di rete e della velocità effettiva tra la macchina virtuale del nodo e il servizio di archiviazione. In genere, la larghezza di banda di rete disponibile per una macchina virtuale aumenta in caso di macchine di grandi dimensioni. Per informazioni dettagliate, vedere [Panoramica delle dimensioni di VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## <a name="choose-the-cluster-scale"></a>Scegliere la scalabilità del cluster
 
@@ -89,7 +89,7 @@ In base al tipo di cluster, aumentando il numero di nodi di lavoro si introduce 
 
 In genere, i costi vengono addebitati per l'intera durata di un cluster. Se è necessario che il cluster sia attivo e operativo solo in alcuni casi, è possibile [creare cluster on demand usando Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). In alternativa, è possibile creare script di PowerShell che eseguono il provisioning ed eliminano il cluster e quindi pianificare gli script tramite [Automazione di Azure](https://azure.microsoft.com/services/automation/).
 
-> [!NOTE]
+> [!NOTE]  
 > Quando viene eliminato un cluster, viene eliminato anche il metastore Hive predefinito. Per mantenere il metastore per la creazione del cluster successivo, usare un archivio di metadati esterno come Database di Azure o [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
@@ -120,7 +120,7 @@ Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina vi
 1. Fare clic su **Avanti: Rivedi e crea**.
 1. Nella pagina **Rivedi e crea** fare clic su **Crea**.
 
-> [!Note]
+> [!NOTE]  
 > Se occorre aumentare la quota di core HDInsight in un'area privata, [inviare una richiesta di aggiunta all'elenco elementi consentiti](https://aka.ms/canaryintwhitelist).
 
 È possibile [contattare il supporto tecnico per richiedere un aumento dei limiti di quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).

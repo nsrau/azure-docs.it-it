@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a012798f71b0e3c14ab9982fd41bce6f0fa098e5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5aa52805afcd50ebf7a9ac0ddcae95f21dd329f1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257608"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554759"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Ripetere il training di un servizio Web classico in Azure Machine Learning Studio
-Il servizio Web predittivo distribuito è l'endpoint dei punteggi predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, quindi il modello con training per l'endpoint predefinito non può essere sostituito. Per ripetere il training del servizio Web è necessario aggiungere un nuovo endpoint al servizio Web. 
+Il servizio Web predittivo distribuito è l'endpoint dei punteggi predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, quindi il modello con training per l'endpoint predefinito non può essere sostituito. Per ripetere il training del servizio Web è necessario aggiungere un nuovo endpoint al servizio Web.
 
 ## <a name="prerequisites"></a>Prerequisiti
-È necessario impostare un esperimento di training e un esperimento predittivo come illustrato in [Ripetere il training dei modelli di Machine Learning in modo programmatico](retrain-models-programmatically.md). 
+È necessario impostare un esperimento di training e un esperimento predittivo come illustrato in [Ripetere il training dei modelli di Machine Learning in modo programmatico](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> L'esperimento predittivo deve essere distribuito come servizio Web di Machine Learning classico. 
-> 
-> 
+> L'esperimento predittivo deve essere distribuito come servizio Web di Machine Learning classico.
+>
+>
 
 Per altre informazioni sulla distribuzione di servizi Web, vedere [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Aggiungere un nuovo endpoint
-Il servizio Web predittivo distribuito contiene un endpoint di assegnazione dei punteggi predefinito che viene mantenuto sincronizzato con il modello con training originale con esperimenti di training e di assegnazione dei punteggi. Per aggiornare il servizio Web con un nuovo modello con training, è necessario creare un nuovo endpoint di assegnazione dei punteggi. 
+Il servizio Web predittivo distribuito contiene un endpoint di assegnazione dei punteggi predefinito che viene mantenuto sincronizzato con il modello con training originale con esperimenti di training e di assegnazione dei punteggi. Per aggiornare il servizio Web con un nuovo modello con training, è necessario creare un nuovo endpoint di assegnazione dei punteggi.
 
 Per creare un nuovo endpoint dei punteggi, nel servizio Web predittivo che può essere aggiornato con il modello con training:
 
 > [!NOTE]
 > Assicurarsi di aggiungere l'endpoint al servizio Web predittivo, non al servizio Web di training. Se sono stati distribuiti correttamente sia un servizio Web di training che uno predittivo, verranno visualizzati due servizi Web elencati separatamente. Il servizio Web predittivo deve terminare con "[predictive exp.]".
-> 
-> 
+>
+>
 
 Esistono due modi per aggiungere un nuovo endpoint a un servizio Web:
 
@@ -130,7 +130,7 @@ Se il token di firma di accesso condiviso scade prima di avere terminato l'aggio
 
 Al termine dell'esecuzione del codice, il nuovo endpoint verrà avviato con il modello di cui è stato ripetuto il training in circa 30 secondi.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Usando le API per la ripetizione del training, è possibile aggiornare il modello con training di un servizio Web predittivo abilitando scenari come:
 
 * Ripetizione periodica del training del modello con nuovi dati.

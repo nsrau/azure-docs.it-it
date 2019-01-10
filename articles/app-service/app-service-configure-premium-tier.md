@@ -16,20 +16,20 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ac0a3500956cc81e264c8743d44aa06f018b1a45
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 991748c33eae607e97b3916a913b111af7b3b75a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258900"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714475"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurare il livello PremiumV2 per il servizio app di Azure
 
-Il nuovo piano tariffario **PremiumV2** consente di avere processori più veloci e spazio di archiviazione su unità SSD, nonché di raddoppiare il rapporto tra memoria e core rispetto ai piani tariffari esistenti. I vantaggi relativi alle prestazioni che ne derivano consentono di eseguire le app con un minor numero di istanze e garantiscono quindi un risparmio economico. Questo articolo illustra come creare un'app nel livello **PremiumV2** o passare un'app al livello **PremiumV2**.
+Il nuovo piano tariffario **PremiumV2** consente di avere processori più veloci e spazio di archiviazione su unità SSD, nonché di raddoppiare il rapporto tra memoria e core rispetto ai piani tariffari esistenti. I vantaggi relativi alle prestazioni che ne derivano consentono di eseguire le app con un minor numero di istanze e garantiscono quindi un risparmio economico. Questo articolo illustra come creare un'app nel piano **PremiumV2** o passare un'app al piano **PremiumV2**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per passare un'app Web al livello **PremiumV2**, è necessario avere un'app Web in Servizio app di Azure eseguita su un livello inferiore rispetto a **PremiumV2** e l'app Web deve essere in esecuzione in una distribuzione del servizio app che supporta PremiumV2.
+Per scalare un'app al piano **PremiumV2**, è necessario avere un'app di Servizio app di Azure eseguita su un piano tariffario inferiore rispetto a **PremiumV2** e l'app deve essere in esecuzione in una distribuzione di Servizio app che supporta PremiumV2.
 
 <a name="availability"></a>
 
@@ -47,7 +47,7 @@ az appservice list-locations --sku P1V2
 
 ## <a name="create-an-app-in-premiumv2-tier"></a>Creare un'app nel livello PremiumV2
 
-Il piano tariffario di un'app del servizio app è definito nel [piano di servizio app](azure-web-sites-web-hosting-plans-in-depth-overview.md) su cui è in esecuzione. È possibile creare un piano di servizio app in modo indipendente o nell'ambito della creazione di un'app Web.
+Il piano tariffario di un'app del servizio app è definito nel [piano di servizio app](overview-hosting-plans.md) su cui è in esecuzione. È possibile creare un piano di Servizio app in modo indipendente o nell'ambito della creazione di un'app.
 
 Durante la configurazione del piano di servizio app nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> selezionare **Piano tariffario**. 
 
@@ -88,7 +88,7 @@ Alcuni piani di servizio app non possono essere passati al livello PremiumV2 se 
 
 Se l'app viene eseguita in una distribuzione del servizio app in cui **PremiumV2** non è disponibile, o se l'app viene eseguita in un'area che attualmente non supporta **PremiumV2**, sarà necessario ridistribuire l'app per sfruttare **PremiumV2**.  Sono disponibili due opzioni:
 
-- Creare un **nuovo** gruppo di risorse e quindi creare una **nuova** app Web e un nuovo piano di servizio app nel **nuovo** gruppo di risorse, scegliendo l'area di Azure desiderata durante il processo di creazione.  È **necessario** selezionare il piano **PremiumV2** al momento della creazione del nuovo piano di servizio app.  In questo modo ci si assicura che la combinazione di gruppo di risorse, piano di servizio app e area di Azure consentirà di creare il piano di servizio app in una distribuzione del servizio app che supporta **PremiumV2**.  Ridistribuire quindi il codice dell'applicazione nell'app e nel piano di servizio app appena creati. Se lo si desidera, è possibile passare in seguito a un piano di servizio app inferiore rispetto a **PremiumV2** per risparmiare sui costi e sarà comunque possibile passare di nuovo a un piano superiore in futuro con **PremiumV2**.
+- Creare un **nuovo** gruppo di risorse e quindi una **nuova** app e un nuovo piano di Servizio app nel **nuovo** gruppo di risorse, scegliendo l'area di Azure desiderata durante il processo di creazione.  È **necessario** selezionare il piano **PremiumV2** al momento della creazione del nuovo piano di servizio app.  In questo modo ci si assicura che la combinazione di gruppo di risorse, piano di servizio app e area di Azure consentirà di creare il piano di servizio app in una distribuzione del servizio app che supporta **PremiumV2**.  Ridistribuire quindi il codice dell'applicazione nell'app e nel piano di servizio app appena creati. Se lo si desidera, è possibile passare in seguito a un piano di servizio app inferiore rispetto a **PremiumV2** per risparmiare sui costi e sarà comunque possibile passare di nuovo a un piano superiore in futuro con **PremiumV2**.
 - Se l'app è già in esecuzione in un livello **Premium** esistente, è possibile clonare l'app con tutte le impostazioni dell'app, le stringhe di connessione e la configurazione di distribuzione in un nuovo piano di servizio app che usa **PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)

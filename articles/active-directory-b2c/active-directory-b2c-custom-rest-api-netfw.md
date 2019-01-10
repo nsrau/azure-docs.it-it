@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e3d938c4464fc5141b97f85220bf096920e17d00
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339594"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557292"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente
 
@@ -27,8 +27,8 @@ Con il framework dell'esperienza di gestione delle identità, che è alla base d
 Usando Azure AD B2C, è possibile aggiungere la logica di business a un percorso utente chiamando il servizio RESTful. Il framework dell'esperienza di gestione delle identità invia dati al servizio RESTful in una raccolta di *attestazioni di input* e riceve i dati da RESTful in una raccolta di *attestazioni di output*. Con l'integrazione del servizio RESTful, è possibile eseguire queste operazioni:
 
 * **Convalidare i dati di input utente**: questa azione evita che i dati in formato non corretto vengano resi permanenti in Azure AD. Se il valore immesso dall'utente non è valido, il servizio RESTful restituisce un messaggio di errore che indica all'utente di specificare una voce. È possibile ad esempio verificare che l'indirizzo di posta elettronica indicato dall'utente sia presente nel database del cliente.
-* **Sovrascrivere le attestazioni di input**: se ad esempio un utente immette il nome in lettere tutte minuscole o tutte maiuscole, è possibile formattare il nome con solo la prima lettera maiuscola.
-* **Arricchire i dati utente con un'ulteriore integrazione con le applicazioni line-of-business aziendali**: il servizio RESTful può ricevere l'indirizzo di posta elettronica dell'utente, eseguire una query sul database del cliente e restituire il numero di programma fedeltà dell'utente ad Azure AD B2C. Le attestazioni restituite possono essere archiviate nell'account Azure AD dell'utente, valutato nei *passaggi di orchestrazione* successivi o incluso nel token di accesso.
+* **Sovrascrivere attestazioni di input**: Ad esempio, se un utente immette il nome in lettere tutte minuscole o tutte maiuscole, è possibile formattare il nome con solo la prima lettera maiuscola.
+* **Arricchire i dati utente eseguendo un'integrazione più approfondita con applicazioni line-of-business**: Il servizio RESTful può ricevere l'indirizzo di posta elettronica dell'utente, eseguire una query sul database del cliente e restituire il numero del programma fedeltà dell'utente ad Azure AD B2C. Le attestazioni restituite possono essere archiviate nell'account Azure AD dell'utente, valutato nei *passaggi di orchestrazione* successivi o incluso nel token di accesso.
 * **Eseguire la logica di business personalizzata**: è possibile inviare notifiche push, aggiornare i database aziendali, eseguire un processo di migrazione utente, gestire le autorizzazioni, controllare i database ed eseguire altre azioni.
 
 È possibile progettare l'integrazione con i servizi RESTful nei modi seguenti:
@@ -133,7 +133,7 @@ Creare un modello che rappresenta le attestazioni di input seguendo questa proce
     }
     ```
 
-### <a name="step-22-add-a-controller"></a>Passaggio 2.2: Aggiungere un controller
+### <a name="step-22-add-a-controller"></a>Passaggio 2.2: Aggiunta di un controller
 Nell'API Web un _controller_ è un oggetto che gestisce richieste HTTP. Il controller restituisce le attestazioni di output oppure, se il nome non è valido, genera un messaggio di errore di conflitto HTTP.
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Controller**, scegliere **Aggiungi** e quindi fare clic su **Controller**.
@@ -254,46 +254,46 @@ Il frammento di codice XML seguente contiene un nodo di un provider di attestazi
 
    In questo esempio il contenuto dell'attestazione `givenName` viene inviato al servizio REST come `firstName`, il contenuto dell'attestazione `surname` viene inviato al servizio REST come `lastName` e `email` viene inviato così com'è. L'elemento `OutputClaims` definisce le attestazioni che vengono recuperate dal servizio RESTful e restituite ad Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: aggiunge un profilo tecnico di convalida a un profilo tecnico esistente (definito nei criteri di base). Durante la fase di iscrizione il profilo tecnico di convalida richiama il profilo tecnico precedente. Se il servizio RESTful restituisce un errore HTTP 409 (un errore di conflitto), il messaggio di errore viene visualizzato dall'utente. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: aggiunge un profilo tecnico di convalida al profilo tecnico esistente (definito nei criteri di base). Durante la fase di iscrizione il profilo tecnico di convalida richiama il profilo tecnico precedente. Se il servizio RESTful restituisce un errore HTTP 409 (un errore di conflitto), il messaggio di errore viene visualizzato dall'utente. 
 
 Individuare il nodo `<ClaimsProviders>` e quindi aggiungere il frammento XML seguente nel nodo `<ClaimsProviders>`:
 
 ```xml
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
     
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
-        <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
-        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-        <Metadata>
+      <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
         <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
-        </Metadata>
-        <InputClaims>
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" />
         <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
         <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
-        </InputClaims>
-        <OutputClaims>
+      </InputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
     </TechnicalProfile>
 
-<!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
+    <!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-        <OutputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <ValidationTechnicalProfiles>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
         <ValidationTechnicalProfile ReferenceId="REST-API-SignUp" />
-        </ValidationTechnicalProfiles>
+      </ValidationTechnicalProfiles>
     </TechnicalProfile>
-
-    </TechnicalProfiles>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 

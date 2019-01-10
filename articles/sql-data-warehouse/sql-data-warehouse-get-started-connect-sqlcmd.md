@@ -1,21 +1,21 @@
 ---
-title: Connettersi ad Azure SQL Data Warehouse con sqlcmd | Documentazione Microsoft
-description: Usare l'utilità della riga di comando [sqlcmd][sqlcmd] per connettersi ed eseguire query in un'istanza di Azure SQL Data Warehouse.
+title: Connettersi ad Azure SQL Data Warehouse con sqlcmd | Microsoft Docs
+description: Usare l'utilità della riga di comando sqlcmd per connettersi ed eseguire query in un'istanza di Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: a4399382445cef5732262520986281ea440f7d51
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2534d668132db4c66b5e54c33849b76a8f93c348
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600703"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976410"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Connettersi a SQL Data Warehouse con sqlcmd
 > [!div class="op_single_selector"]
@@ -32,13 +32,13 @@ Usare l'utilità della riga di comando [sqlcmd][sqlcmd] per connettersi ed esegu
 ## <a name="1-connect"></a>1. Connettere
 Per iniziare a usare [sqlcmd][sqlcmd], aprire il prompt dei comandi e immettere **sqlcmd** seguito dalla stringa di connessione per il database di SQL Data Warehouse. La stringa di connessione richiede i parametri seguenti:
 
-* **Server (-S):** server nel formato `<`Server Name`>`.database.windows.net
+* **Server (-S):** server nel formato `<`Nome server`>`.database.windows.net
 * **Database (-d):** nome del database.
-* **Abilita identificatori delimitati (-I):** gli identificatori delimitati devono essere abilitati per consentire la connessione a un'istanza di SQL Data Warehouse.
+* **Abilita identificatori delimitati (-I):** gli identificatori delimitati devono essere abilitati per la connessione a un'istanza di SQL Data Warehouse.
 
 Per usare l'autenticazione di SQL Server è necessario aggiungere i parametri nome utente e password:
 
-* **Utente (-U):** utente del server nel formato `<`User`>`
+* **Utente (-U):** utente server nel formato `<`Utente`>`
 * **Password (-P):** password associata all'utente.
 
 Ad esempio, la stringa di connessione sarà simile alla seguente:

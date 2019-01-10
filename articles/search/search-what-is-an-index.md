@@ -1,6 +1,6 @@
 ---
 title: Definizione e concetti dell'indice - Ricerca di Azure
-description: Introduzione ai concetti relativi agli indici in Ricerca di Azure e su come vengono usati gli indici.
+description: Introduzione all'indicizzazione di termini e concetti in Ricerca di Azure, inclusa la struttura fisica di un indice invertito.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
 ms.custom: seodec2018
-ms.openlocfilehash: e1ff28434dab4e63e10d6b14eb671260650d4ada
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 40291b105eb39b44da0b0697f5808d819291e457
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317067"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630214"
 ---
 # <a name="indexes-in-azure-search"></a>Indici in Ricerca di Azure
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Quando si aggiungono o caricano documenti e si inviano le query di ricerca in Ri
 Quando si definisce lo schema, è necessario specificare il nome, tipo e gli attributi di ogni campo nell'indice. Il tipo di campo classifica i dati archiviati in quel campo. Gli attributi sono impostati nei singoli campi per specificare come viene usato il campo. La tabella seguente enumera gli attributi che è possibile specificare.
 
 ### <a name="field-types"></a>Tipi di campo
-| type | DESCRIZIONE |
+| type | Descrizione |
 | --- | --- |
 | *Edm.String* |Testo facoltativamente soggetto a tokenizzazione per la ricerca full-text (suddivisione delle parole, stemming e così via). |
 | *Collection(Edm.String)* |Elenco di stringhe facoltativamente soggette a tokenizzazione per la ricerca full-text. Non esiste alcun limite superiore teorico al numero di elementi in una raccolta, ma alle raccolte si applica il limite massimo di 16 MB di dimensioni del payload. |
@@ -47,7 +47,7 @@ Quando si definisce lo schema, è necessario specificare il nome, tipo e gli att
 È possibile trovare altre informazioni sui [tipi di dati supportati di Ricerca di Azure qui](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="field-attributes"></a>Attributi dei campi
-| Attributo | DESCRIZIONE |
+| Attributo | Descrizione |
 | --- | --- |
 | *Chiave* |Stringa che fornisce l'ID univoco di ogni documento, usata per la ricerca di documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.String. |
 | *Recuperabile* |Specifica se il campo può essere restituito nel risultato di una ricerca. |

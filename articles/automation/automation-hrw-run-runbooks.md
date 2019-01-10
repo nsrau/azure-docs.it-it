@@ -9,22 +9,22 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 48dcc558d4855874df02ad5c631211f16fd8c29e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 89f8b4a842c9a632c661d9770d17c1ec01d4211e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024988"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582253"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Esecuzione di runbook in un ruolo di lavoro ibrido per runbook
 
-Non esiste alcuna differenza nella struttura dei runbook che vengono eseguiti in Automazione di Azure e di quelli eseguiti in Hybrid Runbook Workers. I runbook usati nell'uno o nell'altro caso saranno tuttavia molto diversi perché, mentre i runbook per un ruolo di lavoro ibrido per runbook gestiscono solitamente le risorse nel computer locale o all'interno di risorse nell'ambiente locale in cui sono eseguiti, i runbook in Automazione di Azure gestiscono solitamente le risorse nel cloud Azure.
+Non esiste alcuna differenza nella struttura dei runbook che vengono eseguiti in Automazione di Azure e di quelli eseguiti in un ruolo di lavoro ibrido per runbook. I runbook usati nei due casi sono invece molto diversi. Questa differenza è dovuta al fatto che i runbook destinati a un ruolo di lavoro ibrido per runbook, in genere, gestiscono le risorse nel computer locale stesso o su risorse nell'ambiente locale in cui viene distribuito. I runbook usati in Automazione di Azure gestiscono in genere le risorse nel cloud di Azure.
 
-Quando si creano runbook da eseguire in un ruolo di lavoro ibrido per runbook, è opportuno modificare e testare i runbook all'interno del computer che ospita il ruolo di lavoro ibrido. Il computer host include tutti i moduli di PowerShell e i diritti di accesso di rete necessari per gestire e accedere alle risorse locali. Dopo che un runbook è stato modificato e testato nel computer con il ruolo di lavoro ibrido, è possibile caricarlo nell'ambiente Automazione di Azure in cui risulterà disponibile per essere eseguito nel ruolo di lavoro ibrido. È importante sapere che se i processi vengono eseguiti con l'account di sistema locale per Windows o per un account utente speciale **nxautomation** su Linux, è possibile che emergano alcune piccole differenze, aspetto di cui è importante tenere conto quando si creano runbook per il ruolo di lavoro ibrido per runbook.
+Quando si creano runbook da eseguire in un ruolo di lavoro ibrido per runbook, è opportuno modificare e testare i runbook all'interno del computer che ospita il ruolo di lavoro ibrido. Il computer host include tutti i moduli di PowerShell e i diritti di accesso di rete necessari per gestire e accedere alle risorse locali. Dopo che un runbook è stato testato nel computer con il ruolo di lavoro ibrido, è possibile caricarlo nell'ambiente Automazione di Azure in cui risulterà disponibile per essere eseguito nel ruolo di lavoro ibrido. È importante sapere quali processi vengono eseguiti con l'account di sistema locale per Windows o con un account utente speciale **nxautomation** in Linux. Questo comportamento può comportare lievi differenze quando si creano runbook per un ruolo di lavoro ibrido per runbook. È necessario verificare queste modifiche quando si scrivono i runbook.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Avvio di un runbook in un ruolo di lavoro ibrido per runbook
 
-[avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md) illustra diversi modi in cui è possibile eseguire l'avvio dei runbook. Hybrid Runbook Workers aggiunge un'opzione **RunOn** in cui è possibile specificare il nome di un gruppo di computer di lavoro runbook ibridi. Se si specifica un gruppo, il runbook verrà recuperato ed eseguito da uno dei computer di lavoro inclusi in tale gruppo. Se non si specifica l'opzione, verrà eseguito come di consueto in Automazione di Azure.
+[Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md) illustra diversi modi in cui è possibile eseguire l'avvio dei runbook. Ruolo di lavoro ibrido per runbook aggiunge un'opzione **RunOn** in cui è possibile specificare il nome di un gruppo di ruoli di lavoro ibridi per runbook. Quando si specifica un gruppo, il runbook verrà recuperato ed eseguito da uno dei ruoli di lavoro inclusi in tale gruppo. Se non si specifica l'opzione, il runbook verrà eseguito come di consueto in Automazione di Azure.
 
 Quando si avvia un runbook nel portale di Azure, viene visualizzata l'opzione **Esegui in**, che consente di scegliere tra **Azure** o **Ruolo di lavoro ibrido**. Se si seleziona **Computer di lavoro ibrido**, sarà quindi possibile selezionare il gruppo da un elenco a discesa.
 
@@ -40,7 +40,7 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 ## <a name="runbook-permissions"></a>Autorizzazioni per i runbook
 
 I runbook eseguiti in un ruolo di lavoro ibrido per runbook non possono usare lo stesso metodo in genere usato per l'autenticazione dei runbook per le risorse di Azure, perché accedono a risorse esterne ad Azure. Il runbook può fornire la propria autenticazione alle risorse locali o configurare l'autenticazione usando le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
-) oppure è possibile specificare un account RunAs per fornire un contesto utente per tutti i runbook.
+). È anche possibile specificare un account RunAs per fornire un contesto utente per tutti i runbook.
 
 ### <a name="runbook-authentication"></a>Autenticazione dei runbook
 
@@ -84,7 +84,7 @@ I ruoli di lavoro ibridi per runbook in esecuzione in macchine virtuali di Azure
 * Non è necessario rinnovare il certificato usato dall'account RunAs
 * Non è necessario gestire l'oggetto connessione RunAs nel codice del runbook
 
-Per usare un'identità gestita per le risorse di Azure in un ruolo di lavoro per runbook, è necessario completare la procedura seguente:
+Per usare un'identità gestita per le risorse di Azure in un ruolo di lavoro ibrido per runbook, è necessario completare la procedura seguente:
 
 1. Creare una macchina virtuale di Azure
 2. [Configurare le identità gestite per le risorse di Azure nella macchina virtuale](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
@@ -92,7 +92,7 @@ Per usare un'identità gestita per le risorse di Azure in un ruolo di lavoro per
 4. [Ottenere un token di accesso usando l'identità gestita assegnata dal sistema della macchina virtuale](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
 5. [Installare il ruolo di lavoro ibrido per runbook](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) nella macchina virtuale.
 
-Dopo aver completato i passaggi precedenti, è possibile usare `Connect-AzureRmAccount -Identity` nel runbook per l'autenticazione alle risorse di Azure. Ciò riduce la necessità di sfruttare un account RunAs e di gestire il certificato per l'account RunAs.
+Dopo aver completato i passaggi precedenti, è possibile usare `Connect-AzureRmAccount -Identity` nel runbook per l'autenticazione alle risorse di Azure. Questa configurazione riduce la necessità di usare un account RunAs e di gestire il certificato per l'account RunAs.
 
 ```powershell
 # Connect to Azure using the Managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
@@ -102,11 +102,11 @@ Connect-AzureRmAccount -Identity
 Get-AzureRmVm | Select Name
 ```
 
-### <a name="automation-run-as-account"></a>Account RunAs di Automazione
+### <a name="runas-script"></a>Account RunAs di Automazione
 
 Nell'ambito del processo di compilazione automatizzato per la distribuzione di risorse in Azure, è possibile che sia necessario accedere a sistemi locali per supportare un'attività o un set di passaggi nella sequenza di distribuzione. Per supportare l'autenticazione in Azure con l'account RunAs, è necessario installare il certificato dell'account RunAs.
 
-Il runbook di PowerShell seguente, *Export-RunAsCertificateToHybridWorker*, esporta il certificato RunAs dall'account di automazione di Azure e lo scarica e lo importa nell'archivio certificati del computer locale in un ruolo di lavoro ibrido connesso allo stesso account. Una volta completato questo passaggio, viene verificato che il ruolo di lavoro possa eseguire l'autenticazione in Azure usando l'account RunAs.
+Il runbook di PowerShell seguente, **Export-RunAsCertificateToHybridWorker**, esporta il certificato RunAs dall'account di Automazione di Azure, lo scarica e lo importa nell'archivio certificati del computer locale in un ruolo di lavoro ibrido connesso allo stesso account. Una volta completato questo passaggio, viene verificato che il ruolo di lavoro possa eseguire l'autenticazione in Azure usando l'account RunAs.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
@@ -181,11 +181,11 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 > [!IMPORTANT]
 > **Add-AzureRmAccount** è ora un alias per **Connect-AzureRMAccount**. Quando si esegue la ricerca tra gli elementi della libreria, se **Connect-AzureRMAccount** non viene visualizzato, è possibile usare **Add-AzureRmAccount** oppure aggiornare i moduli nell'account di Automazione.
 
-Salvare il runbook *Export-RunAsCertificateToHybridWorker* nel computer con un'estensione `.ps1`. Importarlo nell'account di Automazione e modificare il runbook, cambiando il valore della variabile `$Password` con quello della propria password. Pubblicare e quindi eseguire il runbook scegliendo come destinazione il gruppo di ruoli di lavoro ibridi che esegue e autentica i runbook usando l'account RunAs. Il flusso di processo segnala il tentativo di importare il certificato nell'archivio del computer locale e visualizza più righe a seconda del numero di account di Automazione definiti nella sottoscrizione e del fatto che l'autenticazione abbia o meno esito positivo.
+Salvare il runbook *Export-RunAsCertificateToHybridWorker* nel computer con un'estensione `.ps1`. Importarlo nell'account di Automazione e modificare il runbook, cambiando il valore della variabile `$Password` con quello della propria password. Pubblicare e quindi eseguire il runbook. Scegliere come destinazione il gruppo di ruoli di lavoro ibridi che esegue e autentica i runbook usando l'account RunAs. Il flusso del processo segnala il tentativo di importare il certificato nell'archivio del computer locale e visualizza più righe. Questo comportamento dipende dal numero di account di Automazione definiti nella sottoscrizione e dall'esito positivo dell'autenticazione.
 
 ## <a name="job-behavior"></a>Comportamento dei processi
 
-Nei ruoli di lavoro ibridi per runbook i processi vengono gestiti in modo leggermente diverso rispetto a come vengono eseguiti nelle sandbox di Azure. Nei ruoli di lavoro ibridi per runbook, ad esempio, non è previsto alcun limite per la durata del processo. Esiste una limitazione a 3 ore per i runbook eseguiti nei sandbox Azure a causa dell'errore di [condivisione equa](automation-runbook-execution.md#fair-share). Se si ha un runbook a esecuzione prolungata, è possibile che si voglia che sia resiliente a un possibile riavvio, ad esempio al riavvio del computer che ospita il ruolo di lavoro ibrido. In caso di riavvio del computer host con il ruolo di lavoro ibrido, qualsiasi processo di runbook in esecuzione viene riavviato dall'inizio o dall'ultimo checkpoint per i runbook del flusso di lavoro di PowerShell. Se un processo di runbook viene riavviato più di 3 volte, viene sospeso.
+Nei ruoli di lavoro ibridi per runbook i processi vengono gestiti in modo leggermente diverso rispetto a come vengono eseguiti nelle sandbox di Azure. Nei ruoli di lavoro ibridi per runbook, ad esempio, non è previsto alcun limite per la durata del processo. Esiste una limitazione di tre ore per i runbook eseguiti nelle sandbox Azure a causa dell'errore di [condivisione equa](automation-runbook-execution.md#fair-share). Per un runbook a esecuzione prolungata è necessario assicurarsi che sia resiliente a un eventuale riavvio. Ad esempio, in caso di riavvio del computer che ospita il ruolo di lavoro ibrido. In caso di riavvio del computer host con il ruolo di lavoro ibrido, qualsiasi processo di runbook in esecuzione viene riavviato dall'inizio o dall'ultimo checkpoint per i runbook del flusso di lavoro di PowerShell. Se un processo di runbook viene riavviato più di tre volte, viene sospeso.
 
 ## <a name="run-only-signed-runbooks"></a>Eseguire solo i runbook firmati
 
@@ -196,7 +196,7 @@ I ruoli di lavoro ibridi per un runbook possono essere configurati per eseguire 
 
 ### <a name="create-signing-certificate"></a>Creare il certificato di firma
 
-L'esempio seguente crea un certificato autofirmato che può essere usato per la firma dei runbook. L'esempio crea il certificato e lo esporta. Il certificato viene importato nel ruolo di lavoro ibrido per runbook in un secondo momento. L'identificazione personale viene restituita e viene usata in un secondo momento come riferimento al certificato.
+L'esempio seguente crea un certificato autofirmato che può essere usato per la firma dei runbook. L'esempio crea il certificato e lo esporta. Il certificato viene importato nel ruolo di lavoro ibrido per runbook in un secondo momento. Anche l'identificazione personale viene restituita e usata in un secondo momento come riferimento al certificato.
 
 ```powershell
 # Create a self-signed certificate that can be used for code signing
@@ -254,4 +254,4 @@ Se i runbook non vengono completati correttamente, vedere l'articolo sulla risol
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sui vari modi per avviare un runbook, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md).
-* Per comprendere le diverse procedure per l'uso di PowerShell e dei runbook del flusso di lavoro di PowerShell in Automazione di Azure con l'editor di testo, vedere [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md)
+* Per comprendere le diverse modalità di utilizzo dei runbook di PowerShell in Automazione di Azure con l'editor di testo, vedere [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md).

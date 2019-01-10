@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 0f294b25bda39b44ea577f70bf63c61a4ce43093
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8e519e5a5e5fe6b893fa5663e1426630f46f885f
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002145"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118405"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Telemetria degli eventi: Modello di dati di Application Insights
 
-È possibile creare elementi di telemetria degli eventi (in [Application Insights](../../application-insights/app-insights-overview.md)) per rappresentare un evento che si è verificato nell'applicazione. Si tratta in genere di un'interazione dell'utente, ad esempio il clic su un pulsante o il completamento della transazione di un ordine. Può inoltre essere un evento del ciclo di vita dell'applicazione come l'inizializzazione o l'aggiornamento della configurazione. 
+È possibile creare elementi di telemetria degli eventi (in [Application Insights](../../azure-monitor/app/app-insights-overview.md)) per rappresentare un evento che si è verificato nell'applicazione. Si tratta in genere di un'interazione dell'utente, ad esempio il clic su un pulsante o il completamento della transazione di un ordine. Può inoltre essere un evento del ciclo di vita dell'applicazione come l'inizializzazione o l'aggiornamento della configurazione. 
 
 A livello semantico gli eventi possono essere correlati o meno a richieste. Se usata correttamente, la telemetria degli eventi è tuttavia più importante delle richieste o delle tracce. Gli eventi rappresentano dati di telemetria business e devono essere oggetto di [campionamento](../../azure-monitor/app/api-filtering-sampling.md) separato, meno rigido.
 

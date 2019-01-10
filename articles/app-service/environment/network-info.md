@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271012"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630462"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -151,7 +151,7 @@ Tutti questi indirizzi IP sono facilmente visibili in un ambiente ASEv2 nel port
 
 ### <a name="app-assigned-ip-addresses"></a>Indirizzi IP assegnati alle app ###
 
-Con un ambiente del servizio app esterno è possibile assegnare gli indirizzi IP alle singole app. Ciò non è possibile con un ambiente del servizio app con bilanciamento del carico interno. Per altre informazioni su come configurare l'app in modo che abbia un indirizzo IP proprio, vedere [Associare un certificato SSL personalizzato esistente ad app Web di Azure](../app-service-web-tutorial-custom-ssl.md).
+Con un ambiente del servizio app esterno è possibile assegnare gli indirizzi IP alle singole app. Ciò non è possibile con un ambiente del servizio app con bilanciamento del carico interno. Per altre informazioni su come configurare l'app in modo che abbia un indirizzo IP proprio, vedere [Associare un certificato SSL personalizzato esistente a Servizio app di Azure](../app-service-web-tutorial-custom-ssl.md).
 
 Quando a un'app viene assegnato un indirizzo SSL basato su IP proprio, l'ambiente del servizio app riserva due porta da mappare a tale indirizzo IP. Una porta è destinata al traffico HTTP e l'altra al traffico HTTPS. Tali porte sono elencate nell'interfaccia utente dell'ambiente del servizio app nella sezione degli indirizzi IP. Il traffico deve essere in grado di raggiungere tali porte dall'indirizzo VIP o le app saranno inaccessibili. Questo requisito è importante da ricordare quando si configurano gruppi di sicurezza di rete (NSG).
 

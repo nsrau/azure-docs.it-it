@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 374a27b10b3928838b10e4fba24e1f36721c162a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6d95d44dbfe2d66189be5103552d841ccbdf690
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433680"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117419"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Connettività dei dispositivi e dati di telemetria in ingresso
 
@@ -80,4 +80,4 @@ Usare la chiamata [SendEventAsync](https://docs.microsoft.com/dotnet/api/microso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sulle funzionalità di elaborazione dati e sulle funzioni definite dall'utente del servizio Gemelli digitali di Azure, vedere [Elaborazione dati e funzioni definite dall'utente di Gemelli digitali di Azure](concepts-user-defined-functions.md).
+- Per informazioni sulle funzionalità di elaborazione dati e sulle funzioni definite dall'utente del servizio Gemelli digitali di Azure, vedere [Elaborazione dati e funzioni definite dall'utente di Gemelli digitali di Azure](concepts-user-defined-functions.md).

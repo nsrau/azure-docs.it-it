@@ -1,46 +1,37 @@
 ---
-title: "Esercitazione: creare un'app Web a pagina singola - Ricerca video Bing"
+title: " Creare un'app Web a pagina singola - Ricerca visiva Bing"
 titleSuffix: Azure Cognitive Services
-description: Illustra come usare l'API Ricerca visiva Bing in un'applicazione Web a pagina singola.
+description: Imparare a integrare l'API Ricerca visiva Bing in un'applicazione Web a pagina singola.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: tutorial
+ms.topic: article
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8ff5e36e6189c522e00c7cdd126c26b1cef92912
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443892"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745143"
 ---
-# <a name="tutorial-visual-search-single-page-web-app"></a>Esercitazione: Ricerca visiva in un'app Web a pagina singola
+# <a name="create-a-visual-search-single-page-web-app"></a>Creare un'app Web a pagina singola con Ricerca visiva 
 
 L'API Ricerca visiva Bing restituisce un'esperienza simile ai dettagli delle immagini visualizzati in Bing.com/images. Con Ricerca visiva è possibile specificare un'immagine e ottenere informazioni correlate dettagliate, ad esempio immagini visivamente simili, venditori degli oggetti raffigurati nelle immagini, pagine Web che includono l'immagine e altro ancora. 
 
-Per questa esercitazione è necessario avviare una sottoscrizione in base al piano tariffario S9, come illustrato in [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+Questo articolo illustra come estendere un'app Web a pagina singola per l'API Ricerca immagini Bing. Per visualizzare l'esercitazione o ottenere il codice sorgente utilizzato qui, vedere Esercitazione [: Creare un'app a pagina singola con l'API Ricerca immagini Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
 
-Per avviare una sottoscrizione nel portale di Azure:
-1. Nella parte superiore del portale di Azure immettere 'BingSearchV7' nella casella di testo `Search resources, services, and docs`.  
-2. Nella sezione Marketplace dell'elenco a discesa selezionare `Bing Search v7`.
-3. Immettere `Name` per la nuova risorsa.
-4. Selezionare la sottoscrizione `Pay-As-You-Go`.
-5. Selezionare il piano tariffario `S9`.
-6. Fare clic su `Enable` per iniziare a usare la sottoscrizione.
+Il codice sorgente completo per questa applicazione, estesa in modo che usi l'API Ricerca visiva Bing, è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
-Questa esercitazione estende l'app Web a pagina singola dell'esercitazione sulla Ricerca immagini Bing (vedere [App Web a pagina singola](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Per il codice sorgente completo di partenza per questa esercitazione, vedere [App Web a pagina singola (codice sorgente)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). Per il codice sorgente finale di questa esercitazione, vedere [Ricerca visiva in un'app Web a pagina singola](tutorial-bing-visual-search-single-page-app-source.md).
+## <a name="prerequisites"></a>Prerequisiti
 
-Sono descritte queste attività:
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-> [!div class="checklist"]
-> * Chiamare l'API Ricerca visiva Bing con un token imageInsightsToken
-> * Visualizzare immagini simili
+## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>Chiamare l'API Ricerca visiva Bing e gestire la risposta
 
-## <a name="call-bing-visual-search"></a>Chiamare Ricerca visiva Bing
-Modificare l'esercitazione sulla Ricerca immagini Bing e aggiungere il codice seguente alla fine dell'elemento dello script alla riga 409. Questo codice chiama l'API Ricerca visiva Bing e visualizza i risultati.
+Modificare l'esercitazione su Ricerca immagini Bing e aggiungere il codice seguente alla fine dell'elemento `<script>` e prima del tag `</script>` di chiusura. Il codice seguente gestisce una risposta dell'API Ricerca visiva, esegue un'iterazione sui risultati e li visualizza.
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -70,7 +61,12 @@ function handleVisualSearchResponse(){
         }
     }
 }
+```
 
+Il codice seguente invia una richiesta di ricerca all'API usando un listener di eventi per chiamare `handleVisualSearchResponse()`.
+
+
+```javascript
 function bingVisualSearch(insightsToken){
     let visualSearchBaseURL = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch',
         boundary = 'boundary_ABC123DEF456',
@@ -105,13 +101,15 @@ function bingVisualSearch(insightsToken){
 ```
 
 ## <a name="capture-insights-token"></a>Acquisire il token imageInsightsToken
-Aggiungere il codice seguente nell'oggetto `searchItemsRenderer` alla riga 151. Questo codice aggiunge un collegamento **find similar** che chiama la funzione `bingVisualSearch` quando si fa clic. La funzione riceve il token imageInsightsToken come argomento.
+
+Aggiungere il codice seguente nell'oggetto `searchItemsRenderer`. Questo codice aggiunge un collegamento **find similar** che chiama la funzione `bingVisualSearch` quando si fa clic. La funzione riceve il token imageInsightsToken come argomento.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
 ```
 
 ## <a name="display-similar-images"></a>Visualizzare immagini simili
+
 Aggiungere il codice HTML seguente alla riga 601. Questo codice di markup aggiunge un elemento usato per visualizzare i risultati della chiamata all'API Ricerca visiva Bing.
 
 ``` html
@@ -126,5 +124,4 @@ Dopo avere inserito tutto il nuovo codice JavaScript e gli elementi HTML, è pos
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Codice sorgente di Ricerca visiva in un'app Web a pagina singola](tutorial-bing-visual-search-single-page-app-source.md)
-> [Riferimenti dell'API Ricerca visiva Bing](https://aka.ms/bingvisualsearchreferencedoc)
+> [Ritagliare e caricare un'immagine](tutorial-visual-search-crop-area-results.md)

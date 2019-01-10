@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 0907739bc0e67228f9f7f12594df7b9067e32578
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984979"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002655"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -57,11 +57,13 @@ Per altre informazioni sulla scelta del numero corretto di unità di streaming, 
 
 Gli elementi di query temporali costituiscono il set principale degli operatori con stato forniti da Analisi di flusso. Analisi di flusso gestisce lo stato di queste operazioni internamente per conto dell'utente, controllando l'utilizzo della memoria, i checkpoint per la resilienza e il ripristino dello stato durante gli aggiornamenti del servizio. Anche se Analisi di flusso gestisce completamente gli stati, è opportuno che gli utenti prendano in considerazione alcune indicazioni relative alle procedure consigliate.
 
+Si noti che un processo con logica di query complessa potrebbe presentare un'elevata percentuale di utilizzo delle unità di streaming anche quando non riceve eventi di input in modo continuo. Questa situazione può verificarsi dopo un picco improvviso negli eventi di input e output. Se la query è complessa, il processo potrebbe continuare a mantenere lo stato in memoria.
+
 ## <a name="stateful-query-logicin-temporal-elements"></a>Logica di query con stato negli elementi temporali
 Una delle esclusive funzionalità dei processi di Analisi di flusso di Azure è l'esecuzione dell'elaborazione con stato, ad esempio per funzioni di aggregazione finestra, join temporali e funzioni di analisi temporali. Ognuno di questi operatori mantiene le informazioni sullo stato. La dimensione massima della finestra temporale per questi elementi di query è sette giorni. 
 
 Il concetto di finestra temporale è presente in diversi elementi di query di Analisi di flusso:
-1. Funzioni di aggregazione finestra: GROUP BY di finestre temporali scorrevoli, di salto e a cascata
+1. Funzioni di aggregazione in modalità finestra: GROUP BY di finestre a cascata, finestre di salto e finestre temporali scorrevoli
 
 2. Join temporali: JOIN con funzione DATEDIFF
 

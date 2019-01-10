@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8afe994f2441e736d660a306746508e9c6d13691
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 58eaec32fee149c845dc77a83763f2fcd8133a06
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001839"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120785"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
 L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) è lo strumento ideale per elaborare dati [esportati da Application Insights](export-telemetry.md). L'analisi di flusso può eseguire il pull di dati da un'ampia gamma di origini. Può trasformare e filtrare i dati e quindi instradarli a molti sink diversi.
@@ -25,7 +25,7 @@ L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analy
 In questo esempio verrà creato un adattatore che recupera dati da Application Insights, rinomina ed elabora alcuni dei campi e invia tramite pipe i dati in Power BI.
 
 > [!WARNING]
-> Esistono [modi consigliati migliori e più semplici per visualizzare dati di Application Insights in Power BI](../../application-insights/app-insights-export-power-bi.md). Il percorso descritto qui è solo un esempio per mostrare come elaborare dati esportati.
+> Esistono [modi consigliati migliori e più semplici per visualizzare dati di Application Insights in Power BI](../../azure-monitor/app/export-power-bi.md ). Il percorso descritto qui è solo un esempio per mostrare come elaborare dati esportati.
 > 
 > 
 
@@ -198,7 +198,7 @@ Attendere fino al termine dell'esecuzione del processo.
 
 ## <a name="see-results-in-power-bi"></a>Visualizzare i risultati in Power BI
 > [!WARNING]
-> Esistono [modi consigliati migliori e più semplici per visualizzare dati di Application Insights in Power BI](../../application-insights/app-insights-export-power-bi.md). Il percorso descritto qui è solo un esempio per mostrare come elaborare dati esportati.
+> Esistono [modi consigliati migliori e più semplici per visualizzare dati di Application Insights in Power BI](../../azure-monitor/app/export-power-bi.md ). Il percorso descritto qui è solo un esempio per mostrare come elaborare dati esportati.
 > 
 > 
 
@@ -223,5 +223,5 @@ Noam Ben Zeev mostra come elaborare dati esportati usando l'analisi di flusso.
 ## <a name="next-steps"></a>Passaggi successivi
 * [Esportazione continua](export-telemetry.md)
 * [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](export-data-model.md)
-* [Application Insights](../../application-insights/app-insights-overview.md)
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 

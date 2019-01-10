@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: e59c0b6994a64972b1458c0f295f24d0a615d871
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740111"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608580"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usare Funzioni di Azure per connettersi al database SQL di Azure
 
@@ -70,7 +70,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Come procedu
 
 1. Nella scheda **Sfoglia** cercare ```System.Data.SqlClient``` e, dopo averlo trovato, selezionarlo.
 
-1. Nella pagina **System.Data.SqlClient** fare clic su **Installa**.
+1. Nella pagina **System.Data.SqlClient** selezionare la versione `4.5.1` e quindi fare clic su **Installa**.
 
 1. Al termine dell'installazione, rivedere le modifiche e quindi fare clic su **OK** per chiudere la finestra **Anteprima**.
 
@@ -139,6 +139,6 @@ Si vedrà ora come usare Funzioni con app per la logica per l'integrazione con a
 Per altre informazioni su Funzioni, vedere gli articoli seguenti:
 
 + [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)  
-  Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
+   Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
 + [Test di Funzioni di Azure](functions-test-a-function.md)  
-  Descrive diversi strumenti e tecniche per il test delle funzioni.  
+   Descrive diversi strumenti e tecniche per il test delle funzioni.  

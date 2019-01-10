@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 85405a96d141188203ddc88410c96654667fa83a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 11e5a654f2bfcb497eec3a4dfea81f3684f5b551
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270111"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599809"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controllo del traffico del servizio app di Azure con Gestione traffico di Azure
 > [!NOTE]
@@ -52,7 +52,7 @@ Quando si utilizza Gestione traffico con Azure, è opportuno tenere presenti i f
 * È possibile specificare solo un endpoint del servizio app per area in un profilo. Quando si seleziona un'app come endpoint per un'area, le app rimanenti in quell'area non saranno più disponibili per la selezione per quel profilo.
 * Gli endpoint del servizio app che si specificano in un profilo di Gestione traffico di Azure vengono visualizzati nella sezione **Nomi di dominio** della pagina Configura per le app nel profilo, ma non sono configurabili in quel contesto.
 * Dopo avere aggiunto un'app a un profilo, nel campo **URL del sito** nel dashboard della pagina del portale dell'app viene visualizzato l'URL del dominio personalizzato dell'app, se ne è stato configurato uno. In caso contrario, viene visualizzato l'URL del profilo di Gestione traffico, ad esempio `contoso.trafficmanager.net`. Sia il nome di dominio diretto dell'app sia l'URL di Gestione traffico sono visibili nella pagina Configura dell'app nella sezione **Nomi di dominio**.
-* I nomi di dominio personalizzato funzionano come previsto, ma oltre ad aggiungerli alle app, è necessario configurare la mappa DNS in modo che punti all'URL di Gestione traffico. Per informazioni sulla configurazione di un nome di dominio personalizzato per un'app del servizio app, vedere [Esecuzione del mapping di un nome DNS personalizzato esistente con un app Web di Azure](app-service-web-tutorial-custom-domain.md).
+* I nomi di dominio personalizzato funzionano come previsto, ma oltre ad aggiungerli alle app, è necessario configurare la mappa DNS in modo che punti all'URL di Gestione traffico. Per informazioni sulla configurazione di un dominio personalizzato per un'app del servizio app, vedere [Eseguire il mapping di un nome DNS personalizzato esistente con il Servizio app di Azure](app-service-web-tutorial-custom-domain.md).
 * È possibile aggiungere a un profilo di Gestione traffico di Azure solo app in modalità Standard o Premium.
 
 ## <a name="next-steps"></a>Passaggi successivi

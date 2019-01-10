@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0b1187083c14fc7c536f6a32f3a41957f53f299b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3d25cfd39b4b4278fedf33e042d394208fd5eafc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679716"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713180"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -39,9 +39,8 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |:-----|:-----:|:-----|:-----|
 |Afrikaans| `af`    |Solo sistema statistico|  Neurale|
 |Arabo|    `ar`    |Sistema neurale disponibile|  Neurale|
-|Arabo levantino| `apc`   |Sistema neurale disponibile|  Neurale|
 |Bengalese|    `bn`    |Sistema neurale disponibile|  Neurale|
-|Bosniaco (latino)|   `bs`    |Solo sistema statistico|  Statistica|
+|Bosniaco (latino)|   `bs`    |Sistema neurale disponibile|  Neurale|
 |Bulgaro| `bg`    |Sistema neurale disponibile|  Neurale|
 |Cantonese (tradizionale)|   `yue`   |Solo sistema statistico|  Statistica|
 |Catalano|   `ca`    |Solo sistema statistico|  Statistica|
@@ -109,26 +108,26 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 
 | Linguaggio    | Codice lingua | Script | Verso/Da | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| Arabo | ar | Arabo | <--> | Latino |
-|Bengalese  | bn | Bengalese | <--> | Latino |
-| Cinese (semplificato) | zh-Hans | Cinese semplificato | <--> | Latino |
-| Cinese (semplificato) | zh-Hans | Cinese semplificato | <--> | Cinese tradizionale |
-| Cinese (tradizionale) | zh-Hant | Cinese tradizionale | <--> | Latino |
-| Cinese (tradizionale) | zh-Hant | Cinese tradizionale | <--> | Cinese semplificato |
-| Gujarati | gu  | Gujarati | --> | Latino |
-| Ebraico | he | Ebraico | <--> | Latino |
-| Hindi | hi | Devanagari | <--> | Latino |
-| Giapponese | ja | Giapponese | <--> | Latino |
-| Kannada | kn | Kannada | --> | Latino |
-| Malayalam | ml | Malayalam | --> | Latino |
-| Marathi | mr | Devanagari | --> | Latino |
-| Oriya | oppure | Oriya | <--> | Latino |
-| Punjabi | pa | Gurmukhi | <--> | Latino  |
-| Serbo (alfabeto cirillico) | sr-Cyrl | Cirillico  | --> | Latino |
-| Serbo (alfabeto latino) | sr-Latn | Latino | --> | Cirillico |
-| Tamil | ta | Tamil | --> | Latino |
-| Telugu | te | Telugu | --> | Latino |
-| Thai | th | Thai | <--> | Latino |
+| Arabo | `ar` | Arabo `Arab` | <--> | Latino `Latn` |
+|Bengalese  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
+| Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Latino `Latn` |
+| Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Cinese tradizionale `Hant`|
+| Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Latino `Latn` |
+| Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Cinese semplificato `Hans` |
+| Gujarati | `gu`  | Gujarati `Gujr` | --> | Latino `Latn` |
+| Ebraico | `he` | Ebraico `Hebr` | <--> | Latino `Latn` |
+| Hindi | `hi` | Devanagari `Deva` | <--> | Latino `Latn` |
+| Giapponese | `ja` | Giapponese `Jpan` | <--> | Latino `Latn` |
+| Kannada | `kn` | Kannada `Knda` | --> | Latino `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | --> | Latino `Latn` |
+| Marathi | `mr` | Devanagari `Deva` | --> | Latino `Latn` |
+| Oriya | `or` | Oriya `Orya` | <--> | Latino `Latn` |
+| Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
+| Serbo (alfabeto cirillico) | `sr-Cyrl` | Cirillico `Cyrl`  | --> | Latino `Latn` |
+| Serbo (alfabeto latino) | `sr-Latn` | Latino `Latn` | --> | Cirillico `Cyrl`|
+| Tamil | `ta` | Tamil `Taml` | --> | Latino `Latn` |
+| Telugu | `te` | Telugu `Telu` | --> | Latino `Latn` |
+| Thai | `th` | Thai `Thai` | <--> | Latino `Latn` |
 
 ## <a name="dictionary"></a>Dizionario
 
@@ -187,9 +186,9 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 | Vietnamita      | `vi`          |
 | Gallese      | `cy`          |
 
-## <a name="languages-detected-by-the-detect-method"></a>Lingue rilevate dal metodo Detect
+## <a name="detect"></a>Rilevamento
 
-Il metodo Detect è in grado di rilevare le lingue seguenti. Detect può rilevare lingue non tradotte da Microsoft Translator.
+Il metodo Detect supporta le lingue seguenti. Detect può identificare lingue che Microsoft Translator non riesce a tradurre.
 
 | Linguaggio    |
 |:----------- |
@@ -261,13 +260,57 @@ Il metodo Detect è in grado di rilevare le lingue seguenti. Detect può rilevar
 | Gallese |
 | Yiddish |
 
-## <a name="access-the-list-programmatically"></a>Accedere all'elenco a livello di codice
+## <a name="access-the-translator-text-api-language-list-programmatically"></a>Accedere all'elenco di lingue dell'API Traduzione testuale a livello di codice
 
-È possibile accedere all'elenco di lingue supportate a livello di codice usando l'operazione Languages dell'API Traduzione testuale V3.0. È possibile visualizzare l'elenco in base alla funzionalità, al codice della lingua, nonché al nome della lingua in inglese o in qualsiasi altra lingua supportata. L'elenco viene aggiornato automaticamente dal servizio Microsoft Translator quando vengono rese disponibili nuove lingue.
+È possibile recuperare l'elenco delle lingue supportate per l'API Traduzione testuale v3.0 usando il metodo Languages. È possibile visualizzare l'elenco in base alla funzionalità, al codice della lingua, nonché al nome della lingua in inglese o in qualsiasi altra lingua supportata. L'elenco viene aggiornato automaticamente dal servizio Microsoft Translator quando diventano disponibili nuove lingue.
 
 [Visualizzare la documentazione di riferimento dell'operazione Languages](reference/v3-0-languages.md)
 
-## <a name="access-the-list-on-the-microsoft-translator-website"></a>Accedere all'elenco nel sito Web di Microsoft Translator
+## <a name="customization"></a>Personalizzazione
+
+Le lingue seguenti sono disponibili per la personalizzazione mediante il [traduttore personalizzato](http://aka.ms/CustomTranslator).
+
+| Linguaggio    | Codice lingua |
+|:----------- |:-------------:|
+| Arabo       | `ar`          |
+| Bengalese      | `bn`          |
+| Bosniaco (latino)      | `bs`          |
+| Bulgaro      | `bg`          |
+| Cinese semplificato      | `zh-Hans`          |
+| Croato      | `hr`          |
+| Ceco      | `cs`          |
+| Danese      | `da`          |
+| Olandese      | `nl`          |
+| Inglese    | `en`     |
+| Estone      | `et`          |
+| Finlandese      | `fi`          |
+| Francese      | `fr`          |
+| Tedesco      | `de`          |
+| Greco      | `el`          |
+| Ebraico      | `he`          |
+| Hindi      | `hi`          |
+| Ungherese      | `hu`          |
+| Italiano      | `it`          |
+| Giapponese      | `ja`          |
+| Coreano      | `ko`          |
+| Lettone      | `lv`          |
+| Lituano      | `lt`          |
+| Norvegese      | `nb`          |
+| Polacco      | `pl`          |
+| Portoghese      | `pt`          |
+| Rumeno      | `ro`          |
+| Russo      | `ru`          |
+| Serbo (alfabeto latino)      | `sr-Latn`          |
+| Slovacco     | `sk`          |
+| Sloveno      | `sl`          |
+| Spagnolo      | `es`          |
+| Svedese      | `sv`          |
+| Thai      | `th`          |
+| Turco      | `tr`          |
+| Ucraino      | `uk`          |
+| Vietnamita      | `vi`          |
+
+## <a name="access-the-list-on-the-microsoft-translator-website"></a>Accedere all'elenco nel sito Web Microsoft Translator
 
 Per una rapida panoramica delle lingue, il sito Web di Microsoft Translator offre l'elenco di tutte le lingue supportate dalle API Traduzione testuale e Traduzione vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
 

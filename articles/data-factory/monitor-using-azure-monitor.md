@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 53fcaab5d98dd63579390105f3b62c053208e894
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387483"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020303"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Avvisi e monitoraggio delle data factory con Monitoraggio di Azure
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
@@ -26,12 +25,12 @@ Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio
 Attualmente Monitoraggio di Azure offre metriche e log dell'infrastruttura di livello base per la maggior parte dei servizi in Microsoft Azure, Per informazioni dettagliate, vedere [Panoramica di Monitoraggio](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). I log di diagnostica di Azure sono log generati da una risorsa che forniscono dati completi e frequenti sul funzionamento di tale risorsa. Data Factory visualizza i log di diagnostica in Monitoraggio di Azure.
 
 ## <a name="persist-data-factory-data"></a>Rendere persistenti i dati di Data Factory
-Data Factory memorizza i dati di esecuzione della pipeline solo per 45 giorni. Se si desidera rendere persistenti i dati di esecuzione della pipeline per più di 45 giorni, tramite Monitoraggio di Azure, non è solo possibile inviare i log di diagnostica per l'analisi, ma è anche possibile renderli persistenti in un account di archiviazione in modo da disporre delle informazioni di Data Factory per l'intervallo di tempo desiderato.
+Data Factory memorizza i dati di esecuzione della pipeline solo per 45 giorni. Se si vogliono rendere persistenti i dati di esecuzione della pipeline per più di 45 giorni, tramite Monitoraggio di Azure, non è solo possibile inviare i log di diagnostica per l'analisi, ma è anche possibile renderli persistenti in un account di archiviazione in modo da disporre delle informazioni di Data Factory per l'intervallo di tempo desiderato.
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 
 * Salvarli in un **account di archiviazione** per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione in giorni usando le impostazioni di diagnostica.
-* Trasmettere i log a **Hub eventi** per l'inserimento tramite un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
+* Trasmetterli a **Hub eventi** per l'inserimento da parte di un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
 * Analizzarli con **Log Analytics**
 
 È possibile usare un account di archiviazione o un hub eventi dello spazio dei nomi che non si trovi nella stessa sottoscrizione della risorsa che crea i log. L'utente che configura l'impostazione deve disporre avere il controllo degli accessi in base al ruolo appropriato a entrambe le sottoscrizioni.
@@ -41,9 +40,9 @@ Data Factory memorizza i dati di esecuzione della pipeline solo per 45 giorni. S
 ### <a name="diagnostic-settings"></a>Impostazioni di diagnostica
 I log di diagnostica per le risorse non di calcolo vengono configurati usando le impostazioni di diagnostica. Le impostazioni di diagnostica per una risorsa controllano:
 
-* Destinazione dei log di diagnostica, ad esempio un account di archiviazione, Hub eventi e/o Log Analytics.
+* Destinazione dei log di diagnostica, ad esempio un account di archiviazione, Hub eventi o Log Analytics.
 * Categorie di log da inviare.
-* Periodo di tempo in cui ogni log di categoria deve essere mantenuto nell'account di archiviazione
+* Periodo di tempo durante il quale ogni categoria di log deve essere mantenuta nell'account di archiviazione.
 * Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. Se impostato su zero giorni, i log vengono conservati all'infinito.
 * Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o Log Analytics, i criteri di conservazione non hanno alcun effetto.
 * I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente.
@@ -465,15 +464,7 @@ L'installazione di **Azure Data Factory Analytics** crea un set predefinito di v
 
 ## <a name="alerts"></a>Avvisi
 
-È possibile generare avvisi sulle metriche supportate in Data Factory. Fare clic sul pulsante **Avvisi** nella pagina **Monitoraggio** di Data Factory.
-
-![Opzione Avvisi](media/monitor-using-azure-monitor/alerts_image1.png)
-
-Verrà visualizzata la pagina **Avvisi**.
-
-![Pagina degli avvisi](media/monitor-using-azure-monitor/alerts_image2.png)
-
-È anche possibile accedere al portale di Azure e fare clic su **Monitor -&gt; Avvisi** per andare direttamente alla pagina **Avvisi**.
+Accedere al portale di Azure e selezionare **Monitoraggio -&gt; Avvisi** per creare avvisi.
 
 ![Avvisi nel menu del portale](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -509,4 +500,5 @@ Verrà visualizzata la pagina **Avvisi**.
     ![Gruppo di azioni, schermata 4 di 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere l'articolo [Monitor and manage pipelines programmatically (Monitorare e gestire le pipeline a livello di codice)](monitor-programmatically.md) per informazioni sul monitoraggio e sulla gestione delle pipeline.
+
+Per informazioni sul monitoraggio e sulla gestione delle pipeline, vedere l'articolo [Monitorare e gestire pipeline a livello di codice](monitor-programmatically.md).

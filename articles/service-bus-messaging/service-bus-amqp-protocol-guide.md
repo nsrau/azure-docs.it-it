@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961145"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542510"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -364,7 +364,7 @@ Ecco le proprietà dell'applicazione per il messaggio di richiesta:
 | operation |No  |stringa |**put-token** |
 | type |No  |stringa |Tipo di token inserito. |
 | name |No  |stringa |"Destinatari" a cui è applicabile il token. |
-| expiration |Yes | timestamp |Ora di scadenza del token. |
+| expiration |Sì | timestamp |Ora di scadenza del token. |
 
 La proprietà *name* identifica l'entità a cui deve essere associato il token. Nel bus di servizio corrisponde al percorso della coda o dell'argomento/sottoscrizione. La proprietà *type* identifica il tipo di token:
 
@@ -381,7 +381,7 @@ Il messaggio di risposta ha i valori *application-properties* seguenti:
 | Chiave | Facoltativo | Tipo di valore | Contenuti del valore |
 | --- | --- | --- | --- |
 | status-code |No  |int |Codice di risposta HTTP **[RFC2616]**. |
-| status-description |Yes |stringa |Descrizione dello stato. |
+| status-description |Sì |stringa |Descrizione dello stato. |
 
 Il client può chiamare *put-token* ripetutamente e per qualsiasi entità nell'infrastruttura di messaggistica. I token hanno come ambito il client corrente e sono ancorati alla connessione corrente, quindi il server elimina eventuali token conservati al termine della connessione.
 

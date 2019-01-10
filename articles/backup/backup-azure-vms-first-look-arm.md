@@ -1,24 +1,21 @@
 ---
-title: 'Primo approccio: Proteggere le VM di Azure con un insieme di credenziali di Servizi di ripristino'
-description: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino. Usare i backup delle VM distribuite con Resource Manager, le VM distribuite con la modalità classica e le VM di Archiviazione Premium, le VM crittografate e le VM in Managed Disks per proteggere i dati. Creare e registrare un insieme di credenziali dei servizi di ripristino. Registrare macchine virtuali, creare criteri e proteggere macchine virtuali in Azure.
+title: Eseguire il backup di macchine virtuali di Azure con il servizio Backup di Azure
+description: Informazioni su come eseguire il backup di macchine virtuali di Azure con il servizio Backup di Azure
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/17/2018
 ms.author: raynew
-ms.custom: H1Hack27Feb2017
-keywords: backup; backup di macchine virtuali
-ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869929"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631584"
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino
+# <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Eseguire il backup di macchine virtuali di Azure con il servizio Backup di Azure
 
 Questo articolo illustra come configurare la protezione per una macchina virtuale dal menu delle operazioni delle macchine virtuali o dall'insieme di credenziali di Servizi di ripristino. Gli insiemi di credenziali di Servizi di ripristino proteggono:
 
@@ -32,7 +29,7 @@ Questo articolo illustra come configurare la protezione per una macchina virtual
 
 Per altre informazioni sulla protezione di macchine virtuali di Archiviazione Premium, vedere l'articolo [Backup e ripristino di macchine virtuali di Archiviazione Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Per altre informazioni sul supporto per macchine virtuali con Managed Disks, vedere [Backup e ripristino di macchine virtuali in Managed Disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Per altre informazioni sul framework di script pre-snapshot e post-snapshot per il backup di macchine virtuali Linux, vedere [Backup di macchine virtuali Linux coerente con le applicazioni tramite script pre-snapshot e post-snapshot](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Per altre informazioni su ciò di cui è possibile/non è possibile eseguire il backup, vedere [Preparare l'ambiente per eseguire il backup di macchine virtuali di Azure](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+Per altre informazioni su ciò di cui è possibile/non è possibile eseguire il backup, vedere [Preparare l'ambiente per eseguire il backup di macchine virtuali di Azure](backup-azure-arm-vms-prepare.md#before-you-start).
 
 > [!NOTE]
 > Il servizio di backup crea un gruppo di risorse distinto da quello della macchina virtuale per archiviare la raccolta di punti di ripristino. È consigliabile che i clienti non blocchino il gruppo di risorse creato per l'uso dal servizio di backup.
@@ -337,7 +334,9 @@ Il servizio Backup installa l'estensione di backup anche se la VM non è in esec
 In caso di problemi nell'esecuzione di alcune attività di questo articolo, vedere le [indicazioni per la risoluzione dei problemi](backup-azure-vms-troubleshoot.md).
 
 ## <a name="pricing"></a>Prezzi
-Il costo del backup delle macchine virtuali di Azure è basato sul numero di istanze protette. Per una definizione di istanza protetta, vedere [Che cos'è un'istanza protetta?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Per un esempio di calcolo del costo del backup di una macchina virtuale, vedere [Modalità di calcolo delle istanze protette](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). Per informazioni sui [prezzi per Backup](https://azure.microsoft.com/pricing/details/backup/), vedere la pagina relativa ai prezzi di Backup di Azure.
+Il costo del backup delle macchine virtuali di Azure è basato sul numero di istanze protette. Per una definizione di istanza protetta, vedere [Che cos'è un'istanza protetta?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Per informazioni sui [prezzi per Backup](https://azure.microsoft.com/pricing/details/backup/), vedere la pagina relativa ai prezzi di Backup di Azure.
 
-## <a name="questions"></a>Domande?
-In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](https://aka.ms/azurebackup_feedback).
+## <a name="next-steps"></a>Passaggi successivi
+
+[Gestire](backup-azure-manage-vms.md) i backup.
+

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274718"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630666"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app #
 
@@ -39,22 +39,22 @@ Ambiente del servizio app di Azure è una distribuzione di Servizio app di Azure
 
 È possibile distribuire un ambiente del servizio app (sia ASEv1 che ASEv2) con un indirizzo VIP esterno o interno per l'accesso app. La distribuzione con un indirizzo VIP esterno viene comunemente definita come un ambiente del servizio app esterno. La versione interna viene chiamata ambiente del servizio app ILB, poiché usa un servizio di bilanciamento del carico interno (ILB). Per altre informazioni sull'ambiente del servizio app con bilanciamento del carico interno, vedere [Creazione e uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app][MakeILBASE].
 
-## <a name="create-a-web-app-in-an-ase"></a>Creare un'app Web in un ambiente del servizio app ##
+## <a name="create-an-app-in-an-ase"></a>Creare un'app in un ambiente del servizio app ##
 
-Per creare un'app web in un ambiente del servizio app, procedere come si procederebbe normalmente ma con alcune piccole differenze. Quando si crea un nuovo piano di servizio app:
+Per creare un'app in un ambiente del servizio app, procedere come di consueto per la creazione di un'app, ma con alcune piccole differenze. Quando si crea un nuovo piano di servizio app:
 
 - Invece di selezionare una località geografica per distribuire l'app, selezionare un ambiente del servizio app come posizione.
 - Tutti i piani di servizio app creati in un ambiente del servizio app devono essere in un piano tariffario isolato.
 
 Se non si ha un ambiente del servizio app, è possibile crearne uno seguendo le istruzioni in [Creare un ambiente del servizio app][MakeExternalASE].
 
-Per creare un'app Web in un ambiente del servizio app:
+Per creare un'app in un ambiente del servizio app:
 
 1. Selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
 
-2. Immettere un nome per l'app Web. Se si è già selezionato un piano di servizio app in un ambiente del servizio app, il nome di dominio dell'app rispecchierà il nome di dominio dell'ambiente del servizio app.
+2. Immettere un nome per l'app. Se si è già selezionato un piano di servizio app in un ambiente del servizio app, il nome di dominio dell'app rispecchierà il nome di dominio dell'ambiente del servizio app.
 
-    ![Selezione del nome per l'app Web][1]
+    ![Selezione del nome per l'app][1]
 
 1. Selezionare una sottoscrizione.
 
@@ -80,10 +80,10 @@ Per creare un'app Web in un ambiente del servizio app:
     ![Piani tariffari isolati][2]
 
     > [!NOTE]
-    > Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
+    > Le app di Linux e Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
     >
 
-1. Selezionare **Create**.
+2. Selezionare **Create**.
 
 ## <a name="how-scale-works"></a>Come funziona il ridimensionamento ##
 
@@ -97,7 +97,7 @@ In un ambiente del servizio app è possibile ridimensionare fino a 100 istanze. 
 
 ## <a name="ip-addresses"></a>Indirizzi IP ##
 
-Il servizio app ha la possibilità di allocare un indirizzo IP dedicato a un'app. Questa capacità è disponibile configurando un certificato SSL basato su IP, come illustrato in [Associare un certificato SSL personalizzato esistente ad app Web di Azure][ConfigureSSL]. Tuttavia, in un ambiente del servizio app vi è un'eccezione. Non è possibile aggiungere altri indirizzi IP da usare per un certificato SSL basato su IP in un ambiente del servizio app con bilanciamento del carico interno.
+Il servizio app ha la possibilità di allocare un indirizzo IP dedicato a un'app. Questa capacità è disponibile configurando un certificato SSL basato su IP, come illustrato in [Associare un certificato SSL personalizzato esistente a Servizio app di Azure][ConfigureSSL]. Tuttavia, in un ambiente del servizio app vi è un'eccezione. Non è possibile aggiungere altri indirizzi IP da usare per un certificato SSL basato su IP in un ambiente del servizio app con bilanciamento del carico interno.
 
 In ASEv1 è necessario allocare gli indirizzi IP come risorse prima di poterli usare. In ASEv2 è possibile usarli dall'app proprio come nel servizio app multi-tenant. In ASEv2 è sempre presente un indirizzo di riserva fino a 30 indirizzi IP. Ogni volta che se ne usa uno, ne viene aggiunto un altro, in modo che sia sempre disponibile un indirizzo da usare. Si verifica un ritardo, necessario per allocare un altro indirizzo IP, che impedisce di aggiungere gli indirizzi IP in rapida successione.
 
@@ -187,6 +187,6 @@ Per eliminare un ambiente del servizio app:
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[AppDeploy]: ../app-service-deploy-local-git.md
+[AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

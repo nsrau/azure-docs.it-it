@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: 5df494904dd756ca7ef3a36a48da2224ab2bca81
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e0e25a9a1e70575d862374da0fb3097408b002e7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386010"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714628"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installare e usare Hue nei cluster Hadoop di HDInsight
 
@@ -37,13 +37,13 @@ Hue è un insieme di applicazioni Web che consente di interagire con un cluster 
 > [!WARNING]  
 > I componenti forniti con il cluster HDInsight sono supportati in modo completo e il Supporto Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
 >
-> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. Per esempio, è possibile ricorrere a molti siti di community, come: [Forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Anche per i progetti Apache sono disponibili siti specifici in [http://apache.org](http://apache.org), per esempio: [Hadoop](http://hadoop.apache.org/).
+> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. Per esempio, è possibile ricorrere a molti siti di community, come: il [forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Anche per i progetti Apache sono disponibili siti specifici in [https://apache.org](https://apache.org), per esempio: [Hadoop](https://hadoop.apache.org/).
 >
 >
 
 ## <a name="install-hue-using-script-actions"></a>Installare Hue mediante azioni script
 
-Lo script per installare Hue in un cluster HDInsight basato su Linux è disponibile all'indirizzo https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Usare questo script per installare Hue nei cluster con Archiviazione BLOB di Azure (WASB) o Azure Data Lake Store come risorsa di archiviazione predefinita.
+Lo script per installare Hue in un cluster HDInsight basato su Linux è disponibile all'indirizzo https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Usare questo script per installare Hue nei cluster con Archiviazione BLOB di Azure (WASB) o Azure Data Lake Storage come risorsa di archiviazione predefinita.
 
 Questa sezione fornisce istruzioni su come usare lo script quando si effettua il provisioning del cluster usando il portale di Azure.
 
@@ -116,7 +116,7 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 
 ### <a name="browse-the-cluster-storage"></a>Esplorare l'archiviazione cluster
 1. Nel portale di Hue fare clic su **Esplora file** nell'angolo superiore destro della barra dei menu.
-2. Per impostazione predefinita, il browser file viene aperto in corrispondenza della directory **/user/myuser** . Fare clic sulla barra subito prima della directory user nel percorso per passare alla radice del contenitore di archiviazione di Azure associato al cluster.
+2. Per impostazione predefinita, il browser file viene aperto in corrispondenza della directory **/user/myuser**. Fare clic sulla barra subito prima della directory user nel percorso per passare alla radice del contenitore di archiviazione di Azure associato al cluster.
 
     ![Usare il browser file](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Usare il browser file")
 3. Fare clic son il pulsante destro del mouse su un file o una cartella per visualizzare le operazioni disponibili. Usare il pulsante **Carica** nell'angolo destro per caricare i file nella directory corrente. Usare il pulsante **Nuovo** per creare nuovi file o directory.

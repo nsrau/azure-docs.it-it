@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: b2204ca4c3f98bcd0ee353a8f5d4d76cb5ec3df7
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1b2e1300c200619f5d1177e9761ad948c62c1239
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999085"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013809"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Risoluzione dei problemi e domande e risposte relative ad Application Insights per Java
 Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco alcuni suggerimenti.
@@ -48,7 +48,7 @@ Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco 
 * È stata considerata la risorsa AI corretta? Confrontare la chiave di strumentazione dell'applicazione con la risorsa in cui sono previsti i dati di telemetria. I valori devono corrispondere.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Non sono presenti tutti i dati previsti
-* Aprire la pagina Utilizzo e costi stimati e controllare se il [campionamento](../../application-insights/app-insights-sampling.md) è in esecuzione. La trasmissione al 100% indica che il campionamento non è abilitato. È possibile impostare il servizio Application Insights in modo che vengano accettati soltanto i dati di telemetria provenienti dall'app. Ciò permette di evitare il superamento della quota mensile.
+* Aprire la pagina Utilizzo e costi stimati e controllare se il [campionamento](../../azure-monitor/app/sampling.md) è in esecuzione. La trasmissione al 100% indica che il campionamento non è abilitato. È possibile impostare il servizio Application Insights in modo che vengano accettati soltanto i dati di telemetria provenienti dall'app. Ciò permette di evitare il superamento della quota mensile.
 * Il campionamento dell'SDK è attivo? In caso affermativo, i dati potrebbero essere campionati alla frequenza specificata per tutti i tipi applicabili.
 * Si esegue una versione precedente dell'SDK di Java? A partire dalla versione 2.0.1 è stato introdotto il meccanismo di tolleranza di errore per gestire i problemi di intermittenza della rete e gli errori di back-end, oltre alla persistenza dei dati sulle unità locali.
 * Si è limitati a causa di un numero eccessivo di dati di telemetria? Se attiva la registrazione delle informazioni, verrà visualizzato un messaggio del log "App is throttled" (L'app è limitata). Il limite corrente è 32.000 elementi di telemetria/secondo.

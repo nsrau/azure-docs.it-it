@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d927842dfc15c089225531c9718145ab20e329dc
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 0d66c7d714aeac28a46adb31fdb73b4781ac81f3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808860"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024723"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiare dati da o verso Azure Cosmos DB (API SQL) usando Azure Data Factory
 
@@ -29,7 +28,7 @@ ms.locfileid: "53808860"
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e verso Azure Cosmos DB (API SQL). È basato sull'articolo [Attività di copia in Azure Data Factory](copy-activity-overview.md), che presenta una panoramica generale dell'attività di copia.
 
 >[!NOTE]
->Questo connettore supporta solo la copia di dati da o verso l'API SQL di Cosmos DB. Per l'API MongoDB, vedere [Connettore dell'API di Cosmos DB per MongoDB](connector-azure-cosmos-db-mongodb-api.md). Al momento, non sono supportati altri tipi di API.
+>Questo connettore supporta solo la copia di dati da o verso l'API SQL Cosmos DB. Per l'API MongoDB, vedere [Connettore dell'API di Cosmos DB per MongoDB](connector-azure-cosmos-db-mongodb-api.md). Al momento, non sono supportati altri tipi di API.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -129,7 +128,7 @@ Per gli archivi dati privi di schema come Azure Cosmos DB, l'attività di copia 
 
 Questa sezione presenta un elenco delle proprietà supportate dall'origine e dal sink di Azure Cosmos DB (API SQL).
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipeline](concepts-pipelines-activities.md).
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipelines](concepts-pipelines-activities.md) (Pipeline).
 
 ### <a name="azure-cosmos-db-sql-api-as-source"></a>Azure Cosmos DB (API SQL) come origine
 

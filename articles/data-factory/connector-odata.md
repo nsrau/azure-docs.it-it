@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: d9e6678cb931b61b89a668a35cc7ce4fa79563e3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ed861aa914da999bdb2922bc309f05d1234ef416
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809574"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018484"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copiare dati da un'origine OData tramite Azure Data Factory
 
@@ -51,7 +50,7 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **OData**. |Yes |
 | URL | URL radice del servizio OData. |Yes |
-| authenticationType | Tipo di autenticazione usato per la connessione all'origine OData. I valori consentiti sono **Anonymous**, **Basic** e **Windows**, **AadServicePrincipal**e **ManagedServiceIdentity**. L'autenticazione OAuth basata su utente non è supportata. | Yes |
+| authenticationType | Tipo di autenticazione usato per la connessione all'origine OData. I valori consentiti sono **Anonima**, **Di base** e **Windows**, **entità servizio AAD**e **identità del servizio gestita**. L'autenticazione OAuth basata su utente non è supportata. | Yes |
 | userName | Specificare **userName** se si usa l'autenticazione di base o di Windows. | No  |
 | password | Specificare la proprietà **password** per l'account utente indicato per **userName**. Contrassegnare questo campo come tipo **SecureString** per archiviare la password in modo sicuro in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No  |
 | servicePrincipalId | Specificare l'ID client. dell'applicazione Azure Active Directory. | No  |
@@ -225,7 +224,7 @@ Per copiare dati da OData, impostare la proprietà**type** del set di dati su **
 
 Questa sezione presenta un elenco delle proprietà supportate dall'origine OData.
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipeline](concepts-pipelines-activities.md). 
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipelines](concepts-pipelines-activities.md) (Pipeline). 
 
 ### <a name="odata-as-source"></a>OData come origine
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: tamram
-ms.openlocfilehash: fd635682d1b5dc7c3ab784208ac485872d5c7099
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: deb91e1b881afe59d47f677fbee1c307da51f4e5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999000"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062214"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Abilitare l'autenticazione di Azure Active Directory tramite SMB per File di Azure (anteprima)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -153,14 +153,15 @@ Il modello di ruolo personalizzato seguente fornisce le autorizzazioni di modifi
   "IsCustom": true,
   "Description": "Allows for read, write and delete access to Azure File Share over SMB",
   "Actions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshare/*"
+    "*"
+  ],
+  "NotActions": [
+    "Microsoft.Authorization/*/Delete",
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action"
   ],
   "DataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/*"
-  ],
-  "NotDataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermission",
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actasadmin"
+    "*"
   ],
   "AssignableScopes": [
         "/subscriptions/<Subscription-ID>"
@@ -178,10 +179,10 @@ Il modello di ruolo personalizzato seguente fornisce le autorizzazioni di lettur
   "IsCustom": true,
   "Description": "Allows for read access to Azure File Share over SMB",
   "Actions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshare/read"
+    "*/read"
   ],
   "DataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read"
+    "*/read"
   ],
   "AssignableScopes": [
         "/subscriptions/<Subscription-ID>"

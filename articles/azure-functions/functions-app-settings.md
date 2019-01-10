@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: e8d880534a39651024b60ef10a9fbadb9e109a4e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 336fe8241a65009e9e100dccd12d88f45df4751d
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138246"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999357"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -179,7 +179,7 @@ Per impostazione predefinita, i proxy di funzioni usano un collegamento per invi
 
 |Chiave|Valore|DESCRIZIONE|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Le chiamate con un url di back-end che punta a una funzione nella funzione locale non verranno inviate direttamente a tale funzione, ma verranno indirizzate al front-end HTTP per l'app per le funzioni|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Le chiamate con un URL di back-end che punta a una funzione nell'app per le funzioni locale non verranno più inviate direttamente a tale funzione, ma verranno indirizzate al front-end HTTP dell'app per le funzioni|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Si tratta del valore predefinito. Le chiamate con un URL di back-end che punta alla funzione nell'app per le funzioni locale verranno inoltrate direttamente a tale funzione|
 
 

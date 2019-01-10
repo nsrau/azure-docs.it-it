@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: cc9368bfe95aba3da3dba3a4ac4293790bb09cd3
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 4f940170168147e4e778714e947ab6b558cb2bd5
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754085"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076672"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti sulla crittografia dei dischi di Azure per macchine virtuali IaaS
 

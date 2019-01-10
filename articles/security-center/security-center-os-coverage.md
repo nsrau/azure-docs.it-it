@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4108355415d1230f98db36a4f83497de2fa848f7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185580"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608835"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Funzionalità e piattaforme supportate dal Centro sicurezza di Azure
 
@@ -30,7 +30,7 @@ Il monitoraggio dello stato della sicurezza e le raccomandazioni sono disponibil
 >
 >
 
-## <a name="supported-platforms"></a>Piattaforme supportate 
+## <a name="platforms-that-support-the-data-collection-agent"></a>Piattaforme che supportano l'agente di raccolta dati 
 
 In questa sezione vengono elencate le piattaforme in cui può essere eseguito un agente del Centro sicurezza di Azure e da cui l'agente può raccogliere dati.
 
@@ -43,6 +43,10 @@ Sono supportati i sistemi operativi Windows seguenti:
 * Windows Server 2012 R2
 * Windows Server 2016
 
+> [!NOTE]
+> L'integrazione con Windows Defender ATP supporta solo Windows Server 2012 R2 e Windows Server 2016.
+>
+>
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Piattaforme supportate per i computer e le macchine virtuali Linux
 Sono supportati i sistemi operativi Linux seguenti:
@@ -55,11 +59,6 @@ Sono supportati i sistemi operativi Linux seguenti:
 * Oracle Linux versioni 5, 6 e 7.
 * Amazon Linux da 2012.09 a 2017.
 * OpenSSL 1.1.0 è supportato solo sulle piattaforme x86_64 a 64 bit.
-
-> [!NOTE]
-> L'analisi del comportamento delle macchine virtuali non è ancora disponibile per i sistemi operativi Linux.
->
->
 
 ## <a name="vms-and-cloud-services"></a>Macchine virtuali e servizi cloud
 Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli di lavoro e Web dei servizi cloud in esecuzione in slot di produzione. Per altre informazioni sui servizi cloud, vedere [Panoramica di Servizi Cloud di Azure](../cloud-services/cloud-services-choose-me.md).

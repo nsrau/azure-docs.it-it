@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2e24a138220f350e56b30406f65bb869dd523bad
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fada29145334a45872aa64b3cc0fe2e859b52568
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015875"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632892"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Analizzare i dati sui ritardi dei voli mediante Apache Hive in HDInsight
 [Apache Hive](https://hive.apache.org/) fornisce un metodo per l'esecuzione di processi [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) mediante un linguaggio di scripting simile a SQL, denominato *[HiveQL][hadoop-hiveql]*, che può essere applicato per attività di riepilogo, query e analisi di volumi di dati molto elevati.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Per i passaggi relativi a un cluster basato su Linux, vedere [Analizzare i dati sui ritardi dei voli con Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 Uno dei principali vantaggi di Azure HDInsight è la separazione tra archiviazione e calcolo dei dati. HDInsight usa l'archiviazione BLOB di Azure per l'archiviazione dei dati. Un tipico processo è costituito da tre parti:
@@ -43,8 +43,8 @@ La parte principale dell'esercitazione mostra come usare uno script di Windows P
 
 Nelle appendici sono disponibili istruzioni per caricare i dati relativi ai ritardi dei voli, creare/caricare la stringa di query Hive e preparare il database SQL di Azure per il processo Sqoop.
 
-> [!NOTE]
-> I passaggi descritti in questo documento sono specifici per i cluster HDInsight basati su Windows. Per i passaggi relativi a un cluster basato su Linux, vedere [Analizzare i dati sui ritardi dei voli con Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> [!NOTE]  
+> I passaggi descritti in questo documento sono specifici per i cluster HDInsight basati su Windows. Per i passaggi relativi a un cluster basato su Linux, vedere [Analizzare i dati sui ritardi dei voli con Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 ### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
@@ -52,10 +52,10 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Workstation con Azure PowerShell**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Il supporto di Azure PowerShell per la gestione delle risorse HDInsight tramite Azure Service Manager è **deprecato** ed è stato rimosso dal 1° gennaio 2017. La procedura descritta in questo documento usa i nuovi cmdlet HDInsight, compatibili con Azure Resource Manager.
     >
-    > Per installare la versione più recente, seguire la procedura descritta in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Se sono presenti script che devono essere modificati per l'uso dei nuovi cmdlet compatibili con Azure Resource Manager, per altre informazioni vedere [Migrazione a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) .
+    > Per installare la versione più recente, seguire la procedura descritta in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Se sono presenti script che devono essere modificati per l'uso dei nuovi cmdlet compatibili con Azure Resource Manager, per altre informazioni vedere [Migrazione a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 **File usati in questa esercitazione**
 
@@ -67,7 +67,7 @@ Per informazioni su come ottenere/caricare i dati nel proprio account di archivi
 Nella tabella seguente vengono elencati i file usati nell'esercitazione:
 
 <table border="1">
-<tr><th>File</th><th>DESCRIZIONE</th></tr>
+<tr><th>File</th><th>Descrizione</th></tr>
 <tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>File script HiveQL necessario per il processo Hive. Lo script è stato caricato in un contenitore di archiviazione BLOB di Azure con autorizzazione di accesso pubblico. L'<a href="#appendix-b">Appendice B</a> include istruzioni su come preparare e caricare il file nel proprio account di archiviazione BLOB di Azure.</td></tr>
 <tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Dati di input per il processo Hive. I dati sono stati caricati in un account di archiviazione BLOB di Azure con autorizzazione di accesso pubblico. L'<a href="#appendix-a">Appendice A</a> include istruzioni su come ottenere i dati e caricarli nel proprio account di archiviazione BLOB di Azure.</td></tr>
 <tr><td>\tutorials\flightdelays\output</td><td>Percorso di output per il processo Hive. Il contenitore predefinito viene usato per archiviare i dati di output.</td></tr>
@@ -242,7 +242,7 @@ Prima di caricare il file di dati e i file script [HiveQL](https://cwiki.apache.
 * **Usare lo stesso account di archiviazione di Azure che sarà usato come file system predefinito per il cluster HDInsight:**  poiché il cluster HDInsight avrà la chiave di accesso dell'account di archiviazione, non è necessario apportare altre modifiche.
 * **Usare un account di archiviazione di Azure diverso dal file system predefinito del cluster HDInsight:** In questo caso è necessario modificare la parte relativa alla creazione dello script di Windows PowerShell disponibile in [Creare un cluster HDInsight ed eseguire processi Apache Hive/Sqoop](#runjob) per includere l'account di archiviazione come account di archiviazione aggiuntivo. Per istruzioni, vedere [Creare cluster Apache Hadoop in HDInsight][hdinsight-provision]. Il cluster HDInsight conosce quindi la chiave di accesso per l'account di archiviazione.
 
-> [!NOTE]
+> [!NOTE]  
 > Il percorso dell'archivio BLOB per il file di dati è hardcoded nel file di script HiveQL. È necessario aggiornarlo di conseguenza.
 
 **Per scaricare i dati relativi ai voli**
@@ -351,7 +351,7 @@ Se si sceglie un metodo diverso per il caricamento dei file, verificare che il p
 
 Il percorso tutorials/flightdelay/data è la cartella virtuale creata durante il caricamento dei file. Verificare che siano disponibili 12 file, uno per ogni mese.
 
-> [!NOTE]
+> [!NOTE]  
 > È necessario aggiornare la query Hive per consentire la lettura dal nuovo percorso.
 >
 > Occorre configurare l'autorizzazione di accesso pubblico al contenitore oppure associare l'account di archiviazione al cluster HDInsight. In caso contrario, la stringa di query Hive non potrà accedere ai file di dati.
@@ -615,7 +615,7 @@ Per un elenco completo di comandi di HiveQL, vedere [Apache Hive Data Definition
     #region - Constants and variables
 
     # IP address REST service used for retrieving external IP address and creating firewall rules
-    [String]$ipAddressRestService = "http://bot.whatismyipaddress.com"
+    [String]$ipAddressRestService = "https://bot.whatismyipaddress.com"
     [String]$fireWallRuleName = "FlightDelay"
 
     # SQL database variables
@@ -699,12 +699,12 @@ Per un elenco completo di comandi di HiveQL, vedere [Apache Hive Data Definition
     Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
     ```
 
-   > [!NOTE]
-   > Lo script usa un servizio REST (Representational State Transfer), http://bot.whatismyipaddress.com, per recuperare l'indirizzo IP esterno. L'indirizzo IP viene usato per creare una regola del firewall per il server di database SQL.
+   > [!NOTE]  
+   > Lo script usa un servizio REST (Representational State Transfer), https://bot.whatismyipaddress.com, per recuperare l'indirizzo IP esterno. L'indirizzo IP viene usato per creare una regola del firewall per il server di database SQL.
 
     Ecco alcune variabili usate nello script:
 
-   * **$ipAddressRestService**: il valore predefinito è http://bot.whatismyipaddress.com. È un servizio REST per l'indirizzo IP pubblico che consente di ottenere l'indirizzo IP esterno. È anche possibile usare altri servizi. L'indirizzo IP esterno recuperato tramite il servizio verrà usato per creare una regola del firewall per il proprio server di database SQL di Azure, in modo che sia possibile accedere al database dalla workstation (usando uno script di Windows PowerShell).
+   * **$ipAddressRestService**: il valore predefinito è https://bot.whatismyipaddress.com. È un servizio REST per l'indirizzo IP pubblico che consente di ottenere l'indirizzo IP esterno. È anche possibile usare altri servizi. L'indirizzo IP esterno recuperato tramite il servizio verrà usato per creare una regola del firewall per il proprio server di database SQL di Azure, in modo che sia possibile accedere al database dalla workstation (usando uno script di Windows PowerShell).
    * **$fireWallRuleName** : è il nome della regola del firewall del server di database SQL di Azure. Il nome predefinito è <u>FlightDelay</u>. È anche possibile rinominarla.
    * **$sqlDatabaseMaxSizeGB** : questo valore viene usato solo durante la creazione di un nuovo server di database SQL di Azure. Il valore predefinito è 10GB. sufficiente per questa esercitazione.
    * **$sqlDatabaseName** : questo valore viene usato solo durante la creazione di un nuovo database SQL di Azure. Il valore predefinito è HDISqoop. Se viene rinominato, sarà necessario aggiornare anche lo script di Windows PowerShell Sqoop.
@@ -725,7 +725,7 @@ Per un elenco completo di comandi di HiveQL, vedere [Apache Hive Data Definition
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -739,9 +739,9 @@ Per un elenco completo di comandi di HiveQL, vedere [Apache Hive Data Definition
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
-[hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
+[hadoop-shell-commands]: https://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png

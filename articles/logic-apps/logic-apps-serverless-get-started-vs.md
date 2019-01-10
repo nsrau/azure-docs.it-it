@@ -11,12 +11,12 @@ ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 08/01/2018
-ms.openlocfilehash: f5555d9a60934529bf8fed6db6a18dd783f46075
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c172519984cce765217a713b276db5ccc8f67183
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297469"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558601"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Compilare la prima app senza server con App per la logica di Azure e Funzioni di Azure - Visual Studio
 
@@ -36,23 +36,21 @@ Per compilare un'app senza server in Visual Studio, sono necessari questi elemen
 
 * [Strumenti App per la logica di Azure per Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) o la [versione per Visual Studio 2015](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio)
 
-  È anche possibile scaricare e installare gli strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o [installare questa estensione da Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
-  Assicurarsi di riavviare Visual Studio al termine dell'installazione. 
+  È anche possibile scaricare e installare gli strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o [installare questa estensione da Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). Assicurarsi di riavviare Visual Studio al termine dell'installazione.
 
 * [Strumenti di base di Funzioni di Azure](https://www.npmjs.com/package/azure-functions-core-tools) per eseguire il debug di Funzioni in locale
 
 * Accesso al Web mentre si usa la finestra di progettazione di app per la logica integrata in Visual Studio
 
-  La finestra di progettazione richiede una connessione Internet per creare le risorse in Azure e leggere le proprietà e i dati dai connettori nell'app per la logica. 
-  Ad esempio, se si usa il connettore per Dynamics CRM Online, la finestra di progettazione verifica la disponibilità di proprietà predefinite e personalizzate nell'istanza di CRM.
+  La finestra di progettazione richiede una connessione Internet per creare le risorse in Azure e leggere le proprietà e i dati dai connettori nell'app per la logica. Ad esempio, se si usa il connettore per Dynamics CRM Online, la finestra di progettazione verifica la disponibilità di proprietà predefinite e personalizzate nell'istanza di CRM.
 
 ## <a name="create-resource-group-project"></a>Creare un progetto Gruppo di risorse
 
 Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) per l'app senza server. In Azure le risorse vengono create all'interno di un gruppo di risorse, che è una raccolta logica usata per organizzare, gestire e distribuire risorse per un'intera app come un singolo asset. Per un'app senza server in Azure, il gruppo di risorse include risorse sia per App per la logica di Azure sia per Funzioni di Azure. È possibile accedere ad altre informazioni sui [gruppi di risorse e le risorse di Azure](../azure-resource-manager/resource-group-overview.md).
 
-1. Avviare Visual Studio e accedere con il proprio account di Azure. 
+1. Avviare Visual Studio e accedere con il proprio account di Azure.
 
-1. Scegliere **Nuovo** > **Progetto** dal menu **File** 
+1. Scegliere **Nuovo** > **Progetto** dal menu **File**
 
    ![Creare un nuovo progetto in Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
@@ -60,26 +58,23 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
 
    Se la categoria **Cloud** o il progetto **Gruppo di risorse di Azure** non esistono, verificare che sia installato Azure SDK per Visual Studio.
 
-1. Assegnare un nome e un percorso al progetto e quindi fare clic su **OK**. 
+1. Assegnare un nome e un percorso al progetto e quindi fare clic su **OK**.
 
-   Un prompt di Visual Studio richiederà di selezionare un modello. 
-   È possibile iniziare con un modello vuoto, con un modello di app per la logica o con un altro modello, ma questo esempio usa un modello di avvio rapido di Azure per compilare un'app senza server che include un'app per la logica e una chiamata a una funzione di Azure.
+   Un prompt di Visual Studio richiederà di selezionare un modello. È possibile iniziare con un modello vuoto, con un modello di app per la logica o con un altro modello, ma questo esempio usa un modello di avvio rapido di Azure per compilare un'app senza server che include un'app per la logica e una chiamata a una funzione di Azure.
 
    Per creare solo un'app per la logica in Visual Studio, selezionare il modello di **app per la logica**. Questo modello crea un'app per la logica vuota che viene visualizzata nella finestra di progettazione di App per la logica senza dover pre-distribuire la soluzione in un gruppo di risorse di Azure.
 
-1. In **Mostra modelli da questo percorso** selezionare **Avvio rapido di Azure (github/Azure/azure-quickstart-templates)**. 
+1. In **Mostra modelli da questo percorso** selezionare **Avvio rapido di Azure (GitHub/Azure/azure-quickstart-templates)**.
 
-1. Nella casella di ricerca digitare "logic-app" come filtro, selezionare il modello di avvio rapido senza server **101-logic-app-and-function-app** e fare clic su **OK**
+1. Nella casella di ricerca digitare "logic-app" come filtro, selezionare questo modello di avvio rapido senza server e fare clic su **OK**: **101-logic-app-and-function-app**
 
    ![Selezionare il modello di avvio rapido di Azure](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
-   Visual Studio crea e visualizza una soluzione per il progetto Gruppo di risorse. 
-   Il modello di avvio rapido selezionato crea un modello di distribuzione denominato `azuredeploy.json` nel progetto Gruppo di risorse. 
-   Questo modello di distribuzione include la definizione per un'app per la logica semplice che si attiva con una richiesta HTTP, chiama una funzione di Azure e restituisce il risultato come risposta HTTP. 
+   Visual Studio crea e visualizza una soluzione per il progetto Gruppo di risorse. Il modello di avvio rapido selezionato crea un modello di distribuzione denominato `azuredeploy.json` nel progetto Gruppo di risorse. Questo modello di distribuzione include la definizione per un'app per la logica semplice che si attiva con una richiesta HTTP, chiama una funzione di Azure e restituisce il risultato come risposta HTTP.
    
    ![Nuova soluzione senza server](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
-1. A questo punto è necessario distribuire la soluzione in Azure per poter aprire il modello di distribuzione ed esaminare le risorse per l'app senza server. 
+1. A questo punto è necessario distribuire la soluzione in Azure per poter aprire il modello di distribuzione ed esaminare le risorse per l'app senza server.
 
 ## <a name="deploy-your-solution"></a>Distribuire la soluzione
 
@@ -97,8 +92,7 @@ Prima di poter visualizzare l'app per la logica nella finestra di progettazione 
 
    ![Assegnare un nome all'app per la logica e all'app per le funzioni](./media/logic-apps-serverless-get-started-vs/logic-function-app-name-parameters.png)
 
-   Quando Visual Studio avvia la distribuzione nel gruppo di risorse specificato, lo stato di distribuzione della soluzione sarà visualizzato nella finestra **Output** di Visual Studio. 
-   Al termine della distribuzione, l'app per la logica sarà attiva nel portale di Azure.
+   Quando Visual Studio avvia la distribuzione nel gruppo di risorse specificato, lo stato di distribuzione della soluzione sarà visualizzato nella finestra **Output** di Visual Studio. Al termine della distribuzione, l'app per la logica sarà attiva nel portale di Azure.
 
 ## <a name="edit-logic-app-in-visual-studio"></a>Modificare l'app per la logica in Visual Studio
 
@@ -122,17 +116,17 @@ Per creare un progetto o una funzione di Funzioni con JavaScript, Python, F#, Po
 
 ## <a name="deploy-functions-from-visual-studio"></a>Distribuire le funzioni da Visual Studio
 
-Il modello di distribuzione consente di distribuire qualsiasi funzione di Azure contenuta nella soluzione dal repository Git specificato dalle variabili nel file `azuredeploy.json`. Se si crea un progetto di Funzioni all'interno della soluzione, è possibile archiviarlo nel controllo del codice sorgente Git, ad esempio GitHub o Azure DevOps, e aggiornare la variabile `repo` in modo che il modello distribuisca la funzione di Azure.
+Il modello di distribuzione distribuisce dal repository Git le funzioni di Azure, presenti nella soluzione, specificate dalle variabili nel file `azuredeploy.json`. Se si crea un progetto di Funzioni all'interno della soluzione, è possibile archiviarlo nel controllo del codice sorgente Git, ad esempio GitHub o Azure DevOps, e aggiornare la variabile `repo` in modo che il modello distribuisca la funzione di Azure.
 
 ## <a name="manage-logic-apps-and-view-run-history"></a>Gestire le app per la logica e visualizzare la cronologia di esecuzione
 
-Per le app per la logica già distribuite in Azure è possibile ancora modificare, gestire e visualizzare la cronologia di esecuzione e disabilitare le app da Visual Studio. 
+Per le app per la logica già distribuite in Azure è possibile ancora modificare, gestire e visualizzare la cronologia di esecuzione e disabilitare le app da Visual Studio.
 
-1. Dal menu **Visualizza** di Visual Studio aprire **Cloud Explorer**. 
+1. Dal menu **Visualizza** di Visual Studio aprire **Cloud Explorer**.
 
 1. In **Tutte le sottoscrizioni** selezionare la sottoscrizione di Azure associata alle app per la logica che si vuole gestire e quindi scegliere **Applica**.
 
-1. In **App per la logica** selezionare l'app per la logica. Dal menu di scelta rapida dell'app selezionare **Apri con Editor app per la logica**. 
+1. In **App per la logica** selezionare l'app per la logica. Dal menu di scelta rapida dell'app selezionare **Apri con Editor app per la logica**.
 
 Ora è possibile scaricare l'app per la logica già pubblicata nel progetto Gruppo di risorse. In questo modo, anche se la creazione dell'app per la logica è già stata iniziata nel portale di Azure, è comunque possibile importarla e gestirla in Visual Studio. Per altre informazioni, vedere [Gestire le app per la logica con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 

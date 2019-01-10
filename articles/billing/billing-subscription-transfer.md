@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a841ae168119546e8be32ce6f614656f775709ee
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2fe018139fd99f395ff88eae39ca8836eded5677
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583313"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581522"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Trasferimento della proprietà di una sottoscrizione di Azure a un altro account
 
@@ -31,9 +31,6 @@ Trasferire la sottoscrizione a un altro utente nel Centro account per modificare
 > [!IMPORTANT]
 > 
 > Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione.
-
-> [!div class="nextstepaction"]
-> [Contribuire al miglioramento della documentazione sulla fatturazione di Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Trasferimento della proprietà di una sottoscrizione di Azure
 
@@ -114,7 +111,7 @@ L'amministratore account è la persona che ha eseguito l'iscrizione o ha acquist
 
 1. Accedere alla [pagina delle sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Scegliere la sottoscrizione da controllare e quindi controllare la sezione **Impostazioni**.
-1. Selezionare **Proprietà**. L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account** .
+1. Selezionare **Proprietà**. L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account**.
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Vengono trasferite tutte le risorse? Anche gruppi di risorse, macchine virtuali, dischi e altri servizi in esecuzione?
 

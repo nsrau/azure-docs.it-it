@@ -11,22 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2018
+ms.date: 1/7/2019
 ms.author: raiye
-ms.openlocfilehash: 94cf90dbc41533b8f5d41a0bdb18e5cdcb7be474
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 154b925cc173a1a8fac697e347759764807a3052
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541031"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107906"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
 ## <a name="december-2018-guest-os"></a>Sistema operativo guest di dicembre 2018
-
->[!NOTE]
->Il sistema operativo guest di dicembre è in corso di implementazione nelle macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di dicembre. L'elenco è soggetto a variazioni.
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
@@ -152,9 +149,9 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4343901] | Rollup del mese di agosto non correlato alla sicurezza | 3.65 | 14 agosto 2018 |
 | N/D | [4344150] | Rollup di .NET 3.5 del mese di agosto non correlato alla sicurezza | 3.65 | 14 agosto 2018 |
 | N/D | [4344148] | Rollup di .NET 4x del mese di agosto non correlato alla sicurezza | 3.65 | 14 agosto 2018 |
-| N/D | [4343898] | Rollup del mese di agosto non correlato alla sicurezza | 4.58 | 14 agosto 2018 |
-| N/D | [4344153] | Rollup di .NET 3.5 del mese di agosto non correlato alla sicurezza | 4.58 | 14 agosto 2018 |
-| N/D | [4344147] | Rollup di .NET 4x del mese di agosto non correlato alla sicurezza | 4.58 | 14 agosto 2018 |
+| N/D | [4343898] | Rollup del mese di agosto non correlato alla sicurezza | 4,58 | 14 agosto 2018 |
+| N/D | [4344153] | Rollup di .NET 3.5 del mese di agosto non correlato alla sicurezza | 4,58 | 14 agosto 2018 |
+| N/D | [4344147] | Rollup di .NET 4x del mese di agosto non correlato alla sicurezza | 4,58 | 14 agosto 2018 |
 
 ## <a name="august-2018-guest-os"></a>Sistema operativo guest di agosto 2018
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -527,7 +524,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3185278] |Settembre 2016 Aggiornamento cumulativo per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.56 |11 ottobre 2016 |
 | N/D |[3185280] |Settembre 2016 Aggiornamento cumulativo per Windows Server 2012 |3.44 |11 ottobre 2016 |
 | N/D |[3185279] |Settembre 2016 Aggiornamento cumulativo per Windows 8.1 e Windows Server 2012 R2 |4.37 |11 ottobre 2016 |
-| N/D |[3194798] |Aggiornamento cumulativo per Windows 10 versione 1607 e Windows Server 2016 |5.2 |11 ottobre 2016 |
+| N/D |[3194798] |Aggiornamento cumulativo per Windows 10 versione 1607 e Windows Server 2016 |5,2 |11 ottobre 2016 |
 
 ## <a name="september-2016-guest-os"></a>Sistema operativo guest di settembre 2016
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |

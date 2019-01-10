@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 0cb40e4cbbfccaaf60e53010603e1d547e45dab9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c89374919087dc3bca435b8ce4af2dedd26ccb23
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263226"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041323"
 ---
 # <a name="optimize-the-cost-required-to-read-and-write-data-from-azure-cosmos-db"></a>Ottimizzare i costi delle operazioni di lettura e scrittura dei dati da Azure Cosmos DB
 
@@ -50,9 +50,9 @@ Se si eseguono altri carichi di lavoro contemporaneamente, ad esempio query, ope
 
 È ora possibile passare ad altre informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 
-* Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
-* Altre informazioni [sulla fattura di Azure Cosmos DB](understand-your-bill.md)
-* Altre informazioni sull'[ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
+* Altre informazioni sull'[Ottimizzazione di sviluppo e test](optimize-dev-test.md)
+* Altre informazioni sulla [Fatturazione in Azure Cosmos DB](understand-your-bill.md)
+* Altre informazioni sull'[Ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
 * Altre informazioni sull'[ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
 * Altre informazioni sull'[ottimizzazione dei costi delle query](optimize-cost-queries.md)
 * Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multiarea](optimize-cost-regions.md)

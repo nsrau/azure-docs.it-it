@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1398db59199c62e90f8cf5654586bda1c24f2541
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970272"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055048"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -66,7 +66,7 @@ Usare il comando [`docker pull`](https://docs.docker.com/engine/reference/comman
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
-Per una descrizione completa dei tag disponibili, ad esempio `latest` usato nel comando precedente, vedere [LUIS](https://hub.docker.com/r/microsoft/azure-cognitive-services-luis/) nel sito Docker Hub.
+Per una descrizione completa dei tag disponibili, ad esempio `latest` usato nel comando precedente, vedere [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) nel sito Docker Hub.
 
 > [!TIP]
 > È possibile usare il comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) per visualizzare l'elenco delle immagini dei contenitori scaricate. Ad esempio, il comando seguente visualizza l'ID, il repository e il tag di ogni immagine del contenitore scaricata, in formato tabella:

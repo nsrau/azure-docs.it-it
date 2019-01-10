@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: anuragm
-ms.openlocfilehash: 027fc4098e7760de276a8548453bb83599ed0521
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605213"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581857"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup coerente con le applicazioni per macchine virtuali Linux in Azure
 
@@ -38,8 +38,8 @@ Gli script di pre-backup richiamano API native delle applicazioni per disattivar
 
    - **VMSnapshotScriptPluginConfig.json**: autorizzazione "600". Ad esempio solo l'utente "root" deve avere le autorizzazioni di "lettura" e "scrittura" per questo file, nessun utente deve avere autorizzazioni di "esecuzione".
 
-   - **File script di pre-backup**: autorizzazione "700".  Ad esempio, solo l'utente "root" deve avere le autorizzazioni di "lettura", "scrittura" ed "esecuzione" per questo file.
-  
+   - **File di script di pre-backup**: autorizzazione "700".  Ad esempio, solo l'utente "root" deve avere le autorizzazioni di "lettura", "scrittura" ed "esecuzione" per questo file.
+
    - **Script di post-backup**: autorizzazione "700". Ad esempio, solo l'utente "root" deve avere le autorizzazioni di "lettura", "scrittura" ed "esecuzione" per questo file.
 
    > [!Important]
@@ -50,9 +50,9 @@ Gli script di pre-backup richiamano API native delle applicazioni per disattivar
 5. Configurare **VMSnapshotScriptPluginConfig.json** come illustrato di seguito:
     - **pluginName**: lasciare invariato il campo. In caso contrario, gli script potrebbero non funzionare come previsto.
 
-    - **preScriptLocation**: specificare il percorso completo dello script di pre-backup nella VM di cui si eseguirà il backup.
+    - **preScriptLocation**: specificare il percorso completo dello script di pre-backup nella macchina virtuale di cui si eseguirà il backup.
 
-    - **postScriptLocation**: specificare il percorso completo dello script di post-backup nella VM di cui si eseguirà il backup.
+    - **postScriptLocation**: specificare il percorso completo dello script di post-backup nella macchina virtuale di cui si eseguirà il backup.
 
     - **preScriptParams**: specificare i parametri facoltativi da passare allo script di pre-backup. Tutti i parametri devono essere racchiusi tra virgolette. Se si usano più parametri, separare i parametri con una virgola.
 
@@ -60,11 +60,11 @@ Gli script di pre-backup richiamano API native delle applicazioni per disattivar
 
     - **preScriptNoOfRetries**: impostare il numero di volte in cui lo script di pre-backup deve essere ritentato se è presente un errore prima di terminare. Zero indica un solo tentativo, senza alcun nuovo tentativo in caso di errore.
 
-    - **postScriptNoOfRetries**: impostare il numero di volte in cui lo script di post-backup deve essere ritentato se è presente un errore prima di terminare. Zero indica un solo tentativo, senza alcun nuovo tentativo in caso di errore.
-    
-    - **timeoutInSeconds**: specificare i timeout individuali per lo script di pre-backup e lo script di post-backup.
+    - **postScriptNoOfRetries**:  impostare il numero di volte in cui lo script di post-backup deve essere ritentato se è presente un errore prima di terminare. Zero indica un solo tentativo, senza alcun nuovo tentativo in caso di errore.
 
-    - **continueBackupOnFailure**: impostare questo valore su **true** se si desidera che Backup di Azure esegua il fallback a un backup coerente con file system/arresto anomalo in caso di errore dello script di pre-backup o post-backup. Impostando questo valore su **false** il backup viene interrotto in caso di errore dello script (tranne nel caso in cui sia presenta una macchina virtuale con un solo disco che esegue il fallback su un backup coerente con l'arresto anomalo indipendentemente da questa impostazione).
+    - **timeoutInSeconds**: specificare i timeout individuali per lo script di pre-backup e lo script di post-backup (il valore massimo può essere 1800).
+
+    - **continueBackupOnFailure**: impostare questo valore su **true** se si vuole che Backup di Azure esegua il fallback a un backup coerente con file system/arresto anomalo in caso di errore dello script di pre-backup o post-backup. Impostando questo valore su **false** il backup viene interrotto in caso di errore dello script (tranne nel caso in cui sia presenta una macchina virtuale con un solo disco che esegue il fallback su un backup coerente con l'arresto anomalo indipendentemente da questa impostazione).
 
     - **fsFreezeEnabled**: specificare se il comando fsfreeze di Linux deve essere chiamato durante la creazione dello snapshot della macchina virtuale per garantire la coerenza del file system. Si consiglia di mantenere questa impostazione su **true**, a meno che l'applicazione abbia legami di dipendenza con la disattivazione di fsfreeze.
 

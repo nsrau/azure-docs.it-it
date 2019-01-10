@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9ab256526ccba3fa84d4979ba536f6b681a7df89
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c47a4d853ba6360fb7f8017b7ad9a59e10040401
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001669"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120853"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per Servizi cloud di Azure
 Le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) possono essere monitorate da [Application Insights][start] in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
@@ -217,7 +217,7 @@ Per ottenere una panoramica del sistema, è possibile riunire i grafici di monit
 
 Se il sistema usa altri servizi di Azure, ad esempio l'analisi di flusso, includere anche i relativi grafici di monitoraggio. 
 
-Se si dispone di un'app client per dispositivi mobili, usare [App Center](../../application-insights/app-insights-mobile-center-quickstart.md). Creare query in [Analytics](../../azure-monitor/app/analytics.md) per visualizzare i conteggi degli eventi e aggiungerli al dashboard.
+Se si dispone di un'app client per dispositivi mobili, usare [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Creare query in [Analytics](../../azure-monitor/app/analytics.md) per visualizzare i conteggi degli eventi e aggiungerli al dashboard.
 
 ## <a name="example"></a>Esempio
 [L'esempio](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora un servizio che ha un ruolo Web e due ruoli di lavoro.
@@ -237,11 +237,11 @@ Se si dispone di un'app client per dispositivi mobili, usare [App Center](../../
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[azure]: ../../application-insights/app-insights-overview.md
+[azure]: ../../azure-monitor/app/app-insights-overview.md
 [client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md 
+[start]: ../../azure-monitor/app/app-insights-overview.md 

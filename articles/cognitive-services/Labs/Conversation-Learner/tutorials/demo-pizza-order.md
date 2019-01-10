@@ -10,23 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e23ff60a0a2ea10ace09130ba115e72b4e1c9ad7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9b35c0fd412dd48137a3cb362f20fae067c80461
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249813"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792629"
 ---
 # <a name="demo-pizza-order"></a>Demo: Ordinazione pizza
-Questa demo illustra un bot per l'ordinazione di pizza. Supporta l'ordine di una singola pizza con queste funzionalità:
+Questa demo illustra un bot per l'ordinazione di pizze che supporta l'ordinazione di pizze singole mediante:
 
-- Riconoscimento dei condimenti per la pizza nelle espressioni dell'utente
-- Verifica della disponibilità o meno dei condimenti nelle scorte e risposta corrispondente
-- Memorizzazione dei condimenti per pizza di un ordine precedente e offerta di avviare un nuovo ordine con gli stessi condimenti
+- riconoscimento dei condimenti per la pizza nelle espressioni dell'utente
+- gestione dell'inventario condimenti e risposta appropriata
+- memorizzazione degli ordini precedenti e velocizzazione delle nuove ordinazioni di pizze identiche
 
 ## <a name="video"></a>Video
 
-[![Anteprima Demo Pizza](https://aka.ms/cl-demo-pizza-preview)](https://aka.ms/blis-demo-pizza)
+[![Anteprima Demo Pizza](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder)
 
 ## <a name="requirements"></a>Requisiti
 Per questa esercitazione è necessario che il bot per l'ordinazione di pizza sia in esecuzione.
@@ -39,72 +39,66 @@ Nell'elenco modelli dell'interfaccia utente Web fare clic su TutorialDemo Pizza 
 
 ## <a name="entities"></a>Entità
 
-Sono state create tre entità.
+Il modello contiene tre entità:
 
-- Toppings: questa entità accumula i condimenti richiesti dall'utente. Include i condimenti validi disponibili nelle scorte e verifica se un condimento è presente o meno nelle scorte.
-- OutofStock: questa entità viene usata per comunicare all'utente che il condimento selezionato non è disponibile nelle scorte.
-- LastToppings: dopo che è stato effettuato un ordine, questa entità viene usata per offrire all'utente l'elenco dei condimenti nell'ordine.
+- "Toppings" riunisce i condimenti specificati dell'utente, se disponibili.
+- "OutofStock" segnala all'utente che il condimento selezionato è esaurito
+- "LastToppings" contiene lo storico dei condimenti degli ordini precedenti
 
 ![](../media/tutorial_pizza_entities.PNG)
 
 ### <a name="actions"></a>Azioni
 
-È stato creato un set di azioni che include la richiesta all'utente dei condimenti desiderati sulla pizza, la comunicazione di quelli aggiunti fino a quel momento e così via.
+Il modello contiene un set di azioni che chiede all'utente la selezione del condimento, i condimenti accumulati e altro ancora.
 
-Sono anche presenti due chiamate API.
+Sono fornite anche due chiamate API:
 
-- FinalizeOrder: per effettuare l'ordine della pizza
-- UseLastToppings: per eseguire la migrazione dei condimenti dall'ordine precedente 
+- "FinalizeOrder" gestisce l'evasione degli ordini
+- "UseLastToppings" elabora le informazioni dello storico dei condimenti
 
 ![](../media/tutorial_pizza_actions.PNG)
 
 ### <a name="training-dialogs"></a>Dialoghi di training
-Sono stati definiti più dialoghi di training. 
+
+Nel modello sono presenti molti dialoghi di training.
 
 ![](../media/tutorial_pizza_dialogs.PNG)
 
-A titolo di esempio, si proverà una sessione di training.
+Ora si eseguirà altro training mediante la creazione di un altro dialogo di training.
 
-1. Fare clic su Train Dialogs (Dialoghi di training) e quindi su New Train Dialog (Nuovo dialogo di training).
-1. Immettere "order a pizza".
-2. Fare clic su Score Action (Punteggio azione).
-3. Fare clic per selezionare 'What would you like on your pizza?'.
-4. Immettere "mushrooms and cheese".
-    - Entrambi sono stati etichettati da LUIS come Toppings. Se non fosse corretto, è possibile fare clic per evidenziare e quindi correggere.
-    - Il segno "+" accanto all'entità indica che viene aggiunta al set di condimenti.
-5. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti che `mushrooms` e `cheese` non sono in memoria per Toppings.
-3. Fare clic per selezionare 'you have $Toppings on your pizza'
-    - È un'azione senza attesa, quindi il bot chiederà l'azione successiva.
-6. Selezionare "Would you like anything else?".
-7. Immettere 'remove mushrooms and add peppers'.
-    - Accanto a `mushroom` è riportato un segno "-" che deve essere rimosso. E, accanto a `peppers`, è presente un segno "+", da aggiungere agli ingredienti.
-2. Fare clic su Score Action (Punteggio azione).
-    - `peppers` è ora in grassetto perché è un nuovo condimento, mentre la parola `mushrooms` è stata barrata.
-8. Fare clic per selezionare 'you have $Toppings on your pizza'
-6. Selezionare "Would you like anything else?".
-7. Immettere "add peas".
-    - `Peas` è un esempio di condimento non disponibile nelle scorte. La parola viene comunque etichettata come condimento.
-2. Fare clic su Score Action (Punteggio azione).
-    - Il condimento `Peas` risulta incluso in OutOfStock.
-    - Per visualizzare l'origine del problema, aprire il codice alla `C:\<\installedpath>\src\demos\demoPizzaOrder.ts`. e osservare il metodo EntityDetectionCallback. Questo metodo viene chiamato dopo ogni condimento per verificarne la disponibilità nelle scorte. Se non è disponibile, viene cancellato dal set di condimenti e viene aggiunto all'entità OutOfStock. La variabile inStock è definita sopra tale metodo e contiene l'elenco dei condimenti presenti nelle scorte.
-6. Selezionare "We don't have $OutOfStock".
-7. Selezionare "Would you like anything else?".
-8. Immettere "no".
-9. Fare clic su Score Action (Punteggio azione).
-10. Selezionare la chiamata API "FinalizeOrder". 
-    - In questo modo verrà chiamata la funzione "FinalizeOrder" definita nel codice, che cancella i condimenti e restituisce "Your order is on its way". 
-2. Immettere "order another". Viene avviato un nuovo ordine.
-9. Fare clic su Score Action (Punteggio azione).
-    - "cheese" e "peppers" sono presenti in memoria come condimenti dell'ultimo ordine.
-1. Selezionare "Would you like $LastToppings".
-2. Immettere "yes".
-3. Fare clic su Score Action (Punteggio azione).
-    - Il bot vuole eseguire l'azione UseLastToppings, che è il secondo dei due metodi di callback e copierà i condimenti dell'ultimo ordine nei condimenti e cancellerà gli ultimi condimenti. È così possibile memorizzare l'ultimo ordine e offrire tali condimenti come opzioni se l'utente dichiara di volere un'altra pizza.
-2. Fare clic per selezionare "You have $Toppings on your pizza".
-3. Selezionare "Would you like anything else?".
-8. Immettere 'no'.
-4. Fare clic su Done Teaching (Training completato).
+1. Nel riquadro a sinistra fare clic su "Train Dialogs" (Dialoghi di training), quindi sul pulsante "New Train Dialog" (Nuovo dialogo di training).
+2. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "Order a pizza with cheese"
+    - La parola "cheese" è stata estratta dall'estrattore di entità.
+3. Fare clic su "Score Actions" (Punteggio azioni).
+4. Selezionare la risposta "You have cheese on your pizza" (Il formaggio è stato aggiunto alla pizza).
+5. Selezionare la risposta "Would you like anything else?" (Desideri altro?)
+6. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "add mushrooms and peppers"
+7. Fare clic su "Score Actions" (Punteggio azioni).
+8. Selezionare la risposta "You have cheese, mushrooms and peppers on your pizza" (Formaggio, funghi e peperoni sono stati aggiunti alla pizza).
+9. Selezionare la risposta "Would you like anything else?" (Desideri altro?)
+10. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "remove peppers and add sausage"
+11. Fare clic su "Score Actions" (Punteggio azioni).
+12. Selezionare la risposta "You have cheese, mushrooms and sausage on your pizza" (Formaggio, funghi e salsiccia sono stati aggiunti alla pizza).
+13. Selezionare la risposta "Would you like anything else?" (Desideri altro?)
+14. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "add yam"
+15. Fare clic su "Score Actions" (Punteggio azioni).
+    - Il valore "yam" è stato aggiunto ad "OutofStock" dal codice di callback di rilevamento delle entità in quanto il testo non corrisponde a nessun ingrediente supportato.
+16. Selezionare la risposta "OutOfStock"
+17. Selezionare la risposta "Would you like anything else?" (Desideri altro?)
+18. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "no"
+    - Il "no" non è contrassegnato come tipo di finalità. Si sceglierà invece l'azione pertinente in base al contesto corrente.
+19. Fare clic su "Score Actions" (Punteggio azioni).
+20. Selezionare la risposta "FinalizeOrder"
+    - Come conseguenza della selezione di questa azione, i condimenti attuali del cliente sono stati salvati nell'entità "LastToppings" e l'entità "Toppings" è stata eliminata dal codice di callback FinalizeOrder.
+21. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "order another"
+22. Fare clic su "Score Actions" (Punteggio azioni).
+23. Selezionare la risposta "Would you like cheese, mushrooms and sausage?" (Vuoi formaggio, funghi e salsiccia?)
+    - Questa azione è ora disponibile grazie al fatto che è stata impostata l'entità "LastToppings".
+24. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "yes"
+25. Fare clic su "Score Actions" (Punteggio azioni).
+26. Selezionare la risposta "UseLastToppings"
+27. Selezionare la risposta "You have cheese, mushrooms and sausage on your pizza" (Formaggio, funghi e salsiccia sono stati aggiunti alla pizza).
+28. Selezionare la risposta "Would you like anything else?" (Desideri altro?)
 
 ![](../media/tutorial_pizza_callbackcode.PNG)
 
@@ -113,4 +107,4 @@ A titolo di esempio, si proverà una sessione di training.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Demo: Utilità di avvio di app di realtà virtuale](./demo-vr-app-launcher.md)
+> [Distribuzione di un bot di Conversation Learner](../deploy-to-bf.md)
