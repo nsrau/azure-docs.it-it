@@ -1,34 +1,32 @@
 ---
 title: Esercitazione sulla distribuzione globale in Azure Cosmos DB per l'API Tabella
-description: Informazioni su come configurare la distribuzione globale in Azure Cosmos DB usando l'API Tabella.
-services: cosmos-db
-keywords: Distribuzione globale, Tabella
-author: SnehaGunda
-ms.author: sngun
+description: Informazioni su come configurare la distribuzione globale in Azure Cosmos DB usando l'API di tabella.
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 12/13/2017
-ms.openlocfilehash: 92ae0c3dc07c6dada80e081c65484e4f6bf4f947
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.reviewer: sngun
+ms.openlocfilehash: d7d68c2dbdf5ca32fb2936e92daafac838c97a06
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874873"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042530"
 ---
-# <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Configurare la distribuzione globale in Azure Cosmos DB usando l'API Tabella
+# <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Configurare la distribuzione globale in Azure Cosmos DB usando l'API di tabella
 
 Questo articolo illustra le attività seguenti: 
 
 > [!div class="checklist"]
 > * Configurare la distribuzione globale tramite il portale di Azure
-> * Configurare la distribuzione globale tramite l'[API Tabella](table-introduction.md)
+> * Configurare la distribuzione globale tramite l'[API Table](table-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Connessione a un'area preferita tramite l'API Tabella
+## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Connessione a un'area preferita tramite l'API Table
 
 Per sfruttare la [distribuzione globale](distribute-data-globally.md), le applicazioni client possono specificare un elenco di aree, nell'ordine preferito, da usare per eseguire operazioni sui documenti. Per ottenere questo risultato, impostare la proprietà [TableConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.table.tableconnectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_CosmosDB_Table_TableConnectionPolicy_PreferredLocations). Azure Cosmos DB Table API SDK seleziona l'endpoint che garantisce la comunicazione più agevole in base alla configurazione degli account, alla disponibilità di aree corrente e all'elenco delle preferenze specificato.
 
@@ -50,5 +48,5 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Configurare la distribuzione globale tramite il portale di Azure
-> * Configurare la distribuzione globale tramite le API Tabella di Azure Cosmos DB
+> * Configurare la distribuzione globale tramite le API Table di Azure Cosmos DB
 
