@@ -1,24 +1,24 @@
 ---
-title: Configurare i contenitori
-titlesuffix: Computer Vision - Azure Cognitive Services
-description: Impostazioni di configurazione per i contenitori in Visione artificiale.
+title: Configurare i contenitori - Visione artificiale
+titlesuffix: Azure Cognitive Services
+description: Configurare varie impostazioni per i contenitori di riconoscimento del testo in Visione artificiale.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077019"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579788"
 ---
-# <a name="configure-containers"></a>Configurare i contenitori
+# <a name="configure-recognize-text-containers"></a>Configurare i contenitori di riconoscimento del testo
 
 In Visione artificiale è disponibile il contenitore di riconoscimento del testo con un framework di configurazione comune, in modo che sia possibile configurare e gestire archiviazione, registrazione e telemetria, nonché le impostazioni di sicurezza per i contenitori.
 
@@ -41,7 +41,7 @@ I valori della variabile di ambiente sostituiscono quelli degli argomenti della 
 
 ### <a name="configuration-settings-as-environment-variables"></a>Impostazioni di configurazione come variabili di ambiente
 
-Per specificare le impostazioni di configurazione, è possibile usare la [sintassi delle variabili di ambiente ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment).
+Per specificare le impostazioni di configurazione, è possibile usare la [sintassi delle variabili di ambiente ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider).
 
 Il contenitore legge le variabili di ambiente dell'utente quando viene creata un'istanza del contenitore. Se esiste una variabile di ambiente, il valore di tale variabile sostituisce il valore predefinito per l'impostazione di configurazione specificata. Il vantaggio dell'uso delle variabili di ambiente consiste nel fatto che più impostazioni di configurazione possono essere impostate prima di creare un'istanza dei contenitori e che più contenitori possono usare automaticamente lo stesso set di impostazioni di configurazione.
 
@@ -133,9 +133,9 @@ Le impostazioni di configurazione di `Logging` gestiscono il supporto di registr
   | `Format` | string | Formato di output dei file di log.<br/> **Nota:** per abilitare il provider di registrazione, questo valore deve essere impostato su `json`. Se questo valore viene specificato senza specificare anche un montaggio di output durante la creazione di un'istanza di un contenitore, si verifica un errore. |
   | `MaxFileSize` | Integer | Dimensione massima, espressa in megabyte (MB), di un file di log. Quando la dimensione del file di log corrente corrisponde a questo valore o lo supera, il provider di registrazione avvia un nuovo file di log. Se viene specificato -1, la dimensione del file di log è limitata solo dalla dimensione massima del file del montaggio di output eventualmente presente. Il valore predefinito è 1. |
 
-Per altre informazioni sulla configurazione del supporto di registrazione di ASP.NET Core, vedere [Registrazione in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+Per altre informazioni sulla configurazione del supporto di registrazione di ASP.NET Core, vedere [Registrazione in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
 
-## <a name="mounts-configuration-settings"></a>Impostazioni di configurazione di montaggio
+## <a name="mounts-configuration-settings"></a>Impostazioni di configurazione dei montaggi
 
 I contenitori Docker offerti da Visione artificiale sono progettati per essere senza stato e non modificabili. In altre parole, i file creati all'interno di un contenitore vengono archiviati in un livello di contenitore con accesso in scrittura, permanente solo se il contenitore è in esecuzione e non è facilmente accessibile. Se tale contenitore è stato arrestato o rimosso, i file creati all'interno vengono eliminati definitivamente.
 

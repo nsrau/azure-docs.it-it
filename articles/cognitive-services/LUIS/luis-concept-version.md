@@ -1,7 +1,7 @@
 ---
 title: Controllo delle versioni
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Informazioni sull'uso delle versioni per gestire le modifiche in LUIS (Language Understanding)
+description: Le versioni in LUIS sono simili alle versioni nella programmazione tradizionale. Ogni versione è uno snapshot temporizzato dell'app. Prima di apportare modifiche all'app, creare una nuova versione. È facile tornare all'esatta app e quindi tentare di riportare la finalità e le espressioni dell'app a uno stato precedente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 3dae1256e93bb15777225ada742539c5a0ebdccc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 522f1cff2d735081daecc8be6384badcd378fd75
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015569"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599587"
 ---
-# <a name="versions"></a>Versioni
+# <a name="understand-how-and-when-to-use-a-luis-version"></a>Comprendere come e quando usare una versione di LUIS
+
+Le versioni in LUIS sono simili alle versioni nella programmazione tradizionale. Ogni versione è uno snapshot temporizzato dell'app. Prima di apportare modifiche all'app, creare una nuova versione. È facile tornare all'esatta app e quindi tentare di riportare la finalità e le espressioni dell'app a uno stato precedente. 
+
 Creare modelli diversi della stessa app con le [versioni](luis-how-to-manage-versions.md). 
 
 ## <a name="version-id"></a>ID versione

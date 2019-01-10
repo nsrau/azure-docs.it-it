@@ -1,5 +1,5 @@
 ---
-title: Gestione di risorse e chiavi - Qna Maker
+title: Gestione di risorse e gestione della chiave di Qna Maker
 titleSuffix: Azure Cognitive Services
 description: 'Il servizio QnA Maker gestisce due tipi di chiavi: le chiavi di sottoscrizione e le chiavi endpoint.'
 services: cognitive-services
@@ -11,22 +11,22 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 25b23d280aca9ef13b8820596686a1f9dbecd2a1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3984ac84271728b9066aba15a582065ea3121c76
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085944"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581760"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Come gestire le chiavi in QnA Maker
 
-Il servizio QnA Maker gestisce due tipi di chiavi: le **chiavi di sottoscrizione** e le **chiavi endpoint**.
+Il servizio QnA Maker gestisce due tipi di chiavi, le **chiavi di sottoscrizione** e le **chiavi endpoint**.
 
 ![gestione delle chiavi](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Chiavi di sottoscrizione**: queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Queste API consentono di eseguire diverse operazioni CRUD sulla Knowledge Base.  
+1. **Chiavi di sottoscrizione**: queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Queste API consentono di apportare modificare alla knowledge base.  
 
-2. **Chiavi endpoint**: queste chiavi vengono usate per accedere all'endpoint della Knowledge Base e ottenere una risposta a una domanda dell'utente. Solitamente si usa questo endpoint nel codice del chat bot o dell'app che usa il servizio QnA Maker.
+2. **Chiavi endpoint**: queste chiavi vengono usate per accedere all'endpoint della Knowledge Base e ottenere una risposta a una domanda dell'utente. Solitamente si usa questo endpoint nel codice del chat bot o dell'applicazione client che usa il servizio QnA Maker.
  
 ## <a name="subscription-keys"></a>Chiavi di sottoscrizione
 È possibile visualizzare e reimpostare le chiavi di sottoscrizione dal portale di Azure in cui è stata creata la risorsa QnA Maker. 
@@ -42,7 +42,7 @@ Il servizio QnA Maker gestisce due tipi di chiavi: le **chiavi di sottoscrizione
 
 Le chiavi endpoint possono essere gestite dal [portale di QnA Maker](https://qnamaker.ai).
 
-1. Accedere al [portale di QnA Maker](https://qnamaker.ai) e passare a **Gestisci chiavi**.
+1. Accedere al [portale di QnA Maker](https://qnamaker.ai) e passare a **Impostazioni servizio**.
 
     ![chiave endpoint](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
@@ -51,7 +51,7 @@ Le chiavi endpoint possono essere gestite dal [portale di QnA Maker](https://qna
     ![gestione chiavi endpoint](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]
-    >Aggiornare le chiavi se si ritiene che siano state compromesse. Questa operazione può richiedere modifiche corrispondenti al codice del bot o dell'app.
+    >Aggiornare le chiavi se si ritiene che siano state compromesse. Questa operazione può richiedere modifiche corrispondenti al codice del bot o dell'applicazione client.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

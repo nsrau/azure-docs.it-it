@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 4663cb467d7d1d864425f4899c829b6618b9547c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584463"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051697"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usare istanze GPU o RDMA nei pool di Batch
 
@@ -100,7 +100,7 @@ Per configurare una dimensione di macchina virtuale specializzata per il pool di
 
 Per eseguire applicazioni CUDA in un pool di nodi NC di Windows, è necessario installare i driver NVDIA GPU. La procedura di esempio seguente usa un pacchetto dell'applicazione per installare i driver NVIDIA GPU. È possibile scegliere questa opzione se il carico di lavoro dipende da una versione specifica dei driver GPU.
 
-1. Scaricare un pacchetto di installazione per i driver GPU in Windows Server 2016 dal [sito Web di NVIDIA](http://us.download.nvidia.com/Windows/), ad esempio la [versione 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Salvare il file in locale usando un nome breve, ad esempio *GPUDriverSetup.exe*.
+1. Scaricare un pacchetto di installazione per i driver GPU in Windows Server 2016 dal [sito Web di NVIDIA](https://www.nvidia.com/Download/index.aspx), ad esempio la [versione 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Salvare il file in locale usando un nome breve, ad esempio *GPUDriverSetup.exe*.
 2. Creare un file zip del pacchetto.
 3. Caricare il pacchetto nell'account Batch. Per istruzioni, vedere il materiale sussidiario sui [pacchetti di applicazioni](batch-application-packages.md). Specificare un ID applicazione, ad esempio *GPUDriver*, e una versione, ad esempio *411.82*.
 1. Usando l'API Batch o il portale di Azure, creare un pool nella configurazione della macchina virtuale con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio per installare i driver NVIDIA GPU automaticamente usando un'attività di avvio:

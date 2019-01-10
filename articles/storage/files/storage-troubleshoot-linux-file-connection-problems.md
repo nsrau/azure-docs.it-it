@@ -9,18 +9,40 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d5dd2e2943d78291fc9c4903c15fb4d3767edbea
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b8f77f404a8e5d2d1625a327a1e50c0e169b6135
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442013"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744429"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
-Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure quando si effettua la connessione da client Linux. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. 
+Questo articolo elenca i problemi comuni correlati a File di Azure quando si effettua la connessione da client Linux. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. 
 
 Oltre alle procedure di risoluzione dei problemi descritte in questo articolo, si può usare [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) per verificare che il client Linux abbia i prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi descritti in questo articolo. Aiuta a configurare l'ambiente per ottenere prestazioni ottimali. Queste informazioni sono disponibili anche in [Troubleshooter for Azure Files storage problems](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) (Strumento di risoluzione dei problemi di archiviazione di File di Azure). Lo strumento di risoluzione dei problemi fornisce le procedure da eseguire per risolvere i problemi di connessione, mapping e montaggio di condivisioni di File di Azure.
+
+<a id="mounterror13"></a>
+## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>"Errore di montaggio (13): Accesso negato" quando si monta una condivisione file di Azure
+
+### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: canale di comunicazione non crittografato
+
+Per motivi di sicurezza, le connessioni alle condivisioni file di Azure vengono bloccate se il canale di comunicazione non è crittografato e il tentativo di connessione non viene effettuato dallo stesso data center in cui si trovano tali condivisioni. Le connessioni non crittografate all'interno dello stesso data center possono essere bloccate se l'impostazione [Trasferimento sicuro obbligatorio](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) è abilitata nell'account di archiviazione. Un canale di comunicazione crittografato è disponibile solo se il sistema operativo del client dell'utente supporta la crittografia SMB.
+
+Per altre informazioni, vedere [Prerequisiti per il montaggio di una condivisione file di Azure con Linux e il pacchetto cifs-utils](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package). 
+
+### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
+
+1. Eseguire la connessione da un client che supporta la crittografia SMB o da una macchina virtuale nello stesso data center dell'account di archiviazione di Azure usato per la condivisione file di Azure.
+2. Se il client non supporta la crittografia SMB, verificare che l'opzione [Trasferimento sicuro obbligatorio](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione.
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: nell'account di archiviazione sono abilitate regole di rete virtuale o del firewall. 
+
+Se nell'account di archiviazione sono configurate regole di rete virtuale o del firewall, verrà negato l'accesso al traffico di rete a meno che all'indirizzo IP o alla rete virtuale client sia consentito l'accesso.
+
+### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
+
+Verificare che le regole di rete virtuale e di firewall siano configurate correttamente nell'account di archiviazione. Per verificare se le regole di rete virtuale o del firewall sono la causa del problema, modificare temporaneamente le impostazioni dell'account di archiviazione per **consentire l'accesso da tutte le reti**. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>"[accesso negato] Quota disco superata" quando si tenta di aprire un file
@@ -87,6 +109,27 @@ Alcune distribuzioni di Linux non supportano ancora le funzionalità di crittogr
 La funzionalità di crittografia per SMB 3.0 per Linux è stata introdotta nel kernel 4.11. Questa funzionalità consente di montare una condivisione file di Azure da un ambiente locale o da un'area di Azure diversa. Al momento della pubblicazione, di questa funzionalità è stato eseguito il backport in Ubuntu 17.04 e Ubuntu 16.10. 
 
 Se il client Linux SMB non supporta la crittografia, montare File di Azure usando SMB 2.1 da una macchina virtuale Linux di Azure presente nello stesso data center della condivisione file. Verificare che l'opzione [Trasferimento sicuro obbligatorio]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione. 
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Errore "Accesso negato" durante l'esplorazione di una condivisione file di Azure nel portale
+
+Quando si passa alla condivisione file di Azure nel portale, viene visualizzato il messaggio di errore seguente:
+
+Accesso negato  
+L'utente non è autorizzato ad accedere  
+Non si è autorizzati ad accedere a questo contenuto. Per ottenere l'accesso, contattare il proprietario.  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Causa 1: l'account utente non ha accesso all'account di archiviazione
+
+### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
+
+Passare all'account di archiviazione in cui si trova la condivisione file di Azure, fare clic su **Controllo di accesso (IAM)** e verificare che l'account utente abbia accesso all'account di archiviazione. Per altre informazioni, vedere [Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: nell'account di archiviazione sono abilitate regole di rete virtuale o del firewall.
+
+### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
+
+Verificare che le regole di rete virtuale e di firewall siano configurate correttamente nell'account di archiviazione. Per verificare se le regole di rete virtuale o del firewall sono la causa del problema, modificare temporaneamente le impostazioni dell'account di archiviazione per **consentire l'accesso da tutte le reti**. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Rallentamento delle prestazioni in una condivisione file di Azure montata in una VM Linux
@@ -163,11 +206,11 @@ Per risolvere il problema, usare lo [strumento di risoluzione dei problemi per g
 * Fornisce indicazioni specifiche per risolvere i problemi autonomamente.
 * Raccoglie le tracce di diagnostica.
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: non è possibile accedere a '&lt;percorso&gt;': errore di input/output
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: cannot access '&lt;path&gt;': Input/output error (IS: non è possibile accedere a 'percorso': errore di input/output)
 
 Quando si prova a elencare i file in una condivisione file di Azure tramite il comando ls, questo si blocca durante la generazione dell'elenco. Viene visualizzato l'errore seguente:
 
-**ls: cannot access '&lt;percorso&gt;': Input/output error** (IS: non è possibile accedere a 'percorso': errore di input/output)
+**ls: cannot access'&lt;path&gt;': Input/output error** (IS: non è possibile accedere a 'percorso': errore di input/output)
 
 
 ### <a name="solution"></a>Soluzione

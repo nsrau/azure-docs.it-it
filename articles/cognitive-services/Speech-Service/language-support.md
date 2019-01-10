@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342097"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632619"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Supporto di lingua e area geografica per API servizio di riconoscimento vocale
 
@@ -176,22 +176,7 @@ La personalizzazione della voce è disponibile per l'inglese (Stati Uniti) (en-U
 
 ## <a name="speech-translation"></a>Traduzione vocale
 
-L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e con riconoscimento vocale. La lingua di origine deve essere sempre inclusa nella tabella Lingua per la sintesi vocale seguente. Le lingue di destinazione disponibili variano a seconda del fatto che siano parlate o scritte. È possibile tradurre la voce in ingresso in più di [60 lingue](https://www.microsoft.com/translator/business/languages/). Un subset di queste lingue è disponibile per la [sintesi vocale](language-support.md#text-languages).
-
-### <a name="speech-languages"></a>Lingue per la sintesi vocale
-
-| Lingua per la sintesi vocale   | Codice lingua |
-|:----------- |-|
-| Arabo (standard moderno)      | `ar` |
-| Cinese (mandarino)      | `zh` |
-| Inglese      | `en` |
-| Francese      | `fr` |
-| Tedesco      | `de` |
-| Italiano      | `it` |
-| Giapponese      | `jp` |
-| Portoghese (brasiliano)     | `pt` |
-| Russo      | `ru` |
-| Spagnolo      |  `es` |
+L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e con riconoscimento vocale. La lingua di origine deve essere sempre inclusa nella tabella Lingua per il riconoscimento vocale. Le lingue di destinazione disponibili variano a seconda del fatto che siano parlate o scritte. È possibile tradurre la voce in ingresso in più di [60 lingue](https://www.microsoft.com/translator/business/languages/). Un subset di queste lingue è disponibile per la [sintesi vocale](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Lingue per il testo
 

@@ -10,12 +10,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 6f88ff8ecd1aee588cb82c08ae2eda58fe2eb1e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f3d2276c92868bd2f9d98b119bc31aee4db13a81
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626938"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717553"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Che cos'è un'area di lavoro di Custom Translator?
 
@@ -31,7 +31,7 @@ Un progetto è un wrapper per modelli, documenti e test. Ogni progetto include a
 
 La categoria identifica il dominio, ovvero l'area di stile e terminologia da usare, per il progetto. È necessario scegliere la categoria più rilevante per i documenti. In alcuni casi, la scelta della categoria influisce direttamente sul comportamento di Custom Translator.
 
-Non sono ancora disponibili modelli personalizzati per le categorie, ad eccezione di un sistema generale di base. È tuttavia consigliabile selezionare la categoria più pertinente per il proprio dominio, in modo da poterla usare come identificatore nell'ID di categoria. Per i progetti appartenenti al dominio tecnologia, se si seleziona Technology (Tecnologia), si garantisce che quando un modello di base è disponibile, il progetto sarà in grado di usarlo.
+Sono disponibili due set di modelli di base: Generale e Tecnologia. Se è selezionata la categoria **Tecnologia**, saranno usati i modelli di base Tecnologia. Per qualsiasi altra categoria selezionata vengono usati i modelli di base Generale. Il modello di base Tecnologia è adatto per il dominio della tecnologia e meno adatto se le frasi utilizzate per la traduzione non rientrano nel dominio della tecnologia. Si consiglia ai clienti di selezionare la categoria Tecnologia solo se le frasi rientrano esclusivamente nel dominio della tecnologia.
 
 Nella stessa area di lavoro, è possibile creare progetti per la stessa coppia di lingue in categorie diverse. Custom Translator impedisce la creazione di un progetto duplicato con la stessa coppia di lingue e categoria. L'applicazione di un'etichetta al progetto consente di evitare questa limitazione. Non usare le etichette a meno che non si stiano creando sistemi di traduzione per più client, in quanto l'aggiunta di un'etichetta univoca al progetto ha conseguenze sull'ID di categoria del progetto.
 

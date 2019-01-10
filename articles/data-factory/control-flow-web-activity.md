@@ -9,48 +9,47 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: adfb30b73bbc9929bbfe3b07bd830d3f278bcc27
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723689"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054288"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Attività Web in Azure Data Factory
-L'attività Web può essere usata per chiamare un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi. 
+L'attività Web può essere usata per chiamare un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi.
 
 ## <a name="syntax"></a>Sintassi
 
 ```json
-{  
+{
    "name":"MyWebActivity",
    "type":"WebActivity",
-   "typeProperties":{  
+   "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
-      "headers":{  
+      "headers":{
          "Content-Type":"application/json"
       },
-      "authentication":{  
-         "type":"ClientCertificate",  
+      "authentication":{
+         "type":"ClientCertificate",
          "pfx":"****",
          "password":"****"
       },
-      "datasets":[  
-         {  
+      "datasets":[
+         {
             "referenceName":"<ConsumedDatasetName>",
             "type":"DatasetReference",
-            "parameters":{  
+            "parameters":{
                ...
             }
          }
       ],
-      "linkedServices":[  
-         {  
+      "linkedServices":[
+         {
             "referenceName":"<ConsumedLinkedServiceName>",
             "type":"LinkedServiceReference"
          }
@@ -93,10 +92,10 @@ La tabella seguente indica i requisiti per il contenuto JSON:
 Se l'autenticazione non è necessaria, non includere la proprietà "authentication".
 
 ### <a name="basic"></a>Basic
-Specificare il nome utente e la password da usare per l'autenticazione di base. 
+Specificare il nome utente e la password da usare per l'autenticazione di base.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"Basic",
    "username":"****",
    "password":"****"
@@ -104,12 +103,12 @@ Specificare il nome utente e la password da usare per l'autenticazione di base.
 ```
 
 ### <a name="client-certificate"></a>Certificato client
-Specificare il contenuto con codifica Base64 di un file PFX e la password. 
+Specificare il contenuto con codifica Base64 di un file PFX e la password.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"ClientCertificate",
-   "pfx":"****",   
+   "pfx":"****",
    "password":"****"
 }
 ```
@@ -126,7 +125,7 @@ Specificare l'URI di risorsa per cui verrà richiesto il token di accesso usando
 ```
 
 ## <a name="request-payload-schema"></a>Schema del payload della richiesta
-Quando si usa il metodo POST o PUT, la proprietà body rappresenta il payload che viene inviato all'endpoint. È possibile passare i servizi collegati e i set di dati come parte del payload. Di seguito è riportato lo schema per il payload: 
+Quando si usa il metodo POST o PUT, la proprietà body rappresenta il payload che viene inviato all'endpoint. È possibile passare i servizi collegati e i set di dati come parte del payload. Di seguito è riportato lo schema per il payload:
 
 ```json
 {
@@ -145,11 +144,11 @@ Quando si usa il metodo POST o PUT, la proprietà body rappresenta il payload ch
             }
         }]
     }
-} 
+}
 ```
 
 ## <a name="example"></a>Esempio
-In questo esempio, l'attività Web della pipeline chiama un endpoint REST. Passa all'endpoint un servizio collegato SQL di Azure e un set di dati SQL di Azure. L'endpoint REST usa la stringa di connessione SQL di Azure per connettersi al server SQL di Azure e restituisce il nome dell'istanza del server SQL. 
+In questo esempio, l'attività Web della pipeline chiama un endpoint REST. Passa all'endpoint un servizio collegato SQL di Azure e un set di dati SQL di Azure. L'endpoint REST usa la stringa di connessione SQL di Azure per connettersi al server SQL di Azure e restituisce il nome dell'istanza del server SQL.
 
 ### <a name="pipeline-definition"></a>Definizione della pipeline
 
@@ -243,7 +242,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere altre attività del flusso di controllo supportate da Data Factory: 
+Vedere altre attività del flusso di controllo supportate da Data Factory:
 
 - [Attività ExecutePipeline](control-flow-execute-pipeline-activity.md)
 - [Attività ForEach](control-flow-for-each-activity.md)

@@ -1,5 +1,5 @@
 ---
-title: Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi end-to-end | Documentazione Microsoft
+title: Configurare Azure Key Vault con rotazione e controllo delle chiavi end-to-end - Azure Key Vault | Microsoft Docs
 description: Usare questa procedura per configurare la rotazione delle chiavi e i log di controllo dell'insieme di credenziali delle chiavi.
 services: key-vault
 documentationcenter: ''
@@ -10,16 +10,15 @@ ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: bf3aba431e7b417b2213bc3410fd7722d7888d15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302018"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077709"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi
 
@@ -270,7 +269,7 @@ Il passaggio successivo consiste nella [creazione di una coda del bus di servizi
 
 Per creare una funzione di Azure, scegliere **Crea una risorsa**, cercare _App per le funzioni_ nel Marketplace e fare clic su **Crea**. Durante la creazione è possibile usare un piano di hosting esistente o crearne uno nuovo. È anche possibile optare per l'hosting dinamico. Altre informazioni sulle opzioni di hosting delle funzioni sono disponibili in [Scalabilità di Funzioni di Azure](../azure-functions/functions-scale.md).
 
-Dopo aver creato la funzione di Azure, passare alla funzione e scegliere una funzione timer e C\#, quindi fare clic su **Creare questa funzione**.
+Dopo aver creato la funzione di Azure, passare alla funzione e scegliere una funzione timer e C\#, quindi fare clic su **Creare questa funzione.
 
 ![Pannello iniziale di Funzioni di Azure](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
@@ -414,7 +413,7 @@ Aggiungere poi un file denominato project.json con il contenuto seguente:
 
 Dopo aver fatto clic su **Salva** , Funzioni di Azure scaricherà i file binari necessari.
 
-Passare alla scheda **Integra** e assegnare al parametro timer un nome significativo da usare all'interno della funzione. Nel codice precedente è previsto che il timer si chiami *myTimer*. Specificare un'[espressione CRON](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) come segue: 0 \* \* \* \* \* per il timer che attiverà l'esecuzione della funzione una volta al minuto.
+Passare alla scheda **Integra** e assegnare al parametro timer un nome significativo da usare all'interno della funzione. Nel codice precedente è previsto che il timer si chiami *myTimer*. Specificare un'[espressione CRON](../app-service/webjobs-create.md#CreateScheduledCRON) come indicato di seguito: 0 \* \* \* \* \* per il timer che attiverà l'esecuzione della funzione una volta al minuto.
 
 Nella stessa scheda **Integra** aggiungere un input di tipo **Archiviazione BLOB di Azure**. Questo punterà al file sync.txt che contiene il timestamp dell'ultimo evento esaminato dalla funzione. L'input sarà disponibile all'interno della funzione in base al nome del parametro. Nel codice precedente, l'input Archiviazione BLOB di Azure prevede che il nome del parametro sia *inputBlob*. Scegliere l'account di archiviazione in cui risiederà il file sync.txt. Può essere lo stesso account di archiviazione o un account diverso. Nel campo del percorso specificare il percorso in cui si trova il file, nel formato {nome-contenitore}/path/to/sync.txt.
 

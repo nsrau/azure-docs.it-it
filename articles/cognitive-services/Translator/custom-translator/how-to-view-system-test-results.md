@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 61d3869559d88e14c0b9a3c3e23cd8a1f9c2b6c4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 701f97a006e7457fcbdcc835f87832b269f986a8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626991"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630343"
 ---
 # <a name="view-system-test-results"></a>Visualizzare i risultati dei test di sistema
 
@@ -26,13 +26,13 @@ Selezionare un progetto, quindi selezionare la scheda Models (Modelli) di quel p
 
 La scheda Test mostra quanto segue:
 
-1.  System Test Results (Risultati test di sistema): risultato del processo di test nei training. Il processo di test produce il punteggio BLEU.
+1.  **System Test Results** (Risultati test di sistema): il risultato del processo di test nei training. Il processo di test produce il punteggio BLEU.
 
-    **Sentence Count** (Numero di frasi): numero di frasi parallele usate nel set di test.
+    **Sentence Count** (Numero di frasi): il numero di frasi parallele utilizzate nel set di test.
 
-     **BLEU Score** (Punteggio BLEU): punteggio generato per un modello dopo il completamento del training.
+     **BLEU Score** (Punteggio BLEU): il punteggio generato per un modello dopo il completamento del training.
 
-    **Status** (Stato): indica se il processo di test è stato completato o è in corso.
+    **Stato:** indica se il processo di test è stato completato o è in corso.
 
     ![Risultati test di sistema](media/how-to/how-to-system-test-results.png)
 
@@ -54,11 +54,11 @@ Fare clic sul collegamento Download Translations (Scarica traduzioni) per scaric
 
 Questo archivio ZIP scaricato contiene tre file.
 
-1.  custom.mt.txt: questo file contiene le traduzioni automatiche delle frasi nella lingua di origine nella lingua di destinazione eseguita dal modello sottoposto a training con i dati dell'utente.
+1.  **custom.mt.txt:** questo file contiene le traduzioni automatiche delle frasi nella lingua di origine nella lingua di destinazione eseguita dal modello sottoposto a training con i dati dell'utente.
 
-2.  ref.txt: questo file contiene le traduzioni fornite dall'utente delle frasi nella lingua di origine nella lingua di destinazione.
+2.  **ref.txt:** questo file contiene le traduzioni fornite dall'utente delle frasi nella lingua di origine nella lingua di destinazione.
 
-3.  source.txt: questo file contiene le frasi nella lingua di origine.
+3.  **source.txt:** questo file contiene le frasi nella lingua di origine.
 
     ![Risultati dei test di sistema scaricati](media/how-to/how-to-download-system-test.png)
 
@@ -73,14 +73,29 @@ Per richiedere una distribuzione:
     ![Distribuzione del modello](media/how-to/how-to-deploy-model.png)
 
 3.  Fare clic su Deploy (Distribuisci).
-4.  Selezionare le aree in cui si vuole distribuire il modello e fare clic su Salva. È possibile selezionare più aree.
+4.  Selezionare **Deployed** (Distribuito) per le aree in cui si vuole distribuire il modello e fare clic su Salva. È possibile selezionare **Deployed** (Distribuito) per più aree.
 
     ![Distribuzione del modello](media/how-to/how-to-deploy-model-regions.png)
 
 5.  È possibile visualizzare lo stato del modello nella colonna "Status" (Stato).
 
+## <a name="update-deployment-settings"></a>Aggiornare le impostazioni di distribuzione
+
+Per aggiornare le impostazioni di distribuzione:
+
+1.  Selezionare un progetto e passare alla scheda **Models** (Modelli).
+
+2. Per un modello distribuito correttamente, è mostrato il pulsante **Update** (Aggiorna).
+
+    ![Distribuzione del modello](media/how-to/how-to-update-undeploy-model.png)
+
+3.  Selezionare **Aggiorna**.
+4.  Selezionare **Deployed** (Distribuito) o **Undeployed** (Non distribuito) per le aree in cui si vuole che il modello sia distribuito o non distribuito e fare clic su **Salva**.
+
+    ![Distribuzione del modello](media/how-to/how-to-undeploy-model.png)
+
 >[!Note]
->Se un modello è già stato distribuito, per tale modello verrà visualizzato il pulsante "Undeploy" (Annulla distribuzione). Per annullare la distribuzione di un modello, fare clic su "Undeploy" (Annulla distribuzione).
+>Se si seleziona **Undeployed** (Non distribuito) per tutte le aree, la distribuzione del modello viene annullata in tutte le aree e il modello viene messo nello stato non distribuito. Ora è disponibile per l'utilizzo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

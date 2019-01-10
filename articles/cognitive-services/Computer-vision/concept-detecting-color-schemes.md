@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 5d0cb6ca751c844846288e8fe26f6ae542e89831
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 90eacdb120603fdb68c0f6c3de3457964ec5fd75
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339493"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579363"
 ---
-# <a name="detecting-color-schemes"></a>Rilevamento delle combinazioni di colori
+# <a name="detect-color-schemes-in-images"></a>Rilevare le combinazioni di colori nelle immagini
 
 Visione artificiale estrae colori da un'immagine. I colori vengono quindi analizzati in tre contesti diversi: il colore dominante in primo piano, il colore dominante sullo sfondo e i colori dominanti per l'intera immagine. I colori vengono raggruppati in 12 colori principali dominanti, ovvero nero, blu, marrone, grigio, verde, arancione, rosa, viola, rosso, verde acqua, bianco e giallo. Visione artificiale analizza i colori estratti da un'immagine per restituire il colore principale che rappresenta il colore dell'immagine visibilmente più acceso, tramite una combinazione di colori dominanti e saturazione. A seconda dei colori in un'immagine, il semplice bianco e nero oppure i colori principali possono essere restituiti in codici esadecimali. Visione artificiale restituisce anche un valore booleano che indica se un'immagine è in bianco e nero.
 
@@ -51,8 +52,8 @@ La tabella seguente descrive, per ogni immagine di esempio, i colori dominanti i
 
 | Image | Colori dominanti |
 |-------|-----------------|
-|![Fiore - Analisi visione](./Images/flower.png)| Primo piano: nero<br/>Sfondo: bianco<br/>Colori: nero, bianco, verde|
-![Stazione ferroviaria - Analisi visione](./Images/train_station.png) | Primo piano: nero<br/>Sfondo: nero<br/>Colori: nero |
+|![Fiore bianco su sfondo verde](./Images/flower.png)| Primo piano: Nero<br/>Sfondo: Bianco<br/>Colori: nero, bianco, verde|
+![Treno che passa per una stazione](./Images/train_station.png) | Primo piano: Nero<br/>Sfondo: Nero<br/>Colori: Nero |
 
 ### <a name="accent-color-examples"></a>Esempi di colori principali
 
@@ -60,9 +61,9 @@ La tabella seguente descrive, per ogni immagine di esempio, i colori dominanti i
 
 | Image | Colore principale |
 |-------|--------------|
-|![Panorama montano](./Images/mountain_vista.png) | #BB6D10 |
-|![Fiore - Analisi visione](./Images/flower.png) | #C6A205 |
-|![Stazione ferroviaria - Analisi visione](./Images/train_station.png) | #474A84 |
+|![Persona in piedi su una roccia al tramonto](./Images/mountain_vista.png) | #BB6D10 |
+|![Fiore bianco su sfondo verde](./Images/flower.png) | #C6A205 |
+|![Treno che passa per una stazione](./Images/train_station.png) | #474A84 |
 
 ### <a name="black--white-detection-examples"></a>Esempi di rilevamento di immagini in bianco e nero
 
@@ -70,8 +71,8 @@ La tabella seguente indica se ogni immagine di esempio è in bianco e nero, in b
 
 | Image | Bianco e nero? |
 |-------|----------------|
-|![Edificio - Analisi visione](./Images/bw_buildings.png) | true |
-|![Casa con giardino - Analisi visione](./Images/house_yard.png) | false |
+|![Immagine in bianco e nero di edifici di Manhattan](./Images/bw_buildings.png) | true |
+|![Casa azzurra con giardino](./Images/house_yard.png) | false |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

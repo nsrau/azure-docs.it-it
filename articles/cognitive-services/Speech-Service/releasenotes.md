@@ -8,19 +8,60 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7485ca1e4b1143ed46c9b3bef9ca66af0638b4f8
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088307"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599417"
 ---
 # <a name="release-notes"></a>Note sulla versione
 
-## <a name="speech-service-sdk-110"></a>Speech Service SDK 1.1.0
+## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: versione di dicembre 2018
+
+**Nuove funzionalità**
+
+* Python
+  * La versione beta del supporto di Python (versione 3.5 e successive) è disponibile con questa versione. Per altri dettagli, [vedere qui](quickstart-python.md).
+* JavaScript
+  * Speech SDK per JavaScript è ora open source. Il codice sorgente è disponibile in [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
+  * È ora supportato Node.js. Altre informazioni sono reperibili [qui](quickstart-js-node.md).
+  * È stata rimossa la restrizione di lunghezza per le sessioni audio. La riconnessione avverrà automaticamente.
+* Oggetto Connection
+  * Dallo strumento di riconoscimento è possibile accedere a un oggetto Connection. Questo oggetto consente di avviare in modo esplicito la connessione al servizio e di aggiungere una sottoscrizione per connettere e disconnettere gli eventi.
+    (Ciò non è ancora disponibile da JavaScript e Python.)
+* Supporto per Ubuntu 18.04.
+* Android
+  * Supporto di ProGuard abilitato durante la generazione di APK.
+
+**Miglioramenti**
+
+* Miglioramenti nell'uso dei thread interni, con riduzione del numero di thread, blocchi e mutex.
+* Miglioramento della segnalazione errori e delle informazioni sugli errori. In molti casi i messaggi di errore non sono stati propagati completamente.
+* Aggiornamento delle dipendenze di sviluppo in JavaScript per usare i moduli aggiornati.
+
+**Correzioni di bug**
+
+* Correzione delle perdite di memoria causate da un tipo non corrispondente in RecognizeAsync.
+* In alcuni casi perdita delle eccezioni.
+* Correzione della perdita di memoria negli argomenti degli eventi di conversione.
+* Correzione di un problema di blocco per la riconnessione in sessioni a esecuzione prolungata.
+* Risoluzione di un problema che può causare la mancanza di risultati finali per le traduzioni non riuscite.
+* C#: Se non è prevista l'attesa di un'operazione asincrona nel thread principale, lo strumento di riconoscimento potrebbe essere eliminato prima del completamento dell'attività asincrona.
+* Java: Risoluzione di un problema che causava l'arresto anomalo della macchina virtuale Java.
+* Objective-C: Correzione del mapping delle enumerazioni: restituzione di RecognizedIntent anziché RecognizingIntent.
+* JavaScript: Impostazione del formato di output predefinito su 'simple' in SpeechConfig.
+* JavaScript: Rimozione di un'incoerenza tra le proprietà dell'oggetto config in JavaScript e altri linguaggi.
+
+**Esempi**
+
+* Aggiornamento e correzione di vari esempi (ad esempio voci di output per la traduzione e così via).
+* Aggiunta di esempi di Node.js nel [repository degli esempi](https://aka.ms/csspeech/samples).
+
+## <a name="speech-sdk-110"></a>Speech SDK 1.1.0
 
 **Nuove funzionalità**
 
@@ -51,7 +92,7 @@ ms.locfileid: "53088307"
 
 * Sono stati aggiunti esempi in C++ e C# dell'uso di flussi pull e push nel [repository degli esempi](https://aka.ms/csspeech/samples).
 
-## <a name="speech-service-sdk-101"></a>Speech Service SDK 1.0.1
+## <a name="speech-sdk-101"></a>Speech SDK 1.0.1
 
 Miglioramenti apportati alla stabilità e correzioni di bug:
 

@@ -11,16 +11,16 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: a92d2cb5f6abc73dc768567d239ec38554e493b4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 986a05dab29226ff492269587ab6c0f49585cef6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001584"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119908"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorare ed eseguire il debug di un'applicazione .NET di Azure Batch con Application Insights
 
-[Application Insights](../application-insights/app-insights-overview.md) offre agli sviluppatori un modo elegante e potente per monitorare ed eseguire il debug delle applicazioni distribuite nei servizi di Azure. Usare Application Insights per monitorare i contatori delle prestazioni e le eccezioni, nonché per instrumentare il codice con metriche e funzionalità di traccia personalizzate. L'integrazione di Application Insights con l'applicazione Azure Batch consente di ottenere informazioni dettagliate sui comportamenti e di analizzare i problemi in tempo quasi reale.
+[Application Insights](../azure-monitor/app/app-insights-overview.md) offre agli sviluppatori un modo elegante e potente per monitorare ed eseguire il debug delle applicazioni distribuite nei servizi di Azure. Usare Application Insights per monitorare i contatori delle prestazioni e le eccezioni, nonché per instrumentare il codice con metriche e funzionalità di traccia personalizzate. L'integrazione di Application Insights con l'applicazione Azure Batch consente di ottenere informazioni dettagliate sui comportamenti e di analizzare i problemi in tempo quasi reale.
 
 Questo articolo illustra come aggiungere e configurare la libreria di Application Insights nella soluzione .NET di Azure Batch e instrumentare il codice dell'applicazione. Vengono inoltre presentati i modi per monitorare l'applicazione tramite il portale di Azure e creare dashboard personalizzati. Per informazioni sul supporto di Application Insights in altri linguaggi, vedere la [documentazione relativa a linguaggi, piattaforme e integrazioni](../azure-monitor/app/platforms.md).
 
@@ -35,11 +35,11 @@ In [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Arti
 
 * [Un account Batch e un account di archiviazione collegato](batch-account-create-portal.md)
 
-* [Una risorsa di Application Insights](../application-insights/app-insights-create-new-resource.md)
+* [Una risorsa di Application Insights](../azure-monitor/app/create-new-resource.md )
   
    * Usare il portale di Azure per creare una *risorsa* di Application Insights. Selezionare *Generale* **Tipo di applicazione**.
 
-   * Copiare la [chiave di strumentazione](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) dal portale. Sarà necessaria più avanti in questo articolo.
+   * Copiare la [chiave di strumentazione](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) dal portale. Sarà necessaria più avanti in questo articolo.
   
   > [!NOTE]
   > Potrebbe essere registrato un [addebito](https://azure.microsoft.com/pricing/details/application-insights/) per i dati archiviati in Application Insights. Tali dati includono i dati di diagnostica e monitoraggio descritti in questo articolo.
@@ -338,11 +338,11 @@ pool.StartTask = new StartTask()
 
 ## <a name="throttle-and-sample-data"></a>Limitazione e dati di esempio 
 
-Tenendo conto del fatto che le applicazioni di Azure Batch in esecuzione in ambiente di produzione sono per natura su larga scala, potrebbe essere utile limitare la quantità di dati raccolti da Application Insights per gestire i costi. Vedere [Campionamento in Application Insights](../application-insights/app-insights-sampling.md) per informazioni su alcuni meccanismi per ottenere questo risultato.
+Tenendo conto del fatto che le applicazioni di Azure Batch in esecuzione in ambiente di produzione sono per natura su larga scala, potrebbe essere utile limitare la quantità di dati raccolti da Application Insights per gestire i costi. Vedere [Campionamento in Application Insights](../azure-monitor/app/sampling.md) per informazioni su alcuni meccanismi per ottenere questo risultato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni su [Application Insights](../application-insights/app-insights-overview.md).
+* Altre informazioni su [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 * Per informazioni sul supporto di Application Insights in altri linguaggi, vedere la [documentazione relativa a linguaggi, piattaforme e integrazioni](../azure-monitor/app/platforms.md).
 

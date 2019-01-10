@@ -1,7 +1,7 @@
 ---
-title: Ricerca del sito, usare Ricerca personalizzata Bing dell'interfaccia utente in hosting
+title: Configurare un'interfaccia utente ospitata per Ricerca personalizzata Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Descrive come configurare l'interfaccia utente in hosting di Ricerca personalizzata Bing.
+description: Usare questo articolo per configurare e integrare un'interfaccia utente ospitata per Ricerca personalizzata Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,100 +10,49 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: c71597cf540cca67b9558ce28d20ce1d21ae0243
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e30c36cbde3bf112b012526e6268dfc4414f64a9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424987"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555473"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurare l'esperienza dell'interfaccia utente ospitata
 
-Dopo aver configurato l'istanza di ricerca personalizzata, è possibile chiamare l'API Ricerca personalizzata per ottenere i risultati della ricerca e visualizzarli nell'app. In alternativa, se l'app è un'app Web, è possibile usare l'interfaccia utente ospitata fornita da Ricerca personalizzata.   
+Ricerca personalizzata Bing offre un'interfaccia utente ospitata che è possibile integrare facilmente in applicazioni Web e pagine Web come frammento di codice JavaScript. Tramite il portale di Ricerca personalizzata Bing è possibile configurare layout, colore e opzioni di ricerca dell'interfaccia utente.
 
-## <a name="configure-custom-hosted-ui"></a>Configurare l'interfaccia utente ospitata personalizzata
 
-Per configurare un'interfaccia utente ospitata per l'app Web, completare questi passaggi:
 
-1. Accedere al portale di [Ricerca personalizzata](https://customsearch.ai).  
+## <a name="configure-the-custom-hosted-ui"></a>Configurare l'interfaccia utente ospitata personalizzata
+
+Per configurare un'interfaccia utente ospitata per le applicazioni Web, completare questi passaggi. Quando si apportano modifiche, nel riquadro a destra viene visualizzata un'anteprima dell'interfaccia utente. I risultati della ricerca visualizzati non sono effettivi risultati per l'istanza.
+
+1. Accedere al [portale](https://customsearch.ai) di Ricerca personalizzata Bing.  
   
-2. Fare clic su un'istanza di Ricerca personalizzata. Per creare un'istanza, vedere [Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md).  
+2. Selezionare l'istanza di Ricerca personalizzata Bing.
 
 3. Fare clic sulla scheda **Hosted UI** (Interfaccia utente ospitata).  
   
 4. Selezionare un layout.
-  
-  - Search bar and results (default) (Barra di ricerca e risultati - Impostazione predefinita) &mdash; Questo layout è la pagina di ricerca tradizionale con la casella di ricerca e i risultati della ricerca.
-  - Results only (Solo risultati) &mdash; Questo layout visualizza solo i risultati della ricerca. Non viene visualizzata una casella di ricerca. È necessario fornire la query di ricerca aggiungendo il parametro di query (&q=\<stringa di query>) all'URL della richiesta nel frammento di codice JavaScript o nel collegamento all'endpoint HTML.
-  - Pop-over (Risultati sovrapposti) &mdash; Questo layout fornisce una casella di ricerca e visualizza i risultati della ricerca in una sovrapposizione scorrevole.
-      
-5. Selezionare un tema colori. I temi possibili sono i seguenti: 
-  
-  - Classico
-  - Dark (Scuro)
-  - Skyline Blue (Blu orizzonte)
 
-  Fare clic su ognuno dei temi per scegliere quello più appropriato per l'app Web. Se è necessario ottimizzare la combinazione di colori per una migliore integrazione con l'app Web, fare clic su **Customize theme** (Personalizza tema). Non tutte le configurazioni di colori si applicano a tutti i temi del layout. Per modificare un colore, immettere il valore RGB esadecimale del colore (ad esempio, #366eb8) nella casella di testo corrispondente. In alternativa, fare clic sul pulsante del colore e quindi sulla sfumatura appropriata. 
-  
-  Dopo aver modificato un colore, verificare l'impatto della modifica sull'esempio di anteprima a destra. È sempre possibile fare clic su **Ripristina impostazioni predefinite** per tornare ai colori predefiniti per il tema selezionato.
+    |  |  |
+    |---------|---------|
+    |Barra di ricerca e risultati (impostazione predefinita)    | Visualizza la casella di ricerca con i risultati della ricerca sotto essa.         |
+    |Solo risultati     | Visualizza solo i risultati della ricerca senza la casella di ricerca. Quando si usa questo layout è necessario fornire la query di ricerca (`&q=<query string>`). Aggiungere il parametro di query all'URL della richiesta nel frammento di codice JavaScript oppure il collegamento all'endpoint HTML.        |
+    |Finestra a comparsa     | Fornisce una casella di ricerca e visualizza i risultati della ricerca in una sovrapposizione scorrevole.        |
+    
+5. Selezionare un tema colori. È possibile personalizzare i colori per adattare l'applicazione facendo clic su **Customize theme** (Personalizza tema). Per modificare un colore, immettere il valore RGB esadecimale del colore, ad esempio `#366eb8`, o fare clic sull'anteprima colore.
+
+  È possibile visualizzare in anteprima le modifiche sul lato destro del portale. Facendo clic su **Ripristina impostazioni predefinite** si ripristinano i colori predefiniti per il tema selezionato.
 
   > [!NOTE]
-  > Quando si modifica il tema colori, tenere conto dell'accessibilità nella scelta dei colori.
+  > Nella scelta dei colori è necessario considerare l'accessibilità.
 
-5. In **Additional Configurations** (Configurazioni aggiuntive) fornire i valori appropriati per l'app. Questa impostazioni sono facoltative. Per visualizzare l'effetto prodotto dalla selezione o deselezione di queste impostazioni, vedere il riquadro di anteprima a destra. Le opzioni di configurazione disponibili sono:  
-  
-  - Web search configurations (Configurazioni di ricerca Web):
-    - Web results enabled (Risultati Web abilitati) &mdash; Determina se la ricerca Web è abilitata (verrà visualizzata una scheda Web nella parte superiore della pagina).
-    - Enable autosuggest (Abilita suggerimenti automatici) &mdash; Determina se sono abilitati i suggerimenti automatici personalizzati (vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) per informazioni sugli eventuali costi aggiuntivi).
-    - Web results per page (Risultati Web per pagina) &mdash; Numero di risultati della ricerca Web da visualizzare per volta (il numero massimo è 50 risultati per pagina).
-    - Image caption (Didascalia immagine) &mdash; Determina se visualizzare le immagini con i risultati della ricerca.
-  
-    Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), vengono visualizzate le configurazioni seguenti.  
-  
-    - Highlight words (Evidenzia parole) &mdash; Determina se i risultati vengono visualizzati con i termini di ricerca in grassetto. 
-    - Link target (Destinazione collegamento) &mdash; Determina se la pagina Web viene aperta in una nuova scheda del browser (vuota) o nella stessa scheda (autonoma) del browser quando l'utente fa clic su un risultato della ricerca. 
+6. In **Additional Configurations** (Configurazioni aggiuntive) fornire i valori appropriati per l'app. Questa impostazioni sono facoltative. Per visualizzare l'effetto prodotto dalla selezione o deselezione di queste impostazioni, vedere il riquadro di anteprima a destra. Le opzioni di configurazione disponibili sono:  
 
-  - Image search configurations (Configurazioni di ricerca immagini):
-    - Web results enabled (Risultati Web abilitati) &mdash; Determina se la ricerca di immagini è abilitata (verrà visualizzata una scheda Immagini nella parte superiore della pagina).   
-    - Image results per page (Risultati immagine per pagina) &mdash; Numero di risultati della ricerca Web da visualizzare per volta (il numero massimo è 150 risultati per pagina).  
-  
-    Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), viene visualizzata la configurazione seguente.  
-  
-    - Enable filters (Abilita filtri) &mdash; Aggiunge filtri che l'utente può usare per filtrare le immagini restituite da Bing. Ad esempio, l'utente può filtrare i risultati per ottenere solo immagini GIF animate.
+7. Immettere la chiave di sottoscrizione della ricerca o sceglierne una nell'elenco a discesa. L'elenco a discesa viene popolato con le chiavi presenti nelle sottoscrizioni degli account Azure. Vedere [Account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
 
-  - Configurazioni per la ricerca video:
-    - Web results enabled (Risultati Web abilitati) &mdash; Determina se la ricerca Web è abilitata (verrà visualizzata una scheda Video nella parte superiore della pagina).  
-    - Image results per page (Risultati immagine per pagina) &mdash; Numero di risultati della ricerca video da visualizzare per volta (il numero massimo è 150 risultati per pagina).
-  
-    Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), viene visualizzata la configurazione seguente.  
-  
-    - Enable filters (Abilita filtri) &mdash; Aggiunge filtri che l'utente può usare per filtrare i video restituiti da Bing. Ad esempio, l'utente può filtrare i risultati per i video con una risoluzione specifica o i video individuati nelle ultime 24 ore.
-
-  - Miscellaneous configurations (Configurazioni varie):
-    - Page title (Titolo della pagina) &mdash; Testo visualizzato nell'area del titolo della pagina dei risultati della ricerca (non per il layout con risultati sovrapposti).
-    - Toolbar theme (Tema della barra degli strumenti) &mdash; Determina il colore di sfondo dell'area del titolo della pagina dei risultati della ricerca.  
-  
-    Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), vengono visualizzate le configurazioni seguenti.  
-  
-    - Search box text placeholder (Segnaposto del testo della casella di ricerca) &mdash; Testo visualizzato nella casella di ricerca prima dell'input.
-    - Title link url (URL collegamento titolo) &mdash; Destinazione per il collegamento del titolo.
-    - Logo url (URL del logo) &mdash; Immagine visualizzata accanto al titolo. 
-    - Favicon url (URL icona preferita) &mdash; Icona visualizzata nella barra del titolo del browser.  
-
-    Le configurazioni seguenti si applicano solo se si usa l'interfaccia utente ospitata tramite l'endpoint HTML (non sono applicabili se si usa il frammento JavaScript).
-    
-    - Page title (Titolo della pagina)
-    - Toolbar theme (Tema della barra degli strumenti)
-    - Title link URL (URL collegamento titolo)
-    - Logo URL (URL del logo)
-    - URL Favicon (URL icona preferita)  
-  
-6. Immettere la chiave di sottoscrizione della ricerca o sceglierne una nell'elenco a discesa. L'elenco a discesa viene popolato con le chiavi presenti nelle sottoscrizioni degli account Azure. Vedere [Account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
-
-7. Se sono stati abilitati i suggerimenti automatici, immettere la chiave di sottoscrizione dei suggerimenti automatici oppure sceglierne una nell'elenco a discesa. L'elenco a discesa viene popolato con le chiavi presenti nelle sottoscrizioni degli account Azure. I suggerimenti automatici personalizzati richiedono un livello di sottoscrizione specifico. Vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
-
-> [!NOTE]
-> Quando si apportano modifiche alla configurazione dell'interfaccia utente ospitata personalizzata, il riquadro a destra fornisce un riferimento visivo per le modifiche apportate. I risultati della ricerca visualizzati non sono effettivi risultati per l'istanza.
+8. Se sono stati abilitati i suggerimenti automatici, immettere la chiave di sottoscrizione dei suggerimenti automatici oppure sceglierne una nell'elenco a discesa. L'elenco a discesa viene popolato con le chiavi presenti nelle sottoscrizioni degli account Azure. I suggerimenti automatici personalizzati richiedono un livello di sottoscrizione specifico. Vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
 [!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
@@ -140,6 +89,79 @@ Per utilizzare l'interfaccia utente ospitata, eseguire una delle due operazioni 
   > La pagina non può visualizzare l'informativa sulla privacy o altri avvisi e condizioni. L'idoneità all'uso può variare.  
 
 Per altre informazioni, tra cui l'ID di configurazione personalizzato, vedere **Endpoint** (Endpoint) nella scheda **Production** (Produzione).
+
+## <a name="configuration-options"></a>Opzioni di configurazione
+
+È possibile configurare il comportamento dell'interfaccia utente ospitata facendo clic su **Configurazioni aggiuntive** e fornendo i valori. Questa impostazioni sono facoltative. Per visualizzare l'effetto prodotto dalla selezione o deselezione di queste impostazioni, vedere il riquadro di anteprima a destra. 
+
+### <a name="web-search-configurations"></a>Web search configurations (Configurazioni di ricerca Web)
+
+|  |  |
+|---------|---------|
+|Web results enabled (Risultati Web abilitati)    | Determina se la ricerca Web è abilitata: sarà visualizzata una scheda Web nella parte superiore della pagina        |
+|Enable autosuggest (Abilita suggerimenti automatici)     | Determina se sono abilitati i suggerimenti automatici personalizzati; per informazioni sugli eventuali costi aggiuntivi, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).        |
+|Web results per page (Risultati Web per pagina)    | Numero di risultati della ricerca Web da visualizzare per volta: il numero massimo è 50 risultati per pagina.        |
+|Image caption (Didascalia immagine)   | Determina se visualizzare le immagini con i risultati della ricerca.|
+
+
+Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), vengono visualizzate le configurazioni seguenti:
+
+
+|  | |
+|---------|---------|
+|Highlight words (Evidenzia parole)     | Determina se i risultati vengono visualizzati con i termini di ricerca in grassetto.         |
+|Link target (Destinazione collegamento)    |  Determina se la pagina Web viene aperta in una nuova scheda del browser (vuota) o nella stessa scheda (autonoma) del browser quando l'utente fa clic su un risultato della ricerca.        |
+
+### <a name="image-search-configurations"></a>Image search configurations (Configurazioni di ricerca immagini)
+
+| | |
+|---------|---------|
+|Image results enabled (Immagini abilitate nei risultati)     | Determina se la ricerca di immagini è abilitata: verrà visualizzata una scheda Immagini nella parte superiore della pagina.            |
+|Image results per page (Immagini nei risultati per pagina)     | Numero di immagini nei risultati della ricerca da visualizzare per volta; il numero massimo è 150 risultati per pagina.          |
+
+Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), viene visualizzata la configurazione seguente.  
+  
+| | |
+|---------|---------|
+| Enable filters (Abilita filtri)     | Aggiunge filtri che l'utente può usare per filtrare le immagini restituite da Bing. Ad esempio, l'utente può filtrare i risultati per ottenere solo immagini GIF animate.|
+
+### <a name="video-search-configurations"></a>Configurazioni per la ricerca di video
+
+|  | |
+|---------|---------|
+|Video results enabled (Video abilitati nei risultati)     | Determina se la ricerca di video è abilitata: verrà visualizzata una scheda Video nella parte superiore della pagina.           |
+|Video results per page (Video nei risultati per pagina)   | Numero di video nei risultati della ricerca da visualizzare per volta; il numero massimo è 150 risultati per pagina.        |
+
+Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), viene visualizzata la configurazione seguente.  
+  
+|  | |
+|---------|---------|
+|Enable filters (Abilita filtri)    | Aggiunge filtri che l'utente può usare per filtrare i video restituiti da Bing. Ad esempio, l'utente può filtrare i risultati per i video con una risoluzione specifica o i video individuati nelle ultime 24 ore.          |
+
+### <a name="miscellaneous-configurations"></a>Miscellaneous configurations (Configurazioni varie)
+
+
+| |  |
+|---------|---------|
+|Page title (Titolo della pagina)   | Testo visualizzato nell'area del titolo della pagina dei risultati della ricerca; non disponibile per il layout con risultati sovrapposti.        |
+|Toolbar theme (Tema della barra degli strumenti)    | Determina il colore di sfondo dell'area del titolo della pagina dei risultati della ricerca. |
+
+Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), vengono visualizzate le configurazioni seguenti.  
+
+|Colonna1  |Colonna2  |
+|---------|---------|
+|Search box text placeholder (Segnaposto del testo della casella di ricerca)   | Testo visualizzato nella casella di ricerca prima dell'input.        |
+|Title link URL (URL collegamento titolo)    |Destinazione per il collegamento del titolo.         |
+|Logo URL (URL del logo)     | Immagine visualizzata accanto al titolo.         |
+|Favicon (Icona preferita)    | Icona visualizzata nella barra del titolo del browser.          |
+
+Le configurazioni seguenti si applicano solo se si usa l'interfaccia utente ospitata tramite l'endpoint HTML (non sono applicabili se si usa il frammento JavaScript).
+
+- Page title (Titolo della pagina)
+- Toolbar theme (Tema della barra degli strumenti)
+- Title link URL (URL collegamento titolo)
+- Logo URL (URL del logo)
+- URL Favicon (URL icona preferita)  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

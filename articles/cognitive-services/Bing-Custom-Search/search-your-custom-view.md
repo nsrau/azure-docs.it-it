@@ -10,45 +10,44 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 58472d535be41fdd3e1139756f867f683509d9a3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 77a1756aba0d8473051cdf335f33ed9ca5a8fb24
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161736"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558329"
 ---
-# <a name="call-your-custom-search"></a>Chiamare la ricerca personalizzata
+# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chiamare l'istanza di Ricerca personalizzata Bing dal portale
 
-Prima di eseguire la prima chiamata all'API Ricerca personalizzata per ottenere i risultati della ricerca per l'istanza, è necessario ottenere una chiave di sottoscrizione ai Servizi cognitivi. Per ottenere una chiave per l'API Ricerca personalizzata, vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+Dopo aver configurato l'esperienza di ricerca personalizzata, è possibile testarla dall'interno del [portale](https://customsearch.ai) di Ricerca personalizzata Bing. 
+
+![Screenshot del portale di Ricerca personalizzata Bing](media/portal-search-screen.png)
+## <a name="create-a-search-query"></a>Creare una query di ricerca 
+
+Dopo aver effettuato l'accesso al [portale](https://customsearch.ai) di Ricerca personalizzata Bing, selezionare l'istanza di ricerca e fare clic sulla scheda **Produzione**. Sotto **Endpoint** selezionare un endpoint API, ad esempio API Web. La sottoscrizione determina quali endpoint vengono visualizzati.
+
+Per creare una query di ricerca, immettere i valori dei parametri per l'endpoint. Si noti che i parametri visualizzati nel portale possono cambiare a seconda dell'endpoint scelto. Per altre informazioni, vedere le [informazioni di riferimento sull'API Ricerca personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). 
+
+Alcuni parametri importanti sono i seguenti:
 
 
-## <a name="try-it-out"></a>Provare il servizio
+|Parametro  |DESCRIZIONE  |
+|---------|---------|
+|Query     | Il termine da cercare. Disponibile solo per gli endpoint Web, Image e Autosuggest |
+|ID di configurazione personalizzato | L'ID di configurazione dell'istanza di Ricerca personalizzata selezionata. Questo campo è di sola lettura. |
+|Market     | Il mercato da cui deriveranno i risultati. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI.        |
+|Chiave di sottoscrizione | La chiave di sottoscrizione con cui eseguire il test. È possibile selezionare una chiave nell'elenco a discesa o immetterla manualmente.          |
 
-Dopo aver configurato l'esperienza di ricerca personalizzata, è possibile testare la configurazione dall'interno del portale di ricerca personalizzata. 
+Facendo clic su **Parametri aggiuntivi** vengono visualizzati i parametri seguenti:  
 
-1. Accedere a [Ricerca personalizzata](https://customsearch.ai).
-2. Fare clic su una delle istanze di ricerca personalizzata dall'elenco di istanze.
-3. Fare clic sulla scheda **Production**(Produzione). 
-4. Sotto la scheda**Endpoint**, selezionare un endpoint (ad esempio, API Web). La sottoscrizione determina quali endpoint vengono mostrati (vedere [listino prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) per le opzioni di sottoscrizione). 
-5. Specificare i valori del parametro. 
-
-    Di seguito sono riportati i possibili parametri che è possibile impostare (l'elenco effettivo dipende dall'endpoint selezionato). Per altre informazioni su questi parametri, vedere [API ricerca personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters).
-
-    - **Query**: il termine di ricerca da ricercare. Disponibile solo per gli endpoint Web, Image e Autosuggest.
-    - **ID di configurazione personalizzato**: l'ID di configurazione dell'istanza selezionata di ricerca personalizzata. Questo campo è di sola lettura.
-    - **Mercato**: il mercato da dove provengono i risultati. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI.
-    - **Chiave di sottoscrizione**: la chiave di sottoscrizione con cui eseguire il test. È possibile selezionare una chiave nell'elenco a discesa o immetterla manualmente.  
-      
-    Facendo clic su **Parametri aggiuntivi** vengono visualizzati i parametri seguenti:  
-      
-    - **Ricerca sicura**: un filtro usato per filtrare le pagine Web per il contenuto per adulti. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI.
-    - **Lingua dell'interfaccia utente**: lingua utilizzata per le stringhe dell'interfaccia utente. Ad esempio, se si abilitano immagini e video nell'Hosted UI, le schede**Image** e **Video** usano la lingua specificata.
-    - **Count** Il numero di risultati della ricerca da restituire nella risposta. Disponibile solo per gli endpoint Web, Image e Video.
-    - **Offset**: Numero di risultati da ignorare prima di restituire i risultati. Disponibile solo per gli endpoint Web, Image e Video.
-
-6. Dopo aver specificato tutte le opzioni necessarie, fare clic su **Call** per visualizzare la risposta JSON nel riquadro di destra. 
-
-Se si seleziona l'endpoint Hosted UI, è possibile provare l'esperienza di ricerca nel riquadro inferiore.
+|Parametro  |DESCRIZIONE  |
+|---------|---------|
+|Ricerca sicura     | Un filtro utilizzato per filtrare le pagine Web per il contenuto per adulti. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI.        |
+|Lingua dell'interfaccia utente    | La lingua utilizzata per le stringhe dell'interfaccia utente. Ad esempio, se si abilitano immagini e video nell'Hosted UI, le schede**Image** e **Video** usano la lingua specificata.        |
+|Conteggio     | Il numero di risultati della ricerca da restituire nella risposta. Disponibile solo per gli endpoint Web, Image e Video.         |
+|Offset    | Il numero di risultati della ricerca da ignorare prima di restituire i risultati. Disponibile solo per gli endpoint Web, Image e Video.        |
+    
+Dopo aver specificato tutte le opzioni necessarie, fare clic su **Call** per visualizzare la risposta JSON nel riquadro di destra. Se si seleziona l'endpoint Hosted UI, è possibile provare l'esperienza di ricerca nel riquadro inferiore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

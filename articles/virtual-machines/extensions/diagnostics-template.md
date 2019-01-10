@@ -1,5 +1,5 @@
 ---
-title: Aggiungere monitoraggio e diagnostica a una macchina virtuale di Azure | Microsoft Docs
+title: Aggiungere monitoraggio e diagnostica a una macchina virtuale di Azure | Documentazione Microsoft
 description: Usare un modello di Azure Resource Manager per creare una nuova macchina virtuale Windows con l'estensione Diagnostica di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 792a3401c483327eb7fb9fcd88039bc09025b3ef
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 85e9b49cb8be1a3f53ca0f3b4816e6165b68bde0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944953"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993111"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager
 L'estensione di Diagnostica di Azure offre le funzionalità di monitoraggio e diagnostica in una macchina virtuale di Azure basata su Windows. È possibile abilitare queste funzionalità nella macchina virtuale includendo l'estensione come parte del modello di Azure Resource Manager. Per altre informazioni sull'inclusione di un'estensione come parte di un modello di macchina virtuale, vedere [Creazione di modelli di Gestione risorse di Azure con le estensioni di macchina virtuale](../windows/template-description.md#extensions) . Questo articolo illustra come aggiungere l'estensione Diagnostica di Azure a un modello di macchina virtuale Windows.  
@@ -92,13 +92,13 @@ Il frammento di codice JSON dell'estensione Diagnostica precedente presuppone du
     "type": "string",
     "metadata": {
 "description": "The name of an existing storage account to which diagnostics data is transfered."
-    }        
+    }
 },
 "existingdiagnosticsStorageResourceGroup": {
     "type": "string",
     "metadata": {
 "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
-      }
+    }
 }
 ```
 
@@ -160,21 +160,21 @@ La configurazione precedente relativa a Metrics consente di generare tabelle nel
 
 * **WADMetrics**: prefisso standard per tutte le tabelle WADMetrics
 * **PT1H** o **PT1M**: indica che la tabella contiene dati aggregati per un periodo pari a un'ora o un minuto
-* **P10D**: indica che la tabella conterrà dati per 10 giorni a partire dal momento in cui la tabella ha iniziato a raccogliere i dati
+* **P10D**: indica che la tabella conterrà dati per 10 giorni a partire dal momento in cui ha iniziato a raccogliere i dati
 * **V2S**: costante di tipo stringa
-* **yyyymmdd**: data a partire dalla quale la tabella ha iniziato a raccogliere i dati
+* **aaaammgg**: data a partire dalla quale la tabella ha iniziato a raccogliere i dati
 
-Esempio: *WADMetricsPT1HP10DV2S20151108* include i dati aggregati delle metriche per un periodo pari a un'ora per 10 giorni a partire dall'11 nov 2015    
+Esempio: *WADMetricsPT1HP10DV2S20151108* include i dati aggregati delle metriche per un periodo pari a un'ora per 10 giorni a partire dall'11 novembre 2015    
 
 Ogni tabella WADMetrics include le colonne seguenti:
 
-* **PartitionKey**: la chiave di partizione viene costruita in base al valore di *resourceID* per identificare in modo univoco la risorsa di macchina virtuale, ad esempio: 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
+* **PartitionKey**: la chiave di partizione viene costruita in base al valore di *resourceID*, in modo che la risorsa macchina virtuale sia identificabile in modo univoco. Ad esempio: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
 * **RowKey**: usa il formato `<Descending time tick>:<Performance Counter Name>`. Il calcolo relativo ai tick temporali decrescenti corrisponde al numero massimo di tick temporali meno l'ora di inizio del periodo di aggregazione. Ad esempio, se il periodo di campionamento è stato avviato il 10 novembre 2015 alle 00:00 UTC, il calcolo sarebbe: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Per il contatore delle prestazioni dei byte di memoria disponibili, la chiave di riga avrà un aspetto simile al seguente: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: nome del contatore delle prestazioni. Corrisponde al valore *counterSpecifier* definito nel file di configurazione XML.
 * **Maximum**: valore massimo del contatore delle prestazioni nel periodo di aggregazione.
-* **Minimum**: valore minimo del contatore delle prestazioni nel periodo di aggregazione.
+* **Minimo**: valore minimo del contatore delle prestazioni nel periodo di aggregazione.
 * **Total**: somma di tutti i valori del contatore delle prestazioni rilevati nel periodo di aggregazione.
-* **Count**: numero totale di valori rilevati per il contatore delle prestazioni.
+* **Numero**: numero totale di valori rilevati per il contatore delle prestazioni.
 * **Average**: valore medio (totale/conteggio) del contatore delle prestazioni nel periodo di aggregazione.
 
 ## <a name="next-steps"></a>Passaggi successivi

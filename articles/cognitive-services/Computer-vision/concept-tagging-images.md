@@ -1,7 +1,7 @@
 ---
-title: Assegnazione di tag alle immagini - Visione artificiale
+title: Applicazione di tag di contenuto alle immagini - Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Concetti relativi all'assegnazione di tag alle immagini tramite l'API Visione artificiale.
+description: Informazioni sui concetti relativi alla funzione di applicazione di tag alle immagini dell'API Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: caf4d8a4ee3ccee181d233716e0a645150a201c3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960908"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582933"
 ---
-# <a name="tagging-images"></a>Assegnazione di tag alle immagini
+# <a name="applying-content-tags-to-images"></a>Applicazione di tag di contenuto alle immagini
 
 Visione artificiale restituisce tag basati su migliaia di oggetti, esseri viventi, panorami e azioni riconoscibili. Quando i tag sono ambigui o di conoscenza non comune, la risposta dell'API indica suggerimenti per chiarire il significato del tag nel contesto di un'impostazione nota. I tag non sono organizzati in una tassonomia e non esiste alcuna gerarchia di ereditarietà. Una raccolta di tag di contenuto costituisce la base per la descrizione di un'immagine visualizzata come linguaggio leggibile dall'utente e formattata in frasi complete. Si noti che a questo punto l'inglese è l'unica lingua supportata per la descrizione dell'immagine.
 
@@ -27,7 +28,7 @@ Dopo il caricamento di un'immagine o la definizione di un URL di immagine, gli a
 
 La risposta JSON seguente illustra le informazioni restituite da Visione artificiale quando esegue l'assegnazione di tag alle caratteristiche visive rilevate nell'immagine di esempio.
 
-![House_Yard](./Images/house_yard.png).
+![Casa azzurra con giardino](./Images/house_yard.png).
 
 ```json
 {

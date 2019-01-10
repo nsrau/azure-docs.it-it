@@ -1,5 +1,5 @@
 ---
-title: Ottenere chiavi di sottoscrizione per l'API Visione artificiale
+title: Ottenere le chiavi di sottoscrizione - Visione artificiale
 titlesuffix: Azure Cognitive Services
 description: Informazioni su come ottenere chiavi di sottoscrizione per le chiamate all'API Visione artificiale in Servizi cognitivi di Azure.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
-ms.openlocfilehash: db4d589bb0c7611e632a90f2174ad8e9c415bf6a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 820531cc2254d9cbc7aaf7e758dd0457b282d892
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985423"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580808"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Come ottenere chiavi di sottoscrizione
 
@@ -26,7 +27,7 @@ Per iscriversi e ottenere chiavi di sottoscrizione, vedere [Sottoscrizioni](http
 >[!NOTE]
 Le chiavi di sottoscrizione sono valide per una sola di queste [aree di Microsoft Azure](https://azure.microsoft.com/regions/). 
 
-| Area | Indirizzo |
+| Region | Indirizzo |
 |---|---|
 | Stati Uniti occidentali | westus.api.cognitive.microsoft.com |
 | Stati Uniti orientali 2 | eastus2.api.cognitive.microsoft.com |

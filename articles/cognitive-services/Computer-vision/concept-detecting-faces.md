@@ -1,7 +1,7 @@
 ---
 title: Rilevamento dei visi - Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Concetti relativi al rilevamento dei visi tramite l'API Visione artificiale.
+description: Concetti relativi alla funzione di rilevamento volto dell'API Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: bf358d1e8f60f989ced8db966bbf0a5179fab25b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 0c6485bff4ad11aab37139cd2aa2d3660bddac0e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342314"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580538"
 ---
-# <a name="detecting-faces"></a>Rilevamento dei visi
+# <a name="face-detection-with-computer-vision"></a>Rilevamento volto con Visione artificiale
 
 Visione artificiale rileva i visi umani in un'immagine e genera le informazioni relative all'età, al sesso e al rettangolo per ogni viso rilevato. Visione artificiale fornisce un sottoinsieme delle funzionalità disponibili in [Viso](/azure/cognitive-services/face/) ed è possibile usare il servizio Viso per ottenere analisi più dettagliate, ad esempio l'identificazione dei visi e il rilevamento della posa.  
 

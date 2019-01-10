@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342654"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584446"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Esercitazione: Creare un'app di elaborazione delle immagini - C&#35;
 
@@ -101,7 +102,7 @@ Prima di poter eseguire o esplorare l'app di esempio, è necessario compilarla i
    > Microsoft riceve le immagini che vengono caricate e può usarle per migliorare l'API Visione artificiale e i servizi correlati. Quando si invia un'immagine, si conferma di avere rispettato il [Codice di comportamento per gli sviluppatori](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    Lo screenshot seguente illustra la pagina visualizzata per lo scenario di analisi dell'immagine dopo l'analisi di un'immagine di esempio.
-   ![Pagina dello scenario di analisi dell'immagine](../Images/Analyze_Image_Example.PNG)
+   ![Screenshot della pagina di analisi delle immagini](../Images/Analyze_Image_Example.PNG)
 
 ## <a name="explore-the-sample-app"></a>Esplorare l'app di esempio
 

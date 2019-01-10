@@ -10,22 +10,23 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 52b6265722d5cfbf8baf54e1785ace627aa0892f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 07d3f5d365fa5c552ccb61c97532a9931b7e282e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341668"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583681"
 ---
-# <a name="extracting-text-with-ocr"></a>Estrazione di testo con OCR
+# <a name="extracting-text-with-optical-character-recognition"></a>Estrazione del testo con il riconoscimento ottico dei caratteri
 
 La tecnologia di riconoscimento ottico dei caratteri (OCR) nella Visione artificiale rileva il contenuto di testo di un'immagine ed estrae il testo individuato in un flusso di caratteri leggibili dal computer. È possibile usare il risultato per eseguire ricerche e per numerosi altri scopi, ad esempio compilazione di cartelle cliniche, sicurezza e servizi bancari. La lingua viene rilevata automaticamente. La tecnologia OCR consente di risparmiare tempo ed è molto pratica perché permette agli utenti di scattare foto del testo invece di trascriverlo.
 
-OCR supporta 25 lingue, ovvero arabo, cinese semplificato, cinese tradizionale, ceco, danese, olandese, inglese, finlandese, francese, tedesco, greco, ungherese, italiano, giapponese, coreano, norvegese, polacco, portoghese, romeno, russo, serbo (cirillico e latino), slovacco, spagnolo, svedese e turco.
+OCR supporta 25 lingue, Le lingue supportate sono: arabo, cinese semplificato, cinese tradizionale, ceco, coreano, danese, finlandese, francese, giapponese, greco, inglese, italiano, norvegese, olandese, polacco, portoghese, rumeno, russo, serbo (cirillico e latino), slovacco, spagnolo, svedese, tedesco, turco e ungherese.
 
 Se necessario, la funzione OCR corregge la rotazione del testo riconosciuto, espresso in gradi, intorno all'asse orizzontale dell'immagine. La tecnologia OCR indica le coordinate del riquadro di tutte le parole come illustrato nell'immagine seguente.
 
-![Panoramica sulla tecnologia OCR](./Images/vision-overview-ocr.png)
+![Un diagramma che illustra un'immagine che viene ruotata e il suo testo che viene letto e delineato](./Images/vision-overview-ocr.png)
 
 ## <a name="ocr-requirements"></a>Requisiti della tecnologia OCR
 

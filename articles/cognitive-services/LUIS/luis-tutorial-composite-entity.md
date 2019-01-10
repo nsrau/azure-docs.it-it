@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18a32f5e07470f71ba276fbe3a2633150b1bf188
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079212"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754665"
 ---
-# <a name="tutorial-6-group-and-extract-related-data"></a>Esercitazione 6: Raggruppare ed estrarre dati correlati
+# <a name="tutorial-group-and-extract-related-data"></a>Esercitazione: Raggruppare ed estrarre dati correlati
 Questa esercitazione illusta come aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
 
-Lo scopo dell'entità composita è di raggruppare le entità correlate in un'entità di categoria padre. Prima che venga creata un'entità composita le informazioni sono entità separate. È simile all'entità gerarchica ma può contenere diversi tipi di entità. 
+Lo scopo dell'entità composita è di raggruppare le entità correlate in un'entità di categoria padre. Prima che venga creata un'entità composita le informazioni sono entità separate. È simile a un entità gerarchica ma può contenere diversi tipi di entità. 
 
 L'entità composta è una buona soluzione per questo tipo di dati, perché i dati:
 
@@ -29,11 +29,12 @@ L'entità composta è una buona soluzione per questo tipo di dati, perché i dat
 * Usano vari tipi di entità.
 * Devono essere raggruppati ed elaborati dall'applicazione client come un'unità di informazioni.
 
-**In questa esercitazione si apprenderà come:**
+**In questa esercitazione si imparerà come:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usare l'app di esercitazione esistente
+> * Importare l'app di esempio
+> * Creare finalità
 > * Aggiungere un'entità composita 
 > * Eseguire il training
 > * Pubblica
@@ -41,286 +42,139 @@ L'entità composta è una buona soluzione per questo tipo di dati, perché i dat
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Usare l'app esistente
-Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
+## <a name="import-example-app"></a>Importare l'app di esempio
 
-Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
-
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) dall'esercitazione sull'entità List (Elenco).
 
 2. Importare il file JSON in una nuova app.
 
 3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `composite`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 
-
 ## <a name="composite-entity"></a>Entità composita
-Creare un'entità composita quando le entità separate possono essere raggruppate logicamente e questo raggruppamento logico è utile per le applicazioni client. 
 
-In questa app, il nome del dipendente è definito nell'entità elenco **Employee** (Dipendente) e include i sinonimi di nome, l'indirizzo e-mail, l'interno telefonico aziendale, il numero di telefono cellulare e Stati Uniti. Il codice fiscale. 
+In questa app, il nome del reparto è definito nell'entità elenco **Department** e include sinonimi. 
 
-La finalità **MoveEmployee** contiene espressioni di esempio per richiedere il trasferimento di un dipendente da un edificio e ufficio a un altro. I nomi degli edifici sono costituiti da lettere: "A", "B" e così via, mente quelli degli uffici da numeri: "1234", "13245". 
+La finalità **TransferEmployeeToDepartment** contiene espressioni di esempio per richiedere lo spostamento di un dipendente in un nuovo reparto. 
 
-Espressioni di esempio nella finalità **MoveEmployee** includono:
+Le espressioni di esempio per questa finalità includono:
 
 |Espressioni di esempio|
 |--|
-|Move John W. Smith to a-2345|
-|shift x12345 to h-1234 tomorrow|
+|move John W. Smith to the accounting department|
+|transfer Jill Jones from to R&D|
  
-La richiesta di trasferimento deve includere almeno il dipendente (con qualsiasi sinonimo) e la posizione finale dell'edificio e dell'ufficio. La richiesta può includere anche l'ufficio di origine oltre a una data in cui eseguire il trasferimento. 
+La richiesta di spostamento deve includere il nome del reparto e il nome del dipendente. 
 
-I dati estratti dall'endpoint devono contenere tali informazioni e restituirle nell'entità composita `RequestEmployeeMove`:
+## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Aggiungere l'entità predefinita PersonName come supporto per l'estrazione del tipo di dati comune
 
-```json
-"compositeEntities": [
-  {
-    "parentType": "RequestEmployeeMove",
-    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-    "children": [
-      {
-        "type": "builtin.datetimeV2.datetime",
-        "value": "march 3 2 p.m"
-      },
-      {
-        "type": "Locations::Destination",
-        "value": "z - 2345"
-      },
-      {
-        "type": "Employee",
-        "value": "jill jones"
-      },
-      {
-        "type": "Locations::Origin",
-        "value": "a - 1234"
-      }
-    ]
-  }
-]
-```
+LUIS fornisce varie entità predefinite per l'estrazione di dati comuni. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. Selezionare **Build** (Compila) dalla barra di spostamento in alto, quindi selezionare **Intents** (Finalità) dal menu di spostamento a sinistra.
 
-2. Nella pagina **Intents** (Finalità) selezionare la finalità **MoveEmployee**. 
+1. Selezionare **Manage prebuilt entity** (Gestisci entità predefinita).
 
-3. Selezionare l'icona della lente di ingrandimento della barra degli strumenti per filtrare l'elenco di espressioni. 
+1. Selezionare **[PersonName](luis-reference-prebuilt-person.md)** nell'elenco di entità predefinite e quindi **Done** (Fine).
 
-    [![Screenshot di LUIS con la finalità "MoveEmployee" con il pulsante lente di ingrandimento evidenziato](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con il pulsante lente di ingrandimento evidenziato")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    ![Screenshot dell'entità number selezionata nella finestra di dialogo relativa alle entità predefinite](./media/luis-tutorial-composite-entity/add-personname-prebuilt-entity.png)
 
-4. Immettere `tomorrow` nella casella di testo del filtro per trovare l'espressione `shift x12345 to h-1234 tomorrow`.
+    Questa entità consente di aggiungere il riconoscimento dei nomi all'applicazione client.
 
-    [![Screenshot di LUIS con la finalità "MoveEmployee" con il filtro "tomorrow" evidenziato](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con il filtro \"tomorrow\" evidenziato")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+## <a name="create-composite-entity-from-example-utterances"></a>Creare un'entità composita da espressioni di esempio
 
-    È anche possibile filtrare l'entità per datetimeV2, selezionando **Entity filters** (Filtri entità) e quindi **datetimeV2** dall'elenco. 
+1. Selezionare **Intents** (Finalità) nel pannello di spostamento sinistro.
 
-5. Selezionare la prima entità, `Employee`, quindi selezionare **Wrap in composite entity** (Esegui il wrapping in entità composita) nell'elenco del menu a comparsa. 
+1. Selezionare **TransferEmployeeToDepartment** nell'elenco di finalità.
 
-    [![Screenshot di LUIS con la finalità "MoveEmployee" con la selezione della prima entità composita evidenziata](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con la selezione della prima entità composita evidenziata")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+1. Nella prima espressione selezionare l'entità personName, `John Jackson`, quindi selezionare **Start wrapping composite entity** (Avvia wrapping entità composita) nell'elenco del menu di scelta rapida per l'espressione seguente:
 
+    `place John Jackson in engineering`
 
-6. Quindi selezionare immediatamente l'ultima entità, `datetimeV2`, nell'espressione. Sotto le parole selezionate viene disegnata una barra verde che indica un'entità composita. Nel menu a comparsa, immettere il nome composto `RequestEmployeeMove` quindi premere INVIO. 
+1. Quindi selezionare immediatamente l'ultima entità, `engineering`, nell'espressione. Sotto le parole selezionate viene disegnata una barra verde che indica un'entità composita. Nel menu a comparsa, immettere il nome composto `TransferEmployeeInfo` quindi premere INVIO. 
 
-    [![Screenshot di LUIS con la finalità "MoveEmployee" con la selezione dell'ultima entità composita e il comando di creazione dell'entità evidenziati](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con la selezione dell'ultima entità composita e il comando di creazione dell'entità evidenziati")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+1. In **What type of entity do you want to create** (Che tipo di entità si vuole creare?) tutti i campi necessari sono nell'elenco: `personName` e `Department`. Selezionare **Operazione completata**. 
 
-7. In **What type of entity do you want to create** (Che tipo di identità si desidera creare?) quasi tutti i campi necessari sono nell'elenco. Manca solo la posizione di origine. Selezionare **Add a child entity** (Aggiungi entità figlio), selezionare **Locations::Origin** dall'elenco delle entità esistenti, quindi selezionare **Done** (Operazione completata). 
-
-    Si noti che l'entità e il numero predefiniti sono stati aggiunti all'entità composta. Se si può disporre di un'entità predefinita che viene visualizzata tra il token di apertura e il token di chiusura di un'entità composta, l'entità composta deve contenere tali entità predefinite. Se le entità predefinite non sono incluse, l'entità composta non sarà stimata correttamente e la stima sarà eseguita per ogni singolo elemento.
-
-    ![Screenshot di LUIS con la finalità "MoveEmployee" in cui si aggiunge un'altra entità nella finestra popup](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
-
-8. Selezionare la lente di ingrandimento nella barra degli strumenti per rimuovere il filtro. 
-
-9. Rimuovere la parola `tomorrow` dal filtro in modo da visualizzare nuovamente tutte le espressioni di esempio. 
+    Si noti che l'entità predefinita personName è stata aggiunta all'entità composita. Se si può disporre di un'entità predefinita che viene visualizzata tra il token di apertura e il token di chiusura di un'entità composta, l'entità composta deve contenere tali entità predefinite. Se le entità predefinite non sono incluse, l'entità composta non sarà stimata correttamente e la stima sarà eseguita per ogni singolo elemento.
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Etichettare le espressioni di esempio con l'entità composita
 
 
 1. In ogni espressione di esempio, selezionare l'entità più a sinistra nel composito. Selezionare quindi **Wrap in composite entity** (Esegui il wrapping in entità composita).
 
-    [![Screenshot di LUIS con la finalità "MoveEmployee" con la selezione della prima entità composita evidenziata](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con la selezione della prima entità composita evidenziata")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+1. Selezionare l'ultima parola nell'entità composita e quindi scegliere **TransferEmployeeInfo** dal menu di scelta rapida. 
 
-2. Selezionare l'ultima parola nell'entità composita quindi selezionare **RequestEmployeeMove** nel menu a comparsa. 
+1. Verificare che tutte le espressioni nella finalità siano etichettate con l'entità composita. 
 
-    [![Screenshot di LUIS con la finalità "MoveEmployee" con la selezione dell'ultima entità composita evidenziata](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con la selezione dell'ultima entità composita evidenziata")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
-
-3. Verificare che tutte le espressioni nella finalità siano etichettate con l'entità composita. 
-
-    [![Screenshot di LUIS con la finalità "MoveEmployee" con tutte le espressioni etichettate](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con tutte le espressioni etichettate")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
-
-## <a name="train"></a>Eseguire il training
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Eseguire il training dell'app in modo che sia possibile testare la finalità 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Pubblica
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Pubblicare l'app in modo che sia possibile eseguire query dall'endpoint sul modello con training
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Ottenere finalità ed entità dall'endpoint 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Ottenere la stima di finalità ed entità dall'endpoint 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Andare alla fine dell'URL nell'indirizzo e immettere `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. L'ultimo parametro querystring è `q`, la query dell'espressione. 
+2. Andare alla fine dell'URL nell'indirizzo e immettere `Move Jill Jones to DevOps`. L'ultimo parametro querystring è `q`, la query dell'espressione. 
 
     Poiché questo test consiste nel verificare che il composito venga estratto in modo corretto, il test può includere un'espressione di esempio esistente o una nuova espressione. Un buon test consiste nell'includere tutte le entità figlio nell'entità composita.
 
     ```json
     {
-      "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
+      "query": "Move Jill Jones to DevOps",
       "topScoringIntent": {
-        "intent": "MoveEmployee",
-        "score": 0.9959525
+        "intent": "TransferEmployeeToDepartment",
+        "score": 0.9882747
       },
       "intents": [
         {
-          "intent": "MoveEmployee",
-          "score": 0.9959525
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.009858314
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.00728598563
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.0058053555
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.005371796
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00266987388
+          "intent": "TransferEmployeeToDepartment",
+          "score": 0.9882747
         },
         {
           "intent": "None",
-          "score": 0.00123299169
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00116407464
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00102653319
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.0006628214
+          "score": 0.00925369747
         }
       ],
       "entities": [
         {
-          "entity": "march 3 2 p.m",
-          "type": "builtin.datetimeV2.datetime",
-          "startIndex": 41,
-          "endIndex": 54,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2018-03-03 14:00:00"
-              },
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2019-03-03 14:00:00"
-              }
-            ]
-          }
-        },
-        {
           "entity": "jill jones",
-          "type": "Employee",
+          "type": "builtin.personName",
           "startIndex": 5,
-          "endIndex": 14,
+          "endIndex": 14
+        },
+        {
+          "entity": "devops",
+          "type": "Department",
+          "startIndex": 19,
+          "endIndex": 24,
           "resolution": {
             "values": [
-              "Employee-45612"
+              "Development Operations"
             ]
           }
         },
         {
-          "entity": "z - 2345",
-          "type": "Locations::Destination",
-          "startIndex": 31,
-          "endIndex": 36,
-          "score": 0.9690751
-        },
-        {
-          "entity": "a - 1234",
-          "type": "Locations::Origin",
-          "startIndex": 21,
-          "endIndex": 26,
-          "score": 0.9713137
-        },
-        {
-          "entity": "-1234",
-          "type": "builtin.number",
-          "startIndex": 22,
-          "endIndex": 26,
-          "resolution": {
-            "value": "-1234"
-          }
-        },
-        {
-          "entity": "-2345",
-          "type": "builtin.number",
-          "startIndex": 32,
-          "endIndex": 36,
-          "resolution": {
-            "value": "-2345"
-          }
-        },
-        {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 47,
-          "endIndex": 47,
-          "resolution": {
-            "value": "3"
-          }
-        },
-        {
-          "entity": "2",
-          "type": "builtin.number",
-          "startIndex": 50,
-          "endIndex": 50,
-          "resolution": {
-            "value": "2"
-          }
-        },
-        {
-          "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-          "type": "RequestEmployeeMove",
+          "entity": "jill jones to devops",
+          "type": "TransferEmployeeInfo",
           "startIndex": 5,
-          "endIndex": 54,
-          "score": 0.4027723
+          "endIndex": 24,
+          "score": 0.9607566
         }
       ],
       "compositeEntities": [
         {
-          "parentType": "RequestEmployeeMove",
-          "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "parentType": "TransferEmployeeInfo",
+          "value": "jill jones to devops",
           "children": [
             {
-              "type": "builtin.datetimeV2.datetime",
-              "value": "march 3 2 p.m"
-            },
-            {
-              "type": "Locations::Destination",
-              "value": "z - 2345"
-            },
-            {
-              "type": "Employee",
+              "type": "builtin.personName",
               "value": "jill jones"
             },
             {
-              "type": "Locations::Origin",
-              "value": "a - 1234"
+              "type": "Department",
+              "value": "devops"
             }
           ]
         }
@@ -333,6 +187,15 @@ I dati estratti dall'endpoint devono contenere tali informazioni e restituirle n
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>Informazioni correlate
+
+* [Esercitazione per l'entità List (Elenco)](luis-quickstart-intents-only.md)
+* Informazioni concettuali sull'[entità composita](luis-concept-entity-types.md)
+* [Come eseguire il training](luis-how-to-train.md)
+* [Come eseguire la pubblicazione](luis-how-to-publish-app.md)
+* [Come testare nel portale LUIS](luis-interactive-test.md)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 371fa639b2edc300e44cc495393e89c9fce9c4bf
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966739"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580859"
 ---
-# <a name="generating-thumbnails"></a>Generazione di anteprime
+# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generazione di anteprime con ritaglio intelligente con Visione artificiale
 
 Un'immagine di anteprima è una rappresentazione di dimensioni ridotte di un'immagine. Le anteprime vengono usate per rappresentare le immagini e altri dati in modo più conveniente e con un layout più facile. L'API Visione artificiale usa il ritaglio intelligente, insieme al ridimensionamento dell'immagine, per creare anteprime intuitive per una determinata immagine.
 
@@ -42,9 +43,9 @@ La tabella seguente illustra anteprime tipiche generate da Visione artificiale p
 
 | Image | Immagine di anteprima |
 |-------|-----------|
-|![Panorama montano](./Images/mountain_vista.png) | ![Anteprima di panorama montano](./Images/mountain_vista_thumbnail.png) |
-|![Fiore - Analisi visione](./Images/flower.png) | ![Anteprima di fiore - Analisi visione](./Images/flower_thumbnail.png) |
-|![Donna su un tetto](./Images/woman_roof.png) | ![Anteprima di donna sul tetto](./Images/woman_roof_thumbnail.png) |
+|![Persona in piedi su una roccia al tramonto](./Images/mountain_vista.png) | ![Anteprima di panorama montano](./Images/mountain_vista_thumbnail.png) |
+|![Fiore bianco su sfondo verde](./Images/flower.png) | ![Anteprima di fiore - Analisi visione](./Images/flower_thumbnail.png) |
+|![Donna sul tetto di un edificio](./Images/woman_roof.png) | ![Anteprima di donna sul tetto](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

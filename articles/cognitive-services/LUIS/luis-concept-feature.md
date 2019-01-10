@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2d6f7e2fd332e1687db1564befeb6f531045c5dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271386"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993065"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Funzionalità di elenco di frasi nell'app LUIS
 
@@ -29,6 +29,10 @@ Un elenco di frasi comprende un gruppo di valori (parole o frasi) che appartengo
 
 Viene integrato un elenco di frasi al vocabolario del dominio dell'applicazione come secondo segnale di LUIS in merito a tali parole.
 
+## <a name="phrase-lists-help-all-models"></a>Gli elenchi di frasi sono utili per tutti i modelli
+
+Gli elenchi di frasi non sono collegati a una finalità o a un'entità specifica, ma vengono aggiunti come strumento di ottimizzazione per tutti i modelli. Il loro scopo è migliorare il rilevamento delle finalità e la classificazione delle entità.
+
 ## <a name="how-to-use-phrase-lists"></a>Come usare gli elenchi di frasi
 Nell'[esercitazione sulle entità semplici](luis-quickstart-primary-and-secondary-data.md) dell'app per la gestione delle risorse umane, l'app usa un elenco di frasi denominato **Job** che include tipi di mansioni, ad esempio programmatore, costruttore di tetti e segretaria. Se si etichetta uno di questi valori come entità basata su Machine Learning, LUIS impara a riconoscere gli altri valori. 
 
@@ -40,6 +44,7 @@ Un elenco di frasi può essere intercambiabile o non intercambiabile. Un elenco 
 |Non intercambiabile|Vocabolario dell'app, specifico per l'app più di altre parole in generale in tale lingua.|
 
 Gli elenchi di frasi non solo sono utili per il rilevamento delle entità ma anche per la classificazione delle finalità nei casi in cui la caratteristica non intercambiabile è appropriata, come l'aggiunta di parole del vocabolario non note nella lingua inglese.
+
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

@@ -1,7 +1,7 @@
 ---
 title: Descrizione delle immagini - Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Concetti relativi alla descrizione delle immagini tramite l'API Visione artificiale.
+description: Concetti relativi alla funzione di descrizione dell'immagine dell'API Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 423d1be57bc800108a08a81b72587ca2711bbc3d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 5b920e4ce8df131b81a9ef6ce2d66c7082d8f5e4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342416"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583409"
 ---
-# <a name="describing-images"></a>Descrizione delle immagini
+# <a name="describe-images-with-human-readable-language"></a>Descrivere le immagini con un linguaggio leggibile dall'utente
 
 Gli algoritmi di Visione artificiale analizzano il contenuto in un'immagine. Tale analisi costituisce la base per una descrizione visualizzata come linguaggio leggibile dall'utente in frasi complete. La descrizione riepiloga gli elementi trovati nell'immagine. Gli algoritmi di Visione artificiale generano descrizioni diverse in base alle caratteristiche visive identificate nell'immagine. Tutte le descrizioni vengono valutate e per ognuna viene generato un punteggio di attendibilità. Viene quindi restituito un elenco dei punteggi di attendibilità in ordine decrescente.
 
@@ -25,7 +26,7 @@ Gli algoritmi di Visione artificiale analizzano il contenuto in un'immagine. Tal
 
 La risposta JSON seguente illustra le informazioni restituite da Visione artificiale quando descrive l'immagine di esempio in base alle caratteristiche visive rilevate.
 
-![Edifici in bianco e nero](./Images/bw_buildings.png)
+![Immagine in bianco e nero di edifici di Manhattan](./Images/bw_buildings.png)
 
 ```json
 {

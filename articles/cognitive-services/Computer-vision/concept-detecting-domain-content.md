@@ -1,7 +1,7 @@
 ---
-title: Rilevamento di contenuti specifici di dominio - Visione artificiale
+title: Rilevare contenuti specifici di dominio - Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Concetti relativi alla descrizione delle immagini tramite l'API Visione artificiale.
+description: Informazioni su come specificare un dominio di classificazione delle immagini per restituire informazioni più dettagliate su un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: a9c71fa7e5d86cfeb4fe6fab44bbce241546ccb8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 50942634bd50974453c242d1980db9fc589bd47e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342559"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579210"
 ---
 # <a name="detecting-domain-specific-content"></a>Rilevamento di contenuti specifici del dominio
 

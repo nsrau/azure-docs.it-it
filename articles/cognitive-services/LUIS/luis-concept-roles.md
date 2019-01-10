@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: dd11c2c7062d09c522c46770e8dba6d6eb0ac1e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cb155486365ffa1beb4657e2d9cc56fcf143b624
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105565"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547746"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Nei criteri, i ruoli di entità sono sottotipi contestuali
 I ruoli sono sottotipi contestuali denominati di un'entità utilizzati solo nei [criteri](luis-concept-patterns.md).
@@ -45,6 +45,16 @@ L'entità e il ruolo sono racchiusi tra parentesi, `{}`. L'entità e il ruolo so
 
 
 [!INCLUDE [H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+
+## <a name="example-role-for-entities"></a>Ruolo di esempio per le entità
+
+Un ruolo è semplicemente la posizione appresa in base al contesto di un'entità all'interno di un'espressione. È più efficace quando l'espressione include più di un'entità di tale tipo. L'esempio più semplice per qualsiasi tipo di entità è la possibilità di distinguere tra posizione di origine e posizione di destinazione. La posizione può essere rappresentata in molti tipi di entità diversi. 
+
+Un caso d'uso di esempio è lo spostamento di un dipendente da un reparto a un altro, in cui ogni reparto è un elemento in un elenco. Ad esempio:  
+
+`Move [PersonName] from [Department:from] to [Department:to]`. 
+
+Nella stima risultante verranno restituite entrambe le entità reparto nella risposta JSON e ognuna includerà il nome del ruolo. 
 
 ## <a name="roles-with-prebuilt-entities"></a>Ruoli con entità predefinite
 

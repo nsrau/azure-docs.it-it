@@ -1,7 +1,7 @@
 ---
 title: Rilevamento dei tipi di immagine - Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Concetti relativi al rilevamento dei tipi di immagine tramite l'API Visione artificiale.
+description: Concetti relativi alla funzione di rilevamento del tipo di immagine dell'API Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: ecdbdd60af41ee14070f2f45dfe50875e38ac3b3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 04062d5625126712c5f14c41d610d55caf4c28b5
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342007"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583103"
 ---
-# <a name="detecting-image-types"></a>Rilevamento dei tipi di immagine
+# <a name="detecting-image-types-with-computer-vision"></a>Rilevamento dei tipi di immagine con Visione artificiale
 
 Visione artificiale può analizzare il tipo di contenuto delle immagini e indicare se un'immagine è un elemento grafico ClipArt, valutando l'attendibilità di tale identificazione su una scala, oppure se è un disegno di linee.
 
@@ -36,7 +37,7 @@ Visione artificiale analizza un'immagine e valuta l'attendibilità dell'identifi
 
 Le risposte JSON seguenti illustrano le informazioni restituite da Visione artificiale quando valuta l'attendibilità dell'identificazione delle immagini di esempio come ClipArt.
 
-![ClipArt formaggio - Analisi visione](./Images/cheese_clipart.png)
+![Immagine clip art di una fetta di formaggio](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -53,7 +54,7 @@ Le risposte JSON seguenti illustrano le informazioni restituite da Visione artif
 }
 ```
 
-![Casa con giardino - Analisi visione](./Images/house_yard.png)
+![Casa azzurra con giardino](./Images/house_yard.png)
 
 ```json
 {
@@ -78,7 +79,7 @@ Visione artificiale analizza un'immagine e restituisce un valore booleano che in
 
 Le risposte JSON seguenti illustrano le informazioni restituite da Visione artificiale quando indica se le immagini di esempio sono disegni di linee.
 
-![Disegno di leone - Analisi visione](./Images/lion_drawing.png)
+![Disegno di un leone](./Images/lion_drawing.png)
 
 ```json
 {
@@ -95,7 +96,7 @@ Le risposte JSON seguenti illustrano le informazioni restituite da Visione artif
 }
 ```
 
-![Fiore - Analisi visione](./Images/flower.png)
+![Fiore bianco su sfondo verde](./Images/flower.png)
 
 ```json
 {

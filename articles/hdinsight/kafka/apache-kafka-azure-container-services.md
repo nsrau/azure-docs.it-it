@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 569030cc6d72d206411a73703ec0d359e033bef7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b8995436677c195317b9ac304fe8c52cc2fcfc80
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311671"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602070"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usare il servizio Azure Kubernetes con Apache Kafka in HDInsight
 
@@ -22,7 +22,7 @@ Informazioni su come usare il servizio Azure Kubernetes con [Apache Kafka](https
 
 [Apache Kafka](https://kafka.apache.org) è una piattaforma di streaming open source distribuita che può essere usata per compilare applicazioni e pipeline di dati in streaming in tempo reale. Azure Kubernetes Service gestisce l'ambiente Kubernetes ospitato e semplifica e velocizza la distribuzione delle applicazioni in contenitori. Usando una rete virtuale di Azure, è possibile connettere i due servizi.
 
-> [!NOTE]
+> [!NOTE]  
 > Questo documento è incentrato sui passaggi necessari per consentire ad Azure Kubernetes Service di comunicare con Kafka in HDInsight. L'esempio in sé è solo un client Kafka di base con cui si dimostra che la configurazione funziona.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -49,7 +49,7 @@ Il diagramma seguente illustra la topologia di rete usata in questo documento:
 
 ![HDInsight in una rete virtuale, il servizio contenitore di Azure in un'altra e le reti connesse tramite peering](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Poiché la risoluzione dei nomi non è abilitata tra le reti con peering, vengono usati gli indirizzi IP. Per impostazione predefinita, Kafka in HDInsight è configurato per restituire i nomi host invece degli indirizzi IP quando i client si connettono. I passaggi illustrati in questo documento modificano Kafka per poter usare invece la pubblicità IP.
 
 ## <a name="create-an-azure-kubernetes-service-aks"></a>Creare un'istanza di Azure Kubernetes Service (AKS)
@@ -59,7 +59,7 @@ Se non si ha già un cluster del servizio contenitore di Azure, vedere uno dei d
 * [Distribuire un cluster Azure Kubernetes Service (AKS) - Portale](../../aks/kubernetes-walkthrough-portal.md)
 * [Distribuire un cluster Azure Kubernetes Service (AKS) - Interfaccia della riga di comando](../../aks/kubernetes-walkthrough.md)
 
-> [!NOTE]
+> [!NOTE]  
 > Il servizio contenitore di Azure crea una rete virtuale durante l'installazione. Viene eseguito il peering di questa rete a quella creata per HDInsight nella sezione successiva.
 
 ## <a name="configure-virtual-network-peering"></a>Configurare il peering reti virtuali
@@ -72,7 +72,7 @@ Se non si ha già un cluster del servizio contenitore di Azure, vedere uno dei d
 
 4. Per creare una rete virtuale per HDInsight, selezionare __+ Crea una risorsa__, __Rete__ e quindi __Rete virtuale__.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Quando si immettono i valori per la nuova rete virtuale, è necessario usare uno spazio indirizzi che non si sovrapponga a quello usato dalla rete di cluster del servizio contenitore di Azure.
 
     Usare per la rete virtuale la stessa __posizione__ usata per il cluster del servizio contenitore di Azure.
@@ -82,7 +82,7 @@ Se non si ha già un cluster del servizio contenitore di Azure, vedere uno dei d
 5. Per configurare il peering tra la rete di HDInsight e la rete di cluster del servizio contenitore di Azure, selezionare la rete virtuale e quindi selezionare __Peer__. Selezionare __+ Aggiungi__ e usare i valori seguenti per popolare il modulo:
 
     * __Nome__: immettere un nome univoco per questa configurazione peering.
-    * __Rete virtuale__: usare questo campo per selezionare la rete di cluster per il **cluster del servizio contenitore di Azure**.
+    * __Rete virtuale__: usare questo campo per selezionare la rete di cluster per il **cluster del servizio Azure Kubernetes**.
 
     Lasciare tutti gli altri campi impostati sul valore predefinito, quindi fare clic su __OK__ per configurare il peering.
 
@@ -95,9 +95,9 @@ Se non si ha già un cluster del servizio contenitore di Azure, vedere uno dei d
 
 ## <a name="install-apache-kafka-on-hdinsight"></a>Installare Apache Kafka in HDInsight
 
-Quando si crea il cluster Kafka in HDInsight, è necessario accedere alla rete virtuale creata prima per HDInsight. Per altre informazioni sulla creazione di un cluster Kafka, vedere il documento [Creare un cluster Kafka](apache-kafka-get-started.md).
+Quando si crea il cluster Kafka in HDInsight, è necessario accedere alla rete virtuale creata prima per HDInsight. Per altre informazioni sulla creazione di un cluster Kafka, vedere il documento [Creare un cluster Apache Kafka](apache-kafka-get-started.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Quando si crea il cluster, è necessario usare le __impostazioni avanzate__ per accedere alla rete virtuale creata per HDInsight.
 
 ## <a name="configure-apache-kafka-ip-advertising"></a>Configurare la pubblicità IP di Apache Kafka
@@ -169,7 +169,7 @@ A questo punto, Kafka ed Azure Kubernetes Service sono in comunicazione tramite 
     docker build -t kafka-aks-test .
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > I pacchetti necessari per questa applicazione vengono archiviati nel repository, quindi non è necessario usare l'utilità `npm` per installarli.
 
 5. Accedere al Registro contenitori di Azure e trovare il nome loginServer:
@@ -179,7 +179,7 @@ A questo punto, Kafka ed Azure Kubernetes Service sono in comunicazione tramite 
     az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Se non si conosce il nome del Registro contenitori di Azure o non si ha familiarità con l'uso dell'interfaccia della riga di comando di Azure per interagire con Azure Kubernetes Service, vedere le [esercitazioni su AKS](../../aks/tutorial-kubernetes-prepare-app.md).
 
 6. Contrassegnare l'immagine `kafka-aks-test` locale con il server di accesso del Registro contenitori di Azure. Aggiungere anche `:v1` alla fine per indicare la versione dell'immagine:
@@ -217,7 +217,7 @@ A questo punto, Kafka ed Azure Kubernetes Service sono in comunicazione tramite 
 
 12. Immettere il testo nel campo e quindi selezionare il pulsante __Send__ (Invia). I dati vengono inviati a Kafka. Il consumer Kafka nell'applicazione legge quindi il messaggio e lo aggiunge alla sezione __Messages from Kafka__ (Messaggi da Kafka).
 
-    > [!WARNING]
+    > [!WARNING]  
     > È possibile ricevere più copie di un messaggio. Questo problema si verifica in genere quando si aggiorna il browser dopo la connessione o quando si aprono più connessioni tramite browser all'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
