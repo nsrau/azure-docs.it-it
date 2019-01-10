@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d3ae15193b5e2d759825e60f880dea4355329837
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fca763d04cc8cbf22d1578b18d504ec3ce9656d9
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407052"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993026"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Risolvere i problemi di HDFS di Apache Hadoop usando Azure HDInsight
 
@@ -23,7 +23,7 @@ Informazioni sui problemi principali che possono verificarsi quando si usano i p
 
 ### <a name="issue"></a>Problema
 
-Accedere al sistema HDFS locale dalla riga di comando e dal codice dell'applicazione invece di usare l'archiviazione BLOB di Azure o Azure Data Lake Store dall'interno del cluster HDInsight.   
+Accedere al sistema HDFS locale dalla riga di comando e dal codice dell'applicazione anziché usare l'archiviazione BLOB di Azure o Azure Data Lake Storage dall'interno del cluster HDInsight.   
 
 ### <a name="resolution-steps"></a>Procedura per la risoluzione
 

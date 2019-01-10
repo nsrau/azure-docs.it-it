@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 7af56c7770de7eef0fcf33b2c29f02d3b9fe7170
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3b5b11b148910e9bd1348b20a25fa8383fc2ec9c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624312"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974676"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Gestire Azure Data Lake Analytics tramite Azure SDK per Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -23,7 +22,7 @@ ms.locfileid: "34624312"
 Questo articolo descrive come gestire account, origini dati, processi e utenti di Azure Data Lake Analytics usando un'app scritta con Azure SDK per Node.js. 
 
 Sono supportate le versioni seguenti:
-* **Versione di Node.js: 0.10.0 o successiva**
+* **Versione di Node.js: 0.10.0 o superiore**
 * **Versione dell'API REST per l'account: 2015-10-01-preview**
 * **Versione dell'API REST per il catalogo: 2015-10-01-preview**
 * **Versione dell'API REST per il processo: 2016-03-20-preview**
@@ -50,7 +49,7 @@ npm install azure-arm-datalake-analytics
 ## <a name="create-the-data-lake-analytics-client"></a>Creare il client di Analisi Data Lake
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
-var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
+var accountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
 var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azuredatalakeanalytics.net');
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```
