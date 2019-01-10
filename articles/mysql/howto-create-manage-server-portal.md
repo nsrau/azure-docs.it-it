@@ -1,20 +1,17 @@
 ---
 title: Creare e gestire Database di Azure per il server MySQL con il portale di Azure
 description: Questo articolo descrive come creare rapidamente una nuova istanza di Database di Azure per il server MySQL e gestire il server con il portale di Azure.
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 065eb708a1d80b0eac618bd9039a859db6ef1340
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 39ffe1b71fb002658110c63c825e0515f38e2b9e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265585"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537325"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Creare e gestire Database di Azure per il server MySQL con il portale di Azure
 Questo argomento descrive come creare rapidamente una nuova istanza di Database di Azure per il server MySQL. Include anche informazioni sulla gestione del server tramite il portale di Azure. La gestione del server include la visualizzazione di database e dettagli del server, la reimpostazione della password, il ridimensionamento delle risorse e l'eliminazione del server.
@@ -22,7 +19,7 @@ Questo argomento descrive come creare rapidamente una nuova istanza di Database 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 Accedere al [Portale di Azure](https://portal.azure.com).
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Creare un'istanza di Database di Azure per il server MySQL
+## <a name="create-an-azure-database-for-mysql-server"></a>Creare un server Database di Azure per MySQL
 Seguire questa procedura per creare un server di Database di Azure per MySQL denominato "mydemoserver".
 
 1. Fare clic sul pulsante **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
@@ -37,14 +34,14 @@ Seguire questa procedura per creare un server di Database di Azure per MySQL den
 
     | **Campo modulo** | **Descrizione campo** |
     |----------------|-----------------------|
-    | *Server name* (Nome server) | mydemoserver (il nome server è univoco a livello globale) |
+    | *Nome server* | mydemoserver (il nome server è univoco a livello globale) |
     | *Sottoscrizione* | mysubscription (selezionare la voce dal menu a discesa) |
     | *Gruppo di risorse* | myresourcegroup (creare un nuovo gruppo di risorse o usarne uno esistente) |
-    | *Select source* (Seleziona origine) | Vuoto (creare un server MySQL vuoto) |
+    | *Seleziona origine* | Vuoto (creare un server MySQL vuoto) |
     | *Accesso amministratore server* | myadmin (configurare il nome dell'account amministratore) |
     | *Password* | Definire la password dell'account amministratore |
     | *Conferma password* | Confermare la password dell'account amministratore |
-    | *Località* | Asia sud-orientale (scegliere tra Europa settentrionale e Stati Uniti occidentali) |
+    | *Posizione* | Asia sud-orientale (scegliere tra Europa settentrionale e Stati Uniti occidentali) |
     | *Versione* | 5.7 (scegliere la versione del server di Database di Azure per MySQL) |
 
 4. Fare clic su **Piano tariffario** per specificare il livello di servizio e il livello delle prestazioni per il nuovo server. Selezionare la scheda **Utilizzo generico**. *Generazione 4*, *2 vCore*, *5 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo**, **vCore**, **Archiviazione** e **Periodo di conservazione backup**. È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**.
@@ -113,4 +110,4 @@ Fare clic su **Proprietà** in **Impostazioni** per visualizzare informazioni de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Guida introduttiva: Creare Database di Azure per il server MySQL con il portale di Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
+[Avvio rapido: Creare un server Database di Azure per MySQL usando il portale di Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)

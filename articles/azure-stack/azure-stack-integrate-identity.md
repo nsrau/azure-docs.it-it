@@ -10,12 +10,12 @@ ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 07f77a8390edcde1128a7381a54d622611637d78
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118303"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188897"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
 È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -278,7 +278,7 @@ Se si decide di eseguire manualmente i comandi, seguire questa procedura:
    > [!IMPORTANT]  
    > Configurare le regole di autorizzazione rilascio quando si usa Windows Server 2012 o 2012 R2 AD ADFS, è necessario utilizzare lo snap-in MMC di AD FS.
 
-4. Quando si utilizza Internet Explorer o il browser Microsoft Edge per accedere allo Stack di Azure, è necessario ignorare associazioni dei token. In caso contrario, i tentativi di accesso esito negativo. L'istanza di AD FS o un membro di farm, eseguire il comando seguente:
+4. Quando si usa il browser Microsoft Edge o Internet Explorer per accedere a Azure Stack, è necessario ignorare associazioni dei token. In caso contrario, i tentativi di accesso esito negativo. L'istanza di AD FS o un membro di farm, eseguire il comando seguente:
 
    > [!note]  
    > Questo passaggio non è applicabile quando si usa Windows Server 2012 o 2012 R2 AD ADFS. È possibile ignorare questo comando e continuare con l'integrazione.

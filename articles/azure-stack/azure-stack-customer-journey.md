@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
-ms.openlocfilehash: db33deaa9bb0bf9a4c3f766fbae883df4075c431
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 554fd9c32c9831d45a40c62a871e3a8d5f8d7cb9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323372"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191752"
 ---
-# <a name="azure-stack-customer-journey"></a>Passaggio del cliente Azure Stack
+# <a name="azure-stack-datacenter-integration"></a>Integrazione di Data Center di Azure Stack
 
 Questo articolo descrive l'esperienza dei clienti di Azure Stack end-to-end dall'acquisto di una soluzione integrata tramite per una corretta distribuzione sul posto da un provider di soluzioni. Usare queste informazioni per facilitare il tuo viaggio e per consentire di impostare le aspettative su ciò che è, come cliente di Azure Stack, deve prevedere quando l'integrazione di Azure Stack nel tuo Data Center.
 

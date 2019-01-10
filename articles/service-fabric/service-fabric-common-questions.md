@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164645"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537629"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
 
@@ -56,7 +56,7 @@ Per i cluster NON eseguiti in Azure è stata [fornita un'applicazione](service-f
 
 **Risposta breve**: no. 
 
-**Risposta lunga**: anche se con i set di scalabilità di macchine virtuali di grandi dimensioni è possibile arrivare fino a 1.000 istanze di VM, per farlo è necessario usare i gruppi di posizionamento. I domini di errore e i domini di aggiornamento sono coerenti solo in un gruppo di posizionamento. Service Fabric usa i domini di errore e i domini di aggiornamento per prendere decisioni relative al posizionamento delle repliche del servizio/istanze del servizio. Poiché i domini di errore e i domini di aggiornamento sono confrontabili solo in un gruppo di posizionamento, Service Fabric non può usarli. Se, ad esempio, VM1 nel gruppo di posizionamento 1 ha una topologia di domini di errore 0 e VM9 nel gruppo di posizionamento 2 ha una topologia di domini di errore 4, non significa che VM1 e VM2 siano in due diversi rack hardware, quindi Service Fabric in questo caso non può usare i valori dei domini di errore per prendere decisioni relative al posizionamento.
+**Risposta lunga**: anche se con i set di scalabilità di macchine virtuali di grandi dimensioni è possibile arrivare fino a 1000 istanze di macchine virtuali, per farlo è necessario usare i gruppi di posizionamento. I domini di errore e i domini di aggiornamento sono coerenti solo in un gruppo di posizionamento. Service Fabric usa i domini di errore e i domini di aggiornamento per prendere decisioni relative al posizionamento delle repliche del servizio/istanze del servizio. Poiché i domini di errore e i domini di aggiornamento sono confrontabili solo in un gruppo di posizionamento, Service Fabric non può usarli. Se, ad esempio, VM1 nel gruppo di posizionamento 1 ha una topologia di domini di errore 0 e VM9 nel gruppo di posizionamento 2 ha una topologia di domini di errore 4, non significa che VM1 e VM2 siano in due diversi rack hardware, quindi Service Fabric in questo caso non può usare i valori dei domini di errore per prendere decisioni relative al posizionamento.
 
 I set di scalabilità di macchine virtuali di grandi dimensioni attualmente presentano altri problemi, ad esempio la mancanza di supporto per il bilanciamento del carico di livello 4. Per altre informazioni, vedere i [dettagli sui set di scalabilità di grandi dimensioni](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
@@ -64,9 +64,16 @@ I set di scalabilità di macchine virtuali di grandi dimensioni attualmente pres
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Qual è la dimensione minima di un cluster di Service Fabric? Perché non può essere di dimensioni minori?
 
-La dimensione minima supportata per un cluster di Service Fabric che esegue carichi di lavoro di produzione è di cinque nodi. Per scenari di sviluppo e test, sono supportati cluster a tre nodi.
+La dimensione minima supportata per un cluster di Service Fabric che esegue carichi di lavoro di produzione è di cinque nodi. Per gli scenari di sviluppo, sono supportati cluster a un nodo (ottimizzati per un'esperienza di sviluppo rapido in Visual Studio) e cluster a cinque nodi.
 
-Queste dimensioni minime esistono poiché il cluster di Service Fabric esegue un set di servizi di sistema con stato, inclusi il servizio di denominazione e la gestione del failover. Questi servizi, che tengono traccia di quali sono stati distribuiti nel cluster e dove sono attualmente ospitati, dipendono da una coerenza elevata. Tale coerenza elevata, a sua volta, dipende dalla possibilità di acquisire un *quorum* per qualsiasi aggiornamento specifico per lo stato di tali servizi, dove per quorum si intende una stretta maggioranza delle repliche (N/2 + 1) per un determinato servizio.
+Un cluster di produzione deve avere almeno cinque nodi per i tre motivi seguenti:
+1. Anche quando nessun servizio utente è in esecuzione, un cluster di Service Fabric esegue un set di servizi di sistema con stato, inclusi il servizio di denominazione e il servizio di gestione del failover. Questi servizi di sistema sono essenziali per garantire l'operatività del cluster.
+2. Viene sempre configurata una sola replica di un servizio per ogni nodo, in modo che la dimensione del cluster costituisca il limite massimo per il numero di repliche che può avere un servizio, ovvero una partizione.
+3. Poiché l'aggiornamento di un cluster comporta l'arresto di almeno un nodo, è necessario avere almeno un nodo di riserva. Un cluster di produzione deve quindi avere almeno due nodi *in aggiunta* al numero minimo. Il numero minimo è definito dalla dimensione del quorum di un servizio di sistema, come illustrato di seguito.  
+
+L'obiettivo è che il cluster sia disponibile in caso di errore simultaneo di due nodi. Affinché un cluster di Service Fabric sia disponibile, è necessario che lo siano anche i servizi di sistema. I servizi di sistema con stato, ad esempio il servizio di denominazione e il servizio di gestione del failover, che tengono traccia dei servizi distribuiti nel cluster e della posizione in cui sono attualmente ospitati, dipendono da una coerenza elevata. Tale coerenza elevata, a sua volta, dipende dalla possibilità di acquisire un *quorum* per qualsiasi aggiornamento specifico per lo stato di tali servizi, dove per quorum si intende una stretta maggioranza delle repliche (N/2 + 1) per un determinato servizio. Pertanto, per garantire resilienza in caso di perdita simultanea di due nodi, ovvero perdita simultanea di due repliche di un servizio di sistema, è necessario avere ClusterSize - QuorumSize >= 2, il che richiede una dimensione minima di cinque nodi. Per una dimostrazione di questo concetto, tenere presente che il cluster ha N nodi e che sono presenti N repliche di un servizio di sistema: una in ogni nodo. La dimensione del quorum per un servizio di sistema è (N/2 + 1). La disuguaglianza precedente sarà simile a N - (N/2 + 1) >= 2. È necessario considerare due casi: quando N è pari e quando N è dispari. Se N è pari, ad esempio N = 2\*m, dove m >= 1, la disuguaglianza sarà 2\*m - (2\*m/2 + 1) >= 2 o m >= 3. Il valore minimo per N è 6, che si ottiene quando m = 3. Se invece N è dispari, ovvero N = 2\*m + 1, dove m >= 1, la disuguaglianza sarà 2\*m + 1 - ((2\*m + 1)/2 + 1) >= 2 o 2\*m + 1 - (m + 1) >= 2 o m >= 2. Il valore minimo per N è 5, che si ottiene quando m = 2. Pertanto, fra tutti i valori di N che soddisfano la disuguaglianza ClusterSize - QuorumSize >= 2, il valore minimo è 5.
+
+Si noti che nel ragionamento precedente si è presupposto che ogni nodo abbia una replica di un servizio di sistema e pertanto la dimensione del quorum viene calcolata in base al numero di nodi nel cluster. Se tuttavia si modifica *TargetReplicaSetSize*, è possibile rendere la dimensione del quorum minore di (N/2+1). Sembrerebbe quindi possibile avere un cluster inferiore a 5 nodi e avere comunque 2 nodi in più rispetto alla dimensione del quorum. In un cluster a 4 nodi, ad esempio, se si imposta TargetReplicaSetSize su 3, la dimensione del quorum in base a TargetReplicaSetSize è (3/2 + 1) o 2 e pertanto la disuguaglianza è CluserSize - QuorumSize = 4-2 > = 2. Non è tuttavia possibile garantire che il servizio di sistema abbia una dimensione uguale o superiore al quorum se si perde una coppia di nodi nello stesso momento. Se ad esempio i due nodi persi ospitavano due repliche, il servizio di sistema subirà una perdita a livello di quorum (poiché rimarrà una sola replica) e non risulterà più disponibile.
 
 Detto questo, esaminiamo alcune possibili configurazioni di cluster:
 
@@ -74,9 +81,13 @@ Detto questo, esaminiamo alcune possibili configurazioni di cluster:
 
 **Due nodi**: un quorum per un servizio distribuito tra due nodi (N = 2) è 2 (2/2 + 1 = 2). Se viene persa una singola replica, è impossibile creare un quorum. Dato che per aggiornare un servizio è necessario portare temporaneamente offline una replica, questa non è una configurazione utile.
 
-**Tre nodi**: con tre nodi (N = 3), è comunque necessario creare un quorum di duo nodi (3/2 + 1 = 2). Ciò significa che è possibile perdere un singolo nodo e mantenere comunque il quorum.
+**Tre nodi**: con tre nodi (N = 3), è comunque necessario creare un quorum di due nodi (3/2 + 1 = 2). È pertanto possibile perdere un singolo nodo e mantenere comunque il quorum, ma un errore simultaneo di due nodi determinerà la perdita di quorum dei servizi di sistema e renderà il cluster non disponibile.
 
-La configurazione del cluster a tre nodi è supportata per gli scenari di sviluppo e test perché è possibile eseguire aggiornamenti in sicurezza e i guasti ai nodi individuali non rappresentano un rischio elevato, purché che non si verifichino contemporaneamente. Per i carichi di lavoro di produzione, è necessario disporre di una maggiore resilienza a tali guasti simultanei, pertanto sono richiesti cinque nodi.
+**Quattro nodi**: con quattro nodi (N = 4), è necessario creare un quorum di tre nodi (4/2 + 1 = 3). È pertanto possibile perdere un singolo nodo e mantenere comunque il quorum, ma un errore simultaneo di due nodi determinerà la perdita di quorum dei servizi di sistema e renderà il cluster non disponibile.
+
+**Cinque nodi**: con cinque nodi (N = 5), è comunque necessario creare un quorum di tre nodi (5/2 + 1 = 3). Ciò significa che è possibile perdere due nodi nello stesso momento e mantenere comunque il quorum per i servizi di sistema.
+
+Per i carichi di lavoro di produzione, è necessario garantire resilienza in caso di errori simultanei di almeno due nodi (ad esempio, un errore per un aggiornamento del cluster e uno per altri motivi) e sono pertanto necessari cinque nodi.
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>È possibile disattivare il cluster di notte o nei fine settimana per ridurre i costi?
 
@@ -93,7 +104,7 @@ Mentre Microsoft sviluppa un'esperienza migliorata oggi l'utente è responsabile
 Sì.  Per altre informazioni, vedere l'articolo [Creare un cluster di Service Fabric con dischi dati collegati](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) e gli articoli relativi a come [crittografare i dischi (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) e [crittografare i dischi (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>È possibile usare macchine virtuali con priorità bassa in un tipo di nodo del cluster (set di scalabilità di macchine virtuali)?
- No. Le macchine virtuali con priorità bassa non sono supportate. 
+No. Le macchine virtuali con priorità bassa non sono supportate. 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Quali sono le directory e i processi da escludere quando si esegue un programma antivirus nel cluster?
 
