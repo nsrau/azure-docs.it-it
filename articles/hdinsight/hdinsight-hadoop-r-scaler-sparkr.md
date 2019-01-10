@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c92a55ec1d56b83457167fc2db0bd7897a447852
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386901"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974846"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Uso combinato di ScaleR e SparkR in HDInsight
 
@@ -21,7 +21,7 @@ Questo documento illustra come stimare i ritardi di arrivo dei voli usando un mo
 
 Sebbene vengano eseguiti nel motore di esecuzione di Apache Hadoop Spark, entrambi i pacchetti sono bloccati da una condivisione dei dati in memoria in quanto ognuno di essi richiede le rispettive sessioni Spark. Finché questo problema non verrà risolto in una versione futura di ML Server, la soluzione alternativa consiste nel mantenere sessioni di Spark non sovrapposte e scambiare i dati tramite file intermedi. Le istruzioni riportate di seguito mostrano che questi requisiti sono semplici da rispettare.
 
-Questo esempio è stato condiviso inizialmente in un discorso tenuto a Strata 2016 da Mario Inchiosa e Roni Burd. Il discorso è disponibile nel webinar [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Compilazione di una piattaforma Data Science scalabile con R).
+Questo esempio è stato condiviso inizialmente in un discorso tenuto a Strata 2016 da Mario Inchiosa e Roni Burd. Il discorso è disponibile nel webinar [Building a Scalable Data Science Platform with R](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Compilazione di una piattaforma Data Science scalabile con R).
 
 Il codice è stato scritto originariamente per ML Server in esecuzione in Spark in un cluster HDInsight di Azure. Tuttavia, il concetto di combinazione dell'uso di SparkR e ScaleR in un unico script è valido anche nel contesto di ambienti locali.
 
@@ -29,9 +29,9 @@ I passaggi in questo documento presuppongono un livello intermedio di conoscenza
 
 ## <a name="the-airline-and-weather-datasets"></a>Set di dati relativi alle compagnie aeree e alle previsioni meteo
 
-I dati di volo sono disponibili negli [archivi del governo statunitense](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Sono inoltre disponibili come file ZIP [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+I dati di volo sono disponibili negli [archivi del governo statunitense](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Sono inoltre disponibili come file ZIP [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-I dati meteo suddivisi per mese possono essere scaricati come file ZIP in formato non elaborato dal [repository della National Oceanic and Atmospheric Administration](http://www.ncdc.noaa.gov/orders/qclcd/). Per questo esempio, scaricare i dati per maggio 2007 - dicembre 2012. Usare i file dei dati orari e il file `YYYYMMMstation.txt` all'interno di ognuno degli ZIP. 
+I dati meteo suddivisi per mese possono essere scaricati come file ZIP in formato non elaborato dal [repository della National Oceanic and Atmospheric Administration](https://www.ncdc.noaa.gov/orders/qclcd/). Per questo esempio, scaricare i dati per maggio 2007 - dicembre 2012. Usare i file dei dati orari e il file `YYYYMMMstation.txt` all'interno di ognuno degli ZIP. 
 
 ## <a name="setting-up-the-spark-environment"></a>Configurazione dell'ambiente Spark
 
@@ -41,7 +41,7 @@ Usare il codice seguente per configurare l'ambiente Spark:
 workDir        <- '~'  
 myNameNode     <- 'default' 
 myPort         <- 0
-inputDataDir   <- 'wasb://hdfs@myAzureAcccount.blob.core.windows.net'
+inputDataDir   <- 'wasb://hdfs@myAzureAccount.blob.core.windows.net'
 hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
 # create a persistent Spark session to reduce startup times 
@@ -535,7 +535,7 @@ In questo articolo è stato illustrato come è possibile combinare l'uso di Spar
 
 ## <a name="next-steps-and-more-information"></a>Passaggi successivi e altre informazioni
 
-- Per altre informazioni sull'uso di ML Server in Apache Spark, vedere la [Guida introduttiva](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Per altre informazioni sull'uso di ML Server in Apache Spark, vedere la [Guida introduttiva](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
 - Per informazioni generali su ML Server, vedere l'articolo [Introduzione a Microsoft R Server](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node).
 
@@ -543,6 +543,6 @@ In questo articolo è stato illustrato come è possibile combinare l'uso di Spar
 
 Per altre informazioni sull'uso di SparkR, vedere:
 
-- [Documento Apache SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)
+- [Documento su Apache SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)
 
 - [Panoramica di SparkR](https://docs.databricks.com/spark/latest/sparkr/overview.html) di Databricks

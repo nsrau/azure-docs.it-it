@@ -11,16 +11,16 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: d93eadd1053cfbc88b2d0748f2f22e359694baa7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: a5f13bfa4d0e9962622565cc5ac9c80372b50123
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579652"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107685"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Esercitazione: Distribuire un modello di classificazione delle immagini in Istanze di Azure Container
 
-Questa esercitazione è la **seconda di una serie in due parti**. Nell'[esercitazione precedente](tutorial-train-models-with-aml.md), è stato eseguito il training di modelli di Machine Learning e quindi registrato un modello nell'area di lavoro sul cloud.  
+Questa esercitazione è la **seconda di una serie in due parti**. Nell'[esercitazione precedente](tutorial-train-models-with-aml.md), è stato eseguito il training di modelli di machine learning e quindi registrato un modello nell'area di lavoro sul cloud.  
 
 Si è ora pronti per distribuire il modello come servizio Web in [Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances/). Un servizio Web è un'immagine, in questo caso un'immagine Docker. Incapsula la logica di assegnazione dei punteggi e il modello stesso. 
 
@@ -33,7 +33,7 @@ In questa parte dell'esercitazione si usa il servizio Azure Machine Learning per
 > * Distribuire il modello in Istanze di Container.
 > * Testare il modello distribuito.
 
-Istanze di Container non è un servizio ideale per le distribuzioni di produzione, ma è ottimo per i test e per comprendere il flusso di lavoro. Per le distribuzioni di produzione scalabili, è consigliabile usare il servizio Azure Kubernetes. Per altre informazioni, vedere l'articolo su [come e dove eseguire la distribuzione](how-to-deploy-and-where.md).
+Le istanze di contenitore non sono ideali per le distribuzioni di produzione, ma lo sono per i test e per comprendere il flusso di lavoro. Per le distribuzioni di produzione scalabili, è consigliabile usare il servizio Azure Kubernetes. Per altre informazioni, vedere l'articolo su [come e dove eseguire la distribuzione](how-to-deploy-and-where.md).
 
 ## <a name="get-the-notebook"></a>Ottenere il notebook
 
@@ -94,7 +94,7 @@ Prima della distribuzione, assicurarsi che il modello funzioni in locale:
 * Stimare i dati di test.
 * Esaminare la matrice di confusione.
 
-### <a name="load-test-data"></a>Caricare i dati di test
+### <a name="load-test-data"></a>Dati del test di carico
 
 Caricare i dati di test dalla directory **./data/** creata durante l'esercitazione del training:
 
@@ -252,7 +252,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                description='Predict MNIST with sklearn')
 ```
 
-### <a name="deploy-in-container-instances"></a>Distribuire in Istanze di Container
+### <a name="deploy-in-container-instances"></a>Distribuire istanze di contenitore
 Il tempo stimato per completare la distribuzione è di **circa sette o otto minuti**.
 
 Configurare l'immagine e distribuire. Il codice seguente esegue questi passaggi:
@@ -260,10 +260,10 @@ Configurare l'immagine e distribuire. Il codice seguente esegue questi passaggi:
 1. Creare un'immagine usando questi file:
    * Il file di assegnazione dei punteggi, `score.py`.
    * Il file di ambiente, `myenv.yml`.
-   * Il file di modello.
+   * file di modello.
 1. Registrare l'immagine nell'area di lavoro. 
-1. Inviare l'immagine nel contenitore di Istanze di Azure Container.
-1. Avviare un contenitore in Istanze di Container usando l'immagine.
+1. Inviare l'immagine nel contenitore di istanze di Azure Container.
+1. Avviare un contenitore in Azure Container usando l'immagine.
 1. Ottenere l'endpoint HTTP del servizio Web.
 
 
@@ -342,8 +342,6 @@ plt.show()
 Questo risultato è stato ricavato da un campione casuale di immagini di test:
 
 ![Immagine che mostra i risultati](./media/tutorial-deploy-models-with-aml/results.png)
-
-![Risultati](./media/tutorial-deploy-models-with-aml/results.png)
 
 È anche possibile inviare una richiesta HTTP non elaborata per testare il servizio Web:
 

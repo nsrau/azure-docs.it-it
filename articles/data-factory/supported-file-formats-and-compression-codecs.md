@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b3498deb85b84c9c47544be1d8c3709c9fc78ae1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4c8fcc403b274d161893194109dee4bc8d0cb369
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100255"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974365"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
@@ -24,9 +24,9 @@ Per **copiare i file così come sono** tra archivi basati su file (copia binaria
 
 * [Formato testo](#text-format)
 * [Formato JSON](#json-format)
-* [Formato Avro](#avro-format)
-* [Formato ORC](#orc-format)
 * [Formato Parquet](#parquet-format)
+* [Formato ORC](#orc-format)
+* [Formato Avro](#avro-format)
 
 > [!TIP]
 > Informazioni su come l'attività di copia esegue il mapping dei dati di origine nel sink in [Mapping dello schema nell'attività di copia](copy-activity-schema-and-type-mapping.md), incluso come vengono determinati i metadati in base alle impostazioni di formato di file e suggerimenti sui casi in cui specificare la sezione [set di dati`structure`](concepts-datasets-linked-services.md#dataset-structure).
@@ -39,7 +39,7 @@ Se si vuole leggere da un file di testo o scrivere in un file di testo, impostar
 | --- | --- | --- | --- |
 | columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile usare un carattere non stampabile raro che potrebbe non esistere nei dati. Ad esempio, specificare "\u0001", che rappresenta l'inizio intestazione (SOH). |È consentito un solo carattere. Il valore **predefinito** è la **virgola (",")**. <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No  |
 | rowDelimiter |Il carattere usato per separare le righe in un file. |È consentito un solo carattere. Sono consentiti i seguenti valori **predefiniti** in lettura: **["\r\n", "\r", "\n"]** e **"\r\n"** in scrittura. |No  |
-| escapeChar |Carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Esempio: se è presente una virgola (,) come delimitatore di colonna, ma si vuole usare il carattere virgola nel testo (ad esempio "Hello, world"), è possibile definire $ come carattere di escape e usare la stringa "Hello$, world" nell'origine. |No  |
+| escapeChar |Carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Esempio: se è presente una virgola (,) come delimitatore di colonna, ma si vuole usare il carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire $ come carattere di escape e usare la stringa "Hello$, world" nell'origine. |No  |
 | quoteChar |Carattere usato per delimitare tra virgolette un valore stringa. I delimitatori di colonne e righe tra virgolette sono considerati parte del valore stringa. Questa proprietà è applicabile sia ai set di dati di input che a quelli di output.<br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. |No  |
 | nullValue |Uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **predefiniti** sono **"\N" e "NULL"** in lettura e **"\N"** in scrittura. |No  |
 | encodingName |Specificare il nome della codifica. |Un nome di codifica valido. Vedere [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No  |
@@ -91,8 +91,8 @@ Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la propr
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No  |
-| jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano i dati dai file JSON. | No  |
-| jsonPathDefinition | Specificare l'espressione del percorso JSON per ogni mapping colonne con un nome di colonna personalizzato. Iniziare con una lettera minuscola. Questa proprietà è supportata solo quando si copiano i dati dai file JSON ed è possibile estrarre i dati dall'oggetto o dalla matrice. <br/><br/> Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `jsonNodeReference`, iniziare dall'elemento matrice. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione. | No  |
+| jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano dati **da** file JSON. | No  |
+| jsonPathDefinition | Specificare l'espressione del percorso JSON per ogni mapping colonne con un nome di colonna personalizzato. Iniziare con una lettera minuscola. Questa proprietà è supportata solo quando si copiano dati **da** file JSON ed è possibile estrarre dati dall'oggetto o dalla matrice. <br/><br/> Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `jsonNodeReference`, iniziare dall'elemento matrice. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione. | No  |
 | encodingName |Specificare il nome della codifica. Per l'elenco dei nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è: **UTF-8**. |No  |
 | nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No  |
 
@@ -190,8 +190,6 @@ L'attività di copia può eseguire l'analisi dei seguenti modelli di file JSON:
 ### <a name="jsonformat-example"></a>Esempio JsonFormat
 
 **Caso 1: Copia di dati dai file JSON**
-
-Quando si copiano dati da file JSON, vedere i seguenti due esempi. Punti generali da notare:
 
 **Esempio 1: Estrarre i dati dall'oggetto e dalla matrice**
 
@@ -405,22 +403,51 @@ Il set di dati di output con il tipo **JsonFormat** è definito come segue (defi
 }
 ```
 
-## <a name="avro-format"></a>Formato AVRO
+## <a name="parquet-format"></a>Formato Parquet
 
-Per analizzare i file Avro o scrivere i dati in formato Avro, impostare la proprietà `format` `type` su **AvroFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
+Per analizzare i file Parquet o scrivere i dati in formato Parquet, impostare la proprietà `format` `type` su **ParquetFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 ```json
 "format":
 {
-    "type": "AvroFormat",
+    "type": "ParquetFormat"
 }
 ```
 
-Per usare il formato Avro in una tabella Hive, fare riferimento all' [esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+> [!IMPORTANT]
+> Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file Parquet, è necessario installare JRE 8 (Java Runtime Environment) nel computer del runtime di integrazione. Un runtime di integrazione a 64 bit richiede un JRE a 64 bit. Entrambe le versioni sono disponibili [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
+>
 
 Tenere presente quanto segue:
 
-* I [tipi di dati complessi](http://avro.apache.org/docs/current/spec.html#schema_complex) non sono supportati (record, enumerazioni, matrici, mappe, unioni e dati fissi).
+* I tipi di dati complessi non sono supportati (MAP, LIST).
+* Spazi vuoti nel nome della colonna non sono supportati.
+* Il file Parquet dispone delle opzioni relative alla compressione seguenti: NONE, SNAPPY, GZIP e LZO. Data Factory supporta la lettura dei dati dal file Parquet in uno di questi formati compressi tranne LZO. Per leggere i dati, usa il codec di compressione dei metadati. Tuttavia, durante la scrittura in un file Parquet, Data Factory sceglie SNAPPY, cioè il valore predefinito per il formato Parquet. Al momento non esiste alcuna opzione per ignorare tale comportamento.
+
+### <a name="data-type-mapping-for-parquet-files"></a>Mapping dei tipi di dati per i file Parquet
+
+| Tipo di dati provvisori di Data Factory | Tipo Parquet primitivo | Tipo Parquet originale (deserializzazione) | Tipo Parquet originale (serializzazione) |
+|:--- |:--- |:--- |:--- |
+| boolean | boolean | N/D | N/D |
+| SByte | Int32 | Int8 | Int8 |
+| Byte | Int32 | UInt8 | Int16 |
+| Int16 | Int32 | Int16 | Int16 |
+| UInt16 | Int32 | UInt16 | Int32 |
+| Int32 | Int32 | Int32 | Int32 |
+| UInt32 | Int64 | UInt32 | Int64 |
+| Int64 | Int64 | Int64 | Int64 |
+| UInt64 | Int64/Binary | UInt64 | Decimal |
+| Single | Float | N/D | N/D |
+| Double | Double | N/D | N/D |
+| Decimal | Binary | Decimal | Decimal |
+| string | Binary | Utf8 | Utf8 |
+| Datetime | Int96 | N/D | N/D |
+| Intervallo di tempo | Int96 | N/D | N/D |
+| DateTimeOffset | Int96 | N/D | N/D |
+| ByteArray | Binary | N/D | N/D |
+| Guid | Binary | Utf8 | Utf8 |
+| Char | Binary | Utf8 | Utf8 |
+| CharArray | Non supportate | N/D | N/D |
 
 ## <a name="orc-format"></a>Formato ORC
 
@@ -439,7 +466,8 @@ Per analizzare i file ORC o scrivere i dati in formato ORC, impostare la proprie
 
 Tenere presente quanto segue:
 
-* Tipi di dati complessi non sono supportati (STRUCT, MAP, LIST, UNION)
+* I tipi di dati complessi non sono supportati (STRUCT, MAP, LIST, UNION).
+* Spazi vuoti nel nome della colonna non sono supportati.
 * Il file ORC dispone di tre [opzioni relative alla compressione](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file ORC, Data Factory sceglie ZLIB che è il valore predefinito per ORC. Al momento non esiste alcuna opzione per ignorare tale comportamento.
 
 ### <a name="data-type-mapping-for-orc-files"></a>Mapping dei tipi di dati per i file ORC
@@ -466,50 +494,22 @@ Tenere presente quanto segue:
 | Guid | string |
 | Char | Char(1) |
 
-## <a name="parquet-format"></a>Formato Parquet
+## <a name="avro-format"></a>Formato AVRO
 
-Per analizzare i file Parquet o scrivere i dati in formato Parquet, impostare la proprietà `format` `type` su **ParquetFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
+Per analizzare i file Avro o scrivere i dati in formato Avro, impostare la proprietà `format` `type` su **AvroFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 ```json
 "format":
 {
-    "type": "ParquetFormat"
+    "type": "AvroFormat",
 }
 ```
 
-> [!IMPORTANT]
-> Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file Parquet, è necessario installare JRE 8 (Java Runtime Environment) nel computer del runtime di integrazione. Un runtime di integrazione a 64 bit richiede un JRE a 64 bit. Entrambe le versioni sono disponibili [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
->
+Per usare il formato Avro in una tabella Hive, fare riferimento all' [esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 Tenere presente quanto segue:
 
-* Tipi di dati complessi non sono supportati (MAP, LIST)
-* Il file Parquet dispone delle opzioni relative alla compressione seguenti: NONE, SNAPPY, GZIP e LZO. Data Factory supporta la lettura dei dati dal file Parquet in uno di questi formati compressi. Per la lettura dei dati usa il codec di compressione nei metadati. Tuttavia, durante la scrittura in un file Parquet, Data Factory sceglie SNAPPY, cioè il valore predefinito per il formato Parquet. Al momento non esiste alcuna opzione per ignorare tale comportamento.
-
-### <a name="data-type-mapping-for-parquet-files"></a>Mapping dei tipi di dati per i file Parquet
-
-| Tipo di dati provvisori di Data Factory | Tipo Parquet primitivo | Tipo Parquet originale (deserializzazione) | Tipo Parquet originale (serializzazione) |
-|:--- |:--- |:--- |:--- |
-| boolean | boolean | N/D | N/D |
-| SByte | Int32 | Int8 | Int8 |
-| Byte | Int32 | UInt8 | Int16 |
-| Int16 | Int32 | Int16 | Int16 |
-| UInt16 | Int32 | UInt16 | Int32 |
-| Int32 | Int32 | Int32 | Int32 |
-| UInt32 | Int64 | UInt32 | Int64 |
-| Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/Binary | UInt64 | Decimal |
-| Single | Float | N/D | N/D |
-| Double | Double | N/D | N/D |
-| Decimal | Binary | Decimal | Decimal |
-| string | Binary | Utf8 | Utf8 |
-| Datetime | Int96 | N/D | N/D |
-| Intervallo di tempo | Int96 | N/D | N/D |
-| DateTimeOffset | Int96 | N/D | N/D |
-| ByteArray | Binary | N/D | N/D |
-| Guid | Binary | Utf8 | Utf8 |
-| Char | Binary | Utf8 | Utf8 |
-| CharArray | Non supportate | N/D | N/D |
+* I [tipi di dati complessi](http://avro.apache.org/docs/current/spec.html#schema_complex) non sono supportati (record, enumerazioni, matrici, mappe, unioni e dati fissi).
 
 ## <a name="compression-support"></a>Supporto della compressione
 

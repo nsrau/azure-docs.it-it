@@ -11,30 +11,30 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 8579eccfade83b3b3a016fc84429a914fbccd584
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/14/2018
+ms.openlocfilehash: e8d6d48461e41353057bd554b9e898d118e68ab0
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912272"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545298"
 ---
-# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Guida introduttiva: Configurare una connessione da punto a sito da un computer locale a un'istanza gestita di database SQL di Azure
+# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Avvio rapido: Configurare una connessione da punto a sito a un'istanza gestita di database SQL di Azure da un computer locale
 
 Questa guida introduttiva illustra come connettersi a un'istanza gestita di database SQL di Azure con [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) da un computer client locale tramite una connessione da punto a sito. Per informazioni sulle connessioni da punto a sito, vedere [Informazioni sulla VPN da punto a sito](../vpn-gateway/point-to-site-about.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida introduttiva:
+La guida introduttiva:
 
-- Usa come punto di partenza le risorse create nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).
-- Richiede PowerShell 5.1 e Azure PowerShell 5.4.2 o versione successiva nel computer client locale.
-- Richiede la versione più recente di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) nel computer client locale
+- Usa le risorse create in [Creare un'istanza gestita](sql-database-managed-instance-get-started.md) come punto iniziale.
+- Richiede PowerShell 5.1 e Azure PowerShell 5.4.2 o versione successiva nel computer client locale. Se necessario, vedere le istruzioni per l'[installazione del modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0#install-the-azure-powershell-module).
+- Richiede la versione più recente di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) nel computer client locale.
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>Collegare un gateway VPN alla rete virtuale dell'istanza gestita
 
 1. Aprire PowerShell nel computer client locale.
-2. Copiare e incollare lo script PowerShell seguente. Questo script allega un gateway VPN alla rete virtuale dell'istanza gestita che è stata creata nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md). Lo script esegue i tre passaggi seguenti:
+2. Copiare questo script di PowerShell. Questo script allega un gateway VPN alla rete virtuale dell'istanza gestita che è stata creata nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md). Lo script esegue queste operazioni:
 
    - Crea e installa i certificati nel computer client
    - Calcola l'intervallo IP della subnet del futuro gateway VPN
@@ -54,7 +54,7 @@ Questa guida introduttiva:
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
-3. Specificare i parametri richiesti nello script di PowerShell. I valori per `<subscriptionId>`, `<resourceGroup>` e `<virtualNetworkName>` devono corrispondere a quelli usati nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md). Il valore per `<certificateNamePrefix>` può essere una stringa di propria scelta.
+3. Incollare lo script nella finestra di PowerShell e fornire i parametri obbligatori. I valori per `<subscriptionId>`, `<resourceGroup>` e `<virtualNetworkName>` devono corrispondere a quelli usati per l'avvio rapido [Creare un'istanza gestita](sql-database-managed-instance-get-started.md). Il valore per `<certificateNamePrefix>` può essere una stringa di propria scelta.
 
 4. Eseguire lo script di PowerShell.
 
@@ -62,47 +62,46 @@ Questa guida introduttiva:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Aprire il gruppo di risorse in cui è stato creato il gateway di rete virtuale e quindi aprire la risorsa del gateway di rete virtuale.
-
-    ![risorsa del gateway di rete virtuale](./media/sql-database-managed-instance-configure-p2s/vnet-gateway.png)  
-
-3. Fare clic su **Configurazione da punto a sito** e quindi su **Scarica client VPN**.
+3. Selezionare **Configurazione da punto a sito** e quindi selezionare **Scarica client VPN**.
 
     ![Scaricare il client VPN](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
-4. Estrarre i file dal file con estensione zip e quindi aprire la cartella estratta.
-5. Passare alla cartella WindowsAmd64 e aprire il file **VpnClientSetupAmd64.exe**.
-6. Se viene visualizzato un messaggio per segnalare che **il PC è stato protetto da Windows**, fare clic su **Altre informazioni** e quindi su **Esegui comunque**.
+4. Nel computer client locale, estrarre i file dal file ZIP e quindi aprire la cartella estratta.
+5. Aprire la cartella WindowsAmd64 e aprire il file **VpnClientSetupAmd64.exe**.
+6. Se viene visualizzato un messaggio per segnalare che **il PC è stato protetto da Windows**, selezionare **Altre informazioni** e quindi scegliere **Esegui comunque**.
 
     ![Installare il client VPN](./media/sql-database-managed-instance-configure-p2s/vpn-client-defender.png)\
-7. Fare clic su **Sì** nella finestra di dialogo Controllo dell'account utente per continuare.
-8. Nella finestra di dialogo MyNewVNet fare clic su **Sì** per installare un client VPN per MyNewVNet.
+7. Selezionare **Sì** nella finestra di dialogo Controllo dell'account utente per continuare.
+8. Nella finestra di dialogo che fa riferimento alla rete virtuale, selezionare **Sì** per installare il client VPN.
 
 ## <a name="connect-to-the-vpn-connection"></a>Connettersi alla VPN
 
-1. Passare alle connessioni VPN nel computer client e fare clic su **MyNewVNet** per stabilire una connessione a questa rete virtuale.
+1. Passare alle connessioni VPN nel computer client locale e selezionare la rete virtuale dell'istanza gestita per stabilire una connessione a questa rete virtuale. Nell'immagine seguente, la rete virtuale è denominata **MyNewVNet**.
 
     ![Connessione VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
-2. Fare clic su **Connetti**.
-3. Nella finestra di dialogo MyNewVNet fare clic su **Connetti**.
+2. Selezionare **Connessione**.
+3. Nella finestra di dialogo, selezionare **Connessione**.
 
     ![Connessione VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection2.png)  
-4. Quando viene segnalato che Gestione connessioni richiede privilegi elevati per aggiornare la tabella di route, fare clic su **Continua**.
-5. Fare clic su **Sì** nella finestra di dialogo Controllo dell'account utente per continuare.
+4. Quando viene segnalato che Gestione connessioni richiede privilegi elevati per aggiornare la tabella di route, scegliere **Continua**.
+5. Selezionare **Sì** nella finestra di dialogo Controllo dell'account utente per continuare.
+
+   È stata stabilita una connessione VPN alla rete virtuale dell'istanza gestita.
 
     ![Connessione VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection-succeeded.png)  
 
-   È stata stabilita una connessione VPN alla rete virtuale dell'istanza gestita.
 
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>Usare SSMS per connettersi all'istanza gestita
 
 1. Nel computer client locale aprire SQL Server Management Studio (SSMS).
-2. Nella finestra di dialogo **Connetti al server** immettere il **nome host** completo per l'istanza gestita nella casella **Nome server**, selezionare **Autenticazione di SQL Server**, specificare account di accesso e password e quindi fare clic su **Connetti**.
+2. Nella finestra di dialogo **Connetti al server** immettere il **nome host** completo per l'istanza gestita nella casella **Nome server**. 
+1. Selezionare **Autenticazione di SQL Server**, specificare il nome utente e la password e quindi selezionare **Connetti**.
 
     ![connessione a ssms](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 
-Dopo aver stabilito la connessione, è possibile visualizzare i database di sistema e utente nel nodo Database e vari oggetti nei nodi Sicurezza, Oggetti server, Replica, Gestione, SQL Server Agent e Profiler XEvent.
+Dopo la connessione, è possibile visualizzare i database di sistema e utente nel nodo database. È inoltre possibile visualizzare diversi oggetti nei nodi di sicurezza, oggetti server, replica, gestione, SQL Server Agent e Profiler XEvent.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una guida introduttiva che illustra come connettersi da una macchina virtuale di Azure, vedere [Configurare una connessione da punto a sito](sql-database-managed-instance-configure-p2s.md)
-- Per una panoramica delle opzioni di connessione per le applicazioni, vedere [Connettere le applicazioni a un'istanza gestita](sql-database-managed-instance-connect-app.md).
-- Per ripristinare un database SQL Server esistente da locale a un'istanza gestita, è possibile eseguire il ripristino da un file di backup del database usando il [Servizio Migrazione del database di Azure (DMS) per la migrazione](../dms/tutorial-sql-server-to-managed-instance.md) o usare il [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) per eseguire un'importazione da un file di backup.
+- Per una guida introduttiva che illustra come connettersi da una macchina virtuale di Azure, vedere [Configurare una connessione da punto a sito](sql-database-managed-instance-configure-p2s.md).
+- Per una panoramica delle opzioni di connessione delle applicazioni, consultare [Connessione delle applicazioni a un'Istanza gestita](sql-database-managed-instance-connect-app.md).
+- Per ripristinare un database SQL Server esistente dal sistema locale a un'istanza gestita, è possibile usare il [Servizio Migrazione del database di Azure (DMS) per la migrazione](../dms/tutorial-sql-server-to-managed-instance.md) o il [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) per il ripristino da un file di backup del database.
