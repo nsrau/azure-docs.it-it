@@ -6,50 +6,83 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 12/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9c9af69e45af6a70c5327393a1c10385ba2c2aed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 55de72b2a82dea3dfe763d786966565beb229042
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316897"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745092"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Come ricompilare un indice di Ricerca di Azure
 
-La ricompilazione di un indice ne modifica la struttura, alterando l'espressione fisica dell'indice nel servizio Ricerca di Azure. Al contrario, l'aggiornamento di un indice è un aggiornamento del solo contenuto per prelevare le modifiche più recenti da un'origine dati esterna collaborativa. Questo articolo contiene indicazioni su come aggiornare gli indici sia in modo strutturale che in modo sostanziale.
+Questo articolo spiega come ricompilare un indice di Ricerca di Azure, illustra le circostanze in cui è necessaria una ricompilazione e fornisce suggerimenti per ridurre l'impatto delle ricompilazioni sulle richieste di query in corso.
 
-Le autorizzazioni di lettura e scrittura a livello di servizio sono necessarie per gli aggiornamenti dell'indice. A livello di programmazione, è possibile chiamare le API .NET o REST per una ricompilazione completa o un'indicizzazione incrementale del contenuto, con parametri che specificano le opzioni di aggiornamento. 
+Una *ricompilazione* consiste nell'eliminare e ricreare le strutture dei dati fisiche associate a un indice, inclusi tutti gli indici invertiti basati sui campi. In Ricerca di Azure non è possibile eliminare e ricreare campi specifici. Per ricompilare un indice, è necessario eliminare tutti i dati di archiviazione dei campi, ricreati in base a uno schema di indice esistente o modificato, e quindi ripopolarli con i dati di cui è stato eseguito il push nell'indice o il pull da origini esterne. Ricompilare gli indici durante lo sviluppo è un'operazione consueta, ma potrebbe presentarsi la necessità di ricompilare un indice anche a livello di produzione in seguito a modifiche strutturali, come l'aggiunta di tipi complessi.
 
-In genere gli aggiornamenti di un indice vengono eseguiti su richiesta. Tuttavia, per gli indici popolati mediante [indicizzatori](search-indexer-overview.md) specifici dell'origine, è possibile usare un'utilità di pianificazione predefinita. L'utilità di pianificazione supporta l'aggiornamento dei documenti con una frequenza di 15 minuti, fino a qualsiasi intervallo e modello necessario. Una velocità di aggiornamento più rapida richiede il push manuale degli aggiornamenti dell'indice, probabilmente tramite una doppia scrittura sulle transazioni, aggiornando sia le origini dati esterne che l'indice di Ricerca di Azure contemporaneamente.
+A differenza delle ricompilazioni che prevedono che l'indice venga portato offline, l'*aggiornamento dei dati* è un'attività che viene eseguita in background. È possibile aggiungere, rimuovere e sostituire documenti con una minima interruzione dei carichi di lavoro delle query, sebbene il completamento delle query richieda in genere più tempo. Per altre informazioni sull'aggiornamento del contenuto degli indici, vedere [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Aggiungere, aggiornare o eliminare documenti).
 
-## <a name="full-rebuilds"></a>Ricompilazione completa
+## <a name="rebuild-conditions"></a>Condizioni di ricompilazione
 
-Per molti tipi di aggiornamenti è necessaria una ricompilazione completa. Una ricompilazione completa fa riferimento all'eliminazione di un indice, sia dati sia metadati, seguita dal ripopolamento dell'indice da origini dati esterne. A livello di programmazione [eliminare](https://docs.microsoft.com/rest/api/searchservice/delete-index), [creare](https://docs.microsoft.com/rest/api/searchservice/create-index) e [ricaricare](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) l'indice per ricompilarlo. 
+| Condizione | Descrizione |
+|-----------|-------------|
+| Modifica della definizione di un campo | La modifica di un nome, di un tipo di dati o di [attributi di indice](https://docs.microsoft.com/rest/api/searchservice/create-index) specifici (searchable, filterable, sortable, facetable) richiede una ricompilazione completa. |
+| Eliminazione di un campo | Per rimuovere fisicamente tutte le tracce di un campo è necessario ricompilare l'indice. Se la ricompilazione immediata non è una soluzione pratica, la maggior parte degli sviluppatori modifica il codice dell'applicazione per disabilitare l'accesso al campo "eliminato". Fisicamente la definizione del campo e i contenuti rimangono nell'indice fino alla successiva ricompilazione, mediante uno schema che omette il campo in questione. |
+| Passaggio di livello | Se è necessaria ulteriore capacità, non è disponibile un aggiornamento sul posto. Nel nuovo punto di capacità viene creato un nuovo servizio e gli indici devono essere compilati da zero nel nuovo servizio. |
 
-Successive alla ricompilazione, tenere presente che se si sono eseguiti dei test sui modelli di query e i profili di punteggio, è possibile prevedere variazioni nei risultati della query se il contenuto sottostante è stato modificato.
+Qualsiasi altra modifica può essere eseguita senza alcun impatto sulle strutture fisiche esistenti. Nello specifico, le modifiche seguenti *non* indicano una ricompilazione dell'indice:
 
-## <a name="when-to-rebuild"></a>Quando ricompilare
++ Aggiungere un nuovo campo
++ Impostare l'attributo **Retrievable** su un campo esistente
++ Impostare un analizzatore su un campo esistente
++ Aggiungere, aggiornare o eliminare i profili di punteggio
++ Aggiungere, aggiornare o eliminare le impostazioni di CORS
++ Aggiungere, aggiornare o eliminare gli strumenti suggerimenti
++ Aggiungere, aggiornare o eliminare synonymMaps
 
-Pianificare ricompilazioni complete e frequenti durante la fase di sviluppo attivo, quando gli schemi dell'indice sono in stato di flusso.
-
-| Modifica | Stato della ricompilazione|
-|--------------|---------------|
-| Modificare il nome di un campo, il tipo di dati o i relativi [attributi degli indici](https://docs.microsoft.com/rest/api/searchservice/create-index) | La modifica della definizione di un campo comporta in genere una penalità di ricompilazione, fatta eccezione per gli [attributi dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-index) seguenti: Retrievable, SearchAnalyzer, SynonymMaps. È possibile aggiungere gli attributi Retrievable, SearchAnalyzer e SynonymMaps a un campo esistente senza doverne ricompilare l'indice.|
-| Aggiungere un campo | Nessun requisito obbligatorio nella ricompilazione. Ai documenti indicizzati esistenti vengono assegnati un valore null per il nuovo campo. In una reindicizzazione futura i valori dei dati di origine sostituiscono i valori null aggiunti da Ricerca di Azure. |
-| Eliminare un campo | Non è possibile eliminare direttamente un campo da un indice di Ricerca di Azure. Al contrario, è necessario che l'applicazione ignori il campo "eliminato" per evitare di usarlo. Fisicamente la definizione del campo e i contenuti rimangono nell'indice fino alla successiva ricompilazione dell'indice mediante uno schema che omette il campo in questione.|
-
-> [!Note]
-> Anche se si passa da un livello è all'altro è necessario eseguire una ricompilazione. Se a un certo punto si decide di aggiungere capacità, non è possibile eseguire un aggiornamento sul posto. Nel nuovo punto di capacità è necessario creare un nuovo servizio e compilare gli indici da zero nel nuovo servizio. 
+Quando si aggiunge un nuovo campo, ai documenti indicizzati esistenti viene assegnato un valore Null per il nuovo campo. In un aggiornamento dei dati futuro i valori dei dati di origine esterni sostituiscono i valori Null aggiunti da Ricerca di Azure.
 
 ## <a name="partial-or-incremental-indexing"></a>Indicizzazione parziale o incrementale
 
-Quando l'indice è in fase di produzione, l'attenzione passa all'indicizzazione incrementale, in genere senza interruzioni del servizio distinguibili. L'indicizzazione parziale o incrementale è un carico di lavoro del solo contenuto che consente di sincronizzare il contenuto di un indice di ricerca in modo da riflettere lo stato del contenuto in un'origine dati collaborativa. Un documento aggiunto o eliminato nell'origine viene aggiunto o eliminato all'indice. Nel codice chiamare l'operazione [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Aggiungere, aggiornare o eliminare i documenti) o l'operazione equivalente di .NET.
+In Ricerca di Azure non è possibile controllare l'indicizzazione campo per campo, scegliendo di eliminare o ricreare campi specifici. Non esiste nemmeno un meccanismo predefinito per l'[indicizzazione dei documenti in base a criteri](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Se si ha l'esigenza di eseguire l'indicizzazione in base a determinati criteri occorre usare codice personalizzato.
 
-> [!Note]
-> Quando si usano gli indicizzatori che eseguono una ricerca per indicizzazione delle origini dati esterne, vengono usati meccanismi di rilevamento delle modifiche nei sistemi di origine per l'indicizzazione incrementale. Per l'[Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) viene usato un campo `lastModified`. Nell'[archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection) `timestamp` svolge lo stesso ruolo. Analogamente, sia l'[indicizzatore di database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) che l'[indicizzatore di Azure Cosmos DB](search-howto-index-cosmosdb.md#indexing-changed-documents) contengono campi per contrassegnare gli aggiornamenti di riga. Per altre informazioni sugli indici, vedere la [panoramica sugli indicizzatori](search-indexer-overview.md).
+Un'attività che invece può essere eseguita con facilità è l'*aggiornamento dei documenti* in un indice. Per molte soluzioni di ricerca i dati di origine esterni sono volatili e la sincronizzazione tra i dati di origine e l'indice di ricerca rappresenta una prassi comune. Nel codice chiamare l'operazione [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Aggiungi, aggiorna o elimina documenti) o l'[operazione equivalente di .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet) per aggiornare il contenuto dell'indice o per aggiungere valori per un nuovo campo.
 
+## <a name="partial-indexing-with-indexers"></a>Indicizzazione parziale con gli indicizzatori
+
+Gli [indicizzatori](search-indexer-overview.md) semplificano l'attività di aggiornamento dei dati. Un indicizzatore può indicizzare solo una tabella o una vista nell'origine dati esterna. Per indicizzare più tabelle, il metodo più semplice consiste nel creare una vista che unisca le tabelle e proietti le colonne da indicizzare. 
+
+Quando si usano indicizzatori che eseguono una ricerca per indicizzazione sulle origini dati esterne, verificare la presenza di una colonna di "limite massimo" nei dati di origine. Se ne esiste una, è possibile usarla per il rilevamento delle modifiche incrementali selezionando solo le righe con contenuto nuovo o modificato. Per l'[Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) viene usato un campo `lastModified`. Nell'[archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection) `timestamp` svolge lo stesso ruolo. Analogamente, sia l'[indicizzatore di database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) che l'[indicizzatore di Azure Cosmos DB](search-howto-index-cosmosdb.md#indexing-changed-documents) contengono campi per contrassegnare gli aggiornamenti di riga. 
+
+Per altre informazioni sugli indicizzatori, vedere [Indicizzatori in Ricerca di Azure](search-indexer-overview.md) e [Reset Indexer (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) (Reimposta indicizzatore (API REST del servizio Ricerca di Azure)).
+
+## <a name="how-to-rebuild-an-index"></a>Come ricompilare un indice
+
+Pianificare ricompilazioni complete e frequenti durante la fase di sviluppo attivo, quando gli schemi dell'indice sono in stato di flusso. Per le applicazioni già in produzione è consigliabile creare un nuovo indice da eseguire affiancato a un indice esistente per evitare tempi di inattività delle query.
+
+Se i requisiti in termini di contratto di servizio sono rigorosi, può essere consigliabile effettuare il provisioning di un nuovo servizio appositamente per questa attività, mentre le operazioni di sviluppo e indicizzazione avvengono in completo isolamento da un indice di produzione. Un servizio separato viene eseguito nel proprio hardware, eliminando qualsiasi possibilità di conflitto di risorse. Una volta completato lo sviluppo, è possibile lasciare il nuovo indice sul posto, reindirizzando le query al nuovo endpoint e al nuovo indice, oppure eseguire il codice finito per pubblicare un indice modificato nel servizio Ricerca di Azure originale. Attualmente non è disponibile alcun meccanismo per spostare in un altro servizio un indice pronto per l'uso.
+
+Le autorizzazioni di lettura e scrittura a livello di servizio sono necessarie per gli aggiornamenti dell'indice. A livello di codice, è possibile chiamare l'[API REST di aggiornamento dell'indice](https://docs.microsoft.com/rest/api/searchservice/update-index) o le API .NET per una ricompilazione completa. La richiesta è identica all'[API REST di creazione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-index), ma ha un contesto diverso.
+
+1. Se si riutilizza il nome dell'indice, [eliminare l'indice esistente](https://docs.microsoft.com/rest/api/searchservice/delete-index). Le eventuali query destinate a tale indice vengono eliminate immediatamente. L'eliminazione di un indice è un'operazione irreversibile, che elimina definitivamente l'archiviazione fisica della raccolta di campi e altri costrutti. Prima di procedere con l'eliminazione di un indice, accertarsi di conoscere le implicazioni di questa operazione. 
+
+2. Fornire uno schema di indice con le definizioni dei campi modificati. Per i requisiti relativi agli schemi, vedere la documentazione sull'[API REST di creazione indice](https://docs.microsoft.com/rest/api/searchservice/create-index).
+
+3. Specificare una [chiave di amministrazione](https://docs.microsoft.com/azure/search/search-security-api-keys) per la richiesta.
+
+4. Inviare un comando [Aggiorna indice](https://docs.microsoft.com/rest/api/searchservice/update-index) per ricompilare l'espressione fisica dell'indice di Ricerca di Azure. Il corpo della richiesta contiene lo schema dell'indice, oltre ai costrutti per profili di punteggio, analizzatori, strumenti suggerimenti e opzioni CORS.
+
+5. [Caricare l'indice con i documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) da un'origine esterna. Questa API può essere usata anche quando occorre aggiornare uno schema di indice esistente non modificato con documenti aggiornati.
+
+Quando si crea l'indice, viene allocato uno spazio di archiviazione fisico per ogni campo dello schema di indice e viene creato un indice invertito per ogni campo ricercabile. I campi non ricercabili possono essere usati in filtri o espressioni, ma non dispongono di indici invertiti e non supportano la ricerca full-text. Durante una ricompilazione dell'indice, questi indici invertiti vengono eliminati e ricreati in base allo schema di indice fornito.
+
+Quando si carica l'indice, l'indice invertito di ogni campo viene popolato con tutte le parole univoche e tokenizzate di ogni documento, con un mapping agli ID documento corrispondenti. Ad esempio, nel caso dell'indicizzazione di un set di dati di hotel, un indice invertito creato per un campo Città potrebbe contenere termini per Roma, Milano e così via. Per i documenti che includono Roma o Milano nel campo Città, il relativo ID documento viene elencato insieme al termine. Durante un'operazione di [aggiunta, aggiornamento o eliminazione](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), l'elenco dei termini e degli ID documento viene aggiornato di conseguenza.
+
+## <a name="view-updates"></a>Visualizzare gli aggiornamenti
+
+È possibile iniziare a eseguire query su un indice subito dopo il caricamento del primo documento. Se si conosce l'ID di un documento, l'[API REST di ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/lookup-document) restituisce il documento specifico. Per un test su più larga scala, è possibile aspettare che l'indice venga caricato completamente e quindi usare le query per verificare il contesto che ci si aspetta di vedere.
 
 ## <a name="see-also"></a>Vedere anche 
 

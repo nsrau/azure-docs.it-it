@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: 0187ef3d3b6853c1d1225fc9f208f2508372978d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425728"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994859"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -49,7 +49,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Quali risorse sono supportate oggi nell'ambito del pool back-end?
 
-I pool back-end possono essere costituiti da schede di interfaccia di rete, set di scalabilità di macchine virtuali, indirizzi IP pubblici, indirizzi IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come App Web di Azure. I membri del pool back-end del gateway applicazione non sono associati a un set di disponibilità. I membri del pool back-end possono trovarsi tra cluster, data center o all'esterno di Azure, purché abbiano connettività IP.
+I pool back-end possono essere costituiti da schede di interfaccia di rete, set di scalabilità di macchine virtuali, indirizzi IP pubblici, indirizzi IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come Servizio app di Azure. I membri del pool back-end del gateway applicazione non sono associati a un set di disponibilità. I membri del pool back-end possono trovarsi tra cluster, data center o all'esterno di Azure, purché abbiano connettività IP.
 
 ### <a name="what-regions-is-the-service-available-in"></a>In quale aree è disponibile il servizio?
 
@@ -88,9 +88,11 @@ Un gateway applicazione supporta un solo indirizzo IP pubblico.
 Il gateway applicazione utilizza un indirizzo IP privato per ogni istanza, oltre a un altro indirizzo IP privato in presenza di una configurazione degli indirizzi IP front-end privati. Inoltre, Azure riserva i primi quattro e l'ultimo indirizzo IP in ogni subnet per uso interno.
 Se ad esempio il gateway applicazione è impostato su tre istanze e nessun IP front-end privato, le dimensioni necessarie per la subnet sono pari a /29 o superiori. In questo caso, il gateway applicazione usa tre indirizzi IP. Se si hanno tre istanze e un indirizzo IP per la configurazione degli indirizzi IP front-end privati, le dimensioni della subnet devono essere pari a /28 o superiori, perché sono necessari quattro indirizzi IP.
 
-### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>D: È possibile distribuire più di una risorsa Gateway applicazione a una singola subnet?**
+### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>D: È possibile distribuire più di una risorsa di gateway applicazione a una singola subnet?
 
 Sì, oltre ad avere più istanze di una determinata distribuzione di Gateway applicazione, è possibile effettuare il provisioning di un'altra risorsa Gateway applicazione univoca a una subnet esistente che contiene un'altra risorsa Gateway applicazione.
+
+La combinazione dei gateway applicazione Standard_v2 e Standard nella stessa subnet non è supportata. Inoltre, se è abilitata la scalabilità automatica, una subnet può avere un solo gateway applicazione.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Il gateway applicazione supporta le intestazioni x-forwarded-for?
 
@@ -103,6 +105,8 @@ Il gateway applicazione inserisce anche un'intestazione X-Original-Host contenen
 Nuove distribuzioni di SKU versione 1 del gateway applicazione possono richiedere fino a 20 minuti per effettuare il provisioning. Le modifiche all'istanza di conteggio/dimensioni non causano problemi e il gateway rimane attivo durante questo periodo di tempo.
 
 Le distribuzioni di SKU versione 2 possono richiedere circa cinque e sei minuti per effettuare il provisioning.
+
+Il gateway applicazione supporta le intestazioni x-forwarded-for?
 
 ## <a name="configuration"></a>Configurazione
 
@@ -210,7 +214,7 @@ Sì. È possibile configurare l'esaurimento delle connessioni per modificare i m
 
 ### <a name="what-are-application-gateway-sizes"></a>Quali sono le dimensioni del gateway applicazione?
 
-Il servizio Gateway applicazione è attualmente disponibile in tre dimensioni: **Small**, **Medium** e **Large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
+Il gateway applicazione è attualmente disponibile in tre dimensioni: **Small**, **Medium** e **Large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
 
 Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del servizio Gateway applicazione](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
@@ -316,9 +320,9 @@ Il Web application firewall viene monitorato tramite la registrazione diagnostic
 
 No, la modalità di rilevamento registra solo il traffico che ha attivato una regola del Web application firewall.
 
-### <a name="how-do-i-customize-waf-rules"></a>Come si personalizzano le regole del Web application firewall?
+### <a name="can-i-customize-waf-rules"></a>È possibile personalizzare le regole del Web application firewall (WAF)?
 
-Sì, le regole WAF sono personalizzabili. Per altre informazioni sulla relativa personalizzazione, vedere [Personalizzare le regole del web application firewall con il portale di Azure](application-gateway-customize-waf-rules-portal.md)
+Sì, le regole WAF sono personalizzabili. Per altre informazioni, vedere [Personalizzare le regole e i gruppi di regole del Web application firewall](application-gateway-customize-waf-rules-portal.md)
 
 ### <a name="what-rules-are-currently-available"></a>Quali regole sono attualmente disponibili
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326610"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553425"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -85,9 +85,9 @@ Si imposta un account di archiviazione privato per la diagnostica della macchina
 
 Managed Disks supporta tre ruoli predefiniti principali:
 
-* Proprietario: può gestire tutto, compresi gli accessi
-* Collaboratore: può gestire tutto ad eccezione degli accessi
-* Lettore: può visualizzare tutto, ma non può apportare modifiche
+* Proprietario: È in grado di gestire tutti gli elementi, compresi gli accessi
+* Collaboratore: Può gestire tutto ad eccezione degli accessi.
+* Lettore: È in grado di visualizzare tutti gli elementi, ma non può apportare modifiche
 
 **È possibile copiare o esportare un disco gestito in un account di archiviazione privato?**
 
@@ -189,7 +189,7 @@ No, i dischi SSD Standard non supportano contratti di servizio per macchine virt
 
 ## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione a Managed Disks
 
-** La migrazione può avere un impatto sulle prestazioni di Managed Disks?
+**La migrazione può avere un impatto sulle prestazioni di Managed Disks?**
 
 La migrazione comporta lo spostamento del disco da una posizione di archiviazione a un'altra. Questa operazione viene gestita tramite la copia dei dati in background che può richiedere diverse ore, in genere meno di 24, a seconda della quantità di dati nei dischi. Durante questo periodo, l'applicazione può riscontrare una latenza di lettura maggiore del solito poiché alcune operazioni di lettura possono essere reindirizzate alla posizione originale e possono quindi richiedere più tempo. Non è previsto alcun impatto sulla latenza di scrittura durante questo periodo.  
 

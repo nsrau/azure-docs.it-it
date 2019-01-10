@@ -1,24 +1,21 @@
 ---
 title: Video su Database di Azure per PostgreSQL
 description: Questa pagina elenca il contenuto video rilevante per informazioni su Database di Azure per PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: ddc5249bb5b001a93f2695f9df2fb8e870988095
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: de4194671f09bde65bee0a1d0d86ffacdcedfbf3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687901"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543238"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Video su Database di Azure per PostgreSQL
 
-[Overview: Azure Database for PostgreSQL and MySQL](https://channel9.msdn.com/Events/Connect/2017/T147) (Panoramica: Database di Azure per PostgreSQL e Database di Azure per MySQL)
+[Panoramica: Azure Database for PostgreSQL and MySQL](https://channel9.msdn.com/Events/Connect/2017/T147) (Panoramica: Database di Azure per PostgreSQL e MySQL)
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
 

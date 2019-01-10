@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 1bcd9dfe2d7a846dd040944509be916c1964ba48
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4796dc50447b94b01d9bb4625ca9a69a73850fcd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420388"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994403"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
 
@@ -104,7 +104,7 @@ Per la crittografia lato client, considerare quanto segue:
 - I clienti mantengono e archiviano le chiavi in locale o in altri archivi sicuri. Le chiavi non sono disponibili per i servizi di Azure
 - Funzionalità cloud ridotte
 
-Come indicato in precedenza, i modelli di crittografia supportati in Azure sono suddivisi in due gruppi principali: "Crittografia client" e "Crittografia lato server". Indipendentemente dal modello di crittografia dei dati inattivi in uso, per i servizi di Azure è sempre consigliabile usare un trasporto protetto, ad esempio TLS o HTTPS. La crittografia a livello di trasporto deve quindi essere gestita dal protocollo di trasporto e non deve rappresentare un fattore determinante per la scelta del modello di crittografia dei dati inattivi da usare.
+I modelli di crittografia supportati in Azure sono suddivisi in due gruppi principali: “crittografia lato client” e “crittografia lato server” come riportato in precedenza. Indipendentemente dal modello di crittografia dei dati inattivi in uso, per i servizi di Azure è sempre consigliabile usare un trasporto protetto, ad esempio TLS o HTTPS. La crittografia a livello di trasporto deve quindi essere gestita dal protocollo di trasporto e non deve rappresentare un fattore determinante per la scelta del modello di crittografia dei dati inattivi da usare.
 
 ### <a name="client-encryption-model"></a>Modello di crittografia client
 
@@ -201,7 +201,7 @@ Quando si usa la crittografia sul lato server con chiavi gestite dal servizio su
 
 ## <a name="encryption-at-rest-in-microsoft-cloud-services"></a>Crittografia dei dati inattivi nei servizi cloud Microsoft
 
-I servizi cloud Microsoft vengono usati in tutti e tre i modelli cloud: IaaS, PaaS e SaaS. Di seguito sono riportati alcuni esempi di come si integrano in ciascun modello:
+I servizi cloud Microsoft vengono usati in tutti e tre i modelli cloud: IaaS, PaaS, SaaS. Di seguito sono riportati alcuni esempi di come si integrano in ciascun modello:
 
 - Servizi software, denominati SaaS (Software as a Service), in cui l'applicazione è fornita dal cloud, come ad esempio Office 365.
 - Servizi della piattaforma, con cui i clienti sfruttano il cloud nelle proprie applicazioni, che usano il cloud per elementi come le funzionalità di archiviazione, analisi e bus di servizio.
@@ -247,7 +247,7 @@ Tutti i servizi di Archiviazione di Azure (archiviazione BLOB, archiviazione cod
 - Lato client: BLOB di Azure, tabelle e code di Azure supportano la crittografia lato client. Quando usano la crittografia lato client, i clienti crittografano i dati e li caricano come un BLOB crittografato. La gestione delle chiavi viene eseguita dal cliente. Per altre informazioni, vedere [Crittografia lato client e Azure Key Vault per Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
-#### <a name="azure-sql-database"></a>database SQL di Azure
+#### <a name="azure-sql-database"></a>Database SQL di Azure
 
 Database SQL di Azure attualmente supporta la crittografia dei dati inattivi per gli scenari di crittografia sul lato client e sul lato del servizio gestito da Microsoft.
 
@@ -262,6 +262,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Disco (IaaS)                      | -                  | Sì, RSA a 2048 bit  | -                  |
 | SQL Server (IaaS)                | Yes                | Sì, RSA a 2048 bit  | Yes                |
 | Azure SQL (database/Data Warehouse) | Yes                | Sì, RSA a 2048 bit  | Yes                |
+| Azure SQL (istanza gestita di database) | Yes                | Anteprima, RSA a 2048 bit  | Yes                |
 | Archiviazione di Azure (BLOB di blocchi/pagine) | Yes                | Sì, RSA a 2048 bit  | Yes                |
 | Archiviazione di Azure (file)            | Yes                | Sì, RSA a 2048 bit  | -                  |
 | Archiviazione di Azure (tabelle, code)   | Yes                | -                  | Yes                |

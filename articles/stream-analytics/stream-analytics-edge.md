@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf290343634f9f9f836a87ab15f13cc1dac6f86f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9d5a0cf9fa4f9ad8b5a673cd2420416f92edda91
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141952"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994981"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Analisi di flusso di Azure in IoT Edge
  
@@ -144,7 +144,7 @@ Questo esempio definisce le route seguenti:
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Limitazioni correnti per i processi IoT Edge rispetto ai processi cloud
 L'obiettivo è di ottenere una parità tra i processi IoT Edge e i processi cloud. La maggior parte delle funzionalità del linguaggio di query SQL è già supportata.
 Tuttavia, le funzionalità seguenti non sono ancora supportate per i processi Edge:
-* Funzioni definite dall'utente in JavaScript. Le funzioni definite dall'utente sono disponibili in [C# per i processi IoT Edge](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-edge-csharp-udf) (anteprima).
+* Funzioni definite dall'utente in JavaScript. Le funzioni definite dall'utente sono disponibili in [C# per i processi IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (anteprima).
 * Aggregazioni definite dall'utente.
 * Funzioni di Azure Machine Learning
 * Uso di più di 14 aggregati in un unico passaggio.
@@ -167,7 +167,7 @@ Per eseguire Analisi di flusso di Azure in IoT Edge, è necessario disporre di d
 
 Analisi di flusso di Azure e Azure IoT Edge usano contenitori **Docker** per fornire una soluzione portatile che viene eseguita in più sistemi operativi host (Windows, Linux).
 
-Analisi di flusso di Azure in IoT Edge è reso disponibile come immagini Windows e Linux, in esecuzione in architetture di Azure Resource Manager o x86-64. 
+Analisi di flusso di Azure in IoT Edge è reso disponibile come immagini Windows e Linux, in esecuzione in architetture ARM (Advanced RISC Machines) o x86-64. 
 
 
 ### <a name="input-and-output"></a>Input e output

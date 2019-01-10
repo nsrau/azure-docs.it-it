@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 2e7b7d9b0a194b13de9bdf759f4f3be645ed7c2e
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 01a9852157cbaefd966be974a3175c25e7ff69f8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442170"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001703"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni dell’infrastruttura di servizi
 È possibile gestire le applicazioni e i servizi di Service Fabric di Azure tramite Visual Studio. Dopo aver [configurato l'ambiente di sviluppo](service-fabric-get-started.md), è infatti possibile usare Visual Studio per creare applicazioni di Service Fabric, aggiungere servizi o creare i pacchetti, registrare e distribuire le applicazioni nel cluster di sviluppo locale.
@@ -47,7 +47,7 @@ Visual Studio include la proprietà **Modalità di debug applicazione** che cont
 
 #### <a name="application-debug-modes"></a>Modalità di debug dell'applicazione
 
-1. **Aggiorna l'applicazione**: questa modalità consente di modificare rapidamente il codice e di eseguirne il debug e supporta la modifica dei file Web statici durante il debug. Questa modalità funziona solo se il cluster di sviluppo locale è in [modalità a 1 nodo]. Questa è la modalità di debug dell'applicazione predefinita.(/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Aggiorna l'applicazione**: questa modalità consente di modificare rapidamente il codice e di eseguirne il debug e supporta la modifica dei file Web statici durante il debug. Questa modalità funziona solo se il cluster di sviluppo locale è in [modalità a 1 nodo](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Questa è la modalità di debug applicazione predefinita.
 2. **Rimuovi applicazione** fa sì che l'applicazione venga rimossa al termine della sessione di debug.
 3. **Aggiornamento automatico**: l'applicazione resta in esecuzione al termine della sessione di debug. La sessione di debug successiva considera la distribuzione come un aggiornamento. Il processo di aggiornamento mantiene tutti i dati immessi in una sessione di debug precedente.
 4. **Mantieni l'applicazione**: l'applicazione resta in esecuzione nel cluster al termine della sessione di debug. All'inizio della sessione di debug successiva, l'applicazione viene rimossa.

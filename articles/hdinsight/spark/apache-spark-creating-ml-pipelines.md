@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: dbda20554b119bfb72b939cbeb7f19e0b9093b31
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499392"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597478"
 ---
-# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Creare una pipine di Machine Learning di Apache Spark
+# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Creare una pipeline di apprendimento automatico di Apache Spark
 
-La libreria scalabile per il Machine Learning (MLlib) di Spark introduce funzionalità di modellazione in un ambiente distribuito. Il pacchetto di Spark [`spark.ml`](http://spark.apache.org/docs/latest/ml-pipeline.html) è un set di API di alto livello basate su DataFrame. Queste API consentono di creare e ottimizzare pipeline di Machine Learning pratiche.  La funzionalità di *Machine Learning di Spark* fa riferimento a questa API basata su DataFrame MLlib e non all'API precedente per pipeline basate su RDD.
+La libreria scalabile per il Machine Learning (MLlib) di Spark introduce funzionalità di modellazione in un ambiente distribuito. Il pacchetto di Spark [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) è un set di API di alto livello basate su DataFrame. Queste API consentono di creare e ottimizzare pipeline di Machine Learning pratiche.  La funzionalità di *Machine Learning di Spark* fa riferimento a questa API basata su DataFrame MLlib e non all'API precedente per pipeline basate su RDD.
 
 Una pipeline di Machine Learning è un flusso di lavoro completo che combina più algoritmi di Machine Learning. Possono essere molti i passaggi richiesti per elaborare i dati e apprendere da essi, che richiedono una sequenza di algoritmi. Le pipeline definiscono le fasi e l'ordinamento di un processo di Machine Learning. In MLlib, le fasi di una pipeline sono rappresentate da una sequenza specifica di PipelineStages, in cui vengono eseguite attività da un trasformatore e da un estimatore.
 
@@ -30,7 +30,7 @@ Ogni istanza senza stato di un trasformatore o un estimatore ha un identificator
 
 ## <a name="pipeline-example"></a>Esempio di pipeline
 
-Per dimostrare un uso pratico di una pipeline di Machine Learning, questo esempio usare il file di dati di esempio `HVAC.csv` precaricato nello spazio di archiviazione predefinito per il cluster HDInsight, ovvero Archiviazione di Azure o Data Lake Store. Per visualizzare il contenuto del file, passare alla directory `/HdiSamples/HdiSamples/SensorSampleData/hvac`. `HVAC.csv` contiene un set di orari con temperatura prevista ed effettiva per sistemi di climatizzazione (*riscaldamento, ventilazione e aria condizionata*) in vari edifici. L'obiettivo è eseguire il training del modello per i dati e generare una temperatura previsionale per un determinato edificio.
+Per dimostrare un uso pratico di una pipeline di Machine Learning, questo esempio usare il file di dati di esempio `HVAC.csv` precaricato nello spazio di archiviazione predefinito per il cluster HDInsight, ovvero Archiviazione di Azure o Data Lake Storage. Per visualizzare il contenuto del file, passare alla directory `/HdiSamples/HdiSamples/SensorSampleData/hvac`. `HVAC.csv` contiene un set di orari con temperatura prevista ed effettiva per sistemi di climatizzazione (*riscaldamento, ventilazione e aria condizionata*) in vari edifici. L'obiettivo è eseguire il training del modello per i dati e generare una temperatura previsionale per un determinato edificio.
 
 Il codice seguente:
 

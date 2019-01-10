@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 514e85fc61240834d8db152ece65a4f9cce9023e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b554dc1fa33519d87aa0c9c5ba9130b47cbea142
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250408"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971751"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Usare ReportViewer in un sito Web ospitato in Azure
-> [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+> [!IMPORTANT]
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 È possibile compilare un sito Web di Microsoft Azure con il controllo ReportViewer di Visual Studio che visualizza un report archiviato in una macchina virtuale di Microsoft Azure. Il controllo ReportViewer si trova in un'applicazione Web creata mediante il modello di applicazione Web ASP.NET.
 
@@ -42,7 +42,7 @@ Consultare la sezione "Indicazioni generali e procedure consigliate" in [SQL Ser
 
 > [!NOTE]
 > I controlli ReportViewer vengono offerti con Visual Studio Standard Edition o versione successiva. Se si usa Web Developer Express Edition, è necessario installare [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) per usare le funzionalità di runtime di ReportViewer.
-> 
+>
 > ReportViewer configurato in modalità di elaborazione locale non è supportato in Microsoft Azure.
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>Aggiunta di assembly al pacchetto di distribuzione
@@ -71,7 +71,7 @@ In modalità di elaborazione remota il controllo ReportViewer usa gli assembly s
 
 ### <a name="to-configure-for-localized-reportviewer-control"></a>Per configurare il controllo ReportViewer localizzato
 1. Scaricare e installare Microsoft Report Viewer 2012 Runtime Redistributable Package attenendosi alle istruzioni specificate in precedenza.
-2. Creare la cartella <language> nel progetto e copiare i file di assembly di risorse associati. I file di assembly di risorse da copiare sono: **Microsoft.ReportViewer.Webforms.Resources.dll** e **Microsoft.ReportViewer.Common.Resources.dll**. Selezionare i file di assembly di risorse e nel riquadro Proprietà impostare **Copia nella directory di output** su "**Copia sempre**".
+2. Creare la cartella \<language\> nel progetto e copiare i file di assembly di risorse associati. I file di assembly di risorse da copiare sono: **Microsoft.ReportViewer.Webforms.Resources.dll** e **Microsoft.ReportViewer.Common.Resources.dll**. Selezionare i file di assembly di risorse e nel riquadro Proprietà impostare **Copia nella directory di output** su "**Copia sempre**".
 3. Impostare la lingua e la lingua dell'interfaccia utente per il progetto Web. Per altre informazioni su come impostare la lingua e la lingua dell'interfaccia utente per una pagina Web ASP.NET, vedere [Procedura: Impostare la lingua e la lingua dell'interfaccia utente per la globalizzazione di pagine Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## <a name="configuring-authentication-and-authorization"></a>Configurazione dell'autenticazione e dell'autorizzazione
@@ -82,10 +82,10 @@ Per istruzioni sulla pubblicazione di un'applicazione Web ASP.NET in Azure, vede
 
 > [!IMPORTANT]
 > Se il comando Aggiungi progetto di distribuzione di Azure o Aggiungi progetto di servizio cloud Azure non viene visualizzato nel menu di scelta rapida in Esplora soluzioni, potrebbe essere necessario modificare il framework di destinazione per il progetto in .NET Framework 4.
-> 
+>
 > I due comandi offrono essenzialmente la stessa funzionalità. Uno dei due comandi viene visualizzato nel menu di scelta rapida in base alla versione di Microsoft Azure SDK installata.
-> 
-> 
+>
+>
 
 ## <a name="resources"></a>Risorse
 [Report di Microsoft](https://go.microsoft.com/fwlink/?LinkId=205399)
@@ -93,4 +93,3 @@ Per istruzioni sulla pubblicazione di un'applicazione Web ASP.NET in Azure, vede
 [SQL Server Business Intelligence in Macchine virtuali di Azure](../classic/ps-sql-bi.md)
 
 [Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa](../classic/ps-sql-report.md)
-

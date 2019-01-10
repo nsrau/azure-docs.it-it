@@ -10,12 +10,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.custom: seodec18
+ms.openlocfilehash: 4d4dc5d01959406e71859fcbde6de1e36b5871aa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262432"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540997"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
@@ -36,9 +37,9 @@ L'uso dei contenitori consente di eseguire le attività Batch in modo semplice s
     * Java SDK di Batch, versione 3.0
     * Node.js SDK di Batch, versione 3.0
 
-* **Account**: nell'abbonamento di Azure è necessario creare un account Batch e, facoltativamente, un account di Archiviazione di Azure.
+* **Account**: nella sottoscrizione di Azure è necessario creare un account Batch e, facoltativamente, un account di archiviazione di Azure.
 
-* **Un'immagine VM supportata**I contenitori sono supportati solo in pool creati con la configurazione macchina virtuale di immagini dettagliate nella sezione seguente, "Immagini di macchine virtuali supportate". Se si fornisce un'immagine personalizzata, vedere le considerazioni nella sezione seguente e i requisiti in [Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali](batch-custom-images.md). 
+* **Un'immagine di macchina virtuale supportata**: i contenitori sono supportati solo nei pool creati con Configurazione macchina virtuale, dalle immagini illustrate in dettaglio nella sezione seguente, "Immagini di macchine virtuali supportate". Se si fornisce un'immagine personalizzata, vedere le considerazioni nella sezione seguente e i requisiti in [Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali](batch-custom-images.md). 
 
 ### <a name="limitations"></a>Limitazioni
 

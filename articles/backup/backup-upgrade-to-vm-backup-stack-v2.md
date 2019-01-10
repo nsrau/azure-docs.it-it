@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8882970471b554f6d05a9cf3028e7be572292ef6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 605ce97f786b6b674a4adf8d6b1ee50957ef25fa
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582701"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582746"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Eseguire l'aggiornamento alla versione 2 dello stack di macchine virtuali di Azure
 
@@ -147,3 +147,6 @@ Gli snapshot incrementali vengono usati per i dischi non gestiti. Per i dischi g
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>Come ottenere il supporto Managed Disks - SSD Standard per una macchina virtuale?
 Passare allo stack V2 del backup di VM di Azure per ottenere il supporto di Backup di Azure per [dischi gestiti SDD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+
+### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-snapshot-tier1"></a>Che cosa accade se si seleziona un periodo di conservazione del punto di ripristino (livello 2) inferiore a quello dello snapshot (livello 1)?
+Lo stack di backup di macchine virtuali versione 2 non consente di eliminare il punto di ripristino (livello 2), a meno che non venga eliminato lo snapshot (livello 1). È attualmente supportato un periodo di conservazione di 7 giorni per l'eliminazione dello snapshot (livello 1), quindi un periodo di conservazione del punto di ripristino (livello 2) inferiore a 7 giorni non viene rispettato. È consigliabile pianificare un periodo di conservazione del punto di ripristino (livello 2) superiore a 7 giorni.

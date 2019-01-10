@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 2ff7221a3742f59cdef2c5c7c220cc80148b94d0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b8f7142b2bd8e07e4b92c37b7e06bc4fe09efb73
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721562"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580417"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e ripristino periodici in Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -146,6 +146,9 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
+> [!IMPORTANT]
+> A causa di un problema del runtime, assicurarsi che la durata della conservazione nei criteri di conservazione sia configurata per essere minore di 24 giorni. In caso contrario, il servizio di backup/ripristino attiverebbe il failover post-replica per perdita del quorum.
+
 ### <a name="enable-periodic-backup"></a>Abilitare il backup periodico
 Dopo aver definito il criterio per soddisfare i requisiti di protezione dei dati dell'applicazione, il criterio di backup deve essere associato all'applicazione. A seconda del requisito, il criterio di backup può essere associato a un'applicazione, un servizio o una partizione.
 
@@ -222,9 +225,13 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
+## <a name="known-issues"></a>Problemi noti
+- Assicurarsi che la durata della conservazione sia configurata per essere minore di 24 giorni. 
+- Il servizio di backup/ripristino non viene attivato in impostazioni locali con separatore decimale diverso da '.'
+- Il servizio di backup/ripristino non viene attivato in un cluster protetto con sicurezza basata su gMSA.
+
 ## <a name="limitation-caveats"></a>Limitazioni/avvertenze
 - Nessun Service Fabric compilato nei cmdlet di PowerShell.
-- Nessun supporto per l’interfaccia della riga di comando Service Fabric.
 - Nessun supporto per i cluster Service Fabric su Linux.
 
 ## <a name="next-steps"></a>Passaggi successivi

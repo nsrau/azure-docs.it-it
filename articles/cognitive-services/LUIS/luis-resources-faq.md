@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163634"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714203"
 ---
-# <a name="language-understanding-faq"></a>Domande frequenti su LUIS
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
 Questo articolo contiene risposte alle domande frequenti su LUIS.
 
@@ -212,7 +212,7 @@ In occasione della conferenza Build 2018 sono state rilasciate le seguenti funzi
 |Integrazioni|Integrazione dell'[analisi di testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) per l'[analisi del sentiment](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Integrazione [vocale](https://docs.microsoft.com/azure/cognitive-services/speech) del priming del riconoscimento vocale in combinazione con [Speech SDK](https://aka.ms/SpeechSDK)|
 |Strumento Dispatch|Parte di [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), lo [strumento](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) a riga di comando Dispatch permette di combinare più app LUIS e QnA Maker in una singola app LUIS per migliorare il riconoscimento delle finalità in un bot
 
-Sono state incluse altre [route API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) di creazione.
+Sono state incluse altre [route API](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) di creazione.
 
 Video:
 * [Azure Friday all'evento Build 2018: Servizi cognitivi - Linguaggio (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)

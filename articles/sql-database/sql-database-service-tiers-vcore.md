@@ -11,20 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 11/27/2018
-ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/02/2019
+ms.openlocfilehash: f756f043a7ab3c9086b21b8bdb88a5a6a7ed60df
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437069"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001601"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Livelli di servizio vCore, Vantaggio Azure Hybrid e migrazione
 
 Il modello di acquisto basato su vCore consente di ridimensionare le risorse di calcolo e archiviazione in modo indipendente, soddisfare le esigenze di prestazioni locali e ottimizzare i costi. Permette anche di scegliere la generazione di hardware:
 
 - Generazione 4 - fino a 24 CPU logiche basate su processori Intel E5-2673 v3 (Haswell) da 2,4 GHz, vCore = 1 PP (core fisici), 7 GB per core, collegato a unità SSD
-- Generazione 5 - fino a 80 CPU logiche basate su processori Intel E5-2673 v4 (Broadwell) da 2,3 GHz, vCore = 1 LP (hyper-thread), 5.5. GB per core, SSD eNVM veloce
+- Generazione 5 - fino a 80 CPU logiche basate su processori Intel E5-2673 v4 (Broadwell) da 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1. GB per core, SSD eNVM veloce
 
 Il modello vCore offre inoltre la possibilità di usare il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per ottenere un risparmio sui costi.
 
@@ -33,16 +33,16 @@ Il modello vCore offre inoltre la possibilità di usare il [Vantaggio Azure Hybr
 
 ## <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
 
-Il modello vCore offre due livelli di servizio, Utilizzo generico e Business Critical. I livelli di servizio si differenziano in base a dimensioni di calcolo, progettazione a disponibilità elevata, isolamento degli errori, tipi di archiviazione e velocità effettiva di I/O. Il cliente deve configurare separatamente le risorse di archiviazione e il periodo di conservazione richiesti per i backup. È necessario configurare separatamente le risorse di archiviazione e il periodo di conservazione richiesti per i backup. Nel portale di Azure passare a Server (non il database) > Backup gestito > Configura criterio > Configurazione ripristino temporizzato > 7 - 35 giorni.
+Il modello vCore offre tre livelli di servizio: Utilizzo generico, Hyperscale e Business Critical. I livelli di servizio si differenziano in base a dimensioni di calcolo, progettazione a disponibilità elevata, isolamento degli errori, tipi e dimensioni di archiviazione e velocità effettiva di I/O. È necessario configurare separatamente le risorse di archiviazione e il periodo di conservazione richiesti per i backup. Nel portale di Azure passare a Server (non il database) > Backup gestito > Configura criterio > Configurazione ripristino temporizzato > 7 - 35 giorni.
 
-La tabella seguente consente di comprendere le differenze tra questi due livelli:
+La tabella seguente consente di comprendere le differenze tra questi tre livelli:
 
 ||**Utilizzo generico**|**Business Critical**|**Iperscalabilità (anteprima)**|
 |---|---|---|---|
 |Ideale per|La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione scalabili e bilanciate a prezzi convenienti.|Applicazioni aziendali con requisiti di I/O elevati. Offre massima resilienza agli errori tramite diverse repliche isolate.|La maggior parte dei carichi di lavoro aziendali con archiviazione con scalabilità elevata e requisiti di scalabilità in lettura|
 |Calcolo|Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: da 1 a 80 vCore|Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: da 1 a 80 vCore|Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: da 1 a 80 vCore|
 |Memoria|Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core | Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core |Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core|
-|Archiviazione|Usa l'[archiviazione remota Premium](../virtual-machines/windows/premium-storage.md):<br/>Database singolo: 5 GB - 4 TB<br/>Istanza gestita: 32 GB - 8 TB |Usa l'archiviazione SSD locale:<br/>Database singolo: 5 GB - 1 TB<br/>Istanza gestita: 32 GB - 4 TB |Aumento automatico e flessibile dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di archiviazione e oltre. Archiviazione SSD locale per la cache del pool di buffer locale e l'archiviazione locale dei dati. Archiviazione remota di Azure come archivio dati a lungo termine finale. |
+|Archiviazione|Usa l'[archiviazione remota Premium](../virtual-machines/windows/premium-storage.md):<br/>Database singolo: 5 GB - 4 TB<br/>Istanza gestita: 32 GB - 8 TB |Usa l'archiviazione SSD locale:<br/>Database singolo: 5 GB - 4 TB<br/>Istanza gestita: 32 GB - 4 TB |Aumento automatico e flessibile dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di archiviazione e oltre. Archiviazione SSD locale per la cache del pool di buffer locale e l'archiviazione locale dei dati. Archiviazione remota di Azure come archivio dati a lungo termine finale. |
 |Velocità effettiva di I/O (approssimativa)|Database singolo: 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000</br>Istanza gestita: dipende dalle [dimensioni del file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 operazioni di I/O al secondo per core fino a un massimo di 200.000|Da definire|
 |Disponibilità|1 replica, senza scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](sql-database-read-scale-out.md),<br/>DISPONIBILITÀ ELEVATA con ridondanza|?|
 |Backup|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|Backup basato su snapshot nell'archiviazione remota di Azure e questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscono sulle prestazioni di I/O di calcolo. I ripristini sono molto veloci e non corrispondono a un'operazione di dimensionamento dei dati (impiegano pochi minuti invece di ore o giorni).|
@@ -63,7 +63,7 @@ Per le risposte alle domande più frequenti, vedere [Domande frequenti sul datab
 
 ## <a name="azure-hybrid-benefit"></a>Vantaggio Azure Hybrid
 
-Nel modello di acquisto basato su vCore è possibile scambiare le licenze esistenti con tariffe scontate per il database SQL tramite il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Questo vantaggio di Azure consente di risparmiare fino al 30% sul costo del database SQL di Azure usando le licenze locali di SQL Server con Software Assurance.
+Nel modello di acquisto basato su vCore è possibile scambiare le licenze esistenti con tariffe scontate per il database SQL tramite il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Questo vantaggio di Azure consente di risparmiare fino al 30% sul costo del database SQL di Azure usando le licenze locali di SQL Server con Software Assurance.
 
 ![prezzi](./media/sql-database-service-tiers/pricing.png)
 

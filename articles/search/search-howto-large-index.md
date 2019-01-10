@@ -1,55 +1,81 @@
 ---
-title: Ridimensionare l'indicizzazione con indicizzatori predefiniti - Ricerca di Azure
-description: Aggiungere nuovi elementi, aggiornare gli elementi o i documenti esistenti o eliminare i documenti obsoleti in una ricompilazione completa o in un'indicizzazione incrementale parziale per aggiornare un indice di Ricerca di Azure.
+title: Indicizzare un set di dati di grandi dimensioni usando gli indicizzatori predefiniti - Ricerca di Azure
+description: Informazioni sulle strategie per l'indicizzazione di grandi quantità di dati o l'indicizzazione con un utilizzo elevato di risorse di calcolo mediante la modalità batch, l'allocazione delle risorse e tecniche di indicizzazione pianificata, parallela e distribuita.
 services: search
 author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f268de43f4f860458c062cb80e5bea0134b4407
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2f3d08a32384cea815f096f51b24eea596d0d118
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316681"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742236"
 ---
-# <a name="how-to-scale-out-indexing-in-azure-search"></a>Come ridimensionare l'indicizzazione in Ricerca di Azure
+# <a name="how-to-index-large-data-sets-in-azure-search"></a>Come indicizzare set di dati di grandi dimensioni in Ricerca di Azure
 
-Man mano che il volume dei dati aumenta o l'elaborazione richiede modifiche, è possibile che le [ricompilazioni e i processi di reindicizzazione](search-howto-reindex.md) non risultino così semplici. 
+Man mano che il volume dei dati aumenta o cambiano le esigenze di elaborazione, le strategie di indicizzazione predefinite potrebbero non essere più adeguate. Ricerca di Azure offre diversi metodi per gestire set di dati di grandi dimensioni, dalla strutturazione di una richiesta di caricamento dati all'uso di un indicizzatore specifico dell'origine per carichi di lavoro pianificati e distribuiti.
 
-Come primo passo per soddisfare le richieste, si consiglia di aumentare la [scalabilità e la capacità](search-capacity-planning.md) entro i limiti del servizio esistente. 
+Le stesse tecniche usate per le grandi quantità di dati sono valide anche per i processi a esecuzione prolungata. In particolare, i passaggi descritti nell'[indicizzazione parallela](#parallel-indexing) sono utili per le operazioni di indicizzazione che fanno un uso intensivo di risorse di calcolo, come l'analisi delle immagini o l'elaborazione del linguaggio naturale nelle [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md).
 
-Un secondo passaggio, se è possibile usare gli [indicizzatori](search-indexer-overview.md), aggiunge i meccanismi per l'indicizzazione scalabile. Gli indicizzatori sono dotati di un'utilità di pianificazione predefinita che consente di suddividere l'indicizzazione in intervalli regolari o di estendere l'elaborazione oltre la finestra di 24 ore. Per di più, quando abbinati alle definizioni delle origini dati, gli indicizzatori consentono di ottenere un modulo di parallelismo mediante il partizionamento dei dati e l'uso delle pianificazioni da eseguire in parallelo.
+## <a name="batch-indexing"></a>Indicizzazione batch
 
-### <a name="scheduled-indexing-for-large-data-sets"></a>Indicizzazione pianificata per grandi set di dati
+Uno dei meccanismi più semplici per l'indicizzazione di set di dati di grandi dimensioni consiste nell'inviare più documenti o record in un'unica richiesta. Se le dimensioni dell'intero payload sono inferiori a 16 MB, una richiesta può gestire fino a 1000 documenti in un'operazione di caricamento in blocco. Supponendo di usare l'[API REST per l'aggiunta o l'aggiornamento di documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), si potrebbero inserire 1000 documenti in un pacchetto nel corpo della richiesta.
 
-La pianificazione è un meccanismo importante per l'elaborazione di grandi set di dati e le analisi a esecuzione lenta, ad esempio, analisi delle immagini in una pipeline di ricerca cognitiva. L'elaborazione degli indicizzatori funziona entro una finestra di 24 ore. Se l'elaborazione non viene completata nell'arco di 24 ore, i comportamenti della pianificazione dell'indicizzatore possono essere usati a proprio vantaggio. 
+L'indicizzazione batch viene implementata per le singole richieste tramite REST o .NET o mediante gli indicizzatori. Alcuni indicizzatori funzionano con limitazioni diverse. In particolare, l'indicizzazione BLOB di Azure limita le dimensioni dei batch a 10 documenti in considerazione delle dimensioni medie superiori dei documenti. Per gli indicizzatori basati sull'[API REST di creazione indicizzatore](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ), è possibile impostare l'argomento `BatchSize` per personalizzare questa impostazione in base alle caratteristiche dei dati. 
+
+> [!NOTE]
+> Per limitare la dimensione del documento, è necessario escludere dalla richiesta i dati non disponibili per query. Le immagini e altri dati binari non sono direttamente disponibili per la ricerca e non devono quindi essere archiviati nell'indice. Per integrare i dati non disponibili per query nei risultati della ricerca, occorre definire un campo non disponibile per la ricerca che archivia un riferimento URL alla risorsa.
+
+## <a name="add-resources"></a>Aggiungere risorse
+
+I servizi di cui viene effettuato il provisioning a uno dei [piani tariffari Standard](search-sku-tier.md) hanno spesso una capacità sottoutilizzata sia per l'archiviazione che per i carichi di lavoro (query o indicizzazione), motivo per cui l'[aumento del numero di partizioni e repliche](search-capacity-planning.md) rappresenta la soluzione più ovvia per gestire set di dati di grandi dimensioni. Per ottenere risultati ottimali sono necessarie entrambe le risorse: le partizioni per l'archiviazione e le repliche per l'inserimento dati.
+
+Gli aumenti di repliche e partizioni sono eventi fatturabili che aumentano i costi ma, a meno che non si debbano indicizzare i dati continuamente in condizioni di carico massimo, è possibile aggiungere scalabilità per la durata del processo di indicizzazione e quindi ridurre i livelli di risorse al termine dell'operazione.
+
+## <a name="use-indexers"></a>Usare gli indicizzatori
+
+Gli [indicizzatori](search-indexer-overview.md) vengono usati per individuare contenuto ricercabile in origini dati esterne mediante una ricerca per indicizzazione. Sebbene non siano appositamente destinati all'indicizzazione su larga scala, diverse funzionalità degli indicizzatori sono particolarmente utili in presenza di set di dati di grandi dimensioni:
+
++ Le utilità di pianificazione consentono di suddividere l'indicizzazione in intervalli regolari in modo da distribuirne l'esecuzione nel tempo.
++ L'indicizzazione pianificata può ripartire dall'ultimo punto di arresto noto. Se una ricerca per indicizzazione su un'origine dati non viene completata in 24 ore, l'indicizzatore riprenderà l'indicizzazione il secondo giorno a partire dal punto di interruzione.
++ Il partizionamento dei dati in singole origini dati di dimensioni inferiori consente l'elaborazione parallela. È possibile suddividere set di dati di grandi dimensioni in set di dati più piccoli e quindi creare più definizioni di origine dati che possono essere indicizzate in parallelo.
+
+> [!NOTE]
+> Gli indicizzatori sono specifici dell'origine dati, quindi l'uso di indicizzatori è possibile solo per origini dati selezionate in Azure: [database SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [archivio BLOB](search-howto-indexing-azure-blob-storage.md), [archivio tabelle](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
+
+## <a name="scheduled-indexing"></a>Indicizzazione pianificata
+
+La pianificazione degli indicizzatori è un meccanismo importante per l'elaborazione di grandi set di dati, così come per i processi a esecuzione lenta come l'analisi delle immagini in una pipeline di ricerca cognitiva. L'elaborazione degli indicizzatori funziona entro una finestra di 24 ore. Se l'elaborazione non viene completata nell'arco di 24 ore, i comportamenti della pianificazione dell'indicizzatore possono essere usati a proprio vantaggio. 
 
 Per impostazione predefinita, l'indicizzazione pianificata viene avviata a intervalli specifici, in cui un processo viene in genere completato prima di riprendere nell'intervallo pianificato successivo. Tuttavia, se l'elaborazione non viene completata entro l'intervallo, l'indicizzatore si arresta perché il tempo a disposizione è terminato. All'intervallo successivo l'elaborazione riprende da dove si è interrotta perché il sistema tiene traccia del punto in cui si è verificata l'interruzione. 
 
-In pratica per i caricamenti di indici che richiedono più giorni, è possibile inserire l'indicizzatore in una pianificazione di 24 ore. Quando l'indicizzazione riprende nelle successive 24 ore, riavvia l'ultimo documento valido e noto. In questo modo un indicizzatore può continuare a funzionare tramite un backlog del documento per più giorni fino a quando non vengono elaborati tutti i documenti non elaborati. Per altre informazioni su questo approccio, vedere [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
+In pratica per i caricamenti di indici che richiedono più giorni, è possibile inserire l'indicizzatore in una pianificazione di 24 ore. Quando l'indicizzazione riprende per il ciclo di 24 ore successivo, riparte dall'ultimo documento valido noto. In questo modo un indicizzatore può continuare a funzionare tramite un backlog del documento per più giorni fino a quando non vengono elaborati tutti i documenti non elaborati. Per altre informazioni su questo approccio, vedere [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Per altre informazioni sull'impostazione di pianificazioni in generale, vedere [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) (API REST di creazione indicizzatore).
 
 <a name="parallel-indexing"></a>
 
 ## <a name="parallel-indexing"></a>Indicizzazione parallela
 
-Una seconda opzione consiste nel configurare una strategia di indicizzazione parallela. Per requisiti di indicizzazione impegnativi da un punto di vista computazionale e non comuni, ad esempio OCR su documenti scansionati in una pipeline di ricerca cognitiva, una strategia di indicizzazione parallela potrebbe essere l'approccio giusto per questo obiettivo specifico. In una pipeline di arricchimento della ricerca cognitiva, l'elaborazione del linguaggio naturale e dell'analisi delle immagini richiedono un'esecuzione prolungata. L'indicizzazione parallela in un servizio che non gestisce contemporaneamente le richieste di query potrebbe essere un'opzione valida da usare su una parte di contenuto a elaborazione lenta di grandi dimensioni. 
+Una strategia di indicizzazione parallela si basa sull'indicizzazione di più origini dati in contemporanea, dove ogni definizione di origine dati specifica un subset dei dati. 
 
-Una strategia per l'elaborazione parallela presenta questi elementi:
+Per requisiti di indicizzazione non comuni e con elevati livelli di calcolo, ad esempio OCR su documenti digitalizzati in una pipeline di ricerca cognitiva, analisi delle immagini o elaborazione del linguaggio naturale, una strategia di indicizzazione parallela è spesso l'approccio giusto per completare un processo a esecuzione prolungata nel più breve tempo possibile. Se è possibile eliminare o ridurre le richieste di query, l'indicizzazione parallela in un servizio che non gestisce contemporaneamente le query rappresenta la strategia migliore per gestire grandi contenuti a elaborazione lenta. 
 
-+ Dividere i dati di origine in più contenitori o in più cartelle virtuali all'interno dello stesso contenitore. 
-+ Eseguire il mapping di ogni mini set di dati in un'[origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source) abbinata al relativo [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+L'elaborazione parallela prevede le operazioni seguenti:
+
++ Suddividere i dati di origine in più contenitori o in più cartelle virtuali all'interno dello stesso contenitore. 
++ Eseguire il mapping di ogni mini set di dati alla propria [origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source), abbinata al relativo [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + Per la ricerca cognitiva, fare riferimento allo stesso [set di competenze](https://docs.microsoft.com/rest/api/searchservice/create-skillset) in ogni definizione dell'indicizzatore.
 + Scrivere nello stesso indice di ricerca di destinazione. 
 + Pianificare l'esecuzione di tutti gli indicizzatori nello stesso momento.
 
-> [!Note]
+> [!NOTE]
 > Ricerca di Azure non consente di dedicare le repliche o le partizioni a carichi di lavoro specifici. Il rischio di indicizzazioni pesante simultanee sovraccarica il sistema a scapito delle prestazioni di query. In un ambiente di testing implementare prima l'indicizzazione parallela per comprendere i compromessi.
 
-## <a name="configure-parallel-indexing"></a>Configurare l'indicizzazione parallela
+### <a name="how-to-configure-parallel-indexing"></a>Come configurare l'indicizzazione parallela
 
 Per gli indicizzatori la capacità di elaborazione si basa vagamente su un sottosistema dell'indicizzatore per ogni unità di servizio usata dal servizio di ricerca. Nei servizi di Ricerca di Azure con provisioning nei livelli Basic o Standard aventi almeno due repliche sono possibili più indicizzatori simultanei. 
 

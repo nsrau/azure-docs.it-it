@@ -1,20 +1,17 @@
 ---
 title: Panoramica della continuità aziendale con Database di Azure per PostgreSQL
 description: Panoramica della continuità aziendale con Database di Azure per PostgreSQL.
-services: postgresql
-author: kamathsun
-ms.author: sukamat
-manager: kfile
-editor: jasonwhowell
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 1b981b650d75556f4521aaf0f089443bb88d064a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29693119"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559043"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Panoramica della continuità aziendale con Database di Azure per PostgreSQL
 
@@ -32,7 +29,7 @@ La tabella seguente mette a confronto i valori ERT e RPO per le funzionalità di
 | Ripristino geografico dai backup con replica geografica | Non supportate | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |
 
 > [!IMPORTANT]
-> Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Non è possibile ripristinare un server eliminato.
+> **Non è possibile** ripristinare i server eliminati. Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Ripristinare un server in seguito a errore di un'applicazione o di un utente
 
@@ -49,7 +46,7 @@ Una delle opzioni è attendere che il server torni online al termine dell'interr
 La seconda opzione consiste nell'usare la funzionalità di ripristino geografico di Database di Azure per PostgreSQL che ripristina il server usando i backup con ridondanza geografica. Questi backup sono accessibili anche quando l'area in cui il server è ospitato è offline. È possibile eseguire il ripristino da questi backup a qualsiasi altra area e riportare il server online.
 
 > [!IMPORTANT]
-> Il ripristino geografico è possibile solo se è stato effettuato il provisioning del server con l'archivio di backup con ridondanza geografica.
+> Il ripristino geografico è possibile solo se è stato effettuato il provisioning del server con l'archivio di backup con ridondanza geografica. Per passare da backup con ridondanza locale a backup con ridondanza geografica per un server esistente, è necessario eseguire un dump del server esistente usando pg_dump e quindi ripristinarlo in un nuovo server configurato per i backup con ridondanza geografica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sui backup automatizzati, vedere [Backup in Database di Azure per PostgreSQL](concepts-backup.md). 

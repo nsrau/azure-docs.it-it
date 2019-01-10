@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89663db23962cbc82ead331f05cb39c0ef5d2e87
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344966"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722567"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteggere il servizio RESTful usando certificati client
 
@@ -41,7 +41,7 @@ Questo articolo descrive in dettaglio le procedure per:
 Per configurare il **servizio app di Azure** per richiedere i certificati client, l'impostazione del sito `clientCertEnabled` dell'app Web deve essere *true*. Per eseguire questa modifica, nel portale di Azure aprire la pagina dell'app Web. Nel riquadro di spostamento a sinistra, in **Impostazioni**, selezionare **Impostazioni SSL**. Nella sezione **Certificati client** attivare l'opzione **Certificato client in ingresso**.
 
 >[!NOTE]
->Assicurarsi che il piano di servizio app di Azure sia Standard o superiore. Per altre informazioni, vedere [Panoramica approfondita dei piani di servizio app di Azure](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Assicurarsi che il piano di servizio app di Azure sia Standard o superiore. Per altre informazioni, vedere [Panoramica approfondita dei piani di servizio app di Azure](https://docs.microsoft.com/azure/app-service/overview-hosting-plans).
 
 >[!NOTE]
 >Per altre informazioni sull'impostazione della proprietà **clientCertEnabled**, vedere [Configurare l'autenticazione reciproca TLS per le app Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
@@ -152,7 +152,7 @@ Per supportare l'autenticazione del certificato client nel criterio personalizza
    >Se viene visualizzato il messaggio di errore *Nome non valido. Specificare un nome valido*, significa che Azure AD B2C ha chiamato il servizio RESTful durante la presentazione del certificato client. Il passaggio successivo prevede la convalida del certificato.
 
 ## <a name="step-6-add-certificate-validation"></a>Passaggio 6: Aggiungere la convalida del certificato
-Il certificato client inviato al servizio RESTful da Azure AD B2C non viene convalidato in alcun modo dalla piattaforma App Web di Azure, se non per controllare se il certificato esiste. La convalida del certificato è responsabilità dell'app Web. 
+Il certificato client inviato al servizio RESTful da Azure AD B2C non viene convalidato in alcun modo dalla piattaforma del Servizio app di Azure, se non per controllare se il certificato esiste. La convalida del certificato è responsabilità dell'app Web. 
 
 In questa sezione si aggiunge un esempio di codice ASP.NET che convalida le proprietà del certificato a scopo di autenticazione.
 

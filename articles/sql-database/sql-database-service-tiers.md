@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: d801ed309b0d79dd6655c7dd59ebd17bd37de222
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9d566c0f95325635c5ce5030f4d3b22dba7ceb08
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164399"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726032"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelli di acquisto del database SQL di Azure
 
@@ -44,7 +44,7 @@ La tabella e il grafico seguenti mettono a confronto questi due modelli.
 
 ## <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
 
-Una memoria centrale virtuale rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware e caratteristiche fisiche dell'hardware (ad esempio, numero di core, memoria, spazio di archiviazione). Il modello di acquisto basato su vCore offre flessibilità, controllo, trasparenza nell'utilizzo individuale delle risorse e un metodo diretto per convertire i requisiti dei carichi di lavoro locali nel cloud. Questo modello consente di scegliere le risorse di calcolo, memoria e archiviazione in base ai requisiti dei carichi di lavoro. Nel modello di acquisto basato su vCore è possibile scegliere tra livelli di servizio [Utilizzo generico](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [Business critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) per [database singoli](sql-database-single-database-scale.md), [istanze gestite](sql-database-managed-instance.md) e [pool elastici](sql-database-elastic-pool.md). Per i database singoli è anche possibile scegliere il livello di servizio [Iperscalabilità (anteprima)](sql-database-service-tier-hyperscale.md).
+Una memoria centrale virtuale rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware e caratteristiche fisiche dell'hardware (ad esempio, numero di core, memoria, spazio di archiviazione). Il modello di acquisto basato su vCore offre flessibilità, controllo, trasparenza nell'uso individuale delle risorse e un metodo diretto per convertire i requisiti dei carichi di lavoro locali nel cloud. Questo modello consente di scegliere le risorse di calcolo, memoria e archiviazione in base ai requisiti dei carichi di lavoro. Nel modello di acquisto basato su vCore è possibile scegliere tra livelli di servizio [Utilizzo generico](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [Business critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) per [database singoli](sql-database-single-database-scale.md), [istanze gestite](sql-database-managed-instance.md) e [pool elastici](sql-database-elastic-pool.md). Per i database singoli è anche possibile scegliere il livello di servizio [Iperscalabilità (anteprima)](sql-database-service-tier-hyperscale.md).
 
 Il modello di acquisto basato su vCore consente di scegliere le risorse di calcolo e archiviazione in modo indipendente, soddisfare le esigenze di prestazioni locali e ottimizzare i costi. Nel modello di acquisto basato su vCore i clienti pagano per le risorse seguenti:
 
@@ -70,7 +70,7 @@ Per un singolo database SQL di Azure con dimensioni di calcolo specifiche all'in
 
 Le DTU sono particolarmente utili per comprendere la quantità relativa di risorse tra i database SQL di Azure a diverse dimensioni di calcolo e livelli di servizio. Ad esempio, raddoppiare le DTU aumentando le dimensioni di calcolo di un database equivale a raddoppiare il set di risorse disponibili per quel database. Ad esempio, un database Premium P11 con 1750 DTU fornisce 350 volte più potenza di calcolo DTU di un database Basic con 5 DTU.  
 
-Per ottenere maggiori dettagli sul consumo di risorse (DTU) del carico di lavoro, usare [Query Performance Insight del database SQL di Azure](sql-database-query-performance.md) per:
+Per ottenere maggiori dettagli sul consumo di risorse (DTU) del carico di lavoro, usare [Informazioni dettagliate prestazioni query del database SQL di Azure](sql-database-query-performance.md) per:
 
 - Identificare le query principali a livello di CPU/durata/conteggio delle esecuzioni, che possono essere potenzialmente ottimizzate per migliorare le prestazioni. Una query con uso intensivo dell'I/O, ad esempio, può trarre vantaggio dall'uso di [tecniche di ottimizzazione in memoria](sql-database-in-memory.md) per usare in modo più efficiente la memoria disponibile per un livello di servizio e una dimensione di calcolo specifici.
 - Eseguire il drill-down dei dettagli di una query, visualizzarne il testo e la cronologia di utilizzo delle risorse.

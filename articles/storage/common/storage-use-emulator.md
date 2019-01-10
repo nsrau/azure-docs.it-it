@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 22c7adc5db044568b4aa49dbbb0e36d2c919f6a6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052544"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629629"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -88,21 +88,24 @@ Dopo aver installato e avviato l'emulatore di archiviazione, è possibile testar
 Per altre informazioni sulle stringhe di connessione, vedere [Configurare le stringhe di connessione di Archiviazione di Azure](../storage-configure-connection-string.md).
 
 ### <a name="authorize-with-a-shared-access-signature"></a>Autorizzazione con una firma di accesso condiviso
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Alcune librerie client dell'archiviazione di Azure, ad esempio la libreria Xamarin, supportano solo l'autenticazione con un token di firma di accesso condiviso. È possibile creare il token di firma di accesso condiviso usando uno strumento come [Esplora soluzioni](http://storageexplorer.com/) o un'altra applicazione che supporta l'autenticazione con chiave condivisa.
 
 È anche possibile generare un token di firma di accesso condiviso usando Azure PowerShell. L'esempio seguente genera un token di firma di accesso condiviso con autorizzazioni complete per un contenitore BLOB:
 
-1. Installare Azure PowerShell se non è già stato fatto. È consigliabile usare la versione più recente dei cmdlet di PowerShell. Per le istruzioni di installazione, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
+1. Installare Azure PowerShell se non è già stato fatto. È consigliabile usare la versione più recente dei cmdlet di PowerShell. Per le istruzioni di installazione, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 2. Aprire Azure PowerShell ed eseguire i comandi seguenti, sostituendo `CONTAINER_NAME` con il nome scelto:
 
 ```powershell
-$context = New-AzureStorageContext -Local
+$context = New-AzStorageContext -Local
 
-New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+New-AzStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
 $now = Get-Date
 
-New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+New-AzStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 ```
 
 L'URI della firma di accesso condiviso risultante per il nuovo contenitore sarà simile a:
@@ -166,7 +169,7 @@ Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 
 | Opzione | DESCRIZIONE | Comando | Argomenti |
 | --- | --- | --- | --- |
-| **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: consente di avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
+| **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Avvia l'emulatore nel processo corrente anziché creare un nuovo processo. |
 | **Stop** |Interrompe l'emulatore di archiviazione. |`AzureStorageEmulator.exe stop` | |
 | **Status** |Stampa lo stato dell'emulatore di archiviazione. |`AzureStorageEmulator.exe status` | |
 | **Cancella** |Cancella i dati in tutti i servizi specificati nella riga di comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*blob*: cancella i dati BLOB. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |

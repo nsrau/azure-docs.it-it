@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 696bd6ec80f39e8a9f3418426a754ffc038171e2
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fe0a84d9d88f5287ca3a114225bde619f9312e69
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325083"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628358"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Connettere il dispositivo Raspberry Pi all'acceleratore di soluzioni di monitoraggio remoto (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Questa esercitazione mostra come connettere un dispositivo fisico all'acceleratore di soluzioni di monitoraggio remoto. In questa esercitazione viene usato Node.js, una buona scelta per gli ambienti con vincoli minimi in termine di risorse.
+Questa esercitazione mostra come connettere un dispositivo reale all'acceleratore di soluzioni di monitoraggio remoto. In questa esercitazione viene usato Node.js, una buona scelta per gli ambienti con vincoli minimi in termine di risorse.
+
+Se si preferisce simulare un dispositivo, vedere [Creare e testare un nuovo dispositivo simulato](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ### <a name="required-hardware"></a>Requisiti hardware
 
@@ -36,7 +38,7 @@ Un computer desktop per potersi connettere in remoto alla riga di comando in Ras
 
 È necessario un client SSH nel computer desktop per poter accedere in remoto alla riga di comando in Raspberry Pi.
 
-- Windows non include un client SSH. È consigliabile usare [PuTTY](http://www.putty.org/).
+- Windows non include un client SSH. È consigliabile usare [PuTTY](https://www.putty.org/).
 - La maggior parte delle distribuzioni Linux e Mac OS includono l'utilità SSH della riga di comando. Per altre informazioni, vedere [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md) (SSH con Linux o Mac OS).
 
 ### <a name="required-raspberry-pi-software"></a>Software Raspberry Pi necessario
@@ -126,7 +128,6 @@ Completare i passaggi seguenti usando la connessione `ssh` al dispositivo Raspbe
     var temperatureSchema = 'chiller-temperature;v1';
     var humiditySchema = 'chiller-humidity;v1';
     var pressureSchema = 'chiller-pressure;v1';
-    var interval = "00:00:05";
     var deviceType = "Chiller";
     var deviceFirmware = "1.0.0";
     var deviceFirmwareUpdateStatus = "";
@@ -144,8 +145,6 @@ Completare i passaggi seguenti usando la connessione `ssh` al dispositivo Raspbe
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
         "TemperatureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"temperature\":${temperature},\"temperature_unit\":\"${temperature_unit}\"}",
           "MessageSchema": {
             "Name": temperatureSchema,
             "Format": "JSON",
@@ -156,8 +155,6 @@ Completare i passaggi seguenti usando la connessione `ssh` al dispositivo Raspbe
           }
         },
         "HumiditySchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"humidity\":${humidity},\"humidity_unit\":\"${humidity_unit}\"}",
           "MessageSchema": {
             "Name": humiditySchema,
             "Format": "JSON",
@@ -168,8 +165,6 @@ Completare i passaggi seguenti usando la connessione `ssh` al dispositivo Raspbe
           }
         },
         "PressureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"pressure\":${pressure},\"pressure_unit\":\"${pressure_unit}\"}",
           "MessageSchema": {
             "Name": pressureSchema,
             "Format": "JSON",

@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sugli acceleratori di soluzioni Azure IoT | Microsoft Docs
+title: Domande frequenti sugli acceleratori di soluzioni IoT - Azure | Microsoft Docs
 description: Domande frequenti sugli acceleratori di soluzioni IoT
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 294eae1dd5e591d12fdb82f62ea013ba54489686
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253341"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608750"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Domande frequenti sugli acceleratori di soluzioni IoT
 
@@ -40,7 +40,28 @@ Attualmente solo la soluzione di monitoraggio remoto usa l'architettura dei micr
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Quali vantaggi offre la nuova architettura basata su microservizi open source nel nuovo aggiornamento?
 
-Negli ultimi due anni l'architettura cloud si è evoluta notevolmente. I microservizi sono emersi come ottimo modello per ottenere scalabilità e flessibilità senza compromettere la velocità di sviluppo. Questo modello di architettura viene usato in diversi servizi Microsoft internamente, con ottimi risultati in termini di affidabilità e scalabilità. Microsoft sta mettendo in pratica tutte le conoscenze acquisite perché i clienti possano trarne vantaggio.
+Negli ultimi due anni l'architettura cloud si è evoluta notevolmente. I microservizi sono emersi come ottimo modello per ottenere scalabilità e flessibilità senza compromettere la velocità di sviluppo. Questo modello di architettura viene usato in diversi servizi Microsoft internamente, con ottimi risultati in termini di affidabilità e scalabilità. Microsoft sta mettendo in pratica queste conoscenze negli acceleratori di soluzioni in modo che i clienti possano trarne vantaggio.
+
+### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-azure-ad-tenant-how-do-i-complete-this-task"></a>Un amministratore del servizio vuole modificare il mapping della directory tra la sottoscrizione e un tenant di Azure AD specifico. Come completare questa attività
+
+Vedere [Come aggiungere una sottoscrizione esistente alla directory di Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
+
+### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Si vuole modificare un amministratore del servizio o coamministratore quando si accede con un account dell'organizzazione
+
+Vedere l'articolo di supporto [Modifica dell'amministratore del servizio e del coamministratore quando si effettua l'accesso con un account dell'organizzazione](https://azure.microsoft.com/support/changing-service-admin-and-co-admin).
+
+### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Perché viene visualizzato un errore simile al seguente? "L'account non ha le autorizzazioni appropriate per creare una soluzione. Rivolgersi all'amministratore account o provare con un account diverso".
+
+Per indicazioni vedere il diagramma seguente:
+
+![Diagramma di flusso delle autorizzazioni](media/iot-accelerators-faq/flowchart.png)
+
+> [!NOTE]
+> Se si continua a visualizzare l'errore dopo aver confermato di essere un amministratore globale del tenant Azure AD e un coamministratore della sottoscrizione, l'amministratore dell'account dovrà rimuovere l'utente e assegnare nuovamente le autorizzazioni necessarie in questo ordine. Innanzitutto, dovrà aggiungere l'utente come amministratore globale e quindi aggiungere l'utente come coamministratore della sottoscrizione di Azure. Se i problemi persistono, contattare [Guida e supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Perché viene visualizzato questo errore quando si dispone di una sottoscrizione di Azure? "Per creare soluzioni preconfigurate è necessaria una sottoscrizione di Azure. È possibile creare un account di valutazione gratuito in pochi minuti."
+
+Se si è certi di avere una sottoscrizione di Azure, convalidare il mapping del tenant per la sottoscrizione e verificare che sia selezionato il tenant corretto nell'elenco a discesa. Se si è verificato che il tenant è corretto, seguire il diagramma precedente e verificare il mapping della sottoscrizione e il tenant di Azure AD.
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Dove è possibile reperire informazioni sulla versione precedente della soluzione di monitoraggio remoto?
 
@@ -52,12 +73,12 @@ Sì, la nuova soluzione di monitoraggio remoto è disponibile nelle stesse aree 
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Che differenza c'è tra eliminare un gruppo di risorse nel portale di Azure e fare clic per eliminare un acceleratore di soluzioni in azureiotsuite.com?
 
-* Se si elimina l'acceleratore di soluzioni in [azureiotsuite.com](https://www.azureiotsolutions.com/), si eliminano anche tutte le risorse di cui è stato effettuato il provisioning al momento dell'acceleratore di soluzioni. Se sono state aggiunte altre risorse al gruppo, anche queste ultime vengono eliminate.
+* Se si elimina l'acceleratore di soluzioni in [azureiotsuite.com](https://www.azureiotsolutions.com/), si eliminano anche tutte le risorse distribuite al momento della creazione dell'acceleratore di soluzioni. Se sono state aggiunte altre risorse al gruppo, anche queste ultime vengono eliminate.
 * Se si elimina il gruppo di risorse nel [portale di Azure](https://portal.azure.com), si eliminano solo le risorse presenti in tale gruppo. È anche necessario eliminare l'applicazione Azure Active Directory associata all'acceleratore di soluzioni.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>È possibile continuare a sfruttare gli investimenti negli acceleratori di soluzioni Azure IoT?
 
-Sì. Qualsiasi soluzione esistente oggi continua a essere inclusa nella sottoscrizione di Azure e il codice sorgente è sempre disponibile in GitHub.
+Sì. Qualsiasi soluzione esistente oggi continua a essere inclusa nella sottoscrizione di Azure e il codice sorgente rimane disponibile in GitHub.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Di quante istanze dell'hub IoT è possibile eseguire il provisioning in una sottoscrizione?
 
@@ -78,7 +99,7 @@ Due. È possibile creare solo due Transazioni sito Web interno - Livello 1 per B
 
 Attualmente non è possibile creare un acceleratore di soluzioni con un account [Microsoft Azure per DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/), ma in un paio di minuti è possibile creare un [account di valutazione gratuito per Azure](https://azure.microsoft.com/free/), che consente di creare un acceleratore di soluzioni.
 
-### <a name="how-do-i-delete-an-aad-tenant"></a>Come si elimina un tenant AAD?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Come si elimina un tenant di Azure AD?
 
 Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di eliminazione di un tenant di Azure AD](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 

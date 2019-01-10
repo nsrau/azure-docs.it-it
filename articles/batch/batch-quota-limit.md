@@ -1,9 +1,9 @@
 ---
-title: Quote e limiti del servizio per Azure Batch | Microsoft Docs
+title: Quote e limiti del servizio - Azure Batch | Microsoft Docs
 description: Informazioni sui vincoli, limiti e quote di Azure Batch predefiniti e su come richiedere incrementi di quota
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0493783cb1253aab78ff39aa42eeabbec8ddb726
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5194fa73d246cee039e113207bbde277b06d7130
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263604"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753200"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -65,9 +65,9 @@ Se è stato creato un account Batch con modalità di allocazione pool impostata 
 | [Attività simultanee](batch-parallel-node-tasks.md) per nodo di calcolo | 4 x numero di core del nodo |
 | [Applicazioni](batch-application-packages.md) per account Batch | 20 |
 | Pacchetti dell'applicazione per applicazione | 40 |
-| Durata massima dell'attività | 7 giorni<sup>1</sup> |
+| Durata massima dell'attività | 180 giorni<sup>1</sup> |
 
-<sup>1</sup> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 7 giorni. Le attività completate persistono per un tempo illimitato. I dati per le attività non completate entro la durata massima non sono accessibili.
+<sup>1</sup> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 180 giorni. Le attività completate vengono conservate per 7 giorni. I dati per le attività non completate entro la durata massima non sono accessibili.
 
 ## <a name="view-batch-quotas"></a>Visualizzare le quote Batch
 

@@ -8,21 +8,21 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: afe0cfe61779e95fc9a65a1f4928ddae4b7af267
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e77ee61e3d318b355b978ce21031f3f55a26feca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090109"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724624"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in Java su Android con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Questo articolo spiega come creare un'applicazione Java per Android usando Speech SDK di Servizi cognitivi per la trascrizione del riconoscimento vocale.
-L'applicazione si basa sul pacchetto Speech SDK Maven di Servizi cognitivi Microsoft versione 1.1.0 e su Android Studio 3.1.
+Questo articolo spiega come sviluppare un'applicazione Java per Android usando Speech SDK di Servizi cognitivi per la trascrizione del riconoscimento vocale.
+L'applicazione si basa sul pacchetto Speech SDK Maven di Servizi cognitivi Microsoft versione 1.2.0 e su Android Studio 3.1.
 Speech SDK è attualmente compatibile con i dispositivi Android con processori ARM a 32/64 bit e Intel x86/x64 compatibili.
 
 > [!NOTE]
@@ -58,9 +58,9 @@ Android Studio richiede qualche momento per preparare il nuovo progetto Android.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.1.0`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.2.0`.
 
-Speech SDK per Android viene inserito in un pacchetto come una [AAR (libreria Android)](https://developer.android.com/studio/projects/android-library), che include le librerie necessarie, nonché le autorizzazioni Android richieste per usarlo.
+Speech SDK per Android viene inserito in un pacchetto come una [AAR (libreria Android)](https://developer.android.com/studio/projects/android-library), che include le librerie necessarie, nonché le autorizzazioni Android richieste.
 È ospitato in un repository Maven in https://csspeechstorage.blob.core.windows.net/maven/.
 
 Di seguito viene descritto come configurare il progetto per usare Speech SDK. Aprire la finestra Struttura del progetto, scegliendo **File** > **Struttura del progetto** dalla barra del menu Android Studio. Nella finestra Struttura del progetto, apportare le modifiche seguenti:
@@ -73,7 +73,7 @@ Di seguito viene descritto come configurare il progetto per usare Speech SDK. Ap
 
    ![Screenshot della finestra della struttura del progetto](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Nella finestra visualizzata immettere il nome e la versione di Speech SDK per Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0`. Selezionare **OK**.
+1. Nella finestra visualizzata immettere il nome e la versione di Speech SDK per Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.2.0`. Selezionare **OK**.
    A questo punto Speech SDK viene aggiunto all'elenco delle dipendenze come illustrato di seguito:
 
    ![Screenshot della finestra della struttura del progetto](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -86,7 +86,7 @@ Di seguito viene descritto come configurare il progetto per usare Speech SDK. Ap
 
 ## <a name="create-user-interface"></a>Creare l'interfaccia utente
 
-Verrà creata un'interfaccia utente di base per l'applicazione. Modificare il layout per l'attività principale, `activity_main.xml`. Inizialmente, il layout include una barra del titolo con il nome dell'applicazione e un TextView contenente il testo "Hello World!"
+Verrà creata un'interfaccia utente di base per l'applicazione. Modificare il layout per l'attività principale, `activity_main.xml`. Inizialmente, il layout include una barra del titolo con il nome dell'applicazione e un TextView contenente il testo "Hello World!".
 
 * Fare clic sull'elemento TextView. Modificare l'attributo ID nell'angolo superiore destro in `hello`.
 
@@ -98,7 +98,7 @@ Verrà creata un'interfaccia utente di base per l'applicazione. Modificare il la
 
   ![Screenshot dell'icona Bacchetta magica](media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
-Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili all'immagine seguente.
+Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili all'immagine seguente:
 
 <table>
 <tr>
@@ -141,16 +141,12 @@ Fare clic sul pulsante dell'applicazione per iniziare una sezione dedicata al ri
 
 ![Screenshot dell'applicazione Android](media/sdk/qs-java-android-13-gui-on-device.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Ricercare questo esempio nella cartella `quickstart/java-android`.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Riconoscere le finalità dai contenuti vocali con Speech SDK per Java](how-to-recognize-intents-from-speech-java.md)
+> [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [Traduzione vocale](how-to-translate-speech-csharp.md)
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

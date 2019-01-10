@@ -1,5 +1,5 @@
 ---
-title: Configurare la topologia di Fabbrica connessa | Microsoft Docs
+title: Configurare la topologia di Fabbrica connessa - Azure | Microsoft Docs
 description: Come configurare la topologia di un acceleratore di soluzioni Fabbrica connessa.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: c6c5e27dad7f80a329edbd8fbcb95647dc4cd15a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626732"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602274"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurare l'acceleratore di soluzioni Fabbrica connessa
 
@@ -85,7 +85,7 @@ Il frammento di codice seguente mostra la struttura del file di configurazione `
 }
 ```
 
-Le proprietà comuni di `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` e `<station_configuration>` sono:
+Le proprietà comuni di  `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` e `<station_configuration>` sono:
 
 * **Name** (tipo string)
 
@@ -282,7 +282,7 @@ I valori OEE/KPI per la simulazione di Fabbrica connessa sono parametrizzati in 
 * Valori del nodo OPC UA da includere nel calcolo.
 * Modalità di calcolo del valore dai valori di telemetria.
 
-Fabbrica connessa usa le formule OEE pubblicate su http://oeeindustrystandard.oeefoundation.org.
+Fabbrica connessa usa le formule OEE pubblicate su https://www.oeefoundation.org.
 
 Gli oggetti nodo OPC UA nelle stazioni consentono l'uso di tag nel calcolo dei valori OEE/KPI. La proprietà **Relevance** indica per quale valore OEE/KPI deve essere usato il valore del nodo OPC UA. La proprietà **OpCode** definisce come viene incluso il valore nel calcolo.
 

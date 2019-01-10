@@ -2,18 +2,18 @@
 title: Eseguire operazioni di Archiviazione tabelle di Azure con PowerShell | Microsoft Docs
 description: Eseguire operazioni di Archiviazione tabelle di Azure con PowerShell.
 services: cosmos-db
-author: robinsh
+author: roygara
 ms.service: cosmos-db
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: robinsh
+ms.author: rogarana
 ms.component: cosmosdb-table
-ms.openlocfilehash: 577e6db0caeebb465025da033051dc2bbc9cb804
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 9aa3431e91196d7c33582d17494ddf0c32fba704
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143001"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634474"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Eseguire operazioni di Archiviazione tabelle di Azure con Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,7 +32,9 @@ In questo articolo con procedure sono illustrate le operazioni più comuni del s
 
 In questo articolo con procedure viene illustrato come creare un nuovo account di archiviazione di Azure in un nuovo gruppo di risorse in modo da semplificarne la rimozione al termine della procedura. Se lo si preferisce, è possibile usare un account di archiviazione esistente.
 
-Questo esempio richiede il modulo Azure PowerShell 4.4.0 o versioni successive. In una finestra di PowerShell eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se non ci sono risultati, è necessario eseguire l'aggiornamento. Vedere in proposito come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Questo esempio richiede il modulo Azure PowerShell `AzureRM` 4.4.0 o versioni successive. In una finestra di PowerShell eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se non ci sono risultati, è necessario eseguire l'aggiornamento. Vedere in proposito come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
+
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 Dopo avere installato o aggiornato Azure PowerShell, è necessario installare il modulo **AzureRmStorageTable**, che include i comandi per la gestione delle entità. Per installare questo modulo, eseguire PowerShell come amministratore e usare il comando **Install-Module**.
 

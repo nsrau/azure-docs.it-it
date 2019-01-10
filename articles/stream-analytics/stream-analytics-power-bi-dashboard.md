@@ -4,19 +4,19 @@ description: Questo articolo descrive come usare un dashboard di Power BI in tem
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/27/2017
-ms.openlocfilehash: e84903870110091d527e870600d9a67bdc9cc6e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d7f67015d4df20ea39c1225d52be36340b8f65d1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418455"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556977"
 ---
-# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Esercitazione: Analisi di flusso e Power BI: dashboard di analisi in tempo reale per lo streaming dei dati
+# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Esercitazione: Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
 Analisi di flusso di Azure permette di usare uno dei principali strumenti di Business Intelligence, [Microsoft Power BI](https://powerbi.com/). Questo articolo illustra come creare strumenti di Business Intelligence usando Power BI come output per i processi di Analisi di flusso di Azure. Illustra anche come creare e usare un dashboard in tempo reale.
 
 Questo articolo continua dall'esercitazione sul [rilevamento delle frodi in tempo reale](stream-analytics-real-time-fraud-detection.md) in Analisi di flusso. Esso si basa sul flusso di lavoro creato in tale esercitazione e aggiunge un output di Power BI in modo che sia possibile visualizzare le chiamate telefoniche fraudolente rilevate da un processo di Analisi di flusso. 
@@ -24,7 +24,7 @@ Questo articolo continua dall'esercitazione sul [rilevamento delle frodi in temp
 È disponibile [un video](https://www.youtube.com/watch?v=SGUpT-a99MA) che illustra questo scenario.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
@@ -44,30 +44,30 @@ Nell'esercitazione sul rilevamento delle frodi in tempo reale l'output viene inv
 
 4. In **Sink** selezionare **Power BI**.
 
-   ![Creare un output per Power BI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut.png)
+   ![Creare un output per Power BI](./media/stream-analytics-power-bi-dashboard/create-power-bi-ouptut.png)
 
 5. Fare clic su **Autorizza**.
 
     Verrà visualizzata una finestra in cui è possibile specificare le credenziali di Azure per l'account aziendale o dell'istituto di istruzione. 
 
-    ![Immettere le credenziali per l'accesso a Power BI](./media/stream-analytics-power-bi-dashboard/authorize-area.png)
+    ![Immettere le credenziali per l'accesso a Power BI](./media/stream-analytics-power-bi-dashboard/power-bi-authorization-credentials.png)
 
 6. Immettere le credenziali. È necessario considerare che quando si immettono le credenziali, si autorizza il processo di Analisi di flusso ad accedere all'area di Power BI.
 
 7. Quando si torna al pannello **Nuovo output** immettere le informazioni seguenti:
 
     * **Area di lavoro del gruppo**: selezionare un'area di lavoro nel tenant Power BI in cui si desidera creare il set di dati.
-    * **Nome set di dati**: immettere `sa-dataset`. È possibile usare un nome diverso. In questo caso prenderne nota perché servirà in un momento successivo.
-    * **Nome tabella**: immettere `fraudulent-calls`. L'output di Power BI da processi di Analisi di flusso può avere al momento solo una tabella in un set di dati.
+    * **Nome del set di dati**:  Immettere `sa-dataset`. È possibile usare un nome diverso. In questo caso prenderne nota perché servirà in un momento successivo.
+    * **Nome della tabella**: Immettere `fraudulent-calls`. L'output di Power BI da processi di Analisi di flusso può avere al momento solo una tabella in un set di dati.
 
-    ![Area di lavoro PBI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+    ![Set di tati e tabella dell'area di lavoro di Power BI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
     > [!WARNING]
     > Se Power BI dispone di un set di dati e di una tabella con gli stessi nomi specificati nel processo di Analisi di flusso, i dati esistenti vengono sovrascritti.
     > È consigliabile non creare in modo esplicito il set di dati e la tabella nell'account di Power BI. Vengono creati automaticamente quando il processo di Analisi di flusso viene avviato e inizia a generare output in Power BI. Se la query del processo non genera alcun risultato, il set di dati e la tabella non vengono creati.
     >
 
-8. Fare clic su **Crea**.
+8. Fare clic su **Create**(Crea).
 
 Il set di dati viene creato con le impostazioni seguenti:
 
@@ -90,6 +90,7 @@ Per altre informazioni sui set di dati di Power BI, vedere le informazioni di ri
     >[!NOTE]
     >Se non è stato assegnato un nome all'input `CallStream` nell'esercitazione sul rilevamento delle frodi, sostituire il nome per `CallStream` nelle clausole **FROM** e **JOIN** della query.
 
+        ```SQL
         /* Our criteria for fraud:
         Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
@@ -107,6 +108,7 @@ Per altre informazioni sui set di dati di Power BI, vedere le informazioni di ri
         /* Where the switch location is different */
         WHERE CS1.SwitchNum != CS2.SwitchNum
         GROUP BY TumblingWindow(Duration(second, 1))
+        ```
 
 4. Fare clic su **Save**.
 
@@ -120,7 +122,7 @@ Questa sezione è facoltativa ma consigliata.
     * Passare alla cartella in cui si trovano il file telcogenerator.exe e il file modificato telcodatagen.exe.config.
     * Eseguire il comando seguente:
 
-            telcodatagen.exe 1000 .2 2
+       `telcodatagen.exe 1000 .2 2`
 
 2. Nel pannello **Query** fare clic sui puntini di sospensione accanto all'input `CallStream` e quindi selezionare **Campiona dati da input**.
 
@@ -146,7 +148,7 @@ Il processo di Analisi di flusso inizia a cercare le chiamate fraudolente nel fl
 
 1. Passare a [Powerbi.com](https://powerbi.com) e accedere con l'account aziendale o dell'istituto di istruzione. Se la query del processo di Analisi di flusso produce risultati, si noterà che il set di dati è già creato:
 
-    ![Streaming del set di dati in Power BI](./media/stream-analytics-power-bi-dashboard/streaming-dataset.png)
+    ![Posizione del set di dati di streaming in Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
 2. Nell'area di lavoro fare clic su **+&nbsp;Crea**.
 
@@ -158,15 +160,15 @@ Il processo di Analisi di flusso inizia a cercare le chiamate fraudolente nel fl
 
 4. Nella parte superiore della finestra, fare clic su **Aggiungi riquadro**, selezionare **DATI IN STREAMING PERSONALIZZATI**, quindi fare clic su **Avanti**.
 
-    ![Set di dati di streaming personalizzato](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
+    ![Riquadro del set di dati di streaming personalizzato in Power BI](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
 5. In **YOUR DATSETS** (SET DI DATI PERSONALI) selezionare il set di dati interessato e quindi fare clic su **Avanti**.
 
-    ![Set di dati di streaming](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
+    ![Il set di dati di streaming in Power BI](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
 6. In **Tipo di visualizzazione** selezionare **Scheda** e quindi nell'elenco **Campi** selezionare **fraudulentcalls**.
 
-    ![Dettagli di visualizzazione per il nuovo riquadro](./media/stream-analytics-power-bi-dashboard/add-fraud.png)
+    ![Dettagli di visualizzazione per il nuovo riquadro](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
 7. Fare clic su **Avanti**.
 
@@ -178,7 +180,7 @@ Il processo di Analisi di flusso inizia a cercare le chiamate fraudolente nel fl
 
     Si dispone a questo punto di un contatore di frodi.
 
-    ![Contatore di frodi](./media/stream-analytics-power-bi-dashboard/fraud-counter.png)
+    ![Contatore di frodi nel dashboard di Power BI](./media/stream-analytics-power-bi-dashboard/power-bi-fraud-counter-tile.png)
 
 8. Seguire di nuovo la procedura per aggiungere un riquadro (partendo dal passaggio 4). Questa volta eseguire le operazioni seguenti:
 
@@ -187,7 +189,7 @@ Il processo di Analisi di flusso inizia a cercare le chiamate fraudolente nel fl
     * Aggiungere un valore e selezionare **fraudulentcalls**.
     * Per **Intervallo di tempo da visualizzare**  selezionare gli ultimi 10 minuti.
 
-    ![Creare il riquadro per il grafico a linee](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+    ![Creare il riquadro per il grafico a linee in Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
 9. Fare clic su **Avanti**, aggiungere un titolo e un sottotitolo e fare clic su **Applica**.
 
@@ -210,7 +212,7 @@ Attualmente, è possibile chiamare Power BI approssimativamente una volta al sec
 
 Per calcolare il valore e visualizzare la finestra in secondi, è possibile usare questa equazione:
 
-![Equazione 1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
+![Equazione per calcolare il valore e visualizzare la finestra in secondi](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
 Ad esempio: 
 
@@ -220,10 +222,11 @@ Ad esempio:
 
 L'equazione diventa quindi la seguente:
 
-![Equazione 2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
+![Equazione basata su criteri di esempio](./media/stream-analytics-power-bi-dashboard/power-bi-example-equation.png)  
 
 Con questa configurazione è possibile modificare la query originale come segue:
 
+```SQL
     SELECT
         MAX(hmdt) AS hmdt,
         MAX(temp) AS temp,
@@ -235,7 +238,7 @@ Con questa configurazione è possibile modificare la query originale come segue:
     GROUP BY
         TUMBLINGWINDOW(ss,4),
         dspl
-
+```
 
 ### <a name="renew-authorization"></a>Rinnovare l'autorizzazione
 Se la password è stata modificata dopo la creazione o l'ultima autenticazione del processo, è necessario autenticare nuovamente l'account Power BI. Se Azure Multi-Factor Authentication è configurato nel tenant di Azure Active Directory (Azure AD), è anche necessario rinnovare l'autorizzazione di Power BI ogni due settimane. Se non viene rinnovata, si potrebbero verificare problemi come la mancanza di output dei processi o un `Authenticate user error` nei log delle operazioni.

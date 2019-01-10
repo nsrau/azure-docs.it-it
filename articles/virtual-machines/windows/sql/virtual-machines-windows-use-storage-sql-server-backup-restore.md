@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 0fdf768008161fbb72e48dae937a4172222dbb63
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239747"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654088"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Usare Archiviazione di Azure per il backup e il ripristino di SQL Server
 ## <a name="overview"></a>Panoramica
@@ -33,12 +33,12 @@ Questo argomento illustra i motivi per cui è possibile scegliere di usare Archi
 Quando si eseguono backup di SQL Server, è necessario affrontare diverse problematiche, inclusi la gestione dell'archiviazione, i rischi correlati agli errori di archiviazione, l'accesso all'archiviazione fuori sede e la configurazione dell'hardware. Grazie all'uso del servizio di archiviazione BLOB di Azure per i backup di SQL Server, molti di questi problemi vengono risolti. Prendere in considerazione i vantaggi seguenti:
 
 * **Semplicità d'uso**: l'archiviazione dei backup nel servizio BLOB di Azure è un'opzione di archiviazione fuori sede pratica, flessibile e di facile accesso. La creazione di un sistema di archiviazione fuori sede per i backup di SQL Server è estremamente semplice ed è realizzabile modificando gli script e i processi esistenti in modo da usare la sintassi **BACKUP TO URL** . L'archiviazione fuori sede dovrebbe in genere essere ubicata a una certa distanza dal luogo fisico in cui si trova il database di produzione, al fine di evitare che nell'impatto di una situazione di emergenza possano trovarsi coinvolti sia la sede remota che quella in cui si trova il database di produzione. Scegliendo di eseguire la [replica geografica dei BLOB di Azure](../../../storage/common/storage-redundancy.md), si otterrà un livello aggiuntivo di protezione nel caso in cui si verifichi un'emergenza che potrebbe interessare l'intera area.
-* **Archivio di backup**: per l'archiviazione dei backup, il servizio di archiviazione BLOB di Azure offre un'alternativa ottimale alle opzioni più diffuse, ad esempio le soluzioni a nastro. L'archiviazione su nastro può richiedere il trasporto fisico alla struttura fuori sede e l'adozione di determinate misure per la protezione dei supporti. L'archiviazione dei backup nell'archiviazione BLOB di Azure rappresenta un'opzione di archiviazione istantanea, estremamente disponibile e durevole.
+* **Archivio di backup**: per l'archiviazione dei backup, il servizio di Archiviazione BLOB di Azure offre un'alternativa ottimale alle opzioni più diffuse, ad esempio le soluzioni a nastro. L'archiviazione su nastro può richiedere il trasporto fisico alla struttura fuori sede e l'adozione di determinate misure per la protezione dei supporti. L'archiviazione dei backup nell'archiviazione BLOB di Azure rappresenta un'opzione di archiviazione istantanea, estremamente disponibile e durevole.
 * **Hardware gestito**: con i servizi di Azure non viene addebitato alcun sovraccarico per la gestione dell'hardware. I servizi di Azure consentono di gestire l'hardware con l'aggiunta della replica geografica per la ridondanza e la protezione dagli errori hardware.
 * **Archiviazione illimitata**: abilitando un backup diretto sui BLOB di Azure, si ottiene l'accesso a uno spazio di archiviazione teoricamente illimitato. L'esecuzione di backup su una macchina virtuale di Azure presenta invece dei limiti correlati alle dimensioni della macchina stessa. Il numero di dischi che è possibile collegare a una macchina virtuale di Azure per i backup è limitato. Tale limite è di 16 dischi per un'istanza molto grande e un numero di dischi inferiore per istanze più piccole.
 * **Disponibilità dei backup**: i backup archiviati in BLOB di Azure sono disponibili ovunque e in qualsiasi momento. Sono facilmente accessibili per il ripristino in un'istanza di SQL Server locale oppure in un'altra istanza eseguita in una macchina virtuale di Azure, senza che sia necessario collegare e scollegare il database o scaricare e collegare il disco rigido virtuale.
 * **Costo**: viene pagato solo il servizio effettivamente utilizzato. Può rivelarsi una soluzione economica per il backup e l'archiviazione fuori sede. Per altre informazioni, vedere il [Calcolatore dei prezzi di Azure](https://go.microsoft.com/fwlink/?LinkId=277060 "Calcolatore dei prezzi di Azure") e [Panoramica dei prezzi di Azure](https://go.microsoft.com/fwlink/?LinkId=277059 "Panoramica dei prezzi di Azure").
-* **Usare gli snapshot di archiviazione**: quando i file di database sono archiviati in un BLOB di Azure e si usa SQL Server 2016, è possibile usare il [backup di snapshot di file](https://msdn.microsoft.com/library/mt169363.aspx) per eseguire backup quasi istantanei e ripristini estremamente rapidi.
+* **Snapshot di archiviazione**: quando i file di database sono archiviati in un BLOB di Azure e si usa SQL Server 2016, è possibile usare il [backup di snapshot di file](https://msdn.microsoft.com/library/mt169363.aspx) per eseguire backup quasi istantanei e ripristini estremamente rapidi.
 
 Per altre informazioni, vedere [Backup e ripristino di SQL Server con il servizio di archiviazione BLOB di Azure](https://go.microsoft.com/fwlink/?LinkId=271617).
 
@@ -62,7 +62,7 @@ Quando si eseguono backup nel servizio di archiviazione BLOB di Azure, vengono u
 | **Credenziali** |le informazioni necessarie per la connessione e l'autenticazione a un servizio di archiviazione BLOB di Azure vengono archiviate in una credenziale.  Per fare in modo che SQL Server sia in grado di scrivere backup in un BLOB di Azure o di eseguire un ripristino da quest'ultimo, è necessario creare una credenziale di SQL Server. Per altre informazioni, vedere [Credenziali di SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]
-> se si sceglie di copiare e caricare un file di backup nel servizio di archiviazione BLOB di Azure, e si prevede di usarlo per operazioni di ripristino, è necessario usare il tipo di BLOB di pagine. Il comando RESTORE da un tipo di BLOB in blocchi non riuscirà e restituirà un errore.
+> SQL Server 2016 è stato aggiornato e supporta BLOB in blocchi. Per altre informazioni, vedere [Esercitazione: Uso del servizio archiviazione BLOB di Microsoft Azure con database di SQL Server 2016](https://msdn.microsoft.com/library/dn466438.aspx).
 > 
 > 
 
@@ -70,8 +70,8 @@ Quando si eseguono backup nel servizio di archiviazione BLOB di Azure, vengono u
 1. Se non se ne possiede già uno, creare un account di Azure. Se si sta valutando Azure, è consigliabile usare una [versione di prova gratuita](https://azure.microsoft.com/free/).
 2. Eseguire quindi una delle esercitazioni seguenti, in cui vengono fornite informazioni dettagliate sulla creazione di un account di archiviazione e sull'esecuzione di un ripristino.
    
-   * **SQL Server 2014** - [Esercitazione: Backup e ripristino di SQL Server 2014 nel servizio di archiviazione BLOB di Microsoft Azure](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
-   * **SQL Server 2016**- [Esercitazione: Uso del servizio archiviazione BLOB di Microsoft Azure con database di SQL Server 2016](https://msdn.microsoft.com/library/dn466438.aspx)
+   * **SQL Server 2014**: [Esercitazione: Backup e ripristino di SQL Server 2014 nel servizio di archiviazione BLOB di Microsoft Azure](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+   * **SQL Server 2016**: [Esercitazione: Uso del servizio archiviazione BLOB di Microsoft Azure con database di SQL Server 2016](https://msdn.microsoft.com/library/dn466438.aspx)
 3. Esaminare la documentazione aggiuntiva, a partire da [Backup e ripristino di SQL Server con il servizio di archiviazione BLOB di Microsoft Azure](https://msdn.microsoft.com/library/jj919148.aspx).
 
 Se si verificano problemi, consultare l'argomento [Procedure consigliate e risoluzione dei problemi per il backup di SQL Server nell'URL](https://msdn.microsoft.com/library/jj919149.aspx).

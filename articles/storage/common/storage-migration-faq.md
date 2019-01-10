@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a15c983291d35063884178f7b84e21fe4908b49a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416393"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632315"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
@@ -37,7 +37,7 @@ Lo script di automazione è progettato per la distribuzione di Azure Resource Ma
 
 **Sono previsti costi per la copia dei dati tra due condivisioni file diverse nello stesso account di archiviazione all'interno della stessa area?**
 
-No. Per questo processo non vengono addebitati costi.
+ No. Per questo processo non vengono addebitati costi.
 
 **Come si esegue il backup dell'intero account di archiviazione in un altro account di archiviazione?**
 
@@ -118,6 +118,8 @@ Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-u
 
 **Come si spostano i dischi gestiti in un altro account di archiviazione?**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 A tale scopo, seguire questa procedura:
 
 1.  Arrestare la macchina virtuale a cui è collegato il disco gestito.
@@ -125,15 +127,15 @@ A tale scopo, seguire questa procedura:
 2.  Copiare il disco rigido virtuale del disco gestito da un'area a un'altra eseguendo lo script di Azure PowerShell seguente:
 
     ```
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionId <ID>
+    Select-AzSubscription -SubscriptionId <ID>
 
-    $sas = Grant-AzureRmDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
+    $sas = Grant-AzDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
 
-    $destContext = New-AzureStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
+    $destContext = New-AzStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
 
-    Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
 3.  Creare un disco gestito usando il file VHD in un'altra area in cui è stato copiato il disco rigido virtuale. A tale scopo, eseguire lo script di Azure PowerShell seguente:  
@@ -151,9 +153,9 @@ A tale scopo, seguire questa procedura:
 
     $storageType = 'StandardLRS'
 
-    $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
-    $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+    $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
 Per altre informazioni su come distribuire una macchina virtuale da un disco gestito, vedere [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
@@ -191,7 +193,7 @@ Usare AzCopy per copiare i dati in un altro account di archiviazione e quindi sp
 
 **Esistono prerequisiti per la modifica della replica di un account di archiviazione passando dall'archiviazione con ridondanza geografica all'archiviazione con ridondanza locale?**
 
-No. 
+ No. 
 
 **Come si accede all'archiviazione ridondante di File di Azure?**
 
@@ -234,7 +236,7 @@ Se si dispone di macchine virtuali, è necessario completare alcuni passaggi agg
 
 **Come si passa da un account di archiviazione classico a un account di archiviazione di Azure Resource Manager?**
 
-È possibile usare il cmdlet **Move-AzureStorageAccount**. Questo cmdlet ha più passaggi (convalida, preparazione, commit). È possibile convalidare lo spostamento prima di eseguirlo.
+È possibile usare il cmdlet **Move-AzStorageAccount**. Questo cmdlet ha più passaggi (convalida, preparazione, commit). È possibile convalidare lo spostamento prima di eseguirlo.
 
 Se si dispone di macchine virtuali, è necessario completare alcuni passaggi aggiuntivi prima di migrare i dati dell'account di archiviazione. Per altre informazioni, vedere [Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 

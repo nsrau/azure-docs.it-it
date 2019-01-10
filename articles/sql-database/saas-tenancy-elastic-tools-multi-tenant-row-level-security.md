@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a9f168a0abc28b1decc6f327a62f5eaa4163e6f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242909"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601526"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
 
@@ -57,7 +57,7 @@ Si noti che poiché RLS non è stata ancora abilitata nei database di partiziona
 1. **Livello applicazione**: modificare il codice dell'applicazione per impostare sempre il TenantId corrente in SESSION\_CONTEXT dopo l'apertura di una connessione. Il progetto di esempio imposta il TenantId in questo modo. 
 2. **Livello dati**: creare criteri di sicurezza a livello di riga in ogni database di partizionamento per filtrare le righe in base al TenantId archiviato in SESSION\_CONTEXT. Creare criteri per ogni database di partizionamento; in caso contrario, le righe nelle partizioni multi-tenant non verranno filtrate. 
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Livello applicazione: impostare il TenantId in SESSION\_CONTEXT
+## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Livello applicazione: impostare TenantId in SESSION\_CONTEXT
 
 Per prima cosa, connettersi a un database di partizionamento tramite le API di routing dipendente dai dati della libreria client dei database elastici. L'applicazione deve comunque indicare al database quale TenantId userà la connessione, mentre il TenantId indica ai criteri di sicurezza a livello di riga quali righe dovranno essere escluse in quanto appartenenti ad altri tenant. Archiviare il TenantId corrente in [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) della connessione.
 
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Manutenzione 
 
-- **Aggiunta di nuove partizioni**: eseguire lo script T-SQL per abilitare RLS in tutte le nuove partizioni. In caso contrario, le query su tali partizioni non verranno filtrate.
-- **Aggiunta di nuove tabelle**: aggiungere un predicato di FILTRO e di BLOCCO ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Aggiunta di nuove partizioni**: eseguire lo script T-SQL per abilitare Sicurezza a livello di riga in tutte le nuove partizioni. In caso contrario, le query su tali partizioni non verranno filtrate.
+- **Aggiunta di nuove tabelle**: aggiungere un predicato FILTER e BLOCK ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Summary
 

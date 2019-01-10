@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08d0221c785fdaeb18fe9a2999d08ded67d1fa91
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437198"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743001"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning in HDInsight
 
-HDInsight permette di usare l'apprendimento automatico con Big Data, per ottenere informazioni approfondite di grande utilità da ingenti quantità (fino a diversi petabyte o addirittura exabyte) di dati strutturati, non strutturati e che cambiano rapidamente. In HDInsight sono disponibili diverse opzioni di apprendimento automatico:  SparkML e MLlib, R, Apache Hive e Microsoft Cognitive Toolkit.
+HDInsight permette di usare l'apprendimento automatico con Big Data, per ottenere informazioni approfondite di grande utilità da ingenti quantità (fino a diversi petabyte o addirittura exabyte) di dati strutturati, non strutturati e che cambiano rapidamente. In HDInsight sono disponibili diverse opzioni di apprendimento automatico:  SparkML e Apache Spark MLlib, R, Apache Hive e Microsoft Cognitive Toolkit.
 
-## <a name="sparkml-and-mllib"></a>SparkML e MLlib
+## <a name="sparkml-and-mllib"></a>Spark e MLlib
 
-[HDInsight Spark](spark/apache-spark-overview.md) è una soluzione ospitata in Azure di [Apache Spark](http://spark.apache.org/), un framework di elaborazione parallela dei dati unificato e open source che supporta l'elaborazione in memoria per ottimizzare l'analisi dei Big Data. Il motore di elaborazione Spark è costruito per la velocità, la semplicità d'uso e le analisi sofisticate. Le funzionalità di calcolo distribuite in memoria rendono Spark uno strumento valido per l'esecuzione di algoritmi iterativi utilizzati in calcoli grafici e di Machine Learning. Due librerie di apprendimento automatico scalabili introducono funzionalità di modellazione algoritmica nell'ambiente distribuito: MLlib e SparkML. MLlib contiene l'API originale basata su RDD. SparkML è un pacchetto più recente che contiene un'API di livello superiore basata su Spark DataFrames per la costruzione di pipeline di apprendimento automatico. SparkML non supporta ancora tutte le funzionalità di MLlib, ma sta sostituendo MLlib come libreria di apprendimento automatico standard di Spark.
+[HDInsight Spark](spark/apache-spark-overview.md) è una soluzione ospitata in Azure di [Apache Spark](https://spark.apache.org/), un framework di elaborazione parallela dei dati unificato e open source che supporta l'elaborazione in memoria per ottimizzare l'analisi dei Big Data. Il motore di elaborazione Spark è costruito per la velocità, la semplicità d'uso e le analisi sofisticate. Le funzionalità di calcolo distribuite in memoria rendono Spark uno strumento valido per l'esecuzione di algoritmi iterativi utilizzati in calcoli grafici e di Machine Learning. Due librerie di apprendimento automatico scalabili introducono funzionalità di modellazione algoritmica nell'ambiente distribuito: MLlib e SparkML. MLlib contiene l'API originale basata su RDD. SparkML è un pacchetto più recente che contiene un'API di livello superiore basata su Spark DataFrames per la costruzione di pipeline di apprendimento automatico. SparkML non supporta ancora tutte le funzionalità di MLlib, ma sta sostituendo MLlib come libreria di apprendimento automatico standard di Spark.
 
 La libreria di apprendimento automatico Microsoft per Apache Spark è [MMLSpark](https://github.com/Azure/mmlspark). Questa libreria è stata progettata per incrementare la produttività dei data scientist in Spark, aumentare la velocità di sperimentazione e sfruttare le tecniche di apprendimento automatico più innovative, tra cui l'apprendimento avanzato, su set di dati di dimensioni molto grandi. MMLSpark offre un livello superiore rispetto alle API di basso livello di SparkML per la creazione di modelli di apprendimento automatico scalabili, tra cui l'indicizzazione di stringhe, l'applicazione forzata ai dati di un layout previsto dagli algoritmi di apprendimento automatico e l'assemblaggio di vettori di funzionalità. La libreria MMLSpark semplifica queste e altre attività comuni per la creazione di modelli in PySpark.
 
@@ -61,7 +61,7 @@ A sostegno del proprio impegno nel campo dell'apprendimento avanzato, Microsoft 
 * [Apache Hive e Azure Machine Learning end-to-end](../machine-learning/team-data-science-process/hive-walkthrough.md)
 * [Apprendimento automatico con Apache Spark in HDInsight](../machine-learning/team-data-science-process/spark-overview.md)
 
-### <a name="deep-learning-resources"></a>Risorse per il Deep Learning
+### <a name="deep-learning-resources"></a>Risorse sull'apprendimento avanzato
 
 * [Deep learning toolkit with Apache Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/25/using-microsofts-deep-learning-toolkit-with-spark-on-azure-hdinsight-clusters/) (Toolkit per il Deep Learning con Apache Spark)
 * [Embarrassingly parallel image classification with Cognitive toolkit + Tensorflow on Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/) (Classificazione di immagini con parallelismo elevatissimo tramite Cognitive Toolkit e TensorFlow su Spark)

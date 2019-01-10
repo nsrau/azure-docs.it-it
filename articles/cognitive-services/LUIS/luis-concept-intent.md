@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: a6343d9bd2009ee2c16f0cca3118e5653faa4c07
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f9f0c52c187b36416dbc77f280a8f6148cf1cbbc
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138688"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971053"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Concetti relativi alle finalità nell'app LUIS
 
@@ -58,7 +58,7 @@ La finalità rappresenta l'azione che il chatbot deve eseguire per l'utente ed �
 I [domini predefiniti](luis-how-to-use-prebuilt-domains.md) presentano finalità con espressioni.  
 
 ## <a name="none-intent-is-fallback-for-app"></a>La finalità None (Nessuna) è la finalità di fallback per l'app
-La finalità **None** (Nessuna) è una finalità catch-all o fallback. Consente di insegnare a LUIS espressioni che non sono importanti nel dominio dell'app (area di interesse). Il 10-20 percento del totale delle espressioni della finalità **None** (Nessuna) deve trovarsi nell'applicazione. Non lasciarla vuota. 
+La finalità **None** (Nessuna) è una finalità catch-all o fallback. Consente di insegnare a LUIS espressioni che non sono importanti nel dominio dell'app (area di interesse). Il 10-20 percento del totale delle espressioni della finalità **None** (Nessuna) deve trovarsi nell'applicazione. Non lasciare quindi vuota la finalità None (Nessuna). 
 
 ### <a name="none-intent-helps-conversation-direction"></a>La finalità None (Nessuna) favorisce la direzione della conversazione
 Quando un'espressione viene stimata come finalità None (Nessuna) e restituita al chatbot con quella stima, il bot può porre ulteriori domande o fornire un menu per indirizzare l'utente a scelte valide nel chatbot. 

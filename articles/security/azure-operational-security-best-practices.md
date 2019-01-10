@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: ae6eeb2506eb82160c68e15e17eeb95c1e2ec046
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 7c6d373fd294645605815d8a8d380259982d90e7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853617"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118184"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedure consigliate per la sicurezza operativa di Azure
 La sicurezza operativa di Azure include i servizi, i controlli e le funzionalità offerti agli utenti per proteggere i dati, le applicazioni e gli altri asset di Azure. La sicurezza operativa di Azure si basa su un framework che incorpora le conoscenze acquisite tramite funzionalità univoche di Microsoft, tra cui Microsoft [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), il programma [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.
@@ -55,31 +55,31 @@ Per creare una rete end-to-end in Azure, i clienti combinano varie risorse di re
 
 Di seguito vengono descritte le procedure consigliate per il monitoraggio della rete e gli strumenti disponibili.
 
-**Procedura consigliata**: automatizzare il monitoraggio della rete in remoto con l'acquisizione pacchetti.  
-**Dettaglio**: monitorare e diagnosticare i problemi di rete senza accedere alle macchine virtuali usando Network Watcher. Attivare l'[acquisizione dei pacchetti](../network-watcher/network-watcher-alert-triggered-packet-capture.md) impostando gli avvisi e ottenere l'accesso alle informazioni sulle prestazioni in tempo reale a livello del pacchetto. Quando viene rilevato un problema, è possibile esaminarlo in dettaglio per una diagnosi migliore.
+**Procedura consigliata**: automatizzare il monitoraggio di rete remoto con l'acquisizione dei pacchetti.  
+**Dettagli**: monitorare e diagnosticare i problemi di rete senza accedere alle macchine virtuali usando Network Watcher. Attivare l'[acquisizione dei pacchetti](../network-watcher/network-watcher-alert-triggered-packet-capture.md) impostando gli avvisi e ottenere l'accesso alle informazioni sulle prestazioni in tempo reale a livello del pacchetto. Quando viene rilevato un problema, è possibile esaminarlo in dettaglio per una diagnosi migliore.
 
 **Procedura consigliata**: acquisire informazioni dettagliate sul traffico di rete usando i log dei flussi.  
-**Dettaglio**: ottenere informazioni approfondite sui modelli di traffico di rete con i [log dei flussi del gruppo di sicurezza di rete](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Le informazioni contenute nei log dei flussi aiutano a raccogliere i dati per la conformità, il controllo e il monitoraggio del profilo di sicurezza della rete.
+**Dettagli**: ottenere informazioni approfondite sui modelli di traffico di rete con i [log dei flussi del gruppo di sicurezza di rete](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Le informazioni contenute nei log dei flussi aiutano a raccogliere i dati per la conformità, il controllo e il monitoraggio del profilo di sicurezza della rete.
 
 **Procedura consigliata**: diagnosticare i problemi di connettività della VPN.  
-**Dettaglio**: usare Network Watcher per [diagnosticare i problemi di connessione e di Gateway VPN più comuni](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Non è solo possibile identificare il problema ma si può anche usare i log dettagliati per altre indagini.
+**Dettagli**: usare Network Watcher per [diagnosticare i problemi di connessione e di Gateway VPN più comuni](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Non è solo possibile identificare il problema ma si può anche usare i log dettagliati per altre indagini.
 
 ## <a name="secure-deployment-by-using-proven-devops-tools"></a>Distribuzione sicura tramite strumenti DevOps collaudati
 Usare le seguenti procedure consigliate di DevOps per assicurarsi che i team e l'azienda siano produttivi ed efficienti.
 
 **Procedura consigliata**: automatizzare la creazione e la distribuzione di servizi.  
-**Dettaglio**: l'[infrastruttura come codice](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) rappresenta un set di tecniche e procedure che aiutano i professionisti IT a evitare il carico di lavoro associato alla creazione e alla gestione quotidiana dell'infrastruttura modulare. Lo scopo è consentire ai professionisti IT di creare e gestire un ambiente server moderno in modo simile a quello usato dagli sviluppatori di software per creare e gestire il codice delle applicazioni.
+**Dettagli**: l'[infrastruttura come codice](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) è un set di tecniche e procedure che aiutano i professionisti IT a evitare il carico di lavoro associato alle attività quotidiane di creazione e gestione dell'infrastruttura modulare. Lo scopo è consentire ai professionisti IT di creare e gestire un ambiente server moderno in modo simile a quello usato dagli sviluppatori di software per creare e gestire il codice delle applicazioni.
 
 È possibile usare [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) per effettuare il provisioning delle applicazioni usando un modello dichiarativo. In un unico modello, è possibile distribuire più servizi con le relative dipendenze. Lo stesso modello viene usato per distribuire ripetutamente l'applicazione in ogni fase del ciclo di vita dell'applicazione.
 
-**Procedura consigliata**: compilare e distribuire automaticamente app Web o servizi cloud di Azure.  
-**Dettaglio**: è possibile usare Azure Pipelines per [compilare e distribuire automaticamente](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) app Web o servizi cloud di Azure. Azure Pipelines distribuisce automaticamente i file binari dopo una compilazione in Azure e dopo ogni archiviazione del codice. Il processo di compilazione del pacchetto equivale al comando Pacchetto di Visual Studio, mentre i passaggi per la pubblicazione equivalgono al comando Pubblica di Visual Studio.
+**Procedura consigliata**: creare e distribuire automaticamente app Web o servizi cloud di Azure.  
+**Dettagli**: è possibile usare Azure Pipelines per [creare e distribuire automaticamente](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) app Web o servizi cloud di Azure. Azure Pipelines distribuisce automaticamente i file binari dopo una compilazione in Azure e dopo ogni archiviazione del codice. Il processo di compilazione del pacchetto equivale al comando Pacchetto di Visual Studio, mentre i passaggi per la pubblicazione equivalgono al comando Pubblica di Visual Studio.
 
 **Procedura consigliata**: usare la distribuzione continua.  
-**Dettaglio**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) è una soluzione per automatizzare la distribuzione in più fasi e la gestione del processo di rilascio. È possibile creare pipeline gestite di distribuzione continua per rilasciare versioni in modo rapido, semplice e frequente. Con Azure Pipelines è possibile automatizzare il processo di rilascio e definire flussi di lavoro predefiniti per l'approvazione. Sono supportate la distribuzione locale e nel cloud, l'estensione e la personalizzazione in base alle specifiche esigenze.
+**Dettagli**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) è una soluzione per automatizzare la distribuzione in più fasi e la gestione del processo di rilascio. È possibile creare pipeline gestite di distribuzione continua per rilasciare versioni in modo rapido, semplice e frequente. Con Azure Pipelines è possibile automatizzare il processo di rilascio e definire flussi di lavoro predefiniti per l'approvazione. Sono supportate la distribuzione locale e nel cloud, l'estensione e la personalizzazione in base alle specifiche esigenze.
 
-**Procedura consigliata**: verificare le prestazioni dell'app prima di implementarla o di distribuirne gli aggiornamenti nell'ambiente di produzione.  
-**Dettaglio**: eseguire [test di carico](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) basati sul cloud usando Azure Test Plans per:
+**Procedura consigliata**: verificare le prestazioni dell'app prima di avviarla o distribuire aggiornamenti nell'ambiente di produzione.  
+**Dettagli**: eseguire [test di carico](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) basati sul cloud usando Azure Test Plans per:
 
 - Individuare problemi di prestazioni nell'app.
 - Migliorare la qualità della distribuzione.
@@ -87,7 +87,7 @@ Usare le seguenti procedure consigliate di DevOps per assicurarsi che i team e l
 - Assicurarsi che l'app possa gestire il traffico per la prossima campagna di lancio o di marketing.
 
 **Procedura consigliata**: monitorare le prestazioni dell'applicazione.  
-**Dettaglio**: [Azure Application Insights](../application-insights/app-insights-overview.md) è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme. È possibile usare Application Insights per monitorare l'applicazione Web mentre è in esecuzione. Il servizio rileva automaticamente le anomalie nelle prestazioni e include strumenti di analisi che consentono di diagnosticare i problemi e di conoscere come viene effettivamente usata l'app dagli utenti. Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità.
+**Dettagli**: [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme. È possibile usare Application Insights per monitorare l'applicazione Web mentre è in esecuzione. Il servizio rileva automaticamente le anomalie nelle prestazioni e include strumenti di analisi che consentono di diagnosticare i problemi e di conoscere come viene effettivamente usata l'app dagli utenti. Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Attenuazione e protezione da attacchi Distributed Denial of Service (DDoS)
 Il Distributed Denial of Service (DDoS) è un tipo di attacco che tenta di esaurire le risorse dell'applicazione. L'obiettivo è compromettere la disponibilità e la capacità dell'applicazione di gestire richieste legittime. Gli attacchi stanno diventando più sofisticati con dimensioni e impatto maggiori. Possono avere come obiettivo qualsiasi endpoint che è raggiungibile pubblicamente tramite Internet.
@@ -96,20 +96,20 @@ La progettazione e la creazione per la resilienza agli attacchi Distributed Deni
 
 Di seguito vengono descritte le procedure consigliate per la creazione di servizi resilienti a DDoS in Azure.
 
-**Procedura consigliata**: assicurarsi che la sicurezza sia un aspetto prioritario durante l'intero ciclo di vita di un'applicazione, dalla progettazione e l'implementazione alla distribuzione e al funzionamento. Le applicazioni possono contenere bug che consentono a un volume relativamente basso di richieste di usare una quantità elevata di risorse, provocando un'interruzione del servizio.  
-**Dettaglio**: per proteggere un servizio in esecuzione in Microsoft Azure, è consigliabile avere una buona conoscenza dell'architettura delle applicazioni e concentrarsi sui [cinque punti chiave della qualità del software](https://docs.microsoft.com/azure/architecture/guide/pillars). I clienti devono conoscere i volumi di traffico tipici, il modello di connettività tra l'applicazione e le altre applicazioni e gli endpoint di servizio esposti a Internet pubblico.
+**Procedura consigliata**: Garantire la sicurezza durante l'intero ciclo di vita di un'applicazione, dalla progettazione e implementazione alla distribuzione e alle operazioni. Le applicazioni possono contenere bug che consentono a un volume relativamente basso di richieste di usare una quantità elevata di risorse, provocando un'interruzione del servizio.  
+**Dettagli**: Per proteggere un servizio in esecuzione in Microsoft Azure, i clienti devono avere una buona conoscenza dell'architettura delle applicazioni e concentrarsi sui [cinque punti chiave della qualità del software](https://docs.microsoft.com/azure/architecture/guide/pillars). I clienti devono conoscere i volumi di traffico tipici, il modello di connettività tra l'applicazione e le altre applicazioni e gli endpoint di servizio esposti a Internet pubblico.
 
 Garantire che un'applicazione sia abbastanza resiliente da riuscire a gestire un attacco Denial of Service destinato all'applicazione stessa è di fondamentale importanza. Sicurezza e privacy sono integrate direttamente nella piattaforma di Azure, a partire dal processo [Security Development Lifecycle (SDL)](https://www.microsoft.com/en-us/sdl). SDL si rivolge alla sicurezza in ogni fase di sviluppo e assicura che Azure sia continuamente aggiornato per renderlo ancora più sicuro.
 
 **Procedura consigliata**: progettare le applicazioni con [scalabilità orizzontale](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) per soddisfare la richiesta di un carico amplificato, in particolare in caso di attacco DDoS. Se l'applicazione dipende da una singola istanza di un servizio, crea un singolo punto di errore. Il provisioning di più istanze rende il sistema più resiliente e scalabile.  
-**Dettaglio**: per [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md) selezionare un [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) che offra più istanze.
+**Dettagli**: Per Servizio app di Azure selezionare un [piano di servizio app](../app-service/overview-hosting-plans.md) che offra più istanze.
 
 Per Servizi cloud di Azure, configurare ognuno dei ruoli in modo da usare [più istanze](../cloud-services/cloud-services-choose-me.md).
 
 Per [Macchine virtuali di Microsoft Azure](../virtual-machines/windows/overview.md), verificare che l'architettura di VM includa più macchine virtuali e che ogni macchina virtuale sia inclusa in un [set di disponibilità](../virtual-machines/virtual-machines-windows-manage-availability.md). Si consiglia di usare set di scalabilità di macchine virtuali per le funzionalità di scalabilità automatica.
 
-**Procedura consigliata**: la disposizione delle difese su più livelli in un'applicazione riduce le probabilità di riuscita degli attacchi. Implementare progettazioni sicure per le applicazioni tramite le funzionalità integrate della piattaforma di Azure.  
-**Dettaglio**: il rischio di attacco aumenta con le dimensioni (superficie di attacco) dell'applicazione. È possibile ridurre la superficie usando l'elenco degli elementi consentiti per chiudere lo spazio indirizzi IP esposto e le porte in ascolto non necessarie sui servizi di bilanciamento del carico ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) e [gateway applicazione di Azure](../application-gateway/application-gateway-create-probe-portal.md)).
+**Procedura consigliata**: La disposizione delle difese su più livelli in un'applicazione riduce le probabilità di riuscita degli attacchi. Implementare progettazioni sicure per le applicazioni tramite le funzionalità integrate della piattaforma di Azure.  
+**Dettagli**: il rischio di attacco aumenta con le dimensioni (superficie di attacco) dell'applicazione. È possibile ridurre la superficie usando l'elenco degli elementi consentiti per chiudere lo spazio indirizzi IP esposto e le porte in ascolto non necessarie sui servizi di bilanciamento del carico ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) e [gateway applicazione di Azure](../application-gateway/application-gateway-create-probe-portal.md)).
 
 I [gruppi di sicurezza di rete](../virtual-network/security-overview.md) rappresentano un altro modo per ridurre la superficie di attacco. È possibile usare [tag di servizio](../virtual-network/security-overview.md#service-tags) e [gruppi di sicurezza dell'applicazione](../virtual-network/security-overview.md#application-security-groups) per ridurre la complessità per la creazione della regola di sicurezza e configurare la sicurezza di rete come estensione naturale della struttura di un'applicazione.
 

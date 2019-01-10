@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bdb2e355b29306c8a78a3a773269baeee13fc9d1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497551"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584395"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gestire cluster ML Services in Azure HDInsight
 
@@ -22,7 +22,7 @@ In questo articolo viene illustrato come gestire un cluster ML Services esistent
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Un cluster ML Services in HDInsight**: per istruzioni, vedere [Introduzione all'uso di ML Services in HDInsight](r-server-get-started.md).
+* **Un cluster ML Services in Azure HDInsight**: Per istruzioni, vedere [Introduzione all'uso di ML Services in HDInsight](r-server-get-started.md).
 
 * **Un client Secure Shell (SSH)**: il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -80,7 +80,7 @@ Si noti anche gli utenti appena aggiunti non hanno privilegi a livello radice ne
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Connettersi in modalità remota a Microsoft ML Services
 
-È possibile configurare l'accesso al contesto di calcolo HDInsight Spark da un'istanza remota di ML Client in esecuzione nel computer desktop. A tale scopo, è necessario specificare le opzioni (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) quando si definisce il contesto di calcolo RxSpark nel computer desktop, ad esempio:
+È possibile configurare l'accesso al contesto di calcolo HDInsight Spark da un'istanza remota di ML Client in esecuzione nel computer desktop. A tale scopo, è necessario specificare le opzioni (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) quando si definisce il contesto di calcolo RxSpark nel computer desktop: Ad esempio: 
 
     myNameNode <- "default"
     myPort <- 0
@@ -299,10 +299,8 @@ Per installare pacchetti R aggiuntivi nel nodo perimetrale, è possibile usare `
 
 Per installare pacchetti R nei nodi di lavoro del cluster, è necessario usare un'azione script. Le azioni di script sono script Bash usati per apportare modifiche di configurazione al cluster HDInsight o per installare software aggiuntivo, ad esempio altri pacchetti R. 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Le azioni di script per installare altri pacchetti R sono possono essere usate solo dopo aver creato il cluster. Non usare questa procedura durante la creazione del cluster perché lo script si basa su ML Services completamente configurato.
->
->
 
 1. Seguire i passaggi in [Personalizzare i cluster con l'azione script](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -312,7 +310,7 @@ Per installare pacchetti R nei nodi di lavoro del cluster, è necessario usare u
 
    * Per **Nome** specificare un nome per l'azione script.
 
-    * Per **URI script Bash** immettere `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Questo è lo script che installa i pacchetti R aggiuntivi nel nodo di lavoro
+    * Per **URI script Bash** immettere `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Questo è lo script che installa i pacchetti R aggiuntivi nel nodo di lavoro
 
    * Selezionare la casella di controllo solo per **Lavoro**.
 

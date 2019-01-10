@@ -1,20 +1,17 @@
 ---
 title: Eseguire la replica dei dati in Database di Azure per MySQL
 description: Questo articolo descrive come eseguire la replica dei dati in ingresso in Database di Azure per MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: 6135e4a0182f3af7db54eab974e4c307402185ab
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ca748dff67be2a37ca61f34602f207265cc77aaa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666077"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544227"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Eseguire la replica dei dati in Database di Azure per MySQL
 
@@ -23,8 +20,8 @@ La funzione per la replica dei dati in ingresso consente di sincronizzare i dati
 ## <a name="when-to-use-data-in-replication"></a>Quando usare la replica dei dati in ingresso
 Gli scenari principali da considerare quando si usa la funzione di replica dei dati in ingresso sono i seguenti:
 
-- **Sincronizzazione ibrida dei dati**: con la replica dei dati in ingresso è possibile mantenere i dati sincronizzati tra i server locali e Database di Azure per MySQL. Questa sincronizzazione è utile per la creazione di applicazioni ibride. Il metodo è particolarmente interessante quando si ha già un server di database locale, ma si vogliono spostare i dati in un'area più vicina agli utenti finali.
-- **Sincronizzazione multi-cloud**: per soluzioni cloud complesse, usare la replica dei dati in ingresso per sincronizzare i dati tra Database di Azure per MySQL e diversi provider cloud, inclusi servizi di database e macchine virtuali ospitati nei cloud.
+- **Sincronizzazione dei dati ibrida:** con la replica dei dati in ingresso è possibile mantenere sincronizzati i dati tra i server locali e Database di Azure per MySQL. Questa sincronizzazione è utile per la creazione di applicazioni ibride. Il metodo è particolarmente interessante quando si ha già un server di database locale, ma si vogliono spostare i dati in un'area più vicina agli utenti finali.
+- **Sincronizzazione multi-cloud:** per soluzioni cloud complesse, usare la replica dei dati in ingresso per sincronizzare i dati tra Database di Azure per MySQL e diversi provider cloud, inclusi servizi di database e macchine virtuali ospitati nei cloud.
 
 ## <a name="limitations-and-considerations"></a>Limitazioni e considerazioni
 

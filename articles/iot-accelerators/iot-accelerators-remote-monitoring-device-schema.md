@@ -2,24 +2,27 @@
 title: Schema dei dispositivi nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
 description: Questo articolo descrive lo schema JSON che definisce un dispositivo simulato nella soluzione di monitoraggio remota.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338856"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635528"
 ---
 # <a name="understand-the-device-model-schema"></a>Informazioni sullo schema del modello dei dispositivi
 
-È possibile usare dispositivi simulati nella soluzione di monitoraggio remoto per testarne il comportamento. Quando si distribuisce la soluzione di monitoraggio remoto, viene eseguito automaticamente il provisioning di una raccolta di dispositivi simulati. È possibile personalizzare i dispositivi simulati esistenti o crearne di nuovi.
+È possibile usare dispositivi simulati nella soluzione di monitoraggio remoto per testarne il comportamento. La soluzione di monitoraggio remoto include un servizio di simulazione del dispositivo per l'esecuzione di dispositivi simulati. Quando si distribuisce la soluzione di monitoraggio remoto, viene eseguito automaticamente il provisioning di una raccolta di dispositivi simulati. È possibile personalizzare i dispositivi simulati esistenti o crearne di nuovi.
 
 Questo articolo descrive lo schema del modello di dispositivo che specifica le funzionalità e il comportamento di un dispositivo simulato. Il modello del dispositivo viene archiviato in un file JSON.
+
+> [!NOTE]
+> Questo schema di modello di dispositivo è solo per i dispositivi simulati ospitati nel servizio di simulazione del dispositivo. Se l'utente vuole creare un dispositivo fisico, vedere [Connettere il dispositivo all'acceleratore di soluzione Monitoraggio remoto](iot-accelerators-connecting-devices.md).
 
 Gli articoli seguenti sono correlati all'articolo corrente:
 

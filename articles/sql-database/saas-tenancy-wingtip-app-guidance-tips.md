@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: da8814cfd8fca8da061c27d9c5b69af15bff5007
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 42fd1c19a9cda0aa3d5d62bd265467327250a784
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054405"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606028"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Linee guida generali per l'uso delle app SaaS di esempio Wingtip Tickets
 
@@ -57,7 +57,7 @@ Impostando qui questi valori specifici della distribuzione, non sarà necessario
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Eseguire gli script premendo F5
 
-Vari script usano *$PSScriptRoot* per esplorare le cartelle e *$PSScriptRoot* viene valutato solo quando gli script vengono eseguiti premendo **F5**.  L'evidenziazione e l'esecuzione di una selezione (**F8**) può causare errori, quindi premere **F5** per l'esecuzione degli script.
+Vari script usano *$PSScriptRoot* per esplorare le cartelle e *$PSScriptRoot* viene valutato solo quando gli script vengono eseguiti premendo **F5**.  L'evidenziazione e l'esecuzione di una selezione (**F8**) può causare errori, quindi premere **F5** per l'esecuzione degli script.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Eseguire gli script un'istruzione alla volta per esaminare l'implementazione
 
@@ -94,7 +94,7 @@ Per assicurare una connessione demo corretta, tutti i server hanno una [regola d
 
    ![server di catalogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Le credenziali per la demo sono: Account di accesso = *developer*, Password = *P@ssword1*
+3. Le credenziali della demo sono: Account di accesso = *developer*, Password = *P@ssword1*
 
     L'immagine seguente illustra l'accesso per il modello *Database per tenant*. 
     ![connessione](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

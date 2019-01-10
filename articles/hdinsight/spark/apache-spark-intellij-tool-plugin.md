@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ: Creare applicazioni Spark per un cluster HDInsight '
+title: 'Azure Toolkit for IntelliJ: creazione di applicazioni Spark per cluster HDInsight '
 description: Usare il Toolkit di Azure per IntelliJ per sviluppare applicazioni Spark scritte in Scala e inoltrarle a un cluster HDInsight Spark.
 services: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: maxluk
-ms.openlocfilehash: b2bf79d90c741e09c683e4520b05b31ba2fee1da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 621d41c5c9558b5cb17d2a1e5a03d68f8af0df19
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582769"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600642"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -26,7 +26,7 @@ Usare il plug-in Azure Toolkit for IntelliJ per sviluppare applicazioni [Apache 
 
 Per creare il progetto, guardare il video [Create Apache Spark Applications with the Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (Creare applicazioni Apache Spark con Azure Toolkit for IntelliJ).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > È possibile usare questo plug-in per creare e inviare applicazioni solo per cluster HDInsight Spark in Linux.
 > 
 
@@ -182,18 +182,18 @@ Dopo aver creato un'applicazione Scala, è possibile inviarla al cluster.
 
     * Campo **Main class name** (Nome classe principale): il valore predefinito è la classe principale del file selezionato. È possibile modificare la classe selezionando i puntini di sospensione (**...**) e scegliendo un'altra classe.   
 
-    * Campo **Job Configurations** (Configurazioni processo): i valori predefiniti sono illustrati nella figura seguente. È possibile modificare il valore o aggiungere un nuovo valore/chiave per l'invio del processo. Per altre informazioni, vedere [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html) (API REST di Apache Livy)
+    * Campo **Job Configurations** (Configurazioni processo):  i valori predefiniti sono illustrati nella figura seguente. È possibile modificare il valore o aggiungere un nuovo valore/chiave per l'invio del processo. Per altre informazioni: [API REST Apache Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html)
 
       ![Informazioni sulla configurazione del processo nella finestra di dialogo di invio di Spark](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
 
     * Campo **Command line arguments** (Argomenti della riga di comando): è possibile immettere i valori degli argomenti divisi da uno spazio per la classe principale, se necessario.
 
-    * Campi **Referenced Jars** (JAR di riferimento) e **Referenced Files** (File di riferimento): è possibile immettere i percorsi per file e JAR di riferimento, se presenti. Per altre informazioni, vedere [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) (Configurazione di Apache Spark) 
+    * Campi **Referenced Jars** (File JAR di riferimento) e **Referenced Files** (File di riferimento): è possibile immettere i percorsi dei file JAR di riferimento e dei file di riferimento, se presenti. Per altre informazioni: [Apache Spark Configuration (Configurazione di Apache Spark)](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
 
       ![Informazioni sui file JAR nella finestra di dialogo di invio di Spark](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
 
-       > [!NOTE]
-       > Per caricare file e JAR di riferimento, vedere [Come caricare le risorse nel cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
+       > [!NOTE]  
+       > Per caricare file e JAR di riferimento, vedere: [Come caricare le risorse nel cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
                          
     * **Upload Path** (Percorso di caricamento): è possibile indicare la posizione di archiviazione per l'invio di risorse del progetto Jar o Scala. Ci sono tre opzioni di archiviazione supportate: **Azure Blob** (BLOB di Azure), **Use Spark interactive session to upload artifacts** (Usa sessione interattiva di Spark per il caricamento di artefatti), **Use cluster default storage account** (Usa account di archiviazione predefinito del cluster) e **ADLS Gen1**. Nello screenshot seguente è selezionata l'opzione BLOB di Azure.
 
@@ -347,21 +347,21 @@ Il supporto della visualizzazione diretta degli output di Spark non è al moment
 Per eventuali commenti o suggerimenti oppure se si riscontrano problemi nell'uso di questo plug-in, inviare un messaggio di posta elettronica all'indirizzo hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Passaggi successivi
-* [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
+* [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demo
 * Creare il progetto Scala (video): [Create Apache Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (Creare applicazioni Apache Spark in Scala)
 * Debug remoto (video): [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely on HDInsight Cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (Usare Azure Toolkit for IntelliJ per il debug remoto di applicazioni Apache Spark nel cluster HDInsight)
 
 ### <a name="scenarios"></a>Scenari
-* [Apache Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di compilazione usando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con BI: eseguire l’analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
+* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per analizzare la temperatura di un edificio con dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per stimare i risultati di controllo degli alimenti](apache-spark-machine-learning-mllib-ipython.md)
 * [Analisi dei log del sito Web con Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Creazione ed esecuzione di applicazioni
 * [Creare un'applicazione autonoma con Scala](apache-spark-create-standalone-application.md)
-* [Eseguire processi in modalità remota in un cluster Apache Spark usando Livy](apache-spark-livy-rest-interface.md)
+* [Eseguire processi in modalità remota in un cluster Apache Spark usando Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Strumenti ed estensioni
 * [Usare Azure Toolkit for IntelliJ per il debug remoto di applicazioni Apache Spark tramite VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)

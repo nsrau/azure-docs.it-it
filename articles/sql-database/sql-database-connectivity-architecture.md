@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435719"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715903"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -26,7 +26,7 @@ Questo articolo illustra non solo l'architettura della connettività del databas
 > [!IMPORTANT]
 > **[Modifica imminente] Per le connessioni dell'endpoint di servizio ai server SQL di Azure, un comportamento di connettività `Default` passa a `Redirect`.**
 >
-> La modifica è già effettiva dal 10 novembre 2019 per le aree Brasile meridionale ed Europa occidentale. Per tutte le altre aree la modifica sarà effettiva dal 2 gennaio 2019.
+> La modifica è già effettiva dal 10 novembre 2018 per le aree Brasile meridionale ed Europa occidentale. Per tutte le altre aree la modifica sarà effettiva dal 2 gennaio 2019.
 >
 > Per impedire che la connettività tramite un endpoint di servizio venga interrotta negli ambienti esistenti in seguito a questa modifica, vengono usati i dati di telemetria per effettuare le operazioni seguenti:
 > - Per i server a cui è stato effettuato l'accesso tramite gli endpoint di servizio prima della modifica, il tipo di connessione viene impostato su `Proxy`.

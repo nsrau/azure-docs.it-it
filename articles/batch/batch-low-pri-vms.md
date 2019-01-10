@@ -1,5 +1,5 @@
 ---
-title: Eseguire i carichi di lavoro di Azure Batch su macchine virtuali convenienti con priorità bassa | Microsoft Docs
+title: Eseguire i carichi di lavoro su macchine virtuali convenienti con priorità bassa - Azure Batch | Microsoft Docs
 description: Informazioni su come eseguire il provisioning di macchine virtuali con priorità bassa per ridurre i costi dei carichi di lavoro di Azure Batch.
 services: batch
 author: mscurrell
@@ -11,12 +11,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: d42cef944c3b971804ef1417a3877bf919784a02
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec18
+ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093004"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546794"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usare le macchine virtuali con priorità bassa in Batch
 
@@ -44,9 +45,9 @@ Esempi di casi d'uso di elaborazione batch adatti all'uso di macchine virtuali c
 
 -   **Sviluppo e test**: in particolare, se sono in fase di sviluppo soluzioni su larga scala, è possibile realizzare risparmi significativi. Tutti i tipi di test possono trarre vantaggio, ma i test di carico su larga scala e i test di regressione ne traggono il miglio uso.
 
--   **Integrazione della capacità su richiesta**: le macchine virtuali con priorità bassa possono essere usate per integrare le normali macchine virtuali dedicate. Quando disponibili, i processi possono essere ridimensionati e pertanto possono essere completati più rapidamente a un costo inferiore. Quando non sono disponibili, rimangono disponibili le macchine virtuali dedicate di base.
+-   **Integrazione della capacità on demand**: le macchine virtuali con priorità bassa possono essere usate per integrare le normali macchine virtuali dedicate. Quando disponibili, i processi possono essere ridimensionati e quindi possono essere completati più rapidamente a un costo inferiore. Quando non sono disponibili, rimangono disponibili le macchine virtuali dedicate di base.
 
--   **Tempi di esecuzione del processo flessibili**: se c'è flessibilità nei tempi di completamento dei processi, le possibili cadute di capacità vengono considerate tollerabili; i processi delle macchine virtuali con priorità bassa, per giunta, vengono spesso eseguiti più rapidamente e a costi inferiori.
+-   **Tempo di esecuzione del processo flessibile**: se c'è flessibilità nei tempi di completamento dei processi, le possibili cadute di capacità vengono considerate tollerabili. I processi delle macchine virtuali con priorità bassa, per giunta, vengono spesso eseguiti più rapidamente e a costi inferiori.
 
 È possibile configurare i pool di batch per usare macchine virtuali con priorità bassa in diversi modi, a seconda della flessibilità dei tempi di esecuzione del processo:
 

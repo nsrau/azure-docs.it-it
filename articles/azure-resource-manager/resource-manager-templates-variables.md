@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08728a3c0b4d4578939004e2d1b1ee2d30a682ab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359289"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53712747"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Sezione variables dei modelli di Azure Resource Manager
-Nella sezione variables è possibile costruire valori da usare in tutto il modello. Non è obbligatorio definire le variabili, che però permettono spesso di semplificare il modello riducendo le espressioni complesse.
+Nella sezione variables è possibile costruire valori da usare in tutto il modello. Non è obbligatorio definire le variabili. Queste tuttavia consentono spesso di semplificare il modello, riducendo le espressioni complesse.
 
 ## <a name="define-and-use-a-variable"></a>Definire e usare una variabile
 
@@ -117,7 +117,7 @@ Recuperare le impostazioni correnti con:
 
 ## <a name="use-copy-element-in-variable-definition"></a>Usare l'elemento di copia nella definizione della variabile
 
-È possibile usare la sintassi **copia** per creare una variabile con una matrice di più elementi. Fornire un conteggio del numero di elementi. Ogni elemento contiene le proprietà nell'oggetto **input**. È possibile usare l'istruzione copy in una variabile oppure per creare la variabile. Quando si definisce una variabile e si usa l'istruzione **copy** all'interno di tale variabile, si crea un oggetto che dispone di una proprietà di matrice. Quando si usa l'istruzione **copy** al livello superiore e si definiscono una o più variabili all'interno di esso, si creano una o più matrici. Entrambi gli approcci sono illustrati nell'esempio seguente:
+È possibile usare la sintassi **copia** per creare una variabile con una matrice di vari elementi. Fornire un conteggio del numero di elementi. Ogni elemento contiene le proprietà nell'oggetto **input**. È possibile usare l'istruzione copy in una variabile oppure per creare la variabile. Quando si definisce una variabile e si usa l'istruzione **copy** all'interno di tale variabile, si crea un oggetto che dispone di una proprietà di matrice. Quando si usa l'istruzione **copy** al livello superiore e si definiscono una o più variabili all'interno di esso, si creano una o più matrici. Entrambi gli approcci sono illustrati nell'esempio seguente:
 
 ```json
 "variables": {
@@ -269,13 +269,6 @@ Questo approccio funziona bene quando occorre verificare che i valori dei parame
 }
 ```
 
-## <a name="recommendations"></a>Raccomandazioni
-Le informazioni seguenti possono essere utili quando si usano variabili:
-
-* Usare le variabili per i valori da usare più volte in un modello. Se un valore viene usato una sola volta, un valore hardcoded facilita la lettura del modello.
-* Non è possibile usare la funzione [reference](resource-group-template-functions-resource.md#reference) nella sezione **variables** del modello. La funzione **reference** deriva il proprio valore dallo stato di runtime della risorsa, ma le variabili vengono risolte durante l'analisi iniziale del modello. Costruire invece valori che richiedono la funzione **reference** direttamente nella sezione **resources** o **outputs** del modello.
-* Includere le variabili per i nomi di risorse che devono essere univoci.
-
 ## <a name="example-templates"></a>Modelli di esempio
 
 Questi modelli di esempio illustrano alcuni scenari per l'uso delle variabili. Distribuirli per testare il modo in cui le variabili vengono gestite in scenari diversi. 
@@ -290,5 +283,5 @@ Questi modelli di esempio illustrano alcuni scenari per l'uso delle variabili. D
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare modelli completi per molti tipi diversi di soluzioni, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 * Per informazioni dettagliate sulle funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Azure Resource Manager](resource-group-template-functions.md).
-* Per unire più modelli durante la distribuzione, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
+* Per altri suggerimenti sulla creazione di modelli, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](template-best-practices.md).
 * Potrebbe essere necessario usare le risorse esistenti all'interno di un gruppo di risorse diverso. Questo scenario è comune quando si usano account di archiviazione o reti virtuali condivisi tra più gruppi di risorse. Per altre informazioni, vedere la [funzione resourceId](resource-group-template-functions-resource.md#resourceid).

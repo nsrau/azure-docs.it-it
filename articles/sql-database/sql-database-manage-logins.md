@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/29/2018
-ms.openlocfilehash: c234ac95d0e02857fe87afe3a734d77f00954477
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/18/2018
+ms.openlocfilehash: 2be5c8ddf6928d5529c2eb08a6d64bd64b8445de
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864945"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631975"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controllo e concessione dell'accesso al database SQL e a SQL Data Warehouse
 
@@ -31,9 +31,9 @@ Dopo aver configurato le regole del firewall, è possibile connettersi sia a un 
 > Per un'esercitazione, vedere [Proteggere il database SQL di Azure](sql-database-security-tutorial.md). Le informazioni di questa esercitazione non sono valide per **Istanza gestita di database SQL di Azure**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Account amministrativi senza restrizioni
-Sono disponibili due account amministrativi, **Amministratore del server** e **Amministratore di Active Directory**, che agiscono come amministratori. Per identificare questi account amministrativi per il server SQL, aprire il portale di Azure e passare alle proprietà del server SQL.
+Sono disponibili due account amministrativi, **Amministratore del server** e **Amministratore di Active Directory**, che agiscono come amministratori. Per identificare questi account amministrativi per il server SQL, aprire il portale di Azure e passare alla scheda Proprietà del server SQL o del database SQL.
 
-![Amministratori del server SQL](./media/sql-database-manage-logins/sql-admins.png)
+![Amministratori del server SQL](media/sql-database-manage-logins/sql-admins.png)
 
 - **Amministratore del server**   
 Quando si crea un server SQL di Azure è necessario designare un **accesso amministratore server**. Il server SQL crea l'account come account di accesso nel database master. Tale account, che effettua la connessione con l'autenticazione di SQL Server (nome utente e password), Può esistere un solo account di questo tipo.   

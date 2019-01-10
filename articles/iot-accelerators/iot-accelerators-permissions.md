@@ -1,107 +1,72 @@
 ---
-title: Acceleratori di soluzioni di Azure IoT e Azure Active Directory | Microsoft Docs
-description: Descrive in che modo gli acceleratori di soluzioni di Azure IoT Suite usano Azure Active Directory per gestire le autorizzazioni.
+title: Usare il sito delle soluzioni Azure IoT - Azure | Microsoft Docs
+description: Viene descritto come usare il sito Web AzureIoTSolutions.com per distribuire acceleratori di soluzioni.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: 676d5e553e2929ae09d447141ca315fd1cc448e3
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448951"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601084"
 ---
-# <a name="permissions-on-the-azureiotsolutionscom-site"></a>Autorizzazioni per il sito azureiotsolutions.com
+# <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Usare il sito azureiotsolutions.com per distribuire acceleratori di soluzioni
 
-## <a name="what-happens-when-you-sign-in"></a>Cosa accade quando si accede
+È possibile distribuire acceleratori di soluzioni di Azure IoT nella sottoscrizione di Azure da [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com ospita sia acceleratori di soluzioni open source Microsoft che di partner. Questi acceleratori di soluzioni sono allineati all'[Architettura di riferimento di Azure IoT](https://aka.ms/iotrefarchitecture). È possibile usare il sito per distribuire rapidamente un acceleratore di soluzione come ambiente demo o di produzione.
 
-Quando si accede per la prima volta ad [azureiotsuite.com][lnk-azureiotsolutions], il sito determina i livelli di autorizzazione in base al tenant di Azure Active Directory (AAD) attualmente selezionato e alla sottoscrizione di Azure.
+![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
-1. Per prima cosa, il sito cerca prima in Azure a quale tenant di AAD appartiene l'utente per popolare l'elenco di tenant visualizzato accanto al nome utente connesso. In questo momento, il sito può ricevere solo i token utente per un tenant alla volta. Di conseguenza, quando si passa a un tenant diverso usando l'elenco a discesa nell'angolo superiore destro, il sito registra di nuovo l'utente nel tenant per ottenere il token di tale tenant.
+> [!TIP]
+> Se è necessario un maggiore controllo sul processo di distribuzione, è possibile usare l'[interfaccia della riga di comando per distribuire un acceleratore di soluzione](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-2. Successivamente, il sito cerca in Azure quali sottoscrizioni sono state associate dall'utente al tenant selezionato. Le sottoscrizioni disponibili vengono visualizzate quando si crea un nuovo acceleratore di soluzioni.
+È possibile distribuire gli acceleratori di soluzioni nelle configurazioni seguenti:
 
-3. Infine, il sito recupera tutte le risorse nelle sottoscrizioni e nei gruppi di risorse contrassegnati come acceleratori di soluzioni e popola i riquadri nella home page.
+* **Standard**: una distribuzione di infrastruttura estesa per lo sviluppo di un ambiente di produzione. Il servizio contenitore di Azure distribuisce i microservizi in diverse macchine virtuali di Azure. Kubernetes orchestra i contenitori Docker che ospitano i singoli microservizi.
+* **Basic**: una versione a costo ridotto a scopo di dimostrazione o per testare una distribuzione. Tutti i microservizi vengono distribuiti in un'unica macchina virtuale di Azure.
+* **Locale**: una distribuzione nel computer locale a scopo di test e sviluppo. Questo approccio prevede la distribuzione dei microservizi in un contenitore Docker locale e la connessione a Hub IoT, Azure Cosmos DB e ai servizi di archiviazione di Azure nel cloud.
 
-Le sezioni seguenti descrivono i ruoli che controllano l'accesso agli acceleratori di soluzioni.
+Ogni acceleratore di soluzione usa una diversa combinazione di servizi di Azure, ad esempio Hub IoT, Analisi di flusso di Azure e Cosmos DB. Per altre informazioni, visitare [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) e selezionare un acceleratore di soluzione.
 
-## <a name="aad-roles"></a>Ruoli AAD
+## <a name="sign-in-at-azureiotsolutionscom"></a>Accedere al sito azureiotsolutions.com
 
-I ruoli AAD controllano la capacità di eseguire il provisioning degli acceleratori di soluzioni, di gestire gli utenti e alcuni servizi di Azure in un acceleratore di soluzioni.
+Prima di poter distribuire un acceleratore di soluzione, è necessario accedere ad AzureIoTSolutions.com usando le credenziali associate a una sottoscrizione di Azure. Se l'account è associato a più di un tenant di Microsoft Azure Active Directory (AD), è possibile usare l'**elenco a discesa di selezione dell'account** per scegliere la directory da usare.
 
-Per altre informazioni sui ruoli di amministratore in AAD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory][lnk-aad-admin]. L'articolo corrente è incentrato sui ruoli della directory di **Amministratore globale** e **Utente** usati dagli acceleratori di soluzioni.
+Le autorizzazioni per distribuire gli acceleratori di soluzioni, gestire gli utenti e gestire i servizi di Azure dipendono dal proprio ruolo nella directory selezionata. I ruoli di Azure AD comuni associati agli acceleratori di soluzioni includono:
 
-### <a name="global-administrator"></a>Amministratore globale
+* **Amministratore globale**: per ogni tenant di Azure AD possono essere presenti molti [amministratori globali](../active-directory/users-groups-roles/directory-assign-admin-roles.md):
 
-Per ogni tenant di AAD possono essere presenti più amministratori globali:
+  * Quando si crea un tenant di Azure AD, si è per impostazione predefinita l'amministratore globale del tenant.
+  * L'amministratore globale può distribuire acceleratori di soluzioni di base e standard.
 
-* Quando si crea un tenant di AAD, si è per impostazione predefinita l'amministratore globale del tenant.
-* L'amministratore globale può eseguire il provisioning di un criterio di acceleratori di base e standard (una distribuzione di base usa una singola Macchina Virtuale di Azure).
+* **Utente di dominio**: per ogni tenant di Azure AD possono essere presenti molti utenti di dominio. Un utente di dominio può distribuire un acceleratore di soluzione di base.
 
-### <a name="domain-user"></a>Utente di dominio
+* **Utente guest:** per ogni tenant di Azure AD possono essere presenti molti utenti guest. Gli utenti guest non possono distribuire un acceleratore di soluzione nel tenant di Azure AD.
 
-Per ogni tenant di AAD possono essere presenti molti utenti del dominio:
+Per altre informazioni sugli utenti e i ruoli in Azure AD, vedere le risorse seguenti:
 
-* Un utente di dominio può effettuare il provisioning di un acceleratore di soluzioni di base tramite il sito [azureiotsolutions.com][lnk-azureiotsolutions].
-* Un utente di dominio può creare un acceleratore di soluzioni di base tramite l'interfaccia della riga di comando.
+* [Creare utenti in Azure Active Directory](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+* [Assegnare utenti alle app](../active-directory/manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="guest-user"></a>Utente guest
+## <a name="choose-your-device"></a>Scegliere il dispositivo
 
-Per ogni tenant AAD possono essere presenti molti utenti guest. Gli utenti guest hanno un set di diritti limitato nel tenant di AAD. Di conseguenza, gli utenti guest non possono effettuare il provisioning di un acceleratore di soluzioni nel tenant di AAD.
+Il sito AzureIoTSolutions.com è collegato al [catalogo di dispositivi Azure Certified per IoT](https://catalog.azureiotsolutions.com/).
 
-Per altre informazioni sugli utenti e i ruoli in AAD, vedere le risorse seguenti:
+Il catalogo elenca centinaia di dispositivi di hardware IoT certificati, che è possibile collegare agli acceleratori di soluzioni per iniziare a creare soluzioni IoT.
 
-* [Creare utenti in Azure AD][lnk-create-edit-users]
-* [Assegnare utenti alle app][lnk-assign-app-roles]
+![Catalogo dei dispositivi](media/iot-accelerators-permissions/devicecatalog.png)
 
-## <a name="azure-subscription-administrator-roles"></a>Ruoli di amministratore della sottoscrizione di Azure
-
-I ruoli di amministrazione di Azure controllano la possibilità di eseguire il mapping di una sottoscrizione di Azure a un tenant di AAD.
-
-È possibile trovare altre informazioni sui ruoli di amministratore nell'articolo [Come aggiungere o modificare i ruoli Co-amministratore, Amministratore del servizio e Amministratore account di Azure][lnk-admin-roles].
-
-## <a name="faq"></a>Domande frequenti
-
-### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Un amministratore del servizio vuole modificare il mapping della directory tra la sottoscrizione e un tenant di AAD specifico. Come completare questa attività
-
-Vedere [Come aggiungere una sottoscrizione esistente alla directory di Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
-
-### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Si vuole modificare un amministratore del servizio o coamministratore quando si accede con un account dell'organizzazione
-
-Vedere l'articolo di supporto [Modifica dell'amministratore del servizio e del coamministratore quando si effettua l'accesso con un account dell'organizzazione][lnk-service-admins].
-
-### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Perché viene visualizzato un errore simile al seguente? "L'account non ha le autorizzazioni appropriate per creare una soluzione. Rivolgersi all'amministratore account o provare con un account diverso".
-
-Per indicazioni vedere il diagramma seguente:
-
-![][img-flowchart]
-
-> [!NOTE]
-> Se si continua a visualizzare l'errore dopo aver confermato di essere un amministratore globale del tenant AAD e un coamministratore della sottoscrizione, l'amministratore dell'account dovrà rimuovere l'utente e assegnare nuovamente le autorizzazioni necessarie in questo ordine. Innanzitutto, dovrà aggiungere l'utente come amministratore globale e quindi aggiungere l'utente come coamministratore della sottoscrizione di Azure. Se i problemi persistono, contattare il tema [Guida e supporto][lnk-help-support].
-
-### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Perché viene visualizzato questo errore quando si dispone di una sottoscrizione di Azure? "Per creare soluzioni preconfigurate è necessaria una sottoscrizione di Azure. È possibile creare un account di valutazione gratuito in pochi minuti."
-
-Se si è certi di avere una sottoscrizione di Azure, convalidare il mapping del tenant per la sottoscrizione e verificare che sia selezionato il tenant corretto nell'elenco a discesa. Se si è verificato che il tenant desiderato è corretto, seguire il diagramma precedente e verificare il mapping della sottoscrizione e il tenant di AAD.
+I produttori di hardware possono fare clic su **Diventare un Partner** per informazioni sulla collaborazione con Microsoft al programma Certified per IoT.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per approfondire gli acceleratori di soluzioni, vedere come è possibile [personalizzare un acceleratore di soluzioni][lnk-customize].
 
-[img-flowchart]: media/iot-accelerators-permissions/flowchart.png
+Per provare uno degli acceleratori di soluzioni IoT, vedere le guide introduttive:
 
-[lnk-azureiotsolutions]: https://www.azureiotsolutions.com
-[lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
-[lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-aad-admin]:../active-directory/users-groups-roles/directory-assign-admin-roles.md
-[lnk-portal]: https://portal.azure.com
-[lnk-create-edit-users]:../active-directory/fundamentals/active-directory-users-profile-azure-portal.md
-[lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
-[lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
-[lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
-[lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
-[lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[lnk-customize]: iot-accelerators-remote-monitoring-customize.md
+* [Provare una soluzione di monitoraggio remoto](quickstart-remote-monitoring-deploy.md)
+* [Provare una soluzione di fabbrica connessa](quickstart-connected-factory-deploy.md)
+* [Provare una soluzione di manutenzione predittiva](quickstart-predictive-maintenance-deploy.md)
+* [Provare una soluzione di simulazione dei dispositivi](quickstart-device-simulation-deploy.md)

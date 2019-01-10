@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ce39e3ffce0b7721bde84254c7e5a35ec28465dc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 322c7164c0ecda550bf1bfe6a55075759bf95735
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583160"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630517"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Distribuire e gestire topologie Apache Storm in HDInsight basato su Windows
 
-[Apache Storm](http://storm.apache.org/) Dashboard consente di distribuire e gestire facilmente topologie Apache Storm nel cluster mediante il Web browser in uso. È possibile usare il dashboard anche per monitorare e gestire topologie in esecuzione. Se si usa Visual Studio, HDInsight Tools per Visual Studio fornisce funzionalità simili in Visual Studio.
+[Apache Storm](https://storm.apache.org/) Dashboard consente di distribuire e gestire facilmente topologie Apache Storm nel cluster mediante il Web browser in uso. È possibile usare il dashboard anche per monitorare e gestire topologie in esecuzione. Se si usa Visual Studio, HDInsight Tools per Visual Studio fornisce funzionalità simili in Visual Studio.
 
 Storm Dashboard e le funzionalità Storm di HDInsight Tools si basano sull'API REST Storm, che consente di creare soluzioni di monitoraggio e gestione.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > I passaggi descritti in questo documento richiedono un cluster Storm in HDInsight che usa il sistema operativo Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Per informazioni sulla distribuzione e gestione di topologie Storm con un cluster HDInsight che usa Linux, vedere [Distribuzione e gestione di topologie Apache Storm in HDInsight basato su Linux](apache-storm-deploy-monitor-topology-linux.md)
@@ -31,7 +31,7 @@ Storm Dashboard e le funzionalità Storm di HDInsight Tools si basano sull'API R
 
 * **Apache Storm in HDInsight**: per i passaggi relativi alla creazione di un cluster, vedere [Introduzione ad Apache Storm con HDInsight](apache-storm-tutorial-get-started-linux.md).
 
-* Per **Storm Dashboard**: un Web browser di ultima generazione che supporta HTML5.
+* Per **Dashboard di Storm**: Un moderno Web browser che supporta HTML5.
 
 * Per **Visual Studio** : Azure SDK 2.5.1 o versione successiva e HDInsight Tools per Visual Studio. Per installare e configurare gli strumenti HDInsight per Visual Studio, vedere [Introduzione all'uso di HDInsight Tools per Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
@@ -59,7 +59,7 @@ In Storm Dashboard selezionare il collegamento **Storm UI** . Vengono visualizza
 
 ![interfaccia utente Storm][storm-dashboard-ui]
 
-> [!NOTE]
+> [!NOTE]  
 > Con alcune versioni di Internet Explorer, potrebbe risultare che l'interfaccia utente di Storm non viene aggiornata dopo il primo utilizzo. Ad esempio, potrebbero non essere visibili nuove topologie inviate oppure potrebbe risultare ancora attiva la visualizzazione di una topologia precedentemente disattivata. Microsoft è al corrente di questo problema e sta lavorando a una soluzione.
 
 #### <a name="main-page"></a>Pagina principale
@@ -88,9 +88,9 @@ Se si seleziona un collegamento nella sezione **Topology summary** , verranno vi
 
   * **Rebalance**: regola il parallelismo della topologia. È necessario ribilanciare le topologie in esecuzione dopo aver modificato il numero di nodi del cluster. Questo consente alla topologia di regolare il parallelismo per compensare l'aumento o la diminuzione del numero di nodi del cluster.
 
-      Per altre informazioni, vedere [Understanding the parallelism of an Apache Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (Informazioni sul parallelismo di una topologia Apache Storm).
+      Per altre informazioni, vedere [Understanding the parallelism of an Apache Storm topology](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (Informazioni sul parallelismo di una topologia Apache Storm).
 
-  * **Kill**: termina una topologia Storm dopo il timeout specificato.
+  * **Kill**: arresta una topologia Storm dopo il timeout specificato.
 
 * **Topology stats**: statistiche sulla topologia. Usare i collegamenti disponibili nella colonna **Window** per impostare l'intervallo di tempo per le rimanenti voci della pagina.
 
@@ -114,7 +114,7 @@ Se si seleziona un elemento nella sezione **Spouts** o **Bolts**, verranno visua
 
 * **Executors**: informazioni sulle istanze dello spout o del bolt. Selezionare la voce **Port** relativa a un esecutore specifico per visualizzare il log delle informazioni di diagnostica generate per questa istanza.
 
-* **Errors**: informazioni su eventuali errori dello spout o del bolt.
+* **Errori**: informazioni su eventuali errori dello spout o del bolt.
 
 ## <a name="hdinsight-tools-for-visual-studio"></a>HDInsight Tools per Visual Studio
 
@@ -132,7 +132,7 @@ Eseguire i passaggi seguenti per distribuire una topologia di esempio nel cluste
 
 4. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e selezionare **Submit to Storm on HDInsight**.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Se richiesto, immettere le credenziali di accesso per la sottoscrizione di Azure. Se si dispone di più di una sottoscrizione, accedere a quella che contiene il cluster Storm in HDInsight.
 
 5. Selezionare il cluster Storm in HDInsight dall'elenco a discesa **Storm Cluster** e quindi selezionare **Submit**. È possibile verificare se l'invio è riuscito o meno usando la finestra **Output** .
@@ -141,17 +141,17 @@ Eseguire i passaggi seguenti per distribuire una topologia di esempio nel cluste
 
     ![monitor Visual Studio](./media/apache-storm-deploy-monitor-topology/vsmonitor.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > È possibile visualizzare **Storm Topologies** anche da **Esplora server**, espandendo **Azure** > **HDInsight** e quindi facendo clic su un cluster Storm in HDInsight e selezionando **View Storm Topologies**.
 
     Selezionare la forma degli spout o dei bolt per visualizzare informazioni su questi componenti. Viene aperta una nuova finestra per ogni elemento selezionato.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Il nome della topologia è il nome della classe della topologia, in questo caso `HelloWord`, a cui è stato aggiunto un timestamp.
 
 7. Nella visualizzazione **Topology Summary** selezionare **Kill** per arrestare la topologia.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Le topologie Storm continuano l'esecuzione fino a quando non vengono arrestate o fino a quando il cluster non viene eliminato.
 
 
@@ -169,7 +169,7 @@ L'URI di base per l'API REST nei cluster HDInsight è **https://&lt;NomeCluster>
 
 Le richieste all'API REST devono usare l' **autenticazione di base**con il nome e la password amministratore del cluster HDInsight.
 
-> [!NOTE]
+> [!NOTE]  
 > Poiché l'autenticazione di base viene inviata in testo non crittografato, è necessario usare **sempre** HTTPS per proteggere le comunicazioni con il cluster.
 
 ### <a name="return-values"></a>Valori restituiti

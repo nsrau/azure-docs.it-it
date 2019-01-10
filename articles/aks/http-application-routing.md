@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: c2f68afb685cb04d456e06cadf378bd1c3ebb1fb
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384980"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742389"
 ---
 # <a name="http-application-routing"></a>Routing di applicazioni HTTP
 
@@ -28,10 +28,10 @@ Quando il componente aggiuntivo è abilitato, viene creata una zona DNS nella so
 
 Il componente aggiuntivo distribuisce due componenti: un [controller di ingresso Kubernetes][ingress] e un controller [External-DNS][external-dns].
 
-- **Controller di ingresso**: questo controller è esposto a Internet tramite un servizio Kubernetes di tipo LoadBalancer. Controlla e implementa le [risorse di ingresso Kubernetes][ingress-resource], creando route agli endpoint applicazione.
+- **Controller di ingresso**: questo controller di ingresso è esposto a Internet tramite un servizio Kubernetes di tipo LoadBalancer. Controlla e implementa le [risorse di ingresso Kubernetes][ingress-resource], creando route agli endpoint applicazione.
 - **Controller External-DNS**: controlla le risorse di ingresso Kubernetes e crea record DNS A nella zona DNS specifica del cluster.
 
-## <a name="deploy-http-routing-cli"></a>Implementare il routing HTTP: interfaccia della riga di comando
+## <a name="deploy-http-routing-cli"></a>Distribuire il routing HTTP: CLI
 
 Il componente aggiuntivo Routing di applicazioni HTTP può essere abilitato tramite l'interfaccia della riga di comando di Azure al momento dell'implementazione di un cluster AKS. A tale scopo, usare il comando [az aks create][az-aks-create] con l'argomento `--enable-addons`.
 
@@ -55,7 +55,7 @@ Result
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
 ```
 
-## <a name="deploy-http-routing-portal"></a>Implementare il routing HTTP: portale
+## <a name="deploy-http-routing-portal"></a>Distribuire il routing HTTP: Portale
 
 Il componente aggiuntivo Routing di applicazioni HTTP può essere abilitato tramite il portale di Azure al momento dell'implementazione di un cluster AKS.
 
@@ -174,6 +174,36 @@ La soluzione di routing HTTP può essere rimossa tramite l'interfaccia della rig
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
+Quando il componente aggiuntivo di routing dell'applicazione HTTP è disabilitato, alcune risorse Kubernetes possono rimanere nel cluster. Queste risorse includono *configMaps* e *secrets* e vengono create nello spazio dei nomi *kube-system*. Per mantenere un cluster pulito, è possibile rimuovere queste risorse.
+
+Cercare le risorse *addon-http-application-routing* con i comandi [kubectl get] [ kubectl-get] seguenti:
+
+```console
+kubectl get deployments --namespace kube-system
+kubectl get services --namespace kube-system
+kubectl get configmaps --namespace kube-system
+kubectl get secrets --namespace kube-system
+```
+
+L'output di esempio seguente mostra risorse configMaps che devono essere eliminate:
+
+```
+$ kubectl get configmaps --namespace kube-system
+
+NAMESPACE     NAME                                                       DATA   AGE
+kube-system   addon-http-application-routing-nginx-configuration         0      9m7s
+kube-system   addon-http-application-routing-tcp-services                0      9m7s
+kube-system   addon-http-application-routing-udp-services                0      9m7s
+```
+
+Per eliminare le risorse, usare il comando [kubectl delete][kubectl-delete]. Specificare il tipo di risorsa, il nome della risorsa e lo spazio dei nomi. Nell'esempio seguente viene eliminata una delle risorse configmaps precedente:
+
+```console
+kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
+```
+
+Ripetere il passaggio `kubectl delete` precedente per tutte le risorse *addon-http-application-routing* rimaste nel cluster.
+
 ## <a name="troubleshoot"></a>Risolvere problemi
 
 Usare il comando [kubectl logs][kubectl-logs] per visualizzare i registri applicazioni dell'applicazione External-DNS. I registri dovrebbero confermare che sono stati creati correttamente un record DNS A e un record DNS TXT.
@@ -256,6 +286,7 @@ Per informazioni su come installare un controller di ingresso protetto con HTTPS
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource

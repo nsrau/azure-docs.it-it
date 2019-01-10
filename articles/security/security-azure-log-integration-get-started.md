@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036803"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602189"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integrazione log di Azure con la registrazione di Diagnostica di Azure e inoltro di eventi di Windows
 
@@ -111,7 +111,7 @@ Il processo di installazione è illustrato nel video seguente:<br /><br />
 Dopo aver completato la configurazione di base, si può procedere con i passaggi successivi all'installazione e di convalida:
 
 1. Aprire PowerShell come amministratore. Andare quindi alla directory C:\Programmi\Integrazione log di Microsoft Azure.
-2. Importare i cmdlet di Integrazione log di Azure. Per importare i cmdlet, eseguire lo script `LoadAzlogModule.ps1`. Immettere `.\LoadAzlogModule.ps1` e quindi premere INVIO. Si noti che in questo comando si usa **.\\** Verrà visualizzata una schermata simile alla figura seguente:
+2. Importare i cmdlet di Integrazione log di Azure. Per importare i cmdlet, eseguire lo script `LoadAzlogModule.ps1`. Immettere `.\LoadAzlogModule.ps1` e quindi premere INVIO. Si noti che in questo comando si usa **.\\**. Verrà visualizzata una schermata simile alla figura seguente:
 
   ![Screenshot dell'output del comando LoadAzlogModule.ps1](./media/security-azure-log-integration-get-started/loaded-modules.png)
 3. Configurare quindi Integrazione log di Azure per l'uso di un ambiente di Azure specifico. *Ambiente di Azure* è il tipo di data center del cloud di Azure che si vuole usare. Anche se esistono diversi ambienti di Azure, le opzioni attualmente pertinenti sono **AzureCloud** o **AzureUSGovernment**. Eseguendo PowerShell come amministratore, verificare di essere in C:\Programmi\Integrazione log di Microsoft Azure\. Eseguire quindi questo comando:
@@ -198,7 +198,7 @@ Il video seguente illustra i passaggi precedenti:<br /><br />
 ## <a name="if-data-isnt-showing-up-in-the-forwarded-events-folder"></a>Se i dati non vengono visualizzati nella cartella Eventi inoltrati
 Se i dati non vengono visualizzati nella cartella Eventi inoltrati dopo un'ora, completare questa procedura:
 
-1. Controllare il computer che esegue il servizio Integrazione log di Azure. Verificare che possa accedere ad Azure. Per testare la connettività, in un browser provare ad andare al [portale di Azure](http://portal.azure.com).
+1. Controllare il computer che esegue il servizio Integrazione log di Azure. Verificare che possa accedere ad Azure. Per testare la connettività, in un browser provare ad andare al [portale di Azure](https://portal.azure.com).
 2. Verificare che l'account utente Azlog abbia l'autorizzazione di scrittura per la cartella users\Azlog.
   1. Aprire Esplora file.
   2. Passare a C:\users.

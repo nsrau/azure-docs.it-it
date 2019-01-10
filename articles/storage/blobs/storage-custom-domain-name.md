@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 74d6acb03f9ba984d35caf1f5c7963f686cda5a7
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 47ce2b39f1733c99ef8c15926d42aa62e1fcd44c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219257"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634559"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurare un nome di dominio personalizzato per l'account di archiviazione di Azure
 
@@ -176,12 +176,14 @@ Per rimuovere la registrazione di un dominio personalizzato, usare il comando [a
 
 ### <a name="powershell"></a>PowerShell
 
-Per rimuovere la registrazione di un dominio personalizzato, usare il cmdlet di PowerShell [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) e quindi specificare una stringa vuota (`""`) per il valore dell'argomento `-CustomDomainName`.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Per rimuovere la registrazione di un dominio personalizzato, usare il cmdlet di PowerShell [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) e quindi specificare una stringa vuota (`""`) per il valore dell'argomento `-CustomDomainName`.
 
 * Formato del comando:
 
   ```powershell
-  Set-AzureRmStorageAccount `
+  Set-AzStorageAccount `
       -ResourceGroupName "<resource-group-name>" `
       -AccountName "<storage-account-name>" `
       -CustomDomainName ""
@@ -190,7 +192,7 @@ Per rimuovere la registrazione di un dominio personalizzato, usare il cmdlet di 
 * Esempio del comando:
 
   ```powershell
-  Set-AzureRmStorageAccount `
+  Set-AzStorageAccount `
       -ResourceGroupName "myresourcegroup" `
       -AccountName "mystorageaccount" `
       -CustomDomainName ""

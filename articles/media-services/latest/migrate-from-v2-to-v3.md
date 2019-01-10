@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/21/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 73d4ecec2665e238236de4a778d6cdd43642c87b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310396"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716617"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -83,11 +83,11 @@ L'API v3 include i gap di funzionalità seguenti rispetto all'API v2. È in cors
     * Sovrimpressioni
     * Ritaglio
     * Sprite di anteprima
-* Attualmente le entità LiveEvent con transcodifica non supportano l'inserimento di slate nel corso del flusso, set di impostazioni personalizzati o l'inserimento di marcatori di annunci tramite chiamata API. 
+* Attualmente le entità LiveEvent con transcodifica non supportano l'inserimento di slate nel corso del flusso e l'inserimento di marcatori di annunci tramite chiamata API. 
 
 > [!NOTE]
 > Aggiungere questo articolo ai Preferiti e consultarlo periodicamente per eventuali aggiornamenti.
-
+ 
 ## <a name="code-differences"></a>Differenze a livello di codice
 
 La tabella seguente illustra le differenze a livello di codice tra v2 e v3 per scenari comuni.
@@ -108,7 +108,7 @@ La tabella seguente illustra le differenze a livello di codice tra v2 e v3 per s
     * I canali e i programmi creati con v2 (sottoposti a mapping a entità LiveEvent e LiveOutput in v3) non possono continuare a essere gestiti con v3. È consigliabile passare alle entità LiveEvent e LiveOutput v3 in corrispondenza di un arresto canale pratico.<br/>Non è attualmente possibile eseguire la migrazione di canali in continua esecuzione.  
 
 > [!NOTE]
-> Aggiungere questo articolo ai Preferiti e consultarlo periodicamente per eventuali aggiornamenti.
+> Questa pagina viene aggiornata man mano che il team di Servizi multimediali apporta costanti miglioramenti alle API v3 e colma le lacune tra le versioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

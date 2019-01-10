@@ -4,14 +4,14 @@ description: Risposte alle domande frequenti su Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: snehaa
-ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257795"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975475"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Domande frequenti su Azure Migrate
 
@@ -48,12 +48,13 @@ Azure Migrate è una strumento di pianificazione della migrazione e Azure Site R
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Quali aree geografiche di Azure sono supportate da Azure Migrate?
 
-Azure Migrate supporta attualmente Stati Uniti e Azure per enti pubblici come aree geografiche di progetto. Anche se si possono creare progetti di migrazione solo in queste aree geografiche, è comunque possibile valutare i computer per [più località di destinazione](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
+Azure Migrate supporta attualmente Europa, Stati Uniti e Azure per enti pubblici come aree geografiche di progetto. Anche se si possono creare progetti di migrazione solo in queste aree geografiche, è comunque possibile valutare i computer per [più località di destinazione](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
 
 **Area geografica** | **Posizione di archiviazione dei metadati**
 --- | ---
-Stati Uniti | Stati Uniti centro-occidentali, Stati Uniti orientali
 Azure Government | US Gov Virginia
+Europa | Europa settentrionale o Europa occidentale
+Stati Uniti | Stati Uniti orientali o Stati Uniti centro-occidentali
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>In che modo il sito locale si connette ad Azure Migrate?
 

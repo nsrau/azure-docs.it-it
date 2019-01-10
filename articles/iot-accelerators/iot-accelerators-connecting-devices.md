@@ -8,20 +8,22 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: 55c8ff799ba3ff7fe9691d46dc90a00d5182d390
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 729ba19153eeb9767961d099e7a37c10a38b1286
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829411"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634714"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Connettere il dispositivo all'acceleratore di soluzioni di monitoraggio remoto (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Questa esercitazione mostra come connettere un dispositivo fisico all'acceleratore di soluzioni di monitoraggio remoto.
+Questa esercitazione mostra come connettere un dispositivo reale all'acceleratore di soluzioni di monitoraggio remoto.
 
 Come per la maggior parte delle applicazioni incorporate in esecuzione su dispositivi vincolati, il codice client per l'applicazione per dispositivi è scritto in C. In questa esercitazione si compilerà l'applicazione client per dispositivi in un computer che esegue Windows.
+
+Se si preferisce simulare un dispositivo, vedere [Creare e testare un nuovo dispositivo simulato](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +35,7 @@ Il [codice di esempio](https://github.com/Azure/azure-iot-sdk-c/tree/master/samp
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>Eseguire il download del codice sorgente e preparare il progetto
 
-Per preparare il progetto, clonare o scaricare il [repository degli SDK di Azure IoT per C](https://github.com/Azure/azure-iot-sdk-c) da GitHub.
+Per preparare il progetto, [clonare il repository degli SDK di Azure IoT per C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) da GitHub.
 
 L'esempio è disponibile nella cartella **samples/solutions/remote_monitoring_client**.
 

@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jejiang
 ms.custom: seodec18
-ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: fb758c12d699bb80f81b65db99e1fec68c4efabf
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138127"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809761"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Gestire le risorse di Azure Cosmos DB usando Azure Storage Explorer
 
-L'uso di Azure Cosmos DB in Azure Storage Explorer consente agli utenti di gestire le entità di Azure Cosmos DB, modificare i dati, aggiornare le stored procedure e attivarle assieme ad altre entità come code e BLOB di archiviazione di Azure. È ora possibile usare lo stesso strumento per gestire le diverse entità di Azure in un'unica posizione. Attualmente Azure Storage Explorer supporta account SQL, MongoDB, Graph e di tabella.
+L'uso di Azure Cosmos DB in Azure Storage Explorer consente agli utenti di gestire le entità di Azure Cosmos DB, modificare i dati, aggiornare le stored procedure e attivarle assieme ad altre entità come code e BLOB di archiviazione di Azure. È ora possibile usare lo stesso strumento per gestire le diverse entità di Azure in un'unica posizione. Attualmente Azure Storage Explorer supporta account Cosmos configurati per SQL, MongoDB, Graph e API Tabella.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un account Azure Cosmos DB per l'API SQL<!--or MongoDB API-->. Se non si ha un account, è possibile crearne uno nel portale di Azure, come descritto in [Azure Cosmos DB: Creare un'app Web per l'API con .NET e il portale di Azure](create-sql-api-dotnet.md).
+Un account Cosmos con l'API SQL o l'API di Azure Cosmos DB per MongoDB. Se non si ha un account, è possibile crearne uno nel portale di Azure, come descritto in [Azure Cosmos DB: Creare un'app Web per l'API con .NET e il portale di Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Installazione
 

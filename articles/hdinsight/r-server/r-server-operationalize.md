@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d0cae4210fa313c5d6e1f33987422e7b0d53e76a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496915"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579958"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster ML Services in Azure HDInsight
 
@@ -22,13 +22,13 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Un cluster ML Services in HDInsight**: per istruzioni, vedere [Introduzione all'uso di ML Services in HDInsight](r-server-get-started.md).
+* **Un cluster ML Services in Azure HDInsight**: Per istruzioni, vedere [Introduzione all'uso di ML Services in HDInsight](r-server-get-started.md).
 
 * **Un client Secure Shell (SSH)**: il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Rendere operativo un cluster ML Services con una configurazione One-box
 
-> [!NOTE]
+> [!NOTE]  
 > I passaggi seguenti si applicano a R Server 9.0 e ML Server 9.1. Per ML Server 9.3, vedere [Use the administration tool to manage the operationalization configuration](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch) (Usare lo strumento di amministrazione per gestire la configurazione dell'operazionalizzazione).
 
 1. Accedere tramite SSH al nodo perimetrale.
@@ -137,7 +137,7 @@ Quando la sessione SSH è attiva, il traffico proveniente dalla porta 12800 del 
 
 Per ridimensionare i nodi di calcolo, prima si rimuovono le autorizzazioni dei nodi di lavoro e quindi si configurano i nodi di calcolo nei nodi di lavoro con le autorizzazioni rimosse.
 
-### <a name="step-1-decommission-the-worker-nodes"></a>Passaggio 1: Rimuovere le autorizzazioni dei nodi di lavoro
+### <a name="step-1-decommission-the-worker-nodes"></a>Passaggio 1: Rimuovere le autorizzazioni dei nodi del ruolo di lavoro
 
 Il cluster ML Services non viene gestito tramite [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Se è necessario rimuovere le autorizzazioni dei nodi di lavoro, YARN Resource Manager non funziona come previsto perché non riesce a riconoscere le risorse impiegate dal server. Per evitare questa situazione, è consigliabile rimuovere le autorizzazioni dei nodi del ruolo di lavoro prima di ridimensionare i nodi di calcolo.
 
@@ -159,7 +159,7 @@ Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 * Deselezionare i nodi del ruolo di lavoro e selezionare i nodi head.
 * Selezionare **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > "**Hosts** > **Restart All Components** (Riavvia tutti i componenti).
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Passaggio 2: Configurare i nodi di calcolo in ogni nodo di lavoro per il quale è stata rimossa l'autorizzazione
+### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Passaggio 2: Configurare i nodi di calcolo su ogni nodo del ruolo di lavoro per il quale è stata rimossa l'autorizzazione
 
 1. Accedere tramite SSH a ogni nodo del ruolo di lavoro per il quale è stata rimossa l'autorizzazione.
 

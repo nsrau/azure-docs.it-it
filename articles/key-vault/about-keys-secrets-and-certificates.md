@@ -1,5 +1,5 @@
 ---
-title: Informazioni su chiavi, segreti e certificati di Azure Key Vault
+title: Informazioni su chiavi, segreti e certificati di Azure Key Vault - Azure Key Vault
 description: Panoramica dei dettagli di sviluppo e dell'interfaccia REST di Azure Key Vault per le chiavi, i segreti e i certificati.
 services: key-vault
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 464574716971388f3785879ba40ad3e8a624fc7f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384786"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002621"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 
@@ -36,7 +36,7 @@ Per altre informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](/
 
 Le sezioni seguenti forniscono informazioni generali applicabili all'intera implementazione del servizio Key Vault.
 
-###  <a name="supporting-standards"></a>Standard di supporto
+### <a name="supporting-standards"></a>Standard di supporto
 
 Le specifiche di JavaScript Object Notation (JSON) e JavaScript Object Signing and Encryption (JOSE) costituiscono informazioni generiche importanti.  
 
@@ -60,7 +60,7 @@ Fare riferimento alle specifiche JOSE per i tipi di dati pertinenti per chiavi, 
 -   **Identità**: un identità di Azure Active Directory (AAD).  
 -   **IntDate** : un valore decimale JSON che rappresenta il numero di secondi da 1970-01-01T0:0:0Z UTC fino alla data/ora UTC specificata. Per informazioni dettagliate sui valori data/ora in generale e UTC in particolare, vedere RFC3339.  
 
-###  <a name="objects-identifiers-and-versioning"></a>Oggetti, identificatori e controllo delle versioni
+### <a name="objects-identifiers-and-versioning"></a>Oggetti, identificatori e controllo delle versioni
 
 Agli oggetti archiviati in Key Vault viene applicato il controllo delle versioni ogni volta che si crea una nuova istanza di un oggetto. A ogni versione vengono assegnati un identificatore univoco e un URL. Un oggetto creato per la prima volta viene etichettato con un identificatore univoco della versione e contrassegnato come versione corrente dell'oggetto. La creazione di una nuova istanza con lo stesso nome assegna al nuovo oggetto un identificatore univoco della versione, trasformando tale oggetto nella versione corrente.  
 
@@ -85,7 +85,7 @@ Dove:
 
 ## <a name="key-vault-keys"></a>Chiavi Key Vault
 
-###  <a name="keys-and-key-types"></a>Chiavi e i tipi di chiave
+### <a name="keys-and-key-types"></a>Chiavi e i tipi di chiave
 
 Le chiavi crittografiche in Key Vault sono rappresentate come oggetti JSON Web Key [JWK]. Le specifiche JWK/JWA di base vengono anche estese per abilitare tipi di chiave univoci per l'implementazione di Key Vault. Ad esempio, l'importazione di chiavi tramite la creazione di pacchetti HSM specifici del fornitore consente il trasporto sicuro delle chiavi, che possono essere usate solo nei moduli di protezione hardware di Key Vault.  
 
@@ -173,20 +173,20 @@ Per ulteriori informazioni sugli oggetti JWK, vedere [JSON Web Key (JWK)](http:/
 
 Oltre al materiale della chiave,è possibile specificare gli attributi seguenti. In una richiesta JSON, la parola chiave di attributi e le parentesi graffe, ' {' '}', sono necessari anche se non sono stati specificati gli attributi.  
 
-- *enabled*: il valore predefinito booleano facoltativo è **true**. Specifica se la chiave è abilitata e utilizzabile per le operazioni di crittografia. L'attributo *enabled* viene usato in combinazione con *nbf* ed *exp*. Quando si verifica un'operazione tra *nbf* ed *exp*, questa verrà consentita solo se *enabled* è impostato su **true**. Le operazioni di fuori delle finestre *nbf* / *exp* non sono impostate automaticamente, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#date-time-controlled-operations).
+- *abilitato*: il valore predefinito booleano facoltativo è **vero**. Specifica se la chiave è abilitata e utilizzabile per le operazioni di crittografia. L’attributo *abilitato* viene utilizzato in combinazione con *nbf* ed *exp*. Quando si verifica un'operazione tra *nbf* ed *exp*, questa verrà consentita solo se *abilitato* è impostato su **vero**. Le operazioni di fuori delle finestre *nbf* / *exp* non sono impostate automaticamente, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#date-time-controlled-operations).
 - *nbf*: il valore predefinito IntDate facoltativo è "now". L’attributo *nbf* (non precedente) identifica l'ora prima della quale la chiave NON DEVE essere usata per le operazioni di crittografia, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#date-time-controlled-operations). L'elaborazione dell’attributo *nbf* richiede che la data/ora corrente SIA successiva o uguale a data/ora non precedente elencata nell’attributo *nbf*. Key Vault PUÒ concedere un minimo margine temporale, in genere non più di qualche minuto, per tenere conto dello sfasamento di orario. Il valore DEVE essere un numero contenente un valore IntDate.  
 - *exp*: il valore predefinito IntDate facoltativo è "forever". L’attributo *exp* (data di scadenza) identifica la data di scadenza in cui o precedentemente alla quale la chiave NON DEVE essere usata per l’operazione di crittografia, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#date-time-controlled-operations). L'elaborazione dell’attributo *exp* richiede che la data/ora corrente SIA precedente a data/ora di scadenza elencata nell’attributo *exp*. Key Vault PUÒ concedere un minimo margine temporale, in genere non più di qualche minuto, per tenere conto dello sfasamento di orario. Il valore DEVE essere un numero contenente un valore IntDate.  
 
 Sono disponibili altri attributi di sola lettura che sono inclusi in una risposta che include gli attributi chiave:  
 
-- *created*: IntDate, facoltativo. L'attributo *created* indica quando è stata creata questa versione della chiave. Il valore è null per le chiavi create prima dell'aggiunta di questo attributo. Il valore DEVE essere un numero contenente un valore IntDate.  
-- *updated*: IntDate, facoltativo. L'attributo *updated* indica quando è stata aggiornata questa versione della chiave. Il valore è null per le chiavi che sono state aggiornate per l'ultima volta prima dell'aggiunta di questo attributo. Il valore DEVE essere un numero contenente un valore IntDate.  
+- *created*: IntDate, facoltativo. L’attributo *creato* indica quando è stata creata questa versione della chiave. Il valore è null per le chiavi create prima dell'aggiunta di questo attributo. Il valore DEVE essere un numero contenente un valore IntDate.  
+- *updated*: IntDate, facoltativo. L’attributo *aggiornato* indica quando è stata aggiornata questa versione della chiave. Il valore è null per le chiavi che sono state aggiornate per l'ultima volta prima dell'aggiunta di questo attributo. Il valore DEVE essere un numero contenente un valore IntDate.  
 
 Per ulteriori informazioni su IntDate e altri tipi di dati, vedere [Tipi di dati](#data-types)  
 
 #### <a name="date-time-controlled-operations"></a>Operazioni controllate in base a data e ora
 
-Le chiavi non ancora valide e scadute, che non rientrano nella finestra *nbf* / *exp*, possono essere usate per le operazioni di **decrittografia**, **annullamento del wrapping** e **verifica** (non verrà restituito l'errore 403 Accesso negato). La logica per l'utilizzo di stato non ancora valido consiste nel consentire a una chiave di essere sottoposta a test prima dell'uso di produzione. La logica per l'utilizzo di stato scaduto consiste nel consentire operazioni di ripristino sui dati creati quando la chiave risultava valida. Inoltre, è possibile disabilitare l'accesso a una chiave usando i criteri di Key Vault, o aggiornando l'attributo chiave *enabled* su **false**.
+Le chiavi non ancora valide e scadute, che non rientrano nella finestra *nbf* / *exp*, possono essere usate per le operazioni di **decrittografia**, **annullamento del wrapping** e **verifica** (non verrà restituito l'errore 403 Accesso negato). La logica per l'utilizzo di stato non ancora valido consiste nel consentire a una chiave di essere sottoposta a test prima dell'uso di produzione. La logica per l'utilizzo di stato scaduto consiste nel consentire operazioni di ripristino sui dati creati quando la chiave risultava valida. Inoltre, è possibile disabilitare l'accesso a una chiave usando i criteri di Key Vault, o aggiornando l’attributo chiave *abilitato* per **falso**.
 
 Per altre informazioni sui tipi di dati, vedere [Tipi di dati](#data-types).
 
@@ -267,7 +267,7 @@ Le autorizzazioni seguenti sono utilizzabili, su base principale, nella voce di 
 - Autorizzazioni per le operazioni di gestione dei segreti
   - *get*: legge un segreto  
   - *list*: consente di elencare i segreti o le versioni di un segreto archiviati in un Key Vault  
-  - *set*: consente di creare un segreto  
+  - *set*: Creare un segreto  
   - *delete*: consente di eliminare un segreto  
   - *recover*: consente di recuperare un server eliminato
   - *backup*: consente di eseguire il backup di un segreto in un insieme di credenziali delle chiavi
@@ -348,7 +348,7 @@ I criteri dei certificati contengono informazioni su come creare e gestire la du
 
 Quando viene creato un certificato di Key Vault completamente nuovo, è necessario specificare i criteri. I criteri specificano come creare questa versione o la versione successiva del certificato di Key Vault. Dopo aver definito i criteri, non sarà necessario ripetere la procedura per le successive operazioni di creazione delle versioni future. È presente una sola istanza dei criteri per tutte le versioni di un certificato di Key Vault.  
 
-In generale, i criteri dei certificati contengono le informazioni seguenti.  
+In generale, i criteri dei certificati contengono le informazioni seguenti:  
 
 -   Proprietà del certificato X509: nome del soggetto, nomi alternativi del soggetto e altre proprietà usate per creare una richiesta di certificato x509.  
 -   Proprietà della chiave: contiene il tipo di chiave, la lunghezza della chiave e i campi relativi alla chiave esportabile e di riutilizzo. Questi campi indicare all’insieme di credenziali delle chiavi come generare una chiave.  

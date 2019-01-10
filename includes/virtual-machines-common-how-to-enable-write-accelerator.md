@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: a7fe2cf151b79b02f4f8996ad938d8fc262a5f77
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b2733bed4418fdfcaefb20c04683cb6a229134e9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400395"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594367"
 ---
 # <a name="enable-write-accelerator"></a>Abilitare l'acceleratore di scrittura
 
@@ -41,7 +41,7 @@ L'abilitazione dell'acceleratore di scrittura per i dischi del sistema operativo
 Quando si usa l'acceleratore di scrittura per dischi o dischi rigidi virtuali di Azure, si applicano queste restrizioni:
 
 - La memorizzazione nella cache del disco Premium deve essere impostata su 'Nessuna' o 'Sola lettura'. Tutte le altre modalità di memorizzazione nella cache non sono supportate.
-- La creazione di snapshot sul disco abilitato per un acceleratore di scrittura non è ancora supportata. Questa restrizione impedisce al Servizio Backup di Azure di creare uno snapshot coerente con l'applicazione di tutti i dischi della macchina virtuale.
+- Gli snapshot non sono attualmente supportati per i dischi abilitati per l'acceleratore di scrittura. Durante il backup, il servizio Backup di Azure esclude automaticamente i dischi abilitati per l'acceleratore di scrittura collegati alla macchina virtuale.
 - Solo dimensioni di I/O più piccole (<=32 KiB) usano il percorso dell'acceleratore. In scenari di carichi di lavoro dove i dati vengono caricati in blocco oppure dove i buffer dei log delle transazioni di diversi sistemi di gestione di database vengono popolati con quantità rilevanti di dati prima di venire salvati in modo permanente nella risorsa di archiviazione, è possibile che l'I/O scritto su disco non usi il percorso dell'acceleratore.
 
 Esistono limiti per il numero di dischi rigidi virtuali di Archiviazione Premium di Azure per ogni macchina virtuale supportati dall'acceleratore di scrittura. I limiti correnti sono:

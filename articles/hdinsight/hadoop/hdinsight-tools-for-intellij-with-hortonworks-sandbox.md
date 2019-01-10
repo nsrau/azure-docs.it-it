@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 56747179c69e6495e9a764f81e0827e29cb077e6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: aaebad004e5d426ca1c593941b15a2515c4476de
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017407"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635664"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Usare gli strumenti HDInsight per IntelliJ con Hortonworks Sandbox
 
@@ -27,7 +27,7 @@ Informazioni su come usare gli strumenti HDInsight per IntelliJ per sviluppare a
 
 Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
-- Hortonworks Data Platform (HDP) 2.4 su Hortonworks Sandbox in esecuzione nel computer locale. Per configurare HDP, vedere [introduzione all'ecosistema Hadoop con un ambiente sandbox Hadoop in una macchina virtuale](apache-hadoop-emulator-get-started.md). 
+- Hortonworks Data Platform (HDP) 2.4 su Hortonworks Sandbox in esecuzione nel computer locale. Per configurare HDP, vedere [Introduzione all'ecosistema Apache Hadoop con un ambiente sandbox Hadoop su una macchina virtuale](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
     > Gli strumenti HDInsight per IntelliJ sono stati testati solo con HDP 2.4. Per ottenere HDP 2.4, espandere [Archivio Hortonworks Sandbox](https://hortonworks.com/downloads/#sandbox) nel **sito di download di Hortonworks Sandbox**.
 
@@ -44,7 +44,7 @@ Per installare i plug-in:
   5. Per completare l'installazione, selezionare **Restart IntelliJ IDEA** (Riavvia IntelliJ IDEA).
   6. Ripetere i passaggi 4 e 5 per installare **Azure Toolkit for IntelliJ**. Per altre informazioni, vedere [Installare Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
 
-## <a name="create-a-spark-scala-application"></a>Creare un'applicazione Spark Scala
+## <a name="create-an-apache-spark-scala-application"></a>Creare un'applicazione Apache Spark Scala
 
 In questa sezione verrà creato un progetto Scala di esempio usando IntelliJ IDEA. Nella sezione successiva, IntelliJ IDEA verrà collegato a Hortonworks Sandbox (emulatore) prima di inviare il progetto.
 
@@ -149,14 +149,14 @@ Per inviare un progetto a un emulatore:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggere le informazioni su come [usare gli strumenti HDInsight in Azure Toolkit for IntelliJ per creare applicazioni Spark per un cluster HDInsight Spark Linux](../spark/apache-spark-intellij-tool-plugin.md).
+- Leggere le informazioni su come [usare gli strumenti HDInsight in Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight Spark Linux](../spark/apache-spark-intellij-tool-plugin.md).
 
-- Per un video sugli strumenti HDInsight per IntelliJ, vedere [Introducing HDInsight Tools for IntelliJ for Spark Development](https://www.youtube.com/watch?v=YTZzYVgut6c) (Introduzione agli strumenti HDInsight per IntelliJ per lo sviluppo Spark).
+- Per un video sugli strumenti HDInsight per IntelliJ, vedere [Introducing HDInsight Tools for IntelliJ for Spark Development](https://www.youtube.com/watch?v=YTZzYVgut6c) (Introduzione agli strumenti HDInsight per IntelliJ per lo sviluppo Apache Spark).
 
-- Leggere le informazioni su come [eseguire il debug remoto di applicazioni Spark in un cluster HDInsight con Azure Toolkit for IntelliJ tramite SSH](../spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md).
+- Leggere le informazioni su come [eseguire il debug remoto di applicazioni Apache Spark in un cluster HDInsight con Azure Toolkit for IntelliJ tramite SSH](../spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md).
 
-- Leggere le informazioni su come [usare gli strumenti HDInsight in Azure Toolkit for IntelliJ per eseguire il debug remoto di applicazioni Spark in un cluster HDInsight Spark Linux](../spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
+- Leggere le informazioni su come [usare gli strumenti HDInsight in Azure Toolkit for IntelliJ per eseguire il debug remoto di applicazioni Apache Spark in un cluster HDInsight Spark Linux](../spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
 
-- Leggere le informazioni su come [usare gli strumenti HDInsight in Azure Toolkit for Eclipse per creare applicazioni Spark](../spark/apache-spark-eclipse-tool-plugin.md).
+- Leggere le informazioni su come [usare gli strumenti HDInsight in Azure Toolkit for Eclipse per creare applicazioni Apache Spark](../spark/apache-spark-eclipse-tool-plugin.md).
 
 - Per un video sugli strumenti HDInsight per Eclipse, vedere [Use HDInsight Tool for Eclipse to create Spark applications](https://mix.office.com/watch/1rau2mopb6fha) (Usare gli strumenti HDInsight per Eclipse per creare applicazioni Spark).

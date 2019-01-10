@@ -11,18 +11,18 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: fb0760f24b8f384818db8154ffe871d7fd4ce429
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: a92d2cb5f6abc73dc768567d239ec38554e493b4
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138345"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001584"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorare ed eseguire il debug di un'applicazione .NET di Azure Batch con Application Insights
 
 [Application Insights](../application-insights/app-insights-overview.md) offre agli sviluppatori un modo elegante e potente per monitorare ed eseguire il debug delle applicazioni distribuite nei servizi di Azure. Usare Application Insights per monitorare i contatori delle prestazioni e le eccezioni, nonché per instrumentare il codice con metriche e funzionalità di traccia personalizzate. L'integrazione di Application Insights con l'applicazione Azure Batch consente di ottenere informazioni dettagliate sui comportamenti e di analizzare i problemi in tempo quasi reale.
 
-Questo articolo illustra come aggiungere e configurare la libreria di Application Insights nella soluzione .NET di Azure Batch e instrumentare il codice dell'applicazione. Vengono inoltre presentati i modi per monitorare l'applicazione tramite il portale di Azure e creare dashboard personalizzati. Per informazioni sul supporto di Application Insights in altri linguaggi, vedere la [documentazione relativa a linguaggi, piattaforme e integrazioni](../application-insights/app-insights-platforms.md).
+Questo articolo illustra come aggiungere e configurare la libreria di Application Insights nella soluzione .NET di Azure Batch e instrumentare il codice dell'applicazione. Vengono inoltre presentati i modi per monitorare l'applicazione tramite il portale di Azure e creare dashboard personalizzati. Per informazioni sul supporto di Application Insights in altri linguaggi, vedere la [documentazione relativa a linguaggi, piattaforme e integrazioni](../azure-monitor/app/platforms.md).
 
 In [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights) è disponibile una soluzione C# di esempio con codice per seguire questo articolo. Questo esempio aggiunge codice di strumentazione di Application Insights all'esempio [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords). Se non si ha familiarità con tale esempio, provare prima di tutto a compilare ed eseguire TopNWords. In questo modo sarà possibile comprendere un flusso di lavoro semplice di Batch per l'elaborazione di un set di BLOB di input in parallelo su più nodi di calcolo. 
 
@@ -56,14 +56,14 @@ Aggiungere un riferimento ad Application Insights nell'applicazione .NET tramite
 
 ## <a name="instrument-your-code"></a>Instrumentare il codice
 
-Per instrumentare il codice, la soluzione deve creare un [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) di Application Insights. Nell'esempio, il TelemetryClient carica la relativa configurazione dal file [ApplicationInsights.config](../application-insights/app-insights-configuration-with-applicationinsights-config.md). Assicurarsi di aggiornare il file ApplicationInsights.config nei progetti seguenti con la chiave di strumentazione di Application Insights: Microsoft.Azure.Batch.Samples.TelemetryStartTask e TopNWordsSample.
+Per instrumentare il codice, la soluzione deve creare un [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) di Application Insights. Nell'esempio, il TelemetryClient carica la relativa configurazione dal file [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md). Assicurarsi di aggiornare il file ApplicationInsights.config nei progetti seguenti con la chiave di strumentazione di Application Insights: Microsoft.Azure.Batch.Samples.TelemetryStartTask e TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
 Aggiungere la chiave di strumentazione anche al file TopNWords.cs.
 
-L'esempio in TopNWords.cs usa le [chiamate di strumentazione](../application-insights/app-insights-api-custom-events-metrics.md) seguenti dall'API Application Insights:
+L'esempio in TopNWords.cs usa le [chiamate di strumentazione](../azure-monitor/app/api-custom-events-metrics.md) seguenti dall'API Application Insights:
 * `TrackMetric()` - Tiene traccia del tempo medio richiesto per il download del file di testo richiesto dal nodo di calcolo.
 * `TrackTrace()` - Aggiunge le chiamate di debug al codice.
 * `TrackEvent()` - Tiene traccia degli eventi interessanti da acquisire.
@@ -125,7 +125,7 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ```
 
 ### <a name="azure-batch-telemetry-initializer-helper"></a>Helper dell'inizializzatore di telemetria di Azure Batch
-Quando si segnalano i dati di telemetria per un determinato server e un'istanza, Application Insights usa il ruolo di macchina virtuale di Azure e il nome della macchina virtuale per i valori predefiniti. Nel contesto di Azure Batch, l'esempio mostra come usare invece il nome del pool e il nome del nodo di calcolo. Usare un [inizializzatore di telemetria](../application-insights/app-insights-api-filtering-sampling.md#add-properties) per sostituire i valori predefiniti. 
+Quando si segnalano i dati di telemetria per un determinato server e un'istanza, Application Insights usa il ruolo di macchina virtuale di Azure e il nome della macchina virtuale per i valori predefiniti. Nel contesto di Azure Batch, l'esempio mostra come usare invece il nome del pool e il nome del nodo di calcolo. Usare un [inizializzatore di telemetria](../azure-monitor/app/api-filtering-sampling.md#add-properties) per sostituire i valori predefiniti. 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -344,6 +344,6 @@ Tenendo conto del fatto che le applicazioni di Azure Batch in esecuzione in ambi
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni su [Application Insights](../application-insights/app-insights-overview.md).
 
-* Per informazioni sul supporto di Application Insights in altri linguaggi, vedere la [documentazione relativa a linguaggi, piattaforme e integrazioni](../application-insights/app-insights-platforms.md).
+* Per informazioni sul supporto di Application Insights in altri linguaggi, vedere la [documentazione relativa a linguaggi, piattaforme e integrazioni](../azure-monitor/app/platforms.md).
 
 

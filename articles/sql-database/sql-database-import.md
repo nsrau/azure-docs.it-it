@@ -3,25 +3,25 @@ title: Importare un file BACPAC per creare un database SQL di Azure | Microsoft 
 description: Creare un nuovo database SQL di Azure importando un file BACPAC.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: 6753666f1747c95ad3486444ed41e3cad0b8e905
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9e79aa2315118bcd9ce4328e74d51d7a22ea6247
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084177"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744565"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Guida introduttiva: Importare un file BACPAC in un nuovo database SQL di Azure
 
-È possibile eseguire la migrazione di un database SQL Server a un database SQL di Azure usando un file [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4), ovvero un file compresso con un'estensione `.bacpac` contenente i metadati e i dati del database. È possibile importare un file BACPAC dall'archivio BLOB di Azure (solo archiviazione Standard) o dall'archivio locale in una posizione locale. Per ottimizzare la velocità di importazione, è consigliabile specificare un livello di servizio e una dimensione di calcolo superiori, ad esempio P6, e quindi ridurre le dimensioni dopo che l'importazione ha avuto esito positivo. Il livello di compatibilità del database importato si basa sul livello di compatibilità del database di origine.
+È possibile eseguire la migrazione di un database SQL Server a un database SQL di Azure usando un file [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4), ovvero un file compresso con un'estensione `.bacpac` con i metadati e i dati del database. È possibile importare un file BACPAC dall'archivio BLOB di Azure (solo archiviazione Standard) o dall'archivio locale in una posizione locale. Per ottimizzare la velocità di importazione, è possibile specificare un livello di servizio e una dimensione di calcolo superiore, ad esempio P6. Al termine dell'importazione, sarà quindi possibile ridurre le caratteristiche. Il livello di compatibilità del database importato si basa sul livello di compatibilità del database di origine.
 
 > [!IMPORTANT]
 > Dopo aver importato il database, è possibile scegliere di usare il database al livello di compatibilità corrente (livello 100 per il database AdventureWorks2008R2) o a un livello superiore. Per altre informazioni sulle implicazioni e le opzioni per il funzionamento di un database a un livello di compatibilità specifico, vedere [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) (Livello di compatibilità ALTER DATABASE). Vedere anche [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) per informazioni sulle impostazioni a livello di database aggiuntive relative ai livelli di compatibilità.
@@ -41,13 +41,13 @@ Selezionare l'account di archiviazione, il contenitore e il file BACPAC che si v
 
 ### <a name="monitor-imports-progress"></a>Monitorare lo stato di avanzamento dell'importazione
 
-Per monitorare lo stato di avanzamento dell'importazione, aprire la pagina del server logico del database importato, scorrere fino a **Impostazioni** e selezionare **Cronologia importazioni/esportazioni**. Se l'operazione ha esito positivo, l'importazione visualizzerà lo stato **Completato**.
+Per monitorare lo stato di avanzamento dell'importazione, aprire la pagina del server logico del database importato e, in **Impostazioni**, selezionare **Cronologia importazioni/esportazioni**. Se l'operazione ha esito positivo, l'importazione visualizzerà lo stato **Completato**.
 
 Per verificare che il database sia attivo sul server, selezionare **Database SQL** e verificare che il nuovo database sia **Online**.
 
 ## <a name="import-from-a-bacpac-file-using-sqlpackage"></a>Eseguire l'importazione da un file BACPAC usando SqlPackage
 
-Per importare un database SQL tramite l'utilità della riga di comando [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage), vedere la sezione relativa ai [parametri e proprietà dell'importazione](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage viene fornito con le versioni più recenti di [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools per Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). È possibile scaricare la versione più recente di [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) anche dall'Area download Microsoft.
+Per importare un database SQL tramite l'utilità della riga di comando [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage), vedere la sezione relativa ai [parametri e proprietà dell'importazione](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage include le versioni più recenti di [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools per Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). È possibile scaricare la versione più recente di [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) anche dall'Area download Microsoft.
 
 Per la scalabilità e le prestazioni, è consigliabile usare SqlPackage nella maggior parte degli ambienti di produzione. Per informazioni sull'uso di file BACPAC per la migrazione, vedere l'articolo [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migrazione da SQL Server al database SQL di Azure con file BACPAC) del blog del Customer Advisory Team di SQL Server.
 
@@ -73,12 +73,12 @@ Usare il cmdlet [AzureRmSqlDatabaseImport New](/powershell/module/azurerm.sql/ne
 
  ```powershell
  $importRequest = New-AzureRmSqlDatabaseImport 
-    -ResourceGroupName "myResourceGroup" `
-    -ServerName "myLogicalServer" `
-    -DatabaseName "MyImportSample" `
-    -DatabaseMaxSizeBytes "262144000" `
+    -ResourceGroupName "<your_resource_group>" `
+    -ServerName "<your_server>" `
+    -DatabaseName "<your_database>" `
+    -DatabaseMaxSizeBytes "<database_size_in_bytes>" `
     -StorageKeyType "StorageAccessKey" `
-    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "myResourceGroup" -StorageAccountName "myStorageAccount").Value[0] `
+    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
     -StorageUri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
     -Edition "Standard" `
     -ServiceObjectiveName "P6" `

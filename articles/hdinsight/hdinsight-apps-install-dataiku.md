@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 5d2f803414db3bd118f57d317cfc32c8f22fcd5a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499132"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653256"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Installare un'applicazione pubblicata - Dataiku DDS
 
@@ -28,14 +28,14 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 
 È possibile installare DSS in HDInsight usando cluster [Apache Hadoop](https://hadoop.apache.org/) o [Apache Spark](https://spark.apache.org/). È possibile installare DSS in cluster in esecuzione esistenti o durante la creazione di nuovi cluster. DSS supporta anche l'utilizzo di Archiviazione BLOB di Azure come connettore per la lettura dei dati.
 
-È possibile usare DSS per compilare progetti, che possono quindi generare processi [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) o Spark. Questi processi vengono eseguiti come normali processi MapReduce o Spark in HDInsight e, quindi, è possibile ridimensionare il cluster in base alle necessità.
+È possibile usare DSS per compilare progetti, che possono quindi generare processi [MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) o Spark. Questi processi vengono eseguiti come normali processi MapReduce o Spark in HDInsight e, quindi, è possibile ridimensionare il cluster in base alle necessità.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per installare questa app in un nuovo cluster HDInsight o in un cluster esistente, è necessario disporre della configurazione seguente:
 
-* Livello cluster: Standard o Premium
-* Tipo cluster: Hadoop, Spark
+* Livello cluster: Standard, Premium
+* Tipo di cluster: Hadoop, Spark
 * Versione cluster: 3.4, 3.5
 
 ## <a name="install-the-dataiku-dss-published-application"></a>Installare l'applicazione pubblicata Dataiku DSS
@@ -113,8 +113,8 @@ Per esercitazioni dettagliate, vedere [Learn Dataiku DSS](https://www.dataiku.co
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Documentazione su Dataiku DSS](https://doc.dataiku.com/dss/latest/).
-* [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md): informazioni su come distribuire in HDInsight un'applicazione HDInsight non pubblicata.
-* [Pubblicare applicazioni HDInsight](hdinsight-apps-publish-applications.md): informazioni su come pubblicare applicazioni HDInsight personalizzate in Azure Marketplace.
-* [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN: Installare un'applicazione HDInsight): informazioni su come definire le applicazioni HDInsight.
-* [Personalizzare cluster HDInsight basati su Linux tramite Azioni script](hdinsight-hadoop-customize-cluster-linux.md): informazioni su come usare Azioni script per installare applicazioni aggiuntive.
+* [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md): informazioni su come distribuire un'applicazione HDInsight non pubblicata in HDInsight.
+* [Pubblicare applicazioni HDInsight](hdinsight-apps-publish-applications.md): Informazioni su come pubblicare applicazioni HDInsight personalizzate in Azure Marketplace.
+* [MSDN: Installare un'applicazione HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Informazioni su come definire le applicazioni HDInsight.
+* [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md): informazioni su come usare azioni script per installare applicazioni aggiuntive.
 * [Usare nodi perimetrali vuoti in HDInsight](hdinsight-apps-use-edge-node.md): informazioni su come usare un nodo perimetrale vuoto per l'accesso a cluster HDInsight e per il test e l'hosting di applicazioni HDInsight.

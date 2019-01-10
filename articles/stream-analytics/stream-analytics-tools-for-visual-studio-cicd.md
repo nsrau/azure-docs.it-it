@@ -4,17 +4,16 @@ description: Questo articolo descrive come usare gli strumenti di Visual Studio 
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: 567e2f850e2c51a6103dc24b91d139042d58acb3
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2f3cc3b386dec0010b179455372fb49bcec55ffc
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986833"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558397"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Eseguire integrazione e sviluppo in modo continuo con gli strumenti di Analisi di flusso
 Questo articolo descrive come usare gli strumenti di Visual Studio per Analisi di flusso di Azure per configurare un processo di distribuzione e integrazione continuo.
@@ -80,11 +79,11 @@ localrun -Project [ProjectFullPath]
 
 Il comando *arm* prende come input i file del modello del processo e del parametro del modello del processo generati nella build. Quindi li combina in un file JSON di definizione del processo che può essere usato con l'API PowerShell di Analisi di flusso di Azure.
 
-```
+```powershell
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]
 ```
 Esempio:
-```
+```powershell
 ./tools/SA.exe arm -JobTemplate "ProjectA.JobTemplate.json" -JobParameterFile "ProjectA.JobTemplate.parameters.json" -OutputFile "JobDefinition.json" 
 ```
 

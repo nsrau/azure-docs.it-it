@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499136"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653731"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Ottimizzare i processi Apache Spark
 
@@ -50,18 +50,18 @@ Spark 1.x usa RDD per l'astrazione dei dati, mentre con Spark 2.x sono stati int
 
 ## <a name="use-optimal-data-format"></a>Uso del formato dati ottimale
 
-Spark supporta molti formati, come ad esempio csv, json, xml, parquet, orc e avro. Spark può essere esteso per supportare numerosi formati con origini dati esterne; per altre informazioni, vedere [Pacchetti Spark](https://spark-packages.org).
+Spark supporta molti formati, come ad esempio csv, json, xml, parquet, orc e avro. Spark può essere esteso per supportare numerosi formati con origini dati esterne; per altre informazioni, vedere [Pacchetti Apache Spark](https://spark-packages.org).
 
 Il formato migliore per le prestazioni è Parquet con *compressione Snappy*, ovvero l'impostazione predefinita in Spark 2.x. Parquet archivia i dati in formato a colonne ed è altamente ottimizzato in Spark.
 
 ## <a name="select-default-storage"></a>Selezionare la risorsa di archiviazione predefinita
 
-Quando si crea un nuovo cluster Spark, è possibile selezionare Archiviazione BLOB di Azure o Azure Data Lake Store come spazio di archiviazione del cluster predefinito. Entrambe le opzioni offrono il vantaggio di una risorsa di archiviazione a lungo termine per i cluster temporanei; pertanto, i dati non vengono eliminati automaticamente quando si elimina il cluster. È possibile ricreare un cluster temporaneo e accedere comunque ai dati.
+Quando si crea un nuovo cluster Spark, è possibile selezionare Archiviazione BLOB di Azure o Azure Data Lake Storage come spazio di archiviazione del cluster predefinito. Entrambe le opzioni offrono il vantaggio di una risorsa di archiviazione a lungo termine per i cluster temporanei; pertanto, i dati non vengono eliminati automaticamente quando si elimina il cluster. È possibile ricreare un cluster temporaneo e accedere comunque ai dati.
 
 | Tipo di store | File system | speed | Temporaneo | Casi di utilizzo |
 | --- | --- | --- | --- | --- |
 | Archiviazione BLOB di Azure | **wasb:**//url/ | **Standard** | Yes | Cluster temporaneo |
-| Archivio Azure Data Lake | **adl:**//url/ | **Più rapido** | Yes | Cluster temporaneo |
+| Archiviazione di Azure Data Lake | **adl:**//url/ | **Più rapido** | Yes | Cluster temporaneo |
 | Hadoop Distributed File System locale | **hdfs:**//url/ | **Il più rapido** | No  | Cluster interattivo 24/7 |
 
 ## <a name="use-the-cache"></a>Usare la cache
@@ -73,7 +73,7 @@ Spark offre meccanismi di memorizzazione nella cache nativi che possono essere u
     * Non funziona con il partizionamento, ma potrebbe cambiare nelle future versioni di Spark.
 
 * Memorizzazione nella cache a livello di archiviazione (consigliata)
-    * Può essere implementata usando [Alluxio](http://www.alluxio.org/).
+    * Può essere implementata usando [Alluxio](https://www.alluxio.org/).
     * Usa una memorizzazione nella cache di unità SSD e interna alla memoria.
 
 * Hadoop Distributed File System locale (opzione consigliata)
@@ -119,7 +119,7 @@ L'uso di bucket è simile al partizionamento dei dati, ma ogni bucket può conte
 
 Ecco alcune funzionalità bucket avanzate:
 
-* Ottimizzazione query in base alla ripartizone in bucket di metainformazioni
+* Ottimizzazione query in base alla ripartizione in bucket di metainformazioni
 * Aggregazioni ottimizzate
 * Join ottimizzati
 
@@ -202,7 +202,7 @@ Monitorare le prestazioni della query per gli outlier o altri problemi di presta
 Monitorare regolarmente i processi in esecuzione per rilevare eventuali problemi di prestazioni. Se è necessario approfondire alcuni problemi, è possibile usare uno degli strumenti di profilatura delle prestazioni seguenti:
 
 * [Intel PAL Tool](https://github.com/intel-hadoop/PAT) monitora l'uso della CPU, delle risorse di archiviazione, della rete e della larghezza di banda.
-* [Oracle Java 8 Mission Control](http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profila il codice dell'executor e di Spark.
+* [Oracle Java 8 Mission Control](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profila il codice dell'executor e di Spark.
 
 La chiave per le prestazioni delle query di Spark 2.x è il motore al tungsteno, che dipende dalla generazione di codici whole-stage. In alcuni casi, la generazione di codici whole-stage potrebbe essere disabilitata. Ad esempio, se si usa un tipo non modificabile (`string`) nell'espressione di aggregazione, viene visualizzato `SortAggregate` al posto di `HashAggregate`. Ad esempio, per ottenere prestazioni migliori, eseguire le operazioni seguenti, quindi abilitare nuovamente la generazione di codici:
 

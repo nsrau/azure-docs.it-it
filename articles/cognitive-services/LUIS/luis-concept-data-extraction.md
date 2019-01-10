@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d8d12662552eaf2d566eebd773c69dfb9817d874
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a97da5542395b57fa9a6ca6e4c38dd25e524ec3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098652"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969421"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Estrazione dei dati da finalità ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
@@ -260,7 +260,7 @@ Le entità composite vengono restituite in una matrice `compositeEntities` e tut
 
 ## <a name="list-entity-data"></a>Dati entità elenco
 
-Un'entità [elenco](luis-concept-entity-types.md) non è appresa in modo automatico. Si tratta di una corrispondenza di testo esatta. Un elenco rappresenta gli elementi dell'elenco insieme ai sinonimi di tali elementi. LUIS contrassegna eventuali corrispondenze a un elemento in qualsiasi elenco come un'entità nella risposta. Un sinonimo può trovarsi in più di un elenco.
+Un'entità [list](luis-concept-entity-types.md) non è appresa in modo automatico. Si tratta di una corrispondenza di testo esatta. Un elenco rappresenta gli elementi dell'elenco insieme ai sinonimi di tali elementi. LUIS contrassegna eventuali corrispondenze a un elemento in qualsiasi elenco come un'entità nella risposta. Un sinonimo può trovarsi in più di un elenco.
 
 Si supponga che l'app disponga di un elenco, di nome `Cities`, consentendo variazioni di nomi di città, tra cui città dell'aeroporto (Sea-tac), codice dell'aeroporto (SEA), codice postale (98101) e prefisso telefonico (206).
 
@@ -425,7 +425,11 @@ Le entità [espressione regolare](luis-concept-entity-types.md) vengono individu
 ```
 
 ## <a name="extracting-names"></a>Estrazione di nomi
-Ottenere i nomi da un'espressione è difficile perché un nome può essere qualsiasi combinazione di lettere e parole. Le opzioni disponibili variano a seconda del tipo di nome estratto. Non si tratta di regole, ma di altre linee guida.
+Ottenere i nomi da un'espressione è difficile perché un nome può essere qualsiasi combinazione di lettere e parole. Le opzioni disponibili variano a seconda del tipo di nome estratto. I suggerimenti seguenti non sono regole, ma linee guida.
+
+### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Aggiungere le entità PersonName e GeographyV2 predefinite
+
+Le entità [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-reference-prebuilt-geographyV2.md) sono disponibili in alcune [impostazioni cultura della lingua](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Nomi di persone
 I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Usare un'entità gerarchica con nomi e cognomi come elementi figlio o usare un'entità semplice con ruoli nome e cognome. Assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse e in espressioni tra tutte le finalità, inclusa la finalità None (Nessuna). [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
@@ -434,7 +438,7 @@ I nomi delle persone possono presentare un formato a seconda della lingua e dell
 I nomi delle località vengono impostati come città, province, stati e nazioni e sono noti come tali. Se l'app usa un set noto di località, considerare un'entità elenco. Per trovare tutti i nomi di località, creare un'entità semplice e fornire una varietà di esempi. Aggiungere un elenco di frasi di nomi di località per ribadire come appaiono nell'app i nomi di località. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ### <a name="new-and-emerging-names"></a>Nomi nuovi ed emergenti
-Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Si tratta del tipo più difficile di estrazione dati. Iniziare con un'entità semplice e aggiungere un elenco di frasi. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più difficile di estrazione dati. Iniziare con un'entità semplice e aggiungere un elenco di frasi. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ## <a name="pattern-roles-data"></a>Dati ruoli criterio
 I ruoli sono differenze contestuali di entità.
@@ -603,6 +607,7 @@ L'entità estrazione frasi chiave restituisce frasi chiave nell'espressione, for
 ```
 
 ## <a name="data-matching-multiple-entities"></a>Dati corrispondenti a più entità
+
 LUIS restituisce tutte le entità individuate nell'espressione. Di conseguenza, il chatbot potrebbe prendere decisioni in base ai risultati. In un'espressione possono essere presenti più entità:
 
 `book me 2 adult business tickets to paris tomorrow on air france`
@@ -728,6 +733,46 @@ L'endpoint LUIS può individuare gli stessi dati in entità diverse:
           "value": "business"
         }
       ]
+    }
+  ]
+}
+```
+
+## <a name="data-matching-multiple-list-entities"></a>Dati corrispondenti a più entità elenco
+
+Se una parola o frase corrisponde a più entità elenco, la query di endpoint restituisce ciascuna entità elenco.
+
+Per la query `when is the best time to go to red rock?`, se l'app contiene la parola `red` in più di un elenco, LUIS riconosce tutte le entità e restituisce una matrice di entità come parte della risposta dell'endpoint JSON: 
+
+```JSON
+{
+  "query": "when is the best time to go to red rock?",
+  "topScoringIntent": {
+    "intent": "Calendar.Find",
+    "score": 0.06701678
+  },
+  "entities": [
+    {
+      "entity": "red",
+      "type": "Colors",
+      "startIndex": 31,
+      "endIndex": 33,
+      "resolution": {
+        "values": [
+          "Red"
+        ]
+      }
+    },
+    {
+      "entity": "red rock",
+      "type": "Cities",
+      "startIndex": 31,
+      "endIndex": 38,
+      "resolution": {
+        "values": [
+          "Destinations"
+        ]
+      }
     }
   ]
 }

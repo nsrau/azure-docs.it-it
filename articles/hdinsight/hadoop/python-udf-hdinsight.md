@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 021ec3919e061010265ff3a2f30fde0ffb59e7b0
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 92221e5aaebbaebb2af17ea211e38a3665a2b04f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632612"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652474"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usare le funzioni definite dall'utente di Python con Apache Hive e Apache Pig in HDInsight
 
@@ -26,7 +26,7 @@ Python 2.7 viene installato per impostazione predefinita in HDInsight 3.0 e vers
 
 HDInsight include anche Jython, un'implementazione di Python scritta in Java. Jython viene eseguito direttamente in Java Virtual Machine e non usa lo streaming. Jython è l'interprete Python consigliato quando si usa Python con Pig.
 
-> [!WARNING]
+> [!WARNING]  
 > La procedura in questo documento parte dai presupposti seguenti: 
 >
 > * L'utente deve creare gli script Python in un ambiente di sviluppo locale.
@@ -38,7 +38,7 @@ HDInsight include anche Jython, un'implementazione di Python scritta in Java. Jy
 > * Usare `scp` per caricare i file da Cloud Shell in HDInsight.
 > * Usare `ssh` da Cloud Shell per connettersi a HDInsight ed eseguire gli esempi.
 
-## <a name="hivepython"></a>UDF di Hive
+## <a name="hivepython"></a>UDF Apache Hive
 
 Python può essere usato come funzione definita dall'utente da Hive tramite l'istruzione `TRANSFORM` di HiveQL. Ad esempio, HiveQL seguente richiama il file `hiveudf.py` archiviato nell'account di archiviazione di Azure predefinito per il cluster.
 
@@ -66,7 +66,7 @@ FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Nei cluster HDInsight basati su Windows la clausola `USING` deve specificare il percorso completo di python.exe.
 
 Ecco cosa fa l'esempio:
@@ -111,7 +111,7 @@ Lo script di output è una concatenazione di valori di input per `devicemake` e 
 
 Per informazioni su come eseguire questo esempio nel cluster HDInsight, vedere [Esecuzione degli esempi](#running) .
 
-## <a name="pigpython"></a>UDF di Pig
+## <a name="pigpython"></a>UDF Apache Pig
 
 Si può usare uno script di Python come funzione definita dall'utente da Pig tramite l'istruzione `GENERATE`. È possibile eseguire lo script usando Jython o C Python.
 
@@ -123,7 +123,7 @@ Per specificare l'interprete Python, usare `register` quando si fa riferimento a
 * **Per usare Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
 * **Per usare C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Quando si usa Jython, il percorso al file pig_jython può essere un percorso locale o un percorso WASB://. Tuttavia, quando si usa C Python, è necessario fare riferimento un file nel file system locale del nodo che si usa per inviare il processo Pig.
 
 Una volta trascorsa la registrazione, Pig Latin per questo esempio è lo stesso per entrambi:
@@ -182,7 +182,7 @@ Quando i dati vengono restituiti a Pig, lo schema sarà coerente, come definito 
 
 ## <a name="running"></a>Caricare ed eseguire gli esempi
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > La procedura per **SSH** può essere eseguita solo con un cluster HDInsight basato su Linux. La procedura per **PowerShell** può essere eseguita con un cluster HDInsight basato su Linux o su Windows, ma è necessario un client Windows.
 
 ### <a name="ssh"></a>SSH
@@ -303,7 +303,7 @@ Dopo il caricamento dei file, usare la procedura seguente per eseguire i process
 
 È possibile usare PowerShell per caricare i file nel server di HDInsight. Usare lo script seguente per caricare i file di Python:
 
-> [!IMPORTANT] 
+> [!IMPORTANT]   
 > I passaggi descritti in questa sezione usano Azure PowerShell. Per altre informazioni sull'uso di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=5-41)]
@@ -313,14 +313,14 @@ Dopo il caricamento dei file, usare la procedura seguente per eseguire i process
 
 Questo script recupera le informazioni relative al cluster HDInsight, quindi estrae l'account e la chiave dell'account di archiviazione predefinito e carica i file nella radice del contenitore.
 
-> [!NOTE]
-> Per altre informazioni sul caricamento dei file, vedere il documento [Caricare dati per processi Hadoop in HDInsight](../hdinsight-upload-data.md).
+> [!NOTE]  
+> Per altre informazioni sul caricamento dei file, vedere il documento [Caricare dati per processi Apache Hadoop in HDInsight](../hdinsight-upload-data.md).
 
-#### <a name="powershell-use-the-hive-udf"></a>PowerShell: usare l'UDF di Hive
+#### <a name="powershell-use-the-hive-udf"></a>PowerShell: Usare l'UDF di Hive
 
 PowerShell può essere usato anche per eseguire in remoto le query Hive. Usare lo script di PowerShell seguente per eseguire una query di Hive che usa lo script **hiveudf.py**:
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Prima dell'esecuzione, lo script richiede le informazioni sull'account HTTPS/Amministratore per il cluster HDInsight.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=45-94)]
@@ -337,7 +337,7 @@ L'output del processo **Hive** sarà simile al seguente esempio:
 
 PowerShell può essere usato anche per eseguire processi di Pig Latin. Per eseguire un processo di Pig Latin che usa lo script **pigudf.py**, usare lo script di PowerShell seguente:
 
-> [!NOTE]
+> [!NOTE]  
 > Durante l'invio remoto di un processo con PowerShell, non è possibile usare C Python come interprete.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=98-144)]
@@ -383,6 +383,6 @@ Se è necessario caricare moduli Python non forniti per impostazione predefinita
 
 Per altre modalità d'uso di Pig e Hive e per informazioni su come usare MapReduce, vedere i documenti seguenti:
 
-* [Usare Hive con HDInsight](hdinsight-use-hive.md)
-* [Usare Pig con HDInsight](hdinsight-use-pig.md)
+* [Usare Apache Hive con HDInsight](hdinsight-use-hive.md)
+* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)

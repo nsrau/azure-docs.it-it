@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 7e1f2411db828917d7a3c5e21348b553a5a5a3bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d83a27d87ffadd15a27196a11ae3f69d84232efa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087509"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719599"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteggere le chiamate alle API personalizzate da App per la logica di Azure
 
@@ -29,7 +29,7 @@ Per proteggere le chiamate alle API, è possibile configurare l'autenticazione d
   > [!NOTE]
   > Per impostazione predefinita, l'autenticazione di Azure AD che si attiva nel portale di Azure non offre un'autorizzazione con granularità fine. Ad esempio, questa autenticazione blocca l'API a un tenant specifico, non a un determinato utente o app. 
 
-* [Aggiornare il codice dell'API](#update-code): proteggere l'API applicando [l'autenticazione del certificato](#certificate), [l'autenticazione di base](#basic) o [autenticazione di Azure AD](#azure-ad-code) attraverso il codice.
+* [Aggiornare il codice dell'API](#update-code): proteggere l'API applicando [l'autenticazione del certificato](#certificate), l'[autenticazione di base](#basic) o l'[autenticazione di Azure AD](#azure-ad-code) attraverso il codice.
 
 <a name="no-code"></a>
 
@@ -186,7 +186,7 @@ Aprire la definizione dell'app per la logica nella visualizzazione Codice, passa
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| Elemento | Obbligatoria | Descrizione | 
+| Elemento | Obbligatoria | DESCRIZIONE | 
 | ------- | -------- | ----------- | 
 | tenant | Yes | Il GUID per il tenant di Azure AD | 
 | audience | Yes | GUID per la risorsa di destinazione cui si vuole accedere, che è l'ID client dall'identità di applicazione per l'app Web o l'app per le API | 
@@ -232,7 +232,7 @@ Includere questa riga nella sezione dell'**autorizzazione**:
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| Elemento | Obbligatoria | Descrizione | 
+| Elemento | Obbligatoria | DESCRIZIONE | 
 | ------- | -------- | ----------- | 
 | type | Yes | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. | 
 | password | Yes | La password per accedere al certificato client (file PFX) | 
@@ -249,7 +249,7 @@ Includere questa riga nella sezione dell'**autorizzazione**:
 
 `{"type": "basic", "username": "username", "password": "password"}`.
 
-| Elemento | Obbligatoria | Descrizione | 
+| Elemento | Obbligatoria | DESCRIZIONE | 
 | ------- | -------- | ----------- | 
 | type | Yes | Tipo di autenticazione che si vuole usare. Per l'autenticazione di base il valore deve essere `Basic`. | 
 | username | Yes | Nome utente che si vuole usare per l'autenticazione | 
@@ -266,7 +266,7 @@ Per limitare l'accesso dell'API all'app per la logica usando il codice, estrarre
 
 <!-- Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal, learn how to 
-[authenticate with on-premises Active Directory in your Azure app](../app-service/app-service-authentication-overview.md).
+[authenticate with on-premises Active Directory in your Azure app](../app-service/overview-authentication-authorization.md).
 
 To create an application identity for your logic app and use that identity to call your API, 
 you must follow the previous steps. -->

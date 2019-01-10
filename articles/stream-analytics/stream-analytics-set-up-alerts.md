@@ -4,17 +4,17 @@ description: Questo articolo descrive come usare il portale di Azure per imposta
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/26/2017
-ms.openlocfilehash: 4c676ab3039a02a4fda27ab00312133e5de8077a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 727747d84d0db32c73fc1a200bcea7e5c149d24b
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47090967"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554912"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Impostare gli avvisi per i processi di Analisi di flusso di Azure
 È possibile configurare avvisi per attivare un avviso quando una metrica raggiunge una condizione specificata dall'utente. Ad esempio, si potrebbe configurare un avviso per una condizione simile alla seguente:
@@ -30,7 +30,7 @@ Possono essere configurate regole per le metriche tramite il portale o [a livell
 
 3. Nel pannello **Metrica** fare clic sul comando **Aggiungi avviso**.
 
-      ![Installazione del portale di Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
+      ![Configurazione degli avvisi di Analisi di flusso nel portale di Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
 
 4. Immettere un nome e una descrizione.
 

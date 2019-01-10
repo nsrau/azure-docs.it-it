@@ -4,19 +4,19 @@ description: Informazioni sulle configurazioni di origine e di destinazione per 
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/8/2018
-ms.openlocfilehash: cd62b60718a35aed9129db61413086266bb9f2c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: bc54b3dbcdb304b18f916e5fbd4866ff54d1bfa2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971080"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713197"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologie di rete per le migrazioni di istanze gestite del database SQL di Azure tramite il Servizio Migrazione del database di Azure
 Questo articolo illustra diverse topologie di rete usate dal Servizio Migrazione del database di Azure per garantire un'esperienza di migrazione completa dai server SQL locali a Istanza gestita di database SQL di Azure.
@@ -87,4 +87,5 @@ Usare questa topologia di rete se l'ambiente richiede uno o più degli scenari s
 - [Creare una rete virtuale usando il portale di Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per una panoramica del Servizio Migrazione del database di Azure e la Disponibilità a livello di area durante l'anteprima pubblica, vedere l'articolo [Informazioni sull'anteprima del Servizio Migrazione del database di Azure](dms-overview.md). 
+- Per una panoramica del Servizio Migrazione del database di Azure, vedere l'articolo [Definizione del Servizio Migrazione del database di Azure](dms-overview.md).
+- Per informazioni aggiornate sulla disponibilità a livello di area del Servizio Migrazione del database di Azure, vedere la pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).

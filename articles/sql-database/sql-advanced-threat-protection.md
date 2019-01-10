@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 12/16/2018
+ms.openlocfilehash: 40f6b6effa509fd2cfa40ecfc758ac37e0a66778
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997600"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538617"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection per il database SQL di Azure
 
@@ -30,7 +30,7 @@ SQL Advanced Threat Protection (ATP) offre una serie di funzionalità di sicurez
 - [Valutazione della vulnerabilità](sql-vulnerability-assessment.md) è un servizio semplice da configurare che consente di individuare, monitorare e risolvere potenziali vulnerabilità del database. Consente di visualizzare lo stato di sicurezza e prevede passaggi utili per risolvere i problemi di sicurezza e migliorare la protezione del database.
 - [Rilevamento minacce](sql-database-threat-detection-overview.md) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database. Monitora in modo continuo il database in caso di attività sospette e fornisce avvisi di sicurezza immediati su potenziali vulnerabilità, attacchi SQL injection e in caso di modelli di accesso ai database anomali. Gli avvisi della funzionalità di rilevamento minacce includono dettagli sulle attività sospette e consigliano azioni per l'analisi e la mitigazione della minaccia.
 
-Abilitare SQL Advanced Threat Protection una volta per abilitare tutte le funzionalità incluse. Con un solo clic è possibile abilitare Advanced Threat Protection nell'intero server di database, applicandolo a tutti i database nel server. 
+Abilitare SQL Advanced Threat Protection una volta per abilitare tutte le funzionalità incluse. Con un solo clic è possibile abilitare Advanced Threat Protection nell'intero server di database, applicandolo a tutti i database nel server. Per abilitare o gestire le impostazioni di Advanced Threat Protection è necessario il ruolo di [Gestore della sicurezza SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager), il ruolo di amministratore del database SQL o il ruolo di amministratore SQL Server. 
 
 I prezzi di ATP sono allineati con il livello Standard del Centro sicurezza di Azure, dove ogni server di database SQL viene conteggiato come un nodo. Le nuove risorse protette danno diritto a una versione di valutazione gratuita del livello Standard del Centro sicurezza. Per altre informazioni, vedere la [pagina dei prezzi del Centro sicurezza di Azure](https://azure.microsoft.com/pricing/details/security-center/).
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386826"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582916"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integrazione e distribuzione continue in Azure IoT Edge
 
@@ -40,7 +40,7 @@ In questa sezione si crea una soluzione IoT Edge di esempio contenente unit test
 
 3. L'esempio di soluzione IoT Edge è ora pronto. Il modulo predefinito in C# si comporta come modulo di messaggi pipe. Nel file `deployment.template.json` si vede che questa soluzione contiene due moduli. Il messaggio viene generato dal modulo `tempSensor` e inoltrato direttamente tramite pipe con `FilterModule`, quindi viene inviato all'hub IoT.
 
-4. Salvare i progetti, quindi eseguirne il commit in Azure Repos.
+4. Salvare i progetti, quindi eseguirne il commit nel repository Azure Repos.
     
 > [!NOTE]
 > Per altre informazioni sull'uso di Azure Repos, vedere [Condividere il codice con Visual Studio e Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -69,11 +69,11 @@ In questa sezione si crea una pipeline di compilazione che viene configurata per
     
     * Se si desidera compilare i propri moduli nella piattaforma amd64 per i contenitori Linux, scegliere **Hosted Ubuntu 1604**
     * Se si desidera compilare i propri moduli nella piattaforma amd64 per i contenitori Windows, scegliere **Hosted VS2017** 
-    * Se si desidera compilare i moduli nella piattaforma arm32v7 per contenitori Linux, è necessario configurare il proprio agente di compilazione facendo clic sul pulsante **Gestisci**.
+    * Se si desidera compilare i moduli nella piattaforma arm32v7 per contenitori Linux, è necessario configurare il proprio agente di compilazione con il pulsante **Gestisci**.
     
     ![Configurare il pool di agenti di compilazione](./media/how-to-ci-cd/configure-env.png)
 
-1. Nel processo dell'agente, fare clic su "+" per aggiungere tre attività nella pipeline di compilazione. I primi due provengono da **Azure IoT Edge**. E il terzo proviene da **Pubblica artefatti di compilazione**
+1. Nel processo dell'agente, aprire "+" per aggiungere tre attività nella pipeline di compilazione. I primi due provengono da **Azure IoT Edge**. E il terzo proviene da **Pubblica artefatti di compilazione**
     
     ![Aggiungere attività alla pipeline di compilazione](./media/how-to-ci-cd/add-tasks.png)
 
@@ -93,13 +93,13 @@ In questa sezione si crea una pipeline di compilazione che viene configurata per
 
     ![Attivare il trigger di integrazione continua](./media/how-to-ci-cd/configure-trigger.png)
 
-    Salva la nuova pipeline di compilazione. Fare clic sul pulsante **Salva** .
+    Salvare la nuova pipeline di compilazione con il pulsante **Salva**.
 
 
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Configurare Azure Pipelines per la distribuzione continua
 In questa sezione si creerà una pipeline di versione configurata per essere eseguita automaticamente quando la pipeline di compilazione rilascerà gli artefatti e mostrerà i registri di distribuzione in Azure Pipelines.
 
-1. Nella scheda **Versioni**, scegliere **+ Nuova pipeline**. In alternativa, se si dispone già di pipeline di versione, scegliere il pulsante **+ Nuova** e fare clic su **+ Nuova pipeline di versione**.  
+1. Nella scheda **Versioni**, scegliere **+ Nuova pipeline**. In alternativa, se sono già disponibili pipeline di versione, scegliere il pulsante **+ Nuova** e fare clic su **+ Nuova pipeline di versione**.  
 
     ![Aggiungere pipeline di versione](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -115,7 +115,7 @@ In questa sezione si creerà una pipeline di versione configurata per essere ese
 
     ![Aggiungere artefatti](./media/how-to-ci-cd/add-artifacts.png)  
     
-    Nella pagina **Aggiungi un artefatto**, scegliere il tipo di origine **Compilazione**. Selezionare il progetto e la pipeline di compilazione che è stata creata. Fare quindi clic su **Aggiungi**.
+    Nella pagina **Aggiungi un artefatto**, scegliere il tipo di origine **Compilazione**. Selezionare il progetto e la pipeline di compilazione che è stata creata. Quindi selezionare **Aggiungi**.
 
     ![Aggiungere un artefatto di compilazione](./media/how-to-ci-cd/add-an-artifact.png)
 
@@ -127,7 +127,7 @@ In questa sezione si creerà una pipeline di versione configurata per essere ese
 
     ![Configurare le attività di controllo di qualità](./media/how-to-ci-cd/view-stage-tasks.png)
 
-   L’attività di distribuzione è indipendente dalla piattaforma, il che significa che è possibile scegliere **Hosted VS2017** o **Hosted Ubuntu 1604** nel **Pool di agenti** (o qualsiasi altro agente gestito dall'utente stesso). Fare clic su "+" e aggiungere un'attività.
+   L’attività di distribuzione è indipendente dalla piattaforma, il che significa che è possibile scegliere **Hosted VS2017** o **Hosted Ubuntu 1604** nel **Pool di agenti** (o qualsiasi altro agente gestito dall'utente stesso). Selezionare "+" e aggiungere un'attività.
 
     ![Aggiungere attività per il controllo qualità](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -135,13 +135,13 @@ In questa sezione si creerà una pipeline di versione configurata per essere ese
 
     ![Distribuzione nel controllo di qualità](./media/how-to-ci-cd/deploy-to-qa.png)
 
-    Salvare la nuova pipeline di versione. Fare clic sul pulsante **Salva** . Quindi fare clic su **Pipeline** per tornare alla pipeline.
+    Salvare la nuova pipeline di versione con il pulsante **Salva**. Selezionare quindi **Pipeline** per tornare alla pipeline.
 
 6. La seconda fase è per l'ambiente di produzione. Per aggiungere una nuova fase "PROD", è possibile clonare la fase "QA" e rinominare la fase clonata in **PROD**,
 
     ![Clonazione fase](./media/how-to-ci-cd/clone-stage.png)
 
-7. Configurare le attività nell'ambiente di produzione. Supponiamo di avere diversi dispositivi IoT Edge con tag 'prod', nelle configurazioni dei task, aggiornare la Target Condition a "prod" e impostare l'ID di distribuzione come "deploy-prod" nelle impostazioni avanzate. Fare clic sul pulsante **Salva** . Quindi fare clic su **Pipeline** per tornare alla pipeline.
+7. Configurare le attività nell'ambiente di produzione. Supponiamo di avere diversi dispositivi IoT Edge con tag 'prod', nelle configurazioni dei task, aggiornare la Target Condition a "prod" e impostare l'ID di distribuzione come "deploy-prod" nelle impostazioni avanzate. Salvare il file con il pulsante **Salva**. Selezionare quindi **Pipeline** per tornare alla pipeline.
     
     ![Distribuzione nell'ambiente di produzione](./media/how-to-ci-cd/deploy-to-prod.png)
 
@@ -151,7 +151,7 @@ In questa sezione si creerà una pipeline di versione configurata per essere ese
 
         ![Aprire le condizioni di pre-distribuzione](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. Impostare **Abilitato** in **Approvazioni pre-distribuzione**. Quindi immettere l’input **Responsabili approvazione**. Fare quindi clic su **Salva**.
+    2. Impostare **Abilitato** in **Approvazioni pre-distribuzione**. Quindi immettere l’input **Responsabili approvazione**. Salvare con il pulsante **Salva**.
     
         ![Condizioni di configurazione](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
@@ -165,7 +165,7 @@ In questa sezione si creerà una pipeline di versione configurata per essere ese
 
 In questa sezione, si attiva una compilazione per far funzionare la pipeline CI/CD. Verificare che la distribuzione abbia esito positivo.
 
-1. Per attivare un processo di compilazione, è possibile eseguire il push di un commit al repository del codice sorgente o attivarlo manualmente. È possibile attivare un processo di compilazione nella propria pipeline di compilazione facendo clic sul pulsante **Coda** come nell'immagine seguente.
+1. Per attivare un processo di compilazione, è possibile eseguire il push di un commit al repository del codice sorgente o attivarlo manualmente. È possibile attivare un processo di compilazione nella propria pipeline di compilazione selezionando il pulsante **Coda** come nello screenshot seguente.
 
     ![Trigger manuale](./media/how-to-ci-cd/manual-trigger.png)
 

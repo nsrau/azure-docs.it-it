@@ -5,16 +5,18 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 11/07/2018
+ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3ae2289112948dea7d2649c4fad6b1cafb3804b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285790"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444197"
 ---
+#### <a name="process-automation"></a>Automazione dei processi
+
 | Risorsa | Limite massimo |Note|
 | --- | --- |---|
 | Numero massimo di nuovi processi che possono essere inviati ogni 30 secondi per account di Automazione (processi non pianificati) |100 |Quando si raggiunge questo limite, le richieste successive di creazione di un processo avranno esito negativo. Il client riceve una risposta di errore.|
@@ -33,5 +35,19 @@ ms.locfileid: "51285790"
 | Numero massimo di parametri di runbook   | 50|È possibile passare una stringa JSON o XML a un parametro e analizzarla con il runbook se si raggiunge il limite di 50 parametri|
 | Dimensione massima del payload del webhook |  512 kb|
 | Numero massimo di giorni di conservazione dei dati del processo|30 giorni|
+| Dimensioni massime dello stato del flusso di lavoro PowerShell |5 MB| Valido per i runbook del flusso di lavoro PowerShell durante l’impostazione dei checkpoint del flusso di lavoro.|
 
 **<sup>1</sup>** Una sandbox è un ambiente condiviso che può essere usato da più processi. I processi che usano la stessa sandbox sono vincolati dalle limitazioni delle risorse della sandbox.
+
+#### <a name="change-tracking-and-inventory"></a>Rilevamento modifiche e inventario
+
+La tabella seguente illustra i limiti dell'elemento di rilevamento per ogni macchina per il rilevamento modifiche.
+
+| **Risorsa** | **Limite**| **Note** |
+|---|---|---|
+|File|500||
+| Registro|250||
+|Software Windows|250|Non include gli aggiornamenti software|
+|Pacchetti Linux|1250||
+|Services|250||
+|daemon|250||

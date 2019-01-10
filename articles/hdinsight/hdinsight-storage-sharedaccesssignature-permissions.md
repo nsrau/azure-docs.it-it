@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409922"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743358"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione di Azure per limitare l'accesso ai dati in HDInsight
 
@@ -103,7 +103,7 @@ Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni su
 
    * storage\_account\_name: nome dell'account di archiviazione.
 
-   * storage\_account\_key: chiave per l'account di archiviazione.
+   * storage\_account\_key: Chiave per l'account di archiviazione.
 
    * storage\_container\_name: contenitore nell'account di archiviazione a cui si vuole limitare l'accesso.
 
@@ -180,10 +180,10 @@ La directory `CreateCluster` del repository include un esempio di creazione di u
    > [!IMPORTANT]  
    > Quando vengono richiesti un nome e una password per HTTP/S o SSH, è necessario fornire una password che soddisfi i criteri seguenti:
    >
-   > * La lunghezza non può essere inferiore a 10 caratteri
-   > * Deve contenere almeno una cifra
-   > * Deve contenere almeno un carattere non alfanumerico
-   > * Deve contenere almeno una lettera maiuscola o minuscola
+   > * Deve avere una lunghezza di almeno 10 caratteri.
+   > * Deve contenere almeno una cifra.
+   > * Deve contenere almeno un carattere non alfanumerico.
+   > * Deve contenere almeno una lettera maiuscola o minuscola.
 
 Il completamento dello script richiede in genere circa 15 minuti. Se lo script viene completato senza errori, il cluster è stato creato.
 
@@ -290,10 +290,10 @@ Dopo aver stabilito la connessione al cluster, usare la procedura seguente per v
 
 **Soluzione**: usare una password che soddisfi i criteri seguenti:
 
-* La lunghezza non può essere inferiore a 10 caratteri
-* Deve contenere almeno una cifra
-* Deve contenere almeno un carattere non alfanumerico
-* Deve contenere almeno una lettera maiuscola o minuscola
+* Deve avere una lunghezza di almeno 10 caratteri.
+* Deve contenere almeno una cifra.
+* Deve contenere almeno un carattere non alfanumerico.
+* Deve contenere almeno una lettera maiuscola o minuscola.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

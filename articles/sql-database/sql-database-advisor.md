@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e5480e5e071d541d12e96ddd549e496c7f974f81
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f55d3eb67bb9c494a3d055e39d970c9a440dfc67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271046"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603437"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Raccomandazioni per le prestazioni per il database SQL
 
 Il database SQL di Azure è in grado di apprendere e di adattarsi all'applicazione e fornisce raccomandazioni personalizzate che consentono di ottimizzare le prestazioni dei database SQL. Il database SQL valuta e analizza in modo continuo la cronologia di uso dei database SQL. Le raccomandazioni fornite si basano su modelli di carico di lavoro specifici del database e consentono di migliorarne le prestazioni.
 
 > [!TIP]
-> L'[ottimizzazione automatica](sql-database-automatic-tuning.md) è il metodo consigliato per ottimizzare le prestazioni, mentre [Intelligent Insights](sql-database-intelligent-insights.md) è il metodo consigliato per monitorarle. 
+> L'[ottimizzazione automatica](sql-database-automatic-tuning.md) è il metodo consigliato per ottimizzare automaticamente alcuni dei problemi più comuni di prestazioni del database. [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) è il metodo consigliato per le esigenze di monitoraggio di base delle prestazioni del database SQL di Azure. [Analisi SQL di Azure](../azure-monitor/insights/azure-sql.md) è il metodo consigliato per il monitoraggio avanzato delle prestazioni dei database su larga scala, con funzionalità di intelligence integrate per automatizzare la risoluzione dei problemi di prestazioni.
 >
 
 ## <a name="create-index-recommendations"></a>Raccomandazioni relative alla creazione di indici
@@ -92,6 +92,6 @@ Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare l
 * Per altre informazioni sull'ottimizzazione automatica di indici del database e di piani di esecuzione di query, vedere [Ottimizzazione automatica nel database SQL di Azure](sql-database-automatic-tuning.md).
 * Per altre informazioni sul monitoraggio automatico delle prestazioni del database con diagnostica automatizzata e analisi della causa radice dei problemi di prestazioni, vedere [Intelligent Insights in Azure SQL](sql-database-intelligent-insights.md).
 *  Per altre informazioni su come usare le raccomandazioni per le prestazioni nel portale di Azure, vedere [Raccomandazioni per le prestazioni nel portale di Azure](sql-database-advisor-portal.md).
-* Per imparare a esaminare l'impatto sulle prestazioni delle query principali, vedere [Query Performance Insight del database SQL di Azure](sql-database-query-performance.md).
+* Per informazioni su come esaminare l'impatto sulle prestazioni delle query principali, vedere [Informazioni dettagliate prestazioni query del database SQL di Azure](sql-database-query-performance.md).
 
 

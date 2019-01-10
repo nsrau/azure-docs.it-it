@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407882"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742882"
 ---
 # <a name="scale-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight
 
@@ -152,7 +152,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Modalità sicura disattivata](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]  
-> L'opzione `-D` è necessaria perché il file system predefinito in HDInsight è Archiviazione di Azure o Azure Data Lake Store. `-D` specifica che i comandi devono essere eseguiti nell'istanza di Hadoop Distributed File System locale.
+> L'opzione `-D` è necessaria perché il file system predefinito in HDInsight è Archiviazione di Azure o Azure Data Lake Storage. `-D` specifica che i comandi devono essere eseguiti nell'istanza di Hadoop Distributed File System locale.
 
 È quindi possibile visualizzare un report che mostra i dettagli dello stato di Hadoop Distributed File System:
 

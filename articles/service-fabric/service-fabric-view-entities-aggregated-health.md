@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 09696c606fdf57f5ac55fc50eb06c2c5eea55dfe
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308989"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555252"
 ---
 # <a name="view-service-fabric-health-reports"></a>Come visualizzare i report sull'integrità di Service Fabric
 Azure Service Fabric introduce un [modello di integrità](service-fabric-health-introduction.md) con entità di integrità per le quali i componenti di sistema e i watchdog possono creare report sulle condizioni locali sottoposte a monitoraggio. L' [archivio integrità](service-fabric-health-introduction.md#health-store) aggrega tutti i dati di integrità per determinare se le entità sono integre.
@@ -464,7 +464,7 @@ Per ottenere l'integrità del servizio tramite l'API, creare un oggetto `FabricC
 
 L'esempio seguente ottiene l'integrità di un servizio con il nome di servizio (URI) specificato:
 
-```charp
+```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
@@ -1030,19 +1030,19 @@ Se le query generali restituiscono uno stato di integrità sconosciuto per un'en
 
 Di seguito sono elencate le query che contengono **HealthState** per le entità:
 
-* Elenco dei nodi: restituisce i nodi elencati nel cluster (di paging).
+* Elenco dei nodi: restituisce i nodi elencati nel cluster (con paging).
   * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
-* Elenco delle applicazioni: restituisce l'elenco di applicazioni nel cluster (di paging).
+* Elenco delle applicazioni: restituisce l'elenco di applicazioni nel cluster (con paging).
   * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
-* Elenco dei servizi: restituisce l'elenco dei servizi in un'applicazione (di paging).
+* Elenco dei servizi: restituisce l'elenco dei servizi in un'applicazione (con paging).
   * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
-* Elenco delle partizioni: restituisce l'elenco delle partizioni in un servizio (di paging).
+* Elenco delle partizioni: restituisce l'elenco delle partizioni in un servizio (con paging).
   * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
-* Elenco delle repliche: restituisce l'elenco delle repliche in una partizione (di paging).
+* Elenco delle repliche: restituisce l'elenco delle repliche in una partizione (con paging).
   * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-ServiceFabricReplica
 * Elenco delle applicazioni distribuite: restituisce l'elenco delle applicazioni distribuite in un nodo.

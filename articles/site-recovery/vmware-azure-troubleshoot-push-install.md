@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 12/12/2018
-ms.openlocfilehash: 748f4e56b4b7fa52928f8f6507960ec35b5fe6e5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314398"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789908"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Risolvere i problemi di installazione push del servizio Mobility
 
@@ -135,9 +135,8 @@ Di seguito sono elencati altri articoli sulla risoluzione dei problemi di WMI.
 
 ## <a name="unsupported-operating-systems"></a>Sistemi operativi non supportati
 
-Un altro motivo di errore molto comune è l'uso di un sistema operativo non supportato. Per la riuscita dell'installazione del servizio Mobility, assicurarsi di usare la versione supportata del kernel e del sistema operativo.
-
-Per informazioni sui sistemi operativi supportati da Azure Site Recovery, fare riferimento al [documento matrice di supporto](vmware-physical-azure-support-matrix.md#replicated-machines).
+Un altro motivo di errore molto comune è l'uso di un sistema operativo non supportato. Per la riuscita dell'installazione del servizio Mobility, assicurarsi di usare la versione supportata del kernel e del sistema operativo. Evitare l'uso di una patch privata.
+Per visualizzare l'elenco delle versioni del kernel e dei sistemi operativi supportati da Azure Site Recovery, fare riferimento al [documento matrice di supporto](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Le partizioni e i volumi di avvio e di sistema non sono lo stesso disco (ID errore: 95309)
 
@@ -146,6 +145,10 @@ Nelle versioni precedenti alla 9.20, le partizioni e i volumi di avvio e di sist
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Partizione di sistema su più dischi (ID errore: 95313)
 
 Nelle versioni precedenti alla 9.20, la partizione o il volume radice su più dischi è una configurazione non supportata. A partire dalla [versione 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) questa configurazione è supportata. Per usufruire di questo supporto, usare la versione più recente.
+
+## <a name="grub-uuid-failure-errorid-95320"></a>Errore UUID GRUB (ID errore: 95320)
+
+Se il GRUB del computer di origine usa un nome dispositivo anziché un UUID, l'installazione dell'agente di mobilità non viene completata. Rivolgersi all'amministratore del sistema per apportare le modifiche al file di GRUB.
 
 ## <a name="lvm-support-from-920-version"></a>Supporto LVM dalla versione 9.20
 

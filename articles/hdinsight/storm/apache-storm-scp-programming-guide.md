@@ -9,15 +9,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496872"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631822"
 ---
 # <a name="scp-programming-guide"></a>Guida alla programmazione SCP
-SCP è una piattaforma per la compilazione di applicazioni di elaborazione dati dalle prestazioni elevate, affidabili, coerenti e in tempo reale. È basata su [Apache Storm](http://storm.incubator.apache.org/) , un sistema di elaborazione dei flussi progettato dalle community di sviluppo di software open source (OSS). Storm è stato progettato da Nathan Marz ed è stato reso open source da Twitter. Il sistema si avvale di [Apache Zookeeper](http://zookeeper.apache.org/), un altro progetto Apache per il coordinamento e la gestione dello stato altamente affidabili delle applicazioni distribuite. 
+SCP è una piattaforma per la compilazione di applicazioni di elaborazione dati dalle prestazioni elevate, affidabili, coerenti e in tempo reale. È basata su [Apache Storm](https://storm.incubator.apache.org/) , un sistema di elaborazione dei flussi progettato dalle community di sviluppo di software open source (OSS). Storm è stato progettato da Nathan Marz ed è stato reso open source da Twitter. Il sistema si avvale di [Apache Zookeeper](https://zookeeper.apache.org/), un altro progetto Apache per il coordinamento e la gestione dello stato altamente affidabili delle applicazioni distribuite. 
 
 Il progetto SCP ha reso portabile in Windows non solo Storm, ma anche le estensioni e le personalizzazioni aggiunte per l'ecosistema Windows. Le estensioni includono l'esperienza di sviluppatore .NET e le relative librerie. Le personalizzazioni includono lo sviluppo basato su Windows. 
 
@@ -346,7 +346,7 @@ In generale, i plug-in SCP possono essere eseguiti in due modalità:
         }
 
 ## <a name="topology-specification-language"></a>Linguaggio di specifica della topologia
-SCP Topology Specification è un linguaggio specifico di dominio per la descrizione e la configurazione di topologie SCP. Si basa su Clojure DSL di Storm (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) e viene estesa da SCP.
+SCP Topology Specification è un linguaggio specifico di dominio per la descrizione e la configurazione di topologie SCP. Si basa su Clojure DSL di Storm (<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>) e viene estesa da SCP.
 
 Le specifiche della topologia possono essere inviate direttamente al cluster Storm per l'esecuzione mediante il comando ***runspec***.
 
@@ -594,7 +594,7 @@ Nello Spout, se l'acknowledgement è abilitato viene usato un dizionario per mem
     }
 
 ### <a name="helloworldtx"></a>HelloWorldTx
-L'esempio **HelloWorldTx** illustra come implementare la topologia transazionale. Contiene uno spout denominato **generator**, un bolt batch denominato **partial-count** e un bolt di commit denominato **count-sum**. Sono presenti anche tre file txt già creati: **DataSource0.txt**, **DataSource1.txt** e **DataSource2.txt**.
+L'esempio **HelloWorldTx** illustra come implementare la topologia transazionale. Contiene uno spout denominato **generator**, un bolt batch denominato **partial-count** e un bolt di commit denominato **count-sum**. Sono anche disponibili tre file di testo già creati: **DataSource0.txt**, **DataSource1.txt** e **DataSource2.txt**.
 
 In ogni transazione lo spout **generator** seleziona casualmente due dei tre file già creati ed emette i nomi dei due file verso il bolt **partial-count**. Il bolt **partial-count** prima ottiene il nome del file dalla tupla ricevuta, quindi apre il file e conta il numero di parole al suo interno. Infine, emette il numero di parole verso il bolt **count-sum**. Il bolt **count-sum** riepiloga il conteggio totale.
 

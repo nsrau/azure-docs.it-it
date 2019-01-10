@@ -1,18 +1,18 @@
 ---
-title: Autenticazione al Registro contenitori di Azure con entità servizio
-description: Informazioni su come fornire l'accesso alle immagini nel registro del contenitore privato usando un'entità del servizio Azure Active Directory.
+title: Autenticazione al Registro Azure Container con entità servizio
+description: Consentire l'accesso alle immagini del registro contenitori privato usando un'entità servizio Azure Active Directory.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 30f0eb04b4b7d07785854e3079bc6656889edec6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854488"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754204"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticazione al Registro contenitori di Azure con entità servizio
 
@@ -20,9 +20,9 @@ ms.locfileid: "48854488"
 
 ## <a name="what-is-a-service-principal"></a>Che cos'è un'entità servizio?
 
-Le *entità servizio* di Azure AD forniscono accesso alle risorse Azure all'interno della sottoscrizione. Un'entità servizio può essere considerata come un'identità utente per un servizio, in cui il "servizio" è qualsiasi applicazione, servizio o piattaforma che deve accedere alle risorse. È possibile configurare un'entità servizio con diritti di accesso limitati solo alle risorse specificate. È possibile configurare l'applicazione o il servizio per usare le credenziali dell'entità servizio per accedere alle risorse.
+Le *entità servizio* di Azure AD forniscono accesso alle risorse Azure all'interno della sottoscrizione. Un'entità servizio può essere considerata come un'identità utente per un servizio, in cui il "servizio" è qualsiasi applicazione, servizio o piattaforma che deve accedere alle risorse. È possibile configurare un'entità servizio con diritti di accesso limitati solo alle risorse specificate. Configurare quindi l'applicazione o il servizio in modo che usi le credenziali dell'entità servizio per accedere a tali risorse.
 
-Nel contesto del Registro contenitori di Azure è possibile creare un'entità servizio Azure AD con le autorizzazioni pull, push e pull o proprietario nel registro Docker privato in Azure.
+Nel contesto del Registro Azure Container è possibile creare un'entità servizio Azure AD con autorizzazioni pull, push e pull o con altre autorizzazioni per il registro Docker privato in Azure. Per l'elenco completo, vedere [Azure Container Registry roles and permissions](container-registry-roles.md) (Ruoli e autorizzazioni del Registro Azure Container).
 
 ## <a name="why-use-a-service-principal"></a>Perché usare un'entità servizio?
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 956482a30d383df558eee775b9d89c211bc53e61
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 94c1f255d7aae63d6faf44cc500c48c68bf6d3fc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101416"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608954"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
@@ -27,47 +27,52 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 
-## <a name="version-150"></a>Versione 1.5.0
-29/10/2018
+## <a name="version-161"></a>Versione 1.6.1
+18/12/2018
 
-### <a name="download-azure-storage-explorer-150"></a>Scaricare Azure Storage Explorer 1.5.0
-- [Azure Storage Explorer 1.5.0 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.5.0 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.5.0 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-161"></a>Scaricare Azure Storage Explorer 1.6.1
+- [Azure Storage Explorer 1.6.1 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.6.1 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.6.1 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
+### <a name="hotfixes"></a>Hotfix
+* A causa di limitazioni dell'API, nella finestra di dialogo Gestire l'accesso sono state disabilitate tutte le convalide di ObjectIds. È consentita la convalida solo dei nomi delle entità utente. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* Nella finestra di dialogo Gestire l'accesso di Azure Data Lake Storage Gen2, non era possibile modificare le autorizzazioni per un gruppo. Questo problema è stato risolto. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* È stato aggiunto il supporto per il caricamento tramite trascinamento della selezione all'editor Azure Data Lake Storage Gen2. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* Nella proprietà URL disponibile nella finestra di dialogo delle proprietà dei file e delle cartelle di Azure Data Lake Storage Gen2 mancava talvolta una '/'. Questo problema è stato risolto. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* Se non è possibile ottenere le autorizzazioni correnti per un contenitore, un file o una cartella di Azure Data Lake Storage Gen2, l'errore non viene correttamente visualizzato nel log delle attività. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* Il percorso temporaneo creato per l'apertura dei file è stato abbreviato per ridurre le probabilità di creare un percorso che non rispetta il parametro MAX_PATH in Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* La finestra di dialogo Connetti viene ora correttamente visualizzata quando non è connesso alcun utente e non è collegata alcuna risorsa. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* Nella versione 1.6.0, il salvataggio delle proprietà per BLOB e file non appartenenti al servizio dello spazio dei nomi gerarchico codificava il valore di ogni proprietà. Sebbene non fosse necessario, quindi, venivano codificati anche valori che contenevano solo caratteri ASCII. Vengono codificati ora solo i valori che contengono caratteri non ASCII. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* Il caricamento di una cartella in un contenitore BLOB non appartenente al servizio dello spazio dei nomi gerarchico aveva esito negativo se veniva usata una firma di accesso condiviso o se alla firma di accesso condiviso non erano state concesse autorizzazioni di lettura. Questo problema è stato risolto. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* L'annullamento di un trasferimento di AzCopy non funzionava. Questo problema è stato risolto. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* AzCopy generava un errore se si tentava di scaricare da un contenitore BLOB di Azure Data Lake Storage Gen2 una cartella contente spazi nel nome. Questo problema è stato risolto. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* L'editor CosmosDB non funzionava nella versione 1.6.0. Questo problema è stato corretto. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+        
 ### <a name="new"></a>Nuovo
 
-* È ora possibile usare [AzCopy v10 (anteprima)](https://github.com/Azure/azure-storage-azcopy) per il caricamento e il download di BLOB. Per abilitare questa funzionalità, passare al menu "Sperimentale" e quindi fare clic su "Use AzCopy for Improved Blob Upload and Download" (Usa AzCopy per ottimizzare caricamento e download di BLOB). Quando è abilitata, AzCopy verrà usato negli scenari seguenti:
-   * Caricamento di cartelle e file in contenitori BLOB, tramite la barra degli strumenti o il metodo di trascinamento della selezione.
-   * Download di cartelle e file, tramite la barra degli strumenti o il menu di scelta rapida.
-
-* Quando inoltre si usa AzCopy:
-   * È possibile copiare il comando di AzCopy usato per eseguire il trasferimento negli Appunti. È sufficiente fare clic su "Copy AzCopy Command to Clipboard" (Copia comando AzCopy negli Appunti) nel log attività.
-   * Dopo il caricamento sarà necessario aggiornare manualmente l'editor BLOB.
-   * Il caricamento di file in BLOB di accodamento non è supportato. I file con estensione vhds verranno caricati come BLOB di pagine e tutti gli altri file verranno caricati come BLOB in blocchi.
-   * Gli errori e i conflitti che si verificano durante il caricamento o il download verranno rilevati solo dopo al termine di un caricamento o di un download.
-
-Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futuro.
-* Storage Explorer usa ora Electron versione 2.0.11.
-* L'interruzione del lease può ora essere eseguita solo su un BLOB alla volta. È inoltre necessario immettere il nome del BLOB di cui si vuole interrompere il lease. Questa modifica è stata apportata per ridurre la probabilità di interruzione accidentale di un lease, soprattutto nel caso di file con estensione vhds per le macchine virtuali. 394
-* Se si verificano problemi di accesso, è ora possibile provare a reimpostare l'autenticazione. Passare al menu "Guida" e fare clic su "Reimposta" per accedere a questa funzionalità. 419
-
-### <a name="fix"></a>Correzione
-
-* In seguito ai numerosi commenti e suggerimenti inviati dagli utenti, il nodo dell'emulatore predefinito è stato nuovamente abilitato. È comunque possibile aggiungere altre connessioni all'emulatore tramite la finestra di dialogo Connect (Connetti), ma se l'emulatore è configurato in modo da usare le porte predefinite, è anche possibile usare il nodo "Emulator * Default Ports" (Emulatore * Porte predefinite) in "Local & Attached/Storage Accounts" (Locali e collegati/Account di archiviazione). 669
-* Storage Explorer non consente più di impostare i valori dei metadati del BLOB che contengono spazi iniziali o finali. 760
-* Il pulsante "Sign In" (Accedi) era sempre abilitato nelle stesse pagine della finestra di dialogo Connect (Connetti). Ora è disabilitato nei casi appropriati. 761
-* Accesso rapido non genererà più un errore nella console quando non sono stati aggiunti elementi di Accesso rapido.
+* È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
+* Storage Explorer supporta ora gli account di archiviazione di Azure Data Lake Storage Gen2. Se Storage Explorer rileva che per un account di archiviazione è abilitato lo spazio dei nomi gerarchico, accanto al nome dell'account di archiviazione sarà visibile la voce "(ADLS Gen2 Preview)". Storage Explorer è in grado di rilevare se lo spazio dei nomi gerarchico è abilitato solo se si è connessi o se l'account di archiviazione è stato collegato con il nome e la chiave. Con gli account di archiviazione di Azure Data Lake Storage Gen2, è possibile usare Storage Explorer per:
+    * Creare ed eliminare contenitori
+    * Gestire proprietà e autorizzazioni (lato sinistro) dei contenitori
+    * Visualizzare ed esplorare i dati all'interno dei contenitori
+    * Creare nuove cartelle
+    * Caricare, scaricare, rinominare ed eliminare file e cartelle
+    * Gestire proprietà e autorizzazioni (lato destro) di file e cartelle.
+    
+    Altre funzionalità tipiche dei BLOB, come l'eliminazione temporanea e gli snapshot, non sono attualmente disponibili. La gestione delle autorizzazioni è disponibile solo se si è connessi. Se si usa un account di archiviazione di Azure Data Lake Storage Gen2, inoltre, Storage Explorer si avvarrà di AzCopy per tutti i caricamenti e i download e, per impostazione predefinita, userà le credenziali di nome e chiave per tutte le operazioni (se disponibili).
+* In seguito ai numerosi commenti e suggerimenti inviati dagli utenti, è nuovamente possibile usare l'opzione di interruzione dei lease per interrompere i lease su più BLOB contemporaneamente.
 
 ### <a name="known-issues"></a>Problemi noti
 
-* Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore blob, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere il numero 537.
+* Durante il download da un account di archiviazione di Azure Data Lake Storage Gen2, se uno dei file trasferiti esiste già, è possibile che AzCopy si arresti in modo anomalo. Questo problema verrà risolto in un hotfix futuro.
+* Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore BLOB, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere #537.
 * Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su questo problema.
 * Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
 * In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
 * Il caricamento dalla cartella OneDrive non funziona a causa di un bug in NodeJS. Il bug è stato risolto ma non è ancora stato integrato in Electron. Per ovviare a questo problema quando si esegue il caricamento o il download da un contenitore BLOB, è possibile usare la funzionalità sperimentale AzCopy.
 * Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
-* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta di seguito.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta qui.
 * Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
 * La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
 * Azure Stack non supporta le funzionalità seguenti; se si prova a usarle mentre si lavora in Azure Stack, potrebbero verificarsi errori imprevisti.
@@ -98,6 +103,8 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 
 ## <a name="previous-releases"></a>Versioni precedenti
 
+* [Versione 1.6.0](#version-160)
+* [Versione 1.5.0](#version-150)
 * [Versione 1.4.4](#version-144)
 * [Versione 1.4.3](#version-143)
 * [Versione 1.4.2](#version-142)
@@ -128,6 +135,126 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * [Versione 0.7.20160129.1](#version-07201601291)
 * [Versione 0.7.20160105.0](#version-07201601050)
 * [Versione 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-160"></a>Versione 1.6.0
+05/12/2018
+
+### <a name="new"></a>Nuovo
+
+* È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
+* Storage Explorer supporta ora gli account di archiviazione di Azure Data Lake Storage Gen2. Se Storage Explorer rileva che per un account di archiviazione è abilitato lo spazio dei nomi gerarchico, accanto al nome dell'account di archiviazione sarà visibile la voce "(ADLS Gen2 Preview)". Storage Explorer è in grado di rilevare se lo spazio dei nomi gerarchico è abilitato solo se si è connessi o se l'account di archiviazione è stato collegato con il nome e la chiave. Con gli account di archiviazione di Azure Data Lake Storage Gen2, è possibile usare Storage Explorer per:
+    * Creare ed eliminare contenitori
+    * Gestire proprietà e autorizzazioni (lato sinistro) dei contenitori
+    * Visualizzare ed esplorare i dati all'interno dei contenitori
+    * Creare nuove cartelle
+    * Caricare, scaricare, rinominare ed eliminare file e cartelle
+    * Gestire proprietà e autorizzazioni (lato destro) di file e cartelle.
+    
+    Altre funzionalità tipiche dei BLOB, come l'eliminazione temporanea e gli snapshot, non sono attualmente disponibili. La gestione delle autorizzazioni è disponibile solo se si è connessi. Se si usa un account di archiviazione di Azure Data Lake Storage Gen2, inoltre, Storage Explorer si avvarrà di AzCopy per tutti i caricamenti e i download e, per impostazione predefinita, userà le credenziali di nome e chiave per tutte le operazioni (se disponibili).
+* In seguito ai numerosi commenti e suggerimenti inviati dagli utenti, è nuovamente possibile usare l'opzione di interruzione dei lease per interrompere i lease su più BLOB contemporaneamente.
+
+### <a name="known-issues"></a>Problemi noti
+
+* Durante il download da un account di archiviazione di Azure Data Lake Storage Gen2, se uno dei file trasferiti esiste già, è possibile che AzCopy si arresti in modo anomalo. Questo problema verrà risolto in un hotfix futuro.
+* Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore BLOB, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere #537.
+* Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su questo problema.
+* Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
+* In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
+* Il caricamento dalla cartella OneDrive non funziona a causa di un bug in NodeJS. Il bug è stato risolto ma non è ancora stato integrato in Electron. Per ovviare a questo problema quando si esegue il caricamento o il download da un contenitore BLOB, è possibile usare la funzionalità sperimentale AzCopy.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta qui.
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Azure Stack non supporta le funzionalità seguenti; se si prova a usarle mentre si lavora in Azure Stack, potrebbero verificarsi errori imprevisti.
+   * Condivisioni file
+   * Livelli di accesso
+   * Eliminazione temporanea
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-150"></a>Versione 1.5.0
+29/10/2018
+
+### <a name="new"></a>Nuovo
+
+* È ora possibile usare [AzCopy v10 (anteprima)](https://github.com/Azure/azure-storage-azcopy) per il caricamento e il download di BLOB. Per abilitare questa funzionalità, passare al menu "Sperimentale" e quindi fare clic su "Use AzCopy for Improved Blob Upload and Download" (Usa AzCopy per ottimizzare caricamento e download di BLOB). Quando è abilitata, AzCopy verrà usato negli scenari seguenti:
+   * Caricamento di cartelle e file in contenitori BLOB, tramite la barra degli strumenti o il metodo di trascinamento della selezione.
+   * Download di cartelle e file, tramite la barra degli strumenti o il menu di scelta rapida.
+
+* Quando inoltre si usa AzCopy:
+   * È possibile copiare il comando di AzCopy usato per eseguire il trasferimento negli Appunti. È sufficiente fare clic su "Copy AzCopy Command to Clipboard" (Copia comando AzCopy negli Appunti) nel log attività.
+   * Dopo il caricamento sarà necessario aggiornare manualmente l'editor BLOB.
+   * Il caricamento di file in BLOB di accodamento non è supportato. I file con estensione vhd verranno caricati come BLOB di pagine e tutti gli altri file verranno caricati come BLOB in blocchi.
+   * Gli errori e i conflitti che si verificano durante il caricamento o il download verranno rilevati solo dopo al termine di un caricamento o di un download.
+
+Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futuro.
+* Storage Explorer usa ora Electron versione 2.0.11.
+* L'interruzione del lease può ora essere eseguita solo su un BLOB alla volta. È inoltre necessario immettere il nome del BLOB di cui si vuole interrompere il lease. Questa modifica è stata apportata per ridurre la probabilità di interruzione accidentale di un lease, soprattutto nelle macchine virtuali. 394
+* Se si verificano problemi di accesso, è ora possibile provare a reimpostare l'autenticazione. Passare al menu "Guida" e fare clic su "Reimposta" per accedere a questa funzionalità. 419
+
+### <a name="fix"></a>Correzione
+
+* In seguito ai numerosi commenti e suggerimenti inviati dagli utenti, il nodo dell'emulatore predefinito è stato nuovamente abilitato. È comunque possibile aggiungere altre connessioni all'emulatore tramite la finestra di dialogo Connect (Connetti), ma se l'emulatore è configurato in modo da usare le porte predefinite, è anche possibile usare il nodo "Emulator * Default Ports" (Emulatore * Porte predefinite) in "Local & Attached/Storage Accounts" (Locali e collegati/Account di archiviazione). 669
+* Storage Explorer non consente più di impostare i valori dei metadati del BLOB che contengono spazi iniziali o finali. 760
+* Il pulsante "Sign In" (Accedi) era sempre abilitato nelle stesse pagine della finestra di dialogo Connect (Connetti). Ora è disabilitato nei casi appropriati. 761
+* Accesso rapido non genererà più un errore nella console quando non sono stati aggiunti elementi di Accesso rapido.
+
+### <a name="known-issues"></a>Problemi noti
+
+* Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore BLOB, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere #537.
+* Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su questo problema.
+* Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
+* In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
+* Il caricamento dalla cartella OneDrive non funziona a causa di un bug in NodeJS. Il bug è stato risolto ma non è ancora stato integrato in Electron. Per ovviare a questo problema quando si esegue il caricamento o il download da un contenitore BLOB, è possibile usare la funzionalità sperimentale AzCopy.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta qui.
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Azure Stack non supporta le funzionalità seguenti; se si prova a usarle mentre si lavora in Azure Stack, potrebbero verificarsi errori imprevisti.
+   * Condivisioni file
+   * Livelli di accesso
+   * Eliminazione temporanea
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
 
 ## <a name="version-144"></a>Versione 1.4.4
 15/10/2018
@@ -378,7 +505,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * Accessibilità: ai nodi dell'albero compressi sul lato sinistro non veniva assegnato false come valore aria-expanded. Questo problema è stato risolto. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
 
 ### <a name="known-issues"></a>Problemi noti
-* Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore blob, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere [questo problema](https://github.com/Microsoft/AzureStorageExplorer/issues/537).
+* Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore BLOB, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere [questo problema](https://github.com/Microsoft/AzureStorageExplorer/issues/537).
 * Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su [questo problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
 * In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
@@ -564,7 +691,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ### <a name="known-issues"></a>Problemi noti
 * In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
 * Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
-* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta di seguito.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta qui.
 * Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
 * La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
 * Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato.
@@ -649,7 +776,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ### <a name="known-issues"></a>Problemi noti
 * Azure Storage Explorer non supporta gli account ADFS.
 * Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
-* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta di seguito.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta qui.
 * Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
 * Il pannello delle impostazioni dell'account potrebbe indicare che è necessario immettere nuovamente le credenziali per filtrare le sottoscrizioni.
 * La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
@@ -696,7 +823,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * Azure Storage Explorer non supporta gli account ADFS.
 * I tasti di scelta rapida per "Visualizza Explorer" e "Visualizza Gestione account" sono CTRL/CMD+ MAIUSC+E e CTRL/CMD+MAIUSC+A rispettivamente.
 * Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
-* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta di seguito.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta qui.
 * Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
 * Il pannello delle impostazioni dell'account potrebbe indicare che è necessario immettere nuovamente le credenziali per filtrare le sottoscrizioni.
 * La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
@@ -760,7 +887,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * Azure Storage Explorer non supporta gli account ADFS.
 * I tasti di scelta rapida per "Visualizza Explorer" e "Visualizza Gestione account" sono CTRL/CMD+ MAIUSC+E e CTRL/CMD+MAIUSC+A rispettivamente.
 * Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
-* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta di seguito.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta qui.
 * Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
 * Il pannello delle impostazioni dell'account potrebbe indicare che è necessario immettere nuovamente le credenziali per filtrare le sottoscrizioni.
 * La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
@@ -816,7 +943,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * Azure Storage Explorer non supporta gli account ADFS.
 * I tasti di scelta rapida per "Visualizza Explorer" e "Visualizza Gestione account" sono CTRL/CMD+ MAIUSC+E e CTRL/CMD+MAIUSC+A rispettivamente.
 * Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
-* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta di seguito.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta qui.
 * Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
 * Il pannello delle impostazioni dell'account potrebbe indicare che è necessario immettere nuovamente le credenziali per filtrare le sottoscrizioni.
 * La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
@@ -921,7 +1048,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 
 * Corretto: il caricamento del file aveva una probabilità elevata di causare un errore di memoria insufficiente
 * Corretto: è ora possibile accedere con PIN/smart card
-* Corretto: l'azione Apri nel portale ora funziona con Azure China, Azure Germany, Azure US Government e Azure Stack
+* Corretto: l'azione Apri nel portale ora funziona con Azure China 21Vianet, Azure Germany, Azure US Government e Azure Stack
 * Corretto: durante il caricamento di una cartella in un contenitore BLOB, talvolta si verificava un errore "Operazione non valida"
 * Corretto: selezionare tutto ciò che è stato disabilitato durante la gestione di snapshot
 * Corretto: i metadati del BLOB di base avrebbero potuto venire sovrascritti dopo aver visualizzato le proprietà dei relativi snapshot
@@ -1000,7 +1127,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * Storage Explorer 0.8.9 scaricherà automaticamente la versione più recente degli aggiornamenti.
 * Hotfix: l'uso di un URI di firma di accesso condiviso generato da portale per collegare un account di archiviazione comporta un errore.
 * È ora possibile creare, gestire e alzare di livello degli snapshot di BLOB.
-* È ora possibile accedere agli account di Azure Cina, Azure Germania e Azure per enti pubblici statunitensi.
+* È ora possibile accedere agli account di Azure Cina 21Vianet, Azure Germania e Azure per enti pubblici statunitensi.
 * È ora possibile modificare il livello di zoom. Usare le opzioni nel menu Visualizza per Zoom avanti, Zoom indietro e Reimposta zoom.
 * I caratteri Unicode sono ora supportati nei metadati dell'utente per file e BLOB.
 * Miglioramenti all'accessibilità.
@@ -1152,7 +1279,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * L'installazione di macOS potrebbe richiedere autorizzazioni elevate
 * Il pannello delle impostazioni dell'account potrebbe indicare che è necessario immettere nuovamente le credenziali per filtrare le sottoscrizioni
 * Quando si ridenominano condivisioni file, contenitori BLOB e tabelle non vengono conservati i metadati o altre proprietà nel contenitore, ad esempio la quota di condivisione file, il livello di accesso pubblico o i criteri di accesso
-* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
 * La copia o la ridenominazione delle risorse non funziona all'interno di account associati alla firma di accesso condiviso
 
 07/07/2016
@@ -1266,7 +1393,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 
 * Supporto Linux (funzionalità analoghe a OSX)
 * Aggiunta di contenitori BLOB con la chiave di firma di accesso condiviso (SAS)
-* Aggiunta degli account di archiviazione per Azure China
+* Aggiunta degli account di archiviazione per Azure China 21Vianet
 * Aggiunta di account di archiviazione con endpoint personalizzati
 * Apertura e visualizzazione di BLOB di testo e immagine del contenuto
 * Visualizzazione e modifica di metadati e proprietà di BLOB

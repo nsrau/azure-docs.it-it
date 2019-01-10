@@ -4,17 +4,16 @@ description: Questo articolo descrive come ridimensionare processi di Analisi di
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 115273086eeb88064c4b179f67d2d400d9f84692
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 216ce32997a4114f4f2684b14338b4e36d9afd03
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696099"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558006"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Ridimensionare il processo di Analisi di flusso con funzioni di Azure Machine Learning
 È semplice impostare un processo di Analisi di flusso e usarlo per analizzare alcuni dati di esempio. Cosa fare quando è necessario eseguire lo stesso processo con volume di dati più elevato? Bisogna capire come configurare il processo di Analisi di flusso per il ridimensionamento. Questo documento illustra in particolare gli aspetti specifici del ridimensionamento di processi di Analisi di flusso con funzioni di Machine Learning. Per informazioni su come ridimensionare processi di Analisi di flusso in generale, vedere l'articolo relativo al [ridimensionamento dei processi](stream-analytics-scale-jobs.md).
@@ -29,7 +28,7 @@ Quando si configura una funzione di Machine Learning per un processo di Analisi 
 
 Dopo aver determinato le dimensioni batch, è possibile determinare il numero di unità di streaming in base al numero di eventi che la funzione deve elaborare al secondo. Per altre informazioni sulle unità di streaming, vedere [Processi di scalabilità di Analisi di flusso](stream-analytics-scale-jobs.md).
 
-In generale, sono presenti 20 connessioni simultanee al servizio di Web Machine Learning ogni 6 unità di streaming, ma anche i processi per 1 unità di streaming e per 3 unità di streaming ricevono 20 connessioni simultanee.  Ad esempio, se la velocità dei dati di input è di 200.000 eventi al secondo e le dimensioni batch hanno il valore predefinito di 1000, la latenza del servizio Web risultante con un mini-batch di 1000 eventi è di 200 ms. Ciò significa che ogni connessione può inviare cinque richieste al servizio Web di Machine Learning in un secondo. Con 20 connessioni, il processo di Analisi di flusso può elaborare 20.000 eventi in 200 ms, ovvero 100.000 eventi al secondo. Quindi, per elaborare 200.000 eventi al secondo, il processo di Analisi di flusso necessita di 40 connessioni simultanee, pari a 12 unità di streaming. Il diagramma seguente illustra le richieste dal processo di Analisi di flusso all'endpoint servizio di Web Machine Learning. Ogni 6 unità di streaming sono presenti al massimo 20 connessioni simultanee al servizio Web di Machine Learning.
+In generale, sono presenti 20 connessioni simultanee al servizio di Web Machine Learning ogni 6 unità di streaming, ma anche i processi per una unità di streaming e per 3 unità di streaming ricevono 20 connessioni simultanee.  Ad esempio, se la velocità dei dati di input è di 200.000 eventi al secondo e le dimensioni batch hanno il valore predefinito di 1000, la latenza del servizio Web risultante con un mini-batch di 1000 eventi è di 200 ms. Ciò significa che ogni connessione può inviare cinque richieste al servizio Web di Machine Learning in un secondo. Con 20 connessioni, il processo di Analisi di flusso può elaborare 20.000 eventi in 200 ms, ovvero 100.000 eventi al secondo. Quindi, per elaborare 200.000 eventi al secondo, il processo di Analisi di flusso necessita di 40 connessioni simultanee, pari a 12 unità di streaming. Il diagramma seguente illustra le richieste dal processo di Analisi di flusso all'endpoint servizio di Web Machine Learning. Ogni 6 unità di streaming sono presenti al massimo 20 connessioni simultanee al servizio Web di Machine Learning.
 
 ![Esempio di processo per ridimensionare Analisi di flusso con funzioni di Machine Learning due](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Esempio di processo per ridimensionare Analisi di flusso con funzioni di Machine Learning due")
 
@@ -39,13 +38,14 @@ In generale, posto che ***B*** sta per dimensioni batch e ***L*** sta per latenz
 
 Prendendo in considerazione anche il numero massimo di chiamate simultanee sul lato del servizio Web Machine Learning, è consigliabile impostare il valore massimo, che attualmente è 200.
 
-Per altre informazioni su questa impostazione, vedere l'articolo relativo al [ridimensionamento di servizi Web Machine Learning](../machine-learning/studio/scaling-webservice.md).
+Per altre informazioni su questa impostazione, vedere l'articolo [Ridimensionamento di un servizio Web di Azure Machine Learning](../machine-learning/studio/scaling-webservice.md).
 
 ## <a name="example--sentiment-analysis"></a>Esempio: Analisi di valutazione
 L'esempio seguente include un processo di Analisi di flusso con la funzione di Machine Learning di analisi di valutazione, come descritto nell' [esercitazione sull'integrazione tra Analisi di flusso e Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
 
-La query è una semplice query completamente partizionata seguita dalla funzione di **sentiment**, come illustrato di seguito:
+La query è una semplice query completamente partizionata seguita dalla funzione di **sentiment**, come illustrato nell'esempio seguente:
 
+```SQL
     WITH subquery AS (
         SELECT text, sentiment(text) as result from input
     )
@@ -53,8 +53,8 @@ La query è una semplice query completamente partizionata seguita dalla funzione
     Select text, result.[Score]
     Into output
     From subquery
-
-Si consideri uno scenario in cui, con una velocità effettiva di 10.000 tweet al secondo è necessario creare un processo di Analisi di flusso per eseguire l'analisi di valutazione dei tweet, o eventi. Usando 1 unità di streaming, questo processo di Analisi di flusso può riuscire a gestire il traffico? Mantenendo le dimensioni batch predefinite, pari a 1000, il processo deve riuscire a gestire l'input. La funzione di Machine Learning aggiuntiva deve anche generare meno di un secondo di latenza, ovvero la latenza generale predefinita del servizio Web Machine Learning di analisi di valutazione, con dimensioni batch predefinite pari a 1000. La latenza **totale** o end-to-end del processo di Analisi di flusso sarebbe normalmente di pochi secondi. Esaminare ora più da vicino questo processo di Analisi di flusso, *in particolare* le chiamate di funzione di Machine Learning. Con dimensioni batch pari a 1000, una velocità effettiva di 10.000 eventi richiede circa 10 richieste al servizio Web. Anche con 1 unità di streaming, il numero di connessioni simultanee è sufficiente per gestire il traffico di input.
+```
+Si consideri uno scenario in cui, con una velocità effettiva di 10.000 tweet al secondo è necessario creare un processo di Analisi di flusso per eseguire l'analisi di valutazione dei tweet, o eventi. Usando 1 unità di streaming, questo processo di Analisi di flusso può riuscire a gestire il traffico? Mantenendo le dimensioni batch predefinite, pari a 1000, il processo deve riuscire a gestire l'input. La funzione di Machine Learning aggiuntiva deve anche generare meno di un secondo di latenza, ovvero la latenza generale predefinita del servizio Web Machine Learning di analisi di valutazione, con dimensioni batch predefinite pari a 1000. La latenza **totale** o end-to-end del processo di Analisi di flusso sarebbe normalmente di pochi secondi. Esaminare ora più da vicino questo processo di Analisi di flusso, *in particolare* le chiamate di funzione di Machine Learning. Con dimensioni batch pari a 1000, una velocità effettiva di 10.000 eventi richiede circa 10 richieste al servizio Web. Anche con una unità di streaming, il numero di connessioni simultanee è sufficiente per gestire il traffico di input.
 
 Se la frequenza degli eventi di input aumenta di 100 volte, il processo di Analisi di flusso deve elaborare 1.000.000 di tweet al secondo. Per sostenere l'aumentata richiesta, sono disponibili due opzioni:
 
@@ -107,7 +107,7 @@ Per riepilogare i punti principali, per ridimensionare un processo di Analisi di
 2. Latenza consentita per il processo di Analisi di flusso in esecuzione e dimensioni batch delle richieste al servizio Web Machine Learning.
 3. Unità di streaming di Analisi di flusso di cui è stato effettuato il provisioning e numero di richieste al servizio Web Machine Learning, oltre ai costi aggiuntivi correlati alle funzioni.
 
-È stata usata come esempio una query di Analisi di flusso completamente partizionata. Se è necessaria una query più complessa, è possibile usare il [forum di analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) per ottenere altre informazioni dal team di analisi di flusso.
+È stata usata come esempio una query di Analisi di flusso completamente partizionata. Se è necessaria una query più complessa, è possibile usare il [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) per ottenere altre informazioni dal team di Analisi di flusso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su Analisi di flusso, vedere:

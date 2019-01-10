@@ -1,20 +1,17 @@
 ---
 title: Configurare la replica dei dati in ingresso in Database di Azure per MySQL.
 description: Questo articolo descrive come configurare la replica dei dati in ingresso in Database di Azure per MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 18ef70d64523bc4001fa7d9a35a7f803b8050613
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667158"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539620"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Come configurare la replica dei dati in ingresso in Database di Azure per MySQL
 
@@ -158,6 +155,9 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    - master_log_pos: posizione del file di log binario da `show master status` in esecuzione
    - master_ssl_ca: contesto del certificato della CA. Se non si usa SSL, passare una stringa vuota.
        - È consigliabile passare questo parametro sotto forma di variabile. Per altre informazioni, vedere gli esempi seguenti.
+
+> [!NOTE]
+> Se il server master è ospitato in una macchina virtuale di Azure, attivare l'opzione che consente di accedere ai servizi di Azure in modo che il server master e i server di replica possano comunicare tra loro. Questa impostazione può essere modificata dalle opzioni di **sicurezza delle connessioni**. Per altre informazioni, vedere l'articolo sulla [gestione delle regole del firewall con il portale](howto-manage-firewall-using-portal.md).
 
    **esempi**
 

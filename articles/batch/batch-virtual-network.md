@@ -1,19 +1,20 @@
 ---
-title: Eseguire il provisioning del pool di Azure Batch in una rete virtuale |Microsoft Docs
+title: Effettuare il provisioning di un pool in una rete virtuale - Azure Batch |Microsoft Docs
 description: Come creare un pool di Batch in una rete virtuale di Azure in modo che i nodi di calcolo possano comunicare in modo sicuro con altre macchine virtuali nella rete, ad esempio un file server.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: danlep
-ms.openlocfilehash: ef37d482e86e4ae05d3f14c78404dc395792b236
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 840c9f4115c13052c65e5975ed22aab7737ea2fe
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091958"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543911"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creare un pool di Azure Batch in una rete virtuale
 
@@ -37,7 +38,7 @@ Un pool di Azure Batch include impostazioni che consentono ai nodi di calcolo di
 
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Creare un pool con una rete virtuale nel portale
 
-Dopo aver creato la rete virtuale e assegnato una subnet, è possibile creare un pool di Batch con tale rete. Seguire questa procedura per creare un pool dal portale di Azure: 
+Dopo aver creato la rete virtuale e assegnato una subnet, è possibile creare un pool di Batch con tale rete. Seguire questa procedura per creare un pool dal portale di Azure: 
 
 1. Passare all'account Batch nel portale di Azure. Questo account deve trovarsi nella stessa area e nella stessa sottoscrizione del gruppo di risorse contenente la rete virtuale che si desidera usare. 
 2. Nella finestra **Impostazioni** a sinistra scegliere la voce di menu **Pool**.

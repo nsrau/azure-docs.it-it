@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 1d9a7caa7ab70ef1f0da41e1ec3f30780f93536a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581902"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53649722"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Creare processi di Apache Spark Streaming a disponibilità elevata con YARN
 
@@ -122,6 +122,6 @@ Per riepilogare, l'uso di checkpoint, log write-ahead e ricevitori affidabili co
 
 * [Panoramica di Apache Spark Streaming](apache-spark-streaming-overview.md)
 * [Creare processi di Apache Spark Streaming con elaborazione di eventi di tipo exactly-once](apache-spark-streaming-exactly-once.md)
-* [Long-running Apache Spark Streaming Jobs on YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) (Processi di Apache Spark Streaming con esecuzione prolungata in YARN) 
-* [Structured Streaming: Fault Tolerant Semantics](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics) (Flusso strutturato: semantica con tolleranza di errore)
+* [Long-running Apache Spark Streaming Jobs on YARN](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) (Processi di Apache Spark Streaming con esecuzione prolungata in YARN) 
+* [Structured Streaming: Fault Tolerant Semantics](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics) (Flusso strutturato: semantica con tolleranza di errore)
 * [Discretized Streams: A Fault-Tolerant Model for Scalable Stream Processing](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf) (Flussi discretizzati: un modello a tolleranza di errore per l'elaborazione di flussi scalabile)

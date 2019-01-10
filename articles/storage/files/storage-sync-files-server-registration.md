@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 468bd70682b1b36e906d32cd7bde58c78bdbb376
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a296576d3d7983b710727923043091f5660b693d
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522000"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002553"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gestire i server registrati con Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
 
 L'articolo seguente illustra come registrare e gestire un server con un servizio di sincronizzazione archiviazione. Per informazioni sulla distribuzione di Sincronizzazione file di Azure end-to-end, vedere [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Eseguire/annullare la registrazione di un server nel servizio di sincronizzazione archiviazione
 La registrazione di un server in Sincronizzazione file di Azure stabilisce una relazione di trust tra Windows Server e Azure. Questa relazione può quindi essere usata per creare nel server *endpoint server* che rappresentano le cartelle specifiche che dovranno essere sincronizzate con una condivisione file di Azure (denominata anche *endpoint cloud*). 
@@ -26,17 +28,17 @@ La registrazione di un server in Sincronizzazione file di Azure stabilisce una r
 ### <a name="prerequisites"></a>Prerequisiti
 Per registrare un server in un servizio di sincronizzazione archiviazione, è prima necessario preparare il server con i prerequisiti necessari:
 
-* Il server deve eseguire una versione supportata di Windows Server. Per altre informazioni, vedere [Versioni di Windows Server supportate](storage-sync-files-planning.md#supported-versions-of-windows-server).
+* Il server deve eseguire una versione supportata di Windows Server. Per altre informazioni, vedere [Requisiti di sistema e interoperabilità di Sincronizzazione file di Azure](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Verificare che sia stato distribuito un servizio di sincronizzazione archiviazione. Per altre informazioni sulla distribuzione di un servizio di sincronizzazione archiviazione, vedere [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
 * Verificare che il server sia connesso a Internet e che Azure sia accessibile.
 * Disabilitare la Configurazione sicurezza avanzata IE per gli amministratori con interfaccia utente di Server Manager.
     
     ![Interfaccia utente di Server Manager con Configurazione sicurezza avanzata IE evidenziata](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* Verificare che il modulo AzureRM di PowerShell sia installato nel server. Se il server è un membro di un cluster di failover, ogni nodo del cluster richiederà il modulo AzureRM. Altre informazioni su come installare il modulo AzureRM sono contenute nell'articolo [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Installare e configurare Azure PowerShell).
+* Verificare che il modulo di Azure PowerShell sia installato nel server. Se il server è un membro di un cluster di failover, ogni nodo del cluster richiederà il modulo Az. Altre informazioni su come installare il modulo Az sono contenute nell'articolo [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
     > [!Note]  
-    > Si consiglia di usare la versione più recente del modulo AzureRM di PowerShell per registrare un server o annullare la registrazione. Se il pacchetto AzureRM è stato installato in precedenza in questo server e la versione di PowerShell nel server è 5.* o successiva, è possibile usare il cmdlet `Update-Module` per aggiornare il pacchetto. 
+    > Si consiglia di usare la versione più recente del modulo Az di PowerShell per registrare un server o annullare la registrazione. Se il pacchetto Az è stato installato in precedenza in questo server e la versione di PowerShell nel server è 5.* o successiva, è possibile usare il cmdlet `Update-Module` per aggiornare il pacchetto. 
 * Se nell'ambiente in uso è presente un server proxy di rete, configurare le impostazioni proxy nel server in modo che vengano usate dall'agente di sincronizzazione.
     1. Determinare l'indirizzo IP e il numero di porta del proxy
     2. Modificare questi due file:
@@ -135,8 +137,8 @@ Questa operazione può essere eseguita anche con un semplice script di PowerShel
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
-$accountInfo = Connect-AzureRmAccount
-Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
+$accountInfo = Connect-AzAccount
+Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
 
 $StorageSyncService = "<your-storage-sync-service>"
 

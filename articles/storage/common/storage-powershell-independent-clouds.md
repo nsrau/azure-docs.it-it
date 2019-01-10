@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 75a3dcb5aeb3e30da570eb57d0d1495710624e54
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140974"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628341"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestione dell'archiviazione nei cloud indipendenti di Azure con PowerShell
 
@@ -23,6 +23,8 @@ La maggior parte delle persone usa il cloud pubblico di Azure per la distribuzio
 * [Cloud di Azure per la Cina gestito da 21Vianet in Cina](http://www.windowsazure.cn/)
 * [Cloud di Azure per la Germania](../../germany/germany-welcome.md)
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="using-an-independent-cloud"></a>Uso di un cloud indipendente 
 
 Per usare Archiviazione di Azure in uno dei cloud indipendenti, ci si connette a tale cloud anziché al cloud pubblico di Azure. Per usare uno dei cloud indipendenti anziché il cloud pubblico di Azure:
@@ -31,28 +33,28 @@ Per usare Archiviazione di Azure in uno dei cloud indipendenti, ci si connette a
 * Determinare e usare le aree disponibili.
 * Usare il suffisso corretto dell'endpoint, che è diverso rispetto al cloud pubblico di Azure.
 
-Questo esempio richiede il modulo Azure PowerShell 4.4.0 o versioni successive. In una finestra di PowerShell eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se non ci sono risultati, è necessario eseguire l'aggiornamento. Vedere in proposito come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Questi esempi richiedono il modulo Azure PowerShell Az 0.7 o versioni successive. In una finestra di PowerShell eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se non ci sono risultati, è necessario eseguire l'aggiornamento. Vedere in proposito come [installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps). 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
-Eseguire il cmdlet [Get-AzureRmEnvironment](/powershell/module/servicemanagement/azurerm.profile/get-azurermenvironment) per visualizzare gli ambienti di Azure disponibili:
+Eseguire il cmdlet [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) per visualizzare gli ambienti Azure disponibili:
    
 ```powershell
-Get-AzureRmEnvironment
+Get-AzEnvironment
 ```
 
 Accedere all'account che ha accesso al cloud a cui ci si vuole connettere e impostare l'ambiente. Questo esempio illustra come accedere a un account che usa il cloud di Azure per enti pubblici.   
 
 ```powershell
-Connect-AzureRmAccount –Environment AzureUSGovernment
+Connect-AzAccount –Environment AzureUSGovernment
 ```
 
 Per accedere al cloud per la Cina, usare l'ambiente **AzureChinaCloud**. Per accedere al cloud per la Germania, usare **AzureGermanCloud**.
 
-A questo punto, se è necessario l'elenco di località per creare un account di archiviazione o un'altra risorsa, è possibile eseguire query sulle località disponibili per il cloud selezionato tramite [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation).
+A questo punto, se è necessario l'elenco di località per creare un account di archiviazione o un'altra risorsa, è possibile eseguire query sulle località disponibili per il cloud selezionato tramite [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
 ```powershell
-Get-AzureRmLocation | select Location, DisplayName
+Get-AzLocation | select Location, DisplayName
 ```
 
 La tabella seguente mostra le località restituite per il cloud per la Germania.
@@ -67,14 +69,14 @@ La tabella seguente mostra le località restituite per il cloud per la Germania.
 
 Il suffisso dell'endpoint per ognuno di questi ambienti è diverso dall'endpoint pubblico di Azure. Ad esempio, il suffisso dell'endpoint BLOB del cloud pubblico di Azure è **blob.core.windows.net**. Per il cloud per enti pubblici, il suffisso dell'endpoint BLOB è **blob.core.usgovcloudapi.net**. 
 
-### <a name="get-endpoint-using-get-azurermenvironment"></a>Ottenere l'endpoint tramite Get-AzureRMEnvironment 
+### <a name="get-endpoint-using-get-azenvironment"></a>Ottenere l'endpoint tramite Get-AzEnvironment 
 
-Recuperare il suffisso dell'endpoint con [Get-AzureRMEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment). L'endpoint è la proprietà *StorageEndpointSuffix* dell'ambiente. I frammenti di codice seguenti mostrano come eseguire questa operazione. Tutti questi comandi restituiscono un valore "core.cloudapp.net" o "core.cloudapi.de" e così via. Aggiungere tale valore al servizio di archiviazione per accedere al servizio. Ad esempio, "queue.core.cloudapi.de" accede al servizio di accodamento del cloud per la Germania.
+Recuperare il suffisso dell'endpoint con [Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment). L'endpoint è la proprietà *StorageEndpointSuffix* dell'ambiente. I frammenti di codice seguenti mostrano come eseguire questa operazione. Tutti questi comandi restituiscono un valore "core.cloudapp.net" o "core.cloudapi.de" e così via. Aggiungere tale valore al servizio di archiviazione per accedere al servizio. Ad esempio, "queue.core.cloudapi.de" accede al servizio di accodamento del cloud per la Germania.
 
 Questo frammento di codice recupera tutti gli ambienti e il suffisso dell'endpoint per ognuno di essi.
 
 ```powershell
-Get-AzureRmEnvironment | select Name, StorageEndpointSuffix 
+Get-AzEnvironment | select Name, StorageEndpointSuffix 
 ```
 
 Questo comando restituisce i risultati seguenti.
@@ -86,10 +88,10 @@ Questo comando restituisce i risultati seguenti.
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | core.usgovcloudapi.net |
 
-Per recuperare tutte le proprietà per l'ambiente specificato, chiamare **Get-AzureRmEnvironment** e specificare il nome del cloud. Questo frammento di codice restituisce un elenco di proprietà. Cercare **StorageEndpointSuffix** nell'elenco. L'esempio seguente si riferisce al cloud per la Germania.
+Per recuperare tutte le proprietà per l'ambiente specificato, chiamare **Get-AzEnvironment** e specificare il nome del cloud. Questo frammento di codice restituisce un elenco di proprietà. Cercare **StorageEndpointSuffix** nell'elenco. L'esempio seguente si riferisce al cloud per la Germania.
 
 ```powershell
-Get-AzureRmEnvironment -Name AzureGermanCloud 
+Get-AzEnvironment -Name AzureGermanCloud 
 ```
 
 I risultati sono simili a quanto segue:
@@ -111,7 +113,7 @@ I risultati sono simili a quanto segue:
 Per recuperare solo la proprietà suffisso dell'endpoint di archiviazione, recuperare il cloud specifico e richiedere solo tale proprietà.
 
 ```powershell
-$environment = Get-AzureRmEnvironment -Name AzureGermanCloud
+$environment = Get-AzEnvironment -Name AzureGermanCloud
 Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
 ```
 
@@ -129,7 +131,7 @@ Storage Endpoint Suffix = core.cloudapi.de
 # Get a reference to the storage account.
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
-$storageAccount = Get-AzureRmStorageAccount `
+$storageAccount = Get-AzStorageAccount `
   -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
   # Output the endpoints.
@@ -157,7 +159,7 @@ Da questo punto in poi è possibile usare la stessa istanza di PowerShell usata 
 Se per questa esercitazione sono stati creati un nuovo gruppo di risorse e un account di archiviazione, è possibile rimuovere tutti gli risorsa creati rimuovendo il gruppo di risorse. Così facendo vengono eliminate anche tutte le risorse in esso contenute. In questo caso, rimuove l'account di archiviazione creato e il gruppo di risorse stesso.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

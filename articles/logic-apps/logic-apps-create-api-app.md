@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233515"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600718"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creare API personalizzate che è possibile chiamare da App per la logica di Azure
 
@@ -25,11 +25,11 @@ Sebbene le app per la logica di Azure offrano [più di 100 connettori incorporat
 * Aiutare i clienti a usare il servizio per gestire attività professionali o personali.
 * Espandere la copertura, l'individuabilità e l'uso del servizio.
 
-In pratica, i connettori sono API Web che usano REST per le interfacce collegabili, il [formato dei metadati Swagger](http://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché i connettori sono API REST che comunicano attraverso endpoint HTTP, è possibile usare qualsiasi linguaggio, ad esempio .NET, Java o Node.js, per la creazione dei connettori. È anche possibile ospitare le API nel [servizio app di Azure](../app-service/app-service-web-overview.md), una soluzione PaaS (platform-as-a-service) che offre uno dei modi più efficaci, semplici e scalabili per ospitare le API. 
+In pratica, i connettori sono API Web che usano REST per le interfacce collegabili, il [formato dei metadati Swagger](http://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché i connettori sono API REST che comunicano attraverso endpoint HTTP, è possibile usare qualsiasi linguaggio, ad esempio .NET, Java o Node.js, per la creazione dei connettori. È anche possibile ospitare le API nel [servizio app di Azure](../app-service/overview.md), una soluzione PaaS (platform-as-a-service) che offre uno dei modi più efficaci, semplici e scalabili per ospitare le API. 
 
 Per consentire alle API personalizzate di funzionare con le app per la logica, l'API può rendere disponibili [*azioni*](./logic-apps-overview.md#logic-app-concepts) che eseguono attività specifiche nei flussi di lavoro delle app per la logica. L'API può anche agire come un [*trigger*](./logic-apps-overview.md#logic-app-concepts) che avvia un flusso di lavoro di app per la logica quando nuovi dati o un evento soddisfano una condizione specificata. Questo argomento descrive i modelli comuni che è possibile seguire per la creazione di azioni e trigger nell'API, in base al comportamento previsto per l'API.
 
-È possibile ospitare le API in [Servizio app di Azure](../app-service/app-service-web-overview.md), una soluzione PaaS (Platform-as-a-Service, piattaforma distribuita come servizio) che offre hosting di API semplice e altamente scalabile.
+È possibile ospitare le API in [Servizio app di Azure](../app-service/overview.md), una soluzione PaaS (Platform-as-a-Service, piattaforma distribuita come servizio) che offre hosting di API semplice e altamente scalabile.
 
 > [!TIP] 
 > Benché sia possibile distribuire le API come app Web, è consigliabile distribuirle come app per le API, in modo da semplificare le attività durante la compilazione, l'hosting e l'utilizzo delle API nel cloud e in locale. Non è necessario modificare alcun codice nelle API, è sufficiente implementare il codice a un'app per le API. Ad esempio, è possibile compilare app per le API create con questi linguaggi: 
@@ -106,7 +106,7 @@ Questi sono i passaggi specifici che l'API deve seguire, descritti dalla prospet
    
    * *Obbligatoria*: un'intestazione `location` che specifica il percorso assoluto a un URL in cui il motore App per la logica può controllare lo stato del processo dell'API
 
-   * *Facoltativa*: un'intestazione `retry-after` che specifica il numero di secondi che il motore deve attendere prima di controllare l'URL `location` per lo stato del processo. 
+   * *Facoltativo*: un'intestazione `retry-after` che specifica il numero di secondi che il motore deve attendere prima di controllare l'URL `location` per lo stato del processo. 
 
      Per impostazione predefinita, il motore esegue il controllo ogni 20 secondi. Per specificare un intervallo diverso, includere l'intestazione `retry-after` e il numero di secondi fino al polling successivo.
 
@@ -136,7 +136,7 @@ Per questo modello, configurare due endpoint sul controller: `subscribe` e `unsu
 
 *  Endpoint `subscribe`: quando l'esecuzione raggiunge l'azione dell'API nel flusso di lavoro, il motore App per la logica chiama l'endpoint `subscribe`. Questo passaggio fa sì che l'app per la logica crei un URL di callback, che viene archiviato dall'API, e quindi attenda il callback dell'API quando il lavoro viene completato. L'API quindi richiama con un HTTP POST all'URL e passa eventuali contenuti e intestazioni come input all'app per la logica.
 
-* Endpoint `unsubscribe`: se l'esecuzione dell'app per la logica è stata annullata, il motore App per la logica chiama l'endpoint `unsubscribe`. L'API può quindi annullare la registrazione dell'URL di callback e arrestare i processi in base alle esigenze.
+* Endpoint `unsubscribe`: se l'esecuzione dell'app per la logica viene annullata, il motore App per la logica chiama l'endpoint `unsubscribe`. L'API può quindi annullare la registrazione dell'URL di callback e arrestare i processi in base alle esigenze.
 
 ![Modello di azione webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 

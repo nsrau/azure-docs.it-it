@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435549"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744338"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix in HDInsight
 
-[Apache Phoenix](http://phoenix.apache.org/) è un livello di database relazionale open source altamente parallelo basato su [Apache HBase](hbase/apache-hbase-overview.md). Phoenix consente di usare query in stile SQL su HBase. Phoenix usa i driver JDBC sottostanti per consentire agli utenti di creare, eliminare e modificare tabelle, indici, viste e sequenze, nonché righe upsert SQL singolarmente e in blocco. Phoenix usa la compilazione nativa NoSQL anziché MapReduce per compilare query, consentendo la creazione di applicazioni a bassa latenza basate su HBase. Phoenix aggiunge coprocessori per supportare l'esecuzione del codice fornito dal client nello spazio degli indirizzi del server, eseguendo il codice che si trova nello stesso percorso dei dati. Questo approccio consente di ridurre al minimo il trasferimento di dati client/server.
+[Apache Phoenix](https://phoenix.apache.org/) è un livello di database relazionale open source altamente parallelo basato su [Apache HBase](hbase/apache-hbase-overview.md). Phoenix consente di usare query in stile SQL su HBase. Phoenix usa i driver JDBC sottostanti per consentire agli utenti di creare, eliminare e modificare tabelle, indici, viste e sequenze, nonché righe upsert SQL singolarmente e in blocco. Phoenix usa la compilazione nativa NoSQL anziché MapReduce per compilare query, consentendo la creazione di applicazioni a bassa latenza basate su HBase. Phoenix aggiunge coprocessori per supportare l'esecuzione del codice fornito dal client nello spazio degli indirizzi del server, eseguendo il codice che si trova nello stesso percorso dei dati. Questo approccio consente di ridurre al minimo il trasferimento di dati client/server.
 
-Apache Phoenix consente agli utenti non sviluppatori di gestire query per Big Data usando una sintassi simile a SQL invece della programmazione. A differenza di altri strumenti, ad esempio [Hive](hadoop/hdinsight-use-hive.md) e Apache Spark SQL, Phoenix è altamente ottimizzato per HBase. Il vantaggio per gli sviluppatori è la possibilità di scrivere query ad alte prestazioni con una quantità di codice molto minore.
+Apache Phoenix consente agli utenti non sviluppatori di gestire query per Big Data usando una sintassi simile a SQL invece della programmazione. A differenza di altri strumenti, ad esempio [Apache Hive](hadoop/hdinsight-use-hive.md) e Apache Spark SQL, Phoenix è altamente ottimizzato per HBase. Il vantaggio per gli sviluppatori è la possibilità di scrivere query ad alte prestazioni con una quantità di codice molto minore.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Quando si invia una query SQL, Phoenix compila la query in chiamate native di HBase ed esegue l'analisi (o il piano) in parallelo per l'ottimizzazione. Questo livello di astrazione consente allo sviluppatore di evitare la scrittura di processi MapReduce e di concentrarsi invece sulla logica di business e sul flusso di lavoro dell'applicazione correlati all'archiviazione di Big Data con Phoenix.
@@ -70,17 +70,17 @@ Per aggiungere più colonne in un secondo momento, usare l'istruzione `ALTER VIE
 
 ### <a name="skip-scan"></a>Analisi con salto
 
-L'analisi con salto usa una o più colonne di un indice composto per trovare valori distinti. Diversamente da un'analisi di intervalli, l'analisi con salto viene implementata tra le righe offrendo [prestazioni migliori](http://phoenix.apache.org/performance.html#Skip-Scan). Durante l'analisi, il primo valore corrispondente viene ignorato insieme all'indice fino a quando non viene trovato il valore successivo.
+L'analisi con salto usa una o più colonne di un indice composto per trovare valori distinti. Diversamente da un'analisi di intervalli, l'analisi con salto viene implementata tra le righe offrendo [prestazioni migliori](https://phoenix.apache.org/performance.html#Skip-Scan). Durante l'analisi, il primo valore corrispondente viene ignorato insieme all'indice fino a quando non viene trovato il valore successivo.
 
 Un'analisi con salto usa l'enumerazione `SEEK_NEXT_USING_HINT` del filtro HBase. Tramite `SEEK_NEXT_USING_HINT`, l'analisi con salto tiene traccia del set di chiavi o degli intervalli di chiavi di cui viene eseguita la ricerca in ogni colonna. L'analisi con salto usa quindi una chiave passata durante la valutazione del filtro e determina se è una delle combinazioni. In caso contrario, l'analisi con salto procede con la chiave più alta successiva a cui passare.
 
 ### <a name="transactions"></a>Transazioni
 
-Mentre HBase offre transazioni a livello di riga, Phoenix si integra con [Tephra](http://tephra.io/) per aggiungere il supporto delle transazioni tra righe e tra tabelle con semantica completa [ACID](https://en.wikipedia.org/wiki/ACID).
+Mentre HBase offre transazioni a livello di riga, Phoenix si integra con [Tephra](https://tephra.io/) per aggiungere il supporto delle transazioni tra righe e tra tabelle con semantica completa [ACID](https://en.wikipedia.org/wiki/ACID).
 
 Come per le transazioni SQL tradizionali, le transazioni implementate tramite il gestore delle transazioni Phoenix consentono di assicurare il corretto upsert dell'unità atomica dei dati, con rollback della transazione se l'operazione upsert ha esito negativo per qualsiasi tabella abilitata per le transazioni.
 
-Per abilitare le transazioni Phoenix, vedere la [documentazione sulle transazioni di Apache Phoenix](http://phoenix.apache.org/transactions.html).
+Per abilitare le transazioni Phoenix, vedere la [documentazione sulle transazioni di Apache Phoenix](https://phoenix.apache.org/transactions.html).
 
 Per creare una nuova tabella con transazioni abilitate, impostare la proprietà `TRANSACTIONAL` su `true` in un'istruzione `CREATE`:
 
@@ -94,7 +94,7 @@ Per modificare una tabella esistente per renderla transazionale, usare la stessa
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Non è possibile tornare indietro, ovvero trasformare una tabella transazionale in non transazionale.
 
 ### <a name="salted-tables"></a>Tabelle con salting

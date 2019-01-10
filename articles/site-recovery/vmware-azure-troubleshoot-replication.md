@@ -5,20 +5,21 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: ae2f32a02005bc015d2521e576ea5625bef2d377
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1c37b764b47856d3a369228d3f224f2a464029bb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846012"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790657"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Risolvere i problemi di replica per macchine virtuali VMware e server fisici
 
 Potrebbe essere visualizzato un messaggio di errore specifico durante la protezione delle macchine virtuali VMware o dei server fisici con Azure Site Recovery. Questo articolo descrive alcuni problemi comuni che possono verificarsi durante l'esecuzione della replica di macchine virtuali VMware e server fisici locali in Azure usando [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="initial-replication-issues"></a>Problemi di replica iniziale.
+
+## <a name="initial-replication-issues"></a>Problemi di replica iniziale
 
 In molti casi gli errori di replica iniziale segnalati al supporto tecnico sono dovuti a problemi di connettività tra il server di origine e il server di elaborazione oppure tra il server di elaborazione e Azure. Nella maggior parte dei casi, è possibile risolvere questi problemi autonomamente seguendo i passaggi elencati di seguito.
 
@@ -33,7 +34,7 @@ Se non è possibile connettersi, consentire la porta in ingresso 9443 nel server
 
 * Controllare lo stato del servizio `InMage Scout VX Agent – Sentinel/OutpostStart` se non è in esecuzione e controllare se il problema persiste.   
 
-## <a name="verify-the-process-server"></a>Verificare il server di elaborazione
+### <a name="verify-the-process-server"></a>Verificare il server di elaborazione
 
 * **Controllare se il server di elaborazione effettua attivamente il push dei dati in Azure**
 
@@ -87,6 +88,19 @@ Aprire il servizio e fare clic su Azione > Modifica proprietà. Nella scheda Con
 
 
 * **Controllare che la limitazione della larghezza di banda non sia vincolata nel server di elaborazione**:  Aumentare la larghezza di banda e controllare se il problema persiste.
+
+## <a name="source-machine-to-be-protected-through-site-recovery-is-not-listed-on-azure-portal"></a>La macchina di origine da proteggere con Site Recovery non è elencata nel portale di Azure
+
+Quando si tenta di scegliere la macchina di origine per cui abilitare la replica tramite Azure Site Recovery, è possibile che la macchina non sia disponibile per i motivi seguenti:
+
+* In vCenter sono presenti due macchine virtuali con lo stesso UUID di istanza e nel portale viene visualizzata solo la prima macchina virtuale individuata dal server di configurazione. Per risolvere questo problema, verificare che uno stesso UUID di istanza non sia assegnato a due macchine virtuali.
+* Assicurarsi di aver aggiunto le credenziali di vCenter corrette durante la configurazione tramite il modello OVF o l'installazione unificata. Per verificare le credenziali aggiunte, fare riferimento alle linee guida condivise [qui](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+* Se alle autorizzazioni fornite per accedere a vCenter non sono associati privilegi sufficienti, è possibile che l'individuazione delle macchine virtuali non riesca. Verificare quindi che all'account utente di vCenter siano state aggiunte le autorizzazioni specificate [qui](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery).
+* Se la macchina virtuale è già protetta tramite Site Recovery, non risulterà disponibile per la protezione. Assicurarsi quindi che la macchina virtuale che si sta cercando nel portale non sia già protetta da un altro utente o con altre sottoscrizioni.
+
+## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Le macchine virtuali protette risultano disattivate nel portale
+
+Le macchine virtuali replicate in Site Recovery sono disattivate se nel sistema sono presenti voci duplicate. Fare riferimento alle linee guida condivise [qui](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) per eliminare le voci non aggiornate e risolvere il problema.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se è necessaria ulteriore assistenza, pubblicare la domanda nel [forum per Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). La community è molto attiva e uno dei tecnici Microsoft sarà in grado di offrire il supporto richiesto.

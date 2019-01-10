@@ -2,25 +2,21 @@
 title: Usare server proxy locali esistenti e Azure AD | Documentazione Microsoft
 description: Tratta l'uso di server proxy locali esistenti.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6409b9313aa9b036e24ea50435659b3653ac01e0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404954"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720102"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
@@ -98,7 +94,7 @@ A tale scopo modificare il file C:\Programmi\Microsoft AAD App Proxy Connector\A
 
 Configurare quindi il servizio Connector Updater in modo che usi il proxy, apportando una modifica simile al file C:\Programmi\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
 
-### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Passaggio 2: configurare il proxy per consentire il passaggio del traffico proveniente dal connettore e dai servizi correlati
+### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Passaggio 2: Configurare il proxy per consentire il passaggio del traffico proveniente dal connettore e dai servizi correlati
 
 Esistono quattro aspetti da considerare per il proxy in uscita:
 * Regole in uscita del proxy
@@ -107,15 +103,16 @@ Esistono quattro aspetti da considerare per il proxy in uscita:
 * Ispezione SSL
 
 #### <a name="proxy-outbound-rules"></a>Regole in uscita del proxy
-Consentire l'accesso agli endpoint seguenti per l'accesso al servizio connettore:
+Consentire l'accesso agli URL seguenti:
 
-* *.msappproxy.net
-* *.servicebus.windows.net
+| URL | Uso |
+| --- | --- |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicazione tra il connettore e il servizio cloud proxy di applicazione |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure usa questi URL per verificare i certificati |
+| login.windows.net<br>login.microsoftonline.com | Il connettore usa questi URL durante il processo di registrazione. |
 
-Per la registrazione iniziale consentire l'accesso agli endpoint seguenti:
+Se il firewall o il proxy consente di inserire DNS nell'elenco elementi consentiti, è possibile aggiungere connessioni a \*.msappproxy.net e \*.servicebus.windows.net. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
 
-* login.windows.net
-* login.microsoftonline.com
 
 Se non è possibile consentire la connettività in base al nome di dominio completo ed è necessario specificare invece intervalli IP, usare queste opzioni:
 

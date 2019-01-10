@@ -1,5 +1,5 @@
 ---
-title: Modificare e ridistribuire un microservizio | Microsoft Docs
+title: Modificare e ridistribuire un microservizio - Azure | Microsoft Docs
 description: Questa esercitazione illustra come modificare e ridistribuire un microservizio nella soluzione di monitoraggio remoto
 author: dominicbetts
 ms.author: dobett
@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315758"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631900"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizzare e ridistribuire un microservizio
 
-Questa esercitazione illustra come modificare uno dei [microservizi](http://azure.com/microservices) nella soluzione di monitoraggio remoto, creare un'immagine del microservizio, distribuire l'immagine nell'hub Docker e quindi usarla nella soluzione di monitoraggio remoto. Per illustrare questo concetto, l'esercitazione usa uno scenario base in cui si chiama l'API di un microservizio e si modifica il messaggio di stato da "Alive and Well" (Attivo e funzionante) in "New Edits Made Here!" (Nuove modifiche apportate qui)
+Questa esercitazione illustra come modificare uno dei [microservizi](https://azure.com/microservices) nella soluzione di monitoraggio remoto, creare un'immagine del microservizio, distribuire l'immagine nell'hub Docker e quindi usarla nella soluzione di monitoraggio remoto. Per illustrare questo concetto, l'esercitazione usa uno scenario base in cui si chiama l'API di un microservizio e si modifica il messaggio di stato da "Alive and Well" (Attivo e funzionante) in "New Edits Made Here!" (Nuove modifiche apportate qui)
 
 La soluzione di monitoraggio remoto usa i microservizi compilati usando le immagini Docker che vengono estratte da un hub Docker. 
 
@@ -77,7 +77,7 @@ A questo punto cambiare il messaggio di stato del microservizio di gestione dell
     
     oppure in Windows:
     
-    ```
+    ```cmd
     ./build.cmd
     ```
 

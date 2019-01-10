@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: 14513e23aafd05796767e1ae08d4d4c14cecdfbc
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: fb3e61b2b43194cb550a7c87c6841e91b4025560
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728311"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002757"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -237,7 +237,6 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 ## <a name="federation"></a>Federazione
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-|GlobalTicketLeaseDuration|TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(300)|statico|Specificare l'intervallo di tempo in secondi. I nodi del cluster devono mantenere un lease globale con gli elettori. Gli elettori inviano lease globali che vengono propagati in tutto il cluster per questo periodo di tempo. Se il periodo di tempo scade; il lease viene perso. La perdita di quorum di lease fa sì che un nodo abbandoni il cluster non ricevendo comunicazioni con un quorum di nodi in questo periodo di tempo.  Questo valore deve essere regolato in base alla dimensione del cluster. |
 |LeaseDuration |Tempo in secondi, il valore predefinito è 30 |Dinamico|Durata di un lease tra un nodo e gli elementi adiacenti. |
 |LeaseDurationAcrossFaultDomain |Tempo in secondi, il valore predefinito è 30 |Dinamico|Durata di un lease tra un nodo e gli elementi adiacenti nei domini di errore. |
 
@@ -275,6 +274,8 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |SecondaryAccountType | stringa, il valore predefinito è ""|statico| L'AccountType secondario dell'entità per l'ACL delle condivisioni di FileStoreService. |
 |SecondaryAccountUserName | stringa, il valore predefinito è ""| statico|Il nome utente dell'account secondario dell'entità per l'ACL delle condivisioni di FileStoreService. |
 |SecondaryAccountUserPassword | SecureString, valore predefinito: vuoto |statico|La password dell'account secondario dell'entità per l'ACL delle condivisioni di FileStoreService. |
+|SecondaryFileCopyRetryDelayMilliseconds|uint, valore predefinito: 500|Dinamico|Ritardo tra i tentativi di copia del file (in millisecondi).|
+|UseChunkContentInTransportMessage|bool, valore predefinito: TRUE|Dinamico|Flag per l'uso della nuova versione del protocollo di caricamento introdotta nella versione 6.4. Questa versione del protocollo usa il trasporto di Service Fabric per caricare file nell'archivio immagini, offrendo prestazioni migliori rispetto al protocollo SMB usato nelle versioni precedenti. |
 
 ## <a name="healthmanager"></a>HealthManager
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
@@ -305,15 +306,18 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |ApplicationUpgradeTimeout| TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(360)|Dinamico| Specificare l'intervallo di tempo in secondi. Timeout per l'aggiornamento dell'applicazione. Se il timeout è minore di "ActivationTimeout" l'implementazione avrà esito negativo. |
 |ContainerServiceArguments|stringa, valore predefinito: "-H localhost:2375 -H npipe://"|statico|Service Fabric gestisce il daemon Docker (tranne che nei computer client Windows come Windows 10). Questa configurazione consente all'utente di specificare argomenti personalizzati che devono essere passati al daemon Docker all'avvio. Quando vengono specificati argomenti personalizzati, Service Fabric non passa altri argomenti al motore Docker, ad eccezione dell'argomento "--pidfile". Di conseguenza, gli utenti non devono specificare l'argomento "-pidfile" come parte dei propri argomenti personalizzati. Gli argomenti personalizzati devono inoltre garantire che il daemon Docker sia in ascolto sulla named pipe predefinita in Windows (o sul socket di dominio Unix in Linux) perché Service Fabric possa comunicare con il daemon.|
 |ContainerServiceLogFileMaxSizeInKb|int, valore predefinito: 32768|statico|Dimensioni massime del file di log generato dai contenitori Docker.  Solo Windows.|
+|ContainerImageDownloadTimeout|int, numero di secondi, valore predefinito: 1200 (20 minuti)|Dinamico|Numero di secondi prima del timeout del download dell'immagine.|
 |ContainerImagesToSkip|stringa, nomi di immagine separati dal carattere di linea verticale, il valore predefinito è ""|statico|Nome di una o più immagini del contenitore che non devono essere eliminate.  Usato con il parametro PruneContainerImages.|
 |ContainerServiceLogFileNamePrefix|string, valore predefinito: "sfcontainerlogs"|statico|Prefisso del nome per i file di log generati dai contenitori Docker.  Solo Windows.|
 |ContainerServiceLogFileRetentionCount|int, valore predefinito: 10|statico|Numero di file di log generati dai contenitori Docker prima che i file di log vengano sovrascritti.  Solo Windows.|
 |CreateFabricRuntimeTimeout|TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(120)|Dinamico| Specificare l'intervallo di tempo in secondi. Valore di timeout per la chiamata di FabricCreateRuntime. |
 |DefaultContainerRepositoryAccountName|stringa, il valore predefinito è ""|statico|Credenziali predefinite usate al posto delle credenziali specificate nel file ApplicationManifest.xml |
 |DefaultContainerRepositoryPassword|stringa, il valore predefinito è ""|statico|Credenziali predefinite della password usate al posto delle credenziali specificate nel file ApplicationManifest.xml|
+|DefaultContainerRepositoryPasswordType|stringa, il valore predefinito è ""|statico|Quando non è una stringa vuota, il valore può essere "Encrypted" o "SecretsStoreRef".|
 |DeploymentMaxFailureCount|int, valore predefinito: 20| Dinamico|Verranno eseguiti altri tentativi di distribuzione dell'applicazione per le volte specificate in DeploymentMaxFailureCount prima di considerare non riuscita la distribuzione dell'applicazione nel nodo.| 
 |DeploymentMaxRetryInterval| TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(3600)|Dinamico| Specificare l'intervallo di tempo in secondi. Intervallo tra tentativi massimo per la distribuzione. In caso di errori continui, l'intervallo tra i tentativi viene calcolato come segue: Min( DeploymentMaxRetryInterval; conteggio errori continui * DeploymentRetryBackoffInterval). |
 |DeploymentRetryBackoffInterval| TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(10)|Dinamico|Specificare l'intervallo di tempo in secondi. Intervallo di backoff per l'errore di distribuzione. Per ogni errore di distribuzione continuo, il sistema ritenterà la distribuzione per il massimo di volte specificato in MaxDeploymentFailureCount. L'intervallo tra tentativi è un prodotto degli errori di distribuzione continui e dell'intervallo di backoff della distribuzione. |
+|DisableContainers|bool, valore predefinito: FALSE|statico|Configurazione per la disabilitazione di contenitori - usata al posto di DisableContainerServiceStartOnContainerActivatorOpen che è una configurazione deprecata |
 |DisableDockerRequestRetry|bool, valore predefinito: FALSE |Dinamico| Per impostazione predefinita, Service Fabric comunica con DD (Docker Daemon) con un timeout pari a DockerRequestTimeout per ogni richiesta HTTP inviata al daemon. Se DD non risponde entro questo periodo di tempo, Service Fabric invia nuovamente la richiesta se l'operazione di più alto livello ha ancora tempo rimanente.  Con un contenitore Hyper-V, DD richiede talvolta molto più tempo per attivare il contenitore o per disattivarlo. In casi come questo si verifica il timeout della richiesta DD dalla prospettiva di Service Fabric e Service Fabric ritenta l'operazione. Talvolta si ha l'impressione che venga esercitata una maggiore pressione su DD. Questa configurazione consente di disabilitare la ripetizione del tentativo e attendere la risposta di DD. |
 |EnableActivateNoWindow| bool, valore predefinito: FALSE|Dinamico| Il processo attivato viene creato in background senza alcuna console. |
 |EnableContainerServiceDebugMode|bool, valore predefinito: TRUE|statico|Abilita/disabilita la registrazione per i contenitori Docker.  Solo Windows.|
@@ -323,6 +327,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |FabricContainerAppsEnabled| bool, valore predefinito: FALSE|statico| |
 |FirewallPolicyEnabled|bool, valore predefinito: FALSE|statico| Abilita l'apertura delle porte del firewall per le risorse degli endpoint con porte esplicite specificate in ServiceManifest. |
 |GetCodePackageActivationContextTimeout|TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(120)|Dinamico|Specificare l'intervallo di tempo in secondi. Valore di timeout per le chiamate CodePackageActivationContext. Non applicabile ai servizi ad hoc. |
+|GovernOnlyMainMemoryForProcesses|bool, valore predefinito: FALSE|statico|Il comportamento predefinito di governance delle risorse consiste nell'applicare il limite specificato in MemoryInMB per la quantità di memoria totale (RAM + swapping) usata dal processo. Se viene superato il limite, il processo riceverà l'eccezione OutOfMemory. Se questo parametro è impostato su true, il limite verrà applicato solo alla quantità di memoria RAM che verrà usata da un processo. Se questo limite viene superato e questa impostazione è true, il sistema operativo eseguirà lo swapping della memoria principale su disco. |
 |IPProviderEnabled|bool, valore predefinito: FALSE|statico|Abilita la gestione degli indirizzi IP. |
 |IsDefaultContainerRepositoryPasswordEncrypted|bool, valore predefinito: FALSE|statico|Indica se DefaultContainerRepositoryPassword è crittografata o meno.|
 |LinuxExternalExecutablePath|stringa, valore predefinito: "/usr/bin/" |statico|La directory principale dei comandi eseguibili esterni nel nodo.|
@@ -345,17 +350,9 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 | --- | --- | --- | --- |
 |ActiveListeners |Uint, valore predefinito: 50 |statico| Numero di letture da pubblicare nella coda del server http. Consente di controllare il numero di richieste simultanee che possono essere espletate da HttpGateway. |
 |HttpGatewayHealthReportSendInterval |Tempo in secondi, il valore predefinito è 30 |statico|Specificare l'intervallo di tempo in secondi. Intervallo dopo il quale il gateway HTTP invia i report sull'integrità accumulati a Health Manager. |
+|HttpStrictTransportSecurityHeader|String, valore predefinito: ""|Dinamico| Specificare il valore dell'intestazione HTTP Strict Transport Security da includere in ogni risposta inviata da HttpGateway. Quando è impostata su una stringa vuota, questa intestazione non verrà inclusa nella risposta del gateway.|
 |IsEnabled|Bool, valore predefinito: false |statico| Abilita/disabilita HttpGateway. HttpGateway è disabilitato per impostazione predefinita. |
 |MaxEntityBodySize |Uint, valore predefinito: 4194304 |Dinamico|Indica la dimensione massima del corpo prevista da una richiesta HTTP. Il valore predefinito è 4 MB. Httpgateway non porterà a termine una richiesta se questa ha un corpo di dimensioni superiori al valore indicato. La dimensione minima dei blocchi di lettura è di 4096 byte. Il valore deve pertanto essere >= 4096. |
-
-## <a name="imagestoreclient"></a>ImageStoreClient
-| **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
-| --- | --- | --- | --- |
-|ClientCopyTimeout | Tempo in secondi, valore predefinito: 1800 |Dinamico| Specificare l'intervallo di tempo in secondi. Valore di timeout per la richiesta di copia principale al servizio di archivio immagini. |
-|ClientDefaultTimeout | Tempo in secondi, valore predefinito: 180 |Dinamico| Specificare l'intervallo di tempo in secondi. Valore di timeout per tutte le richieste non di caricamento o download (ad esempio richieste di esistenza o di eliminazione) al servizio di archivio immagini. |
-|ClientDownloadTimeout | Tempo in secondi, valore predefinito: 1800 |Dinamico| Specificare l'intervallo di tempo in secondi. Valore di timeout per la richiesta di download principale al servizio di archivio immagini. |
-|ClientListTimeout | Tempo in secondi, valore predefinito: 600 |Dinamico|Specificare l'intervallo di tempo in secondi. Valore di timeout per la richiesta di elenco principale al servizio di archivio immagini. |
-|ClientUploadTimeout |Tempo in secondi, valore predefinito: 1800 |Dinamico|Specificare l'intervallo di tempo in secondi. Valore di timeout per la richiesta di caricamento principale al servizio di archivio immagini. |
 
 ## <a name="imagestoreservice"></a>ImageStoreService
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
@@ -503,6 +500,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |PlacementSearchTimeout | Tempo in secondi, valore predefinito: 0.5 |Dinamico| Specificare l'intervallo di tempo in secondi. Tempo massimo di ricerca durante il posizionamento dei servizi prima di restituire un risultato. |
 |PLBRefreshGap | Tempo in secondi, valore predefinito: 1 |Dinamico| Specificare l'intervallo di tempo in secondi. Definisce il tempo minimo che deve passare prima che PLB aggiorni lo stato. |
 |PreferredLocationConstraintPriority | Int, valore predefinito: 2| Dinamico|Determina la priorità del vincolo di posizione preferita: 0: alta; 1: bassa; 2: ottimizzazione; numero negativo: Ignora |
+|PreferUpgradedUDs|Bool, valore predefinito: true|Dinamico|Attiva e disattiva la logica che preferisce lo spostamento in domini di aggiornamento già aggiornati.|
 |PreventTransientOvercommit | Bool, valore predefinito: false | Dinamico|Determina se PLB deve conteggiare immediatamente le risorse che saranno liberate dagli spostamenti avviati. Per impostazione predefinita, PLB può avviare gli spostamenti in entrata e in uscita nello stesso nodo che può creare un overcommit temporaneo. Impostando il parametro su true sarà possibile prevenire overcommit simili e disabilitare le deframmentazioni su richiesta, note anche come placementWithMove. |
 |ScaleoutCountConstraintPriority | Int, valore predefinito: 0 |Dinamico| Determina la priorità del vincolo del conteggio di scalabilità orizzontale: 0: alta; 1: bassa; numero negativo: ignorare. |
 |SwapPrimaryThrottlingAssociatedMetric | stringa, il valore predefinito è ""|statico| Il nome della metrica associato a questa limitazione. |
@@ -590,6 +588,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |AADTokenEndpointFormat|stringa, il valore predefinito è ""|statico|Formato dell'endpoint dei token di AAD, Azure Commercial per impostazione predefinita, specificato per un ambiente non predefinito, ad esempio Azure per enti pubblici "https://login.microsoftonline.us/{0}" |
 |AdminClientClaims|stringa, il valore predefinito è ""|Dinamico|Tutte le attestazioni possibili previste dai client di amministrazione. Stesso formato di ClientClaims. Questo elenco viene aggiunto internamente a ClientClaims, pertanto non occorre aggiungere le stesse voci a ClientClaims. |
 |AdminClientIdentities|stringa, il valore predefinito è ""|Dinamico|Identità di Windows dei client dell'infrastruttura nel ruolo di amministratore. Questo parametro viene usato per autorizzare operazioni sull'infrastruttura con privilegi. Si tratta di un elenco delimitato da virgole, in cui ogni voce è un nome di account di dominio o un nome di gruppo. Per motivi di praticità, all'account che esegue fabric.exe viene assegnato automaticamente il ruolo di amministratore, così come al gruppo ServiceFabricAdministrators. |
+|AppRunAsAccountGroupX509Folder|String, valore predefinito: /home/sfuser/sfusercerts |statico|Cartella in cui vengono posizionati i certificati AppRunAsAccountGroup X509 e le chiavi private |
 |CertificateExpirySafetyMargin|TimeSpan, valore predefinito: Common::TimeSpan::FromMinutes(43200)|statico|Specificare l'intervallo di tempo in secondi. Margine di sicurezza per la scadenza del certificato. Lo stato del report di integrità del certificato passa da OK ad avviso quando la scadenza è inferiore a questo margine. Il valore predefinito è 30 giorni. |
 |CertificateHealthReportingInterval|TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(3600 * 8)|statico|Specificare l'intervallo di tempo in secondi. Specificare l'intervallo per il report di integrità del certificato. Il valore predefinito è 8 ore. L'impostazione del valore 0 disabilita i report sull'integrità dei certificati. |
 |ClientCertThumbprints|stringa, il valore predefinito è ""|Dinamico|Identificazioni personali dei certificati usati dai client per comunicare con il cluster. Il cluster usa questi valori per autorizzare la connessione in ingresso. Elenco di nomi delimitati da virgole. |
@@ -629,7 +628,9 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |CodePackageControl |stringa, il valore predefinito è "Admin" |Dinamico| Configurazione di sicurezza per riavviare i pacchetti di codice. |
 |CreateApplication |stringa, il valore predefinito è "Admin" | Dinamico|Configurazione di sicurezza per creare un'applicazione. |
 |CreateComposeDeployment|stringa, il valore predefinito è "Admin"| Dinamico|Crea una distribuzione Compose descritta dai file Compose. |
+|CreateGatewayResource|stringa, il valore predefinito è "Admin"| Dinamico|Creazione di una risorsa per il gateway |
 |CreateName |stringa, il valore predefinito è "Admin" |Dinamico|Configurazione di sicurezza per creare un URI di denominazione. |
+|CreateNetwork|stringa, il valore predefinito è "Admin" |Dinamico|Crea una rete di contenitori |
 |CreateService |stringa, il valore predefinito è "Admin" |Dinamico| Configurazione di sicurezza per creare un servizio. |
 |CreateServiceFromTemplate |stringa, il valore predefinito è "Admin" |Dinamico|Configurazione di sicurezza per creare un servizio da un modello. |
 |CreateVolume|stringa, il valore predefinito è "Admin"|Dinamico|Crea un volume |
@@ -638,7 +639,9 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |Delete |stringa, il valore predefinito è "Admin" |Dinamico| Configurazioni di sicurezza per l'operazione di eliminazione del client dell'archivio immagini. |
 |DeleteApplication |stringa, il valore predefinito è "Admin" |Dinamico| Configurazione di sicurezza per eliminare un'applicazione. |
 |DeleteComposeDeployment|stringa, il valore predefinito è "Admin"| Dinamico|Elimina la distribuzione Compose. |
+|DeleteGatewayResource|stringa, il valore predefinito è "Admin"| Dinamico|Elimina una risorsa del gateway |
 |DeleteName |stringa, il valore predefinito è "Admin" |Dinamico|Configurazione di sicurezza per eliminare un URI di denominazione. |
+|DeleteNetwork|stringa, il valore predefinito è "Admin" |Dinamico|Elimina una rete di contenitori |
 |DeleteService |stringa, il valore predefinito è "Admin" |Dinamico|Configurazione di sicurezza per eliminare un servizio. |
 |DeleteVolume|stringa, il valore predefinito è "Admin"|Dinamico|Elimina un volume.| 
 |EnumerateProperties |stringa, il valore predefinito è "Admin\|\|User" | Dinamico|Configurazione di sicurezza per l'enumerazione delle proprietà di denominazione. |
@@ -655,6 +658,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |GetPartitionDataLossProgress | stringa, il valore predefinito è "Admin\|\|User" | Dinamico|Recupera lo stato di avanzamento per una chiamata API di richiamo di perdita dei dati. |
 |GetPartitionQuorumLossProgress | stringa, il valore predefinito è "Admin\|\|User" |Dinamico| Recupera lo stato di avanzamento per una chiamata API di richiamo di perdita del quorum. |
 |GetPartitionRestartProgress | stringa, il valore predefinito è "Admin\|\|User" |Dinamico| Recupera lo stato di avanzamento di una chiamata API di riavvio di una partizione. |
+|GetSecrets|stringa, il valore predefinito è "Admin"|Dinamico|Ottenere i valori dei segreti |
 |GetServiceDescription |stringa, il valore predefinito è "Admin\|\|User" |Dinamico| Configurazione di sicurezza per le notifiche del servizio di long polling e lettura delle descrizioni dei servizi. |
 |GetStagingLocation |stringa, il valore predefinito è "Admin" |Dinamico| Configurazione di sicurezza per il recupero del percorso di gestione temporanea del client dell'archivio immagini. |
 |GetStoreLocation |stringa, il valore predefinito è "Admin" |Dinamico| Configurazione di sicurezza per il recupero del percorso dell'archivio del client dell'archivio immagini. |
@@ -794,7 +798,9 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | Bool, valore predefinito: true |statico| Polling e aggiornamenti automatici in base a un file di stato obiettivo. |
-|MinReplicaSetSize |Int, valore predefinito: 0 |statico |MinReplicaSetSize per UpgradeOrchestrationService.
+|AutoupgradeInstallEnabled|Bool, valore predefinito: false|statico|Polling, provisioning e installazione automatici di un'azione di aggiornamento del codice in base a un file di stato obiettivo.|
+|GoalStateExpirationReminderInDays|Int, valore predefinito: 30|statico|Imposta il numero di giorni rimanenti dopo il quale deve essere visualizzato il promemoria di stato obiettivo.|
+|MinReplicaSetSize |Int, valore predefinito: 0 |statico |MinReplicaSetSize per UpgradeOrchestrationService.|
 |PlacementConstraints | stringa, il valore predefinito è "" |statico| PlacementConstraints per UpgradeOrchestrationService. |
 |QuorumLossWaitDuration | Tempo in secondi, valore predefinito: MaxValue |statico| Specificare l'intervallo di tempo in secondi. QuorumLossWaitDuration per UpgradeOrchestrationService. |
 |ReplicaRestartWaitDuration | Tempo in secondi, valore predefinito: 60 minuti|statico| Specificare l'intervallo di tempo in secondi. ReplicaRestartWaitDuration per UpgradeOrchestrationService. |
@@ -811,6 +817,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |MinReplicaSetSize | Int, valore predefinito: 2 |Non consentito| MinReplicaSetSize per UpgradeService. |
 |OnlyBaseUpgrade | Bool, valore predefinito: false |Dinamico|OnlyBaseUpgrade per UpgradeService. |
 |PlacementConstraints |stringa, il valore predefinito è "" |Non consentito|PlacementConstraints per UpgradeService. |
+|PollIntervalInSeconds|Timespan, valore predefinito: Common::TimeSpan::FromSeconds(60) |Dinamico|Specificare l'intervallo di tempo in secondi. Intervallo di polling UpgradeService per operazioni di gestione ARM. |
 |TargetReplicaSetSize | Int, valore predefinito: 3 |Non consentito| TargetReplicaSetSize per UpgradeService. |
 |TestCabFolder | stringa, il valore predefinito è "" |statico| TestCabFolder per UpgradeService. |
 |X509FindType | stringa, il valore predefinito è ""|Dinamico| X509FindType per UpgradeService. |

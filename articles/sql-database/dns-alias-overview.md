@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek
+ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
 ms.date: 02/05/2018
-ms.openlocfilehash: 290414ca07014d5f3bfbe160b0f571397fb13948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 96627d96acee76516c9dc3db1b58d6e4b7b6ff15
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467130"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601040"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS per il database SQL di Azure
 
@@ -55,8 +55,8 @@ In seguito a un ripristino di emergenza, il server di database SQL potrebbe veni
 
 Le proprietà seguenti si applicano a ogni alias DNS per il server di database SQL:
 
-- *Nome univoco:* ogni nome di alias creato è univoco tra tutti i server di database SQL di Azure, proprio come avviene per i nomi dei server.
-- *Server necessario:* è possibile creare un alias DNS solo se fa riferimento a un solo server, che deve esistere già. Un alias aggiornato deve sempre fare riferimento a un solo server esistente.
+- *Nome univoco*: ogni nome di alias creato è univoco tra tutti i server del database SQL di Azure, proprio come avviene per i nomi dei server.
+- *Server obbligatorio:* è possibile creare un alias DNS solo se fa riferimento a un solo server, che deve esistere già. Un alias aggiornato deve sempre fare riferimento a un solo server esistente.
   - Quando si elimina un server di database SQL, Azure System elimina anche tutti gli alias DNS che fanno riferimento al server.
 - *Nessuna associazione alle aree:* gli alias DNS non sono associati a un'area. Qualsiasi alias DNS può essere aggiornato per fare riferimento a un server di database SQL di Azure che si trova in qualsiasi area geografica.
   - Quando si aggiorna un alias per fare riferimento a un altro server, tuttavia, entrambi i server devono trovarsi nella stessa *sottoscrizione* di Azure.
@@ -95,7 +95,7 @@ Un esempio di codice relativo ai cmdlet di PowerShell usati per gestire gli alia
 
 I cmdlet usati nell'esempio di codice sono i seguenti:
 
-- [New-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): crea un nuovo alias DNS nel sistema del servizio di database SQL di Azure. L'alias fa riferimento al server di database SQL di Azure 1.
+- [New-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): crea un nuovo alias DNS nel sistema del servizio del database SQL di Azure. L'alias fa riferimento al server di database SQL di Azure 1.
 - [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): ottiene ed elenca tutti gli alias DNS assegnati al server di database SQL 1.
 - [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): modifica il nome del server a cui l'alias fa riferimento dal server 1 al server di database SQL 2.
 - [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): rimuove l'alias DNS dal server di database SQL 2, usando il nome dell'alias.

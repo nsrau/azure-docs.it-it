@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251029"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794355"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -97,7 +97,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 ### <a name="configure-settings"></a>Configurare le impostazioni
 
-1. Nella procedura guidata per la gestione del server di configurazione selezionare **Configura la connettività** e quindi la scheda di interfaccia di rete utilizzata dal server di elaborazione per ricevere il traffico di replica. Selezionare quindi **Salva**. Una volta configurata, questa impostazione non può essere modificata.
+1. Nella procedura guidata per la gestione del server di configurazione selezionare **Configura la connettività** e quindi la scheda di interfaccia di rete utilizzata dal server di elaborazione per ricevere il traffico di replica. Selezionare quindi **Salva**. Una volta configurata, questa impostazione non può essere modificata. È consigliabile non modificare l'indirizzo IP del server di configurazione. Verificare che l'indirizzo IP assegnato al server di configurazione sia un indirizzo IP STATICO e non DHCP.
 2. In **Seleziona l'insieme di credenziali di Servizi di ripristino** accedere a Microsoft Azure, selezionare la sottoscrizione di Azure e quindi il gruppo di risorse e l'insieme di credenziali pertinenti.
 
     > [!NOTE]
@@ -150,7 +150,11 @@ Per evitare interruzioni nella replica in corso, verificare che l'indirizzo IP d
     Nelle **credenziali di Servizi di ripristino**, **Gestisci** > **Infrastruttura di Site Recovery** > **Server di configurazione**. In Server, selezionare **Scarica chiave di registrazione** per scaricare il file di credenziali dell'insieme di credenziali.
 8. È possibile clonare un server di configurazione esistente e usarlo per l'orchestrazione della replica?
 
-    **No**, l'uso di un componente server di configurazione clonato non è supportato. 
+    **No**, l'uso di un componente server di configurazione clonato non è supportato.
+
+9. È possibile cambiare l'indirizzo IP del server di configurazione?
+
+    **No**, è consigliabile non modificare l'indirizzo IP di un server di configurazione. Verificare che gli indirizzi IP assegnati al server di configurazione siano indirizzi IP STATICI e non DHCP.
 
 ## <a name="troubleshoot-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417770"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722143"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Sezione parameters dei modelli di Azure Resource Manager
 Nella sezione parameters del modello si possono specificare i valori che è possibile immettere durante la distribuzione delle risorse. I valori dei parametri consentono di personalizzare la distribuzione fornendo valori specifici per un determinato ambiente, ad esempio sviluppo, test e produzione. Non è obbligatorio specificare parametri nel modello, ma senza di essi il modello distribuisce sempre le stesse risorse con lo stesso nome, la stessa posizione e le stesse proprietà.
@@ -188,74 +188,6 @@ Quindi, fare riferimento alle sottoproprietà del parametro usando l'operatore p
 ]
 ```
 
-## <a name="recommendations"></a>Consigli
-Le informazioni seguenti possono essere utili quando si usano parametri:
-
-* Ridurre al minimo l'uso di parametri. Se possibile, usare una variabile o un valore letterale. Specificare parametri solo per questi scenari:
-   
-   * Impostazioni da variare in base all'ambiente (ad esempio SKU, dimensioni o capacità).
-   * Nomi di risorse da specificare per facilitare l'identificazione.
-   * Valori usati spesso per completare altre attività (ad esempio nome utente amministratore).
-   * Segreti (ad esempio password).
-   * Il numero o la matrice di valori da usare durante la creazione di più di un'istanza di un tipo di risorsa.
-* Usare la notazione Camel per i nomi dei parametri.
-* Indicare una descrizione nei metadati per ogni parametro:
-
-   ```json
-   "parameters": {
-       "storageAccountType": {
-           "type": "string",
-           "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
-           }
-       }
-   }
-   ```
-
-* Definire i valori predefiniti per i parametri (ad eccezione delle password e delle chiavi SSH). Specificando un valore predefinito, il parametro diventa facoltativo durante la distribuzione. Il valore predefinito può essere una stringa vuota. 
-   
-   ```json
-   "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_GRS",
-            "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
-            }
-        }
-   }
-   ```
-
-* Usare **securestring** per tutte le password e i segreti. Se si passano dati sensibili in un oggetto JSON, usare il tipo **secureObject**. Non è possibile leggere i parametri di modello di tipo secureString o secureObject dopo la distribuzione delle risorse. 
-   
-   ```json
-   "parameters": {
-       "secretValue": {
-           "type": "securestring",
-           "metadata": {
-               "description": "The value of the secret to store in the vault."
-           }
-       }
-   }
-   ```
-
-* Usare un parametro per specificare la posizione e condividere per quanto possibile il relativo valore con le risorse che potrebbero essere nella stessa posizione. Questo approccio permette di ridurre al minimo il numero di volte in cui gli utenti devono dare informazioni sulla posizione. Se un tipo di risorsa è supportato solo in un numero limitato di posizioni, provare a specificare una posizione valida direttamente nel modello oppure aggiungere un altro parametro location. Se un'organizzazione limita le aree consentite per gli utenti, l'espressione **resourceGroup().location** potrebbe impedire a un utente di distribuire il modello. Ad esempio, un utente crea un gruppo di risorse in un'area. Un secondo utente deve distribuire in quel gruppo di risorse, ma non ha accesso all'area. 
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[parameters('location')]",
-         ...
-     }
-   ]
-   ```
-    
-* Evitare di usare un parametro o una variabile per la versione dell'API per un tipo di risorsa. I valori e le proprietà delle risorse possono variare in base al numero di versione. Quando la versione dell'API è impostata su un parametro o una variabile, IntelliSense negli editor di codice non può determinare lo schema corretto. Impostare invece la versione dell'API come hardcoded nel modello.
-* Evitare di specificare nel modello un nome di parametro che corrisponde a un parametro del comando di distribuzione. Resource Manager risolve questo conflitto di denominazione aggiungendo il suffisso **FromTemplate** al parametro del modello. Se, ad esempio, si include un parametro denominato **ResourceGroupName** nel modello, si crea un conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Durante la distribuzione verrà quindi richiesto di specificare un valore per **ResourceGroupNameFromTemplate**.
-
 ## <a name="example-templates"></a>Modelli di esempio
 
 Questi modelli di esempio illustrano alcuni scenari per l'uso dei parametri. Distribuirli per testare il modo in cui i parametri vengono gestiti in scenari diversi.
@@ -269,5 +201,5 @@ Questi modelli di esempio illustrano alcuni scenari per l'uso dei parametri. Dis
 
 * Per visualizzare modelli completi per molti tipi diversi di soluzioni, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 * Per informazioni sull'immissione di valori di parametro durante la distribuzione vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](resource-group-template-deploy.md). 
-* Per informazioni dettagliate sulle funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Azure Resource Manager](resource-group-template-functions.md).
+* Per altri suggerimenti sulla creazione di modelli, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](template-best-practices.md).
 * Per informazioni sull'uso di un oggetto parametro, vedere [Usare un oggetto come parametro in un modello di Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).

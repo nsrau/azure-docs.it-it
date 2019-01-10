@@ -1,6 +1,6 @@
 ---
 title: Indicizzare il contenuto dell'Archiviazione tabelle di Azure per la ricerca full-text - Ricerca di Azure
-description: Informazioni su come indicizzare i dati archiviati in Archiviazione tabelle di Azure con Ricerca di Azure.
+description: Informazioni su come indicizzare i dati archiviati in Archiviazione tabelle di Azure con un indicizzatore di Ricerca di Azure.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9532f4331b4dbbc8d687778b29f63179cca6b4d4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317271"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632960"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indicizzare in Archiviazione tabelle di Azure con Ricerca di Azure
 In questo articolo viene illustrato come usare Ricerca di Azure per indicizzare i dati archiviati in Archiviazione tabelle di Azure.

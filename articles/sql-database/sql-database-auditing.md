@@ -12,12 +12,12 @@ ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/25/2018
-ms.openlocfilehash: e947c284843074cf36c2d85dd240df23a1958cd5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 892e4e776479d767326d4895dbf4bd4f30c418b0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971522"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973203"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -182,6 +182,8 @@ Con i database con replica geografica, quando si abilita il controllo nel databa
 
     >[!IMPORTANT]
     >In caso di controllo a livello di database, le impostazioni di archiviazione per il database secondario sono identiche a quelle del database primario, e causano traffico tra le aree. È consigliabile abilitare solo il controllo a livello di server e lasciare disabilitato il controllo a livello di database per tutti i database.
+    > [!WARNING]
+    > L'uso di hub eventi o Log Analytics come destinazioni per i log di controllo a livello di server non è attualmente supportato per i database secondari con replica geografica.
 
 ### <a id="subheading-6">Rigenerazione delle chiavi di archiviazione</a>
 
@@ -220,12 +222,12 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 ## <a id="subheading-7"></a>Gestire il controllo del database SQL usando Azure PowerShell
 
-**Cmdlet di PowerShell**:
+**Cmdlet PowerShell (incluso il supporto della clausola WHERE per altri filtri)**:
 
-- [Creare o aggiornare il criterio di controllo BLOB del database (Set-AzureRMSqlDatabaseAuditing)][105]
-- [Creare o aggiornare il criterio di controllo BLOB del server (Set-AzureRMSqlServerAuditing)][106]
-- [Ottenere i criteri di controllo del database (Get-AzureRMSqlDatabaseAuditing)][101]
-- [Ottenere i criteri di controllo BLOB del server (Get-AzureRMSqlServerAuditing)][102]
+- [Creare o aggiornare il criterio di controllo BLOB del database (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Creare o aggiornare il criterio di controllo BLOB del server (Set-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlserverauditing)
+- [Ottenere i criteri di controllo del database (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Ottenere i criteri di controllo BLOB del server (Get-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqlserverauditing)
 
 Per un esempio di script, vedere [Configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -245,6 +247,14 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 - [Ottenere*i criteri controllo BLOB estesi*del database](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Ottenere*i criteri controllo BLOB estesi*del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
+## <a id="subheading-10"></a>Gestire il controllo del database SQL usando i modelli ARM
+
+È possibile gestire il controllo del database SQL di Azure usando i modelli di [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), come illustrato negli esempi seguenti:
+
+- [Distribuire un server SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in un account di Archiviazione BLOB di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Distribuire un server SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Distribuire un server SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in Hub eventi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
 [Set up auditing for your database]: #subheading-2
@@ -254,6 +264,7 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 [Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 [Manage SQL database auditing using REST API]: #subheading-9
+[Manage SQL database auditing using ARM templates]: #subheading-10
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
@@ -266,10 +277,3 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
-
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing

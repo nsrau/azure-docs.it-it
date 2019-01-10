@@ -1,5 +1,5 @@
 ---
-title: Gestire Azure Key Vault tramite l'interfaccia della riga di comando | Microsoft Docs
+title: Gestire Azure Key Vault tramite l'interfaccia della riga di comando - Azure Key Vault | Microsoft Docs
 description: Usare questo articolo per automatizzare le attività comuni nell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando di Azure
 services: key-vault
 documentationcenter: ''
@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: f3b91e73cbfe9972969f5a061768a2c2bbfa7d1b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3d97ce7588642462920e98eb90c5c6b5d3748067
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256453"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076364"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gestire Key Vault tramite l'interfaccia della riga di comando di Azure 
 
@@ -134,7 +133,7 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 L'output di questo comando mostra le proprietà dell'insieme di credenziali delle chiavi creato. Le due proprietà più importanti sono:
 
 * **name**: nell'esempio il nome è ContosoKeyVault. Questo nome verrà usato per altri comandi di Key Vault.
-* **vaultUri**: in questo esempio l'URI è https://contosokeyvault.vault.azure.net. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
+* **vaultUri**: nell'esempio l'URI è https://contosokeyvault.vault.azure.net. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
 
 L'account Azure ora è autorizzato a eseguire qualsiasi operazione su questo insieme di credenziali delle chiavi. Per ora, nessun altro è autorizzato.
 
@@ -228,18 +227,18 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare i criteri avanzati per l'insieme di credenziali delle chiavi. 
 
- Abilitare Key Vault per la distribuzione: consente alle macchine virtuali di recuperare i certificati archiviati come segreti dall'insieme di credenziali.
+ Abilitazione di Key Vault per la distribuzione: consente alle macchine virtuali di recuperare i certificati archiviati come segreti dall'insieme di credenziali.
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
  ``` 
 
-Abilitare Key Vault per la crittografia del disco: obbligatorio quando si usa l'insieme di credenziali per Crittografia dischi di Azure.
+Abilitazione di Key Vault per la crittografia dei dischi: obbligatorio quando si usa l'insieme di credenziali per la crittografia dei dischi di Azure.
 
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
  ```  
 
-Abilitare Key Vault per la distribuzione dei modelli: consente a Resource Manager di recuperare i segreti dall'insieme di credenziali.
+Abilitazione di Key Vault per la distribuzione del modello: consente a Resource Manager di recuperare i segreti dall'insieme di credenziali.
  ```azurecli 
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```

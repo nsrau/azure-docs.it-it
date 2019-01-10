@@ -12,18 +12,21 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: c08a76711a74f5b0fd119e579c6db54fc13ecfbb
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 87f3b9de2ff86016f11a0996cbe448651ee6844f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685821"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723893"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Risolvere i problemi della sincronizzazione dati SQL
 
 Questo articolo descrive come risolvere i problemi noti di sincronizzazione dati SQL di Azure. Le possibili risoluzioni a un problema vengono fornite qui.
 
 Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Al momento, la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
 
 ## <a name="sync-issues"></a>Problemi di sincronizzazione
 
@@ -37,7 +40,7 @@ Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati
 
 - [Si osserva una riduzione delle prestazioni considerevole](#sync-perf)
 
-- [Viene visualizzato un messaggio di errore: "Impossibile inserire il valore NULL nella colonna<column>. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore?](#sync-nulls)
+- [Viene visualizzato il messaggio: "Impossibile inserire il valore NULL nella colonna <column>. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore?](#sync-nulls)
 
 - [In che modo la sincronizzazione dati gestisce i riferimenti circolari? In altre parole, quando vengono sincronizzati gli stessi dati in più gruppi di sincronizzazione e pertanto continuano a cambiare?](#sync-circ)
 
@@ -102,7 +105,7 @@ Le prestazioni vengono considerevolmente ridotte, anche al punto da non poter ap
 
 - **Risoluzione**. La correzione migliore è prevenire questa situazione. Verificare che non siano presenti riferimenti circolari nei gruppi di sincronizzazione. Le righe sincronizzate da un gruppo di sincronizzazione non possono essere sincronizzate da un altro gruppo di sincronizzazione.
 
-### <a name="sync-nulls"></a> Viene visualizzato un messaggio di errore: "Impossibile inserire il valore NULL nella colonna <column>. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore? 
+### <a name="sync-nulls"></a> Viene visualizzato il messaggio: "Impossibile inserire il valore NULL nella colonna <column>. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore? 
 Questo messaggio di errore indica che si è verificato uno dei due problemi seguenti:
 -  Una tabella non dispone di una chiave primaria. Per risolvere il problema, aggiungere una chiave primaria a tutte le tabelle da sincronizzare.
 -  Potrebbe essere presente una clausola WHERE nell'istruzione CREATE INDEX. La sincronizzazione dati non gestisce questa condizione. Per risolvere il problema, rimuovere la clausola WHERE o apportare manualmente le modifiche a tutti i database. 
@@ -241,7 +244,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
 -   Panoramica: [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md)
 -   Configurare la sincronizzazione dati
-    - Nel portale: [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
+    - Nel portale - [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
     - Con PowerShell
         -  [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9c44e2564c26a16d632a16195d3e53b8ce83d735
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344279"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629884"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
 
@@ -78,7 +78,7 @@ Per creare un ambiente del servizio app con bilanciamento del carico interno:
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   È disponibile una funzionalità denominata nomi di dominio personalizzati che consente di eseguire il mapping di un nome DNS esistente all'app Web. Per altre informazioni su questa funzionalità, vedere il documento [Eseguire il mapping di un nome DNS esistente all'app Web][customdomain]. Il nome di dominio personalizzato usato per le app e il nome di dominio usato dall'ambiente del servizio app non possono sovrapporsi. Per un ambiente del servizio app ILB con nome di dominio _contoso.com_, non è possibile usare nomi di dominio personalizzati per le app come:
+   È possibile [eseguire il mapping di un nome DNS esistente all'app][customdomain]. Il nome di dominio personalizzato usato per le app e il nome di dominio usato dall'ambiente del servizio app non possono sovrapporsi. Per un ambiente del servizio app ILB con nome di dominio _contoso.com_, non è possibile usare nomi di dominio personalizzati per le app come:
 
     * www.contoso.com
 
@@ -88,7 +88,7 @@ Per creare un ambiente del servizio app con bilanciamento del carico interno:
 
    Se si conoscono i nomi di dominio personalizzati per le app, scegliere un dominio per l'ambiente del servizio app ILB che non sia in conflitto con questi nomi di dominio personalizzati. In questo esempio è possibile usare un nome come *contoso-internal.com* per il dominio dell'ambiente del servizio app perché non è in conflitto con i nomi di dominio personalizzati che terminano in *.contoso.com*.
 
-1. Selezionare **OK**, quindi **Crea**.
+8. Selezionare **OK**, quindi **Crea**.
 
     ![Creazione dell'ambiente del servizio app][1]
 
@@ -160,23 +160,23 @@ Per caricare i propri certificati e testare l'accesso:
 
 1. Ottenere l'indirizzo ILB per l'ambiente del servizio app. Selezionare **Ambiente del servizio app** > **Proprietà** > **Indirizzo IP virtuale**.
 
-1. Creare un'app Web nell'ambiente del servizio app dopo la creazione dell'ambiente.
+2. Creare un'app nell'ambiente del servizio app di Azure dopo la creazione dell'ambiente.
 
-1. Creare una macchina virtuale, se non ne è già presente una nella rete virtuale.
+3. Creare una macchina virtuale, se non ne è già presente una nella rete virtuale.
 
     > [!NOTE] 
     > Non tentare di creare questa macchina virtuale nella stessa subnet in cui si trova l'ambiente del servizio app per evitare esiti negativi o problemi.
     >
 
-1. Impostare il DNS per il dominio dell'ambiente del servizio app. È possibile usare un carattere jolly con il dominio nel DNS. Per eseguire alcuni semplici test, modificare il file hosts nella macchina virtuale per impostare il nome dell'app Web sull'indirizzo IP VIP:
+4. Impostare il DNS per il dominio dell'ambiente del servizio app. È possibile usare un carattere jolly con il dominio nel DNS. Per eseguire alcuni semplici test, modificare il file hosts nella macchina virtuale per impostare il nome dell'app sull'indirizzo IP VIP:
 
-    a. Se il nome di dominio dell'ambiente del servizio app è _.ilbase.com_ e si crea l'applicazione Web denominata _mytestapp_, verrà indirizzato su _mytestapp.ilbase.com_. Impostare quindi _mytestapp.ilbase.com_ per risolvere l'indirizzo ILB. (In Windows, il file host si trova in _C:\Windows\System32\drivers\etc\_.)
+    a. Se il nome di dominio dell'ambiente del servizio app di Azure è _.ilbase.com_ e si crea l'app denominata _mytestapp_, verrà usato l'indirizzo _mytestapp.ilbase.com_. Impostare quindi _mytestapp.ilbase.com_ per risolvere l'indirizzo ILB. (In Windows, il file host si trova in _C:\Windows\System32\drivers\etc\_.)
 
     b. Per testare la pubblicazione della distribuzione Web o l'accesso alla console avanzata, creare un record per _mytestapp.scm.ilbase.com_.
 
-1. Usando un browser nella macchina virtuale, passare a https://mytestapp.ilbase.com. In alternativa, passare a qualunque sia il nome dell'app Web con il dominio.
+5. Usando un browser nella macchina virtuale, passare a https://mytestapp.ilbase.com. In alternativa, passare al nome dell'app in uso con il dominio.
 
-1. Usando un browser nella macchina virtuale, passare a https://mytestapp.ilbase.com. Se si usa un certificato autofirmato, accettare la mancanza di sicurezza.
+6. Usando un browser nella macchina virtuale, passare a https://mytestapp.ilbase.com. Se si usa un certificato autofirmato, accettare la mancanza di sicurezza.
 
     L'indirizzo IP per il bilanciamento del carico interno è riportato in **Indirizzi IP**. Questo elenco include anche gli indirizzi IP usati dall'indirizzo VIP esterno e per il traffico di gestione in ingresso.
 
@@ -237,7 +237,7 @@ Per altre informazioni sulla configurazione dell'ambiente del servizio app ILB c
 [NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
-[webapps]: ../app-service-web-overview.md
+[webapps]: ../overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/

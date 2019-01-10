@@ -1,6 +1,6 @@
 ---
-title: Configurazione delle app Web - Servizio app di Azure
-description: Come configurare un'app Web nel servizio app di Azure
+title: Configurare le app - Servizio app di Azure
+description: Come configurare un'app nel Servizio app di Azure
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,22 +15,20 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269431"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716464"
 ---
-# <a name="configure-web-apps-in-azure-app-service"></a>Configurazione delle app Web in Servizio app di Azure
+# <a name="configure-apps-in-azure-app-service"></a>Configurare le app nel Servizio app di Azure
 
-Questo argomento descrive come configurare un'app Web usando il [portale di Azure].
-
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+Questo argomento descrive come configurare un'app Web, un back-end per dispositivi mobili o un'app API usando il [portale di Azure].
 
 ## <a name="application-settings"></a>Impostazioni dell'applicazione
-1. Nel [portale di Azure]aprire il pannello relativo all'app Web.
-3. Fare clic su **Impostazioni applicazione**.
+1. Nel [portale di Azure] aprire il pannello relativo all'app.
+2. Fare clic su **Impostazioni applicazione**.
 
 ![Impostazioni dell'applicazione][configure01]
 
@@ -47,14 +45,14 @@ Nel pannello **Impostazioni applicazione** le impostazioni sono raggruppate in d
 Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzioni di .NET, PHP e Python.
 
 <a name="platform"></a>
-**Piattaforma**. Scegliere se eseguire l'app Web in un ambiente a 32 bit o a 64 bit. L'ambiente a 64 bit richiede il livello Basic o Standard. I livelli Gratuito e Condiviso vengono eseguiti sempre in un ambiente a 32 bit.
+**Piattaforma**. Scegliere se eseguire l'app in un ambiente a 32 bit o a 64 bit. L'ambiente a 64 bit richiede il livello Basic o Standard. I livelli Gratuito e Condiviso vengono eseguiti sempre in un ambiente a 32 bit.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web Socket**. Impostare **ATTIVATO** per abilitare il protocollo WebSocket, ad esempio se l'app Web usa [ASP.NET SignalR] o [socket.io](https://socket.io/).
+**Web Socket**. Impostare **ATTIVATO** per abilitare il protocollo WebSocket, ad esempio se l'app usa [ASP.NET SignalR] o [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
-**Always On**. Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. In modalità Basic o Standard è possibile abilitare **Always On** affinché l'app rimanga sempre caricata. Se nell'app vengono eseguiti processi Web continui o processi Web attivati mediante un'espressione CRON è necessario abilitare **Always On**, altrimenti l'esecuzione dei processi Web potrebbe non avvenire in modo affidabile.
+**Always On**. Per impostazione predefinita, le app vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. In modalità Basic o Standard è possibile abilitare **Always On** affinché l'app rimanga sempre caricata. Se nell'app vengono eseguiti processi Web continui o processi Web attivati mediante un'espressione CRON è necessario abilitare **Always On**, altrimenti l'esecuzione dei processi Web potrebbe non avvenire in modo affidabile.
 
 **Versione pipeline gestita**. Consente di impostare la [modalità pipeline]IIS. Lasciare questa opzione impostata su Integrato (predefinita), tranne nel caso in cui un'app meno recente richieda una versione precedente di IIS.
 
@@ -65,13 +63,13 @@ Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzi
 
 **Affinità ARR**. In un'applicazione scalata orizzontalmente su più istanze di macchina virtuale, i cookie di affinità ARR garantiscono che il client venga instradato verso la stessa istanza per tutta la durata della sessione. Per migliorare le prestazioni delle applicazioni senza stato, impostare questa opzione su **Disattivata**.   
 
-**Scambio automatico**. Se si abilita l'opzione Scambio automatico per uno slot di distribuzione, il servizio app immette automaticamente l'app Web in produzione quando si esegue un aggiornamento di quello slot. Per altre informazioni, vedere [Eseguire la distribuzione negli slot di memorizzazione temporanea per le app Web nel servizio app di Azure](web-sites-staged-publishing.md).
+**Scambio automatico**. Se si abilita l'opzione Scambio automatico per uno slot di distribuzione, il servizio app immette automaticamente l'app in produzione quando si esegue il push di un aggiornamento nello slot. Per altre informazioni, vedere [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](deploy-staging-slots.md).
 
 ### <a name="debugging"></a>Debug
-**Debug remoto**. Abilita il debug remoto. Quando viene abilitato, è possibile utilizzare il debugger remoto in Visual Studio per connettersi direttamente all'app Web. Il debug remoto resterà abilitato per 48 ore. 
+**Debug remoto**. Abilita il debug remoto. Quando questa opzione è abilitata, è possibile usare il debugger remoto in Visual Studio per connettersi direttamente all'app. Il debug remoto resterà abilitato per 48 ore. 
 
 ### <a name="app-settings"></a>Impostazioni app
-Questa sezione riporta le coppie nome/valore caricate all'avvio dell'app. 
+Questa sezione riporta le coppie nome/valore che verranno caricate all'avvio dell'app. 
 
 * Per le app.NET, queste impostazioni verranno inserite nella configurazione .NET `AppSettings` in fase di esecuzione, sostituendo le impostazioni esistenti. 
 * Per il servizio app in Linux o app Web per contenitori, se la struttura della chiave JSON è stata annidata nel nome, come ad esempio `ApplicationInsights:InstrumentationKey`, `ApplicationInsights__InstrumentationKey` dovrà essere il nome della chiave. Si noti quindi che `:` deve essere sostituito con `__` (doppio carattere di sottolineatura).
@@ -102,7 +100,7 @@ Le stringhe di connessione possono essere risolte da Key Vault usando [riferimen
 ### <a name="default-documents"></a>Documenti predefiniti
 Il documento predefinito è rappresentato dalla pagina Web visualizzata nell'URL radice di un sito Web.  Viene utilizzato il primo file corrispondente dell'elenco. 
 
-Le app Web potrebbero usare moduli che vengono instradati in base all'URL invece di visualizzare contenuto statico, nel caso in cui non sia presente alcun documento predefinito.    
+Le app potrebbero usare moduli che vengono instradati in base all'URL invece di visualizzare contenuto statico. In tal caso non è presente alcun documento predefinito.    
 
 ### <a name="handler-mappings"></a>Mapping dei gestori
 Usare quest'area per aggiungere processori script personalizzati allo scopo di gestire le richieste di estensioni di file specifiche. 
@@ -117,7 +115,7 @@ Per configurare applicazioni e directory virtuali, specificare ogni directory vi
 ## <a name="enabling-diagnostic-logs"></a>Abilitazione dei log di diagnostica
 Per abilitare i log di diagnostica:
 
-1. Nel pannello dell'app Web, fare clic su **Tutte le impostazioni**.
+1. Nel pannello dell'app fare clic su **Tutte le impostazioni**.
 2. Fare clic su **Log diagnostici**. 
 
 Opzioni per la scrittura dei log di diagnostica da un'applicazione Web che supporta la registrazione: 
@@ -134,31 +132,31 @@ Opzioni per la scrittura dei log di diagnostica da un'applicazione Web che suppo
 
 Per visualizzare i file di log, è necessario creare le credenziali FTP, come descritto di seguito:
 
-1. Nel pannello dell'app Web, fare clic su **Tutte le impostazioni**.
+1. Nel pannello dell'app fare clic su **Tutte le impostazioni**.
 2. Fare clic su **Credenziali distribuzione**.
 3. Immettere un nome utente e una password.
 4. Fare clic su **Save**.
 
 ![Reimpostare le credenziali di distribuzione][configure03]
 
-Il nome utente completo FTP è "app\nomeutente", dove *app* è il nome dell'app Web. Il nome utente è elencato nel pannello dell'app Web in **Elementi essenziali**.
+Il nome utente completo FTP è "app\nomeutente", dove *app* è il nome dell'app. Il nome utente è elencato nel pannello dell'app in **Informazioni di base**.
 
 ![Credenziali di distribuzione FTP][configure02]
 
 ## <a name="other-configuration-tasks"></a>Altre attività di configurazione
 ### <a name="ssl"></a>SSL
-In modalità Basic o Standard è possibile caricare certificati SSL per un dominio personalizzato. Per altre informazioni, vedere [Abilitare HTTPS per un'app Web](app-service-web-tutorial-custom-ssl.md). 
+In modalità Basic o Standard è possibile caricare certificati SSL per un dominio personalizzato. Per altre informazioni, vedere [Abilitare HTTPS per un'app](app-service-web-tutorial-custom-ssl.md). 
 
 Per visualizzare i certificati caricati, fare clic su **Tutte le impostazioni** > **Domini e SSL personalizzati**.
 
 ### <a name="domain-names"></a>Nomi di dominio
-Aggiungere nomi di dominio personalizzati per la propria app Web. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato per un'app Web nel servizio app di Azure](app-service-web-tutorial-custom-domain.md).
+Aggiungere nomi di dominio personalizzati per la propria app. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato per un'app nel Servizio app di Azure](app-service-web-tutorial-custom-domain.md).
 
 Per visualizzare i nomi di dominio, fare clic su **Tutte le impostazioni** > **Domini e SSL personalizzati**.
 
-### <a name="deployments"></a>Deployments
-* Configurare la distribuzione continua. Vedere [Uso di Git per distribuire app Web nel servizio App di Azure](app-service-deploy-local-git.md).
-* Slot di distribuzione. Vedere [Configurare ambienti di staging per le app Web nel servizio app di Azure].
+### <a name="deployments"></a>Distribuzioni
+* Configurare la distribuzione continua. Vedere [Uso di Git per distribuire app nel Servizio app di Azure](deploy-local-git.md).
+* Slot di distribuzione. Vedere [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure].
 
 Per visualizzare gli slot di distribuzione, fare clic su **Tutte le impostazioni** > **Slot di distribuzione**.
 
@@ -167,29 +165,23 @@ In modalità Basic o Standard è possibile testare la disponibilità degli endpo
 
 Per ulteriori informazioni, consultare [Procedura: Monitorare lo stato degli endpoint].
 
-> [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app], dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-> 
-> 
-
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare un nome di dominio personalizzato nel servizio app di Azure]
 * [Abilitare HTTPS per un'app in Azure App Service]
-* [Scalare un'app Web nel servizio app di Azure]
-* [Informazioni di base sul monitoraggio di App Web nel servizio app di Azure]
+* [Aumentare le prestazioni di un'app nel Servizio app di Azure]
+* [Informazioni di base sul monitoraggio nel Servizio app di Azure]
 
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
 [Portale di Azure]: https://portal.azure.com/
 [Configurare un nome di dominio personalizzato nel servizio app di Azure]: ./app-service-web-tutorial-custom-domain.md
-[Configurare ambienti di staging per le app Web nel servizio app di Azure]: ./web-sites-staged-publishing.md
+[Configurare gli ambienti di gestione temporanea nel Servizio app di Azure]: ./deploy-staging-slots.md
 [Abilitare HTTPS per un'app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
 [Procedura: Monitorare lo stato degli endpoint]: https://go.microsoft.com/fwLink/?LinkID=279906
-[Informazioni di base sul monitoraggio di App Web nel servizio app di Azure]: ./web-sites-monitor.md
+[Informazioni di base sul monitoraggio nel Servizio app di Azure]: ./web-sites-monitor.md
 [modalità pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Scalare un'app Web nel servizio app di Azure]: ./web-sites-scale.md
-[Prova il servizio app]: https://azure.microsoft.com/try/app-service/
+[Aumentare le prestazioni di un'app nel Servizio app di Azure]: ./web-sites-scale.md
 
 <!-- IMG List -->
 

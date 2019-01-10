@@ -1,5 +1,5 @@
 ---
-title: Proteggere Azure Key Vault | Microsoft Docs
+title: Proteggere Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Gestire le autorizzazioni di accesso per Azure Key Vault, chiavi e segreti. L'articolo riguarda il modello di autenticazione e autorizzazione per Key Vault e offre informazioni su come proteggere l'insieme di credenziali delle chiavi.
 services: key-vault
 documentationcenter: ''
@@ -10,21 +10,22 @@ ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 67f24bbccdd2dcf5cca09e09557d7ebebd0a5c2d
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 9877698c8c6af68c5ffd88dab37150274ce87b37
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891079"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077335"
 ---
 # <a name="secure-your-key-vault"></a>Proteggere l'insieme di credenziali delle chiavi
+
 Azure Key Vault è un servizio cloud che consente di proteggere le chiavi di crittografia e i segreti (ad esempio certificati, stringhe di connessione e password). Poiché questi dati sono riservati e importanti per l'azienda, è opportuno proteggere gli insiemi di credenziali delle chiavi consentendo l'accesso solo ad applicazioni e utenti autorizzati. Questo articolo offre una panoramica del modello di accesso a Key Vault. Verranno illustrate l'autenticazione e l'autorizzazione e sarà descritto come proteggere l'accesso.
 
 ## <a name="overview"></a>Panoramica
+
 L'accesso a un insieme di credenziali delle chiavi è controllato tramite due interfacce separate: piano di gestione e piano dati. 
 **Piano di gestione**: riguarda la gestione dell'insieme di credenziali, ad esempio la sua creazione, l'aggiornamento e l'eliminazione. 
 **Piano dati**: riguarda i segreti all'interno di un insieme di credenziali, ossia la creazione, l'aggiornamento, l'eliminazione e la lettura di un segreto contenuto nell'insieme di credenziali. Per entrambi i piani, sono richieste opportune procedure di autenticazione e autorizzazione prima che un chiamante (un utente o un'applicazione) possa ottenere l'accesso all'insieme di credenziali delle chiavi. L'autenticazione stabilisce l'identità del chiamante, mentre l'autorizzazione determina le operazioni che il chiamante è autorizzato a eseguire.
@@ -38,9 +39,11 @@ Ecco una breve panoramica degli argomenti trattati:
 Per l'autenticazione, entrambi i piani utilizzano Azure Active Directory (Azure AD). Per l'autorizzazione, il piano di gestione usa il controllo degli accessi in base al ruolo, mentre il piano dati usa i criteri di accesso dell'insieme di credenziali delle chiavi.
 
 ## <a name="authenticate-by-using-azure-active-directory"></a>Autenticazione tramite Azure Active Directory
+
 Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant della sottoscrizione di Azure Active Directory. Per accedere all'insieme di credenziali delle chiavi, tutti i chiamanti devono essere registrati in questo tenant ed eseguire l'autenticazione. Questo requisito è valido sia per il piano di gestione che per il piano dati. In entrambi i casi, un'applicazione può accedere a un insieme di credenziali delle chiavi in due modi:
 
-* **accesso utente + app**: questa modalità viene usata per le applicazioni che accedono all'insieme di credenziali delle chiavi per conto di un utente connesso. Azure PowerShell e il portale di Azure sono esempi di questo tipo di accesso. È possibile concedere l'accesso agli utenti in due modi: 
+* **accesso utente + app**: questa modalità viene usata per le applicazioni che accedono all'insieme di credenziali delle chiavi per conto di un utente connesso. Azure PowerShell e il portale di Azure sono esempi di questo tipo di accesso. È possibile concedere l'accesso agli utenti in due modi:
+
   - Accesso all'insieme di credenziali delle chiavi da qualsiasi applicazione.
   - Accesso all'insieme di credenziali delle chiavi solo in caso di uso di un'applicazione specifica (definita identità composta).
 
@@ -57,6 +60,7 @@ Disporre di un unico meccanismo di autenticazione per entrambi i piani presenta 
 * Le organizzazioni possono personalizzare l'autenticazione tramite le opzioni disponibili in Azure AD, ad esempio abilitando l'autenticazione a più fattori per una maggiore sicurezza.
 
 ## <a name="the-management-plane-and-the-data-plane"></a>Piano di gestione e piano dati
+
 Il piano di gestione consente di gestire l'insieme di credenziali delle chiavi. Sono incluse operazioni come la gestione degli attributi e l'impostazione dei criteri di accesso al piano dati. Il piano dati consente di aggiungere, eliminare, modificare e usare le chiavi, i segreti e i certificati archiviati nell'insieme di credenziali delle chiavi.
 
 Le interfacce del piano di gestione e del piano dati sono accessibili tramite endpoint diversi, elencati nella tabella di seguito. La seconda colonna della tabella descrive i nomi DNS per questi endpoint in diversi ambienti di Azure. La terza colonna descrive le operazioni che è possibile eseguire da ogni piano di accesso. Ogni piano di accesso dispone anche di un proprio meccanismo di controllo dell'accesso. Il controllo di accesso per il piano di gestione è impostato tramite il controllo degli accessi in base al ruolo di Azure Resource Manager. Il controllo dell'accesso per il piano dati è impostato tramite i criteri di accesso dell'insieme di credenziali delle chiavi.
@@ -69,6 +73,7 @@ Le interfacce del piano di gestione e del piano dati sono accessibili tramite en
 I controlli dell'accesso per il piano di gestione e il piano dati funzionano in maniera indipendente. Ad esempio, per concedere a un'applicazione l'accesso all'uso delle chiavi in un insieme di credenziali delle chiavi, è sufficiente concedere l'accesso al piano dati. L'accesso viene concesso tramite i criteri di accesso dell'insieme di credenziali delle chiavi. Al contrario, per un utente che deve leggere le proprietà e i tag dell'insieme di credenziali delle chiavi ma non accedere ai dati (chiavi, segreti o certificati), è sufficiente l'accesso al piano di gestione. L'accesso viene concesso assegnando l'accesso in lettura all'utente tramite il controllo degli accessi in base al ruolo.
 
 ## <a name="management-plane-access-control"></a>Controllo di accesso al piano di gestione
+
 Il piano di gestione è costituito da operazioni che interessano l'insieme di credenziali delle chiavi, come:
 
 - Creazione o eliminazione di un insieme di credenziali delle chiavi.
@@ -79,6 +84,7 @@ Il piano di gestione è costituito da operazioni che interessano l'insieme di cr
 Il controllo di accesso al piano di gestione è basato sul controllo degli accessi in base al ruolo.  
 
 ### <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
+
 Ogni sottoscrizione di Azure è associata a un'istanza di Azure Active Directory. A utenti, gruppi e applicazioni di questa directory può essere concesso l'accesso per gestire le risorse della sottoscrizione di Azure che usano il modello di distribuzione Azure Resource Manager. Questo approccio è definito controllo degli accessi in base al ruolo. Per gestire l'accesso è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia della riga di comando di Azure](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Creare un insieme di credenziali delle chiavi in un gruppo di risorse e controllare l'accesso al piano di gestione tramite Azure Active Directory. È ad esempio possibile consentire agli utenti o a un gruppo di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse.
@@ -87,15 +93,16 @@ Creare un insieme di credenziali delle chiavi in un gruppo di risorse e controll
 
 > [!IMPORTANT]
 > Se un utente dispone di autorizzazioni di collaboratore per un piano di gestione dell'insieme di credenziali delle chiavi, può accedere al piano dati impostando i criteri di accesso per l'insieme di credenziali delle chiavi. Pertanto, è consigliabile controllare attentamente chi ha accesso come collaboratore agli insiemi di credenziali delle chiavi. Assicurarsi che solo gli utenti autorizzati possano accedere e gestire gli insiemi di credenziali delle chiavi, le chiavi, i segreti e i certificati.
-> 
-> 
+>
 
 ## <a name="data-plane-access-control"></a>Controllo di accesso al piano dati
+
 Le operazioni del piano dati dell'insieme di credenziali delle chiavi si applicano agli oggetti archiviati come chiavi, segreti e certificati. Le operazioni relative alle chiavi includono la creazione, l'importazione, l'aggiornamento, l'elencazione, il backup e il ripristino delle chiavi. Le operazioni di crittografia includono la firma, la verifica, la crittografia, la decrittografia, il wrapping, l'annullamento del wrapping, l'impostazione di tag e di altri attributi per le chiavi. Analogamente, le operazioni sui segreti includono il recupero, l'impostazione, l'elencazione e l'eliminazione.
 
 L'accesso al piano dati viene concesso impostando criteri di accesso per un insieme di credenziali delle chiavi. Per essere in grado di impostare i criteri di accesso per un insieme di credenziali delle chiavi, un utente, un gruppo o un'applicazione deve disporre delle autorizzazioni di collaboratore per il piano di gestione relativo a tale insieme. È possibile concedere l'accesso a un utente, un gruppo o un'applicazione per eseguire operazioni specifiche relative a segreti o chiavi in un insieme di credenziali delle chiavi. Key Vault supporta fino a 1024 criteri di accesso per un insieme di credenziali delle chiavi. Per concedere a più utenti l'accesso al piano dati, creare un gruppo di sicurezza di Azure Active Directory e aggiungere utenti a tale gruppo.
 
 ### <a name="key-vault-access-policies"></a>Criteri di accesso di Key Vault
+
 I criteri di accesso di Key Vault concedono autorizzazioni separate per chiavi, segreti e certificati. È ad esempio possibile concedere a un utente l'accesso alle chiavi, ma non le autorizzazioni per i segreti. Le autorizzazioni per accedere a chiavi, segreti o certificati vengono definite a livello di insieme di credenziali. I criteri di accesso di Key Vault non supportano autorizzazioni granulari a livello di oggetto, ad esempio una chiave, un segreto o un certificato specifici. Per impostare i criteri di accesso per un insieme di credenziali delle chiavi è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia della riga di comando di Azure](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di gestione di Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 > [!IMPORTANT]
@@ -104,6 +111,7 @@ I criteri di accesso di Key Vault concedono autorizzazioni separate per chiavi, 
 Oltre a usare i criteri di accesso, è inoltre possibile limitare l'accesso al piano dati usando gli [endpoint di servizio della rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). Configurare i [firewall e le regole della rete virtuale](key-vault-network-security.md) per un ulteriore livello di sicurezza.
 
 ## <a name="example"></a>Esempio
+
 Si supponga di voler sviluppare un'applicazione che usa un certificato per SSL, il servizio Archiviazione di Azure per archiviare i dati e una chiave RSA a 2048 bit per le operazioni di firma. Immaginiamo che l'applicazione sia in esecuzione in una macchina virtuale di Azure (o un set di scalabilità di macchine virtuali). È possibile usare un insieme di credenziali delle chiavi per archiviare tutti i segreti dell'applicazione e il certificato bootstrap usato dall'applicazione per l'autenticazione con Azure Active Directory.
 
 Ecco un riepilogo dei tipi di chiavi e segreti archiviati:
@@ -167,14 +175,14 @@ I frammenti di codice di PowerShell seguenti presuppongono quanto segue:
 
 Innanzitutto l'amministratore della sottoscrizione assegna i ruoli `key vault Contributor` e `User Access Administrator` al team responsabile della sicurezza. In questo modo il team può gestire l'accesso ad altre risorse e gli insiemi di credenziali delle chiavi nel gruppo di risorse ContosoAppRG.
 
-```
+```PowerShell
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 Lo script seguente mostra in che modo il team responsabile della sicurezza può creare un insieme di credenziali delle chiavi e impostare la registrazione e le autorizzazioni di accesso. Per informazioni dettagliate sulle autorizzazioni dei criteri di accesso dell'insieme di credenziali delle chiavi, vedere [Informazioni su chiavi, segreti e certificati di Azure Key Vault](about-keys-secrets-and-certificates.md).
 
-```
+```PowerShell
 # Create key vault and enable logging
 $sa = Get-AzureRmStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
 $kv = New-AzureRmKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
@@ -214,6 +222,7 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
 È altamente consigliabile proteggere ulteriormente l'accesso all'insieme di credenziali delle chiavi mediante la [configurazione di firewall e reti virtuali di Key Vault](key-vault-network-security.md).
 
 ## <a name="resources"></a>Risorse
+
 * [Controllo degli accessi in base al ruolo di Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
   
 * [Controllo degli accessi in base al ruolo: ruoli predefiniti](../role-based-access-control/built-in-roles.md)
@@ -241,6 +250,7 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
 * [Impostare](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) e [rimuovere](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) i criteri di accesso dell'insieme di credenziali delle chiavi usando PowerShell
   
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Configurare reti virtuali e firewall di Key Vault](key-vault-network-security.md)
 
 Per un'esercitazione introduttiva per gli amministratori, vedere [Introduzione all'insieme di credenziali chiave di Azure](key-vault-get-started.md).

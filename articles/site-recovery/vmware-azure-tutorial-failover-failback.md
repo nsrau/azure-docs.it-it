@@ -4,16 +4,17 @@ description: Informazioni su come eseguire il failover di macchine virtuali VMwa
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 517355a32fc7a549370aed2c7a8408c3a0887e13
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e17ddb45143e03023c30b69ed314270ed97dc039
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838022"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973171"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover e failback di macchine virtuali VMware e server fisici replicati in Azure
 
@@ -45,7 +46,7 @@ Per il failover e il failback sono previste quattro fasi:
 1. **Failover in Azure**: eseguire il failover dei computer dal sito locale in Azure.
 2. **Riprotezione delle macchine virtuali di Azure**: riproteggere le macchine virtuali di Azure in modo da avviarne la replica nelle macchine virtuali VMware locali. La macchina virtuale locale viene spenta durante la riprotezione, in modo da garantire la coerenza dei dati durante la replica.
 3. **Failover nel sito locale**: eseguire un failover per il failback da Azure.
-4. **Riprotezione delle macchine virtuali locali**: dopo il failback dei dati, riproteggere le macchine virtuali locali in cui è stato eseguito il failback in modo da avviarne la replica in Azure.
+4. **Riprotezione delle macchine virtuali locali**: dopo aver eseguito il failback dei dati, riproteggere le macchine virtuali locali in cui è stato eseguito il failback, in modo che inizino la replica in Azure.
 
 ## <a name="verify-vm-properties"></a>Verificare le proprietà della macchina virtuale
 
@@ -76,7 +77,7 @@ Verificare le proprietà della macchina virtuale e assicurarsi che sia conforme 
 In alcuni scenari il failover richiede un'altra elaborazione il cui completamento richiede da 8 a 10 minuti. Si potrebbero notare **tempi più lunghi per il failover di test** per le macchine virtuali VMware che usano il servizio Mobility di una versione precedente alla 9.8, i server fisici, le macchine virtuali VMware Linux, le macchine virtuali Hyper-V protette come server fisici, le macchine virtuali VMware che non hanno il servizio DHCP abilitato e le macchine virtuali VMware che non hanno i driver di avvio seguenti: storvsc, vmbus, storflt, intelide, atapi.
 
 > [!WARNING]
-> **Non annullare un failover in corso**: prima dell'avvio del failover, la replica della macchina virtuale viene arrestata.
+> **Non annullare un failover in corso**: Prima dell'avvio del failover, la replica della macchina virtuale viene arrestata.
 > Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Stabilire la connessione alla macchina virtuale in cui è stato eseguito il failover

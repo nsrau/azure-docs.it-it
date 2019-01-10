@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581001"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651776"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Creare processi di Apache Spark Streaming con elaborazione di eventi di tipo exactly-once
 
@@ -41,7 +41,7 @@ La semantica exactly-once richiede che non si verifichi alcuna perdita di dati i
 
 L'origine da cui l'applicazione Spark Streaming legge gli eventi deve essere *riproducibile*. Ciò significa che nei casi in cui il messaggio è stato recuperato ma si è verificato un errore nel sistema prima che il messaggio potesse essere salvato in modo permanente o elaborato, l'origine deve fornire di nuovo lo stesso messaggio.
 
-In Azure, sia Hub eventi di Azure che [Apache Kafka](https://kafka.apache.org/) in HDInsight forniscono origini riproducibili. Un altro esempio di origine riproducibile è un file system a tolleranza di errore come [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), BLOB del servizio di archiviazione di Azure o Azure Data Lake Store, in cui tutti i dati vengono mantenuti per sempre e in qualsiasi momento è possibile leggere nuovamente i dati nella loro interezza.
+In Azure, sia Hub eventi di Azure che [Apache Kafka](https://kafka.apache.org/) in HDInsight forniscono origini riproducibili. Un altro esempio di origine riproducibile è un file system a tolleranza di errore come [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), BLOB del servizio di archiviazione di Azure o Azure Data Lake Storage, in cui tutti i dati vengono mantenuti per sempre e in qualsiasi momento è possibile leggere nuovamente i dati nella loro interezza.
 
 ### <a name="reliable-receivers"></a>Ricevitori affidabili
 
@@ -49,7 +49,7 @@ In Spark Streaming le origini come Hub eventi e Kafka hanno *ricevitori affidabi
 
 ### <a name="use-the-write-ahead-log"></a>Usare il log write-ahead
 
-Spark Streaming supporta l'uso di un log write-ahead, dove ogni evento ricevuto viene prima di tutto scritto nella directory di checkpoint di Spark in un archivio a tolleranza di errore e quindi archiviato in oggetto RDD (Resilient Distributed Dataset). In Azure l'archivio a tolleranza di errore è supportato da HDFS tramite Archiviazione di Azure o Azure Data Lake Store. Nell'applicazione Spark Streaming, il log write-ahead viene abilitato per tutti i ricevitori impostando l'opzione di configurazione `spark.streaming.receiver.writeAheadLog.enable` su `true`. Il log write-ahead fornisce tolleranza di errore per i casi in cui si verificano errori sia del driver che degli executor.
+Spark Streaming supporta l'uso di un log write-ahead, dove ogni evento ricevuto viene prima di tutto scritto nella directory di checkpoint di Spark in un archivio a tolleranza di errore e quindi archiviato in oggetto RDD (Resilient Distributed Dataset). In Azure l'archivio a tolleranza di errore è supportato da HDFS tramite Archiviazione di Azure o Azure Data Lake Storage. Nell'applicazione Spark Streaming, il log write-ahead viene abilitato per tutti i ricevitori impostando l'opzione di configurazione `spark.streaming.receiver.writeAheadLog.enable` su `true`. Il log write-ahead fornisce tolleranza di errore per i casi in cui si verificano errori sia del driver che degli executor.
 
 Per i ruoli di lavoro che eseguono attività sui dati degli eventi, ogni oggetto RDD per definizione viene sia replicato che distribuito in più ruoli di lavoro. Se si verifica un errore di un'attività a causa di un arresto anomalo del ruolo di lavoro che la sta eseguendo, l'attività viene riavviata in un altro ruolo di lavoro che ha una replica dei dati dell'evento, in modo che l'evento non vada perso.
 
@@ -66,7 +66,7 @@ I checkpoint vengono abilitati in Spark Streaming Spark in due passaggi.
     ssc.checkpoint("/path/to/checkpoints")
     ```
 
-    In HDInsight questi checkpoint devono essere salvati nell'archivio predefinito collegato al cluster, ovvero Archiviazione di Azure oppure Azure Data Lake Store.
+    In HDInsight questi checkpoint devono essere salvati nell'archivio predefinito collegato al cluster, ovvero Archiviazione di Azure oppure Azure Data Lake Storage.
 
 2. Specificare quindi un intervallo di checkpoint (in secondi) in DStream. A ogni intervallo, i dati relativi allo stato derivati dall'evento di input vengono salvati in modo permanente nell'archivio. I dati relativi allo stato salvati in modo permanente possono ridurre le attività di calcolo necessarie quando si ricrea lo stato dall'evento di origine.
 
@@ -85,7 +85,7 @@ Il sink di destinazione in cui il processo scrive i risultati deve essere in gra
 
 Si potrebbe ad esempio usare una stored procedure con il database SQL di Azure che inserisce gli eventi in una tabella. Questa stored procedure cerca prima di tutto l'evento in base ai campi chiave e, solo se non viene trovato alcun evento corrispondente, il record viene inserito nella tabella.
 
-Un altro esempio consiste nell'usare un file system partizionato, come BLOB del servizio di archiviazione di Azure e Azure Data Lake Store. In questo caso, non è necessario che la logica del sink controlli l'esistenza di un file. Se il file che rappresenta l'evento esiste, viene semplicemente sovrascritto con gli stessi dati. In caso contrario, viene creato un nuovo file nel percorso calcolato.
+Un altro esempio consiste nell'usare un file system partizionato, come BLOB del servizio di archiviazione di Azure e Azure Data Lake Storage. In questo caso, non è necessario che la logica del sink controlli l'esistenza di un file. Se il file che rappresenta l'evento esiste, viene semplicemente sovrascritto con gli stessi dati. In caso contrario, viene creato un nuovo file nel percorso calcolato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

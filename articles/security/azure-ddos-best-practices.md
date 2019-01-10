@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4496a0fd3ec220d03c4cc279876234b503b0dbb6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231634"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720867"
 ---
-# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Procedure consigliate per Protezione DDoS di Azure e architetture di riferimento
+# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Protezione DDoS di Azure: procedure consigliate e architetture di riferimento
 
 Questo articolo è destinato ai responsabili IT e al personale di sicurezza. Presuppone che si abbia familiarità con Azure, la rete e la sicurezza.
 
@@ -81,7 +81,7 @@ Garantire che un'applicazione sia abbastanza resiliente da riuscire a gestire un
 
 La scalabilità è la capacità di un sistema di gestire carichi elevati. È necessario progettare le applicazioni con [scalabilità orizzontale](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) per soddisfare la richiesta di un carico amplificato, in particolare in caso di attacco DDoS. Se l'applicazione dipende da una singola istanza di un servizio, crea un singolo punto di errore. Il provisioning di più istanze rende il sistema più resiliente e scalabile.
 
-Per [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md) selezionare un [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) che offra più istanze. Per Servizi cloud di Azure, configurare ognuno dei ruoli in modo da usare [più istanze](../cloud-services/cloud-services-choose-me.md). Per [Macchine virtuali di Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) verificare che l'architettura VM includa più macchine virtuali e che ogni macchina virtuale sia inclusa in un [set di disponibilità](../virtual-machines/virtual-machines-windows-manage-availability.md). Si consiglia di usare [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per le funzionalità di scalabilità automatica.
+Per [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md) selezionare un [piano di servizio app](../app-service/overview-hosting-plans.md) che offra più istanze. Per Servizi cloud di Azure, configurare ognuno dei ruoli in modo da usare [più istanze](../cloud-services/cloud-services-choose-me.md). Per [Macchine virtuali di Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) verificare che l'architettura VM includa più macchine virtuali e che ogni macchina virtuale sia inclusa in un [set di disponibilità](../virtual-machines/virtual-machines-windows-manage-availability.md). Si consiglia di usare [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per le funzionalità di scalabilità automatica.
 
 ### <a name="defense-in-depth"></a>Informazioni dettagliate sulla difesa
 
@@ -96,7 +96,7 @@ Le risorse locali dei clienti che vengono spesso attaccate insieme alle risorse 
 
 ## <a name="azure-offerings-for-ddos-protection"></a>Offerte di Azure per la protezione DDoS
 
-In Azure sono disponibili due offerte di servizio DDoS che forniscono protezione dagli attacchi alla rete (Livello 3 e 4): Protezione DDoS Basic e Protezione DDoS Standard. 
+Azure prevede due offerte di servizio contro gli attacchi DDoS per la protezione della rete (livello 3 e 4): Protezione DDoS Basic e Protezione DDoS Standard. 
 
 ### <a name="ddos-protection-basic"></a>Protezione DDoS Basic
 

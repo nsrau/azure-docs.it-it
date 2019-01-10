@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fb72de7e9a61c874d4449a5b9c0422c787a7bdc0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410534"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728449"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -1867,12 +1867,12 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.Devices/provisioningServices/certificates/verify/Action | Verifica la risorsa certificato |
 > | Azione | Microsoft.Devices/provisioningServices/certificates/Write | Crea o aggiorna il certificato |
 > | Azione | Microsoft.Devices/provisioningServices/Delete | Elimina la risorsa IotDps |
-> | Azione | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Ottiene l'impostazione di diagnostica per la risorsa |
+> | Azione | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Ottiene l'impostazione di diagnostica per la risorsa. Nota: potrebbe essere necessaria anche l'operazione `Microsoft.Insights/diagnosticSettings/read`  |
 > | Azione | Microsoft.Devices/provisioningServices/diagnosticSettings/write | Crea o aggiorna l'impostazione di diagnostica per la risorsa |
 > | Azione | Microsoft.Devices/provisioningServices/keys/listkeys/Action | Ottiene le chiavi IotDps per il nome della chiave |
 > | Azione | Microsoft.Devices/provisioningServices/listkeys/Action | Ottiene tutte le chiavi IotDps |
-> | Azione | Microsoft.Devices/provisioningServices/logDefinitions/read | Ottiene le definizioni di log disponibili per il servizio di provisioning |
-> | Azione | Microsoft.Devices/provisioningServices/metricDefinitions/read | Ottiene la metrica disponibile per il servizio di provisioning |
+> | Azione | Microsoft.Devices/provisioningServices/logDefinitions/read | Ottiene le definizioni di log disponibili per il servizio di provisioning. Nota: potrebbe essere necessaria anche l'operazione `Microsoft.Insights/logDefinitions/read` |
+> | Azione | Microsoft.Devices/provisioningServices/metricDefinitions/read | Ottiene la metrica disponibile per il servizio di provisioning. Nota: potrebbe essere necessaria anche l'operazione `Microsoft.Insights/metricDefinitions/read` |
 > | Azione | Microsoft.Devices/provisioningServices/operationresults/Read | Ottiene il risultato di un'operazione DPS |
 > | Azione | Microsoft.Devices/provisioningServices/Read | Ottiene la risorsa IotDps |
 > | Azione | Microsoft.Devices/provisioningServices/skus/Read | Ottiene SKU IotDps validi |
@@ -3920,7 +3920,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Tipo di azione | Operazione | Descrizione |
+> | Tipo di azione | Operazione | DESCRIZIONE |
 > | --- | --- | --- |
 > | Azione | Microsoft.Portal/dashboards/delete | Rimuove il dashboard dalla sottoscrizione. |
 > | Azione | Microsoft.Portal/dashboards/read | Legge i dashboard nella sottoscrizione. |

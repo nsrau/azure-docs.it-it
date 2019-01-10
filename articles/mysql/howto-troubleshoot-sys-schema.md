@@ -1,20 +1,17 @@
 ---
 title: Come usare sys_schema per l'ottimizzazione delle prestazioni e la manutenzione del database in Database di Azure per MySQL
 description: Questo articolo descrive come usare sys_schema per trovare problemi di prestazioni e per la manutenzione del database in Database di Azure per MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/01/2018
-ms.openlocfilehash: 1e10e3b1b5f4518732408f254eb5767acb8485c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446908"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542850"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Come usare sys_schema per l'ottimizzazione delle prestazioni e la manutenzione del database in Database di Azure per MySQL
 
@@ -24,15 +21,15 @@ Il database performance_schema di MySQL, introdotto per la prima volta in MySQL 
 
 Il database sys_schema include 52 viste, ognuna con uno dei prefissi seguenti:
 
-- Host_summary o IO: latenze correlate alle operazioni di I/O.
+- Host_summary o IO: latenze correlate a I/O.
 - InnoDB: stato e blocchi del buffer InnoDB.
-- Memory: utilizzo della memoria da parte di host e utenti.
+- Memoria: utilizzo della memoria da parte di host e utenti.
 - Schema: informazioni correlate allo schema, come incremento automatico, indici e così via.
 - Statement: informazioni sulle istruzioni SQL; può trattarsi di istruzioni che causano una scansione di tabella completa o una durata prolungata delle query.
-- User: risorse utilizzate e raggruppate in base agli utenti. Ad esempio I/O su file, connessioni e memoria.
+- Utente: risorse utilizzate e raggruppate in base agli utenti. Ad esempio I/O su file, connessioni e memoria.
 - Wait: eventi di attesa raggruppati in base a host o utente.
 
-Di seguito verranno esaminati alcuni modelli di utilizzo comuni di sys_schema. Per iniziare, i modelli di utilizzo verranno raggruppati in due categorie: **ottimizzazione delle prestazioni** e **manutenzione del database**.
+Di seguito verranno esaminati alcuni modelli di utilizzo comuni di sys_schema. Per iniziare, i modelli di utilizzo verranno raggruppati in due categorie: **Ottimizzazione delle prestazioni** e **Manutenzione del database**.
 
 ## <a name="performance-tuning"></a>Ottimizzazione delle prestazioni
 

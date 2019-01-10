@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: eeb548d6bd955aedf322a63c861fd23bb37c1167
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632659"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634627"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Usare MapReduce in Apache Hadoop in HDInsight
 
@@ -28,7 +28,7 @@ Informazioni su come eseguire i processi MapReduce nei cluster di HDInsight. Usa
 
 > [!IMPORTANT]
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
+
 
 ## <a id="whatis"></a>Definizione di MapReduce
 
@@ -57,7 +57,7 @@ Lo streaming di Hadoop comunica con il mapper e il riduttore tramite STDIN e STD
 
     [key]/t[value]
 
-Per altre informazioni, vedere l'argomento relativo a [Hadoop Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
+Per altre informazioni, vedere l'argomento relativo a [Hadoop Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
 Per esempi di uso dello streaming di Hadoop con HDInsight, vedere i documenti seguenti:
 
@@ -163,7 +163,7 @@ HDInsight è in grado di eseguire processi HiveQL in vari modi. Usare la tabella
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Inviare il processo in remoto tramite **REST** |Linux o Windows |Linux, Unix, Mac OS X o Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Inviare il processo in remoto tramite **Windows PowerShell** |Linux o Windows | Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="nextsteps"></a>Passaggi successivi
@@ -174,9 +174,9 @@ Per altre informazioni su come usare i dati in HDInsight, vedere i documenti seg
 
 * [Sviluppare programmi MapReduce per la creazione di flussi Python per HDInsight](apache-hadoop-streaming-python.md)
 
-* [Usare Hive con HDInsight][hdinsight-use-hive]
+* [Usare Apache Hive con HDInsight][hdinsight-use-hive]
 
-* [Usare Pig con HDInsight][hdinsight-use-pig]
+* [Usare Apache Pig con HDInsight][hdinsight-use-pig]
 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md

@@ -1,24 +1,24 @@
 ---
-title: Indicizzazione nell'API MongoDB di Azure Cosmos DB
-description: Presenta una panoramica delle funzionalità di indicizzazione nell'API MongoDB di Azure Cosmos DB.
+title: Indicizzazione nell'API di Azure Cosmos DB per MongoDB
+description: Presenta una panoramica delle funzionalità di indicizzazione nell'API di Azure Cosmos DB per MongoDB.
 services: cosmos-db
-author: orestis-ms
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.author: orkostak
-ms.openlocfilehash: bdb2ceb45950b99b1a5a351c6301599a791ef8cc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: 4c6ba4b12625433f0b0218dc88decf2d7cb7ad77
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875298"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792283"
 ---
-# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indicizzazione in Azure Cosmos DB: API di MongoDB
+# <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indicizzazione con l'API di Azure Cosmos DB per MongoDB
 
-L'API MongoDB di Azure Cosmos DB sfrutta le funzionalità di gestione automatica degli indici di Azure Cosmos DB. Di conseguenza, gli utenti hanno accesso ai criteri di indicizzazione predefiniti di Azure Cosmos DB. Se l'utente non ha definito indici o non sono stati eliminati indici, tutti i campi verranno automaticamente indicizzati per impostazione predefinita quando vengono inseriti nella raccolta. Per la maggior parte degli scenari è consigliabile usare i criteri di indicizzazione predefiniti impostati per l'account.
+L'API di Azure Cosmos DB per MongoDB sfrutta le funzionalità di gestione automatica degli indici di Cosmos DB. Di conseguenza, gli utenti hanno accesso ai criteri di indicizzazione predefiniti di Cosmos DB. Se l'utente non ha definito indici o non sono stati eliminati indici, tutti i campi verranno automaticamente indicizzati per impostazione predefinita quando vengono inseriti in una raccolta. Per la maggior parte degli scenari è consigliabile usare i criteri di indicizzazione predefiniti impostati per l'account.
 
 ## <a name="dropping-the-default-indexes"></a>Eliminazione degli indici predefiniti
 
@@ -97,5 +97,5 @@ Il comando precedente causerà l'eliminazione di tutti i documenti della raccolt
 Attualmente, gli indici univoci possono essere creati solo quando la raccolta non contiene alcun documento. Gli strumenti di migrazione più diffusi di MongoDB provano a creare gli indici univoci dopo l'importazione dei dati. Per aggirare questo problema, è consigliabile creare manualmente le raccolte e gli indici univoci corrispondenti, invece di far eseguire l'operazione allo strumento di migrazione. Per ```mongorestore``` questo comportamento si ottiene usando il flag --noIndexRestore nella riga di comando.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Come vengono indicizzati i dati da Azure Cosmos DB?](../cosmos-db/index-policy.md)
-* [Impostare la scadenza automatica dei dati nelle raccolte di Azure Cosmos DB con la durata (TTL)](../cosmos-db/time-to-live.md)
+* [Indicizzazione in Azure Cosmos DB](../cosmos-db/index-policy.md)
+* [Impostare la scadenza automatica dei dati in Azure Cosmos DB con la durata (TTL)](../cosmos-db/time-to-live.md)

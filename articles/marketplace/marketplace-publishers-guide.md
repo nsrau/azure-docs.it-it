@@ -14,16 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0f4ff7c11952e6e222104b3953c547a91b4fc124
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223073"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753966"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guida alla pubblicazione per Azure Marketplace e AppSource
 
 La guida alla pubblicazione per Marketplace è stata progettata per aiutare i nuovi editori e quelli già operativi a comprendere come usare le vetrine di [Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource](https://appsource.microsoft.com) per rafforzare la crescita della propria azienda in partnership con Microsoft pubblicando inserzioni relative ad applicazioni e servizi.
+
+>[!Note]
+>Il termine Marketplace in questo contesto è riferito sia ad Azure Marketplace che ad AppSource.  Vedere [Un marketplace, due vetrine](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace) per altre informazioni.
 
 Questa guida include gli argomenti seguenti: 
 *   Che cos'è Marketplace e come funziona 
@@ -60,11 +63,11 @@ Eseguire l'upselling e il cross-selling delle soluzioni risolvendo i problemi de
 
 Le nuove inserzioni in Marketplace possono usufruire di un'ampia gamma di vantaggi gratuiti pensati per consentire ai partner di far crescere la propria azienda in Marketplace. Tali vantaggi sono classificabili nelle seguenti categorie: 
 
-*   Vantaggi tecnici: tutto il necessario per preparare il lancio dell'applicazione, dal supporto tecnico alla progettazione dell'applicazione, alla progettazione dell'architettura fino ai crediti di Azure per sviluppo e test. 
+*   Tecnica: tutto il necessario per preparare l'applicazione per il lancio, dal supporto tecnico alla progettazione dell'applicazione, alla progettazione dell'architettura fino ai crediti di Azure per sviluppo e test. 
 
 *   Co-marketing: tutto il necessario per lanciare l'offerta. È possibile accedere gratuitamente alle nozioni fondamentali di Microsoft Go-to-Market per lanciare e promuovere la propria soluzione. Si può anche risultare idonei a partecipare ad altre campagne di marketing Microsoft e godere dell'opportunità di apparire in primo piano in Marketplace.
 
-*   Co-selling: è possibile avviare o accelerare il passaggio alla fase di vendita in collaborazione con Microsoft tramite Marketplace. Sono disponibili programmi e iniziative di supporto per promuovere le vendite congiunte con Microsoft Teams.
+*   Co-selling: è possibile avviare o accelerare il passaggio alla fase di vendita in collaborazione con Microsoft tramite Marketplace. Accedere a programmi e supporto per promuovere le vendite congiunte con Microsoft Teams.
 
 Dopo che l'editore ha [inviato la propria soluzione](https://azuremarketplace.microsoft.com/sell/signup) a Marketplace, il team di onboarding contatterà l'editore per offrire il proprio supporto nell'esperienza di pubblicazione.
 

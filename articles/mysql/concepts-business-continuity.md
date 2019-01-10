@@ -1,20 +1,17 @@
 ---
 title: Panoramica della continuità aziendale con Database di Azure per MySQL
 description: Panoramica della continuità aziendale con Database di Azure per MySQL.
-services: mysql
-author: kamathsun
-ms.author: sukamat
-manager: kfile
-editor: jasonwhowell
+author: ajlam
+ms.author: andrela
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 127255514c434717be07886b1b1739027d3a14ea
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263573"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554538"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Panoramica della continuità aziendale con Database di Azure per MySQL
 
@@ -32,7 +29,7 @@ La tabella seguente mette a confronto i valori ERT e RPO per le funzionalità di
 | Ripristino geografico dai backup con replica geografica | Non supportate | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |
 
 > [!IMPORTANT]
-> Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Non è possibile ripristinare un server eliminato.
+> **Non è possibile** ripristinare i server eliminati. Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Ripristinare un server in seguito a errore di un'applicazione o di un utente
 
@@ -49,7 +46,7 @@ Una delle opzioni è attendere che il server torni online al termine dell'interr
 La seconda opzione consiste nell'usare la funzionalità di ripristino geografico di Database di Azure per MySQL che ripristina il server usando i backup con ridondanza geografica. Questi backup sono accessibili anche quando l'area in cui il server è ospitato è offline. È possibile eseguire il ripristino da questi backup a qualsiasi altra area e riportare il server online.
 
 > [!IMPORTANT]
-> Il ripristino geografico è possibile solo se è stato effettuato il provisioning del server con l'archivio di backup con ridondanza geografica.
+> Il ripristino geografico è possibile solo se è stato effettuato il provisioning del server con l'archivio di backup con ridondanza geografica. Per passare da backup con ridondanza locale a backup con ridondanza geografica per un server esistente, è necessario eseguire un dump del server esistente usando mysqldump e quindi ripristinarlo in un nuovo server configurato per i backup con ridondanza geografica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

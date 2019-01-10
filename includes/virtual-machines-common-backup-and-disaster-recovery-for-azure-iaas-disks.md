@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39486046"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53638817"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e ripristino di emergenza per dischi IaaS di Azure
 
@@ -152,7 +152,7 @@ Usare la procedura seguente per abilitare i backup delle VM tramite il [portale 
 
 1.  Configurare i criteri di backup e selezionare la VM dalla stessa interfaccia utente.
 
-1.  Assicurarsi che l'agente di Backup sia installato nella VM. Se la macchina virtuale è stata creata tramite un'immagine della raccolta di Azure, l'agente di backup è già installato. In caso contrario, ovvero se si usa un'immagine personalizzata, seguire le istruzioni per [installare l'agente di macchine virtuali nella macchina virtuale](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.  Assicurarsi che l'agente di Backup sia installato nella VM. Se la macchina virtuale è stata creata tramite un'immagine della raccolta di Azure, l'agente di backup è già installato. In caso contrario, ovvero se si usa un'immagine personalizzata, seguire le istruzioni per [installare l'agente di macchine virtuali nella macchina virtuale](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 1.  Assicurarsi che la VM consenta la connettività di rete per permettere il funzionamento del servizio Backup. Seguire le istruzioni per la [connettività di rete](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
@@ -172,7 +172,7 @@ Per altre informazioni, vedere le istruzioni per [usare il portale di Azure per 
 
 È anche possibile usare PowerShell per il [ripristino di una VM](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) o per la [creazione di una nuova VM dai dischi ripristinati](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="alternative-solution-consistent-snapshots"></a>Soluzione alternativa: snapshot coerenti
+## <a name="alternative-solution-consistent-snapshots"></a>Soluzioni alternativa: snapshot coerenti
 
 Se non si può usare Backup di Azure, è possibile implementare un meccanismo di backup personalizzato tramite gli snapshot. La creazione di snapshot coerenti per tutti i dischi usati da una VM e quindi la replica di tali snapshot in un'altra area è un processo complicato. Azure considera quindi l'uso del servizio Backup come un'opzione migliore rispetto alla creazione di una soluzione personalizzata. 
 

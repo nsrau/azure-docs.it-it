@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814afb8731f8e4da3d3cbc75ef69c3b5da487914
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f2cdeea546e7153c63cb1edfbc53f3644facc4f2
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877871"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743902"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Usare PowerShell per il backup e il ripristino di macchine virtuali
 
-Questo articolo illustra come usare i cmdlet di Azure PowerShell per eseguire il backup e il ripristino di una macchina virtuale di Azure da un insieme di credenziali di Servizi di ripristino. Un insieme di credenziali di Servizi di ripristino è una risorsa di Azure Resource Manager usata per proteggere dati e risorse nei servizi Backup di Azure e Azure Site Recovery. 
+Questo articolo illustra come usare i cmdlet di Azure PowerShell per eseguire il backup e il ripristino di una macchina virtuale di Azure da un insieme di credenziali di Servizi di ripristino. Un insieme di credenziali di Servizi di ripristino è una risorsa di Azure Resource Manager usata per proteggere dati e risorse nei servizi Backup di Azure e Azure Site Recovery.
 
 > [!NOTE]
 > Azure offre due modelli di distribuzione per creare e utilizzare le risorse, ovvero [Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo si riferisce alle VM create tramite il modello Resource Manager.
@@ -28,6 +28,7 @@ Questo articolo illustra come usare i cmdlet di Azure PowerShell per eseguire il
 In questo articolo viene illustrato come usare PowerShell per proteggere una macchina virtuale e ripristinare i dati da un punto di ripristino.
 
 ## <a name="concepts"></a>Concetti
+
 Se non si ha familiarità con il servizio Backup di Azure, vedere l'articolo [Informazioni su Backup di Azure](backup-introduction-to-azure-backup.md) per una panoramica del servizio. Prima di iniziare, assicurarsi di conoscere i prerequisiti necessari per Backup di Azure e le limitazioni dell'attuale soluzione di backup delle macchine virtuali.
 
 Per un utilizzo efficace di PowerShell, è necessario comprendere la gerarchia degli oggetti e da dove iniziare.
@@ -43,7 +44,7 @@ Per iniziare:
 1. [Scaricare la versione più recente di PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (la versione minima richiesta è: 1.4.0)
 
 2. Cercare i cmdlet PowerShell di Azure Backup disponibili digitando il comando seguente:
-   
+
     ```powershell
     Get-Command *azurermrecoveryservices*
     ```    
@@ -326,7 +327,7 @@ $rp[0]
 
 L'output è simile all'esempio seguente:
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -350,6 +351,7 @@ Per ripristinare i dischi e le informazioni di configurazione:
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
+
 #### <a name="restore-managed-disks"></a>Ripristinare i dischi gestiti
 
 > [!NOTE]
@@ -359,16 +361,15 @@ $restorejob
 
 Indicare un parametro aggiuntivo **TargetResourceGroupName** per specificare il gruppo di risorse in cui verranno ripristinati i dischi gestiti.
 
-
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
 ```
 
 Il file **VMConfig.JSON** verrà ripristinato nell'account di archiviazione e i dischi gestiti verranno ripristinati nel gruppo di risorse di destinazione specificato.
 
-
 L'output è simile all'esempio seguente:
-```
+
+```powershell
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -397,6 +398,27 @@ Dopo aver ripristinato i dischi, usare la procedura seguente per creare e config
 > Per creare macchine virtuali crittografate da dischi ripristinati, il ruolo di Azure deve disporre dell'autorizzazione per eseguire l'azione, ovvero **Microsoft.KeyVault/vaults/deploy/action**. Se il ruolo non dispone di questa autorizzazione, crearne uno personalizzato con questa azione. Per altre informazioni, vedere [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md).
 >
 >
+
+> [!NOTE]
+> Dopo aver ripristinato i dischi, è ora possibile ottenere un modello di distribuzione che può essere usato direttamente per creare una nuova macchina virtuale. Non vi sono più cmdlet di PowerShell differenti per creare macchine virtuali gestite o non gestite che sono crittografate o non crittografate.
+
+I dettagli del processo risultante includono l'URI del modello che può essere sottoposto a query e distribuito.
+
+```powershell
+   $properties = $details.properties
+   $templateBlobURI = $properties["Template Blob Uri"]
+```
+
+È sufficiente distribuire il modello per creare una nuova macchina virtuale, come spiegato [qui](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source).
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+```
+
+La sezione seguente elenca i passaggi necessari per creare una macchina virtuale usando il file "VMConfig".
+
+> [!NOTE]
+> È consigliabile usare il modello di distribuzione descritto in precedenza per creare una macchina virtuale. Questa sezione (punti 1-6) sarà presto deprecata.
 
 1. Ricercare i dettagli del processo nelle proprietà del disco ripristinato.
 
@@ -476,14 +498,14 @@ Dopo aver ripristinato i dischi, usare la procedura seguente per creare e config
    * **Macchine virtuali gestite e non crittografate**: per le macchine virtuali gestite e non crittografate, collegare i dischi gestiti ripristinati. Per informazioni dettagliate, vedere l'articolo [Collegare un disco dati a una macchina virtuale Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
    * **Macchine virtuali gestite e crittografate (solo BEK)**: per le macchine virtuali gestite e crittografate (solo con BEK) collegare i dischi gestiti ripristinati. Per informazioni dettagliate, vedere l'articolo [Collegare un disco dati a una macchina virtuale Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md).
-   
-      Usare il comando seguente per abilitare manualmente la crittografia per i dischi dati.
+
+     Usare il comando seguente per abilitare manualmente la crittografia per i dischi dati.
 
        ```powershell
        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
        ```
 
-   * **Macchine virtuali gestite e crittografate (BEK e KEK)**: per le macchine virtuali gestite e crittografate (con BEK e KEK) collegare i dischi gestiti ripristinati. Per informazioni dettagliate, vedere l'articolo [Collegare un disco dati a una macchina virtuale Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md). 
+   * **Macchine virtuali gestite e crittografate (BEK e KEK)**: per le macchine virtuali gestite e crittografate (con BEK e KEK) collegare i dischi gestiti ripristinati. Per informazioni dettagliate, vedere l'articolo [Collegare un disco dati a una macchina virtuale Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
       Usare il comando seguente per abilitare manualmente la crittografia per i dischi dati.
 
@@ -520,7 +542,6 @@ La procedura di base per il ripristino di un file dal backup di una macchina vir
 * Montare i dischi del punto di ripristino
 * Copiare i file necessari
 * Smontare il disco
-
 
 ### <a name="select-the-vm"></a>Selezionare la macchina virtuale
 
@@ -575,7 +596,7 @@ Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 L'output è simile all'esempio seguente:
 
-```
+```powershell
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe

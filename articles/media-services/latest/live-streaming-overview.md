@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/26/2018
 ms.author: juliako
-ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000249"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788209"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -34,7 +34,7 @@ Questo articolo offre una guida e una panoramica dettagliata, includendo i diagr
 
 Per offrire streaming live oppure on demand con Servizi multimediali, è necessario avere almeno uno [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Quando viene creato l'account di Servizi multimediali, viene aggiunto all'account uno StreamingEndpoint **predefinito** in stato **Stopped**. È necessario avviare l'entità StreamingEndpoint da cui si vuole trasmettere il contenuto agli utenti. È possibile usare il valore **StreamingEndpoint** predefinito, oppure creare un nuovo **StreamingEndpoint** personalizzato con la configurazione desiderata e le impostazioni della rete CDN. È possibile decidere di abilitare più StreamingEndpoint, ciascuno destinato a una rete CDN diversa e fornendo un nome host univoco per la distribuzione dei contenuti. 
 
-In Servizi multimediali, i [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento ed elaborazione dei feed video live. Quando si crea un LiveEvent, si genera un endpoint di input che è possibile usare per inviare un segnale in tempo reale da un codificatore remoto. Il codificatore live remoto invia il feed di contributi al suddetto endpoint di input usando il protocollo [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 frammentato).  
+In Servizi multimediali, i [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento ed elaborazione dei feed video live. Quando si crea un LiveEvent, si genera un endpoint di input che è possibile usare per inviare un segnale in tempo reale da un codificatore remoto. Il codificatore live remoto invia il feed di contributi al suddetto endpoint di input usando il protocollo [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 frammentato). Per il protocollo di inserimento Smooth Streaming, gli schemi URL supportati sono `http://` o `https://`. Per il protocollo di inserimento RTMP, gli schemi URL supportati sono `rtmp://` o `rtmps://`. Per altre informazioni, vedere [Recommended live streaming encoders](recommended-on-premises-live-encoders.md) (Codificatori di streaming live consigliati).
 
 Una volta che il **LiveEvent** inizia a ricevere il feed di contributi, è possibile usare l'endpoint di anteprima (URL di anteprima) per visualizzare in anteprima e convalidare la ricezione del flusso live prima di pubblicare nuovamente. Dopo avere verificato che il flusso di anteprima è ottimale, è possibile utilizzare il LiveEvent per rendere il flusso live disponibile per la pubblicazione tramite uno o più **StreamingEndpoint** creati in precedenza. A tale scopo, si crea un nuovo [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) nel **LiveEvent**. 
 
@@ -44,7 +44,7 @@ Con Servizi multimediali è possibile sfruttare la **Creazione dinamica dei pacc
 
 Servizi multimediali consente di distribuire contenuti crittografati dinamicamente (**Crittografia dinamica**) con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali fornisce inoltre un servizio per la distribuzione di chiavi AES e licenze Digital Rights Management ai client autorizzati. Per altre informazioni su come crittografare i contenuti con Servizi multimediali, consultare la [Panoramica sulla protezione dei contenuti](content-protection-overview.md)
 
-Se si vuole, è anche possibile applicare filtri dinamici, che possono essere usati per controllare il numero di tracce, i formati, i bitrate e gli intervalli di tempo di presentazione che vengono inviati ai lettori. 
+Se si vuole, è anche possibile applicare filtri dinamici, che possono essere usati per controllare il numero di tracce, i formati, i bitrate e gli intervalli di tempo di presentazione che vengono inviati ai lettori. Per altre informazioni, vedere [Filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
 
 ### <a name="new-capabilities-for-live-streaming-in-v3"></a>Nuove funzionalità per lo streaming live in v3
 
@@ -77,7 +77,7 @@ Vedere un esempio di live in [MediaV3LiveApp](https://github.com/Azure-Samples/m
 
 ![codifica live](./media/live-streaming/live-encoding.png)
 
-Quando si usa la codifica live con Servizi multimediali, è possibile configurare il codificatore live locale per l'invio di un video a bitrate singolo come feed di contributi al LiveEvent (tramite il protocollo RTMP o Mp4 frammentato). Il LiveEvent codifica tale flusso a bitrate singolo in ingresso in un [flusso video a più bitrate](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) e lo rende disponibile per la distribuzione e la riproduzione in dispositivi tramite protocolli come MPEG-DASH, HLS e Smooth Streaming. Quando si crea questo tipo di LiveEvent, specificare il tipo di codifica come **Basic** (LiveEventEncodingType.Basic).
+Quando si usa la codifica live con Servizi multimediali, è possibile configurare il codificatore live locale per l'invio di un video a bitrate singolo come feed di contributi al LiveEvent (tramite il protocollo RTMP o Mp4 frammentato). Il LiveEvent codifica tale flusso a bitrate singolo in ingresso in un [flusso video a più bitrate](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) e lo rende disponibile per la distribuzione e la riproduzione in dispositivi tramite protocolli come MPEG-DASH, HLS e Smooth Streaming. Quando si crea questo tipo di LiveEvent, specificare il tipo di codifica **Standard** (LiveEventEncodingType.Standard).
 
 È possibile inviare il feed di contributi a risoluzioni fino a 1080p e a una frequenza pari a 30 fotogrammi al secondo, con codec video H.264/AVC e codec audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Consultare l'articolo [Confronto e limitazioni dei tipi di LiveEvent](live-event-types-comparison.md) per ulteriori dettagli.
 

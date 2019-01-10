@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 4584104e9c9833b5f3f586581dd5a58f420fe0bd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165340"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790895"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Correlazione e analisi distribuita tramite la messaggistica del bus di servizio
 
@@ -45,9 +45,9 @@ La strumentazione consente di verificare tutte le chiamate al servizio di messag
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) offre funzionalità avanzate di monitoraggio delle prestazioni, tra cui la verifica automatica delle richieste e delle dipendenze.
 
 A seconda del tipo di progetto, installare Application Insights SDK:
-- [ASP.NET](../application-insights/app-insights-asp-net.md): installare la versione 2.5-beta2 o una versione successiva
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md): installare la versione 2.2.0-beta2 o una versione successiva.
-Questi collegamenti forniscono informazioni dettagliate su come installare l'SDK, creare risorse e, se necessario, configurare l'SDK. Per le applicazioni non ASP.NET, vedere l'articolo [Azure Application Insights for Console Applications](../application-insights/application-insights-console.md) (Azure Application Insights per applicazioni console).
+- [ASP.NET](../azure-monitor/app/asp-net.md): installare la versione 2.5-beta2 o una versione successiva
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md): installare la versione 2.2.0-beta2 o una versione successiva.
+Questi collegamenti forniscono informazioni dettagliate su come installare l'SDK, creare risorse e, se necessario, configurare l'SDK. Per le applicazioni non ASP.NET, vedere l'articolo [Azure Application Insights for Console Applications](../azure-monitor/app/console.md) (Azure Application Insights per applicazioni console).
 
 Se per elaborare i messaggi si usa il [criterio con gestore di messaggi](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), non ci sono altre operazioni da eseguire: tutte le chiamate al bus di servizio eseguite dal servizio vengono automaticamente verificate e correlate con altri elementi di telemetria. In caso contrario vedere l'esempio seguente per la verifica manuale delle operazioni di elaborazione dei messaggi.
 
@@ -83,7 +83,7 @@ async Task ProcessAsync(Message message)
 In questo esempio, per ogni messaggio elaborato viene restituito `RequestTelemetry`, che include un timestamp, la durata e il risultato (esito positivo). La telemetria include anche un set di proprietà di correlazione.
 Alle eccezioni e alle analisi nidificate restituite durante l'elaborazione dei messaggi vengono inoltre assegnate proprietà di correlazione in modo che vengano rappresentate come elementi figlio di `RequestTelemetry`.
 
-Nel caso in cui durante l'elaborazione dei messaggi si eseguano chiamate a componenti esterni supportati, anche questi verranno verificati e correlati automaticamente. Per informazioni sulla verifica e la correlazione manuale, vedere [Verifica delle operazioni personalizzate con Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md).
+Nel caso in cui durante l'elaborazione dei messaggi si eseguano chiamate a componenti esterni supportati, anche questi verranno verificati e correlati automaticamente. Per informazioni sulla verifica e la correlazione manuale, vedere [Verifica delle operazioni personalizzate con Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md).
 
 ### <a name="tracking-without-tracing-system"></a>Verifica senza sistema di analisi
 Nel caso in cui il sistema di analisi non supporti la verifica automatica delle chiamate al bus di servizio, è possibile provare ad aggiungere questo supporto in un sistema di analisi o nell'applicazione. Questa sezione illustra gli eventi di diagnostica inviati dal client .NET del bus di servizio.  
@@ -227,6 +227,6 @@ In presenza di più listener `DiagnosticSource` per la stessa origine, basta che
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Correlazione di dati di telemetria in Application Insights](../application-insights/application-insights-correlation.md)
-* [Impostare Application Insights: tenere traccia delle dipendenze](../application-insights/app-insights-asp-net-dependencies.md) per verificare se REST, SQL o altre risorse esterne causano rallentamenti.
-* [Verifica delle operazioni personalizzate con Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md)
+* [Correlazione di dati di telemetria in Application Insights](../azure-monitor/app/correlation.md)
+* [Impostare Application Insights: tenere traccia delle dipendenze](../azure-monitor/app/asp-net-dependencies.md) per verificare se REST, SQL o altre risorse esterne causano rallentamenti.
+* [Verifica delle operazioni personalizzate con Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md)

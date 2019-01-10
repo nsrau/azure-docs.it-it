@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583214"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652082"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Panoramica di Apache Spark Streaming
 
@@ -203,7 +203,7 @@ Le funzioni di finestra temporale scorrevole disponibili nell'API di Spark Strea
 
 ## <a name="checkpointing"></a>Checkpoint
 
-Per offrire resilienza e tolleranza di errore, Spark Streaming usa checkpoint per garantire che l'elaborazione di flussi possa continuare senza interruzioni, anche in caso di errori dei nodi. In HDInsight Spark crea checkpoint in un archivio durevole (Archiviazione di Azure o Data Lake Store). Questi checkpoint archiviano i metadati sull'applicazione di streaming, ad esempio la configurazione, le operazioni definite dall'applicazione e qualsiasi batch accodato ma non ancora elaborato. In alcuni casi, i checkpoint includono anche il salvataggio dei dati negli RDD per ricostruire più rapidamente lo stato dei dati rispetto a quelli presenti negli RDD gestiti da Spark.
+Per offrire resilienza e tolleranza di errore, Spark Streaming usa checkpoint per garantire che l'elaborazione di flussi possa continuare senza interruzioni, anche in caso di errori dei nodi. In HDInsight Spark crea checkpoint in un archivio durevole (Archiviazione di Azure o Data Lake Storage). Questi checkpoint archiviano i metadati sull'applicazione di streaming, ad esempio la configurazione, le operazioni definite dall'applicazione e qualsiasi batch accodato ma non ancora elaborato. In alcuni casi, i checkpoint includono anche il salvataggio dei dati negli RDD per ricostruire più rapidamente lo stato dei dati rispetto a quelli presenti negli RDD gestiti da Spark.
 
 ## <a name="deploying-spark-streaming-applications"></a>Distribuzione di applicazioni Spark Streaming
 

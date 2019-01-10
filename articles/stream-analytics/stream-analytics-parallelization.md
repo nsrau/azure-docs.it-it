@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091044"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000547"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure
 Questo articolo illustra come sfruttare i vantaggi della parallelizzazione in Analisi di flusso di Azure. Si apprenderà come ridimensionare i processi di Analisi di flusso configurando partizioni di input e ottimizzando la definizione di query.
@@ -45,8 +45,9 @@ Quando si usa Analisi di flusso di Azure, è possibile sfruttare il partizioname
 -   Hub eventi (è necessario impostare la chiave di partizione in modo esplicito)
 -   Hub IoT (è necessario impostare la chiave di partizione in modo esplicito)
 -   Bus di servizio
+- Per altre informazioni su SQL e SQL Data Warehouse con il partizionamento facoltativo, vedere la [pagina dell'output in Database SQL di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
-Gli output di PowerBI, SQL e SQL Data Warehouse non supportano il partizionamento. È tuttavia possibile suddividere gli input in partizioni come descritto in [questa sezione](#multi-step-query-with-different-partition-by-values) 
+Power BI non supporta il partizionamento. È tuttavia possibile suddividere gli input in partizioni come descritto in [questa sezione](#multi-step-query-with-different-partition-by-values) 
 
 Per altre informazioni sulle partizioni, vedere gli articoli seguenti:
 
@@ -115,7 +116,7 @@ In questo caso, la query non è rilevante. Se il numero delle partizioni di inpu
 
 ### <a name="query-using-non-partitioned-output"></a>Query con output non partizionati
 * Input: hub eventi con 8 partizioni
-* Output: PowerBI
+* Output: Power BI
 
 L'output Power BI attualmente non supporta il partizionamento. Pertanto, questo scenario non è perfettamente parallelo.
 

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 8b14550adf89f866cf3b736db049cc671db5b765
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 04a923a8bc022aefb667489702c0e74493df94a8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314508"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652762"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Caricamento bulk di dati in Apache Phoenix tramite psql
 
-[Apache Phoenix](http://phoenix.apache.org/) è un database relazionale open source altamente parallelo basato su [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix fornisce query simili a SQL tramite HBase. Phoenix usa i driver JDBC per consentire agli utenti di creare, eliminare e modificare tabelle, indici, viste e sequenze, nonché righe upsert SQL singolarmente e in blocco. Phoenix usa la compilazione nativa noSQL anziché MapReduce per compilare query e crea applicazioni a bassa latenza basate su HBase. Phoenix aggiunge coprocessori per supportare l'esecuzione del codice fornito dal client nello spazio degli indirizzi del server, eseguendo il codice che si trova nello stesso percorso dei dati. In questo modo viene ridotto al minimo il trasferimento di dati client/server.  Per usare i dati tramite Phoenix in HDInsight, creare innanzitutto le tabelle e quindi caricarci i dati.
+[Apache Phoenix](https://phoenix.apache.org/) è un database relazionale open source altamente parallelo basato su [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix fornisce query simili a SQL tramite HBase. Phoenix usa i driver JDBC per consentire agli utenti di creare, eliminare e modificare tabelle, indici, viste e sequenze, nonché righe upsert SQL singolarmente e in blocco. Phoenix usa la compilazione nativa noSQL anziché MapReduce per compilare query e crea applicazioni a bassa latenza basate su HBase. Phoenix aggiunge coprocessori per supportare l'esecuzione del codice fornito dal client nello spazio degli indirizzi del server, eseguendo il codice che si trova nello stesso percorso dei dati. In questo modo viene ridotto al minimo il trasferimento di dati client/server.  Per usare i dati tramite Phoenix in HDInsight, creare innanzitutto le tabelle e quindi caricarci i dati.
 
 ## <a name="bulk-loading-with-apache-phoenix"></a>Caricamento bulk di dati con Apache Phoenix
 
@@ -73,7 +73,7 @@ Prima di avviare il caricamento dei dati, verificare che Phoenix sia abilitato e
     python psql.py ZookeeperQuorum createCustomersTable.sql /tmp/customers.csv listCustomers.sql
     ```
 
-    > [!NOTE] 
+    > [!NOTE]   
     > Per determinare il nome `ZookeeperQuorum`, individuare la stringa del quorum [Apache ZooKeeper](https://zookeeper.apache.org/) nel file `/etc/hbase/conf/hbase-site.xml` con il nome di proprietà `hbase.zookeeper.quorum`.
 
 5. Al termine dell'operazione `psql`, verrà visualizzato un messaggio nella finestra di comando:
@@ -141,7 +141,7 @@ Per un caricamento con velocità effettiva più elevata distribuito nel cluster,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Bulk Data Loading with Apache Phoenix](http://phoenix.apache.org/bulk_dataload.html) (Caricamento bulk di dati con Apache Phoenix)
+* [Bulk Data Loading with Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html) (Caricamento bulk di dati con Apache Phoenix)
 * [Usare Apache Phoenix con cluster Apache HBase basati su Linux in HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
 * [Salted Tables](https://phoenix.apache.org/salted.html) (Tabelle con valori salt)
-* [Phoenix Grammar](http://phoenix.apache.org/language/index.html) (Grammatica di Phoenix)
+* [Apache Phoenix Grammar](https://phoenix.apache.org/language/index.html) (Grammatica di Apache Phoenix)

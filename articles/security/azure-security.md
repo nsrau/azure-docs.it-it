@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a00f3d2ea4e191bb7860b88d39ff0ccaa338e0ff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567163"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714237"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza in Azure
 ## <a name="overview"></a>Panoramica
@@ -69,7 +69,7 @@ Di seguito sono elencate le funzionalità che è possibile esaminare per assicur
 ### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>Funzionalità di sicurezza offerte da Azure per proteggere i dati e l'applicazione
 A seconda del modello di servizio cloud, la responsabilità per le persone incaricate della gestione della sicurezza per l'applicazione o il servizio può variare. Nella piattaforma Azure sono disponibili funzionalità che consentono di adempiere a tali responsabilità con caratteristiche predefinite e tramite soluzioni di partner che possono essere distribuite in una sottoscrizione di Azure.
 
-Le funzionalità predefinite sono organizzate in sei (6) aree funzionali: operazioni, applicazioni, archiviazione, rete, calcolo e identità. Di seguito sono riportate informazioni di riepilogo che offrono altri dettagli sulle funzionalità e sulle caratteristiche disponibili nella piattaforma Azure in queste sei (6) aree.
+Le funzionalità incorporate sono organizzate in sei (6) aree funzionali: Operazioni, Applicazioni, Archiviazione, Rete, Calcolo e Identità. Di seguito sono riportate informazioni di riepilogo che offrono altri dettagli sulle funzionalità e sulle caratteristiche disponibili nella piattaforma Azure in queste sei (6) aree.
 
 ## <a name="operations"></a>Operazioni
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per le operazioni di sicurezza e informazioni di riepilogo su tali funzionalità.
@@ -110,7 +110,7 @@ Il Centro sicurezza di Azure facilita anche le operazioni di sicurezza offrendo 
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per la sicurezza delle applicazioni e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="web-application-vulnerability-scanning"></a>Analisi delle vulnerabilità delle applicazioni Web
-Uno dei modi più semplici per iniziare a testare le vulnerabilità di un'[app del servizio app](https://docs.microsoft.com/azure/app-service/app-service-web-overview) consiste nell'usare l'[integrazione con Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) per eseguire sull'app un'analisi delle vulnerabilità con un solo clic. È possibile visualizzare i risultati del test in un report di facile comprensione e imparare a risolvere ogni vulnerabilità con istruzioni dettagliate.
+Uno dei modi più semplici per iniziare a testare le vulnerabilità di un'[app del servizio app](https://docs.microsoft.com/azure/app-service/overview) consiste nell'usare l'[integrazione con Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) per eseguire sull'app un'analisi delle vulnerabilità con un solo clic. È possibile visualizzare i risultati del test in un report di facile comprensione e imparare a risolvere ogni vulnerabilità con istruzioni dettagliate.
 
 ### <a name="penetration-testing"></a>Test di penetrazione
 Se si preferisce eseguire i propri test di penetrazione o usare un altro gruppo o fornitore di strumenti di scansione, è necessario seguire il [processo di approvazione dei test di penetrazione di Azure](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) e ottenere l'approvazione preventiva per eseguire i test di penetrazione desiderati.
@@ -119,13 +119,13 @@ Se si preferisce eseguire i propri test di penetrazione o usare un altro gruppo 
 Il Web application firewall (WAF) del [gateway applicazione di Azure](https://azure.microsoft.com/services/application-gateway/) consente di proteggere le applicazioni Web da attacchi basati sul Web comuni come SQL injection, cross-site scripting e hijack della sessione. Include la protezione preconfigurata dalle minacce identificate da [Open Web Application Security Project (OWASP) come le 10 principali vulnerabilità comuni](https://msdn.microsoft.com/library/).
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione nel servizio app di Azure
-La funzionalità di [autenticazione/autorizzazione del servizio app](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) consente all'applicazione di eseguire la procedura di accesso degli utenti in modo che non sia necessario modificare il codice nel back-end dell'app. Fornisce un modo semplice per proteggere l'applicazione e utilizzare dati per-utente.
+La funzionalità di [autenticazione/autorizzazione del servizio app](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) consente all'applicazione di eseguire la procedura di accesso degli utenti in modo che non sia necessario modificare il codice nel back-end dell'app. Fornisce un modo semplice per proteggere l'applicazione e utilizzare dati per-utente.
 
 ### <a name="layered-security-architecture"></a>Architettura di sicurezza su più livelli
 Dato che gli [ambienti del servizio app](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro) forniscono un ambiente di runtime isolato distribuito in una [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), gli sviluppatori possono creare un'architettura di sicurezza su più livelli offrendo livelli diversi di accesso alla rete per ogni livello applicazione. Un'esigenza comune è quella di nascondere i back-end delle API all'accesso a Internet generale e consentire alle API di essere chiamate solo dalle app Web upstream. I [gruppi di sicurezza di rete (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) possono essere usati nelle subnet delle reti virtuali di Azure contenenti ambienti del servizio app per limitare l'accesso pubblico alle applicazioni API.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>Diagnostica del server Web e diagnostica applicazioni
-App Web del servizio app offre funzionalità diagnostiche per la registrazione di informazioni sia dal server Web sia dall'applicazione Web, logicamente separate in [diagnostica server Web](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) e [diagnostica applicazioni](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Il server Web include due importanti progressi per la diagnosi e la risoluzione dei problemi di siti e applicazioni.
+App Web del servizio app offre funzionalità diagnostiche per la registrazione di informazioni sia dal server Web sia dall'applicazione Web, logicamente separate in [diagnostica server Web](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) e [diagnostica applicazioni](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Il server Web include due importanti progressi per la diagnosi e la risoluzione dei problemi di siti e applicazioni.
 
 La prima nuova funzionalità è rappresentata dalle informazioni sullo stato in tempo reale per pool di applicazioni, processi di lavoro, siti, domini applicazione e richieste in esecuzione. Il secondo nuovo vantaggio risiede negli eventi di traccia dettagliati che tengono traccia di una richiesta nell'intero processo di richiesta e risposta.
 
@@ -141,7 +141,7 @@ Per abilitare la raccolta di tali eventi di traccia, è possibile configurare II
 -   Registrazione del server Web: informazioni sulle transazioni HTTP che usano il formato di file di log esteso W3C. Questo è utile nel determinare le metriche generali del sito, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP
 
 #### <a name="application-diagnostics"></a>Diagnostica applicazioni
-[Diagnostica applicazioni](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) consente di acquisire le informazioni generate da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) per registrare le informazioni nel log di diagnostica applicazioni. In Diagnostica applicazioni esistono due tipi principali di eventi: quelli relativi alle prestazioni delle applicazioni e quelli relativi a operazioni non riuscite ed errori. Le operazioni non riuscite e gli errori possono essere ulteriormente suddivisi in problemi di connettività, di sicurezza e di errore. Questi ultimi sono in genere correlati a un problema con il codice dell'applicazione.
+[Diagnostica applicazioni](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) consente di acquisire le informazioni generate da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) per registrare le informazioni nel log di diagnostica applicazioni. In Diagnostica applicazioni esistono due tipi principali di eventi: quelli relativi alle prestazioni delle applicazioni e quelli relativi a operazioni non riuscite ed errori. Le operazioni non riuscite e gli errori possono essere ulteriormente suddivisi in problemi di connettività, di sicurezza e di errore. Questi ultimi sono in genere correlati a un problema con il codice dell'applicazione.
 
 In Diagnostica applicazioni è possibile visualizzare gli eventi raggruppandoli nei modi seguenti:
 
@@ -289,9 +289,9 @@ Gestione traffico offre diversi metodi di routing del traffico per soddisfare le
 Il sistema [DNS (Domain Name System)](https://technet.microsoft.com/library/bb629410.aspx) è responsabile della conversione (o risoluzione) del nome di un servizio o sito Web nel relativo indirizzo IP. [DNS di Azure](https://docs.microsoft.com/azure/dns/dns-overview) è un servizio di hosting per domini DNS che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. Ospitando i domini in Azure, è possibile gestire i record DNS usando le stesse credenziali, API, strumenti e fatturazione come per gli altri servizi Azure. Il sistema DNS supporta l'aspetto della disponibilità della triade di sicurezza "riservatezza, integrità e disponibilità".
 ### <a name="log-analytics-nsgs"></a>Gruppi di sicurezza di rete in Log Analytics
 È possibile abilitare le seguenti categorie di log di diagnostica per i gruppi di sicurezza di rete:
--   Evento: contiene voci relative alle regole dei gruppi di sicurezza di rete applicate alle VM e ai ruoli delle istanze in base all'indirizzo MAC. Lo stato di queste regole viene raccolto ogni 60 secondi.
+-   Evento: contiene voci per cui le regole dei gruppi di sicurezza di rete sono applicate alle macchine virtuali e ai ruoli delle istanze in base all'indirizzo MAC. Lo stato di queste regole viene raccolto ogni 60 secondi.
 
--   Contatore di regole: contiene voci che indicano quante volte ogni regola dei gruppi di sicurezza di rete viene applicata per rifiutare o consentire il traffico.
+-   Contatore regole: contiene voci per sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico.
 
 ### <a name="azure-security-center"></a>Centro sicurezza di Azure
 Il Centro sicurezza consente di prevenire, rilevare e rispondere alle minacce e offre un livello di visibilità e controllo più elevato della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri nelle sottoscrizioni di Azure, consente di rilevare minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza. Le raccomandazioni sulla rete sono incentrate su firewall, gruppi di sicurezza di rete, configurazione delle regole per il traffico in ingresso e altro ancora.

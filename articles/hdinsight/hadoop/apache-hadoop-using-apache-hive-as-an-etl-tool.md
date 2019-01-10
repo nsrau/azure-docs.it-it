@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f8fb036eaca35e41d89b0a9610ebcd68e65f40f9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632544"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630259"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Usare Apache Hive come strumento per estrazione, trasformazione e caricamento (ETL, Extract, Transform, and Load)
 
-In genere è necessario pulire e trasformare i dati in ingresso prima di caricarli in una destinazione adatta all'analisi. Le operazioni di estrazione, trasformazione e caricamento consentono di preparare i dati e caricarli in una destinazione dati.  Apache Hive in HDInsight è in grado di leggere i dati non strutturati, elaborare i dati in base alle esigenze e quindi caricarli in un data warehouse relazionale per sistemi di supporto decisionale. In questo approccio i dati vengono estratti dall'origine e archiviati in un servizio di archiviazione scalabile, ad esempio nei BLOB del servizio di archiviazione di Azure o in Azure Data Lake Store. I dati vengono quindi trasformati mediante una sequenza di query Hive e infine vengono gestiti all'interno di Hive in preparazione al caricamento bulk nell'archivio dati di destinazione.
+In genere è necessario pulire e trasformare i dati in ingresso prima di caricarli in una destinazione adatta all'analisi. Le operazioni di estrazione, trasformazione e caricamento consentono di preparare i dati e caricarli in una destinazione dati.  Apache Hive in HDInsight è in grado di leggere i dati non strutturati, elaborare i dati in base alle esigenze e quindi caricarli in un data warehouse relazionale per sistemi di supporto decisionale. In questo approccio i dati vengono estratti dall'origine e archiviati in un servizio di archiviazione scalabile, ad esempio nei BLOB del servizio di archiviazione di Azure o in Azure Data Lake Storage. I dati vengono quindi trasformati mediante una sequenza di query Hive e infine vengono gestiti all'interno di Hive in preparazione al caricamento bulk nell'archivio dati di destinazione.
 
 ## <a name="use-case-and-model-overview"></a>Panoramica del caso d'uso e del modello
 
@@ -30,7 +30,7 @@ Hadoop in genere viene usato nei processi ETL in cui viene importato un numero c
 
 Di seguito sono indicati i passaggi tipici per l'uso di Hive per eseguire operazioni ETL:
 
-1. Caricare dati in Azure Data Lake Store o nell'archivio BLOB di Azure.
+1. Caricare dati in Azure Data Lake Storage o nell'archivio BLOB di Azure.
 2. Creare un database dell'archivio di metadati tramite il database di SQL Azure per la memorizzazione degli schemi da parte di Hive.
 3. Creare un cluster HDInsight e connettere l'archivio dati.
 4. Definire lo schema da applicare in fase di lettura dei dati nell'archivio dati:
@@ -51,7 +51,7 @@ Di seguito sono indicati i passaggi tipici per l'uso di Hive per eseguire operaz
 
 5. Trasformare i dati e caricarli nella destinazione.  È possibile usare Hive in diversi modi durante la trasformazione e il caricamento:
 
-    * Eseguire query e preparare i dati usando Hive e salvarli come file CSV in Azure Data Lake Store o nell'archivio BLOB di Azure.  Usare quindi uno strumento come SQL Server Integration Services (SSIS) per acquisire i file CSV e caricare i dati in un database relazionale di destinazione, ad esempio SQL Server.
+    * Eseguire query e preparare i dati usando Hive e salvarli come file CSV in Azure Data Lake Storage o nell'archivio BLOB di Azure.  Usare quindi uno strumento come SQL Server Integration Services (SSIS) per acquisire i file CSV e caricare i dati in un database relazionale di destinazione, ad esempio SQL Server.
     * Eseguire query sui dati direttamente da Excel o C# tramite il driver ODBC di Hive.
     * Usare [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) per leggere i file CSV flat preparati e caricarli nel database relazionale di destinazione.
 

@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: c20b1d5f3a84e950e37a3236272256db620a5985
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 838a33fd390b28fec609c42487dca225ddc6eaa8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831101"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628205"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Connettere il dispositivo Raspberry Pi all'acceleratore di soluzioni di monitoraggio remoto (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Questa esercitazione mostra come connettere un dispositivo fisico all'acceleratore di soluzioni di monitoraggio remoto. Come per la maggior parte delle applicazioni incorporate in esecuzione su dispositivi vincolati, il codice client per l'applicazione del dispositivo Raspberry Pi è scritto in C. In questa esercitazione si compilerà l'applicazione in un dispositivo Raspberry Pi che esegue il sistema operativo Raspbian.
+Questa esercitazione mostra come connettere un dispositivo reale all'acceleratore di soluzioni di monitoraggio remoto. Come per la maggior parte delle applicazioni incorporate in esecuzione su dispositivi vincolati, il codice client per l'applicazione del dispositivo Raspberry Pi è scritto in C. In questa esercitazione si compilerà l'applicazione in un dispositivo Raspberry Pi che esegue il sistema operativo Raspbian.
+
+Se si preferisce simulare un dispositivo, vedere [Creare e testare un nuovo dispositivo simulato](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ### <a name="required-hardware"></a>Requisiti hardware
 
@@ -36,7 +38,7 @@ Un computer desktop per potersi connettere in remoto alla riga di comando in Ras
 
 È necessario un client SSH nel computer desktop per poter accedere in remoto alla riga di comando in Raspberry Pi.
 
-- Windows non include un client SSH. È consigliabile usare [PuTTY](http://www.putty.org/).
+- Windows non include un client SSH. È consigliabile usare [PuTTY](https://www.putty.org/).
 - La maggior parte delle distribuzioni Linux e Mac OS includono l'utilità SSH della riga di comando. Per altre informazioni, vedere [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md) (SSH con Linux o Mac OS).
 
 ### <a name="required-raspberry-pi-software"></a>Software Raspberry Pi necessario
