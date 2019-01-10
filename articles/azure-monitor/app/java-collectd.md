@@ -12,24 +12,24 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: a57422b4bbac4b929a67495bfffeec7bf0476e9c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c8320a0f504927830c47400f1f1ef0369c0e1cad
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000224"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116535"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Metriche delle prestazioni Linux in Application Insights
 
 
-Per esplorare le metriche delle prestazioni del sistema Linux in [Application Insights](../../application-insights/app-insights-overview.md), installare [collectd](https://collectd.org/) insieme al rispettivo plug-in di Application Insights. Questa soluzione open source raccoglie diverse che relative al sistema e alla rete.
+Per esplorare le metriche delle prestazioni del sistema Linux in [Application Insights](../../azure-monitor/app/app-insights-overview.md), installare [collectd](https://collectd.org/) insieme al rispettivo plug-in di Application Insights. Questa soluzione open source raccoglie diverse che relative al sistema e alla rete.
 
 In genere, si usa collectd se è già stato [instrumentato il servizio Web Java con Application Insights][java]. Fornisce una maggiore quantità di dati che consentono di migliorare le prestazioni dell'app o diagnosticare i problemi. 
 
 ![Grafici di esempio](./media/java-collectd/sample.png)
 
 ## <a name="get-your-instrumentation-key"></a>Ottenere la chiave di strumentazione
-Nel [Portale di Microsoft Azure](https://portal.azure.com) aprire la risorsa [Application Insights](../../application-insights/app-insights-overview.md) in cui devono essere visualizzati i dati. In alternativa, [creare una nuova risorsa](../../application-insights/app-insights-create-new-resource.md).
+Nel [Portale di Microsoft Azure](https://portal.azure.com) aprire la risorsa [Application Insights](../../azure-monitor/app/app-insights-overview.md) in cui devono essere visualizzati i dati. In alternativa, [creare una nuova risorsa](../../azure-monitor/app/create-new-resource.md ).
 
 Copiare la chiave di strumentazione, che identifica la risorsa.
 

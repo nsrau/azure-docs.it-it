@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d4a51551fb0f9067929df1fdf074e7286938004b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187368"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187706"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurare il metodo di routing multivalore in Gestione traffico
 
@@ -47,9 +47,9 @@ Creare un profilo di Gestione traffico che indirizza il traffico degli utenti ve
     | Sottoscrizione            | Selezionare la propria sottoscrizione.                          |
     | Gruppo di risorse          | Selezionare *myResourceGroupTM1*. |
     | Località                | Questa impostazione indica la località del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che sarà distribuito a livello globale.                              |
-    
+   |        |           | 
   
-    ![Creare un profilo di Gestione traffico](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+  ![Creare un profilo di Gestione traffico](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Aggiungere endpoint di Gestione traffico
 
@@ -69,7 +69,7 @@ Aggiungere due indirizzi IP come endpoint esterni al profilo multivalore di Gest
 4. Ripetere i passaggi 2 e 3 per aggiungere un altro endpoint denominato *myEndpoint2*, per il **nome di dominio completo (FQDN) o IP** immettere l'indirizzo IP pubblico del secondo endpoint.
 5.  Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati in **Profilo di Gestione traffico** insieme al relativo stato di monitoraggio **Online**.
 
-    ![Aggiungere un endpoint di Gestione traffico](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
+   ![Aggiungere un endpoint di Gestione traffico](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
 ## <a name="next-steps"></a>Passaggi successivi
 

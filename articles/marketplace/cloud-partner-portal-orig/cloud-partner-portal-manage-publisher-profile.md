@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8459866aa192f2364ae52d0d5d68eace693e127e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c73c846db4b22d8c19ccdaa2ec99a3fe7fdadf78
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832684"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076706"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Gestire il profilo di pubblicazione di "Azure Marketplace" e "AppSource"
 
@@ -51,6 +51,6 @@ Innanzitutto accedere al portale con lo stesso indirizzo di posta elettronica us
 >[!NOTE]
 >La registrazione dell'account Dev Center è obbligatoria per la pubblicazione di SKU a pagamento sul marketplace.
 
-Se non si ha un [account Developer Center](~/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md), è possibile crearne uno. Aggiungere quindi l'indirizzo di posta elettronica registrato come proprietario nel portale Cloud Partner per l'offerta. Un proprietario può solo aggiungere l'indirizzo di posta elettronica registrato al profilo di pubblicazione dalla sezione **Utente**. Quindi, accedere al portale usando lo stesso indirizzo di posta elettronica e collegare l'account Dev Center.
+Se non si ha un [account Developer Center](./cloud-partner-portal-dev-center-accounts-registration.md), è possibile crearne uno. Aggiungere quindi l'indirizzo di posta elettronica registrato come proprietario nel portale Cloud Partner per l'offerta. Un proprietario può solo aggiungere l'indirizzo di posta elettronica registrato al profilo di pubblicazione dalla sezione **Utente**. Quindi, accedere al portale usando lo stesso indirizzo di posta elettronica e collegare l'account Dev Center.
 
 ![Dettagli Profilo di pubblicazione - descrizione profilo di pubblicazione](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledescription.png)

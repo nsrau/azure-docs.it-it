@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002213"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102976"
 ---
 # <a name="what-is-distributed-tracing"></a>Che cos'è la traccia distribuita?
 
-L'avvento di architetture di [microservizi](http://azure.com/microservices) e cloud moderne ha contribuito alla nascita di semplici servizi distribuibili in modo indipendente che consentono di ridurre i costi aumentando la disponibilità e la velocità effettiva. Ma sebbene questi cambiamenti abbiano semplificato la comprensione dei singoli servizi, hanno reso più complessi la comprensione e il debug dei sistemi globali.
+L'avvento di architetture di [microservizi](https://azure.com/microservices) e cloud moderne ha contribuito alla nascita di semplici servizi distribuibili in modo indipendente che consentono di ridurre i costi aumentando la disponibilità e la velocità effettiva. Ma sebbene questi cambiamenti abbiano semplificato la comprensione dei singoli servizi, hanno reso più complessi la comprensione e il debug dei sistemi globali.
 
 Nelle architetture monolitiche si esegue in genere il debug con gli stack di chiamate. Gli stack di chiamate sono strumenti molto utili per la visualizzazione del flusso di esecuzione (il metodo A ha chiamato il metodo B che ha chiamato il metodo C), insieme a informazioni dettagliate e parametri per ognuna delle chiamate. Si tratta di uno strumento ideale per le architetture monolitiche o i servizi in esecuzione in un singolo processo, ma come eseguire il debug quando la chiamata passa attraverso un limite di processo e non è semplicemente un riferimento nello stack locale? 
 
@@ -59,4 +59,4 @@ Il sito Web OpenCensus include la documentazione di riferimento delle API per [P
 
 * [Guida all'utilizzo di Python con OpenCensus](https://opencensus.io/api/python/trace/usage.html)
 * [Mappa delle applicazioni](./../../azure-monitor/app/app-map.md)
-* [Monitoraggio delle prestazioni end-to-end](./../../application-insights/app-insights-tutorial-performance.md)
+* [Monitoraggio delle prestazioni end-to-end](./../../azure-monitor/learn/tutorial-performance.md)

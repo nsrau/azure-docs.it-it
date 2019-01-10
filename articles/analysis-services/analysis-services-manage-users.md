@@ -5,17 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6280544a42d0d5012b01446ec8c3bc386ef861dd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7673b115a3ad2e6ca7aec34b1cfabfb38d2a16f4
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428420"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191361"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticazione e autorizzazioni utente
+
 Azure Analysis Services usa Azure Active Directory (Azure AD) per la gestione delle identità e l'autenticazione degli utenti. Qualsiasi utente che crea, gestisce o si connette a un server Azure Analysis Services deve disporre di un'identità utente valida in un [tenant di Azure AD](../active-directory/fundamentals/active-directory-administer.md) nella stessa sottoscrizione.
 
 Azure Analysis Services supporta la [collaborazione B2B di Azure AD](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Con B2B, gli utenti esterni all'organizzazione possono essere invitati come utenti guest in una directory di Azure AD. Gli utenti guest possono appartenere a un'altra directory di tenant di Azure AD o a qualsiasi indirizzo e-mail valido. Dopo che l'utente è stato invitato e ha accettato l'invito inviato da Azure tramite posta elettronica, l'identità dell'utente viene aggiunta alla directory tenant. Le identità possono essere aggiunte ai gruppi di sicurezza o come membri di un ruolo del database o di amministratore del server.
@@ -23,6 +24,7 @@ Azure Analysis Services supporta la [collaborazione B2B di Azure AD](../active-d
 ![Architettura dell'autenticazione di Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
 ## <a name="authentication"></a>Authentication
+
 Per connettersi a un server tutti gli strumenti e le applicazioni client usano una o più [librerie client](analysis-services-data-providers.md) di Analysis Services (AMO, MSOLAP, ADOMD). 
 
 Queste tre librerie client supportano sia il flusso interattivo di Azure AD sia i metodi di autenticazione non interattivi. I due metodi di autenticazione integrata di Active Directory e della password di Active Directory non interattive possono essere usati nelle applicazioni che adottano AMOMD e MSOLAP. Questi due metodi non aprono mai finestre di dialogo popup.
@@ -36,6 +38,7 @@ Power BI Desktop, SSDT e SSMS supportano l'autenticazione universale di Active D
 Se si accede ad Azure con un account di Windows e l'autenticazione universale non è selezionata o disponibile (Excel), è richiesto [Active Directory Federation Services (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md). Con la federazione, Azure AD e gli utenti di Office 365 vengono autenticati usando credenziali locali e possono accedere alle risorse di Azure.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
+
 I server di Azure Analysis Services supportano connessioni da [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e versioni successive usando l'autenticazione di Windows, l'autenticazione della password di Active Directory e l'autenticazione universale di Active Directory. In generale, è consigliabile usare l'autenticazione universale di Active Directory per i motivi indicati di seguito:
 
 *  Supporta i metodi autenticazione interattiva e non interattiva.
@@ -45,12 +48,15 @@ I server di Azure Analysis Services supportano connessioni da [SSMS V17.1](https
 *  Supporta l'autenticazione a più fattori (Multi-Factor Authentication, MFA). Azure MFA agevola la protezione dell'accesso ai dati e alle applicazioni con una serie di semplici opzioni di verifica, tra cui: chiamata telefonica, SMS, smart card con pin o notifica tramite app per dispositivi mobili. La convalida di MFA interattiva con Azure AD può avvenire attraverso una finestra popup.
 
 ### <a name="sql-server-data-tools-ssdt"></a>SQL Server Data Tools (SSDT)
+
 SSDT si connette ad Azure Analysis Services tramite l'autenticazione universale di Active Directory con supporto MFA. Agli utenti viene richiesto di accedere ad Azure alla prima distribuzione. Gli utenti devono accedere ad Azure con un account che disponga delle autorizzazioni di amministratore del server per il server nel quale stanno eseguendo la distribuzione. Al primo accesso ad Azure viene loro assegnato un token. SSDT memorizza il token nella cache per le connessioni future.
 
 ### <a name="power-bi-desktop"></a>Power BI Desktop
+
 Power BI Desktop si connette ad Azure Analysis Services tramite l'autenticazione universale di Active Directory con supporto MFA. Agli utenti viene richiesto di accedere ad Azure alla prima connessione. Gli utenti devono accedere ad Azure con un account incluso in ruolo del database o di amministratore del server.
 
 ### <a name="excel"></a>Excel
+
 Gli utenti di Excel possano connettersi a un server usando un account di Windows, un ID aziendale (indirizzo e-mail) o un indirizzo e-mail esterno. Le identità di posta elettronica esterne deve essere già presenti in Azure AD come utenti guest.
 
 ## <a name="user-permissions"></a>Autorizzazioni utente
@@ -65,15 +71,12 @@ Gli **utenti del database** si connettono ai database modello tramite applicazio
 
 I ruoli di questo livello si applicano agli utenti o agli account che devono eseguire attività completabili nel portale o tramite i modelli di Azure Resource Manager. Per altre informazioni, vedere l'articolo relativo al [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md). 
 
-
 ## <a name="database-roles"></a>Ruoli del database
 
  I ruoli definiti per un modello tabulare sono ruoli del database, ovvero contengono membri costituiti da utenti di Azure AD e gruppi di sicurezza che dispongono di autorizzazioni specifiche che definiscono le azioni che tali membri possono eseguire su un database modello. Un ruolo del database viene creato come oggetto separato nel database e si applica solo al database in cui è stato creato.   
   
  Per impostazione predefinita, quando si crea un nuovo progetto di modello tabulare, esso non contiene alcun ruolo. È possibile definire i ruoli nella finestra di dialogo Gestione ruoli di SSDT. Se i ruoli vengono definiti durante la progettazione dei modelli di progetto, sono applicati solo ai database dell'area di lavoro del modello. Quando il modello viene distribuito, gli stessi ruoli vengono applicati al modello distribuito. Dopo la distribuzione di un modello, gli amministratori del server e del database possono gestire ruoli e membri tramite SSMS. Per altre informazioni, vedere [Gestire ruoli e utenti del database](analysis-services-database-users.md).
   
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   

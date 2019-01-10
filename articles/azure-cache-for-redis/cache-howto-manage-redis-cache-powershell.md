@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 0186882183ed0848fd8b14d186b55ad1a5ff58ea
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 746e1c082d370cdcf1fca6597923b0e38b9a6d62
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021706"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105237"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gestire Cache Redis di Azure con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -148,11 +148,11 @@ La tabella seguente contiene le proprietà e le descrizioni dei parametri usati 
 | maxmemory-reserved |Configura la [memoria riservata](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) per i processi non della cache |Standard e Premium |
 | maxmemory-policy |Configura i [criteri di rimozione](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) per la cache |Tutti i piani tariffari |
 | notify-keyspace-events |Configura le [notifiche keyspace](cache-configure.md#keyspace-notifications-advanced-settings) |Standard e Premium |
-| hash-max-ziplist-entries |Configura l' [ottimizzazione della memoria](http://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
-| hash-max-ziplist-value |Configura l' [ottimizzazione della memoria](http://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
-| set-max-intset-entries |Configura l' [ottimizzazione della memoria](http://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
-| zset-max-ziplist-entries |Configura l' [ottimizzazione della memoria](http://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
-| zset-max-ziplist-value |Configura l' [ottimizzazione della memoria](http://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
+| hash-max-ziplist-entries |Configura l' [ottimizzazione della memoria](https://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
+| hash-max-ziplist-value |Configura l' [ottimizzazione della memoria](https://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
+| set-max-intset-entries |Configura l' [ottimizzazione della memoria](https://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
+| zset-max-ziplist-entries |Configura l' [ottimizzazione della memoria](https://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
+| zset-max-ziplist-value |Configura l' [ottimizzazione della memoria](https://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
 | database |Configura il numero di database. Questa proprietà può essere configurata solo durante la creazione della cache. |Standard e Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Come creare un'istanza di Cache Redis di Azure
@@ -237,7 +237,7 @@ Per visualizzare un elenco di parametri disponibili e le relative descrizioni pe
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Per creare una cache con i parametri predefiniti, eseguire il comando seguente.
 
@@ -317,7 +317,7 @@ Per visualizzare un elenco di parametri disponibili e le relative descrizioni pe
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Il cmdlet `Set-AzureRmRedisCache` può essere usato per aggiornare le proprietà, ad esempio i valori `Size`, `Sku`, `EnableNonSslPort` e `RedisConfiguration`. 
 
@@ -421,7 +421,7 @@ Per visualizzare un elenco di parametri disponibili e le relative descrizioni pe
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Per restituire informazioni su tutte le cache nella sottoscrizione corrente, eseguire `Get-AzureRmRedisCache` senza parametri.
 
@@ -488,7 +488,7 @@ Per visualizzare un elenco di parametri disponibili e le relative descrizioni pe
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Per recuperare le chiavi per la cache, chiamare il cmdlet `Get-AzureRmRedisCacheKey` e passare il nome della cache e il nome del gruppo di risorse che contiene la cache.
 
@@ -533,7 +533,7 @@ Per visualizzare un elenco di parametri disponibili e le relative descrizioni pe
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Per rigenerare la chiave primaria o secondaria per la cache, chiamare il cmdlet `New-AzureRmRedisCacheKey` e passare il nome e il gruppo di risorse, quindi specificare il parametro `Primary` o `Secondary` per il parametro `KeyType`. Nell'esempio seguente viene rigenerata la chiave di accesso secondaria per una cache.
 
@@ -584,7 +584,7 @@ Per visualizzare un elenco di parametri disponibili e le relative descrizioni pe
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Nell'esempio seguente viene rimossa la cache denominata `myCache` .
 
@@ -648,7 +648,7 @@ Per visualizzare un elenco di parametri disponibili e le relative descrizioni pe
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 Il comando seguente importa dati dal BLOB specificato dall’URI della firma di accesso condiviso nell’istanza di Cache Redis di Azure.
@@ -707,7 +707,7 @@ Per visualizzare un elenco di parametri disponibili e le relative descrizioni pe
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 Il seguente comando consente di esportare dati da un’istanza di Cache Redis di Azure nel contenitore specificato dall’URI della firma di accesso condiviso.
@@ -768,7 +768,7 @@ Per visualizzare un elenco di parametri disponibili e le relative descrizioni pe
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 Il comando seguente riavvia entrambi i nodi della cache specificata.
@@ -785,5 +785,5 @@ Per ulteriori informazioni sull'utilizzo di Windows PowerShell con Azure, vedere
 * [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md): Informazioni su come creare e gestire gruppi di risorse nel portale di Azure.
 * [Blog di Azure](https://azure.microsoft.com/blog/): Informazioni sulle nuove funzionalità di Azure.
 * [Blog di Windows PowerShell](https://blogs.msdn.com/powershell): Informazioni sulle nuove funzionalità di Windows PowerShell.
-* [Blog "Hey, Scripting Blog](http://blogs.technet.com/b/heyscriptingguy/): Suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
+* [Blog "Hey, Scripting Blog](https://blogs.technet.com/b/heyscriptingguy/): Suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
 

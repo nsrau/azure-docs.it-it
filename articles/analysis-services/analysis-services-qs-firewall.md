@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0351ab3213ac75559cc025f2ef71e2f098a7504c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 198e7d8d32e7142a266881e2f4ddbc3ed573c521
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993190"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187284"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Guida introduttiva: Configurare il firewall del server - Portale
 
@@ -46,4 +46,4 @@ Quando non sono più necessari, eliminare gli intervalli di indirizzi IP o disab
 In questa guida introduttiva è stato illustrato come configurare un firewall per il server. Dopo avere creato il server e averlo protetto con un firewall, è possibile aggiungervi un modello di dati di esempio di base dal portale. Un modello di esempio è utile per avere informazioni sulla configurazione dei ruoli del database modello e sul test delle connessioni client. Per altre informazioni, continuare con l'esercitazione per l'aggiunta di un modello di esempio.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Aggiungere un modello di esempio al server](analysis-services-create-sample-model.md)
+> [Esercitazione: aggiungere un modello di esempio al server](analysis-services-create-sample-model.md)

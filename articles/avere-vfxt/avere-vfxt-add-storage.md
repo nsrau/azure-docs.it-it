@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001962"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190849"
 ---
 # <a name="configure-storage"></a>Configurare l'archivio
 
@@ -38,7 +38,7 @@ Questa procedura usa il pannello di controllo di Avere. Leggere [Accedere al clu
 
 ## <a name="create-a-core-filer"></a>Creare un core filer
 
-"Core filer" è un termine di vFXT che indica un sistema di archiviazione back-end. Il sistema di archiviazione può essere un'appliance NAS hardware, ad esempio NetApp o Isilon, oppure può essere un archivio di oggetti cloud. Altre informazioni sui core filer sono disponibili nella [guida alle impostazioni del cluster Avere](http://library.averesystems.com/ops_guide/4_7/settings_overview.html#managing-core-filers).
+"Core filer" è un termine di vFXT che indica un sistema di archiviazione back-end. Il sistema di archiviazione può essere un'appliance NAS hardware, ad esempio NetApp o Isilon, oppure può essere un archivio di oggetti cloud. Altre informazioni sui core filer sono disponibili nella [guida alle impostazioni del cluster Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Per aggiungere un core filer, sceglierne uno dei due tipi principali:
 
@@ -70,7 +70,7 @@ Seguire questa procedura per aggiungere un core filer NAS:
   
    * Fare clic su **Next** (Avanti) e scegliere i criteri della cache. 
    * Fare clic su **Add Filer** (Aggiungi filer).
-   * Per informazioni più dettagliate, vedere [Adding a new NAS core filer](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) (Aggiunta di un nuovo core filer NAS) nella guida alle impostazioni del cluster Avere.
+   * Per informazioni più dettagliate, vedere [Adding a new NAS core filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) (Aggiunta di un nuovo core filer NAS) nella guida alle impostazioni del cluster Avere.
 
 A questo punto, passare a [Creare una giunzione](#create-a-junction).  
 
@@ -156,7 +156,7 @@ Per aggiungere il servizio di archiviazione BLOB dopo la creazione del cluster, 
    * Facoltativamente, impostare **Encryption type** (Tipo di crittografia) su **None** (Nessuna).  Archiviazione di Azure viene crittografato per impostazione predefinita.
    * Fare clic su **Add Filer** (Aggiungi filer).
 
-  Per informazioni più dettagliate, vedere [Adding a new cloud core filer](<http://library.averesystems.com/ops_guide/4_7/new_core_filer_cloud.html>) (Aggiunta di un nuovo core filer cloud) nella guida alla configurazione del cluster Avere. 
+  Per informazioni più dettagliate, vedere [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) (Aggiunta di un nuovo core filer cloud) nella guida alla configurazione del cluster Avere. 
 
 La pagina verrà aggiornata oppure è possibile aggiornare la pagina per visualizzare il nuovo core filer.
 
@@ -168,7 +168,7 @@ Una giunzione è un percorso che si crea per i client. I client montano il perco
 
 Ad esempio, è possibile creare `/avere/files` per eseguire il mapping all'esportazione `/vol0/data` del core filer NetApp e alla sottodirectory `/project/resources`.
 
-Altre informazioni sulle giunzioni sono disponibili nella [sezione relativa agli spazi dei nomi della guida alla configurazione del cluster Avere](http://library.averesystems.com/ops_guide/4_7/gui_namespace.html).
+Altre informazioni sulle giunzioni sono disponibili nella [sezione relativa agli spazi dei nomi della guida alla configurazione del cluster Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Seguire questi passaggi nell'interfaccia delle impostazioni del pannello di controllo di Avere:
 

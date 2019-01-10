@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8ed645066eef93ae02722858381af77854d7d1eb
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 502ccf15fe3e2f803febb711d4ea8850abbaea85
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001884"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116586"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
 Questo articolo illustra come spostare i dati di telemetria da [Azure Application Insights][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
@@ -249,7 +249,7 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Esportare in PowerBI usando l'analisi di flusso](../../application-insights/app-insights-export-power-bi.md)
+* [Esportare in PowerBI usando l'analisi di flusso](../../azure-monitor/app/export-power-bi.md )
 * [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](../../azure-monitor/app/export-data-model.md)
 * [Esportazione continua in Application Insights](../../azure-monitor/app/export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -260,5 +260,5 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 [export]: ../../azure-monitor/app/export-telemetry.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [portal]: https://portal.azure.com/
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

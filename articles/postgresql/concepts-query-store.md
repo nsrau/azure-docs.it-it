@@ -1,18 +1,17 @@
 ---
 title: Query Store in Database di Azure per PostgreSQL
 description: Questo articolo descrive la funzionalità Query Store di Database di Azure per PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 149840157c5e9bb47be70f669b2078585fe4b56c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953028"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546913"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorare le prestazioni con Query Store
 
@@ -114,30 +113,30 @@ Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni
 |runtime_stats_entry_id |bigint | | ID nella tabella runtime_stats_entries|
 |user_id    |oid    |pg_authid.oid  |OID dell'utente che ha eseguito l'istruzione|
 |db_id  |oid    |pg_database.oid    |OID del database in cui l'istruzione è stata eseguita|
-|query_id   |bigint  || Codice hash interno, calcolato dall'albero di analisi dell'istruzione|
-|query_sql_text |Varchar(10000)  || Testo di un'istruzione rappresentativa. Query diverse con la stessa struttura vengono raggruppate e questo è il testo per la prima query del gruppo.|
+|query_id   |bigint  || Codice hash interno, calcolato dall'albero di analisi dell'istruzione|
+|query_sql_text |Varchar(10000)  || Testo di un'istruzione rappresentativa. Query diverse con la stessa struttura vengono raggruppate e questo è il testo per la prima query del gruppo.|
 |plan_id    |bigint |   |ID del piano corrispondente alla query, non ancora disponibile|
-|start_time |timestamp  ||  Le query vengono aggregate per intervalli di tempo. La durata di un intervallo è di 15 minuti per impostazione predefinita, ma è configurabile. Questo timestamp è l'ora di inizio corrispondente all'intervallo di tempo della voce.|
-|end_time   |timestamp  ||  Ora di fine corrispondente all'intervallo di tempo della voce|
-|calls  |bigint  || Numero di volte in cui la query è stata eseguita|
-|total_time |double precision   ||  Tempo totale di esecuzione della query, in millisecondi|
+|start_time | timestamp  ||  Le query vengono aggregate per intervalli di tempo. La durata di un intervallo è di 15 minuti per impostazione predefinita. Questo timestamp è l'ora di inizio corrispondente all'intervallo di tempo della voce.|
+|end_time   | timestamp  ||  Ora di fine corrispondente all'intervallo di tempo della voce|
+|calls  |bigint  || Numero di volte in cui la query è stata eseguita|
+|total_time |double precision   ||  Tempo totale di esecuzione della query, in millisecondi|
 |min_time   |double precision   ||  Tempo minimo di esecuzione della query, in millisecondi|
 |max_time   |double precision   ||  Tempo massimo di esecuzione della query, in millisecondi|
 |mean_time  |double precision   ||  Tempo medio di esecuzione della query, in millisecondi|
 |stddev_time|   double precision    ||  Deviazione standard del tempo di esecuzione della query, in millisecondi |
-|rows   |bigint ||  Numero totale di righe recuperate o interessate dall'istruzione|
-|shared_blks_hit|   bigint  ||  Numero totale di riscontri nella cache dei blocchi condivisi ottenuto dall'istruzione|
+|rows   |bigint ||  Numero totale di righe recuperate o interessate dall'istruzione|
+|shared_blks_hit|   bigint  ||  Numero totale di riscontri nella cache dei blocchi condivisi ottenuto dall'istruzione|
 |shared_blks_read|  bigint  ||  Numero totale dei blocchi condivisi letti dall'istruzione|
-|shared_blks_dirtied|   bigint   || Numero totale dei blocchi condivisi modificati ma non salvati dall'istruzione |
-|shared_blks_written|   bigint  ||  Numero totale dei blocchi condivisi scritti dall'istruzione|
+|shared_blks_dirtied|   bigint   || Numero totale dei blocchi condivisi modificati ma non salvati dall'istruzione |
+|shared_blks_written|   bigint  ||  Numero totale dei blocchi condivisi scritti dall'istruzione|
 |local_blks_hit|    bigint ||   Numero totale di riscontri nella cache dei blocchi locali ottenuto dall'istruzione|
-|local_blks_read|   bigint   || Numero totale dei blocchi locali letti dall'istruzione|
-|local_blks_dirtied|    bigint  ||  Numero totale dei blocchi locali modificati ma non salvati dall'istruzione|
-|local_blks_written|    bigint  ||  Numero totale dei blocchi locali scritti dall'istruzione|
-|temp_blks_read |bigint  || Numero totale dei blocchi temporanei letti dall'istruzione|
-|temp_blks_written| bigint   || Numero totale dei blocchi temporanei scritti dall'istruzione|
-|blk_read_time  |double precision    || Tempo totale impiegato dall'istruzione per la lettura dei blocchi, in millisecondi, se il parametro track_io_timing è abilitato. In caso contrario, è zero.|
-|blk_write_time |double precision    || Tempo totale impiegato dall'istruzione per la scrittura dei blocchi, in millisecondi, se il parametro track_io_timing è abilitato. In caso contrario, è zero.|
+|local_blks_read|   bigint   || Numero totale dei blocchi locali letti dall'istruzione|
+|local_blks_dirtied|    bigint  ||  Numero totale dei blocchi locali modificati ma non salvati dall'istruzione|
+|local_blks_written|    bigint  ||  Numero totale dei blocchi locali scritti dall'istruzione|
+|temp_blks_read |bigint  || Numero totale dei blocchi temporanei letti dall'istruzione|
+|temp_blks_written| bigint   || Numero totale dei blocchi temporanei scritti dall'istruzione|
+|blk_read_time  |double precision    || Tempo totale impiegato dall'istruzione per la lettura dei blocchi, in millisecondi (se il parametro track_io_timing è abilitato, in caso contrario è zero)|
+|blk_write_time |double precision    || Tempo totale impiegato dall'istruzione per la scrittura dei blocchi, in millisecondi (se il parametro track_io_timing è abilitato, in caso contrario è zero)|
     
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 Questa vista restituisce i dati del testo delle query in Query Store. Contiene una riga per ogni specifico query_text.
@@ -145,7 +144,7 @@ Questa vista restituisce i dati del testo delle query in Query Store. Contiene u
 |**Nome**|  **Tipo**|   **Descrizione**|
 |---|---|---|
 |query_text_id  |bigint     |ID della tabella query_texts|
-|query_sql_text |Varchar(10000)     |Testo di un'istruzione rappresentativa. Query diverse con la stessa struttura vengono raggruppate e questo è il testo per la prima query del gruppo.|
+|query_sql_text |Varchar(10000)     |Testo di un'istruzione rappresentativa. Query diverse con la stessa struttura vengono raggruppate e questo è il testo per la prima query del gruppo.|
 
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene una riga per ogni specifico ID database, ID utente, ID query ed evento.
@@ -154,8 +153,8 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |OID dell'utente che ha eseguito l'istruzione|
 |db_id  |oid    |pg_database.oid    |OID del database in cui l'istruzione è stata eseguita|
-|query_id   |bigint     ||Codice hash interno, calcolato dall'albero di analisi dell'istruzione|
-|event_type |text       ||Tipo di evento atteso dal back-end|
+|query_id   |bigint     ||Codice hash interno, calcolato dall'albero di analisi dell'istruzione|
+|event_type |text       ||Tipo di evento atteso dal back-end|
 |event  |text       ||Nome dell'evento di attesa, se il back-end è attualmente in attesa|
 |calls  |Integer        ||Numero dello stesso evento acquisito|
 
@@ -163,11 +162,15 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 ### <a name="functions"></a>Funzioni
 Query_store.qs_reset() restituisce void
 
-`qs_reset` rimuove tutte le statistiche finora raccolte da Query Store. Questa funzione può essere eseguita solo dal ruolo di amministratore del server.
+`qs_reset`  rimuove tutte le statistiche finora raccolte da Query Store. Questa funzione può essere eseguita solo dal ruolo di amministratore del server.
 
 Query_store.staging_data_reset() restituisce void
 
-`staging_data_reset` rimuove tutte le statistiche raccolte in memoria da Query Store, ossia i dati in memoria che non sono ancora stati scaricati nel database. Questa funzione può essere eseguita solo dal ruolo di amministratore del server.
+`staging_data_reset`  rimuove tutte le statistiche raccolte in memoria da Query Store (ossia i dati in memoria che non sono ancora stati scaricati nel database). Questa funzione può essere eseguita solo dal ruolo di amministratore del server.
+
+## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
+- Se un server PostgreSQL ha il parametro default_transaction_read_only on, Query Store non può acquisire i dati.
+- La funzionalità Query Store può essere interrotta se si verificano query Unicode lunghe (> = 6000 byte).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

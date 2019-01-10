@@ -6,10 +6,10 @@
 ## [Origini dati supportate](data-catalog-dsr.md)
 
 # Attività iniziali
-## [Introduzione ad Azure Data Catalog](data-catalog-get-started.md)
+## [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md)
 ## [Adozione di Azure Data Catalog](data-catalog-adopting-data-catalog.md)
 ## [Prerequisiti](data-catalog-prerequisites.md)
-## [DOMANDE FREQUENTI](data-catalog-frequently-asked-questions.md)
+## [Domande frequenti](data-catalog-frequently-asked-questions.md)
 
 # Procedure
 ## [Registrare le origini dati](data-catalog-how-to-register.md)
@@ -25,9 +25,10 @@
 ## [Proteggere l'accesso al catalogo dati](data-catalog-how-to-secure-catalog.md)
 ## [Visualizzare gli asset di dati correlati](data-catalog-how-to-view-related-data-assets.md) 
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
+## [Modello di Resource Manager](/azure/templates/microsoft.datacatalog/catalogs)
 ## [Informazioni di riferimento sulla sintassi di ricerca](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Concetti per gli sviluppatori](data-catalog-developer-concepts.md)
 
