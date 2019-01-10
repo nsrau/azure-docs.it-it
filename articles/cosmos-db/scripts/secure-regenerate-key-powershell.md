@@ -1,20 +1,20 @@
 ---
 title: Script di Azure PowerShell - Rigenerare la chiave dell'account di Azure Cosmos DB
 description: Esempio di script di Azure PowerShell - Rigenerare la chiave di account di Azure Cosmos DB
-services: cosmos-db
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
-ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 05/10/2017
-ms.openlocfilehash: b06d95ada39a544b02409cacd333c3c2583ebdda
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: 2712e4d13895a9dbd10f0f0d5053015c6e0a25a8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965190"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034064"
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-powershell"></a>Rigenerare una chiave di account di Azure Cosmos DB mediante PowerShell
 

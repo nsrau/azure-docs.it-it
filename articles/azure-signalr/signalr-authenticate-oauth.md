@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: be44a233c2b09aa91ec04b5a64b523a2d0b00db1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd872e7aa9ada8c46b0af897b4d7ad137b767514
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599860"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103792"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Esercitazione: autenticazione del servizio Azure SignalR
 
@@ -59,7 +59,7 @@ Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
 
 3. Usare le seguenti impostazioni per la nuova app OAuth, quindi fare clic su **Register application**(Registra applicazione):
 
-    | Nome impostazione | Valore consigliato | Descrizione |
+    | Nome impostazione | Valore consigliato | DESCRIZIONE |
     | ------------ | --------------- | ----------- |
     | Nome dell'applicazione | *Chat Azure SignalR* | L'utente di GitHub deve essere in grado di riconoscere e considerare attendibile l'app con cui sta eseguendo l'autenticazione.   |
     | URL della home page | *http://localhost:5000/home* | |
@@ -468,7 +468,7 @@ az webapp config appsettings set --name $WebAppName \
     --settings "GitHubClientSecret=$GitHubClientSecret"
 ```
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | -------------------- | --------------- |
 | GitHubClientId | Assegnare a questa variabile l'ID client segreto per l'app OAuth di GitHub. |
 | GitHubClientSecret | Assegnare a questa variabile la password segreta per l'app OAuth di GitHub. |
@@ -503,7 +503,7 @@ az webapp deployment source config-local-git --name $WebAppName \
     --query [url] -o tsv
 ```
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | -------------------- | --------------- |
 | DeploymentUserName | Scegliere un nuovo nome utente di distribuzione. |
 | DeploymentUserPassword | Scegliere una password per il nuovo utente di distribuzione. |
@@ -547,7 +547,7 @@ Per distribuire il codice, eseguire i comandi seguenti in una shell di Git.
 
 L'ultima operazione da eseguire è l'aggiornamento dell'**URL della home page** e dell'**URL di callback dell'autorizzazione** dell'app OAuth di GitHub in modo da puntare alla nuova app ospitata.
 
-1. Aprire [http://github.com](http://github.com) in un browser e passare a **Impostazioni** > **Impostazioni modalità sviluppatore** > **Oauth Apps** (Oauth App) per il proprio account.
+1. Aprire [https://github.com](https://github.com) in un browser e passare a **Impostazioni** > **Impostazioni modalità sviluppatore** > **Oauth Apps** (Oauth App) per il proprio account.
 
 2. Fare clic sull'app di autenticazione e aggiornare l'**URL della home page** e l'**URL di callback dell'autorizzazione** come illustrato di seguito:
 

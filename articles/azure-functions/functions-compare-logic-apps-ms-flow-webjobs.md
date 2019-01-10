@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ec2c7a25c5108ee3c6f861defd8403ff40113075
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4227db0f2767f559bb51afab6cb75f3ac34707c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722218"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117589"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Confrontare Flow, App per la logica, Funzioni e Processi Web
 
@@ -53,7 +53,7 @@ La tabella seguente consente di determinare se per una data integrazione è più
 
 Funzioni e App per la logica sono servizi di Azure che abilitano i carichi di lavoro senza server. Funzioni di Azure è un servizio di calcolo senza server, mentre App per la logica di Azure fornisce flussi di lavoro senza server. Entrambi i servizi possono creare *orchestrazioni* complesse. Un'orchestrazione è una raccolta di funzioni o passaggi, definiti *azioni* in App per la logica, che vengono eseguito per completare un'attività complessa. Per elaborare ad esempio un batch di ordini è possibile eseguire molte istanze di una funzione in parallelo, attendere il completamento di tutte le istanze e quindi eseguire una funzione che calcola un risultato sull'aggregazione.
 
-Per Funzioni di Azure è possibile sviluppare orchestrazioni scrivendo codice e usando l'[estensione Durable Functions](durable/durable-functions-overview.md). Per App per la logica di Azure è possibile creare orchestrazioni usando un'interfaccia utente grafica o modificando i file di configurazione.
+Per Funzioni di Azure è possibile sviluppare orchestrazioni scrivendo codice e usando l'[estensione Durable Functions](durable/durable-functions-concepts.md). Per App per la logica di Azure è possibile creare orchestrazioni usando un'interfaccia utente grafica o modificando i file di configurazione.
 
 È possibile combinare i servizi quando si compila un'orchestrazione, chiamando funzioni da app per la logica e chiamando app per la logica da funzioni. Scegliere il modo in cui compilare ogni orchestrazione in base alle funzionalità dei servizi o delle preferenze personali. La tabella seguente elenca alcune differenze essenziali tra questi servizi:
  
@@ -62,7 +62,7 @@ Per Funzioni di Azure è possibile sviluppare orchestrazioni scrivendo codice e 
 | Sviluppo. | Code-first (imperativo) | Incentrato sulla finestra di progettazione (dichiarativo) |
 | Connettività | [Circa una dozzina di tipi di associazioni incorporati](functions-triggers-bindings.md#supported-bindings), scrittura di codice per associazioni personalizzate | [Grande raccolta di connettori](../connectors/apis-list.md), [Enterprise Integration Pack per scenari B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [compilazione di connettori personalizzati](../logic-apps/custom-connector-overview.md) |
 | Azioni | Ogni attività è una funzione di Azure; scrittura di codice per funzioni di attività |[Grande raccolta di azioni predefinite](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| Monitoraggio | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Portale di Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| Monitoraggio | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Portale di Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | Gestione | [API REST](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portale di Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | Contesto di esecuzione | Possibilità di esecuzione [in locale](functions-runtime-overview.md) o sul cloud. | Esecuzione solo sul cloud.|
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4db494de87993a6434eaf5dbf441094578d72ea4
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 9bf168a0f06d662526d172687e54327b55d50bd8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165965"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104268"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 
@@ -62,7 +62,7 @@ Il servizio di ricerca fornisce anche funzionalità avanzate come la ricerca lun
 
 ### <a name="time-zone-service"></a>Servizio fuso orario
 
-Il servizio fuso orario consente di eseguire query sulle informazioni attuali, precedenti e future relative ai fusi orari usando le coordinate di latitudine e longitudine o un [ID IANA](http://www.iana.org/). Consente inoltre di convertire gli ID dei fusi orari di Microsoft Windows in fusi orari IANA, identificare una differenza di fuso orario rispetto all'ora UTC e ottenere l'ora corrente in un determinato fuso orario. Una tipica risposta JSON per una query inviata al servizio fusi orari ha un aspetto simile all'esempio seguente:
+Il servizio fuso orario consente di eseguire query sulle informazioni attuali, precedenti e future relative ai fusi orari usando le coordinate di latitudine e longitudine o un [ID IANA](https://www.iana.org/). Consente inoltre di convertire gli ID dei fusi orari di Microsoft Windows in fusi orari IANA, identificare una differenza di fuso orario rispetto all'ora UTC e ottenere l'ora corrente in un determinato fuso orario. Una tipica risposta JSON per una query inviata al servizio fusi orari ha un aspetto simile all'esempio seguente:
 
 ```JSON
 {
@@ -109,7 +109,7 @@ Mappe di Azure offre anche un pratico [controllo mappa JavaScript](https://docs.
 
 ## <a name="usage"></a>Uso
 
-Per accedere ai servizi Mappe, è quindi sufficiente passare al [portale di Azure](http://portal.azure.com) e creare un account di Mappe di Azure.
+Per accedere ai servizi Mappe, è quindi sufficiente passare al [portale di Azure](https://portal.azure.com) e creare un account di Mappe di Azure.
 
 Mappe di Azure usa uno schema di autenticazione basato su chiavi. che viene fornito con due chiavi pre-generate automaticamente. È possibile iniziare a integrare nell'applicazione queste funzionalità sulla posizione usando una delle chiavi e inviando una richiesta al servizio Mappe di Azure.
 
