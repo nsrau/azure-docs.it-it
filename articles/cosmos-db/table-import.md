@@ -3,17 +3,17 @@ title: Eseguire la migrazione dei dati in un account dell'API Tabella in Azure C
 description: Informazioni su come eseguire la migrazione o importare un'istanza locale o cloud dei dati all'account API Tabella di Azure in Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: b2256f16d284cb079231e271a7fc06c25c381c8a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 20c7a065ec2a302f53c78fb4cfd348d17ab7bdab
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137685"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040286"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Eseguire la migrazione dei dati nell'account dell'API Tabella di Azure Cosmos DB
 

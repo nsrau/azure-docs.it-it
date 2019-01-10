@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 83da24acfb339405c24bc1eed020736e6d4cef14
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 690822848fa2c6524f98c9bbd32e6d2890e4a9c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000175"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118763"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alcuni dati di telemetria sono mancanti
 *In Application Insights, è visibile solo una frazione degli eventi generati dall'applicazione.*
 
-* Se si visualizza in modo costante la stessa frazione, il problema è probabilmente causato dal [campionamento](../../application-insights/app-insights-sampling.md)adattivo. Per verificarlo, aprire Ricerca dal pannello della panoramica ed esaminare l'istanza di una Richiesta o di un altro evento. Nella parte inferiore della sezione Proprietà fare clic su "..." per visualizzare i dettagli completi della proprietà. Se il Conteggio richieste è inferiore a 1, il campionamento è in esecuzione. 
+* Se si visualizza in modo costante la stessa frazione, il problema è probabilmente causato dal [campionamento](../../azure-monitor/app/sampling.md)adattivo. Per verificarlo, aprire Ricerca dal pannello della panoramica ed esaminare l'istanza di una Richiesta o di un altro evento. Nella parte inferiore della sezione Proprietà fare clic su "..." per visualizzare i dettagli completi della proprietà. Se il Conteggio richieste è inferiore a 1, il campionamento è in esecuzione. 
 * In caso contrario, è possibile che sia stato raggiunto il [limite di velocità dati](../../azure-monitor/app/pricing.md#limits-summary) per il piano tariffario. Questi limiti vengono applicati per minuto.
 
 ## <a name="no-data-from-my-server"></a>Non sono disponibili dati dal server
@@ -34,12 +34,12 @@ ms.locfileid: "54000175"
 
 *È stato [installato Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) nel server Web per monitorare le app esistenti, ma non è presente alcun risultato.*
 
-* Vedere [Risoluzione dei problemi relativi a Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights). 
+* Vedere [Risoluzione dei problemi relativi a Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot). 
 
 ## <a name="q01"></a>Nessuna opzione "Aggiungi Application Insights" in Visual Studio
 *Quando si fa clic con il pulsante destro del mouse su un progetto esistente in Esplora soluzioni, non è presente alcuna opzione di Application Insights.*
 
-* Non tutti i tipi di progetto .NET sono supportati dagli strumenti. I progetti Web e WCF sono supportati. Per altri tipi di progetto, ad esempio applicazioni desktop o di servizio, è comunque possibile [aggiungere manualmente un SDK Application Insights al progetto](../../application-insights/app-insights-windows-desktop.md).
+* Non tutti i tipi di progetto .NET sono supportati dagli strumenti. I progetti Web e WCF sono supportati. Per altri tipi di progetto, ad esempio applicazioni desktop o di servizio, è comunque possibile [aggiungere manualmente un SDK Application Insights al progetto](../../azure-monitor/app/windows-desktop.md).
 * Assicurarsi di disporre di [Visual Studio 2013 Update 3 o versioni successive](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). È preinstallata con Developer Analytics Tools che fornisce Application Insights SDK.
 * Selezionare **Strumenti**, **Estensioni e aggiornamenti** e verificare l'installazione e l'abilitazione di **Developer Analytics Tools**. In tal caso, fare clic su **Aggiornamenti** per verificare se è disponibile un aggiornamento.
 * Aprire la finestra di dialogo Nuovo progetto e scegliere Applicazione Web ASP.NET. Se l'opzione Application Insights è presente, gli strumenti sono installati. In caso contrario, provare a disinstallare e reinstallare Strumenti Application Insights.
@@ -51,14 +51,14 @@ Cause possibili:
 
 * la comunicazione con il portale Application Insights si interrompe;
 * si è verificato un problema con l'account Azure;
-* si ha [accesso in sola lettura alla sottoscrizione o al gruppo in cui si è provato a creare la nuova risorsa](../../application-insights/app-insights-resources-roles-access-control.md).
+* si ha [accesso in sola lettura alla sottoscrizione o al gruppo in cui si è provato a creare la nuova risorsa](../../azure-monitor/app/resources-roles-access-control.md).
 
 Correzione:
 
 * Verificare di avere specificato le credenziali di accesso per l'account Azure appropriato. 
 * Nel browser, verificare di avere accesso al [portale di Azure](https://portal.azure.com). Aprire le impostazioni e vedere se sono presenti restrizioni.
 * [Aggiungere Application Insights al progetto esistente](../../azure-monitor/app/asp-net.md): In Esplora soluzioni fare clic con il pulsante destro del mouse e scegliere "Aggiungi Application Insights".
-* Se il problema continua a verificarsi, seguire la [procedura manuale](../../application-insights/app-insights-windows-services.md) per aggiungere una risorsa al portale e quindi aggiungere l'SDK al progetto. 
+* Se il problema continua a verificarsi, seguire la [procedura manuale](../../azure-monitor/app/windows-services.md) per aggiungere una risorsa al portale e quindi aggiungere l'SDK al progetto. 
 
 ## <a name="emptykey"></a>Viene visualizzato l'errore: "La chiave di strumentazione non può essere vuota"
 Sembra che si sia verificato un problema durante l'installazione di Application Insights o forse di un adattatore di registrazione.
@@ -95,7 +95,7 @@ Le ultime informazioni di accesso Microsoft usate nel browser predefinito non ha
 * L'utente ha più di un account Microsoft, ad esempio un account Microsoft di lavoro e uno personale. Le ultime informazioni di accesso usate nel browser predefinito sono relative a un account diverso da quello che ha accesso per [Application Insights al progetto](../../azure-monitor/app/asp-net.md). 
   
   * Correzione: fare clic sul nome nell'angolo superiore destro della finestra del browser e disconnettersi. Quindi accedere con l'account corretto. Nella barra di spostamento a sinistra fare quindi clic su Application Insights e selezionare l'app.
-* Un altro utente ha aggiunto Application Insights al progetto e ha dimenticato di concedere l' [accesso al gruppo di risorse](../../application-insights/app-insights-resources-roles-access-control.md) in cui è stato creato. 
+* Un altro utente ha aggiunto Application Insights al progetto e ha dimenticato di concedere l' [accesso al gruppo di risorse](../../azure-monitor/app/resources-roles-access-control.md) in cui è stato creato. 
   
   * Correzione: se è stato usato un account aziendale, è possibile chiedere di essere aggiunti al team o che venga concesso l'accesso individuale al gruppo di risorse.
 
@@ -154,7 +154,7 @@ I dati provengono da script nelle pagine Web.
 Vedere gli articoli relativi alla [telemetria delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md) e alla [telemetria delle eccezioni](asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Nessun dato sulle prestazioni
-I dati sulle prestazioni (CPU, velocità di IO e così via) sono disponibili per[servizi Web Java](../../azure-monitor/app/java-collectd.md), [app desktop di Windows](../../application-insights/app-insights-windows-desktop.md), [app e servizi Web IIS se si installa Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) e [servizi cloud di Azure](../../application-insights/app-insights-overview.md). Sono disponibili in Impostazioni > Server.
+I dati sulle prestazioni (CPU, velocità di IO e così via) sono disponibili per[servizi Web Java](../../azure-monitor/app/java-collectd.md), [app desktop di Windows](../../azure-monitor/app/windows-desktop.md), [app e servizi Web IIS se si installa Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) e [servizi cloud di Azure](../../azure-monitor/app/app-insights-overview.md). Sono disponibili in Impostazioni > Server.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Dati del server non presenti dopo la pubblicazione dell'app nel server
 * Verificare di aver effettivamente copiato tutti i Microsoft. DLL ApplicationInsights al server, insieme a Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
@@ -167,7 +167,7 @@ I dati sulle prestazioni (CPU, velocità di IO e così via) sono disponibili per
 * È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Non sono presenti tutti i dati previsti
-Se l'applicazione invia una grande quantità di dati ed è in uso Application Insights SDK per ASP.NET 2.0.0 Beta3 o versione successiva, la funzionalità di [campionamento adattivo](../../application-insights/app-insights-sampling.md) può funzionare e inviare solo una percentuale dei dati di telemetria. 
+Se l'applicazione invia una grande quantità di dati ed è in uso Application Insights SDK per ASP.NET 2.0.0 Beta3 o versione successiva, la funzionalità di [campionamento adattivo](../../azure-monitor/app/sampling.md) può funzionare e inviare solo una percentuale dei dati di telemetria. 
 
 È possibile disabilitarla, ma non è consigliabile. Il campionamento è progettato in modo che i dati di telemetria correlati vengano trasmessi correttamente per scopi diagnostici. 
 

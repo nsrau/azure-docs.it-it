@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 2d58a39efca8733902d157083489e59bf22ef161
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002281"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117266"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoraggio continuo con Monitoraggio di Azure
 
@@ -32,9 +32,9 @@ Questo articolo descrive i passaggi specifici per l'utilizzo del Monitoraggio di
 Per ottenere l'osservabilità nell'intero ambiente, è necessario abilitare il monitoraggio in tutte le applicazioni web e nei servizi. In questo modo sarà possibile visualizzare con facilità le transazioni end-to-end e le connessioni tra tutti i componenti.
 
 - [Azure DevOps Projects](../devops-project/overview.md) fornisce un'esperienza semplificata con il codice esistente e il repository Git oppure scegliere una delle applicazioni di esempio per creare una pipeline di integrazione continua (CI, Continuous Integration) e distribuzione continua (CD, Continuous Delivery) in Azure.
-- [Monitoraggio continuo nelle pipeline di rilascio DevOps](../application-insights/app-insights-vsts-continuous-monitoring.md) consente il controllo o il rollback della distribuzione in base ai dati di monitoraggio.
+- [Monitoraggio continuo nelle pipeline di rilascio DevOps](../azure-monitor/app/continuous-monitoring.md) consente il controllo o il rollback della distribuzione in base ai dati di monitoraggio.
 - [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md) consente di instrumentare un'app .NET attiva in Windows con Azure Application Insights senza dover modificare o ridistribuire il codice.
-- Se si ha accesso al codice per l'applicazione, abilitare il monitoraggio completo con [Application Insights](../application-insights/app-insights-overview.md) installando Application Insights SDK del Monitoraggio di Azure per [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), o per [eventuali altri linguaggi di programmazione](../azure-monitor/app/platforms.md). In questo modo è possibile specificare gli eventi personalizzati, le metriche o le visualizzazioni di pagina che sono rilevanti per l'applicazione e l'attività dell'utente.
+- Se si ha accesso al codice per l'applicazione, abilitare il monitoraggio completo con [Application Insights](../azure-monitor/app/app-insights-overview.md) installando Application Insights SDK del Monitoraggio di Azure per [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), o per [eventuali altri linguaggi di programmazione](../azure-monitor/app/platforms.md). In questo modo è possibile specificare gli eventi personalizzati, le metriche o le visualizzazioni di pagina che sono rilevanti per l'applicazione e l'attività dell'utente.
 
 
 
@@ -64,7 +64,7 @@ Integrazione continua/distribuzione continua consente di integrare automaticamen
 
 - Usare [Azure Pipelines](/azure/devops/pipelines) per implementare la distribuzione continua e automatizzare l'intero processo dal commit del codice all'ambiente di produzione in base ai test di integrazione continua/distribuzione continua.
 - Usare [Gate di qualità](/devops/pipelines/release/approvals/gates) per integrare il monitoraggio al momento della pre-distribuzione o della post-distribuzione. Ciò garantisce che si stiano soddisfacendo le metriche chiave di integrità/prestazioni (KPI) non appena le applicazioni si spostano dallo sviluppo alla produzione e le eventuali differenze nell'ambiente di infrastruttura o che la scalabilità non influisca negativamente sugli indicatori KPI.
-- [Mantenere le istanze di monitoraggio separate](../application-insights/app-insights-separate-resources.md) tra gli ambienti di distribuzione diversi, ad esempio sviluppo, Test, Canary e produzione. Ciò garantisce che i dati raccolti siano rilevanti per le applicazioni associate e per l'infrastruttura. Se è necessario correlare i dati negli ambienti, è possibile usare [i grafici a più risorse in Esplora metriche](../azure-monitor/platform/metrics-charts.md) oppure creare [query tra risorse in Log Analytics](log-query/cross-workspace-query.md).
+- [Mantenere le istanze di monitoraggio separate](../azure-monitor/app/separate-resources.md) tra gli ambienti di distribuzione diversi, ad esempio sviluppo, Test, Canary e produzione. Ciò garantisce che i dati raccolti siano rilevanti per le applicazioni associate e per l'infrastruttura. Se è necessario correlare i dati negli ambienti, è possibile usare [i grafici a più risorse in Esplora metriche](../azure-monitor/platform/metrics-charts.md) oppure creare [query tra risorse in Log Analytics](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Creare avvisi azionabili con azioni
@@ -79,17 +79,17 @@ Un aspetto critico del monitoraggio è notificare in modo proattivo agli amminis
 ## <a name="prepare-dashboards-and-workbooks"></a>Preparare i dashboard e le cartelle di lavoro
 Assicurare che lo sviluppo e le operazioni abbiano accesso agli stessi dati di telemetria e agli stessi strumenti consente loro di visualizzare i modelli nell'intero ambiente e di ridurre al minimo il tempo medio di rilevamento (MTTD) e il tempo medio di ripristino (MTTR).
 
-- Preparare [dashboard personalizzati](../application-insights/app-insights-tutorial-dashboards.md) basati su metriche e log comuni per i diversi ruoli all'interno dell'organizzazione. I dashboard possono combinare dati da tutte le risorse di Azure.
-- Preparare [cartelle di lavoro](../application-insights/app-insights-usage-workbooks.md) per assicurarsi la condivisione delle conoscenze tra sviluppo e operazioni. Questi possono essere preparati come report dinamici con grafici delle metriche e query dei log, o persino come guide per la risoluzione dei problemi preparate dagli sviluppatori, consentendo operazioni o supporto tecnico in grado di gestire problemi di base.
+- Preparare [dashboard personalizzati](../azure-monitor/learn/tutorial-app-dashboards.md) basati su metriche e log comuni per i diversi ruoli all'interno dell'organizzazione. I dashboard possono combinare dati da tutte le risorse di Azure.
+- Preparare [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md) per assicurarsi la condivisione delle conoscenze tra sviluppo e operazioni. Questi possono essere preparati come report dinamici con grafici delle metriche e query dei log, o persino come guide per la risoluzione dei problemi preparate dagli sviluppatori, consentendo operazioni o supporto tecnico in grado di gestire problemi di base.
 
 ## <a name="continuously-optimize"></a>Ottimizzare in modo continuativo
  Il monitoraggio è uno degli aspetti fondamentali della popolare filosofia Build-Measure-Learn, che consiglia di rilevare in modo continuo gli indicatori KPI e le metriche di comportamento dell'utente e quindi di sforzarsi per ottimizzarli attraverso iterazioni di pianificazione. Monitoraggio di Azure aiuta a raccogliere le metriche e i log rilevanti per l'azienda e ad aggiungere nuovi punti dati alla successiva distribuzione come richiesto.
 
-- Usare gli strumenti in Application Insights per [tenere traccia del comportamento e dell'engagement degli utenti finali](../application-insights/app-insights-tutorial-users.md).
-- Usare [Impact Analysis](../application-insights/app-insights-usage-impact.md) per consentire di classificare le aree su cui ci si desidera concentrare per accedere a importanti indicatori KPI.
+- Usare gli strumenti in Application Insights per [tenere traccia del comportamento e dell'engagement degli utenti finali](../azure-monitor/learn/tutorial-users.md).
+- Usare [Impact Analysis](../azure-monitor/app/usage-impact.md) per consentire di classificare le aree su cui ci si desidera concentrare per accedere a importanti indicatori KPI.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sui componenti di differenza di [Monitoraggio di Azure](overview.md).
-- [Aggiungere un monitoraggio continuo](../application-insights/app-insights-vsts-continuous-monitoring.md) alla pipeline di versione.
+- [Aggiungere un monitoraggio continuo](../azure-monitor/app/continuous-monitoring.md) alla pipeline di versione.

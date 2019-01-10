@@ -3,17 +3,17 @@ title: Uso di Chef con Azure
 description: Introduzione all'uso di Chef per configurare e testare l'infrastruttura di Azure
 ms.service: virtual-machines-linux
 keywords: azure, chef, devops, macchine virtuali, panoramica, automazione
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 345dc1c608eabb2d1108a337c0fffc7f86b9460e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0e37aee06ed7066dab2ab25915edcc471993b996
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259610"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050269"
 ---
 # <a name="using-chef-with-azure"></a>Uso di Chef con Azure
 [Chef](http://www.chef.io) è una potente piattaforma di automazione, che converte in codice l'infrastruttura delle macchine virtuali di Azure. Chef automatizza la configurazione, la distribuzione e la gestione dell'infrastruttura nella rete, indipendentemente dalle dimensioni.

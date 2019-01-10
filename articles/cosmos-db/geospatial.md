@@ -1,18 +1,17 @@
 ---
 title: Uso dei dati geospaziali in un account Azure Cosmos DB per l'API SQL
 description: Informazioni su come creare, indicizzare e sottoporre a query oggetti spaziali con Azure Cosmos DB e l'API SQL.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 29bb495bbbd56ab39964b34db35fb4d222a60179
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5f096d016b2fa82e3b340a4a6b6c7e1fd6420216
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074696"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037192"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Uso dei dati geospaziali e dei dati località GeoJSON con l'account di Azure Cosmos DB per l'API SQL
 

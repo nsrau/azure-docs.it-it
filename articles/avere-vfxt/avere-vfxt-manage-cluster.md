@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 82b5e175f0340aae7e35b177d9faa4831982984c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999051"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189610"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gestire il cluster Avere vFXT
 
@@ -63,11 +63,11 @@ Per arrestare, riavviare o rimuovere un nodo, trovare il nodo nell'elenco nella 
 > [!NOTE] 
 > Gli indirizzi IP potrebbero passare da un nodo del cluster a un altro quando il numero di nodi attivi viene modificato.
 
-Leggere [Cluster > FXT Nodes](<http://library.averesystems.com/ops_guide/4_7/gui_fxt_nodes.html#gui-fxt-nodes>) (Cluster > Nodi FXT) nella guida alle impostazioni del cluster Avere per altre informazioni.
+Leggere [Cluster > FXT Nodes](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) (Cluster > Nodi FXT) nella guida alle impostazioni del cluster Avere per altre informazioni.
 
 ### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Interrompere o riavviare il cluster con il pannello di controllo di Avere
 
-La pagina delle impostazioni **System Maintenance** (Manutenzione del sistema) include comandi per il riavvio dei servizi cluster, il riavvio del cluster o lo spegnimento del cluster in modo sicuro. Leggere [Administration > System Maintenance](<http://library.averesystems.com/ops_guide/4_7/gui_system_maintenance.html#gui-system-maintenance>) (Amministrazione > Manutenzione del sistema) nella guida alle impostazioni del cluster Avere per maggiori dettagli.
+La pagina delle impostazioni **System Maintenance** (Manutenzione del sistema) include comandi per il riavvio dei servizi cluster, il riavvio del cluster o lo spegnimento del cluster in modo sicuro. Leggere [Administration > System Maintenance](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (Amministrazione > Manutenzione del sistema) nella guida alle impostazioni del cluster Avere per maggiori dettagli.
 
 Quando è in corso l'arresto di un cluster, per prima cosa vengono pubblicati messaggi di stato nella scheda **Dashboard**. Dopo qualche istante, la sessione del pannello di controllo di Avere smetterà di rispondere, il che significa che il cluster è stato arrestato.
 

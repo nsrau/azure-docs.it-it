@@ -1,12 +1,10 @@
 ---
-title: Risoluzione dei nomi per le risorse in reti virtuali di Azure | Documentazione Microsoft
+title: Risoluzione dei nomi per le risorse in reti virtuali di Azure
+titlesuffix: Azure Virtual Network
 description: Scenari di risoluzione dei nomi per Azure IaaS, soluzioni ibride, tra diversi servizi cloud, Active Directory e usando il proprio server DNS.
 services: virtual-network
 documentationcenter: na
 author: subsarma
-manager: vitinnan
-editor: ''
-ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 17bcc7ada244484c2c2df5bd81c82f695a8b5342
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4a4a4c6a37e3c52054d7bc773ef04bf057709fdd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969908"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025097"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 

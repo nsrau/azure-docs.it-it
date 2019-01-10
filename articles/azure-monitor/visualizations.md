@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728347"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54049963"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -71,7 +71,7 @@ Le [visualizzazioni di Monitoraggio di Azure](../log-analytics/log-analytics-vie
 
 
 ## <a name="application-insights-workbooks"></a>Cartelle di lavoro di Application Insights
-Le [cartelle di lavoro](../application-insights/app-insights-usage-workbooks.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
+Le [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
 
 ![Cartella di lavoro](media/visualizations/workbook.png)
 
@@ -140,7 +140,7 @@ Le [cartelle di lavoro](../application-insights/app-insights-usage-workbooks.md)
 - Informazioni sui [dati raccolti da Monitoraggio di Azure](platform/data-collection.md).
 - Informazioni sui [dashboard di Azure](../azure-portal/azure-portal-dashboards.md).
 - Informazioni sulle [visualizzazioni in Monitoraggio di Azure](platform/view-designer.md).
-- Informazioni sulle [cartelle di lavoro di Application Insights](../application-insights/app-insights-usage-workbooks.md).
+- Informazioni sulle [cartelle di lavoro di Application Insights](../azure-monitor/app/usage-workbooks.md).
 - Informazioni sull'[importazione dei dati di log in Power BI](../azure-monitor/platform/powerbi.md).
 - Informazioni sul [plug-in Grafana dell'origine dati Monitoraggio di Azure](../azure-monitor/platform/grafana-plugin.md).
 

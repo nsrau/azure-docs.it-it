@@ -1,21 +1,22 @@
 ---
-title: Informazioni su come usare Swagger per Gemelli digitali di Azure | Microsoft Docs
-description: Usare Swagger per Gemelli digitali di Azure
+title: Informazioni su come usare la documentazione di riferimento di Swagger per Gemelli digitali di Azure | Microsoft Docs
+description: Comprendere come usare la documentazione di riferimento di Swagger per Gemelli digitali di Azure.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/31/2018
 ms.author: adgera
-ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: 7d079f543f8b564c396560c97225897c12f3cd24
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624251"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975645"
 ---
-# <a name="use-azure-digital-twins-swagger"></a>Usare Swagger per Gemelli digitali di Azure
+# <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentazione di riferimento di Swagger per Gemelli digitali di Azure
 
 Ogni istanza di Gemelli digitali di Azure di cui è stato effettuato il provisioning include la propria documentazione di riferimento Swagger generata automaticamente.
 
@@ -34,19 +35,19 @@ Swagger fornisce un riepilogo interattivo dell'API, che include:
 * Informazioni sulla risposta di esempio per la convalida e la conferma delle risposte HTTP.
 * Informazioni sui codici di errore.
 
-Swagger è un pratico strumento per semplificare lo sviluppo e i test delle chiamate effettuate all'API di gestione.
+Swagger è un pratico strumento per semplificare lo sviluppo e i test delle chiamate effettuate all'API Gestione per Gemelli digitali di Azure.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Materiale di riferimento
 
-Il materiale di riferimento generato automaticamente presenta i concetti e i modelli a oggetti più importanti.
+Il materiale di riferimento di Swagger generato automaticamente offre una rapida panoramica di concetti importanti, endpoint disponibili dell'API Gestione e una descrizione di ogni modello a oggetti per facilitare sviluppo e test.
 
 Un breve riepilogo descrive l'API.
 
 ![Breve riepilogo di Swagger][1]
 
-Sono elencati anche i modelli a oggetti principali delle API.
+Sono elencati anche i modelli a oggetti dell'API Gestione.
 
 ![Modelli di Swagger][2]
 
@@ -58,7 +59,7 @@ I modelli a oggetti di Swagger generati sono utili per visualizzare tutti gli og
 
 ## <a name="endpoint-summary"></a>Riepilogo degli endpoint
 
-Swagger fornisce anche una panoramica completa di tutti gli endpoint che compongono l'API.
+Swagger fornisce anche una panoramica completa di tutti gli endpoint che compongono l'API Gestione.
 
 Ogni endpoint elencato include anche le informazioni obbligatorie sulla richiesta, tra cui:
 

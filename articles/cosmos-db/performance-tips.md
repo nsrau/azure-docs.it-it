@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: d4d730fe6c72b55a01f7c5f1f95cbd94ff145fba
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f8045153482cdd8b9a13c0a6f2ebdb26627d44e4
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873751"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811410"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -45,7 +45,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     * TCP
     * HTTPS
 
-    Quando si usa la modalità Gateway, Azure Cosmos DB usa la porta 443 e l'API di MongoDB usa le porte 10250, 10255 e 10256. La porta 10250 esegue il mapping a un'istanza di MongoDB predefinita senza replica geografica e le porte 10255/10256 eseguono il mapping all'istanza di MongoDB con funzionalità di replica geografica. Quando si usa TCP in modalità diretta, oltre alle porte gateway è necessario verificare che le porte nell'intervallo tra 10000 e 20000 siano aperte perché Azure Cosmos DB usa porte TCP dinamiche. Se queste porte non sono aperte e si tenta di usare TCP, si riceverà un errore 503 (Servizio non disponibile). La tabella seguente illustra le modalità di connettività disponibili per API diverse e l'utente delle porte di servizio per ogni API:
+    In modalità Gateway, Cosmos DB usa la porta 443 e le porte 10250, 10255 e 10256 quando viene usata l'API di Azure Cosmos DB per MongoDB. La porta 10250 viene associata a un'istanza di MongoDB predefinita senza replica geografica e le porte 10255/10256 vengono associate all'istanza di MongoDB con funzionalità di replica geografica. Quando si usa TCP in modalità diretta, oltre alle porte gateway è necessario verificare che le porte nell'intervallo tra 10000 e 20000 siano aperte perché Azure Cosmos DB usa porte TCP dinamiche. Se queste porte non sono aperte e si tenta di usare TCP, si riceverà un errore 503 (Servizio non disponibile). La tabella seguente illustra le modalità di connettività disponibili per API diverse e l'utente delle porte di servizio per ogni API:
 
     |Modalità di connessione  |Protocollo supportato  |SDK supportati  |API/porta servizio  |
     |---------|---------|---------|---------|

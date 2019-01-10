@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 413decee89e99b8120d271e2e87e703d4d362c33
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139521"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999289"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
 
@@ -161,7 +161,7 @@ Ogni proxy ha un nome descrittivo, come *proxy1* nell'esempio precedente. L'ogge
             "matchCondition": {
                 "route": "/example"
             },
-            "backendUri": "www.example.com"
+            "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
         }
     }
 }
@@ -176,12 +176,13 @@ Il comportamento del proxy può essere controllato da diverse impostazioni dell'
 
 ### <a name="reservedChars"></a> Caratteri riservati (formattazione della stringa)
 
-I proxy leggono tutte le stringhe senza interpretazione, fatta eccezione per le parentesi graffe e le barre
+I proxy leggono tutte le stringhe in notazione C# usando \\ \\ \\ come un simbolo di escape. I proxy interpretano anche le parentesi graffe. Di seguito è riportata una serie completa di esempi.
 
 |Character|Carattere di escape|Esempio|
 |-|-|-|
 |{ or }|{{ or }}|`{{ example }}` --> `{ example }`
-|/|///| `example.com///text.html` --> `example.com/text.html`
+| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
+|"|\\\\\\"| `\\\"example\\\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Definire un oggetto requestOverrides
 

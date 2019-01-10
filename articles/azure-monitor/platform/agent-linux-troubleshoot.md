@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 1f772e1a3e5b3e121b968d358166e9018c80d573
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b95a9b2243dda83be7de67802a8b6678419e335f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192694"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102585"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Linux 
 
@@ -30,7 +30,7 @@ Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono dis
 * I clienti con un contratto di supporto tecnico di Azure possono aprire una richiesta di supporto nel [portale di Azure](https://manage.windowsazure.com/?getsupport=true).
 * Eseguire la diagnosi dei problemi OMI con la [guida alla risoluzione dei problemi OMI](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * Segnalare il [problema in GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visitare la pagina del feedback di Log Analytics per esaminare i bug e i suggerimenti inviati, all'indirizzo [http://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback), o segnalarne di nuovi.  
+* Visitare la pagina del feedback di Log Analytics per esaminare i bug e i suggerimenti inviati, all'indirizzo [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback), o segnalarne di nuovi.  
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Percorsi di log importanti e agente di raccolta log
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 8b2d7053ce8d980f15132e1d48497aff192713d0
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3454f9eecf1f06391b21bc7a3dcd89b7f8e78853
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309375"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105356"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -245,7 +245,8 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 * Ubuntu
 
     ```bash
-    sudo apt-get install gradle
+    curl -s https://get.sdkman.io | bash
+    sdk install gradle 5.1
     ```
 
 * Red Hat Enterprise Linux 7.4 (supporto per l'anteprima di Service Fabric)

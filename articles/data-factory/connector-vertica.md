@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4e13050715927fb0b158c32393b56b32290cf175
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d48c046fbbb363e0c8409e43ebd0ac0b1480d87b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078090"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019403"
 ---
 # <a name="copy-data-from-vertica-using-azure-data-factory"></a>Copiare dati da Vertica usando Azure Data Factory 
 

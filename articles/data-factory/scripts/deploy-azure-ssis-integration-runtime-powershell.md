@@ -8,16 +8,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: douglasl
-ms.openlocfilehash: 9684258fde0504cfa5b10ddb4f0df736ff0e1e70
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4551d0cebf51fd2c028b6b83a75863cedb32fdc3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038294"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014030"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>Script di PowerShell: distribuire il runtime di integrazione di Azure SSIS
 
@@ -53,7 +52,6 @@ Questo script usa i comandi seguenti:
 | [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime) | Crea un runtime di integrazione di Azure SSIS che può eseguire pacchetti SSIS nel cloud |
 | [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime) | Avvia il runtime di integrazione SSIS di Azure. |
 | [Get-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntime) | Ottiene informazioni sul runtime di integrazione di Azure SSIS. |
-| [Get-AzureRmDataFactoryV2IntegrationRuntimeStatus](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntimestatus) | Ottiene informazioni sullo stato del runtime di integrazione di Azure SSIS. |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||
 

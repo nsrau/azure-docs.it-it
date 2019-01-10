@@ -1,18 +1,18 @@
 ---
 title: Eseguire importazioni e aggiornamenti bulk di dati in Azure Cosmos DB usando la libreria dell'executor bulk
 description: Eseguire operazioni bulk in Azure Cosmos DB tramite API di importazione e aggiornamento bulk rese disponibili dalla libreria dell'executor bulk.
-services: cosmos-db
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: e3b77ce28e5c3a236abcd9a22e643428b53ed0a6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: e0176af0ce77e9306f6f0031122f8ba8a7b27e61
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834809"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038281"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Panoramica della libreria dell'executor bulk di Azure Cosmos DB
  

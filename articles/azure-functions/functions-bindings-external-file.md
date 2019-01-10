@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: cshoe
-ms.openlocfilehash: 39036f17b8ceafebbe3660f2074e2a6c84c4df03
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 765eab8dfc1163c4d9e0337a1af840278ae1a82c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248694"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546267"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Associazioni di file esterni in Funzioni di Azure (sperimentale)
 Questo articolo illustra come modificare i file di diversi provider SaaS (ad esempio Dropbox o Google Drive) in Funzioni di Azure. Funzioni di Azure supporta associazioni di input, output e trigger per i file esterni. Queste associazioni creano connessioni API ai provider SaaS o usano le connessioni API esistenti del gruppo di risorse dell'app per le funzioni.
@@ -31,7 +31,7 @@ Questo articolo illustra come modificare i file di diversi provider SaaS (ad ese
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)|x|x|x
+|[FTP](https://docs.microsoft.com/azure/app-service/deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive for Business](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x
@@ -115,7 +115,7 @@ module.exports = function(context) {
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*.
 
-|Proprietà di function.json | DESCRIZIONE|
+|Proprietà di function.json | Descrizione|
 |---------|---------|----------------------|
 |**type** | Il valore deve essere impostato su `apiHubFileTrigger`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
@@ -204,7 +204,7 @@ Se tutti i 5 tentativi non riescono, Funzioni di Azure aggiunge un messaggio a u
 * FileType
 * FolderName
 * FileName
-* ETag (identificatore di versione del file, ad esempio: "0x8D1DC6E70A277EF")
+* Valore ETag (identificatore di versione del file, ad esempio: "0x8D1DC6E70A277EF")
 
 ## <a name="input"></a>Input
 
@@ -311,7 +311,7 @@ module.exports = function(context) {
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*.
 
-|Proprietà di function.json | DESCRIZIONE|
+|Proprietà di function.json | Descrizione|
 |---------|---------|----------------------|
 |**type** | Il valore deve essere impostato su `apiHubFile`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
@@ -349,7 +349,7 @@ Vedere l'[esempio di associazione di input](#input---example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*.
 
-|Proprietà di function.json | DESCRIZIONE|
+|Proprietà di function.json | Descrizione|
 |---------|---------|----------------------|
 |**type** | Il valore deve essere impostato su `apiHubFile`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | Il valore deve essere impostato su `out`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |

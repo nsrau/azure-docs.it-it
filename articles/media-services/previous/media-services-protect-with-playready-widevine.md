@@ -4,7 +4,7 @@ description: È possibile usare Servizi multimediali di Azure per distribuire fl
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/09/2017
+ms.date: 09/18/2018
 ms.author: juliako
-ms.openlocfilehash: b22cc44ad1a33f5898790ece7ae7cbaabd55d1e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 90302b8fdc486312dd8b4f8ae96e34487d2f7ae2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780688"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188063"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Usare la crittografia comune dinamica Widevine e/o PlayReady
 
@@ -137,16 +137,16 @@ Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere 
 Ottenere un token di test basato sulla restrizione Token usata per i criteri di autorizzazione della chiave.
 
 ```csharp
-    // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
-    // back into a TokenRestrictionTemplate class instance.
-    TokenRestrictionTemplate tokenTemplate =
-        TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
+// Deserializes a string containing an XML representation of a TokenRestrictionTemplate
+// back into a TokenRestrictionTemplate class instance.
+TokenRestrictionTemplate tokenTemplate =
+TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-    // Generate a test token based on the data in the given TokenRestrictionTemplate.
-    //The GenerateTestToken method returns the token without the word "Bearer" in front,
-    //so you have to add it in front of the token string.
-    string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
-    Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+// Generate a test token based on the data in the given TokenRestrictionTemplate.
+//The GenerateTestToken method returns the token without the word "Bearer" in front,
+//so you have to add it in front of the token string.
+string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
+Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
 Per testare il flusso, è possibile usare il [lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
@@ -157,10 +157,10 @@ Per testare il flusso, è possibile usare il [lettore di Servizi multimediali di
 
 2. Aggiungere gli elementi seguenti alla sezione **appSettings** definita nel file app.config:
 
-```xml
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
-```
+    ```xml
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
+    ```
 
 ## <a name="example"></a>Esempio
 
@@ -271,7 +271,7 @@ namespace DynamicEncryptionWithDRM
             }
 
             // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
-            // Note that DASH works on Internet Explorer 11 (via PlayReady), Edge (via PlayReady), and Chrome (via Widevine).
+            // Note that DASH works on Internet Explorer 11 (via PlayReady), Microsoft Edge (via PlayReady), and Chrome (via Widevine).
 
             string url = GetStreamingOriginLocator(encodedAsset);
             Console.WriteLine("Encrypted DASH URL: {0}/manifest(format=mpd-time-csf)", url);

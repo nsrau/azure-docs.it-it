@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: b91d405b8ada1446a477dc10a116b5dfdf349131
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4653803623ed0c847fa63663204b5842f7a03d08
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440047"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584208"
 ---
-# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Esercitazione sull'integrazione dei log di Azure: elaborazione degli eventi di Azure Key Vault tramite Hub eventi
+# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Esercitazione su Integrazione log di Azure: Elaborare gli eventi di Azure Key Vault tramite Hub eventi
 
 >[!IMPORTANT]
 > La funzionalità di integrazione dei log di Azure verrà dichiarata deprecata entro il 01/06/2019. Il download dei log di Azure verrà disabilitato entro il 27 giugno 2018. Per materiale sussidiario su cosa fare dopo, vedere il post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Usare Monitoraggio di Azure per eseguire l'integrazione con gli strumenti per le informazioni di sicurezza e gestione degli eventi) 
 
 È possibili usare l'integrazione dei log di Azure per recuperare gli eventi registrati e renderli disponibili per il sistema di gestione delle informazioni e degli eventi di sicurezza (SIEM). Questa esercitazione illustra un esempio di come usare l'integrazione dei log di Azure per elaborare i log acquisiti tramite Hub eventi di Azure.
 
-Il metodo preferito per l'integrazione dei log di Azure consiste nell'usare un connettore per Monitoraggio di Azure del fornitore SIEM e seguire queste [istruzioni](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Tuttavia, se il fornitore SIEM non offre un connettore per Monitoraggio di Azure, è possibile usare Integrazione log di Azure come soluzione temporanea (se SIEM è supportato da Integrazione log di Azure) fino a quando non sia disponibile un connettore di questo tipo.
+Il metodo preferito per l'integrazione dei log di Azure consiste nell'usare un connettore per Monitoraggio di Azure del fornitore SIEM e seguire queste [istruzioni](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Tuttavia, se il fornitore SIEM non offre un connettore per Monitoraggio di Azure, è possibile usare Integrazione log di Azure come soluzione temporanea (se SIEM è supportato da Integrazione log di Azure) fino a quando non diventa disponibile un connettore di questo tipo.
 
  
 Usare questa esercitazione per acquisire familiarità con l'interazione tra l'integrazione dei log di Azure e Hub eventi seguendo la procedura di esempio e comprendendo in che modo ogni passaggio supporta la soluzione. È quindi possibile applicare quanto appreso qui per creare i passaggi personalizzati per supportare i requisiti specifici della propria azienda.
@@ -93,7 +93,7 @@ Per poter completare la procedura descritta in questo articolo, è necessario qu
 
    ![Finestra di PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Creare variabili per archiviare i valori che verranno usati successivamente. Immettere ognuna delle seguenti righe di PowerShell. Potrebbe essere necessario regolare i valori per adattarli all'ambiente.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` Il nome della sottoscrizione potrebbe essere diverso. È possibile visualizzarlo come parte dell'output del comando precedente.
+    - ```$subscriptionName = �Visual Studio Ultimate with MSDN�``` Il nome della sottoscrizione potrebbe essere diverso. È possibile visualizzarlo come parte dell'output del comando precedente.
     - ```$location = 'West US'``` (Verrà usata questa variabile per passare la posizione in cui si devono creare le risorse. È possibile modificare questa variabile con qualsiasi località di propria scelta.
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` Si può indicare qualsiasi nome, ma deve contenere solo numeri e lettere minuscole.
@@ -129,7 +129,7 @@ Per poter completare la procedura descritta in questo articolo, è necessario qu
     
     ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
-    Per altre informazioni sui profili log di Azure, vedere [Panoramica del log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+    Per altre informazioni sui profili log di Azure, vedere [Panoramica del log attività di Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
 > È possibile ricevere un messaggio di errore quando si tenta di creare un profilo di log. È possibile consultare quindi la documentazione relativa a Get-AzureRmLogProfile e Remove-AzureRmLogProfile. Se si esegue Get-AzureRmLogProfile verranno visualizzate le informazioni sul profilo di log. È possibile eliminare il profilo di log esistente immettendo il comando ```Remove-AzureRmLogProfile -name 'Log Profile Name' ```.

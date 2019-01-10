@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3ed4039ae17828959f00de27c839454b63a7be6d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: fe63813220d526536a31efb48b6ec29b6ae383e8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998269"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121142"
 ---
 # <a name="set-alerts-in-application-insights"></a>Impostare gli avvisi in Application Insights
 [Application Insights di Azure][start] può informare di eventuali cambiamenti nelle prestazioni e nelle metriche di utilizzo dell'app Web in uso. 
@@ -29,7 +29,7 @@ Esistono tre tipologie di avvisi:
 
 * Gli **avvisi delle metriche** indicano quando una qualsiasi metrica supera un valore di soglia per un determinato periodo, ad esempio i tempi di risposta, il numero di eccezioni, l'uso della CPU o il numero di visualizzazioni della pagina. 
 * I [**test Web**][availability] indicano quando il sito non è disponibile in Internet o risponde lentamente. [Altre informazioni][availability].
-* Gli avvisi della [**diagnostica proattiva**](../../application-insights/app-insights-proactive-diagnostics.md) vengono configurati automaticamente per informare su schemi di prestazioni insoliti.
+* Gli avvisi della [**diagnostica proattiva**](../../azure-monitor/app/proactive-diagnostics.md) vengono configurati automaticamente per informare su schemi di prestazioni insoliti.
 
 L'articolo è incentrato sugli avvisi delle metriche.
 
@@ -41,7 +41,7 @@ Aprire il pannello Regole di avviso e usare il pulsante Aggiungi.
 * Impostare la risorsa prima delle altre proprietà. **Scegliere la risorsa "(components)"** per impostare avvisi sulle metriche relative a prestazioni e utilizzo.
 * Il nome assegnato all'avviso deve essere univoco all'interno del gruppo di risorse (non solo dell'applicazione).
 * Prendere nota delle unità in cui viene chiesto di immettere il valore soglia.
-* Se si seleziona la casella "Invia messaggio di posta elettronica a proprietari...", vengono inviati avvisi tramite posta elettronica a chiunque abbia accesso a questo gruppo di risorse. Per espandere il set di utenti, aggiungerli al [gruppo di risorse o a una sottoscrizione](../../application-insights/app-insights-resources-roles-access-control.md) (non la risorsa).
+* Se si seleziona la casella "Invia messaggio di posta elettronica a proprietari...", vengono inviati avvisi tramite posta elettronica a chiunque abbia accesso a questo gruppo di risorse. Per espandere il set di utenti, aggiungerli al [gruppo di risorse o a una sottoscrizione](../../azure-monitor/app/resources-roles-access-control.md) (non la risorsa).
 * Se si specifica "Indirizzi di posta elettronica aggiuntivi", gli avvisi vengono inviati agli utenti o gruppi corrispondenti (indipendentemente dalla selezione della casella "Invia messaggio di posta elettronica a proprietari..."). 
 * Impostare un [indirizzo di webhook](../../azure-monitor/platform/alerts-webhooks.md) se è stata impostata un'app Web che risponde agli avvisi. L'app viene chiamata sia quando l'avviso viene attivato sia quando viene risolto. Si noti però che attualmente i parametri di query non vengono passati come proprietà webhook.
 * È possibile disabilitare o abilitare l'avviso usando i pulsanti nella parte superiore del pannello.
@@ -51,7 +51,7 @@ Aprire il pannello Regole di avviso e usare il pulsante Aggiungi.
 * Si sta usando un account aziendale? È possibile impostare gli avvisi se si ha l'accesso come proprietario o come collaboratore a questa risorsa dell'applicazione. Dare un'occhiata al pannello Controllo di accesso. [Informazioni sul controllo di accesso][roles].
 
 > [!NOTE]
-> Nel pannello degli avvisi si nota che è già presente un avviso configurato: [Diagnostica proattiva](../../application-insights/app-insights-proactive-failure-diagnostics.md). L'avviso automatico monitora una particolare metrica, la frequenza di errori delle richieste. A meno che non si decida di disabilitare l'avviso proattivo, non è necessario impostare un proprio avviso relativo alla frequenza di errori delle richieste. 
+> Nel pannello degli avvisi si nota che è già presente un avviso configurato: [Diagnostica proattiva](../../azure-monitor/app/proactive-failure-diagnostics.md). L'avviso automatico monitora una particolare metrica, la frequenza di errori delle richieste. A meno che non si decida di disabilitare l'avviso proattivo, non è necessario impostare un proprio avviso relativo alla frequenza di errori delle richieste. 
 > 
 > 
 
@@ -89,7 +89,7 @@ Gli avvisi più diffusi includono:
 * Il **tempo di risposta del server** per il lato server delle applicazioni Web. Oltre a impostare gli avvisi, prestare attenzione a questa metrica per vedere se varia in modo sproporzionato in caso di frequenza elevata delle richieste: la variazione può indicare l'esaurimento delle risorse da parte dell'app. 
 * **Eccezioni del server** : per visualizzarle, è necessario effettuare alcuni passaggi di [configurazione aggiuntivi](../../azure-monitor/app/asp-net-exceptions.md).
 
-Non dimenticare che la [diagnostica proattiva sulla frequenza errori](../../application-insights/app-insights-proactive-failure-diagnostics.md) monitora automaticamente la frequenza con cui l'applicazione risponde alle richieste con codici di errore. 
+Non dimenticare che la [diagnostica proattiva sulla frequenza errori](../../azure-monitor/app/proactive-failure-diagnostics.md) monitora automaticamente la frequenza con cui l'applicazione risponde alle richieste con codici di errore. 
 
 ## <a name="automation"></a>Automazione
 * [Usare PowerShell per automatizzare la configurazione degli avvisi](../../azure-monitor/app/powershell-alerts.md)
@@ -102,13 +102,13 @@ Non dimenticare che la [diagnostica proattiva sulla frequenza errori](../../appl
 ## <a name="see-also"></a>Vedere anche 
 * [Test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automatizzare la configurazione degli avvisi](../../azure-monitor/app/powershell-alerts.md)
-* [Diagnostica proattiva](../../application-insights/app-insights-proactive-diagnostics.md) 
+* [Diagnostica proattiva](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [client]: ../../azure-monitor/app/javascript.md
 [platforms]: ../../azure-monitor/app/platforms.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
-[start]: ../../application-insights/app-insights-overview.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

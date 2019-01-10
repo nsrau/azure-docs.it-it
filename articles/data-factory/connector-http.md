@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 12/202018
 ms.author: jingwang
-ms.openlocfilehash: 1f3e9be3a0048c4bf2e87ac23cbdc76b1aaa649f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 61ac0eeeb177ffccbe10d4ab049d3541ac6aeb60
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166407"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810424"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP tramite Azure Data Factory
 
@@ -28,6 +28,12 @@ ms.locfileid: "49166407"
 
 Questo articolo descrive come usare l'attività di copia in Azure Data Factory per copiare dati da un endpoint HTTP. È basato sull'articolo [Attività di copia in Azure Data Factory](copy-activity-overview.md), che presenta una panoramica generale dell'attività di copia.
 
+La differenza tra questo connettore HTTP, il [connettore REST](connector-rest.md) e il [connettore Tabella Web](connector-web-table.md) è la seguente:
+
+- Il **connettore REST** supporta in modo specifico la copia dei dati dalle API RESTful. 
+- Il **connettore HTTP** è un connettore generico per recuperare i dati da qualsiasi endpoint HTTP, ad esempio per scaricare file. Prima che il connettore REST diventi disponibile, può capitare di usare il connettore HTTP per copiare dati dall'API RESTful, che è supportata ma meno funzionale rispetto al connettore REST.
+- Il **connettore Tabella Web** estrae il contenuto della tabella da una pagina Web HTML.
+
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
 È possibile copiare dati da un'origine HTTP in qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati dall'attività di copia come origini e sink, vedere [Archivi dati e formati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -35,10 +41,8 @@ Questo articolo descrive come usare l'attività di copia in Azure Data Factory p
 È possibile usare questo Connettore HTTP per:
 
 - Recuperare dati da un endpoint HTTP/S tramite il metodo HTTP **GET** o **POST**.
-- Recuperare dati tramite una di queste autenticazioni: **Anonima**, **Di base**, **Digest**, **Windows** o **ClientCertificate**.
+- Recuperare dati usando una delle autenticazioni seguenti: **Anonymous**, **Basic**, **Digest**, **Windows** o **ClientCertificate**.
 - Copiare la risposta HTTP così com'è o analizzarla usando i [formati di file e i codec di compressione supportati](supported-file-formats-and-compression-codecs.md).
-
-La differenza tra questo connettore e il [connettore di tabella Web](connector-web-table.md) è che quest'ultimo estrae il contenuto della tabella da una pagina Web HTML.
 
 > [!TIP]
 > Per testare una richiesta HTTP per il recupero dei dati prima di configurare il connettore HTTP in Data Factory, fare riferimento alla specifica dell'API per i requisiti relativi a intestazione e corpo. È possibile usare strumenti come Postman o un Web browser per la convalida.
@@ -170,13 +174,13 @@ Per copiare dati da HTTP, impostare la proprietà **type** del set di dati su **
 | requestMethod | Metodo HTTP. I valori consentiti sono **Get** (predefinito) e **Post**. | No  |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No  |
 | requestBody | Corpo della richiesta HTTP. | No  |
-| format | Se si vuole recuperare dati dall'endpoint HTTP così come sono, senza analizzarli, e quindi copiarli in un archivio basato su file, ignorare la sezione **format** nelle definizioni del set di dati di input e di output.<br/><br/>Se si vuole analizzare il contenuto della risposta HTTP durante la copia, sono supportati questi tipi di formato file: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. In **format** impostare la proprietà **type** su uno di questi valori. Per altre informazioni, vedere le sezioni relative ai formati [JSON](supported-file-formats-and-compression-codecs.md#json-format), [testo](supported-file-formats-and-compression-codecs.md#text-format), [Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Orc](supported-file-formats-and-compression-codecs.md#orc-format) e [Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No  |
-| compressione | Specificare il tipo e il livello di compressione dei dati. Per altre informazioni, vedere l'articolo sui [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipi supportati: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Livelli supportati: **Optimal** e **Fastest**. |No  |
+| format | Se si vuole recuperare dati dall'endpoint HTTP così come sono, senza analizzarli, e quindi copiarli in un archivio basato su file, ignorare la sezione **format** nelle definizioni del set di dati di input e di output.<br/><br/>Se si vuole analizzare il contenuto della risposta HTTP durante la copia, sono supportati i tipi di formato file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. In **format** impostare la proprietà **type** su uno di questi valori. Per altre informazioni, vedere le sezioni relative ai formati [JSON](supported-file-formats-and-compression-codecs.md#json-format), [testo](supported-file-formats-and-compression-codecs.md#text-format), [Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Orc](supported-file-formats-and-compression-codecs.md#orc-format) e [Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No  |
+| compressione | Specificare il tipo e il livello di compressione dei dati. Per altre informazioni, vedere l'articolo sui [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipi supportati: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Livelli supportati:  **Optimal** (Ottimale) e **Fastest** (Più veloce). |No  |
 
 > [!NOTE]
 > Le dimensioni del payload della richiesta HTTP supportate sono circa 500 KB. Se le dimensioni del payload da passare all'endpoint Web sono maggiori di 500 KB, provare a inviare in batch il payload in blocchi più piccoli.
 
-**Esempio 1: Uso del metodo GET (predefinito)**
+**Esempio 1: Uso del metodo Get (predefinito)**
 
 ```json
 {
@@ -195,7 +199,7 @@ Per copiare dati da HTTP, impostare la proprietà **type** del set di dati su **
 }
 ```
 
-**Esempio 2: Uso del metodo POST**
+**Esempio 2: Uso del metodo Post**
 
 ```json
 {
@@ -219,7 +223,7 @@ Per copiare dati da HTTP, impostare la proprietà **type** del set di dati su **
 
 Questa sezione presenta un elenco delle proprietà supportate dall'origine HTTP.
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipelines](concepts-pipelines-activities.md) (Pipeline). 
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipeline](concepts-pipelines-activities.md). 
 
 ### <a name="http-as-source"></a>HTTP come origine
 

@@ -3,17 +3,17 @@ title: Scegliere il piano tariffario corretto per Mappe di Azure | Microsoft Doc
 description: Informazioni sui piani tariffari offerti da Mappe di Azure
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 028a227eefb319d19c9274082626a007bd9161de
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998376"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993961"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>Scegliere il piano tariffario corretto in Mappe di Azure
 
@@ -53,9 +53,8 @@ Vedere la tabella contenente **Clienti di destinazione del piano tariffario** pe
 
 | Piano tariffario  |        Clienti di destinazione                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>Il piano tariffario S0 è destinato ai clienti di aziende di piccole o medie dimensioni. È un piano tariffario corretto per utenti che non prevedono volumi elevati di utenti simultanei e i cui requisiti di servizio per i le API core geospaziali siano soddisfatti come indicato dalla tabella riportata di seguito. Questo livello è disponibile a livello generale ed è applicabile per le applicazioni in tutte le fasi di produzione dallo sviluppo del modello di verifica e dalla fase iniziale di test alla produzione e distribuzione dell'applicazione.<p>|
+| S0            |    <p>Il piano tariffario S0 è destinato ai clienti di aziende di piccole o medie dimensioni. È un piano tariffario corretto per utenti che non prevedono volumi elevati di utenti simultanei e i cui requisiti di servizio per le API core geospaziali siano soddisfatti come indicato nella tabella sopra. Questo livello è disponibile a livello generale ed è applicabile per le applicazioni in tutte le fasi di produzione dallo sviluppo del modello di verifica e dalla fase iniziale di test alla produzione e distribuzione dell'applicazione.<p>|
 | S1            |    <p>Il piano tariffario S1 è destinato ai clienti che necessitano di supporto per aziende di grandi dimensioni, applicazioni cruciali, volumi elevati di utenti simultanei e/o necessitano di servizi geospaziali avanzati.</p>|
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

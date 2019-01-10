@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 463e358816d665bd0ecc0ca8853b7feb5a18f3e6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fe9153958fa46f4be6aaa346713c002905316902
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077784"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024689"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copiare dati da Greenplum usando Azure Data Factory 
 

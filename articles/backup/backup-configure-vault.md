@@ -4,17 +4,16 @@ description: Usare l'agente di Backup di Microsoft Azure per eseguire il backup 
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keywords: insieme di credenziali di backup; backup di un server Windows; backup di Windows;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874006"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788396"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Eseguire il backup di un client o server Windows in Azure con Backup di Azure usando il modello di distribuzione Resource Manager
 Questo articolo illustra come eseguire il backup di file e cartelle di Windows Server o di un client Windows in Azure con Backup di Azure tramite il modello di distribuzione di Resource Manager.
@@ -183,6 +182,8 @@ Se il computer/proxy ha un accesso a Internet limitato, verificare che le impost
 I criteri di backup costituiscono la pianificazione per l'acquisizione degli snapshot di backup e la durata di conservazione di questi snapshot. Usare l'agente di Backup di Microsoft Azure per creare il criterio di backup di file e cartelle.
 
 ### <a name="to-create-a-backup-schedule"></a>Per creare una pianificazione di backup
+
+Impostare la pianificazione di backup nel computer di cui si vuole eseguire il backup. Si noti che l'orario impostato per il backup potrebbe differire dall'orario del computer locale perché Backup di Azure non tiene conto dell'ora legale. 
 1. Aprire l'agente Backup di Microsoft Azure. È possibile trovarlo se si cerca **Backup di Microsoft Azure**nel computer.
 
     ![Avviare Azure Backup Agent](./media/backup-configure-vault/snap-in-search.png)

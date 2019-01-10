@@ -1,25 +1,24 @@
 ---
 title: Disponibilità elevata in Azure Cosmos DB
 description: In questo articolo viene descritto come Azure Cosmos DB garantisce disponibilità elevata
-services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 3f3af4b9ca7369cb14f0e91915f9f35086dc761c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 4fc17daf640e95ab028150cec029471a0c7bc565
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999629"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062996"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata in Azure Cosmos DB
 
 Azure Cosmos DB replica in modo trasparente i dati in tutte le aree di Azure associate all'account Cosmos in uso. Cosmos DB usa più livelli di ridondanza per i dati, come mostrato nell'immagine seguente:
 
-![Partizionamento fisico](./media/high-availability/figure1.png)
+![Partizionamento fisico](./media/high-availability/cosmosdb-data-redundancy.png)
 
 - I dati all'interno dei contenitori Cosmos sono partizionati orizzontalmente.
 

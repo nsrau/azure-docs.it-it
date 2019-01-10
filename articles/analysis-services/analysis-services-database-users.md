@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238880"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189797"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
 
@@ -43,7 +43,7 @@ Quando si crea un progetto di modello tabulare, si creano ruoli e si aggiungono 
   
 4.  Selezionare una delle seguenti autorizzazioni:  
   
-    |Autorizzazione|Descrizione|  
+    |Autorizzazione|DESCRIZIONE|  
     |----------------|-----------------|  
     |**Nessuno**|I membri non possono modificare lo schema del modello e non possono eseguire query sui dati.|  
     |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
@@ -63,6 +63,7 @@ Quando si crea un progetto di modello tabulare, si creano ruoli e si aggiungono 
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>Per aggiungere o gestire ruoli e utenti in SSMS
+
 Per aggiungere ruoli e utenti a un database modello distribuito, è necessario connettersi al server come amministratore del server o già in un ruolo del database con autorizzazioni di amministratore.
 
 1. In Esplora oggetti fare clic con il pulsante destro del mouse su **Ruoli** > **Nuovo ruolo**.
@@ -70,7 +71,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
 2. In **Crea ruolo** immettere il nome di un ruolo e una descrizione.
 
 3. Selezionare un'autorizzazione.
-   |Autorizzazione|Descrizione|  
+   |Autorizzazione|DESCRIZIONE|  
    |----------------|-----------------|  
    |**Controllo completo (amministratore)**|I membri possono modificare lo schema del modello, eseguire operazioni di elaborazione e query su tutti i dati.| 
    |**Elabora database**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
@@ -83,6 +84,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
 5. Se il ruolo che si sta creando dispone dell'autorizzazione Lettura, è possibile aggiungere filtri di riga usando una formula DAX. Fare clic su **Filtri di riga**, selezionare una tabella e quindi digitare una formula DAX nel campo **Filtro DAX**. 
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Per aggiungere ruoli e utenti usando uno script TMSL
+
 È possibile eseguire uno script TMSL nella finestra XMLA in SSMS o usando PowerShell. Usare il comando [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) e l'oggetto [Ruoli](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl).
 
 **Script di esempio del linguaggio di scripting del modello tabulare**
@@ -116,15 +118,17 @@ In questo esempio, un gruppo e un utente esterno B2B vengono aggiunti al ruolo a
 ```
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Per aggiungere ruoli e utenti usando PowerShell
+
 Il modulo [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) fornisce cmdlet di gestione database specifici dell'attività, oltre al cmdlet Invoke-ASCmd per utilizzo generico che accetta una query o uno script TMSL (Tabular Model Scripting Language). I cmdlet seguenti vengono usati per la gestione di utenti e ruoli del database.
   
-|Cmdlet|Descrizione|
+|Cmdlet|DESCRIZIONE|
 |------------|-----------------| 
 |[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Aggiunge un membro a un ruolo del database.| 
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Rimuove un membro da un ruolo del database.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Esegue uno script TMSL.|
 
 ## <a name="row-filters"></a>Filtri di riga  
+
 I filtri di riga definiscono le righe di una tabella su cui i membri di uno specifico ruolo possono eseguire query. Vengono definiti per ogni tabella in un modello usando formule DAX.  
   
 I filtri di riga possono essere definiti solo per i ruoli con le autorizzazioni Lettura e Lettura ed elaborazione. Per impostazione predefinita, se non si definisce un filtro di riga per una determinata tabella, i membri possono eseguire query su tutte le righe della tabella a meno che non vengano applicati filtri incrociati da un'altra tabella.
@@ -144,6 +148,7 @@ I filtri di riga si applicano alle righe specificate e alle righe correlate. Qua
  È possibile usare il filtro, *=FALSE()*, per negare l'accesso a tutte le righe di un'intera tabella.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
   [Gestire gli amministratori di server](analysis-services-server-admins.md)   
   [Gestire Azure Analysis Services con PowerShell](analysis-services-powershell.md)  
   [Riferimento al Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

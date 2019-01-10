@@ -1,21 +1,19 @@
 ---
 title: Esercitazione sullo sviluppo di un'applicazione Java tramite Azure Cosmos DB
 description: Questa esercitazione sull'applicazione Web Java spiega come usare Azure Cosmos DB e l'API di SQL per archiviare e accedere ai dati da un'applicazione Java ospitata nei siti Web di Azure.
-keywords: Sviluppo di applicazioni, esercitazione sul database, applicazione Java, esercitazione sull'applicazione Web Java, Azure, Microsoft Azure
-services: cosmos-db
 author: tknandu
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: bdfe390314f2d2174a26e9b321022a3589a06467
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3add2b6800463cf9320d2fcfdd87897d2e38d32d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086540"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039810"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Creare un'applicazione Web Java con Azure Cosmos DB e l'API di SQL
 

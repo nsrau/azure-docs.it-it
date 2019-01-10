@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 11/30/2018
+ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 00b096f59e70962b6883a8024744e8c91a5f9ae3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4bc963d09b9d01efdfad65b78ce9ce336798d375
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846896"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065342"
 ---
 # <a name="email-notifications-in-pim"></a>Notifiche tramite posta elettronica in PIM
 
@@ -43,16 +43,15 @@ PIM invia messaggi di posta elettronica quando si verificano gli eventi seguenti
 
 - Quando l'attivazione di un ruolo con privilegi è in attesa di approvazione
 - Quando la richiesta di attivazione di un ruolo con privilegi viene completata
-- Quando un ruolo con privilegi viene assegnato come idoneo
 - Quando viene abilitato Azure AD Privileged Identity Management
 
 I destinatari di questi messaggi di posta elettronica per i ruoli di Azure AD variano a seconda del ruolo dell'utente, dell'evento e dell'impostazione di notifica:
 
-| Utente | Attivazione del ruolo in attesa di approvazione | Richiesta di attivazione del ruolo completata | Ruolo assegnato come idoneo | PIM è abilitato |
-| --- | --- | --- | --- | --- |
-| Amministratore dei ruoli con privilegi</br>(Attivato/Idoneo) | Yes</br>(solo se non è specificato nessun responsabile approvazione esplicito) | Sì* | Yes | Yes |
-| Amministratore della sicurezza</br>(Attivato/Idoneo) | No  | Sì* | Yes | Yes |
-| Amministratore globale</br>(Attivato/Idoneo) | No  | Sì* | Yes | Yes |
+| Utente | Attivazione del ruolo in attesa di approvazione | Richiesta di attivazione del ruolo completata | PIM è abilitato |
+| --- | --- | --- | --- |
+| Amministratore dei ruoli con privilegi</br>(Attivato/Idoneo) | Yes</br>(solo se non è specificato nessun responsabile approvazione esplicito) | Sì* | Yes |
+| Amministratore della sicurezza</br>(Attivato/Idoneo) | No  | Sì* | Yes |
+| Amministratore globale</br>(Attivato/Idoneo) | No  | Sì* | Yes |
 
 \* Se l'impostazione di [**Notifiche**](pim-how-to-change-default-settings.md#notifications) è **Abilita**.
 

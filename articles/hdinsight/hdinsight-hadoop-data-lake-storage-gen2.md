@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.openlocfilehash: 2ae11afe1ecbe500a4851aab6d56e612fbe79ee6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b7cde3a8990a51e95a8ce9ad85bca524d5669e0c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976753"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721122"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Usare Azure Data Lake Storage Gen2 con Apache Hadoop in Azure HDInsight
 
@@ -45,7 +45,7 @@ Le applicazioni Apache Hadoop prevedono in modo nativo di leggere e scrivere i d
 
 In precedenza, il driver del filesystem Hadoop convertiva tutte le operazioni del filesystem in chiamate all'API REST di Archiviazione di Azure sul lato client e quindi richiamava l'API REST. Questa conversione lato client, tuttavia, restituiva più chiamate all'API REST per una singola operazione di filesystem come la ridenominazione di un file. ABFS ha spostato parte della logica del filesystem Hadoop dal lato client al lato server e l'API ADLS Gen2 viene eseguita ora in parallelo con l'API BLOB. Questa migrazione migliora le prestazioni perché ora le comuni operazioni del filesystem Hadoop possono essere eseguite con una sola chiamata all'API REST.
 
-Per altre informazioni, vedere [Driver del file system del BLOB di Azure: un driver di Archiviazione di Azure dedicato per Hadoop](../storage/data-lake-storage/abfs-driver.md).
+Per altre informazioni, vedere [Driver del file system del BLOB di Azure: un driver di Archiviazione di Azure dedicato per Apache Hadoop](../storage/data-lake-storage/abfs-driver.md).
 
 ### <a name="adls-gen-2-uri-scheme"></a>Schema URI di ADLS Gen 2
 
@@ -68,7 +68,7 @@ abfss://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapr
 abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
 ```
 
-> [!Note]
+> [!NOTE]  
 > Nei cluster HDInsight versione 2.1 e 1.6 il nome del file è `hadoop-examples.jar`. Quando si usano file al di fuori di HDInsight, la maggior parte delle utilità non riconosce il formato ABFS e richiede invece un formato del percorso di base, ad esempio `example/jars/hadoop-mapreduce-examples.jar`.
 
 Per altre informazioni, vedere [Usare l'URI di Azure Data Lake Storage Gen2](../storage/data-lake-storage/introduction-abfs-uri.md).

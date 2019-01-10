@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dddb42f53d4bb59113df937799bd4de10d31491c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338780"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556561"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Procedura dettagliata: Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C come passaggio di orchestrazione
 
@@ -33,7 +33,7 @@ Il framework dell'esperienza di gestione delle identità invia i dati in attesta
 
 È possibile usare le attestazioni ricevute in un secondo momento per modificare il flusso di esecuzione.
 
-È anche possibile progettare l'interazione come un profilo di convalida. Per altre informazioni, vedere [Procedura dettagliata: Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C come convalida dell'input utente](active-directory-b2c-rest-api-validation-custom.md).
+È anche possibile progettare l'interazione come un profilo di convalida. Per altre informazioni, vedere [Procedura dettagliata: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente](active-directory-b2c-rest-api-validation-custom.md).
 
 Lo scenario è che quando un utente esegue la modifica di un profilo, si desidera:
 
@@ -97,6 +97,7 @@ Un profilo tecnico è la configurazione completa dello scambio desiderato con il
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
@@ -211,7 +212,7 @@ Il codice XML finale per il percorso utente dovrebbe essere simile al seguente:
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Passaggio 5: Aggiungere l'attestazione `city` al file dei criteri relying party in modo che l'attestazione venga inviata all'applicazione
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Passaggio 5: Aggiungere l'attestazione `city` al file dei criteri relying party, in modo che l'attestazione venga inviata all'applicazione
 
 Modificare il file relying party (RP) ProfileEdit.xml e l'elemento `<TechnicalProfile Id="PolicyProfile">` per aggiungere quanto segue: `<OutputClaim ClaimTypeReferenceId="city" />`.
 
@@ -232,8 +233,8 @@ Dopo aver aggiunto la nuova attestazione, il profilo tecnico avrà un aspetto si
 
 Sovrascrivere le versioni esistenti dei criteri.
 
-1.  (Facoltativo) Salvare, scaricandola, la versione esistente del file delle estensioni prima di procedere. Per tenere bassa la complessità iniziale, evitare di caricare più versioni del file delle estensioni.
-2.  (Facoltativo) Rinominare la nuova versione dell'ID dei criteri del file di modifica dei criteri modificando...`PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
+1.  (Facoltativo) Salvare, scaricandola, la versione esistente del file delle estensioni, prima di procedere. Per tenere bassa la complessità iniziale, evitare di caricare più versioni del file delle estensioni.
+2.  (Facoltativo) Rinominare la nuova versione dell'ID dei criteri del file di modifica dei criteri modificando `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
 3.  Caricare il file delle estensioni.
 4.  Caricare il file RP di modifica dei criteri.
 5.  Usare **Esegui adesso** per testare i criteri. Esaminare il token restituito dal framework dell'esperienza di gestione delle identità all'applicazione.

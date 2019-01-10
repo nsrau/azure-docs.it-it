@@ -7,12 +7,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: eee80563a838e6d453278735abf96fa5a6996f19
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 35577f103979bf5f767e3b9d42548ed488e365c8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835503"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041901"
 ---
 # <a name="using-the-azure-cosmos-db-change-feed-processor-library"></a>Uso della libreria del processore dei feed di modifiche di Azure Cosmos DB
 

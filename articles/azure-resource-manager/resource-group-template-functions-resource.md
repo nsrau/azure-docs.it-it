@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 72b0aba4d2bf9cb666d1cb7ae30d0cbdefe3045b
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 32a0263c4c8c1e85145f5d11fd44823216efdcbc
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438412"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107056"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -53,7 +53,7 @@ Restituisce i valori per qualsiasi tipo di risorsa che supporta l'operazione di 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | type | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Yes |stringa |Identificatore univoco della risorsa. |
 | apiVersion |Yes |stringa |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
@@ -345,7 +345,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "storageAccountName": { 
@@ -631,7 +631,7 @@ Spesso è necessario usare questa funzione quando si usa un account di archiviaz
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "virtualNetworkName": {

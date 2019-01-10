@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 349d3a6eacf22a0ce3f842dd30df19964cdf7f23
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d9e6678cb931b61b89a668a35cc7ce4fa79563e3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337326"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809574"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copiare dati da un'origine OData tramite Azure Data Factory
 
@@ -35,7 +35,7 @@ Questo articolo descrive come usare l'attività di copia in Azure Data Factory p
 In particolare, il connettore OData supporta:
 
 - OData versioni 3.0 e 4.0.
-- Copia di dati tramite una di queste autenticazioni: **Anonima**, **Di base** e **Windows**, **entità servizio AAD**e **identità del servizio gestita**.
+- Copia di dati tramite una di queste autenticazioni: **Anonymous**, **Basic**, **Windows**, **AadServicePrincipal** e **ManagedServiceIdentity**.
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -51,7 +51,7 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **OData**. |Yes |
 | URL | URL radice del servizio OData. |Yes |
-| authenticationType | Tipo di autenticazione usato per la connessione all'origine OData. I valori consentiti sono **Anonima**, **Di base** e **Windows**, **entità servizio AAD**e **identità del servizio gestita**. L'autenticazione OAuth basata su utente non è supportata. | Yes |
+| authenticationType | Tipo di autenticazione usato per la connessione all'origine OData. I valori consentiti sono **Anonymous**, **Basic** e **Windows**, **AadServicePrincipal**e **ManagedServiceIdentity**. L'autenticazione OAuth basata su utente non è supportata. | Yes |
 | userName | Specificare **userName** se si usa l'autenticazione di base o di Windows. | No  |
 | password | Specificare la proprietà **password** per l'account utente indicato per **userName**. Contrassegnare questo campo come tipo **SecureString** per archiviare la password in modo sicuro in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No  |
 | servicePrincipalId | Specificare l'ID client. dell'applicazione Azure Active Directory. | No  |
@@ -114,7 +114,7 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "Windows",
             "userName": "<domain>\\<user>",
             "password": {
@@ -138,7 +138,7 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "aadServicePrincipalCredentialType": "ServicePrincipalKey",
@@ -147,7 +147,7 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
                 "value": "<service principal key>"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<AAD resource>"
+            "aadResourceId": "<AAD resource URL>"
         }
     },
     "connectVia": {
@@ -165,7 +165,7 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "aadServicePrincipalCredentialType": "ServicePrincipalCert",
@@ -225,7 +225,7 @@ Per copiare dati da OData, impostare la proprietà**type** del set di dati su **
 
 Questa sezione presenta un elenco delle proprietà supportate dall'origine OData.
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipelines](concepts-pipelines-activities.md) (Pipeline). 
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipeline](concepts-pipelines-activities.md). 
 
 ### <a name="odata-as-source"></a>OData come origine
 

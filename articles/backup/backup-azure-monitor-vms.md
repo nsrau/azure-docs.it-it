@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: raynew
-ms.openlocfilehash: 0cfbb258364ed684ff38b2be9f998d8ff0656251
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a7f09341c1362850409a940810a4e2dd20aa7f74
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864537"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745041"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorare gli avvisi per i backup della macchina virtuale di Azure
+
 Gli avvisi sono risposte del servizio che informano che è stata raggiunta o superata la soglia di un evento. Sapere quando i problemi hanno inizio può essere determinante per contenere i costi aziendali. Gli avvisi in genere non seguono una pianificazione e quindi è utile sapere appena possibile quando un avviso viene generato. Quando ad esempio un processo di backup o ripristino non riesce, l'avviso verrà generato entro cinque minuti dall'errore. Nel dashboard dell'insieme di credenziali il riquadro Avvisi di backup visualizza gli eventi di livello critico e avviso. Nelle impostazioni di Avvisi di backup è possibile visualizzare tutti gli eventi. Ma cosa fare se un avviso viene generato mentre si lavora a un problema diverso? Non sapere quando l'avviso viene generato può essere un piccolo inconveniente o può compromettere i dati. Per verificare che chi di dovere sia informato dell'avviso e sappia quando viene generato, configurare il servizio per l'invio tramite posta elettronica di notifiche di avviso. Per informazioni dettagliate sulla configurazione di notifiche di posta elettronica, vedere [Configurare le notifiche](backup-azure-monitor-vms.md#configure-notifications).
 
 ## <a name="how-do-i-find-information-about-the-alerts"></a>Dove è possibile trovare informazioni sugli avvisi?
+
 Per visualizzare informazioni sull'evento che ha generato un avviso, è necessario aprire la sezione Avvisi di backup. È possibile aprire la sezione Avvisi di backup in due modi: dal riquadro Avvisi di backup nel dashboard dell'insieme di credenziali o dalla sezione Avvisi ed eventi.
 
 Per aprire il pannello Avvisi di backup dal riquadro Avvisi di backup:
@@ -43,6 +45,7 @@ Per aprire il pannello Avvisi di backup dalla sezione Avvisi ed eventi:
     Per personalizzare gli attributi visualizzati nell'elenco, vedere [Visualizzare altri attributi degli eventi](backup-azure-monitor-vms.md#view-additional-event-attributes)
 
 ## <a name="configure-notifications"></a>Configurare le notifiche
+
  È possibile configurare il servizio per l'invio di notifiche di posta elettronica per gli avvisi generati nell'ultima ora o quando si verificano tipi specifici di eventi.
 
 Per configurare le notifiche di posta elettronica per gli avvisi
@@ -62,14 +65,16 @@ Per configurare le notifiche di posta elettronica per gli avvisi
 5. Nella finestra di dialogo **Gravità** scegliere uno o più livelli che dovranno attivare la notifica di posta elettronica.
 6. Fare clic su **Save**.
 
-   ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Quali tipi di avviso sono disponibili per il backup di VM IaaS di Azure?
+### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Tipi di avviso disponibili per il backup di macchine virtuali IaaS di Azure
+
    | Livello avviso | Avvisi inviati |
    | --- | --- |
    | Critico | per errore di backup, errore di ripristino |
    | Avviso | per i processi di backup completati con avvisi, ad esempio in caso di errore di alcuni writer durante la creazione di uno snapshot |
    | Informazioni | attualmente non sono disponibili avvisi informativi per il backup di macchine virtuali di Azure |
 
-### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Esistono situazioni in cui il messaggio e-mail non viene inviato anche se sono configurate le notifiche?
+### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Esistono situazioni in cui il messaggio di posta elettronica non viene inviato anche se sono configurate le notifiche
+
 Esistono situazioni in cui un avviso non viene inviato anche se le notifiche sono state configurate correttamente. Le notifiche di posta elettronica non vengono inviate nei casi seguenti per ridurre la frequenza degli avvisi:
 
 * Se le notifiche sono configurate per il riepilogo orario e un avviso viene generato e risolto entro l'ora.
@@ -79,9 +84,13 @@ Esistono situazioni in cui un avviso non viene inviato anche se le notifiche son
 
 ## <a name="using-activity-logs-to-get-notifications-for-successful-backups"></a>Uso di log attività per ricevere notifiche di backup riusciti
 
+> [!NOTE]
+> Si è passati a un nuovo modello di distribuzione dei log attività da Backup di Azure negli insiemi di credenziali di Servizi di ripristino. Purtroppo, ciò ha influito sulla generazione dei log attività nei cloud sovrani di Azure. Se gli utenti del cloud sovrano di Azure hanno creato/configurato avvisi dai log attività tramite Monitoraggio di Azure come indicato qui, gli avvisi non verranno attivati. In questo caso, tali utenti dovrebbero usare le impostazioni di diagnostica e l'area di lavoro di Log Analytics oppure una [soluzione per la creazione di report di PowerBI](backup-azure-configure-reports.md) per ottenere le informazioni pertinenti. Inoltre, in tutte le aree pubbliche di Azure, se un utente sta raccogliendo i log attività di Servizi di ripristino in un'area di lavoro di Log Analytics come indicato [qui](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity), anche questi log non saranno visibili.
+
 Se si vuole ricevere una notifica al termine dei backup, è possibile usare avvisi basati sui [log attività](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) dell'insieme di credenziali.
 
 ### <a name="login-into-azure-portal"></a>Eseguire l'accesso al portale di Azure
+
 Eseguire l'accesso al portale di Azure, passare all'insieme di credenziali pertinente di Servizi di ripristino di Azure e fare clic sulla sezione Log attività nelle proprietà.
 
 ### <a name="identify-appropriate-log"></a>Identificare il log appropriato
@@ -98,9 +107,7 @@ Fare quindi clic su Aggiungi avviso del log attività per generare avvisi per tu
 
 Facendo clic su Aggiungi avviso del log attività verrà visualizzata una schermata come quella illustrata di seguito.
 
-![Avviso del log attività](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png)
-    
-La sottoscrizione e il gruppo di risorse vengono usati per archiviare l'avviso. I criteri saranno precompilati. Assicurarsi che tutti i valori siano pertinenti per il requisito.
+![Avviso del log attività](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png): per archiviare l'avviso vengono usati la sottoscrizione e il gruppo di risorse. I criteri saranno precompilati. Assicurarsi che tutti i valori siano pertinenti per il requisito.
 
 Per i backup riusciti, il livello viene contrassegnato come Informativo e lo stato come Completato.
 
@@ -112,18 +119,19 @@ Usare il gruppo di azioni per definire l'azione dopo la generazione di un avviso
 
 ![Gruppo di azioni del log attività](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
 
-
 Dopo aver fatto clic su OK, verrà generato un avviso del log attività e i successivi log attività registrati per i backup riusciti genereranno l'azione in base al valore definito nel gruppo di azioni.
 
 ### <a name="limitations-on-alerts"></a>Limitazioni per gli avvisi
+
 Gli avvisi basati su eventi sono soggetti alle limitazioni seguenti:
 
 1. Gli avvisi vengono attivati in tutte le macchine virtuali nell'insieme di credenziali di Servizi di ripristino. Non è possibile personalizzare l'avviso per un subset di macchine virtuali in un insieme di credenziali di Servizi di ripristino.
 2. Gli avvisi vengono inviati da "alerts-noreply@mail.windowsazure.com". Attualmente non è possibile modificare il mittente del messaggio di posta elettronica.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per informazioni su come ricreare una macchina virtuale da un punto di ripristino, vedere [Ripristinare macchine virtuali in Azure](backup-azure-arm-restore-vms.md).
 
-Per informazioni sulla protezione delle macchine virtuali, vedere [Primo approccio: eseguire il backup di macchine virtuali in un insieme di credenziali di Servizi di ripristino](backup-azure-vms-first-look-arm.md). 
+Per informazioni sulla protezione delle macchine virtuali, vedere [Primo approccio: eseguire il backup di macchine virtuali in un insieme di credenziali di Servizi di ripristino](backup-azure-vms-first-look-arm.md).
 
 Per altre informazioni sulle attività di gestione per i backup delle macchine virtuali, vedere l'articolo [Gestire i backup delle macchine virtuali di Azure](backup-azure-manage-vms.md).

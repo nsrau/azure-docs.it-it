@@ -4,20 +4,19 @@ description: Informazioni su come sviluppare ed eseguire in modo iterativo il de
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 05/14/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.openlocfilehash: a4d3f991dbba8a686c7242aabff11d9228300777
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: c80b67ac5575360a6556befd3fd2a6a5c8e562c0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865166"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015764"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Sviluppo e debug iterativi con Azure Data Factory
 
@@ -40,13 +39,22 @@ Quando un'esecuzione dei test ha esito positivo, aggiungere altre attività alla
 
 ![Annullare un'esecuzione dei test](media/iterative-development-debugging/iterative-development-image3.png)
 
-Durante un'esecuzione dei test, non è necessario pubblicare le modifiche in Data Factory prima di selezionare **Debug**. Questo risulta utile negli scenari in cui ci si vuole assicurare che le modifiche funzionino come previsto prima di aggiornare il flusso di lavoro di Data Factory.
+Durante un'esecuzione dei test, non è necessario pubblicare le modifiche in Data Factory prima di selezionare **Debug**. Questa funzione risulta utile negli scenari in cui ci si vuole assicurare che le modifiche funzionino come previsto prima di aggiornare il flusso di lavoro di Data Factory.
 
-## <a name="more-info-about-debugging"></a>Altre informazioni sul debug
+> [!IMPORTANT]
+> Selezionando **Debug** la pipeline viene eseguita. Quindi, se per esempio la pipeline contiene attività di copia, l'esecuzione dei test copia i dati dall'origine alla destinazione. Di conseguenza, durante il debug è consigliabile usare cartelle di test nelle attività di copia e in altre attività. Dopo aver eseguito il debug della pipeline, passare alle cartelle che si vogliono usare durante il funzionamento normale.
 
-1. Le esecuzioni dei test avviate con la funzionalità **Debug** non sono disponibili nell'elenco della scheda **Monitoraggio**. Nella scheda **Monitoraggio** sono visibili solo le esecuzioni attivate con i trigger **Trigger Now** (Attiva adesso), **Pianificazione** o **Finestra a cascata**. È possibile vedere ultima esecuzione dei test avviata con la funzionalità **Debug** nella finestra **Output** del canvas della pipeline.
+## <a name="visualizing-debug-runs"></a>Visualizzazione delle esecuzioni di debug
 
-2. Selezionando **Debug** la pipeline viene eseguita. Quindi, se per esempio la pipeline contiene attività di copia, l'esecuzione dei test copia i dati dall'origine alla destinazione. Di conseguenza, durante il debug è consigliabile usare cartelle di test nelle attività di copia e in altre attività. Dopo aver eseguito il debug della pipeline, passare alle cartelle che si vogliono usare durante il funzionamento normale.
+È possibile visualizzare tutte le esecuzioni di debug in corso della data factory in un'unica posizione. Selezionare **View debug runs** (Visualizza esecuzioni di debug) nell'angolo superiore destro della pagina. Questa funzionalità è utile negli scenari con pipeline master che avviano esecuzioni di debug per le pipeline figlio e in cui si vuole una visualizzazione singola per visualizzare tutte le esecuzioni di debug attive.
+
+![Selezionare l'icona View active debug runs (Visualizza esecuzioni di debug attive)](media/iterative-development-debugging/view-debug-runs-image1.png)
+
+![Elenco di esempi di esecuzioni di debug attive](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+## <a name="monitoring-debug-runs"></a>Esegue il monitoraggio delle esecuzioni di debug
+
+Le esecuzioni dei test avviate con la funzionalità **Debug** non sono disponibili nell'elenco della scheda **Monitoraggio**. Nella scheda **Monitoraggio** sono visibili solo le esecuzioni attivate con i trigger **Trigger Now** (Attiva adesso), **Pianificazione** o **Finestra a cascata**. È possibile vedere ultima esecuzione dei test avviata con la funzionalità **Debug** nella finestra **Output** del canvas della pipeline.
 
 ## <a name="setting-breakpoints-for-debugging"></a>Impostazione di punti di interruzione per il debug
 

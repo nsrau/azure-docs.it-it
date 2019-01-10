@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 46f94a512ea78016a327357a3d0ee25a91ad607e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021676"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105203"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Come ridimensionare Cache Redis di Azure
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile aumentare o ridurre le dimensioni e il piano tariffario della cache. Questo articolo illustra come ridimensionare la cache usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
@@ -136,7 +136,7 @@ No, il nome della cache e le chiavi restano invariati durante un'operazione di r
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Durante il ridimensionamento i dati nella cache andranno persi?
 * Quando una cache **Basic** viene ridimensionata, tutti i dati vengono persi e la cache non è disponibile durante l'operazione di ridimensionamento.
 * Quando una cache **Basic** viene ridimensionata in una cache **Standard**, generalmente i dati nella cache vengono mantenuti.
-* Quando si aumenta la dimensione di una cache **Standard** o si passa a un piano tariffario superiore oppure quando si aumenta la dimensione di una cache **Premium**, in genere tutti i dati vengono mantenuti. Quando si riduce la dimensione di una cache **Standard** o **Premium**, i dati potrebbero andare persi in base al rapporto tra la quantità di dati nella cache e la nuova dimensione configurata. Se durante la riduzione i dati vengono persi, le chiavi vengono rimosse mediante il criterio di rimozione [allkeys-lru](http://redis.io/topics/lru-cache) . 
+* Quando si aumenta la dimensione di una cache **Standard** o si passa a un piano tariffario superiore oppure quando si aumenta la dimensione di una cache **Premium**, in genere tutti i dati vengono mantenuti. Quando si riduce la dimensione di una cache **Standard** o **Premium**, i dati potrebbero andare persi in base al rapporto tra la quantità di dati nella cache e la nuova dimensione configurata. Se durante la riduzione i dati vengono persi, le chiavi vengono rimosse mediante il criterio di rimozione [allkeys-lru](https://redis.io/topics/lru-cache) . 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>L'impostazione databases personalizzata viene modificata durante il ridimensionamento?
 Se è stato configurato un valore personalizzato per l'impostazione `databases` durante la creazione della cache, tenere presente che alcuni piani tariffari hanno [limiti di database](cache-configure.md#databases) differenti. Di seguito sono descritte alcune considerazioni relative all'esecuzione del ridimensionamento in questo scenario:

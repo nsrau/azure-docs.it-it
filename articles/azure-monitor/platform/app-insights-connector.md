@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6b725d7912fa4b0d6b46acb35eda80ae66e4a38c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726229"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121414"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Soluzione di gestione Connettore di Application Insights (anteprima)
 
@@ -27,7 +27,7 @@ ms.locfileid: "53726229"
 >[!NOTE]
 > Con il supporto delle [query tra risorse](../../azure-monitor/log-query/cross-workspace-query.md), la soluzione di gestione Connettore di Application Insights non è più necessaria e sarà deprecata. A partire da luglio, non sarà possibile collegare le nuove risorse di Application Insights alle Aree di lavoro di Log Analytics. I dashboard e i collegamenti esistenti continueranno a funzionare fino a novembre 2018. Per altre informazioni, vedere [Portale di OMS che si sposta in Azure](../../azure-monitor/platform/oms-portal-transition.md).
 
-La soluzione Connettore di Application Insights consente di diagnosticare problemi di prestazioni e comprendere in che modo gli utenti usano le app con il monitoraggio di [Application Insights](../../application-insights/app-insights-overview.md). In Log Analytics sono disponibili alcune viste della stessa telemetria dell'applicazione visualizzate dagli sviluppatori in Application Insights. Tuttavia, quando le app di Application Insights vengono integrate con Log Analytics, la visibilità delle applicazioni aumenta grazie al fatto che i dati operativi e quelli applicativi si trovano in un'unica posizione. Con le stesse viste è possibile collaborare con gli sviluppatori delle app. Le viste comuni consentono di ridurre il tempo necessario a rilevare e risolvere i problemi delle piattaforme e delle applicazioni.
+La soluzione Connettore di Application Insights consente di diagnosticare problemi di prestazioni e comprendere in che modo gli utenti usano le app con il monitoraggio di [Application Insights](../../azure-monitor/app/app-insights-overview.md). In Log Analytics sono disponibili alcune viste della stessa telemetria dell'applicazione visualizzate dagli sviluppatori in Application Insights. Tuttavia, quando le app di Application Insights vengono integrate con Log Analytics, la visibilità delle applicazioni aumenta grazie al fatto che i dati operativi e quelli applicativi si trovano in un'unica posizione. Con le stesse viste è possibile collaborare con gli sviluppatori delle app. Le viste comuni consentono di ridurre il tempo necessario a rilevare e risolvere i problemi delle piattaforme e delle applicazioni.
 
 Quando si usa la soluzione, è possibile:
 
@@ -142,7 +142,7 @@ A tale scopo, fare clic sui puntini di sospensione (**...**) visualizzati alla f
 
 ### <a name="sample-corrected-data"></a>Dati con correzione di campionamento
 
-Application Insights offre *[dati con correzione di campionamento](../../application-insights/app-insights-sampling.md)*  per ridurre il traffico di telemetria. Quando si abilita il campionamento nell'app di Application Insights, si ottiene un numero ridotto di voci archiviate sia in Application Insights sia in Log Analytics. Sebbene venga mantenuta la coerenza dei dati nella pagina **Connettore di Application Insights** e nelle prospettive, è consigliabile correggere manualmente i dati campionati per le query personalizzate.
+Application Insights offre *[dati con correzione di campionamento](../../azure-monitor/app/sampling.md)*  per ridurre il traffico di telemetria. Quando si abilita il campionamento nell'app di Application Insights, si ottiene un numero ridotto di voci archiviate sia in Application Insights sia in Log Analytics. Sebbene venga mantenuta la coerenza dei dati nella pagina **Connettore di Application Insights** e nelle prospettive, è consigliabile correggere manualmente i dati campionati per le query personalizzate.
 
 Di seguito è riportato un esempio di correzione di campionamento in una query di ricerca log:
 

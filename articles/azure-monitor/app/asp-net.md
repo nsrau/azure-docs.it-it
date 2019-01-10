@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: f8ea270e5a41c094b29fb2dbb6df4bd325b66b32
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f41d54f97861a4df7d50cb3b4f0f99970de354cc
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999969"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121499"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Installare Application Insights per un sito Web ASP.NET
 
-Questa procedura consente di configurare un'app Web ASP.NET per l'invio di dati di telemetria al servizio [Azure Application Insights](../../application-insights/app-insights-overview.md). È valida per le app ASP.NET ospitate nel server IIS locale o nel cloud. Offre grafici e un linguaggio di query avanzato che permettono di comprendere le prestazioni dell'app e il suo utilizzo da parte degli utenti, oltre ad avvisi automatici in caso di errori o problemi di prestazioni. Molti sviluppatori trovano utili queste funzionalità così come sono, ma è anche possibile estendere e personalizzare i dati di telemetria, se necessario.
+Questa procedura consente di configurare un'app Web ASP.NET per l'invio di dati di telemetria al servizio [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). È valida per le app ASP.NET ospitate nel server IIS locale o nel cloud. Offre grafici e un linguaggio di query avanzato che permettono di comprendere le prestazioni dell'app e il suo utilizzo da parte degli utenti, oltre ad avvisi automatici in caso di errori o problemi di prestazioni. Molti sviluppatori trovano utili queste funzionalità così come sono, ma è anche possibile estendere e personalizzare i dati di telemetria, se necessario.
 
 Il programma di installazione richiede pochi clic in Visual Studio. Per evitare addebiti è possibile limitare il volume dei dati di telemetria. In questo modo è possibile provare le funzionalità ed eseguire il debug o monitorare un sito con un numero di utenti limitato. Se si decide di monitorare l'intero sito di produzione, è facile aumentare il limite in un secondo momento.
 
@@ -84,7 +84,7 @@ Nella finestra Ricerca di Application Insights di Visual Studio verranno visuali
 > [!Tip]
 > Se non vengono visualizzati dati, verificare che l'intervallo di tempo sia corretto e fare clic sull'icona di ricerca.
 
-[Uso di Application Insights in Visual Studio](../../application-insights/app-insights-visual-studio.md).
+[Uso di Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md).
 
 <a name="monitor"></a>
 ### <a name="see-telemetry-in-web-portal"></a>Visualizzare i dati di telemetria nel portale Web
@@ -106,10 +106,10 @@ Pubblicare l'app nel server IIS o in Azure. Verificare in [Flusso metriche attiv
 
 La telemetria viene creata nel portale di Application Insights, in cui è possibile monitorare le metriche, eseguire ricerche sui dati di telemetria e configurare i [dashboard](../../azure-monitor/app/app-insights-dashboards.md), nonché usare l'avanzato [linguaggio di query di Log Analytics](https://aka.ms/LogAnalyticsLanguage) per analizzare l'utilizzo e le prestazioni o trovare eventi specifici.
 
-È anche possibile continuare ad analizzare i dati di telemetria in [Visual Studio](../../application-insights/app-insights-visual-studio.md) con strumenti come la ricerca diagnostica e le [tendenze](../../application-insights/app-insights-visual-studio-trends.md).
+È anche possibile continuare ad analizzare i dati di telemetria in [Visual Studio](../../azure-monitor/app/visual-studio.md) con strumenti come la ricerca diagnostica e le [tendenze](../../azure-monitor/app/visual-studio-trends.md).
 
 > [!NOTE]
-> Se la quantità di dati di telemetria inviata dall'app sta per raggiungere le [limitazioni](../../azure-monitor/app/pricing.md#limits-summary), viene attivato il [campionamento](../../application-insights/app-insights-sampling.md) automatico. Il campionamento riduce la quantità di dati di telemetria inviata dall'app mantenendo i dati correlati per scopi diagnostici.
+> Se la quantità di dati di telemetria inviata dall'app sta per raggiungere le [limitazioni](../../azure-monitor/app/pricing.md#limits-summary), viene attivato il [campionamento](../../azure-monitor/app/sampling.md) automatico. Il campionamento riduce la quantità di dati di telemetria inviata dall'app mantenendo i dati correlati per scopi diagnostici.
 >
 >
 
@@ -147,14 +147,14 @@ Se si è interessati, vedere gli argomenti alternativi seguenti:
 
 ### <a name="analysis"></a>Analisi
 
-* **[Uso di Application Insights in Visual Studio](../../application-insights/app-insights-visual-studio.md)**<br/>Include informazioni su debug con telemetria, ricerca diagnostica e drill-through nel codice.
+* **[Uso di Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Include informazioni su debug con telemetria, ricerca diagnostica e drill-through nel codice.
 * **[Uso del portale Application Insights](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Include informazioni su dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria.
 * **[Analytics](../../azure-monitor/log-query/get-started-portal.md)**: linguaggio di query avanzato.
 
 ### <a name="alerts"></a>Avvisi
 
 * [Test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md): creare test per assicurarsi che il sito sia visibile sul Web.
-* [Diagnostica intelligente](../../application-insights/app-insights-proactive-diagnostics.md): questi test vengono eseguiti automaticamente e non è quindi necessario effettuare alcuna operazione per configurarli. Se l'app ha una frequenza insolita di richieste non riuscite, verrà comunicato automaticamente.
+* [Diagnostica intelligente](../../azure-monitor/app/proactive-diagnostics.md): questi test vengono eseguiti automaticamente e non è quindi necessario effettuare alcuna operazione per configurarli. Se l'app ha una frequenza insolita di richieste non riuscite, verrà comunicato automaticamente.
 * [Avvisi delle metriche](../../azure-monitor/app/alerts.md): impostare questi avvisi per essere avvertiti se una metrica supera una soglia. È possibile impostarli nelle metriche personalizzate di cui si scrive il codice nell'app.
 
 ### <a name="automation"></a>Automazione

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 16876a7831ab374637e28165c44d47e0ab059712
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824303"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976365"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
@@ -40,7 +40,7 @@ Quando si cerca di attivare una VM Windows di Azure, si riceve un messaggio di e
 **Errore: 0xC004F074 Servizio gestione licenze software: impossibile attivare il computer. Impossibile contattare un servizio di gestione delle chiavi. Per altre informazioni, vedere il registro eventi applicazioni.**
 
 ## <a name="cause"></a>Causa
-Si verificano in genere problemi di attivazione della VM di Azure se la VM Windows non viene configurata usando la chiave di configurazione del client del Servizio di gestione delle chiavi appropriata o la VM Windows ha un problema di connettività al Servizio di gestione delle chiavi di Azure (kms.core.windows.net, porta 1668). 
+In genere si verificano problemi di attivazione della macchina virtuale di Azure se la macchina virtuale Windows non viene configurata usando la chiave di configurazione del client del server di gestione delle chiavi appropriata, oppure se la macchina virtuale Windows ha un problema di connettività al server di gestione delle chiavi di Azure (kms.core.windows.net, porta 1688). 
 
 ## <a name="solution"></a>Soluzione
 
@@ -86,7 +86,7 @@ Questo passaggio non si applica a Windows 2012 o Windows 2008 R2. Usa la funzion
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    Il comando restituirà: nome del computer del Servizio di gestione delle chiavi impostato su kms.core.windows.net:1688.
+    Il comando dovrebbe restituire: nome del computer del Servizio di gestione delle chiavi impostato su kms.core.windows.net:1688.
 
 4. Usando Psping verificare di avere la connettività al server di gestione delle chiavi. Passare alla cartella in cui si è estratto il download Pstools.zip e quindi eseguire quanto segue:
   

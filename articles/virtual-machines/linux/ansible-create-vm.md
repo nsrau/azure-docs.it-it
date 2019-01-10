@@ -3,17 +3,17 @@ title: Usare Ansible per creare una macchina virtuale Linux in Azure
 description: Informazioni su come usare Ansible per creare una macchina virtuale Linux in Azure
 ms.service: ansible
 keywords: terraform, devops, macchina virtuale
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.openlocfilehash: 99822fc1d99d914327a64cfb9fe8e18189f30a4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f7f4809e064de15bb0a18c404f0df81307b1b9a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251239"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073986"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Usare Ansible per creare una macchina virtuale Linux in Azure
 Attraverso un linguaggio dichiarativo, Ansible permette di automatizzare la creazione, la configurazione e la distribuzione di risorse di Azure tramite *playbook* Ansible. Ogni sezione di questo articolo mostra l'aspetto di ogni parte di un playbook Ansible per creare e configurare diversi elementi di una macchina virtuale Linux. Il [playbook Ansible completo](#complete-sample-ansible-playbook) è riportato alla fine di questo articolo.

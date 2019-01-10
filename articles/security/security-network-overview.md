@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: ad711fe998a3c250775c5d4f4d76305ffb7cf860
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2237d523b8023c0a6551515f9a2740e92e7beb3f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244594"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548924"
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
 
@@ -268,7 +268,7 @@ Altre informazioni:
 
 ## <a name="name-resolution"></a>Risoluzione dei nomi
 
-La risoluzione dei nomi è una funzione critica per tutti i servizi ospitati in Azure. Dal punto di vista della sicurezza la compromissione della funzione di risoluzione dei nomi può consentire a un utente malintenzionato di reindirizzare le richieste dai siti dell'utente al suo sito. La sicurezza della risoluzione dei nomi è un requisito per tutti i servizi cloud ospitati.
+La risoluzione dei nomi è una funzione critica per tutti i servizi ospitati in Azure. Dal punto di vista della sicurezza, la compromissione della funzione di risoluzione dei nomi può consentire a un utente malintenzionato di reindirizzare le richieste dai siti dell'utente al suo sito. La sicurezza della risoluzione dei nomi è un requisito per tutti i servizi cloud ospitati.
 
 Esistono due tipi di risoluzione dei nomi che occorre considerare:
 
@@ -316,16 +316,16 @@ Altre informazioni:
 Gli attacchi Distributed Denial of Service (DDoS) sono tra le principali preoccupazioni che riguardano la disponibilità e la sicurezza per quei clienti che spostano le loro applicazioni nel cloud. Un attacco DDoS tenta di esaurire le risorse di un'applicazione, che quindi non risulta più disponibile per gli utenti legittimi. Gli attacchi DDoS possono avere come obiettivo qualsiasi endpoint che è raggiungibile pubblicamente tramite Internet.
 Con la piattaforma Azure, Microsoft offre la protezione DDoS denominata **Basic**. Questa protezione non comporta alcun costo aggiuntivo e include il monitoraggio sempre attivo e la mitigazione in tempo reale degli attacchi comuni a livello di rete. Oltre alle protezioni incluse nella protezione DDoS **Basic** è possibile abilitare l'opzione **Standard**. Le funzionalità di Protezione DDoS Standard includono:
 
-* **Integrazione di piattaforma nativa:** integrato in modo nativo in Azure. Include la configurazione tramite il portale di Azure. Protezione DDoS Standard comprende le risorse e la loro configurazione.
+* **Integrazione nella piattaforma nativa:** integrazione nativa in Azure. Include la configurazione tramite il portale di Azure. Protezione DDoS Standard comprende le risorse e la loro configurazione.
 * **Protezione pronta all'uso:** la configurazione semplificata consente di proteggere immediatamente tutte le risorse in una rete virtuale non appena il servizio Protezione DDoS Standard viene abilitato. Non è necessaria alcuna definizione dell'utente o intervento. Il servizio Protezione DDoS Standard mitiga istantaneamente e automaticamente gli attacchi non appena vengono rilevati.
 * **Monitoraggio del traffico sempre attivo:** i modelli di traffico delle applicazioni vengono monitorati 24 ore su 24, 7 giorni su 7, cercando gli indicatori di attacchi DDoS. La mitigazione viene applicata quando vengono superati i criteri di protezione.
 * **Report di mitigazione dei rischi di attacco** I report di mitigazione dei rischi di attacco usano i dati del flusso di rete aggregati per fornire informazioni dettagliate sugli attacchi delle risorse mirate.
 * **Log del flusso di mitigazione degli attacchi** I log del flusso di mitigazione degli attacchi consentono di esaminare il traffico eliminato, il traffico inoltrato e altri dati sugli attacchi in tempo quasi reale durante un attacco DDoS attivo.
-* **Ottimizzazione adattiva:** la profilatura intelligente del traffico apprende il modello di traffico dell'applicazione nel tempo e seleziona e aggiorna il profilo più adatto per il servizio. Il profilo viene modificato in base ai cambiamenti del traffico nel tempo. Protezione dal livello 3 al livello 7: offre protezione DDoS dello stack completo, se usata con un WAF (web application firewall).
+* **Ottimizzazione adattiva:** la profilatura intelligente del traffico apprende il modello di traffico dell'applicazione nel tempo e seleziona e aggiorna il profilo più adatto per il servizio. Il profilo viene modificato in base ai cambiamenti del traffico nel tempo. Protezione dal livello 3 al livello 7: offre protezione DDoS dello stack completo se usata con un web application firewall.
 * **Scala di mitigazione completa:** è possibile mitigare più di 60 tipi diversi di attacchi con capacità globale, per una protezione dai più noti attacchi DDoS.
 * **Metriche degli attacchi:** tramite Monitoraggio di Azure è possibile accedere al riepilogo delle metriche per ogni attacco.
 * **Avviso in caso di attacco:** è possibile configurare avvisi all'inizio e alla fine di un attacco, oltre che nel corso dell'attacco, usando le metriche integrate relative agli attacchi. Gli avvisi si integrano nel software operativo, come Microsoft Azure Log Analytics, Splunk, Archiviazione di Azure, posta elettronica e il portale di Azure.
-* **Garanzia sui costi:** crediti per il servizio di trasferimento dati e scale-out dell'applicazione per attacchi DDoS documentati.
+* **Garanzia sui costi:**  crediti per il servizio di trasferimento dati e scale-out dell'applicazione per attacchi DDoS documentati.
 * **DDoS Rapid Response** I clienti con Protezione DDoS Standard dispongono ora dell'accesso al team Rapid Response durante un attacco in corso. DRR può facilitare l'analisi dell'attacco, le mitigazioni personalizzate durante un attacco e l'analisi post-attacco.
 
 
@@ -394,7 +394,7 @@ Altre informazioni:
 
 La registrazione a livello di rete è una funzione chiave per qualsiasi scenario di sicurezza di rete. In Azure è possibile registrare le informazioni ottenute per i gruppi di sicurezza di rete per avere informazioni di registrazione a livello di rete. Con la registrazione dei gruppi di sicurezza di rete si ottengono informazioni da:
 
-* [Log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Vengono usati per visualizzare tutte le operazioni inviate alle sottoscrizioni di Azure. Questi log sono abilitati per impostazione predefinita e possono essere usati nel portale di Azure. Nelle versioni precedenti sono noti come "log di controllo" o "log operativi".
+* [Log attività](../azure-monitor/platform/activity-logs-overview.md). Vengono usati per visualizzare tutte le operazioni inviate alle sottoscrizioni di Azure. Questi log sono abilitati per impostazione predefinita e possono essere usati nel portale di Azure. Nelle versioni precedenti sono noti come "log di controllo" o "log operativi".
 * Log eventi. Forniscono informazioni sulle regole applicate ai gruppi di sicurezza di rete.
 * Registri contatori. Consentono di sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico.
 

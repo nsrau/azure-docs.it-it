@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c93b23e3b06afe754ea1ca2472806d26c70f4c92
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973265"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076774"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.  
@@ -27,7 +27,7 @@ Prima di configurare l'esportazione continua, è necessario prendere in consider
 * Il pulsante Esporta nella parte superiore del pannello delle metriche o di ricerca consente di esportare tabelle e grafici in un foglio di calcolo di Excel.
 
 * [Dati di analisi](../../azure-monitor/app/analytics.md) offre un linguaggio avanzato di query per la telemetria che consente anche di esportare i risultati.
-* Se si vogliono [esplorare i dati in Power BI](../../application-insights/app-insights-export-power-bi.md), non è necessario usare l'esportazione continua.
+* Se si vogliono [esplorare i dati in Power BI](../../azure-monitor/app/export-power-bi.md ), non è necessario usare l'esportazione continua.
 * L'[API REST di accesso ai dati](https://dev.applicationinsights.io/) consente di accedere ai dati di telemetria a livello di codice.
 * È inoltre possibile accedere all'installazione dell'[esportazione continua tramite PowerShell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
@@ -71,14 +71,14 @@ Per interrompere l'esportazione in modo permanente, eliminare l'esportazione. Qu
 ## <a name="analyze"></a> Quali eventi si ottengono?
 I dati esportati sono dati di telemetria non elaborati ricevuti dall'applicazione, tranne che per l'aggiunta di dati del percorso calcolati dall'indirizzo IP del client.
 
-I dati che il [campionamento](../../application-insights/app-insights-sampling.md) ha rimosso non sono inclusi nei dati esportati.
+I dati che il [campionamento](../../azure-monitor/app/sampling.md) ha rimosso non sono inclusi nei dati esportati.
 
 Le altre metriche calcolate non sono incluse. Ad esempio, non si procederà all'esportazione dell'uso medio della CPU, ma si procederà all'esportazione dei dati di telemetria non elaborati a partire dai quali viene calcolata la media.
 
 I dati includono anche i risultati di ogni [test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) impostato.
 
 > [!NOTE]
-> **Campionamento.** Se l'applicazione invia una grande quantità di dati, la funzionalità di campionamento può intervenire e inviare solo una percentuale della telemetria generata. [Altre informazioni sul campionamento.](../../application-insights/app-insights-sampling.md)
+> **Campionamento.** Se l'applicazione invia una grande quantità di dati, la funzionalità di campionamento può intervenire e inviare solo una percentuale della telemetria generata. [Altre informazioni sul campionamento.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,4 +194,4 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 <!--Link references-->
 
 [exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md

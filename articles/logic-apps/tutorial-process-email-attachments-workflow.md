@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 93894f9c45ac8b2cfcec23cf6a9ccd4d8e6f6824
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140507"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121724"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Esercitazione: automatizzare la gestione di messaggi di posta elettronica e allegati con App per la logica di Azure
 
@@ -145,7 +145,7 @@ Usare ora il frammento di codice fornito in questi passaggi per creare una funzi
    | **Piano di hosting** | Piano a consumo | Questa impostazione determina la modalità di allocazione e scalabilità delle risorse, ad esempio la potenza di calcolo, per l'esecuzione dell'app per le funzioni. Vedere il [confronto tra piani di hosting](../azure-functions/functions-scale.md). | 
    | **Posizione** | Stati Uniti occidentali | La stessa area usata in precedenza | 
    | **Archiviazione** | cleantextfunctionstorageacct | Creare un account di archiviazione per l'app per le funzioni. Usare solo lettere minuscole e numeri. <p>**Nota:** questo account di archiviazione contiene le app per le funzioni ed è diverso dall'account di archiviazione creato in precedenza per gli allegati di posta elettronica. | 
-   | **Application Insights** | Off | Attiva il monitoraggio delle applicazioni con [Application Insights](../application-insights/app-insights-overview.md). Per questa esercitazione, tuttavia, scegliere l'impostazione **No**. | 
+   | **Application Insights** | Off | Attiva il monitoraggio delle applicazioni con [Application Insights](../azure-monitor/app/app-insights-overview.md). Per questa esercitazione, tuttavia, scegliere l'impostazione **No**. | 
    |||| 
 
    Se l'app per le funzioni non si apre automaticamente dopo la distribuzione, individuare l'app nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a>. Nel menu principale di Azure selezionare **App per le funzioni** e selezionare l'app per le funzioni. 

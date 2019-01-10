@@ -10,20 +10,20 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 40b9685c56dd494e82c05bff9ed75f425a3006ff
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 39468a4a143d184fcc964ae88f82ad7254e4f3b0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886628"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741743"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Esempi di utilizzo delle informazioni dettagliate di Bing
 
-Questa sezione contiene esempi del modo in cui Bing potrebbe visualizzare informazioni dettagliate su Bing.com.
+Questo articolo contiene esempi del modo in cui Bing potrebbe usare e visualizzare informazioni dettagliate sulle immagini su Bing.com.
 
 ## <a name="pagesincluding-insight-example"></a>Esempio di informazioni dettagliate PagesIncluding
 
-L'esempio seguente mostra in che modo Bing potrebbe visualizzare le pagine Web che includono l'immagine. Visualizza un collegamento alla prima pagina Web e consente all'utente di espandere e comprimere l'elenco delle altre pagine Web che includono l'immagine.
+Qui è visualizzato un collegamento alla prima pagina Web e l'utente può espandere e comprimere l'elenco delle altre pagine Web che includono l'immagine.
 
 ![Pagine espanse che includono l'immagine](./media/pages-including.PNG)
 
@@ -83,9 +83,7 @@ I tag non predefiniti includono il rettangolo di selezione che identifica l'area
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per conoscere il codice JSON alla base di questi esempi, vedere [Default insights](default-insights-tag.md) (Informazioni dettagliate predefinite) e [JSON response](overview.md#the-response) (Risposta JSON).
-
-Per imparare rapidamente a gestire la prima richiesta, vedere le guide introduttive: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+Per iniziare rapidamente con la prima richiesta, vedere le guide introduttive: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 
 

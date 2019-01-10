@@ -14,28 +14,14 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 2e65c5f0d6c2d493abcd61bea4077cbdd8ff95fa
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 135ee9f6b833165cd393b9c5ca582e0ee9499e0f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331134"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54057389"
 ---
 ## <a name="register-your-application"></a>Registrare l'applicazione
-
-Esistono diversi modi per registrare un'applicazione. Selezionare l'opzione più adatta alle proprie esigenze:
-* [Modalità rapida: usare l'avvio rapido per le applicazioni a pagina singola per configurare l'app](#option-1-register-your-application-express-mode)
-* [Modalità avanzata: configurare manualmente le impostazioni dell'app](#option-2-register-your-application-advanced-mode)
-
-### <a name="option-1-register-your-application-express-mode"></a>Opzione 1: Registrare l'applicazione (modalità Rapida)
-
-1. Accedere al [portale di Azure - Registrazioni app (anteprima)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) per registrare un'applicazione.
-1. Nella pagina **Registra un'applicazione** immettere il nome dell'applicazione.
-1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
-1. Al termine, selezionare **Registra**.
-1. Seguire le istruzioni dell'avvio rapido per scaricare e configurare automaticamente la nuova applicazione in un solo clic.
-
-### <a name="option-2-register-your-application-advanced-mode"></a>Opzione 2: Registrare l'applicazione (modalità avanzata)
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) per registrare un'applicazione.
 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.

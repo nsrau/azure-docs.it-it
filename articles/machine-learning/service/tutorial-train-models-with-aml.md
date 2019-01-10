@@ -11,18 +11,18 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 117934c83d54cb5454f476ffb3b1a1437c0fd30b
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 5008aebfea8fc284b1b85797f0523bc4fb11c7bd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811478"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075941"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Esercitazione: Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning
 
 In questa esercitazione si eseguirà il training di un modello di Machine Learning sia in locale che su risorse di calcolo remote. Si userà il flusso di lavoro del training e della distribuzione per il servizio Azure Machine Learning in un notebook di Jupyter per Python. È quindi possibile usare il notebook come modello per eseguire il training di un modello di Machine Learning con i propri dati di training. Questa esercitazione è la **prima di una serie in due parti**.  
 
-Questa esercitazione esegue il training di una regressione logistica semplice usando il set di dati [MNIST](https://yann.lecun.com/exdb/mnist/) e [scikit-learn](https://scikit-learn.org) con il servizio Azure Machine Learning. MNIST è un set di dati noto costituito da 70.000 immagini in scala di grigi. Ogni immagine è una cifra in stile scrittura a mano di 28x28 pixel, che rappresenta un numero compreso tra zero e nove. L'obiettivo è creare un classificatore multiclasse per identificare la cifra rappresentata da una determinata immagine. 
+Questa esercitazione esegue il training di una regressione logistica semplice usando il set di dati [MNIST](http://yann.lecun.com/exdb/mnist/) e [scikit-learn](https://scikit-learn.org) con il servizio Azure Machine Learning. MNIST è un set di dati noto costituito da 70.000 immagini in scala di grigi. Ogni immagine è una cifra in stile scrittura a mano di 28x28 pixel, che rappresenta un numero compreso tra zero e nove. L'obiettivo è creare un classificatore multiclasse per identificare la cifra rappresentata da una determinata immagine. 
 
 Si apprenderà a eseguire le operazioni seguenti:
 
@@ -333,9 +333,9 @@ shutil.copy('utils.py', script_folder)
 ```
 
 
-### <a name="create-an-estimator"></a>Creare un oggetto estimator
+### <a name="create-an-estimator"></a>Creare un oggetto di stima
 
-Un oggetto estimator viene usato per inviare l'esecuzione. Creare l'oggetto estimator eseguendo il codice seguente per definire questi elementi:
+Un oggetto di stima viene usato per inviare l'esecuzione. Creare l'oggetto estimator eseguendo il codice seguente per definire questi elementi:
 
 * Il nome dell'oggetto estimator, `est`.
 * La directory contenente gli script. Tutti i file in questa directory vengono caricati nei nodi del cluster per l'esecuzione. 
@@ -379,13 +379,13 @@ In totale, la prima esecuzione richiede **circa 10 minuti**. Tuttavia, per le es
 
 Cosa accade durante l'attesa:
 
-- **Creazione dell'immagine**: viene creata un'immagine Docker corrispondente all'ambiente Python specificato dall'oggetto estimator. L'immagine viene caricata nell'area di lavoro. Per la creazione e il caricamento delle immagini sono necessari **circa cinque minuti**. 
+- **Creazione di immagini**: viene creata un'immagine Docker corrispondente all'ambiente Python specificato dall'oggetto estimator. L'immagine viene caricata nell'area di lavoro. Per la creazione e il caricamento delle immagini sono necessari **circa cinque minuti**. 
 
   Questa fase viene eseguita una volta per ogni ambiente Python, perché il contenitore viene memorizzato nella cache per le esecuzioni successive. Durante la creazione dell'immagine, i log vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato di avanzamento del processo di creazione dell'immagine usando questi log.
 
 - **Ridimensionamento**: se il cluster remoto richiede più nodi per l'esecuzione rispetto a quelli attualmente disponibili, vengono aggiunti automaticamente altri nodi. Per il ridimensionamento sono in genere necessari **circa cinque minuti**.
 
-- **Esecuzione**: in questa fase, gli script e i file necessari vengono inviati alla destinazione di calcolo. Gli archivi dati vengono montati o copiati. Viene infine eseguito **entry_script**. Durante l'esecuzione del processo, **stdout** e la directory **./logs** vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato di avanzamento dell'esecuzione usando questi log.
+- **In esecuzione**: in questa fase, gli script e i file necessari vengono inviati alla destinazione di calcolo. Gli archivi dati vengono montati o copiati. Viene infine eseguito **entry_script**. Durante l'esecuzione del processo, **stdout** e la directory **./logs** vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato di avanzamento dell'esecuzione usando questi log.
 
 - **Post-elaborazione**: la directory **./outputs** dell'esecuzione viene copiata nella cronologia di esecuzione nell'area di lavoro in modo da rendere accessibili questi risultati.
 

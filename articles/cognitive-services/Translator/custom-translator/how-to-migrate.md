@@ -1,7 +1,7 @@
 ---
 title: Eseguire la migrazione dell'area di lavoro e dei progetti di Microsoft Translator Hub - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Eseguire la migrazione dell'area di lavoro e dei progetti di Hub nel traduttore personalizzato
+description: Eseguire la migrazione dell'area di lavoro e dei progetti di Hub in Custom Translator.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
@@ -9,14 +9,14 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 6572a9b72554691441cb258a87a5db4ba7845087
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a02be1ba29ad43b90c99a5d1e275b96b3b4023d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077121"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718725"
 ---
-# <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Eseguire la migrazione dell'area di lavoro e dei progetti di Hub nel traduttore personalizzato
+# <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Eseguire la migrazione dell'area di lavoro e dei progetti di Hub in Custom Translator
 
 È possibile eseguire facilmente la migrazione dell'area di lavoro e dei progetti di [Microsoft Translator Hub](https://hub.microsofttranslator.com/) nel traduttore personalizzato. La migrazione viene avviata da Microsoft Hub selezionando un'area di lavoro o un progetto, quindi selezionando un'area di lavoro nel traduttore personalizzato e infine selezionando i training da trasferire.  Dopo l'avvio della migrazione, le impostazioni di training selezionate vengono trasferite con tutti i documenti rilevanti.  I modelli distribuiti vengono sottoposti a training e possono essere distribuiti automaticamente dopo il completamento.
 
@@ -27,7 +27,7 @@ Durante la migrazione vengono eseguite queste operazioni:
 * In qualsiasi momento, il punteggio BLEU migrato dal training dell'hub è disponibile nella pagina TrainingDetails del modello sotto l'intestazione "Bleu score in MT Hub".
 
 >[!Note]
->Per il corretto completamento di un training, il traduttore personalizzato richiede almeno 10.000 frasi estratte. Se il numero di frasi estratte è inferiore al [minimo consigliato](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), il traduttore personalizzato non può eseguire il training.
+>Per il corretto completamento di un training, Custom Translator richiede almeno 10.000 frasi estratte. Se il numero di frasi estratte è inferiore al [minimo consigliato](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), Custom Translator non può eseguire il training.
 
 ## <a name="enable-account-migration"></a>Abilitare la migrazione dell'account 
 
@@ -35,11 +35,11 @@ Per usare lo strumento di migrazione, è necessario abilitare la migrazione dell
 
 ## <a name="find-custom-translator-workspace-id"></a>Trovare l'ID dell'area di lavoro del traduttore personalizzato
 
-Per eseguire la migrazione dell'area di lavoro di [Microsoft Translator Hub](https://hub.microsofttranslator.com/) è necessario l'ID dell'area di lavoro di destinazione nel traduttore personalizzato. L'area di lavoro di destinazione del traduttore personalizzato è la posizione in cui verrà eseguita la migrazione di tutte le aree di lavoro e tutti i progetti di Hub.
+Per eseguire la migrazione dell'area di lavoro di [Microsoft Translator Hub](https://hub.microsofttranslator.com/) è necessario l'ID dell'area di lavoro di destinazione nel traduttore personalizzato. L'area di lavoro di destinazione di Custom Translator è la posizione in cui verrà eseguita la migrazione di tutte le aree di lavoro e tutti i progetti di Hub.
 
 L'ID dell'area di lavoro di destinazione è disponibile nella pagina delle impostazioni del traduttore personalizzato: 
 
-1.  Passare alla pagina delle impostazioni nel portale del traduttore personalizzato.
+1.  Passare alla pagina delle impostazioni nel portale Custom Translator.
 
 2.  L'ID dell'area di lavoro è disponibile nella sezione relativa alle informazioni di base.
 
@@ -130,7 +130,7 @@ Se si vuole un report di migrazione più dettagliato su progetti, training e doc
 * È possibile eseguire la migrazione una sola volta per ogni progetto.  Se è necessario ripetere la migrazione di un progetto, è necessario contattare Microsoft.
 * Attualmente, il traduttore personalizzato supporta 36 lingue per la traduzione da e verso l'inglese e verranno aggiunte altre lingue.  L'hub non richiede modelli di base e quindi supporta diverse migliaia di lingue.  È possibile eseguire la migrazione di una coppia di lingue non supportata, tuttavia verrà eseguita la migrazione solo dei documenti e delle definizioni dei progetti.  Non sarà possibile eseguire il training del nuovo modello.  Inoltre, questi documenti e progetti verranno visualizzati come non attivi per indicare che al momento non possono essere usati. Se viene aggiunto il supporto per questi progetti e/o documenti, essi diventano attivi e possono essere sottoposti a training.
 * Il traduttore personalizzato attualmente non supporta i dati di training in una sola lingua.  Analogamente alle coppie di lingue non supportate, è possibile eseguire la migrazione di documenti in una sola lingua, che tuttavia vengono indicati come non attivi fino a quando non verrà introdotto il supporto per i dati in una sola lingua.  
-* Il traduttore personalizzato richiede 10.000 frasi parallele per eseguire il training.  Microsoft Hub permette di eseguire il training su un set di dati più piccolo.  Se viene eseguita la migrazione di un training che non soddisfa questo requisito, verrà eseguito il training.
+* Il traduttore personalizzato richiede 10.000 frasi parallele per eseguire il training.  Microsoft Hub permette di eseguire il training su un set di dati più piccolo. Se viene eseguita la migrazione di un training che non soddisfa questo requisito, il training non verrà eseguito.
 
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator e Hub

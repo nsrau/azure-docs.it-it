@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cad368cb968b94d1327cc99ed4dfa6df0aedd2cd
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: a14e630c23af3e0228bf4806851f29cfab199215
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555099"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103979"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Eseguire la migrazione dalla federazione alla sincronizzazione degli hash delle password per Azure AD
 Il documento seguente presenta le linee guida relative alla migrazione da AD FS alla sincronizzazione degli hash delle password.
@@ -133,9 +133,9 @@ Prima di procedere alla conversione dei domini da federati a gestiti, è consigl
 |-|-|
 | Si intende continuare a usare AD FS per queste altre applicazioni.| Si useranno sia AD FS che Azure AD e sarà pertanto necessario prendere in considerazione l'esperienza degli utenti finali. È possibile che in alcuni scenari gli utenti debbano eseguire due volte l'autenticazione, una per accedere ad Azure AD (dove otterranno l'accesso Single Sign-On per altre applicazioni come Office 365) e l'altra per le applicazioni ancora associate ad AD FS come trust della relying party. |
 | AD FS è un componente altamente personalizzabile e si basa su specifiche impostazioni di personalizzazione definite nel file onload.js, che non è duplicabile in Azure AD. Si può ad esempio aver modificato l'esperienza di accesso per consentire agli utenti di immettere il proprio nome solo nel formato SamAccountName, anziché specificare l'UPN, o di visualizzare informazioni personalizzate distintive dell'azienda.| Prima di procedere, è necessario verificare che gli attuali requisiti di personalizzazione possano essere soddisfatti da Azure AD. Per altre informazioni e indicazioni, vedere le sezioni relative alla personalizzazione di AD FS e all'uso di informazioni personalizzate distintive dell'azienda in AD FS.|
-| Si stanno bloccando client di autenticazione legacy tramite AD FS.| Valutare l'opportunità di sostituire i controlli per i client di autenticazione legacy attualmente presenti in AD FS con una combinazione di [controlli di accesso condizionale per l'autenticazione legacy](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [regole di accesso client di Exchange Online](http://aka.ms/EXOCAR).|
+| Si stanno bloccando client di autenticazione legacy tramite AD FS.| Valutare l'opportunità di sostituire i controlli per i client di autenticazione legacy attualmente presenti in AD FS con una combinazione di [controlli di accesso condizionale per l'autenticazione legacy](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [regole di accesso client di Exchange Online](https://aka.ms/EXOCAR).|
 | Per l'autenticazione degli utenti ad AD FS si richiede l'autenticazione a più fattori con una soluzione MFA basata su server locale.| Non sarà possibile inserire una richiesta di verifica MFA tramite la soluzione MFA locale nel flusso di autenticazione per un dominio gestito, ma a tale scopo sarà possibile usare il servizio Azure MFA non appena il dominio sarà convertito. Se attualmente gli utenti non usano Azure MFA, sarà necessario preparare un singolo passaggio di registrazione per gli utenti finali e comunicare loro le informazioni di autenticazione.|
-| Per controllare l'accesso a Office 365, si usano attualmente i criteri di controllo di accesso (regole AuthZ) in AD FS.| Valutare l'opportunità di sostituire questi criteri con i [criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) e le [regole di accesso client di Exchange Online](http://aka.ms/EXOCAR) equivalenti di Azure AD.|
+| Per controllare l'accesso a Office 365, si usano attualmente i criteri di controllo di accesso (regole AuthZ) in AD FS.| Valutare l'opportunità di sostituire questi criteri con i [criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) e le [regole di accesso client di Exchange Online](https://aka.ms/EXOCAR) equivalenti di Azure AD.|
 
 ### <a name="considerations-for-common-ad-fs-customizations"></a>Considerazioni relative alle personalizzazioni comuni di AD FS
 
@@ -368,7 +368,7 @@ La conversione viene eseguita tramite il modulo Azure AD PowerShell.
 
 Quando il tenant usava la federazione, gli utenti venivano reindirizzati dalla pagina di accesso di Azure AD all'ambiente di AD FS. Ora che il tenant è configurato per l'uso della sincronizzazione degli hash delle password anziché della federazione, gli utenti non verranno reindirizzati ad AD FS ma eseguiranno l'accesso direttamente tramite la pagina di accesso di Azure AD.
 
-Aprire Internet Explorer in modalità InPrivate per evitare l'attivazione automatica dell'accesso Single Sign-On facile e passare alla pagina di accesso di Office 365 ([http://portal.office.com](http://portal.office.com/)). Digitare l'UPN dell'utente e fare clic su Avanti. Assicurarsi di digitare l'UPN di un utente ibrido che è stato sincronizzato da Active Directory in locale e che in precedenza era federato. L'utente vedrà la schermata in cui digitare nome utente e password.
+Aprire Internet Explorer in modalità InPrivate per evitare l'attivazione automatica dell'accesso Single Sign-On facile e passare alla pagina di accesso di Office 365 ([https://portal.office.com](https://portal.office.com/)). Digitare l'UPN dell'utente e fare clic su Avanti. Assicurarsi di digitare l'UPN di un utente ibrido che è stato sincronizzato da Active Directory in locale e che in precedenza era federato. L'utente vedrà la schermata in cui digitare nome utente e password.
 
 ![Figura 9](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.png)
 

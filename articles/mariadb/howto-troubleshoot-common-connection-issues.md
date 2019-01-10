@@ -2,20 +2,17 @@
 title: Risolvere i problemi di connessione a Database di Azure per MariaDB | Microsoft Docs
 description: Informazioni su come risolvere i problemi di connessione a Database di Azure per MariaDB.
 keywords: connessione mariadb,stringa di connessione,problemi di connettività,errore temporaneo,errore di connessione
-services: mariadb
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 0100fa6d9691c864de9ac4aaea04b647e1705872
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c7e1ff10f9698bf57ce86a7e9686ef13e5248db7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565140"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545910"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Risolvere i problemi di connessione a database di Azure per MariaDB
 
@@ -50,8 +47,8 @@ Gli errori temporanei si verificano quando si esegue la manutenzione, quando il 
 Se l'applicazione continua a non riuscire a connettersi a Database di Azure per MariaDB, il problema è in genere uno dei seguenti:
 
 * Configurazione del firewall: il firewall del server di Database di Azure per MariaDB o del lato client blocca le connessioni.
-* Riconfigurazione della rete lato client: è stato aggiunto un nuovo indirizzo IP o un server proxy.
-* Errore dell'utente: ad esempio, digitazione errata dei parametri di connessione, come il nome del server nella stringa di connessione o la mancanza del suffisso *@servername* nel nome utente.
+* Riconfigurazione di rete sul lato client: è stato aggiunto un nuovo indirizzo IP o un server proxy.
+* Errore utente: ad esempio, digitazione errata dei parametri di connessione, come il nome del server nella stringa di connessione o la mancanza del suffisso *@servername* nel nome utente.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 

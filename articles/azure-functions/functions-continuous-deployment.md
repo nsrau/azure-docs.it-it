@@ -1,5 +1,5 @@
 ---
-title: Distribuzione continua per Funzioni di Azure | Documentazione Microsoft
+title: Distribuzione continua per Funzioni di Azure | Microsoft Docs
 description: Per pubblicare Funzioni di Azure, usare le funzionalità di distribuzione continua del servizio app di Azure.
 services: functions
 documentationcenter: na
@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301549"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548596"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Distribuzione continua per Funzioni di Azure
 Le funzioni di Azure semplificano la distribuzione dell'app per le funzioni usando l'integrazione continua del servizio app. Le funzioni si integrano con BitBucket, Dropbox, GitHub e Azure DevOps. In questo modo viene abilitato un flusso di lavoro in cui gli aggiornamenti al codice della funzione vengono eseguiti tramite una di queste distribuzioni del trigger dei servizi integrati in Azure. Se non si ha familiarità con Funzioni di Azure, iniziare con [Panoramica di Funzioni di Azure](functions-overview.md).
@@ -26,7 +26,7 @@ La distribuzione continua è un'ottima opzione per i progetti in cui vengono int
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * Archivio esterno (Git o Mercurial)
-* [Archivio locale GIT](../app-service/app-service-deploy-local-git.md)
+* [Archivio locale GIT](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Servizi di Azure DevOps](https://www.visualstudio.com/team-services/)
@@ -52,7 +52,7 @@ Usare la procedura seguente per configurare la distribuzione continua per un'app
  
     ![Configurare la distribuzione continua](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. Nel pannello **Origine distribuzione** fare clic su **Scegliere l'origine**, quindi inserire le informazioni per l'origine della distribuzione scelta e fare clic su **OK**.
+3. Nel pannello **Origine distribuzione** fare clic su **Scegliere l'origine**, quindi inserire le informazioni per l'origine della distribuzione scelta e fare clic su **OK**.
    
     ![Scegliere l'origine della distribuzione](./media/functions-continuous-deployment/choose-deployment-source.png)
 
@@ -94,8 +94,8 @@ Quando si hanno funzioni esistenti che sono state create e gestite nel portale, 
 > Dopo aver configurato l'integrazione continua, non sarà più possibile modificare i file di origine nel portale di Funzioni.
 
 - [Procedura: Configurare le credenziali di distribuzione](#credentials)
-- [Procedura: Scaricare i file con FTP](#downftp)
-- [Procedura: scaricare file tramite l'archivio GIT locale](#downgit)
+- [Procedura: Scaricare file usando FTP](#downftp)
+- [Procedura: Scaricare file usando il repository Git locale](#downgit)
 
 <a name="credentials"></a>
 #### <a name="how-to-configure-deployment-credentials"></a>Procedura: Configurare le credenziali di distribuzione
@@ -108,7 +108,7 @@ Prima di poter scaricare i file dall'app per le funzioni con FTP o l'archivio GI
 2. Immettere un nome utente e una password, quindi fare clic su **Salva**. È ora possibile usare queste credenziali per accedere all'app per le funzioni da FTP o dal repository Git predefinito.
 
 <a name="downftp"></a>
-#### <a name="how-to-download-files-using-ftp"></a>Procedura: Scaricare i file tramite FTP
+#### <a name="how-to-download-files-using-ftp"></a>Procedura: Scaricare file usando FTP
 
 1. Nell'app per le funzioni nel [portale di Azure](https://portal.azure.com) fare clic su **Funzionalità della piattaforma** e su **Proprietà**, quindi copiare i valori di **Utente FTP/distribuzione**, **Nome host FTP** e **Nome host FTPS**.  
 
@@ -119,7 +119,7 @@ Prima di poter scaricare i file dall'app per le funzioni con FTP o l'archivio GI
 2. Dal client FTP, usare le informazioni di connessione raccolte per connettersi all'app e scaricare i file di origine per le funzioni.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-a-local-git-repository"></a>Procedura: scaricare file tramite l'archivio GIT locale
+#### <a name="how-to-download-files-using-a-local-git-repository"></a>Procedura: Scaricare file usando il repository GIT locale
 
 1. Nell'app per le funzioni nel [portale di Azure](https://portal.azure.com) fare clic su **Funzionalità della piattaforma** e **Opzioni di distribuzione**. 
    

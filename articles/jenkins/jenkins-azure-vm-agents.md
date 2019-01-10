@@ -1,19 +1,19 @@
 ---
 title: Scalabilità delle distribuzioni di Jenkins con agenti di macchine virtuali di Azure.
 description: Aggiungere altre capacità alle pipeline di Jenkins usando macchine virtuali di Azure con il plug-in di Agente di macchine virtuali di Azure per Jenkins.
-ms.topic: tutorial
+ms.service: jenkins
+keywords: jenkins, azure, devops, macchina virtuale, agenti
+author: tomarchermsft
+manager: jeconnoc
 ms.author: tarcher
-author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 069c6df38f9caa73a30fbc25baafdf7efbd2f402
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5cfece551f99a0925099b6ef936703e72f078985
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429397"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074666"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Ridimensionare le distribuzioni di Jenkins per soddisfare la richiesta con agenti di macchine virtuali di Azure
 

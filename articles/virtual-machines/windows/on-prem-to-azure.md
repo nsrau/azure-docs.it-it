@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0440eccbdf76fc58fadf46de2508d362c0de6cc3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 83e69cd488ab7e8b69895a25716350c8025c6c48
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190786"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074904"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Eseguire la migrazione da Amazon Web Services (AWS) e altre piattaforme a Managed Disks in Azure
 
@@ -71,23 +71,23 @@ Esaminare le caratteristiche delle prestazioni delle Macchine virtuali che usano
 
 **Managed Disks Premium**
 
-È possibile usare tre tipi di dischi gestiti della versione Premium con la macchina virtuale, ciascuno con limiti IOP e di velocità effettiva specifici. Tenere in considerazione questi limiti nella scelta del tipo di disco Premium per la macchina virtuale in base alle esigenze dell'applicazione in termini di capacità, prestazioni, scalabilità e carichi di picco.
+È possibile usare sette tipi di dischi gestiti della versione Premium con la macchina virtuale, ognuno con limiti IOP e di velocità effettiva specifici. Tenere in considerazione questi limiti nella scelta del tipo di disco Premium per la macchina virtuale in base alle esigenze dell’applicazione in termini di capacità, prestazioni, scalabilità e carichi di picco.
 
-| Tipo di disco Premium  | P10               | P20               | P30               |
-|---------------------|-------------------|-------------------|-------------------|
-| Dimensioni disco           | 128 GB            | 512 GB            | 1024 GB (1 TB)    |
-| IOPS per disco       | 500               | 2300              | 5000              |
-| Velocità effettiva per disco | 100 MB al secondo | 150 MB al secondo | 200 MB al secondo |
+| Tipo di disco Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Dimensioni disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS per disco       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
+| Velocità effettiva per disco | 25 MB al secondo  | 50 MB al secondo  | 100 MB al secondo | 125 MB al secondo |150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo |
 
 **Managed Disks Standard**
 
-Esistono cinque tipi di dischi gestiti della versione Standard che possono essere usati con la macchina virtuale. Si differenziano per capacità ma presentano gli stessi limiti IOP e di velocità effettiva. Scegliere il tipo di disco gestito della versione Standard in base alle esigenze in termini di capacità dell'applicazione.
+Esistono sette tipi di dischi gestiti della versione Standard che possono essere usati con la macchina virtuale. Si differenziano per capacità ma presentano gli stessi limiti IOP e di velocità effettiva. Scegliere il tipo di disco gestito della versione Standard in base alle esigenze in termini di capacità dell'applicazione.
 
-| Tipo di disco Standard  | S4               | S6               | S10              | S20              | S30              |
-|---------------------|------------------|------------------|------------------|------------------|------------------|
-| Dimensioni disco           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   |
-| IOPS per disco       | 500              | 500              | 500              | 500              | 500              |
-| Velocità effettiva per disco | 60 MB al secondo | 60 MB al secondo | 60 MB al secondo | 60 MB al secondo | 60 MB al secondo |
+| Tipo di disco Standard  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
+| Dimensioni disco           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
+| IOPS per disco       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| Velocità effettiva per disco | 60 MB al secondo | 60 MB al secondo | 60 MB al secondo | 60 MB al secondo |60 MB al secondo | 60 MB al secondo | 60 MB al secondo | 60 MB al secondo | 
 
 ### <a name="disk-caching-policy"></a>Criteri di memorizzazione nella cache su disco 
 

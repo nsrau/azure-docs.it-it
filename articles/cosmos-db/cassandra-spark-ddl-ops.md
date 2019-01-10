@@ -1,20 +1,19 @@
 ---
 title: Operazioni DDL nell'API Cassandra di Azure Cosmos DB da Spark
 description: Questo articolo descrive in dettaglio le operazioni DDL della tabella e del keyspace nell'API Cassandra di Azure Cosmos DB da Spark.
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: a799d85cc27575badda6892ba7baf68ca1eb1dfb
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 5c12787cd6e0df19fd842dd44da49aa5ea97aa05
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226076"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036665"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Operazioni DDL nell'API Cassandra di Azure Cosmos DB da Spark
 

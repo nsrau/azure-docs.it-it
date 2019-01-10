@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 17fbaa7efcdd9e0de675defb3958a61f29bbc3fe
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1c519c658db29152f7ecafa8ac244c922cf4cd9f
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714322"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118993"
 ---
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
 Con la [disponibilità generale del servizio app di Azure], è possibile eseguire facilmente la migrazione sul posto dei siti di Servizi mobili di Azure per sfruttare appieno tutte le funzionalità del servizio app di Azure.  Questo documento illustra cosa accade durante la migrazione del sito da Servizi mobili di Azure al servizio app di Azure.
@@ -374,7 +374,7 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 
 <!-- Links -->
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[Application Insights]: ../application-insights/app-insights-overview.md
+[Application Insights]: ../azure-monitor/app/app-insights-overview.md
 [Scalabilità automatica]: ../app-service/web-sites-scale.md
 [Servizio app di Azure]: ../app-service/overview.md
 [portale di Azure classico]: https://manage.windowsazure.com

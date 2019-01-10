@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 15548e801777a99dfb78de0067abb633a2587ee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879389"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053194"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Supporto della piattaforma Azure IoT SDK
 
@@ -20,9 +20,9 @@ ms.locfileid: "52879389"
 
 Microsoft supporta una vasta gamma di sistemi operativi/piattaforme/framework e può essere estesa usando Azure IoT SDK per C. Alcuni sono supportati ufficialmente dal team, raggruppati in livelli che rappresentano il grado di supporto previsto per gli utenti. *Piattaforme interamente supportate* indica le piattaforme per cui Microsoft:
 
-    * Esegue la compilazione in modo continuo ed esegue il test in modalità end-to-end rispetto al master e alle versioni LTS supportate.  Per garantire la copertura dei test tra versioni diverse, viene testata in genere con la versione LTS più recente e la versione più diffusa.  Altre versioni della stessa piattaforma possono essere supportate tramite la compatibilità della versione di piattaforma.
-    * Offre la guida all'installazione oppure i pacchetti di installazione, se applicabile.
-    * Offre supporto completo su GitHub.
+- Esegue la compilazione in modo continuo ed esegue il test in modalità end-to-end rispetto al master e alle versioni LTS supportate.  Per garantire la copertura dei test tra versioni diverse, viene testata in genere con la versione LTS più recente e la versione più diffusa.  Altre versioni della stessa piattaforma possono essere supportate tramite la compatibilità della versione di piattaforma.
+- Offre la guida all'installazione oppure i pacchetti di installazione, se applicabile.
+- Offre supporto completo su GitHub.
 
 Inoltre, un elenco di partner ha trasferito SDK per C a più piattaforme e gestiscono il livello di astrazione della piattaforma (PAL). [Azure Certified per il catalogo IoT Device](https://catalog.azureiotsolutions.com/) include inoltre un elenco di piattaforme del sistema operativo in cui sono stati testati vari SDK. Gli SDK vengono compilati regolarmente su queste piattaforme, con test e supporto limitati:
 

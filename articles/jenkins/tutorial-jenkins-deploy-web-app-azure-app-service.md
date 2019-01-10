@@ -3,17 +3,17 @@ title: 'Esercitazione: Eseguire la distribuzione da GitHub in Servizio app di Az
 description: Configurare Jenkins per l'integrazione continua (CI) da GitHub e la distribuzione continua (CD) in Servizio app di Azure per le app Web Java
 services: jenkins
 ms.service: jenkins
-author: tomarcher
+author: tomarchermsft
 ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 786fc427e4cb631c4aedd0f795daebebd9fb15bc
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438473"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077437"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Esercitazione: Eseguire la distribuzione da GitHub in Servizio app di Azure con integrazione continua e distribuzione continua di Jenkins
 

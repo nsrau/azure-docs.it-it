@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: e20b18afb579839343fc4c079c039d7b9e5438f7
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994641"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033809"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -175,7 +175,7 @@ Se l'applicazione usa Istanza gestita come livello dati, seguire queste linee gu
 
   Quando viene creata una nuova istanza, un ID univoco viene automaticamente generato come zona DNS e incluso nel nome DNS dell'istanza. Un certificato multidominio (SAN) per questa istanza viene sottoposto a provisioning con il campo SAN nel formato: `zone_id.database.windows.net`. Questo certificato può essere usato per autenticare le connessioni client a un'istanza nella stessa zona DNS. Per garantire connettività ininterrotta all'istanza primaria dopo il failover, l'istanza primaria e l'istanza secondaria devono essere nella stessa zona DNS. Quando l'applicazione è pronta per la distribuzione in produzione, creare un'istanza secondaria in un'area diversa e assicurarsi che condivida la zona DNS con l'istanza primaria. Questa operazione viene eseguita specificando un parametro `DNS Zone Partner` facoltativo con il portale di Azure, PowerShell o l'API REST.
 
-  Per altre informazioni sulla creazione dell'istanza secondaria nella stessa zona DNS dell'istanza primaria, vedere [Gestione dei gruppi di failover con le istanze gestite (anteprima)](#managing-failover-groups-with-managed-instances-preview).
+  Per altre informazioni sulla creazione dell'istanza secondaria nella stessa zona DNS dell'istanza primaria, vedere [Gestione dei gruppi di failover con le istanze gestite (anteprima)](#powershell-managing-failover-groups-with-managed-instances-preview).
 
 - **Consentire il traffico di replica tra due istanze**
 
@@ -349,7 +349,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 | API | DESCRIZIONE |
 | --- | --- |
 | [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Crea o aggiorna un gruppo di failover. |
-| [Delete Failover Group](https://docs.microsoft.com/rest/api/instancefailovergroups/delete) | Rimuove il gruppo di failover dal server |
+| [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Rimuove il gruppo di failover dal server |
 | [Failover (Planned)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Viene eseguito il failover dal server primario corrente a questo server. |
 | [Force Failover Allow Data Loss](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |Viene eseguito il failover dal server primario corrente a questo server. Questa operazione potrebbe comportare la perdita di dati. |
 | [Get Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Crea un gruppo di failover. |

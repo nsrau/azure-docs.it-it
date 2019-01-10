@@ -1,25 +1,25 @@
 ---
-title: Continuità aziendale e ripristino di emergenza nelle aree abbinate di Azure | Microsoft Docs
+title: 'Continuità aziendale e ripristino di emergenza (BCDR): Aree abbinate di Azure | Microsoft Docs'
 description: Informazioni sulle coppie di aree di Azure per assicurare la resilienza delle applicazioni in caso di errori del data center.
 author: rayne-wiselman
 ms.service: multiple
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 12/23/2018
 ms.author: raynew
-ms.openlocfilehash: 983a551da26e08797b2a65f609cff17954a52828
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954813"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792320"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
+# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza (BCDR): Aree abbinate di Azure
 
 ## <a name="what-are-paired-regions"></a>Definizione di aree abbinate
 
 Azure è disponibile in più aree geografiche del mondo. Un'area geografica di Azure è un'area definita del mondo che include almeno un'area di Azure. Un'area di Azure all'interno di un'area geografica include uno o più data center.
 
-Ogni area di Azure è associata a un'altra area con la stessa ubicazione geografica, che insieme formano una coppia di aree. L'eccezione è il Brasile meridionale che è associato a un'area fuori dalla relativa ubicazione geografica. In tutta la coppie di aree, Azure serializzerà gli aggiornamenti della piattaforma (manutenzione programmata) in modo che solo una regione alla volta venga aggiornata. Inoltre, nel caso di un'interruzione che interessa più regioni, almeno una regione per ogni coppia avrà priorità per il recupero.
+Ogni area di Azure è associata a un'altra area con la stessa ubicazione geografica, che insieme formano una coppia di aree. L'eccezione è il Brasile meridionale che è associato a un'area fuori dalla relativa ubicazione geografica. In tutta la coppie di aree, Azure serializza gli aggiornamenti della piattaforma (manutenzione programmata) in modo che venga aggiornata una sola area abbinata alla volta. Se si verifica un'interruzione che interessa più aree, almeno un'area per ogni coppia avrà priorità per il recupero.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
@@ -30,7 +30,7 @@ Figura 1: coppie di aree di Azure
 | Asia |Asia orientale |Asia sud-orientale |
 | Australia |Australia orientale |Australia sud-orientale |
 | Australia |Australia centrale |Australia centrale 2 |
-| Brasile |Brasile meridionale 2 |Stati Uniti centro-meridionali |
+| Brasile |Brasile meridionale |Stati Uniti centro-meridionali |
 | Canada |Canada centrale |Canada orientale |
 | Cina |Cina settentrionale |Cina orientale|
 | Cina |Cina settentrionale 2 |Cina orientale 2|
@@ -38,7 +38,7 @@ Figura 1: coppie di aree di Azure
 | Francia |Francia centrale|Francia meridionale|
 | Germania |Germania centrale |Germania nord-orientale |
 | India |India centrale |India meridionale |
-| India |India occidentale (1) |India meridionale |
+| India |India occidentale |India meridionale |
 | Giappone |Giappone orientale |Giappone occidentale |
 | Corea del Sud |Corea del Sud centrale |Corea del Sud meridionale |
 | America del Nord |Stati Uniti orientali |Stati Uniti occidentali |
@@ -48,15 +48,15 @@ Figura 1: coppie di aree di Azure
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
 | Dipartimento della difesa degli Stati Uniti |US DoD (area orientale) |US DoD (area centrale) |
 | Governo degli Stati Uniti |US Gov Arizona |US Gov Texas |
-| Governo degli Stati Uniti |US Gov Iowa (3) |US Gov Virginia |
-| Governo degli Stati Uniti |US Gov Virginia (4) |US Gov Texas |
+| Governo degli Stati Uniti |Governo degli Stati Uniti - Iowa |Governo degli Stati Uniti - Virginia |
+| Governo degli Stati Uniti |US Gov Virginia |US Gov Texas |
 
 Tabella 1 - Mapping di coppie di aree di Azure
 
-- (1) L'area India occidentale è diversa perché è associata a un'altra area in una sola direzione. L'area secondaria dell'area India occidentale è India meridionale, mentre l'area secondaria dell'India meridionale è India centrale.
-- (2) L'area Brasile meridionale è unica, perché è abbinata a un'area esterna alla propria area geografica. L'area secondaria del Brasile meridionale sono gli Stati Uniti centro-meridionali, ma l'area secondaria degli Stati Uniti centro-meridionali non è il Brasile meridionale.
-- (3) L'area secondaria per US Gov Iowa è US Gov Virginia, ma l'area secondaria per US Gov Virginia non è US Gov Iowa.
-- (4) L'area secondaria per US Gov Virginia è US Gov Texas, ma l'area secondaria per US Gov Texas non è US Gov Virginia.
+- L'area India occidentale è diversa perché è abbinata a un'altra area in una sola direzione. L'area secondaria dell'area India occidentale è India meridionale, mentre l'area secondaria dell'India meridionale è India centrale.
+- L'area Brasile meridionale è unica perché è abbinata a un'area esterna alla specifica area geografica. L'area secondaria del Brasile meridionale sono gli Stati Uniti centro-meridionali, ma l'area secondaria degli Stati Uniti centro-meridionali non è il Brasile meridionale.
+- L'area secondaria per US Gov Iowa è US Gov Virginia, ma l'area secondaria per US Gov Virginia non è US Gov Iowa.
+- L'area secondaria per US Gov Virginia è US Gov Texas, ma l'area secondaria per US Gov Texas non è US Gov Virginia.
 
 
 È consigliabile configurare la continuità aziendale e il ripristino di emergenza (BCDR) tra le coppie di aree per sfruttare i vantaggi dei criteri di isolamento e disponibilità di Azure. Per le applicazioni che supportano più aree attive, è consigliabile usare entrambe le aree in una coppia di aree, laddove possibile. Per le applicazioni che supportano più regioni attive, si consiglia di utilizzare entrambe le regioni in una coppia, ove possibile. 
@@ -77,7 +77,7 @@ Come indicato nella figura 2.
 
 ![SQL di Azure](./media/best-practices-availability-paired-regions/3Green.png) **Database SQL di Azure**: con la replica geografica del database SQL di Azure è possibile configurare la replica asincrona delle transazioni per tutte le aree del mondo. È tuttavia consigliabile distribuire queste risorse in un'area abbinata per la maggior parte degli scenari di ripristino di emergenza. Per altre informazioni, vedere l'articolo relativo alla [replica geografica nel database SQL di Azure](sql-database/sql-database-geo-replication-overview.md).
 
-![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png)**Azure Resource Manager**: Resource Manager fornisce implicitamente l'isolamento logico dei componenti di gestione del servizio tra le aree. In questo modo, è meno probabile che gli errori logici in un'area abbiano un impatto su un'altra.
+![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png)**Azure Resource Manager**: Resource Manager fornisce implicitamente l'isolamento logico dei componenti tra le aree. In questo modo, è meno probabile che gli errori logici in un'area abbiano un impatto su un'altra.
 
 ## <a name="benefits-of-paired-regions"></a>Vantaggi delle aree abbinate
 Come indicato nella figura 2.  

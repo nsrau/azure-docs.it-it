@@ -1,20 +1,18 @@
 ---
 title: Metriche di query SQL per l'API SQL di Azure Cosmos DB
 description: Informazioni su come instrumentare ed eseguire il debug delle prestazioni delle query SQL per le richieste di Azure Cosmos DB.
-keywords: sintassi sql, query sql, linguaggio di query json, concetti relativi ai database e query sql, funzioni di aggregazione
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 02f5cf7159847d6f67ee3d8e92805f785a58e959
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e6d16c31b8975036202fe77906e2d729391b5c59
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142488"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038076"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
 

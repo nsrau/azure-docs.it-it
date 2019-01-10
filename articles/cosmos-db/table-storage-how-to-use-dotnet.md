@@ -1,20 +1,19 @@
 ---
 title: Introduzione all'archiviazione tabelle di Azure e all'API Tabelle di Azure Cosmos DB con .NET
 description: Archiviare dati strutturati nel cloud usando l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB.
-services: cosmos-db
-author: SnehaGunda
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
-ms.author: sngun
-ms.openlocfilehash: 23ee4142dbf3d3c07eb89640554a464d0ac51822
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7798af5d667bcf70ba562bb7198f9af570f3005a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102997"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044417"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introduzione all'archiviazione tabelle di Azure e all'API Tabelle di Azure Cosmos DB con .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]

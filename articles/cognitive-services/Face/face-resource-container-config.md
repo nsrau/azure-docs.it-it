@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 30546d31e96d7d7fa1009f16a50fe8fda12ead67
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18c9eace306522f9ac9f04e19b9571db67561ae0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105105"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725057"
 ---
 # <a name="configure-containers"></a>Configurare i contenitori
 
@@ -113,10 +113,10 @@ Il contenitore Viso archivia BLOB, cache, metadati e dati della coda, a seconda 
   Tutti i quattro tipi di dati vengono archiviati in memoria. Non vengono distribuiti, né risultano persistenti. Se il contenitore Viso viene arrestato o rimosso, tutti i dati in archiviazione per tale contenitore vengono eliminati.  
   Questo è lo scenario di archiviazione predefinito per il contenitore Viso.
 * Azure  
-  Il contenitore Viso usa l'archiviazione di Azure e Azure Cosmos DB per distribuire questi quattro tipi di dati in un archivio permanente. I dati BLOB e della coda sono gestiti dall'archiviazione di Azure. I metadati e i dati della cache vengono gestiti da Azure Cosmos DB, tramite l'API MongoDB. Se il contenitore Viso viene arrestato o rimosso, tutti i dati in archiviazione per tale contenitore rimangono archiviati in Archiviazione di Azure e Azure Cosmos DB.  
+  Il contenitore Viso usa l'archiviazione di Azure e Azure Cosmos DB per distribuire questi quattro tipi di dati in un archivio permanente. I dati BLOB e della coda sono gestiti dall'archiviazione di Azure. I metadati e i dati della cache vengono gestiti da Azure Cosmos DB. Se il contenitore Viso viene arrestato o rimosso, tutti i dati in archiviazione per tale contenitore rimangono archiviati in Archiviazione di Azure e Azure Cosmos DB.  
   Le risorse usate per lo scenario di archiviazione di Azure hanno i seguenti requisiti aggiuntivi
   * La risorsa di archiviazione di Azure deve usare il tipo di account StorageV2
-  * La risorsa di Azure Cosmos DB deve usare l'API MongoDB
+  * La risorsa di Azure Cosmos DB deve usare l'API Azure Cosmos DB per MongoDB
 
 Gli scenari di archiviazione e le impostazioni di configurazione associate sono gestite dall'oggetto `Storage`, sotto la sezione di configurazione `CloudAI`. Le impostazioni di configurazione seguenti sono disponibili nell'oggetto `Storage`:
 

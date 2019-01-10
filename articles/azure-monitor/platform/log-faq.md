@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d062108dbb27095e978b4973cb7bc5172a4d814
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186277"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107228"
 ---
 # <a name="log-analytics-faq"></a>Domande frequenti su Log Analytics
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Log Analytics in Microsoft Azure. Per altre domande su Log Analytics, visitare il [forum di discussione](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e inviare una domanda. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -219,7 +219,7 @@ R. Il piano gratuito prevede un limite giornaliero di 500 MB per area di lavoro.
 
 L'agente di Log Analytics è stato progettato in modo da avere un impatto minimo. Il volume dei dati varia a seconda delle soluzioni attivate. È possibile trovare informazioni dettagliate sul volume di dati e visualizzare la suddivisione per soluzioni nella pagina [Uso](../../azure-monitor/platform/data-usage.md).
 
-Per altre informazioni, è possibile leggere un [blog di un cliente](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) che mostra i risultati dopo aver valutato l'utilizzo delle risorse (footprint) dell'agente OMS.
+Per altre informazioni, è possibile leggere un [blog di un cliente](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) che mostra i risultati dopo aver valutato l'utilizzo delle risorse (footprint) dell'agente OMS.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>D: Quanta larghezza di banda di rete viene usata da Microsoft Management Agent (MMA) quando si inviano dati a Log Analytics?
 

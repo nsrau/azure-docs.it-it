@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a9c9ac9ada6dfab051deda14cddb4ba6c07f48df
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998898"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119171"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
-Ricerca è una funzionalità di [Application Insights](../../application-insights/app-insights-overview.md) che consente di trovare ed esplorare elementi singoli di telemetria, ad esempio visualizzazioni pagine, eccezioni o richieste Web. È possibile visualizzare le tracce del log e gli eventi codificati.
+Ricerca è una funzionalità di [Application Insights](../../azure-monitor/app/app-insights-overview.md) che consente di trovare ed esplorare elementi singoli di telemetria, ad esempio visualizzazioni pagine, eccezioni o richieste Web. È possibile visualizzare le tracce del log e gli eventi codificati.
 
 Per le query più complesse sui dati, utilizzare [Analytics](../../azure-monitor/log-query/get-started-portal.md).
 
@@ -129,7 +129,7 @@ Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiu
 ## <a name="sampling"></a>campionamento
 Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta vengono selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. 
 
-[Informazioni sul campionamento](../../application-insights/app-insights-sampling.md).
+[Informazioni sul campionamento](../../azure-monitor/app/sampling.md).
 
 ## <a name="create-work-item"></a>Creare un elemento di lavoro
 È possibile creare un bug in GitHub o Azure DevOps con i dettagli provenienti da qualsiasi elemento di dati di telemetria. 
@@ -166,4 +166,4 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 * [Scrivere query complesse in Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Inviare log e dati di telemetria personalizzati ad Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Configurare i test di disponibilità e velocità di risposta](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Risoluzione dei problemi](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)

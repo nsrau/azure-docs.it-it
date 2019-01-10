@@ -5,21 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 657800c6f96560c68e690ccbd1dfb166c5034812
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 51a0f560a0e4b6ff791d5ed3f9f221eb2eeb9b4d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430137"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191344"
 ---
 # <a name="analysis-services-high-availability"></a>Disponibilità elevata di Azure Analysis Services
+
 Questo articolo descrive come garantire la disponibilità elevata dei server di Azure Analysis Services. 
 
-
 ## <a name="assuring-high-availability-during-a-service-disruption"></a>Garantire la disponibilità elevata durante un'interruzione del servizio
+
 Sebbene accada raramente, un data center di Azure può subire un'interruzione del servizio. Quando si verifica un'interruzione, viene generata un'interruzione delle attività che può durare pochi minuti oppure alcune ore. La disponibilità elevata è ottenuta spesso con la ridondanza dei server. Azure Analysis Services consente di ottenere tale ridondanza tramite la creazione di server secondari e aggiuntivi in una o più aree. Per garantire che i dati e i metadati presenti sui server ridondanti creati siano sincronizzati con il server posizionato nell'area non in linea, è possibile:
 
 * Distribuire i modelli nei server ridondanti in altre aree. Questo metodo richiede l'elaborazione dei dati in parallelo sia sul server primario sia sui server, assicurando così la sincronizzazione di tutti i server.
@@ -31,6 +32,7 @@ In entrambi i casi, se il server principale subisce un'interruzione, è necessar
 Per evitare di dover modificare le stringhe di connessione nei client di creazione report, è possibile creare un [alias](analysis-services-server-alias.md) server per il server primario. Se il server primario si arresta, è possibile modificare l'alias in modo che punti a un server ridondante in un'altra area. È possibile automatizzare l'assegnazione dell'alias al nome del server scrivendo il codice per eseguire un controllo di integrità endpoint nel server primario. Se il controllo di integrità non riesce, lo stesso endpoint può indirizzare a un server ridondante in un'altra area. 
 
 ## <a name="related-information"></a>Informazioni correlate
+
 [Backup e ripristino](analysis-services-backup.md)   
 [Gestire Azure Analysis Services](analysis-services-manage.md)   
 [Nomi del server alias](analysis-services-server-alias.md) 

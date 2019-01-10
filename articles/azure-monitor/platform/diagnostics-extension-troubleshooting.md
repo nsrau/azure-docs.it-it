@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1ddadcf17a5733767e24505b970b2ac21c8d7fa8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325474"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103945"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](diagnostics-extension-overview.md).
@@ -118,7 +118,7 @@ La configurazione di Diagnostica contiene istruzioni per la raccolta di un deter
 #### <a name="is-the-host-generating-data"></a>L'host genera dati?
 - **Contatori delle prestazioni**: aprire perfmon e controllare il contatore.
 
-- **Log di traccia**:  accedere in remoto alla VM e aggiungere TextWriterTraceListener al file di configurazione dell'app.  Vedere http://msdn.microsoft.com/library/sk36c28t.aspx per configurare il listener di testo.  Verificare che l'elemento `<trace>` includa `<trace autoflush="true">`.<br />
+- **Log di traccia**:  accedere in remoto alla VM e aggiungere TextWriterTraceListener al file di configurazione dell'app.  Vedere https://msdn.microsoft.com/library/sk36c28t.aspx per configurare il listener di testo.  Verificare che l'elemento `<trace>` includa `<trace autoflush="true">`.<br />
 Se non risulta che i log di traccia vengano generati, vedere [Altre informazioni sui log di traccia mancanti](#more-about-trace-logs-missing).
 
 - **Tracce ETW**: accedere in remoto alla VM e installare PerfView.  In PerfView eseguire **File** > **User Command** > **Listen etwprovder1** > **etwprovider2** (File > Comando utente -> Ascolto etwprovder1 > etwprovider2) e così via. Nel **comando di ascolto** viene fatta distinzione tra maiuscole e minuscole e nell'elenco separato da virgole dei provider ETW non possono essere presenti spazi. Se l'esecuzione del comando ha esito negativo, è possibile selezionare il pulsante **Log** in basso a destra nello strumento Perfview per visualizzare i tentativi di esecuzione e i risultati.  Se l'input è corretto, verrà aperta una nuova finestra. Dopo pochi secondi inizieranno a essere visualizzate le tracce ETW.
@@ -217,9 +217,9 @@ In alternativa, connettersi tramite desktop remoto al computer ed esaminare il f
 
 In entrambi i casi cercare **Microsoft.Azure.Diagnostics** e quindi il campo **xmlCfg** o **WadCfg**.
 
-Se si esegue la ricerca su una macchina virtuale ed è presente il campo **WadCfg**, la configurazione è in formato JSON. Se è presente il campo **xmlCfg**, la configurazione è in formato XML con codifica Base64. Per visualizzare il codice XML caricato da Diagnostica è necessario [decodificare](http://www.bing.com/search?q=base64+decoder) il file.
+Se si esegue la ricerca su una macchina virtuale ed è presente il campo **WadCfg**, la configurazione è in formato JSON. Se è presente il campo **xmlCfg**, la configurazione è in formato XML con codifica Base64. Per visualizzare il codice XML caricato da Diagnostica è necessario [decodificare](https://www.bing.com/search?q=base64+decoder) il file.
 
-Per il ruolo del servizio cloud, se si seleziona la configurazione dal disco, ai dati è applicata la codifica Base64 ed è quindi necessario [decodificarli](http://www.bing.com/search?q=base64+decoder) per visualizzare il codice XML caricato da Diagnostica.
+Per il ruolo del servizio cloud, se si seleziona la configurazione dal disco, ai dati è applicata la codifica Base64 ed è quindi necessario [decodificarli](https://www.bing.com/search?q=base64+decoder) per visualizzare il codice XML caricato da Diagnostica.
 
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Codici di uscita del plug-in di Diagnostica di Azure
 Il plug-in restituisce i seguenti codici di uscita:

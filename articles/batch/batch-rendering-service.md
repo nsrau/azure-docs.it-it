@@ -1,17 +1,17 @@
 ---
-title: Panoramica del rendering di Azure Batch
+title: Panoramica del rendering - Azure Batch
 description: Introduzione all'uso di Azure per il rendering e panoramica delle funzionalità di rendering di Azure Batch
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4101f6819dff81376dcab47adb57e4b8ef35e094
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: bc8c96345aeb1886696326edd230666ac8b6c41d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036760"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542211"
 ---
 # <a name="rendering-using-azure"></a>Rendering tramite Azure
 
@@ -69,7 +69,7 @@ Azure Batch viene usato per molti carichi di lavoro, ma sono disponibili le funz
   * Sono disponibili immagini di macchina virtuale di Azure Marketplace, che contengono applicazioni di grafica e rendering tra le più diffuse, per evitare la necessità di installare personalmente le applicazioni o di creare immagini personalizzate con le applicazioni installate. 
 * Licenze con pagamento in base al consumo per applicazioni di rendering:
   * È possibile scegliere di pagare per le applicazioni in tempo reale, oltre al pagamento delle macchine virtuali di calcolo, evitando di dover acquistare licenze ed eventualmente configurare un server licenze per le applicazioni.  Il pagamento in base al consumo significa che è possibile gestire carichi variabili e imprevisti, in quanto il numero di licenze non è fisso.
-  * È anche possibile usare le applicazioni preinstallate con licenze proprie, evitando di usare le licenze con pagamento in base al consumo.
+  * È anche possibile usare le applicazioni preinstallate con licenze proprie, evitando di usare le licenze con pagamento in base al consumo. A tale scopo si installa in genere un server licenze locale o basato su Azure e si usa una rete virtuale di Azure per connettere il pool per il rendering per il server licenze.
 * Plug-in per applicazioni di progettazione e modellazione client:
   * I plug-in permettono agli utenti finali di utilizzare Azure Batch direttamente dall'applicazione client, ad esempio Autodesk Maya, per poter creare pool, inviare processi e fare uso di una maggiore capacità di calcolo per eseguire rendering più rapidi.
 * Integrazione di applicazioni di gestione del rendering:

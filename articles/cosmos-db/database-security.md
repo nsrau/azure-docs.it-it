@@ -1,19 +1,17 @@
 ---
 title: Sicurezza database - Azure Cosmos DB
 description: Informazioni su come Azure Cosmos DB garantisca la protezione del database e la sicurezza dei dati.
-keywords: sicurezza del database NoSQL, sicurezza delle informazioni, sicurezza dei dati, crittografia del database, protezione del database, criteri di sicurezza, test di sicurezza
-services: cosmos-db
 author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 0ffd07269570b26b527286f1a0b5a57a6b5c6018
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5fcf04c57f957b670d813de8ffe2d945f70cb3c5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093421"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038773"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Sicurezza database di Azure Cosmos DB
 

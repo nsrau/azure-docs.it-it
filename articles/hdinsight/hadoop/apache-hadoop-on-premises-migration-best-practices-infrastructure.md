@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6b0b047e74496fb9e58df05dc6118c5f376cb99d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1a8c0ec8a7926d443963075fec576b9e2168d41f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437521"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052633"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'infrastruttura
 
@@ -205,7 +205,7 @@ HDInsight supporta gli [endpoint del servizio Rete virtuale](../../virtual-netwo
 Per altre informazioni, vedere gli articoli seguenti:
 
 - [Endpoint del servizio di rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/.md) (Ottimizzare la sicurezza di HDInsight con gli endpoint del servizio)
+- [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/) (Ottimizzare la sicurezza di HDInsight con gli endpoint del servizio)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>Connettere HDInsight alla rete locale
 

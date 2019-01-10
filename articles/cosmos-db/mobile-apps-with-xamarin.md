@@ -1,19 +1,18 @@
 ---
 title: Creare applicazioni per dispositivi mobili con Xamarin e Azure Cosmos DB
 description: Esercitazione in cui si crea un'applicazione Xamarin iOS, Android o Forms usando Azure Cosmos DB. Azure Cosmos DB è un database su cloud per dispositivi mobili veloce e dotato di copertura globale.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: d5c17325bfccef2c97378cb54d8843290cc98635
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0580129d8a1e8500a7be1b0728bacc947f4ece5a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878007"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043873"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Creare applicazioni per dispositivi mobili con Xamarin e Azure Cosmos DB
 

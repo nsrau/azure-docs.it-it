@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: 5b0543b28117d349ceaef173a1201574cf2b3682
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/03/2019
+ms.openlocfilehash: 36a448a861bdfdcd85e532578383b14e56f54b1a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604549"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039096"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Usare Integrità risorse di Azure per risolvere i problemi di connettività del database SQL di Azure
 
@@ -77,6 +77,6 @@ Le riconfigurazioni sono considerate condizioni transitorie, che si verificano d
 
 - Altre informazioni sulla [logica di ripetizione dei tentativi per errori temporanei](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
 - [Risolvere, diagnosticare ed evitare gli errori di connessione SQL e gli errori temporanei per il database SQL](./sql-database-connectivity-issues.md)
-- Altre informazioni su come [configurare gli avvisi di Integrità risorse](/articles/service-health/resource-health-alert-arm-template-guide.md)
-- Panoramica di [Integrità risorse](/articles/service-health/resource-health-overview.md)
-- [Domande frequenti su Integrità risorse](/articles/service-health/resource-health-faq.md)
+- Altre informazioni su come [configurare gli avvisi di Integrità risorse](../service-health/resource-health-alert-arm-template-guide.md)
+- Panoramica di [Integrità risorse](../service-health/resource-health-overview.md)
+- [Domande frequenti su Integrità risorse](../service-health/resource-health-faq.md)

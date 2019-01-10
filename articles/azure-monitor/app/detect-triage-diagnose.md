@@ -13,16 +13,16 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b3cfd57ff0e4b881352c07081d71bb9ba80fd11e
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d5cba3b21ff6099a4132a7ebfab38d1ead9afded
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000190"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118083"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Panoramica di Application Insights per DevOps
 
-Con [Application Insights](../../application-insights/app-insights-overview.md) è possibile capire velocemente le prestazioni dell'app e come viene usata quando è attiva. Se è presente un problema, consente di scoprirlo, aiuta a valutarne l'impatto e a determinarne la causa.
+Con [Application Insights](../../azure-monitor/app/app-insights-overview.md) è possibile capire velocemente le prestazioni dell'app e come viene usata quando è attiva. Se è presente un problema, consente di scoprirlo, aiuta a valutarne l'impatto e a determinarne la causa.
 
 Ecco un account da un team che sviluppa applicazioni web:
 
@@ -61,7 +61,7 @@ Gli errori vengono visualizzati come punti rossi nel grafico del test Web:
 Ma soprattutto viene inviato al team di sviluppo un avviso su eventuali errori mediante posta elettronica. In questo modo ne verranno a conoscenza prima quasi tutti i clienti.
 
 ## <a name="monitor-performance"></a>Monitorare le prestazioni
-Nella pagina Panoramica in Application Insights è presente un grafico che mostra una serie di [metriche chiave](../../application-insights/app-insights-web-monitor-performance.md).
+Nella pagina Panoramica in Application Insights è presente un grafico che mostra una serie di [metriche chiave](../../azure-monitor/app/web-monitor-performance.md).
 
 ![Schermata panoramica dei grafi degli indicatori KPI](./media/detect-triage-diagnose/overview-graphs.png)
 
@@ -151,7 +151,7 @@ Eccezioni ed eventi vengono visualizzati nel pannello [Ricerca diagnostica](diag
 
 
 ## <a name="monitor-proactively"></a>Monitorare in modo proattivo
-Marcela non resta ferma in attesa di avvisi. Subito dopo ogni ridistribuzione, esamina i [tempi di risposta](../../application-insights/app-insights-web-monitor-performance.md), sia la figura nel suo complesso che la tabella delle richieste più lente, nonché il numero di eccezioni.  
+Marcela non resta ferma in attesa di avvisi. Subito dopo ogni ridistribuzione, esamina i [tempi di risposta](../../azure-monitor/app/web-monitor-performance.md), sia la figura nel suo complesso che la tabella delle richieste più lente, nonché il numero di eccezioni.  
 
 ![Grafico dei tempi di risposta e griglia dei tempi di risposta del server.](./media/detect-triage-diagnose/response-time.png)
 
@@ -184,7 +184,7 @@ La diagnosi non è proprio uguale al debug. Prima di iniziare l'analisi del codi
 
 Alcuni problemi di dipendenza lenta sono problemi di georilevazione. La banca Fabrikam usa macchine virtuali di Azure e ha scoperto che aveva inavvertitamente posizionato i server Web e di account in paesi diversi. Si è avuto un notevole miglioramento con la migrazione di uno dei server.
 
-**Che cosa è successo?**  Se il problema non sembra essere una dipendenza e se non è sempre presente, è probabilmente causato da una modifica recente. La prospettiva storica offerta dai grafici di metriche e di eventi semplifica la correlazione di eventuali modifiche improvvise con le distribuzioni. Ciò consente di limitare l'ambito della ricerca del problema. Per identificare le righe del codice dell'applicazione che rallentano le prestazioni, attivare Application Insights Profiler. Fare riferimento a [Profilatura delle app Web di Azure attive con Application Insights](./../../application-insights/app-insights-profiler.md). Dopo aver abilitato il profiler, viene visualizzata una traccia simile alla seguente. In questo esempio, è evidente come sia stato il metodo *GetStorageTableData* a causare il problema.  
+**Che cosa è successo?**  Se il problema non sembra essere una dipendenza e se non è sempre presente, è probabilmente causato da una modifica recente. La prospettiva storica offerta dai grafici di metriche e di eventi semplifica la correlazione di eventuali modifiche improvvise con le distribuzioni. Ciò consente di limitare l'ambito della ricerca del problema. Per identificare le righe del codice dell'applicazione che rallentano le prestazioni, attivare Application Insights Profiler. Fare riferimento a [Profilatura delle app Web di Azure attive con Application Insights](./../../azure-monitor/app/profiler.md). Dopo aver abilitato il profiler, viene visualizzata una traccia simile alla seguente. In questo esempio, è evidente come sia stato il metodo *GetStorageTableData* a causare il problema.  
 
 ![Traccia di Application Insights Profiler](./media/detect-triage-diagnose/AppInsightsProfiler.png)
 
@@ -215,7 +215,7 @@ Qualunque sia il motivo, i dati consentono al team di valutare l'attività degli
 
 Il team si sta abituando ad avere informazioni sull'attività degli utenti. Attualmente, quando progetta una nuova funzionalità, valuta in che modo potrà ricevere commenti e suggerimenti sull'utilizzo. Progetta quindi chiamate di rilevamento che vengono incorporate nella funzionalità fin dall'inizio. I commenti e suggerimenti saranno usati per migliorare la funzionalità in ogni ciclo di sviluppo.
 
-[Altre informazioni sul monitoraggio dell'utilizzo](../../application-insights/app-insights-usage-overview.md).
+[Altre informazioni sul monitoraggio dell'utilizzo](../../azure-monitor/app/usage-overview.md).
 
 ## <a name="apply-the-devops-cycle"></a>Applicare il ciclo DevOps
 Ecco come un solo team usa Application Insights non solo per risolvere singoli problemi, ma per migliorare il ciclo di vita dello sviluppo. Si tratta di suggerimenti e idee su come Application Insights può aiutare a gestire le prestazioni delle proprie applicazioni.
@@ -230,6 +230,6 @@ Ecco come un solo team usa Application Insights non solo per risolvere singoli p
 * [Applicazione Web ASP.NET](../../azure-monitor/app/asp-net.md)
 * [Applicazione Web Java](../../azure-monitor/app/java-get-started.md)
 * [Applicazione Web Node.js](../../azure-monitor/app/nodejs.md)
-* App già distribuite, ospitate in [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) o [Azure](../../application-insights/app-insights-overview.md).
+* App già distribuite, ospitate in [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) o [Azure](../../azure-monitor/app/app-insights-overview.md).
 * [Pagine Web](../../azure-monitor/app/javascript.md): app a singola pagina o pagina Web ordinaria da usare autonomamente o in combinazione con una delle opzioni del server.
 * [Test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) per testare l'applicazione dalla rete internet pubblica.

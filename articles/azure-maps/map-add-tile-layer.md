@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 57cde41bf65c370f86ebc57a39e917b95721ca81
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: a9decacc3b22676d94726e3cf979198b3486d270
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893073"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104642"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Aggiungere un livello riquadro a una mappa
 
@@ -24,7 +24,7 @@ Un livello riquadro viene caricato in riquadri da un server. Queste immagini pos
 
 * Notazione zoom di X, Y: in base al livello di zoom, x è la posizione nella colonna e y è la posizione nella riga del riquadro nella griglia dei riquadri.
 * Notazione Quadkey: combinazione delle informazioni x, y e zoom in un singolo valore stringa che sia un identificatore univoco per un riquadro.
-* Rettangolo di selezione: le coordinate del rettangolo di selezione possono essere utilizzate per specificare un'immagine nel formato `{west},{south},{east},{north}` comunemente utilizzata dai [ servizi Web di Mapping (WMS)](http://www.opengeospatial.org/standards/wms).
+* Rettangolo di selezione: le coordinate del rettangolo di selezione possono essere utilizzate per specificare un'immagine nel formato `{west},{south},{east},{north}` comunemente utilizzata dai [ servizi Web di Mapping (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
 > [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) è un ottimo modo per visualizzare grandi set di dati sulla mappa. Non solo è possibile generare un livello riquadro da un'immagine, ma anche i dati vettoriali possono essere sottoposti a rendering come livello riquadro. Sottoponendo a rendering i dati vettoriali come livello riquadro, il controllo della mappa deve solo caricare i riquadri che possono essere molto più piccoli in termini di dimensione del file rispetto ai dati vettoriali che rappresentano. Questa tecnica viene usata da molti utenti che necessitano di eseguire il rendering di milioni di righe di dati sulla mappa.
@@ -40,7 +40,7 @@ L'URL di riquadro passato in un livello riquadro deve essere un URL http/https i
 
 ## <a name="add-a-tile-layer"></a>Aggiungere un livello per i riquadri
 
- Questo esempio illustra come creare un livello riquadro che punta a una serie di riquadri che usano il sistema di riquadri x, y e zoom. L'origine di questo livello riquadro è una sovrapposizione di radar meteo dall'[Iowa Environmental Mesonet dell'Iowa State University](http://mesonet.agron.iastate.edu/ogc/).
+ Questo esempio illustra come creare un livello riquadro che punta a una serie di riquadri che usano il sistema di riquadri x, y e zoom. L'origine di questo livello riquadro è una sovrapposizione di radar meteo dall'[Iowa Environmental Mesonet dell'Iowa State University](https://mesonet.agron.iastate.edu/ogc/).
 
 <br/>
 

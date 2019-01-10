@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: e760b67c1b971613de6b21102687c8ffeb556ed8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ce39b431adfd333db1e771913ed28881a193b327
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386877"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790841"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
 
@@ -107,12 +107,12 @@ Non è necessario specificare in modo esplicito il percorso del cluster, perché
 
 ## <a name="storage-endpoints-for-clusters"></a>Endpoint di archiviazione per i cluster
 
-Sebbene l'installazione locale di Hadoop usi Hadoop Distributed File System (HDFS) per l'archiviazione nel cluster, nel cloud vengono usati degli endpoint di archiviazione connessi al cluster. I cluster HDInsight usano [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) o [i BLOB in Archiviazione di Azure](hdinsight-hadoop-use-blob-storage.md). L'uso di Archiviazione di Azure o Data Lake Store consente di eliminare in modo sicuro i cluster HDInsight usati per il calcolo, pur mantenendo i dati. 
+Sebbene l'installazione locale di Hadoop usi Hadoop Distributed File System (HDFS) per l'archiviazione nel cluster, nel cloud vengono usati degli endpoint di archiviazione connessi al cluster. I cluster HDInsight usano [Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md) o i [BLOB in Archiviazione di Azure](hdinsight-hadoop-use-blob-storage.md). L'uso di Archiviazione di Azure o Data Lake Store consente di eliminare in modo sicuro i cluster HDInsight usati per il calcolo, pur mantenendo i dati. 
 
 > [!WARNING]  
 > L'uso di un account di archiviazione aggiuntivo in una località diversa rispetto al cluster HDInsight non è supportato.
 
-Durante la configurazione, per l'endpoint di archiviazione predefinito si specifica un contenitore blob di un account di archiviazione di Azure o un Data Lake Store. L'archiviazione predefinita include registri di sistema e applicazioni. Facoltativamente, è possibile specificare degli account di Archiviazione di Azure aggiuntivi e degli account di Data Lake Store a cui il cluster può accedere. Il cluster HDInsight e l'account di archiviazione da esso dipendente devono trovarsi nella stessa posizione di Azure.
+Durante la configurazione, per l'endpoint di archiviazione predefinito si specifica un contenitore BLOB di un account di archiviazione di Azure o Data Lake Storage. L'archiviazione predefinita include registri di sistema e applicazioni. Facoltativamente, è possibile specificare degli account di archiviazione di Azure aggiuntivi e degli account di Data Lake Storage a cui il cluster può accedere. Il cluster HDInsight e l'account di archiviazione da esso dipendente devono trovarsi nella stessa posizione di Azure.
 
 ![Impostazioni dell'archiviazione cluster: Endpoint di archiviazione compatibili con Hadoop Distributed File System](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
@@ -194,7 +194,7 @@ Quando si usa il portale di Azure per configurare il cluster, le dimensioni del 
 ### <a name="virtual-machine-sizes"></a>Dimensioni delle macchine virtuali 
 Quando si distribuiscono i cluster, scegliere le risorse di calcolo in base alla soluzione da distribuire. Per i cluster HDInsight vengono usate le macchine virtuali seguenti:
 * Macchine virtuali serie A e D1-4: [Dimensioni delle macchine virtuali Linux per l'utilizzo generico](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
-* Macchina virtuale serie D11-14: [Dimensioni ottimizzate per la memoria delle macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+* Macchine virtuali serie D11-14: [Dimensioni ottimizzate per la memoria delle macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
 Per scoprire quale valore usare per specificare le dimensioni di macchina virtuale durante la creazione di un cluster tramite SDK diversi o quando si usa Azure PowerShell, vedere [VM sizes to use for HDInsight clusters](../cloud-services/cloud-services-sizes-specs.md#size-tables) (Dimensioni delle macchine virtuali da usare per i cluster HDInsight). In questo articolo collegato, usare il valore della casella **Dimensioni** delle tabelle.
 
@@ -247,7 +247,7 @@ Per un esempio dell'uso di due tipi di cluster in una rete virtuale di Azure, ve
 
 ## <a name="troubleshoot-access-control-issues"></a>Risolvere i problemi relativi al controllo di accesso
 
-Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
+Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: f15a0670932a9017c079ff0cf1e7cb4ad598a9c4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 326f0e21582c1aee03c8a44adcd709f3ddf59b0b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004918"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119629"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -53,10 +53,10 @@ Application Insights offre informazioni per comprendere con facilità i possibil
 
 ![Scegliere i prezzi](./media/pricing/pricing-001.png)
 
-R. Esaminare il volume di dati per il mese. Sono inclusi tutti i dati ricevuti e conservati (dopo un [campionamento](../../application-insights/app-insights-sampling.md)) dal server e dalle app client, oltre che dai test di disponibilità.  
+R. Esaminare il volume di dati per il mese. Sono inclusi tutti i dati ricevuti e conservati (dopo un [campionamento](../../azure-monitor/app/sampling.md)) dal server e dalle app client, oltre che dai test di disponibilità.  
 B. I costi per i [test Web in più passaggi](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) vengono addebitati separatamente. Non sono inclusi i test di disponibilità semplici, il cui costo viene addebitato con il volume di dati.  
 C. Visualizzare le tendenze del volume dei dati relative all'ultimo mese.  
-D. Abilitare il [campionamento](../../application-insights/app-insights-sampling.md) per l'inserimento dei dati.   
+D. Abilitare il [campionamento](../../azure-monitor/app/sampling.md) per l'inserimento dei dati.   
 E. Impostare il limite giornaliero di utilizzo per volume dati.  
 
 Per analizzare l'utilizzo di Application Insights a un livello più profondo, aprire la pagina **Metriche**, aggiungere la metrica denominata "Volume del punto dati" e quindi selezionare l'opzione *Applica suddivisione* per suddividere i dati in base al tipo di elemento di telemetria. 
@@ -68,7 +68,7 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 ## <a name="data-rate"></a>Velocità dati
 Il volume dei dati inviati viene limitato in tre modi:
 
-* **Campionamento**: È possibile usare il campionamento per ridurre la quantità di dati di telemetria inviati dal server e dalle app client, con una distorsione minima delle metriche. Si tratta dello strumento principale da usare per ottimizzare la quantità di dati inviati. Altre informazioni sulle [funzionalità di campionamento](../../application-insights/app-insights-sampling.md). 
+* **Campionamento**: È possibile usare il campionamento per ridurre la quantità di dati di telemetria inviati dal server e dalle app client, con una distorsione minima delle metriche. Si tratta dello strumento principale da usare per ottimizzare la quantità di dati inviati. Altre informazioni sulle [funzionalità di campionamento](../../azure-monitor/app/sampling.md). 
 * **Limite giornaliero**: Quando si crea una risorsa di Application Insights nel portale di Azure, il limite di utilizzo giornaliero è impostato su 100 GB al giorno. Il valore predefinito quando si crea una risorsa di Application Insights in Visual Studio è basso, solo 32,3 MB al giorno. Il valore predefinito del limite di utilizzo giornaliero è impostato per semplificare le operazioni di test. È opportuno che l'utente aumenti il limite di utilizzo giornaliero prima di distribuire l'app nell'ambiente di produzione. 
 
     Il limite di utilizzo massimo è 1.000 GB al giorno, a meno che non si richieda un valore massimo più alto per un'applicazione con traffico elevato. 
@@ -91,7 +91,7 @@ Per visualizzare la quantità di dati che l'app sta inviando, è possibile usare
 ## <a name="reduce-your-data-rate"></a>Ridurre la velocità dei dati
 Ecco alcune operazioni da eseguire per ridurre il volume di dati:
 
-* Utilizzare [Campionamento](../../application-insights/app-insights-sampling.md). Questa tecnologia consente di ridurre la velocità dei dati senza rendere asimmetriche le metriche. È ancora possibile spostarsi tra gli elementi correlati nella ricerca. Nelle app server il campionamento funziona automaticamente.
+* Utilizzare [Campionamento](../../azure-monitor/app/sampling.md). Questa tecnologia consente di ridurre la velocità dei dati senza rendere asimmetriche le metriche. È ancora possibile spostarsi tra gli elementi correlati nella ricerca. Nelle app server il campionamento funziona automaticamente.
 * [Limitare il numero di chiamate Ajax che possono essere segnalate](../../azure-monitor/app/javascript.md#detailed-configuration) in ogni visualizzazione pagina o disattivare la creazione di report Ajax.
 * Disattivare i moduli di raccolta non necessari [modificando il file ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Ad esempio, è possibile che i contatori delle prestazioni o dati sulle dipendenze siano non essenziali.
 * Suddividere i dati di telemetria per separare le chiavi di strumentazione. 
@@ -101,20 +101,20 @@ Ecco alcune operazioni da eseguire per ridurre il volume di dati:
 
 È possibile usare il limite di utilizzo giornaliero di volume per limitare i dati raccolti. Tuttavia se si raggiunge questo limite, tutti i dati di telemetria inviati dall'applicazione per la restante parte del giorno andranno persi. *Non è consigliabile* raggiungere il limite di utilizzo giornaliero dell'applicazione. Dopo averlo raggiunto non sarà possibile monitorare l'integrità e le prestazioni dell'applicazione.
 
-Anziché usare il limite di volume giornaliero, usare il [campionamento](../../application-insights/app-insights-sampling.md) per impostare il volume di dati al livello desiderato. Usare quindi il limite di utilizzo giornaliero solo se "strettamente necessario" nel caso in cui l'applicazione inizi a inviare volumi più elevati di dati di telemetria in modo imprevisto.
+Anziché usare il limite di volume giornaliero, usare il [campionamento](../../azure-monitor/app/sampling.md) per impostare il volume di dati al livello desiderato. Usare quindi il limite di utilizzo giornaliero solo se "strettamente necessario" nel caso in cui l'applicazione inizi a inviare volumi più elevati di dati di telemetria in modo imprevisto.
 
 Per modificare il limite di utilizzo giornaliero, nella sezione **Configura** della risorsa di Application Insights, dal riquadro **Usage and estimated cost** (Uso e costi stimati), selezionare **Limite di utilizzo giornaliero**.
 
 ![Regolazione del limite del volume dei dati di telemetria giornaliero](./media/pricing/pricing-003.png)
 
 ## <a name="sampling"></a>campionamento
-Il [campionamento](../../application-insights/app-insights-sampling.md) è un metodo che consente di ridurre la velocità con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi.
+Il [campionamento](../../azure-monitor/app/sampling.md) è un metodo che consente di ridurre la velocità con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi.
 
 Il campionamento consente di ridurre in modo efficace i costi e di non superare la quota mensile. L'algoritmo di campionamento conserva gli elementi correlati ai dati di telemetria, in modo che, quando si usa la ricerca, ad esempio, è possibile trovare la richiesta correlata a una particolare eccezione. L'algoritmo mantiene anche i conteggi corretti e consente di visualizzare in Esplora metriche i valori corretti della frequenza delle richieste, della frequenza delle eccezioni e di altri contatori.
 
 Sono disponibili diversi tipi di campionamento.
 
-* Il [campionamento adattivo](../../application-insights/app-insights-sampling.md) è il valore predefinito per l'SDK di ASP.NET. Il campionamento adattivo si adatta automaticamente al volume dei dati di telemetria inviati dall'app. Viene eseguito automaticamente nell'SDK dell'app Web riducendo il traffico dei dati di telemetria sulla rete. 
+* Il [campionamento adattivo](../../azure-monitor/app/sampling.md) è il valore predefinito per l'SDK di ASP.NET. Il campionamento adattivo si adatta automaticamente al volume dei dati di telemetria inviati dall'app. Viene eseguito automaticamente nell'SDK dell'app Web riducendo il traffico dei dati di telemetria sulla rete. 
 * *campionamento per inserimento* è un'alternativa che opera nel punto in cui i dati di telemetria provenienti dall'app raggiungono il servizio Application Insights. Il campionamento per inserimento non ha alcun effetto sul volume dei dati di telemetria inviati dall'app, ma riduce il volume mantenuto dal servizio. È possibile usarlo per ridurre la quota che i dati di telemetria usano dal browser e da altri SDK.
 
 Per impostare il campionamento per inserimento, visitare il riquadro **Prezzi**:
@@ -196,9 +196,9 @@ Poiché tale piano è applicabile solo ai clienti con una sottoscrizione Operati
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Campionamento](../../application-insights/app-insights-sampling.md)
+* [Campionamento](../../azure-monitor/app/sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: ../../application-insights/app-insights-overview.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[start]: ../../azure-monitor/app/app-insights-overview.md
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/

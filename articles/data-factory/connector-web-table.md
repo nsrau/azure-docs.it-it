@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 995bf4586b88671c65077d965b0588de8de74e5c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3e62dbc31976187f4bd37a3567169da2ffa0909b
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048935"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807653"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiare dati da Tabella Web usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,13 +27,19 @@ ms.locfileid: "37048935"
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da un database Tabella Web. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
+La differenza tra questo connettore Tabella Web, il [connettore REST](connector-rest.md) e il [connettore HTTP](connector-http.md) è la seguente:
+
+- Il **connettore Tabella Web** estrae il contenuto della tabella da una pagina Web HTML.
+- Il **connettore REST** supporta in modo specifico la copia dei dati dalle API RESTful.
+- Il **connettore HTTP** è un connettore generico per recuperare i dati da qualsiasi endpoint HTTP, ad esempio per scaricare file. 
+
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
 È possibile copiare dati da un database Tabella Web in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-In particolare, il connettore Tabella Web supporta **l'estrazione del contenuto di una tabella da una pagina HTML**. Per recuperare dati da un endpoint HTTP/s, usare invece il [connettore HTTP](connector-http.md).
+In particolare, il connettore Tabella Web supporta **l'estrazione del contenuto di una tabella da una pagina HTML**.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per usare questo connettore di tabelle Web, è necessario impostare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
 
@@ -49,10 +55,10 @@ Per il servizio collegato di Tabella Web sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Web** |Sì |
-| URL | URL dell'origine Web |Sì |
-| authenticationType | Il valore consentito è: **Anonima**. |Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
+| type | La proprietà type deve essere impostata su: **Web** |Yes |
+| URL | URL dell'origine Web |Yes |
+| authenticationType | Il valore consentito è: **Anonymous**. |Yes |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Yes |
 
 **Esempio:**
 
@@ -81,9 +87,9 @@ Per copiare dati da Tabella Web, impostare la proprietà type del set di dati su
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **WebTable** | Sì |
-| path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
-| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **WebTable** | Yes |
+| path |URL relativo della risorsa che contiene la tabella. | No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
+| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Yes |
 
 **Esempio:**
 
@@ -151,7 +157,7 @@ Per ottenere l'indice di una tabella che è necessario configurare nelle [propri
 2. Fare clic su **Nuova query** sulla barra degli strumenti, scegliere **Da altre origini** e fare clic su **Da Web**.
 
     ![Menu di Power Query](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. Nella finestra di dialogo **Da Web** immettere l'**URL** che si intende usare nel servizio collegato JSON, ad esempio https://en.wikipedia.org/wiki/), insieme al percorso specificato per il set di dati, ad esempio AFI%27s_100_Years...100_Movies e fare clic su **OK**.
+3. Nella finestra di dialogo **Da Web** immettere l'**URL** che si intende usare nel codice JSON del servizio collegato (ad esempio, https://en.wikipedia.org/wiki/) insieme al percorso specificato per il set di dati (ad esempio, AFI%27s_100_Years...100_Movies) e fare clic su **OK**.
 
     ![Finestra di dialogo Da Web](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 

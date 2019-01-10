@@ -3,17 +3,17 @@ title: Compilare un'app console .NET Core per gestire i dati in un account API S
 description: Esercitazione che consente di creare un database online e un'applicazione console in C# usando Azure Cosmos DB SQL API .NET Core SDK.
 author: deborahc
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 917cf6ddf23fb9240aa6f2cef8add14c66d0cb06
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: fd5383ded8252375b651c47debea3ba72173eb16
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973172"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038820"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Compilare un'app console .NET Core per gestire i dati in un account API SQL di Azure Cosmos DB (anteprima SDK versione 3)
 
@@ -184,7 +184,7 @@ L'installazione è riuscita. Ora che abbiamo completato l'installazione, iniziam
 
 1. Premere **F5** per eseguire l'applicazione. L'output della finestra della console mostra il messaggio `End of demo, press any key to exit.`, che conferma che è stata stabilita la connessione ad Azure Cosmos DB. È quindi possibile chiudere la finestra della console.
 
-Congratulazioni La connessione a un account di Azure Cosmos DB è stata stabilita correttamente.
+Congratulazioni! La connessione a un account di Azure Cosmos DB è stata stabilita correttamente.
 
 ## <a name="step-4-create-a-database"></a>Passaggio 4: Creare un database
 
@@ -297,7 +297,7 @@ Congratulazioni La connessione a un account di Azure Cosmos DB è stata stabilit
 
 Premere **F5** per eseguire l'applicazione.
 
-Congratulazioni La creazione di un database di Azure Cosmos DB è stata completata.
+Congratulazioni! La creazione di un database di Azure Cosmos DB è stata completata.
 
 ## <a id="CreateColl"></a>Passaggio 5: Creare un contenitore
 
@@ -337,7 +337,7 @@ Un contenitore può essere creato usando la funzione [**CreateContainerIfNotExis
 
 Premere **F5** per eseguire l'applicazione.
 
-Congratulazioni La creazione di un contenitore di Azure Cosmos DB è stata completata.
+Congratulazioni! La creazione di un contenitore di Azure Cosmos DB è stata completata.
 
 ## <a id="CreateDoc"></a>Passaggio 6: Aggiungere elementi al contenitore
 
@@ -526,7 +526,7 @@ Congratulazioni La creazione di un contenitore di Azure Cosmos DB è stata compl
 
 Premere **F5** per eseguire l'applicazione.
 
-Congratulazioni La creazione di due elementi di Azure Cosmos DB è stata completata.
+Congratulazioni! La creazione di due elementi di Azure Cosmos DB è stata completata.
 
 ## <a id="Query"></a>Passaggio 7: eseguire query sulle risorse di Azure Cosmos DB
 
@@ -580,7 +580,7 @@ Azure Cosmos DB supporta [query complesse](sql-api-sql-query.md) sui documenti J
 
 Premere **F5** per eseguire l'applicazione.
 
-Congratulazioni L'esecuzione di una query su un contenitore di Azure Cosmos DB è stata completata.
+Congratulazioni! L'esecuzione di una query su un contenitore di Azure Cosmos DB è stata completata.
 
 ## <a id="ReplaceItem"></a>Passaggio 8: sostituire un elemento JSON
 
@@ -627,7 +627,7 @@ In questo passaggio si aggiornerà un elemento in Azure Cosmos DB.
 
 Premere **F5** per eseguire l'applicazione.
 
-Congratulazioni La sostituzione di un elemento di Azure Cosmos DB è stata completata.
+Congratulazioni! La sostituzione di un elemento di Azure Cosmos DB è stata completata.
 
 ## <a id="DeleteDocument"></a>Passaggio 9: Elimina elemento
 
@@ -670,7 +670,7 @@ In questo passaggio si eliminerà un elemento in Azure Cosmos DB.
 
 Premere **F5** per eseguire l'applicazione.
 
-Congratulazioni L'eliminazione di un elemento di Azure Cosmos DB è stata completata.
+Congratulazioni! L'eliminazione di un elemento di Azure Cosmos DB è stata completata.
 
 ## <a id="DeleteDatabase"></a>Passaggio 10: eliminare il database
 
@@ -715,7 +715,7 @@ Congratulazioni L'eliminazione di un elemento di Azure Cosmos DB è stata comple
 
 Premere **F5** per eseguire l'applicazione.
 
-Congratulazioni L'eliminazione di un database di Azure Cosmos DB è stata completata.
+Congratulazioni! L'eliminazione di un database di Azure Cosmos DB è stata completata.
 
 ## <a id="Run"></a>Passaggio 11: eseguire l'intera applicazione console C#
 
@@ -748,7 +748,7 @@ Deleted Database: FamilyDatabase
 End of demo, press any key to exit.
 ```
 
-Congratulazioni L'esercitazione è stata completata ed è stata creata un'applicazione console C# funzionante.
+Congratulazioni! L'esercitazione è stata completata ed è stata creata un'applicazione console C# funzionante.
 
 ## <a id="GetSolution"></a> Ottenere la soluzione completa per l'esercitazione
 

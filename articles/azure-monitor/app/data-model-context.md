@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: fc2b5a5badcf38f7bc94a876f9f0a21af4f558b7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53813511"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015475"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contesto dei dati di telemetria: Modello di dati di Application Insights
 
@@ -84,7 +84,7 @@ Lunghezza massima: 64
 
 L'ID utente anonimo. Rappresenta l'utente finale dell'applicazione. Quando i dati di telemetria vengono inviati da un servizio, il contesto utente si riferisce all'utente che ha avviato l'operazione nel servizio.
 
-Il [campionamento](../../application-insights/app-insights-sampling.md) è una delle tecniche usate per ridurre al minimo la quantità di dati di telemetria raccolti. L'algoritmo di campionamento tenta di sondare tutti i dati di telemetria correlati in ingresso o in uscita. L'ID utente anonimo viene usato per generare un punteggio di campionamento. L'ID utente anonimo deve essere quindi un valore sufficientemente casuale. 
+Il [campionamento](../../azure-monitor/app/sampling.md) è una delle tecniche usate per ridurre al minimo la quantità di dati di telemetria raccolti. L'algoritmo di campionamento tenta di sondare tutti i dati di telemetria correlati in ingresso o in uscita. L'ID utente anonimo viene usato per generare un punteggio di campionamento. L'ID utente anonimo deve essere quindi un valore sufficientemente casuale. 
 
 L'uso di un ID utente anonimo per archiviare il nome utente rappresenta un uso improprio del campo. Usare un ID utente autenticato.
 

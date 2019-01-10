@@ -1,19 +1,19 @@
 ---
 title: Progettare tabelle di Azure Cosmos DB per supportare ridimensionamento e prestazioni
 description: 'Guida alla progettazione di tabelle di Archiviazione di Azure: Progettazione di tabelle scalabili ed efficienti in Azure Cosmos DB e in Tabella di archiviazione di Azure'
-author: SnehaGunda
-ms.author: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 12/07/2018
+author: wmengmsft
+ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 656a8acc06a0d02959dda42c980db65c011f0bb3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9784d08a8e3e471a8b516c3bc285430c537857a8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140949"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044179"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di Archiviazione di Azure: progettazione di tabelle scalabili ed efficienti
 

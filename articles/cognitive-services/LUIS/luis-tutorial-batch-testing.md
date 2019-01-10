@@ -1,7 +1,7 @@
 ---
 title: Test in batch
 titleSuffix: Azure Cognitive Services
-description: Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni nell'app e correggerli.
+description: Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni nell'app e corregerli.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2c8d4486b235534db2bb7d06206d5767c1496fbd
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106040"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754391"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>Esercitazione 2: Eseguire test in batch dei set di dati
+# <a name="tutorial-batch-test-data-sets"></a>Esercitazione: Eseguire test in batch dei set di dati
 
-Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni nell'app e correggerli.  
+Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni nell'app e corregerli.  
 
 L'esecuzione di test in batch consente di convalidare lo stato del modello attivo e sottoposto a training con un set noto di espressioni ed entità etichettate. Nel file batch in formato JSON aggiungere le espressioni e impostare le etichette di entità che è necessario prevedere all'interno dell'espressione. 
 
@@ -32,11 +32,11 @@ Requisiti per il test in batch:
 
 Quando si usa un'app diversa rispetto a quella di questa esercitazione, *non* usare le espressioni di esempio già aggiunte a una finalità. 
 
-**In questa esercitazione si apprenderà come:**
+**In questa esercitazione si imparerà come:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usare l'app di esercitazione esistente
+> * Importare l'app di esempio
 > * Creare un file di test in batch 
 > * Eseguire un test in batch
 > * Esaminare i risultati del test
@@ -45,13 +45,13 @@ Quando si usa un'app diversa rispetto a quella di questa esercitazione, *non* us
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Usare l'app esistente
+## <a name="import-example-app"></a>Importare l'app di esempio
 
 Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
-Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
+Seguire questa procedura:
 
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
 
 2. Importare il file JSON in una nuova app.
 
@@ -61,7 +61,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 ## <a name="batch-file"></a>File di batch
 
-1. Creare `HumanResources-jobs-batch.json` in un editor di testo o [scaricarlo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json). 
+1. Creare `HumanResources-jobs-batch.json` in un editor di testo o [scaricarlo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json). 
 
 2. Nel file batch in formato JSON aggiungere espressioni con la **finalità** che si desidera prevedere nel test. 
 
@@ -177,7 +177,7 @@ Quando si scrivono i file di batch e se ne esegue il test la prima volta, è con
 
 Il valore di un'entità **Job**, indicato nelle espressioni di test, è composto in genere da una o due parole, con alcuni esempi di più parole. Se la _propria_ app relativa alle risorse umane è composta in genere da nomi di lavoro costituiti da molte parole, le espressioni di esempio etichettate con l'entità **Job** in questa app non funzionano in modo corretto.
 
-1. Creare `HumanResources-entities-batch.json` in un editor di testo come [VSCode](https://code.visualstudio.com/) o [scaricarlo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
+1. Creare `HumanResources-entities-batch.json` in un editor di testo come [VSCode](https://code.visualstudio.com/) o [scaricarlo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
 
 
 2. Nel file batch in formato JSON aggiungere una matrice di oggetti che includono espressioni con la **finalità** che si vuole stimare nel test nonché i percorsi di tutte le entità nell'espressione. Poiché un'entità è basata su token, verificare di iniziare e terminare ogni entità con un carattere. Non iniziare o terminare l'espressione con uno spazio. Ciò può causare un errore durante l'importazione del file batch.  

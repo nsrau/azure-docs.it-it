@@ -1,18 +1,19 @@
 ---
 title: Uso di account Azure Cosmos DB
 description: Questo articolo descrive come creare e usare account Azure Cosmos DB
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 9f237d9eed5b8500f0f80b8b73d638f374bf5ca9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7c4c1a5991445448f015dc0912383baf53f4e38c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999521"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034931"
 ---
 # <a name="working-with-azure-cosmos-account"></a>Uso dell'account Azure Cosmos
 

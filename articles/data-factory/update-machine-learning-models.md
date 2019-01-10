@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: caf3ecb64d0bdb5771b2fde705fdcbffdffccacb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957464"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969302"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aggiornare i modelli di Azure Machine Learning tramite l'attività Aggiorna risorsa
-Questo articolo integra la versione principale di Azure Data Factory: articolo di integrazione di Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo. 
+Questo articolo è complementare all'articolo principale sull'integrazione di Azure Data Factory e Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo. 
 
 ## <a name="overview"></a>Panoramica
 Nell'ambito del processo di messa in funzione dei modelli di Azure Machine Learning, viene eseguito il training del modello, che viene quindi salvato. Lo si userà quindi per creare un servizio Web predicativo. Il servizio Web potrà quindi essere utilizzato in siti Web, dashboard e app per dispositivi mobili.
@@ -93,7 +93,7 @@ Per il secondo servizio collegato di Azure Machine Learning la configurazione è
 Se il servizio Web è il nuovo tipo di servizio Web che espone un endpoint di Azure Resource Manager, non è necessario aggiungere il secondo endpoint **non predefinito**. Il formato del valore **updateResourceEndpoint** nel servizio collegato è il seguente: 
 
 ```
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview
 ```
 
 È possibile ottenere i valori per i segnaposti nell'URL quando si eseguono query nel servizio Web nel portale di [Azure Machine Learning Web Services](https://services.azureml.net/) (Servizi Web Microsoft Azure Machine Learning). 
@@ -118,7 +118,7 @@ Ecco una definizione di esempio del servizio collegato:
             "type": "SecureString",
             "value": "APIKeyOfEndpoint1"
             },
-            "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. ",
+            "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview",
             "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
             "servicePrincipalKey": {
             "type": "SecureString",
@@ -202,7 +202,7 @@ Il frammento di codice JSON seguente definisce un servizio collegato di Azure Ma
 ```
 
 ### <a name="pipeline"></a>Pipeline
-La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. L'attività Esecuzione batch di Azure ML accetta i dati di training come input e genera un file iLearner come output. L'attività Aggiorna risorsa riceve quindi il file iLearner e lo usa per aggiornare il servizio Web predittivo. 
+La pipeline ha due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. L'attività Esecuzione batch di Azure ML accetta i dati di training come input e genera un file iLearner come output. L'attività Aggiorna risorsa riceve quindi il file iLearner e lo usa per aggiornare il servizio Web predittivo. 
 
 ```JSON
 {

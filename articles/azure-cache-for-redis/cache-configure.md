@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: ff6a3f32d9163be01483e8b8c743caa4e5bb573c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8a78823a208a5310e62714de7b1a3cd2e35eaa8f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581250"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104676"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -147,7 +147,7 @@ Le impostazioni **Criterio maxmemory**, **maxmemory-reserved** e **maxfragmentat
 * `volatile-ttl`
 * `noeviction`
 
-Per altre informazioni sui criteri `maxmemory`, vedere [Eviction policies](http://redis.io/topics/lru-cache#eviction-policies) (Criteri di rimozione).
+Per altre informazioni sui criteri `maxmemory`, vedere [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies) (Criteri di rimozione).
 
 L'impostazione **maxmemory-reserved** consente di configurare la quantità di memoria in MB riservata per le operazioni non appartenenti alla cache, ad esempio la replica durante il failover. L’impostazione di questo valore consente di avere un'esperienza più coerente del server Redis quando il carico varia. Questo valore deve essere più alto per i carichi di lavoro ad intensa attività di scrittura. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
 
@@ -170,7 +170,7 @@ Le notifiche di Keyspace Redis possono essere configurate nel pannello **Imposta
 > 
 > 
 
-Per altre informazioni, vedere [Notifiche di Keyspace Redis](http://redis.io/topics/notifications). Per un esempio di codice, vedere il file [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) nell'esempio di [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
+Per altre informazioni, vedere [Notifiche di Keyspace Redis](https://redis.io/topics/notifications). Per un esempio di codice, vedere il file [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) nell'esempio di [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
 
 <a name="recommendations"></a>
@@ -406,7 +406,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i valori predefini
 | `maxmemory-samples` |3 |Per risparmiare memoria, gli algoritmi LRU e TTL minimo sono algoritmi approssimativi anziché precisi. Per impostazione predefinita Redis controlla tre chiavi e sceglie quella usata meno di recente. |
 | `lua-time-limit` |5.000 |Tempo massimo di esecuzione di uno script Lua in millisecondi. Se viene raggiunto il tempo massimo di esecuzione, Redis registra che uno script è ancora in esecuzione dopo il tempo massimo consentito e inizia a rispondere alle query con un errore. |
 | `lua-event-limit` |500 |Dimensione massima della coda di eventi di script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |I limiti del buffer di output del client possono essere utilizzati per forzare la disconnessione dei client che per qualche motivo non leggono i dati dal server in modo sufficientemente rapido. Ad esempio, è frequente che un client di pubblicazione o sottoscrizione non possa utilizzare i messaggi con la stessa velocità con cui il server di pubblicazione li produce. Per altre informazioni, vedere [http://redis.io/topics/clients](http://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |I limiti del buffer di output del client possono essere utilizzati per forzare la disconnessione dei client che per qualche motivo non leggono i dati dal server in modo sufficientemente rapido. Ad esempio, è frequente che un client di pubblicazione o sottoscrizione non possa utilizzare i messaggi con la stessa velocità con cui il server di pubblicazione li produce. Per altre informazioni, vedere [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>Il limite per `databases` è diverso per ogni piano tariffario di Cache Redis di Azure e può essere impostato durante la creazione della cache. Se durante la creazione della cache non viene specificata alcuna impostazione `databases` , il valore predefinito è 16.
@@ -424,7 +424,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i valori predefini
   * P2 (13 GB - 130 GB): fino a 32 database
   * P3 (26 GB - 260 GB): fino a 48 database
   * P4 (53 GB - 530 GB): fino a 64 database
-  * Tutte le cache Premium con il cluster Redis abilitato: il cluster Redis supporta solo l'uso del database 0, quindi il limite `databases` per le cache Premium con il cluster Redis abilitato è effettivamente 1 e il comando [Select](http://redis.io/commands/select) non è consentito. Per altre informazioni, vedere [È necessario apportare modifiche all'applicazione client per usare il clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * Tutte le cache Premium con il cluster Redis abilitato: il cluster Redis supporta solo l'uso del database 0, quindi il limite `databases` per le cache Premium con il cluster Redis abilitato è effettivamente 1 e il comando [Select](https://redis.io/commands/select) non è consentito. Per altre informazioni, vedere [È necessario apportare modifiche all'applicazione client per usare il clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 Per altre informazioni sui database SQL di Azure, vedere [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Cosa sono i database Redis?)
 
@@ -473,14 +473,14 @@ Per altre informazioni sui database SQL di Azure, vedere [What are Redis databas
 > 
 > 
 
-Per altre informazioni sui comandi di Redis, vedere [http://redis.io/commands](http://redis.io/commands).
+Per altre informazioni sui comandi di Redis, vedere [https://redis.io/commands](https://redis.io/commands).
 
 ## <a name="redis-console"></a>Console Redis
 È possibile eseguire comandi in modo sicuro per le istanze di Cache Redis di Azure usando la **console Redis** disponibile nel portale di Azure per tutti i piani della cache.
 
 > [!IMPORTANT]
 > - La Console Redis non funziona con [VNET](cache-how-to-premium-vnet.md). Quando la cache fa parte di una rete virtuale, solo i client nella rete virtuale possono accedere alla cache. Poiché la Console Redis viene eseguita nel browser locale, che si trova esternamente alla rete virtuale, non può connettersi alla cache.
-> - Non tutti i comandi di Redis sono supportati in Cache Redis di Azure. Per un elenco dei comandi di Redis disabilitati per Cache Redis di Azure, vedere la sezione precedente [Comandi di Redis non supportati in Cache Redis di Azure](#redis-commands-not-supported-in-azure-cache-for-redis). Per altre informazioni sui comandi di Redis, vedere [http://redis.io/commands](http://redis.io/commands).
+> - Non tutti i comandi di Redis sono supportati in Cache Redis di Azure. Per un elenco dei comandi di Redis disabilitati per Cache Redis di Azure, vedere la sezione precedente [Comandi di Redis non supportati in Cache Redis di Azure](#redis-commands-not-supported-in-azure-cache-for-redis). Per altre informazioni sui comandi di Redis, vedere [https://redis.io/commands](https://redis.io/commands).
 > 
 > 
 

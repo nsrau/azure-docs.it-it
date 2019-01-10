@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: c94c88aa088745a2ed421bff43c8d87382564a43
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c19b43f652b490ceb86606633f543f4e455b6116
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141476"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189304"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure
 
@@ -60,7 +60,7 @@ La tabella seguente riepiloga le app e le piattaforme native, nonché i browser 
 | **Piattaforma client** | **Supporto DRM nativo** | **Browser/app** | **Formati di streaming** |
 | --- | --- | --- | --- |
 | **Smart TV, STB operatore, STB OTT** |Principalmente PlayReady e/o Widevine e/o altro |Linux, Opera, WebKit, altri |Vari formati |
-| **Dispositivi Windows 10 (PC Windows, tablet Windows, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Piattaforma UWP (Universal Windows Platform) |DASH (per HLS, PlayReady non è supportato)<br/><br/>DASH, Smooth Streaming (per HLS, PlayReady non è supportato) |
+| **Dispositivi Windows 10 (PC Windows, tablet Windows, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>Piattaforma UWP (Universal Windows Platform) |DASH (per HLS, PlayReady non è supportato)<br/><br/>DASH, Smooth Streaming (per HLS, PlayReady non è supportato) |
 | **Dispositivi Android (telefoni, tablet, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), client OS X e Apple TV** |FairPlay |Safari 8+/EME |HLS |
 

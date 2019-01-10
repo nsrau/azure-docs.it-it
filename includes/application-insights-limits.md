@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/21/2018
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: 1efddb605422f00575cc0e44592315b725c838e3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 6b9b40c457766573be0d72cb7f4ebe2328a070f5
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002774"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026265"
 ---
 Esistono alcuni limiti sul numero di metriche e eventi per applicazione (ovvero, per ogni chiave di strumentazione). I limiti dipendono dal [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/) scelto.
 
@@ -28,7 +28,7 @@ Esistono alcuni limiti sul numero di metriche e eventi per applicazione (ovvero,
 | Lunghezza stringa valore di proprietà | 8.192 | Vedere gli [schemi per tipo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
 | Lunghezza messaggio di traccia e di eccezione | 10 K | Vedere gli [schemi per tipo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
 | Numero di [test di disponibilità](../articles/azure-monitor/app/monitor-web-app-availability.md) per app | 100 |
-| Conservazione dati [profiler](../articles/application-insights/app-insights-profiler.md) | 5 giorni |
-| Dati [profiler](../articles/application-insights/app-insights-profiler.md) inviati al giorno | 10 GB |
+| Conservazione dati [profiler](../articles/azure-monitor/app/profiler.md) | 5 giorni |
+| Dati [profiler](../articles/azure-monitor/app/profiler.md) inviati al giorno | 10 GB |
 
 Per altre informazioni, vedere [Informazioni su prezzi e quote in Application Insights](../articles/azure-monitor/app/pricing.md).

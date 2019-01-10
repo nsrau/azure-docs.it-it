@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582712"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105118"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Come monitorare Cache Redis di Azure
 La Cache Redis di Azure usa [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) per offrire alcune opzioni per il monitoraggio delle istanze della cache. È possibile visualizzare le metriche, aggiungere i grafici delle metriche alla Schermata iniziale, personalizzare l'intervallo di data e ora per il monitoraggio dei grafici, aggiungere e rimuovere metriche dai grafici e impostare avvisi per le situazioni in cui vengono soddisfatte determinate condizioni. Questi strumenti consentono di monitorare l'integrità delle istanze di Cache Redis di Azure e aiutano a gestire le applicazioni di memorizzazione nella cache.
 
-Le metriche per le istanze di Cache Redis di Azure vengono raccolte tramite il comando [INFO](http://redis.io/commands/info) di Redis circa due volte al minuto e vengono archiviate automaticamente per 30 giorni (vedere [Esportare le metriche della cache](#export-cache-metrics) per configurare criteri di conservazione diversi), in modo che sia possibile visualizzarle nei grafici relativi alle metriche e valutarle in base alla regole di avviso. Per ulteriori informazioni sui diversi valori INFO usati per ciascuna metrica della cache, vedere [Metriche disponibili e intervalli di report](#available-metrics-and-reporting-intervals).
+Le metriche per le istanze di Cache Redis di Azure vengono raccolte tramite il comando [INFO](https://redis.io/commands/info) di Redis circa due volte al minuto e vengono archiviate automaticamente per 30 giorni (vedere [Esportare le metriche della cache](#export-cache-metrics) per configurare criteri di conservazione diversi), in modo che sia possibile visualizzarle nei grafici relativi alle metriche e valutarle in base alla regole di avviso. Per ulteriori informazioni sui diversi valori INFO usati per ciascuna metrica della cache, vedere [Metriche disponibili e intervalli di report](#available-metrics-and-reporting-intervals).
 
 <a name="view-cache-metrics"></a>
 
@@ -98,7 +98,7 @@ In ogni metrica sono incluse due versioni. Una metrica misura la prestazione per
 
 | Metrica | DESCRIZIONE |
 | --- | --- |
-| Riscontri cache |Il numero di ricerche chiave riuscite durante l'intervallo di report specificato. Questo `keyspace_hits` è associato al comando [INFO](http://redis.io/commands/info) di Redis. |
+| Riscontri cache |Il numero di ricerche chiave riuscite durante l'intervallo di report specificato. Questo `keyspace_hits` è associato al comando [INFO](https://redis.io/commands/info) di Redis. |
 | Latenza della cache (anteprima) | La latenza della cache calcolata in base alla latenza internodo della cache. Questa metrica viene misurata in microsecondi e ha tre dimensioni: "Avg", "Min" e "Max" che rappresentano rispettivamente la latenza media, minima e massima della cache durante l'intervallo di report specificato. |
 | Mancati riscontri nella cache |Il numero di ricerche chiave non riuscite durante l'intervallo di report specificato. Questo `keyspace_misses` è associato al comando INFO di Redis. I mancati riscontri nella cache non indicano necessariamente un problema con la cache. Ad esempio, quando si utilizza il modello di programmazione cache-aside, un'applicazione esegue la ricerca di un elemento innanzitutto nella cache. Se l'elemento non è presente (mancato riscontro nella cache), viene recuperato dal database e aggiunto alla cache per la volta successiva. I mancati riscontri nella cache sono un comportamento normale per il modello di programmazione cache-aside. Se il numero di mancati riscontri nella cache è superiore al previsto, esaminare la logica dell'applicazione che consente di popolare ed eseguire le lettura dalla cache. Se gli elementi vengono rimossi dalla cache a causa della pressione della memoria, si possono verificare alcuni mancati riscontri nella cache, ma una metrica migliore da monitorare relativamente alla pressione della memoria sarebbe `Used Memory` o `Evicted Keys`. |
 | Lettura da cache |La quantità di dati letti dalla cache in megabyte al secondo (MB/s) durante l'intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. **Questo valore corrisponde alla larghezza di banda della rete usata da questa cache. Se si desidera impostare avvisi per i limiti della larghezza di banda della rete lato server, usare questo contatore `Cache Read`. Per i limiti della larghezza di banda osservati nei diversi piani tariffari e nelle varie dimensioni della cache, vedere [questa tabella](cache-faq.md#cache-performance).** |

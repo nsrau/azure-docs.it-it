@@ -7,12 +7,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.openlocfilehash: f49f56d57de6cdcb7c5e9b557ed897d17a6bf7fb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c93b53a78891eaf46e5455bd13198f7b9bd90903
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079178"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808013"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casi d'uso comuni di Azure Cosmos DB
 Questo articolo fornisce una panoramica di diversi casi d'uso comuni per Azure Cosmos DB.  I consigli forniti sono un punto di partenza per sviluppare applicazioni con Cosmos DB.   
@@ -27,7 +27,7 @@ Alla fine della lettura, si avranno le risposte alle domande seguenti:
 ## <a name="introduction"></a>Introduzione
 [Azure Cosmos DB](../cosmos-db/introduction.md) è il servizio di database di Microsoft distribuito a livello globale. Il servizio è progettato per consentire ai clienti di ridimensionare in modo elastico e indipendente velocità effettiva e memoria tra più aree geografiche. Azure Cosmos DB è il primo servizio di database distribuito oggi a livello globale in grado di offrire [contratti di servizio](https://azure.microsoft.com/support/legal/sla/cosmos-db/) comprendenti velocità effettiva, latenza, disponibilità e coerenza. 
 
-Azure Cosmos DB è un database multimodello distribuito a livello globale che viene usato in un'ampia gamma di applicazioni e casi di utilizzo. È un'ottima scelta per le applicazioni [senza server](https://azure.com/serverless) che richiedono tempi di risposta nell'ordine dei millisecondi e che devono essere ridimensionate rapidamente e a livello globale. Supporta diversi modelli di dati (chiave-valore, documenti, diagrammi e grafici a colonne), oltre a molte API per l'accesso ai dati, tra cui [API MongoDB](mongodb-introduction.md), [API SQL ](documentdb-introduction.md), [API Gremlin](graph-introduction.md) e [API di Tabelle](table-introduction.md), in modo nativo ed estendibile. 
+Azure Cosmos DB è un database multimodello distribuito a livello globale che viene usato in un'ampia gamma di applicazioni e casi di utilizzo. È un'ottima scelta per le applicazioni [senza server](https://azure.com/serverless) che richiedono tempi di risposta nell'ordine dei millisecondi e che devono essere ridimensionate rapidamente e a livello globale. Supporta diversi modelli di dati (chiave-valore, documenti, grafi e grafici a colonne), oltre a molte API per l'accesso ai dati, tra cui l'[API di Azure Cosmos DB per MongoDB](mongodb-introduction.md), l'[API SQL](documentdb-introduction.md), l'[API Gremlin](graph-introduction.md) e l'[API Tabella](table-introduction.md), in modo nativo ed estendibile. 
 
 Di seguito sono indicati alcuni attributi di Azure Cosmos DB che lo rendono particolarmente adatto ad applicazioni a prestazioni elevate destinate a una distribuzione globale.
 

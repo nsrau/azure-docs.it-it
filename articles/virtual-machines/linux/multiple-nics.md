@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: zarhoads
-ms.openlocfilehash: 5510c46a134ccec1fdc76a6bcea46de21750e969
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 024cf099dd65db036ae0b68d7094a60427ffa69c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467192"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119885"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Come creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
 
@@ -203,13 +203,13 @@ az network nsg rule create \
 Creare un indirizzo IP pubblico con [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) e assegnarla alla prima scheda di rete con [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update):
 
 ```azurecli
-az network public-ip-address create --resource-group myResourceGroup --name myPublicIP
+az network public-ip create --resource-group myResourceGroup --name myPublicIP
 
 az network nic ip-config update \
     --resource-group myResourceGroup \
     --nic-name myNic1 \
     --name ipconfig1 \
-    --public-ip-addres myPublicIP
+    --public-ip myPublicIP
 ```
 
 Per visualizzare l'indirizzo IP pubblico della macchina virtuale, usare [az vm show](/cli/azure/vm#az-vm-show), come indicato di seguito:

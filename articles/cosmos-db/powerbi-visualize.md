@@ -1,19 +1,17 @@
 ---
 title: Esercitazione su Power BI per il connettore Azure Cosmos DB
 description: Usare questa esercitazione su Power BI per importare JSON, creare report dettagliati e visualizzare i dati con Azure Cosmos DB e il connettore per Power BI.
-keywords: esercitazione Power BI, visualizzare dati, connettore Power BI
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: fa4e6aa1274609ebf990a02d41f63541668d3b37
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: f6ba66aa37b4a1902f98d2a1fcf5f542fa6476d7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438711"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043652"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizzare i dati di Azure Cosmos DB con il connettore Power BI
 

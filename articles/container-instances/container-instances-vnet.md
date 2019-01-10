@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: danlep
-ms.openlocfilehash: e03a35b31c9089abe973c7e4388b508f668a3970
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619844"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993292"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -47,6 +47,7 @@ Aree **supportate**:
 * Europa settentrionale (northeurope)
 * Europa occidentale (westeurope)
 * Stati Uniti occidentali (westus)
+* Stati Uniti orientali (eastus)
 
 Risorse di rete **non supportate**:
 
@@ -183,11 +184,11 @@ L'output del registro illustra che `wget` è stato in grado di connettersi e sca
 
 È anche possibile distribuire un gruppo di contenitori in una rete virtuale esistente usando un file YAML. Per distribuire una subnet in una rete virtuale, specificare varie proprietà aggiuntive nel codice YAML:
 
-* `ipAddress`: impostazioni dell'indirizzo IP per il gruppo di contenitori.
-  * `ports`: porte da aprire, se presenti.
-  * `protocol`: protocollo (TCP o UDP) per la porta aperta.
+* `ipAddress`: le impostazioni dell'indirizzo IP per il gruppo di contenitori.
+  * `ports`: le porte da aprire, se presenti.
+  * `protocol`: il protocollo (TCP o UDP) per la porta aperta.
 * `networkProfile`: specifica le impostazioni di rete, ad esempio la rete virtuale e la subnet per una risorsa di Azure.
-  * `id`: ID completo della risorsa di Resource Manager dell'elemento `networkProfile`.
+  * `id`: l'ID completo della risorsa di Resource Manager di `networkProfile`.
 
 Per distribuire un gruppo di contenitori in una rete virtuale con un file YAML, è necessario ottenere l'ID del profilo di rete. Eseguire il comando [az network profile list][az-network-profile-list], specificando il nome del gruppo di risorse che contiene la rete virtuale e la subnet delegata.
 

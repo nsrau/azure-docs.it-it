@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20af014e5a59cb526d5b96e543b10d5b2b6d6937
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 9140739e1c9610cb4cbefb611546fe9588512d06
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679597"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050592"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Opzioni di architettura nella soluzione di monitoraggio remoto
 
@@ -51,7 +51,7 @@ L'hub IoT di Azure viene usato come gateway cloud della soluzione di monitoraggi
 
 Per la connettività dei dispositivi IoT, è possibile usare:
 
-- Gli [Azure IoT Hub SDK per dispositivi](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) per implementare un'applicazione client nativa per il dispositivo. Gli SDK offrono i wrapper per l'API REST dell'hub IoT e gestiscono scenari come le ripetizioni.
+- Gli [Azure IoT Hub SDK per dispositivi](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) per implementare un'applicazione client nativa per il dispositivo. Gli SDK offrono i wrapper per l'API REST dell'hub IoT e gestiscono scenari come le ripetizioni.
 - L'integrazione con Azure IoT Edge per distribuire e gestire moduli personalizzati in esecuzione nei contenitori dei dispositivi.
 - L'integrazione con la gestione automatica dei dispositivi in hub IoT per gestire i dispositivi connessi in blocco.
 

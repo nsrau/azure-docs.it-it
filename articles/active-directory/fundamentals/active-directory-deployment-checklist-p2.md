@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fcb692d7189c84e32f55995538ffc692cb67dd6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078237"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064713"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Elenco di controllo delle licenze di Azure Active Directory Premium P2
 
@@ -84,7 +84,7 @@ Questa guida presuppone che si possiedano licenze di Azure AD Premium P2, Enterp
 - Gestire il ciclo di vita degli utenti in modo completo
    - Azure AD ha un approccio specifico alla gestione del ciclo di vita delle identità
    - Rimuovere i passaggi manuali dal ciclo di vita degli account dei dipendenti per evitare accessi non autorizzati:
-      - Sincronizzare le identità dall'origine dei dati (sistema HR) ad Azure AD. (Collegamento ai sistemi HR supportati)
+      - Sincronizzare le identità dall'origine dei dati (sistema HR) ad Azure AD.
       - [Usare i gruppi dinamici per assegnare automaticamente gli utenti ai gruppi in base agli attributi HR (o altra origine dei dati), ad esempio reparto, posizione, area geografica e altri attributi.](../users-groups-roles/groups-dynamic-membership.md)
       - [Usare il provisioning di gestione dell'accesso basato sui gruppi per eseguire automaticamente il provisioning degli utenti per le applicazioni SaaS.](../manage-apps/what-is-access-management.md)
 

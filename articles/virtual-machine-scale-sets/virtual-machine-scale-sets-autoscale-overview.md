@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18be454c93c32e0902a55a08748045c26d649ce7
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a5386e56bffd9a9789fe431aae8ed13df8ffae13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322040"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117436"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Panoramica della scalabilità automatica con i set di scalabilità di macchine virtuali di Azure
 Un set di scalabilità di macchine virtuali di Azure può aumentare o diminuire automaticamente il numero di istanze di macchine virtuali che eseguono l'applicazione. Questo comportamento automatico ed elastico riduce il sovraccarico di gestione per monitorare e ottimizzare le prestazioni dell'applicazione. Creare regole che definiscono le prestazioni accettabili per un'esperienza positiva del cliente. Quando vengono soddisfatte le soglie definite, le regole di scalabilità automatica intervengono per regolare la capacità del set di scalabilità. È possibile anche pianificare eventi per aumentare o ridurre automaticamente la capacità del set di scalabilità a intervalli fissi. Questo articolo offre una panoramica delle metriche delle prestazioni disponibili e delle azioni che la scalabilità automatica può eseguire.
@@ -122,7 +122,7 @@ Per altre informazioni, vedere gli articoli su come abilitare l'estensione Diagn
 ## <a name="application-level-metrics-with-app-insights"></a>Metriche a livello di applicazione con App Insights
 Per ottenere maggiore visibilità delle prestazioni delle applicazioni, è possibile usare Application Insights. Si installa un pacchetto di strumentazione di piccole dimensioni nell'applicazione che monitora l'app e invia i dati di telemetria ad Azure. È possibile monitorare metriche come i tempi di risposta dell'applicazione, le prestazioni in fase di caricamento delle pagine e i conteggi di sessioni. Queste metriche consentono di creare regole di scalabilità automatica a un livello granulare e incorporato poiché le regole attivate si basano su informazioni dettagliate e di utilità pratica che possono incidere sull'esperienza dell'utente.
 
-Per altre informazioni su Application Insights, vedere [Informazioni su Azure Application Insights](../application-insights/app-insights-overview.md).
+Per altre informazioni su Application Insights, vedere [Informazioni su Azure Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 
 ## <a name="scheduled-autoscale"></a>Scalabilità automatica pianificata

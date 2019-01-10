@@ -1,8 +1,8 @@
 ---
-title: Eseguire attività con account utente in Azure Batch | Microsoft Docs
+title: Eseguire attività con account utente - Azure Batch | Microsoft Docs
 description: Configurare gli account utente per l'esecuzione di attività in Azure Batch
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: danlep
-ms.openlocfilehash: d5ec76a62b56769ee3065cac3542f5a94df4a1c6
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133359"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542833"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Eseguire attività con account utente in Batch
 

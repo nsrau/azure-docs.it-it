@@ -11,27 +11,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 16275ddc4d4ad85bdac54244ceeec568603fdfef
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 54c334aa9363ac5ca75cc4ad5b107524f502011e
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112100"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810612"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapping dello schema nell'attività di copia
-Questo articolo illustra come l'attività di copia di Azure Data Factory esegue il mapping dello schema e il mapping dei tipi di dati dai dati di origine ai dati sink quando viene eseguita la copia dei dati.
+Questo articolo illustra come l'attività di copia di Azure Data Factory esegue il mapping dello schema e dei tipi di dati dall'origine al sink quando si copiano dati.
 
 ## <a name="column-mapping"></a>Mapping di colonne
 
-Per impostazione predefinita, l'attività di copia **esegue il mapping dei dati di origine al sink in base ai nomi delle colonne** a meno che non sia configurato il [mapping esplicito di colonne](#explicit-column-mapping). Più in particolare, l'attività di copia:
+Il mapping di colonne si applica quando si esegue la copia tra dati in formato tabulare. Per impostazione predefinita, l'attività di copia **esegue il mapping dei dati di origine al sink in base ai nomi delle colonne** a meno che non sia configurato il [mapping esplicito di colonne](#explicit-column-mapping). Più in particolare, l'attività di copia:
 
 1. Legge i dati dall'origine e determina lo schema di origine
 
     * Per le origini dati con schema predefinito nel formato archivio dati/file, ad esempio database/file con metadati (Avro, ORC, Parquet, Text con intestazione), lo schema di origine viene estratto dal risultato della query o dai metadati del file.
-    * Per le origini di dati con schema flessibile, ad esempio tabella di Azure/Cosmos DB, lo schema di origine viene dedotto dal risultato della query. È possibile sovrascriverlo specificando la "struttura" nel set di dati.
-    * Per i file di testo senza intestazione, i nomi di colonna predefiniti vengono generati seguendo il criterio "Prop_0", "Prop_1", e così via. È possibile sovrascriverli specificando la "struttura" nel set di dati.
+    * Per le origini di dati con schema flessibile, ad esempio tabella di Azure/Cosmos DB, lo schema di origine viene dedotto dal risultato della query. È possibile sovrascriverlo configurando la "struttura" nel set di dati.
+    * Per il file di testo senza intestazione, i nomi di colonna predefiniti vengono generati seguendo il criterio "Prop_0", "Prop_1" e così via. È possibile sovrascriverli configurando la "struttura" nel set di dati.
     * Per le origini Dynamics è necessario fornire le informazioni dello schema nella sezione "struttura" del set di dati.
 
 2. Se specificato, applicare il mapping esplicito di colonne.
@@ -135,11 +135,86 @@ Il codice JSON seguente definisce un'attività di copia in una pipeline. Le colo
 }
 ```
 
-La sintassi di `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` per specificare il mapping delle colonne è ancora supportata.
+La sintassi di `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` per specificare il mapping di colonne è ancora supportata.
 
 **Flusso del mapping di colonne:**
 
 ![Flusso del mapping di colonne](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
+
+## <a name="schema-mapping"></a>Mapping dello schema
+
+Il mapping dello schema si applica quando si esegue la copia tra dati in formato gerarchico e dati in formato tabulare, ad esempio quando si copiano dati da MongoDB/REST a file di testo e da SQL all'API di Azure Cosmos DB per MongoDB. Nella sezione `translator` dell'attività di copia sono supportate le proprietà seguenti:
+
+| Proprietà | DESCRIZIONE | Obbligatoria |
+|:--- |:--- |:--- |
+| type | La proprietà type del convertitore dell'attività di copia deve essere impostata su: **TabularTranslator** | Yes |
+| schemaMapping | Una raccolta di coppie chiave-valore, che rappresenta la relazione di mapping dai dati in formato tabulare a quelli in formato gerarchico.<br/>- **Chiave:** il nome della colonna di dati tabulari come definito nella struttura del set di dati.<br/>- **Valore:** l'espressione di percorso JSON per ogni campo da estrarre e sottoporre al mapping. Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `collectionReference`, iniziare dall'elemento matrice.  | Yes |
+| collectionReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. Questa proprietà è supportata solo quando l'origine è costituita da dati gerarchici. | No  |
+
+**Esempio: copiare da MongoDB a SQL**.
+
+Se ad esempio si ha un il documento di MongoDB con il contenuto seguente: 
+
+```json
+{
+    "id": {
+        "$oid": "592e07800000000000000000"
+    },
+    "number": "01",
+    "date": "20170122",
+    "orders": [
+        {
+            "prod": "p1",
+            "price": 23
+        },
+        {
+            "prod": "p2",
+            "price": 13
+        },
+        {
+            "prod": "p3",
+            "price": 231
+        }
+    ],
+    "city": [ { "name": "Seattle" } ]
+}
+```
+
+e si vuole copiare tale contenuto in una tabella SQL di Azure nel formato seguente, rendendo flat i dati nella matrice *(order_pd e order_price)* e nel crossjoin con le informazioni radice comuni *(numero, data e città)*:
+
+| orderNumber | orderDate | order_pd | order_price | city |
+| --- | --- | --- | --- | --- |
+| 01 | 20170122 | P1 | 23 | Seattle |
+| 01 | 20170122 | P2 | 13 | Seattle |
+| 01 | 20170122 | P3 | 231 | Seattle |
+
+Configurare la regola di mapping dello schema come l'esempio JSON seguente di attività di copia:
+
+```json
+{
+    "name": "CopyFromMongoDBToSqlAzure",
+    "type": "Copy",
+    "typeProperties": {
+        "source": {
+            "type": "MongoDbV2Source"
+        },
+        "sink": {
+            "type": "SqlSink"
+        },
+        "translator": {
+            "type": "TabularTranslator",
+            "schemaMapping": {
+                "orderNumber": "$.number", 
+                "orderDate": "$.date", 
+                "order_pd": "prod", 
+                "order_price": "price",
+                "city": " $.city[0].name"
+            },
+            "collectionReference":  "$.orders"
+        }
+    }
+}
+```
 
 ## <a name="data-type-mapping"></a>Mapping dei tipi di dati
 
@@ -152,7 +227,7 @@ L'attività di copia esegue il mapping dei tipi di origine ai tipi sink con il m
 
 ### <a name="supported-data-types"></a>Tipi di dati supportati
 
-Data Factory supporta i seguenti tipi di dati provvisori. È possibile specificare i valori seguenti quando si forniscono informazioni sul tipo nella configurazione della [struttura del set di dati](concepts-datasets-linked-services.md#dataset-structure):
+Data Factory supporta i tipi di dati provvisori seguenti: Quando si configurano le informazioni sui tipi nella configurazione della [struttura del set di dati](concepts-datasets-linked-services.md#dataset-structure) è possibile specificare i valori seguenti:
 
 * Byte[]
 * boolean
@@ -186,7 +261,7 @@ Negli scenari seguenti è necessario specificare la "struttura" nel set di dati:
 
 Negli scenari seguenti è consigliabile specificare la "struttura" nel set di dati:
 
-* Copia da un file di testo senza intestazione (set di dati di input). È possibile specificare i nomi delle colonne per l'allineamento del file di testo con le colonne sink corrispondenti per non dover specificare il mapping esplicito di colonne.
+* Copia da un file di testo senza intestazione (set di dati di input). È possibile specificare i nomi delle colonne per l'allineamento del file di testo con le colonne sink corrispondenti per non dover configurare il mapping esplicito di colonne.
 * Copia dagli archivi di dati con schema flessibile, ad esempio tabella Azure o Cosmos DB (set di dati di input), per garantire che i dati previsti (colonne) vengano copiati anziché lasciare che l'attività di copia deduca lo schema in base alle righe superiori durante ogni esecuzione dell'attività.
 
 

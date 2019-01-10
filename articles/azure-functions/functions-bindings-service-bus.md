@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 0a4d5cf4731932ed72e0dc38c13a5f855a937864
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 21f8d8ad63e8ea7c134477a6171155c40a2b4dc8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317509"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792017"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associazioni del bus di servizio di Azure per Funzioni di Azure
 
@@ -331,6 +331,9 @@ Il trigger del bus di servizio fornisce diverse [proprietà di metadati](functio
 |`Label`|`string`|L'etichetta specifica dell'applicazione.|
 |`CorrelationId`|`string`|L'ID di correlazione.|
 |`UserProperties`|`IDictionary<String,Object>`|Le proprietà del messaggio specifiche dell'applicazione.|
+
+> [!NOTE]
+> Attualmente il trigger funziona solo con le code e le sottoscrizioni che non usano sessioni. Tenere traccia delle [informazioni riportate in questo argomento](https://github.com/Azure/azure-functions-host/issues/563) per altri aggiornamenti su questa funzionalità. 
 
 Vedere gli [esempi di codice](#trigger---example) che usano queste proprietà in precedenza in questo articolo.
 

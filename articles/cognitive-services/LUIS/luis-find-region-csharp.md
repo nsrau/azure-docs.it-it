@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5d4c564ac797f40d7f6e9b169a6c864d3ef8147b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f95dec8a539a92a0397421fbde411f646eeca3ca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165164"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720085"
 ---
-# <a name="find-endpoint-region-with-c"></a>Trovare l'area di endpoint con C# 
+# <a name="programmatically-find-endpoint-region-with-c"></a>Trovare l'area di endpoint a livello di codice con C# 
 Se si dispone dell'ID dell'applicazione LUIS e dell'ID della sottoscrizione LUIS, è possibile trovare la regione da utilizzare per le query sugli endpoint.
 
 > [!NOTE] 
-> La soluzione C# completa è disponibile nel [ repository GitHub **LUIS-Samples**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
+> La soluzione C# completa è disponibile nel [ repository GitHub **Azure-Samples**](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/find-region/csharp/).
 
 ## <a name="luis-endpoint-query-strategy"></a>Strategia di query dell’endpoint LUIS
 Ogni query dell’endpoint LUIS richiede:

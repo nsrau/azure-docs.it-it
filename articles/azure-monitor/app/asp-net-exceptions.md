@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4a4a75885b1303b7bc6666ea65993ac875b98f0d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001720"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116987"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticare eccezioni nelle app Web con Application Insights
-Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insights](../../application-insights/app-insights-overview.md). È possibile correlare le richieste non riuscite con le eccezioni e altri eventi nel client e nel server, in modo da poter diagnosticare rapidamente le cause.
+Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insights](../../azure-monitor/app/app-insights-overview.md). È possibile correlare le richieste non riuscite con le eccezioni e altri eventi nel client e nel server, in modo da poter diagnosticare rapidamente le cause.
 
 ## <a name="set-up-exception-reporting"></a>Configurare la creazione di report sulle eccezioni
 * Per segnalare le eccezioni dall'app del server:
@@ -90,7 +90,7 @@ Per visualizzare questi eventi, aprire [Cerca](../../azure-monitor/app/diagnosti
 ![Eseguire il drill-through](./media/asp-net-exceptions/viewCustomEvents.png)
 
 > [!NOTE]
-> Se l’app genera molti dati di telemetria, il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Gli eventi che fanno parte della stessa operazione verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento.](../../application-insights/app-insights-sampling.md)
+> Se l’app genera molti dati di telemetria, il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Gli eventi che fanno parte della stessa operazione verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento.](../../azure-monitor/app/sampling.md)
 >
 >
 

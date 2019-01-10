@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4abed1718d77c93e864fe5bb1d39aba5e5272f10
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081541"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074471"
 ---
 # <a name="determine-your-publishing-option"></a>Determinare l'opzione di pubblicazione
 L'opzione di pubblicazione scelta per l'offerta è correlata direttamente sia ai requisiti di idoneità che ai vantaggi GMT del marketplace. L'aspetto più importante è che la selezione dell'opzione di pubblicazione e del tipo di offerta nel portale Cloud Partner definisce il modo in cui gli utenti interagiranno con l'offerta nel marketplace.
@@ -62,7 +62,7 @@ La vetrina in cui viene presentata l'offerta, Azure Marketplace e/o AppSource, v
 
 ## <a name="choose-a-publishing-option"></a>Scegliere un'opzione di pubblicazione
 
-Le opzioni di pubblicazione disponibili offrono un engagement differenziato dei clienti e consentono nel contempo di accedere alla condivisione dei clienti potenziali e ai [vantaggi del programma Go-To-Market](https://partner.microsoft.com/en-US/reach-customers/gtm). Prima di usare il portale Cloud Partner per creare un'offerta del marketplace, selezionare una delle tre opzioni di pubblicazione possibili. Si noti l'invito all'azione che corrisponde all'opzione di pubblicazione:
+Le opzioni di pubblicazione disponibili offrono un engagement differenziato dei clienti e consentono nel contempo di accedere alla condivisione dei clienti potenziali e ai [vantaggi del programma Go-To-Market](https://partner.microsoft.com/reach-customers/gtm). Prima di usare il portale Cloud Partner per creare un'offerta del marketplace, selezionare una delle tre opzioni di pubblicazione possibili. Si noti l'invito all'azione che corrisponde all'opzione di pubblicazione:
 
 | **Opzione di pubblicazione**    | **Descrizione**  |
 | :------------------- | :-------------------|

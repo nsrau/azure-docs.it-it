@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: c050c8ed338a019b34302e87a53d4a40306f9a22
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b0b2c8d0e3484538ca5c988a7fad56fb82b97902
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133147"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993164"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Test in batch con 1000 espressioni nel portale di LUIS
 
@@ -48,7 +48,7 @@ Tutte le entità personalizzate nel modello vengono visualizzate nel filtro del 
 
 Il file batch è costituito da espressioni. Ogni espressione deve avere una previsione di finalità e le [entità di Machine Learning](luis-concept-entity-types.md#types-of-entities) che si prevede vengano individuate. 
 
-## <a name="batch-syntax-template"></a>Modello di sintassi di batch
+## <a name="batch-syntax-template-for-intents-with-entities"></a>Modello di sintassi di batch per finalità con entità
 
 Usare il modello seguente per avviare il file batch:
 
@@ -75,6 +75,22 @@ Usare il modello seguente per avviare il file batch:
 ```
 
 Il file batch usare le proprietà **startPos** e **endPos** per notare l'inizio e la fine di un'entità. I valori sono basati su zero e non devono iniziare o terminare in uno spazio. Questo è diverso dai log di query, che usano proprietà startIndex ed endIndex. 
+
+## <a name="batch-syntax-template-for-intents-without-entities"></a>Modello di sintassi di batch per finalità senza entità
+
+Usare il modello seguente per avviare il file batch senza entità:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": []
+  }
+]
+```
+
+Se non si intende testare le entità, includere la proprietà `entities` e impostare il valore come una matrice vuota `[]`.
 
 
 ## <a name="common-errors-importing-a-batch"></a>Errori comuni nell'importazione di un batch

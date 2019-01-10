@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1a053f92433b6091f0d77439399e8419a58df185
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 028d00f579e266c92b4a6d00d5ebb5b0ef7b1b60
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495149"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787544"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Creare cluster Apache Hadoop in HDInsight mediante modelli di Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -31,8 +31,8 @@ Per seguire le istruzioni di questo articolo sono necessari:
 
 ### <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 Un modello di Gestione risorse consente di creare facilmente le risorse seguenti per l'applicazione in un'unica operazione coordinata:
-* Cluster HDInsight e le relative risorse dipendenti, come ad esempio l'account di archiviazione predefinito
-* Altre risorse, come ad esempio il database SQL di Azure per usare [Apache Sqoop](http://sqoop.apache.org/)
+* Cluster HDInsight e le relative risorse dipendenti, ad esempio l'account di archiviazione predefinito.
+* Altre risorse, ad esempio il database SQL di Azure per usare [Apache Sqoop](https://sqoop.apache.org/).
 
 Nel modello si definiscono le risorse necessarie per l'applicazione. È anche possibile specificare i parametri di distribuzione per immettere valori per ambienti diversi. Il modello è composto da JSON ed espressioni da usare per creare valori per la distribuzione.
 
@@ -49,7 +49,7 @@ Gestione risorse consente di esportare un modello di Gestione risorse dalle riso
 
 - Portale di Azure: vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: vedere [Esportare modelli di Azure Resource Manager con PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Interfaccia della riga di comando classica di Azure: vedere [Esportare il modello di Azure Resource Manager con l'interfaccia della riga di comando classica di Azure](../azure-resource-manager/resource-manager-export-template-cli.md).
+- Interfaccia della riga di comando classica di Azure: vedere [Esportare il modello di Azure Resource Manager con l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-manager-export-template-cli.md).
 
 
 ## <a name="deploy-using-the-portal"></a>Distribuire tramite il portale
@@ -74,14 +74,14 @@ Per un'introduzione all'uso di Visual Studio con gruppi di risorse, vedere [Crea
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
+Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
 * Per i modelli relativi a HDInsight, vedere i [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Per un esempio di distribuzione delle risorse tramite la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](../app-service/app-service-deploy-complex-application-predictably.md).
+* Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](../app-service/deploy-complex-application-predictably.md).
 * Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](../solution-dev-test-environments.md).
 * Per informazioni sulle sezioni del modello di Azure Resource Manager, vedere [Creazione di modelli](../azure-resource-manager/resource-group-authoring-templates.md).
 * Per un elenco delle funzioni che è possibile usare in un modello di Azure Resource Manager, vedere [Funzioni di modello](../azure-resource-manager/resource-group-template-functions.md).

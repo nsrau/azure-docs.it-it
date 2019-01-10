@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 81bfd5e0354fefea4690e6871dd5e846f41dc6d8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53982117"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015523"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrare i dati di telemetria nell'App Web Java
 
@@ -31,7 +31,7 @@ I filtri pronti da usare includono:
 
 > [!NOTE]
 > I filtri alterano le metriche dell'app. Ad esempio, si potrebbe decidere che, per diagnosticare un problema di risposte lente, verrà impostato un filtro per ignorare i tempi di risposta rapidi. È necessario però tenere presente che i tempi medi di risposta segnalati da Application Insights saranno così più lenti rispetto alla velocità effettiva e che il numero di richieste sarà inferiore rispetto al numero reale.
-> Se questo rappresenta un problema, usare il [campionamento](../../application-insights/app-insights-sampling.md).
+> Se questo rappresenta un problema, usare il [campionamento](../../azure-monitor/app/sampling.md).
 
 ## <a name="setting-filters"></a>Impostazione di filtri
 
@@ -262,4 +262,4 @@ In ApplicationInsights.xml:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Campionamento](../../application-insights/app-insights-sampling.md): prendere in considerazione il campionamento come un'alternativa che non altera le metriche.
+* [Campionamento](../../azure-monitor/app/sampling.md): prendere in considerazione il campionamento come un'alternativa che non altera le metriche.

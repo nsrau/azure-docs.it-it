@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 333fec5b9459979d7735f0dd292d7367d86353fe
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7c5bfa96e7f9ef7812b8487c479b34d926633287
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325527"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105917"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schema di configurazione di Diagnostica di Azure 1.0
 > [!NOTE]
@@ -25,7 +25,7 @@ Lo strumento Diagnostica di Azure viene usato con altri prodotti di diagnostica 
 
 Il file di configurazione di Diagnostica di Azure definisce i valori usati per inizializzare il monitor di diagnostica. Il file viene usato per inizializzare le impostazioni di diagnostica quando viene avviato il monitor di diagnostica.  
 
- Per impostazione predefinita, il file dello schema di configurazione di Diagnostica di Azure viene installato nella directory `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas`. Sostituire `<version>` con la versione installata di [Azure SDK](http://www.windowsazure.com/develop/downloads/).  
+ Per impostazione predefinita, il file dello schema di configurazione di Diagnostica di Azure viene installato nella directory `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas`. Sostituire `<version>` con la versione installata di [Azure SDK](https://www.windowsazure.com/develop/downloads/).  
 
 > [!NOTE]
 >  Il file di configurazione della diagnostica viene generalmente usato con le attività di avvio che richiedono la raccolta dei dati di diagnostica in una fase precedente del processo di avvio. Per altre informazioni sull'uso di Diagnostica di Azure, vedere [Raccogliere dati di registrazione usando Diagnostica di Azure](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7).  

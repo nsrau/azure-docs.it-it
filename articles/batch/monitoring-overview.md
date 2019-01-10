@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: ee483c19aa59ca98226f77a5e56b1ee4eb4dede5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e80eaf8e2ab1cf001e06aac1b5f23c7714c9013b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543411"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117012"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorare le soluzioni Batch
 
@@ -55,7 +55,7 @@ Nelle applicazioni Batch usare le API di Batch per monitorare o recuperare lo st
 
 ## <a name="vm-performance-counters-and-application-monitoring"></a>Contatori delle prestazioni delle macchine virtuali e monitoraggio delle applicazioni
 
-* [Application Insights](../application-insights/app-insights-overview.md) è un servizio di Azure che è possibile usare per monitorare a livello di codice la disponibilità, le prestazioni e l'utilizzo dei processi e delle attività di Batch. È possibile ottenere facilmente contatori delle prestazioni dai nodi di calcolo (macchine virtuali) e informazioni personalizzate per le attività dalle macchine virtuali. 
+* [Application Insights](../azure-monitor/app/app-insights-overview.md) è un servizio di Azure che è possibile usare per monitorare a livello di codice la disponibilità, le prestazioni e l'utilizzo dei processi e delle attività di Batch. È possibile ottenere facilmente contatori delle prestazioni dai nodi di calcolo (macchine virtuali) e informazioni personalizzate per le attività dalle macchine virtuali. 
 
   Per un esempio, vedere [Monitorare ed eseguire il debug di un'applicazione .NET di Azure Batch con Application Insights](monitor-application-insights.md) e l'[esempio di codice](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights) associato.
 

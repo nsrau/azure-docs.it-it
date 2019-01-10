@@ -5,22 +5,20 @@ services: azure-resource-manager,virtual-machines
 documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 04/23/2018
+ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 523ea3bf5d41231ab3281f9d8eb1fac8c3dfb55f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8fee1e29ab3a267d77e4e43beb2c42587da5314d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359146"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103860"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Visualizzare le operazioni di distribuzione con Azure Resource Manager
 
@@ -67,7 +65,13 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
   Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-2. Ogni distribuzione include più operazioni, ognuna delle quali rappresenta un passaggio del processo di distribuzione. Per individuare eventuali problemi, solitamente è necessario visualizzare i dettagli relativi alle operazioni di distribuzione. Per visualizzare lo stato delle operazioni, usare il comando **Get-AzureRmResourceGroupDeploymentOperation**.
+1. Per ottenere l'ID di correlazione, usare:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  ```
+
+1. Ogni distribuzione include più operazioni, ognuna delle quali rappresenta un passaggio del processo di distribuzione. Per individuare eventuali problemi, solitamente è necessario visualizzare i dettagli relativi alle operazioni di distribuzione. Per visualizzare lo stato delle operazioni, usare il comando **Get-AzureRmResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -85,7 +89,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-3. Per ottenere altre informazioni sulle operazioni non riuscite, recuperare le proprietà per le operazioni con stato **Non riuscita** .
+1. Per ottenere altre informazioni sulle operazioni non riuscite, recuperare le proprietà per le operazioni con stato **Non riuscita** .
 
   ```powershell
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -108,7 +112,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
   ```
 
     Si notino gli elementi serviceRequestId e trackingId per l'operazione. L'elemento serviceRequestId può essere utile quando si interagisce con il supporto tecnico per risolvere i problemi relativi a una distribuzione, mentre l'elemento trackingId viene usato nel passaggio successivo per concentrarsi su una particolare operazione.
-4. Per ottenere il messaggio di stato di un'operazione non riuscita particolare, usare il comando seguente:
+1. Per ottenere il messaggio di stato di un'operazione non riuscita particolare, usare il comando seguente:
 
   ```powershell
   ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -121,7 +125,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Ogni operazione di distribuzione in Azure include il contenuto della richiesta e della risposta. Il contenuto della richiesta corrisponde a quanto è stato inviato a Azure durante la distribuzione, ad esempio la richiesta di creare una macchina virtuale, un disco del sistema operativo e altre risorse. Il contenuto della risposta è la risposta di Azure alla richiesta di distribuzione. Durante la distribuzione è possibile usare il parametro **DeploymentDebugLogLevel** per specificare che la richiesta e/o la risposta vengono mantenute nel log. 
+1. Ogni operazione di distribuzione in Azure include il contenuto della richiesta e della risposta. Il contenuto della richiesta corrisponde a quanto è stato inviato a Azure durante la distribuzione, ad esempio la richiesta di creare una macchina virtuale, un disco del sistema operativo e altre risorse. Il contenuto della risposta è la risposta di Azure alla richiesta di distribuzione. Durante la distribuzione è possibile usare il parametro **DeploymentDebugLogLevel** per specificare che la richiesta e/o la risposta vengono mantenute nel log. 
 
   Per ottenere tali informazioni dal log e salvarle in locale, usare i comandi PowerShell seguenti:
 
@@ -169,7 +173,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
       "correlationId":"d5062e45-6e9f-4fd3-a0a0-6b2c56b15757",
       ...
       "error":{
-        "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see http://aka.ms/arm-debug for usage details.",
+        "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.",
         "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
       }  
     }

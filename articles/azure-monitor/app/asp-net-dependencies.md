@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7cde9fa0849729ba9db9b604dd0ad26cf362a484
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 48e20df61844d83deb8ac992f783cf227e658aaf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969863"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119986"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Impostare Application Insights: rilevamento delle dipendenze
-Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](../../application-insights/app-insights-overview.md) misura per quanto tempo l'applicazione attende le dipendenze e la frequenza con la quale una chiamata alle dipendenze non riesce. È possibile esaminare chiamate specifiche e correlarle a richieste ed eccezioni.
+Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) misura per quanto tempo l'applicazione attende le dipendenze e la frequenza con la quale una chiamata alle dipendenze non riesce. È possibile esaminare chiamate specifiche e correlarle a richieste ed eccezioni.
 
 Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seguenti tipi di dipendenze:
 
@@ -121,7 +121,7 @@ Dopo la prima chiamata alla dipendenza si verifica una lunga pausa, quindi è op
 
 ### <a name="profile-your-live-site"></a>Profilatura del sito live
 
-Se non si riesce a capire perché trascorre così tanto tempo, il [profiler di Application Insights](../../application-insights/app-insights-profiler.md) traccia le chiamate HTTP al sito live e mostra le funzioni del codice che richiedono più tempo.
+Se non si riesce a capire perché trascorre così tanto tempo, il [profiler di Application Insights](../../azure-monitor/app/profiler.md) traccia le chiamate HTTP al sito live e mostra le funzioni del codice che richiedono più tempo.
 
 ## <a name="failed-requests"></a>Richieste non riuscite
 Le richieste non riuscite possono anche essere associate a chiamate non riuscite a dipendenze. Anche in questo caso è possibile fare clic per risalire al problema.

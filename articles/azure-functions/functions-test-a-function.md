@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: 90eac2fda46dc5fbfff791e1fc0afb9858aa27a4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 19a5dee53bee20438098d1aaeb773ebf08f252d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408035"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993451"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
 
@@ -29,7 +29,7 @@ Il contenuto seguente è suddiviso in due sezioni diverse con lo scopo di ottene
 - [C# in Visual Studio con xUnit](#c-in-visual-studio)
 - [JavaScript in Visual Studio Code with Jest](#javascript-in-vs-code)
 
-Lo stesso repository di esempio è disponibile in [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
+Il repository di esempio è disponibile in [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
 ## <a name="c-in-visual-studio"></a>C# in Visual Studio
 Il seguente esempio illustra come creare un'app della funzione C# in Visual Studio ed eseguire i test con [xUnit](https://xunit.github.io).
@@ -43,8 +43,9 @@ Per configurare l'ambiente, creare una funzione e testare l'app. I passaggi segu
 1. [Creare una nuova app funzioni](./functions-create-first-azure-function.md) e denominarla *Funzioni*
 2. [Creare una funzione HTTP dal modello](./functions-create-first-azure-function.md) e denominarla *HttpTrigger*.
 3. [Creare una funzione del timer dal modello](./functions-create-scheduled-function.md) e denominarla *TimerTrigger*.
-4. [Creare un'app del Test xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) e denominarla *Functions.Test*.
-5. [Fare riferimento all'app *Funzioni* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) dall'app *Functions.Test*.
+4. [Creare un'app di test xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) in Visual Studio facendo clic su **File > Nuovo > Progetto > Visual C# > .NET Core > Progetto di test xUnit** e denominarlo *Functions.Test*. 
+5. Usare Nuget per aggiungere riferimenti dall'app di test in [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) e [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+6. [Fare riferimento all'app *Funzioni* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) dall'app *Functions.Test*.
 
 ### <a name="create-test-classes"></a>Crea classi di test
 
@@ -203,7 +204,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -212,7 +213,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -220,7 +221,7 @@ namespace Functions.Tests
         public void Timer_should_log_message()
         {
             var logger = (ListLogger)TestFactory.CreateLogger(LoggerTypes.List);
-            TimerFunction.Run(null, logger);
+            TimerTrigger.Run(null, logger);
             var msg = logger.Logs[0];
             Assert.Contains("C# Timer trigger function executed at", msg);
         }

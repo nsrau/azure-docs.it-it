@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166133"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791073"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Creare un modello dello Strumento di apprendimento di conversazioni usando Node.js
 
@@ -112,14 +112,11 @@ Le istruzioni sopra riportate hanno avviato il bot vuoto generico.  Per eseguire
   npm run demo-password
   npm run demo-pizza
   npm run demo-storage
-  npm run demo-vrapp
   ```
 
 4. Se non è già aperta, passare all'interfaccia utente Web dello Strumento di apprendimento di conversazioni in Chrome caricando http://localhost:5050/home. 
 
-5. Fare clic su "Import tutorials" (Importa esercitazioni). Questa operazione va eseguita solo una volta.  Questa procedura richiederà circa un minuto e copierà i modelli dello Strumento di apprendimento di conversazioni per tutte le esercitazioni sull'account dello Strumento di apprendimento di conversazioni.
-
-6. Fare clic sul modello demo nell'interfaccia utente dello Strumento di apprendimento di conversazioni che corrisponde alla demo avviata.
+5. Fare clic su "Import tutorials" (Importa esercitazioni) e selezionare il modello demo nell'interfaccia utente di Conversation Learner che corrisponde alla demo avviata.
 
 I file di origine per le demo si trovano in `cl-bot-01/src/demos`
 
@@ -181,4 +178,4 @@ Questo progetto ha adottato il [Microsoft Open Source Code of Conduct](https://o
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Hello world](./tutorials/1-hello-world.md)
+> [Hello world](./tutorials/01-hello-world.md)

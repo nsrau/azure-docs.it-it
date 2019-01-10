@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f53233edd17fa7097dde67bbce16b1ece668c721
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140031"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554861"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accedere a set di dati con Python mediante la libreria client Python di Azure Machine Learning
 L'anteprima della libreria client Python di Microsoft Azure Machine Learning consente l'accesso sicuro a set di dati di Azure Machine Learning da un ambiente Python locale, nonché la creazione e la gestione di set di dati in un'area di lavoro.
 
 Questo argomento fornisce istruzioni su come:
 
-* Installare la libreria client Python di Machine Learning 
+* Installare la libreria client Python di Machine Learning
 * Accedere e caricare set di dati, fornendo istruzioni su come ottenere l'autorizzazione per accedere a set di dati di Azure Machine Learning dall'ambiente Python locale
 * Accedere ai set di dati intermedi di un esperimento
 * Usare la libreria client Python per enumerare set di dati, accedere a metadati, leggere il contenuto di un set di dati, creare nuovi set di dati e aggiornare set di dati esistenti.
@@ -49,7 +49,7 @@ Per completare le attività descritte in questo argomento, è necessario che sia
 
     pip install azureml
 
-In alternativa, è possibile scaricarla e installarla dalle origini disponibili in [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
+In alternativa, è possibile scaricarla e installarla dalle origini disponibili in [GitHub](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
 
     python setup.py install
 
@@ -66,7 +66,7 @@ Dall'interfaccia Web di Studio è possibile generare frammenti di codice che inc
 ### <a name="security"></a>Sicurezza per l'accesso ai dati
 I frammenti di codice forniti da Studio per essere usati con la libreria client Python includono l'ID dell'area di lavoro e il token di autorizzazione, che offrono l'accesso completo all'area di lavoro e pertanto devono essere protetti, come una password.
 
-Per motivi di sicurezza, le funzionalità dei frammenti di codice sono disponibili solo per gli utenti il cui ruolo nell'area di lavoro è impostato su **Owner** . Il ruolo viene visualizzato in Azure Machine Learning Studio nella pagina **USERS** in **Settings**.
+Per motivi di sicurezza, le funzionalità dei frammenti di codice sono disponibili solo per gli utenti il cui ruolo nell'area di lavoro è impostato su **Owner**. Il ruolo viene visualizzato in Azure Machine Learning Studio nella pagina **USERS** in **Settings**.
 
 ![Sicurezza][security]
 
@@ -74,11 +74,11 @@ Se il proprio ruolo non è impostato su **Owner**, è possibile chiedere di esse
 
 Per ottenere il token di autorizzazione, è possibile eseguire una di queste operazioni:
 
-* Chiedere un token a un proprietario. I proprietari possono accedere ai propri token di autorizzazione dalla pagina Settings dell'area di lavoro personale in Studio. Selezionare **Settings** (Impostazioni) dal riquadro sinistro e fare clic su **AUTHORIZATION TOKENS** (Token di autorizzazione) per visualizzare i token primari e secondari.  Sebbene per il frammento di codice sia possibile usare sia i token di autorizzazione primari sia quelli secondari, è consigliabile che i proprietari condividano solo i token di autorizzazione secondari.
+* Chiedere un token a un proprietario. I proprietari possono accedere ai propri token di autorizzazione dalla pagina Settings dell'area di lavoro personale in Studio. Selezionare **Settings** (Impostazioni) dal riquadro sinistro e fare clic su **AUTHORIZATION TOKENS** (Token di autorizzazione) per visualizzare i token primari e secondari. Sebbene per il frammento di codice sia possibile usare sia i token di autorizzazione primari sia quelli secondari, è consigliabile che i proprietari condividano solo i token di autorizzazione secondari.
 
 ![Token di autorizzazione](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Chiedere di essere promossi al ruolo di proprietario.  A questo scopo, è necessario prima essere rimossi dall'area di lavoro da un proprietario corrente dell'area di lavoro, quindi essere nuovamente invitati con il ruolo di proprietario.
+* Chiedere di essere promossi al ruolo di proprietario. A questo scopo, è necessario prima essere rimossi dall'area di lavoro da un proprietario corrente dell'area di lavoro, quindi essere nuovamente invitati con il ruolo di proprietario.
 
 Dopo aver ottenuto l'ID dell'area di lavoro e il token di autorizzazione, gli sviluppatori possono usare il frammento di codice per accedere all'area di lavoro indipendentemente dal proprio ruolo.
 
@@ -123,7 +123,7 @@ Per ottenere un output in un formato supportato, è necessario usare un modulo d
 I passaggi seguenti illustrano un esempio in cui si crea e si esegue un esperimento e si accede al set di dati intermedio.
 
 1. Creare un nuovo esperimento.
-2. Inserire un modulo **Adult Census Income Binary Classification dataset** .
+2. Inserire un modulo **Adult Census Income Binary Classification dataset**.
 3. Inserire un modulo [Split][split] e connetterne l'input all'output del modulo del set di dati.
 4. Inserire un modulo [Convert to CSV][convert-to-csv] (Converti in CSV) e connetterne l'input a uno degli output del modulo [Split][split] (Dividi).
 5. Salvare l'esperimento, eseguirlo e attendere il completamento dell'esecuzione.
@@ -282,7 +282,7 @@ Se si desidera serializzare i dati in un formato diverso, specificare un valore 
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-È possibile anche impostare una nuova descrizione specificando un valore per il parametro `description` .
+È possibile anche impostare una nuova descrizione specificando un valore per il parametro `description`.
 
     dataset = ws.datasets['existing dataset']
 
@@ -295,7 +295,7 @@ Se si desidera serializzare i dati in un formato diverso, specificare un valore 
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to feb 2015'
 
-È possibile anche impostare un nuovo nome specificando un valore per il parametro `name` . D'ora in poi sarà possibile recuperare il set di dati usando solo il nuovo nome. Il codice seguente consente di aggiornare i dati, il nome e la descrizione.
+È possibile anche impostare un nuovo nome specificando un valore per il parametro `name`. D'ora in poi sarà possibile recuperare il set di dati usando solo il nuovo nome. Il codice seguente consente di aggiornare i dati, il nome e la descrizione.
 
     dataset = ws.datasets['existing dataset']
 

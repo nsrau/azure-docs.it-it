@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285051"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754034"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -43,13 +43,13 @@ L'app Patch Orchestration offre le funzionalità seguenti:
 
 Patch Orchestration Application è costituita dai sottocomponenti seguenti:
 
-- **Coordinator Service**: il servizio con stato è responsabile per:
+- **Coordinator Service**: il servizio con stato è responsabile di quanto segue:
     - Il coordinamento del processo di Windows Update nell'intero cluster.
     - L'archiviazione del risultato delle operazioni completate di Windows Update.
-- **Node Agent Service**: è un servizio senza stato che viene eseguito in tutti i nodi di cluster di Service Fabric. Il servizio è responsabile per:
+- **Node Agent Service**: è un servizio senza stato che viene eseguito in tutti i nodi del cluster di Service Fabric. Il servizio è responsabile per:
     - Il bootstrap del Node Agent NTService.
     - Il monitoraggio di Node Agent NTService
-- **Node agent NTService**: questo servizio di Windows NT viene eseguito con un privilegio di livello superiore (SYSTEM). Il Node Agent Service e il Coordinator Service vengono invece eseguiti con un privilegio di livello inferiore (NETWORK SERVICE). Il servizio è responsabile dell'esecuzione dei seguenti processi di Windows Update in tutti i nodi del cluster:
+- **Node Agent NTService**: questo servizio di Windows NT viene eseguito con un privilegio di livello superiore (SYSTEM). Il Node Agent Service e il Coordinator Service vengono invece eseguiti con un privilegio di livello inferiore (NETWORK SERVICE). Il servizio è responsabile dell'esecuzione dei seguenti processi di Windows Update in tutti i nodi del cluster:
     - Disabilitazione della connessione automatica a Windows Update nel nodo.
     - Download e installazione di Windows Update in base al criterio fornito dall'utente.
     - Riavvio della macchina dopo l'installazione di Windows Update.
@@ -151,17 +151,17 @@ Il comportamento di Patch Orchestration App può essere configurato per soddisfa
 |:-|-|-|
 |MaxResultsToCache    |long                              | Numero massimo di risultati di Windows Update memorizzabili nella cache. <br>Il valore predefinito è 3000 presumendo che il: <br> - Numero di nodi sia 20. <br> - Numero di aggiornamenti eseguiti su un nodo per ogni mese sia pari a cinque. <br> - Numero di risultati per ogni operazione sia pari a 10. <br> - I risultati per gli ultimi tre mesi debbano essere archiviati. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric.<br>                         I valori consentiti sono i seguenti: <br>                                                           <b>NodeWise</b>. Windows Update viene installato un nodo alla volta. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update viene installato un dominio di aggiornamento alla volta (al massimo, tutti i nodi appartenenti a un dominio di aggiornamento possono passare per Windows Update).<br> Fare riferimento alla sezione delle [domande frequenti](#frequently-asked-questions) su come scegliere i migliori criteri per il cluster.
-|LogsDiskQuotaInMB   |long  <br> Predefinito: 1024               |Dimensione massima in MB dei log di Patch Orchestration App che è possibile salvare in modo permanente e locale sui nodi.
-| WUQuery               | stringa<br>Impostazione predefinita: "IsInstalled = 0"                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
-| InstallWindowsOSOnlyUpdates | boolean <br> Predefinito: True                 | Questo flag consente l'installazione degli aggiornamenti del sistema operativo Windows.            |
-| WUOperationTimeOutInMinutes | int <br>Predefinito: 90                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
-| WURescheduleCount     | int <br> Predefinito: 5                  | Il numero massimo di volte in cui il servizio ripianifica l'aggiornamento di Windows quando un'operazione continua ad avere esito negativo.          |
-| WURescheduleTimeInMinutes | int <br>Predefinito: 30 | L'intervallo con cui il servizio ripianifica l'aggiornamento di Windows se il problema persiste. |
-| WUFrequency           | Stringa separata da virgole Predefinito: "Weekly, Wednesday, 7:00:00"     | La frequenza di installazione di Windows Update. Il formato e i valori possibili sono: <br>- Monthly, DD, HH:MM:SS, ad esempio, Monthly, 5,12:22:32. <br> -   Weekly, DAY, HH:MM:SS, ad esempio Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, ad esempio, Daily, 12:22:32.  <br> - None: indica che non deve essere eseguito Windows Update.  <br><br> Si noti che gli orari sono in formato UTC.|
+|LogsDiskQuotaInMB   |long  <br> (Valore predefinito: 1024)               |Dimensione massima in MB dei log di Patch Orchestration App che è possibile salvare in modo permanente e locale sui nodi.
+| WUQuery               | stringa<br>(Valore predefinito: "IsInstalled=0")                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
+| InstallWindowsOSOnlyUpdates | boolean <br> (Valore predefinito: True)                 | Questo flag consente l'installazione degli aggiornamenti del sistema operativo Windows.            |
+| WUOperationTimeOutInMinutes | int <br>(Valore predefinito: 90)                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
+| WURescheduleCount     | int <br> (Valore predefinito: 5)                  | Il numero massimo di volte in cui il servizio ripianifica l'aggiornamento di Windows quando un'operazione continua ad avere esito negativo.          |
+| WURescheduleTimeInMinutes | int <br>(Valore predefinito: 30) | L'intervallo con cui il servizio ripianifica l'aggiornamento di Windows se il problema persiste. |
+| WUFrequency           | Stringa separata da virgole (Valore predefinito: "Weekly, Wednesday, 7:00:00")     | La frequenza di installazione di Windows Update. Il formato e i valori possibili sono: <br>- Monthly, DD, HH:MM:SS, ad esempio, Monthly, 5,12:22:32. <br> -   Weekly, DAY, HH:MM:SS, ad esempio Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, ad esempio, Daily, 12:22:32.  <br> - None: indica che non deve essere eseguito Windows Update.  <br><br> Si noti che gli orari sono in formato UTC.|
 | AcceptWindowsUpdateEula | boolean <br>Predefinito: True | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
 
 > [!TIP]
-> Se si desidera che Windows Update venga eseguito immediatamente, impostare `WUFrequency` in relazione al tempo di distribuzione dell'applicazione. Ad esempio, si supponga di disporre di un cluster di test a cinque nodi e si prevede di distribuire l'app all'incirca alle 17:00:00 UTC. Se si presuppone che l'aggiornamento o la distribuzione dell'applicazione richiedano un massimo di 30 minuti, impostare il WUFrequency su "Daily, 17:30:00".
+> Se si desidera che Windows Update venga eseguito immediatamente, impostare `WUFrequency` in relazione al tempo di distribuzione dell'applicazione. Ad esempio, si supponga di disporre di un cluster di test a cinque nodi e si prevede di distribuire l'app all'incirca alle 17:00:00 UTC. Se si presuppone che l'aggiornamento o la distribuzione dell'applicazione richieda al massimo 30 minuti, impostare WUFrequency su "Daily, 17:30:00".
 
 ## <a name="deploy-the-app"></a>Distribuire l'app
 
@@ -316,7 +316,7 @@ Se il cluster è in grado di funzionare con un numero N-1 dei domini di aggiorna
 
 D: **Quanto tempo ci vuole ad applicare una patch a un nodo?**
 
-R. L'applicazione di patch a un nodo può richiedere da dei minuti (ad esempio: [gli aggiornamenti delle definizioni di Windows Defender](https://www.microsoft.com/wdsi/definitions)) a ore (ad esempio: [aggiornamenti cumulativi di Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Il tempo necessario per applicare una patch a un nodo dipende principalmente dai fattori seguenti 
+R. L'applicazione di una patch a un nodo può richiedere una quantità di tempo che va da minuti (ad esempio, [aggiornamenti delle definizioni di Windows Defender](https://www.microsoft.com/wdsi/definitions)) ad ore (ad esempio, [aggiornamenti cumulativi di Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Il tempo necessario per applicare una patch a un nodo dipende principalmente dai fattori seguenti 
  - Dimensione degli aggiornamenti
  - Numero degli aggiornamenti da applicare in una finestra di gestione delle patch
  - Il tempo impiegato per installare gli aggiornamenti, riavviare il nodo (se richiesto) e completare i passaggi di installazione post-riavvio.
@@ -327,7 +327,7 @@ D: **Quanto tempo occorre per applicare patch a un intero cluster?**
 R. Il tempo necessario per applicare patch a un intero cluster dipende dai fattori seguenti:
 
 - Tempo necessario per applicare patch a un nodo.
-- I criteri del Coordinator Service. I criteri predefiniti, `NodeWise`, comportano l'applicazione di patch a un solo nodo alla volta e tale operazione è più lenta di `UpgradeDomainWise`. Ad esempio: se l'applicazione di patch a un nodo richiede circa 1 ora, per applicare patch a un cluster di 20 nodi (stesso tipo di nodi) con 5 domini di aggiornamento, ognuno dei quali contiene 4 nodi
+- I criteri del Coordinator Service. I criteri predefiniti, `NodeWise`, comportano l'applicazione di patch a un solo nodo alla volta e tale operazione è più lenta di `UpgradeDomainWise`. Ad esempio:  se l'applicazione di patch a un nodo richiede circa 1 ora, per applicare patch a un cluster di 20 nodi (dello stesso tipo) con 5 domini di aggiornamento, ognuno dei quali contiene 4 nodi:
     - Sono necessarie circa 20 ore per applicare patch all'intero cluster, se il criterio è `NodeWise`
     - Sono necessarie 5 ore se il criterio è `UpgradeDomainWise`
 - Caricamento del cluster - ogni operazione di installazione di patch richiede la rilocazione del carico di lavoro dei clienti in altri nodi disponibili nel cluster. Un nodo in fase di patch può essere in stato di [disabilitazione](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante l'operazione. Se il cluster è in prossimità di picchi di carico, il processo di disabilitazione richiederà più tempo. Di conseguenza il processo complessivo dell'applicazione di patch in tali condizioni potrebbe risultare lento.

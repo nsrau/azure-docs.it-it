@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: e1d210b329c02a0b01402a46e1c7f223995cb175
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0aee18115f34c86e84054f1aeddcc99d563f5f64
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004907"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116518"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Developer Analytics: linguaggi, piattaforme e integrazioni
-Di seguito sono riportate implementazioni di [Application Insights](../../application-insights/app-insights-overview.md) già illustrate, incluse alcune di terze parti.
+Di seguito sono riportate implementazioni di [Application Insights](../../azure-monitor/app/app-insights-overview.md) già illustrate, incluse alcune di terze parti.
 
 ## <a name="languages---officially-supported-by-application-insights-team"></a>Linguaggi: supportati ufficialmente dal team di Application Insights
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
@@ -40,15 +40,16 @@ Di seguito sono riportate implementazioni di [Application Insights](../../applic
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET - per app già attive](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Android](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
+* [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Servizio app di Azure](../../azure-monitor/app/azure-web-apps.md)
-* [Servizi cloud di Azure](../../azure-monitor/app/cloudservices.md)&amp;#151;che includono sia i ruoli Web che i ruoli di lavoro
+* 
+  [Servizi cloud di Azure](../../azure-monitor/app/cloudservices.md)&#151;che includono sia i ruoli Web che i ruoli di lavoro
 * [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-* [iOS](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
+* [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center)
 * [J2EE](../../azure-monitor/app/java-get-started.md)
@@ -57,9 +58,9 @@ Di seguito sono riportate implementazioni di [Application Insights](../../applic
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
 * [Spring](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [App di Windows universale](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
+* [App di Windows universale](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-* [Ruoli di lavoro, servizi e applicazioni desktop di Windows](../../application-insights/app-insights-windows-desktop.md)
+* [Ruoli di lavoro, servizi e applicazioni desktop di Windows](../../azure-monitor/app/windows-desktop.md)
 * [Altro](#projects)
 
 ## <a name="logging-frameworks"></a>Framework di registrazione
@@ -77,13 +78,13 @@ Di seguito sono riportate implementazioni di [Application Insights](../../applic
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 * [Orchard](https://azure.microsoft.com/blog/integrating-application-insights-into-a-modular-cms-and-a-multi-tenant-public-saas/preview/)
-* [SharePoint](../../application-insights/app-insights-sharepoint.md)
+* [SharePoint](../../azure-monitor/app/sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
 ## <a name="export-and-data-analysis"></a>Esportazione e analisi dei dati
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-* [Analisi dei flussi](../../application-insights/app-insights-export-power-bi.md)
+* [Analisi dei flussi](../../azure-monitor/app/export-power-bi.md )
 
 ## <a name="projects"></a> Creare un SDK personalizzato
 Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibile crearne uno. A tale scopo, esaminare il codice degli SDK esistenti incluso nel [progetto di Application Insights SDK su GitHub](https://github.com/Microsoft/AppInsights-Home).

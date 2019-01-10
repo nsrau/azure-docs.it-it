@@ -11,22 +11,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/15/2018
+ms.date: 12/14/2018
 ms.author: raiye
-ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 94cf90dbc41533b8f5d41a0bdb18e5cdcb7be474
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854272"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541031"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
-## <a name="november-2018-guest-os"></a>Sistema operativo guest di novembre 2018
+## <a name="december-2018-guest-os"></a>Sistema operativo guest di dicembre 2018
 
 >[!NOTE]
->Il sistema operativo guest di novembre è in corso di implementazione nelle macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di novembre. L'elenco è soggetto a variazioni.
+>Il sistema operativo guest di dicembre è in corso di implementazione nelle macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di dicembre. L'elenco è soggetto a variazioni.
+
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 18-12 | [4471321] | Sicurezza di Windows 10 | 5.26 | 11 dicembre 2018 |
+| Rel 18-12 | [4471328] | Windows Security   | 2.81 | 11 dicembre 2018 |
+| Rel 18-12 | [4471326] | Windows Security   | 3.68 | 11 dicembre 2018 |
+| Rel 18-12 | [4471322] | Windows Security   | 4.61 | 11 dicembre 2018 |
+| Rel 18-12 | [4470600] | Sicurezza .NET 3.x  | 2.81 | 11 dicembre 2018 |
+| Rel 18-12 | [4470601] | Sicurezza .NET 3.x  | 3.68 | 11 dicembre 2018|
+| Rel 18-12 | [4470602] | Sicurezza .NET 3.x  | 4.61 | 11 dicembre 2018 |
+| Rel 18-12 | [4470493] | Sicurezza .NET 4.x  | 2.81 | 11 dicembre 2018 |
+| Rel 18-12 | [4470492] | Sicurezza .NET 4.x  | 3.68 | 11 dicembre 2018 |
+| Rel 18-12 | [4470491] | Sicurezza .NET 4.x  | 4.61| 11 dicembre 2018 |
+| Rel 18-12 | [4471331] | Lampeggiante  | 3.68, 4.61, 5.26 | 5 dicembre 2018  |
+| Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 dicembre 2018 |
+| N/D | [4468323] | Aggiornamento del fuso orario    | 2.81, 3.68, 4.61 | 13 dicembre 2018 |
+| N/D | [4467107] | Rollup del mese di novembre non correlato alla sicurezza   | 2.81 | 13 novembre 2018 |
+| N/D | [4467701] | Rollup del mese di novembre non correlato alla sicurezza     | 3.68 | 13 novembre 2018 |
+| N/D | [4467697] | Rollup del mese di novembre non correlato alla sicurezza     | 4.61 | 13 novembre 2018 |
+
+[4471321]: http://support.microsoft.com/kb/4471321
+[4471328]: http://support.microsoft.com/kb/4471328
+[4471326]: http://support.microsoft.com/kb/4471326
+[4471322]: http://support.microsoft.com/kb/4471322
+[4470600]: http://support.microsoft.com/kb/4470600
+[4470601]: http://support.microsoft.com/kb/4470601
+[4470602]: http://support.microsoft.com/kb/4470602
+[4470493]: http://support.microsoft.com/kb/4470493
+[4470492]: http://support.microsoft.com/kb/4470492
+[4470491]: http://support.microsoft.com/kb/4470491
+[4471331]: http://support.microsoft.com/kb/4471331
+[4470199]: http://support.microsoft.com/kb/4470199
+[4468323]: http://support.microsoft.com/kb/4468323
+[4467107]: http://support.microsoft.com/kb/4467107
+[4467701]: http://support.microsoft.com/kb/4467701
+[4467697]: http://support.microsoft.com/kb/4467697
+
+## <a name="november-2018-guest-os"></a>Sistema operativo guest di novembre 2018
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
@@ -114,9 +152,9 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4343901] | Rollup del mese di agosto non correlato alla sicurezza | 3.65 | 14 agosto 2018 |
 | N/D | [4344150] | Rollup di .NET 3.5 del mese di agosto non correlato alla sicurezza | 3.65 | 14 agosto 2018 |
 | N/D | [4344148] | Rollup di .NET 4x del mese di agosto non correlato alla sicurezza | 3.65 | 14 agosto 2018 |
-| N/D | [4343898] | Rollup del mese di agosto non correlato alla sicurezza | 4,58 | 14 agosto 2018 |
-| N/D | [4344153] | Rollup di .NET 3.5 del mese di agosto non correlato alla sicurezza | 4,58 | 14 agosto 2018 |
-| N/D | [4344147] | Rollup di .NET 4x del mese di agosto non correlato alla sicurezza | 4,58 | 14 agosto 2018 |
+| N/D | [4343898] | Rollup del mese di agosto non correlato alla sicurezza | 4.58 | 14 agosto 2018 |
+| N/D | [4344153] | Rollup di .NET 3.5 del mese di agosto non correlato alla sicurezza | 4.58 | 14 agosto 2018 |
+| N/D | [4344147] | Rollup di .NET 4x del mese di agosto non correlato alla sicurezza | 4.58 | 14 agosto 2018 |
 
 ## <a name="august-2018-guest-os"></a>Sistema operativo guest di agosto 2018
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -427,7 +465,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |  [3212646] |Rollup di qualità mensile per la sicurezza di gennaio 2017 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 marzo 2017 |
 | N/D |  [3205409] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows Server 2012 |3.47 |14 marzo 2017 |
 | N/D |  [3205401] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows 8.1 e Windows Server 2012 R2 |4.40 |14 marzo 2017 |
-| N/D |  [3211320] |Aggiornamento stack di manutenzione per Windows 10 versione 1607 e Windows Server 2016 - 24 ottobre 2017 |5.5 |14 marzo 2017 |
+| N/D |  [3211320] |Aggiornamento stack di manutenzione per Windows 10 versione 1607 e Windows Server 2016: 24 gennaio 2017 |5.5 |14 marzo 2017 |
 
 ## <a name="january-2017-guest-os"></a>Sistema operativo guest di gennaio 2017
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -468,13 +506,13 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3192321] |La Turchia termina l'osservanza dell'ora legale |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
 | N/D |[3185330] |Rollup di qualità mensile per la sicurezza di ottobre 2016 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 novembre 2016 |
 | N/D |[3192403] |Anteprima del rollup di qualità mensile di ottobre 2016 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 novembre 2016 |
-| N/D |[3177467] |Aggiornamento stack di manutenzione per Windows 7 SP1 e Windows Server 2008 R2 SP1 - 20 settembre 2016 |2.57 |8 novembre 2016 |
+| N/D |[3177467] |Aggiornamento stack di manutenzione per Windows 7 SP1 e Windows Server 2008 R2 SP1: 20 settembre 2016 |2.57 |8 novembre 2016 |
 | N/D |[3185332] |Rollup di qualità mensile per la sicurezza di ottobre 2016 per Windows Server 2012 |3.45 |8 novembre 2016 |
 | N/D |[3192406] |Anteprima del rollup di qualità mensile di ottobre 2016 per Windows Server 2012 |3.45 |8 novembre 2016 |
 | N/D |[3185331] |Rollup di qualità mensile per la sicurezza di ottobre 2016 mensile per Windows 8.1 e Windows Server 2012 R2 |4.38 |8 novembre 2016 |
 | N/D |[3192404] |Anteprima del rollup di qualità mensile di ottobre 2016 per Windows 8.1 e Windows Server 2012 R2 |4.38 |8 novembre 2016 |
-| N/D |[3199986] |Aggiornamento stack di manutenzione per Windows 10 versione 1607 - 27 ottobre 2016 |5.3 |8 novembre 2016 |
-| N/D |[3197954] |Aggiornamento cumulativo per Windows 10 versione 1607 e Windows Server 2016 - 27 ottobre 2016 |5.3 |8 novembre 2016 |
+| N/D |[3199986] |Aggiornamento stack di manutenzione per Windows 10 versione 1607: 27 ottobre 2016 |5.3 |8 novembre 2016 |
+| N/D |[3197954] |Aggiornamento cumulativo per Windows 10 versione 1607 e Windows Server 2016: 27 ottobre 2016 |5.3 |8 novembre 2016 |
 
 ## <a name="october-2016-guest-os"></a>Sistema operativo guest di ottobre 2016
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -489,7 +527,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3185278] |Settembre 2016 Aggiornamento cumulativo per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.56 |11 ottobre 2016 |
 | N/D |[3185280] |Settembre 2016 Aggiornamento cumulativo per Windows Server 2012 |3.44 |11 ottobre 2016 |
 | N/D |[3185279] |Settembre 2016 Aggiornamento cumulativo per Windows 8.1 e Windows Server 2012 R2 |4.37 |11 ottobre 2016 |
-| N/D |[3194798] |Aggiornamento cumulativo per Windows 10 versione 1607 e Windows Server 2016 |5,2 |11 ottobre 2016 |
+| N/D |[3194798] |Aggiornamento cumulativo per Windows 10 versione 1607 e Windows Server 2016 |5.2 |11 ottobre 2016 |
 
 ## <a name="september-2016-guest-os"></a>Sistema operativo guest di settembre 2016
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |

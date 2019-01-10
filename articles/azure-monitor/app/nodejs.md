@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ced0ae62bcccadafd090964daae4e7828c05ce2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 075f08f89e0bbdefa76623a284971f46a1b3966a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004730"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119799"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorare servizi e app Node.js con Application Insights
 
-[Azure Application Insights](../../application-insights/app-insights-overview.md) monitora i componenti e i servizi back-end dopo la distribuzione, per consentire di [individuare e diagnosticare rapidamente i problemi di prestazioni e di altro tipo](../../azure-monitor/app/detect-triage-diagnose.md). È possibile usare Azure Application Insights per i servizi Node.js ospitati nel data center locale, in app Web, in VM di Azure e anche in altri cloud pubblici.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora i componenti e i servizi back-end dopo la distribuzione, per consentire di [individuare e diagnosticare rapidamente i problemi di prestazioni e di altro tipo](../../azure-monitor/app/detect-triage-diagnose.md). È possibile usare Azure Application Insights per i servizi Node.js ospitati nel data center locale, in app Web, in VM di Azure e anche in altri cloud pubblici.
 
 Per ricevere, archiviare ed esplorare i dati di monitoraggio, includere l'SDK nel codice e quindi configurare una risorsa di Application Insights corrispondente in Azure. L'SDK invia i dati a tale risorsa per ulteriori attività di analisi ed esplorazione.
 
@@ -216,5 +216,5 @@ server.on("listening", () => {
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../../application-insights/app-insights-troubleshoot-faq.md
+[FAQ]: ../../azure-monitor/app/troubleshoot-faq.md
 

@@ -1,22 +1,23 @@
 ---
-title: Eseguire processi Batch di Azure end-to-end usando i modelli | Microsoft Docs
+title: Eseguire processi end-to-end usando i modelli - Azure Batch | Microsoft Docs
 description: Creare pool, processi e attività di Batch con file di modelli e l'interfaccia della riga di comando di Azure.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 08/02/2018
-ms.author: danlep
-ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964293"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547678"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch
 
@@ -37,7 +38,7 @@ I modelli di Batch sono basati sul [supporto di Batch esistente nell'interfaccia
 
 I processi in genere usano file di dati di input e producono file di dati di output. Un account di archiviazione è associato, per impostazione predefinita, ad ogni account Batch. È possibile trasferire i file da e verso questo account di archiviazione usando l'interfaccia della riga di comando, senza alcun codice e senza credenziali di archiviazione.
 
-Ad esempio, [ffmpeg](http://ffmpeg.org/) è una diffusa applicazione che elabora i file audio e video. Di seguito è illustrata la procedura con l'interfaccia della riga di comando di Azure Batch per richiamare ffmpeg per la transcodifica di file video di origine in file con risoluzioni diverse.
+Ad esempio, [ffmpeg](https://ffmpeg.org/) è una diffusa applicazione che elabora i file audio e video. Di seguito è illustrata la procedura con l'interfaccia della riga di comando di Azure Batch per richiamare ffmpeg per la transcodifica di file video di origine in file con risoluzioni diverse.
 
 -   Creare un modello di pool. L'utente che crea il modello sa come chiamare l'applicazione ffmpeg e conosce i relativi requisiti. Specifica i valori appropriati per sistema operativo, dimensioni VM, modalità di installazione di ffmpeg (ad esempio da un pacchetto dell'applicazione o usando uno strumento di gestione pacchetti) e altri valori delle proprietà del pool. I parametri vengono creati in modo che quando il modello viene usato, è necessario specificare solo l'ID del pool e il numero di VM.
 

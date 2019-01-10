@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a4e4ca1ca4878a2a405b12413e4378a2cb79aef6
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3ea7d6562965debda2c146fedab2ea9ab19f6cc8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999119"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077454"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Monitoraggio di applicazioni Docker in Application Insights
 
@@ -36,9 +36,9 @@ Quando si esegue l'[immagine di Application Insights](https://hub.docker.com/r/m
 
 ## <a name="set-up-your-application-insights-resource"></a>Configurare la risorsa di Application Insights
 
-1. Accedere al [portale di Microsoft Azure](https://azure.com) e aprire la risorsa di Application Insights per l'app o [crearne una nuova](../../application-insights/app-insights-create-new-resource.md). 
+1. Accedere al [portale di Microsoft Azure](https://azure.com) e aprire la risorsa di Application Insights per l'app o [crearne una nuova](../../azure-monitor/app/create-new-resource.md ). 
    
-    *Quale risorsa si deve usare?* Se le app in esecuzione nell'host sono state sviluppate da un altro utente, è necessario [creare una nuova risorsa di Application Insights](../../application-insights/app-insights-create-new-resource.md). Da questo punto vengono visualizzati e analizzati i dati di telemetria. Selezionare "Generale" per il tipo di app.
+    *Quale risorsa si deve usare?* Se le app in esecuzione nell'host sono state sviluppate da un altro utente, è necessario [creare una nuova risorsa di Application Insights](../../azure-monitor/app/create-new-resource.md ). Da questo punto vengono visualizzati e analizzati i dati di telemetria. Selezionare "Generale" per il tipo di app.
    
     Ma se si è lo sviluppatore delle App, l’augurio è quello di aver [aggiunto SDK di Application Insights](../../azure-monitor/app/java-live.md) a ciascuna di esse. Se sono tutti effettivamente componenti di una singola applicazione business, è possibile configurare tutti gli elementi per inviare i dati di telemetria a una risorsa e si utilizzerà la stessa risorsa per visualizzare i dati delle prestazioni e del ciclo di vita di Docker. 
    
