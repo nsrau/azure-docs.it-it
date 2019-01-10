@@ -1,18 +1,18 @@
 ---
 title: Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB
 description: Usare le metriche in Azure Cosmos DB per eseguire il debug di problemi comuni e monitorare il database.
-services: cosmos-db
 ms.service: cosmos-db
 author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.openlocfilehash: 8461797e0c3b8d92466c37c5564df895e494ce74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: ff6e0b6084eebf236d01b4dd00a46897687938c2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957590"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034727"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Una distribuzione non uniforme della velocità effettiva può generare partizion
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Determinare la distribuzione dell'archiviazione tra le partizioni
 
-Avere una buona cardinalità della partizione è essenziale per qualsiasi applicazione scalabile. Per determinare la distribuzione della velocità effettiva di un contenitore partizionato suddiviso per partizione passare al pannello Metriche nel [portale di Azure](https://portal.azure.com). Nella scheda Velocità effettiva la scomposizione di archiviazione viene mostrata nel grafico Numero massimo di unità richiesta al secondo usate da ogni partizione fisica. Il grafico seguente illustra una distribuzione non efficace dei dati come evidenziato dalla deviazione della partizione all'estrema sinistra.
+Avere una buona cardinalità della partizione è essenziale per qualsiasi applicazione scalabile. Per determinare la distribuzione dell'archiviazione di un contenitore partizionato suddiviso per partizione, passare al pannello Metriche nel [portale di Azure](https://portal.azure.com). Nella scheda Archiviazione la scomposizione dell'archiviazione viene mostrata nel grafico della risorsa di archiviazione dati + indice utilizzata dalle chiavi di partizione principali. Il grafico seguente illustra una distribuzione non efficace della risorsa di archiviazione dati come evidenziato dalla deviazione della partizione all'estrema sinistra.
 
 ![Esempio di distribuzione dei dati ridotta](media/use-metrics/metrics-07.png)
 

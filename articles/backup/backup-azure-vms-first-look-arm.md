@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1bd92b9c4611465b680f195e4881a447f4bb701
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631584"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044400"
 ---
 # <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Eseguire il backup di macchine virtuali di Azure con il servizio Backup di Azure
 
@@ -290,7 +290,7 @@ Per eseguire il processo di backup iniziale:
   Le notifiche sulla distribuzione consentono di sapere che il processo di backup è stato attivato e che è possibile monitorare lo stato di avanzamento del processo nella pagina Processi di backup. A seconda delle dimensioni della macchina virtuale, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
   > [!NOTE]
-  > Tutti i dati sottoposti a backup tramite Backup di Azure vengono crittografati a riposo mediante la [crittografia del servizio di archiviazione](../storage/common/storage-service-encryption.md).
+  > - Tutti i dati sottoposti a backup tramite Backup di Azure vengono crittografati a riposo mediante la [crittografia del servizio di archiviazione](../storage/common/storage-service-encryption.md).
   >
   >
 
@@ -339,4 +339,3 @@ Il costo del backup delle macchine virtuali di Azure è basato sul numero di ist
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Gestire](backup-azure-manage-vms.md) i backup.
-

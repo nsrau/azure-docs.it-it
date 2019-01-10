@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: db412d3fd0af84d528ad0c83d86cc5d055359914
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632688"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051853"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Procedure consigliate e risoluzione dei problemi per le applicazioni Node nel Servizio app di Azure per Windows
 
@@ -147,7 +147,7 @@ var keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>L'applicazione Node usa una quantità eccessiva di CPU
 
-Si potrebbe ricevere un'indicazione da Servizio app di Azure nel portale riguardo all'utilizzo elevato di CPU. È anche possibile configurare monitoraggi per il controllo di determinate [metriche](web-sites-monitor.md). Quando si verifica l'uso della CPU nel [dashboard del portale di Azure](../application-insights/app-insights-web-monitor-performance.md), controllare i valori MAX per la CPU, in modo da non perdere i valori di picco.
+Si potrebbe ricevere un'indicazione da Servizio app di Azure nel portale riguardo all'utilizzo elevato di CPU. È anche possibile configurare monitoraggi per il controllo di determinate [metriche](web-sites-monitor.md). Quando si verifica l'uso della CPU nel [dashboard del portale di Azure](../azure-monitor/app/web-monitor-performance.md), controllare i valori MAX per la CPU, in modo da non perdere i valori di picco.
 Se si ritiene che l'applicazione usi una quantità eccessiva di CPU senza una spiegazione plausibile, è possibile profilare l'applicazione Node per individuare il motivo.
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilatura dell'applicazione Node in Servizio app di Azure con V8-Profiler
@@ -220,7 +220,7 @@ Come si può notare, il 95% del tempo è stato usato dalla funzione WriteConsole
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>L'applicazione Node usa una quantità eccessiva di memoria
 
-Se l'applicazione usa una quantità eccessiva di memoria, nel portale viene visualizzato un avviso di Servizio app di Azure indicante questa situazione. È possibile configurare monitoraggi per il controllo di determinate [metriche](web-sites-monitor.md). Quando si verifica l'uso della memoria nel [dashboard del portale di Azure](../application-insights/app-insights-web-monitor-performance.md), assicurarsi di controllare i valori MAX per la memoria, in modo da non perdere i valori di picco.
+Se l'applicazione usa una quantità eccessiva di memoria, nel portale viene visualizzato un avviso di Servizio app di Azure indicante questa situazione. È possibile configurare monitoraggi per il controllo di determinate [metriche](web-sites-monitor.md). Quando si verifica l'uso della memoria nel [dashboard del portale di Azure](../azure-monitor/app/web-monitor-performance.md), assicurarsi di controllare i valori MAX per la memoria, in modo da non perdere i valori di picco.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Rilevamento della perdita di risorse e delle differenze tra heap per Node.js
 

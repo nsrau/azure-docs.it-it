@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 73dc4b14214c10966dca1a6cd7ebd41af019f640
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 5dde36bb8710190627a8780ed740957e62a57da0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406556"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994582"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -135,7 +135,7 @@ Le route predefinite sono consentite solo nelle sessioni di peering privato di A
 
  Per abilitare la connettività ad altri servizi di Azure e ai servizi di infrastruttura, è necessario verificare che:
 
-* Il peering pubblico di Azure sia abilitato per il routing del traffico a endpoint pubblici
+* Il peering pubblico di Azure sia abilitato per l'instradamento del traffico a endpoint pubblici.
 * Si usi il routing definito dall'utente per consentire la connettività Internet per ogni subnet che la richiede.
 
 > [!NOTE]

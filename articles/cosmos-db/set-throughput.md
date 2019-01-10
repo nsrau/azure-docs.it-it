@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3e992dd8ab24e4e60b81c6565ea4ec3971a9336b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075353"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036425"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database di Azure Cosmos
 
@@ -27,9 +27,9 @@ La configurazione della velocità effettiva con provisioning in un contenitore �
 
 È consigliabile configurare la velocità effettiva al livello di granularità del contenitore per ottenere prestazioni garantite per il contenitore.
 
-La velocità effettiva di cui è stato effettuato il provisioning in un contenitore di Azure Cosmos viene distribuita in modo uniforme tra tutte le partizioni logiche del contenitore. Poiché una o più partizioni logiche di un contenitore sono ospitate da una partizione di risorsa, le partizioni fisiche appartengono esclusivamente al contenitore e supportano la velocità effettiva con provisioning nel contenitore. L'immagine seguente mostra in che modo una partizione di risorsa ospita una o più partizioni logiche di un contenitore:
+La velocità effettiva di cui è stato effettuato il provisioning in un contenitore di Azure Cosmos viene distribuita in modo uniforme tra tutte le partizioni logiche del contenitore. Poiché una o più partizioni logiche di un contenitore sono ospitate da una partizione fisica, le partizioni fisiche appartengono esclusivamente al contenitore e supportano la velocità effettiva con provisioning nel contenitore. L'immagine seguente mostra in che modo una partizione fisica ospita una o più partizioni logiche di un contenitore:
 
-![Partizione di risorsa](./media/set-throughput/resource-partition.png)
+![Partizione fisica](./media/set-throughput/resource-partition.png)
 
 ## <a name="setting-throughput-on-a-database"></a>Configurazione della velocità effettiva in un database
 
@@ -47,11 +47,11 @@ L'impostazione della velocità effettiva per un database di Azure Cosmos garanti
 
 * La condivisione della velocità effettiva di cui è stato effettuato il provisioning di un database in un set di contenitori è utile quando si esegue la migrazione in Azure Cosmos DB di un database NoSQL (ad esempio MongoDB, Cassandra) ospitato da un cluster di macchine virtuali o da server fisici locali. È possibile paragonare la velocità effettiva di cui è stato effettuato il provisioning configurata per il database di Azure Cosmos a un equivalente logico (ma più conveniente e flessibile) della capacità di calcolo del cluster MongoDB o Cassandra.  
 
-In uno specifico momento, la velocità effettiva allocata a un contenitore all'interno di un database viene distribuita tra tutte le partizioni logiche di tale contenitore. In presenza di contenitori che condividono una velocità effettiva con provisioning in un database, non è possibile applicare in modo selettivo la velocità effettiva a un contenitore o una partizione logica specifica. Se il carico di lavoro in una partizione logica usa un livello di velocità effettiva superiore rispetto a quello allocato a una specifica partizione logica, le operazioni risulteranno limitate in termini di velocità. Quando si verifica una limitazione di velocità, è possibile aumentare la velocità effettiva per l'intero contenitore o ripetere l'operazione. Per altre informazioni sul partizionamento, vedere [Partizioni logiche](partition-data.md).
+Tutti i contenitori creati all'interno di un database con velocità effettiva di cui è stato effettuato il provisioning devono essere creati con una chiave di partizione. In uno specifico momento, la velocità effettiva allocata a un contenitore all'interno di un database viene distribuita tra tutte le partizioni logiche di tale contenitore. In presenza di contenitori che condividono una velocità effettiva con provisioning in un database, non è possibile applicare in modo selettivo la velocità effettiva a un contenitore o una partizione logica specifica. Se il carico di lavoro in una partizione logica usa un livello di velocità effettiva superiore rispetto a quello allocato a una specifica partizione logica, le operazioni risulteranno limitate in termini di velocità. Quando si verifica una limitazione di velocità, è possibile aumentare la velocità effettiva per l'intero contenitore o ripetere l'operazione. Per altre informazioni sul partizionamento, vedere [Partizioni logiche](partition-data.md).
 
-Più partizioni logiche che condividono la velocità effettiva con provisioning in un database possono essere ospitate in un'unica partizione di risorsa. Mentre l'ambito di una singola partizione logica di un contenitore viene sempre definito all'interno di una partizione di risorsa, le partizioni logiche "L" tra contenitori "C" che condividono la velocità effettiva con provisioning di un database possono essere mappate e ospitate in partizioni fisiche "R". L'immagine seguente mostra in che modo una partizione di risorsa può ospitare una o più partizioni logiche che appartengono a contenitori diversi all'interno di un database:
+Più partizioni logiche che condividono la velocità effettiva di cui è stato effettuato il provisioning in un database possono essere ospitate in un'unica partizione fisica. Mentre l'ambito di una singola partizione logica di un contenitore viene sempre definito all'interno di una partizione fisica, le partizioni logiche 'L' tra contenitori 'C' che condividono la velocità effettiva con provisioning di un database possono essere mappate e ospitate in partizioni fisiche 'R'. L'immagine seguente mostra in che modo una partizione fisica può ospitare una o più partizioni logiche che appartengono a contenitori diversi all'interno di un database:
 
-![Partizione di risorsa](./media/set-throughput/resource-partition2.png)
+![Partizione fisica](./media/set-throughput/resource-partition2.png)
 
 ## <a name="setting-throughput-on-a-database-and-a-container"></a>Configurazione della velocità effettiva in un database e in un contenitore
 
