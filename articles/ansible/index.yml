@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5e2b31671a8f08bae1cba66e05d6ae72f960cf9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f7225fece81672e539858567039e1ff086d97c2c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050932"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197726"
 documentType: LandingData
 title: Documentazione di Ansible in Azure
 metadata:
@@ -53,6 +53,9 @@ sections:
     - html: <a href="./ansible-deploy-app-vmss">Distribuire applicazioni nei set di scalabilità di macchine virtuali in Azure.</a>
     - html: <a href="./ansible-create-configure-aks">Creare e gestire i cluster del servizio Kubernetes di Azure.</a>
     - html: <a href="./ansible-create-configure-application-gateway">Gestire il traffico Web con un gateway applicazione di Azure.</a>
+    - html: <a href="./ansible-auto-scale-vmss">Ridimensionare automaticamente un set di scalabilità di macchine virtuali in Azure con Ansible.</a>
+    - html: <a href="./ansible-scale-azure-web-apps">Ridimensionare le app Web del servizio app di Azure con Ansible.</a>
+    - html: <a href="./ansible-create-configure-route-table">Creare, modificare o eliminare una tabella di route di Azure tramite Ansible.</a>
 - title: riferimento
   items:
   - type: list
