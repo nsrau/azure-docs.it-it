@@ -1,18 +1,18 @@
 ---
 title: Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB
 description: Usare le metriche in Azure Cosmos DB per eseguire il debug di problemi comuni e monitorare il database.
-services: cosmos-db
 ms.service: cosmos-db
 author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.openlocfilehash: afc3b9dbb1965ea28995d67f8f5e174721d73197
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.reviewer: sngun
+ms.openlocfilehash: ff6e0b6084eebf236d01b4dd00a46897687938c2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999442"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034727"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB
 
