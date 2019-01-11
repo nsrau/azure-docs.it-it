@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722378"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794244"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informazioni sulla configurazione del backup periodico in Azure Service Fabric
 
@@ -138,6 +138,9 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
         }
         ```
 
+> [!IMPORTANT]
+> A causa di un problema del runtime, assicurarsi che la durata della conservazione nei criteri di conservazione sia configurata per essere minore di 24 giorni. In caso contrario, il servizio di backup/ripristino attiverebbe il failover post-replica per perdita del quorum.
+
 ## <a name="enable-periodic-backup"></a>Abilitare il backup periodico
 Dopo aver definito i criteri di backup in modo da soddisfare i requisiti per il backup dei dati, è necessario associare i criteri di backup a un'_applicazione_, a un _servizio_ o a una _partizione_.
 
@@ -214,6 +217,11 @@ Quando la sospensione non è più necessaria è possibile ripristinare il backup
 * Se la sospensione è stata applicata in un _servizio_, il backup deve essere ripreso usando l'API [Resume Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup).
 
 * Se la sospensione è stata applicata in una _partizione_, il backup deve essere ripreso usando l'API [Resume Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
+
+### <a name="difference-between-suspend-and-disable-backups"></a>Differenza tra sospensione e disabilitazione dei backup
+È opportuno usare la funzionalità di disabilitazione dei backup quando i backup non sono più necessari per un'applicazione, un servizio o una partizione specifica. È possibile anche richiamare una richiesta di disabilitazione dei backup insieme al parametro di pulizia dei backup per essere certi che vengano eliminati anche tutti i backup esistenti. È opportuno invece usare la funzionalità di sospensione nei casi in cui si intende disattivare temporaneamente i backup, ad esempio quando il disco locale è pieno o il caricamento di una copia di backup non riesce a causa di un problema di rete e così via. 
+
+Mentre la disabilitazione può essere richiamata solo a un livello precedentemente abilitato in modo esplicito per il backup, la sospensione può essere applicata a qualsiasi livello attualmente abilitato per il backup, direttamente o tramite ereditarietà/gerarchia. Se, ad esempio, il backup viene abilitato al livello di un'applicazione, è possibile richiamare la disabilitazione solo al livello dell'applicazione, mentre la sospensione può essere richiamata anche per qualsiasi servizio o partizione presente nell'applicazione. 
 
 ## <a name="auto-restore-on-data-loss"></a>Ripristino automatico in caso di perdita di dati
 La partizione del servizio potrebbe perdere dati a causa di errori imprevisti. Ad esempio, il disco per due su tre repliche per una partizione, inclusa la replica primaria, viene danneggiato o cancellato.

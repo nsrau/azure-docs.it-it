@@ -14,16 +14,16 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90d920a501d27ca21b1c2b7b7f5491cebb2c2822
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9116dd8a27b268b656f688083032a127177d2d51
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233719"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754561"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Connessione di macchine virtuali di Azure a istanze Large di HANA
 
-Come già illustrato in [Panoramica e architettura di SAP HANA in Azure (istanze Large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), la distribuzione minima di istanze Large di HANA con il livello di applicazione SAP in Azure ha un aspetto simile al seguente:
+L'articolo [Informazioni su SAP HANA in Azure (istanze Large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) indica che la distribuzione minima di istanze Large di HANA con il livello dell'applicazione SAP in Azure ha un aspetto simile al seguente:
 
 ![Rete virtuale di Azure connessa a SAP HANA in Azure (istanze di grandi dimensioni) e in locale](./media/hana-overview-architecture/image3-on-premises-infrastructure.png)
 
@@ -52,15 +52,13 @@ Nell'esempio precedente l'intervallo di indirizzi IP 10.16.0.0/16 assegnato alla
 
 Viene esaminata una rete virtuale con una prima subnet di macchine virtuali denominata "default" e un'altra subnet denominata "GatewaySubnet".
 
-Nella sezione seguente l'intervallo di indirizzi IP della subnet denominata "default" nella figura è indicato come **intervallo di indirizzi IP della subnet di macchine virtuali di Azure**. L'intervallo di indirizzi IP della subnet del gateway è indicato come **intervallo di indirizzi IP della subnet del gateway di rete virtuale**. 
+Nelle due figure precedenti lo **spazio di indirizzi della rete virtuale** include sia l'**intervallo di indirizzi IP della subnet di Macchine virtuali di Azure** che quello del gateway di rete virtuale.
 
-Nelle due figure precedenti lo **spazio di indirizzi della rete virtuale** include sia l'**intervallo di indirizzi IP della subnet di macchine virtuali di Azure** che l'**intervallo di indirizzi IP della subnet del gateway di rete virtuale**. 
-
-Per conservare o indicare in modo specifico gli intervalli di indirizzi IP, è possibile limitare lo **spazio di indirizzi** di una rete virtuale agli intervalli specifici usati da ogni subnet. È possibile definire le **spazio di indirizzi** di una rete virtuale come più intervalli specifici, come illustrato di seguito:
+È possibile limitare lo **spazio indirizzi della rete virtuale** agli intervalli specifici usati da ogni subnet. È anche possibile definire lo **spazio di indirizzi** di una rete virtuale come più intervalli specifici, come illustrato di seguito:
 
 ![Spazio di indirizzi della rete virtuale di Azure con due spazi](./media/hana-overview-connectivity/image3-azure-vnet-address-space_alternate.png)
 
-In questo caso per lo **spazio di indirizzi della rete virtuale** sono definiti due spazi, uguali agli intervalli di indirizzi IP definiti per l'**intervallo di indirizzi IP della subnet di macchine virtuali di Azure** e l'**intervallo di indirizzi IP della subnet del gateway di rete virtuale.**
+In questo caso per lo **spazio di indirizzi della rete virtuale** sono definiti due spazi, uguali agli intervalli di indirizzi IP definiti per l'intervallo di indirizzi IP della subnet di Macchine virtuali di Azure e del gateway di rete virtuale. 
 
 È possibile usare qualsiasi standard di denominazione per le subnet del tenant, vale a dire le subnet VM. È consentita, tuttavia, **una sola subnet del gateway per ogni rete virtuale** che si connette al circuito ExpressRoute di SAP HANA in Azure (istanze Large). La **subnet del gateway deve sempre chiamarsi "GatewaySubnet"** per assicurare il corretto posizionamento del gateway ExpressRoute.
 
@@ -72,10 +70,10 @@ In questo caso per lo **spazio di indirizzi della rete virtuale** sono definiti 
 Di seguito vengono riepilogati gli aspetti importanti relativi a una rete virtuale di Azure che si connette a istanze Large di HANA.
 
 - È necessario inviare a Microsoft lo **spazio di indirizzi della rete virtuale** quando si esegue una distribuzione iniziale di istanze Large di HANA. 
-- Lo **spazio di indirizzi della rete virtuale** può essere un intervallo più ampio che include sia gli intervalli di indirizzi IP della subnet di macchine virtuali di Azure che l'intervallo di indirizzi IP della subnet del gateway di rete virtuale.
+- Lo **spazio di indirizzi della rete virtuale** può essere un intervallo più ampio che include sia gli intervalli di indirizzi IP della subnet di Macchine virtuali di Azure che quelli del gateway di rete virtuale.
 - In alternativa, è possibile inviare più intervalli che includono sia gli intervalli di indirizzi IP diversi della subnet di macchine virtuali che l'intervallo di indirizzi IP della subnet del gateway di rete virtuale.
 - Lo **spazio di indirizzi di rete virtuale** viene usato per la propagazione del routing BGP.
-- Il nome della subnet del gateway deve essere **"GatewaySubnet"**.
+- Il nome della subnet del gateway deve essere: **"GatewaySubnet"**.
 - Lo spazio di indirizzi viene usato come filtro sul lato dell'istanza Large di HANA per consentire o negare il traffico da Azure alle unità di istanze Large di HANA. Verificare che le informazioni sul routing BGP della rete virtuale di Azure e gli intervalli di indirizzi IP configurati per il filtro sul lato dell'istanza Large di HANA corrispondano per evitare problemi di connettività.
 - Alcuni dettagli sulla subnet del gateway vengono illustrati più avanti, nella sezione **Connessione di una rete virtuale a ExpressRoute per istanze Large di HANA**.
 
@@ -85,32 +83,34 @@ Di seguito vengono riepilogati gli aspetti importanti relativi a una rete virtua
 
 Nelle sezioni precedenti sono già stati illustrati alcuni intervalli di indirizzi IP necessari per distribuire istanze Large di HANA. Esistono tuttavia altri intervalli di indirizzi IP importanti che ora esaminiamo in dettaglio. Non è necessario inviare a Microsoft gli indirizzi IP seguenti, ma è necessario definirli prima di inviare una richiesta per la distribuzione iniziale.
 
-- **Spazio di indirizzi della rete virtuale**: come accennato in precedenza, lo **spazio di indirizzi della rete virtuale** è l'intervallo di indirizzi IP assegnato o da assegnare al parametro dello spazio di indirizzi nelle reti virtuali di Azure che si connettono all'ambiente delle istanze Large di SAP HANA.
+- **Spazio indirizzo rete virtuale**: Lo **spazio degli indirizzi della rete virtuale** è costituito dagli intervalli di indirizzi IP assegnati al parametro dello spazio degli indirizzi nelle reti virtuali di Azure. Queste reti si connettono all'ambiente dell'istanza Large di SAP HANA.
 
- Per tale parametro dello spazio di indirizzi, è consigliabile usare un valore multiriga costituito dagli intervalli di indirizzi IP della subnet di macchine virtuali di Azure e dall'intervallo di indirizzi IP della subnet del gateway di rete virtuale, come illustrato nelle figure precedenti. Questo intervallo NON deve sovrapporsi all'intervallo di indirizzi locale, di indirizzi ER-P2P e del pool di indirizzi IP del server. 
+ Per questo parametro dello spazio degli indirizzi è consigliabile usare un valore multiriga. Deve essere costituito dall'intervallo di subnet della macchina virtuale di Azure e da uno o più intervalli di subnet del gateway di Azure. Questo intervallo di subnet è stato illustrato nelle figure precedenti. NON deve sovrapporsi all'intervallo di indirizzi locale, di indirizzi ER-P2P e del pool di indirizzi IP del server. 
  
 Come si ottengono questi intervalli di indirizzi IP? 
 
-Il team o il provider del servizio di rete aziendale deve indicare uno o più intervalli di indirizzi IP che non siano già usati nella rete. Se ad esempio la subnet di macchine virtuali di Azure è 10.0.1.0/24 e la subnet del gateway di Azure (vedere sotto) è 10.0.2.0/28, lo spazio di indirizzi della rete virtuale di Azure consigliato è di due righe, ovvero 10.0.1.0/24 e 10.0.2.0/28. 
+Il team o il provider del servizio di rete aziendale deve indicare uno o più intervalli di indirizzi IP che non siano già usati nella rete. Si supponga, ad esempio, che la subnet della macchina virtuale di Azure sia 10.0.1.0/24 e che la subnet del gateway di Azure sia 10.0.2.0/28.  Per lo spazio degli indirizzi della rete virtuale di Azure è consigliabile usare le due righe seguenti: 10.0.1.0/24 e 10.0.2.0/28. 
 
-Sebbene i valori dello spazio degli indirizzi possano essere aggregati, è consigliabile fare in modo che corrispondano agli intervalli della subnet, per evitare che gli intervalli di indirizzi IP non usati vengano inavvertitamente usati nuovamente in futuro in spazi di indirizzi più grandi in altri punti della rete. **Lo spazio di indirizzi della rete virtuale è un intervallo di indirizzi IP che deve essere inviato a Microsoft quando si richiede una distribuzione iniziale**.
+Sebbene i valori dello spazio degli indirizzi possano essere aggregati, è consigliabile fare in modo che corrispondano agli intervalli della subnet, per evitare che gli intervalli di indirizzi IP non usati vengano inavvertitamente usati nuovamente in spazi di indirizzi più grandi in altri punti della rete. **Lo spazio degli indirizzi della rete virtuale è un intervallo di indirizzi IP. Deve essere inviato a Microsoft quando si richiede una distribuzione iniziale**.
 
-- **Intervallo di indirizzi IP della subnet della macchina virtuale di Azure:** come accennato in precedenza, si tratta dell'intervallo di indirizzi IP assegnato o da assegnare al parametro della subnet della rete virtuale di Azure che si connette all'ambiente delle istanze Large di SAP HANA. Questo intervallo di indirizzi IP viene usato per assegnare indirizzi IP alle macchine virtuali di Azure. Gli indirizzi IP esterni a questo intervallo potranno connettersi ai server delle istanze Large di SAP HANA. Se necessario, è possibile usare più subnet di macchine virtuali di Azure. È consigliabile usare un blocco CIDR da /24 di Microsoft per ogni subnet di macchina virtuale di Azure. Questo intervallo di indirizzi deve essere incluso nei valori usati nello spazio di indirizzi della rete virtuale di Azure. 
+- **Intervallo di indirizzi IP della subnet della macchina virtuale di Azure:** questo intervallo di indirizzi IP è quello assegnato al parametro della subnet della rete virtuale di Azure. Questo parametro è nella rete virtuale di Azure e si connette all'ambiente dell'istanza Large di SAP HANA. Questo intervallo di indirizzi IP viene usato per assegnare indirizzi IP alle macchine virtuali di Azure. Gli indirizzi IP esterni a questo intervallo potranno connettersi ai server delle istanze Large di SAP HANA. Se necessario, è possibile usare più subnet di macchine virtuali di Azure. È consigliabile usare un blocco CIDR da /24 di Microsoft per ogni subnet di macchina virtuale di Azure. Questo intervallo di indirizzi deve essere incluso nei valori usati nello spazio di indirizzi della rete virtuale di Azure. 
 
 Come si ottiene questo intervallo di indirizzi IP? 
 
 Il team o il provider del servizio di rete aziendale deve indicare uno o più intervalli di indirizzi IP che non siano già usati nella rete.
 
-- **Intervallo di indirizzi IP della subnet del gateway di rete virtuale:** di seguito sono indicate le dimensioni consigliate a seconda delle funzionalità che si intende usare.
+- **Intervallo di indirizzi IP della subnet del gateway di rete virtuale:** a seconda delle funzionalità che si prevede di usare, la dimensione consigliata è:
    - Gateway ExpressRoute con prestazioni extra: blocco indirizzi da /26, necessari per SKU di classe di tipo II.
    - Coesistenza con VPN ed ExpressRoute tramite un gateway di rete virtuale ExpressRoute ad alte prestazioni (o più piccolo): blocco indirizzi da /27.
    - Tutti gli altri casi: blocco indirizzi da /28. Questo intervallo di indirizzi deve essere incluso nei valori usati nello spazio di indirizzi della rete virtuale e deve essere incluso nei valori usati nello spazio di indirizzi della rete virtuale di Azure da inviare a Microsoft. Come si ottiene questo intervallo di indirizzi IP? Il team o il provider del servizio di rete aziendale deve indicare un intervallo di indirizzi IP che non sia già in uso nella rete. 
 
-- **Intervallo di indirizzi per la connettività ER-P2P:** si tratta dell'intervallo di indirizzi IP per la connessione ExpressRoute (ER) peer-to-peer (P2P) all'istanza Large di SAP HANA. Deve essere un intervallo di indirizzi IP CIDR da /29. Questo intervallo NON deve sovrapporsi con l'intervallo di indirizzi IP locale o altri intervalli di indirizzi IP di Azure. Viene usato per configurare la connettività ER dal gateway virtuale ExpressRoute ai server di istanze Large di SAP HANA. Come si ottiene questo intervallo di indirizzi IP? Il team o il provider del servizio di rete aziendale deve indicare un intervallo di indirizzi IP che non sia già in uso nella rete. **Questo intervallo di indirizzi IP deve essere inviato a Microsoft quando si richiede una distribuzione iniziale**.
+- **Intervallo di indirizzi per la connettività ER-P2P:** si tratta dell'intervallo di indirizzi IP per la connessione ExpressRoute (ER) peer-to-peer (P2P) all'istanza Large di SAP HANA. Deve essere un intervallo di indirizzi IP CIDR da /29. Questo intervallo NON deve sovrapporsi con l'intervallo di indirizzi IP locale o altri intervalli di indirizzi IP di Azure. Viene usato per configurare la connettività ER dal gateway virtuale ExpressRoute ai server di istanze Large di SAP HANA. Come si ottiene questo intervallo di indirizzi IP? Il team o il provider del servizio di rete aziendale deve indicare un intervallo di indirizzi IP che non sia già in uso nella rete. **Questo intervallo è un intervallo di indirizzi IP. Deve essere inviato a Microsoft quando si richiede una distribuzione iniziale**.
   
-- **Intervallo di indirizzi del pool di indirizzi IP del server:** questo intervallo di indirizzi IP viene usato per assegnare singoli indirizzi IP ai server delle istanze Large di HANA. Le dimensioni della subnet consigliate sono un blocco CIDR da /24, ma se necessario posso essere inferiori, fino a un minimo di 64 indirizzi IP. In questo intervallo i primi 30 indirizzi IP sono riservati per l'uso da parte di Microsoft. Assicurarsi di tenerne conto nella scelta delle dimensioni dell'intervallo. Questo intervallo NON deve sovrapporsi con l'indirizzo IP locale o altri indirizzi IP di Azure. Come si ottiene questo intervallo di indirizzi IP? Il team o il provider del servizio di rete aziendale deve indicare un intervallo di indirizzi IP che non sia già in uso nella rete. Un blocco CIDR univoco da /24 (scelta consigliata) da usare per l'assegnazione di indirizzi IP specifici è necessario per SAP HANA in Azure (istanze Large). **Questo intervallo di indirizzi IP deve essere inviato a Microsoft quando si richiede una distribuzione iniziale**.
+- **Intervallo di indirizzi del pool di indirizzi IP del server:** questo intervallo di indirizzi IP viene usato per assegnare singoli indirizzi IP ai server delle istanze Large di HANA. Le dimensioni della subnet consigliate sono un blocco CIDR da /24, ma se necessario posso essere inferiori, fino a un minimo di 64 indirizzi IP. In questo intervallo i primi 30 indirizzi IP sono riservati per l'uso da parte di Microsoft. Assicurarsi di tenerne conto nella scelta delle dimensioni dell'intervallo. Questo intervallo NON deve sovrapporsi con l'indirizzo IP locale o altri indirizzi IP di Azure. Come si ottiene questo intervallo di indirizzi IP? Il team o il provider del servizio di rete aziendale deve indicare un intervallo di indirizzi IP che non sia già in uso nella rete. 
+
+ **Questo intervallo di indirizzi IP deve essere inviato a Microsoft quando si richiede una distribuzione iniziale**.
  
-Anche se è necessario definire e pianificare gli intervalli di indirizzi IP descritti in precedenza, non tutti devono essere trasmessi a Microsoft. Gli intervalli di indirizzi IP per cui è necessario assegnare un nome da trasmettere a Microsoft sono i seguenti:
+È necessario definire e pianificare gli intervalli di indirizzi IP descritti in precedenza. Tuttavia, non occorre trasmetterli tutti a Microsoft. Gli intervalli di indirizzi IP per cui è necessario assegnare un nome da trasmettere a Microsoft sono i seguenti:
 
 - Spazi di indirizzi di rete virtuale di Azure
 - Intervallo di indirizzi per la connettività ER-P2P
@@ -118,7 +118,7 @@ Anche se è necessario definire e pianificare gli intervalli di indirizzi IP des
 
 Se si aggiungono altre reti virtuali che devono connettersi a istanze Large di HANA, è necessario inviare a Microsoft il nuovo spazio di indirizzi della rete virtuale di Azure da aggiungere. 
 
-Di seguito è indicato un esempio dei vari intervalli, con alcuni intervalli di esempio che è necessario configurare e inviare a Microsoft. Il valore relativo allo spazio di indirizzi della rete virtuale di Azure non è aggregato nel primo esempio, ma è definito dagli intervalli del primo intervallo di indirizzi IP della subnet di macchine virtuali di Azure e dall'intervallo di indirizzi IP della subnet del gateway di rete virtuale. 
+Di seguito è riportato un esempio dei vari intervalli, con alcuni intervalli di esempio che è necessario configurare e inviare a Microsoft. Il valore per lo spazio di indirizzi della rete virtuale di Azure non viene aggregato nel primo esempio. Tuttavia, è definito dal primo intervallo di indirizzi IP della subnet di macchine virtuali di Azure e dall'intervallo di indirizzi IP della subnet del gateway di rete virtuale. 
 
 Per usare più subnet di macchine virtuali nella rete virtuale di Azure, è necessario configurare e inviare gli intervalli di indirizzi IP aggiuntivi delle altre subnet di macchine virtuali come parte dello spazio di indirizzi della rete virtuale di Azure.
 
@@ -128,7 +128,7 @@ Per usare più subnet di macchine virtuali nella rete virtuale di Azure, è nece
 
 ![Seconda possibilità di intervalli di indirizzi IP necessari nella distribuzione minima di SAP HANA in Azure (istanze Large)](./media/hana-overview-connectivity/image5b-ip-addres-ranges-necessary-one-value.png)
 
-Come si può notare, anziché due intervalli minori che definiscono lo spazio di indirizzi della rete virtuale di Azure, si ottiene un intervallo più ampio che include 4096 indirizzi IP. Una definizione così ampia dello spazio di indirizzi lascia inutilizzati alcuni intervalli piuttosto ampi. Dato che i valori dello spazio di indirizzi della rete virtuale vengono usati per la propagazione di route BGP, l'uso degli intervalli inutilizzati in locale o in un altro punto della rete può causare problemi di routing. 
+Nell'esempio, anziché due intervalli minori che definiscono lo spazio di indirizzi della rete virtuale di Azure, si ottiene un intervallo più ampio che include 4096 indirizzi IP. Una definizione così ampia dello spazio di indirizzi lascia inutilizzati alcuni intervalli piuttosto ampi. Dato che i valori dello spazio di indirizzi della rete virtuale vengono usati per la propagazione di route BGP, l'uso degli intervalli inutilizzati in locale o in un altro punto della rete può causare problemi di routing. 
 
 È quindi consigliabile mantenere lo spazio di indirizzi strettamente allineato con l'effettivo spazio di indirizzi della subnet in uso. Se necessario, è sempre possibile aggiungere nuovi valori dello spazio di indirizzi in un secondo momento, senza incorrere in tempi di inattività della rete virtuale.
  
@@ -142,9 +142,9 @@ Dopo aver definito gli intervalli di indirizzi IP, devono succedersi gli eventi 
 2. Microsoft crea un circuito ExpressRoute tra la sottoscrizione di Azure e il timbro dell'istanza Large di HANA.
 3. Microsoft crea una rete tenant sul timbro dell'istanza Large.
 4. Microsoft configura la rete nell'infrastruttura di SAP HANA in Azure (istanze Large) per accettare gli indirizzi IP dallo spazio di indirizzi della rete virtuale di Azure che comunica con le istanze Large di HANA.
-5. In base alla SKU di SAP HANA in Azure (istanze Large) acquistato, Microsoft assegna un'unità di calcolo in una rete tenant, alloca e monta la risorsa di archiviazione e installa il sistema operativo (SUSE o RedHat Linux). Gli indirizzi IP per tali unità vengono esclusi dall'intervallo di indirizzi del pool di indirizzi del server inviato a Microsoft.
+5. In base allo SKU di SAP HANA in Azure (istanze Large) acquistato, Microsoft assegna un'unità di calcolo in una rete tenant, alloca e monta la risorsa di archiviazione e installa il sistema operativo (SUSE o Red Hat Linux). Gli indirizzi IP per tali unità vengono esclusi dall'intervallo di indirizzi del pool di indirizzi del server inviato a Microsoft.
 
-Al termine del processo di distribuzione, Microsoft fornisce i dati seguenti.
+Al termine del processo di distribuzione, Microsoft fornisce i dati seguenti:
 - Informazioni necessarie per connettere le reti virtuali di Azure al circuito ExpressRoute che connette le reti virtuali di Azure alle istanze Large di HANA:
      - Chiave/i di autorizzazione
      - PeerID ExpressRoute
@@ -152,6 +152,6 @@ Al termine del processo di distribuzione, Microsoft fornisce i dati seguenti.
 
 È anche possibile trovare la sequenza di connessione di istanze Large di HANA nel documento [SAP HANA on Azure (Large Instances) Setup](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/) (Configurazione di istanze Large di SAP HANA in Azure). Molti dei passaggi seguenti sono illustrati nella distribuzione di esempio di questo documento. 
 
-**Passaggi successivi**
+## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere [Collegare una rete virtuale alle istanze Large di HANA](hana-connect-vnet-express-route.md).

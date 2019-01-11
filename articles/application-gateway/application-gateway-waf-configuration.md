@@ -7,19 +7,16 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: f89841c7712737d2d55601c6525e975274b4a103
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: bed406f90c8da62919337c1fa9f30221b0ba8d90
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036718"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752725"
 ---
-# <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>Limiti delle dimensioni di richiesta di Web application firewall ed elenchi di esclusione (Anteprima pubblica)
+# <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limiti delle dimensioni di richiesta di Web application firewall ed elenchi di esclusione
 
 Il Web application firewall del gateway applicazione di Azure (WAF) fornisce la protezione per le Applicazioni Web. Questo articolo descrive i limiti di dimensioni di richiesta di WAF e la configurazione di elenchi di esclusione.
-
-> [!IMPORTANT]
-> La configurazione dei limiti di dimensioni di richiesta di Web application firewall e degli elenchi di esclusione è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="waf-request-size-limits"></a>Limiti di dimensioni di richiesta WAF
 
@@ -40,9 +37,9 @@ Gli elenchi di esclusione di Web Application firewall consentono agli utenti di 
 
 Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione:
 
-* Intestazioni della richiesta
+* Intestazioni richiesta
 * Cookie della richiesta
-* Corpo della richiesta
+* Request Body
 
    * Dati multiparte del modulo
    * XML
@@ -52,9 +49,9 @@ Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione:
 
 Di seguito sono riportati gli operatori di criteri di corrispondenza supportati:
 
-- **Uguale a**: questo operatore viene usato per una corrispondenza esatta. Ad esempio, per selezionare un'intestazione denominata **bearerToken**, usare l'operatore uguale a con il selettore impostato come **bearerToken**.
+- **Uguale a**:  operatore viene usato per una corrispondenza esatta. Ad esempio, per selezionare un'intestazione denominata **bearerToken**, usare l'operatore uguale a con il selettore impostato come **bearerToken**.
 - **Inizia con**: questo operatore corrisponde a tutti i campi che iniziano con il valore del selettore specificato.
-- **Termina con**: questo operatore corrisponde a tutti i campi di richiesta che terminano con il valore del selettore specificato.
+- **Termina con**:  questo operatore corrisponde a tutti i campi di richiesta che terminano con il valore del selettore specificato.
 - **Contiene**: questo operatore corrisponde a tutti i campi di richiesta che contengono il valore del selettore specificato.
 
 In tutti i casi, la corrispondenza non distingue le maiuscole e le minuscole e le espressioni regolari non sono consentite come selettori.

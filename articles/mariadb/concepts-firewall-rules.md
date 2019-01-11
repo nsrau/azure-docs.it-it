@@ -3,24 +3,22 @@ title: Regole firewall per il server Database di Azure per MariaDB
 description: Descrive le regole firewall per il server Database di Azure per MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 930e561c1777ccfcb8046c824853ebb12367cee5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 6fb9099ebfe884fc6eee58882ee23e46ba550e13
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248101"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546250"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Regole firewall per il server Database di Azure per MariaDB
 I firewall impediscono qualsiasi accesso al server del database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso al server in base all'indirizzo IP di origine di ogni richiesta.
 
 Per configurare un firewall, creare regole del firewall che specificano gli intervalli di indirizzi IP accettabili. È possibile creare regole firewall a livello di server.
 
-**Regole di firewall:** queste regole consentono ai client di accedere all'intero server Database di Azure per MariaDB, ovvero a tutti i database all'interno dello stesso server logico. Le regole del firewall a livello di server possono essere configurate usando il portale di Azure o i comandi dell'interfaccia della riga di comando di Azure. Per creare regole firewall a livello di server è necessario essere il proprietario o un collaboratore della sottoscrizione.
+**Regole del firewall:** queste regole consentono ai client di accedere all'intero server di Database di Azure per MariaDB, ovvero a tutti i database all'interno dello stesso server logico. Le regole del firewall a livello di server possono essere configurate usando il portale di Azure o i comandi dell'interfaccia della riga di comando di Azure. Per creare regole firewall a livello di server è necessario essere il proprietario o un collaboratore della sottoscrizione.
 
 ## <a name="firewall-overview"></a>Panoramica del firewall
 L'accesso al server Database di Azure per MariaDB è bloccato dal firewall per impostazione predefinita. Per iniziare a usare il server da un altro computer è necessario specificare una o più regole firewall a livello di server che consentano di accedere al server. Usare le regole firewall per specificare gli intervalli di indirizzi IP da Internet a cui concedere l'accesso. L'accesso al sito Web del portale di Azure non è determinato dalle regole firewall.
@@ -53,11 +51,11 @@ Oltre al portale di Azure, le regole del firewall possono essere gestite a livel
 ## <a name="troubleshooting-the-database-firewall"></a>Risoluzione dei problemi del firewall del database
 Quando l'accesso al server Database di Azure per MariaDB non si comporta come previsto, considerare quanto segue:
 
-* **Le modifiche all'elenco dei consentiti non sono state ancora applicate:** per rendere effettive le modifiche apportate alla configurazione del firewall del server Database di Azure per MariaDB possono essere necessari fino a cinque minuti.
+* **Le modifiche all'elenco degli indirizzi consentiti non sono state ancora applicate:** per rendere effettive le modifiche apportate alla configurazione del firewall del server di Database di Azure per MariaDB possono essere necessari fino a cinque minuti.
 
-* **L'accesso non è autorizzato oppure è stata usata una password errata:** quando un account di accesso non dispone delle autorizzazioni per il server Database di Azure per MariaDB o la password utilizzata non è corretta, la connessione al server Database di Azure per MariaDB verrà negata. La creazione di un'impostazione del firewall fornisce ai client soltanto un'opportunità di connessione al server; ogni client deve fornire le credenziali di sicurezza necessarie.
+* **L'accesso non è autorizzato oppure è stata usata una password errata:** quando un account di accesso non dispone delle autorizzazioni per il server di Database di Azure per MariaDB o la password usata non è corretta, la connessione al server di Database di Azure per MariaDB viene negata. La creazione di un'impostazione del firewall fornisce ai client soltanto un'opportunità di connessione al server; ogni client deve fornire le credenziali di sicurezza necessarie.
 
-* **Indirizzo IP dinamico:** se si dispone di una connessione Internet con indirizzi IP dinamici e si verificano problemi di comunicazione attraverso il firewall, è possibile provare una delle seguenti soluzioni:
+* **Indirizzo IP dinamico:** se si dispone di una connessione Internet con indirizzi IP dinamici e si verificano problemi di comunicazione attraverso il firewall, è possibile provare una delle soluzioni seguenti:
 
 * Chiedere al provider di servizi Internet (ISP) l'intervallo di indirizzi IP assegnato ai computer client che accedono al server Database di Azure per MariaDB, quindi aggiungere l'intervallo di indirizzi IP come una regola firewall.
 

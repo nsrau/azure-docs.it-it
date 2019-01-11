@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c4cf59e6aa7e6edc73db2e22b9fa8ce40301b07c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212965"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790334"
 ---
 <a name="saas-sell-through-azure---apis"></a>Vendita SaaS tramite Azure - API
 ==============================
@@ -62,13 +62,13 @@ Per registrare una nuova applicazione nel portale di Azure, seguire i passaggi s
     ![Registrazioni di App SaaS AD](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration.png)
 
 4.  Nella pagina Crea, immettere le informazioni di registrazione\' dell'applicazione:
-    -   **Nome:** Immettere un nome significativo per l'applicazione
+    -   **Nome**: immettere un nome significativo per l'applicazione.
     -   **Tipo di applicazione**: 
         - Selezionare **Nativa** per le [applicazioni client](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) che sono installate localmente in un dispositivo. Questa impostazione viene usata per i [client nativi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) OAuth pubblici.
         - Selezionare **App Web/API** per le [applicazioni client](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e le [applicazioni della risorsa/API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) installate su un server protetto. Questa impostazione viene utilizzata per i [client Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) OAuth riservati e i [client basati su agente utente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) pubblici.
         La stessa applicazione può anche esporre sia un'API client che un'API di risorse.
-    -   **URL di accesso**: per le applicazioni API/app Web, specificare l'URL di base dell'app. Ad esempio, **http://localhost:31544** potrebbe essere l'URL per un'app Web in esecuzione sul computer locale. Gli utenti possono quindi usare questo URL per accedere a un'applicazione client Web.
-    -   **URI di reindirizzamento**: per le applicazioni native, fornire l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico per l'applicazione, ad esempio **http://MyFirstAADApp**.
+    -   **URL di accesso**: Per le applicazioni API o le app Web, specificare l'URL di base dell'app. Ad esempio, **http://localhost:31544** potrebbe essere l'URL per un'app Web in esecuzione sul computer locale. Gli utenti possono quindi usare questo URL per accedere a un'applicazione client Web.
+    -   **URI di reindirizzamento**: per le applicazione native, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico per l'applicazione, ad esempio **http://MyFirstAADApp**.
 
         ![Registrazioni per l'App AD SaaS](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png) per esempi specifici relativi alle applicazioni Web o native, controllare le impostazioni guidate dell'avvio rapido, disponibili nella sezione Introduzione della [Guida per sviluppatori Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
 
@@ -136,7 +136,7 @@ Token di risposta di esempio:
       "ext_expires_in": "0",
       "expires_on": "15251…",
       "not_before": "15251…",
-      "resource": "b3cca048-ed2e-406c-aff2-40cf19fe7bf5",
+      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
@@ -172,7 +172,7 @@ L'azione POST nel risolvere endpoint consente agli utenti di risolvere un token 
 | x-ms-correlationid | No            | Valore stringa univoco per l'operazione sul client. Mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
 | Tipo di contenuto       | Yes          | `application/json`                                        |
 | autorizzazione      | Yes          | Il token di connessione JSON Web token (JWT).                    |
-| x-ms-marketplace-token| Yes| Il parametro di query token nell'URL quando l'utente viene reindirizzato al sito Web dell'ISV SaaS da Azure. **Notare:** l'URL decodifica il valore del token dal browser prima dell'uso.|
+| x-ms-marketplace-token| Yes| Il parametro di query token nell'URL quando l'utente viene reindirizzato al sito Web dell'ISV SaaS da Azure. **Nota:** questo token è valido solo per un'ora. Decodificare inoltre l'URL nel valore del token dal browser prima dell'uso.|
 |  |  |  |
   
 
@@ -201,7 +201,7 @@ L'azione POST nel risolvere endpoint consente agli utenti di risolvere un token 
 | **Codice di stato HTTP** | **Codice di errore**     | **Descrizione**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Token risolti.                                                            |
-| 400                  | `BadRequest`         | Mancano le intestazioni necessari oppure la versione dell'API specificata non è valida. Non è stato possibile risolvere il token in quanto non valido o scaduto. |
+| 400                  | `BadRequest`         | Mancano le intestazioni necessari oppure la versione dell'API specificata non è valida. Non è stato possibile risolvere il token in quanto non valido o scaduto. Una volta generato, il token rimane valido solo un'ora. |
 | 403                  | `Forbidden`          | Il chiamante non è autorizzato a eseguire questa operazione.                                 |
 | 429                  | `RequestThrottleId`  | Il servizio sta eseguendo l'elaborazione delle richieste, riprovare più tardi.                                |
 | 503                  | `ServiceUnavailable` | Il servizio è temporaneamente non disponibile, riprovare più tardi.                                        |
@@ -266,7 +266,7 @@ L'endpoint di sottoscrizione consente agli utenti di avviare una sottoscrizione 
 | 400                  | `BadRequest`         | Mancano le intestazioni necessarie oppure il corpo della richiesta in formato JSON non è valido. |
 | 403                  | `Forbidden`          | Il chiamante non è autorizzato a eseguire questa operazione.                   |
 | 404                  | `NotFound`           | Sottoscrizione non trovata con l'ID specificato                                  |
-| 409                  | `Conflict`           | Nella sottoscrione è in corso un'altra operazione.                     |
+| 409                  | `Conflict`           | Nella sottoscrizione è in corso un'altra operazione.                     |
 | 429                  | `RequestThrottleId`  | Il servizio sta eseguendo l’elaborazione delle richieste, riprovare più tardi.                  |
 | 503                  | `ServiceUnavailable` | Il servizio è temporaneamente non disponibile, riprovare più tardi.                          |
 |  |  |  |
@@ -513,8 +513,8 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente agli utenti di recuper
 | offerId                | string        | ID dell'offerta sottoscritta dall'utente.         |
 | planId                 | string        | ID del piano sottoscritto dall'utente.          |
 | saasSubscriptionName   | string        | Nome della sottoscrizione SaaS.                |
-| saasSubscriptionStatus | Enum          | Stato dell'operazione.  Uno dei seguenti:  <br/> - `Subscribed`: La sottoscrizione è attiva.  <br/> - `Pending`: La risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: L'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: L'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`: La sottoscrizione di Azure è sospesa.  |
-| created                | Datetime      | Valore timestamp relativo alla creazione della sottoscrizione in formato UTC. |
+| saasSubscriptionStatus | Enum          | Stato dell'operazione.  Uno dei seguenti:  <br/> - `Subscribed`: la sottoscrizione è attiva.  <br/> - `Pending`: la risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: l'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: l'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`:  la sottoscrizione di Azure è sospesa.  |
+| created                | DateTime      | Valore timestamp relativo alla creazione della sottoscrizione in formato UTC. |
 | LastModified           | Datetime      | Valore timestamp relativo alla modifica della sottoscrizione in formato UTC. |
 |  |  |  |
 
@@ -587,7 +587,7 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente all'utente di recupera
 | offerId                | string        | ID dell'offerta sottoscritta dall'utente.         |
 | planId                 | string        | ID del piano sottoscritto dall'utente.          |
 | saasSubscriptionName   | string        | Nome della sottoscrizione SaaS.                |
-| saasSubscriptionStatus | Enum          | Stato dell'operazione.  Uno dei seguenti:  <br/> - `Subscribed`: La sottoscrizione è attiva.  <br/> - `Pending`: La risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: L'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: L'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`: La sottoscrizione di Azure è sospesa.  |
+| saasSubscriptionStatus | Enum          | Stato dell'operazione.  Uno dei seguenti:  <br/> - `Subscribed`: la sottoscrizione è attiva.  <br/> - `Pending`: la risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: l'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: l'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`:  la sottoscrizione di Azure è sospesa.  |
 | created                | Datetime      | Valore timestamp relativo alla creazione della sottoscrizione in formato UTC. |
 | LastModified           | Datetime      | Valore timestamp relativo alla modifica della sottoscrizione in formato UTC. |
 |  |  |  |
@@ -612,4 +612,36 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente all'utente di recupera
 | x-ms-correlationid | Yes          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
 | x-ms-activityid    | Yes          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
 | Retry-After        | No            | Intervallo per cui il client può controllare lo stato.                                                       |
+|  |  |  |
+
+### <a name="saas-webhook"></a>Webhook SaaS
+
+Un webhook SaaS viene usato per notificare le modifiche in modo proattivo al servizio SaaS. Questa API POST deve essere non autenticata e verrà chiamata dal servizio Microsoft. Il servizio SaaS dovrà chiamare l'API delle operazioni per la convalida e l'autorizzazione prima di intraprendere un'azione in base alla notifica del webhook. 
+
+
+*Corpo*
+
+``` json
+  { 
+    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
+    "offerId": "sampleSaaSOffer", // Provided with "Update" action
+    "publisherId": "contoso", 
+    "planId": "silver",     // Provided with "Update" action
+    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Update
+    "timeStamp": "2018-12-01T00:00:00"
+  }
+```
+
+| **Nome parametro**     | **Tipo di dati** | **Descrizione**                               |
+|------------------------|---------------|-----------------------------------------------|
+| id  | string       | ID univoco per l'operazione attivata.                |
+| activityId   | string        | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni.               |
+| subscriptionId                     | string        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
+| offerId                | string        | ID dell'offerta sottoscritta dall'utente. Fornito solo con l'azione di aggiornamento.        |
+| publisherId                | string        | ID dell'autore dell'offerta SaaS.         |
+| planId                 | string        | ID del piano sottoscritto dall'utente. Fornito solo con l'azione di aggiornamento.          |
+| action                 | string        | Azione che attiva questa notifica. I valori possibili sono Activate, Delete, Suspend, Reinstate, Update.          |
+| Timestamp                 | string        | Valore del timestamp in UTC in cui questa notifica è stata attivata.          |
 |  |  |  |

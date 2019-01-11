@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 0f376d6b1108b784af37b5e50dab9edba63e5f76
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0b2e49bb0e269c91ed6a1bf7294565a729082db3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713096"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975135"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Ridimensionamento automatico del cluster su Azure Kubernetes Service (AKS) - Anteprima
 
@@ -398,7 +398,7 @@ Lo stato di ridimensionamento automatico del cluster può essere visualizzato in
     * Un candidato per la riduzione delle prestazioni è un nodo che il ridimensionamento automatico del cluster ha determinato come rimovibile senza influire sulla capacità del cluster di gestire il proprio carico di lavoro. 
     * I tempi forniti indicano l'ultima volta che il cluster è stato controllato per individuare eventuali candidati per la riduzione delle prestazioni e la data e l'ora dell'ultima transazione.
 
-Infine, alla voce Events è possibile visualizzare qualsiasi evento di aumento o riduzione delle prestazioni, riuscito o non riuscito, insieme ai rispettivi momenti, eseguito dal ridimensionamento automatico del cluster.
+Alla voce Events, infine, è possibile visualizzare qualsiasi evento di aumento o riduzione delle prestazioni, riuscito o non riuscito, insieme ai rispettivi momenti, eseguito dal ridimensionamento automatico del cluster.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

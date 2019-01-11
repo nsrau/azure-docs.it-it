@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 12/05/2018
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 46618b76f43247199e85c2023a5391c5566f3394
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978747"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729340"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Guide introduttive ed esercitazioni
 
@@ -39,6 +39,7 @@ Usare le seguenti guide introduttive ed esercitazioni per imparare a sviluppare 
     |------|-----|
     |[Utilizzare il riferimento del modello](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilizzare la documentazione di riferimento dei modelli per lo sviluppo di modelli. Nell'esercitazione, trovare lo schema dell'account di archiviazione e usare le informazioni per creare un account di archiviazione crittografato.|
     |[Creare più istanze](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|Creare più istanze di risorse di Azure. Nell'esercitazione si creeranno più istanze dell'account di archiviazione.|
+    |[Spostare le risorse](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|Spostare le risorse da un gruppo di risorse a un altro. Nell'esercitazione si eseguirà un modello esistente per creare due gruppi di risorse e un account di archiviazione e quindi si eseguirà un cmdlet di Azure PowerShell per spostare l'account di archiviazione all'altro gruppo di risorse.|
     |[Impostare l'ordine di distribuzione delle risorse](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|Definire le dipendenze delle risorse. Nell'esercitazione, verranno create una rete virtuale, una macchina virtuale e le risorse di Azure dipendenti. Si apprenderà come vengono definite le dipendenze.|
     |[Usare le condizioni](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|Distribuire le risorse basate su alcuni valori di parametro. Nell'esercitazione, si definisce un modello per creare un nuovo account di archiviazione oppure usarne uno esistente in base al valore di un parametro.|
     |[Integrare Key Vault](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Recuperare i segreti/le password di Azure Key Vault. Nell'esercitazione, verrà creata una macchina virtuale.  La password amministratore della macchina virtuale viene recuperata da un Key Vault.|

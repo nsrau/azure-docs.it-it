@@ -11,20 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/20/2018
 ms.author: douglasl
-ms.openlocfilehash: ef93c62a2e2084a43eeda578c889a568d04db4f1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4b185236e5925152acb5f8a733e117186a2318cf
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855212"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53740893"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Attività della funzione di Azure in Azure Data Factory
 
 L'attività della funzione di Azure consente di eseguire le [funzioni di Azure](../azure-functions/functions-overview.md) in una pipeline di Data Factory. Per eseguire una funzione di Azure, è necessario creare una connessione al servizio collegato e un'attività che specifica la funzione di Azure che si intende eseguire.
 
 ## <a name="azure-function-linked-service"></a>Servizio collegato della funzione di Azure
+
+Il tipo restituito della funzione di Azure deve essere un JObject valido. Qualsiasi altro tipo non riesce e genera l'errore utente generico *Error calling endpoint* (Errore durante la chiamata all'endpoint).
 
 | **Proprietà** | **Descrizione** | **Obbligatorio** |
 | --- | --- | --- |
@@ -37,16 +39,22 @@ L'attività della funzione di Azure consente di eseguire le [funzioni di Azure](
 
 | **Proprietà**  | **Descrizione** | **Valori consentiti** | **Obbligatorio** |
 | --- | --- | --- | --- |
-| name  | Nome dell'attività nella pipeline  | Stringa | Sì |
-| type  | Il tipo di attività è 'AzureFunctionActivity' | Stringa | Sì |
+| name  | Nome dell'attività nella pipeline  | string | Sì |
+| type  | Il tipo di attività è 'AzureFunctionActivity' | string | Sì |
 | linked service | Servizio collegato della funzione di Azure collegata per l'app per le funzioni di Azure corrispondente  | Riferimento del servizio collegato | Sì |
-| function name  | Nome della funzione nell'app per le funzioni di Azure chiamata dall'attività | Stringa | Sì |
-| method  | Metodo dell'API REST per la chiamata di funzione | Tipi supportati di stringa: "GET", "POST", "PUT"   | Sì |
-| header  | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare la lingua e il tipo in una richiesta: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Stringa (o un'espressione con l'elemento resultType della stringa) | No  |
-| body  | Corpo inviato insieme alla richiesta al metodo API della funzione  | Stringa (o espressione con l'elemento resultType della stringa).   | Obbligatorio per i metodi POST e PUT |
+| function name  | Nome della funzione nell'app per le funzioni di Azure chiamata dall'attività | string | Sì |
+| statico  | Metodo dell'API REST per la chiamata di funzione | Tipi supportati di stringa: "GET", "POST", "PUT"   | Sì |
+| intestazione  | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare la lingua e il tipo in una richiesta: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Stringa (o un'espressione con l'elemento resultType della stringa) | No  |
+| Corpo  | Corpo inviato insieme alla richiesta al metodo API della funzione  | Stringa (o espressione con l'elemento resultType della stringa) o oggetto.   | Obbligatorio per i metodi POST e PUT |
 |   |   |   | |
 
 Vedere lo schema del payload della richiesta nella sezione  [Schema del payload della richiesta](control-flow-web-activity.md#request-payload-schema) .
+
+## <a name="more-info"></a>Altre informazioni
+
+L'attività di Funzione di Azure supporta il **routing**. Ad esempio, se l'app usa il routing seguente: `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>`, `functionName` è `functionName/{value}`, che può essere parametrizzato per fornire il `functionName` desiderato in fase di esecuzione.
+
+L'attività di Funzione di Azure supporta anche le **query**. Una query deve far parte del `functionName`, ad esempio in `HttpTriggerCSharp2?name=hello`, dove il `function name` è `HttpTriggerCSharp2`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

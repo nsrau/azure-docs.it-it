@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240393"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547595"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replica con Istanza gestita di database SQL
 
@@ -63,6 +63,8 @@ Il database di pubblicazione e il database di distribuzione nel database SQL di 
 - Per la connettività viene usata l'autenticazione SQL tra i partecipanti alla replica.
 
 - Una condivisione di account di archiviazione di Azure per la directory di lavoro della replica.
+
+- La porta 445 (porta in uscita TCP) deve essere aperta nelle regole di sicurezza della subnet di Istanza gestita per poter accedere alla condivisione file di Azure
 
 ## <a name="features"></a>Funzionalità
 

@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi una configurazione di tipo scale-out per SAP HANA 2.0 basata su HSR-Pacemaker con SLES 12 SPE3 su macchine virtuali di Azure | Microsoft Docs
+title: Risoluzione dei problemi di scale-out SAP HANA 2.0 con impostazione HSR-Pacemaker su SLES 12 SPE3 in macchine virtuali Azure | Microsoft Docs
 description: Informazioni per verificare e risolvere i problemi relativi a una complessa configurazione di tipo scale-out a disponibilità elevata per SAP HANA, basata su SAP HANA System Replication (HSR) e Pacemaker, su SLES 12 SP3 in esecuzione su macchine virtuali di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: f86107c5fcd4c0175d59689718dca15736aa3b17
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fb4fed2aa6b80ceb37dde1205996a16f0c30bdd4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497352"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994715"
 ---
-# <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificare e risolvere i problemi relativi a una configurazione di tipo scale-out a disponibilità elevata per SAP HANA su SLES 12 SP3 
+# <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificare e risolvere i problemi di impostazione di tipo scale-out a disponibilità elevata per SAP HANA su SLES 12 SP3 
 
 [sles-pacemaker-ha-guide]:high-availability-guide-suse-pacemaker.md
 [sles-hana-scale-out-ha-paper]:https://www.suse.com/documentation/suse-best-practices/singlehtml/SLES4SAP-hana-scaleOut-PerfOpt-12/SLES4SAP-hana-scaleOut-PerfOpt-12.html
@@ -35,13 +35,13 @@ ms.locfileid: "52497352"
 [sles-12-for-sap]:https://www.suse.com/media/white-paper/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 
 
-Questo articolo presenta informazioni utili per verificare la configurazione del cluster Pacemaker per lo scale-out di SAP HANA in esecuzione su macchine virtuali di Azure. La configurazione del cluster è stata eseguita in combinazione con SAP HANA System Replication (HSR) e il pacchetto RPM SUSE SAPHanaSR-ScaleOut. Tutti i test sono stati eseguiti esclusivamente su SUSE SLES 12 SP3. Le sezioni dell'articolo trattano diverse aree e includono comandi di esempio ed estratti dai file di configurazione. È consigliabile usare questi esempi come metodo per verificare la configurazione dell'intero cluster.
+Questo articolo presenta informazioni utili per verificare la configurazione del cluster Pacemaker per lo scale-out di SAP HANA in esecuzione su macchine virtuali di Azure. È stata eseguita l'installazione del cluster in combinazione con SAP HANA System Replication (HSR) e il pacchetto RPM SUSE SAPHanaSR-scale-out. Tutti i test sono stati eseguiti esclusivamente su SUSE SLES 12 SP3. Le sezioni dell'articolo trattano diverse aree e includono comandi di esempio ed estratti dai file di configurazione. È consigliabile usare questi esempi come metodo per verificare la configurazione dell'intero cluster.
 
 
 
 ## <a name="important-notes"></a>Note importanti
 
-Tutti i test per lo scale-out di SAP HANA in combinazione con SAP HANA System Replication e Pacemaker sono stati eseguiti solo con SAP HANA 2.0. Come versione del sistema operativo è stata usata SUSE Linux Enterprise Server 12 SP3 per applicazioni SAP. Per configurare il cluster Pacemaker è stato usato il pacchetto RPM più recente, SAPHanaSR-ScaleOut di SUSE.
+Tutti i test per scale-out di SAP HANA in combinazione con SAP HANA System Replication e Pacemaker sono stati eseguiti solo con SAP HANA 2.0. Come versione del sistema operativo è stata usata SUSE Linux Enterprise Server 12 SP3 per applicazioni SAP. Per configurare il cluster Pacemaker è stato usato il pacchetto RPM più recente, SAPHanaSR-ScaleOut di SUSE.
 SUSE ha pubblicato una [descrizione dettagliata di questa configurazione ottimizzata per le prestazioni][sles-hana-scale-out-ha-paper].
 
 Per i tipi di macchina virtuale supportati per lo scale-out di SAP HANA, consultare la [directory IaaS certificata di SAP HANA][sap-hana-iaas-list].
@@ -51,7 +51,7 @@ Si è verificato un problema tecnico con lo scale-out di SAP HANA in combinazion
 * rev2.00.024.04 o successiva 
 * rev2.00.032 o successiva
 
-Se è necessario il supporto tecnico di SUSE, seguire questa [guida][suse-pacemaker-support-log-files]. Raccogliere tutte le informazioni relative al cluster a disponibilità elevata di SAP HANA come illustrato nell'articolo. Il supporto tecnico di SUSE necessita di queste informazioni per un'ulteriore analisi.
+Se è necessario il supporto tecnico di SUSE, seguire questa [guida][suse-pacemaker-support-log-files]. Raccogliere tutte le informazioni relative al cluster a disponibilità elevata di SAP HANA come illustrato nell'articolo. Il supporto SUSE necessita di queste informazioni per un'ulteriore analisi.
 
 Durante i test interni, la configurazione del cluster è rimasta confusa in seguito a un arresto normale standard di una macchina virtuale tramite il portale di Azure. È quindi consigliabile testare un failover del cluster con altri metodi, ad esempio forzando un kernel panic, arrestando le reti o eseguendo la migrazione della risorsa **msl**. Vedere i dettagli nelle sezioni seguenti. Il presupposto è che un arresto standard si verifichi intenzionalmente. Il miglior esempio di arresto intenzionale è l'arresto per manutenzione. Vedere i dettagli in [Manutenzione pianificata](#planned-maintenance).
 
@@ -66,7 +66,7 @@ Quando si usa il comando **crm migrate**, assicurarsi di pulire la configurazion
  Per la verifica e la certificazione della disponibilità elevata del sistema di tipo scale-out di SAP HANA è stata usata una configurazione costituita da due sistemi, ciascuno con tre nodi di SAP HANA, uno master e due di lavoro. La tabella seguente elenca i nomi delle macchine virtuali e gli indirizzi IP interni. Tutti gli esempi di verifica riportati più in avanti sono stati eseguiti su queste macchine virtuali. Usando questi nomi di macchina virtuale e questi indirizzi IP negli esempi di comandi è possibile comprendere più facilmente i comandi e il relativo output:
 
 
-| Tipo di nodo | Nome della VM | Indirizzo IP |
+| Tipo di nodo | Nome della VM. | Indirizzo IP |
 | --- | --- | --- |
 | Nodo master nel sito 1 | hso-hana-vm-s1-0 | 10.0.0.30 |
 | Nodo di lavoro 1 nel sito 1 | hso-hana-vm-s1-1 | 10.0.0.31 |
@@ -128,7 +128,7 @@ select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
 
 Per trovare tutte le porte usate nello stack di software SAP, incluso SAP HANA, cercare in [TCP/IP ports of all SAP products][sap-list-port-numbers] (Porte TCP/IP di tutti i prodotti SAP).
 
-Dato il numero di istanza **00** nel sistema di test di SAP HANA 2.0, il numero di porta per il server dei nomi è **30001**. Il numero di porta per le comunicazioni dei metadati HSR è **40002**. Un'opzione consiste nell'accedere a un nodo di lavoro e quindi controllare i servizi del nodo master. Per questo articolo, si è controllato il nodo di lavoro 2 nel sito 2 provando a connettersi al nodo master nel sito 2.
+Dato il numero di istanza **00** nel sistema di test di SAP HANA 2.0, il numero di porta per il server dei nomi è **30001**. Il numero di porta per le comunicazioni dei metadati HSR è **40002**. Un'opzione è accedere a un nodo di lavoro, quindi controllare i servizi del nodo master. Per questo articolo, si è controllato il nodo di lavoro 2 nel sito 2 provando a connettersi al nodo master nel sito 2.
 
 Controllare la porta del server dei nomi:
 
@@ -173,7 +173,7 @@ Il file di configurazione **corosync** deve essere corretto in ogni nodo del clu
 
 Un esempio è offerto dal contenuto di **corosync.conf** del sistema di test.
 
-La prima sezione è **totem**, come descritto nel passaggio 11 della procedura di [installazione del cluster](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation). È possibile ignorare il valore per **mcastaddr**. È sufficiente mantenere la voce esistente. Le voci relative a **token** e **consensus** devono essere impostate in base alla [documentazione di SAP HANA in Microsoft Azure][sles-pacemaker-ha-guide].
+La prima sezione è **totem**, come descritto nel passaggio 11 della procedura di [installazione del cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation). È possibile ignorare il valore per **mcastaddr**. È sufficiente mantenere la voce esistente. Le voci relative a **token** e **consensus** devono essere impostate in base alla [documentazione di SAP HANA in Microsoft Azure][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -280,7 +280,7 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>Dispositivo SBD
 
-Le istruzioni per configurare un dispositivo SBD su una macchina virtuale di Azure sono riportate nella sezione [Isolamento tramite SBD](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
+Le istruzioni per configurare un dispositivo SBD su una macchina virtuale di Azure sono riportate nella sezione [Isolamento tramite SBD](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
 
 Per prima cosa, verificare se sulla macchina virtuale del server SBD sono presenti voci ACL per ogni nodo del cluster. Eseguire il seguente comando sulla macchina virtuale del server SBD:
 
@@ -351,7 +351,7 @@ L'output dovrebbe avere un aspetto simile all'esempio seguente:
 10.0.0.19:3260,1 iqn.2006-04.dbhso.local:dbhso
 </code></pre>
 
-Il punto di prova successivo consiste nel verificare che il nodo rilevi il dispositivo SDB. Eseguire la verifica su ogni nodo, compreso il nodo di maggioranza:
+Il punto di prova successivo consiste nel verificare che il nodo rilevi il dispositivo SDB. Verificare su ogni nodo, compreso il nodo di maggioranza:
 
 <pre><code>
 lsscsi | grep dbhso
@@ -423,7 +423,7 @@ Sul lato della macchina virtuale di destinazione, che in questo esempio è **hso
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Verificare che le voci in **/etc/sysconfig/sbd** corrispondano alla descrizione in [Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Verificare che l'impostazione di avvio in **/etc/iscsi/iscsid.conf** sia impostata su automatic.
+Verificare che le voci in **/etc/sysconfig/sbd** corrispondano alla descrizione in [Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Verificare che l'impostazione di avvio in **/etc/iscsi/iscsid.conf** sia impostata su automatico.
 
 Le voci seguenti sono importanti in **/etc/sysconfig/sbd**. Adattare il valore di **id**, se necessario:
 
@@ -473,7 +473,7 @@ Dopo aver completato la configurazione, è possibile eseguire il comando seguent
 systemctl status pacemaker
 </code></pre>
 
-La parte superiore dell'output dovrebbe avere un aspetto simile all'esempio seguente. È importante che lo stato, dopo **Active**, sia visualizzato come **loaded** e **active (running)**. Lo stato dopo **Loaded** deve essere visualizzato come **enabled**.
+La parte superiore dell'output dovrebbe avere un aspetto simile all'esempio seguente. È importante che lo stato, dopo **Attivo**, sia visualizzato come **caricato** e **attivo (in esecuzione)**. Lo stato dopo **Loaded** deve essere visualizzato come **enabled**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -821,7 +821,7 @@ Al termine delle operazioni di manutenzione, si arresta la modalità di manutenz
 
 
 
-## <a name="hbreport-to-collect-log-files"></a>Utilità hb_report per la raccolta dei file di log
+## <a name="hbreport-to-collect-log-files"></a>oggetto hb_report per raccogliere i file di log
 
 Per analizzare i problemi del cluster Pacemaker è utile, nonché richiesto dal supporto tecnico di SUSE, eseguire l'utilità **hb_report**. Questa utilità raccoglie tutti i file di log importanti che sono necessari per analizzare che cosa è successo. La chiamata di esempio seguente usa l'ora di inizio e di fine di un intervallo di tempo in cui si è verificato un determinato evento imprevisto. Vedere anche [Note importanti](#important-notes):
 
@@ -836,7 +836,7 @@ The report is saved in /tmp/hb_report_log.tar.bz2
 Report timespan: 09/13/18 07:36:00 - 09/13/18 08:00:00
 </code></pre>
 
-È quindi possibile estrarre i singoli file tramite il comando standard **tar**:
+È possibile quindi estrarre i file individuali tramite il comando standard **tar**:
 
 <pre><code>
 tar -xvf hb_report_log.tar.bz2
@@ -901,7 +901,7 @@ Sep 13 07:38:02 [4184] hso-hana-vm-s2-0       crmd:     info: pcmk_cpg_membershi
 
 
 
-## <a name="sap-hana-globalini"></a>File global.ini di SAP HANA
+## <a name="sap-hana-globalini"></a>global.ini di SAP HANA
 
 
 Di seguito sono riportati alcuni estratti del file **global.ini** di SAP HANA nel sito 2 del cluster. Questo esempio mostra le voci di risoluzione dei nomi host per l'uso di reti diverse per le comunicazioni tra nodi di SAP HANA e HSR:

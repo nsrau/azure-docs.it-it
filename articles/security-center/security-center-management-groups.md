@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964118"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720816"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come iniziare a eseguire diverse azioni che ottimizzano i vantaggi offerti dal Centro sicurezza di Azure. Queste azioni consentono di ottenere visibilità su tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory e di gestire in modo efficiente la sicurezza dell'organizzazione su vasta scala applicando i criteri di sicurezza in più sottoscrizioni secondo una logica aggregativa.
@@ -71,13 +71,13 @@ Un amministratore del tenant di Azure Active Directory non ha accesso diretto al
 
    ![Proprietà di Azure AD - Screenshot](./media/security-center-management-groups/aad-properties.png)
 
-3. In **Gli amministratori globali possono gestire le sottoscrizioni di Azure e i gruppi di gestione** impostare l'opzione su **Sì**.
+3. In **Access management for Azure resources** (Gestione degli accessi per le risorse di Azure) impostare l'interruttore su **Sì**.
 
    ![Gli amministratori globali possono gestire le sottoscrizioni di Azure e i gruppi di gestione - Screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - Quando si imposta l'opzione su **Sì**, l'account di amministratore globale (utente attualmente connesso) viene aggiunto al ruolo Amministratore Accesso utenti nel Controllo degli accessi in base al ruolo di Azure all'ambito radice (`/`), concedendo all'utente l'accesso per visualizzare e creare report per tutte le sottoscrizioni di Azure associate al tenant di Azure AD.
+   - Quando si imposta l'interruttore su Sì, si viene assegnati al ruolo Amministratore Accesso utenti in Controllo degli accessi in base al ruolo Azure nell'ambito radice (/). In questo modo si ottiene l'autorizzazione ad assegnare ruoli in tutte le sottoscrizioni e i gruppi di gestione di Azure associati a questa directory di Azure AD. Questo interruttore è disponibile solo per gli utenti a cui è assegnato il ruolo Amministratore globale in Azure AD.
 
-   - Quando si imposta l'opzione su **No**, l'account di amministratore globale (utente attualmente connesso) viene rimosso dal ruolo Amministratore Accesso utenti nel Controllo degli accessi in base al ruolo di Azure. Non è possibile visualizzare tutte le sottoscrizioni di Azure associate al tenant di Azure AD ed è possibile visualizzare e gestire solo le sottoscrizioni di Azure a cui è stato concesso l'accesso.
+  - Quando si imposta l'interruttore su No, il ruolo Amministratore Accesso utenti in Controllo degli accessi in base al ruolo Azure viene rimosso dall'account utente. Non è quindi più possibile assegnare ruoli in tutte le sottoscrizioni e i gruppi di gestione di Azure associati a questa directory di Azure AD. È possibile visualizzare e gestire solo le sottoscrizioni e i gruppi di gestione di Azure ai quali si ha accesso.
 
 4. Fare clic su **Salva** per salvare l'impostazione.
 

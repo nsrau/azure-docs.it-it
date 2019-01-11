@@ -7,26 +7,26 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/24/2018
 ms.author: juliako
-ms.openlocfilehash: ae8634fbfdaa250cbabda6189c6c2eeef8e5e4f1
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 58124ab5938c7bee9f83a8c37ab5c5618b4b7d54
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292029"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789824"
 ---
 # <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
 
 Video Indexer di Azure è un'applicazione cloud creata sulla base di Analisi Servizi multimediali di Azure, Ricerca di Azure, Servizi cognitivi (ad esempio API Viso, Microsoft Translator, API Visione artificiale e Servizio di riconoscimento vocale personalizzato). Consente di estrarre informazioni dettagliate dai video tramite i modelli di Video Indexer descritti di seguito:
  
 - **Rilevamento automatico della lingua**: identifica automaticamente la lingua parlata dominante. Le lingue supportate sono italiano, inglese, spagnolo, francese, tedesco, cinese (semplificato), giapponese, russo e portoghese (brasiliano). Se non è possibile rilevare la lingua, verrà usato per impostazione predefinita l'inglese.
-- **Trascrizione audio**: converte il parlato in testo in 10 lingue e consente estensioni. Le lingue supportate sono italiano, inglese, spagnolo, francese, tedesco, cinese (semplificato), giapponese, arabo russo e portoghese (brasiliano).
-- **Sottotitoli codificati**: consente di creare sottotitoli in tre formati: VTT, TTML, SRT.
+- **Trascrizione audio**: converte la voce in testo in 12 lingue diverse e consente le estensioni. Le lingue supportate sono italiano, inglese, spagnolo, francese, tedesco, cinese (semplificato), giapponese, arabo, russo, portoghese (brasiliano), hindi e coreano.
+- **Sottotitoli**: consente di creare sottotitoli in tre formati: VTT, TTML e SRT.
 - **Elaborazione a due canali**: rileva automaticamente trascrizioni separate e le unisce in una singola sequenza temporale.
-- **Riduzione del rumore**: ripulisce le registrazioni audio di telefonia o le registrazioni con rumori (in base ai filtri Skype).
+- **Riduzione del rumore**:  ripulisce le registrazioni audio di telefonia o le registrazioni con rumori (in base ai filtri Skype).
 - **Personalizzazione della trascrizione (CRIS)**: esegue il training ed esegue modelli di riconoscimento vocale personalizzati per creare trascrizioni specifiche del settore.
-- **Enumerazione dei relatori**: identifica e riconosce quale relatore ha pronunciato determinate parole e quando.
+- **Enumerazione dei relatori**:  identifica e riconosce quale relatore ha pronunciato determinate parole e quando.
 - **Statistiche dei relatori**: fornisce statistiche in merito al parlato dei relatori.
 - **Riconoscimento del testo visivo (OCR)**: estrae il testo visualizzato nel video.
 - **Estrazione di fotogrammi chiave**: rileva i fotogrammi chiave stabili in un video.
@@ -43,7 +43,7 @@ Video Indexer di Azure è un'applicazione cloud creata sulla base di Analisi Ser
 - **Rilevamento inquadratura**: determina i cambi di scena nel video.
 - **Rilevamento fotogramma nero**: identifica i fotogrammi neri presentati nel video.
 - **Effetti audio**: identifica effetti audio, come applausi, parlato e silenzio.
-- **Inferenza degli argomenti**: deriva gli argomenti principali dalle trascrizioni. È inclusa la tassonomia [IPTC](https://iptc.org/standards/media-topics/) di primo livello.
+- **Inferenza dell'argomento**: deduce gli argomenti principali dalle trascrizioni. È inclusa la tassonomia [IPTC](https://iptc.org/standards/media-topics/) di primo livello.
 - **Rilevamento delle emozioni**: identifica le emozioni in base a segnali vocali e audio. L'emozione potrebbe essere gioia, tristezza, rabbia o paura.
 - **Artefatti**: estrae un ampio set di artefatti con "livello di dettaglio successivo" per ognuno dei modelli.
 - **Traduzione**: crea traduzioni della trascrizione audio in 54 lingue diverse.

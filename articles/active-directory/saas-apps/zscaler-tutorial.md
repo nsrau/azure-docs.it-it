@@ -4,7 +4,8 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 68c453f7-aff1-4614-92d3-9b86f3ad99dc
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -12,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 68ddeefd9cbfadb3081885819506b6e916d03354
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: af7489147c85eadd17a2f0849e630d89ec52151b
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446800"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler
 
@@ -27,11 +28,11 @@ Questa esercitazione descrive come integrare Zscaler con Azure Active Directory 
 
 L'integrazione di Zscaler con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Zscaler
-- È possibile abilitare gli utenti per l'accesso automatico a Zscaler (Single Sign-On) con i propri account Azure AD
+- È possibile controllare in Azure AD chi può accedere a Zscaler.
+- È possibile abilitare gli utenti per l'accesso automatico a Zscaler (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,54 +47,50 @@ Per configurare l'integrazione di Azure AD con Zscaler sono necessari gli elemen
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
+
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Zscaler dalla raccolta
-1. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-zscaler-from-the-gallery"></a>Aggiunta di Zscaler dalla raccolta
+
 Per configurare l'integrazione di Zscaler in Azure AD, è necessario aggiungere Zscaler dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Zscaler dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
-    ![Active Directory][1]
+    ![Pulsante Azure Active Directory][1]
 
-1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![APPLICAZIONI][2]
-    
-1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+    ![Pannello Applicazioni aziendali][2]
 
-    ![APPLICAZIONI][3]
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-1. Nella casella di ricerca digitare **Zscaler**.
+    ![Pulsante Nuova applicazione][3]
 
-    ![Creazione di un utente test di Azure AD](./media/zscaler-tutorial/tutorial_zscaler_search.png)
+4. Nella casella di ricerca digitare **Zscaler**, selezionare **Zscaler** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-1. Nel pannello dei risultati selezionare **Zscaler** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+    ![Zscaler nell'elenco risultati](./media/zscaler-tutorial/tutorial_zscaler_addfromgallery.png)
 
-    ![Creazione di un utente test di Azure AD](./media/zscaler-tutorial/tutorial_zscaler_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Zscaler in base a un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Zscaler che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Zscaler.
 
-Per stabilire la relazione di collegamento, in Zscaler assegnare il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente).
-
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Zscaler, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-1. **[Configurazione delle impostazioni proxy](#configuring-proxy-settings)**: per configurare le impostazioni proxy in Internet Explorer
-1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creazione di un utente di test di Zscaler](#creating-a-zscaler-test-user)**: per avere una controparte di Britta Simon in Zscaler collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente di test di Zscaler](#creating-a-zscaler-test-user)**: per avere una controparte di Britta Simon in Zscaler collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -103,70 +100,101 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Zscaler** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configure Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On][4]
 
-1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Configure Single Sign-On](./media/zscaler-tutorial/tutorial_zscaler_samlbase.png)
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
-1. Nella sezione **URL e dominio Zscaler** seguire questa procedura:
+    ![Configure Single Sign-On](common/tutorial_general_301.png)
 
-    ![Configure Single Sign-On](./media/zscaler-tutorial/tutorial_zscaler_url.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.zsclaer.net`
+    ![Configure Single Sign-On](common/editconfigure.png)
+
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
+
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Zscaler](./media/zscaler-tutorial/tutorial_zscaler_url.png)
+
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.zscaler.net`
 
     > [!NOTE] 
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Zscaler](https://www.zscaler.com/company/contact). 
+    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Zscaler](https://www.zscaler.com/company/contact).
 
-1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+5. L'applicazione Zscaler prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente e attestazioni** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente e attestazioni**.
 
-    ![Configure Single Sign-On](./media/zscaler-tutorial/tutorial_zscaler_certificate.png) 
+    ![Collegamento Attributi](./media/zscaler-tutorial/tutorial_zscaler_attribute.png)
 
-1. Fare clic sul pulsante **Salva** .
+6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/zscaler-tutorial/tutorial_general_400.png)
+    | NOME  | Source Attribute  |
+    | ---------| ------------ |
+    | memberOf     | user.assignedroles |
 
-1. Nella sezione **Configurazione di Zscaler** fare clic su **Configura Zscaler** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
+    a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![Configure Single Sign-On](./media/zscaler-tutorial/tutorial_zscaler_configure.png) 
+    ![image](./common/new_save_attribute.png)
+    
+    ![image](./common/new_attribute_details.png)
 
-1. In un'altra finestra del Web browser accedere al sito aziendale di Zscaler come amministratore.
+    b. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo.
 
-1. Scegliere **Amministrazione**dal menu disponibile nella parte superiore.
+    c. Fare clic su **OK**.
+
+    d. Fare clic su **Save**.
+
+    > [!NOTE]
+    > Fare clic [qui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) per sapere come configurare un Ruolo in Azure AD
+
+7. Nella pagina **Certificato di firma SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare **Certificato (Base64)** e salvare il file di certificato nel computer in uso.
+
+    ![Collegamento di download del certificato](./media/zscaler-tutorial/tutorial_zscaler_certificate.png) 
+
+8. Nella sezione **Configura Zscaler** copiare l'URL appropriato in base alle proprie esigenze.
+
+    a. URL di accesso
+
+    b. Identificatore di Azure AD
+
+    c. URL di chiusura sessione
+
+    ![Configurazione di Zscaler](common/configuresection.png)
+
+9. In un'altra finestra del Web browser accedere al sito aziendale di Zscaler come amministratore.
+
+10. Passare a **Amministrazione > Autenticazione > Impostazioni di autenticazione** ed eseguire i passaggi seguenti:
    
     ![Amministrazione](./media/zscaler-tutorial/ic800206.png "Amministrazione")
 
-1. In **Manage Administrators & Roles** (Gestisci amministratori e ruoli) fare clic su **Manage Users & Authentication** (Gestisci utenti e autenticazione).   
+    a. In Tipo di autenticazione scegliere **SAML**.
+
+    b. Fare clic su **Configure SAML**.
+
+11. Nella finestra **Modifica SAML** eseguire i passaggi seguenti e fare clic su Salva.  
             
-    ![Gestire utenti e autenticazione](./media/zscaler-tutorial/ic800207.png "Gestire utenti e autenticazione")
-
-1. Nella sezione **Choose Authentication Options for your Organization** seguire questa procedura:   
-                
-    ![Autenticazione](./media/zscaler-tutorial/ic800208.png "Autenticazione")
-   
-    a. Selezionare **Authenticate using SAML Single Sign-On**.
-
-    b. Fare clic su **Configure SAML Single Sign-On Parameters**.
-
-1. Nella pagina della finestra di dialogo **Configure SAML Single Sign-On Parameters** (Configura parametri accesso Single Sign-On SAML) procedere come descritto di seguito e quindi fare clic su **Done** (Fine)
-
-    ![Single Sign-On](./media/zscaler-tutorial/ic800209.png "Single Sign-On")
+    ![Gestire utenti e autenticazione](./media/zscaler-tutorial/ic800208.png "Gestire utenti e autenticazione")
     
-    a. Incollare il valore dell'**URL del servizio Single Sign-On SAML** copiato dal portale di Azure nella casella di testo **URL of the SAML Portal to which users are sent for authentication** (URL del portale di SAML a cui vengono indirizzati gli utenti per l'autenticazione).
-    
-    b. Nella casella di testo **Attribute containing Login Name** digitare **NameID**.
-    
-    c. Per caricare il certificato scaricato fare clic su **Zscaler pem**.
-    
-    d. Selezionare **Enable SAML Auto-Provisioning**.
+    a. Nella casella di testo **URL portale SAML** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-1. Nella pagina della finestra di dialogo **Configure User Authentication** seguire questa procedura:
+    b. Nella casella di testo **Attributo del nome di accesso** immettere **NameID**.
 
-    ![Amministrazione](./media/zscaler-tutorial/ic800210.png "Amministrazione")
-    
-    a. Fare clic su **Save**.
+    c. Fare clic su **Carica** per caricare il certificato di firma di Azure SAML scaricato dal portale di Azure nel **certificato pubblico SSL**.
 
-    b. Fare clic su **Attiva subito**.
+    d. Selezionare **Abilita provisioning automatico SAML**.
+
+    e. Nella casella di testo **Attributo nome visualizzato dell'utente** immettere **displayName** se si desidera abilitare il provisioning automatico di SAML per gli attributi displayName.
+
+    f. Nella casella di testo **Attributo nome gruppo** immettere **memberOf** se si desidera abilitare il provisioning automatico di SAML per gli attributi memberOf.
+
+    g. Nella casella di testo **Attributo nome reparto** immettere **department** se si desidera abilitare il provisioning automatico di SAML per gli attributi department.
+
+    h. Fare clic su **Save**.
+
+12. Nella pagina della finestra di dialogo **Configure User Authentication** seguire questa procedura:
+
+    ![Administration](./media/zscaler-tutorial/ic800207.png)
+
+    a. Passare il mouse sul menu **Attivazione** nella parte inferiore sinistra.
+
+    b. Fare clic su **Attiva**.
 
 ## <a name="configuring-proxy-settings"></a>Configurazione delle impostazioni proxy
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Per configurare le impostazioni proxy in Internet Explorer
@@ -199,109 +227,75 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Fare clic su **OK** per chiudere la finestra di dialogo **Opzioni Internet**.
 
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-![Creare un utente di Azure AD][100]
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    ![Creare un utente di Azure AD][100]
 
-1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    ![Creazione di un utente test di Azure AD](./media/zscaler-tutorial/create_aaduser_01.png) 
+    ![Creazione di un utente test di Azure AD](common/create_aaduser_01.png) 
 
-1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
-    
-    ![Creazione di un utente test di Azure AD](./media/zscaler-tutorial/create_aaduser_02.png) 
+3. In Proprietà utente seguire questa procedura.
 
-1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
- 
-    ![Creazione di un utente test di Azure AD](./media/zscaler-tutorial/create_aaduser_03.png) 
+    ![Creazione di un utente test di Azure AD](common/create_aaduser_02.png)
 
-1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
- 
-    ![Creazione di un utente test di Azure AD](./media/zscaler-tutorial/create_aaduser_04.png) 
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
+    c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
+    d. Selezionare **Create**.
 
-    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
-
-    d. Fare clic su **Create**(Crea).
- 
 ### <a name="creating-a-zscaler-test-user"></a>Creazione di un utente di test di Zscaler
 
-Per consentire agli utenti di Azure AD di accedere a Zscaler, è necessario effettuarne il provisioning in Zscaler.  
-Nel caso di Zscaler, il provisioning è un'attività manuale.
-
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Per configurare il provisioning utente, eseguire la procedura seguente:
-
-1. Accedere al tenant **Zscaler** .
-
-1. Fare clic su **Administration**.   
-   
-    ![Amministrazione](./media/zscaler-tutorial/ic781035.png "Amministrazione")
-
-1. Fare clic su **User Management**.   
-        
-     ![Aggiungi](./media/zscaler-tutorial/ic781036.png "Aggiungi")
-
-1. Nella scheda **Utenti** fare clic su **Aggiungi**.
-      
-    ![Aggiungi](./media/zscaler-tutorial/ic781037.png "Aggiungi")
-
-1. Nella sezione Add User seguire questa procedura:
-        
-    ![Aggiungere un utente](./media/zscaler-tutorial/ic781038.png "Aggiungere un utente")
-   
-    a. Digitare **ID utente**, **nome visualizzato per l'utente**, **password**, **conferma della password** e quindi selezionare **gruppi** e **reparto** per un account AAD valido di cui si vuole eseguire il provisioning.
-
-    b. Fare clic su **Save**.
-
-> [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Zscaler per eseguire il provisioning degli account utente Azure AD.
+L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Zscaler. Zscaler supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Zscaler viene creato un nuovo utente, se non esiste già.
+>[!Note]
+>Se è necessario creare manualmente un utente contattare il  [team di supporto di Zscaler](https://www.zscaler.com/company/contact).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zscaler.
 
-![Assegna utente][200] 
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
-**Per assegnare Britta Simon a Zscaler, seguire questa procedura:**
+    ![Assegna utente][201]
 
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+2. Nell'elenco di applicazioni selezionare **Zscaler**.
 
-    ![Assegna utente][201] 
+    ![Configure Single Sign-On](./media/zscaler-tutorial/tutorial_zscaler_app.png)
 
-1. Nell'elenco di applicazioni selezionare **Zscaler**.
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![Configure Single Sign-On](./media/zscaler-tutorial/tutorial_zscaler_app.png) 
+    ![Assegna utente][202]
 
-1. Scegliere **Utenti e gruppi** dal menu a sinistra.
-
-    ![Assegna utente][202] 
-
-1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Fare clic su **Aggiungi** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare l'utente **Britta Simon** nell'elenco e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+    ![image](./media/zscaler-tutorial/tutorial_zscaler_users.png)
 
-1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
+6. Nella finestra di dialogo **Seleziona ruolo** scegliere il ruolo utente appropriato dall'elenco e fare clic sul pulsante **Seleziona** in basso nella schermata.
+
+    ![image](./media/zscaler-tutorial/tutorial_zscaler_roles.png)
+
+7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare il pulsante **Assegna**.
+
+    ![image](./media/zscaler-tutorial/tutorial_zscaler_assign.png)
+
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Zscaler nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zscaler.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -310,15 +304,13 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 
 <!--Image references-->
 
-[1]: ./media/zscaler-tutorial/tutorial_general_01.png
-[2]: ./media/zscaler-tutorial/tutorial_general_02.png
-[3]: ./media/zscaler-tutorial/tutorial_general_03.png
-[4]: ./media/zscaler-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/zscaler-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/zscaler-tutorial/tutorial_general_200.png
-[201]: ./media/zscaler-tutorial/tutorial_general_201.png
-[202]: ./media/zscaler-tutorial/tutorial_general_202.png
-[203]: ./media/zscaler-tutorial/tutorial_general_203.png
-
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

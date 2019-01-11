@@ -1,19 +1,20 @@
 ---
-title: Aggiungere BLOB agli oggetti in Gemelli digitali di Azure | Microsoft Docs
-description: Informazioni su come aggiungere BLOB agli oggetti in Gemelli digitali di Azure
+title: Come aggiungere BLOB agli oggetti in Gemelli digitali di Azure | Microsoft Docs
+description: Informazioni su come aggiungere BLOB agli oggetti in Gemelli digitali di Azure.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/28/2018
 ms.author: adgera
-ms.openlocfilehash: 8a68ba35ddf7caacbf2339d87c5aeef80f470ba4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725625"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974517"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Aggiungere BLOB agli oggetti in Gemelli digitali di Azure
 
@@ -21,10 +22,7 @@ I BLOB sono rappresentazioni non strutturate di tipi di file comuni, ad esempio 
 
 Gemelli digitali di Azure supporta il collegamento dei BLOB a dispositivi, spazi e utenti. I BLOB possono rappresentare un'immagine del profilo di un utente, una foto del dispositivo, un video, una mappa o un log.
 
-> [!NOTE]
-> Questo articolo presuppone che:
-> * L'istanza sia configurata correttamente per ricevere le richieste dell'API Gestione.
-> * L'utente abbia eseguito correttamente l'autenticazione usando un client REST preferito.
+[!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
 ## <a name="uploading-blobs-an-overview"></a>Caricamento dei BLOB: panoramica
 
@@ -93,9 +91,9 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valore del parametro | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
-| *USER_DEFINED_BOUNDARY* | Nome di un limite di contenuto multipart |
+| USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
 
 Il codice seguente è un'implementazione .NET dello stesso caricamento di BLOB tramite la classe [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent):
 
@@ -116,7 +114,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 ## <a name="api-endpoints"></a>Endpoint API
 
-Le sezioni seguenti illustrano gli endpoint principali e le loro funzionalità.
+Le sezioni seguenti descrivono i principali endpoint API correlati ai BLOB e le relative funzionalità.
 
 ### <a name="devices"></a>Dispositivi
 

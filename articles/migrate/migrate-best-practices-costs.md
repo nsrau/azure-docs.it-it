@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9d1acabd07e7c01445c55a57be9b0c9a36140aa5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163770"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995049"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Procedure consigliate per la determinazione dei costi e il ridimensionamento dei carichi di lavoro migrati in Azure
 
@@ -117,7 +117,7 @@ Azure offre diversi tipi di account di archiviazione e livelli di prestazioni.
 
 **Tipo di account** | **Dettagli** | **Utilizzo**
 --- | --- | ---
-**Utilizzo generico v2 standard** | Supporta BLOB (blocco, pagina, accodamento), file, dischi, code e tabelle.<br/><br/> Supporta i livelli di archiviazione ad accesso frequente, sporadico e di archivio. Supporta l'archiviazione con ridondanza della zona. | Per la maggior parte degli scenari e dei tipi di dati. Gli account di archiviazione standard possono essere basati su unità HHD o SSD.
+**Utilizzo generico v2 standard** | Supporta BLOB (blocco, pagina, accodamento), file, dischi, code e tabelle.<br/><br/> Supporta i livelli di archiviazione ad accesso frequente, sporadico e di archivio. Supporta l'archiviazione con ridondanza della zona. | Per la maggior parte degli scenari e dei tipi di dati. Gli account di archiviazione standard possono essere basati su unità HDD o SSD.
 **Utilizzo generico v2 Premium** | Supporta i dati di archiviazione BLOB (BLOB di pagine). Supporta i livelli di archiviazione ad accesso frequente, sporadico e di archivio. Supporta l'archiviazione con ridondanza della zona.<br/><br/> Archiviati su unità SSD. | Microsoft ne consiglia l'uso per tutte le macchine virtuali.
 **Utilizzo generico v1** | Non supporta la suddivisione in livelli di accesso. Non supporta l'archiviazione con ridondanza della zona | Per i casi in cui le applicazioni necessitano del modello di distribuzione classica di Azure.
 **BLOB** | Account di archiviazione specializzato per archiviare gli oggetti non strutturati. Fornisce i BLOB in blocchi e accoda solo oggetti BLOB (nessun servizio archiviazione file, coda, tabella o disco). Fornisce la stessa durabilità, disponibilità, scalabilità e prestazioni dell'utilizzo generico v2. | In questi account non è possibile archiviare i BLOB di pagine. Di conseguenza, non consentono di archiviare file del disco rigido virtuale. È possibile impostare un livello di accesso frequente o sporadico.
@@ -248,7 +248,7 @@ In Azure si paga a seconda delle risorse usate e non si paga quando queste non s
 **Altre informazioni:**
 - Panoramica di [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) e [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview).
 - [Ottenere](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations) consigli di Advisor sui costi.
-- [Informazioni su come [ottimizzare i costi grazie ai consigli](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json) ed [evitare addebiti imprevisti](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+- [Informazioni su come [ottimizzare i costi grazie ai consigli](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json) ed [evitare addebiti imprevisti](https://docs.microsoft.com/azure/billing/billing-getting-started).
 - [Informazioni sul](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/) toolkit di ottimizzazione delle risorse di Azure
 
 ## <a name="best-practice-implement-resource-group-budgets"></a>Procedura consigliata: Implementare i budget dei gruppi di risorse
@@ -332,7 +332,7 @@ Dopo la migrazione e a seguito di una revisione completa di questi tipi di attiv
   
 ## <a name="next-steps"></a>Passaggi successivi 
 
-Rivedere altre procedure consigliate:
+Esaminare altre procedure consigliate:
 
 - [Procedure consigliate](migrate-best-practices-security-management.md) per la sicurezza e la gestione dopo la migrazione.
 - [Procedure consigliate](migrate-best-practices-networking.md) per le risorse di rete dopo la migrazione.

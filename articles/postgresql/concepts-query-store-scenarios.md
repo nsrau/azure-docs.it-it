@@ -1,25 +1,24 @@
 ---
 title: Scenari di utilizzo di Query Store in Database di Azure per PostgreSQL
 description: Questo articolo illustra alcuni scenari per Query Store in Database di Azure per PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 5da10faca653d0eddb50568165eb9d7ad1f877e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 24bd6fbcf47a340020b5ed171b84aeed9fa96fe8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950421"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53534657"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Scenari di utilizzo per Query Store
 
 **Si applica a:** Database di Azure per PostgreSQL 9.6 e 10
 
 > [!IMPORTANT]
-> La funzionalità Query Store è disponibile in anteprima pubblica.
+> La funzionalità Query Store è in anteprima pubblica.
 
 È possibile usare Query Store in svariati scenari, in cui è fondamentale garantire prestazioni dei carichi di lavoro prevedibili e tenerne traccia. Si considerino gli esempi seguenti: 
 - Identificazione e ottimizzazione delle query con costo più elevato 

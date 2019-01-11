@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497263"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792782"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il Server cronologia Apache Spark esteso per il debug e la diagnosi di applicazioni Apache Spark
 
@@ -26,7 +26,7 @@ Server cronologia Apache Spark è l'interfaccia utente Web per le applicazioni S
 
 ### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Aprire l'interfaccia utente Web di Server cronologia Apache Spark dal portale di Azure
 
-1. Nel [portale di Azure](https://portal.azure.com/) aprire il cluster Spark. Per altre informazioni, vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Nel [portale di Azure](https://portal.azure.com/) aprire il cluster Spark. Per altre informazioni, vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. In **Collegamenti rapidi** fare clic su **Dashboard cluster** e quindi su **Server cronologia Spark**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark. 
 
     ![Server cronologia Spark](./media/apache-azure-spark-history-server/launch-history-server.png "Server cronologia Spark")
@@ -107,7 +107,7 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
 + Riprodurre il processo facendo sul pulsante **Playback** (Riproduci) e arrestare la riproduzione in qualsiasi momento facendo clic sul pulsante di arresto. Durante la riproduzione, le attività vengono visualizzate in colori che indicano lo stato:
 
     + Il verde indica l'esito positivo: il processo è stato completato correttamente.
-    + L'arancione indica i tentativi ripetuti: istanze di attività non riuscite, ma che non influiscono sul risultato finale del processo. Queste attività avevano istanze duplicate o ripetute che potrebbero essere completate in un secondo momento.
+    + L'arancione indica i tentativi ripetuti: istanze di attività non riuscite, ma che non influiscono sul risultato finale del processo.L'arancione indica i tentativi ripetuti: istanze di attività non riuscite, ma che non influiscono sul risultato finale del processo. Queste attività avevano istanze duplicate o ripetute che potrebbero essere completate in un secondo momento.
     + Il blu indica lo stato di esecuzione: l'attività è in esecuzione.
     + Il bianco indica un processo in attesa o ignorato: l'attività è in attesa di esecuzione o la fase è stata ignorata.
     + Il rosso indica l'esito negativo: l'attività non è stata completata.
@@ -119,7 +119,7 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
 
     ![Esempio di colore del grafico, non riuscito](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
-    > [!NOTE]
+    > [!NOTE]  
     > È possibile riprodurre qualsiasi processo. Per un processo non completato, la riproduzione non è supportata.
 
 
@@ -132,8 +132,8 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
     ![Descrizione comando del grafico](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + Nella scheda del grafo del processo per le fasi verranno visualizzate una descrizione comando e una piccola icona se hanno attività che soddisfano le condizioni seguenti:
-    + Asimmetria dei dati: dimensioni dei dati letti > dimensioni medie dei dati letti di tutte le attività in questa fase * 2 e dimensioni dei dati letti > 10 MB
-    + Sfasamento dell'ora: tempo di esecuzione > tempo di esecuzione medio di tutte le attività in questa fase * 2 e tempo di esecuzione > 2 min
+    + Asimmetria dei dati: dimensioni dei dati letti > dimensioni medie dei dati letti di tutte le attività in questa fase * 2 e dimensioni dei dati letti > 10 MB.
+    + Sfasamento dell'ora: tempo di esecuzione > tempo di esecuzione medio di tutte le attività in questa fase * 2 e tempo di esecuzione > 2 min.
 
     ![Icona dello sfasamento nel grafo](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
@@ -147,10 +147,10 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
     + Conteggio delle righe: la somma dei record di input, dei record di output, dei record di letture casuali letti e dei record di scritture casuali.
     + Avanzamento.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Per impostazione predefinita, il nodo del grafico del processo mostrerà informazioni dall'ultimo tentativo di ogni fase (ad eccezione del tempo di esecuzione delle fasi), ma durante la riproduzione il nodo del grafico mostrerà informazioni su ogni tentativo.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Per le dimensioni dei dati di lettura e scrittura viene usato 1 MB = 1000 KB = 1000 * 1000 byte.
 
 + Per inviare feedback sui problemi, fare clic su **Provide us feedback** (Invia feedback).

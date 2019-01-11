@@ -1,5 +1,5 @@
 ---
-title: Pianificazione dell'anteprima di Azure Time Series Insights - Pianificare un ambiente di anteprima di Azure Time Series Insights | Microsoft Docs
+title: Pianificare un ambiente di anteprima di Azure Time Series Insights | Microsoft Docs
 description: Pianificare un ambiente di anteprima di Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1df4847f20329e924352adfe782faa43d10dde98
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 09fef060a58723624796fe6192fef2444251cc1c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277047"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556085"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Pianificare un ambiente di anteprima di Azure Time Series Insights
 

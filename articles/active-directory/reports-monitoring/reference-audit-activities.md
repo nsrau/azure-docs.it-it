@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: db801acbed649c4baa039858ce1d097237c8e227
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622875"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971376"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informazioni di riferimento sulle attività di controllo di Azure AD
 
@@ -515,10 +515,10 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione di gruppi|Verificare la richiesta di approvazione richiesta|
 |Gestione di gruppi|Aggiornare la verifica di accesso|
 |Gestione di gruppi|Aggiornare le impostazioni per le notifiche tramite posta elettronica delle verifiche di accesso|
-|Gestione di gruppi|Aggiornare l'impostazione di conteggio ricorrenze delle verifiche di accesso|
-|Gestione di gruppi|Aggiornare l'impostazione di durata in giorni delle ricorrenze delle verifiche di accesso|
-|User Management|Aggiornare l'impostazione del tipo End delle ricorrenze delle verifiche di accesso|
-|User Management|Aggiornare l'impostazione del tipo delle ricorrenze delle verifiche di accesso|
+|Gestione di gruppi|Aggiorna l'impostazione del numero di ricorrenze delle verifiche di accesso|
+|Gestione di gruppi|Aggiorna l'impostazione della durata in giorni delle ricorrenze delle verifiche di accesso|
+|User Management|Aggiorna l'impostazione del tipo di fine ricorrenza delle verifiche di accesso|
+|User Management|Aggiorna l'impostazione del tipo di ricorrenza delle verifiche di accesso|
 
 
 

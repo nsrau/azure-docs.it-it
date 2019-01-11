@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c727cddf41c269c214b541134cd9f688017ee687
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850364"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789722"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Esercitazione: Integrazione di Azure Active Directory con Tableau Server
 
@@ -86,13 +86,14 @@ Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Tableau Server, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente di test di Tableau Server](#creating-a-tableau-server-test-user)**: per avere una controparte di Britta Simon in Tableau Server collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Tableau Server](#configure-tableau-server-single-sign-on)**: per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Creare un utente di test di Tableau Server](#create-tableau-server-test-user)**: per avere una controparte di Britta Simon in Tableau Server collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Tableau Server.
 
@@ -112,9 +113,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente e attestazioni** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
     
-    | Nome attributo | Valore attributo |
-    | ---------------| --------------- |    
-    | username | user.userprincipalname |
+    | Nome attributo | Valore attributo | Spazio dei nomi |
+    | ---------------| --------------- | ----------- |   
+    | username | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
@@ -151,33 +152,41 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 7. Nella sezione **Certificato di firma SAML** della pagina **Certificato di firma SAML** fare clic su **Scarica** per scaricare il file **XML dei metadati della federazione** e quindi salvare il file del certificato nel computer.
 
-    ![Collegamento di download del certificato](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png) 
+    ![Collegamento di download del certificato](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png)
 
-8. Per configurare l'accesso SSO sull'applicazione, è necessario accedere al tenant di Tableau Server come amministratore.
+### <a name="configure-tableau-server-single-sign-on"></a>Configurare il Single Sign-On di Tableau Server 
 
-9. Nella pagina **Tableau Server Configuration** (Configurazione Tableau Server) seguire questa procedura:
-   
-    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-001.png)
+1. Per configurare l'accesso SSO sull'applicazione, è necessario accedere al tenant di Tableau Server come amministratore.
 
-    a. Nella finestra Tableau Server Configuration (Configurazione Tableau Server) fare clic sulla scheda **SAML** . 
-  
-    b. Selezionare la casella di controllo **Use SAML for single sign-on (Usa SAML per Single Sign-On)**.
-   
+2. Nella scheda **CONFIGURATION** (Configurazione) selezionare **User Identity & Access**(Identità utente e accesso), quindi selezionare la scheda **Authentication Method** (Metodo di autenticazione).
+
+    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+
+3. Nella pagina **CONFIGURATION** (Configurazione) seguire questa procedura:
+
+    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+
+    a. Per **Authentication Method** (Metodo di autenticazione) selezionare SAML.
+    
+    b. Selezionare la casella di controllo **Enable SAML Authentication for the server** (Abilita autenticazione SAML per il server).
+
     c. Tableau Server return URL (URL restituito di Tableau Server): l'URL a cui accedono gli utenti di Tableau Server, ad esempio http://tableau_server. L'uso di http://localhost non è consigliato. Gli URL con barra finale (ad esempio http://tableau_server/)) non sono supportati. Copiare l'**URL restituito di Tableau Server** e incollarlo nella casella di testo **URL di accesso** in Azure AD nella sezione **URL e dominio Tableau Server**.
-   
+
     d. SAML entity ID (ID entità SAML): l'ID entità identifica in modo univoco l'installazione di Tableau Server nel provider di identità. Se si desidera, qui è possibile immettere di nuovo l'URL di Tableau Server, ma non deve essere l'URL di Tableau Server in uso. Copiare l'**ID di entità SAML** e incollarlo nella casella di testo **Identificatore** in Azure AD nella sezione **URL e dominio Tableau Server**.
-     
-    e. Fare clic su **Export Metadata File** (Esporta file di metadati) e aprire il file nell'applicazione editor di testo. Cercare l'URL del servizio consumer di asserzione con Http Post e Indice 0 e copiarlo. Incollarlo quindi nella casella di testo **URL di risposta** di Azure AD nella sezione **URL e dominio Tableau Server**.
-   
+
+    e. Fare clic su **Download XML Metadata File** (Scarica file di metadati XML) e aprire il file nell'applicazione editor di testo. Cercare l'URL del servizio consumer di asserzione con Http Post e Indice 0 e copiarlo. Incollarlo quindi nella casella di testo **URL di risposta** di Azure AD nella sezione **URL e dominio Tableau Server**.
+
     f. Individuare il file di metadati della federazione scaricato dal portale di Azure e quindi caricarlo in **SAML Idp metadata file**(File metadati IdP SAML).
-   
-    g. Fare clic sul pulsante **OK** nella pagina di configurazione di Tableau Server.
-   
+
+    g. Immettere i nomi per gli attributi usati dal provider di identità per contenere nomi utente, nomi visualizzati e indirizzi di posta elettronica.
+
+    h. Fare clic su **Save**
+
     >[!NOTE] 
     >Il cliente deve caricare eventuali certificati nella configurazione SSO SAML di Tableau Server e il passaggio verrà ignorato nel flusso SSO.
-    >Per assistenza nella configurazione di SAML in Tableau Server, vedere questo articolo: [Configure SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm) (Configurazione di SAML).
+    >Per assistenza nella configurazione di SAML in Tableau Server, vedere questo articolo: [Configure SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm) (Configurazione di SAML).
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -202,7 +211,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Selezionare **Create**.
   
-### <a name="creating-a-tableau-server-test-user"></a>Creazione di un utente test di Tableau Server
+### <a name="create-tableau-server-test-user"></a>Creare un utente test di Tableau Server
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Tableau Server. In Tableau Server è necessario eseguire il provisioning di tutti gli utenti. 
 
@@ -211,7 +220,7 @@ Il valore username dell'utente deve corrispondere al valore configurato nell'att
 >[!NOTE]
 >Se si deve creare manualmente un utente, è necessario contattare l'amministratore di Tableau Server dell'organizzazione.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Tableau Server.
 
@@ -235,7 +244,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 6. Nella finestra di dialogo **Aggiungi assegnazione** selezionare il pulsante **Assegna**.
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 

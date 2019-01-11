@@ -1,7 +1,7 @@
 ---
 title: Creare client per utilizzare un servizio Web distribuito
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come utilizzare un servizio Web generato al momento della distribuzione di un modello con il modello di Azure Machine Learning, il servizio Web che espone un'API REST. Creare client per questa API usando il linguaggio di programmazione preferito.
+description: Informazioni su come utilizzare un servizio Web generato al momento della distribuzione di un modello con il modello di Azure Machine Learning. Il servizio Web espone un'API REST. Creare client per questa API usando il linguaggio di programmazione preferito.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,31 +11,31 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: efa24fcb624c7613ce16028d7ba06af4d4d2153c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251131"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753388"
 ---
-# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utilizzare un modello di Azure Machine Learning distribuito come servizio Web
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
-Quando si distribuisce un modello di Azure Machine Learning come servizio Web, viene creata un’API REST. È possibile inviare dati a questa API per ottenere la stima restituita dal modello. In questo documento, viene spiegato come creare client per il servizio Web utilizzando C#, Go, Java e Python.
+Quando si distribuisce un modello di Azure Machine Learning come servizio Web, viene creata un’API REST. È possibile inviare dati a questa API per ottenere la stima restituita dal modello. Questo documento illustra come creare client per il servizio Web usando C#, Go, Java e Python.
 
-Quando si distribuisce un'immagine in un'istanza di contenitore di Azure, del servizio Kubernetes di Azure o di Project Brainwave (Field Programmable Gate Array), viene creato un servizio Web. Le immagini vengono create con i modelli registrati e i file di assegnazione di punteggio. L'URI utilizzato per accedere a un servizio Web può essere recuperato tramite l’[SDK di Azure Machine Learning](https://aka.ms/aml-sdk). Se è abilitata l'autenticazione, è anche possibile usare l’SDK per ottenere le chiavi di autenticazione.
+Quando si distribuisce un'immagine in Istanze di Azure Container, nel servizio Azure Kubernetes o in Project Brainwave (Field Programmable Gate Array), viene creato un servizio Web. Le immagini vengono create a partire dai modelli registrati e dai file di assegnazione di punteggio. L'URI usato per accedere a un servizio Web viene recuperato tramite l'[SDK di Azure Machine Learning](https://aka.ms/aml-sdk). Se è abilitata l'autenticazione, è anche possibile usare l'SDK per ottenere le chiavi di autenticazione.
 
-Il flusso di lavoro generale per creare un client che utilizzi un servizio Web di Machine Learning è:
+Il flusso di lavoro generale per creare un client che usa un servizio Web di Machine Learning è il seguente:
 
-1. Ottenere le informazioni di connessione usando l’SDK
-1. Determinare il tipo di dati della richiesta usati dal modello
-1. Creare un'applicazione che chiami il servizio Web
+1. Ottenere le informazioni di connessione usando l'SDK.
+1. Determinare il tipo di dati della richiesta usati dal modello.
+1. Creare un'applicazione che chiama il servizio Web.
 
 ## <a name="connection-information"></a>Informazioni di connessione
 
 > [!NOTE]
-> L’SDK di Azure Machine Learning può essere usato per ottenere le informazioni sul servizio Web. Si tratta di un SDK per Python. Viene utilizzato per recuperare informazioni sui servizi Web ed è possibile usare qualsiasi linguaggio per creare un client per il servizio.
+> Usare l'SDK di Azure Machine Learning per ottenere le informazioni sul servizio Web. Questo è un SDK per Python. È possibile usare qualsiasi linguaggio per creare un client per il servizio.
 
-Le informazioni sulla connessione del servizio Web possono essere recuperate tramite l’SDK di Azure Machine Learning. La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornisce le informazioni necessarie per creare un client. Quando si crea un’applicazione client, le seguenti `Webservice` proprietà sono utili:
+La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornisce le informazioni necessarie per creare un client. Per la creazione di un'applicazione client sono utili le proprietà `Webservice` seguenti:
 
 * `auth_enabled` - Se è abilitata l'autenticazione, `True`; in caso contrario, `False`.
 * `scoring_uri` - L'indirizzo dell'API REST.
@@ -53,7 +53,7 @@ Sono disponibili tre modi per recuperare queste informazioni per servizi Web dis
     print(service.scoring_uri)
     ```
 
-* È possibile usare `Webservice.list` per recuperare un elenco dei servizi Web distribuiti per i modelli presenti nella propria area di lavoro. È possibile aggiungere filtri per restringere l'elenco delle informazioni restituite. Per altre informazioni su cosa è possibile filtrare, vedere la documentazione di riferimento [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list).
+* È possibile usare `Webservice.list` per recuperare un elenco dei servizi Web distribuiti per i modelli presenti nella propria area di lavoro. È possibile aggiungere filtri per restringere l'elenco delle informazioni restituite. Per altre informazioni sui dati che è possibile filtrare, vedere la documentazione di riferimento di [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list).
 
     ```python
     services = Webservice.list(ws)
@@ -69,12 +69,12 @@ Sono disponibili tre modi per recuperare queste informazioni per servizi Web dis
 
 ### <a name="authentication-key"></a>Chiave di autenticazione
 
-Le chiavi di autenticazione vengono create automaticamente quando è abilitata l'autenticazione per una distribuzione.
+Quando si abilita l'autenticazione per una distribuzione, si creano automaticamente le chiavi di autenticazione.
 
-* L'autenticazione è __abilitata per impostazione predefinita__ quando si distribuisce sul __servizio Kubernetes di Azure__.
-* L'autenticazione è __disabilitata per impostazione predefinita__ quando si distribuisce su __istanze di contenitore di Azure__.
+* L'autenticazione è abilitata per impostazione predefinita quando si esegue la distribuzione nel servizio Azure Kubernetes.
+* L'autenticazione è disabilitata per impostazione predefinita quando si esegue la distribuzione in Istanze di Azure Container.
 
-Per controllare l'autenticazione, usare il parametro `auth_enabled` durante la creazione o l’aggiornamento di una distribuzione.
+Per controllare l'autenticazione, usare il parametro `auth_enabled` quando si crea o si aggiorna una distribuzione.
 
 Se è abilitata l'autenticazione, è possibile usare il metodo `get_keys` per recuperare una chiave di autenticazione primaria e una secondaria:
 
@@ -100,9 +100,9 @@ L'API REST prevede che il corpo della richiesta sia un documento JSON con la str
 ```
 
 > [!IMPORTANT]
-> La struttura dei dati deve corrispondere allo script di punteggio e al modello nelle stime del servizio. Lo script di punteggio può modificare i dati prima di trasferirli al modello.
+> La struttura dei dati deve corrispondere a quanto previsto dallo script di assegnazione dei punteggi e dal modello nel servizio. Lo script di assegnazione dei punteggi può modificare i dati prima di passarli al modello.
 
-Ad esempio, nel modello dell’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) è prevista una matrice di 10 numeri. Lo script di punteggio per questo esempio crea una matrice Numpy dalla richiesta la trasferisce al modello. Nell'esempio seguente sono visualizzati i dati che questo servizio prevede:
+Ad esempio, nel modello dell’esempio [Eseguire il training sul notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) è prevista una matrice di 10 numeri. Lo script di assegnazione dei punteggi per questo esempio crea una matrice Numpy dalla richiesta e la passa al modello. Nell'esempio seguente sono visualizzati i dati che questo servizio prevede:
 
 ```json
 {
@@ -128,7 +128,7 @@ Il servizio Web può accettare più set di dati in un'unica richiesta. Restituis
 
 ### <a name="binary-data"></a>Dati binari
 
-Se il modello accetta dati binari, ad esempio un'immagine, è necessario modificare il file `score.py` usato per la distribuzione in modo da accettare richieste HTTP non elaborate. Di seguito è riportato un esempio di un `score.py` che accetta dati binari e restituisce i byte invertiti per le richieste POST. Per le richieste GET restituisce l'URL completo nel corpo della risposta:
+Se il modello accetta dati binari, ad esempio un'immagine, è necessario modificare il file `score.py` usato per la distribuzione in modo da accettare richieste HTTP non elaborate. Di seguito è riportato un esempio di un file `score.py` che accetta dati binari e restituisce i byte invertiti per le richieste POST. Per le richieste GET, restituisce l'URL completo nel corpo della risposta:
 
 ```python 
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -155,9 +155,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> Gli elementi dello spazio dei nomi `azureml.contrib` cambiano di frequente poiché Microsoft è impegnata a migliorare il servizio. Pertanto, qualsiasi elemento in questo spazio dei nomi deve essere considerato come anteprima e non è completamente supportato da Microsoft.
+> Lo spazio dei nomi `azureml.contrib` cambia di frequente perché Microsoft è attualmente impegnata a migliorare il servizio. Qualsiasi elemento in questo spazio dei nomi deve essere pertanto considerato come anteprima e non è completamente supportato da Microsoft.
 >
-> Se è necessario eseguire un test nell'ambiente di sviluppo locale, è possibile installare i componenti nello spazio dei nomi contrib usando il comando seguente:
+> Se è necessario eseguire un test nell'ambiente di sviluppo locale, è possibile installare i componenti nello spazio dei nomi `contrib` usando il comando seguente:
 > 
 > ```shell
 > pip install azureml-contrib-services

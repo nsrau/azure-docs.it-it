@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 957100e042da1d41fb7c8fa27a5663cf99a41c20
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093936"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794006"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisiti di sistema di Azure Data Box
 
@@ -36,7 +36,7 @@ Di seguito è riportato l'elenco dei sistemi operativi supportati per l'operazio
 | **Sistema operativo** | **Versioni** | 
 | --- | --- | 
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 | 
-| Windows |7, 8, 10 | 
+|  Windows |7, 8, 10 | 
 |Linux    |         |
 
 ### <a name="supported-file-systems-for-linux-clients"></a>File system supportati per client Linux
@@ -55,6 +55,9 @@ Di seguito è riportato un elenco dei tipi di archiviazione supportati per il di
 | Classico | Standard |
 | Scopo generico  |Standard; sono supportati sia V1 che V2. |
 | BLOB |Sono supportati BLOB sia ad accesso frequente che sporadico. |
+
+>[!NOTE]
+> Gli account di Azure Data Lake Storage Gen 2 non sono supportati.
 
 
 ### <a name="supported-storage-types"></a>Tipi di archiviazione supportati

@@ -1,25 +1,71 @@
 ---
 title: Traffico in uscita ed endpoint in Gemelli digitali di Azure | Microsoft Docs
-description: Linee guida su come creare endpoint con Gemelli digitali di Azure
+description: Linee guida sulla creazione di endpoint con Gemelli digitali di Azure.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 12/31/2018
 ms.author: alinast
-ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636306"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994824"
 ---
 # <a name="egress-and-endpoints"></a>Traffico in uscita ed endpoint
 
-Gemelli digitale di Azure supporta il concetto di **endpoint**. Ogni endpoint rappresenta un broker messaggi o eventi nella sottoscrizione di Azure dell'utente. Messaggi ed eventi possono essere inviati ad argomenti di Hub eventi di Azure, Griglia di eventi di Azure e Bus di servizio di Azure.
+Gli *endpoint* di Gemelli digitali di Azure rappresentano un broker messaggi o eventi nella sottoscrizione di Azure dell'utente. Messaggi ed eventi possono essere inviati ad argomenti di Hub eventi di Azure, Griglia di eventi di Azure e Bus di servizio di Azure.
 
-Gli eventi vengono inviati agli endpoint in base alle preferenze di routing predefinite. L'utente può specificare quale endpoint deve ricevere uno qualsiasi degli eventi seguenti: 
+Gli eventi vengono indirizzati agli endpoint in base alle preferenze di routing predefinite. Gli utenti specificano i *tipi di eventi* che ogni endpoint può ricevere.
+
+Per altre informazioni su eventi, routing e tipi di eventi, vedere [Routing di eventi e messaggi](./concepts-events-routing.md).
+
+## <a name="events"></a>Eventi
+
+Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per essere elaborati dai broker messaggi ed eventi di Azure. Gli eventi sono definiti dallo [schema di eventi di Griglia di eventi di Azure](../event-grid/event-schema.md) seguente.
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
+      "Type": "ExtendedPropertyKey",
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
+
+| Attributo | type | DESCRIZIONE |
+| --- | --- | --- |
+| id | stringa | Identificatore univoco dell'evento. |
+| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
+| data | object | Dati dell'evento specifici del provider di risorse. |
+| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+
+Per altre informazioni sullo schema di eventi di Griglia di eventi:
+
+- Vedere [Schema di eventi di Griglia di eventi di Azure](../event-grid/event-schema.md).
+- Vedere la documentazione di riferimento sull'[interfaccia EventGridEvent](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+
+## <a name="event-types"></a>Tipi di eventi
+
+I tipi di eventi classificano la natura dell'evento e sono impostati nel campo **eventType**. Di seguito sono elencati i tipi di evento disponibili:
 
 - TopologyOperation
 - UdfCustom
@@ -27,15 +73,11 @@ Gli eventi vengono inviati agli endpoint in base alle preferenze di routing pred
 - SpaceChange
 - DeviceMessage
 
-Per informazioni di base sul routing di eventi e tipi di evento, fare riferimento a [Routing di eventi e messaggi](concepts-events-routing.md).
-
-## <a name="event-types-description"></a>Descrizione dei tipi di evento
-
-I formati degli eventi per ognuno dei tipi di eventi sono descritti nelle sezioni seguenti.
+I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio nelle sottosezioni seguenti.
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** si applica alle modifiche del grafico. La proprietà **subject** specifica il tipo di oggetto interessato. I tipi di oggetti seguenti potrebbero generare questo evento: 
+**TopologyOperation** si applica alle modifiche del grafico. La proprietà **subject** specifica il tipo di oggetto interessato. I tipi di oggetti seguenti potrebbero generare questo evento:
 
 - Dispositivo
 - DeviceBlobMetadata
@@ -86,7 +128,7 @@ I formati degli eventi per ognuno dei tipi di eventi sono descritti nelle sezion
 
 ### <a name="udfcustom"></a>UdfCustom
 
-**UdfCustom** è un evento inviato da una funzione definita dall'utente. 
+**UdfCustom** è un evento inviato da una funzione definita dall'utente.
   
 > [!IMPORTANT]  
 > Questo evento deve essere inviato in modo esplicito dalla funzione definita dall'utente stessa.
@@ -195,10 +237,19 @@ I formati degli eventi per ognuno dei tipi di eventi sono descritti nelle sezion
 
 ## <a name="configure-endpoints"></a>Configurare gli endpoint
 
-La gestione degli endpoint viene eseguita tramite l'API per gli endpoint. Gli esempi seguenti illustrano come configurare i diversi endpoint supportati. Prestare particolare attenzione alla matrice dei tipi di evento, perché definisce il routing per l'endpoint:
+La gestione degli endpoint viene eseguita tramite l'API per gli endpoint.
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
+Gli esempi seguenti illustrano come configurare gli endpoint supportati.
+
+>[!IMPORTANT]
+> Prestare particolare attenzione all'attributo **eventTypes**. Definisce infatti i tipi di eventi gestiti dall'endpoint e ne determina quindi il routing.
+
+Una richiesta HTTP POST autenticata su
 
 ```plaintext
-POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
+YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
 - Instrada al bus di servizio i tipi di evento **SensorChange**, **SpaceChange** e **TopologyOperation**:

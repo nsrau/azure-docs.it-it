@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 266c9df095e9153533dbd89b4cd557d12ddcdc66
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408885"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971308"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -39,7 +39,7 @@ Per le risposte alle domande comuni sull'uso di un nome di dominio personalizzat
 
 ## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>Come si acquista un nuovo dominio personalizzato per un'app Web?
 
-Per informazioni su come acquistare e configurare un dominio personalizzato per l'app Web del servizio app, vedere [Acquistare e configurare un nome di dominio personalizzato nel servizio app](custom-dns-web-site-buydomains-web-app.md).
+Per informazioni su come acquistare e configurare un dominio personalizzato per l'app Web del servizio app, vedere [Acquistare e configurare un nome di dominio personalizzato nel servizio app](manage-custom-dns-buy-domain.md).
 
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Come si carica e si configura un certificato SSL esistente per un'app Web?
@@ -72,9 +72,11 @@ Per impostare il fuso orario del server per l'app Web:
     * Value = *fuso orario desiderato*
 3. Selezionare **Salva**.
 
+Per conoscere i valori accettati, vedere la colonna **Timezone** (Fuso orario) nell'articolo [Default Time Zones](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) (Fusi orari predefiniti).
+
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Perché i processi Web continui talvolta hanno esito negativo?
 
-Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. Nei piani Basic e Standard, è possibile attivare l'impostazione **Sempre attivata** per mantenere l'app Web sempre caricata. Se nell'app Web vengono eseguiti processi Web continui, è necessario attivare **Sempre attivata**; in caso contrario, l'esecuzione dei processi Web potrebbe non essere affidabile. Per altre informazioni, vedere [Creare un processo Web con esecuzione continua](web-sites-create-web-jobs.md#CreateContinuous).
+Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. Nei piani Basic e Standard, è possibile attivare l'impostazione **Sempre attivata** per mantenere l'app Web sempre caricata. Se nell'app Web vengono eseguiti processi Web continui, è necessario attivare **Sempre attivata**; in caso contrario, l'esecuzione dei processi Web potrebbe non essere affidabile. Per altre informazioni, vedere [Creare un processo Web con esecuzione continua](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Come si ottiene l'indirizzo IP in uscita per un'app Web?
 
@@ -124,7 +126,7 @@ Per altre informazioni, vedere [Conformità dell'app web del servizio app di Mic
 
 Nei piani del servizio app Standard o Premium, quando si distribuisce l'app Web nel servizio app, è possibile eseguire la distribuzione in uno slot di distribuzione separato, anziché in quello di produzione predefinito. Gli slot di distribuzione sono App Web live con i propri nomi host. È possibile scambiare il contenuto dell'app Web e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione.
 
-Per altre informazioni sull'utilizzo degli slot di distribuzione, vedere [Configurare un ambiente di gestione temporanea nel servizio app](web-sites-staged-publishing.md).
+Per altre informazioni sull'utilizzo degli slot di distribuzione, vedere [Configurare un ambiente di gestione temporanea nel servizio app](deploy-staging-slots.md).
 
 ## <a name="how-do-i-access-and-review-webjob-logs"></a>Come si accede e come si esaminano i log dei processi Web?
 
@@ -248,7 +250,7 @@ Per creare un processo Web pianificato, utilizzare le espressioni Cron:
     {month} {day of the week}" }
     ```
 
-Per altre informazioni sui processi Web pianificati, vedere [Creare un processo Web pianificato utilizzando un'espressione Cron](web-sites-create-web-jobs.md#CreateScheduledCRON).
+Per altre informazioni sui processi Web pianificati, vedere [Creare un processo Web pianificato utilizzando un'espressione Cron](webjobs-create.md#CreateScheduledCRON).
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Come si esegue il test di penetrazione per l'app del servizio app?
 

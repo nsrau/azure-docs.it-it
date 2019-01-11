@@ -1,25 +1,24 @@
 ---
 title: Procedure consigliate per Query Store in Database di Azure per PostgreSQL
 description: Questo articolo illustra le procedure consigliate per Query Store in Database di Azure per PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4e133458476a61538c2bddaaeb2f6d56d4ea5a26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 0c962dc6d8aff63a3b7dd34133a40c7ff9feec4c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954909"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540742"
 ---
 # <a name="best-practices-for-query-store"></a>Procedure consigliate per Query Store
 
 **Si applica a:** Database di Azure per PostgreSQL 9.6 e 10
 
 > [!IMPORTANT]
-> La funzionalità Query Store è disponibile in anteprima pubblica.
+> La funzionalità Query Store è in anteprima pubblica.
 
 
 Questo articolo illustra le procedure consigliate per usare Query Store in Database di Azure per PostgreSQL.

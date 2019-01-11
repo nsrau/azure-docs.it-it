@@ -12,16 +12,19 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/12/2018
-ms.openlocfilehash: bb80b512176e8fe260eb4572ea9fa801a6ffc80a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: b5916b781c636752ada6898cfa0c03bc02891501
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685141"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715019"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agente di sincronizzazione dei dati per la sincronizzazione dati SQL Azure
 
 Sincronizzare i dati con i database SQL Server locali installando e configurando l'agente di sincronizzazione dei dati per la sincronizzazione dati SQL di Azure. Per altre informazioni sulla sincronizzazione dei dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Al momento, la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
 
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -136,7 +139,7 @@ Molti scenari potrebbero causare questo errore.
 
 ### <a name="agent-start"></a> L'agente client non viene avviato (errore 1069)
 
-Si scopre che l'agente è in esecuzione in un computer che ospita SQL Server. Quando si prova ad avviare l'agente manualmente, viene visualizzata una finestra di dialogo con il messaggio "Errore 1069: Il servizio non è stato avviato a causa di un errore in fase di accesso".
+Si scopre che l'agente è in esecuzione in un computer che ospita SQL Server. Quando si prova ad avviare l'agente manualmente, viene visualizzata una finestra di dialogo con il messaggio "Errore 1069: Il servizio non è stato avviato a causa di un errore in fase di accesso."
 
 ![Finestra di dialogo dell'errore 1069 di sincronizzazione dei dati](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
 
@@ -318,7 +321,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere gli articoli segu
 
 -   Panoramica: [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md)
 -   Configurare la sincronizzazione dati
-    - Nel portale: [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
+    - Nel portale - [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
     - Con PowerShell
         -  [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

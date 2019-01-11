@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8951680ca9488dabffd02ee084e3f6827122276e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a51efa18672b81ef3e23e292abbe2b34c1936205
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957453"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994743"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gestire le funzionalità di connettività e messaggistica affidabile con gli Azure IoT Hub SDK per dispositivi
 
@@ -62,13 +62,13 @@ La procedura seguente descrive il processo di ripetizione dei tentativi quando v
 1. L'SDK rileva l'errore e l'errore associato nella rete, nel protocollo o nell'applicazione.
 1. L'SDK usa il filtro degli errori per determinare il tipo di errore e determina se è necessaria una ripetizione dei tentativi.
 1. Se l'SDK identifica un **errore irreversibile**, operazioni come connessione, invio e ricezione vengono arrestate. L'SDK invia una notifica all'utente. Un errore irreversibile può essere, ad esempio, un errore di autenticazione o un errore di endpoint non valido.
-1. Se l'SDK identifica un **errore irreversibile**, esegue la ripetizione dei tentativi secondo i criteri specificati, fino alla scadenza del timeout definito.
+1. Se l'SDK identifica un **errore reversibile**, ripete i tentativi secondo i criteri di ripetizione specificati, fino alla scadenza del timeout definito.  Si noti che l'SDK usa il criterio di ripetizione **Interruzione temporanea esponenziale con instabilità** per impostazione predefinita.
 1. Quando scade il timeout definito, l'SDK interrompe i tentativi di connessione o invio e invia una notifica all'utente.
 1. L'SDK consente all'utente di associare un callback per ricevere le modifiche relative allo stato della connessione.
 
 Gli SDK prevedono tre criteri di ripetizione dei tentativi:
 
-- **Interruzione temporanea esponenziale con instabilità**: criteri di ripetizione dei tentativi predefiniti che tendono a essere aggressivi all'inizio e rallentano fino a raggiungere il ritardo massimo. La progettazione si basa sulle [indicazioni relative alla ripetizione dei tentativi](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific) del Centro architetture Azure.
+- **Interruzione temporanea esponenziale con instabilità**: criteri di ripetizione dei tentativi predefiniti che tendono a essere aggressivi all'inizio e rallentano fino a raggiungere il ritardo massimo. La progettazione si basa sulle [indicazioni relative alla ripetizione dei tentativi](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific) del Centro architetture Azure. 
 - **Ripetizione dei tentativi personalizzata**: per alcuni linguaggi dell'SDK, è possibile progettare i criteri di ripetizione dei tentativi più adatti al proprio scenario e inserirli in RetryPolicy. La ripetizione dei tentativi personalizzata non è disponibile nell'SDK per il linguaggio C.
 - **Nessun tentativo**: è possibile impostare i criteri di ripetizione su "Nessun tentativo", in modo da disabilitare la logica di ripetizione dei tentativi. L'SDK prova a connettersi e a inviare un messaggio una sola volta, supponendo che la connessione sia stata stabilita. Questi criteri vengono solitamente usati nei casi in cui sono presenti problemi relativi alla larghezza di banda o ai costi. Se si sceglie questa opzione, i messaggi non inviati vengono persi e non possono essere recuperati.
 

@@ -1,17 +1,17 @@
 ---
-title: Rendering di Azure Batch
+title: Funzionalità di rendering - Azure Batch
 description: Come usare le funzionalità per il rendering di Azure Batch
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: ef2abc147049d264899d227235cffe72a1a1568c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2f423de63b7cec24d9d9c4541ddab0ac38b1076a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036775"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542312"
 ---
 # <a name="using-azure-batch-rendering"></a>Uso del rendering di Azure Batch
 
