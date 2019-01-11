@@ -19,7 +19,7 @@ ms.lasthandoff: 11/13/2018
 ms.locfileid: "51613971"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure con lo strumento Copia dati
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione corrente](tutorial-hybrid-copy-data-tool.md)
 
