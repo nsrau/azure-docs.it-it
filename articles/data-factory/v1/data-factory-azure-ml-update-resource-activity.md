@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7a5c0866bc08c5a73888d9baca41980106a62ae2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0c0e0e3983344bba76f5f305ecaf73f91110f3bc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954939"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020082"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Aggiornamento dei modelli di Azure Machine Learning con Attività della risorsa di aggiornamento
 
@@ -38,7 +37,7 @@ ms.locfileid: "49954939"
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sull'[aggiornamento dei modelli di Machine Learning in Data Factory](../update-machine-learning-models.md).
 
-Questo articolo integra la versione principale di Azure Data Factory: articolo di integrazione di Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo. 
+Questo articolo è complementare all'articolo principale sull'integrazione di Azure Data Factory e Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo. 
 
 ## <a name="overview"></a>Panoramica
 Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Azure ML usando nuovi set di dati di input. Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi con il modello ML di cui è stato ripetuto il training. Questa è la procedura tipica per abilitare la ripetizione del training e l'aggiornamento dei modelli di Azure ML tramite i servizi Web:
@@ -262,7 +261,7 @@ Attività della risorsa di aggiornamento di Azure ML non produce un output. Tutt
 ```
 
 ### <a name="pipeline"></a>Pipeline
-La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. Attività di esecuzione batch di Azure ML accetta i dati di training come input e genera il file con estensione iLearner come output. L'attività richiama il servizio Web di training, l'esperimento di training esposto come servizio Web, con i dati di training di input e riceve il file iLearner dal servizio Web. placeholderBlob è solo un set di dati di output fittizio richiesto dal servizio Data factory di Azure per eseguire la pipeline.
+La pipeline ha due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. Attività di esecuzione batch di Azure ML accetta i dati di training come input e genera il file con estensione iLearner come output. L'attività richiama il servizio Web di training, l'esperimento di training esposto come servizio Web, con i dati di training di input e riceve il file iLearner dal servizio Web. placeholderBlob è solo un set di dati di output fittizio richiesto dal servizio Data factory di Azure per eseguire la pipeline.
 
 ![Diagramma della pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 

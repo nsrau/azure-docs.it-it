@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 77d3bdd755e7c8d68115e12c6bee318fda652b09
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 38f20f74f8c553c134a6ef91151aa49b99ad45b5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972202"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213502"
 documentType: LandingData
 title: Documentazione di Archiviazione di Azure
 metadata:
@@ -67,9 +67,9 @@ sections:
       - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
     - title: Data Lake Storage Gen2
       values:
-      - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-the-azure-portal
-      - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-powershell
-      - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-azure-cli
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-the-azure-portal
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-powershell
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-azure-cli
       - href: 
       - href: 
       - href: 
@@ -83,7 +83,7 @@ sections:
     - title: Blobs
       html: <p>Caricare ed elaborare i dati di immagini nel cloud</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">Caricare e recuperare i dati di immagini nel cloud</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Attivare le funzioni di Azure per elaborare i BLOB</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">Proteggere i dati dell'applicazione</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitorare e risolvere i problemi relativi alle risorse di archiviazione</a></li></ul><p>Progettare l'applicazione per la disponibilità elevata</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Rendere i dati dell'applicazione a disponibilità elevata</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simulare un errore nell'accesso all'archiviazione con ridondanza e accesso in lettura</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">Cercare dati non strutturati in Archiviazione di Azure</a></p>
     - title: Data Lake Storage Gen2
-      html: <p><a href="/azure/storage/blobs/handle-data-using-databricks">Estrarre, trasformare e caricare dati tramite Azure Databricks</a></p><p><a href="/azure/storage/blobs/data-lake-storage-use-databricks-spark">Accedere ai dati di Azure Data Lake Storage Gen2 con DataBricks usando Spark</a></p><p><a href="/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive">Estrarre, trasformare e caricare dati usando Apache Hive in Azure HDInsight</a></p>
+      html: <p><a href="/azure/storage/blobs/data-lake-storage-handle-data-using-databricks">Estrarre, trasformare e caricare dati tramite Azure Databricks</a></p><p><a href="/azure/storage/blobs/data-lake-storage-use-databricks-spark">Accedere ai dati di Azure Data Lake Storage Gen2 con DataBricks usando Spark</a></p><p><a href="/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive">Estrarre, trasformare e caricare dati usando Apache Hive in Azure HDInsight</a></p>
 - title: Esempi
   items:
   - type: paragraph

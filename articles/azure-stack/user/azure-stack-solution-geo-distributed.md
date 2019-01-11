@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 917f9a5ff2f6f9f6101b19dccee05fe5ab25c5a9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714849"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214777"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Esercitazione: Creare una soluzione di app con distribuzione geografica con Azure e Azure Stack
 
@@ -106,7 +106,7 @@ Aggiornare il DNS zone file foCreate web App e publishr del dominio. Azure AD po
 Configurare integrazione continua/recapito Continuo per distribuire App Web di Azure e Azure Stack e auto push delle modifiche per entrambi i cloud ibridi.
 
 > [!Note]  
-> Azure Stack con immagini appropriate sfruttati in esecuzione (Windows Server e SQL) e distribuzione del servizio App sono necessarie. Esaminare la documentazione del servizio App "[prima di iniziare con il servizio App in Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" sezione per l'operatore di Azure Stack.
+> Azure Stack con immagini appropriate sfruttati in esecuzione (Windows Server e SQL) e distribuzione del servizio App sono necessarie. Esaminare la documentazione del servizio App [prima di iniziare con il servizio App in Azure Stack](../azure-stack-app-service-before-you-get-started.md) sezione per l'operatore di Azure Stack.
 
 #### <a name="add-code-to-azure-repos"></a>Aggiungere codice al repository di Azure
 

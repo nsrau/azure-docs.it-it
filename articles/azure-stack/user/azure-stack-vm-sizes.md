@@ -10,21 +10,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 5127b748111f993f95f940f4add81c42a032e038
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ad38bdf30d04f309bedaf9a7cc8b3d5b1aad6df7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722089"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215066"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Dimensioni delle macchine virtuali supportate in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 Questo articolo elenca le dimensioni di macchina virtuale (VM) che sono disponibili in Azure Stack.
+
+Valori di IOPS (Input/Output operazioni al secondo) in Azure Stack è una funzione delle dimensioni di macchina virtuale anziché il tipo di disco. Ciò significa che per una serie di Standard_Fs macchina virtuale, indipendentemente dal fatto che si scelga di unità SSD o HDD per il tipo di disco, il limite di IOPS per un disco dati aggiuntivo single 2300 IOPS. I limiti IOPS imposti è un limite (massimo) per evitare vicini fastidiosi. Non è una garanzia di IOPS che verrà visualizzato in una dimensione di macchina virtuale specifica.
 
 ## <a name="general-purpose"></a>Scopo generico
 
@@ -35,7 +37,7 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 > [!NOTE]
 > *Una base* dimensioni delle macchine virtuali sono in pensione per [creazione di set di scalabilità di macchine virtuali](../azure-stack-compute-add-scalesets.md) (VMSS) tramite il portale. Per creare un set di scalabilità con queste dimensioni, usare PowerShell o un modello.
 
-|Dimensioni - dimensioni\nome |vCPU     |Memoria | Dimensioni massime per il disco temporaneo | Velocità effettiva del disco max OS: (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Velocità effettiva dei dischi dati max (IOPS) | Schede di interfaccia di rete max |    
+|Dimensioni - dimensioni\nome |vCPU     |Memoria | Dimensioni massime per il disco temporaneo | Velocità effettiva del disco del sistema operativo massima: (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Velocità effettiva dei dischi dati max (IOPS) | Schede di interfaccia di rete max |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1x300  |1   |
 |**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2 / 2x300  |1   |
@@ -44,7 +46,7 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 |**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16 X 300 |1   |
 
 ### <a name="standard-a"></a>Oggetto standard 
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |    
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |    
 |----------------|--|------|----|----|----|-------|---------|
 |**Standard_A0** |1 |0,768 |20  |500 |500 |1x500  |1 / 100  |
 |**Standard_A1** |1 |1,75  |70  |500 |500 |2x500  |1 / 500  |
@@ -58,7 +60,7 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 ### <a name="av2-series"></a>Serie Av2
 *Richiede la versione di Azure Stack 1804 o versioni successive*
 
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
 |-----------------|----|----|-----|-----|------|--------------|---------|
 |**Standard_A1_v2**  |1   |2   |10   |500 |1000  |2/2 x 500   |2 / 250  |
 |**Standard_A2_v2**  |2   |4   |20   |500 |2000  |4/4 x 500   |2 / 500  |
@@ -69,7 +71,7 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 |**Standard_A8m_v2** |8   |64  |80   |500 |8000  |16/16 x 500 |8 / 2000 |
 
 ### <a name="d-series"></a>Serie D
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
 |----------------|----|----|-----|----|------|------------|---------|
 |**Standard_D1** |1   |3,5 |50   |500 |3000  |4/4 x 500   |1 / 500  |
 |**Standard_D2** |2   |7   |100  |500 |6000  |8/8 x 500   |2 / 1000 |
@@ -78,7 +80,7 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 
 
 ### <a name="ds-series"></a>Serie DS
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
 |-----------------|----|----|-----|-----|------|-------------|---------|
 |**Standard_DS1** |1   |3,5 |7    |1000 |4000  |4 / 4 x 2300   |1 / 500  |
 |**Standard_DS2** |2   |7   |14   |1000 |8000  |8 / 8x2300   |2 / 1000 |
@@ -86,7 +88,7 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 |**Standard_DS4** |8   |28  |56   |1000 |32000 |32 / 32x2300 |8 / 4000 |
 
 ### <a name="dv2-series"></a>Serie Dv2
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
 |-------------------|----|----|-----|----|------|------------|---------|
 |**Standard_D1_v2** |1   |3,5 |50   |500 |3000  |4/4 x 500   |1 / 500  |
 |**Standard_D2_v2** |2   |7   |100  |500 |6000  |8/8 x 500   |2 / 1000 |
@@ -95,7 +97,7 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 |**Standard_D5_v2** |16  |56  |800  |500 |48000 |64/64x500 |8 / 8000 |
 
 ### <a name="dsv2-series"></a>Serie DSv2
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
 |--------------------|----|----|----|-----|------|-------------|---------|
 |**Standard_DS1_v2** |1   |3,5 |7   |1000 |4000  |4 / 4 x 2300   |1 / 750  |
 |**Standard_DS2_v2** |2   |7   |14  |1000 |8000  |8 / 8x2300   |2 / 1500 |
@@ -108,7 +110,7 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 ### <a name="f-series"></a>Serie F
 *Richiede la versione di Azure Stack 1804 o versioni successive*
 
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
 |-----------------|----|----|-----|----|------|------------|---------|
 |**Standard_F1**  |1   |2   |16   |500 |3000  |4/4 x 500   |2 / 750  |
 |**Standard_F2**  |2   |4   |32   |500 |6000  |8/8 x 500   |2 / 1500 |
@@ -120,7 +122,7 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 ### <a name="fs-series"></a>Serie Fs
 *Richiede la versione di Azure Stack 1804 o versioni successive*  
 
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
 |------------------|----|----|----|-----|------|-------------|---------|
 |**Standard_F1s**  |1   |2   |4   |1000 |4000  |4 / 4 x 2300   |2 / 750  |
 |**Standard_F2s**  |2   |4   |8   |1000 |8000  |8 / 8x2300   |2 / 1500 |
@@ -132,7 +134,7 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 ### <a name="fsv2-series"></a>Serie Fsv2
 *Richiede la versione di Azure Stack 1804 o versioni successive* 
 
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4 x 2300    |Moderata |
 |**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |Moderata |
@@ -147,7 +149,7 @@ Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-me
 Memoria ottimizzati dimensioni delle macchine Virtuali offrono un rapporto elevato tra memoria e CPU che è stato progettato per i server di database relazionali, cache medio-grandi e analitica in memoria.
 
 ### <a name="mo-d"></a>Serie D
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
 |------------------|---|----|----|--------|------|------------|---------|
 |**Standard_D11**  |2  |14  |100 |500     |6000  |8/8 x 500   |2 / 1000 |
 |**Standard_D12**  |4  |28  |200 |500     |12000 |16/16 x 500 |4 / 2000 |
@@ -155,7 +157,7 @@ Memoria ottimizzati dimensioni delle macchine Virtuali offrono un rapporto eleva
 |**Standard_D14**  |16 |112 |800 |500     |48000 |64/64x500 |8 / 8000 |
 
 ### <a name="mo-ds"></a>Serie DS
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
 |-------------------|---|----|----|--------|------|-------------|---------|
 |**Standard_DS11**  |2  |14  |28  |1000    |8000  |8 / 8x2300   |2 / 1000 |
 |**Standard_DS12**  |4  |28  |56  |1000    |12000 |16 / 16 x 2300 |4 / 2000 |
@@ -163,7 +165,7 @@ Memoria ottimizzati dimensioni delle macchine Virtuali offrono un rapporto eleva
 |**Standard_DS14**  |16 |112 |224 |1000    |64000 |64 / 64 x 2300 |8 / 8000 |
 
 ### <a name="mo-dv2"></a>Serie Dv2
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8/8 x 500    |2 / 1500 |
 |**Standard_D12_v2** |4   |28  |200  |500 |12000  |16/16 x 500  |4 / 3000 |
@@ -172,7 +174,7 @@ Memoria ottimizzati dimensioni delle macchine Virtuali offrono un rapporto eleva
 
 
 ### <a name="mo-dsv2"></a>DSv2-series
-|Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
+|Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del sistema operativo del disco (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati / velocità effettiva (IOPS) | Numero massimo di schede di rete / previsto della larghezza di banda di rete (Mbps) |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |8 / 8x2300    |2 / 1500 |
 |**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |16 / 16 x 2300  |4 / 3000 |

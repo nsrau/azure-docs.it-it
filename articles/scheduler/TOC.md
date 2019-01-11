@@ -1,7 +1,7 @@
 # [Documentazione di Utilità di pianificazione](index.md)
 
 # Panoramica
-## [Informazioni sull'Utilità di pianificazione di Azure](scheduler-intro.md)
+## [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 
 # Attività iniziali
 ## [Creare e gestire processi - portale](scheduler-get-started-portal.md)
@@ -26,6 +26,7 @@
 # riferimento
 ## [Azure PowerShell](/powershell/module/azurerm.scheduler)
 ## [API REST](/rest/api/scheduler)
+## [Modello di Resource Manager](/azure/templates/microsoft.scheduler/allversions)
 
 # Risorse
 ## [Roadmap per l'Utilità di pianificazione di Azure](https://azure.microsoft.com/updates/?product=scheduler)
