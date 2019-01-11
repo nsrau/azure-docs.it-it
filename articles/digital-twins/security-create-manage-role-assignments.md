@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 72a42e273029bd42d77531953ff5cbfc0fe5c295
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810900"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118592"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Creare e gestire assegnazioni di ruolo in Gemelli digitali di Azure
 
@@ -276,9 +276,9 @@ Gli esempi seguenti illustrano come configurare il corpo JSON in diversi scenari
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sul controllo degli accessi in base al ruolo di Gemelli digitali di Azure, vedere [Controllo degli accessi in base al ruolo](./security-authenticating-apis.md).
+- Per informazioni sul controllo degli accessi in base al ruolo di Gemelli digitali di Azure, vedere [Controllo degli accessi in base al ruolo](./security-authenticating-apis.md).
 
-Per altre informazioni sull'autenticazione delle API di Gemelli digitali di Azure, vedere [Connettersi alle API ed eseguire l'autenticazione](./security-authenticating-apis.md).
+- Per altre informazioni sull'autenticazione delle API di Gemelli digitali di Azure, vedere [Connettersi alle API ed eseguire l'autenticazione](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/security-roles/roleassignments.png
