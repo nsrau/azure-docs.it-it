@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: f5826b2a6935bb448a7a3ef94d9a5f27f1ed9426
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 4f5558d17e2f290ed7255350f304ed2057a6d783
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214590"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247623"
 ---
 # <a name="azure-stack-1811-update"></a>Aggiornamento di Azure Stack 1811
 
@@ -40,9 +40,9 @@ Questo articolo descrive il contenuto del pacchetto di aggiornamento 1811. Il pa
 Azure Stack rilascia gli aggiornamenti rapidi a intervalli regolari. Assicurarsi di installare il [hotfix più recente di Azure Stack](#azure-stack-hotfixes) per 1809 prima di aggiornare Azure Stack per 1811.
 
 > [!TIP]  
-> Sottoscrivere seguenti *RRS* oppure *Atom* i feed di stare al passo con gli aggiornamenti rapidi di Azure Stack:
-> - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
-> - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
+> Sottoscrivere seguenti *RSS* oppure *Atom* i feed di stare al passo con gli aggiornamenti rapidi di Azure Stack:
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Formato Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ### <a name="azure-stack-hotfixes"></a>Aggiornamenti rapidi di Azure Stack
 
@@ -162,7 +162,7 @@ Questo aggiornamento include le seguenti nuove funzionalità e miglioramenti per
 
 - Il cmdlet esistente di PEP per recuperare le chiavi di ripristino di BitLocker viene rinominato in 1811, da Get-AzsCsvsRecoveryKeys a Get-AzsRecoveryKeys. Per altre informazioni su come recuperare le chiavi di ripristino di BitLocker, vedere [istruzioni su come recuperare le chiavi](azure-stack-security-bitlocker.md).
 
-## <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+## <a name="common-vulnerabilities-and-exposures"></a>Esposizione e vulnerabilità comuni
 
 Questo aggiornamento installa gli aggiornamenti di sicurezza seguenti:  
 
@@ -260,6 +260,8 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
    `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
 
    L'errore si verifica se si abilita la diagnostica di avvio in una macchina virtuale ma eliminare l'account di archiviazione di diagnostica di avvio. Per risolvere questo problema, ricreare l'account di archiviazione con lo stesso nome è stato usato in precedenza.
+
+- Quando si crea una [VM serie Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), da D11-14v2 VM consentono di creare 4, 8, 16 e dischi 32 dati rispettivamente. Tuttavia, nel riquadro di creazione della macchina virtuale Mostra 8, 16, 32 e 64 dischi di dati.
 
 <!-- 3235634 – IS, ASDK -->
 - Per distribuire le macchine virtuali con dimensioni che contiene un **v2** suffisso; ad esempio **Standard_A2_v2**, specificare il suffisso come **Standard_A2_v2** (v lettere minuscole). Non utilizzare **Standard_A2_V2** (lettere maiuscole V). Ciò funziona in Azure globale ed è un'incoerenza nello Stack di Azure.

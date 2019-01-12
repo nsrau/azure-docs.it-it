@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.reviewer: unknown
+ms.openlocfilehash: 61afc8a736025763f950307fdbb78bb21577b22f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318130"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244206"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Panoramica di piano, offerta, quote e sottoscrizione
 
@@ -59,7 +59,7 @@ Per aiutarti a gestire la capacità del cloud, è possibile usare preconfigurati
 
 Altre informazioni sulle [tipi di quote in Azure Stack](azure-stack-quota-types.md).
 
-### <a name="base-plan"></a>Piano base
+### <a name="base-plan"></a>Piano di base
 
 Quando si crea un'offerta, l'amministratore del servizio può includere un piano base. Questi piani base sono inclusi per impostazione predefinita, quando un utente si iscrive per l'offerta. Quando un utente si iscrive, hanno accesso a tutti i provider di risorse specificato in tali piani base (con le quote corrispondenti).
 

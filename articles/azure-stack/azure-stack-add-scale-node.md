@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ff068ff5aa4401a80f2220df79fdac93db21cfb3
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982998"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232873"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Aggiungere nodi di unità di scalabilità aggiuntiva in Azure Stack
 
@@ -105,6 +105,7 @@ Lo stato per unità di scala e i nodi di unità di scala può essere recuperato 
 
 ### <a name="status-for-the-add-node-operation"></a>Stato per l'operazione di aggiunta nodo 
 **Per un'unità di scala:**
+
 |Status               |DESCRIZIONE  |
 |---------------------|---------|
 |In esecuzione              |Tutti i nodi partecipano attivamente l'unità di scala.|
@@ -115,11 +116,12 @@ Lo stato per unità di scala e i nodi di unità di scala può essere recuperato 
 
 
 **Per un nodo di unità di scala:**
+
 |Status                |DESCRIZIONE  |
 |----------------------|---------|
 |In esecuzione               |Il nodo partecipa attivamente nell'unità di scala.|
 |Arrestato               |Il nodo è disponibile.|
-|Aggiunta in sospeso                |Il nodo viene attivamente viene aggiunto all'unità di scala.|
+|Aggiunta                |Il nodo viene attivamente viene aggiunto all'unità di scala.|
 |Ripristino             |Il nodo è attivamente in fase di manutenzione.|
 |Manutenzione            |Il nodo venga sospeso e nessun carico di lavoro utente attivo è in esecuzione. |
 |Richiede correzione  |È stato rilevato un errore che richiede che il nodo da ripristinare.|
@@ -128,16 +130,16 @@ Lo stato per unità di scala e i nodi di unità di scala può essere recuperato 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 Di seguito sono gli errori comuni riscontrati quando si aggiunge un nodo. 
 
-**Scenario 1:** l'operazione di nodo unità di scala aggiunta ha esito negativo, ma uno o più nodi vengono elencati con stato arrestato.  
+**Scenario 1:**  L'operazione di nodo unità di scala aggiunta ha esito negativo, ma uno o più nodi vengono elencati con stato arrestato.  
 - Correzione: Utilizzare l'operazione di ripristino per ripristinare uno o più nodi. Solo un'operazione di ripristino singolo eseguibili in una sola volta.
 
-**Scenario 2:** uno o più nodi di unità di scala sono stati aggiunti ma non è riuscita l'espansione di archiviazione. In questo scenario, l'oggetto nodo unità di scala segnala lo stato di esecuzione, ma non viene avviata l'attività di configurazione dell'archiviazione.  
+**Scenario 2:** Uno o più nodi di unità di scala sono stati aggiunti ma non è riuscita l'espansione di archiviazione. In questo scenario, l'oggetto nodo unità di scala segnala lo stato di esecuzione, ma non viene avviata l'attività di configurazione dell'archiviazione.  
 - Correzione: Usare l'endpoint con privilegi per verificare l'integrità di archiviazione eseguendo il cmdlet di PowerShell seguente:
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
-**Scenario 3:** è stato ricevuto un avviso che indica il processo di scalabilità orizzontale di archiviazione non è riuscito.  
+**Scenario 3:** È stato ricevuto un avviso che indica il processo di scalabilità orizzontale di archiviazione non è riuscito.  
 - Correzione: In questo caso, l'attività di configurazione di archiviazione non è riuscita. Questo problema è necessario contattare il supporto tecnico.
 
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364096"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244988"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operazioni di manutenzione del provider di risorse SQL
 
@@ -32,16 +32,6 @@ Il provider di risorse SQL non è gestito come parte di Azure Stack perché è u
 ### <a name="provider-virtual-machine"></a>Macchina virtuale del provider
 
 Poiché il provider di risorse viene eseguito su un *utente* macchina virtuale, è necessario applicare le patch necessarie e gli aggiornamenti quando vengono rilasciate. È possibile usare i pacchetti di aggiornamento di Windows che vengono forniti come parte del ciclo di patch e aggiornamento per applicare gli aggiornamenti per la macchina virtuale.
-
-## <a name="backuprestoredisaster-recovery"></a>Backup/Restore/ripristino di emergenza
-
- Poiché si tratta di un componente aggiuntivo, il provider di risorse SQL non viene eseguito il backup come parte di un processo di Azure Stack Business Continuity ripristino di emergenza (BCDR). Gli script verranno forniti per le operazioni seguenti:
-
-- Backup delle informazioni di stato (archiviate in un account di archiviazione di Azure Stack).
-- Se è necessario un ripristino dello stack completa, il ripristino del provider di risorse.
-
->[!NOTE]
->Se è necessario eseguire un ripristino, i server di database devono essere ripristinati prima il provider di risorse viene ripristinato.
 
 ## <a name="updating-sql-credentials"></a>L'aggiornamento delle credenziali SQL
 
@@ -122,7 +112,7 @@ Quando i sistemi integrati di utilizzando il provider di risorse SQL e MySQL con
 
 ### <a name="known-issues"></a>Problemi noti
 
-**Problema**: i log di rotazione dei segreti.<br>
+**Problema**: Log di rotazione dei segreti.<br>
 I log per la rotazione dei segreti non vengono raccolti automaticamente se lo script personalizzato di rotazione segreta non riesce quando viene eseguito.
 
 **Soluzione alternativa**:<br>

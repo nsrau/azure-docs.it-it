@@ -1,9 +1,9 @@
 ---
-title: Offerta di servizi nello Stack di Azure | Documenti Microsoft
-description: Come operatore di cloud, è possibile offrire servizi agli utenti.
+title: Offrendo servizi di Azure Stack | Microsoft Docs
+description: Come operatore di cloud, è possibile offrire servizi per gli utenti.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,38 +12,47 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
-ms.author: brenduns
-ms.reviewer: ''
-ms.openlocfilehash: 042e65cfe350cb61124ed8920ae3616502e6553d
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.date: 09/17/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: 754a0002aca52462910abe50825cff0254a7068f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248844"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244155"
 ---
-# <a name="overview-of-offering-services-in-azure-stack"></a>Panoramica dell'offerta di servizi di Azure Stack
+# <a name="overview-of-offering-services-in-azure-stack"></a>Panoramica dell'offerta di servizi in Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-[Microsoft Azure Stack](azure-stack-poc.md) è una piattaforma di cloud ibrido che consente di offrire servizi dal Data Center. Come provider di servizi, è possibile offrire servizi ai tenant. All'interno di un'azienda o agenzia governativa, è possibile offrire ai propri dipendenti con i servizi locali. I servizi che è possibile recapitare includono, ma non sono limitati a:
+[Microsoft Azure Stack](azure-stack-poc.md) è una piattaforma di cloud ibrido che ti permette di offrire servizi dal Data Center. Come provider di servizi, è possibile offrire servizi ai tenant. All'interno di un'azienda o l'ente governativo, è possibile offrire servizi locali per i dipendenti. 
 
-- Piattaforma distribuita come un servizio (PaaS) di servizi quali servizi App, App per le API, le funzioni dell'API, SQL e MySQL.
+È possibile offrire [infrastruttura come servizio](https://azure.microsoft.com/overview/what-is-iaas/) servizi (IaaS) che consentono agli utenti di compilare un'infrastruttura di calcolo on demand, il provisioning e gestite dal portale per gli utenti Azure Stack.
 
-È anche possibile combinare i servizi di integrazione e la compilazione di soluzioni complesse per utenti diversi.
+È anche possibile distribuire [piattaforma distribuita come servizio](https://azure.microsoft.com/overview/what-is-paas/) servizi (PaaS) per Azure Stack da Microsoft e altri provider di terze parti 3rd. I servizi che è possibile recapitare includono, ma non sono limitati a:
 
-Per distribuire questi servizi agli utenti, è necessario creare [piani, offerte e le quote](azure-stack-plan-offer-quota-overview.md). Gli utenti possono eseguire la sottoscrizione per le offerte di utilizzare i servizi.
+- [Aggiungere un provider di risorse del servizio app ad Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-overview)
+
+- [Aggiungere un provider di risorse di SQL Server in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
+
+- [Aggiungere un provider di risorse MySQL Server in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
+
+
+È anche possibile combinare servizi per l'integrazione e la creazione di soluzioni complesse per utenti diversi.
+
+Per distribuire questi servizi per gli utenti, è necessario creare [piani, offerte e quote](azure-stack-plan-offer-quota-overview.md). Gli utenti possono quindi sottoscrivono le offerte di utilizzare i servizi.
 
 ## <a name="plan-your-service-offers"></a>Pianificare le offerte di servizio
 
-Quando si pianifica le offerte, tenere i seguenti punti presenti:
+Quando si prevede le offerte, tenere presente quanto riportato di seguito:
 
-**Le offerte di prova**: È possibile utilizzare le offerte di prova per attirare nuovi utenti, che quindi è possono eseguire l'aggiornamento a servizi aggiuntivi. Per creare un'offerta di valutazione, creare un piccolo [piano base](azure-stack-plan-offer-quota-overview.md#base-plan) con un piano del componente aggiuntivo facoltativo più grande.
+**Offerte di prova**: È possibile utilizzare le offerte di prova per attrarre nuovi utenti, che possono quindi eseguire l'aggiornamento a servizi aggiuntivi. Per creare un'offerta di valutazione, creare un piccolo [piano base](azure-stack-plan-offer-quota-overview.md#base-plan) con un piano aggiuntivo più grande facoltativo.
 
-**Pianificazione della capacità**: È possibile evitare che gli utenti che rilevano grandi quantità di risorse e il sistema per tutti gli utenti è sommersa da. Per migliorare le prestazioni, è possibile [configurare i piani con quote](azure-stack-plan-offer-quota-overview.md#plans) all'utilizzo di criteri.
+**Pianificazione della capacità**: È possibile evitare che gli utenti che rilevano grandi quantità di risorse e bloccano il sistema per tutti gli utenti. Per migliorare le prestazioni, è possibile [configurare i piani con quote](azure-stack-plan-offer-quota-overview.md#plans) all'utilizzo di criteri di autorizzazione connessioni.
 
-**Delegato provider**: È possibile concedere ad altri utenti la possibilità di creare offerte nell'ambiente in uso. Ad esempio, se si è un provider di servizi, è possibile [delegato](azure-stack-delegated-provider.md) questa possibilità per i rivenditori. In alternativa, se si ha un'organizzazione, è possibile delegare a altre divisioni/controllate.
+**Delega provider**: È possibile concedere ad altri utenti la possibilità di creare offerte nell'ambiente in uso. Ad esempio, se si ha un provider di servizi, è possibile [delegare](azure-stack-delegated-provider.md) questa possibilità per i rivenditori. In alternativa, se si ha un'organizzazione, è possibile delegare a altre divisioni/controllate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare un'offerta nello Stack di Azure](azure-stack-create-offer.md)
+[Creare un'offerta in Azure Stack](azure-stack-create-offer.md)

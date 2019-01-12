@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e4da34be5b1e9eb2675f540fe4069cfd3dc1d056
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.reviewer: anajod
+ms.openlocfilehash: 95fcb98e9ca6ff85e37ee88d5a5122ffa6887bb4
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49410198"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245209"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Esercitazione: Distribuire una soluzione cloud ibrida con Azure e Azure Stack
 
@@ -79,11 +79,11 @@ Prima di iniziare questa esercitazione, verificare che è possibile soddisfare i
 
     ![Auzure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
 
-3. Nella **Marketplace**, selezionare **Compute**, quindi scegliere **altre**. Sotto **altre**, selezionare la **licenza gratuita di SQL Server: SQL Server 2017 Developer in Windows Server** immagine.
+3. Nella **Marketplace**, selezionare **Compute**, quindi scegliere **altre**. Sotto **altre**, selezionare il **licenza gratuita di SQL Server: SQL Server 2017 Developer in Windows Server** immagine.
 
     ![Selezionare un'immagine di macchina virtuale](media/azure-stack-solution-hybrid-cloud/image2.png)
 
-4. Sul **licenza gratuita di SQL Server: SQL Server 2017 Developer in Windows Server** selezionate **crea**.
+4. In **senza licenza di SQL Server: SQL Server 2017 Developer in Windows Server** selezionate **Create**.
 
 5. Sul **nozioni di base > Configura impostazioni di base**, fornire un **nome** per la macchina virtuale (VM), una **nome utente** per SA di SQL Server e un **Password** per l'amministratore del servizio.  Dal **sottoscrizione** elenco a discesa selezionare la sottoscrizione a cui viene eseguita la distribuzione. Per la **gruppo di risorse**, usare **sceglierne uno esistente** e inserire la macchina virtuale nello stesso gruppo di risorse dell'App web di Azure Stack.
 
@@ -176,7 +176,7 @@ Il gateway di rete virtuale sul lato Azure della rete ibrida deve consentire le 
 
 1. Per connettersi all'applicazione di rete virtuale di Azure, seguire le istruzioni in [abilitazione dell'integrazione rete virtuale](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#enabling-vnet-integration).
 
-2. Passare a **impostazioni** per il piano di servizio App che ospita l'applicazione web. Nelle **le impostazioni**, selezionare **Networking**.
+2. Passare a **impostazioni** per il piano di servizio App che ospita l'applicazione web. In **Impostazioni** selezionare **Rete**.
 
     ![Configurare le impostazioni di rete](media/azure-stack-solution-hybrid-cloud/image11.png)
 
@@ -194,7 +194,7 @@ Per altre informazioni sull'integrazione del servizio App con reti virtuali di A
 
 Il gateway di rete locale nella rete virtuale di Azure Stack può essere configurato per instradare il traffico dall'intervallo di indirizzi da punto a sito di servizio App.
 
-1. In Azure Stack, passare a **gateway di rete locale**. Sotto **le impostazioni**, selezionare **configurazione**.
+1. In Azure Stack, passare a **gateway di rete locale**. In **Impostazioni** selezionare **Configurazione**.
 
     ![Opzione di configurazione del gateway](media/azure-stack-solution-hybrid-cloud/image14.png)
 
@@ -308,7 +308,7 @@ Quando si crea l'app web in un ambiente del servizio App inizia con una sola ist
 
     ![Abilitare il ridimensionamento automatico](media/azure-stack-solution-hybrid-cloud/image17.png)
 
-3. Immettere un nome per **nome dell'impostazione di scalabilità automatica**. Per il **predefinite** regole di scalabilità automatica, selezionare **scalabilità basata su una metrica**. Impostare il **limiti per le istanze** al **minimo: 1**, **massimo: 10**, e **predefinito: 1**.
+3. Immettere un nome per **nome dell'impostazione di scalabilità automatica**. Per il **predefinite** regole di scalabilità automatica, selezionare **scalabilità basata su una metrica**. Impostare il **limiti per le istanze** a **minimo: 1**, **massimo: 10**, e **predefinito: 1**.
 
     ![Configura la scalabilità automatica](media/azure-stack-solution-hybrid-cloud/image18.png)
 
@@ -447,7 +447,7 @@ Si userà questa vista per creare un avviso di aumento e una scala nell'avviso.
 ### <a name="create-the-scale-out-alert"></a>Creare l'avviso di aumento
 
 1. Sotto **CONFIGURE**, selezionare **avvisi (versione classica)**.
-2. Selezionare **Aggiungi avviso sulla metrica (versione classica)**.
+2. Selezionare **Aggiungi avviso per la metrica (versione classica)**.
 3. Nelle **Aggiungi regola**, configurare quanto segue:
 
    - Per la **Name**, immettere **Burst nel Cloud Azure**.
@@ -468,7 +468,7 @@ Si userà questa vista per creare un avviso di aumento e una scala nell'avviso.
 ### <a name="create-the-scale-in-alert"></a>Creare la scala in avviso
 
 1. Sotto **CONFIGURE**, selezionare **avvisi (versione classica)**.
-2. Selezionare **Aggiungi avviso sulla metrica (versione classica)**.
+2. Selezionare **Aggiungi avviso per la metrica (versione classica)**.
 3. Nelle **Aggiungi regola**, configurare quanto segue:
 
    - Per la **Name**, immettere **scalabilità in Azure Stack**.
@@ -502,7 +502,7 @@ Quando il sito Web raggiunge le soglie configurate, si riceverà un avviso. Util
 
     ![Endpoint di Gestione traffico](media/azure-stack-solution-hybrid-cloud/image20.png)
 
-2. Selezionare **endpoint**.
+2. Selezionare **Endpoint**.
 3. Selezionare il **endpoint di Azure**.
 4. Sotto **lo stato** , selezionare **Enabled**e quindi selezionare **Salva**.
 

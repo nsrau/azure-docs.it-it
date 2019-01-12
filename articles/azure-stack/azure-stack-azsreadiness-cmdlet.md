@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1dbfd668c2d233d299ee673da92ca203e72942fe
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: unknown
+ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957421"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247577"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Riferimento ai cmdlet Start-AzsReadinessChecker
 
@@ -268,7 +268,7 @@ Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -Registra
 
 In questo esempio, vengono richieste le credenziali del proprietario della sottoscrizione in modo sicuro e Start-AzsReadinessChecker esegue quindi la convalida rispetto all'account specificato e sottoscrizione per assicurarsi che può essere utilizzata per la registrazione di Azure Stack in cui i dettagli aggiuntivi lettura dal file JSON di dati di distribuzione generato per la distribuzione.
 
-### <a name="example-importexport-pfx-package"></a>Esempio: Pacchetto di importazione/esportazione di file PFX
+### <a name="example-importexport-pfx-package"></a>Esempio: Pacchetto di importazione/esportazione di PFX
 
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
@@ -277,7 +277,7 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 In questo esempio, la password PFX viene chiesta in modo sicuro. Il file ssl.pfx verrà importato nell'archivio certificati del computer locale e nuovamente esportato con la stessa password e salvato come ssl_new.pfx.  Questa procedura viene utilizzato quando la convalida dei certificati contrassegnato che una chiave privata è privo di set di attributi del computer locale, viene interrotta la catena di certificati, certificati irrilevanti sono presenti nel file PFX o la catena di certificati è nell'ordine errato.
 
-### <a name="example-view-validation-report-deployment-support"></a>Esempio: Visualizzare il report di convalida (supporto per la distribuzione)
+### <a name="example-view-validation-report-deployment-support"></a>Esempio: Visualizza rapporto di convalida (supporto per la distribuzione)
 
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
@@ -285,7 +285,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 
 In questo esempio, il team di supporto o distribuzione riceve il report di conformità da parte del cliente (Contoso) e utilizza Start-AzsReadinessChecker per visualizzare lo stato delle esecuzioni convalida eseguita Contoso.
 
-### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Esempio: Visualizzazione di report di convalida Riepilogo certificato convalida solo (distribuzione e supporto)
+### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Esempio: Report di convalida Visualizza riepilogo certificato convalida solo (distribuzione e supporto)
 
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary

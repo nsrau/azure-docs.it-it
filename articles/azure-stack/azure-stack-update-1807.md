@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7f87f93ebc739d75c796859c7091d4cf62a820a0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 82343daa9fafe27ac814b6246a303e661a0a22d1
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714985"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231037"
 ---
 # <a name="azure-stack-1807-update"></a>Aggiornamento di Azure Stack 1807
 
@@ -143,7 +143,7 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack.
 
 <!-- ### Additional releases timed with this update    -->
 
-### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+### <a name="common-vulnerabilities-and-exposures"></a>Esposizione e vulnerabilità comuni
 Stack di Azure Usa le installazioni Server Core di Windows Server 2016 all'infrastruttura a chiave host. Questa versione consente di installare gli aggiornamenti di Windows Server 2016 seguenti nei server dell'infrastruttura per Azure Stack: 
 - [CVE-2018-8206](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8206)
 - [CVE-2018-8222](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8222)

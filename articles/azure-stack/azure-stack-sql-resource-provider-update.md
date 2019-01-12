@@ -11,30 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: b39cc799218a4c6f865acac8b98f5fb977c83bdc
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.reviewer: jiahan
+ms.openlocfilehash: 00a7644663b4628d20dbe598def158bc120a7aee
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117793"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245464"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aggiornare il provider di risorse SQL
 
 *Si applica a: Sistemi integrati di Azure Stack.*
 
-Un nuovo provider di risorse SQL potrebbe essere rilasciato quando Azure Stack viene aggiornato a una nuova compilazione. Anche se la scheda esistente continua a funzionare, è consigliabile aggiornare quanto prima della compilazione più recente.
+Un nuovo provider di risorse SQL potrebbe essere rilasciato quando Azure Stack viene aggiornato a una nuova compilazione. Anche se il provider di risorse esistente continuino a funzionare, è consigliabile aggiornare quanto prima della compilazione più recente. 
 
-> [!IMPORTANT]
-> È necessario installare aggiornamenti nell'ordine in che cui vengono rilasciate. Non è possibile ignorare le versioni. Vedere l'elenco di versioni nel [distribuisce i prerequisiti di provider di risorse](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
-
-## <a name="overview"></a>Panoramica
+Iniziando con il rilascio della versione 1.1.33.0 SQL resource provider, gli aggiornamenti sono cumulativi e non devono essere installati nell'ordine in cui vengono rilasciate; fino a quando si è a partire dalla versione 1.1.24.0 o versione successiva. Ad esempio, se si esegue la versione 1.1.24.0 del provider di risorse SQL, quindi è possibile aggiornare alla versione 1.1.33.0 o in un secondo momento senza dover prima installare versione 1.1.30.0. Per esaminare le versioni del provider delle risorse disponibili e la versione di Azure Stack sono supportati in, vedere l'elenco di versioni nel [distribuisce i prerequisiti di provider di risorse](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 Per aggiornare il provider di risorse, usare il *UpdateSQLProvider.ps1* script. Questo script è incluso nel download del nuovo provider di risorse SQL. È simile a quello usato per il processo di aggiornamento [distribuire il provider di risorse](./azure-stack-sql-resource-provider-deploy.md). Lo script di aggiornamento Usa gli stessi argomenti dello script DeploySqlProvider.ps1 e sarà necessario fornire le informazioni sul certificato.
 
-### <a name="update-script-processes"></a>Processi di script di aggiornamento
+ > [!IMPORTANT]
+ > Prima di aggiornare il provider di risorse, esaminare le note sulla versione per informazioni sulle nuove funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
+
+## <a name="update-script-processes"></a>Processi di script di aggiornamento
 
 Il *UpdateSQLProvider.ps1* script crea una nuova macchina virtuale (VM) con il codice del provider di risorse più recente.
 
@@ -47,11 +47,26 @@ Dopo il *UpdateSQLProvider.ps1* lo script crea una nuova macchina virtuale, lo s
 * informazioni sul server di hosting
 * record DNS necessario
 
-### <a name="update-script-powershell-example"></a>Aggiornare l'esempio di script di PowerShell
+## <a name="update-script-parameters"></a>Aggiornare i parametri dello script
 
-È possibile modificare ed eseguire lo script seguente da un esempio di PowerShell con privilegi elevati ISE. 
+È possibile specificare i parametri seguenti dalla riga di comando quando si esegue la **UpdateSQLProvider.ps1** script di PowerShell. In caso contrario, o se ha esito negativo qualsiasi convalida dei parametri, viene chiesto di fornire i parametri obbligatori.
 
-Ricordarsi di modificare le informazioni sull'account e le password in base alle necessità per l'ambiente.
+| Nome parametro | DESCRIZIONE | Commento o il valore predefinito |
+| --- | --- | --- |
+| **CloudAdminCredential** | Le credenziali per l'amministratore del cloud, necessaria per l'accesso all'endpoint con privilegi. | _Obbligatorio_ |
+| **AzCredential** | Le credenziali per l'account di amministratore del servizio di Azure Stack. Usare le stesse credenziali usate per la distribuzione di Azure Stack. | _Obbligatorio_ |
+| **VMLocalCredential** | Le credenziali per l'account amministratore locale del provider di risorse SQL macchina virtuale. | _Obbligatorio_ |
+| **PrivilegedEndpoint** | L'indirizzo IP o nome DNS dell'endpoint con privilegi. |  _Obbligatorio_ |
+| **AzureEnvironment** | Ambiente di Azure dell'account di amministratore del servizio che usato per la distribuzione di Azure Stack. Obbligatorio solo per le distribuzioni di Azure AD. I nomi di ambiente supportati sono **AzureCloud**, **AzureUSGovernment**, o se si usa una Azure AD, Cina **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | È anche necessario inserire il file con estensione pfx del certificato in questa directory. | _Facoltativo per singolo nodo, ma obbligatorio per multi-nodo_ |
+| **DefaultSSLCertificatePassword** | La password per il certificato con estensione pfx. | _Obbligatorio_ |
+| **MaxRetryCount** | Il numero di volte in cui che si desidera ripetere ogni operazione se si verifica un errore.| 2 |
+| **RetryDuration** |L'intervallo di timeout tra i tentativi, in secondi. | 120 |
+| **Disinstallare** | Rimuove il provider di risorse e tutte le risorse associate. | No  |
+| **DebugMode** | Impedisce la pulizia automatica in caso di errore. | No  |
+
+## <a name="update-script-powershell-example"></a>Aggiornare l'esempio di script di PowerShell
+Di seguito è riportato un esempio d'uso di *UpdateSQLProvider.ps1* script che è possibile eseguire da una console di PowerShell con privilegi elevata. Assicurarsi di modificare le informazioni sulle variabili e le password in base alle esigenze:  
 
 > [!NOTE]
 > Questo processo di aggiornamento si applica solo ai sistemi integrati di Azure Stack.
@@ -101,24 +116,6 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert `
 
  ```
-
-## <a name="updatesqlproviderps1-parameters"></a>Parametri UpdateSQLProvider.ps1
-
-È possibile specificare i parametri seguenti dalla riga di comando quando si esegue lo script. In caso contrario, o se ha esito negativo qualsiasi convalida dei parametri, viene chiesto di fornire i parametri obbligatori.
-
-| Nome parametro | DESCRIZIONE | Commento o il valore predefinito |
-| --- | --- | --- |
-| **CloudAdminCredential** | Le credenziali per l'amministratore del cloud, necessaria per l'accesso all'endpoint con privilegi. | _Obbligatorio_ |
-| **AzCredential** | Le credenziali per l'account di amministratore del servizio di Azure Stack. Usare le stesse credenziali usate per la distribuzione di Azure Stack. | _Obbligatorio_ |
-| **VMLocalCredential** | Le credenziali per l'account amministratore locale del provider di risorse SQL macchina virtuale. | _Obbligatorio_ |
-| **PrivilegedEndpoint** | L'indirizzo IP o nome DNS dell'endpoint con privilegi. |  _Obbligatorio_ |
-| **AzureEnvironment** | Ambiente di Azure dell'account di amministratore del servizio che usato per la distribuzione di Azure Stack. Obbligatorio solo per le distribuzioni di Azure AD. I nomi di ambiente supportati sono **AzureCloud**, **AzureUSGovernment**, o se si usa una Azure AD, Cina **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | È anche necessario inserire il file con estensione pfx del certificato in questa directory. | _Facoltativo per singolo nodo, ma obbligatorio per multi-nodo_ |
-| **DefaultSSLCertificatePassword** | La password per il certificato con estensione pfx. | _Obbligatorio_ |
-| **MaxRetryCount** | Il numero di volte in cui che si desidera ripetere ogni operazione se si verifica un errore.| 2 |
-| **RetryDuration** |L'intervallo di timeout tra i tentativi, in secondi. | 120 |
-| **Disinstallare** | Rimuove il provider di risorse e tutte le risorse associate. | No  |
-| **DebugMode** | Impedisce la pulizia automatica in caso di errore. | No  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

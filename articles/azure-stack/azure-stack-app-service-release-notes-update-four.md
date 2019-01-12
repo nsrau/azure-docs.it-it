@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: 80948b973e6d20b4760e97311c5a65886cf91f8f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.reviewer: anwestg
+ms.openlocfilehash: b721545f27135e36b2999de5acc61e77539a94b2
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617011"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247317"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Servizio App in note sulla versione update 4 di Azure Stack
 
@@ -204,13 +204,13 @@ Convalida
 - I ruoli di lavoro sono in grado di raggiungere il server di file quando il servizio App viene distribuito in una rete virtuale esistente e il file server disponibile solo nella rete privata, come illustrato nel servizio App di Azure nella documentazione relativa alla distribuzione di Azure Stack.
 
 Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione al file server, è necessario aggiungere una regola di sicurezza in uscita, consentendo il traffico tra la subnet del ruolo di lavoro e il file server SMB. Passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
- * Origine: tutti
+ * Origine: Qualsiasi
  * Intervallo di porte di origine: *
- * Destinazione: Gli indirizzi IP
- * Intervallo di indirizzi IP di destinazione: intervallo di indirizzi IP per il file server
+ * Destinazione: Indirizzi IP
+ * Intervallo di indirizzi IP di destinazione: Intervallo di indirizzi IP per il file server
  * Intervallo di porte di destinazione: 445
  * Protocollo: TCP
- * Azione: Consenti
+ * Azione: CONSENTI
  * Priorità: 700
  * Nome: Outbound_Allow_SMB445
 

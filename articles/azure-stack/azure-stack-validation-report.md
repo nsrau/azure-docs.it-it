@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/23/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1b2b06c02dc54c4369dd8490b714d1444d4b3b01
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.reviewer: unknown
+ms.openlocfilehash: 0eed7943d782bda134c2df2de6cf9eeeb58bfa3b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986186"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243866"
 ---
 # <a name="azure-stack-validation-report"></a>Report di convalida Azure Stack
 Usare lo strumento di controllo di conformità di Azure Stack per eseguire le convalide che supportano la distribuzione e manutenzione di un ambiente Azure Stack. Lo strumento scrive i risultati in un file di rapporto con estensione JSON. Il report visualizza i dati di riepilogati e dettagliati sullo stato dei prerequisiti per la distribuzione di Azure Stack. Il report visualizza anche informazioni sulla rotazione dei segreti per le distribuzioni esistenti dello Stack di Azure.  

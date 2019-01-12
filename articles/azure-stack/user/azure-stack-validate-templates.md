@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: f6ef1dfdef68136ae129faced7443302e738d5b9
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.reviewer: unknown
+ms.openlocfilehash: 4ec617fe49a3b55ba0608b77a8d1226fae025e6c
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810374"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246450"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Controllare i modelli per Azure Stack con lo strumento di convalida modello
 

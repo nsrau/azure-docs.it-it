@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: anajod
+ms.openlocfilehash: d2bdb351b72c9280a223381b62c01fff7ca5ca00
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968204"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244733"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Esercitazione: Creare soluzioni di scalabilità tra cloud con Azure
 
@@ -273,7 +273,7 @@ Uso [modelli di Azure Resource Manager, ad esempio web](https://azure.microsoft.
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Creare la distribuzione di app web autonoma per i servizi App in entrambi i cloud
 
-1.  Modificare il **WebApplication.csproj** file: selezionare **Runtimeidentifier** e quindi aggiungere win10-x64. Per altre informazioni, vedere [self-contained deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentazione.
+1.  Modificare il **WebApplication.csproj** file: Selezionare **Runtimeidentifier** e quindi aggiungere win10-x64. Per altre informazioni, vedere [self-contained deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentazione.
 
 2.  Usare Team Explorer per controllare il codice nel repository di Azure.
 

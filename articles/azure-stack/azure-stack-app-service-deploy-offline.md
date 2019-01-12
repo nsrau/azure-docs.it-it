@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: a3703133e5dc5f0525638562fab98f9416bcf26e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: db4c0f2d1197a190b33bd297bb597fd19057d875
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104659"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230340"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 
@@ -27,14 +27,15 @@ ms.locfileid: "54104659"
 
 > [!IMPORTANT]
 > Applicare l'aggiornamento 1809 al sistema integrato Azure Stack o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire Azure App Service 1.4.
->
->
 
 Seguendo le istruzioni riportate in questo articolo, è possibile installare il [provider di risorse del servizio App](azure-stack-app-service-overview.md) in un ambiente Azure Stack:
 
 - non è connesso a Internet
 - protetta da Active Directory Federation Services (ADFS).
 
+ > [!IMPORTANT]
+ > Prima di distribuire il provider di risorse, esaminare le note sulla versione per informazioni sulle nuove funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
+ 
 Per aggiungere il provider di risorse del servizio App per la distribuzione di Azure Stack non in linea, è necessario completare le attività di primo livello:
 
 1. Completare la [passaggi preliminari](azure-stack-app-service-before-you-get-started.md) (come acquistare i certificati, che può richiedere alcuni giorni per la ricezione).

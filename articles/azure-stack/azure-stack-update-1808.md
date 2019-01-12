@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 8d477997e71843307f6c756a6974a23267842015
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754544"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244971"
 ---
 # <a name="azure-stack-1808-update"></a>Aggiornamento di Azure Stack 1808
 
@@ -99,7 +99,7 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack.
 <!--  TBD – IS, ASDK --> 
 - *Una base* dimensioni delle macchine virtuali sono in pensione per [creazione di set di scalabilità di macchine virtuali](azure-stack-compute-add-scalesets.md) (VMSS) tramite il portale. Per creare un set di scalabilità con queste dimensioni, usare PowerShell o un modello.  
 
-### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+### <a name="common-vulnerabilities-and-exposures"></a>Esposizione e vulnerabilità comuni
 
 Questo aggiornamento installa gli aggiornamenti seguenti:  
 
@@ -254,6 +254,8 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Un operatore di Azure Stack, se si riceve un avviso di memoria insufficiente e le macchine virtuali tenant non riuscire a distribuire con un **errore di creazione della macchina virtuale di Fabric**, è possibile che l'indicatore di Azure Stack ha esaurito la memoria disponibile. Usare la [Capacity Planner di Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) per comprendere meglio la capacità disponibile per i carichi di lavoro.
 
 ### <a name="compute"></a>Calcolo
+
+- Quando si crea una [VM serie Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), da D11-14v2 VM consentono di creare 4, 8, 16 e dischi 32 dati rispettivamente. Tuttavia, nel riquadro di creazione della macchina virtuale Mostra 8, 16, 32 e 64 dischi di dati.
 
 <!-- 3164607 – IS, ASDK -->
 - Ricollegare un disco scollegato alla stessa macchina virtuale (VM) con lo stesso nome e il numero di unità LOGICA ha esito negativo con un errore, ad esempio **non è possibile collegare un disco dati 'datadisk' alla macchina virtuale 'vm1'**. L'errore si verifica perché il disco è attualmente in fase di scollegamento o l'ultima operazione non riuscita di scollegamento. Attendere che il disco sia completamente scollegato e quindi riprovare o eliminare/scollegare il disco in modo esplicito anche in questo caso. La soluzione alternativa consiste nel ricollegarlo con un nome diverso o in un LUN diversi. 

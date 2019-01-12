@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4cbbc482a05e125f92efd98b0824ec38ae1ddefd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077964"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244699"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -81,7 +81,7 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
 > [!IMPORTANT]  
 > Se è presente un firewall che non consente le connessioni dalla rete VIP pubblica al file server, questa modifica causa backup infrastructure con "Errore 53 il percorso di rete non trovato". Si tratta di una modifica sostanziale che non dispone di alcuna soluzione ragionevole. In base ai suggerimenti dei clienti, Microsoft sarà annullare questa modifica in un aggiornamento rapido. Vedere le [post sezione passaggi di aggiornamento](#post-update-steps) per altre informazioni sulle correzioni disponibili per 1809. Dopo l'aggiornamento rapido è disponibile, assicurarsi di applicarlo dopo l'aggiornamento a 1809 solo se i criteri di rete non consentono la rete VIP pubblica accedere alle risorse di infrastruttura. in 1811, questa modifica verrà applicata a tutti i sistemi. Se è applicato l'aggiornamento rapido in 1809, non è richiesta alcuna azione ulteriore.  
 
-### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+### <a name="common-vulnerabilities-and-exposures"></a>Esposizione e vulnerabilità comuni
 
 Questo aggiornamento installa gli aggiornamenti di sicurezza seguenti:  
 
@@ -251,6 +251,8 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Un operatore di Azure Stack, se si riceve un avviso di memoria insufficiente e le macchine virtuali tenant non riuscire a distribuire con un **errore di creazione della macchina virtuale di Fabric**, è possibile che l'indicatore di Azure Stack ha esaurito la memoria disponibile. Usare la [Capacity Planner di Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) per comprendere meglio la capacità disponibile per i carichi di lavoro.
 
 ### <a name="compute"></a>Calcolo
+
+- Quando si crea una [VM serie Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), da D11-14v2 VM consentono di creare 4, 8, 16 e dischi 32 dati rispettivamente. Tuttavia, nel riquadro di creazione della macchina virtuale Mostra 8, 16, 32 e 64 dischi di dati.
 
 <!-- 3235634 – IS, ASDK -->
 - Per distribuire le macchine virtuali con dimensioni che contiene un **v2** suffisso; ad esempio, **Standard_A2_v2**, specificare il suffisso come **Standard_A2_v2** (v lettere minuscole). Non utilizzare **Standard_A2_V2** (lettere maiuscole V). Ciò funziona in Azure globale ed è un'incoerenza nello Stack di Azure.

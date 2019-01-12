@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/09/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.reviewer: unknown
+ms.openlocfilehash: 53c739c17007b99d90cd146e6bf01ea4a120cabd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902842"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245685"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Panoramica dell'identità per Azure Stack
 
@@ -33,8 +33,8 @@ La scelta di Azure AD o AD FS può essere determinata dalla modalità in cui si 
 
 Per altre informazioni sulle opzioni disponibili, che dipendono dall'ambiente Azure Stack, vedere gli articoli seguenti:
 
-- Kit di distribuzione Azure Stack: [considerazioni sull'identità](azure-stack-datacenter-integration.md#identity-considerations).
-- Sistemi integrati di Azure Stack: [decisioni per Azure Stack di pianificazione della distribuzione di sistemi integrati](azure-stack-deployment-decisions.md).
+- Kit di distribuzione di Azure Stack: [Considerazioni sull'identità](azure-stack-datacenter-integration.md#identity-considerations).
+- Sistemi integrati di Azure Stack: [I sistemi integrati di prendere decisioni per Azure Stack di pianificazione della distribuzione](azure-stack-deployment-decisions.md).
 
 ## <a name="common-concepts-for-identity"></a>Concetti di base per identity
 
@@ -80,17 +80,17 @@ Come utente guest, è possibile accedere al tenant di directory dell'organizzazi
 
 Applicazioni includono:
 
-- **Applicazione Web**: esempi del portale di Azure e Azure Resource Manager. Supportano chiamate all'API Web.
-- **Native client**: ad esempio Azure PowerShell, Visual Studio e CLI di Azure.
+- **Applicazione Web**: Ad esempio il portale di Azure e Azure Resource Manager. Supportano chiamate all'API Web.
+- **Native client**: Sono esempi di Azure PowerShell, Visual Studio e CLI di Azure.
 
 Le applicazioni possono supportare due tipi di tenancy:
 
-- **Tenant singolo**: supporta gli utenti e i servizi solo dalla stessa directory in cui è registrata l'applicazione.
+- **Tenant singolo**: Supporta gli utenti e i servizi solo dalla stessa directory in cui è registrata l'applicazione.
 
   > [!NOTE]
   > Poiché AD FS supporta solo una singola directory, le applicazioni create in una topologia di AD FS sono, per impostazione predefinita, le applicazioni a tenant singolo.
 
-- **Multi-tenant**: supporta l'utilizzo da utenti e di servizi di directory in cui è registrata l'applicazione e le directory di tenant aggiuntivi. Con le applicazioni multi-tenant, gli utenti di un altro tenant directory (un altro tenant di Azure AD) possano accedere all'applicazione. 
+- **Multi-tenant**: Supporta l'utilizzo da utenti e di servizi di directory in cui è registrata l'applicazione e le directory di tenant aggiuntivi. Con le applicazioni multi-tenant, gli utenti di un altro tenant directory (un altro tenant di Azure AD) possano accedere all'applicazione. 
 
   Per altre informazioni su multi-tenancy, vedere [abilitare multi-tenancy](azure-stack-enable-multitenancy.md).
 
@@ -98,9 +98,9 @@ Le applicazioni possono supportare due tipi di tenancy:
 
 Quando si registra un'applicazione, vengono creati due oggetti:
 
-- **Oggetto applicazione**: la rappresentazione globale dell'applicazione in tutti i tenant. Questa relazione è uno a uno con l'applicazione software ed esiste solo nella directory in cui l'applicazione viene inizialmente registrata.
+- **Oggetto applicazione**: La rappresentazione globale dell'applicazione in tutti i tenant. Questa relazione è uno a uno con l'applicazione software ed esiste solo nella directory in cui l'applicazione viene inizialmente registrata.
 
-- **Oggetto entità servizio**: le credenziali che viene creata per un'applicazione nella directory in cui l'applicazione viene inizialmente registrata. Viene anche creata un'entità servizio nella directory di ogni tenant aggiuntivo in cui viene utilizzato tale applicazione. Questa relazione può essere uno-a-molti con l'applicazione software.
+- **Oggetto entità servizio**: Una credenziale che viene creata per un'applicazione nella directory in cui l'applicazione viene inizialmente registrata. Viene anche creata un'entità servizio nella directory di ogni tenant aggiuntivo in cui viene utilizzato tale applicazione. Questa relazione può essere uno-a-molti con l'applicazione software.
 
 Per altre informazioni sull'applicazione e oggetti entità servizio, vedere [dell'applicazione e oggetti entità servizio in Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects).
 
@@ -155,10 +155,10 @@ Per le applicazioni e gli utenti, l'architettura di Azure Stack è descritta da 
 
 Per eseguire l'autenticazione con il provider di identità e ricevere un Token Web JSON, è necessario disporre le informazioni seguenti:
 
-1. **URL per il sistema di identità (autorità)**: l'URL in cui il provider di identità può essere raggiunto. Ad esempio, *https://login.windows.net*.
-2. **URI ID app di Azure Resource Manager**: l'identificatore univoco per Azure Resource Manager che viene registrato con il provider di identità. Inoltre è univoco per ogni installazione di Azure Stack.
-3. **Le credenziali**: le credenziali utilizzare per eseguire l'autenticazione con il provider di identità.
-4. **URL per Azure Resource Manager**: l'URL è il percorso del servizio di Azure Resource Manager. Ad esempio, *https://management.azure.com* oppure *https://management.local.azurestack.external*.
+1. **URL per il sistema di identità (autorità)**: L'URL in cui il provider di identità può essere raggiunto. Ad esempio, *https://login.windows.net*.
+2. **URI ID App per Azure Resource Manager**: Identificatore univoco per Azure Resource Manager che viene registrato con il provider di identità. Inoltre è univoco per ogni installazione di Azure Stack.
+3. **Credenziali**: Le credenziali che utilizzare per eseguire l'autenticazione con il provider di identità.
+4. **URL per Azure Resource Manager**: L'URL è il percorso del servizio di Azure Resource Manager. Ad esempio, *https://management.azure.com* oppure *https://management.local.azurestack.external*.
 
 Quando un'entità (un client, applicazione o utente) effettua una richiesta di autenticazione per accedere a una risorsa, la richiesta deve includere:
 

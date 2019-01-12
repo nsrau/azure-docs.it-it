@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 78cb969aa96378dd84243545be1678ae4eaf0e0e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159367"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232533"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: differenze e considerazioni
 
@@ -65,14 +65,14 @@ Azure Stack Managed Disks supporta le versioni dell'API seguente:
 
 - 2017-03-30
 
-## <a name="known-issues"></a>Problemi noti
+## <a name="configuration"></a>Configurazione
 
-Dopo aver applicato gli aggiornamenti dopo 1808, si potrebbero riscontrare i problemi seguenti durante la distribuzione di macchine virtuali con Managed Disks:
+Dopo aver applicato la 1808 aggiornare o versioni successive, è necessario eseguire la configurazione seguente prima di usare Managed Disks:
 
-- Se la sottoscrizione è stata creata prima dell'aggiornamento 1808, distribuzione di una VM con Managed Disks potrei avere esito negativo con un messaggio di errore interno. Per risolvere l'errore, seguire questi passaggi per ogni sottoscrizione:
+- Se è stata creata una sottoscrizione prima dell'aggiornamento 1808, seguire questa procedura per aggiornare la sottoscrizione. In caso contrario, la distribuzione di macchine virtuali in questa sottoscrizione potrebbe non riuscire con un messaggio di errore "Errore interno in Gestione disco".
    1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
    2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
-- Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura nel [questo articolo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
+- Se si usa un ambiente multi-tenant, porre l'operatore cloud (maggio nella propria organizzazione o dal Provider di servizi) per riconfigurare tutte le directory guest, seguire questa procedura nel [questo articolo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). In caso contrario, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore "Errore interno in Gestione disco".
 
 
 ## <a name="next-steps"></a>Passaggi successivi

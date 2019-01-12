@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
-ms.reviewer: John.Haskin
-ms.openlocfilehash: d83eb501bbe685890decb3acbb8116164f4199db
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.reviewer: johnhas
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8b7d2b6d2aef4567197fe18607cb50d1e9a4206b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422661"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247259"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>Le procedure consigliate per la convalida come servizio
 
@@ -26,7 +27,7 @@ ms.locfileid: "52422661"
 
 Questo articolo illustra le procedure consigliate per la gestione delle risorse nella convalida come servizio (VaaS). Per una panoramica delle risorse VaaS, vedere [convalida come un concetti chiave di servizio](azure-stack-vaas-key-concepts.md).
 
-## <a name="solution-management"></a>Gestione delle soluzioni
+## <a name="solution-management"></a>Gestione della soluzione
 
 ### <a name="naming-convention-for-vaas-solutions"></a>Convenzione di denominazione per le soluzioni VaaS
 

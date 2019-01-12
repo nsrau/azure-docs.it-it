@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/19/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: d5a7cf597bb19f6c4a180b0dc306c86ae91875cf
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.reviewer: unknown
+ms.openlocfilehash: 854ac9d4441170dd3ba180437fcd80b573df9450
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161668"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244563"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Risoluzione dei problemi più comuni per i certificati di infrastruttura a chiave pubblica di Azure Stack
 

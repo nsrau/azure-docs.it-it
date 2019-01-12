@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: 504cd5a0bfbae1ff91f7914abe12aa35b699ee80
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: bbb8e39e60500a2d8310159cfbac5659964fc387
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104761"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230017"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App in Azure Stack
 
@@ -46,6 +46,9 @@ L'installazione del provider di risorse del servizio App richiede almeno un'ora.
  - Creare una zona DNS e le voci per il servizio App.
  - Registrare il provider di risorse del servizio App.
  - Registrare gli elementi della raccolta di servizio App.
+
+ > [!IMPORTANT]
+ > Prima di distribuire il provider di risorse, esaminare le note sulla versione per informazioni sulle nuove funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
 
 Per distribuire il provider di risorse del servizio App, seguire questa procedura:
 
