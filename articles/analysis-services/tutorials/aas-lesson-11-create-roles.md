@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1a9ecea835e42c90ce7d71617666d210182fe465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b89051cab7e89f79a2b62a392173e6dc234e48d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428905"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189746"
 ---
 # <a name="create-roles"></a>Creare ruoli
 
-In questa lezione verranno creati ruoli. I ruoli consentono di proteggere i dati e gli oggetti del database del modello, limitando l'accesso solo agli utenti membri del ruolo. Ogni ruolo è definito con una sola autorizzazione: Nessuna, Lettura, Lettura ed elaborazione, Elaborazione o Amministratore. I ruoli possono essere definiti durante la creazione dei modelli tramite Gestione ruoli. Dopo avere distribuito un modello, è possibile gestire i ruoli con SQL Server Management Studio (SSMS). Per altre informazioni, vedere [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular) (Ruoli).
+In questa lezione verranno creati ruoli. I ruoli consentono di proteggere i dati e gli oggetti del database del modello, limitando l'accesso solo agli utenti membri del ruolo. Ogni ruolo viene definito con una singola autorizzazione: Nessuna, Lettura, Lettura ed elaborazione, Elaborazione o Amministratore. I ruoli possono essere definiti durante la creazione dei modelli tramite Gestione ruoli. Dopo avere distribuito un modello, è possibile gestire i ruoli con SQL Server Management Studio (SSMS). Per altre informazioni, vedere [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular) (Ruoli).
   
 > [!NOTE]  
 > La creazione di ruoli non è necessaria per completare questa esercitazione. Per impostazione predefinita, l'account con cui si esegue l'accesso ha i privilegi di Amministratore per il modello. Per consentire anche ad altri utenti dell'organizzazione di esplorare il modello usando un client per la creazione di report, tuttavia, è necessario creare almeno un ruolo con autorizzazioni Lettura e aggiungere tali utenti come membri.  
@@ -51,7 +51,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
 
     ![aas-lesson11-new-role](../tutorials/media/aas-lesson11-new-role.png) 
   
-5.  Facoltativo: fare clic sulla scheda **Membri** e quindi fare clic su **Aggiungi**. Nella finestra di dialogo **Seleziona utenti o gruppi** immettere gli utenti o i gruppi di Windows dell'organizzazione che si vuole includere nel ruolo.  
+5.  Facoltativo: Fare clic sulla scheda **Membri** e quindi fare clic su **Aggiungi**. Nella finestra di dialogo **Seleziona utenti o gruppi** immettere gli utenti o i gruppi di Windows dell'organizzazione che si vuole includere nel ruolo.  
   
 #### <a name="to-create-a-sales-analyst-us-user-role"></a>Per creare un ruolo utente Sales Analyst US  
   
@@ -70,7 +70,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
     Una formula per il filtro di riga deve restituire un valore booleano (TRUE/FALSE). Con questa formula si specifica che devono essere visibili per l'utente solo le righe con il valore "US" per Country Region Code.  
     ![aas-lesson11-role-filter](../tutorials/media/aas-lesson11-role-filter.png) 
   
-6.  Facoltativo: fare clic sulla scheda **Membri** e quindi fare clic su **Aggiungi**. Nella finestra di dialogo **Seleziona utenti o gruppi** immettere gli utenti o i gruppi di Windows dell'organizzazione che si vuole includere nel ruolo.  
+6.  Facoltativo: Fare clic sulla scheda **Membri** e quindi fare clic su **Aggiungi**. Nella finestra di dialogo **Seleziona utenti o gruppi** immettere gli utenti o i gruppi di Windows dell'organizzazione che si vuole includere nel ruolo.  
   
 #### <a name="to-create-an-administrator-user-role"></a>Per creare un ruolo utente Administrator  
   
@@ -80,7 +80,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
   
 3.  Assegnare a questo ruolo l'autorizzazione **Amministratore**.  
   
-4.  Facoltativo: fare clic sulla scheda **Membri** e quindi fare clic su **Aggiungi**. Nella finestra di dialogo **Seleziona utenti o gruppi** immettere gli utenti o i gruppi di Windows dell'organizzazione che si vuole includere nel ruolo. 
+4.  Facoltativo: Fare clic sulla scheda **Membri** e quindi fare clic su **Aggiungi**. Nella finestra di dialogo **Seleziona utenti o gruppi** immettere gli utenti o i gruppi di Windows dell'organizzazione che si vuole includere nel ruolo. 
   
   
 ## <a name="whats-next"></a>Passaggi successivi

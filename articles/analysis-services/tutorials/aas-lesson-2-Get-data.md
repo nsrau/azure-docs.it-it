@@ -1,25 +1,25 @@
 ---
-title: 'Esercitazione su Azure Analysis Services - Lezione 2: Ottenere i dati | Microsoft Docs'
+title: 'Esercitazione su Azure Analysis Services - Lezione 2: Recuperare i dati | Microsoft Docs'
 description: Descrive come ottenere e importare i dati nel progetto per l'esercitazione su Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b7aaadb6237a3b16d166d3bc931fddc70fb4a792
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6643d0851be1ad9d2827f51af3662a469020654c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427621"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189321"
 ---
 # <a name="get-data"></a>Ottenere i dati
 
 In questa lezione si usa la funzionalità Recupera dati in SSDT per connettersi al database di esempio Adventure Works, selezionare i dati, visualizzarli in anteprima e filtrarli, quindi importarli nell'area di lavoro del modello.  
   
-Con Recupera dati è possibile importare dati da un'ampia gamma di origini: database SQL di Azure, Oracle, Sybase, feed OData, Teradata, file e altro ancora. I dati possono essere recuperati anche tramite query, usando un'espressione di formula Power Query M.
+Usando Recupera dati, è possibile importare dati da un'ampia gamma di origini: Azure SQL Database, Oracle, Sybase, OData Feed, Teradata, file e altro ancora. I dati possono essere recuperati anche tramite query, usando un'espressione di formula Power Query M.
 
 > [!NOTE]
 > Attività e immagini in questa esercitazione mostrano la connessione a un database AdventureWorksDW2014 in un server locale. In alcuni casi un database Adventure Works in Azure può essere diverso.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: f1e2ab6a954361a7807d78dc2baf5d24af52a679
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 71330e72ef27b62472622472b37e2ec8c78211d7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53797588"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075567"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>L'attivazione di Windows ha esito negativo in uno scenario di tunneling forzato
 
@@ -27,15 +27,15 @@ Questo articolo descrive come risolvere il problema di attivazione del server di
 
 ## <a name="symptom"></a>Sintomo
 
-Viene abilitato il [tunneling forzato](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) nelle subnet della rete virtuale di Azure per indirizzare alla rete locale tutto il traffico associato a Internet. In questo scenario le macchine virtuali di Azure che eseguono Windows Server 2012 R2 o versioni successive possono attivare Windows. Tuttavia le macchine virtuali che eseguono versioni precedenti di Windows non riescono ad attivare Windows. 
+Viene abilitato il [tunneling forzato](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) nelle subnet della rete virtuale di Azure per indirizzare alla rete locale tutto il traffico associato a Internet. In questo scenario le macchine virtuali di Azure che eseguono Windows Server 2012 R2 (o versioni successive) possono attivare Windows. Tuttavia le macchine virtuali che eseguono versioni precedenti di Windows non riescono ad attivarlo.
 
 ## <a name="cause"></a>Causa
 
-Le macchine virtuali Windows di Azure devono connettersi al server di gestione delle chiavi di Azure per l'attivazione di Windows. Per l'attivazione è necessario che la richiesta provenga da un indirizzo IP pubblico di Azure. Nello scenario di tunneling forzato l'attivazione avrà esito negativo perché la richiesta proviene dalla rete locale anziché da un IP pubblico di Azure. 
+Le macchine virtuali Windows di Azure devono connettersi al server di gestione delle chiavi di Azure per l'attivazione di Windows. Per l'attivazione è necessario che la richiesta provenga da un indirizzo IP pubblico di Azure. Nello scenario di tunneling forzato l'attivazione avrà esito negativo poiché la richiesta proviene dalla rete locale anziché da un indirizzo IP pubblico di Azure.
 
 ## <a name="solution"></a>Soluzione
 
-Per risolvere questo problema, usare il traffico di attivazione da route a route personalizzato di Azure verso il server di gestione delle chiavi di Azure (23.102.135.246). 
+Per risolvere questo problema, usare il traffico di attivazione da route a route personalizzato di Azure verso il server di gestione delle chiavi di Azure.
 
 L'indirizzo IP 23.102.135.246 è l'indirizzo del server di gestione delle chiavi per il cloud Azure Global. Il suo nome DNS è kms.core.windows.net. Se si usano altre piattaforme di Azure, ad esempio Azure Germania, è necessario usare l'indirizzo IP del server di gestione delle chiavi corrispondente. Per altre informazioni, vedere la tabella seguente:
 
@@ -55,11 +55,11 @@ Per aggiungere la route personalizzata, seguire questa procedura:
 2. Eseguire i comandi seguenti:
 
     ```powershell
-    # First, we will get the virtual network hosts the VMs that has activation problems. In this case, I get virtual network ArmVNet-DM in Resource Group ArmVNet-DM
+    # First, get the virtual network that hosts the VMs that have activation problems. In this case, we get virtual network ArmVNet-DM in Resource Group ArmVNet-DM:
 
     $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "ArmVNet-DM" -Name "ArmVNet-DM"
 
-    # Next, we create a route table and specify that traffic bound to the KMS IP (23.102.135.246) will go directly out
+    # Next, create a route table and specify that traffic bound to the KMS IP (23.102.135.246) will go directly out:
 
     $RouteTable = New-AzureRmRouteTable -Name "ArmVNet-DM-KmsDirectRoute" -ResourceGroupName "ArmVNet-DM" -Location "centralus"
 
@@ -67,7 +67,7 @@ Per aggiungere la route personalizzata, seguire questa procedura:
 
     Set-AzureRmRouteTable -RouteTable $RouteTable
     ```
-3. Passare alla macchina virtuale che presenta il problema di attivazione, usare [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) per verificare se può raggiungere il server di gestione delle chiavi:
+3. Passare alla macchina virtuale che presenta problemi di attivazione. Usare [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) per verificare se sia possibile raggiungere il server KMS:
 
         psping kms.core.windows.net:1688
 
@@ -79,21 +79,21 @@ Per aggiungere la route personalizzata, seguire questa procedura:
 2. Eseguire i comandi seguenti:
 
     ```powershell
-    # First, we will create a new route table
+    # First, create a new route table:
     New-AzureRouteTable -Name "VNet-DM-KmsRouteGroup" -Label "Route table for KMS" -Location "Central US"
 
-    # Next, get the routetable that was created
+    # Next, get the route table that was created:
     $rt = Get-AzureRouteTable -Name "VNet-DM-KmsRouteTable"
 
-    # Next, create a route
+    # Next, create a route:
     Set-AzureRoute -RouteTable $rt -RouteName "AzureKMS" -AddressPrefix "23.102.135.246/32" -NextHopType Internet
 
-    # Apply KMS route table to the subnet that host the problem VMs (in this case, I will apply it to the subnet named Subnet-1)
+    # Apply the KMS route table to the subnet that hosts the problem VMs (in this case, we apply it to the subnet that's named Subnet-1):
     Set-AzureSubnetRouteTable -VirtualNetworkName "VNet-DM" -SubnetName "Subnet-1" 
     -RouteTableName "VNet-DM-KmsRouteTable"
     ```
 
-3. Passare alla macchina virtuale che presenta il problema di attivazione, usare [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) per verificare se può raggiungere il server di gestione delle chiavi:
+3. Passare alla macchina virtuale che presenta problemi di attivazione. Usare [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) per verificare se sia possibile raggiungere il server KMS:
 
         psping kms.core.windows.net:1688
 

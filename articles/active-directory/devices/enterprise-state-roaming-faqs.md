@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f3d171a8f0e353d5860f410a8c32149f8872338
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247297"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189389"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Domande frequenti su impostazioni e dati in roaming
 Questo articolo offre le risposte ad alcune possibili domande degli amministratori IT in merito alle impostazioni e alla sincronizzazione dei dati delle app.
@@ -37,7 +37,7 @@ Questo articolo offre le risposte ad alcune possibili domande degli amministrato
 * *Caratteristiche di accessibilità*, come i temi a contrasto elevato, l'Assistente vocale e la Lente di ingrandimento.
 * *Altre impostazioni di Windows*, ad esempio le impostazioni del mouse.
 
-**Dati dell'applicazione**: le app di Windows universale permettono di scrivere i dati delle impostazioni in una cartella di profilo mobile per sincronizzare automaticamente i dati scritti al suo interno. Il singolo sviluppatore di app deve progettare un'app in grado di sfruttare questa funzionalità. Per altre informazioni su come sviluppare un'app di Windows universale che usa il roaming, consultare i post del blog per sviluppatori sulle [API di archiviazione dei dati delle app](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e sul [roaming dei dati delle app di Windows 8](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Dati dell'applicazione**: le app di Windows universale permettono di scrivere i dati delle impostazioni in una cartella di roaming per sincronizzare automaticamente i dati scritti al suo interno. Il singolo sviluppatore di app deve progettare un'app in grado di sfruttare questa funzionalità. Per altre informazioni su come sviluppare un'app di Windows universale che usa il roaming, consultare i post del blog per sviluppatori sulle [API di archiviazione dei dati delle app](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e sul [roaming dei dati delle app di Windows 8](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Quale account si usa per la sincronizzazione delle impostazioni?
 In Windows 8.1, la sincronizzazione delle impostazioni usava sempre gli account Microsoft per utenti. Gli utenti aziendali possono connettere un account Microsoft al proprio account di dominio di Active Directory per ottenere l'accesso alla sincronizzazione delle impostazioni. In Windows 10 la funzione di questo account Microsoft connesso è stata sostituita da un framework di account principale/secondario.

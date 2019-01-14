@@ -7,89 +7,98 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: f5c8241907459a06f0a6206ae6865cdf3fe9ab89
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 597b8f59ef6991f7868d3de481e98ed9a459077b
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998966"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050796"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Risolvere i problemi del server di configurazione
 
-Questo articolo offre informazioni sulla risoluzione dei problemi di distribuzione e gestione del server di configurazione di [Azure Site Recovery](site-recovery-overview.md). Il server di configurazione opera come un server di gestione e viene usato per configurare il ripristino di emergenza di macchine virtuali VMware locali e server fisici in Azure con Site Recovery. Le sezioni seguenti spiegano gli errori più frequenti che si verificano quando si aggiunge un nuovo server di configurazione e si gestisce un server di configurazione.
+Questo articolo offre informazioni sulla risoluzione dei problemi di distribuzione e gestione del server di configurazione di [Azure Site Recovery](site-recovery-overview.md). Il server di configurazione agisce come server di gestione. Usare il server di configurazione per configurare il ripristino di emergenza per i server fisici e le macchine virtuali VMware locali in Azure mediante Site Recovery. Le sezioni seguenti illustrano gli errori più comuni che si verificano quando si aggiunge un nuovo server di configurazione e quando si gestisce un server di configurazione.
 
 ## <a name="registration-failures"></a>Errori di registrazione
 
-Il computer di origine esegue la registrazione con il server di configurazione durante l'installazione dell'agente di mobilità. È possibile eseguire il debug di eventuali errori durante questo passaggio seguendo le linee guida seguenti:
+Il computer di origine esegue la registrazione con il server di configurazione quando si installa l'agente di mobilità. Eseguire il debug di eventuali errori durante questo passaggio attenendosi alle linee guida:
 
-1. Consultare C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. ProgramData può essere una cartella nascosta. Se non è possibile individuarla, provare a visualizzare nuovamente la cartella. Le cause degli errori posso essere molteplici.
-2. Cercare la stringa "Nessun indirizzo IP valido trovato". Se si trova la stringa,
-    - verificare se l'id host richiesto è lo stesso del computer di origine.
-    - Il computer di origine deve avere almeno un indirizzo IP assegnato alla scheda di interfaccia fisica per eseguire correttamente la registrazione con CS.
-    - Eseguire il comando nel computer di origine `> ipconfig /all` (per sistema operativo di Windows) e `# ifconfig -a` (per sistema operativo Linux) per ottenere tutti gli indirizzi IP del computer di origine.
-    - Si noti che la registrazione dell'agente richiede un indirizzo IP valido v4 assegnato alla scheda di interfaccia fisica.
-3. Se non si trova la stringa precedente, cercare la stringa "Motivo"=>"NULL". Se trovata,
-    - l'errore si verifica quando il computer di origine usa un host vuoto e se si effettua la registrazione con il server di configurazione.
-    - Dopo la risoluzione dei problemi, seguire le linee guida presenti [qui](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) per riprovare manualmente a effettuare la registrazione.
-4. Se non si trova la stringa precedente, passare alla macchina virtuale di origine e controllare il registro C:\ProgramData\ASRSetupLogs\UploadedLogs\* ASRUnifiedAgentInstaller.log ProgramData può essere una cartella nascosta. Se non è possibile individuarla, provare a visualizzare nuovamente la cartella. Le cause degli errori posso essere molteplici. Cercare la stringa "richiesta post: (7): Impossibile connettersi al server". Se trovata,
-    - risolvere i problemi di rete tra il computer di origine e il server di configurazione. Assicurarsi che il server di configurazione sia raggiungibile dal computer di origine usando strumenti di rete come ping, traceroute, browser Web, ecc. Assicurarsi che il computer di origine possa raggiungere il server di configurazione attraverso la porta 443.
-    - Verificare se sono presenti regole del firewall nel computer di origine che bloccano la connessione tra il server del computer e il server di configurazione. Rivolgersi all'amministratore di rete per sbloccare i problemi di connessione.
-    - Verificare che le cartelle indicate [qui](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) siano escluse dal software antivirus.
-    - Dopo la risoluzione dei problemi di rete, riprovare a effettuare la registrazione seguendo le linee guida presenti [qui](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
-5. Se non trovato, cercare nello stesso registro la stringa "richiesta: (60) - Peer certificate cannot be authenticated with given CA certificates" (Impossibile autenticare il certificato peer con i certificati CA assegnati). Se trovata, 
-    - l'errore può essere causato da un certificato del server di configurazione scaduto o dal fatto che il computer di origine non supporti TLS 1.0 o le versioni successive dei protocolli SSL, oppure se un firewall blocca la comunicazione SSL tra il computer di origine e il server di configurazione.
-    - Per risolvere il problema, connettersi all'indirizzo IP del server di configurazione usando un browser Web su un computer di origine con l'URI https://<CSIPADDRESS>:443/. Assicurarsi che tale macchina di origine sia in grado di raggiungere il server di configurazione tramite la porta 443.
-    - Verificare se sono presenti regole del firewall nel computer di origine che bloccano la connessione tra il server del computer e il server di configurazione. Rivolgersi all'amministratore di rete per sbloccare i problemi di connessione.
-    - Verificare che le cartelle indicate [qui](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) siano escluse dal software antivirus.  
-    - Dopo la risoluzione dei problemi, riprovare a effettuare registrazione seguendo le linee guida presenti [qui](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
-6. In Linux, se il valore della piattaforma in <INSTALLATION_DIR>/etc/drscout.conf è danneggiato, la registrazione non avviene correttamente. Per identificare il problema, passare a /var/log/ua_install.log. Si troverà la stringa "Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure" (L'interruzione della configurazione come valore VM_PLATFORM è null o non è VmWare/Azure). La piattaforma deve essere impostata su "VmWare" o "Azure". Poiché il file drscout.conf è danneggiato, si consiglia di [disinstallare](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) l'agente di mobilità e reinstallarlo. Se si verifica un errore di disinstallazione, seguire questa procedura:
-    - Aprire il file Installation_Directory/uninstall.sh e commentare la chiamata alla funzione *StopServices*
-    - Aprire il file Installation_Directory/Vx/bin/uninstall e commentare la chiamata alla funzione `stop_services`
-    - Aprire il file Installation_Directory/Fx/uninstall e commentare la sezione completa che prova a fermare il servizio Fx.
-    - A questo punto provare a [disinstallare](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) l'agente di mobilità. Al termine della disinstallazione, riavviare il sistema e provare nuovamente a installare l'agente.
+1. Aprire il file C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. (La cartella ProgramData potrebbe essere una cartella nascosta. Se la cartella ProgramData in Esplora File non viene visualizzata, nella scheda **Visualizza** all'interno della sezione **Mostra/Nascondi** selezionare la casella di controllo **Elementi nascosti**). Le cause degli errori posso essere molteplici.
 
-## <a name="installation-failure---failed-to-load-accounts"></a>Errore di installazione - Impossibile caricare gli account
+2. Cercare la stringa **Nessun indirizzo IP valido trovato**. Se si trova la stringa:
+    1. Verificare che l'ID host richiesto sia quello usato per l'ID host della macchina di origine.
+    2. Verificare che la macchina di origine disponga di almeno un indirizzo IP assegnato alla scheda di interfaccia di rete fisica. Per la registrazione dell'agente con il server di configurazione, il computer di origine deve avere almeno un indirizzo IP v4 assegnato alla scheda di interfaccia di rete fisica.
+    3. Eseguire uno dei seguenti comandi nella macchina di origine per ottenere tutti gli indirizzi IP della stessa:
+      - Per Windows: `> ipconfig /all`
+      - Per Linux: `# ifconfig -a`
 
-Questo errore si verifica quando il servizio non riesce a leggere i dati dalla connessione di trasporto durante l'installazione dell'agente di mobilità e la registrazione del server di configurazione. Per risolvere il problema, assicurarsi che TLS 1.0 sia attivato sul computer di origine.
+3. Se non si trova la stringa **Nessun indirizzo IP valido trovato**, cercare la stringa **Motivo=>NULL**. Questo errore si verifica quando il computer di origine usa un host vuoto per effettuare la registrazione con il server di configurazione. Se si trova la stringa:
+    - Dopo aver risolto i problemi, attenersi alle linee guida contenute in: [Registrare il computer di origine con il server di configurazione](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) per ripetere la registrazione manuale.
 
-## <a name="change-ip-address-of-configuration-server"></a>Modificare l'indirizzo IP del server di configurazione
+4. Se non si trova la stringa **Motivo=>NULL**, aprire il file C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log nella macchina di origine. (La cartella ProgramData potrebbe essere una cartella nascosta. Se la cartella ProgramData in Esplora File non viene visualizzata, nella scheda **Visualizza** all'interno della sezione **Mostra/Nascondi** selezionare la casella di controllo **Elementi nascosti**). Le cause degli errori posso essere molteplici. 
 
-È consigliabile non modificare l'indirizzo IP di un server di configurazione. Verificare che tutti gli indirizzi IP assegnati al server di configurazione siano indirizzi IP statici e non DHPC.
+5. Cercare la stringa **richiesta post: (7): Impossibile connettersi al server**. Se si trova la stringa:
+    1. Risolvere i problemi di rete tra il computer di origine e il server di configurazione. Verificare che il server di configurazione sia raggiungibile dalla macchina di origine con gli strumenti di rete, ad esempio un Web browser, ping o traceroute. Assicurarsi che tale macchina di origine sia in grado di raggiungere il server di configurazione tramite la porta 443.
+    2. Verificare se siano presenti regole del firewall nel computer di origine che bloccano la connessione tra il computer di origine e il server di configurazione. Rivolgersi all'amministratore di rete per sbloccare i problemi di connessione.
+    3. Assicurarsi che le cartelle elencate in [Esclusioni della cartella Azure Site Recovery dal programma antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) vengano escluse dal software antivirus.
+    4. Dopo aver risolto i problemi di rete, ripetere la registrazione attenendosi alle linee guida contenute in: [Registrare il computer di origine con il server di configurazione](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
+
+6. Se non si trova la stringa **richiesta post: (7) - Impossibile connettersi al server** nello stesso file di log, cercare la stringa **richiesta: (60) - Impossibile autenticare il certificato peer con i certificati CA assegnati**. Questo errore può verificarsi perché è scaduto il certificato del server di configurazione oppure perché il computer di origine non supporta il protocollo TLS 1.0 o le versioni successive del protocollo SSL. Si potrebbe verificare anche se un firewall blocca le comunicazioni SSL tra il computer di origine e il server di configurazione. Se si trova la stringa: 
+    1. Per risolvere il problema, connettersi all'indirizzo IP del server di configurazione usando un Web browser sul computer di origine. Usare il protocollo https URI:\/\/<indirizzo IP del server di configurazione\>: 443 /. Assicurarsi che tale macchina di origine sia in grado di raggiungere il server di configurazione tramite la porta 443.
+    2. Verificare se siano presenti regole del firewall nel computer di origine che devono essere aggiunte o rimosse dal computer di origine per far sì che comunichi con il server di configurazione. A causa della varietà di software firewall che potrebbero essere in uso, non è possibile fornire un elenco di tutte le configurazioni firewall necessarie. Rivolgersi all'amministratore di rete per sbloccare i problemi di connessione.
+    3. Assicurarsi che le cartelle elencate in [Esclusioni della cartella Azure Site Recovery dal programma antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) vengano escluse dal software antivirus.  
+    4. Dopo aver risolto i problemi, ritentare la registrazione attenendosi alle linee guida contenute in [Registrare il computer di origine con il server di configurazione](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
+
+7. In Linux, se il valore della piattaforma in <INSTALLATION_DIR>\>/etc/drscout.conf è danneggiato, la registrazione non avviene correttamente. Per identificare questo problema, aprire il file /var/log/ua_install.log. Cercare la stringa: **L'interruzione della configurazione come valore VM_PLATFORM è null o non è VmWare/Azure**. La piattaforma deve essere impostata su **VmWare** o **Azure**. Se il file drscout.conf è danneggiato, è consigliabile [disinstallare l'agente di mobilità](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) e quindi installarlo nuovamente. Se la disinstallazione non è riuscita, completare questi passaggi:
+    1. Aprire il file Installation_Directory/uninstall.sh e commentare la chiamata alla funzione **StopServices**.
+    2. Aprire il file Installation_Directory/Vx/bin/uninstall.sh e commentare la chiamata alla funzione **stop_services**.
+    3. Aprire il file Installation_Directory/Fx/uninstall e commentare la sezione completa che prova a fermare il servizio Fx.
+    4. [Disinstallare](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) l'agente di mobilità. Al termine della disinstallazione, riavviare il sistema e provare nuovamente a installare l'agente.
+
+## <a name="installation-failure-failed-to-load-accounts"></a>Errore di installazione: Impossibile caricare gli account
+
+Questo errore si verifica quando il servizio non riesce a leggere i dati dalla connessione di trasporto durante l'installazione dell'agente di mobilità e la registrazione del server di configurazione. Per risolvere il problema, assicurarsi che nel computer di origine sia abilitato TLS 1.0.
+
+## <a name="change-the-ip-address-of-the-configuration-server"></a>Cambiare l'indirizzo IP del server di configurazione
+
+È consigliabile non modificare l'indirizzo IP di un server di configurazione. Assicurarsi che tutti gli indirizzi IP assegnati al server di configurazione siano indirizzi IP statici. Non usare indirizzi IP DHCP.
 
 ## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: Token SAML non valido
 
 Per evitare che si verifichi questo errore assicurarsi che l'ora del clock di sistema non differisca di oltre 15 minuti rispetto all'ora locale. Eseguire di nuovo il programma di installazione per completare la registrazione.
 
-## <a name="failed-to-create-certificate"></a>Creazione del certificato non riuscita
+## <a name="failed-to-create-a-certificate"></a>Creazione del certificato non riuscita
 
-Impossibile creare un certificato richiesto per l'autenticazione di Azure Site Recovery. Eseguire di nuovo l'installazione dopo essersi assicurati di eseguire il programma di installazione come amministratore locale.
+Impossibile creare un certificato richiesto per l'autenticazione di Site Recovery. Eseguire di nuovo l'installazione dopo essersi assicurati di eseguire il programma di installazione come amministratore locale.
 
-## <a name="register-source-machine-with-configuration-server"></a>Registrare il computer di origine con il server di configurazione
+## <a name="register-the-source-machine-with-the-configuration-server"></a>Registrare il computer di origine con il server di configurazione
 
-### <a name="if-source-machine-has-windows-os"></a>Se il computer di origine dispone di Windows OS,
+### <a name="if-the-source-machine-runs-windows"></a>Se la macchina di origine esegue Windows
 
-eseguire il comando seguente sul computer di origine
+Eseguire il comando seguente sul computer di origine:
 
 ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+  UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
   ```
-**Impostazione** | **Dettagli**
+
+Impostazione | Dettagli
 --- | ---
-Uso | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+Uso | UnifiedAgentConfigurator.exe  /CSEndPoint <configurazione indirizzo IP del server\> /PassphraseFilePath <passphrase file path\>
 Log di configurazione dell'agente | In %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Parametro obbligatorio. Specifica l'indirizzo IP del server di configurazione. Qualsiasi indirizzo IP valido.
 /PassphraseFilePath |  Obbligatorio. Percorso della passphrase. Usare qualsiasi percorso file locale o UNC valido.
 
-### <a name="if-source-machine-has-linux-os"></a>Se il computer di origine dispone di Linux OS,
+### <a name="if-the-source-machine-runs-linux"></a>Se la macchina di origine esegue Linux
 
-eseguire il comando seguente sul computer di origine
+Eseguire il comando seguente sul computer di origine:
 
 ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <configuration server IP address> -P /var/passphrase.txt
   ```
-**Impostazione** | **Dettagli**
+
+Impostazione | Dettagli
 --- | ---
-Uso | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
+Uso | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <configurazione dell'indirizzo IP del server\> -P <passphrase file path\>
 -i | Parametro obbligatorio. Specifica l'indirizzo IP del server di configurazione. Qualsiasi indirizzo IP valido.
--P |  Obbligatorio. Percorso completo del file in cui è stata salvata la passphrase. Usare qualsiasi cartella valida
+-P |  Obbligatorio. Percorso completo del file in cui è stata salvata la passphrase. Usare qualsiasi cartella valida.
+
