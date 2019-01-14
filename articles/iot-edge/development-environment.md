@@ -4,16 +4,16 @@ description: Informazioni su sistemi supportati e strumenti di sviluppo di Micro
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 46b007cfa7156c0c7718b7f4bd4f735a58c722fc
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f3d1fb393138aeb590bc0645d6abe93652a52a5b
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53797549"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052582"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Preparare l'ambiente di sviluppo e test per IoT Edge
 
@@ -45,7 +45,7 @@ Se si preferisce sviluppare con altri editor o dall'interfaccia della riga di co
 
 L'estensione Azure IoT Edge per Visual Studio Code offre modelli di moduli IoT Edge basati su linguaggi di programmazione come C, C#, Java, Node.js e Python, nonché funzioni di Azure in C#. 
 
-Per altre informazioni e per il download, vedere [Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+Per altre informazioni e per il download, vedere [Azure IoT Tools for Visual Studio Code (Azure IoT Tools per Visual Studio Code)](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 Oltre alle estensioni di IoT Edge, può essere utile installare estensioni aggiuntive per lo sviluppo. Ad esempio, è possibile usare [il supporto di Docker per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) per gestire immagini, contenitori e registri. Inoltre, tutti i principali linguaggi supportati hanno estensioni per Visual Studio Code che possono risultare utili quando si sviluppano i moduli. 
 

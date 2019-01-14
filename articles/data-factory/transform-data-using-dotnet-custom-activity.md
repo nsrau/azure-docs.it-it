@@ -8,19 +8,18 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: bfacad5064862f8ff20fc33b2b242c00ec416661
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 34a3b00fdc0644294a97272be7b3a06715c029a1
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000362"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121329"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-use-custom-activities.md)
 > * [Versione corrente](transform-data-using-dotnet-custom-activity.md)
 
@@ -104,12 +103,12 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 | type                  | Per l'attività personalizzata, il tipo corrisponde a **Custom**. | Yes      |
 | linkedServiceName     | Servizio collegato ad Azure Batch. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  | Yes      |
 | command               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Yes      |
-| resourceLinkedService | Servizio di Archiviazione di Azure collegato all'account di archiviazione in cui è archiviata l'applicazione personalizzata | No&#42;       |
-| folderPath            | Percorso della cartella dell'applicazione personalizzata e di tutte le relative dipendenze<br/><br/>Se sono presenti dipendenze archiviate nelle sottocartelle, vale a dire, in una struttura di cartelle gerarchiche in *folderPath*, la struttura di cartelle è attualmente di tipo flat quando i file vengono copiati in Azure Batch. Vale a dire, tutti i file vengono copiati in un'unica cartella senza sottocartelle. Per risolvere questo comportamento, è possibile comprimere i file, copiare il file compresso e quindi decomprimerlo con codice personalizzato nel percorso desiderato. | No&#42;       |
+| resourceLinkedService | Servizio di Archiviazione di Azure collegato all'account di archiviazione in cui è archiviata l'applicazione personalizzata | No &#42;       |
+| folderPath            | Percorso della cartella dell'applicazione personalizzata e di tutte le relative dipendenze<br/><br/>Se sono presenti dipendenze archiviate nelle sottocartelle, vale a dire, in una struttura di cartelle gerarchiche in *folderPath*, la struttura di cartelle è attualmente di tipo flat quando i file vengono copiati in Azure Batch. Vale a dire, tutti i file vengono copiati in un'unica cartella senza sottocartelle. Per risolvere questo comportamento, è possibile comprimere i file, copiare il file compresso e quindi decomprimerlo con codice personalizzato nel percorso desiderato. | No &#42;       |
 | referenceObjects      | Matrice di servizi collegati e set di dati esistenti. I servizi collegati e i set di dati a cui si fa riferimento vengono passati all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a risorse di Data Factory | No        |
 | extendedProperties    | Proprietà definite dall'utente che possono essere passate all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a proprietà aggiuntive | No        |
 
-&#42; Le proprietà `resourceLinkedService` e `folderPath` devono essere specificate o omesse entrambe.
+&#42; Le proprietà `resourceLinkedService` e `folderPath` devono essere specificate oppure omesse entrambe.
 
 ## <a name="custom-activity-permissions"></a>Autorizzazioni per le attività personalizzate
 
@@ -293,7 +292,7 @@ namespace SampleApp
 Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è possibile ottenere il percorso del file stdout.txt nell'espressione "\@activity('MyCustomActivity').output.outputs[0]". 
 
   > [!IMPORTANT]
-  > - Activity.json, linkedServices.json e datasets.json vengono archiviati nella cartella di runtime dell'attività Batch. Per questo esempio, the activity.json, linkedServices.json e datasets.json vengono archiviati nel percorso "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/". Se necessario, la pulizia di questi file deve essere eseguita separatamente. 
+  > - Activity.json, linkedServices.json e datasets.json vengono archiviati nella cartella di runtime dell'attività Batch. Per questo esempio, the activity.json, linkedServices.json e datasets.json vengono archiviati nel percorso "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/". Se necessario, la pulizia di questi file deve essere eseguita separatamente. 
   > - Per i servizi collegati che usano il runtime di integrazione self-hosted, le informazioni riservate, come chiavi o password, vengono crittografate dal runtime di integrazione self-hosted per verificare che le credenziali rimangano nell'ambiente di rete privata definito dal cliente. Alcuni campi riservati potrebbero risultare mancanti se il codice dell'applicazione personalizzata fa riferimento a tali campi in questo modo. Se necessario, usare SecureString in extendedProperties anziché un riferimento a servizi collegati. 
 
 ## <a name="pass-outputs-to-another-activity"></a>Passare gli output a un'altra attività

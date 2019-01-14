@@ -435,7 +435,7 @@ Di seguito è riportata una tipica risposta per il riconoscimento `detailed`.
 
 ## <a name="text-to-speech-api"></a>API Sintesi vocale
 
-L'API REST Sintesi vocale supporta voci neurali e standard, ognuna delle quali supporta a sua volta una lingua e un dialetto specifici, identificati dalle impostazioni locali.
+L'API REST Sintesi vocale supporta voci neurali e standard, ognuna delle quali supporta a sua volta una lingua e una lingua regionale specifiche, identificate dalle impostazioni locali.
 
 * Per un elenco completo delle voci, vedere [Supporto per le lingue](language-support.md#text-to-speech).
 * Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#text-to-speech).

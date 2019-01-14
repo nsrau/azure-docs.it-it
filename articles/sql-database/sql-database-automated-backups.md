@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001278"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035424"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -42,7 +42,7 @@ Il database SQL usa la tecnologia di SQL Server per creare backup [completi](htt
 
 ## <a name="how-long-are-backups-kept"></a>Per quanto tempo sono conservati i backup
 
-Ogni database SQL ha un periodo di conservazione dei backup predefinito che varia da 7 e 35 giorni e dipende dal [modello di acquisto e dal livello di servizio](#pitr-retention-period). È possibile aggiornare il periodo di conservazione dei backup per un database nel server logico di Azure. Per altre informazioni, vedere [Modifica del periodo di conservazione backup](#how-to-change-the-pitr-backup-retention-period).
+Ogni database SQL ha un periodo di conservazione dei backup predefinito che varia da 7 e 35 giorni e dipende dal modello di acquisto e dal livello di servizio. È possibile aggiornare il periodo di conservazione dei backup per un database nel server logico di Azure. Per altre informazioni, vedere [Modifica del periodo di conservazione backup](#how-to-change-the-pitr-backup-retention-period).
 
 Se si elimina un database, il database SQL manterrà i backup come farebbe con un database online. Ad esempio, se si elimina un database Basic con un periodo di conservazione di sette giorni, un backup di quattro giorni viene salvato per altri tre giorni.
 
@@ -109,7 +109,7 @@ Quando si migra il database da un livello di servizio basato su DTU con una cons
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Modificare il periodo di conservazione dei backup per il recupero temporizzato usando il portale di Azure
 
-Per modificare il periodo di conservazione dei backup per il recupero temporizzato nel portale di Azure, passare all'oggetto server di cui si vuole modificare il periodo di conservazione all'interno del portale e quindi selezionare l'opzione appropriata in base nell'oggetto server da modificare. 
+Per modificare il periodo di conservazione dei backup per il recupero temporizzato nel portale di Azure, passare all'oggetto server di cui si vuole modificare il periodo di conservazione all'interno del portale e quindi selezionare l'opzione appropriata in base nell'oggetto server da modificare.
 
 #### <a name="change-pitr-for-a-logical-server"></a>Modificare il recupero temporizzato per un server logico
 

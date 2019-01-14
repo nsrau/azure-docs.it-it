@@ -12,6 +12,8 @@ items:
     href: /azure/cloudfoundry/create-cloud-foundry-on-azure
   - name: Distribuire un'app Cloud Foundry in Azure
     href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+  - name: Usare OSBA con un'app in PCF
+    href: /azure/cloudfoundry/use-osba-pcf-app
   - name: Cloud Foundry in Azure
     href: /azure/virtual-machines/linux/cloudfoundry-get-started
   - name: Distribuire il nozzle di OMS per Cloud Foundry
@@ -30,9 +32,9 @@ items:
     href: https://pivotal.io/partners/microsoft
   - name: Plug-in Azure DevOps per CF
     href: https://github.com/Microsoft/vsts-cloudfoundry
-ms.openlocfilehash: fbee87e506752878aaeb95d9286499881ae1c40a
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: b702d42142bd809e678792f1f07a3e104f1e21c1
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268243"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229218"

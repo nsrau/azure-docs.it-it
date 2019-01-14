@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7734ff6c5992ebb27ff63c0329afa03e5bf96a2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995083"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158857"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
-Questo articolo illustra come spostare le risorse di Azure in un'altra sottoscrizione o in un altro gruppo di risorse all'interno della stessa sottoscrizione. Per spostare le risorse, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. 
+Questo articolo illustra come spostare le risorse di Azure in un'altra sottoscrizione o in un altro gruppo di risorse all'interno della stessa sottoscrizione. Per spostare le risorse, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
 
 Durante l'operazione di spostamento il gruppo di origine e quello di destinazione sono bloccati. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi di risorse fino al completamento dello spostamento. Questo blocco indica che non è possibile aggiungere, aggiornare o eliminare le risorse dei gruppi di risorse, ma non che le risorse sono bloccate. Se ad esempio si sposta un Server SQL con il relativo database in un nuovo gruppo di risorse, nelle applicazioni che usano il database non si verificano tempi di inattività, poiché rimane possibile leggere e scrivere nel database.
 
@@ -98,7 +98,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Dashboard del portale
 * Power BI - sia Power BI Embedded che Raccolta di aree di lavoro di Power BI
 * IP pubblico: è possibile spostare l'IP pubblico con SKU Basic. L'indirizzo IP pubblico dello SKU Standard non può essere spostato.
-* Insieme di credenziali di Servizi di ripristino: è necessario essere registrati in un'anteprima privata. Vedere [Limitazioni di Servizi di ripristino](#recovery-services-limitations).
+* Insieme di credenziali di Servizi di ripristino: è necessario essere registrati in un'[anteprima pubblica limitata](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * Cache Redis di Azure: se l'istanza di Cache Redis di Azure è configurata con una rete virtuale, l'istanza non può essere spostata in una sottoscrizione diversa. Vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations).
 * Utilità di pianificazione
 * Ricerca: non è possibile spostare più risorse di Ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
@@ -135,7 +135,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Data Box
 * Dev Spaces
 * Dynamics LCS
-* Express Route
+* ExpressRoute
 * Kubernetes Service
 * Servizi lab: lo spostamento in un nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento tra sottoscrizioni non lo è.
 * Applicazioni gestite
@@ -305,9 +305,9 @@ Questa operazione potrebbe richiedere alcuni minuti.
 
 ### <a name="recovery-services-limitations"></a>Limitazioni dei servizi di ripristino
 
-Per spostare un insieme di credenziali di Servizi di ripristino, è necessario registrarsi in un'anteprima privata. Per provare, scrivere a AskAzureBackupTeam@microsoft.com.
+Per spostare un insieme di credenziali di Servizi di ripristino, è necessario essere registrati in un'[anteprima pubblica limitata](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
-Attualmente, è possibile spostare un solo insieme di credenziali di Servizi di ripristino per ogni area contemporaneamente. Non è possibile spostare insiemi di credenziali di cui eseguire il backup di file di Azure, Sincronizzazione file di Azure o SQL in macchine virtuali IaaS. 
+Attualmente, è possibile spostare un solo insieme di credenziali di Servizi di ripristino per ogni area contemporaneamente. Non è possibile spostare insiemi di credenziali di cui eseguire il backup di file di Azure, Sincronizzazione file di Azure o SQL in macchine virtuali IaaS.
 
 Se non si sposta una macchina virtuale con l'insieme di credenziali, i punti di ripristino delle macchine virtuali correnti rimangono nell'insieme di credenziali fino alla scadenza. Sia che macchina virtuale venga spostata nell'insieme di credenziali o meno, è possibile ripristinare la macchina virtuale dalla cronologia di backup nell'insieme di credenziali.
 

@@ -6,15 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 91c0b5700fbc648f1fcd1355a438694cecc07a04
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993406"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076247"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Come creare funzioni definite dall'utente in Gemelli digitali di Azure
 
@@ -73,21 +73,17 @@ Con corpo JSON:
 
 ## <a name="create-a-user-defined-function"></a>Creare una funzione definita dall'utente
 
-Dopo aver creato i matcher, caricare il frammento della funzione con la richiesta HTTP **POST** autenticata seguente:
+La creazione di una funzione definita dall'utente comporta l'implementazione di una richiesta HTTP multipart per l'API di gestione di dispositivi Gemelli digitali di Azure.
+
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
+
+Dopo aver creato i matcher, caricare il frammento della funzione con la seguente richiesta HTTP POST autenticata:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-> [!IMPORTANT]
-> - Verificare che le intestazioni includano: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-> - Il corpo fornito è formato da più parti:
->   - La prima parte contiene i metadati UDF necessari.
->   - La seconda parte contiene la logica di calcolo JavaScript.
-> - Nella sezione **USER_DEFINED_BOUNDARY** sostituire i valori **spaceId** (`YOUR_SPACE_IDENTIFIER`) e **matchers**(`YOUR_MATCHER_IDENTIFIER`).
-> - Si noti che l'UDF di JavaScript è specificato come `Content-Type: text/javascript`.
-
-Usare il corpo JSON seguente:
+Usare il corpo seguente:
 
 ```plaintext
 --USER_DEFINED_BOUNDARY
@@ -116,6 +112,15 @@ function process(telemetry, executionContext) {
 | USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
 | YOUR_SPACE_IDENTIFIER | Identificatore dello spazio  |
 | YOUR_MATCHER_IDENTIFIER | ID del matcher da usare |
+
+1. Verificare che le intestazioni includano: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Verificare che il corpo sia costituito da più parti:
+
+   - La prima parte contiene i necessari metadati di funzione definita dall'utente.
+   - La seconda parte contiene la logica di calcolo JavaScript.
+
+1. Nella sezione **USER_DEFINED_BOUNDARY** sostituire i valori **spaceId** (`YOUR_SPACE_IDENTIFIER`) e **matchers** (`YOUR_MATCHER_IDENTIFIER`).
+1. Verificare che la funzione JavaScript definita dall'utente sia fornita come `Content-Type: text/javascript`.
 
 ### <a name="example-functions"></a>Funzioni di esempio
 
@@ -190,16 +195,16 @@ Per un esempio di codice di funzione più complesso definito dall'utente, vedere
 
 ## <a name="create-a-role-assignment"></a>Creare un'assegnazione di ruolo
 
-Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'utente. Se non esiste alcuna assegnazione di ruolo per la funzione definita dall'utente, mancheranno le autorizzazioni corrette per interagire con l'API Gestione o per disporre dell'accesso per eseguire azioni sugli oggetti del grafo. Le azioni che una funzione definita dall'utente può eseguire sono specificate e definite con il controllo degli accessi in base al ruolo nelle API Gestione di Gemelli digitali di Azure. Ad esempio, è possibile limitare l'ambito delle funzioni definite dall'utente specificando determinati ruoli o percorsi di controllo di accesso. Per altre informazioni, vedere la documentazione relativa al [controllo degli accessi in base al ruolo](./security-role-based-access-control.md).
+Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'utente. Se non esiste alcuna assegnazione di ruolo per la funzione definita dall'utente, non si avranno le autorizzazioni appropriate per interagire con l'API Gestione o per eseguire azioni sugli oggetti grafo. Le azioni eseguite dalla funzione definita dall'utente non sono esenti dal controllo degli accessi in base al ruolo delle API di gestione di Gemelli digitali di Azure. Ad esempio, è possibile limitare l'ambito delle funzioni definite dall'utente specificando determinati ruoli o percorsi di controllo di accesso. Per altre informazioni, vedere la documentazione relativa al [controllo degli accessi in base al ruolo](./security-role-based-access-control.md).
 
-1. [Effettuare una query nell'API di sistema](./security-create-manage-role-assignments.md#all) per fare in modo che tutti i ruoli ricevano l'ID da assegnare all'UDF. Eseguire questa operazione effettuando una richiesta HTTP GET autenticata a:
+1. [Effettuare una query nell'API di sistema](./security-create-manage-role-assignments.md#all) per fare in modo che tutti i ruoli ricevano l'ID da assegnare alle funzioni definite dall'utente. Eseguire questa operazione effettuando una richiesta HTTP GET autenticata a:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Mantenere l'ID del ruolo desiderato. Verrà trasmesso come attributo del corpo JSON **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) di seguito.
 
-1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) corrisponderà all'ID dell'UDF creato in precedenza.
+1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) corrisponderà all'ID della funzione definita dall'utente creato in precedenza.
 1. Trovare il valore di **path** (`YOUR_ACCESS_CONTROL_PATH`) effettuando una query degli spazi con `fullpath`.
 1. Copiare il valore `spacePaths` restituito. Usare quello indicato di seguito. Effettuare una richiesta HTTP GET autenticata a:
 
@@ -211,7 +216,7 @@ Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'ut
     | --- | --- |
     | YOUR_SPACE_NAME | Nome dello spazio da usare |
 
-1. Incollare il valore `spacePaths` restituito in **path** per creare un'assegnazione del ruolo dell'UDF effettuando una richiesta HTTP POST autenticata a:
+1. Incollare il valore `spacePaths` restituito in **path** per creare un'assegnazione di ruolo della funzione definita dall'utente, effettuando una richiesta HTTP POST autenticata a:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -230,12 +235,12 @@ Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'ut
     | Valore | Sostituire con |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | Identificatore del ruolo desiderato |
-    | YOUR_USER_DEFINED_FUNCTION_ID | ID della funzione definita dall'utente da usare |
+    | YOUR_USER_DEFINED_FUNCTION_ID | L'ID per la funzione definita dall'utente da usare |
     | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | L'ID che specifica il tipo di funzione definita dall'utente |
     | YOUR_ACCESS_CONTROL_PATH | Percorso di controllo di accesso |
 
 >[!TIP]
-> Per altre informazioni su operazioni ed endpoint dell'API Gestione collegati all'UDF, leggere l'articolo [Come creare e gestire le assegnazioni di ruolo](./security-create-manage-role-assignments.md).
+> Per altre informazioni su operazioni ed endpoint dell'API Gestione collegati alla funzione definita dall'utente, leggere l'articolo [Come creare e gestire le assegnazioni di ruolo](./security-create-manage-role-assignments.md).
 
 ## <a name="send-telemetry-to-be-processed"></a>Inviare i dati di telemetria da elaborare
 

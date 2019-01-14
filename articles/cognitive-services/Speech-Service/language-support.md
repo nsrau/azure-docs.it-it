@@ -62,7 +62,7 @@ L'API Riconoscimento vocale Microsoft supporta le lingue seguenti. Livelli diver
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 
-L'API REST di sintesi vocale supporta le voci seguenti, ognuna delle quali supporta una lingua e un dialetto specifici, identificati dalle impostazioni locali.
+L'API REST di sintesi vocale supporta le voci seguenti, ognuna delle quali supporta una lingua e una lingua regionale specifiche, identificate dalle impostazioni locali.
 
 ### <a name="neural-voices-preview"></a>Voci neurali (anteprima)
 

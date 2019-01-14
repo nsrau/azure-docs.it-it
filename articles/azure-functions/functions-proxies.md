@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 413decee89e99b8120d271e2e87e703d4d362c33
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 81f76b31f7af3643e2b654e8e26c70d0481d60b8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999289"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017107"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
 
@@ -53,7 +53,7 @@ Le richieste di back-end possono essere modificate nel portale espandendo la sez
 
 Per impostazione predefinita, la risposta del client viene inizializzata come una copia della risposta back-end. È possibile apportare modifiche al codice di stato, al motivo, alle intestazioni e al corpo della risposta. I valori modificati possono fare riferimento alle [impostazioni dell'applicazione], ai [parametri della richiesta del client originale] e ai [paramenti della risposta back-end].
 
-Le richieste di back-end possono essere modificate nel portale espandendo la sezione *Override della risposta* nella pagina dei dettagli del proxy. 
+Le richieste di back-end possono essere modificate nel portale espandendo la sezione *Override della richiesta* nella pagina dei dettagli del proxy. 
 
 ## <a name="using-variables"></a>Usare le variabili
 
@@ -176,13 +176,13 @@ Il comportamento del proxy può essere controllato da diverse impostazioni dell'
 
 ### <a name="reservedChars"></a> Caratteri riservati (formattazione della stringa)
 
-I proxy leggono tutte le stringhe in notazione C# usando \\ \\ \\ come un simbolo di escape. I proxy interpretano anche le parentesi graffe. Di seguito è riportata una serie completa di esempi.
+I proxy leggono tutte le stringhe all'esterno di un file JSON, utilizzando \ come carattere di escape. I proxy interpretano anche le parentesi graffe. Di seguito è riportata una serie completa di esempi.
 
 |Character|Carattere di escape|Esempio|
 |-|-|-|
 |{ or }|{{ or }}|`{{ example }}` --> `{ example }`
-| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
-|"|\\\\\\"| `\\\"example\\\"` --> `"example"`
+| \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
+|"|\\\"| `\"example\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Definire un oggetto requestOverrides
 

@@ -595,7 +595,7 @@ items:
           href: saas-multitenantdb-schema-management.md
         - name: ETL per l'analisi
           href: saas-multitenantdb-tenant-analytics.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
@@ -617,6 +617,8 @@ items:
     href: /sql/t-sql/language-reference
   - name: REST
     href: /rest/api/sql/
+  - name: Modelli di Resource Manager per SQL
+    href: /azure/templates/microsoft.sql/allversions
   - name: Strumenti di SQL Server
     href: /sql/tools/overview-sql-tools
   - name: SQL Server Management Studio (SSMS)
@@ -680,9 +682,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 501f10b734fe3d7fbd576ba2131b84a5b04681d0
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 500fd22c19e0aab2cbecf0267329d5a86a5ccda2
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077726"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230903"

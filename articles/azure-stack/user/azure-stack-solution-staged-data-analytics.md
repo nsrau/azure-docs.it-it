@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: anajod
+ms.openlocfilehash: 88c72994ec0c6cfc6222ccb31cabae7e354412eb
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969533"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245532"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Esercitazione: Creare una soluzione analitica di dati di staging con Azure e Azure Stack 
 
@@ -81,25 +81,25 @@ Il contenitore blob e l'account di archiviazione conterrà tutti i dati original
 
 3.  Usare le informazioni seguenti per l'account:
 
-    a.  Nome: **preferito**
+    a.  Nome: **A scelta dell'utente**
 
-    b.  Modello di distribuzione: **Resource Manager**
+    b.  Modello di distribuzione: **Gestione risorse**
 
-    c.  Tipologia account: **archiviazione (per utilizzo generico V1)**
+    c.  Tipologia account: **Archiviazione (per utilizzo generico V1)**
 
-    d.  Località: **Stati Uniti occidentali**
+    d.  Percorso: **Stati Uniti occidentali**
 
-    e.  Replica: **archiviazione con ridondanza locale (LRS)**
+    e.  Replica: **Archiviazione con ridondanza locale (LRS)**
 
     f.  Prestazioni: **Standard**
 
-    g.  Trasferimento sicuro obbligatorio: **disabilitato**
+    g.  Trasferimento sicuro obbligatorio: **Disabilitato**
 
-    h.  Sottoscrizione: Scegliere uno
+    h.  Sottoscrizione: Scegli un account
 
-    i.  Gruppo di risorse: specificare un nuovo gruppo di risorse o selezionarne un esistente
+    i.  Gruppo di risorse: Specificare un nuovo gruppo di risorse o selezionarne un esistente
 
-    j.  Configurare le reti virtuali: **disabilitato**
+    j.  Configurare le reti virtuali: **Disabilitato**
 
 4.  Selezionare **per creare l'account di archiviazione, crearne**.
 
@@ -113,9 +113,9 @@ Il contenitore blob e l'account di archiviazione conterrà tutti i dati original
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image2.png)
 
-8.  Nome: **preferito**
+8.  Nome: **La scelta**
 
-9.  Livello di accesso pubblico: **contenitore** (accesso in lettura anonimo per contenitori e BLOB)
+9.  Livello di accesso pubblico: **Contenitore** (accesso in lettura anonimo per contenitori e BLOB)
 
 10.  Selezionare **OK**.
 
@@ -168,7 +168,7 @@ Creare una nuova funzione di Azure Stack per spostare pulire i dati da Azure Sta
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  Selezionare **C\#**  come linguaggio e il nome di funzione: `upload-to-azure` impostare la pianificazione su `0 0 * * * *`, che in CRON, in notazione è una volta ogni ora.
+3.  Selezionare **C\#**  come linguaggio e il nome di funzione: `upload-to-azure`  Impostare la pianificazione su `0 0 * * * *`, che in CRON, in notazione è una volta ogni ora.
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image5.png)
 

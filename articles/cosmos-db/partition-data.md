@@ -1,17 +1,17 @@
 ---
 title: Partizionamento e scalabilità orizzontale in Azure Cosmos DB
 description: Informazioni sul funzionamento del partizionamento in Azure Cosmos DB, sulla configurazione del partizionamento e delle chiavi di partizione e su come scegliere la chiave di partizione corretta per l'applicazione.
-author: aliuy
+ms.author: mjbrown
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
-ms.openlocfilehash: 38f587fc24478beff3ab236207de3ed8a892c915
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dd62e0f4ff110ec8454031f1b66b56025328c33c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998949"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101480"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partizionamento e scalabilità orizzontale in Azure Cosmos DB
 
@@ -23,13 +23,11 @@ Una partizione logica è costituita da un set di elementi con la stessa chiave d
 
 In Azure Cosmos DB un contenitore è l'unità fondamentale di scalabilità. I dati aggiunti al contenitore e la velocità effettiva di cui si effettua il provisioning nel contenitore vengono automaticamente partizionati (orizzontalmente) in un set di partizioni logiche. L'operazione viene eseguita in base alla chiave di partizione specificata per il contenitore Cosmos. Per altre informazioni, vedere l'articolo [Creare un contenitore in Azure Cosmos DB](how-to-create-container.md).
 
-Una partizione logica definisce l'ambito delle transazioni di database. È possibile aggiornare gli elementi all'interno di una partizione logica tramite una transazione di isolamento dello snapshot.
-
-Quando al contenitore vengono aggiunti nuovi elementi o se la velocità effettiva di cui è stato effettuato il provisioning nel contenitore viene aumentata, nuove partizioni logiche vengono create in modo trasparente dal sistema.
+Una partizione logica definisce l'ambito delle transazioni di database. È possibile aggiornare gli elementi all'interno di una partizione logica tramite una transazione di isolamento dello snapshot. Quando vengono aggiunti nuovi elementi al contenitore, le nuove partizioni logiche vengono create in modo trasparente dal sistema.
 
 ## <a name="physical-partitions"></a>Partizioni fisiche
 
-Un contenitore Cosmos viene ridimensionato distribuendo i dati e la velocità effettiva tra un numero elevato di partizioni logiche. Una o più partizioni logiche vengono mappate internamente a una **partizione fisica** costituita da un set di repliche. Ogni set di repliche ospita un'istanza del motore di database Cosmos. Un set di repliche rende i dati archiviati nella partizione fisica durevoli, altamente disponibili e coerenti. Una partizione fisica supporta una quantità fissa di spazio di archiviazione e di unità riservate con un limite massimo. Ogni replica che include la partizione fisica eredita la quota di archiviazione. Tutte repliche di una partizione fisica supportano complessivamente la velocità effettiva allocata alla partizione stessa. La figura seguente mostra come le partizioni logiche vengono mappate alle partizioni fisiche distribuite a livello globale:
+Un contenitore Azure Cosmos viene ridimensionato distribuendo i dati e la velocità effettiva tra un numero elevato di partizioni logiche. Una o più partizioni logiche vengono mappate internamente a una **partizione fisica** costituita da un set di repliche. Ogni set di repliche ospita un'istanza del motore di database Azure Cosmos. Un set di repliche rende i dati archiviati nella partizione fisica durevoli, altamente disponibili e coerenti. Una partizione fisica supporta una quantità fissa di spazio di archiviazione e di unità riservate con un limite massimo. Ogni replica che include la partizione fisica eredita la quota di archiviazione. Tutte repliche di una partizione fisica supportano complessivamente la velocità effettiva allocata alla partizione stessa. La figura seguente mostra come le partizioni logiche vengono mappate alle partizioni fisiche distribuite a livello globale:
 
 ![Partizionamento di Azure Cosmos DB](./media/partition-data/logical-partitions.png)
 

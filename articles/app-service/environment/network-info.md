@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630462"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191599"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -131,7 +131,7 @@ Se l'ambiente del servizio app con bilanciamento del carico interno è il nome d
 
 ## <a name="functions-and-web-jobs"></a>Funzioni e processi Web ##
 
-Le funzioni e i processi Web dipendono dal sito di Gestione controllo servizi, ma il relativo uso nel portale è supportato, anche se le app sono presenti in un ambiente del servizio app con bilanciamento del carico interno, purché il browser possa raggiungere il sito di Gestione controllo servizi.  Se si usa un certificato autofirmato con l'ambiente del servizio app con bilanciamento del carico interno, è necessario impostare il browser in modo da considerare attendibile il certificato.  A tale scopo, per IE ed Edge, è necessario che il certificato si trovi nell'archivio Attendibilità del computer.  Se si usa Chrome, ciò implica che il certificato sia stato accettato nel browser in precedenza, presumibilmente accedendo direttamente al sito di Gestione controllo servizi.  La soluzione migliore consiste nell'usare un certificato commerciale incluso nella catena di certificati del browser.  
+Le funzioni e i processi Web dipendono dal sito di Gestione controllo servizi, ma il relativo uso nel portale è supportato, anche se le app sono presenti in un ambiente del servizio app con bilanciamento del carico interno, purché il browser possa raggiungere il sito di Gestione controllo servizi.  Se si usa un certificato autofirmato con l'ambiente del servizio app con bilanciamento del carico interno, è necessario impostare il browser in modo da considerare attendibile il certificato.  A tale scopo, per IE ed Microsoft Edge, è necessario che il certificato si trovi nell'archivio Attendibilità del computer.  Se si usa Chrome, ciò implica che il certificato sia stato accettato nel browser in precedenza, presumibilmente accedendo direttamente al sito di Gestione controllo servizi.  La soluzione migliore consiste nell'usare un certificato commerciale incluso nella catena di certificati del browser.  
 
 ## <a name="ase-ip-addresses"></a>Indirizzi IP dell'ambiente del servizio app ##
 

@@ -30,7 +30,7 @@ Le funzioni primarie dei servizi Voce sono il riconoscimento vocale (anche noto 
 |Funzione|Funzionalità|
 |-|-|
 |[Riconoscimento vocale](speech-to-text.md)| <li>Esegue la trascrizione del parlato continuo in tempo reale in testo.<li>Consente di eseguire trascrizioni batch da registrazioni audio. <li>Supporta risultati intermedi, rilevamento della fine del parlato, formattazione automatica del testo e maschera per il contenuto volgare. <li>Può chiamare [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) per derivare la finalità dell'utente dal parlato trascritto.\*|
-|[Sintesi vocale](text-to-speech.md)| <li>**NUOVA**: Offre voci di sintesi vocale neurale quasi identiche a quelle di un essere umano (in inglese). <li>Converte il testo scritto in un audio che suona naturale. <li>Offre più sessi e/o dialetti per numerose lingue supportate. <li>Supporta l'input di testo normale o il linguaggio SSML (Speech Synthesis Markup Language). |
+|[Sintesi vocale](text-to-speech.md)| <li>**NUOVA**: Offre voci di sintesi vocale neurale quasi identiche a quelle di un essere umano (in inglese). <li>Converte il testo scritto in un audio che suona naturale. <li>Offre più sessi e/o lingue regionali per numerose lingue supportate. <li>Supporta l'input di testo normale o il linguaggio SSML (Speech Synthesis Markup Language). |
 |[Traduzione vocale](speech-translation.md)| <li>Traduce l'audio in streaming quasi in tempo reale.<li> Può anche elaborare audio registrato.<li>Fornisce i risultati come testo o voce sintetizzata. |
 
 

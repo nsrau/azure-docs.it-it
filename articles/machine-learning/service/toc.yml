@@ -139,13 +139,16 @@ items:
   - name: Gestire le quote di risorse
     displayName: limits
     href: how-to-manage-quotas.md
+  - name: Usare con le reti virtuali
+    displayName: vnet
+    href: how-to-enable-virtual-network.md
   - name: Usare l'interfaccia della riga di comando di Machine Learning
     displayName: cli command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Esportare ed eliminare dati
     displayName: gdpr
     href: how-to-export-delete-data.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Machine Learning SDK
     displayName: api core package python
@@ -171,9 +174,9 @@ items:
     href: support-for-aml-services.md
   - name: Confrontare i prodotti di apprendimento automatico di Microsoft
     href: overview-more-machine-learning.md
-ms.openlocfilehash: eb989777a0cf7fac41db64d05fa71a24efd34b5c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 84f4c2ec1d9f361cdf030b724860aea89f5c9cc3
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158960"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247368"
