@@ -1,251 +1,229 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Blackboard Learn | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Blackboard Learn | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Blackboard Learn.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 0b8ca505-61ea-487c-9a3e-fa50c936df0c
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/19/2017
+ms.topic: tutorial
+ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 9b7e7a84059f8393e8f900733602e32ca3ad833b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9aa03146608796f1a2d26d44b4e76b0331f8c5be
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423658"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063557"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Esercitazione: Integrazione di Azure Active Directory con Blackboard Learn
 
 Questa esercitazione descrive come integrare Blackboard Learn con Azure Active Directory (Azure AD).
-
 L'integrazione di Blackboard Learn con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Blackboard Learn
-- È possibile abilitare gli utenti per l'accesso automatico a Blackboard Learn (Single Sign-On) con i propri account Azure AD
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* È possibile controllare in Azure AD chi può accedere a Blackboard Learn.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Blackboard Learn con gli account Azure AD personali.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Blackboard Learn, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
-- Sottoscrizione di Blackboard Learn abilitata per l'accesso Single Sign-On
-
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
-
-- Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
+* Sottoscrizione di Blackboard Learn abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
-1. Aggiunta di Blackboard Learn dalla raccolta
-1. Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+
+* Blackboard Learn supporta l'accesso SSO avviato da **SP**
+* Blackboard Learn supporta il provisioning utenti **JIT**
 
 ## <a name="adding-blackboard-learn-from-the-gallery"></a>Aggiunta di Blackboard Learn dalla raccolta
-Per configurare l'integrazione di Blackboard Learn in Azure AD, è necessario aggiungere Blackboard Learn dalla raccolta al proprio elenco di app SaaS gestite.
+
+Per configurare l'integrazione di Blackboard Learn in Azure AD, è necessario aggiungere Blackboard Learn dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Blackboard Learn dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Active Directory][1]
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
-    ![APPLICAZIONI][2]
-    
-1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-    ![APPLICAZIONI][3]
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-1. Nella casella di ricerca digitare **Blackboard Learn**.
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-    ![Creazione di un utente test di Azure AD](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_search.png)
+4. Nella casella di ricerca digitare **Blackboard Learn**, selezionare **Blackboard Learn** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-1. Nel pannello dei risultati selezionare **Blackboard Learn** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+     ![Blackboard Learn nell'elenco risultati](common/search-new-app.png)
 
-    ![Creazione di un utente test di Azure AD](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Blackboard Learn usando un utente di test di nome "Britta Simon".
-
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Blackboard Learn che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Blackboard Learn.
-
-La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** (nome utente) in Blackboard Learn.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Blackboard Learn usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Blackboard Learn.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Blackboard Learn, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creazione di un utente di test di Blackboard Learn](#creating-a-blackboard-learn-test-user)**: per avere una controparte di Britta Simon in Blackboard Learn collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Blackboard Learn](#configure-blackboard-learn-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Creare un utente di test di Blackboard Learn](#create-blackboard-learn-test-user)**: per avere una controparte di Britta Simon in Blackboard Learn collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Blackboard Learn.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-**Per configurare Single Sign-On di Azure AD con Blackboard Learn, seguire questa procedura:**
+Per configurare l'accesso Single Sign-On di Azure AD con Blackboard Learn, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Blackboard Learn** del portale di Azure fare clic su **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Blackboard Learn** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-    ![Configure Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Configure Single Sign-On](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_samlbase.png)
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
-1. Nella sezione **URL e dominio Blackboard Learn** seguire questa procedura:
+    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-    ![Configure Single Sign-On](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_url.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.blackboard.com/`
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<subdomain>.blackboard.com/auth-saml/saml/SSO/entity-id/SAML_AD`
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
+
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Blackboard Learn](common/sp-identifier.png)
+
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<subdomain>.blackboard.com/`
+
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<subdomain>.blackboard.com/auth-saml/saml/SSO/entity-id/SAML_AD`
+
+    > [!NOTE]
+    > Questi valori non sono reali. È necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Blackboard Learn](https://www.blackboard.com/support/index.aspx). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+
+5. L'applicazione Blackboard Learn prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
+
+    ![image](common/edit-attribute.png)
+
+6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine e seguire questa procedura. In questo caso è stato eseguito il mapping di Userprincipalname come attributo univoco dell'utente ma è possibile eseguirne il mapping al valore appropriato che distingue in modo univoco l'utente nell'organizzazione, a sua volta mappato al campo del nome utente di Blackboard Learn.
     
-    > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Blackboard Learn](https://www.blackboard.com/support/index.aspx). 
+    | Nome | Attributo di origine|
+    | ---------------| --------------- |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
 
-1. L'applicazione Blackboard Learn si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione.
- La schermata seguente illustra un esempio relativo a questa operazione.
+    a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![Configure Single Sign-On](./media/blackboard-learn-tutorial/tutorial_attribute.png)
+    ![image](common/new-save-attribute.png)
 
-1. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare gli attributi del token SAML come illustrato nell'immagine e seguire questa procedura. In questo caso è stato eseguito il mapping di Userprincipalname come attributo univoco dell'utente ma è possibile eseguirne il mapping al valore appropriato che distingue in modo univoco l'utente nell'organizzazione, a sua volta mappato al campo del nome utente di Blackboard Learn.
-           
-    | Nome attributo | Valore attributo |   
-    | ---------------| ----------------|
-    | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 |user.userprincipalname |
-
-    a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
-
-    ![Configure Single Sign-On](./media/blackboard-learn-tutorial/tutorial_attribute_04.png)
-    
-    ![Configure Single Sign-On](./media/blackboard-learn-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-attribute-details.png)
 
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 
-    c. Nell'elenco **Valore** digitare il valore dell'attributo indicato per la riga.
-    
-    d. Fare clic su **OK**.
+    c. Lasciare vuota la casella **Spazio dei nomi**.
 
-1. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
+    d. Per Origine selezionare **Attributo**.
 
-    ![Configure Single Sign-On](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_certificate.png)
+    e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
 
-1. Fare clic sul pulsante **Salva** .
+    f. Fare clic su **OK**.
 
-    ![Configure Single Sign-On](./media/blackboard-learn-tutorial/tutorial_general_400.png)
+    g. Fare clic su **Save**.
 
-1. Nella sezione **Configurazione di Blackboard Learn** fare clic su **Configura Blackboard Learn** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML** dalla **sezione di riferimento rapido.**
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML dei metadati della federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
-    ![Configure Single Sign-On](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_configure.png) 
+    ![Collegamento di download del certificato](common/metadataxml.png)
 
-1. Per configurare l'accesso Single Sign-On sul lato **Blackboard Learn**, è necessario inviare il file **XML metadati** e l'**ID di entità SAML** al [team di supporto di Blackboard Learn](https://www.blackboard.com/support/index.aspx).
+6. Nella sezione **Configura Blackboard Learn** copiare gli URL appropriati in base alle proprie esigenze.
 
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+    a. URL di accesso
 
-![Creare un utente di Azure AD][100]
+    b. Identificatore Azure AD
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    c. URL disconnessione
 
-1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+### <a name="configure-blackboard-learn-single-sign-on"></a>Configurare l'accesso Single Sign-On per Blackboard Learn
 
-    ![Creazione di un utente test di Azure AD](./media/blackboard-learn-tutorial/create_aaduser_01.png) 
+Per configurare l'accesso Single Sign-On sul lato **Blackboard Learn**, è necessario inviare il file **XML dei metadati di federazione** e l'**Identificatore Azure AD** al [team di supporto di Blackboard Learn](https://www.blackboard.com/support/index.aspx).
 
-1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
-    
-    ![Creazione di un utente test di Azure AD](./media/blackboard-learn-tutorial/create_aaduser_02.png) 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
- 
-    ![Creazione di un utente test di Azure AD](./media/blackboard-learn-tutorial/create_aaduser_03.png) 
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
-1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
- 
-    ![Creazione di un utente test di Azure AD](./media/blackboard-learn-tutorial/create_aaduser_04.png) 
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di Britta Simon.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
+    ![Pulsante Nuovo utente](common/new-user.png)
+
+3. In Proprietà utente seguire questa procedura.
+
+    ![Finestra di dialogo Utente](common/user-properties.png)
+
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
+
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
- 
-### <a name="creating-a-blackboard-learn-test-user"></a>Creazione di un utente di test di Blackboard Learn
-In questa sezione viene creato un utente di nome Britta Simon in Blackboard Learn. 
 
-L'applicazione Blackboard Learn supporta il provisioning degli utenti just-in-time. Assicurarsi di aver configurato le attestazioni come descritto nella sezione **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)**
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Blackboard Learn.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Blackboard Learn.
 
-![Assegna utente][200] 
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Blackboard Learn**.
 
-**Per assegnare Britta Simon a Blackboard Learn, seguire questa procedura:**
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+2. Nell'elenco delle applicazioni selezionare **Blackboard Learn**.
 
-    ![Assegna utente][201] 
+    ![Collegamento di Blackboard Learn nell'elenco Applicazioni](common/all-applications.png)
 
-1. Nell'elenco delle applicazioni selezionare **Blackboard Learn**.
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![Configure Single Sign-On](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_app.png) 
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Scegliere **Utenti e gruppi** dal menu a sinistra.
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
-    ![Assegna utente][202] 
+    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-    ![Assegna utente][203]
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+### <a name="create-blackboard-learn-test-user"></a>Creare l'utente di test di Blackboard Learn
 
-1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+In questa sezione viene creato un utente di nome Britta Simon in Blackboard Learn. L'applicazione Blackboard Learn supporta il provisioning utenti JIT. Assicurarsi di aver configurato le attestazioni come descritto nella sezione **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)**
+
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Blackboard Learn nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Blackboard Learn. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando si fa clic sul riquadro di Blackboard Learn nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Blackboard Learn per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/blackboard-learn-tutorial/tutorial_general_01.png
-[2]: ./media/blackboard-learn-tutorial/tutorial_general_02.png
-[3]: ./media/blackboard-learn-tutorial/tutorial_general_03.png
-[4]: ./media/blackboard-learn-tutorial/tutorial_general_04.png
-
-[100]: ./media/blackboard-learn-tutorial/tutorial_general_100.png
-
-[200]: ./media/blackboard-learn-tutorial/tutorial_general_200.png
-[201]: ./media/blackboard-learn-tutorial/tutorial_general_201.png
-[202]: ./media/blackboard-learn-tutorial/tutorial_general_202.png
-[203]: ./media/blackboard-learn-tutorial/tutorial_general_203.png
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

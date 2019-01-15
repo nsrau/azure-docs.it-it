@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva di Azure - Creare un'istanza di Key Vault con l'interfaccia della riga di comando | Microsoft Docs
-description: Guida introduttiva che illustra come creare un'istanza di Azure Key Vault usando l'interfaccia della riga di comando
+title: Guida introduttiva di Azure - Impostare e recuperare un segreto da Key Vault tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Guida introduttiva che illustra come impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -9,19 +9,18 @@ ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 01/08/2019
 ms.author: barclayn
-ms.openlocfilehash: ae8957e5bf87fc190076db87d4eaca0e7a757c5e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 9b57dfcd6ecd00f9f1bb8ec752e0996ee52305db
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067657"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159044"
 ---
-# <a name="quickstart-create-an-azure-key-vault-using-the-cli"></a>Guida introduttiva: Creare un'istanza di Azure Key Vault usando l'interfaccia della riga di comando
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
 
 Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. Per altre informazioni su Key Vault, vedere la [panoramica](key-vault-overview.md). L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure con comandi o script. In questa guida introduttiva viene creata un'istanza di Key Vault. Successivamente verrà archiviato un segreto.
 
@@ -29,22 +28,22 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessaria l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessaria l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
-Per accedere ad Azure tramite l'interfaccia della riga di comando è possibile digitare:
+Per accedere ad Azure usando l'interfaccia della riga di comando è possibile digitare:
 
 ```azurecli
 az login
 ```
 
-Per altre informazioni sulle opzioni di accesso con l'interfaccia della riga di comando, vedere [Accedere con l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Per altre informazioni sulle opzioni di accesso con l'interfaccia della riga di comando, vedere [Accedere con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *ContosoResourceGroup* nella posizione *eastus*.
 
 ```azurecli
-az group create --name 'ContosoResourceGroup' --location eastus
+az group create --name "ContosoResourceGroup" --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
@@ -56,12 +55,12 @@ Verrà quindi creata un'istanza di Key Vault nel gruppo di risorse creato nel pa
 - Località **Stati Uniti orientali**.
 
 ```azurecli
-az keyvault create --name 'Contoso-Vault2' --resource-group 'ContosoResourceGroup' --location eastus
+az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGroup" --location eastus
 ```
 
 L'output di questo cmdlet mostra le proprietà dell'istanza di Key Vault appena creata. Prendere nota delle due proprietà elencate di seguito:
 
-- **Nome dell'insieme di credenziali**: nell'esempio corrisponde a **Contoso-Vault2**. Questo nome verrà usato per altri comandi di Key Vault.
+- **Vault Name**: nell'esempio corrisponde a **Contoso-Vault2**. Questo nome verrà usato per altri comandi di Key Vault.
 - **Vault URI** (URI dell'insieme di credenziali): in questo esempio corrisponde a https://contoso-vault2.vault.azure.net/. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
 
 A questo punto, l'account Azure è l'unico autorizzato a eseguire qualsiasi operazione su questo nuovo insieme di credenziali.
@@ -73,7 +72,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio d
 Digitare i comandi seguenti per creare in Key Vault un segreto denominato **ExamplePassword** che archivierà il valore **Pa$$w0rd**:
 
 ```azurecli
-az keyvault secret set --vault-name 'Contoso-Vault2' --name 'ExamplePassword' --value 'Pa$$w0rd'
+az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "Pa$$w0rd"
 ```
 
 È ora possibile fare riferimento a questa password aggiunta ad Azure Key Vault usando il relativo URI. Usare **https://ContosoVault.vault.azure.net/secrets/ExamplePassword** per ottenere la versione corrente. 
@@ -81,7 +80,7 @@ az keyvault secret set --vault-name 'Contoso-Vault2' --name 'ExamplePassword' --
 Per visualizzare il valore contenuto nel segreto come testo normale:
 
 ```azurecli
-az keyvault secret show --name 'ExamplePassword' --vault-name 'Contoso-Vault2'
+az keyvault secret show --name "ExamplePassword" --vault-name "Contoso-Vault2"
 ```
 
 A questo punto è stata creata un'istanza di Key Vault nella quale è stato archiviato e recuperato un segreto.
@@ -100,4 +99,4 @@ az group delete --name ContosoResourceGroup
 In questa guida introduttiva è stata creata un'istanza di Key Vault nella quale è stato archiviato un segreto. Per altre informazioni su Key Vault e su come usarlo con le applicazioni, passare all'esercitazione per le applicazioni Web che usano Key Vault.
 
 > [!div class="nextstepaction"]
-> Per informazioni su come leggere un segreto da Key Vault in un'applicazione Web usando le identità del servizio gestito, proseguire con l'esercitazione seguente [Configurare un'applicazione Web di Azure per leggere un segreto da Key Vault](tutorial-web-application-keyvault.md)
+> Per informazioni su come leggere un segreto da Key Vault in un'applicazione Web usando le identità gestite per le risorse di Azure, proseguire con l'esercitazione seguente [Configurare un'applicazione Web di Azure per leggere un segreto da Key Vault](quick-create-net.md)

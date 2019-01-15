@@ -3,24 +3,20 @@ title: Criteri degli endpoint di servizio di rete virtuale di Azure | Microsoft 
 description: Informazioni su come filtrare il traffico di rete virtuale per le risorse dei servizi di Azure usando criteri degli endpoint di servizio
 services: virtual-network
 documentationcenter: na
-author: anithaa
-manager: narayan
-editor: ''
-ms.assetid: ''
+author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: anithaa
-ms.custom: ''
-ms.openlocfilehash: 425bbc9eac112a4b999bd08940abb8b875aca61c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: sumeet.mittal
+ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433294"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051312"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Criteri degli endpoint di servizio di rete virtuale (anteprima)
 
@@ -28,7 +24,7 @@ I criteri degli endpoint di servizio di rete virtuale permettono di filtrare il 
 
 Questa funzionalità è disponibile in __anteprima__ per i servizi e le aree di Azure seguenti:
 
-__Archiviazione di Azure__: Stati Uniti centro-occidentali, Stati Uniti occidentali 2.
+__Archiviazione di Azure__: WestCentralUS, WestUS2.
 
 Per le notifiche più aggiornate per l'anteprima, vedere la pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -123,7 +119,7 @@ I criteri degli endpoint di servizio di rete virtuale offrono i vantaggi seguent
      - Gateway applicazione di Azure (versione classica)
      - Gateway VPN di Azure (versione classica)
 
-- Archiviazione di Azure: gli account di archiviazione della versione classica non sono supportati nei criteri degli endpoint. Per impostazione predefinita, i criteri negano l'accesso a tutti gli account di archiviazione della versione classica. Se l'applicazione deve accedere ad Azure Resource Manager e agli account di archiviazione della versione classica, i criteri degli endpoint non devono essere usati per il traffico. 
+- Archiviazione di Azure. Gli account di archiviazione della versione classica non sono supportati nei criteri degli endpoint. Per impostazione predefinita, i criteri negano l'accesso a tutti gli account di archiviazione della versione classica. Se l'applicazione deve accedere ad Azure Resource Manager e agli account di archiviazione della versione classica, i criteri degli endpoint non devono essere usati per il traffico. 
 
 ## <a name="nsgs-with-service-endpoint-policies"></a>Gruppi di sicurezza di rete con criteri degli endpoint di servizio
 - Per impostazione predefinita, i gruppi di sicurezza di rete consentono il traffico Internet in uscita, incluso il traffico di rete virtuale per i servizi di Azure.
@@ -146,7 +142,7 @@ I criteri degli endpoint di servizio di rete virtuale offrono i vantaggi seguent
 
 ## <a name="scenarios"></a>Scenari
 
-- **Reti virtuali con peering, connesse o multiple**: per filtrare il traffico nelle reti virtuali con peering, i criteri degli endpoint devono essere applicati individualmente a tali reti virtuali.
+- **Reti virtuali multiple, connesse o con peering**: per filtrare il traffico nelle reti virtuali con peering, i criteri degli endpoint devono essere applicati individualmente a tali reti virtuali.
 - **Filtro del traffico Internet con appliance di rete o Firewall di Azure**: filtrare il traffico dei servizi di Azure con i criteri sugli endpoint e filtrare il resto del traffico Internet o di Azure tramite appliance o Firewall di Azure. 
 - **Filtro del traffico nei servizi di Azure distribuiti nelle reti virtuali**: durante l'anteprima, i criteri degli endpoint di servizio non sono supportati per i servizi di Azure gestiti distribuiti nella rete virtuale. 
  Per i servizi specifici, vedere [Limitazioni](#Limitations).

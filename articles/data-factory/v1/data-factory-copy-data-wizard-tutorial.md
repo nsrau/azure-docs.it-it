@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare una pipeline usando la Copia guidata | Documentazione Microsoft'
+title: 'Esercitazione: Creare una pipeline usando la Copia guidata | Microsoft Docs'
 description: In questa esercitazione viene creata una pipeline di Azure Data Factory con un'attività di copia usando la Copia guidata supportata da Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,17 +9,16 @@ ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c0823fa839df98fa81f42bfbb3f7cd2bec6d7c1a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ace2ffdacf775a3c0c5a579e9a4208641c20f661
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582537"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025760"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory
 > [!div class="op_single_selector"]
@@ -42,7 +41,7 @@ La **copia guidata** di Azure Data Factory consente di creare rapidamente una pi
 
 Questa esercitazione illustra come creare una data factory di Azure, avviare la Copia guidata ed eseguire una serie di passaggi per specificare i dettagli relativi allo scenario di inserimento/spostamento dei dati. Al termine dei passaggi della procedura guidata, verrà creata automaticamente una pipeline con un'attività di copia per copiare i dati da un archivio BLOB di Azure a un database SQL di Azure. Per altre informazioni sull'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di eseguire questa esercitazione, completare i prerequisiti indicati nella [panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 ## <a name="create-data-factory"></a>Creare un'istanza di Data Factory
@@ -64,10 +63,10 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
       - Selezionare **Usa esistente** per scegliere un gruppo di risorse esistente.
       - Selezionare **Crea nuovo** per immettere un nome per un gruppo di risorse.
           
-        Alcuni dei passaggi di questa esercitazione presuppongono l'uso del nome **ADFTutorialResourceGroup** per il gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../../azure-resource-manager/resource-group-overview.md).
+        Alcuni passaggi di questa esercitazione presuppongono che venga usato il nome **ADFTutorialResourceGroup** per il gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../../azure-resource-manager/resource-group-overview.md).
    4. Selezionare una **località** per la data factory.
    5. Selezionare la casella di controllo **Aggiungi al dashboard** nella parte inferiore del pannello.  
-   6. Fare clic su **Crea**.
+   6. Fare clic su **Create**(Crea).
       
        ![Pannello Nuova data factory](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
 3. Al termine della creazione verrà visualizzato il pannello **Data factory**, come illustrato nell'immagine seguente:

@@ -1,19 +1,18 @@
 ---
 title: Configurare una pipeline di integrazione continua/distribuzione continua con l'attività di compilazione dell'emulatore di Azure Cosmos DB
 description: Esercitazione su come configurare il flusso di lavoro di compilazione e rilascio in Azure DevOps usando l'attività di compilazione dell'emulatore di Cosmos DB
-services: cosmos-db
-keywords: Emulatore di Azure Cosmos DB
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 83178abab84679dcfb36a361950097f9224eda81
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.reviewer: sngun
+ms.openlocfilehash: 58b97dd2df29a829b843d20c14cdb15644357653
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810643"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053705"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurare una pipeline CI/CD con l'attività di compilazione dell'emulatore di Azure Cosmos DB in Azure DevOps
 
@@ -66,7 +65,7 @@ In questa esercitazione si aggiungerà l'attività all'inizio per fare in modo c
 
 A questo punto, è possibile configurare i test per usare l'emulatore. L'attività di compilazione dell'emulatore esporta una variabile di ambiente, "CosmosDbEmulator.Endpoint", a cui qualsiasi attività nella pipeline di compilazione può inviare richieste. 
 
-In questa esercitazione si userà l'[attività di test di Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) per eseguire unit test configurati tramite un file con estensione **runsettings**. Per altre informazioni sulla configurazione di unit test, vedere la [documentazione](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
+In questa esercitazione si userà l'[attività di test di Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) per eseguire unit test configurati tramite un file con estensione **runsettings**. Per altre informazioni sulla configurazione di unit test, vedere la [documentazione](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). Il codice di esempio completo dell'applicazione Todo da usare in questo documento è disponibile su [Github](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
 Di seguito è riportato un esempio di un file con estensione **runsettings** che definisce i parametri da passare agli unit test di un'applicazione. Si noti che la variabile `authKey` usata è la [chiave nota](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) per l'emulatore. `authKey` è la chiave prevista dall'attività di compilazione dell'emulatore e deve essere definita nel file con estensione **runsettings**.
 

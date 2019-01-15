@@ -7,17 +7,17 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9bdc2e197b4d7aea270c954305a96a01a1371945
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001788"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121550"
 ---
-# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Avvio rapido: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
+# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Guida introduttiva: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
 
 Per approfondire rapidamente i concetti relativi a Ricerca di Azure, provare gli strumenti predefiniti nel portale di Azure. Procedure guidate ed editor non offrono esattamente le stesse funzionalità di .NET e delle API REST, ma è possibile iniziare rapidamente con un'introduzione senza codice, scrivendo query interessanti per i dati di esempio in pochi minuti.
 
@@ -48,7 +48,7 @@ Molti clienti iniziano con il servizio gratuito. Questa versione è limitata a t
 
 Sezioni del dashboard del servizio mostrano il numero di indici, indicizzatori e origini dati già disponibili. 
 
-![Elenchi di indici, indicizzatori e origini dati][media/search-get-started-portal/tiles-indexers-datasources2.png]
+![Elenchi di indici, indicizzatori e origini dati](media/search-get-started-portal/tiles-indexers-datasources2.png)
 
 ## <a name="create-index"></a> Creare un indice e caricare i dati
 
@@ -124,9 +124,13 @@ L'aggiornamento della pagina nel portale può richiedere alcuni minuti, ma l'ind
 
 ## <a name="view-the-index"></a>Visualizzare l'indice
 
-L'elenco **Indici** mostra gli indici esistenti, incluso l'indice*realestate-us-sample* appena creato nella procedura guidata.
+La pagina principale del servizio include i collegamenti alle risorse create nel servizio Ricerca di Azure.  Per visualizzare l'indice appena creato, fare clic su **Indici** nell'elenco di collegamenti. 
 
-In questo elenco è possibile visualizzare lo schema dell'indice e, facoltativamente, aggiungere nuovi campi, ma non è possibile modificare i campi esistenti. I campi esistenti hanno una rappresentazione fisica in Ricerca di Azure e pertanto non sono modificabili, nemmeno nel codice. Per modificare in modo sostanziale un campo esistente, creare un nuovo indice, eliminando l'originale.
+   ![Elenco di indici nella dashboard del servizio](media/search-get-started-portal/indexes-list.png)
+
+In questo elenco è possibile fare clic sull'indice *realestate-us-sample* appena creato, visualizzare il relativo schema e facoltativamente aggiungere nuovi campi. 
+
+La scheda **Campi** visualizza lo schema dell'indice. Scorrere alla fine dell'elenco per immettere un nuovo campo. Nella maggior parte dei casi, non è possibile cambiare i campi esistenti. I campi esistenti hanno una rappresentazione fisica in Ricerca di Azure e pertanto non sono modificabili, nemmeno nel codice. Per modificare in modo sostanziale un campo esistente, creare un nuovo indice, eliminando l'originale.
 
    ![definizione di indice di esempio](media/search-get-started-portal/sample-index-def.png)
 
@@ -137,6 +141,8 @@ Per capire chiaramente cosa è possibile o meno modificare durante la progettazi
 ## <a name="query-index"></a> Eseguire query usando Esplora ricerche
 
 A questo punto dovrebbe essere disponibile un indice di ricerca pronto per le query tramite la pagina predefinita per le query [**Esplora ricerche**](search-explorer.md). In questa pagina è disponibile una casella di ricerca che consente di testare stringhe di query arbitrarie.
+
+**Esplora ricerche** consente di gestire solo le [richieste dell'API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), ma accetta sia la [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) che la sintassi [completa del parser di query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), oltre a tutti i parametri di ricerca disponibili nelle [operazioni di ricerca nei documenti dell'API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
 > I passaggi seguenti vengono presentati al minuto 6.08 del [video della panoramica di Ricerca di Azure](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -150,11 +156,9 @@ A questo punto dovrebbe essere disponibile un indice di ricerca pronto per le qu
 
    ![Comandi dell'indice e dell'API](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
-3. Nella barra di ricerca immettere le stringhe di query riportate di seguito e fare clic su **Ricerca**.
+3. Nella barra di ricerca incollare le stringhe di query seguenti e fare clic su **Cerca**.
 
-    > [!NOTE]
-    > **Esplora ricerche** è progettato per gestire unicamente [richieste all'API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Accetta sia la [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) che la [sintassi completa del parser di query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), oltre a tutti i parametri di ricerca disponibili nelle operazioni di [ricerca nei documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-    >
+   ![Stringa di query e pulsante Cerca](media/search-get-started-portal/search-explorer-query-string-example.png)
 
 ## <a name="example-queries"></a>Query di esempio
 

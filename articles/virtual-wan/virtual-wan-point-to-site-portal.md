@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 01/07/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d5533932ef9ab521b623c18a0c3a27b663c56f8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261809"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077403"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Esercitazione: Creare una connessione da punto a sito con la rete WAN virtuale di Azure (anteprima)
 
@@ -42,7 +42,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="register"></a>Registrare questa funzionalità
 
-Fare clic sul pulsante **Prova** per registrare facilmente questa funzionalità tramite Azure Cloud Shell.
+Fare clic sul pulsante **Prova** per registrare facilmente questa funzionalità tramite Azure Cloud Shell. Se si preferisce eseguire PowerShell localmente, assicurarsi di avere la versione più recente e di accedere usando i comandi **Connect-AzureRmAccount** e **Select-AzureRmSubscription**.
 
 >[!NOTE]
 >Se non si registra la funzionalità, non sarà possibile usarla, né vederla nel portale.
@@ -149,7 +149,7 @@ Usare il profilo scaricato per configurare i client di accesso remoto. La proced
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Scaricare e installare il client OpenVPN dal sito Web ufficiale.
-2.  Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Point-to-site configurations (Configurazioni da punto a sito) nel portale di Azure o tramite New-AzureRmVpnClientConfiguration in PowerShell.
+2.  Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Point-to-site configuration (Configurazione da punto a sito) nel portale di Azure o tramite New-AzureRmVpnClientConfiguration in PowerShell.
 3.  Decomprimere il profilo. Aprire il file di configurazione vpnconfig.ovpn dalla cartella OpenVPN nel Blocco note.
 4.  Completare la sezione relativa al certificato client da punto a sito con la chiave pubblica del certificato client da punto a sito in formato Base 64. In un certificato in formato PEM è possibile aprire semplicemente il file con estensione cer e copiare la chiave in formato Base 64 tra le intestazioni del certificato. Sono disponibili altre informazioni su come esportare un certificato per ottenere la chiave pubblica codificata.
 5.  Completare la sezione relativa alla chiave privata con la chiave privata del certificato client da punto a sito in formato Base 64. Sono disponibili altre informazioni su come estrarre la chiave privata.

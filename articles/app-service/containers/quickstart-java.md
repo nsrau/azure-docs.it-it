@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 0c72318f6c80563d138d9c885ea5984a22c5c7fa
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fe134591a979569048072877632260ea9728b4fc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653901"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159758"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Guida introduttiva: Creare un'app Java nel servizio app in Linux
 
@@ -82,11 +82,11 @@ Quindi aggiungere la definizione di plug-in seguente all'interno dell'elemento `
 
 Aggiornare i segnaposto seguenti nella configurazione del plug-in:
 
-| Segnaposto | Descrizione |
+| Placeholder | DESCRIZIONE |
 | ----------- | ----------- |
 | `RESOURCEGROUP_NAME` | Nome del nuovo gruppo di risorse in cui creare l'app. Inserendo tutte le risorse per un'app in un gruppo è possibile gestirle insieme. Ad esempio, eliminando il gruppo di risorse si eliminano tutte le risorse associate all'app. Aggiornare questo valore con un nuovo nome univoco di gruppo di risorse, ad esempio *TestResources*. Questo nome di gruppo di risorse verrà usato per pulire tutte le risorse di Azure in una sezione successiva. |
 | `WEBAPP_NAME` | Il nome dell'app sarà incluso nel nome host dell'app durante la distribuzione in Azure (WEBAPP_NAME.azurewebsites.net). Aggiornare questo valore con un nome univoco per la nuova app del servizio app, che ospiterà l'app Java, ad esempio *contoso*. |
-| `REGION` | Area di Azure in cui è ospitata l'app, ad esempio `westus2`. È possibile ottenere un elenco di aree da Cloud Shell o dall'interfaccia della riga di comando usando il comando `az account list-locations`. |
+| `REGION` | Area di Azure in cui è ospitata l'app, ad esempio `westus2`. È possibile ottenere un elenco di aree da Cloud Shell o dall’interfaccia della riga di comando utilizzando il comando `az account list-locations`. |
 
 ## <a name="deploy-the-app"></a>Distribuire l'app
 
@@ -108,9 +108,9 @@ Al termine della distribuzione, passare all'applicazione distribuita usando l'UR
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato usato Maven per creare un'app Java, è stato configurato il [plug-in Maven per le app Web di Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) e quindi è stata distribuita un'app Java inclusa in pacchetti come archivio Web nel servizio app in Linux. Fare riferimento alle seguenti esercitazioni e articoli sulle procedure per altre informazioni sull'hosting delle applicazioni Java nel servizio App in Linux.
+In questa guida introduttiva è stato usato Maven per creare un'app Java, è stato configurato il [plug-in Maven per le app Web di Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) e quindi è stata distribuita un'app Java inclusa in pacchetti come archivio Web nel servizio app in Linux. Per altre informazioni sull’hosting delle applicazioni Java nel servizio App in Linux vedere le esercitazioni e gli articoli sulle procedure qui di seguito.
 
-- [Esercitazione: Distribuire un'app aziendale Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+- [Esercitazione: Distribuire un’app aziendale Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 - [Configurare un'origine dati di Tomcat](app-service-linux-java.md#connecting-to-data-sources)
 - [Integrazione continua e distribuzione continua con Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [Configurare gli strumenti di monitoraggio delle prestazioni delle applicazioni](how-to-java-apm-monitoring.md)

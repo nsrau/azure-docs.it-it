@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 2fc81cc06063c0fee0a4f875b4b0f8bd1343cf85
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 789f58699f39f4b7eac453f4cf79ea55a5bfc8d3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810458"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Esercitazione: Integrazione di Azure Active Directory con SharePoint locale
 
@@ -78,9 +78,9 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con SharePoint lo
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di SharePoint locale](#configure-sharepoint-on-premises-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Concedere l'accesso a un utente di test di SharePoint locale](#grant-access-to-sharepoint-on-premises-test-user)**: per avere una controparte di Britta Simon in SharePoint locale collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -111,14 +111,14 @@ Per configurare l'accesso Single Sign-On di Azure AD con SharePoint locale, segu
     c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di SharePoint locale](https://support.office.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Questi valori non sono reali. Aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di SharePoint locale](https://support.office.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
     > [!Note]
-    > Annotare il percorso del file in cui è stato scaricato il file del certificato, perché è necessario usarlo in seguito nello script di PowerShell per la configurazione.
+    > Prendere nota del percorso del file in cui è stato scaricato il file del certificato. Il file sarà necessario in seguito nello script PowerShell per la configurazione.
 
 6. Nella sezione **Configura SharePoint locale** copiare gli URL appropriati in base alle esigenze. Per **URL servizio Single Sign-On**, usare il valore nel formato seguente: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
@@ -131,10 +131,10 @@ Per configurare l'accesso Single Sign-On di Azure AD con SharePoint locale, segu
 
     b. Identificatore Azure AD
 
-    c. URL di chiusura sessione
+    c. URL disconnessione
 
     > [!NOTE]
-    > L'applicazione SharePoint locale usa il token SAML 1.1, quindi Azure AD attende la richiesta di WS Fed dal server di SharePoint e, dopo l'autenticazione, emette il token SAML 1.1.
+    > L'applicazione SharePoint locale usa il token SAML 1.1, di conseguenza Azure AD attende la richiesta di WS Fed dal server di SharePoint e, dopo l'autenticazione, rilascia il token SAML 1.1.
 
 ### <a name="configure-sharepoint-on-premises-single-sign-on"></a>Configurare l'accesso Single Sign-On di SharePoint locale
 
@@ -175,11 +175,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con SharePoint locale, segu
     ![Configurare il provider di autenticazione](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
     > [!NOTE]
-    > Alcuni degli utenti esterni non potranno usare questa integrazione single sign-on poiché il loro UPN avrà valori alterati simili a `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. A breve si consentirà ai clienti di configurare l'app per gestire l'UPN in base al tipo di utente. In seguito tutti gli utenti guest dovrebbero essere in grado di usare l'accesso SSO senza problemi come i dipendenti dell'organizzazione.
+    > Alcuni degli utenti esterni non potranno usare questa integrazione Single Sign-On perché il relativo UPN avrà un valore alterato simile a `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. A breve sarà possibile eseguire una configurazione personalizzata dell'app per gestire l'UPN in base al tipo di utente. In seguito tutti gli utenti guest dovrebbero essere in grado di usare l'accesso SSO senza problemi come i dipendenti dell'organizzazione.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -216,7 +216,7 @@ Gli utenti che si registreranno ad Azure AD ed effettueranno l'accesso a SharePo
 
     ![Ricerca di un utente in base all'attestazione del nome](./media/sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
 
-5. Nella finestra di dialogo **Aggiungi utenti** fare clic sulla zona appropriata in **Zone**e quindi fare clic su **Avanti**.
+5. Nella finestra di dialogo **Aggiungi utenti** fare clic sulla zona appropriata in **Zone** e quindi fare clic su **Avanti**.
 
 6. Nella finestra di dialogo **Criteri per applicazioni Web**, nella sezione **Seleziona utenti** fare clic sull'icona **Sfoglia**.
 
@@ -263,17 +263,17 @@ Non essendo previste convalide per i valori cercati, possono verificarsi errori 
 
 Per assistenza in questo scenario, esiste una soluzione open source denominata [AzureCP](https://yvand.github.io/AzureCP/) che fornisce un provider di attestazioni personalizzate per SharePoint 2016. Tale soluzione userà Azure AD Graph per risolvere quanto immesso dagli utenti ed eseguirà la convalida. Altre informazioni su [AzureCP](https://yvand.github.io/AzureCP/).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole l'accesso a SharePoint locale.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure, concedendole l'accesso a SharePoint locale.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **SharePoint locale**.
 
-    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
 2. Nell'elenco delle applicazioni digitare e selezionare **SharePoint locale**.
 
-    ![Collegamento a SharePoint locale nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di SharePoint locale nell'elenco Applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -291,7 +291,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-sharepoint-on-premises-test-user"></a>Creare un utente di test di SharePoint locale
 
-In questa sezione viene creato un utente di nome Britta Simon in SharePoint locale. Collaborare con il  [team di supporto di SharePoint locale](https://support.office.com/) per aggiungere gli utenti nella piattaforma di SharePoint locale. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in SharePoint locale. Collaborare con il  [team di supporto di SharePoint locale](https://support.office.com/) per aggiungere gli utenti alla piattaforma SharePoint locale. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

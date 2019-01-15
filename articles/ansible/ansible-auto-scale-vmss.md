@@ -3,17 +3,17 @@ title: Ridimensionare automaticamente un set di scalabilità di macchine virtual
 description: Informazioni su come usare Ansible per ridimensionare un set di scalabilità di macchine virtuali con scalabilità automatica in Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, scalabilità, scalabilità automatica, macchina virtuale, set di scalabilità di macchine virtuali, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: yuwzho, kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: c6678d6df3a695d3a0471e5779bc3af4b6ba6c84
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411135"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157055"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali in Azure con Ansible
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per gestire il set di scalabilità di macchine virtuali in Azure, così come si farebbe con qualsiasi altra risorsa di Azure. 
@@ -29,7 +29,7 @@ Quando si crea un set di scalabilità, definire il numero di istanze di macchine
 > In questa esercitazione, per eseguire i playbook di esempio seguenti è necessario Ansible 2.7. 
 
 ## <a name="auto-scale-based-on-a-schedule"></a>Scalabilità automatica in base a una pianificazione   
-Per abilitare la scalabilità automatica su un set di scalabilità, è innanzitutto necessario definire un profilo di scalabilità automatica. Questo profilo definisce la capacità predefinita, minima e massima del set di scalabilità. Questi limiti consentono di controllare i costi poiché le istanze di macchine virtuali non vengono create di continuo. Permettono anche di trovare un equilibrio appropriato tra prestazioni e numero minimo di istanze che rimangono in un evento di scala. 
+Per abilitare la scalabilità automatica su un set di scalabilità, è innanzitutto necessario definire un profilo di scalabilità automatica. Questo profilo definisce la capacità predefinita, minima e massima del set di scalabilità. Questi limiti consentono di controllare i costi perché le istanze di macchine virtuali non vengono create di continuo. Permettono anche di trovare un equilibrio appropriato tra prestazioni e numero minimo di istanze che rimangono in un evento di riduzione. 
 
 È possibile aumentare e ridurre il numero di istanze dei set di scalabilità di macchine virtuali in base a una pianificazione ricorrente oppure a una data specifica. In questa sezione viene presentato un playbook di Ansible di esempio che crea un'impostazione di scalabilità automatica che aumenta a tre il numero di istanze di macchine virtuali nei set di scalabilità alle 10:00 di ogni lunedì, fuso orario del Pacifico. 
 

@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 950336db215bbca76f20c15527397212c6fe5ffd
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 23114a1d2fff081c802ddedc7bf5430938c45b3b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554929"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191786"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integrazione e recapito continui (CI/CD) in Azure Data Factory
 
@@ -162,7 +161,7 @@ Esistono due modi per gestire i segreti:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Concedere le autorizzazioni all'agente di Azure Pipelines
-L'attività Azure Key Vault potrebbe non riuscire la prima volta con un errore di accesso negato. Scaricare i log per la versione e individuare il file `.ps1` con il comando per concedere le autorizzazioni all'agente di Azure Pipelines. È possibile eseguire il comando direttamente oppure è possibile copiare l'ID dell'entità di sicurezza dal file e aggiungere manualmente il criterio di accesso nel portale di Azure. *Get* e *List* sono le autorizzazioni minime necessarie.
+Il runtime di integrazione dell'attività Azure Key Vault potrebbe avere esito negativo con un errore di accesso negato. Scaricare i log per la versione e individuare il file `.ps1` con il comando per concedere le autorizzazioni all'agente di Azure Pipelines. È possibile eseguire il comando direttamente oppure è possibile copiare l'ID dell'entità di sicurezza dal file e aggiungere manualmente il criterio di accesso nel portale di Azure. *Get* e *List* sono le autorizzazioni minime necessarie.
 
 ### <a name="update-active-triggers"></a>Aggiornare i trigger attivi
 La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. Per aggiornare i trigger attivi, è necessario arrestarli e avviarli manualmente dopo la distribuzione. A questo scopo è possibile aggiungere un'attività Azure PowerShell, come illustrato nell'esempio seguente:
@@ -184,7 +183,7 @@ La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. P
 È possibile seguire una procedura simile e usare un codice simile (con la funzione `Start-AzureRmDataFactoryV2Trigger`) per riavviare i trigger dopo la distribuzione.
 
 > [!IMPORTANT]
-> Negli scenari di integrazione e recapito continui, il tipo di runtime di integrazione in diversi ambienti deve essere lo stesso. Ad esempio, se si dispone di un runtime di integrazione *self-hosted* nell'ambiente di sviluppo, il runtime di integrazione stesso deve essere di tipo *self-hosted* in altri ambienti, come quelli di test e produzione. Analogamente, se si condividono i runtime di integrazione tra più fasi, è necessario configurare i runtime di integrazione come *self-hosted collegato* in tutti gli ambienti, ad esempio quelli di sviluppo, test e produzione.
+> Negli scenari di integrazione e recapito continui, il tipo di runtime di integrazione in diversi ambienti deve essere lo stesso. Ad esempio, se si dispone di un runtime di integrazione *self-hosted* nell'ambiente di sviluppo, il runtime di integrazione stesso deve essere di tipo *self-hosted* in altri ambienti, come quelli di test e produzione. Analogamente, se si condividono i runtime di integrazione tra più fasi, è necessario configurarli come *self-hosted collegati* in tutti gli ambienti, ad esempio quelli di sviluppo, test e produzione.
 
 ## <a name="sample-deployment-template"></a>Esempio di modello di distribuzione
 
@@ -854,7 +853,7 @@ else {
 
 Ecco alcune linee guida da usare per la creazione di file dei parametri personalizzati. Per alcuni esempi di questa sintassi, vedere la sezione [File dei parametri personalizzati di esempio](#sample) seguente.
 
-1. Quando si specifica una matrice nel file di definizione, si indica che la proprietà corrispondente nel modello è una matrice. Data Factory esegue l'iterazione tra tutti gli oggetti della matrice usando la definizione specificata nel primo oggetto della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
+1. Quando si specifica una matrice nel file di definizione, si indica che la proprietà corrispondente nel modello è una matrice. Data Factory esegue l'iterazione tra tutti gli oggetti della matrice usando la definizione specificata nel runtime di integrazione della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
 
     ```json
     ...
@@ -978,7 +977,7 @@ L'esempio seguente mostra un file di parametri di esempio. Usare questo esempio 
 
 ## <a name="linked-resource-manager-templates"></a>Modelli di Resource Manager collegati
 
-Se per le data factory sono state configurate l'integrazione e la distribuzione continue (CI/CD), ci si può rendere conto che, man mano che la factory si amplia, diventano evidenti i limiti dei modelli di Resource Manager, ad esempio il numero massimo di risorse o il payload massimo. Per scenari simili a questi, oltre a generare il modello di Resource Manager completo per una factory, Data Factory ora genera anche modelli di Resource Manager collegati. L'intero payload della factory viene pertanto suddiviso in più file e non si incorrerà più nei limiti sopra citati.
+Se per le data factory sono state configurate l'integrazione e la distribuzione continue (CI/CD), ci si può rendere conto che, man mano che la factory si amplia, diventano evidenti i limiti dei modelli di Resource Manager, ad esempio il numero massimo di risorse o payload in ciascun modello di Resource Manager. Per scenari simili a questi, oltre a generare il modello di Resource Manager completo per una factory, Data Factory ora genera anche modelli di Resource Manager collegati. L'intero payload della factory viene pertanto suddiviso in più file e non si incorrerà più nei limiti sopra citati.
 
 Se Git è configurato, i modelli collegati vengono generati e salvati insieme ai modelli di Resource Manager completi, nel ramo `adf_publish`, in una nuova cartella denominata `linkedTemplates`.
 
@@ -989,3 +988,23 @@ I modelli di Resource Manager collegati hanno in genere un modello master e un s
 Ricordarsi di aggiungere gli script di Data Factory nella pipeline CI/CD prima e dopo l'attività di distribuzione.
 
 Se Git non è configurato, i modelli collegati sono accessibili tramite il gesto **Esporta modello ARM**.
+
+## <a name="best-practices-for-cicd"></a>Procedure consigliate per la pipeline CI/CD
+
+Se si usa l'integrazione di Git con data factory e si dispone di una pipeline CI/CD, che sposta le modifiche apportate dall'ambiente di sviluppo nel test e successivamente nell'ambiente di produzione, è consigliabile osservare le procedure consigliate seguenti:
+
+-   **Integrazione di Git**. È sufficiente configurare la data factory di sviluppo con l'integrazione di Git. Le modifiche a test e produzione vengono distribuite tramite CI/CD e non necessitano dell'integrazione di Git.
+
+-   **Script di Data Factory in CI/CD**. Prima del passaggio di distribuzione di Resource Manager in CI/CD è necessario prestare attenzione a come arrestare i trigger e ai diversi tipi di pulizia di fabbrica. È consigliabile usare [questo script](#sample-script-to-stop-and-restart-triggers-and-clean-up), che si occupa di tutte queste operazioni. Eseguire lo script una sola volta prima e una sola volta a seguito della distribuzione, usando i flag appropriati.
+
+-   **Runtime di integrazione e condivisione**. I runtime di integrazione costituiscono uno dei componenti infrastrutturali in data factory, che subiscono modifiche con minore frequenza e sono simili in tutte le fasi di CI/CD. Di conseguenza, Data Factory prevede che l'utente abbia lo stesso nome e lo stesso tipo di runtime di integrazione in tutte le fasi di CI/CD. Per condividere i runtime di integrazione durante tutte le fasi, ad esempio il runtime di integrazione Self-Hosted, è necessario eseguire l'hosting del suddetti runtime di integrazione in una factory ternaria, al fine di contenere i runtime di integrazione condivisi. Sarà quindi possibile usarli in Sviluppo/test/produzione come un tipo di runtime di integrazione collegato.
+
+-   **Insieme di credenziali delle chiavi**. Quando si usano i servizi collegati basati su Azure Key Vault, è possibile sfruttare ulteriormente i suoi vantaggi mantenendo potenzialmente separate l'insieme di credenziali delle chiavi per Sviluppo/test/produzione. È anche possibile configurare i livelli di autorizzazione separati per ognuno di essi. È possibile che non si voglia che i membri del team siano autorizzati ad accedere ai segreti di produzione. È anche consigliabile mantenere segreti gli stessi nomi per tutte le fasi. Se si mantengono gli stessi nomi, non sarà necessario modificare i modelli di Resource Manager in CI/CD poiché l'unico elemento che deve essere modificato è il nome dell'insieme di credenziali delle chiavi, che è uno dei parametri del modello di Resource Manager.
+
+## <a name="unsupported-features"></a>Funzionalità non supportate
+
+-   Non è possibile pubblicare risorse individuali, poiché le entità di data factory dipendono l'una dall'altra. Ad esempio, i trigger dipendono dalla pipeline, le pipeline dipendono dal set di dati e da altre pipeline e così via. Il rilevamento delle dipendenze in via di modifica è un'operazione complicata. Se fosse possibile selezionare le risorse da pubblicare manualmente, sarebbe possibile scegliere solo un subset dell'intera serie di modifiche, il che porterebbe a comportamenti inaspettati dopo la pubblicazione.
+
+-   Non è possibile pubblicare da rami privati.
+
+-   Non è possibile ospitare i progetti in Bitbucket.

@@ -3,17 +3,17 @@ title: Installare Ansible in macchine virtuali di Azure
 description: Informazioni su come installare e configurare Ansible per la gestione delle risorse di Azure in Ubuntu, CentOS e SLES
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/21/2018
-ms.openlocfilehash: b714470cd12bb7a0cd2d2a00b4f09467726f505d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 227f3baf67bd65a8c6eeb170ce219a3ddf79606a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987051"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078049"
 ---
 # <a name="install-ansible-on-azure-virtual-machines"></a>Installare Ansible in macchine virtuali di Azure
 
@@ -25,7 +25,7 @@ Ansible consente di automatizzare la distribuzione e la configurazione delle ris
 
 - **Accesso a Linux o a una macchina virtuale Linux**: in assenza di un computer Linux, creare una [macchina virtuale Linux](https://docs.microsoft.com/azure/virtual-network/quick-create-cli).
 
-- **Entità servizio di Azure**: seguire le istruzioni riportate nella sezione **Creare l'entità servizio** dell'articolo [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Prendere nota dei valori per **appId**, **displayName**, **password** e **tenant**.
+- **Entità servizio di Azure**: seguire le indicazioni riportate nella sezione relativa a **Creare l'entità servizio** nell'articolo [Creare entità servizio di Azure con l'interfaccia della riga di comando di Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Prendere nota dei valori per **appId**, **displayName**, **password** e **tenant**.
 
 ## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>Installare Ansible in una macchina virtuale Linux di Azure
 

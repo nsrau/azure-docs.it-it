@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Effettuare il provisioning di un server di Database di Azure per MySQL usando modelli di Azure Resource Manager'
-description: Questa esercitazione illustra come effettuare il provisioning e automatizzare le distribuzioni di server di Database di Azure per MySQL usando modelli di Azure Resource Manager.
+title: 'Esercitazione: Effettuare il provisioning di un server di Database di Azure per MySQL usando il modello di Azure Resource Manager'
+description: Questa esercitazione illustra come effettuare il provisioning e automatizzare le distribuzioni di server di Database di Azure per MySQL usando il modello di Azure Resource Manager.
 author: savjani
 ms.author: pariks
 ms.service: mysql
@@ -8,20 +8,20 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 45a4a43ae95b42174f368122f89831a356410f2b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3c89c5cc0b299852f85836dd416b5bb270757719
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004075"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061041"
 ---
-# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-templates"></a>Esercitazione: Effettuare il provisioning di un server di Database di Azure per MySQL usando modelli di Azure Resource Manager
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Esercitazione: Effettuare il provisioning di un server di Database di Azure per MySQL usando il modello di Azure Resource Manager
 
 L'[API REST di Database di Azure per MySQL](https://docs.microsoft.com/en-us/rest/api/mysql/) consente ai tecnici DevOps di automatizzare e integrare il provisioning, la configurazione e le operazioni di server e database MySQL gestiti in Azure.  L'API consente la creazione, l'enumerazione, la gestione e l'eliminazione di server e database MySQL nel servizio Database di Azure per MySQL.
 
-I modelli di Azure Resource Manager usano l'API REST sottostante per dichiarare e programmare le risorse di Azure necessarie per le distribuzioni su larga scala, in linea con il concetto di infrastruttura distribuita come codice. Il modello usa come parametri il nome della risorsa di Azure, lo SKU, la rete, la configurazione del firewall e le impostazioni, consentendone la creazione una sola volta e il riutilizzo più volte.  È possibile creare modelli di Azure Resource Manager con facilità tramite il [portale di Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) o [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI), che consentono la creazione di pacchetti, la standardizzazione e l'automazione della distribuzione dell'applicazione, che può essere integrata nella pipeline CI/CD DevOps.  Se ad esempio si vuole distribuire rapidamente un'app Web con il back-end di Database di Azure per MySQL, è possibile eseguire la distribuzione end-to-end usando questo [modello di avvio rapido](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) della raccolta GitHub.
+Azure Resource Manager usa l'API REST sottostante per dichiarare e programmare le risorse di Azure necessarie per le distribuzioni su larga scala, in linea con il concetto di infrastruttura distribuita come codice. Il modello usa come parametri il nome della risorsa di Azure, lo SKU, la rete, la configurazione del firewall e le impostazioni, consentendone la creazione una sola volta e il riutilizzo più volte.  È possibile creare modelli di Azure Resource Manager con facilità tramite il [portale di Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) o [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI), che consentono la creazione di pacchetti, la standardizzazione e l'automazione della distribuzione dell'applicazione, che può essere integrata nella pipeline CI/CD DevOps.  Se ad esempio si vuole distribuire rapidamente un'app Web con il back-end di Database di Azure per MySQL, è possibile eseguire la distribuzione end-to-end usando questo [modello di avvio rapido](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) della raccolta GitHub.
 
-In questa esercitazione si useranno modelli di Azure Resource Manager e altre utilità e si apprenderà come:
+In questa esercitazione si useranno il modello di Azure Resource Manager e altre utilità e si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un server di Database di Azure per MySQL con un endpoint servizio rete virtuale usando un modello di Azure Resource Manager
@@ -32,7 +32,7 @@ In questa esercitazione si useranno modelli di Azure Resource Manager e altre ut
 
 ## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>Creare un server di Database di Azure per MySQL con un endpoint servizio rete virtuale usando un modello di Azure Resource Manager
 
-Per ottenere le informazioni di riferimento del modello JSON per un server di Database di Azure per MySQL, passare alle informazioni di riferimento del modello di server Microsoft.DBforMySQL (https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers). Di seguito è riportato il modello JSON di esempio che è possibile usare per creare un nuovo server che esegua Database di Azure per MySQL con un endpoint servizio rete virtuale.
+Per ottenere le informazioni di riferimento del modello JSON per un server di Database di Azure per MySQL, passare alle informazioni di riferimento del modello di [server Microsoft.DBforMySQL](/azure/templates/microsoft.dbformysql/servers). Di seguito è riportato il modello JSON di esempio che è possibile usare per creare un nuovo server che esegua Database di Azure per MySQL con un endpoint servizio rete virtuale.
 ```json
 {
   "apiVersion": "2017-12-01",

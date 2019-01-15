@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 807453d6af67fd2dccf06a1b4a2beaca47dc865a
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 10750b5005810ec9034d2b4c7907578949ca6821
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913808"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155202"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare i dati in Azure Data Box Disk ed eseguire la verifica
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica
 
 Questa esercitazione descrive come copiare dati dal computer host e quindi generare i checksum per la verifica dell'integrità.
 
@@ -29,7 +29,7 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che:
-- Sia stata completata l'[esercitazione: Installare e configurare Azure Data Box Disk](data-box-disk-deploy-set-up.md).
+- Aver completato l'esercitazione descritta in [Esercitazione: Installare e configurare Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - I dischi vengono sbloccati e connessi a un computer client.
 - Il computer client usato per copiare i dati nei dischi deve eseguire un [sistema operativo supportato](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
 - Il tipo di archiviazione scelto per i dati corrisponda a uno dei [tipi di archiviazione supportati](data-box-disk-system-requirements.md#supported-storage-types).
@@ -67,7 +67,7 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
     
     I parametri e le opzioni del comando sono riportati nella tabella seguente:
     
-    |Parametri/opzioni  |DESCRIZIONE |
+    |Parametri/opzioni  |Descrizione |
     |--------------------|------------|
     |Sorgente            | Specifica il percorso della directory di origine.        |
     |Destination       | Specifica il percorso della directory di destinazione.        |
@@ -148,19 +148,32 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
     C:\Users>
     ```
  
+    Per ottimizzare le prestazioni, usare i parametri robocopy seguenti durante la copia dei dati.
+
+    |    Piattaforma    |    Prevalentemente file di piccole dimensioni < 512 KB                           |    Prevalentemente file di medie dimensioni 512 KB-1 MB                      |    Prevalentemente file di grandi dimensioni > 1 MB                             |   
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
+    |    Data Box Disk        |    4 sessioni* di Robocopy <br> 16 thread per sessione    |    2 sessioni* di Robocopy <br> 16 thread per sessione    |    2 sessioni* di Robocopy <br> 16 thread per sessione    |  |
     
-7. Aprire la cartella di destinazione per visualizzare e verificare i file copiati. In caso di errori durante il processo di copia, scaricare i file di log per la risoluzione dei problemi. I file di log si trovano nella posizione specificata nel comando robocopy.
+    **Ogni sessione di Robocopy può contenere al massimo 7.000 directory e 150 milioni di file.*
+    
+    >[!NOTE]
+    > I parametri consigliati in precedenza si basano sull'ambiente usato per test interni.
+    
+    Per altre informazioni sul comando Robocopy, vedere [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy e alcuni esempi).
+
+6. Aprire la cartella di destinazione per visualizzare e verificare i file copiati. In caso di errori durante il processo di copia, scaricare i file di log per la risoluzione dei problemi. I file di log si trovano nella posizione specificata nel comando robocopy.
  
-
-
 > [!IMPORTANT]
 > - È responsabilità dell'utente assicurarsi di copiare i dati nelle cartelle corrispondenti al formato dati appropriato. Ad esempio, copiare i dati del BLOB in blocchi nella cartella per i BLOB in blocchi. Se il formato dei dati non corrisponde alla cartella appropriata (tipo di archiviazione), il caricamento dei dati in Azure avrà negativo.
-> -  Durante la copia dei dati assicurarsi che la dimensione dei dati sia conforme ai valori descritti nei [limiti delle risorse di archiviazione e di Data Box Disk in Azure](data-box-disk-limits.md). 
+> -  Durante la copia dei dati assicurarsi che la dimensione dei dati sia conforme ai valori descritti nei [limiti delle risorse di archiviazione e di Data Box Disk in Azure](data-box-disk-limits.md).
 > - Se i dati caricati dal Data Box Disk vengono caricati contemporaneamente da altre applicazioni all'esterno del Data Box Disk, è possibile che si verifichino errori del processo di caricamento e il danneggiamento di dati.
 
 ### <a name="split-and-copy-data-to-disks"></a>Dividere e copiare i dati sui dischi
 
 Scegliere questa procedura facoltativa quando si usano più dischi e si ha un set di dati di grandi dimensioni che deve essere suddiviso e copiato tra tutti i dischi. Lo strumento di divisione della copia di Data Box aiuta a dividere e copiare i dati in un computer Windows.
+
+>[!IMPORTANT]
+> Lo strumento di divisione della copia di Data Box consente anche di convalidare i dati. Se si usa tale strumento per copiare i dati, è possibile ignorare il [passaggio di convalida](#validate-data).
 
 1. Nel computer Windows, assicurarsi di avere scaricato ed estratto in una cartella locale lo strumento di divisione della copia di Data Box. Questo strumento è stato scaricato quando è stato scaricato il set di strumenti di Data Box Disk per Windows.
 2. Aprire Esplora file. Prendere nota dell'unità di origine dati e le lettere di unità assegnate al Data Box Disk. 
@@ -176,26 +189,26 @@ Scegliere questa procedura facoltativa quando si usano più dischi e si ha un se
 
          ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
-4. Passare alla cartella in cui è stato estratto il software. Trovare il file SampleConfig.json in tale cartella. Si tratta di un file di sola lettura che è possibile modificare e salvare.
+4. Passare alla cartella in cui è stato estratto il software. Individuare il file `SampleConfig.json` in tale cartella. Si tratta di un file di sola lettura che è possibile modificare e salvare.
 
    ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
-5. Modificare il file SampleConfig.json.
+5. Modificare il file `SampleConfig.json`.
  
     - Specificare un nome per il processo. Viene creata una cartella nel Data Box Disk che infine diventa il contenitore nell'account di archiviazione di Azure associato a tali dischi. Il nome del processo deve seguire le convenzioni di denominazione di contenitori di Azure. 
-    - Specificare un percorso di origine prendendo nota del formato del percorso nel SampleConfigFile.json. 
+    - Specificare un percorso di origine prendendo nota del formato del percorso nel file `SampleConfigFile.json`. 
     - Immettere le lettere di unità corrispondenti ai dischi di destinazione. I dati vengono prelevati dal percorso di origine e copiati tra più dischi.
-    - Specificare un percorso per i file di log. Per impostazione predefinita, viene inviato alla directory corrente in cui si trova il file EXE.
+    - Specificare un percorso per i file di log. Per impostazione predefinita, viene inviato alla directory corrente in cui si trova il file `.exe`.
 
      ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
-6. Per convalidare il formato di file, passare a JSONlint. Salvare il file come ConfigFile.json. 
+6. Per convalidare il formato di file, passare a `JSONlint`. Salvare il file con il nome `ConfigFile.json`. 
 
      ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Aprire una finestra del prompt dei comandi. 
 
-8. Eseguire il file DataBoxDiskSplitCopy.exe. type
+8. Eseguire `DataBoxDiskSplitCopy.exe`. Digitare:
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
@@ -214,7 +227,7 @@ Scegliere questa procedura facoltativa quando si usano più dischi e si ha un se
     ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-10.png)
     ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
-    Se si esamina ulteriormente il contenuto dell'unità n:, si noterà che le due sottocartelle vengono create in corrispondenza dei dati in formato BLOB in blocchi e BLOB di pagine.
+    Se si esamina ulteriormente il contenuto dell'unità `n:`, si noterà che le due sottocartelle vengono create in corrispondenza dei dati in formato BLOB in blocchi e BLOB di pagine.
     
      ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
@@ -222,15 +235,14 @@ Scegliere questa procedura facoltativa quando si usano più dischi e si ha un se
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+Dopo aver completato la copia dei dati, è possibile passare alla convalida dei dati. Se è stato usato lo strumento di divisione della copia, ignorare la convalida perché viene eseguita dallo strumento stesso, quindi passare all'esercitazione successiva.
 
-Dopo aver completato la copia dei dati, il passaggio successivo consiste nel convalidare i dati. 
 
+## <a name="validate-data"></a>Convalidare i dati
 
-## <a name="validate-data"></a>Convalidare i dati 
+Se non si è usato lo strumento di divisione della copia per copiare i dati, sarà necessario convalidare i dati. Seguire questa procedura per verificare i dati.
 
-Seguire questa procedura per verificare i dati.
-
-1. Eseguire `DataBoxDiskValidation.cmd` per la convalida dei checksum nella cartella *DataBoxDiskImport* dell'unità. 
+1. Eseguire `DataBoxDiskValidation.cmd` per la convalida dei checksum nella cartella *DataBoxDiskImport* dell'unità.
     
     ![Output dello strumento di convalida di Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -240,7 +252,7 @@ Seguire questa procedura per verificare i dati.
 
     > [!TIP]
     > - Reimpostare lo strumento dopo ogni esecuzione.
-    > - Usare l'opzione 1 per convalidare i file nel caso di set di dati di grandi dimensioni che contengono file piccoli (~ KB). In questi casi, la generazione dei checksum può richiedere molto tempo e le prestazioni potrebbero risultare molto lente.
+    > - Usare l'opzione 1 nel caso di set di dati di grandi dimensioni che contengono file piccoli (~ KB). Con questa opzione viene eseguita solo la convalida dei file perché la generazione dei checksum può richiedere molto tempo e le prestazioni potrebbero risentirne negativamente.
 
 3. Se si usano più dischi, eseguire il comando per ciascun disco.
 
@@ -256,4 +268,3 @@ Passare all'esercitazione successiva per informazioni su come restituire Data Bo
 
 > [!div class="nextstepaction"]
 > [Spedizione di Azure Data Box a Microsoft](./data-box-disk-deploy-picked-up.md)
-

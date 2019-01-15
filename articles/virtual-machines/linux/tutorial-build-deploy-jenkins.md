@@ -1,7 +1,7 @@
 ---
 title: Esercitazione - CI/CD da Jenkins in macchine virtuali di Azure con Azure DevOps Services | Microsoft Docs
 description: In questa esercitazione viene descritto come configurare l'integrazione continua (CI) e la distribuzione continua (CD) di un'app Node.js usando Jenkins in macchine virtuali di Azure da Release Management in Visual Studio Team Services o Microsoft Team Foundation Server
-author: tomarcher
+author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 4e91c0287bfe50b297b9a3ef118ececb67909f21
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388491"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074768"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Jenkins e Azure DevOps Services
 
@@ -68,7 +68,7 @@ Creare un fork di questa app e prendere nota del percorso (URL) per l'uso nei pa
 
 ## <a name="configure-jenkins-plug-ins"></a>Configurare i plug-in Jenkins
 
-In primo luogo è necessario configurare due plug-in Jenkins: **NodeJS** e **VS Team Services Continuous Deployment**.
+Prima di tutto, è necessario configurare due plug-in Jenkins: **NodeJS** e **VS Team Services Continuous Deployment**.
 
 1. Aprire l'account Jenkins e selezionare **Manage Jenkins** (Gestisci Jenkins).
 2. Nella pagina **Manage Jenkins** (Gestisci Jenkins) selezionare **Manage Plugins** (Gestisci plug-in).
@@ -164,7 +164,7 @@ Per creare la pipeline di versione in Azure Pipelines:
 
 1. Selezionare **+ Versione** e selezionare **Crea versione**.
 2. Selezionare la build completata nell'elenco a discesa evidenziato e quindi **Accoda**.
-3. Scegliere il collegamento di versione nel messaggio popup. Ad esempio: "Versione **Versione-1** creata."
+3. Scegliere il collegamento di versione nel messaggio popup. Ad esempio:  "Versione **Versione-1** creata".
 4. Aprire la scheda **Log** per osservare l'output della console della versione.
 5. Nel browser aprire l'URL di uno dei server aggiunti al gruppo di distribuzione. Ad esempio, immettere **http://{indirizzo-ip-server-personale}**.
 6. Passare al repository Git di origine e modificare il contenuto del titolo **h1** nel file app/views/index.jade con un testo modificato.

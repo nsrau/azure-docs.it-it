@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 07/11/2018
+ms.date: 01/02/2019
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: e483997140efc1d75466d887e42383d887f8a6f4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc7932f197931a0fbf1dde924eb70ca18f6f9748
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963250"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065546"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduzione ad Archiviazione di Azure
 
@@ -22,7 +22,7 @@ Archiviazione di Azure è la soluzione di archiviazione cloud Microsoft per i mo
 - **Durabilità e disponibilità elevata.** La ridondanza garantisce che i dati siano al sicuro in caso di errori hardware temporanei. Si può anche scegliere di replicare i dati tra data center o aree geografiche per una protezione aggiuntiva da catastrofi locali o calamità naturali. Con questo tipo di replica, i dati mantengono disponibilità elevata in caso di interruzioni impreviste. 
 - **Sicurezza.** Tutti i dati scritti in Archiviazione di Azure vengono crittografati dal servizio. Archiviazione di Azure offre un controllo dettagliato su chi potrà accedere ai dati.
 - **Scalabilità.** La soluzione Archiviazione di Azure è progettata per offrire scalabilità elevata in modo da soddisfare le esigenze di archiviazione dati e di prestazioni delle attuali applicazioni. 
-- **Soluzione gestita.** Microsoft Azure gestisce la manutenzione e i problemi critici per conto dell'utente.
+- **Soluzione gestita.** Microsoft Azure gestisce automaticamente le attività di manutenzione dell'hardware, gli aggiornamenti e i problemi critici.
 - **Accessibilità.** I dati in Archiviazione di Azure sono accessibili da ogni parte del mondo tramite HTTP o HTTPS. Microsoft offre SDK per Archiviazione di Azure in diversi linguaggi, come .NET, Java, Node.js, Python, PHP, Ruby, Go e altri, nonché un'avanzata API REST. Archiviazione di Azure supporta l'esecuzione di script in Azure PowerShell o nell'interfaccia della riga di comando di Azure. Il portale di Azure e Azure Storage Explorer, inoltre, offrono semplici soluzioni visive per l'uso dei dati.  
 
 ## <a name="azure-storage-services"></a>Servizi di Archiviazione di Azure
@@ -89,30 +89,9 @@ Archiviazione di Azure include anche le funzionalità di dischi gestiti e non ge
 
 ## <a name="types-of-storage-accounts"></a>Tipi di account di archiviazione
 
-Questa tabella mostra i diversi tipi di account di archiviazione e gli oggetti che possono essere usati con ogni tipo.
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-|**Tipo di account di archiviazione**|**Utilizzo generico Standard**|**Utilizzo generico Premium**|**Archiviazione BLOB, livelli ad accesso frequente e ad accesso sporadico**|
-|-----|-----|-----|-----|
-|**Servizi supportati**| Servizi BLOB, file, code e tabelle | Servizio BLOB | Servizio BLOB|
-|**Tipi di BLOB supportati**|BLOB in blocchi, BLOB di pagine e BLOB di aggiunta | BLOB di pagine | BLOB in blocchi e BLOB di aggiunta|
-
-### <a name="general-purpose-storage-accounts"></a>Account di archiviazione per utilizzo generico
-
-Sono disponibili due tipi di account di archiviazione per utilizzo generico.
-
-#### <a name="standard-storage"></a>Archiviazione standard
-
-Gli account di archiviazione più usati sono account di archiviazione Standard, che possono essere usati per tutti i tipi di dati. Gli account di archiviazione Standard usano supporti di memorizzazione magnetici per archiviare i dati.
-
-#### <a name="premium-storage"></a>Archiviazione Premium
-
-L'Archiviazione Premium fornisce risorse di archiviazione a prestazioni elevate per i BLOB di pagine, usati principalmente per i file VHD. Gli account di archiviazione Premium usano unità SSD per archiviare i dati. Microsoft consiglia di usare l'Archiviazione Premium per tutte le VM.
-
-### <a name="blob-storage-accounts"></a>Account di archiviazione BLOB
-
-L'account di archiviazione BLOB è un account di archiviazione specializzato, usato per archiviare BLOB in blocchi e BLOB di aggiunta. Non è possibile archiviare i BLOB di pagine in questi account e quindi non è possibile archiviare file VHD. Questi account consentono di impostare il livello di accesso su accesso frequente o accesso sporadico. È possibile modificare il livello in qualsiasi momento.
-
-Il livello ad accesso frequente viene usato per i file a cui si accede spesso. Le risorse di archiviazione hanno un costo superiore, ma il costo per l'accesso ai BLOB è decisamente inferiore. Per i BLOB archiviati nel livello ad accesso sporadico il costo per l'accesso ai BLOB è superiore, ma le risorse di archiviazione hanno un costo decisamente inferiore.
+Per altre informazioni sui tipi di account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md). 
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Accesso a BLOB, file e code
 
@@ -161,16 +140,7 @@ Per informazioni sul ripristino di emergenza, vedere [Cosa fare se si verifica u
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Trasferimento dei dati da e verso Archiviazione di Azure
 
-È possibile usare l'utilità della riga di comando AzCopy per copiare BLOB e dati di file all'interno dell'account di archiviazione o tra account di archiviazione. Per istruzioni, vedere uno degli articoli seguenti:
-
-* [Transfer data with AzCopy for Windows](storage-use-azcopy.md) (Trasferire dati con AzCopy per Windows)
-* [Transfer data with AzCopy for Linux](storage-use-azcopy-linux.md) (Trasferire dati con AzCopy per Linux)
-
-AzCopy si basa sulla [libreria di spostamento dei dati di Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), attualmente disponibile in anteprima.
-
-Il servizio Importazione/Esportazione di Azure può essere usato per importare o esportare quantità elevate di dati di BLOB verso o dall'account di archiviazione. È possibile preparare e inviare più dischi rigidi a un data center di Azure, in cui i dati verranno trasferiti verso/dai dischi rigidi e i dischi rigidi verranno restituiti all'utente. Per altre informazioni sul servizio di importazione/esportazione, vedere [Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire dati nell'archivio BLOB](../storage-import-export-service.md).
-
-Per importare quantità elevate di dati di BLOB nell'account di archiviazione in modo veloce, economico e affidabile, è anche possibile usare Azure Data Box Disk. Microsoft spedisce fino a 5 dischi SSD (Solid State Disk) crittografati con capacità di 40 TB al data center del cliente tramite un corriere regionale. È quindi possibile configurare i dischi, copiarvi i dati tramite una connessione USB e rispedirli ad Azure rapidamente. Nel data center di Azure, i dati vengono caricati automaticamente dalle unità al cloud. Per altre informazioni su questa soluzione, vedere la [panoramica di Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
+Per spostare i dati all'interno o all'esterno di Archiviazione di Azure, sono disponibili diverse opzioni. L'opzione da scegliere dipende dalle dimensioni del set di dati e dalla larghezza di banda della rete. Per altre informazioni, vedere [Scegliere una soluzione di Azure per il trasferimento dei dati](storage-choose-data-transfer-solution.md).
 
 ## <a name="pricing"></a>Prezzi
 

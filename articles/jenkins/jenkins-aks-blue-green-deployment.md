@@ -3,17 +3,17 @@ title: Eseguire la distribuzione nel servizio Kubernetes di Azure (AKS) usando J
 description: Di seguito viene spiegato come eseguire la distribuzione nel servizio Kubernetes di Azure (AKS) usando Jenkins e il modello di distribuzione di tipo blu-verde.
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, distribuzione di tipo blu-verde, recapito continuo, cd
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
-ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 9bd601aee87ab0776069c80bfdeffb70b06c3c86
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387385"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073884"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Eseguire la distribuzione nel servizio Kubernetes di Azure (AKS) usando Jenkins e il modello di distribuzione di tipo blu-verde
 
@@ -33,7 +33,7 @@ In questa esercitazione è possibile scoprire come si eseguono le seguenti attiv
 ## <a name="prerequisites"></a>Prerequisiti
 - [Account GitHub](https://github.com): è necessario per clonare il repository di esempio.
 - [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): viene usata per creare il cluster Kubernetes.
-- [Chocolatey](https://chocolatey.org): una gestione pacchetti usata per installare kubectl.
+- [Chocolatey](https://chocolatey.org): un sistema di gestione pacchetti usato per installare kubectl.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): interfaccia della riga di comando usata per l'esecuzione di comandi per i cluster Kubernetes.
 - [jq](https://stedolan.github.io/jq/download/): processore JSON leggero da riga di comando.
 
@@ -259,7 +259,7 @@ In questa sezione verrà illustrato come preparare il server Jenkins per eseguir
 
 ## <a name="run-the-job"></a>Eseguire il processo
 
-1. Verificare che sia possibile eseguire correttamente il progetto nell'ambiente locale. Ecco come [eseguire il progetto sul computer locale](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. Verificare che sia possibile eseguire correttamente il progetto nell'ambiente locale. Ecco come: [Eseguire il progetto sul computer locale](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Eseguire il processo Jenkins. La prima volta che si esegue il processo, l'app di elenco attività verrà distribuita da Jenkins nell'ambiente blu, che è l'ambiente inattivo predefinito. 
 

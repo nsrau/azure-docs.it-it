@@ -1,6 +1,6 @@
 ---
-title: Creare e automatizzare il primo flusso di lavoro - App per la logica di Azure | Microsoft Docs
-description: Guida introduttiva che illustra come creare la prima app per la logica che consente di automatizzare attività, processi e flussi di lavoro con App per la logica di Azure. Creare app per la logica per soluzioni di integrazione di sistemi e di Enterprise Application Integration (EAI) per sistemi e servizi cloud
+title: 'Guida introduttiva: Creare e automatizzare il primo flusso di lavoro - App per la logica di Azure | Microsoft Docs'
+description: Creare la prima app per la logica che consente di automatizzare attività, processi e flussi di lavoro con App per la logica di Azure. Creare app per la logica per soluzioni di integrazione di sistemi e di Enterprise Application Integration (EAI) per sistemi e servizi cloud
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: fe2ca48c1cab3789f2bb501eaf00aeb9cd866b8c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233685"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065189"
 ---
-# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Guida introduttiva: Creare il primo flusso di lavoro automatizzato con App per la logica di Azure - Portale di Azure
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Avvio rapido: Creare il primo flusso di lavoro automatizzato con App per la logica di Azure - Portale di Azure
 
 Questa guida introduttiva spiega come creare il primo flusso di lavoro automatizzato con [App per la logica di Azure](../logic-apps/logic-apps-overview.md). In questo articolo viene creata un'app per la logica che verifica la presenza di nuovi elementi nel feed RSS di un sito Web a intervalli regolari. Se sono presenti nuovi elementi, l'app per la logica invia un messaggio di posta elettronica per ogni elemento. Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di lavoro simile al seguente:
 
@@ -38,7 +38,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
    ![Creare l'app per la logica](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. In **Crea app per la logica** specificare i dettagli sull'app per la logica come mostrato di seguito. Al termine, scegliere **Aggiungi al dashboard** > **Crea**.
+3. In **Crea app per la logica** specificare i dettagli sull'app per la logica come mostrato di seguito. Al termine dell'operazione, scegliere **Crea**.
 
    ![Specificare i dettagli dell'app per la logica](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -61,7 +61,7 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Controllare il feed RSS con un trigger
 
-1. Nella finestra di progettazione immettere "rss" nella casella di ricerca. Selezionare il trigger: **RSS - Quando viene pubblicato un elemento del feed**
+1. Nella finestra di progettazione immettere "rss" nella casella di ricerca. Selezionare questo trigger: **RSS - Quando viene pubblicato un elemento del feed**
 
    ![Selezionare il trigger: "RSS - Quando viene pubblicato un elemento del feed"](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
@@ -91,13 +91,13 @@ L'app per la logica è ora attiva, ma non esegue alcuna operazione oltre a contr
 
 Aggiungere ora un'[azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) per l'invio di un messaggio di posta elettronica quando compaiono nuovi elementi nel feed RSS. 
 
-1. Nel trigger **Quando viene pubblicato un elemento del feed** scegliere **+ Nuovo passaggio** > **Aggiungi un'azione**.
+1. Nel trigger **Quando viene pubblicato un elemento del feed** scegliere **+ Nuovo passaggio**.
 
    ![Aggiungere un'azione](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. In **Scegli un'azione** immettere "invia un messaggio di posta elettronica" come filtro. Nell'elenco di azioni selezionare l'azione "invia un messaggio di posta elettronica" per il provider di posta elettronica desiderato. 
+2. In **Scegli un'azione** immettere "invia un messaggio di posta elettronica" nella casella di ricerca. Nella casella di ricerca, scegliere **Tutti**. Nell'elenco di azioni selezionare l'azione "invia un messaggio di posta elettronica" per il provider di posta elettronica desiderato. 
 
-   ![Selezionare l'azione: "Office 365 Outlook - Invia un messaggio di posta elettronica"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   ![Selezionare questa azione: "Office 365 Outlook - Send an email" (Office 365 Outlook - Invia un messaggio di posta elettronica)](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
    Per filtrare l'elenco di azioni in base a un'app o a un servizio specifico, si può selezionare prima l'app o il servizio:
 

@@ -1,20 +1,19 @@
 ---
 title: Procedura per l'esecuzione di query sui dati grafo in SQL in Azure Cosmos DB
 description: Informazioni sull'esecuzione di query sui dati grafo in Azure Cosmos DB
-services: cosmos-db
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 01/02/2018
-ms.openlocfilehash: 10ec4abc7f38106611a9510cc7bcc0b5ec18b7b0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 2bc79801864481562967702a7c52a7670950199b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833500"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043975"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Esercitazione: Eseguire query nell'API Gremlin di Azure Cosmos DB con Gremlin
 

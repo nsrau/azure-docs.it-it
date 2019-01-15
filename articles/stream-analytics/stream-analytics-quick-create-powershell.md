@@ -1,32 +1,33 @@
 ---
-title: Creare un processo di Analisi di flusso tramite Azure PowerShell
-description: Questa guida introduttiva illustra in dettaglio l'uso del modulo Azure PowerShell per distribuire ed eseguire un processo di Analisi di flusso di Azure.
+title: Creare un processo di Analisi di flusso usando Azure PowerShell
+description: Questa guida introduttiva dimostra come usare il modulo Azure PowerShell per distribuire ed eseguire un processo di Analisi di flusso di Azure.
 services: stream-analytics
-author: sidramadoss
-ms.author: sidram
-ms.date: 05/14/2018
+author: mamccrea
+ms.author: mamccrea
+ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-manager: kfile
-ms.openlocfilehash: 126677df01ad34d488863dd83e2f8c9a2d947824
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 42cca961d58b9fd58e8a9c1b2fc2ddc369deb6d0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958891"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017198"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Guida introduttiva: Creare un processo di Analisi di flusso tramite Azure PowerShell
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Avvio rapido: Creare un processo di Analisi di flusso usando Azure PowerShell
 
-Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure tramite cmdlet o script di PowerShell. Questa guida introduttiva illustra in dettaglio l'uso del modulo Azure PowerShell per distribuire ed eseguire un processo di Analisi di flusso di Azure. 
- 
-Il processo di esempio legge i dati in streaming da un BLOB nell'archivio BLOB di Azure. Il file di dati di input utilizzati in questa guida introduttiva contiene i dati statici solo a scopo illustrativo. In uno scenario reale, si utilizza il flusso di dati di input per un processo di Analisi di flusso. Il processo trasforma quindi i dati usando il linguaggio di query di analisi di flusso per calcolare la temperatura media quando è superiore a 100 °. Scrive infine gli eventi di output risultanti in un altro file. 
+Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure usando cmdlet o script di PowerShell. Questa guida introduttiva illustra in dettaglio l'uso del modulo Azure PowerShell per distribuire ed eseguire un processo di Analisi di flusso di Azure. 
+
+Il processo di esempio legge i dati in streaming da un dispositivo hub IoT. I dati di input sono generati da un simulatore online Raspberry Pi. Il processo Analisi di flusso trasforma quindi i dati usando il linguaggio di query di analisi di flusso per filtrare i messaggi con una temperatura superiore a 27°. Scrive infine gli eventi di output risultanti in un file nell'archiviazione BLOB. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).  
 
-* Per questa guida introduttiva è richiesto il modulo Azure PowerShell versione 3.6 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata nel computer locale. Se è necessario eseguire l'installazione o l'aggiornamento, vedere l'articolo [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). 
+* Per questa guida introduttiva è richiesto il modulo Azure PowerShell versione 3.6 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata nel computer locale. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+
+* Alcune azioni dell'hub IoT non sono supportate da Azure PowerShell e devono essere completate usando l'interfaccia della riga di comando di Azure versione 2.0.24 o successiva e la relativa estensione IoT. [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e usare `az extension add --name azure-cli-iot-ext` per installare l'estensione IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
@@ -34,11 +35,11 @@ Il processo di esempio legge i dati in streaming da un BLOB nell'archivio BLOB d
 Accedere alla sottoscrizione di Azure con il comando `Connect-AzureRmAccount` e immettere le credenziali di Azure nella finestra del browser a comparsa:
 
 ```powershell
-# Log in to your Azure account
+# Connect to your Azure account
 Connect-AzureRmAccount
 ```
 
-Dopo l'accesso, se si dispone di più sottoscrizioni, selezionare quella che si vuole usare per questa guida introduttiva eseguendo i cmdlet seguenti. Assicurarsi di sostituire <your subscription name> con il nome della sottoscrizione:  
+Se si hanno più sottoscrizioni, selezionare quella che si vuole usare per questa guida introduttiva eseguendo i cmdlet seguenti. Assicurarsi di sostituire `<your subscription name>` con il nome della sottoscrizione:  
 
 ```powershell
 # List all available subscriptions.
@@ -64,20 +65,62 @@ New-AzureRmResourceGroup `
 
 Prima di definire il processo di Analisi di flusso, preparare i dati configurati come input per il processo.
 
-1. Scaricare i [dati di esempio dei sensori](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) da GitHub. Fare clic con il pulsante destro del mouse sul collegamento e scegliere **Save Link As...** (Salva collegamento con nome) o **Save target as** (Salva destinazione con nome).
+Il blocco di codice dell'interfaccia della riga di comando di Azure riportato di seguito esegue molti comandi per preparare i dati di input richiesti dal processo. Esaminare le sezioni per comprendere il codice.
 
-2. Il blocco di codice di PowerShell seguente esegue vari comandi per preparare i dati di input richiesti dal processo. Esaminare le sezioni per comprendere il codice. 
+1. Nella finestra di PowerShell eseguire il comando [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) per accedere all'account di Azure. 
 
-   1. Creare un account di archiviazione standard per uso generico usando il cmdlet [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount).  Questo esempio crea un account di archiviazione denominato mystorageaccount con archiviazione con ridondanza locale e crittografia BLOB (abilitata per impostazione predefinita).  
+   Dopo aver effettuato l'accesso, l'interfaccia della riga di comando di Azure restituisce un elenco delle sottoscrizioni. Copiare la sottoscrizione in uso per questa guida introduttiva ed eseguire il comando [az account set](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) per selezionare tale sottoscrizione. Scegliere la stessa sottoscrizione selezionata nella sezione precedente con PowerShell. Assicurarsi di sostituire `<your subscription name>` con il nome della sottoscrizione.
 
-   2. Recuperare il contesto `$storageAccount.Context` che definisce l'account di archiviazione da usare. Quando si usano gli account di archiviazione, si può fare riferimento al contesto anziché fornire ripetutamente le credenziali. 
+   ```azurecli
+   az login
+   
+   az account set --subscription "<your subscription>"
+   ```
 
-   3. Creare un contenitore di archiviazione usando il cmdlet [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) e caricare i [dati di esempio del sensore](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) scaricati in precedenza. 
+2. Creare un hub IoT con il comando [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). Questo esempio crea un hub IoT denominato **MyASAIoTHub**. Poiché i nomi degli hub IoT sono univoci, è necessario indicare un nome personalizzato per il proprio hub IoT. Impostare lo SKU su F1 per usare il livello gratuito se è disponibile con la sottoscrizione. In caso contrario, scegliere il successivo livello più basso.
 
-   4. Copiare la chiave di archiviazione restituita dal codice e incollarla chiave nei file JSON per la creazione di input e output del processo di streaming in un secondo momento.
+   ```azurecli
+   az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
+   ```
+
+   Dopo aver creato l'hub IoT, ottenere la stringa di connessione dell'hub IoT usando il comando [az iot hub show-connection-string](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest). Copiare l'intera stringa di connessione e salvarla per quando si aggiungerà l'hub IoT come input nel processo di Analisi di flusso di Azure.
+   
+   ```azurecli
+   az iot hub show-connection-string --hub-name "MyASAIoTHub"
+   ```
+
+3. Aggiungere un dispositivo all'hub IoT usando il comando [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Questo esempio crea un dispositivo denominato **MyASAIoTDevice**.
+
+   ```azurecli
+   az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
+   ```
+
+4. Ottenere la stringa di connessione del dispositivo usando il comando [az iot hub device-identity show-connection-string](). Copiare l'intera stringa di connessione e salvarla per quando si creerà il simulatore Raspberry Pi.
+
+   ```azurecli
+   az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
+   ```
+
+   **Esempio di output:**
+
+   ```azurecli
+   HostName=MyASAIoTHub.azure-devices.net;DeviceId=MyASAIoTDevice;SharedAccessKey=a2mnUsg52+NIgYudxYYUNXI67r0JmNubmfVafojG8=
+   ```
+
+## <a name="create-blob-storage"></a>Creare l'archiviazione BLOB
+
+Il seguente blocco di codice di Azure PowerShell usa comandi per creare l'archiviazione BLOB che viene usata per l'output del processo. Esaminare le sezioni per comprendere il codice.
+
+1. Creare un account di archiviazione standard per uso generico usando il cmdlet [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount).  Questo esempio crea un account di archiviazione denominato **myasaquickstartstorage** con archiviazione con ridondanza locale e con crittografia BLOB abilitata per impostazione predefinita.  
+   
+2. Recuperare il contesto `$storageAccount.Context` che definisce l'account di archiviazione da usare. Quando si usano gli account di archiviazione, si può fare riferimento al contesto anziché fornire ripetutamente le credenziali. 
+
+3. Creare un contenitore di archiviazione con [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer).
+
+4. Copiare la chiave di archiviazione restituita dal codice e salvarla per creare l'output del processo di streaming in un secondo momento.
 
    ```powershell
-   $storageAccountName = "mystorageaccount"
+   $storageAccountName = "myasaquickstartstorage"
    $storageAccount = New-AzureRmStorageAccount `
      -ResourceGroupName $resourceGroup `
      -Name $storageAccountName `
@@ -86,23 +129,17 @@ Prima di definire il processo di Analisi di flusso, preparare i dati configurati
      -Kind Storage
    
    $ctx = $storageAccount.Context
-   $containerName = "streamanalytics"
+   $containerName = "container1"
    
    New-AzureStorageContainer `
      -Name $containerName `
      -Context $ctx
    
-   Set-AzureStorageBlobContent `
-     -File "c:\HelloWorldASA-InputStream.json" `
-     -Blob "input/HelloWorldASA-InputStream.json" `
-     -Container $containerName `
-     -Context $ctx  
-   
    $storageAccountKey = (Get-AzureRmStorageAccountKey `
      -ResourceGroupName $resourceGroup `
      -Name $storageAccountName).Value[0]
    
-   Write-Host "The <storage account key> placeholder needs to be replaced in your input and output json files with this key value:" 
+   Write-Host "The <storage account key> placeholder needs to be replaced in your output json files with this key value:" 
    Write-Host $storageAccountKey -ForegroundColor Cyan
    ```
 
@@ -124,7 +161,7 @@ Creare un processo di Analisi di flusso con il cmdlet [New-AzureRmStreamAnalytic
 }
 ```
 
-Eseguire quindi il cmdlet `New-AzureRmStreamAnalyticsJob`. Assicurarsi di sostituire il valore della variabile `jobDefinitionFile` con il percorso in cui è stato archiviato il file JSON della definizione del processo. 
+Eseguire quindi il cmdlet `New-AzureRmStreamAnalyticsJob`. Sostituire il valore della variabile `jobDefinitionFile` con il percorso in cui è stato archiviato il file JSON della definizione del processo. 
 
 ```powershell
 $jobName = "MyStreamingJob"
@@ -140,25 +177,24 @@ New-AzureRmStreamAnalyticsJob `
 
 Aggiungere un input al processo tramite il cmdlet [New-AzureRmStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsinput?view=azurermps-5.4.0). Questo cmdlet accetta il nome del processo, il nome dell'input del processo, il nome del gruppo di risorse e la definizione dell'input del processo come parametri. La definizione dell'input del processo è un file JSON che contiene le proprietà necessarie per configurare l'input del processo. In questo esempio come input verrà creato un archivio BLOB. 
 
-Nel computer locale creare un file denominato `JobInputDefinition.json` e aggiungere i dati JSON seguenti. Assicurarsi di sostituire il valore di `accountKey` con la chiave di accesso dell'account di archiviazione corrispondente al valore archiviato in $storageAccountKey. 
+Nel computer locale creare un file denominato `JobInputDefinition.json` e aggiungere i dati JSON seguenti. Assicurarsi di sostituire il valore di `accesspolicykey` con la parte `SharedAccessKey` della stringa di connessione dell'hub IoT salvato in una sezione precedente.
 
 ```json
 {
     "properties": {
         "type": "Stream",
         "datasource": {
-            "type": "Microsoft.Storage/Blob",
+            "type": "Microsoft.Devices/IotHubs",
             "properties": {
-                "storageAccounts": [
-                {
-                   "accountName": "mystorageaccount",
-                   "accountKey":"<storage account key>"
-                }],
-                "container": "streamanalytics",
-                "pathPattern": "input/",
-                "dateFormat": "yyyy/MM/dd",
-                "timeFormat": "HH"
-            }
+                "iotHubNamespace": "MyASAIoTHub",
+                "sharedAccessPolicyName": "iothubowner",
+                "sharedAccessPolicyKey": "accesspolicykey",
+                "endpoint": "messages/events",
+                "consumerGroupName": "$Default"
+                }
+        },
+        "compression": {
+            "type": "None"
         },
         "serialization": {
             "type": "Json",
@@ -167,7 +203,7 @@ Nel computer locale creare un file denominato `JobInputDefinition.json` e aggiun
             }
         }
     },
-    "name": "MyBlobInput",
+    "name": "IoTHubInput",
     "type": "Microsoft.StreamAnalytics/streamingjobs/inputs"
 }
 ```
@@ -175,7 +211,7 @@ Nel computer locale creare un file denominato `JobInputDefinition.json` e aggiun
 Eseguire quindi il cmdlet `New-AzureRmStreamAnalyticsInput` e assicurarsi di sostituire il valore della variabile `jobDefinitionFile` con il percorso in cui è stato archiviato il file JSON della definizione dell'input del processo. 
 
 ```powershell
-$jobInputName = "MyBlobInput"
+$jobInputName = "IoTHubInput"
 $jobInputDefinitionFile = "C:\JobInputDefinition.json"
 New-AzureRmStreamAnalyticsInput `
   -ResourceGroupName $resourceGroup `
@@ -198,10 +234,10 @@ Nel computer locale creare un file denominato `JobOutputDefinition.json` e aggiu
             "properties": {
                 "storageAccounts": [
                     {
-                      "accountName": "mystorageaccount",
+                      "accountName": "asaquickstartstorage",
                       "accountKey": "<storage account key>"
                     }],
-                "container": "streamanalytics",
+                "container": "container1",
                 "pathPattern": "output/",
                 "dateFormat": "yyyy/MM/dd",
                 "timeFormat": "HH"
@@ -215,7 +251,7 @@ Nel computer locale creare un file denominato `JobOutputDefinition.json` e aggiu
             }
         }
     },
-    "name": "MyBlobOutput",
+    "name": "BlobOutput",
     "type": "Microsoft.StreamAnalytics/streamingjobs/outputs"
 }
 ```
@@ -223,7 +259,7 @@ Nel computer locale creare un file denominato `JobOutputDefinition.json` e aggiu
 Eseguire quindi il cmdlet `New-AzureRmStreamAnalyticsOutput`. Assicurarsi di sostituire il valore della variabile `jobOutputDefinitionFile` con il percorso in cui è stato archiviato il file JSON della definizione dell'output del processo. 
 
 ```powershell
-$jobOutputName = "MyBlobOutput"
+$jobOutputName = "BlobOutput"
 $jobOutputDefinitionFile = "C:\JobOutputDefinition.json"
 New-AzureRmStreamAnalyticsOutput `
   -ResourceGroupName $resourceGroup `
@@ -243,7 +279,7 @@ Aggiungere una trasformazione al processo tramite il cmdlet [New-AzureRmStreamAn
    "properties":{    
       "streamingUnits":1,  
       "script":null,  
-      "query":" SELECT System.Timestamp AS OutputTime, dspl AS SensorName, Avg(temp) AS AvgTemperature INTO MyBlobOutput FROM MyBlobInput TIMESTAMP BY time GROUP BY TumblingWindow(second,30),dspl HAVING Avg(temp)>100"  
+      "query":" SELECT * INTO BlobOutput FROM IoTHubInput HAVING Temperature > 27"  
    }  
 }
 ```
@@ -259,24 +295,32 @@ New-AzureRmStreamAnalyticsTransformation `
   -File $jobTransformationDefinitionFile `
   -Name $jobTransformationName -Force
 ```
+## <a name="run-the-iot-simulator"></a>Eseguire il simulatore IoT
+
+1. Aprire il [simulatore online Azure IoT Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/).
+
+2. Sostituire il segnaposto nella riga 15 con l'intera stringa di connessione del dispositivo hub IoT di Azure salvato in una sezione precedente.
+
+3. Fare clic su **Run**. L'output mostra i dati del sensore e i messaggi inviati all'hub IoT.
+
+   ![Simulatore online Azure IoT Raspberry Pi](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Avviare il processo di Analisi di flusso e controllare l'output
 
-Avviare il processo tramite il cmdlet [Start-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0). Questo cmdlet accetta il nome del processo, il nome del gruppo di risorse, la modalità di avvio dell'output e l'ora di inizio come parametri. `OutputStartMode` accetta i valori `JobStartTime`, `CustomTime` o `LastOutputEventTime`. Per altre informazioni sugli elementi a cui fanno riferimento ognuno di questi valori, vedere la sezione sui [parametri](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) nella documentazione di PowerShell. In questo esempio specificare `CustomTime` come valore di mode e fornire un valore per `OutputStartTime`. 
+Avviare il processo tramite il cmdlet [Start-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0). Questo cmdlet accetta il nome del processo, il nome del gruppo di risorse, la modalità di avvio dell'output e l'ora di inizio come parametri. `OutputStartMode` accetta i valori `JobStartTime`, `CustomTime` o `LastOutputEventTime`. Per altre informazioni sugli elementi a cui fanno riferimento ognuno di questi valori, vedere la sezione sui [parametri](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) nella documentazione di PowerShell. 
 
-Come valore di time selezionare `2018-01-01`. La data di inizio viene selezionata in quanto precede il timestamp dell'evento dai dati di esempio. Dopo aver eseguito il cmdlet seguente, verrà restituito `True` come output se il processo viene avviato. Nel contenitore di archiviazione viene creata una cartella di output con i dati trasformati. 
+Dopo aver eseguito il cmdlet seguente, verrà restituito `True` come output se il processo viene avviato. Nel contenitore di archiviazione viene creata una cartella di output con i dati trasformati. 
 
 ```powershell
 Start-AzureRmStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
   -Name $jobName `
-  -OutputStartMode CustomTime `
-  -OutputStartTime 2018-01-01T00:00:00Z 
+  -OutputStartMode 'JobStartTime'
 ```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming utilizzate dal processo. Se si prevede di usare il processo in futuro, è possibile non eliminarlo e arrestarlo per il momento. Se non si intende continuare a usare il processo, eliminare tutte le risorse create tramite questa guida introduttiva eseguendo il cmdlet seguente:
+Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming usate dal processo. Se si prevede di usare il processo in futuro, è possibile non eliminarlo e arrestarlo per il momento. Se non si intende continuare a usare il processo, eliminare tutte le risorse create con questa guida introduttiva eseguendo il cmdlet seguente:
 
 ```powershell
 Remove-AzureRmResourceGroup `

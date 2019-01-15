@@ -1,14 +1,12 @@
 ---
-title: 'Creare una rete virtuale: guida introduttiva - Azure PowerShell | Microsoft Docs'
+title: 'Creare una rete virtuale: guida introduttiva - Azure PowerShell'
+titlesuffix: Azure Virtual Network
 description: Questa guida introduttiva illustra come creare una rete virtuale usando il portale di Azure. Una rete virtuale consente alle risorse di Azure, come le macchine virtuali, di comunicare privatamente tra loro e con Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
 ms.topic: quickstart
@@ -16,13 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: 4e2808df56684b257898f3e03f8e9ca36682063b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 725e03ded6d6f2e3b5d7a41d2053f418a5933ef8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341916"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023244"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Guida introduttiva: Creare una rete virtuale usando PowerShell
 
@@ -151,7 +148,7 @@ Un file Remote Desktop Protocol (*.rdp*) viene scaricato sul computer, mentre si
 1. Immettere il nome utente e la password specificati al momento della creazione della VM.
 
     > [!NOTE]
-    > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della VM.
+    > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
 1. Selezionare **OK**.
 

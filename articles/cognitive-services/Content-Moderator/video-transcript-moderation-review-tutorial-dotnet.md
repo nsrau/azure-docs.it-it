@@ -10,14 +10,14 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: d156c481e3c16105ad85cbc793d93306a310d5ef
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567112"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118575"
 ---
-# <a name="tutorial-video-and-transcript-moderation"></a>Esercitazione: moderazione di video e trascrizioni
+# <a name="tutorial-video-and-transcript-moderation"></a>Esercitazione: Moderazione di video e trascrizioni
 
 Le API video di Content Moderator consentono di moderare video e di creare revisioni di video nello strumento di revisione umana. 
 
@@ -30,7 +30,7 @@ Scaricare l'[applicazione console C#](https://github.com/MicrosoftContentModerat
 - Usare i timestamp dei fotogrammi per creare (immagini)
 - Inviare timestamp e anteprime per creare le revisioni del video
 - Convertire il riconoscimento vocale video in testo (trascrizione) con l'API Media Indexer
-- Moderare la trascrizione con il servizio di moderazione del testo
+- Moderato la trascrizione con il servizio di moderazione del testo
 - Aggiungere la trascrizione moderata alla revisione del video
 
 ## <a name="sample-program-outputs"></a>Output di esempio del programma
@@ -51,7 +51,7 @@ Prima di procedere, esaminiamo gli output di esempio del programma seguenti:
 
 1. Modificare il file `App.config` e aggiungere il nome del tenant di Active Directory, gli endpoint del servizio e le chiavi di sottoscrizione indicate da `#####`. Sono necessarie le informazioni seguenti:
 
-|Chiave|Descrizione|
+|Chiave|DESCRIZIONE|
 |-|-|
 |`AzureMediaServiceRestApiEndpoint`|Endpoint per l'API Servizi multimediali di Azure (AMS)|
 |`ClientSecret`|Chiave di sottoscrizione per Servizi multimediali di Azure|
@@ -67,7 +67,7 @@ La classe `Program` in `Program.cs` è il punto di ingresso principale per l'app
 
 ### <a name="methods-of-class-program"></a>Metodi della classe Program
 
-|Metodo|Descrizione|
+|Metodo|DESCRIZIONE|
 |-|-|
 |`Main`|Analizza la riga di comando, raccoglie l'input utente e inizia l'elaborazione.|
 |`ProcessVideo`|Comprime, carica, modera e crea revisioni video.|
@@ -132,7 +132,7 @@ Se non sono presenti argomenti della riga di comando, `Main()` chiama `GetUserIn
 
 Indipendentemente dal fatto che le opzioni del programma provengano dalla riga di comando e dall'input utente interattivo, `Main()` chiama in seguito `Initialize()` per creare le istanze seguenti:
 
-|Classe|Descrizione|
+|Classe|DESCRIZIONE|
 |-|-|
 |`AMSComponent`|Comprime i file video prima di inviarli per la moderazione.|
 |`AMSconfigurations`|Interfaccia i dati di configurazione dell'applicazione trovati in `App.config`.|
@@ -530,7 +530,7 @@ La trascrizione viene pubblicata come un asset AMS. Per analizzare la trascrizio
         }
         catch
         {   //TODO:  Logging
-            Console.WriteLine("Exception occured while generating index for video.");
+            Console.WriteLine("Exception occurred while generating index for video.");
             throw;
         }
     }

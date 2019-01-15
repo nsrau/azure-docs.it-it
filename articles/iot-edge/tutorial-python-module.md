@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/25/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a8edf8d67c55cad856eacf883a6449606e594887
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 89c19adc571d500fff54d493072bb9976ce51aa9
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343769"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052888"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Esercitazione: Sviluppare e distribuire un modulo Python per IoT Edge in un dispositivo simulato
 
@@ -46,7 +46,7 @@ Risorse cloud:
 Risorse per lo sviluppo:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Estensione Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) per Visual Studio Code.
+* [Strumenti di Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) per Visual Studio Code.
 * [Estensione Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) per Visual Studio Code. 
 * [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
@@ -57,7 +57,7 @@ Risorse per lo sviluppo:
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori
 
-In questa esercitazione si usa l'estensione Azure IoT Edge per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo IoT Edge.  
+In questa esercitazione vengono usati gli strumenti di Azure IoT per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo IoT Edge.  
 
 È possibile usare qualsiasi registro compatibile con Docker per inserire le immagini dei contenitori. Due servizi di registro Docker molto diffusi sono [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro contenitori di Azure. 
 
@@ -83,7 +83,7 @@ Se non è ancora disponibile alcun registro contenitori, seguire questa procedur
 7. Copiare i valori nei campi **Server di accesso**, **Nome utente** e **Password**. Usare questi valori più avanti nell'esercitazione per fornire l'accesso al registro contenitori. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Creare un progetto di modulo IoT Edge
-La procedura seguente consente di creare un modulo Python per IoT Edge tramite Visual Studio Code e l'estensione Azure IoT Edge.
+La procedura seguente consente di creare un modulo Python per IoT Edge tramite Visual Studio Code e gli strumenti di Azure IoT.
 
 ### <a name="create-a-new-solution"></a>Creare una nuova soluzione
 
@@ -202,13 +202,19 @@ In ogni modello è incluso il codice di esempio, che accetta i dati del sensore 
     self.client.set_module_twin_callback(module_twin_callback, self)
     ```
 
-7. Salvare questo file.
+7. Salvare il file main.py.
 
-8. Nello strumento di esplorazione di Visual Studio Code aprire il file **deployment.template.json**. 
+8. Nello strumento di esplorazione di VS Code aprire il file **deployment.template.json** nell'area di lavoro della soluzione IoT Edge. Questo file indica all'agente di IoT Edge quali moduli distribuire, in questo caso **tempSensor** e **PythonModule**, e indica all'hub di IoT Edge come indirizzare i messaggi tra i moduli. L'estensione di Visual Studio Code popola automaticamente la maggior parte delle informazioni necessarie nel modello di distribuzione, ma occorre assicurarsi che le informazioni siano appropriate per la soluzione specifica: 
 
-   Questo file comunica a **$edgeAgent** di distribuire due moduli: **tempSensor**, che simula i dati del dispositivo, e **PythonModule**. La piattaforma predefinita del dispositivo IoT Edge è impostata su **amd64** nella barra di stato di VS Code, di conseguenza **PythonModule** è impostato sulla versione amd64 Linux dell'immagine. Cambiare la piattaforma predefinita nella barra di stato da **amd64** a **arm32v7** o **windows-amd64** se corrisponde all'architettura del dispositivo IoT Edge. Per altre informazioni sui manifesti di distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli IoT Edge](module-composition.md).
+   1. La piattaforma predefinita del dispositivo IoT Edge è impostata su **amd64** nella barra di stato di VS Code, di conseguenza **PythonModule** è impostato sulla versione amd64 Linux dell'immagine. Cambiare la piattaforma predefinita nella barra di stato da **amd64** a **arm32v7** o **windows-amd64** se corrisponde all'architettura del dispositivo IoT Edge. 
 
-   Questo file contiene anche le credenziali del registro. Nel file del modello il nome utente e la password vengono popolati con segnaposto. Quando si genera il manifesto della distribuzione, i campi vengono aggiornati con i valori aggiunti al file ENV. 
+      ![Aggiornare la piattaforma di immagini del modulo](./media/tutorial-python-module/image-platform.png)
+
+   2. Verificare che il modello abbia il nome modulo corretto, non il nome **SampleModule** predefinito che è stato modificato durante la creazione della soluzione IoT Edge.
+
+   3. La sezione **registryCredentials** archivia le credenziali del registro Docker, in modo che l'agente di IoT Edge possa eseguire il pull dell'immagine del modulo. Le coppie effettive di username e password vengono archiviate nel file ENV, che viene ignorato da Git. Aggiungere le credenziali al file con estensione env, se non è già stato fatto.  
+
+   4. Per altre informazioni sui manifesti della distribuzione, vedere [Informazioni su come distribuire moduli e definire route in IoT Edge](module-composition.md).
 
 9. Aggiungere il modulo gemello **PythonModule** al manifesto della distribuzione. Inserire il contenuto JSON seguente alla fine della sezione **moduleContent** dopo il modulo gemello **$edgeHub**: 
 
@@ -222,7 +228,7 @@ In ogni modello è incluso il codice di esempio, che accetta i dati del sensore 
 
    ![Aggiungere il modulo gemello al modello di distribuzione](./media/tutorial-python-module/module-twin.png)
 
-10. Salvare questo file.
+10. Salvare il file deployment.template.json.
 
 ## <a name="build-and-push-your-solution"></a>Compilare ed eseguire il push della soluzione
 

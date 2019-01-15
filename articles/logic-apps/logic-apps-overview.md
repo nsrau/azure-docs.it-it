@@ -11,16 +11,16 @@ ms.custom: mvc
 ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: f5b39b428b894fcf5dddc0a7435353d174d83b78
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231203"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065272"
 ---
 # <a name="what-is-azure-logic-apps"></a>Informazioni su App per la logica di Azure
 
-[App per la logica di Azure](https://azure.microsoft.com/services/logic-apps) è un servizio cloud che consente di automatizzare e orchestrare attività, processi aziendali e [flussi di lavoro](#logic-app-concepts) quando è necessario integrare app, dati, sistemi e servizi tra aziende o organizzazioni. App per la logica semplifica la progettazione e la creazione di soluzioni scalabili per l'integrazione di app, dati e sistemi, per il servizio Enterprise Application Integration (EAI) e per le comunicazioni business-to-business (B2B) nel cloud, in locale o in entrambi gli ambienti.
+[App per la logica di Azure](https://azure.microsoft.com/services/logic-apps) è un servizio cloud che consente di automatizzare e orchestrare attività, processi aziendali e [flussi di lavoro](#logic-app-concepts) quando è necessario integrare app, dati, sistemi e servizi tra aziende o organizzazioni. App per la logica semplifica la progettazione e la creazione di soluzioni scalabili per l'[integrazione](https://azure.microsoft.com/product-categories/integration/) di app, dati e sistemi, per il servizio Enterprise Application Integration (EAI) e per le comunicazioni business-to-business (B2B) nel cloud, in locale o in entrambi gli ambienti.
 
 Ecco, ad esempio, alcuni carichi di lavoro che è possibile automatizzare con le app per la logica:
 
@@ -122,7 +122,7 @@ Per altre informazioni su App per la logica, guardare i video introduttivi segue
 
 * **Trigger**: molti connettori gestiti da Microsoft forniscono trigger che vengono attivati in caso di eventi o di nuovi dati che soddisfano condizioni specificate. Ad esempio, un evento potrebbe ottenere un messaggio di posta elettronica o rilevare modifiche nell'account di archiviazione di Azure. Ogni volta che il trigger viene attivato, il motore di App per la logica crea una nuova istanza dell'app per la logica che esegue il flusso di lavoro.
 
-* **Azioni**: per azioni si intendono tutti i passaggi che si verificano dopo il trigger. Ogni azione è in genere associata a un'operazione definita da un connettore gestito, un'API personalizzata o un connettore personalizzato.
+* **Azioni**: Le azioni corrispondono a tutti i passaggi eseguiti dopo l'attivazione del trigger. Ogni azione è in genere associata a un'operazione definita da un connettore gestito, un'API personalizzata o un connettore personalizzato.
 
 * **Enterprise Integration Pack**: per scenari di integrazione più avanzati, App per la logica include funzionalità di BizTalk Server. Enterprise Integration Pack fornisce connettori che permettono alle app per la logica di eseguire facilmente la convalida, la trasformazione e molto altro ancora.
 

@@ -1,53 +1,56 @@
 ---
 title: Come configurare Postman in Gemelli digitali di Azure | Microsoft Docs
-description: Come configurare Postman per Gemelli digitali di Azure
+description: Come configurare Postman per Gemelli digitali di Azure.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 01/02/2019
 ms.author: adgera
-ms.openlocfilehash: 92ff8cb732c7c10c525d8a8ec76180cb435bd466
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 824c0caf0d54e8484093304c39c9f5dc05c83298
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975016"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117520"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Come configurare Postman per Gemelli digitali di Azure
 
-Questo articolo descrive come configurare un'applicazione di Azure Active Directory (Azure AD) per usare il flusso di concessione implicita OAuth 2.0. Quindi, illustra come configurare il client REST Postman per effettuare richieste HTTP di token di connessione alle API di gestione.
+Questo articolo illustra come configurare il client REST di Postman per testare e interagire con le API di gestione di Gemelli digitali di Azure. In particolare, illustra le operazioni seguenti:
+
+* Come configurare un'applicazione di Azure Active Directory per usare il flusso di concessione implicita OAuth 2.0.
+* Come configurare il client REST di Postman per inviare richieste HTTP di token alle API di gestione.
 
 ## <a name="postman-summary"></a>Riepilogo di Postman
 
 Iniziare a usare Gemelli digitali di Azure tramite uno strumento client REST, ad esempio [Postman](https://www.getpostman.com/), per preparare l'ambiente di test locale. Il client Postman consente di creare rapidamente richieste HTTP complesse. Scaricare la versione desktop del client Postman accedendo a [www.getpostman.com/apps](https://www.getpostman.com/apps).
 
-[Postman](https://www.getpostman.com/) è uno strumento di test REST che inserisce le principali funzionalità di richiesta HTTP in un'utile GUI desktop e basata su plug-in. Tramite il client Postman, gli sviluppatori di soluzioni possono specificare il tipo di richiesta HTTP (POST, GET, UPDATE, PATCH e DELETE), l'endpoint dell'API da chiamare e l'uso di SSL. Postman supporta anche l'aggiunta di intestazioni della richiesta HTTP, parametri, dati del modulo e corpi.
+[Postman](https://www.getpostman.com/) è uno strumento di test REST che inserisce le principali funzionalità di richiesta HTTP in un'utile GUI desktop e basata su plug-in. Tramite il client Postman gli sviluppatori di soluzioni possono specificare il tipo di richiesta HTTP (*POST*, *GET*, *UPDATE*, *PATCH* e *DELETE*), l'endpoint dell'API da chiamare e l'uso di SSL. Postman supporta anche l'aggiunta di intestazioni della richiesta HTTP, parametri, dati del modulo e corpi.
 
 ## <a name="configure-azure-active-directory-to-use-the-oauth-20-implicit-grant-flow"></a>Configurare Azure Active Directory per usare il flusso di concessione implicita OAuth 2.0
 
-Configurare l'app di Azure AD per usare il flusso di concessione implicita OAuth 2.0.
+Configurare l'app di Azure Active Directory per usare il flusso di concessione implicita OAuth 2.0.
 
 1. Seguire i passaggi di [questo avvio rapido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) per creare un'applicazione di Azure AD di tipo nativo. In alternativa è possibile riusare una registrazione di app nativa esistente.
 
 1. In **Autorizzazioni necessarie** selezionare **Aggiungi** e immettere **Gemelli digitali di Azure** in **Aggiungi accesso all'API**. Se la ricerca non individua l'API, cercare invece **Azure Smart Spaces**. Quindi selezionare **Concedi autorizzazioni > Autorizzazioni delegate** e **Fine**.
 
-    ![API di aggiunta in registrazioni di app di Azure AD](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+    ![Aggiunta dell'API per la registrazione di app in Azure Active Directory](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
 1. Fare clic su **Manifesto** per aprire il manifesto dell'applicazione per l'app. Impostare *oauth2AllowImplicitFlow* su `true`.
 
-      ![Flusso implicito di Azure AD][1]
+      ![Flusso implicito di Azure Active Directory][1]
 
-1. Configurare un **URL di risposta** su [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback).
+1. Configurare un **URL di risposta** su `https://www.getpostman.com/oauth2/callback`.
 
-      ![URL di risposta di Azure AD][2]
+      ![URL di risposta di Azure Active Directory][2]
 
-1. Copiare e conservare l'**ID applicazione** dell'app di Azure AD. Viene usato di seguito.
+1. Copiare e conservare l'**ID applicazione** dell'app di Azure Active Directory. Viene usato di seguito.
 
-## <a name="configure-the-postman-client"></a>Configurare il client Postman
+### <a name="configure-the-postman-client"></a>Configurare il client Postman
 
-Successivamente, installare e configurare Postman per ottenere un token di Azure AD. In seguito, eseguire una richiesta HTTP autenticata a Gemelli digitali usando il token acquisito:
+Successivamente installare e configurare Postman per ottenere un token di Azure Active Directory. In seguito, eseguire una richiesta HTTP autenticata a Gemelli digitali usando il token acquisito:
 
 1. Passare a [www.getpostman.com]([https://www.getpostman.com/) per scaricare l'app.
 1. Verificare che l'**URL di autorizzazione** sia corretto. Deve essere nel formato seguente:
@@ -67,7 +70,7 @@ Successivamente, installare e configurare Postman per ottenere un token di Azure
     | Grant Type (Tipo di concessione) | `Implicit` |
     | Callback URL (URL callback) | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL (URL autorizzazione) | Usare l'**URL di autorizzazione** ottenuto al passaggio 2 precedente |
-    | ID client | Usare l'**ID applicazione** per l'app di Azure AD creata o riconfigurata nella sezione precedente |
+    | ID client | Usare l'**ID applicazione** per l'app di Azure Active Directory creata o riconfigurata nella sezione precedente |
     | Scope | Lasciare vuoto |
     | Stato | Lasciare vuoto |
     | Client Authentication (Autenticazione client) | `Send as Basic Auth header` |
@@ -86,7 +89,11 @@ Successivamente, installare e configurare Postman per ottenere un token di Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sull'autenticazione con le API di gestione, vedere [Eseguire l'autenticazione con le API](./security-authenticating-apis.md).
+- Per informazioni sulle API di gestione di Gemelli digitali e su come usarle, consultare [How to use Azure Digital Twins management APIs](how-to-navigate-apis.md)(Come usare le API di gestione di Gemelli digitali di Azure).
+
+- Per informazioni sull'autenticazione con le API di gestione, vedere [Eseguire l'autenticazione con le API](./security-authenticating-apis.md). 
+
+
 
 <!-- Images -->
 [1]: media/how-to-configure-postman/implicit-flow.png

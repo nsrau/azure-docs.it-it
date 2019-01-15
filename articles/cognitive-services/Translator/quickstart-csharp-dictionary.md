@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Ottenere traduzioni alternative, C# - API Traduzione testuale'
+title: 'Guida introduttiva: Cercare le parole con il dizionario bilingue, C# - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando .NET Core e l'API Traduzione testuale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 034b6e102d008039ddd138798900dbee17faf51d
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 3460c1c62f26e2bb0a4a14238e110cdd363a7a87
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887951"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159571"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere traduzioni alternative con C#
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando C#
 
 In questa guida introduttiva verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando .NET Core e l'API Traduzione testuale.
 
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
-A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando (o nella sessione del terminale) passare alla directory del progetto ed eseguire:
+A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando, o dalla sessione di terminale, passare alla directory del progetto ed eseguire:
 
 ```console
 dotnet run

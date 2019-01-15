@@ -4,17 +4,17 @@ description: Questo articolo illustra come installare e usare l'estensione Azure
 services: terraform
 ms.service: terraform
 keywords: terraform, azure, devops, visual studio code, estensione
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: be0140606302335884d62ba60c875a049949b495
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 137a57638207a05f797692b25a5d5a31bd66ce3d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353051"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074581"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Installare e usare l'estensione Azure Terraform di Visual Studio Code
 
@@ -27,7 +27,7 @@ In questo articolo viene spiegato come:
 > * Usare Visual Studio Code per scrivere, configurare ed eseguire i piani di Terraform.
 
 ## <a name="prerequisites"></a>Prerequisiti
-- **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+- **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
 - **Terraform**: [installare e configurare Terraform](/azure/virtual-machines/linux/terraform-install-configure).
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: ec1216d1a42791a1334b7f9e2ed37f15aaffd013
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: c15c79e90b69fd72ed6b8968d35be95da50f838b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085641"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023873"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiare più tabelle in blocco con Azure Data Factory
 Questa esercitazione illustra la **copia di alcune tabelle dal database SQL di Azure ad Azure SQL Data Warehouse**. È possibile applicare lo stesso modello anche in altri scenari di copia, ad esempio per la copia di tabelle da SQL Server/Oracle in database SQL di Azure/SQL Data Warehouse/archivio BLOB di Azure o la copia di percorsi diversi dall'archivio BLOB alle tabelle del database SQL di Azure.
@@ -47,7 +46,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Azure PowerShell**. Seguire le istruzioni in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Come installare e configurare Azure PowerShell).
+* **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * **Account di archiviazione di Azure**. L'account di archiviazione di Azure viene usato come archivio BLOB di staging nell'operazione di copia in blocco. 
 * **Database SQL di Azure**. Questo database contiene i dati di origine. 
 * **Azure SQL Data Warehouse**. Questo data warehouse include i dati copiati dal database SQL. 
@@ -72,7 +71,7 @@ Per il database SQL e per SQL Data Warehouse è necessario consentire ai servizi
 2. Selezionare il server e fare clic su **Firewall** in **IMPOSTAZIONI**.
 3. Nella pagina **Impostazioni del firewall** fare clic su **SÌ** per **Consenti l'accesso a Servizi Azure**.
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Avviare **PowerShell**. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
 
@@ -108,7 +107,7 @@ Per il database SQL e per SQL Data Warehouse è necessario consentire ai servizi
         ```
 
     * Per creare istanze di Data Factory è necessario essere un collaboratore o amministratore della sottoscrizione di Azure.
-    * Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analitics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+    * Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
@@ -116,7 +115,7 @@ In questa esercitazione vengono creati tre servizi collegati rispettivamente per
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Creare il servizio collegato database SQL di Azure di origine
 
-1. Creare un file JSON denominato **AzureSqlDatabaseLinkedService.json** nella cartella **C:\ADFv2TutorialBulkCopy** con il contenuto seguente: (Creare la cartella ADFv2TutorialBulkCopy, se non esiste già).
+1. Creare un file JSON denominato **AzureSqlDatabaseLinkedService.json** nella cartella **C:\ADFv2TutorialBulkCopy** con il contenuto seguente: Creare la cartella ADFv2TutorialBulkCopy, se non esiste già.
 
     > [!IMPORTANT]
     > Sostituire &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; e &lt;password&gt; con i valori del database SQL di Azure prima di salvare il file.
@@ -138,7 +137,7 @@ In questa esercitazione vengono creati tre servizi collegati rispettivamente per
 
 2. In **Azure PowerShell** passare alla cartella **ADFv2TutorialBulkCopy**.
 
-3. Eseguire il cmdlet **Set-AzureRmDataFactoryV2LinkedService** per creare il servizio collegato **AzureSqlDatabaseLinkedService**. 
+3. Eseguire il cmdlet **Set-AzureRmDataFactoryV2LinkedService** per creare il servizio collegato: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
@@ -197,7 +196,7 @@ In questa esercitazione l'archivio BLOB di Azure viene usato come area di stagin
 1. Creare un file JSON denominato **AzureStorageLinkedService.json** nella cartella **C:\ADFv2TutorialBulkCopy** con il contenuto seguente:
 
     > [!IMPORTANT]
-    > Sostituire &lt;accountName&gt; e &lt;accountKey&gt; con il nome e la chiave dell'account di archiviazione di Azure prima di salvare il file.
+    > Sostituire &lt;accountname&gt; e &lt;accountkey&gt; con il nome e la chiave dell'account di archiviazione di Azure prima di salvare il file.
 
     ```json
     {
@@ -271,7 +270,7 @@ In questa esercitazione vengono creati i set di dati di origine e sink, che spec
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>Creare un set di dati per l'istanza sink di SQL Data Warehouse
 
-1. Creare un file JSON denominato **AzureSqlDWDataset.json** nella cartella **C:\ADFv2TutorialBulkCopy** con il contenuto seguente: Il valore "tableName" viene configurato come parametro e successivamente l'attività di copia che fa riferimento a questo set di dati passa il valore effettivo al set di dati.
+1. Creare un file JSON denominato **AzureSqlDWDataset.json** nella cartella **C:\ADFv2TutorialBulkCopy** con il contenuto seguente: Il valore "tableName" viene impostato come parametro e successivamente l'attività di copia che fa riferimento a questo set di dati passa il valore effettivo nel set di dati.
 
     ```json
     {

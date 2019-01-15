@@ -112,14 +112,14 @@ items:
       href: how-to-build-deploy-onnx.md
   - name: Distribuire i modelli
     items:
-    - name: Dove eseguire la distribuzione dei modelli
+    - name: Dove e come eseguire la distribuzione
       displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
     - name: FPGA
       href: how-to-deploy-fpga-web-service.md
     - name: Risolvere problemi
       href: how-to-troubleshoot-deployment.md
-    - name: Proteggere con SSL
+    - name: Proteggere il servizio Web con SSL
       href: how-to-secure-web-service.md
   - name: Utilizzare i servizi Web
     items:
@@ -139,7 +139,7 @@ items:
   - name: Gestire le quote di risorse
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Usare con le reti virtuali
+  - name: Proteggere con le reti virtuali
     displayName: vnet
     href: how-to-enable-virtual-network.md
   - name: Usare l'interfaccia della riga di comando di Machine Learning
@@ -174,9 +174,9 @@ items:
     href: support-for-aml-services.md
   - name: Confrontare i prodotti di apprendimento automatico di Microsoft
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 84f4c2ec1d9f361cdf030b724860aea89f5c9cc3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 098c8a9f9bc8d0458490adf4d80e2eaf69dd9f7f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247368"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266077"

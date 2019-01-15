@@ -1,7 +1,7 @@
 ---
-title: 'Avvio rapido: Per iniziare in Python'
+title: 'Guida introduttiva: Per iniziare in Python'
 titleSuffix: Azure Machine Learning service
-description: Introduzione al servizio Azure Machine Learning in Python. Usare l'SDK per Python per creare un'area di lavoro che rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning.
+description: Introduzione al servizio Azure Machine Learning in Python. Usare l’SDK Python per creare un'area di lavoro che rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,14 +11,14 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: da84d6361d80db8aea797827ed3d7bc612e2eda3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2c8edd73a287d5bca2f3deb68448ba951b7a3367
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999051"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106563"
 ---
-# <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Avvio rapido: Usare l'SDK per Python per iniziare a usare Azure Machine Learning
+# <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Usare l'SDK per Python per iniziare a usare Azure Machine Learning
 
 In questo articolo si usa Azure Machine Learning SDK per Python per creare e quindi usare un'[area di lavoro](concept-azure-machine-learning-architecture.md) del servizio Azure Machine Learning. L'area di lavoro rappresenta l'elemento fondamentale nel cloud per eseguire esperimenti, training e distribuzione di modelli di Machine Learning con il servizio Machine Learning. 
 
@@ -40,7 +40,7 @@ Le risorse di Azure seguenti vengono aggiunte automaticamente all'area di lavoro
 - [Registro contenitori di Azure](https://azure.microsoft.com/services/container-registry/)
 - [Archiviazione di Azure](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+- [Insieme di credenziali chiave Azure](https://azure.microsoft.com/services/key-vault/)
 
 Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Accedere alla [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
 
@@ -74,9 +74,9 @@ Prima di installare l'SDK, è consigliabile creare un ambiente Python isolato. A
 
 ### <a name="install-the-sdk"></a>Installare l'SDK
 
-Installare l'SDK nell'ambiente conda attivato. Questo codice installa i componenti di base di Machine Learning SDK. Installa anche un server di Jupyter Notebook nell'ambiente conda. Il completamento dell'installazione richiede alcuni minuti a seconda della configurazione del computer.
+Installare l'SDK nell'ambiente conda attivato. Questo codice installa i componenti di base di Machine Learning SDK. Installa anche un server Jupyter Notebook nell'ambiente conda. Il completamento dell'installazione richiede alcuni minuti a seconda della configurazione del computer.
 
-```sh
+```shell
 # Install Jupyter
 conda install nb_conda
 
@@ -86,7 +86,7 @@ pip install azureml-sdk[notebooks]
 
 È possibile usare parole chiave aggiuntive per installare altri componenti dell'SDK:
 
-```sh
+```shell
 # Install the base SDK and auto ml components
 pip install azureml-sdk[automl]
 
@@ -97,13 +97,8 @@ pip install azureml-sdk[explain]
 pip install azureml-sdk[contrib]
 ```
 
-Nell'ambiente di Azure Databricks, usare invece il comando di installazione seguente:
-
-```
-# Install the base SDK and automl components in the Azure Databricks environment.
-# For more information, see https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks.
-pip install azureml-sdk[databricks]
-```
+Nell'ambiente di Azure Databricks, usare invece la [procedura di installazione di Databricks](how-to-configure-environment.md#azure-databricks
+).
 
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
@@ -143,11 +138,7 @@ pip install azureml-sdk[databricks]
 
 Salvare i dettagli dell'area di lavoro in un file di configurazione nella directory corrente. Il file è denominato *aml_config\config.json*.  
 
-Con questo file di configurazione dell'area di lavoro sarà possibile caricare più facilmente la stessa area di lavoro in un secondo momento. È possibile caricarlo con altri notebook e script nella stessa directory o in una sottodirectory. 
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
-
-La chiamata API `write_config()` crea il file di configurazione nella directory corrente. Il file *config.json* contiene lo script seguente:
+La chiamata API `write_config()` crea il file di configurazione nella directory corrente. Il file *config.json* contiene quanto segue:
 
 ```json
 {
@@ -156,6 +147,12 @@ La chiamata API `write_config()` crea il file di configurazione nella directory 
     "workspace_name": "myworkspace"
 }
 ```
+
+Con questo file di configurazione dell'area di lavoro sarà possibile caricare più facilmente la stessa area di lavoro in un secondo momento. Sara possibile caricarla con altri notebook e script nella stessa directory o in una sottodirectory. 
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
+
+
 
 ## <a name="use-the-workspace"></a>Usare l'area di lavoro
 
@@ -190,7 +187,7 @@ Per usare il codice con le esercitazioni di Machine Learning sono necessari alcu
 
 1. Chiudere il notebook nel browser.
 1. Nella finestra della riga di comando premere CTRL+C per arrestare il server di Jupyter Notebook.
-1. Installare i pacchetti aggiuntivi.
+1. Installare i pacchetti aggiuntivi.  Se `azureml-sdk[automl]` non è stato ancora installato, installarlo ora.
 
     ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy

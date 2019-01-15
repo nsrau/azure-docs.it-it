@@ -1,24 +1,23 @@
 ---
-title: Creare un processo di Analisi di flusso con gli strumenti di Analisi di flusso di Azure per Visual Studio | Microsoft Docs
+title: Creare un processo di Analisi di flusso con gli strumenti di Analisi di flusso di Azure per Visual Studio
 description: Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso, configurare gli input e gli output e definire una query con Visual Studio.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/15/2018
+ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-manager: kfile
-ms.openlocfilehash: be4c906535981c6b05c1a72aa23e4e1f78f57edf
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1a72e2874e28a2aa5b69866bd959743707ea9d99
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954753"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021918"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Guida introduttiva: Creare un processo di Analisi di flusso con gli strumenti di Analisi di flusso di Azure per Visual Studio
+# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Avvio rapido: Creare un processo di Analisi di flusso con gli strumenti di Analisi di flusso di Azure per Visual Studio
 
-Questa guida introduttiva descrive come creare ed eseguire un processo di Analisi di flusso usando gli strumenti di Analisi di flusso di Azure per Visual Studio. Il processo di esempio legge i dati in streaming dall'archivio BLOB di Azure. Il file di dati di input utilizzati in questa guida introduttiva contiene i dati statici solo a scopo illustrativo. In uno scenario reale, si utilizza il flusso di dati di input per un processo di Analisi di flusso. In questa guida introduttiva viene definito un processo che calcola la temperatura media quando supera i 100° e scrive gli eventi di output risultanti in un nuovo file.
+Questa guida introduttiva descrive come creare ed eseguire un processo di Analisi di flusso usando gli strumenti di Analisi di flusso di Azure per Visual Studio. Il processo di esempio legge i dati in streaming da un dispositivo hub IoT. Viene definito un processo che calcola la temperatura media quando supera i 27° e scrive gli eventi di output risultanti in un nuovo file nell'archiviazione BLOB.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -32,33 +31,54 @@ Questa guida introduttiva descrive come creare ed eseguire un processo di Analis
 
 ## <a name="prepare-the-input-data"></a>Preparare i dati di input
 
-Prima di definire il processo di Analisi di flusso, è necessario preparare i dati configurati come input per il processo. Per preparare i dati di input richiesti dal processo, seguire questa procedura:
+Prima di definire il processo di Analisi di flusso, è necessario preparare i dati, che saranno poi configurati come input per il processo. Per preparare i dati di input richiesti dal processo, completare questa procedura:
 
-1. Scaricare i [dati di esempio dei sensori](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) da GitHub. I dati di esempio contengono informazioni sui sensori nel formato JSON seguente:  
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-   ```json
-   {
-     "time": "2018-01-26T21:18:52.0000000",
-     "dspl": "sensorC",
-     "temp": 87,
-     "hmdt": 44
-   }
-   ```
-2. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Selezionare **Crea una risorsa** > **Internet delle cose** > **Hub IoT**.
 
-3. Nell'angolo superiore sinistro del portale di Azure selezionare **Crea risorsa** > **Archiviazione** > **Account di archiviazione**. Compilare la pagina del processo dell'account di archiviazione impostando **Nome** su "asaquickstartstorage", **Località** su "Stati Uniti occidentali", **Gruppo di risorse** su "asaquickstart-resourcegroup" (ospitare l'account di archiviazione nello stesso gruppo di risorse del processo di streaming per ottenere prestazioni migliori). Per le altre impostazioni è possibile lasciare i valori predefiniti.  
+3. Nel riquadro **Hub IoT** immettere le informazioni seguenti:
+   
+   |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
+   |---------|---------|---------|
+   |Sottoscrizione  | \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure da usare. |
+   |Gruppo di risorse   |   asaquickstart-resourcegroup  |   Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account. |
+   |Region  |  \<Selezionare l'area più vicina agli utenti\> | Selezionare la posizione geografica in cui è possibile ospitare l'hub IoT. Usare la località più vicina agli utenti. |
+   |Nome hub IoT  | MyASAIoTHub  |   Scegliere un nome per l'hub IoT.   |
 
-   ![Crea account di archiviazione](./media/stream-analytics-quick-create-vs/create-a-storage-account-vs.png)
+   ![Creare un hub IoT](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
 
-4. Nella pagina **Tutte le risorse** individuare l'account di archiviazione creato nel passaggio precedente. Aprire la pagina **Panoramica** e quindi il riquadro **BLOB**.  
+4. Selezionare **Avanti: Dimensioni e piano**.
 
-5. Nella pagina **Servizio BLOB** selezionare **Contenitore**, specificare un **Nome** per il contenitore, ad esempio *container1* > scegliere **OK**.  
+5. Scegliere un valore per **Piano tariffario e livello di scalabilità**. Per questa guida introduttiva, selezionare il livello **F1 - Gratuito** se ancora disponibile nella sottoscrizione. Se il livello gratuito non è disponibile, scegliere il livello più basso disponibile. Per altre informazioni, vedere i [prezzi dell'hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   ![Creare un contenitore](./media/stream-analytics-quick-create-vs/create-a-storage-container.png)
+   ![Impostare dimensioni e piano dell'hub IoT](./media/stream-analytics-quick-create-vs/iot-hub-size-and-scale.png)
 
-6. Andare al contenitore creato nel passaggio precedente. Selezionare **Carica** e caricare i dati del sensore ottenuti nel primo passaggio.  
+6. Selezionare **Rivedi e crea**. Esaminare le informazioni sull'hub IoT e fare clic su **Crea**. La creazione dell'hub IoT può richiedere alcuni minuti. È possibile monitorare lo stato di avanzamento nel riquadro **Notifiche**.
 
-   ![Caricare i dati di esempio nel BLOB](./media/stream-analytics-quick-create-vs/upload-sample-data-to-blob.png)
+7. Nel menu di spostamento dell'hub IoT, fare clic su **Aggiungi** in **Dispositivi IoT**. Aggiungere un **ID dispositivo** e fare clic su **Salva**.
+
+   ![Aggiungere un dispositivo all'hub IoT](./media/stream-analytics-quick-create-vs/add-device-iot-hub.png)
+
+8. Dopo la creazione del dispositivo, aprirlo dall'elenco **Dispositivi IoT**. Copiare il valore di **Stringa di connessione -- Chiave primaria** e salvarlo in un Blocco note per usarlo in seguito.
+
+   ![Copiare la stringa di connessione del dispositivo hub IoT](./media/stream-analytics-quick-create-vs/save-iot-device-connection-string.png)
+
+## <a name="create-blob-storage"></a>Creare l'archiviazione BLOB
+
+1. Nell'angolo superiore sinistro del portale di Azure selezionare **Crea risorsa** > **Archiviazione** > **Account di archiviazione**.
+
+2. Nel riquadro **Crea account di archiviazione** immettere un nome, una posizione e un gruppo di risorse per l'account di archiviazione. Scegliere la stessa posizione e lo stesso gruppo di risorse dell'hub IoT creato. Quindi fare clic su **Rivedi e crea**. per creare l'account.
+
+   ![Crea account di archiviazione](./media/stream-analytics-quick-create-portal/create-storage-account.png)
+
+3. Dopo aver creato l'account di archiviazione, selezionare il riquadro **BLOB** nella sezione **Panoramica**.
+
+   ![Panoramica dell'account di archiviazione](./media/stream-analytics-quick-create-portal/blob-storage.png)
+
+4. Nella pagina **Servizio BLOB** selezionare **Contenitore** e specificare un nome per il contenitore, ad esempio *container1*. Lasciare il **Livello di accesso pubblico** come **Privato (accesso anonimo non consentito)** e selezionare **OK**.
+
+   ![Creare un contenitore BLOB](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
 ## <a name="create-a-stream-analytics-project"></a>Creare un progetto di Analisi di flusso
 
@@ -93,11 +113,10 @@ Si notino gli elementi che sono inclusi in un progetto di Analisi di flusso di A
    |---------|---------|---------|
    |Alias di input  |  Input   |  Immettere un nome per identificare l'input del processo.   |
    |Tipo di origine   |  Flusso dati |  Scegliere l'origine di input appropriata: Flusso dati o Dati di riferimento.   |
-   |Sorgente  |  Archiviazione BLOB |  Scegliere l'origine di input appropriata.   |
+   |Sorgente  |  Hub IoT |  Scegliere l'origine di input appropriata.   |
    |Risorsa  | Scegliere l'origine dati dall'account corrente | Scegliere di immettere i dati manualmente o selezionare un account esistente.   |
-   |Sottoscrizione  |  \<Sottoscrizione in uso\>   | Selezionare la sottoscrizione di Azure che include l'account di archiviazione creato. L'account di archiviazione può essere incluso nella stessa sottoscrizione o in una diversa. Questo esempio presuppone che l'account di archiviazione sia stato creato all'interno della stessa sottoscrizione.   |
-   |Account di archiviazione  |  asaquickstartstorage   |  Scegliere o immettere il nome dell'account di archiviazione. I nomi degli account di archiviazione vengono rilevati automaticamente se sono stati creati nella stessa sottoscrizione.   |
-   |Contenitore  |  container1   |  Selezionare il contenitore esistente creato nell'account di archiviazione.   |
+   |Sottoscrizione  |  \<Sottoscrizione in uso\>   | Selezionare la sottoscrizione di Azure in cui è stato creato l'hub IoT.   |
+   |Hub IoT  |  MyASAIoTHub   |  Scegliere o immettere il nome dell'hub IoT. I nomi dell'hub IoT vengono rilevati automaticamente se sono stati creati nella stessa sottoscrizione.   |
    
 3. Lasciare le altre opzioni impostate sui valori predefiniti e selezionare **Salva** per salvare le impostazioni.  
 
@@ -130,16 +149,10 @@ Si notino gli elementi che sono inclusi in un progetto di Analisi di flusso di A
 2. Aggiungere la query seguente:
 
    ```sql
-   SELECT 
-   System.Timestamp AS OutputTime,
-   dspl AS SensorName,
-   Avg(temp) AS AvgTemperature
-   INTO
-     Output
-   FROM
-     Input TIMESTAMP BY time
-   GROUP BY TumblingWindow(second,30),dspl
-   HAVING Avg(temp)>100
+   SELECT *
+   INTO BlobOutput
+   FROM IoTHubInput
+   HAVING Temperature > 27
    ```
 
 ## <a name="submit-a-stream-analytics-query-to-azure"></a>Inviare ad Azure una query di Analisi di flusso
@@ -150,13 +163,23 @@ Si notino gli elementi che sono inclusi in un progetto di Analisi di flusso di A
 
    ![Inviare il processo ad Azure](./media/stream-analytics-quick-create-vs/stream-analytics-job-to-azure.png)
 
+## <a name="run-the-iot-simulator"></a>Eseguire il simulatore IoT
+
+1. Aprire il [simulatore online Azure IoT Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/) in una nuova scheda o finestra del browser.
+
+2. Sostituire il segnaposto nella riga 15 con la stringa di connessione del dispositivo hub IoT di Azure salvato in una sezione precedente.
+
+3. Fare clic su **Run**. L'output mostra i dati del sensore e i messaggi inviati all'hub IoT.
+
+   ![Simulatore online Azure IoT Raspberry Pi](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
+
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>Avviare il processo di Analisi di flusso e controllare l'output
 
 1. Quando il processo è stato creato, viene aperta automaticamente la visualizzazione del processo. Fare clic sulla freccia verde per avviare il processo.
 
    ![Avviare il processo di Analisi di flusso](./media/stream-analytics-quick-create-vs/start-stream-analytics-job-vs.png)
 
-2. Modificare la data **Ora personalizzata** in `2018-01-01` e selezionare **Avvia**.
+2. Modificare la **Modalità di avvio dell'output del processo** in **JobStartTime** e selezionare **Avvia**.
 
    ![Avviare la configurazione del processo](./media/stream-analytics-quick-create-vs/stream-analytics-start-configuration.png)
 
@@ -180,7 +203,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse, il processo di s
 
 In questa guida introduttiva è stato distribuito un semplice processo di Analisi di flusso con Visual Studio. È anche possibile distribuire processi di Analisi di flusso usando il [portale di Azure](stream-analytics-quick-create-portal.md) e [PowerShell](stream-analytics-quick-create-powershell.md). 
 
-Per informazioni sulla configurazione di altre origini di input e sull'esecuzione del rilevamento in tempo reale, continuare con l'articolo seguente:
+Per informazioni sugli strumenti di Analisi di flusso di Azure per Visual Studio, passare all'articolo seguente:
 
 > [!div class="nextstepaction"]
-> [Rilevamento delle frodi in tempo reale tramite Analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
+> [Usare Visual Studio per visualizzare i processi di Analisi di flusso di Azure](stream-analytics-vs-tools.md)

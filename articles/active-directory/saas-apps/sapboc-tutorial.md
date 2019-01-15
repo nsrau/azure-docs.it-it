@@ -5,209 +5,212 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/14/2017
+ms.topic: tutorial
+ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: ffd4480a13549caba17becff27a43f51fcaa1988
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 18adc7728ffd0b4faf2e63e7c5d3be0da7dd651c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041739"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Business Object Cloud
 
 Questa esercitazione descrive come integrare SAP Business Object Cloud con Azure Active Directory (Azure AD).
-
 L'integrazione di SAP Business Object Cloud con Azure AD offre i vantaggi seguenti:
 
-- In Azure AD è possibile controllare chi può accedere a SAP Business Object Cloud.
-- È possibile connettere automaticamente gli utenti a SAP Business Object Cloud usando Single Sign-On e l'account Azure AD di un utente.
-- È possibile gestire gli account da una posizione centrale, il portale di Azure.
+* È possibile controllare in Azure AD chi può accedere a SAP Business Object Cloud.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a SAP Business Object Cloud con gli account Azure AD personali.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con SAP Business Object Cloud, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
-- Sottoscrizione di SAP Business Object Cloud, con l'accesso Single Sign-On attivato
-
-> [!NOTE]
-> Se si testano i passaggi di questa esercitazione, è consigliabile non testarli in un ambiente di produzione.
-
-Raccomandazioni per il test dei passaggi di questa esercitazione:
-
-- Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
+* Sottoscrizione di SAP Business Object Cloud abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. 
 
-Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-1. Aggiungere SAP Business Object Cloud dalla raccolta.
-2. Configurare e testare l'accesso Single Sign-On di Azure AD.
+* SAP Business Object Cloud supporta l'accesso SSO avviato da **SP**
 
-## <a name="add-sap-business-object-cloud-from-the-gallery"></a>Aggiungere SAP Business Object Cloud dalla raccolta
-Per configurare l'integrazione di SAP Business Object Cloud con Azure AD, nella raccolta aggiungere SAP Business Object Cloud al proprio elenco di app SaaS gestite.
+## <a name="adding-sap-business-object-cloud-from-the-gallery"></a>Aggiunta di SAP Business Object Cloud dalla raccolta
 
-Per aggiungere SAP Business Object Cloud dalla raccolta:
+Per configurare l'integrazione di SAP Business Object Cloud in Azure AD, è necessario aggiungere SAP Business Object Cloud dalla raccolta al proprio elenco di app SaaS gestite.
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel menu sinistro. 
+**Per aggiungere SAP Business Object Cloud dalla raccolta, seguire questa procedura:**
 
-    ![Pulsante Azure Active Directory][1]
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-2. Selezionare **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-    ![Pagina Applicazioni aziendali][2]
-    
-3. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
-    ![Pulsante Nuova applicazione][3]
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-4. Nella casella di ricerca immettere **SAP Business Object Cloud**.
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Casella di ricerca](./media/sapboc-tutorial/tutorial_sapboc_search.png)
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-5. Nel pannello dei risultati selezionare **SAP Business Object Cloud** e quindi selezionare **Aggiungi**.
+4. Nella casella di ricerca digitare **SAP Business Object Cloud**, selezionare **SAP Business Object Cloud** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![SAP Business Object Cloud nell'elenco risultati](./media/sapboc-tutorial/tutorial_sapboc_addfromgallery.png)
+     ![SAP Business Object Cloud nell'elenco risultati](common/search-new-app.png)
 
-##  <a name="set-up-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con SAP Business Object Cloud con un utente di test di nome *Britta Simon*.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con SAP Business Object Cloud con un utente di test di nome**Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SAP Business Object Cloud.
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente di Azure AD in SAP Business Object Cloud. Deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SAP Business Object Cloud.
+Per configurare e testare l'accesso Single Sign-On di Azure AD con SAP Business Object Cloud, è necessario completare i blocchi predefiniti seguenti:
 
-Per stabilire la relazione di collegamento, in SAP Business Object Cloud per **Username** (Nome utente) assegnare il valore del **nome utente** in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di SAP Business Object Cloud](#configure-sap-business-object-cloud-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente test di SAP Business Object Cloud](#create-sap-business-object-cloud-test-user)**: per avere una corrispondenza di Britta Simon in SAP Business Object Cloud collegata alla relativa rappresentazione dell'utente in Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con SAP Business Object Cloud, completare le attività seguenti:
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-1. [Configurare l'accesso Single Sign-On di Azure AD](#set-up-azure-ad-single-sign-on). Configura un utente per l'uso di questa funzionalità.
-2. [Creare un utente test di Azure AD](#create-an-azure-ad-test-user). Testa l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. [Creare un utente di test di SAP Business Object Cloud](#create-an-sap-business-object-cloud-test-user). Crea una controparte di Britta Simon in SAP Business Object Cloud collegata alla rappresentazione dell'utente in Azure AD.
-4. [Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user). Configura Britta Simon per usare l'accesso Single Sign-On di Azure AD.
-5. [Testare l'accesso Single Sign-On](#test-single-sign-on). Verifica se la configurazione funziona.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-### <a name="set-up-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
+Per configurare l'accesso Single Sign-On di Azure AD con SAP Business Object Cloud, seguire questa procedura:
 
-In questa sezione si attiva l'accesso Single Sign-On di Azure AD nel portale di Azure, quindi si configura Single Sign-On nell'applicazione SAP Business Object Cloud.
+1. Nella pagina di integrazione dell'applicazione **SAP Business Object Cloud** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-Per configurare Single Sign-On di Azure AD con SAP Business Object Cloud:
+    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-1. Nella pagina di integrazione dell'applicazione **SAP Business Object Cloud** del portale di Azure selezionare **Single Sign-On**.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
-    ![Selezionare Single Sign-On][4]
+    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-2. Nella pagina **Single Sign-On** in **Modalità** selezionare **Accesso basato su SAML**.
- 
-    ![Selezionare Accesso basato su SAML](./media/sapboc-tutorial/tutorial_sapboc_samlbase.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-3. In **SAP Business Object Cloud Domain and URLs** (URL e dominio SAP Business Object Cloud) completare questa procedura:
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-    1. Nella casella **URL di accesso** immettere un URL con il modello seguente: 
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
+
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di SAP Business Object Cloud](common/sp-identifier.png)
+
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente:
     | |
     |-|-|
     | `https://<sub-domain>.sapanalytics.cloud/` |
     | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
-    2. Nella casella **Identificatore** immettere un URL con il modello seguente:
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente:
     | |
     |-|-|
     | `<sub-domain>.sapbusinessobjects.cloud` |
     | `<sub-domain>.sapanalytics.cloud` |
 
-    ![URL della pagina SAP Business Object Cloud Domain and URLs (URL e dominio SAP Business Object Cloud)](./media/sapboc-tutorial/tutorial_sapboc_url.png)
- 
     > [!NOTE] 
-    > I valori in questi URL sono forniti solo a scopo dimostrativo. Aggiornare i valori con l'URL di accesso e l'URL dell'identificatore effettivi. Per ottenere l'URL di accesso, contattare il [team di supporto clienti di SAP Business Object Cloud](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US). Per ottenere l'URL dell'identificatore, scaricare i metadati di SAP Business Object Cloud dalla console di amministrazione. Questo concetto verrà spiegato più avanti nell'esercitazione. 
+    > I valori in questi URL sono forniti solo a scopo dimostrativo. Aggiornare i valori con l'URL di accesso e l'URL dell'identificatore effettivi. Per ottenere l'URL di accesso, contattare il [team di supporto clienti di SAP Business Object Cloud](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Per ottenere l'URL dell'identificatore, scaricare i metadati di SAP Business Object Cloud dalla console di amministrazione. Questo concetto verrà spiegato più avanti nell'esercitazione.
 
-4. In **Certificato di firma SAML** selezionare **XML metadati**, quindi salvare il file di metadati sul computer.
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
-    ![Selezionare XML metadati](./media/sapboc-tutorial/tutorial_sapboc_certificate.png) 
+    ![Collegamento di download del certificato](common/metadataxml.png)
 
-5. Selezionare **Salva**.
+### <a name="configure-sap-business-object-cloud-single-sign-on"></a>Configurare l'accesso Single Sign-On di SAP Business Object Cloud
 
-    ![Selezionare Salva](./media/sapboc-tutorial/tutorial_general_400.png)
+1. In un'altra finestra del Web browser accedere al sito aziendale di SAP Business Object Cloud come amministratore.
 
-6. In un'altra finestra del Web browser accedere al sito aziendale di SAP Business Object Cloud come amministratore.
-
-7. Selezionare **Menu** > **Sistema** > **Amministrazione**.
+2. Selezionare **Menu** > **Sistema** > **Amministrazione**.
     
     ![Selezionare Menu, quindi Sistema e infine Amministrazione](./media/sapboc-tutorial/config1.png)
 
-8. Selezionare l'icona **Modifica** (penna) nella scheda **Sicurezza**.
+3. Selezionare l'icona **Modifica** (penna) nella scheda **Sicurezza**.
     
     ![Selezionare l'icona Modifica nella scheda Sicurezza](./media/sapboc-tutorial/config2.png)  
 
-9. Per **Metodo di autenticazione** selezionare **SAML Single Sign-On (SSO)**.
+4. Per **Metodo di autenticazione** selezionare **SAML Single Sign-On (SSO)**.
 
     ![Selezionare SAML Single Sign-On per il metodo di autenticazione](./media/sapboc-tutorial/config3.png)  
 
-10. Per scaricare i metadati del provider di servizi (passaggio 1), selezionare **Download**. Nel file di metadati trovare e copiare il valore **entityID**. Nel portale di Azure, in **SAP Business Object Cloud Domain and URLs** (URL e dominio SAP Business Object Cloud), incollare il valore nella casella **Identificatore**.
+5. Per scaricare i metadati del provider di servizi (passaggio 1), selezionare **Download**. Nel file di metadati trovare e copiare il valore **entityID**. Nella finestra di dialogo **Configurazione SAML di base** del portale di Azure incollare il valore nella casella **Identificatore**.
 
     ![Copiare e incollare il valore di entityID](./media/sapboc-tutorial/config4.png)  
 
-11. Per caricare i metadati del provider di servizi (passaggio 2) nel file scaricato nel portale di Azure, in **Upload Identity Provider metadata** (Caricare i metadati del provider di identità) selezionare **Carica**.  
+6. Per caricare i metadati del provider di servizi (passaggio 2) nel file scaricato nel portale di Azure, in **Upload Identity Provider metadata** (Caricare i metadati del provider di identità) selezionare **Carica**.  
 
     ![In Upload Identity Provider metadata (Caricare i metadati del provider di identità) selezionare Carica](./media/sapboc-tutorial/config5.png)
 
-12. Nell'elenco **Attributo utente** selezionare l'attributo utente (passaggio 3) da usare per l'implementazione. Questo attributo utente esegue il mapping al provider di identità. Per immettere un attributo personalizzato nella pagina dell'utente, usare l'opzione **Custom SAML Mapping** (Mapping SAML personalizzato). oppure selezionare **Posta elettronica** o **ID UTENTE** come attributo utente. Nell'esempio è stato selezionato **Posta elettronica** perché è stato eseguito il mapping dell'attestazione dell'ID utente con l'attributo **userprincipalname** nella sezione **Attributi utente** del portale di Azure. Si ottiene così un indirizzo di posta elettronica dell'utente univoco, che viene inviato all'applicazione SAP Business Object Cloud in ogni risposta SAML con esito positivo.
+7. Nell'elenco **Attributo utente** selezionare l'attributo utente (passaggio 3) da usare per l'implementazione. Questo attributo utente esegue il mapping al provider di identità. Per immettere un attributo personalizzato nella pagina dell'utente, usare l'opzione **Custom SAML Mapping** (Mapping SAML personalizzato). oppure selezionare **Posta elettronica** o **ID UTENTE** come attributo utente. Nell'esempio è stato selezionato **Posta elettronica** perché è stato eseguito il mapping dell'attestazione dell'ID utente con l'attributo **userprincipalname** nella sezione **Attributi utente e attestazioni** del portale di Azure. Si ottiene così un indirizzo di posta elettronica dell'utente univoco, che viene inviato all'applicazione SAP Business Object Cloud in ogni risposta SAML con esito positivo.
 
     ![Selezionare Attributo utente](./media/sapboc-tutorial/config6.png)
 
-13. Per verificare l'account con il provider di identità (passaggio 4), nella casella **Login Credential (Email)** (Credenziale di accesso - Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente. Selezionare quindi **Verifica account**. Il sistema aggiunge le credenziali di accesso all'account utente.
+8. Per verificare l'account con il provider di identità (passaggio 4), nella casella **Login Credential (Email)** (Credenziale di accesso - Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente. Selezionare quindi **Verifica account**. Il sistema aggiunge le credenziali di accesso all'account utente.
 
     ![Immettere l'indirizzo di posta elettronica e selezionare Verifica account](./media/sapboc-tutorial/config7.png)
 
-14. Selezionare l'icona **Salva**.
+9. Selezionare l'icona **Salva**.
 
     ![Icona Salva](./media/sapboc-tutorial/save.png)
 
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile nel [portale di Azure](https://portal.azure.com) durante la configurazione dell'app. Dopo avere aggiunto l'app selezionando **Active Directory** > **Applicazioni aziendali**, selezionare la scheda **Single Sign-On**. È possibile accedere alla documentazione incorporata nella sezione **Configurazione** nella parte inferiore della pagina. Per altre informazioni, vedere la [documentazione incorporata su Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
-In questa sezione viene creato un utente di test chiamato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-Per creare un utente di test in Azure AD:
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-1. Nel portale di Azure fare clic su **Azure Active Directory** nel menu sinistro.
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
-    ![Creazione di un utente test di Azure AD](./media/sapboc-tutorial/create_aaduser_01.png) 
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-2. Selezionare **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
-    
-    ![Creazione di un utente test di Azure AD](./media/sapboc-tutorial/create_aaduser_02.png) 
+    ![Pulsante Nuovo utente](common/new-user.png)
 
-3. Per aprire la finestra di dialogo **Utente**, fare clic su **Aggiungi**.
- 
-    ![Creazione di un utente test di Azure AD](./media/sapboc-tutorial/create_aaduser_03.png) 
+3. In Proprietà utente seguire questa procedura.
 
-4. Nella finestra di dialogo **Utente** completare questa procedura:
- 
-    1. Nella casella **Nome** immettere **BrittaSimon**.
+    ![Finestra di dialogo Utente](common/user-properties.png)
 
-    2. Nella casella **Nome utente** immettere l'indirizzo di posta elettronica dell'utente Britta Simon.
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
 
-    3. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    4. Selezionare **Crea**.
+    d. Fare clic su **Create**(Crea).
 
-        ![Finestra di dialogo Utente](./media/sapboc-tutorial/create_aaduser_04.png) 
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-    ![Creare un utente di Azure AD][100]
+In questa sezione Britta Simon viene abilitata all'uso di Single Sign-On di Azure attraverso la concessione dell'accesso a SAP Business Object Cloud.
 
-### <a name="create-an-sap-business-object-cloud-test-user"></a>Creare un utente di test di SAP Business Object Cloud
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **SAP Business Object Cloud**.
+
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
+
+2. Nell'elenco delle applicazioni selezionare **SAP Business Object Cloud**.
+
+    ![Collegamento di SAP Business Object Cloud nell'elenco Applicazioni](common/all-applications.png)
+
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
+
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
+
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+
+### <a name="create-sap-business-object-cloud-test-user"></a>Creare un utente di test di SAP Business Object Cloud
 
 È necessario effettuare il provisioning degli utenti di Azure AD in SAP Business Object Cloud perché possano accedere a SAP Business Object Cloud. In SAP Business Object Cloud il provisioning è un'attività manuale.
 
@@ -225,78 +228,33 @@ Per effettuare il provisioning di un account utente:
 
     Completare quindi i passaggi seguenti:
 
-    1. Nella casella **USER ID** (ID UTENTE) immettere l'ID dell'utente, ad esempio, **Britta**.
+    a. Nella casella **USER ID** (ID UTENTE) immettere l'ID dell'utente, ad esempio, **Britta**.
 
-    2. Nella casella **FIRST NAME** (NOME) immettere il nome dell'utente, ad esempio **Britta**.
+    b. Nella casella **FIRST NAME** (NOME) immettere il nome dell'utente, ad esempio **Britta**.
 
-    3. Nella casella **LAST NAME** (COGNOME) immettere il cognome dell'utente, ad esempio **Simon**.
+    c. Nella casella **LAST NAME** (COGNOME) immettere il cognome dell'utente, ad esempio **Simon**.
 
-    4. Nella casella **NOME VISUALIZZATO** immettere nome e cognome dell'utente, ad esempio **Britta Simon**.
+    d. Nella casella **NOME VISUALIZZATO** immettere nome e cognome dell'utente, ad esempio **Britta Simon**.
 
-    5. Nella casella **E-MAIL** (POSTA ELETTRONICA) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon@contoso.com**.
+    e. Nella casella **E-MAIL** (POSTA ELETTRONICA) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon@contoso.com**.
 
-    6. Nella pagina **Select Roles** (Selezione ruoli) selezionare il ruolo appropriato per l'utente e quindi fare clic su **OK**.
+    f. Nella pagina **Select Roles** (Selezione ruoli) selezionare il ruolo appropriato per l'utente e quindi fare clic su **OK**.
 
       ![Selezionare il ruolo](./media/sapboc-tutorial/user3.png)
 
-    7. Selezionare l'icona **Salva**.    
+    g. Selezionare l'icona **Salva**.    
 
-
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
-
-In questa sezione si consente all'utente Britta Simon di usare l'accesso Single Sign-On di Azure AD concedendo all'account utente l'accesso a SAP Business Object Cloud.
-
-Per assegnare Britta Simon a SAP Business Object Cloud:
-
-1. Nel portale di Azure aprire la visualizzazione applicazioni e quindi passare alla visualizzazione directory. Selezionare **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-
-    ![Assegna utente][201] 
-
-2. Nell'elenco delle applicazioni selezionare **SAP Business Object Cloud**.
-
-    ![Configure Single Sign-On](./media/sapboc-tutorial/tutorial_sapboc_app.png) 
-
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
-
-    ![Selezionare Utenti e gruppi][202] 
-
-4. Selezionare **Aggiungi**. Quindi nella pagina **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
-
-    ![Pagina Aggiungi assegnazione][203]
-
-5. Nella pagina **Utenti e gruppi** selezionare **Britta Simon** nell'elenco di utenti.
-
-6. Nella pagina **Utenti e gruppi** selezionare **Seleziona**.
-
-7. Nella pagina **Aggiungi assegnazione** selezionare **Assegna**.
-
-![Assegnare il ruolo utente][200] 
-    
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro SAP Business Object Cloud nel pannello di accesso, si accederà automaticamente all'applicazione SAP Business Object Cloud.
-
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Quando si fa clic sul riquadro di SAP Business Object Cloud nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SAP Business Object Cloud per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-<!--Image references-->
-
-[1]: ./media/sapboc-tutorial/tutorial_general_01.png
-[2]: ./media/sapboc-tutorial/tutorial_general_02.png
-[3]: ./media/sapboc-tutorial/tutorial_general_03.png
-[4]: ./media/sapboc-tutorial/tutorial_general_04.png
-
-[100]: ./media/sapboc-tutorial/tutorial_general_100.png
-
-[200]: ./media/sapboc-tutorial/tutorial_general_200.png
-[201]: ./media/sapboc-tutorial/tutorial_general_201.png
-[202]: ./media/sapboc-tutorial/tutorial_general_202.png
-[203]: ./media/sapboc-tutorial/tutorial_general_203.png
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

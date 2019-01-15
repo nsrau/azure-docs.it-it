@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Gestire il traffico Web - Interfaccia della riga di comando di Azure'
-description: Informazioni su come creare un gateway applicazione con un set di scalabilità di macchine virtuali per gestire il traffico Web tramite l'interfaccia della riga di comando di Azure.
+description: Informazioni su come creare un gateway applicazione con un set di scalabilità di macchine virtuali per gestire il traffico Web usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: eba1561e69da879efa9e61ff0a2040df5267d391
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f93ae2a4aaab2ae25a212b2f97c1f97e6b0e095e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962191"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160030"
 ---
-# <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Esercitazione: Gestire il traffico Web con un gateway applicazione tramite l'interfaccia della riga di comando di Azure
+# <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Esercitazione: Gestire il traffico Web con un gateway applicazione usando l'interfaccia della riga di comando di Azure
 
 Il gateway applicazione viene usato per gestire e proteggere il traffico Web verso i server gestiti. È possibile usare l'interfaccia della riga di comando di Azure per creare un [gateway applicazione](overview.md) che usa un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per permettere ai server back-end di gestire il traffico Web. In questo esempio il set di scalabilità contiene due istanze di macchine virtuali che vengono aggiunte al pool back-end predefinito del gateway applicazione.
 
@@ -72,7 +72,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
-Usare [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) per creare il gateway applicazione denominato *myAppGateway*. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myPublicIPSddress* creati in precedenza. 
+Usare [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) per creare il gateway applicazione denominato *myAppGateway*. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myPublicIPAddress* creati in precedenza. 
 
 ```azurecli-interactive
 az network application-gateway create \

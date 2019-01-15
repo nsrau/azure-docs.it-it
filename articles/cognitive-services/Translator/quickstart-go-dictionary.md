@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Trovare traduzioni alternative, Go - API Traduzione testuale'
+title: 'Avvio rapido: Cercare le parole con il dizionario bilingue, Go - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Go.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: bcda716d143bd675f9510b1ecf5974ab9c28a394
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c1a75a32e60e337d07bda9d6f6d39efa58c679e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000581"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158568"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-go"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere traduzioni alternative con Go
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Go
 
 In questo argomento di avvio rapido viene illustrato come trovare traduzioni alternative ed esempi d'uso per un testo specifico usando Go e l'API REST Traduzione testuale.
 
@@ -32,7 +32,7 @@ Questa guida introduttiva richiede:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
-Creare un nuovo progetto Go tramite l'editor o l'IDE preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `alt-translations.go`.
+Creare un nuovo progetto Go usando l'editor o l'IDE preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `alt-translations.go`.
 
 ```go
 package main
@@ -88,7 +88,7 @@ func altTranslations(subscriptionKey string) {
 }
 ```
 
-Creare quindi l'URL. Per creare l'URL vengono usati i metodi `Parse()` e `Query()`. È possibile notare che vengono aggiunti parametri con il metodo `Add()`. In questo esempio viene eseguita la traduzione dall'inglese allo spagnolo.
+Successivamente, è possibile creare l'URL. Per creare l'URL vengono usati i metodi `Parse()` e `Query()`. È possibile notare che vengono aggiunti parametri con il metodo `Add()`. In questo esempio viene eseguita la traduzione dall'inglese allo spagnolo.
 
 Copiare questo codice nella funzione `altTranslations`.
 
@@ -120,7 +120,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Compilare la richiesta
 
-Ora che il corpo della richiesta è stato codificato in formato JSON, è possibile creare la richiesta POST e chiamare l'API Traduzione testuale.
+Ora che il corpo della richiesta è stato codificato in formato JSON, è possibile compilare la richiesta POST e chiamare l'API Traduzione testuale.
 
 ```go
 // Build the HTTP POST request
@@ -141,7 +141,7 @@ if err != nil {
 
 ## <a name="handle-and-print-the-response"></a>Gestire e stampare la risposta
 
-Aggiungere questo codice alla funzione `altTranslations` per decodificare la risposta JSON e quindi formattare e stampare il risultato.
+Aggiungere questo codice alla funzione `altTranslations` per decodificare la risposta JSON, quindi formattare e stampare il risultato.
 
 ```go
 // Decode the JSON response

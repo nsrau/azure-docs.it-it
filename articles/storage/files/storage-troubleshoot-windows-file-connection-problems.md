@@ -6,15 +6,15 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: caa078aa522e20a0e09d0b4d97461358c1698fc7
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: a7ab2e76280458326539fe83d3507dfb4e4a486e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744238"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023097"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -261,6 +261,15 @@ Per risolvere questo problema, modificare il valore del Registro di sistema **Di
  
 È ad esempio possibile impostare questo valore su 0x100000 e verificare se si riscontra un miglioramento delle prestazioni.
 
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Errore AadDsTenantNotFound durante l'abilitazione dell'autenticazione di Azure Active Directory per i file di Azure "Impossibile individuare active tenant con Id aad-tenant-id tenant"
+
+### <a name="cause"></a>Causa
+
+L'errore AadDsTenantNotFound avviene quando si tenta [abilitare l'autenticazione di Azure Active Directory (AAD) per i file di Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) in un account di archiviazione in cui il [dominio di servizio (AAD DS) ](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) non viene creata in un tenant di Azure appartenente alla sottoscrizione associata.  
+
+### <a name="solution"></a>Soluzione
+
+Abilitare AAD DS nel tenant della sottoscrizione in cui è stato distribuito l'account di archiviazione. Sono necessari privilegi di amministratore del tenant di AAD per creare un dominio gestito. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

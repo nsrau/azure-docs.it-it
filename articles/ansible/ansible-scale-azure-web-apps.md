@@ -3,17 +3,17 @@ title: Ridimensionare le app Web del servizio app di Azure con Ansible
 description: Informazioni su come usare Ansible per creare un'app Web con il runtime di Java 8 e del contenitore Tomcat nel servizio app in Linux
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, servizio app di Azure, app Web, ridimensionare, Java
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: 740ff6d6a636377f9d58a5231692c87f935ae6d2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 4ef8320d3eba841ee64557e31e63b4e79ee3aa92
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601866"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159894"
 ---
 # <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Ridimensionare le app Web del servizio app di Azure con Ansible
 Le [app Web del servizio app di Azure ](https://docs.microsoft.com/azure/app-service/overview), o semplicemente app Web, consentono l'hosting di applicazioni Web, API REST e back-end mobili. È possibile usare il linguaggio di sviluppo preferito &mdash; .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
@@ -39,7 +39,7 @@ Ansible consente di automatizzare la distribuzione e la configurazione delle ris
     location: eastus
 
   tasks:
-  - name: Get facts of existing App serivce plan
+  - name: Get facts of existing App service plan
     azure_rm_appserviceplan_facts:
       resource_group: "{{ resource_group }}"
       name: "{{ plan_name }}"
@@ -80,7 +80,7 @@ PLAY [localhost] **************************************************************
 TASK [Gathering Facts] ********************************************************
 ok: [localhost]
 
-TASK [Get facts of existing App serivce plan] **********************************************************
+TASK [Get facts of existing App service plan] **********************************************************
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]

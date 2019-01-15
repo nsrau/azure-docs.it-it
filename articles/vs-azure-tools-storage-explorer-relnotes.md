@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94c1f255d7aae63d6faf44cc500c48c68bf6d3fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608954"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190018"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
@@ -27,15 +27,18 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 
-## <a name="version-161"></a>Versione 1.6.1
-18/12/2018
+## <a name="version-162"></a>Versione 1.6.2
+1/9/2019
 
-### <a name="download-azure-storage-explorer-161"></a>Scaricare Azure Storage Explorer 1.6.1
-- [Azure Storage Explorer 1.6.1 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.6.1 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.6.1 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-162"></a>Scaricare Azure Storage Explorer 1.6.2
+- [Azure Storage Explorer 1.6.2 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.6.2 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.6.2 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Hotfix
+* In 1.6.1, le entità aggiunte a Azure Data Lake Storage Gen2 ACL da ObjectId che non sono utenti vengono aggiunte sempre come gruppi. A questo punto, solo i gruppi vengono aggiunti come gruppi; le entità quali applicazioni aziendali e le entità servizio, vengono aggiunte come utenti. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
+* Se un account di archiviazione di Azure Data Lake Storage Gen2 non possiede alcun contenitore ed è stato collegato con nome e chiave, Storage Explorer potrebbe non rilevare che l'Account di archiviazione sia Azure Data Lake Storage Gen2. Questo problema è stato risolto. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
+* Nella versione 1.6.0, conflitti durante l'operazione di copia e incolla non richiedono una soluzione. Al contrario, la copia in conflitto avrà semplicemente esito negativo. A questo punto verrà richiesto come risolvere il primo conflitto. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
 * A causa di limitazioni dell'API, nella finestra di dialogo Gestire l'accesso sono state disabilitate tutte le convalide di ObjectIds. È consentita la convalida solo dei nomi delle entità utente. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
 * Nella finestra di dialogo Gestire l'accesso di Azure Data Lake Storage Gen2, non era possibile modificare le autorizzazioni per un gruppo. Questo problema è stato risolto. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
 * È stato aggiunto il supporto per il caricamento tramite trascinamento della selezione all'editor Azure Data Lake Storage Gen2. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
@@ -103,6 +106,7 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
 
 ## <a name="previous-releases"></a>Versioni precedenti
 
+* [Versione 1.6.1](#version-161)
 * [Versione 1.6.0](#version-160)
 * [Versione 1.5.0](#version-150)
 * [Versione 1.4.4](#version-144)
@@ -135,6 +139,75 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
 * [Versione 0.7.20160129.1](#version-07201601291)
 * [Versione 0.7.20160105.0](#version-07201601050)
 * [Versione 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-161"></a>Versione 1.6.1
+18/12/2018
+
+### <a name="hotfixes"></a>Hotfix
+* A causa di limitazioni dell'API, nella finestra di dialogo Gestire l'accesso sono state disabilitate tutte le convalide di ObjectIds. È consentita la convalida solo dei nomi delle entità utente. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* Nella finestra di dialogo Gestire l'accesso di Azure Data Lake Storage Gen2, non era possibile modificare le autorizzazioni per un gruppo. Questo problema è stato risolto. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* È stato aggiunto il supporto per il caricamento tramite trascinamento della selezione all'editor Azure Data Lake Storage Gen2. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* Nella proprietà URL disponibile nella finestra di dialogo delle proprietà dei file e delle cartelle di Azure Data Lake Storage Gen2 mancava talvolta una '/'. Questo problema è stato risolto. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* Se non è possibile ottenere le autorizzazioni correnti per un contenitore, un file o una cartella di Azure Data Lake Storage Gen2, l'errore non viene correttamente visualizzato nel log delle attività. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* Il percorso temporaneo creato per l'apertura dei file è stato abbreviato per ridurre le probabilità di creare un percorso che non rispetta il parametro MAX_PATH in Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* La finestra di dialogo Connetti viene ora correttamente visualizzata quando non è connesso alcun utente e non è collegata alcuna risorsa. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* Nella versione 1.6.0, il salvataggio delle proprietà per BLOB e file non appartenenti al servizio dello spazio dei nomi gerarchico codificava il valore di ogni proprietà. Sebbene non fosse necessario, quindi, venivano codificati anche valori che contenevano solo caratteri ASCII. Vengono codificati ora solo i valori che contengono caratteri non ASCII. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* Il caricamento di una cartella in un contenitore BLOB non appartenente al servizio dello spazio dei nomi gerarchico aveva esito negativo se veniva usata una firma di accesso condiviso o se alla firma di accesso condiviso non erano state concesse autorizzazioni di lettura. Questo problema è stato risolto. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* L'annullamento di un trasferimento di AzCopy non funzionava. Questo problema è stato risolto. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* AzCopy generava un errore se si tentava di scaricare da un contenitore BLOB di Azure Data Lake Storage Gen2 una cartella contente spazi nel nome. Questo problema è stato risolto. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* L'editor CosmosDB non funzionava nella versione 1.6.0. Questo problema è stato corretto. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+        
+### <a name="new"></a>Nuovo
+
+* È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
+* Storage Explorer supporta ora gli account di archiviazione di Azure Data Lake Storage Gen2. Se Storage Explorer rileva che per un account di archiviazione è abilitato lo spazio dei nomi gerarchico, accanto al nome dell'account di archiviazione sarà visibile la voce "(ADLS Gen2 Preview)". Storage Explorer è in grado di rilevare se lo spazio dei nomi gerarchico è abilitato solo se si è connessi o se l'account di archiviazione è stato collegato con il nome e la chiave. Con gli account di archiviazione di Azure Data Lake Storage Gen2, è possibile usare Storage Explorer per:
+    * Creare ed eliminare contenitori
+    * Gestire proprietà e autorizzazioni (lato sinistro) dei contenitori
+    * Visualizzare ed esplorare i dati all'interno dei contenitori
+    * Creare nuove cartelle
+    * Caricare, scaricare, rinominare ed eliminare file e cartelle
+    * Gestire proprietà e autorizzazioni (lato destro) di file e cartelle.
+    
+    Altre funzionalità tipiche dei BLOB, come l'eliminazione temporanea e gli snapshot, non sono attualmente disponibili. La gestione delle autorizzazioni è disponibile solo se si è connessi. Se si usa un account di archiviazione di Azure Data Lake Storage Gen2, inoltre, Storage Explorer si avvarrà di AzCopy per tutti i caricamenti e i download e, per impostazione predefinita, userà le credenziali di nome e chiave per tutte le operazioni (se disponibili).
+* In seguito ai numerosi commenti e suggerimenti inviati dagli utenti, è nuovamente possibile usare l'opzione di interruzione dei lease per interrompere i lease su più BLOB contemporaneamente.
+
+### <a name="known-issues"></a>Problemi noti
+
+* Durante il download da un account di archiviazione di Azure Data Lake Storage Gen2, se uno dei file trasferiti esiste già, è possibile che AzCopy si arresti in modo anomalo. Questo problema verrà risolto in un hotfix futuro.
+* Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore BLOB, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere #537.
+* Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su questo problema.
+* Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
+* In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
+* Il caricamento dalla cartella OneDrive non funziona a causa di un bug in NodeJS. Il bug è stato risolto ma non è ancora stato integrato in Electron. Per ovviare a questo problema quando si esegue il caricamento o il download da un contenitore BLOB, è possibile usare la funzionalità sperimentale AzCopy.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta qui.
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Azure Stack non supporta le funzionalità seguenti; se si prova a usarle mentre si lavora in Azure Stack, potrebbero verificarsi errori imprevisti.
+   * Condivisioni file
+   * Livelli di accesso
+   * Eliminazione temporanea
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-160"></a>Versione 1.6.0
 05/12/2018

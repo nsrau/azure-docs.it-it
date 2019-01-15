@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 947e5d4004565fd10e81e703111daf26fce10368
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973520"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159010"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparare le risorse di Azure per il ripristino di emergenza di computer locali
 
@@ -68,11 +68,12 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
-1. Nel portale di Azure selezionare **Crea una risorsa** > **Archiviazione** > **Backup e Site Recovery (OMS)**.
-2. In **Nome**immettere un nome descrittivo per identificare l'insieme di credenziali. Per questo set di esercitazioni viene usato **ContosoVMVault**.
-3. In **Gruppo di risorse** viene usato **contosoRG**.
-4. In **Località**. Viene usato **Europa occidentale**.
-5. Per accedere rapidamente all'insieme di credenziali dal dashboard, selezionare **Aggiungi al dashboard** > **Crea**.
+1. Nel portale di Azure fare clic su **+Crea una risorsa** e quindi cercare **Servizi di ripristino** nel Marketplace.
+2. Fare clic su **Backup e Site Recovery (OMS)**, quindi nella pagina Backup e Site Recovery fare clic su **Crea**. 
+1. Nell'**insieme di credenziali di Servizi di ripristino** > **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Per questo set di esercitazioni viene usato **ContosoVMVault**.
+2. In **Gruppo di risorse** selezionare un gruppo di risorse esistente o crearne uno nuovo. Per questa esercitazione, selezionare **contosoRG**.
+3. In **Località** selezionare l'area geografica in cui dovrà essere collocato l'insieme di credenziali. Viene usato **Europa occidentale**.
+4. Per accedere rapidamente all'insieme di credenziali dal dashboard, selezionare **Aggiungi al dashboard** > **Crea**.
 
    ![Creare un nuovo insieme di credenziali](./media/tutorial-prepare-azure/new-vault-settings.png)
 

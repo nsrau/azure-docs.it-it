@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: e9f322198cf94232dd2d87aa1f27dbbd6a282b72
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: c1ef32256569d1718f6848a968585216f43f333a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994998"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033452"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure---paas-or-iaas"></a>Scegliere l'opzione più adatta per SQL Server in Azure: PaaS o IaaS
 
@@ -87,10 +87,11 @@ La tabella seguente riepiloga le caratteristiche principali del database SQL di 
 ## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Motivazioni aziendali alla base della scelta del database SQL di Azure o di SQL Server nelle macchine virtuali di Azure
 
 Esistono molti fattori che possono influenzare la decisione di scegliere PaaS o IaaS per ospitare i database SQL:
+
 - [Costo](#cost): entrambe le opzioni PaaS e IaaS includono un prezzo base che copre l'infrastruttura e le licenze sottostanti. Tuttavia, con l'opzione IaaS è necessario investire tempo e risorse aggiuntivi per la gestione del database, mentre nelle soluzioni PaaS queste funzionalità di amministrazione sono incluse nel prezzo. L'opzione IaaS consente di arrestare le risorse quando non vengono usate per ridurre i costi, mentre la versione PaaS è sempre in esecuzione, a meno che le risorse non vengano eliminate e ricreate quando sono necessarie.
 - [Amministrazione](#administration): le opzioni PaaS riducono la quantità di tempo da investire per amministrare il database. Tuttavia, impediscono anche di eseguire alcune attività di amministrazione personalizzate che potrebbero migliorare le prestazioni del carico di lavoro.
 - [Contratto di servizio](#service-level-agreement-sla): sia PaaS che IaaS forniscono un contratto di servizio elevato e standard del settore. L'opzione PaaS garantisce un contratto di servizio del 99,99%, mentre l'opzione IaaS garantisce un contratto di servizio del 99,95% per l'infrastruttura, ovvero è necessario implementare meccanismi aggiuntivi per garantire la disponibilità dei database. Nel caso estremo, se si vuole implementare una soluzione a disponibilità elevata che corrisponda a PaaS, è necessario creare sistemi SQL Server aggiuntivi nelle macchine virtuali e configurare gruppi di disponibilità AlwaysOn, che potrebbero raddoppiare il costo del database.
-- [Tempo per il trasferimento al cloud](#time-to-move-to-cloud): SQL Server in Macchine virtuali di Azure corrisponde esattamente all'ambiente del cliente, pertanto la migrazione dall'ambiente locale alla macchina virtuale SQL di Azure non è diversa dallo spostamento dei database da un server locale a un altro. Anche Istanza gestita consente la migrazione in modo molto semplice, tuttavia potrebbe essere necessario apportare alcune modifiche prima della migrazione a Istanza gestita.
+- [Tempo per il trasferimento ad Azure](#market): SQL Server in Macchine virtuali di Azure corrisponde esattamente all'ambiente del cliente, pertanto la migrazione dall'ambiente locale alla macchina virtuale SQL di Azure non è diversa dallo spostamento dei database da un server locale a un altro. Anche Istanza gestita consente la migrazione in modo molto semplice, tuttavia potrebbe essere necessario apportare alcune modifiche prima della migrazione a Istanza gestita.
 
 Questi fattori verranno illustrati più in dettaglio nelle sezioni seguenti.
 
@@ -102,10 +103,8 @@ Una startup con pochi fondi o un team di un'azienda consolidata con vincoli di b
 
 Attualmente il **database SQL** viene venduto come servizio ed è disponibile in livelli di servizio differenti con prezzi diversi per le risorse, la cui fatturazione viene applicata su base oraria a una tariffa fissa, a seconda dei livelli di servizio e delle dimensioni di calcolo scelti.
 Con un singolo database SQL è possibile scegliere un livello di servizio adatto alle specifiche esigenze da una vasta gamma di prezzi, a partire da 5 dollari al mese per il livello Basic.
-Con Istanza gestita di database SQL di Azure, è anche possibile scegliere l'opzione Bring Your Own License (BYOL). Per altre informazioni sulla funzionalità Bring Your Own License, vedere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/) o usare il [calcolatore del Vantaggio Azure Hybrid](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/#sql-database) per scoprire come **risparmiare fino al 40%**.
+Con Istanza gestita di database SQL di Azure, è anche possibile scegliere l'opzione Bring Your Own License (BYOL). Per altre informazioni sulla funzionalità Bring Your Own License, vedere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/) o usare il [calcolatore del Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) per scoprire come **risparmiare fino al 40%**.
 Viene inoltre fatturato il traffico Internet in uscita a una [velocità di trasferimento dati](https://azure.microsoft.com/pricing/details/data-transfers/)normale. È possibile modificare in modo dinamico i livelli di servizio e le dimensioni di calcolo per soddisfare le diverse esigenze di velocità effettiva dell'applicazione. Per le informazioni più aggiornate sui livelli di servizio attualmente supportati, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). È anche possibile creare [pool elastici](sql-database-elastic-pool.md) per condividere le risorse tra le istanze del database per ridurre i costi e far fronte ai picchi di utilizzo.
-
-
 
 Con il **database SQL**, Microsoft configura automaticamente il software del database, applica le patch ed esegue l'aggiornamento, riducendo quindi i costi amministrativi. Le funzionalità di [backup predefinite](sql-database-automated-backups.md) consentono anche di ottenere una significativa riduzione dei costi, specialmente per un numero elevato di database.
 

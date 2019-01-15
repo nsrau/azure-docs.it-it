@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 8f76c53964d062db76ea7d40cdb0ced2d015fc79
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 926a339bc8214c989da4ef934ae41012eea58d1e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716011"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120734"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -25,10 +25,10 @@ Azure Active Directory (Azure AD) contiene un servizio proxy di applicazione che
 Questa esercitazione:
 
 > [!div class="checklist"]
-> * Apre le porte per il traffico in uscita e consente l'accesso a URL specifici
-> * Installa il connettore nel server Windows e lo registra con il proxy di applicazione
-> * Verifica che il connettore sia stato installato e registrato correttamente
-> * Aggiunge un'applicazione locale al tenant di Azure AD
+> * Apre le porte per il traffico in uscita e consente l'accesso a URL specifici.
+> * Installa il connettore nel server Windows e lo registra con il proxy di applicazione.
+> * Verifica che il connettore sia stato installato e registrato correttamente.
+> * Aggiunge un'applicazione locale al tenant di Azure AD.
 > * Verifica che un utente di test possa accedere all'applicazione con un account Azure AD.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
@@ -166,7 +166,7 @@ Dopo aver preparato l'ambiente e aver installato un connettore, si è pronti per
 
     ![Configurare l'applicazione](./media/application-proxy-publish-azure-portal/configure-app.png)
 
-    | Campo | Descrizione |
+    | Campo | DESCRIZIONE |
     | :---- | :---------- |
     | **Nome** | Il nome dell'applicazione che verrà visualizzato nel pannello di accesso e nel portale di Azure. |
     | **URL interno** | URL per accedere all'applicazione dall'interno della rete privata. È possibile indicare un percorso specifico nel server back-end per la pubblicazione, mentre il resto del server non è pubblicato. In questo modo, si possono pubblicare siti diversi nello stesso server come app differenti, assegnando a ognuno un nome e regole di accesso specifici.<br><br>Se si pubblica un percorso, verificare che includa tutte le immagini, gli script e i fogli di stile necessari per l'applicazione. Se ad esempio l'app si trova in https://yourapp/app e usa le immagini che si trovano in https://yourapp/media, come percorso si dovrà pubblicare https://yourapp/. Questo URL interno non deve necessariamente corrispondere alla pagina di destinazione visualizzata dagli utenti. Per altre informazioni, vedere [Impostare una home page personalizzata per le app pubblicate tramite il proxy applicazione di Azure AD](application-proxy-configure-custom-home-page.md). |
@@ -176,7 +176,7 @@ Dopo aver preparato l'ambiente e aver installato un connettore, si è pronti per
 
 5. Se necessario, configurare le **impostazioni aggiuntive**. Per la maggior parte delle applicazioni, è consigliabile mantenere queste impostazioni nei rispettivi stati predefiniti. 
 
-    | Campo | Descrizione |
+    | Campo | DESCRIZIONE |
     | :---- | :---------- |
     | **Timeout applicazione back-end** | Impostare questo valore su **Lungo** solo se l'applicazione è lenta nell'autenticazione e nella connessione. |
     | **Usa cookie solo HTTP** | Impostare questo valore su **Sì** per includere nei cookie del proxy di applicazione il flag HTTPOnly nell'intestazione della risposta HTTP. Se si usa Servizi Desktop remoto, impostare questo valore su **No**.|
@@ -188,7 +188,7 @@ Dopo aver preparato l'ambiente e aver installato un connettore, si è pronti per
 
 6. Selezionare **Aggiungi**.
 
-## <a name="test-the-application"></a>Testare l'applicazione
+## <a name="test-the-application"></a>Test dell'applicazione
 
 È ora possibile testare se l'applicazione è stata aggiunta correttamente. Nei passaggi successivi si aggiungerà un account utente all'applicazione e si proverà a eseguire l'accesso.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: d02557ecd84ea14db297ee07f7055a08304e7fcd
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 00c001b5c0c2c3dab86477fca798ec651f7b6c93
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091216"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189967"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -38,7 +38,7 @@ Prima di iniziare, verificare che:
 - La sottoscrizione usata per il servizio Data Box sia di uno dei tipi seguenti:
     - Contratto Enterprise Microsoft. Altre informazioni sui [contratti Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Cloud Solution Provider (CSP). Altre informazioni sul [programma Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Con pagamento in base al consumo. Altre informazioni sulle [sottoscrizioni con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) di Azure.
+    - Microsoft Azure Sponsorship Altre informazioni sul [programma Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Si abbia accesso alla sottoscrizione come proprietario o collaboratore per creare un ordine Data Box.
 
@@ -76,7 +76,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     
     |Impostazione  |Valore  |
     |---------|---------|
-    |NOME     |  Specificare un nome descrittivo per tenere traccia dell'ordine. <br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero.      |
+    |Nome     |  Specificare un nome descrittivo per tenere traccia dell'ordine. <br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero.      |
     |Gruppo di risorse     |   Usare un gruppo esistente o crearne uno nuovo. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme.         |
     |Area di Azure di destinazione     | Selezionare l'area per l'account di archiviazione. <br> Per altre informazioni, vedere [Disponibilità a livello di area](data-box-overview.md#region-availability).        |
     |Account di archiviazione     | In base all'area di Azure specificata, selezionare uno o più account di archiviazione nell'elenco filtrato di un account di archiviazione esistente. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. <br> È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**.        |

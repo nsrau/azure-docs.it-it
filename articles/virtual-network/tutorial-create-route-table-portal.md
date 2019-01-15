@@ -1,5 +1,6 @@
 ---
-title: Instradare il traffico di rete - Esercitazione - Portale di Azure | Microsoft Docs
+title: Instradare il traffico di rete - Esercitazione - Portale di Azure
+titlesuffix: Azure Virtual Network
 description: In questa esercitazione si apprenderà come instradare il traffico di rete con una tabella di route usando il portale di Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: fbbc624bbc3d20a70a54c50296f5b74634002a67
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3422219e33c04d7cb130e064790896f5da28649a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409072"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025046"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Esercitazione: Instradare il traffico di rete con una tabella di route usando il portale di Azure
 
@@ -88,7 +89,7 @@ Prima di poter associare una tabella di route a una subnet, è necessario creare
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
+1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
 
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
@@ -148,7 +149,7 @@ Le appliance virtuali di rete sono macchine virtuali con funzioni di rete come l
 
 1. In altro a sinistra nella schermata selezionare **Crea una risorsa** > **Calcolo** > **Windows Server 2016 Datacenter**.
 
-1. In **Creare una macchina virtuale - Informazioni di base** immettere o selezionare queste informazioni:
+1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
     | Impostazione | Valore |
     | ------- | ----- |
@@ -159,16 +160,16 @@ Le appliance virtuali di rete sono macchine virtuali con funzioni di rete come l
     | Nome macchina virtuale | Immettere *myVmNva*. |
     | Region | Selezionare **Stati Uniti orientali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
-    | Image | Lasciare l'impostazione predefinita, **Windows Server 2016 Datacenter**. |
-    | Dimensione | Lasciare l'impostazione predefinita, **DS1 Standard v2**. |
+    | Image | Lasciare l'impostazione predefinita **Windows Server 2016 Datacenter**. |
+    | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
     | **ACCOUNT AMMINISTRATORE** |  |
     | Username | Immettere un nome utente a scelta. |
     | Password | Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirm Password | Confermare la password. |
+    | Confirm Password | Reimmettere la password. |
     | **REGOLE PORTA IN INGRESSO** |  |
-    | Porte in ingresso pubbliche | Lasciare il valore predefinito: **Nessuna**.
-    | **RISPARMIA DENARO** |  |
-    | Si possiede già una licenza di Windows? | Lasciare il valore predefinito: **No**. |
+    | Porte in ingresso pubbliche | Lasciare il valore predefinito **Nessuna**.
+    | **RISPARMIA** |  |
+    | Già in possesso di una licenza di Windows? | Lasciare il valore predefinito **No**. |
 
 1. Selezionare **Avanti: Dischi**.
 
@@ -180,7 +181,7 @@ Le appliance virtuali di rete sono macchine virtuali con funzioni di rete come l
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Rete virtuale | Lasciare l'impostazione predefinita: **myVirtualNetwork**. |
+    | Rete virtuale | Lasciare l'impostazione predefinita **myVirtualNetwork**. |
     | Subnet | Selezionare **DMZ (10.0.2.0/24)**. |
     | IP pubblico | Selezionare **Nessuno**. Non è necessario un indirizzo IP pubblico. La macchina virtuale, infatti, non si connetterà a Internet.|
 
@@ -188,7 +189,7 @@ Le appliance virtuali di rete sono macchine virtuali con funzioni di rete come l
 
 1. In **Creare una macchina virtuale - Gestione**, per **Account di archiviazione di diagnostica**, selezionare **Crea nuovo**.
 
-1. In **Crea account di archiviazione** immettere o selezionare queste informazioni:
+1. In **Crea account di archiviazione**, immettere o selezionare queste informazioni:
 
     | Impostazione | Valore |
     | ------- | ----- |
@@ -266,7 +267,7 @@ Completare i passaggi da 1 a 12 di [Creare un'appliance virtuale di rete](#creat
 
 1. In **Connetti alla macchina virtuale in corso** selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *rdp*.
 
-1. Aprire il file con estensione *rdp* scaricato.
+1. Aprire il file con estensione *.rdp* scaricato.
 
     1. Quando richiesto, selezionare **Connetti**.
 

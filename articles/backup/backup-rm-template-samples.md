@@ -9,16 +9,16 @@ ms.topic: sample
 ms.date: 04/18/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bf6bca668ff97b30789a99dab2f1f3d409ab0624
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ffd153490938c232bdf8b5d4e40a2d43ced9f57b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867916"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063269"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Modelli di Azure Resource Manager per Backup di Azure
 
-La tabella seguente contiene collegamenti ai modelli di Azure Resource Manager da usare con gli insiemi di credenziali dei servizi di ripristino e le funzionalità di Backup di Azure.
+La tabella seguente contiene collegamenti ai modelli di Azure Resource Manager da usare con gli insiemi di credenziali dei servizi di ripristino e le funzionalità di Backup di Azure. Per informazioni sulla sintassi e le proprietà JSON, vedere [Tipi di risorse Microsoft.RecoveryServices](/azure/templates/microsoft.recoveryservices/allversions).
 
 |   |   |
 |---|---|

@@ -6,12 +6,12 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: af59a3f4d631992c2319a79f40a721c45535bb91
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 32500e4c7319411555e028889d6ec94150776250
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581063"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306591"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -211,6 +211,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/">Machine Learning</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Servizi cognitivi</a></li>
+                                                    <li><a class="barLink" href="/azure/notebooks/">Azure Notebooks</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -780,6 +781,11 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/notebooks">
+                                                <img src="media/index/notebooks.svg" alt="" />
+                                                <p>Notebook di Azure</p>
+                                            </a>
+                                        </li>                                        <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>Ricerca di Azure</p>
@@ -3562,7 +3568,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                         <a href="#ai">Intelligenza artificiale e Machine Learning</a>
                         <ul id="ai" class="cardsA">
                             <li class="fullSpan">
-                                <h2>Intelligenza artificiale</h2>
+                                <h2>Intelligenza artificiale e Machine Learning</h2>
                             </li>
                             <li>
                                 <a href="/azure/azure-databricks/">
@@ -3672,6 +3678,25 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Servizi cognitivi</h3>
                                                     <p>Inserire intelligence in app, siti Web e bot per vedere, ascoltare, parlare e comprendere</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/notebooks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/notebooks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Notebook di Azure</h3>
+                                                    <p>Ospitare ed eseguire notebook di Jupyter in un ambiente cloud preconfigurato</p>
                                                 </div>
                                             </div>
                                         </div>

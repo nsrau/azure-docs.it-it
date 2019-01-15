@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/01/2018
+ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: ddecd640c8b005588e8aa552957ee455cad7ad74
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 39e5042d5116cba96fb3d378fbf42813d33c69c6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547067"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191026"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Guida introduttiva: Creare un database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Avvio rapido: Creare un database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
 Il database di Azure per PostgreSQL è un servizio gestito che consente di eseguire, gestire e ridimensionare database PostgreSQL a disponibilità elevata nel cloud. L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida di avvio rapido mostra come creare un database di Azure per il server PostgreSQL in un [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tramite l'interfaccia della riga di comando di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
@@ -58,11 +58,11 @@ ssl-enforcement | Attivato | Indica se abilitare SSL per questo server. Valori c
 storage-size | 51200 | Capacità di archiviazione del server (l'unità è MB). Le dimensioni valide per la capacità di archiviazione partono da un minimo di 5120 MB e aumentano con incrementi di 1024 MB. Vedere il documento sui [piani tariffari](./concepts-pricing-tiers.md) per altre informazioni sui limiti delle dimensioni di archiviazione. 
 version | 9,6 | La versione principale di PostgreSQL.
 admin-user | myadmin | Nome utente per l'account di accesso dell'amministratore. Non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**'.
-admin-password | *password di protezione* | Password dell'utente amministratore. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre di queste categorie: lettere maiuscole, lettere minuscole, numeri e caratteri non alfanumerici.
+admin-password | *password di protezione* | Password dell'utente amministratore. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri e caratteri non alfanumerici.
 
 
 Il valore del parametro sku-name segue la convenzione {piano tariffario}\_{generazione calcolo}\_{vCore} come illustrato nell'esempio seguente:
-+ `--sku-name B_Gen4_4` esegue il mapping a Basic, Gen 4 e 4 vCore.
++ `--sku-name B_Gen4_1` esegue il mapping a Basic, Gen 4 e 1 vCore.
 + `--sku-name GP_Gen5_32` esegue il mapping a utilizzo generico, Gen 5 e 32 vCore.
 + `--sku-name MO_Gen5_2` esegue il mapping a ottimizzazione per la memoria, Gen 5 e 2 vCore.
 
@@ -73,10 +73,9 @@ L'esempio seguente crea negli Stati Uniti occidentali un server PostgreSQL 9.6 d
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
-
-> [!IMPORTANT]
-> L'account di accesso amministratore server e la password qui specificati sono necessari per accedere al server più avanti in questa guida di avvio rapido. Prendere nota di queste informazioni per usarle in seguito.
-
+> [!NOTE]
+> È consigliabile usare il piano tariffario Basic se le esigenze di calcolo e di prestazioni I/O sono adeguate per il carico di lavoro. Si noti che i server creati nel piano tariffario Basic non possono essere scalati in un secondo momento per utilizzo generico o ottimizzati per la memoria. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/postgresql/).
+> 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurare una regola del firewall a livello di server
 
@@ -168,7 +167,7 @@ pgAdmin è uno strumento open source usato con PostgreSQL. È possibile installa
 
    ![Scheda "Connection" (Connessione)](./media/quickstart-create-server-database-azure-cli/10-pgadmin-create-server.png)
 
-    Parametro di pgAdmin |Valore|Descrizione
+    Parametro di pgAdmin |Valore|DESCRIZIONE
     ---|---|---
     Host name/address (Nome host/indirizzo) | Nome server | Nome del server usato in precedenza al momento della creazione del database di Azure per il server PostgreSQL. Il server di esempio è **mydemoserver.postgres.database.azure.com**. Usare il nome di dominio completo (**\*.postgres.database.azure.com**) come nell'esempio. Se non si ricorda il nome del server, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. 
     Porta | 5432 | Porta da usare quando ci si connette al database di Azure per il server PostgreSQL. 

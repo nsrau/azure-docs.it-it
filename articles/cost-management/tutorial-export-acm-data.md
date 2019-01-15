@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087934"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053535"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -62,13 +62,29 @@ La nuova esportazione viene visualizzata nell'elenco delle esportazioni. Per imp
 
 Inizialmente, possono essere necessarie da una a due ore prima che l'esportazione venga eseguita. Tuttavia, possono essere necessarie fino a quattro ore prima che i dati vengano visualizzati nei file esportati.
 
+### <a name="export-schedule"></a>Pianificazione delle esportazioni
+
+Le esportazioni pianificate dipendono dall'ora e dal giorno della settimana in cui è stata creata inizialmente l'esportazione. Quando si crea un'esportazione pianificata, l'esportazione viene eseguita sempre alla stessa ora per ogni occorrenza successiva dell'esportazione. Se, ad esempio, si crea un'esportazione giornaliera alle ore 13, l'esportazione successiva verrà eseguita alle ore 13 del giorno successivo. L'ora corrente influisce su tutti gli altri tipi di esportazione nello stesso modo. Le esportazioni vengono sempre eseguite alla stessa ora del giorno in cui sono state create inizialmente. Se, ad esempio, si crea un'esportazione settimanale alle ore 16 di lunedì, l'esportazione successiva verrà eseguita alle ore 16 del lunedì successivo. *I dati esportati sono disponibili entro quattro ore dall'ora di esecuzione.*
+
+Con ogni esportazione viene creato un nuovo file, di conseguenza le esportazioni meno recenti non vengono sovrascritte.
+
+Esistono tre tipi di opzioni di esportazione:
+
+**Esportazione giornaliera dei costi da inizio mese**: l'esportazione iniziale viene eseguita immediatamente. Le esportazioni successive vengono eseguite il giorno successivo alla stessa ora dell'esportazione iniziale. I dati più recenti vengono aggregati dalle esportazioni giornaliere precedenti.
+
+**Esportazione settimanale dei costi per gli ultimi 7 giorni**: l'esportazione iniziale viene eseguita immediatamente. Le esportazioni successive vengono eseguite nello stesso giorno della settimana e alla stessa ora dell'esportazione iniziale. I costi si riferiscono agli ultimi sette giorni.
+
+**Personalizzata**: consente di pianificare esportazioni settimanali e mensili con le opzioni da inizio settimana e da inizio mese. *L'esportazione iniziale verrà eseguita immediatamente.*
+
+![Nuova esportazione - scheda Informazioni di base in cui è illustrata la selezione dell'opzione personalizzata per l'esportazione settimanale da inizio settimana](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+
 ## <a name="verify-that-data-is-collected"></a>Verificare che i dati vengano raccolti
 
 È possibile verificare che i dati di Gestione costi vengano raccolti e visualizzare il file CSV esportato in tutta semplicità usando Azure Storage Explorer.
 
 Nell'elenco delle esportazioni fare clic sul nome dell'account di archiviazione. Nella pagina dell'account di archiviazione fare clic su Apri in Explorer. Se viene visualizzata una finestra di conferma, fare clic su **Sì** per aprire il file in Azure Storage Explorer.
 
-![Pagina di account di archiviazione con le informazioni di esempio e il collegamento per l’apertura in Explorer](./media/tutorial-export-acm-data/storage-account-page.png)
+![Pagina di account di archiviazione con le informazioni di esempio e il collegamento per l'apertura in Explorer](./media/tutorial-export-acm-data/storage-account-page.png)
 
 In Storage Explorer passare al contenitore che si vuole aprire e selezionare la cartella corrispondente al mese corrente. Viene visualizzato un elenco di file CSV. Selezionarne uno e quindi fare clic su **Apri**.
 

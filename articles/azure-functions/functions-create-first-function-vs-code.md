@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c5889d89ec8c913d9300fa85318a16b4eb452d3b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d265c391b12a46f509c8663c64892372c8d806ba
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633759"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104523"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Creare la prima funzione con Visual Studio Code
 
@@ -27,7 +27,7 @@ In questo articolo verrà illustrato come usare l'[estensione Funzioni di Azure 
 
 ![Codice di Funzioni di Azure in un progetto di Visual Studio](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-L'estensione supporta attualmente funzioni C#, JavaScript e Java. La procedura illustrata in questo articolo potrebbe variare in base al linguaggio scelto per il progetto di Funzioni di Azure. L'estensione è attualmente disponibile anteprima. Per altre informazioni, vedere la pagina relativa all'[estensione Funzioni di Azure per Visual Studio Code].
+Attualmente l'estensione offre supporto completo per le funzioni C#, JavaScript e Java. Il supporto Python è al momento disponibile in anteprima. La procedura illustrata in questo articolo potrebbe variare in base al linguaggio scelto per il progetto di Funzioni di Azure. L'estensione è attualmente disponibile anteprima. Per altre informazioni, vedere la pagina relativa all'[estensione Funzioni di Azure per Visual Studio Code].
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -93,7 +93,7 @@ Azure Functions Core Tools consente di eseguire un progetto Funzioni di Azure ne
 
     ![Risposta localhost della funzione nel browser](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
-1. Per interrompere il debug, premere MAIUSC+F1.
+1. Per interrompere il debug, premere MAIUSC+F5.
 
 Dopo aver verificato la corretta esecuzione della funzione nel computer locale, è possibile pubblicare il progetto in Azure.
 

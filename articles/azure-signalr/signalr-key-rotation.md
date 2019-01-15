@@ -1,39 +1,39 @@
 ---
 title: Rotazione delle chiavi di accesso per il Servizio Azure SignalR
-description: Panoramica dei motivi per i quali il cliente deve ruotare regolarmente le chiavi di accesso e informazioni su come eseguire questa operazione con l'interfaccia utente grafica del portale e l'interfaccia della riga di comando.
+description: Panoramica dei motivi per i quali il cliente deve ruotare regolarmente le chiavi di accesso e informazioni su come eseguire questa operazione con l'interfaccia utente grafica del portale di Azure e l'interfaccia della riga di comando di Azure.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 2c0f60b0ef3a90372fc4a095c830f39bc148f354
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 04321e62ea41b58e9ee4314b600c77e6c39b7ade
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53636075"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065835"
 ---
 # <a name="access-key-rotation-for-azure-signalr-service"></a>Rotazione delle chiavi di accesso per il Servizio Azure SignalR
 
-Per ogni istanza del Servizio Azure SignalR è disponibile una coppia di chiavi di accesso, ovvero chiave primaria e chiave secondaria. Tali chiavi vengono usate per l'autenticazione dei client SignalR quando vengono effettuate richieste al servizio. Le chiavi sono associate all'URL dell'endpoint di istanza. Proteggere le chiavi e ruotarle regolarmente. Vengono fornite due chiavi di accesso. È quindi possibile mantenere attive le connessioni usando una chiave durante la rigenerazione dell'altra.
+Per ogni istanza del Servizio Azure SignalR è disponibile una coppia di chiavi di accesso, chiamate Chiave primaria e Chiavi secondarie. Tali chiavi vengono usate per l'autenticazione dei client SignalR quando vengono effettuate richieste al servizio. Le chiavi sono associate all'URL dell'endpoint di istanza. Proteggere le chiavi e ruotarle regolarmente. Vengono fornite due chiavi di accesso. È quindi possibile mantenere attive le connessioni usando una chiave durante la rigenerazione dell'altra.
 
 ## <a name="why-rotate-access-keys"></a>Perché ruotare le chiavi di accesso?
 
-Per motivi di sicurezza e per garantire la conformità, è consigliabile che gli sviluppatori ruotino regolarmente le chiavi di accesso.
+Per motivi di sicurezza e per garantire la conformità, è consigliabile ruotare regolarmente le chiavi di accesso.
 
-## <a name="how-to-regenerate-access-keys"></a>In che modo è possibile rigenerare le chiavi di accesso?
+## <a name="regenerate-access-keys"></a>Per rigenerare le chiavi di accesso
 
-1. Passare al [portale di Azure](https://portal.azure.com/) e accedere con le proprie credenziali.
+1. Andare al [portale di Azure](https://portal.azure.com/) e accedere con le proprie credenziali.
 
-1. Individuare la sezione **Chiavi** dell'istanza del Servizio Azure SignalR per cui rigenerare le chiavi.
+1. Individuare la sezione **Chiavi** dell'istanza del Servizio Azure SignalR con le chiavi da rigenerare.
 
-1. Fare clic su **Chiavi** nel menu di spostamento.
+1. Selezionare **Chiavi** nel menu di spostamento.
 
-1. Fare clic su **Rigenera chiave primaria** o **Rigenera chiave secondaria**.
+1. Selezionare **Rigenera chiave primaria** o **Rigenera chiave secondaria**.
 
-Verranno create e visualizzate una nuova chiave e la stringa di connessione corrispondente.
+   Verranno create e visualizzate una nuova chiave e la stringa di connessione corrispondente.
 
- ![Rigenerare le chiavi](media/signalr-key-rotation/regenerate-keys.png)
+   ![Rigenerare le chiavi](media/signalr-key-rotation/regenerate-keys.png)
 
 È anche possibile rigenerare le chiavi usando l'[interfaccia della riga di comando di Azure](/cli/azure/ext/signalr/signalr/key?view=azure-cli-latest#ext-signalr-az-signalr-key-renew).
 
@@ -47,11 +47,11 @@ Verranno create e visualizzate una nuova chiave e la stringa di connessione corr
 
 ## <a name="forced-access-key-regeneration"></a>Rigenerazione forzata delle chiavi di accesso
 
-In alcune situazioni Azure SignalR Service può richiedere la rigenerazione obbligatoria delle chiavi di accesso. In tali circostanze il servizio informerà i clienti tramite posta elettronica e le notifiche del portale. Se si riceve una comunicazione di questo genere o si riscontra un errore di servizio a causa delle chiavi di accesso, ruotare le chiavi seguendo le istruzioni riportate in questa guida.
+In alcune situazioni Azure SignalR Service può richiedere la rigenerazione obbligatoria delle chiavi di accesso. In tali circostanze il servizio informa i clienti tramite posta elettronica e le notifiche del portale. Se si riceve una comunicazione di questo genere o si riscontra un errore di servizio a causa di una chiave di accesso, ruotare le chiavi seguendo le istruzioni riportate in questa guida.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È consigliabile ruotare periodicamente le chiavi di accesso come buona prassi di sicurezza.
+Ruotare periodicamente le chiavi di accesso come buona prassi di sicurezza.
 
 In questa guida si è appreso come rigenerare le chiavi di accesso. Passare alle esercitazioni successive sull'autenticazione con OAuth o con Funzioni di Azure.
 

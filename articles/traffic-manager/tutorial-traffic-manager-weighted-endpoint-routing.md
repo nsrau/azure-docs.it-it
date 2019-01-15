@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Instradare il traffico agli endpoint ponderati con Gestione traffico di Azure | Microsoft Docs'
+title: 'Esercitazione: Instradare il traffico agli endpoint ponderati - Gestione traffico di Azure'
 description: Questa esercitazione spiega come instradare il traffico agli endpoint ponderati con Gestione traffico.
 services: traffic-manager
 author: KumudD
@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: 0f5b1f3525ab75f8c14f7921e23b30a1c58e8c73
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f70f3804bb1c6f385081b56fe6139b1b680a95cf
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158823"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055014"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Esercitazione: Controllare il routing del traffico agli endpoint ponderati con Gestione traffico 
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per vedere in azione Gestione traffico, distribuire quanto segue per questa esercitazione:
-- Due istanze di siti Web di base in esecuzione in aree diverse di Azure, ovvero Stati Uniti orientali e Europa occidentale.
+- Due istanze di siti Web di base in esecuzione in aree diverse di Azure, ovvero Stati Uniti orientali ed Europa occidentale.
 - Due macchine virtuali (VM) per il test di Gestione traffico: una in Stati Uniti orientali e l'altra in Europa occidentale. Le VM di test vengono usate per illustrare come Gestione traffico instrada il traffico degli utenti verso un sito Web con peso maggiore assegnato al relativo endpoint.
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure 
@@ -54,7 +54,7 @@ In questa sezione vengono create due macchine virtuali *myIISVMEastUS* e *myIISV
 
     |Impostazione|Valore|
     |---|---|
-    |Nome|Immettere **myIISVMEastUS**.|
+    |NOME|Immettere **myIISVMEastUS**.|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Gruppo di risorse| Selezionare **Nuovo** e quindi immettere **myResourceGroupTM1**.|
@@ -129,7 +129,7 @@ In questa sezione viene creata la macchina virtuale *mVMEastUS*. Questa macchina
 
     |Impostazione|Valore|
     |---|---|
-    |Nome|Immettere **myVMEastUS**.|
+    |NOME|Immettere **myVMEastUS**.|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Gruppo di risorse| Selezionare **Usa esistente** e quindi **myResourceGroupTM1**.|
@@ -155,7 +155,7 @@ Creare un profilo di Gestione traffico basato sul metodo di routing **Ponderato*
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Nome                   | Immettere un nome univoco all'interno della zona trafficmanager.net. Tale nome determinerà il nome DNS trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
+    | NOME                   | Immettere un nome univoco all'interno della zona trafficmanager.net. Tale nome determinerà il nome DNS trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
     | Metodo di routing          | Selezionare il metodo di routing **Ponderato**.                                       |
     | Sottoscrizione            | Selezionare la propria sottoscrizione.                          |
     | Gruppo di risorse          | Selezionare **Usa esistente** e quindi **myResourceGroupTM1**. |
@@ -173,8 +173,8 @@ Aggiungere le due macchine virtuali che eseguono i server IIS, ovvero myIISVMEas
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Tipo                    | Immettere l'endpoint di Azure.                                   |
-    | Nome           | Immettere **myEastUSEndpoint**.                                        |
+    | type                    | Immettere l'endpoint di Azure.                                   |
+    | NOME           | Immettere **myEastUSEndpoint**.                                        |
     | Tipo di risorsa di destinazione           | Selezionare **Indirizzo IP pubblico**.                          |
     | Risorsa di destinazione          | Scegliere un indirizzo IP pubblico per visualizzare l'elenco delle risorse con gli indirizzi IP pubblici inclusi nella stessa sottoscrizione. In **Risorsa** selezionare l'indirizzo IP pubblico denominato **myIISVMEastUS-ip**. Questo è l'indirizzo IP pubblico della VM del server IIS nell'area Stati Uniti orientali.|
     |  Peso      | Immettere **100**.        |

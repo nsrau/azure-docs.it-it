@@ -10,22 +10,21 @@ ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f3dc27b35f35f3aaa649b03777ff13d385561673
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 426a8f3df67ee00ded0591024447770e4cfedc32
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732227"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020711"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Esercitazione: Creare la prima data factory con il portale di Azure
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
-> * [portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -33,14 +32,14 @@ ms.locfileid: "45732227"
 
 
 > [!NOTE]
-> Questo articolo si applica alla versione 1 di Azure Data Factory, disponibile a livello generale. Se si usa la versione corrente del servizio Data Factory, vedere [Guida introduttiva: Creare una data factory con Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Questo articolo si applica alla versione 1 di Azure Data Factory, disponibile a livello generale. Se si usa la versione corrente del servizio Data Factory, vedere [Quickstart: Create a data factory by using Data Factory](../quickstart-create-data-factory-dot-net.md) (Guida introduttiva: Creare una data factory con Data Factory).
 
 Questo articolo descrive come usare il [portale di Azure](https://portal.azure.com/) per creare la prima data factory. Per eseguire l'esercitazione usando altri strumenti/SDK, selezionare una delle opzioni dall'elenco a discesa. 
 
 La pipeline in questa esercitazione ha una sola attività, l'attività Hive di Azure HDInsight, che esegue uno script Hive in un cluster HDInsight per trasformare i dati di input e generare i dati di output. L'esecuzione della pipeline è pianificata una volta al mese tra le ore di inizio e di fine specificate. 
 
 > [!NOTE]
-> La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Per un'esercitazione su come copiare dati usando Data Factory, vedere [Esercitazione: Copiare i dati da un archivio BLOB di Azure a un database SQL di Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Per un'esercitazione su come copiare i dati usando Data Factory, vedere [Esercitazione: Copiare i dati dall'archiviazione BLOB di Azure al database SQL di Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [Pianificazione ed esecuzione in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
@@ -65,7 +64,7 @@ Per creare una data factory, seguire questa procedura:
    ![Pannello Nuova data factory](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
    > [!IMPORTANT]
-   > Il nome della data factory deve essere univoco a livello globale. Se viene visualizzato l'errore "Il nome GetStartedDF per la data factory non è disponibile", modificare il nome della data factory. Usare ad esempio nomeutenteGetStartedDF e creare di nuovo la data factory. Per altre informazioni sulle regole di denominazione, vedere [Azure Data Factory - Regole di denominazione](data-factory-naming-rules.md).
+   > Il nome della data factory deve essere univoco a livello globale. Se viene visualizzato l'errore "Il nome GetStartedDF per la data factory non è disponibile", modificare il nome della data factory. Usare ad esempio nomeutenteGetStartedDF e creare di nuovo la data factory. Per altre informazioni sulle regole di denominazione, vedere [Data Factory: Regole di denominazione](data-factory-naming-rules.md).
    >
    > Il nome della data factory può essere registrato come nome DNS in futuro e divenire visibile pubblicamente.
    >

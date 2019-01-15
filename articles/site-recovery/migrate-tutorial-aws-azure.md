@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793071"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042054"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
@@ -33,12 +33,14 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Assicurarsi che nelle macchine virtuali di cui si vuole eseguire la migrazione sia in esecuzione una versione supportata del sistema operativo. Le versioni supportate includono: 
-  - Windows Server 2016 
-  - Windows Server 2012 R2
-  - Windows Server 2012 
-  - Versione a 64 bit di Windows Server 2008 R2 SP1 o versione successiva
-  - Red Hat Enterprise Linux 6.7 (solo istanze virtualizzate di HVM) con un driver Citrix PV o AWS PV. Le istanze che eseguono driver RedHat PV *non* sono supportate.
- - Il servizio Mobility deve essere installato in ogni macchina virtuale da replicare. 
+      - Windows Server 2016 
+      - Windows Server 2012 R2
+      - Windows Server 2012 
+      - Versione a 64 bit di Windows Server 2008 R2 SP1 o versione successiva
+      - Red Hat Enterprise Linux da 6.4 a 6.10, da 7.1 a 7.6 (solo istanze virtualizzate HVM) *(Le istanze che eseguono driver PV RedHat non sono supportate).*
+      - CentOS da 6.4 a 6.10, da 7.1 a 7.6 (solo istanze virtualizzate HVM)
+ 
+- Il servizio Mobility deve essere installato in ogni macchina virtuale da replicare. 
 
     > [!IMPORTANT]
     > Site Recovery installa il servizio automaticamente quando si abilita la replica per la macchina virtuale. Per l'installazione automatica è necessario preparare un account nelle istanze EC2 che Site Recovery userà per accedere alla macchina virtuale. È possibile usare un account di dominio o locale. 

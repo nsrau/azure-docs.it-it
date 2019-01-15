@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 44b47a595c422f62cae13fb1aeb582e0c15787d6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 181addbcf4d0cfd51e74a24677de63f66e6fec1d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973503"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190519"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Guida introduttiva: Distribuire il primo modulo IoT Edge in un dispositivo Linux x64
 
@@ -179,7 +179,9 @@ Gestire il dispositivo Azure IoT Edge dal cloud per distribuire un modulo che in
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 
-In questa guida introduttiva è stato creato un nuovo dispositivo IoT Edge, nel quale è stato installato il runtime di IoT Edge. È stato quindi usato il portale di Azure per eseguire il push di un modulo di IoT Edge da eseguire nel dispositivo senza dovere apportare modifiche al dispositivo stesso. In questo caso il modulo di cui è stato eseguito il push crea dati ambientali che è possibile usare per le esercitazioni.
+In questa guida introduttiva è stato creato un nuovo dispositivo IoT Edge, nel quale è stato installato il runtime di IoT Edge. È stato quindi usato il portale di Azure per distribuire un modulo di IoT Edge da eseguire nel dispositivo senza dovere apportare modifiche al dispositivo stesso. 
+
+In questo caso il modulo di cui è stato eseguito il push crea dati di esempio che possono essere usati per i test. Il modulo relativo al sensore di temperatura simulato genera dati dell'ambiente che possono essere usati successivamente per i test. Il sensore simulato monitora un macchinario e l'ambiente intorno al macchinario. Questo sensore può trovarsi ad esempio in una stanza di server, in un ambiente di produzione o in una turbina eolica. Il messaggio include la temperatura e l'umidità dell'ambiente, la temperatura e la pressione dell'apparecchiatura e un timestamp. Le esercitazioni di IoT Edge usano i dati creati da questo modulo come dati di test per le analisi.
 
 Aprire di nuovo il prompt dei comandi nel dispositivo IoT Edge o usare la connessione SSH dall'interfaccia della riga di comando di Azure. Verificare che il modulo distribuito dal cloud sia in esecuzione nel dispositivo IoT Edge:
 
@@ -200,9 +202,7 @@ Visualizzare i messaggi inviati dal modulo del sensore temperatura:
 
    ![Visualizzare i dati dal modulo](./media/quickstart-linux/iotedge-logs.png)
 
-Se l'ultima riga visualizzata nel log è **Using transport Mqtt_Tcp_Only**, il modulo del sensore temperatura potrebbe essere in attesa di connettersi all'hub Edge. Provare ad arrestare il modulo e consentire all'agente Edge di riavviarlo. È possibile arrestare il modulo con il comando `sudo docker stop SimulatedTemperatureSensor`.
-
-È anche possibile visualizzare i messaggi ricevuti dall'hub IoT usando l'[estensione Azure IoT Hub Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (in precedenza Azure IoT Toolkit). 
+È anche possibile visualizzare i messaggi ricevuti dall'hub IoT usando l'[estensione Azure IoT Hub Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).(precedentemente Azure IoT Toolkit). 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -226,20 +226,6 @@ Rimuovere il runtime IoT Edge.
 
    ```bash
    sudo apt-get remove --purge iotedge
-   ```
-
-Quando il runtime IoT Edge viene rimosso, i contenitori creati vengono arrestati, ma rimangono sul dispositivo. Visualizzare tutti i contenitori.
-
-   ```bash
-   sudo docker ps -a
-   ```
-
-Eliminare i contenitori creati nel dispositivo dal runtime IoT Edge. 
-
-   ```bash
-   sudo docker rm -f SimulatedTemperatureSensor
-   sudo docker rm -f edgeHub
-   sudo docker rm -f edgeAgent
    ```
 
 Rimuovere il runtime del contenitore.

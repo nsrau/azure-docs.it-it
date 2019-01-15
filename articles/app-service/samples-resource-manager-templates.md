@@ -10,19 +10,21 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 10/15/2018
+ms.date: 01/04/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: d2b7e7a29838fd14292e3498c8db3a496d7d9434
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 842ec98245522095334b9f17e8c12292b7c1dda8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717807"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035441"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Modelli di Azure Resource Manager per il servizio app
 
 La tabella seguente include collegamenti ai modelli di Azure Resource Manager per il servizio app di Azure. Per consigli su come evitare errori comuni quando si creano modelli di app, vedere [Linee guida per la distribuzione di app con i modelli di Azure Resource Manager](deploy-resource-manager-template.md).
+
+Per informazioni sulla sintassi e le proprietà JSON per le risorse di Servizi app, vedere [Tipi di risorse Microsoft.Web](/azure/templates/microsoft.web/allversions).
 
 | | |
 |-|-|

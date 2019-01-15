@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff862dcee77fb874511ea1b9bcc907a5e4b60dcc
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998983"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015273"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guida introduttiva: creare una pipeline di ricerca cognitiva con competenze e dati di esempio
 
@@ -26,9 +26,9 @@ In questo argomento di avvio rapido è possibile creare la prima pipeline di arr
 
 > [!div class="checklist"]
 > * Iniziare con i dati di esempio nell'archivio BLOB di Azure
-> * Configurare l'[Importazione guidata dati](search-import-data-portal.md) per l'indicizzazione cognitiva e l'arricchimento 
+> * Configurare l'[**Importazione guidata dati**](search-import-data-portal.md) per l'indicizzazione cognitiva e l'arricchimento 
 > * Eseguire la procedura guidata (una competenza entità rileva gli utenti, la posizione e le organizzazioni)
-> * Usare [Esplora ricerche](search-explorer.md) per eseguire query sui dati arricchiti
+> * Usare [**Esplora ricerche**](search-explorer.md) per eseguire query sui dati arricchiti
 
 ## <a name="supported-regions"></a> Aree supportate
 
@@ -98,9 +98,9 @@ La pipeline di arricchimento effettua il pull da origini dati di Azure supportat
 
 1. [Scaricare i dati di esempio](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) costituiti da un piccolo set di file di tipi diversi. 
 
-1. Effettuare l'iscrizione per l'archivio BLOB di Azure, creare un account di archiviazione, accedere a Storage Explorer e creare un contenitore. Impostare il livello di accesso pubblico su **Contenitore**. Per altre informazioni, vedere la [sezione "Creare un contenitore"](../storage/blobs/storage-unstructured-search.md#create-a-container) nell'esercitazione Cercare dati non strutturati.
+1. Effettuare l'iscrizione per l'archivio BLOB di Azure, creare un account di archiviazione, aprire le pagine del servizio BLOB e creare un contenitore. Nel contenitore, impostare il livello di accesso pubblico su **Contenitore**. Per altre informazioni, vedere la [sezione "Creare un contenitore"](../storage/blobs/storage-unstructured-search.md#create-a-container) nell'esercitazione *Cercare dati non strutturati*.
 
-1. Nel contenitore creato fare clic su **Carica** per caricare i file di esempio.
+1. Nel contenitore creato fare clic su **Carica** per caricare i file di esempio nel passaggio precedente.
 
   ![File di origine nell'archivio BLOB di Azure](./media/cognitive-search-quickstart-blob/sample-data.png)
 

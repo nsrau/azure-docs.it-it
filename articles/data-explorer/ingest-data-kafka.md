@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Inserire dati da Kafka in Esplora dati di Azure'
+title: 'Avvio rapido: Inserire dati da Kafka in Esplora dati di Azure'
 description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure da Kafka.
 services: data-explorer
 author: orspod
@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 316d2b4ebf0a9b0799e2bdcdfda1d517713f413f
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 21eb28611c1e40695356d502c262c23013591986
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277085"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117368"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Guida introduttiva: Inserire dati da Kafka in Esplora dati di Azure
  
@@ -159,4 +159,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
 ## <a name="next-steps"></a>Passaggi successivi
  
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
+> [Avvio rapido: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)

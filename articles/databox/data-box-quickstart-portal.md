@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 10/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a2f8d295ca161ff2263f53b8faa407c7a42a4c6b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385844"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188556"
 ---
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Guida introduttiva: Distribuire Azure Data Box tramite il portale di Azure
+# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Guida introduttiva: Distribuire Azure Data Box usando il portale di Azure
 
 Questa guida introduttiva descrive come distribuire Azure Data Box tramite il portale di Azure. I passaggi includono come cablare, configurare e copiare i dati in Data Box per il caricamento in Azure. La guida introduttiva viene eseguita nel portale di Azure e nell'interfaccia utente Web locale del dispositivo.
 
-Per istruzioni dettagliate sulla distribuzione e sul monitoraggio, vedere [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md) (Esercitazione: Ordinare Azure Data Box)
+Per istruzioni dettagliate sulla distribuzione e sul monitoraggio, vedere [Esercitazione: Ordinare Azure Data Box](data-box-deploy-ordered.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,7 +28,6 @@ Prima di iniziare:
 - La sottoscrizione usata per il servizio Data Box sia di uno dei tipi seguenti:
     - Contratto Enterprise Microsoft. Altre informazioni sui [contratti Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Cloud Solution Provider (CSP). Altre informazioni sul [programma Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Con pagamento in base al consumo. Altre informazioni sulle [sottoscrizioni con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) di Azure.
     - Microsoft Azure Sponsorship Altre informazioni sul [programma Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Si abbia accesso alla sottoscrizione come proprietario o collaboratore per creare un ordine Data Box.

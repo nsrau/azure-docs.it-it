@@ -1,6 +1,6 @@
 ---
-title: Introduzione a Data Factory, un servizio di integrazione dei dati | Documentazione Microsoft
-description: 'Informazioni su Azure Data Factory: è un servizio di integrazione dei dati cloud che consente di orchestrare e automatizzare lo spostamento e la trasformazione dei dati.'
+title: 'Introduzione a Data Factory, un servizio di integrazione dei dati | Microsoft Docs '
+description: Informazioni su Azure Data Factory, un servizio di integrazione dei dati cloud che consente di orchestrare e automatizzare lo spostamento e la trasformazione dei dati.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -9,17 +9,16 @@ ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0cdf10f4898ba103f9b6f65179300a10c9e33cdf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9bf8c51fda6985f88ecffa60b32c1c62e364a511
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087172"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014931"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introduzione a Data factory di Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -120,7 +119,7 @@ In Data factory i servizi collegati vengono usati per i due motivi seguenti:
 
 ### <a name="relationship-between-data-factory-entities"></a>Relazioni tra le entità di Data Factory
 
-![Diagramma: Data Factory, servizio di integrazione dei dati cloud - concetti chiave](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![Diagramma: Data Factory, servizio di integrazione dei dati cloud - Concetti chiave](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Aree supportate
 È attualmente possibile creare data factory nelle aree Stati Uniti occidentali, Stati Uniti orientali ed Europa settentrionale. Una data factory può accedere ad archivi dati e servizi di calcolo in altre aree di Azure per spostare i dati tra archivi dati o elaborare i dati usando i servizi di calcolo.

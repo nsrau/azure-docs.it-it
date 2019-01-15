@@ -9,14 +9,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d233f1df40d9580edfaaeb6b819c014952ad3b0c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138932"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189275"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Esercitazione: Bot LUIS in C# con Bot Framework 4.x e il bot app Web di Azure
 Usando C#, è possibile creare un chat bot integrato con Language Understanding (LUIS). Questo bot Usa l'app HomeAutomation per implementare una soluzione di bot. Il bot viene compilato con il [bot per app Web](https://docs.microsoft.com/azure/bot-service/) di Azure e la [versione Bot Framework](https://github.com/Microsoft/botbuilder-js) 4.
@@ -301,6 +301,7 @@ Il servizio Azure Bot utilizza l’SDK Bot Framework. Ulteriori informazioni su 
 
 È stato creato un servizio Azure Bot, copiato il segreto del bot e il percorso del file `.bot`, quindi è stato scaricato il file ZIP del codice. È stato aggiunto il dominio HomeAutomation predefinito all'app LUIS creato come parte del nuovo servizio bot Azure, quindi sottoposto a training ed è stata di nuovo pubblicata l'app. È stato estratto il progetto di codice, creato un file di ambiente (`.env`) e impostato il segreto del bot e il percorso del file `.bot`. Nel file bot.js è stato aggiunto il codice per gestire le due nuove finalità. Quindi è stato testato il bot nell'emulatore di bot per vedere la risposta di LUIS per un’espressione di una delle nuove finalità. 
 
+Vedere altri [esempi](https://github.com/Microsoft/AI) con i bot di conversazione. 
 
 > [!div class="nextstepaction"]
 > [Creare un dominio personalizzato in LUIS](luis-quickstart-intents-only.md)

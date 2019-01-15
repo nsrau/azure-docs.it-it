@@ -5,247 +5,218 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: e1f49ee4-d2d4-4a82-9baf-0587ca1f20f6
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 35b1b9492b7bcd09c79cb5bd2509a6cfea205ae9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c5b237c87817af8ff84cefe6bab79956c426b28d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445467"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Esercitazione: Integrazione di Azure Active Directory con UNIFI
 
 Questa esercitazione descrive come integrare UNIFI con Azure Active Directory (Azure AD).
-
 L'integrazione di UNIFI con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a UNIFI
-- È possibile abilitare gli utenti per l'accesso automatico a UNIFI (Single Sign-On) con i propri account Azure AD
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* È possibile controllare in Azure AD chi può accedere a UNIFI.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a UNIFI con gli account Azure AD personali.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con UNIFI, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
-- Una sottoscrizione UNIFI abilitata per l'accesso Single Sign-On
-
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
-
-- Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
+* Sottoscrizione UNIFI abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
-1. Aggiunta di UNIFI dalla raccolta
-1. Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+
+* UNIFI supporta l'accesso SSO avviato da **SP e IDP**
+* UNIFI supporta il provisioning utenti **automatico**
 
 ## <a name="adding-unifi-from-the-gallery"></a>Aggiunta di UNIFI dalla raccolta
-Per configurare l'integrazione di UNIFI in Azure AD, è necessario aggiungere UNIFI dalla raccolta al proprio elenco di app SaaS gestite.
+
+Per configurare l'integrazione di UNIFI in Azure AD, è necessario aggiungere UNIFI dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere UNIFI dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Active Directory][1]
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
-    ![APPLICAZIONI][2]
-    
-1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-    ![APPLICAZIONI][3]
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-1. Nella casella di ricerca digitare **UNIFI**.
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-    ![Creazione di un utente test di Azure AD](./media/unifi-tutorial/tutorial_unifi_search.png)
+4. Nella casella di ricerca digitare **UNIFI**, selezionare **UNIFI** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-1. Nel pannello dei risultati selezionare **UNIFI** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+     ![UNIFI nell'elenco risultati](common/search-new-app.png)
 
-    ![Creazione di un utente test di Azure AD](./media/unifi-tutorial/tutorial_unifi_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con UNIFI in base a un utente test di nome "Britta Simon".
-
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di UNIFI che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in UNIFI.
-
-Per stabilire la relazione di collegamento, in UNIFI assegnare il valore di **nome utente** in Azure AD come valore dell'attributo **Username**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con UNIFI usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in UNIFI.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con UNIFI, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creazione di un utente test di UNIFI](#creating-a-unifi-test-user)**: per avere una controparte di Britta Simon in UNIFI collegata alla relativa rappresentazione in Azure AD dell'utente.
-1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di UNIFI](#configure-unifi-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di UNIFI](#create-unifi-test-user)**: per avere una controparte di Britta Simon in UNIFI collegata alla rappresentazione dell'utente in Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione UNIFI.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-**Per configurare l'accesso Single Sign-On di Azure AD con UNIFI, seguire questa procedura:**
+Per configurare l'accesso Single Sign-On di Azure AD con UNIFI, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **UNIFI** del portale di Azure fare clic su **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **UNIFI** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-    ![Configure Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_samlbase.png)
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
-1. Nella sezione **URL e dominio UNIFI** se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_url1.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-    Nella casella di testo **Identificatore** digitare il valore: `INVIEWlabs` 
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Selezionare **Mostra impostazioni URL avanzate**, se si desidera configurare l'applicazione in modalità avviata da **SP**:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_url2.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di UNIFI](common/idp-identifier.png)
 
-    Nella casella di testo **URL accesso** digitare l'URL: `https://app.discoverunifi.com/login`
+    Nella casella di testo **Identificatore** digitare l'URL: `INVIEWlabs`
 
-1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione nella modalità avviata da **SP**:
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_certificate.png) 
+    Nella casella di testo **URL di accesso** digitare un URL: `https://app.discoverunifi.com/login`
 
-1. Fare clic sul pulsante **Salva** .
+    ![image](common/both-preintegrated-signon.png)
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_general_400.png)
-    
-1. Nella sezione **Configurazione di UNIFI** fare clic su **Configura UNIFI** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_configure.png)
+    ![Collegamento di download del certificato](common/certificatebase64.png)
+
+7. Nella sezione **Configura UNIFI** copiare gli URL appropriati in base alle proprie esigenze.
+
+    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
+
+    a. URL di accesso
+
+    b. Identificatore Azure AD
+
+    c. URL disconnessione
+
+### <a name="configure-unifi-single-sign-on"></a>Configurare l'accesso Single Sign-On per UNIFI
 
 1. In un'altra finestra del browser Web accedere al sito aziendale di **UNIFI** come amministratore.
 
-1. Fare clic su **Users** (Utenti).
+2. Fare clic su **Users** (Utenti).
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/app1.png) 
+    ![Configure Single Sign-On](./media/unifi-tutorial/app1.png)
 
-1. Fare clic su **Add New Identity Provider** (Aggiungi nuovo provider di identità).
+3. Fare clic su **Add New Identity Provider** (Aggiungi nuovo provider di identità).
 
     ![Configure Single Sign-On](./media/unifi-tutorial/app2.png)
 
-1. Nella sezione **Add New Identity Provider** (Aggiungi nuovo provider di identità) seguire questa procedura:    
+4. Nella sezione **Add New Identity Provider** (Aggiungi nuovo provider di identità) seguire questa procedura:
 
     ![Configure Single Sign-On](./media/unifi-tutorial/app3.png) 
 
     a. Nella casella di testo **Provider Name** (Nome provider) digitare il nome del provider di identità.
 
-    b. Nella casella di testo **URL provider** incollare il valore **URL servizio Single Sign-On SAML** copiato dal portale di Azure.
+    b. Nella casella di testo **Provider URL** (URL del provider) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
     c. Aprire il certificato scaricato dal portale di Azure nel blocco note, rimuovere i tag **---BEGIN CERTIFICATE---** e **---END CERTIFICATE---** e quindi incollare il contenuto rimanente nella casella di testo **Certificate** (Certificato).
 
     d. Selezionare la casella di controllo **is Default Provider** (Provider predefinito).
 
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
-![Creare un utente di Azure AD][100]
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
-1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    ![Creazione di un utente test di Azure AD](./media/unifi-tutorial/create_aaduser_01.png) 
+    ![Pulsante Nuovo utente](common/new-user.png)
 
-1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
-    
-    ![Creazione di un utente test di Azure AD](./media/unifi-tutorial/create_aaduser_02.png) 
+3. In Proprietà utente seguire questa procedura.
 
-1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
- 
-    ![Creazione di un utente test di Azure AD](./media/unifi-tutorial/create_aaduser_03.png) 
+    ![Finestra di dialogo Utente](common/user-properties.png)
 
-1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
- 
-    ![Creazione di un utente test di Azure AD](./media/unifi-tutorial/create_aaduser_04.png) 
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
-
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
-
-    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
- 
-### <a name="creating-a-unifi-test-user"></a>Creazione di un utente test di UNIFI
 
-In questa sezione viene creato un utente di nome Britta Simon. **UNIFI** supporta il provisioning automatico dell'utente, pertanto non è necessaria la procedura manuale. Gli utenti vengono creati automaticamente al termine dell'autenticazione da Azure AD.
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a UNIFI.
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a UNIFI.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **UNIFI**.
 
-![Assegna utente][200] 
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-**Per assegnare Britta Simon a UNIFI seguire questa procedura:**
+2. Nell'elenco delle applicazioni selezionare **UNIFI**.
 
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+    ![Collegamento di UNIFI nell'elenco Applicazioni](common/all-applications.png)
 
-    ![Assegna utente][201] 
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-1. Nell'elenco delle applicazioni selezionare **UNIFI**.
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_app.png) 
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
-1. Scegliere **Utenti e gruppi** dal menu a sinistra.
+    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-    ![Assegna utente][202] 
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-    ![Assegna utente][203]
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+### <a name="create-unifi-test-user"></a>Creare l'utente di test di UNIFI
 
-1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+In questa sezione viene creato un utente di nome Britta Simon. **UNIFI** supporta il provisioning utenti automatico, di conseguenza non è necessaria la procedura manuale. Gli utenti vengono creati automaticamente al termine dell'autenticazione da Azure AD.
 
-1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro UNIFI nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione UNIFI.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando si fa clic sul riquadro di UNIFI nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione UNIFI per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/unifi-tutorial/tutorial_general_01.png
-[2]: ./media/unifi-tutorial/tutorial_general_02.png
-[3]: ./media/unifi-tutorial/tutorial_general_03.png
-[4]: ./media/unifi-tutorial/tutorial_general_04.png
-
-[100]: ./media/unifi-tutorial/tutorial_general_100.png
-
-[200]: ./media/unifi-tutorial/tutorial_general_200.png
-[201]: ./media/unifi-tutorial/tutorial_general_201.png
-[202]: ./media/unifi-tutorial/tutorial_general_202.png
-[203]: ./media/unifi-tutorial/tutorial_general_203.png
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

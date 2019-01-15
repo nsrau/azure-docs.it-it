@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 9a80671a72f059e24a8cebc5de803af9261ad829
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743953"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107430"
 ---
 # <a name="about-azure-vm-backup"></a>Informazioni sul backup di macchine virtuali di Azure
 
@@ -27,10 +27,10 @@ Ecco come il servizio Backup di Azure esegue un backup per le macchine virtuali 
 2. Il servizio attiva l'estensione per il backup.
     - Le macchine virtuali Windows usano l'estensione _VMSnapshot_.
     - Le macchine virtuali Linux usano l'estensione _VMSnapshotLinux_.
-    - L'estensione viene installata al primo backup delle macchine virtuali.
+    - L'estensione viene installata all primo backup delle macchine virtuali.
     - Per installare l'estensione, è necessario che la macchina virtuale sia in esecuzione.
     - Se la macchina virtuale non è in esecuzione, il servizio Backup crea uno snapshot dell'archivio sottostante (poiché non si verifica alcuna scrittura di applicazione durante l'arresto della macchina virtuale).
-4. L'estensione per il backup crea uno snapshot coerente con le app a livello di archiviazione.
+4. L'estensione per il backup crea uno snapshot coerente con i file e l'arresto anomalo del sistema a livello di archiviazione.
 5. Dopo la creazione dello snapshot, i dati vengono trasferiti nell'insieme di credenziali. Per offrire la massima efficienza, il servizio identifica e trasferisce solo i blocchi di dati che sono stati modificati dall'ultimo backup, ovvero i dati differenziali.
 5. Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e viene creato un punto di ripristino.
 
@@ -42,7 +42,7 @@ Il servizio Backup di Azure non esegue la crittografia dei dati come parte del p
 
 - Il backup di macchine virtuali crittografate solo con BEK (Bitlocker Encryption Key) e con BEK e KEK (Key Encryption Key) è supportato per le macchine virtuali di Azure gestite e non gestite.
 - I dati BEK (segreti) e KEK (chiavi) sottoposti a backup vengono crittografati in modo da poter essere letti e usati solo quando ripristinati nell'insieme di credenziali delle chiavi dagli utenti autorizzati.
-- Poiché anche i dati BEK vengono sottoposti a backup, nei casi in cui i questi vengono persi, gli utenti autorizzati possono ripristinarli nell'insieme di credenziali delle chiavi e recuperare la macchina virtuale crittografata. Le chiavi e i segreti delle macchine virtuali crittografate vengono sottoposti a backup in formato crittografato. In questo modo, né Azure né gli utenti non autorizzati possono leggere o usare le chiavi e i segreti sottoposti a backup. Solo gli utenti con il livello di autorizzazioni corretto possono eseguire il backup e il ripristino di macchine virtuali crittografate e anche di chiavi e segreti.
+- Poiché anche i dati BEK vengono sottoposti a backup, nei casi in cui i questi vengono persi, gli utenti autorizzati possono ripristinarli nell'insieme di credenziali delle chiavi e recuperare la macchina virtuale crittografata. Le chiavi e i segreti delle macchine virtuali crittografate vengono sottoposti a backup in formato crittografato. In questo modo, né Azure né gli utenti non autorizzati possono leggere o usare le chiavi e i segreti sottoposti a backup. Solo gli utenti con il livello di autorizzazioni corretto possono eseguire il backup e il ripristino di macchine virtuali crittografate, nonché di chiavi e segreti.
 
 ## <a name="snapshot-consistency"></a>Coerenza degli snapshot
 
@@ -83,19 +83,7 @@ Backup di Azure presenta alcuni limiti per le sottoscrizioni e gli insiemi di cr
 
 ### <a name="disk-considerations"></a>Considerazioni sui dischi
 
-Il processo di backup prova a completare il backup al più presto, utilizzando il maggior numero possibile di risorse.
-
-- Nel tentativo di raggiungere la massima velocità, il processo di backup prova a eseguire il backup di ciascun disco della macchina virtuale in parallelo.
-- Se ad esempio una macchina virtuale ha quattro dischi, il servizio prova a eseguire il backup di tutti e quattro i dischi in parallelo.
-- Il numero di dischi di cui viene eseguito il backup è il fattore più importante che determina il traffico di backup di un account di archiviazione.
-- Tutte le operazioni di I/O sono tuttavia limitate dalla *velocità effettiva da raggiungere per BLOB singolo* che ha un limite di 60 MB al secondo.
-- Per ogni disco di cui si esegue il backup, il servizio Backup di Azure legge i blocchi nel disco e archivia solo i dati modificati (backup incrementale). È possibile usare i valori medi di velocità effettiva elencati di seguito per stimare la quantità di tempo necessaria per il backup di un disco con le dimensioni specificate.
-
-    **Operazione** | **Velocità effettiva ottimale**
-    --- | ---
-    Backup iniziale | 160 Mbps |
-    Backup incrementale | 640 Mbps  <br><br> La velocità effettiva si riduce notevolmente se i dati differenziali si trovano in varie aree del disco.|
-
+Il servizio consente di ottimizzare l'operazione di backup eseguendo il backup in parallelo di ogni disco della macchina virtuale. Se ad esempio una macchina virtuale ha quattro dischi, il servizio prova a eseguire il backup di tutti e quattro i dischi in parallelo. Per ogni disco di cui si esegue il backup, il servizio Backup di Azure legge i blocchi nel disco e archivia solo i dati modificati (backup incrementale).
 
 
 ### <a name="scheduling-considerations"></a>Considerazioni sulla pianificazione
@@ -128,39 +116,28 @@ Il backup è costituito da due fasi, la creazione di snapshot e il trasferimento
 
 Le situazioni che possono influire sul tempo di backup includono:
 
-
-- **Backup iniziale per un nuovo disco aggiunto in una macchina virtuale già protetta**: se una macchina virtuale è sottoposta a backup incrementale, quando viene aggiunto un nuovo disco il backup potrebbe perdere il contratto di servizio di un giorno, a seconda della dimensione del nuovo disco.
-- **App frammentata**: se un'app non è configurata correttamente potrebbe non essere in uno stato ottimale per l'archiviazione:
-    - Se lo snapshot contiene molte delle operazioni di scrittura frammentate e di piccole dimensioni, il servizio impiega più tempo nell'elaborazione dei dati scritti dalle applicazioni.
-    - Il blocco di scrittura dell'applicazione minimo consigliato per le applicazioni in esecuzione su una macchina virtuale è pari a 8 kB. Se l'applicazione usa un blocco più piccolo degli 8 KB, le prestazioni del backup ne risentono.
-- **Account di archiviazione sovraccaricato**: è possibile che sia stato pianificato un backup quando l'app è in esecuzione nell'ambiente di produzione o se più di cinque/dieci dischi sono ospitati dallo stesso account di archiviazione.
-- **Modalità Controllo coerenza (CC)**: per i dischi di dimensione maggiore di 1 TB, il backup potrebbe essere eseguito in modalità CC per due motivi:
-    - Il disco gestito si sposta come parte del riavvio della macchina virtuale.
-    - Alza di livello lo snapshot nel BLOB di base.
-
+- **Backup iniziale per un nuovo disco aggiunto in una macchina virtuale già protetta**: Se una macchina virtuale è in fase di backup incrementale e un nuovo disco viene aggiunto a questa macchina virtuale, la durata del backup può superare le 24 ore dato che il disco appena aggiunto deve essere sottoposto a replica iniziale insieme alla replica differenziale dei dischi esistenti.
+- **Frammentazione**: Il prodotto di backup esegue un'analisi alla ricerca di modifiche incrementali tra due operazioni di backup. Le operazioni di backup sono più veloci quando le modifiche sul disco vengono collocate rispetto a quando le modifiche sono distribuite nel disco. 
+- **Varianza**: La varianza giornaliera (per la replica incrementale) di ogni disco superiore a 200 GB può richiedere più di 8 ore per il completamento dell'operazione. Se la macchina virtuale ha più di un disco e uno di questi dischi sta impiegando più tempo per il backup, ciò può compromettere l'operazione complessiva di backup (o può provocare errori). 
+- **Modalità di confronto checksum (CC)**: La modalità CC è relativamente più lenta rispetto alla modalità ottimizzata usata da Instant RP. Se Instant RP è già in uso e gli snapshot di livello 1 sono stati eliminati, il backup passa alla modalità CC portando l'operazione di Backup a superare le 24 ore (o ad avere esito negativo).
 
 ## <a name="restore-considerations"></a>Considerazioni sul ripristino
 
-Un'operazione di ripristino comprende due attività principali: la copia dei dati dall'insieme di credenziali all'account di archiviazione selezionato e la creazione della macchina virtuale. Il tempo necessario per copiare i dati dall'insieme di credenziali dipende dalla posizione in cui sono archiviati i backup in Azure e dalla posizione dell'account di archiviazione. Il tempo necessario alla copia dipende dai seguenti fattori:
+Un'operazione di ripristino comprende due attività principali: la copia dei dati dall'insieme di credenziali all'account di archiviazione selezionato e la creazione della macchina virtuale. Il tempo necessario per copiare i dati dall'insieme di credenziali dipende dalla posizione in cui sono archiviati i backup in Azure e dalla posizione dell'account di archiviazione. Il tempo necessario alla copia dipende dalle seguenti attività:
 
 - **Tempo di attesa in coda**: poiché il servizio elabora processi di ripristino da più account di archiviazione allo stesso tempo, le richieste di ripristino vengono messe in coda.
-- **Tempo di copia dei dati**: i dati vengono copiati dall'insieme di credenziali all'account di archiviazione. Il tempo di ripristino dipende dalle operazioni di I/O al secondo e dalla velocità effettiva dell'account di archiviazione selezionato che usa il servizio Backup di Azure. Per ridurre il tempo di copia durante il processo di ripristino, selezionare un account di archiviazione non caricato con altre letture e scritture di applicazione.
+- **Tempo di copia dei dati**: i dati vengono copiati dall'insieme di credenziali all'account di archiviazione. Il tempo di ripristino dipende dalle operazioni di I/O al secondo e dalla velocità effettiva dell'account di archiviazione selezionato che viene usato dal servizio Backup di Azure. Per ridurre il tempo di copia durante il processo di ripristino, selezionare un account di archiviazione non caricato con altre letture e scritture di applicazione.
 
 ## <a name="best-practices"></a>Procedure consigliate
 
 Quando si configurano i backup per le macchine virtuali, è consigliabile seguire queste procedure:
 
-- Non pianificare il backup di più di 100 macchine virtuali per uno stesso insieme di credenziali contemporaneamente.
-- Pianificare i backup di macchine Virtuali durante le ore non di punta. In questo modo il servizio Backup usa operazioni di I/O al secondo per il trasferimento dei dati dall'account di archiviazione del cliente all'insieme di credenziali.
-- Se si esegue il backup di dischi gestiti, il servizio Backup di Azure esegue la gestione delle risorse di archiviazione. Se si esegue il backup di dischi non gestiti:
-    - Assicurarsi di applicare un criterio di backup per macchine virtuali distribuite tra più account di archiviazione.
-    - È consigliabile non proteggere con la stessa pianificazione di backup più di 20 dischi di un singolo account di archiviazione.
-    - Se un account di archiviazione include più di 20 dischi, suddividere le VM tra più criteri per ottenere i valori di IOPS necessari durante la fase di trasferimento del processo di backup.
-    - Non ripristinare una macchina virtuale in esecuzione in una risorsa di archiviazione Premium nello stesso account di archiviazione. Se il processo dell'operazione di ripristino coincide con l'operazione di backup, il valore di IOPS disponibile per il backup sarà ridotto.
-    - Per il backup di macchine virtuali Premium nello stack di backup V1, è consigliabile allocare solo il 50% dello spazio totale dell'account di archiviazione, in modo che il servizio Backup possa copiare lo snapshot nell'account di archiviazione e trasferire i dati dall'account di archiviazione all'insieme di credenziali.
-- È consigliabile usare account di archiviazione diversi anziché gli stessi account per ripristinare le macchine virtuali da un unico insieme di credenziali. Ciò consente di evitare la limitazione della larghezza di banda della rete e ha come risultato un ripristino completo con buone prestazioni.
-- I ripristini dal livello di archiviazione 1 verranno completati in pochi minuti rispetto a quelli dal livello di archiviazione 2 che richiedono alcune ore. Per ripristini più rapidi è consigliabile usare la [funzionalità Instant RP](backup-upgrade-to-vm-backup-stack-v2.md). Questa funzionalità è applicabile solo alle macchine virtuali di Azure gestite.
-
+- Aggiornare gli insiemi di credenziali a Instant RP. Esaminare questi [vantaggi](backup-upgrade-to-vm-backup-stack-v2.md) e queste [considerazioni](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) e quindi procedere all'aggiornamento seguendo queste [istruzioni](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+- È possibile modificare l'orario dei criteri fornito come impostazione predefinita per la creazione degli snapshot al fine di garantire un uso ottimale delle risorse (ad esempio se l'orario predefinito dei criteri è impostato alle 12:00 prendere in considerazione un incremento di alcuni minuti).
+- Per il backup di una macchina virtuale Premium senza la funzionalità Instant RP, viene allocato circa il 50% dello spazio totale dell'account di archiviazione. Il servizio Backup richiede questo spazio per copiare lo snapshot nello stesso account di archiviazione e trasferirlo nell'insieme di credenziali.
+- Per il ripristino di macchine virtuali da un unico insieme di credenziali è consigliabile usare diversi [account di archiviazione v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) per assicurarsi che non vengano applicate limitazioni all'account di archiviazione di destinazione. Ad esempio ogni macchina virtuale deve avere un account di archiviazione diverso (per il ripristino di 10 macchine virtuali è consigliabile usare 10 account di archiviazione diversi).
+- I ripristini dal livello di archiviazione 1 (snapshot) verranno completati in pochi minuti (dato che si tratta dello stesso account di archiviazione) rispetto a quelli dal livello di archiviazione 2 (insieme di credenziali) che possono richiedere alcune ore. È consigliabile usare la funzionalità [Instant RP](backup-upgrade-to-vm-backup-stack-v2.md) per ripristini più rapidi in caso i dati siano disponibili nel livello 1 (se i dati devono essere ripristinati dall'insieme di credenziali, sarà necessario del tempo).
+- Il limite sul numero di dischi per account di archiviazione dipende dalla modalità in cui le applicazioni in esecuzione nella macchina virtuale IaaS accedono ai dischi. Verificare se più dischi sono ospitati in un singolo account di archiviazione. Come regola generale, se sono presenti da 5 a 10 o più dischi in un solo account di archiviazione, bilanciare il carico spostando alcuni dischi in account di archiviazione separati.
 
 ## <a name="backup-costs"></a>Costi di backup
 
@@ -193,6 +170,5 @@ Si prenda ad esempio una macchina virtuale di dimensioni A2-Standard dotata di d
 
 Dopo aver esaminato il processo di backup e le considerazioni relative alle prestazioni, eseguire le operazioni seguenti:
 
-- Scaricare il [foglio di calcolo di Excel per la pianificazione della capacità](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) per provare i valori della pianificazione per dischi e backup.
 - [Informazioni su](../virtual-machines/windows/premium-storage-performance.md) ottimizzare le app per ottenere prestazioni ideali con Archiviazione di Azure. Questo articolo riguarda principalmente l'archiviazione Premium, ma è applicabile anche ai dischi di archiviazione standard.
 - [Iniziare a usare](backup-azure-arm-vms-prepare.md) il servizio di backup esaminando le limitazioni e il supporto delle macchine virtuali, creando un insieme di credenziali e preparando le macchine virtuali per il backup.

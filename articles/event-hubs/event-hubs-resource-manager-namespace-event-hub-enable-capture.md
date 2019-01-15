@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 36764b661d88f034b306251f76d47d72298308dc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 1ec0945996f0232553c9c1e0469289235f506611
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139997"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054827"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creare uno spazio dei nomi con l'hub eventi e abilitare l'acquisizione usando un modello
 
@@ -27,7 +27,7 @@ Questo articolo illustra come usare un modello di Azure Resource Manager che cre
 
 Questo articolo illustra anche come specificare l'acquisizione degli eventi in BLOB del servizio di archiviazione di Azure o in un'istanza di Azure Data Lake Store, in base alla destinazione scelta.
 
-Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates].
+Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates]. Per la sintassi e le proprietà JSON da usare in un modello, vedere i [tipi di risorsa Microsoft.EventHub](/azure/templates/microsoft.eventhub/allversions).
 
 Per altre informazioni su procedure e modelli relativi alle convenzioni di denominazione, vedere l'articolo relativo alle [convenzioni di denominazione delle risorse Azure][Azure Resources naming conventions].
 

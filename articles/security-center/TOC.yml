@@ -22,16 +22,18 @@ items:
     href: tutorial-protect-resources.md
   - name: Rispondere agli eventi imprevisti
     href: tutorial-security-incident.md
+  - name: Migliorare la conformità alle normative
+    href: security-center-compliance-dashboard.md
 - name: Concetti
   items:
   - name: Autorizzazioni
     href: security-center-permissions.md
   - name: Sicurezza dei dati
     href: security-center-data-security.md
-  - name: Risposta agli eventi imprevisti
-    href: security-center-incident-response.md
   - name: Usare le raccomandazioni per migliorare la sicurezza
     href: security-center-using-recommendations.md
+  - name: Risposta agli eventi imprevisti
+    href: security-center-incident-response.md
 - name: Guide alle procedure
   items:
   - name: Migliorare il punteggio di sicurezza
@@ -155,7 +157,7 @@ items:
       href: security-center-events-dashboard.md
     - name: Ricerca
       href: security-center-search.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: API REST
     href: https://docs.microsoft.com/rest/api/securitycenter/
@@ -189,9 +191,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Risolvere problemi
     href: security-center-troubleshooting-guide.md
-ms.openlocfilehash: e843dc5b29d441f4d1592a935bd35b295150f861
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7aaca2a30fb130c3d7d68faf9f353539be044315
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545502"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259156"

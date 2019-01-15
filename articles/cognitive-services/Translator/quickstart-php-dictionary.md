@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Trovare traduzioni alternative, PHP - API Traduzione testuale'
+title: Cercare le parole con il dizionario bilingue, PHP - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con PHP.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 4d48ab8d0178b2d3fbcba2ee631ee97b30518f88
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ff1f0a97667260fa19c46bec6901113ff696aaab
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649768"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156885"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-php"></a>Guida introduttiva: Trovare traduzioni alternative con l'API REST Traduzione testuale (PHP)
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando PHP
 
 In questa guida introduttiva si trovano i dettagli relativi a possibili traduzioni alternative per un termine ed esempi d'uso di tali traduzioni usando l'API Traduzione testuale.
 

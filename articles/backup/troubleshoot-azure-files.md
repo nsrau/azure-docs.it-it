@@ -8,12 +8,12 @@ ms.author: raynew
 ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4806ca77bda1d380d3c5f1d958a335bceddc7f16
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 56daf1bd8d0ab7752b74463759f25441924b52d2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787444"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064118"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Risolvere i problemi del backup di condivisioni file di Azure
 È possibile risolvere i problemi e gli errori rilevati durante l'uso del backup di condivisioni file di Azure con le informazioni elencate nelle tabelle seguenti.
@@ -36,7 +36,7 @@ Il backup per le condivisioni file di Azure negli account di archiviazione con r
 ## <a name="configuring-backup"></a>Configurazione del backup
 La configurazione del backup è illustrata nella tabella seguente:
 
-| Configurazione del backup | Possibili risoluzioni o soluzioni alternative |
+| messaggi di errore | Possibili risoluzioni o soluzioni alternative |
 | ------------------ | ----------------------------- |
 | Impossibile trovare l'account di archiviazione per configurare il backup per la condivisione file di Azure | <ul><li>Attendere che termini l'individuazione. <li>Verificare se sono presenti condivisioni file dell'account di archiviazione già protette con un altro insieme di credenziali di Servizi di ripristino. **Nota**: le condivisioni file di un account di archiviazione possono essere protette solo con un unico insieme di credenziali di Servizi di ripristino. <li>Assicurarsi che la condivisione file non si trovi in account di archiviazione non supportati.|
 | Un errore visualizzato nel portale indica che non è possibile individuare gli account di archiviazione. | Se la sottoscrizione è partner (abilitata per CSP), ignorare l'errore. Se la sottoscrizione non è abilitata per CSP e non è possibile individuare gli account di archiviazione, contattare il supporto tecnico.|
@@ -64,6 +64,14 @@ La configurazione del backup è illustrata nella tabella seguente:
 | L'operazione di ripristino non è riuscita perché la condivisione file di destinazione è piena. | Aumentare la quota delle dimensioni della condivisione file di destinazione affinché possa contenere i dati di ripristino e ripetere l'operazione. |
 | Non è stato possibile completare l'operazione di ripristino perché si è verificato un errore durante l'esecuzione delle operazioni preliminari al ripristino nelle risorse del servizio Sincronizzazione file associate alla condivisione file di destinazione. | Attendere qualche minuto e riprovare. Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | Non è stato possibile ripristinare correttamente uno o più file. Per altre informazioni, vedere l'elenco di file con errori nel percorso sopra specificato. | <ul> <li> Le cause dell'errore di ripristino sono elencate in un file il cui percorso è indicato nei dettagli del processo. Risolvere gli errori e ripetere l'operazione di ripristino solo per i file con errori. <li> Cause comuni degli errori di ripristino file: <br/> - verificare che i file con errori non siano in uso; <br/> - nella directory padre è presente una directory con lo stesso nome del file con errori. |
+
+
+## <a name="modify-policy"></a>Modifica criterio
+| Messaggi di errore | Possibili risoluzioni o soluzioni alternative |
+| ------------------ | ----------------------------- |
+| È in corso un'altra operazione di configurazione della protezione per questo elemento. | Attendere il completamento dell'operazione di modifica criterio precedente e riprovare dopo qualche minuto.|
+| Nell'elemento selezionato è già in corso un'altra operazione. | Attendere il completamento dell'altra operazione in corso e riprovare dopo qualche minuto. |
+
 
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni sul backup di condivisioni file di Azure, vedere:

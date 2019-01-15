@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: dd6d25d05f59d9561eadb0b55d2a1ec528c27b56
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 4d35ab9df17055b798207aafd0e0bdf3b17426fb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753949"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188471"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -160,7 +160,7 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
     
     ![Creare una sottoscrizione di eventi dalla funzione nel portale di Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | Impostazione      | Valore consigliato  | DESCRIZIONE                                        |
+    | Impostazione      | Valore consigliato  | Descrizione                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Tipo di argomento** |  Account di archiviazione | Scegliere il provider di eventi Account di archiviazione. | 
     | **Sottoscrizione** | Sottoscrizione di Azure | Per impostazione predefinita viene selezionata la sottoscrizione di Azure corrente.   |
@@ -170,8 +170,8 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
     | **Tipo di sottoscrittore** |  generato automaticamente |  Predefinito come webhook. |
     | **Endpoint sottoscrittore** | generato automaticamente | Usare l'URL dell'endpoint che viene generato automaticamente. | 
     | **Nome** | imageresizersub | Nome che identifica la nuova sottoscrizione di eventi. | 
-
-4. Fare clic su **Crea** per aggiungere la sottoscrizione di eventi. Questa operazione consente di creare una sottoscrizione di eventi che attiva `imageresizerfunc` quando viene aggiunto un BLOB al contenitore *immagini*. La funzione ridimensiona le immagini e le aggiunge al contenitore *anteprime*.
+4. *Facoltativo:* nel caso in cui sia necessario creare altri contenitori nello stesso archivio BLOB per scopi diversi in futuro, è possibile usare le funzionalità di **filtro per l'oggetto** nella scheda **Filtri** per definire in modo più granulare le destinazioni di eventi BLOB e assicurarsi che l'app per le funzioni venga chiamata solo quando i BLOB vengono aggiunti specificamente al contenitore **images**. 
+5. Fare clic su **Crea** per aggiungere la sottoscrizione di eventi. Questa operazione consente di creare una sottoscrizione di eventi che attiva `imageresizerfunc` quando viene aggiunto un BLOB al contenitore *immagini*. La funzione ridimensiona le immagini e le aggiunge al contenitore *anteprime*.
 
 Ora che i servizi back-end sono stati configurati, testare la funzione di ridimensionamento delle immagini nell'applicazione Web di esempio. 
 

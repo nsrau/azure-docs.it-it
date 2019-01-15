@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638241"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014897"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Confrontare Azure Data Factory con Data Factory versione 1
 Questo articolo mette a confronto Data Factory e Data Factory versione 1. Per un'introduzione a Data Factory, vedere [Introduzione a Data Factory](introduction.md). Per un'introduzione a Data Factory versione 1, vedere [Introduzione ad Azure Data Factory](v1/data-factory-introduction.md). 
@@ -25,7 +24,7 @@ Questo articolo mette a confronto Data Factory e Data Factory versione 1. Per un
 ## <a name="feature-comparison"></a>Confronto tra le funzionalità
 La tabella seguente mette a confronto le funzionalità di Data Factory con quelle di Data Factory versione 1. 
 
-| Funzionalità | Versione 1 | Versione corrente | 
+| Funzionalità | versione 1 | Versione corrente | 
 | ------- | --------- | --------- | 
 | Set di dati | Vista denominata di dati che fa riferimento ai dati da usare nelle attività come input e output. I set di dati identificano i dati all'interno dei diversi archivi dati, come tabelle, file, cartelle e documenti. Un set di dati BLOB di Azure, ad esempio, specifica il contenitore BLOB e la cartella nell'archivio BLOB di Azure da cui l'attività dovrà leggere i dati.<br/><br/>La **disponibilità** definisce il modello di sezionamento dell'intervallo di elaborazione del set di dati (ad esempio ogni ora, ogni giorno e così via). | I set di dati sono gli stessi nella versione corrente. Non è tuttavia necessario definire pianificazioni della **disponibilità** per i set di dati. È possibile definire una risorsa trigger che può pianificare le pipeline da un paradigma di utilità di pianificazione basata sul tempo. Per altre informazioni, vedere [Trigger](concepts-pipeline-execution-triggers.md#triggers) e [Set di dati](concepts-datasets-linked-services.md). | 
 | Servizi collegati | I servizi collegati sono simili a stringhe di connessione e definiscono le informazioni necessarie per la connessione di Data Factory a risorse esterne. | I servizi collegati sono gli stessi di Data Factory versione 1, ma con una nuova proprietà **connectVia** per l'utilizzo dell'ambiente di calcolo del runtime di integrazione della versione corrente di Data Factory. Per altre informazioni, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md) e le [proprietà del servizio collegato per l'archivio BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties). |
@@ -73,7 +72,7 @@ Un caso d'uso chiave nel modello ETL è rappresentato dai "caricamenti differenz
 ### <a name="other-control-flow-activities"></a>Altre attività di flusso di controllo
 Di seguito sono riportate alcune altre attività di flusso di controllo supportate dalla versione corrente di Data Factory. 
 
-Attività di controllo | Descrizione
+Attività di controllo | DESCRIZIONE
 ---------------- | -----------
 [Attività ForEach](control-flow-for-each-activity.md) | Definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per scorrere una raccolta ed eseguire attività specifiche in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione in ciclo Foreach nei linguaggi di programmazione.
 [Attività Web](control-flow-web-activity.md) | Chiama un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi. 
@@ -135,7 +134,7 @@ Gli SDK aggiornati nella versione corrente non sono compatibili con i client ver
 | Azure PowerShell | [Sì](quickstart-create-data-factory-powershell.md) | [Sì](data-factory-build-your-first-pipeline-using-powershell.md) |
 | .NET SDK | [Sì](quickstart-create-data-factory-dot-net.md) | [Sì](data-factory-build-your-first-pipeline-using-vs.md) |
 | API REST | [Sì](quickstart-create-data-factory-rest-api.md) | [Sì](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| Python SDK | [Sì](quickstart-create-data-factory-python.md) | No |
+| Python SDK | [Sì](quickstart-create-data-factory-python.md) | No  |
 | Modello di Resource Manager | [Sì](quickstart-create-data-factory-resource-manager-template.md) | [Sì](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>Ruoli e autorizzazioni

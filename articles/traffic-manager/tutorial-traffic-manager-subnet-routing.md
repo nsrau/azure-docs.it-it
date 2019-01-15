@@ -1,10 +1,9 @@
 ---
-title: Configurare il metodo di routing del traffico subnet usando Gestione traffico | Microsoft Docs
+title: Configurare il metodo di routing del traffico subnet con Gestione traffico di Azure
 description: Questo articolo descrive come configurare Gestione traffico per instradare il traffico dalle subnet utente agli endpoint specifici.
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 20c34b820eb326a18be1c4298b0850a58599be64
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8243130fc9752a47661b4c80826000d573da35c8
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956235"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053075"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Indirizzare il traffico a endpoint specifici basati sulla subnet di utente usando Gestione traffico
 
@@ -41,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per visualizzare Gestione traffico in azione, è necessario implementare quanto segue:
-- due siti Web di base in esecuzione in diverse aree di Azure - **Stati Uniti orientali** (usato come sito Web interno) e **Europa occidentale** (usato come sito Web di produzione).
+- due siti Web di base in esecuzione in diverse aree di Azure: **Stati Uniti orientali** (usato come sito Web interno) e **Europa occidentale** (usato come sito Web di produzione).
 - Due macchine virtuali (VM) per il test di Gestione traffico: una in **Stati Uniti orientali** e la seconda in **Europa occidentale**. 
 
 Le macchine virtuali per il test vengono usate per illustrare come Gestione traffico indirizza il traffico utente al sito Web interno o al sito Web di produzione, a seconda della subnet da cui ha origine la query dell'utente.

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: af764557a6bd3d3f60a3aa628834d5929e073a82
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614022"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021986"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure
 In questa esercitazione si usa l'interfaccia utente di Azure Data Factory per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud.
@@ -195,7 +194,7 @@ Il nome della data factory deve essere *univoco a livello globale*. Se viene vis
 
     ![Nome del runtime di integrazione](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
 
-1. In **Option 1: Express setup** (Opzione 1: Installazione rapida) selezionare **Click here to launch the express setup for this computer** (Fare clic qui per avviare l'installazione rapida per il computer). 
+1. In **Option 1: Express setup** (Opzione 1: Installazione rapida) selezionare**Click here to launch the express setup for this computer** (Fare clic qui per avviare l'installazione rapida per il computer). 
 
     ![Collegamento per l'installazione rapida](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 

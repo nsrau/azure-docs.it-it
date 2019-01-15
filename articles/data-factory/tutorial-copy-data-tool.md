@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: c1f94c04db69ad44203ef1ada1c3b9fa3df2d779
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a9ba02478b17b29343236a91fe637357c1414717
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718090"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015323"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiare dati da un archivio BLOB di Azure a un database SQL con lo strumento Copia dati
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione corrente](tutorial-copy-data-tool.md)
 
-In questa esercitazione si usa il portale di Azure per creare una data factory. Viene quindi usato lo strumento Copia dati per creare una pipeline che copia i dati da un archivio BLOB di Azure a un database SQL. 
+In questa esercitazione si usa il portale di Azure per creare una data factory. Viene quindi usato lo strumento Copia dati per creare una pipeline che copia i dati da un archivio BLOB di Azure a un database SQL.
 
 > [!NOTE]
 > Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
@@ -37,9 +37,9 @@ In questa esercitazione si segue questa procedura:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: usare un archivio BLOB come archivio dati di _origine_. Se non si ha un account di archiviazione di Azure, vedere le istruzioni riportate in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
-* **Database SQL di Azure**: usare un database SQL come archivio dati _sink_. Se non si ha un database SQL, vedere le istruzioni in [Creare un database SQL](../sql-database/sql-database-get-started-portal.md).
+* **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Account di archiviazione di Azure**: Usare un archivio BLOB come archivio dati di _origine_. Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
+* **Database SQL di Azure**: Usare un database SQL come archivio dati _sink_. Se non si ha un database SQL, vedere le istruzioni in [Creare un database SQL](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creare un BLOB e una tabella SQL
 
@@ -76,45 +76,45 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel menu a sinistra selezionare **+ Nuovo** > **Dati e analisi** > **Data factory**: 
-   
-   ![Creazione di una nuova data factory](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
-1. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome**. 
-      
-     ![Nuova data factory](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
- 
-   Il nome della data factory deve essere _univoco a livello globale_. Potrebbe essere visualizzato il messaggio di errore seguente:
-   
-   ![Messaggio di errore per nuova data factory](./media/tutorial-copy-data-tool/name-not-available-error.png)
+1. Nel menu a sinistra selezionare **+ Nuovo** > **Dati e analisi** > **Data factory**:
+    
+    ![Creazione di una nuova data factory](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
+1. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome**.
+    
+    ![Nuova data factory](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
 
-   Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
-1. Selezionare la **sottoscrizione** di Azure in cui creare la nuova data factory. 
+    Il nome della data factory deve essere _univoco a livello globale_. Potrebbe essere visualizzato il messaggio di errore seguente:
+    
+    ![Messaggio di errore per nuova data factory](./media/tutorial-copy-data-tool/name-not-available-error.png)
+
+    Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
+1. Selezionare la **sottoscrizione** di Azure in cui creare la nuova data factory.
 1. In **Gruppo di risorse** eseguire una di queste operazioni:
-     
+    
     a. Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa.
 
-    b. Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse. 
-         
+    b. Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.
+    
     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-overview.md).
 
 1. In **Versione** selezionare la versione **V2**.
 1. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dalla data factory possono trovarsi in altre località e aree.
-1. Selezionare **Aggiungi al dashboard**. 
+1. Selezionare **Aggiungi al dashboard**.
 1. Selezionare **Create**.
 1. Il riquadro **Deploying Data Factory** (Distribuzione della data factory) nel dashboard mostra lo stato del processo.
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-copy-data-tool/deploying-data-factory.png)
 1. Al termine della creazione verrà visualizzata la home page **Data factory**.
-   
+    
     ![Home page di Data factory](./media/tutorial-copy-data-tool/data-factory-home-page.png)
-1. Per avviare l'interfaccia utente di Azure Data Factory in una scheda separata, selezionare il riquadro **Crea e monitora**. 
+1. Per avviare l'interfaccia utente di Azure Data Factory in una scheda separata, selezionare il riquadro **Crea e monitora**.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Usare lo strumento Copia dati per creare una pipeline
 
-1. Nella pagina **Attività iniziali** selezionare il riquadro **Copia dati** per avviare lo strumento Copia dati. 
+1. Nella pagina **Attività iniziali** selezionare il riquadro **Copia dati** per avviare lo strumento Copia dati.
 
-   ![Riquadro dello strumento Copia dati](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
-1. Nella pagina **Proprietà** immettere **CopyFromBlobToSqlPipeline** in **Nome attività**. Quindi selezionare **Avanti**. L'interfaccia utente di Data Factory crea una pipeline con il nome di attività specificato. 
+    ![Riquadro dello strumento Copia dati](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+1. Nella pagina **Proprietà** immettere **CopyFromBlobToSqlPipeline** in **Nome attività**. Quindi selezionare **Avanti**. L'interfaccia utente di Data Factory crea una pipeline con il nome di attività specificato.
 
     ![Pagina Proprietà](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
 1. Nella pagina **Archivio dati di origine** completare la procedura seguente:
@@ -143,7 +143,7 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
 
     b. Fare clic su **Avanti** per andare al passaggio successivo.
 
-1. Nella pagina **File format settings** (Impostazioni di formato file) si noti che lo strumento rileva automaticamente i delimitatori di colonna e di riga. Selezionare **Avanti**. In questa pagina è anche possibile visualizzare l'anteprima dei dati e lo schema dei dati di input. 
+1. Nella pagina **File format settings** (Impostazioni di formato file) si noti che lo strumento rileva automaticamente i delimitatori di colonna e di riga. Selezionare **Avanti**. In questa pagina è anche possibile visualizzare l'anteprima dei dati e lo schema dei dati di input.
 
     ![Impostazioni sul formato del file](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. Nella pagina **archivio dati di destinazione** completare la procedura seguente:
@@ -156,7 +156,7 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
 
     ![Selezionare il database SQL di Azure](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 
-    c. Nella pagina **Nuovo Servizio collegato**selezionare il nome del server e il nome del database dall'elenco a discesa e specificare il nome utente e la password, quindi selezionare **Fine**.    
+    c. Nella pagina **Nuovo Servizio collegato**selezionare il nome del server e il nome del database dall'elenco a discesa e specificare il nome utente e la password, quindi selezionare **Fine**.
 
     ![Configurare il database SQL di Azure](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
@@ -164,23 +164,23 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
 
     ![Selezionare il servizio collegato sink](./media/tutorial-copy-data-tool/select-sink-linked-service.png)
 
-1. Nella pagina **Mapping tabella** selezionare la tabella **[dbo].[emp]** e quindi **Avanti**. 
+1. Nella pagina **Mapping tabella** selezionare la tabella **[dbo].[emp]** e quindi **Avanti**.
 
     ![Mapping tabella](./media/tutorial-copy-data-tool/table-mapping.png)
 1. Nella pagina **Mapping dello schema** si noti che la prima e la seconda colonna del file di input sono mappate alle colonne **FirstName** e **LastName** della tabella **emp**. Selezionare **Avanti**.
 
     ![Pagina Mapping dello schema](./media/tutorial-copy-data-tool/schema-mapping.png)
-1. Nella pagina **Impostazioni** selezionare **Avanti**. 
+1. Nella pagina **Impostazioni** selezionare **Avanti**.
 1. Nella pagina **Riepilogo** esaminare le impostazioni e quindi selezionare **Avanti**.
 
     ![Pagina Riepilogo](./media/tutorial-copy-data-tool/summary-page.png)
 1. Nella pagina **Distribuzione** selezionare **Monitoraggio** per monitorare la pipeline (attività).
 
     ![Pagina Distribuzione](./media/tutorial-copy-data-tool/deployment-page.png)
-1. Si noti che la scheda **Monitoraggio** a sinistra è selezionata automaticamente. La colonna **Azioni** contiene collegamenti per visualizzare i dettagli delle esecuzioni dell'attività ed eseguire di nuovo la pipeline. Selezionare **Aggiorna** per aggiornare l'elenco. 
+1. Si noti che la scheda **Monitoraggio** a sinistra è selezionata automaticamente. La colonna **Azioni** contiene collegamenti per visualizzare i dettagli delle esecuzioni dell'attività ed eseguire di nuovo la pipeline. Selezionare **Aggiorna** per aggiornare l'elenco.
 
     ![Monitorare le esecuzioni di pipeline](./media/tutorial-copy-data-tool/pipeline-monitoring.png)
-1. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Per informazioni dettagliate sull'operazione di copia, selezionare il collegamento **Dettagli** (icona a forma di occhiali) nella colonna **Azioni**. Per tornare alla visualizzazione **Pipeline Runs** (Esecuzioni di pipeline), selezionare il collegamento **Pipeline** in alto. Per aggiornare la visualizzazione, selezionare **Aggiorna**. 
+1. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Per informazioni dettagliate sull'operazione di copia, selezionare il collegamento **Dettagli** (icona a forma di occhiali) nella colonna **Azioni**. Per tornare alla visualizzazione **Pipeline Runs** (Esecuzioni di pipeline), selezionare il collegamento **Pipeline** in alto. Per aggiornare la visualizzazione, selezionare **Aggiorna**.
 
     ![Monitorare le esecuzioni delle attività](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
@@ -193,14 +193,14 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
 1. Selezionare la scheda **Autore** a sinistra per passare alla modalità di modifica. L'editor consente di aggiornare i servizi collegati, i set di dati e le pipeline che sono stati creati tramite lo strumento. Per informazioni dettagliate sulla modifica di queste entità nell'interfaccia utente di Data Factory, vedere [la versione del portale di Azure di questa esercitazione](tutorial-copy-data-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-La pipeline di questo esempio copia i dati da un archivio BLOB a un database SQL. Si è appreso come: 
+La pipeline di questo esempio copia i dati da un archivio BLOB a un database SQL. Si è appreso come:
 
 > [!div class="checklist"]
 > * Creare una data factory.
 > * Usare lo strumento Copia dati per creare una pipeline.
 > * Monitorare le esecuzioni di pipeline e attività.
 
-Passare all'esercitazione successiva per informazioni sulla copia di dati dall'ambiente locale al cloud: 
+Passare all'esercitazione successiva per informazioni sulla copia di dati dall'ambiente locale al cloud:
 
 > [!div class="nextstepaction"]
 >[Copiare dati dall'ambiente locale al cloud](tutorial-hybrid-copy-data-tool.md)

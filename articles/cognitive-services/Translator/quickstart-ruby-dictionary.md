@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Trovare traduzioni alternative, Ruby - API Traduzione testuale'
+title: 'Avvio rapido: Cercare le parole con il dizionario bilingue, Ruby - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Ruby.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: c9e33fd4be80c8bb95248e8be34f9540d9cd69ea
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4574c07f3dfa98c0264d70c08a5ee4feff075bee
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649619"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157089"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-ruby"></a>Guida introduttiva: Trovare traduzioni alternative con l'API REST Traduzione testuale (Ruby)
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-ruby"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando Ruby
 
 In questa guida introduttiva si trovano i dettagli relativi a possibili traduzioni alternative per un termine ed esempi d'uso di tali traduzioni usando l'API Traduzione testuale.
 

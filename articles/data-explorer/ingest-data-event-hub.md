@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure"
+title: "Avvio rapido: Inserire dati dall'hub eventi in Esplora dati di Azure"
 description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure dall'hub eventi.
 services: data-explorer
 author: orspod
@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 563b171177b491037e34dce891b565ea0943feda
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: ff512ac3bef1ce721860172dbaf9d9b68512a518
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654105"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064696"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure consente l'inserimento (caricamento dei dati) da Hub eventi, una piattaforma di Big Data streaming e un servizio di inserimento di eventi. Hub eventi è in grado di elaborare milioni di eventi al secondo quasi in tempo reale. In questa guida introduttiva verrà creato un hub eventi, a cui ci si connetterà da Esplora dati di Azure per visualizzare il flusso di dati attraverso il sistema.
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure consente l'inserimento (caricamento dei dati) da Hub eventi, una piattaforma di Big Data streaming e un servizio di inserimento di eventi. [Hub eventi](/azure/event-hubs/event-hubs-about) riesce a elaborare milioni di eventi al secondo quasi in tempo reale. In questa guida introduttiva verrà creato un hub eventi, a cui ci si connetterà da Esplora dati di Azure per visualizzare il flusso di dati attraverso il sistema.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -25,7 +25,7 @@ Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilit�
 
 * [Un cluster e un database di test](create-cluster-database-portal.md)
 
-* [Un'app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) che genera i dati e li invia a un hub eventi
+* [Un'app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) che genera i dati e li invia a un hub eventi. Scaricare l'app di esempio nel sistema.
 
 * [Visual Studio 2017 versione 15.3.2 o successiva](https://www.visualstudio.com/vs/) per eseguire l'app di esempio
 
@@ -37,7 +37,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 In questa guida introduttiva vengono generati dati di esempio che sono inviati a un hub eventi. Il primo passaggio consiste nel creare un hub eventi. A tale scopo, usare un modello di Azure Resource Manager nel portale di Azure.
 
-1. Usare il pulsante seguente per avviare la distribuzione. È consigliabile aprire il collegamento in un'altra scheda o finestra, quindi è possibile seguire il resto dei passaggi di questo articolo.
+1. Per creare un hub eventi, usare il pulsante seguente per avviare la distribuzione. Fare clic con il pulsante destro del mouse e selezionare il collegamento **Apri in una nuova finestra** in un'altra scheda o finestra, per poter seguire il resto dei passaggi di questo articolo.
 
     [![Distribuzione in Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -79,7 +79,7 @@ Verrà ora creata una tabella in Esplora dati di Azure a cui saranno inviati i d
 
     ![Collegamento all'applicazione di query](media/ingest-data-event-hub/query-explorer-link.png)
 
-1. Copiare il comando seguente nella finestra e selezionare **Esegui**.
+1. Copiare il comando seguente nella finestra e selezionare **Esegui** per creare la tabella (TestTable) che riceverà i dati inseriti.
 
     ```Kusto
     .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
@@ -87,12 +87,11 @@ Verrà ora creata una tabella in Esplora dati di Azure a cui saranno inviati i d
 
     ![Esecuzione della creazione di query](media/ingest-data-event-hub/run-create-query.png)
 
-1. Copiare il comando seguente nella finestra e selezionare **Esegui**.
+1. Copiare il comando seguente nella finestra e selezionare **Esegui** per eseguire il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati della tabella (TestTable).
 
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
     ```
-    Questo comando esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati della tabella (TestTable).
 
 ## <a name="connect-to-the-event-hub"></a>Connettersi all'hub eventi
 
@@ -112,13 +111,23 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
 
     ![Connessione all'hub eventi](media/ingest-data-event-hub/event-hub-connection.png)
 
+    Origine dati:
+
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Data connection name (Nome connessione dati) | *test-hub-connection* | Nome della connessione da creare in Esplora dati di Azure.|
     | Spazio dei nomi dell'hub eventi | Nome dello spazio dei nomi univoco | Nome scelto in precedenza che identifica lo spazio dei nomi. |
     | Hub eventi | *test-hub* | Hub eventi creato. |
     | Gruppo di consumer | *test-group* | Gruppo di consumer definito nell'hub eventi creato. |
-    | Tabella di destinazione | Lasciare deselezionato **My data includes routing info** (I miei dati includono le informazioni di routing). | Sono disponibili due opzioni per il routing: *statico* e *dinamico*. Per questa guida introduttiva viene usato il routing statico (impostazione predefinita), in cui vengono specificati il nome della tabella, il formato di file e il mapping. È anche possibile usare il routing dinamico, in cui i dati includono le informazioni di routing necessarie. |
+    | | |
+
+    Tabella di destinazione:
+
+    Sono disponibili due opzioni per il routing: *statico* e *dinamico*. Per questa guida introduttiva viene usato il routing statico (impostazione predefinita), in cui vengono specificati il nome della tabella, il formato di file e il mapping. Lasciare deselezionato **My data includes routing info** (I miei dati includono le informazioni di routing).
+    È anche possibile usare il routing dinamico, in cui i dati includono le informazioni di routing necessarie.
+
+     **Impostazione** | **Valore consigliato** | **Descrizione campo**
+    |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
     | Formato dati | *JSON* | Sono supportati i formati JSON e CSV. |
     | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**.|
@@ -138,7 +147,7 @@ Quando si esegue l'[app di esempio](https://github.com/Azure-Samples/event-hubs-
 
 ## <a name="generate-sample-data"></a>Generare i dati di esempio
 
-Ora che Esplora dati di Azure e l'hub eventi sono connessi, verrà usata l'[app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) scaricata per generare i dati.
+Usare l'[app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) scaricata per generare dati.
 
 1. Aprire la soluzione dell'app di esempio in Visual Studio.
 
@@ -162,8 +171,6 @@ Con i dati generati dall'app, è ora possibile vedere il flusso di tali dati dal
 
     ![Grafico dell'hub eventi](media/ingest-data-event-hub/event-hub-graph.png)
 
-1. Tornare all'app di esempio e arrestarla dopo che ha raggiunto il messaggio 99.
-
 1. Per verificare il numero di messaggi arrivati al database fino a questo momento, eseguire la query seguente nel database di test.
 
     ```Kusto
@@ -171,15 +178,18 @@ Con i dati generati dall'app, è ora possibile vedere il flusso di tali dati dal
     | count
     ```
 
-1. Per visualizzare il contenuto dei messaggi, eseguire la query seguente.
+1. Per visualizzare il contenuto dei messaggi, eseguire la query seguente:
 
     ```Kusto
     TestTable
     ```
 
-    Il set di risultati dovrebbe essere simile al seguente.
+    Il set di risultati dovrebbe essere simile al seguente:
 
     ![Set di risultati dei messaggi](media/ingest-data-event-hub/message-result-set.png)
+
+    > [!NOTE]
+    > ADX prevede un criterio di aggregazione (invio in batch) per l'inserimento di dati, progettato per ottimizzare il processo di inserimento. Il criterio è configurato su 5 minuti, perciò potrebbe verificarsi una latenza.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -198,4 +208,4 @@ Se non si prevede di usare nuovamente l'hub eventi, eliminare **test-hub-rg**, p
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
+> [Avvio rapido: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)

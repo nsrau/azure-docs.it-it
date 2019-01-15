@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2dd209025db762f659510898e23cb371a31291b9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544686"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189480"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -176,7 +176,7 @@ I modelli tabulari a tutti i livelli di compatibilità supportano la sicurezza a
 
 I modelli tabulari al livello di compatibilità 1400 supportano la sicurezza a livello di oggetto, che include la sicurezza a livello di tabella e la sicurezza a livello di colonna. La sicurezza a livello di oggetto viene impostata nei metadati basati su JSON nel file Model.bim usando TMSL o TOM. Per altre informazioni, vedere [Sicurezza a livello di oggetto](https://docs.microsoft.com/sql/analysis-services/tabular-models/object-level-security).
 
-### <a name="automation-through-service-principles"></a>Automazione tramite le entità servizio
+### <a name="automation-through-service-principals"></a>Automazione tramite le entità servizio
 
 Le entità servizio sono una risorsa dell'applicazione Azure Active Directory creata all'interno del tenant per l'esecuzione automatica di operazioni a livello di servizio e di risorsa. Le entità servizio vengono usate con Automazione di Azure, la modalità automatica di PowerShell, le applicazioni client personalizzate e le app Web per automatizzare le attività comuni, ad esempio aggiornamento dei dati, passaggio a un piano superiore/inferiore e sospensione/ripresa. Le autorizzazioni vengono assegnate alle entità servizio tramite l'appartenenza a un ruolo. Per altre informazioni, vedere [Automazione con le entità servizio](analysis-services-service-principal.md).
 

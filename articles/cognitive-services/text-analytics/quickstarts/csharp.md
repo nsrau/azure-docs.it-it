@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: quickstart
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 59469b6c27ceb0ed96659198edd6ddbca12685e2
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.date: 01/02/2019
+ms.author: assafi
+ms.openlocfilehash: 7c26117c9c36b3004df0d85b1a739fcebd9a1e4e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283962"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119408"
 ---
-# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di C# per chiamare il servizio cognitivo Analisi del testo
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di C# per chiamare il servizio cognitivo Analisi del testo
 <a name="HOLTop"></a>
 
 Questo articolo mostra come rilevare la lingua, analizzare il sentiment ed estrarre frasi chiave usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con C#. Il codice è stato scritto per lavorare su un'applicazione .Net Core, con riferimenti minimi a librerie esterne, in modo che sia possibile eseguirlo in Linux o MacOS.
@@ -28,15 +28,15 @@ Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-È anche necessario avere la [chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati durante l'iscrizione. 
+È inoltre necessario avere la [chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati automaticamente durante l'iscrizione.
 
 
-## <a name="install-the-nuget-sdk-package"></a>Installare il pacchetto Nuget SDK
+## <a name="install-the-nuget-sdk-package"></a>Installare il pacchetto NuGet SDK
 1. Creare una nuova soluzione Console in Visual Studio.
 1. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Manage NuGet Packages for Solution** (Gestisci pacchetti NuGet per la soluzione)
 1. Selezionare la casella di controllo **Include Prerelease** (Includi versione provvisoria).
 1. Selezionare la scheda **Sfoglia** e cercare **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
-1. Selezionare il pacchetto Nuget e installarlo.
+1. Selezionare il pacchetto NuGet e installarlo.
 
 > [!Tip]
 >  Sebbene sia possibile chiamare direttamente gli [endpoint HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) da C#, Microsoft.Azure.CognitiveServices.Language SDK agevola la chiamata al servizio perché non rende più necessarie la serializzazione e la deserializzazione di JSON.
@@ -47,7 +47,7 @@ Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.
 
 
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>Chiamare l'API Analisi del testo usando l'SDK
-1. Sostituire Program.cs con il codice fornito di seguito. Questo programma illustra le funzionalità dell'API Analisi del testo in 3 sezioni (estrazione del linguaggio, estrazione di frasi chiave e analisi del sentiment).
+1. Sostituire Program.cs con il codice fornito di seguito. Questo programma illustra le funzionalità dell'API Analisi del testo in tre sezioni (estrazione del linguaggio, estrazione di frasi chiave e analisi del sentiment).
 1. Sostituire il valore dell'intestazione `Ocp-Apim-Subscription-Key` con una chiave di accesso valida per la sottoscrizione.
 1. Sostituire la località in `Endpoint` con l'endpoint per cui è stata fatta l'iscrizione. È possibile trovare l'endpoint nella risorsa del portale di Azure. L'endpoint inizia in genere con "https://[region].api.cognitive.microsoft.com". Includere solo il protocollo e il nome host.
 1. Eseguire il programma.
@@ -68,13 +68,14 @@ namespace ConsoleApp1
     {
         /// <summary>
         /// Container for subscription credentials. Make sure to enter your valid key.
-        string subscriptionKey = ""; //Insert your Text Anaytics subscription key
+        private const string SubscriptionKey = ""; //Insert your Text Anaytics subscription key
+
         /// </summary>
         class ApiKeyServiceClientCredentials : ServiceClientCredentials
         {
             public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
             {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
                 return base.ProcessHttpRequestAsync(request, cancellationToken);
             }
         }
@@ -104,7 +105,7 @@ namespace ConsoleApp1
             // Printing language results.
             foreach (var document in result.Documents)
             {
-                Console.WriteLine("Document ID: {0} , Language: {1}", document.Id, document.DetectedLanguages[0].Name);
+                Console.WriteLine($"Document ID: {document.Id} , Language: {document.DetectedLanguages[0].Name}");
             }
 
             // Getting key-phrases
@@ -122,13 +123,13 @@ namespace ConsoleApp1
             // Printing keyphrases
             foreach (var document in result2.Documents)
             {
-                Console.WriteLine("Document ID: {0} ", document.Id);
+                Console.WriteLine($"Document ID: {document.Id} ");
 
                 Console.WriteLine("\t Key phrases:");
 
                 foreach (string keyphrase in document.KeyPhrases)
                 {
-                    Console.WriteLine("\t\t" + keyphrase);
+                    Console.WriteLine($"\t\t{keyphrase}");
                 }
             }
 
@@ -149,14 +150,14 @@ namespace ConsoleApp1
             // Printing sentiment results
             foreach (var document in result3.Documents)
             {
-                Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);
+                Console.WriteLine($"Document ID: {document.Id} , Sentiment Score: {document.Score:0.00}");
             }
 
 
             // Identify entities
             Console.WriteLine("\n\n===== ENTITIES ======");
 
-            EntitiesBatchResult result4 = client.EntitiesAsync(
+            EntitiesBatchResultV2dot1 result4 = client.EntitiesAsync(
                     new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
@@ -166,13 +167,13 @@ namespace ConsoleApp1
             // Printing entities results
             foreach (var document in result4.Documents)
             {
-                Console.WriteLine("Document ID: {0} ", document.Id);
+                Console.WriteLine($"Document ID: {document.Id} ");
 
                 Console.WriteLine("\t Entities:");
 
-                foreach (EntityRecord entity in document.Entities)
+                foreach (EntityRecordV2dot1 entity in document.Entities)
                 {
-                    Console.WriteLine("\t\t" + entity.Name);
+                    Console.WriteLine($"\t\t{entity.Name}\t\t{entity.WikipediaUrl}\t\t{entity.Type}\t\t{entity.SubType}");
                 }
             }
 
@@ -187,8 +188,7 @@ namespace ConsoleApp1
 > [!div class="nextstepaction"]
 > [Analisi del testo con Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
- [Panoramica di Analisi del testo](../overview.md)  
- [Domande frequenti](../text-analytics-resource-faq.md)
+ [Panoramica di Analisi del testo](../overview.md) [Domande frequenti](../text-analytics-resource-faq.md)
 

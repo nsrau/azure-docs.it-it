@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare una pipeline per lo spostamento di dati con Azure PowerShell | Documentazione Microsoft'
+title: 'Esercitazione: Creare una pipeline per lo spostamento di dati con Azure PowerShell | Microsoft Docs'
 description: In questa esercitazione viene creata una pipeline di Azure Data Factory con un'attività di copia usando Azure PowerShell.
 services: data-factory
 documentationcenter: ''
@@ -10,23 +10,22 @@ ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee682af0f4e32c923f4aa6170535f0566f426b2d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ce2c3bffecd691acd5eb26b999c63fd2bb5dd510
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426578"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015340"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Esercitazione: Creare una pipeline di Data Factory per lo spostamento di dati con Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-> * [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -38,14 +37,14 @@ ms.locfileid: "39426578"
 
 Questo articolo illustra l'uso di PowerShell per creare una data factory con una pipeline che copia i dati da un archivio BLOB di Azure a un database SQL di Azure. Se non si ha familiarità con Azure Data Factory, prima di eseguire questa esercitazione vedere l'articolo [Introduzione ad Azure Data Factory](data-factory-introduction.md).   
 
-In questa esercitazione si crea una pipeline contenente una sola attività: un'attività di copia che copia i dati da un archivio dati supportato a un archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini e sink, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per altre informazioni sull'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md).
+In questa esercitazione si crea una pipeline contenente una sola attività: un'attività di copia. che copia i dati da un archivio dati supportato a un archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini e sink, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per altre informazioni sull'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md).
 
 Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [Attività multiple in una pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 > [!NOTE]
 > Questo articolo non illustra tutti i cmdlet di Data factory. Per la documentazione completa su questi cmdlet, vedere [Data Factory Cmdlet Reference](/powershell/module/azurerm.datafactories) (Informazioni di riferimento sui cmdlet di Data Factory).
 > 
-> La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando un cluster Hadoop](data-factory-build-your-first-pipeline.md).
+> La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come trasformare dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando il cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Completare i prerequisiti indicati nell'articolo sui [prerequisiti dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -55,7 +54,7 @@ Una pipeline può includere più attività ed è possibile concatenarne due, ovv
 Di seguito sono elencati i passaggi da eseguire in questa esercitazione:
 
 1. Creare una **data factory** di Azure. In questo passaggio viene creata una data factory denominata ADFTutorialDataFactoryPSH. 
-1. Creare **servizi collegati** nella data factory. In questo passaggio si creano due servizi collegati di tipo Archiviazione di Azure e database SQL di Azure. 
+1. Creare **servizi collegati** nella data factory. In questo passaggio vengono creati due servizi collegati di tipo Archiviazione di Azure e database SQL di Azure. 
     
     AzureStorageLinkedService collega l'account di archiviazione di Azure alla data factory. Come parte dei [prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) è stato creato un contenitore e sono stati caricati i dati in questo account di archiviazione.   
 
@@ -118,7 +117,7 @@ Tenere presente quanto segue:
     ```
 * Per creare istanze di Data Factory è necessario essere un collaboratore o amministratore della sottoscrizione di Azure.
 * Il nome della data factory può essere registrato come nome DNS in futuro e quindi divenire visibile pubblicamente.
-* È possibile che venga visualizzato questo errore: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**". Eseguire una di queste operazioni e provare a ripetere la pubblicazione:
+* È possibile che venga visualizzato l'errore seguente: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory.**" Eseguire una di queste operazioni e provare a ripetere la pubblicazione:
 
   * In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory:
 
@@ -145,7 +144,7 @@ AzureSqlLinkedService collega il database SQL di Azure alla data factory. I dati
 ### <a name="create-a-linked-service-for-an-azure-storage-account"></a>Creare un servizio collegato per un account di archiviazione di Azure
 In questo passaggio l'account di archiviazione di Azure viene collegato alla data factory.
 
-1. Creare un file JSON denominato **AzureStorageLinkedService.json** nella cartella **C:\ADFGetStartedPSH** con il contenuto seguente. Creare la cartella ADFGetStartedPSH se non esiste già.
+1. Creare un file JSON denominato **AzureStorageLinkedService.json** nella cartella **C:\ADFGetStartedPSH** con il contenuto seguente: Creare la cartella ADFGetStartedPSH, se non esiste già.
 
     > [!IMPORTANT]
     > Sostituire &lt;accountname&gt; e &lt;accountkey&gt; con il nome e la chiave dell'account di archiviazione di Azure prima di salvare il file. 
@@ -427,7 +426,7 @@ Attualmente, è il set di dati di output a determinare la pianificazione. In que
      
     Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. È possibile specificare solo la parte relativa alla data e ignorare la parte relativa all'ora, ad esempio "2016-02-03", che equivale a "2016-02-03T00:00:00Z".
      
-    Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2016-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato. 
+    Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio:  2016-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato. 
      
     Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
      

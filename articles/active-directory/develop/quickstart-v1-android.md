@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d5d284e8f7756e3e9bff5b08d28a8ed911a60572
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311066"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158874"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
 
@@ -127,7 +127,7 @@ Sarà necessaria un'applicazione client nativa registrata con Microsoft tramite 
 
 1. Vedere il [wiki su ADAL per Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) per altre informazioni sui meccanismi della libreria e su come configurare nuovi scenari e funzionalità.
 2. Negli scenari nativi l'app userà un'istanza di WebView incorporata e non uscirà dall'app. `Redirect URI` può essere arbitrario.
-3. Per eventuali problemi o richieste, è possibile creare un problema o un post in Stackoverflow con il tag `azure-active-directory`.
+3. Per eventuali problemi o richieste, è possibile creare un problema o un post in Stack Overflow con il tag `azure-active-directory`.
 
 ### <a name="cross-app-sso"></a>Accesso Single Sign-On tra app
 

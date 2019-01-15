@@ -1,23 +1,21 @@
 ---
-title: "Azure Cosmos DB: Esercitazione introduttiva per l'API SQL"
+title: 'Azure Cosmos DB: API SQL - esercitazione introduttiva'
 description: Esercitazione che crea un database online e un'applicazione console in C# con l'API SQL.
-keywords: esercitazione su nosql, database online, applicazione console C#
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: 100524eacb30f77e06204fb3b31e6477dd1320a4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867530"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043448"
 ---
-# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Esercitazione introduttiva per l'API SQL
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: API SQL - esercitazione introduttiva
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -55,7 +53,7 @@ Ecco come procedere.
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passaggio 1: Creare un account di Azure Cosmos DB
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passaggio 1: Creare un account Azure Cosmos DB
 Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è possibile ignorare questo passaggio e passare a [Configurare la soluzione Visual Studio](#SetupVS). Se si usa l'emulatore di Azure Cosmos DB, seguire i passaggi descritti nell'articolo [Usare l'emulatore di Azure Cosmos DB per sviluppo e test locali](local-emulator.md) per configurare l'emulatore e proseguire con il passaggio [Configurare la soluzione di Visual Studio](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -77,7 +75,7 @@ Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è p
 
 L'installazione è riuscita. Ora che abbiamo completato l'installazione, iniziamo a scrivere il codice. Un progetto di codice completo di questa esercitazione è disponibile in [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-## <a id="Connect"></a>Passaggio 3: Connettersi a un account Azure Cosmos DB
+## <a id="Connect"></a>Passaggio 3: collegarsi a un account di Azure Cosmos DB
 In primo luogo, aggiungere questi riferimenti all'inizio dell'applicazione c#, nel file Program.cs:
 
     using System;
@@ -367,7 +365,7 @@ Congratulazioni! La creazione di due documenti di Azure Cosmos DB è stata compl
 
 ![Diagramma che illustra la relazione gerarchica tra l'account, il database online, la raccolta e i documenti usati nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Passaggio 7: Eseguire query sulle risorse di Azure Cosmos DB
+## <a id="Query"></a>Passaggio 7: eseguire query sulle risorse di Azure Cosmos DB
 Azure Cosmos DB supporta [query complesse](how-to-sql-query.md) sui documenti JSON archiviati in ogni raccolta.  Il codice di esempio seguente mostra diverse query che usano la sintassi SQL di Azure Cosmos DB e LINQ e che possono essere eseguite sui documenti inseriti nel passaggio precedente.
 
 Copiare e incollare il metodo **ExecuteSimpleQuery** dopo il metodo **CreateFamilyDocumentIfNotExists**.
@@ -478,7 +476,7 @@ Premere **F5** per eseguire l'applicazione.
 
 Congratulazioni! L'eliminazione di un documento di Azure Cosmos DB è stata completata.
 
-## <a id="DeleteDatabase"></a>Passaggio 10: Eliminare il database
+## <a id="DeleteDatabase"></a>Passaggio 10: eliminare il database
 Se si elimina il database creato, verrà rimosso il database e tutte le risorse figlio (raccolte, documenti e così via).
 
 Copiare e incollare il codice seguente nel metodo **GetStartedDemo** dopo il codice di eliminazione del documento per eliminare l'intero database e tutte le risorse figlio.
@@ -495,7 +493,7 @@ Premere **F5** per eseguire l'applicazione.
 
 Congratulazioni! L'eliminazione di un database di Azure Cosmos DB è stata completata.
 
-## <a id="Run"></a>Passaggio 11: Eseguire l'intera applicazione console C#
+## <a id="Run"></a>Passaggio 11: eseguire l'intera applicazione console C#
 Premere F5 in Visual Studio per compilare l'applicazione in modalità di debug.
 
 Verrà visualizzato l'output dell'app introduttiva nella finestra della console. L'output visualizzerà i risultati delle query aggiunte e dovrà corrispondere al testo di esempio riportato di seguito.
@@ -538,7 +536,7 @@ Per completare la procedura, è sufficiente procedere alla compilazione.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'esercitazione su MVC ASP.NET più complessa, vedere [Esercitazione su ASP.NET MVC: Sviluppo di applicazioni Web con Azure Cosmos DB](sql-api-dotnet-application.md).
+* Per un'esercitazione su MVC ASP.NET più complessa, Vedere [Esercitazione su MVC ASP.NET: sviluppo di applicazioni Web con Azure Cosmos DB](sql-api-dotnet-application.md).
 * Per la scalabilità e i test delle prestazioni con Azure Cosmos DB, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
 * Informazioni su come [monitorare le richieste, l'utilizzo e le risorse di archiviazione di Azure Cosmos DB](monitor-accounts.md).
 * Eseguire query sul set di dati di esempio illustrato nella pagina [Query Playground](https://www.documentdb.com/sql/demo).

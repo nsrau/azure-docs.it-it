@@ -1,20 +1,19 @@
 ---
 title: Introduzione all'API Cassandra di Azure Cosmos DB
 description: Informazioni su come usare Azure Cosmos DB per trasferire in modalità lift-and-shift le applicazioni esistenti e sviluppare nuove applicazioni che usano l'API Cassandra tramite i driver Cassandra e CQL già noti.
-services: cosmos-db
 author: kanshiG
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
+ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 79c131be14de05e84eb21d6d53eefd1aa224df16
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9d948164177b7acd2df722078ae590f409c8e795
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835019"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036512"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introduzione all'API Cassandra di Azure Cosmos DB
 
@@ -36,7 +35,7 @@ L'API Cassandra consente di interagire con i dati archiviati in Azure Cosmos DB,
 
 **Livelli di coerenza:** Azure Cosmos DB consente di scegliere tra cinque livelli di coerenza ben definiti, per ottenere un compromesso ottimale tra coerenza e prestazioni. I livelli di coerenza possibili sono: Strong, Bounded Staleness, Session, Consistent Prefix ed Eventual. Si tratta di livelli di coerenza ben definiti, pratici e intuitivi, che permettono agli sviluppatori di ottenere compromessi precisi tra coerenza, disponibilità e latenza. Vedere l'articolo [livelli di coerenza](consistency-levels.md) per altre informazioni. 
 
-**Classe enterprise**: Azure Cosmos DB offre [certificazioni di conformità](https://www.microsoft.com/trustcenter) affinché gli utenti possano usare la piattaforma in modo sicuro. Fornisce inoltre la crittografia dei dati inattivi e in transito, firewall IP e log di controllo per le attività del piano di controllo.
+**Livello enterprise**: Azure Cosmos DB offre [certificazioni di conformità](https://www.microsoft.com/trustcenter) affinché gli utenti possano usare la piattaforma in modo sicuro. Fornisce inoltre la crittografia dei dati inattivi e in transito, firewall IP e log di controllo per le attività del piano di controllo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

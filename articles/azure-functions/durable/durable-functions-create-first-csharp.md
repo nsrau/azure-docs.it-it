@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341049"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038158"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Creare la prima funzione durevole in C\#
 
 *Durable Functions* è un'estensione di [Funzioni di Azure](../functions-overview.md) che consente di scrivere funzioni con stato in un ambiente senza server. L'estensione gestisce automaticamente lo stato, i checkpoint e i riavvii.
 
-Questo articolo spiega come usare gli strumenti di Visual Studio 2017 per Funzioni di Azure per creare e testare una funzione durevole "hello world" in locale.  Questa funzione orchestrerà e concatenerà le chiamate ad altre funzioni. Il codice della funzione verrà quindi pubblicato in Azure. Questi strumenti sono disponibili come parte del carico di lavoro di sviluppo di Azure in Visual Studio 2017.
+Questo articolo spiega come usare gli strumenti di Visual Studio 2017 per Funzioni di Azure per creare e testare una funzione durevole "hello world" in locale.  Questa funzione orchestra e concatena le chiamate ad altre funzioni. Il codice della funzione verrà quindi pubblicato in Azure. Questi strumenti sono disponibili come parte del carico di lavoro di sviluppo di Azure in Visual Studio 2017.
 
 ![Esecuzione di una funzione durevole in Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -30,7 +30,7 @@ Questo articolo spiega come usare gli strumenti di Visual Studio 2017 per Funzio
 
 Per completare questa esercitazione:
 
-* Installare [Visual Studio 2017](https://azure.microsoft.com/downloads/) e assicurarsi che sia installato anche il carico di lavoro **Sviluppo di Azure**.
+* Installare [Visual Studio 2017](https://azure.microsoft.com/downloads/). Assicurarsi che sia installato anche il carico di lavoro **Sviluppo di Azure**.
 
 * Assicurarsi di avere gli [strumenti di Funzioni di Azure più recenti](../functions-develop-vs.md#check-your-tools-version).
 
@@ -40,7 +40,7 @@ Per completare questa esercitazione:
 
 ## <a name="create-a-function-app-project"></a>Creare un progetto di app per le funzioni
 
-Il modello di progetto Funzioni di Azure in Visual Studio crea un progetto che può essere pubblicato in un'app per le funzioni in Azure. Un'app per le funzioni consente di raggruppare le funzioni come un'unità logica per la gestione, la distribuzione e la condivisione delle risorse.
+Il modello di Funzioni di Azure crea un progetto che può essere pubblicato in un'app per le funzioni in Azure. Un'app per le funzioni consente di raggruppare le funzioni come un'unità logica per la gestione, la distribuzione e la condivisione delle risorse.
 
 1. In Visual Studio selezionare **Nuovo** > **Progetto** dal menu **File**.
 
@@ -58,11 +58,11 @@ Il modello di progetto Funzioni di Azure in Visual Studio crea un progetto che p
     | **Modello** | Empty | Crea un'app per le funzioni vuota. |
     | **Account di archiviazione**  | Emulatore di archiviazione | Per gestire lo stato della funzione durevole è necessario un account di archiviazione. |
 
-4. Fare clic su **OK** per creare un progetto di app per le funzioni vuota.
+4. Fare clic su **OK** per creare un progetto di app per le funzioni vuota. Questo progetto contiene i file di configurazione di base necessari per eseguire le funzioni.
 
 ## <a name="add-functions-to-the-app"></a>Aggiungere funzioni all'app
 
-Visual Studio crea un progetto di app per le funzioni vuota.  Il progetto include i file di configurazione di base necessari per un'app, ma non contiene ancora funzioni.  È necessario aggiungere un modello di funzione durevole al progetto.
+La procedura seguente usa un modello per creare il codice di funzione durevole nel progetto.
 
 1. Fare clic con il pulsante destro del mouse sul progetto in Visual Studio e scegliere **Aggiungi** > **Nuova funzione di Azure**.
 
@@ -74,11 +74,13 @@ Visual Studio crea un progetto di app per le funzioni vuota.  Il progetto includ
 
     ![Selezionare il modello di funzione durevole](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
-All'app verrà aggiunta una nuova funzione durevole.  Aprire il nuovo file per visualizzarne il contenuto.  Questa funzione durevole è un esempio di concatenamento di funzioni semplici.  
+All'app verrà aggiunta una nuova funzione durevole.  Aprire il nuovo file con estensione cs per visualizzarne il contenuto. Questa funzione durevole è un esempio di concatenamento di funzioni semplici con i metodi seguenti:  
 
-* Alla funzione dell'agente di orchestrazione è associato il metodo `RunOrchestrator`.  Questa funzione verrà avviata, creerà un elenco e aggiungerà il risultato di tre chiamate di funzione all'elenco.  Quando le tre chiamate saranno completate, la funzione restituirà l'elenco.  La funzione che viene chiamata è il metodo `SayHello`. (Per impostazione predefinita, verrà chiamata `<NameOfFile>_Hello`).
-* La funzione `SayHello` restituirà un hello.
-* Il metodo `HttpStart` descrive la funzione che avvierà le istanze dell'orchestrazione.  È associato a un [trigger HTTP](../functions-bindings-http-webhook.md) che avvierà una nuova istanza dell'agente di orchestrazione e restituirà una risposta di controllo dello stato.
+| Metodo | FunctionName | DESCRIZIONE |
+| -----  | ------------ | ----------- |
+| **`RunOrchestrator`** | `<file-name>` | Gestisce l'orchestrazione permanente. In questo caso, l'orchestrazione viene avviata, crea un elenco e aggiunge il risultato di tre chiamate di funzione all'elenco.  Quando le tre chiamate sono completate, la funzione restituisce l'elenco. |
+| **`SayHello`** | `<file-name>_Hello` | La funzione restituisce un hello. Questa è la funzione che contiene la logica di business che viene orchestrata. |
+| **`HttpStart`** | `<file-name>_HttpStart` | Un' [funzione attivata da HTTP](../functions-bindings-http-webhook.md) che avvia un'istanza dell'orchestrazione e restituisce una risposta di controllo stato. |
 
 Dopo aver creato il progetto per le funzioni e una funzione durevole, è possibile testare la funzione nel computer locale.
 
@@ -143,4 +145,4 @@ Per poter pubblicare il progetto, è necessario che la sottoscrizione di Azure i
 Si è usato Visual Studio per creare e pubblicare un'app per le funzioni durevoli in C#.
 
 > [!div class="nextstepaction"]
-> [Informazioni sui criteri comuni delle funzioni durevoli](durable-functions-overview.md)
+> [Informazioni sui criteri comuni delle funzioni durevoli](durable-functions-concepts.md)

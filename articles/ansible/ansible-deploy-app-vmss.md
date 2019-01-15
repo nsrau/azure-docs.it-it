@@ -3,17 +3,17 @@ title: Distribuire applicazioni nei set di scalabilità di macchine virtuali in 
 description: Informazioni su come usare Ansible per configurare un set di scalabilità di macchine virtuali e distribuire l'applicazione nel set di scalabilità di macchine virtuali in Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, macchina virtuale, set di scalabilità di macchine virtuali, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4f3712a45fdb2474eedeb8d4eac034060723010d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408375"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156545"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Distribuire applicazioni nei set di scalabilità di macchine virtuali in Azure tramite Ansible
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per distribuire le applicazioni in Azure. Questo articolo illustra come distribuire un'applicazione Java in un set di scalabilità di macchine virtuali di Azure (VMSS).  
@@ -106,7 +106,7 @@ L'output del comando ansible-playbook è simile al seguente, in cui l'app di ese
 
 ## <a name="deploy-the-application-to-vmss"></a>Distribuire l'applicazione in VMSS
 
-La sezione seguente in un playbook Ansible consente di installare JRE (Java Runtime Environment) in un gruppo host denominato **saclesethosts**e di distribuire l'applicazione Java in un gruppo host denominato **saclesethosts**: 
+La sezione seguente in un playbook Ansible consente di installare JRE (Java Runtime Environment) in un gruppo host denominato **scalesethosts** e di distribuire l'applicazione Java in un gruppo host denominato **scalesethosts**: 
 
 (Sostituire la `admin_password` con la propria password.)
 
@@ -150,7 +150,7 @@ La sezione seguente in un playbook Ansible consente di installare JRE (Java Runt
 È possibile salvare il playbook di Ansible di esempio precedente come `vmss-setup-deploy.yml`, oppure [scaricare l'intero playbook di esempio](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
 
 Per usare il tipo di connessione ssh con le password è necessario installare il programma sshpass. 
-  - Per Ubunto 16.04, eseguire il comando `apt-get install sshpass`.
+  - Per Ubuntu 16.04, eseguire il comando `apt-get install sshpass`.
   - Per CentOS 7.4, eseguire il comando `yum install sshpass`.
 
 Potrebbe essere visualizzato l'errore **Non è possibile usare una password SSH anziché una chiave perché è abilitato il controllo della chiave host e sshpass non supporta questa opzione. Aggiungere l'impronta digitale dell'host al proprio file known_hosts per gestire questo host.** Se viene visualizzato questo errore, è possibile disabilitare il controllo della chiave host aggiungendo la riga seguente al file `/etc/ansible/ansible.cfg` o al file `~/.ansible.cfg`:
