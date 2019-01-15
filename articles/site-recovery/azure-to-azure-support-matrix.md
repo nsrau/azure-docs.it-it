@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: raynew
-ms.openlocfilehash: 40ee4fe15b2fde917c1d056a1454b95b9655b465
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 09d3b698edfc99b9340772aa0ffc4e8de20b286d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999731"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103768"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice di supporto per la replica da un'area di Azure a un'altra
 
@@ -44,6 +44,9 @@ Questo articolo riepiloga le configurazioni e i componenti supportati quando si 
 
 È possibile eseguire la replica e il ripristino di macchine virtuali tra due aree qualsiasi all'interno dello stesso cluster geografico. I cluster geografici vengono definiti tenendo presente la latenza e la sovranità dei dati.
 
+>[!NOTE]
+>Se non si è in grado di vedere un'area all'interno di un cluster geografico durante l'abilitazione della replica, verificare che la sottoscrizione abbia accesso alla creazione di una macchina virtuale in tale area. In caso contrario, generare una richiesta di supporto nella sottoscrizione "Tipo di problema".
+>
 **Cluster geografico** | **Aree di Azure**
 -- | --
 America | Canada orientale, Canada centrale, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali

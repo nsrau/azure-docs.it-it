@@ -8,13 +8,13 @@ ms.author: maxluk
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/08/2019
+ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653731"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117861"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Ottimizzare i processi Apache Spark
 
@@ -24,7 +24,7 @@ Le sezioni seguenti descrivono alcune raccomandazioni e procedure di ottimizzazi
 
 ## <a name="choose-the-data-abstraction"></a>Scegliere l'astrazione dei dati
 
-Spark 1.x usa RDD per l'astrazione dei dati, mentre con Spark 2.x sono stati introdotti frame di dati e set di dati. Valutare i seguenti vantaggi:
+Le versioni precedenti di Spark usano RDD per estrapolare dati, Spark 1.3 e 1.6 hanno introdotto frame e set di dati, rispettivamente. Valutare i seguenti vantaggi:
 
 * **Frame di dati**
     * La soluzione ottimale nella maggior parte dei casi
@@ -42,7 +42,7 @@ Spark 1.x usa RDD per l'astrazione dei dati, mentre con Spark 2.x sono stati int
     * Sovraccarico GC elevato
     * Interrompono la generazione di codici whole-stage
 * **RDD**
-    * In Spark 2.x non è necessario usare RDD, a meno che non sia necessario compilare un nuovo RDD personalizzato
+    * Non è necessario usare RDD, a meno che non sia necessario compilare un nuovo RDD personalizzato.
     * Nessuna ottimizzazione query tramite Catalyst
     * Nessuna generazione di codici whole-stage
     * Sovraccarico GC elevato

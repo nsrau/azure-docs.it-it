@@ -1,12 +1,10 @@
 ---
-title: Test della velocità effettiva di rete della macchina virtuale di Azure | Microsoft Docs
+title: Test della velocità effettiva di rete della macchina virtuale di Azure
+titlesuffix: Azure Virtual Network
 description: Informazioni su come testare la velocità effettiva di rete della macchina virtuale di Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
-manager: Gerald DeGrace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: fa0adef58ae1eda8604cefc9c3d7e3a4c32d63d0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: b02f5011b9482481ca3fbe439061c160b3c73a1e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793540"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016614"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test della larghezza di banda/velocità effettiva (NTTTCP)
 

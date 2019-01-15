@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 01/07/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: a1d733e918d4b53ea9dd220f5e379e0c8133c03a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 787c10ab75a3534a73e04f1bd60462ea02fcf42a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540657"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191718"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -42,6 +42,16 @@ I pool di Batch in configurazione macchina virtuale supportano tutte le dimensio
 | Serie A Basic | Basic_A0 (A0) |
 | Serie A | Standard_A0 |
 | Serie B | Tutti |
+| Serie DC | Tutti | 
+| Con ottimizzazione estrema per la memoria | Tutti |
+| Serie Hb<sup>1</sup> | Tutti | 
+| Serie Hb<sup>1</sup> | Tutti |
+| Serie Lsv2 | Tutti |
+| Serie NDv2<sup>1</sup> | Tutti |
+| Serie NDv2<sup>1</sup> | Tutti |
+| SAP HANA | Tutti |
+
+<sup>1</sup> non sono attualmente supportate, ma lo saranno in futuro.
 
 Le dimensioni seguenti di VM sono supportate solo per i nodi per priorità bassa:
 

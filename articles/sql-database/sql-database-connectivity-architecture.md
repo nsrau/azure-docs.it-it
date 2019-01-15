@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/03/2019
+ms.openlocfilehash: 38b7c478e3b90347086c2dd005630d239db7fd89
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715903"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038212"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -26,18 +26,17 @@ Questo articolo illustra non solo l'architettura della connettività del databas
 > [!IMPORTANT]
 > **[Modifica imminente] Per le connessioni dell'endpoint di servizio ai server SQL di Azure, un comportamento di connettività `Default` passa a `Redirect`.**
 >
-> La modifica è già effettiva dal 10 novembre 2018 per le aree Brasile meridionale ed Europa occidentale. Per tutte le altre aree la modifica sarà effettiva dal 2 gennaio 2019.
+> Modifica applicata per tutte le aree durante o prima del 2 gennaio 2019.
 >
 > Per impedire che la connettività tramite un endpoint di servizio venga interrotta negli ambienti esistenti in seguito a questa modifica, vengono usati i dati di telemetria per effettuare le operazioni seguenti:
 > - Per i server a cui è stato effettuato l'accesso tramite gli endpoint di servizio prima della modifica, il tipo di connessione viene impostato su `Proxy`.
 > - Per tutti gli altri server, il tipo di connessione verrà impostato su `Redirect`.
 >
-> Gli utenti degli endpoint di servizio potrebbero tuttavia essere interessati dagli scenari seguenti: 
-> - L'applicazione si connette raramente a un server esistente, quindi i dati di telemetria non hanno acquisito le informazioni su tali applicazioni 
-> - La logica di distribuzione automatizzata crea un server logico presupponendo che il comportamento predefinito per le connessioni degli endpoint di servizio sia `Proxy` 
+> Gli utenti degli endpoint di servizio potrebbero tuttavia essere interessati dagli scenari seguenti:
+> - L'applicazione si connette raramente a un server esistente, quindi i dati di telemetria non hanno acquisito le informazioni su tali applicazioni
+> - La logica di distribuzione automatizzata crea un server logico presupponendo che il comportamento predefinito per le connessioni degli endpoint di servizio sia `Proxy`
 >
 > Se non è stato possibile stabilire le connessioni degli endpoint di servizio al server di Azure SQL e si sospetta di essere interessati da questa modifica, verificare che il tipo di connessione sia esplicitamente impostato su `Redirect`. In tal caso, è necessario aprire le regole del firewall e i gruppi di sicurezza di rete della macchina virtuale a tutti gli indirizzi IP di Azure dell'area appartenenti al [tag di servizio](../virtual-network/security-overview.md#service-tags) Sql per le porte 11000-12000. Se non è possibile, impostare in modo esplicito il server su `Proxy`.
-
 > [!NOTE]
 > Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
 
@@ -131,7 +130,6 @@ Per modificare il criterio di connessione del database SQL di Azure per un serve
 
 > [!IMPORTANT]
 > Per questo script è necessario il [modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
->
 
 Lo script di PowerShell seguente mostra come modificare il criterio di connessione.
 

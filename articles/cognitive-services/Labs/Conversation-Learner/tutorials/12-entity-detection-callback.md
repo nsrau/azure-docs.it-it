@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 147887151abd5c1f7455b0efbf9aadbc2d884183
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a96cfcb07252dc4a9089eab2decaec9efb01a67b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796549"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064991"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>Come usare il callback di rilevamento entità
 
@@ -95,7 +95,7 @@ Ecco il codice di callback:
 6. Fare clic su "Score Actions" (Punteggio azioni).
     - Facendo clic sul pulsante si attiva il callback di rilevamento entità.
     - Il codice di callback imposta il valore dell'Entità CityResolved correttamente su "new york".
-7. Selezionare la risposta "new york is very nice".
+7. Selezionare la risposta "new york is very nice" (New York è molto bella).
 
 Questo criterio è tipico di molti scenari che usano bot. Le espressioni degli utenti e le entità estratte vengono fornite alla logica di business, che trasforma l'espressione in una forma canonica che viene quindi salvata in entità programmatiche per i successivi turni del dialogo.
 

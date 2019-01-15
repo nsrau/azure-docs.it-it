@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 920ae8ff09cb8e936a1ba70b2c862bd9bc076046
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e229fcc2c9eb6b8e1b49293dfd741a2f96f62871
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974693"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077386"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Domande frequenti - Replica da VMware ad Azure
 
@@ -108,6 +108,12 @@ Sì, è possibile aggiungere nuove macchine virtuali a un gruppo di replica esis
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>È possibile modificare le macchine virtuali che eseguono la replica mediante l'aggiunta o il ridimensionamento dei dischi?
 
 Per eseguire la replica VMware in Azure, è possibile modificare le dimensioni del disco. Se si desidera aggiungere nuovi dischi, è necessario aggiungere il disco e riabilitare la protezione per la macchina virtuale.
+
+### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>È possibile migrare le macchine locali di un nuovo Vcenter senza influire sulla replica in corso?
+No, le modifiche o migrazioni al server Vcenter influiranno sulla replica in corso. Configurare Azure Site Recovery con il nuovo Vcenter e abilitare la replica per i computer.
+
+### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>È possibile eseguire la replica in un account di archiviazione della cache/di destinazione che abbia una rete virtuale (con i firewall di archiviazione di Azure) configurata?
+No, Azure Site Recovery non supporta la replica di archiviazione in una rete virtuale.
 
 ## <a name="configuration-server"></a>Server di configurazione
 
@@ -225,9 +231,10 @@ Il [failover](site-recovery-failover.md) non è automatico. Può essere avviato 
 Sì, se è stato effettuato il failover ad Azure, è possibile eseguire il failback in una posizione diversa se quella originale non è disponibile. [Altre informazioni](concepts-types-of-failback.md#alternate-location-recovery-alr)
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>Perché è necessaria una VPN o ExpressRoute per eseguire il failback?
-
 Quando si esegue il failback da Azure, i dati di Azure vengono copiati di nuovo nella macchina virtuale locale ed è necessario l'accesso privato.
 
+### <a name="can-i-resize-the-azure-vm-after-failover"></a>È possibile ridimensionare la macchina virtuale di Azure dopo il failover?
+No, non è possibile modificare le dimensioni della macchina virtuale di destinazione dopo il failover.
 
 
 ## <a name="automation-and-scripting"></a>Automazione e scripting
