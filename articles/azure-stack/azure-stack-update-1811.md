@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 01/15/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 4f5558d17e2f290ed7255350f304ed2057a6d783
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247623"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267318"
 ---
 # <a name="azure-stack-1811-update"></a>Aggiornamento di Azure Stack 1811
 
@@ -262,6 +262,14 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
    L'errore si verifica se si abilita la diagnostica di avvio in una macchina virtuale ma eliminare l'account di archiviazione di diagnostica di avvio. Per risolvere questo problema, ricreare l'account di archiviazione con lo stesso nome è stato usato in precedenza.
 
 - Quando si crea una [VM serie Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), da D11-14v2 VM consentono di creare 4, 8, 16 e dischi 32 dati rispettivamente. Tuttavia, nel riquadro di creazione della macchina virtuale Mostra 8, 16, 32 e 64 dischi di dati.
+
+- Record di utilizzo in Azure Stack può contenere minuscole imprevisto. Per esempio:
+
+   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/
+   virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":
+   "{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
+
+   In questo esempio, il nome del gruppo di risorse deve essere **AndrewRG**. È possibile ignorare questa incoerenza.
 
 <!-- 3235634 – IS, ASDK -->
 - Per distribuire le macchine virtuali con dimensioni che contiene un **v2** suffisso; ad esempio **Standard_A2_v2**, specificare il suffisso come **Standard_A2_v2** (v lettere minuscole). Non utilizzare **Standard_A2_V2** (lettere maiuscole V). Ciò funziona in Azure globale ed è un'incoerenza nello Stack di Azure.

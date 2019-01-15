@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.openlocfilehash: 5af508714b5eae5cdd23c940af0ae21300c0c5b8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bf056c162684c021e3a8408edfdf82fe4590be48
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194672"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260635"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Distribuzione di servizi cognitivi di Azure ad Azure Stack
 
@@ -41,7 +41,7 @@ La containerizzazione è un approccio alla distribuzione del software in cui un'
   Fornire agli utenti di app di versione e aggiornamento dei modelli distribuiti nella soluzione offerta.
 
 - **Architettura portabile**  
-  Abilitare la creazione di un'architettura di app portabile, in modo da poter distribuire la soluzione nel cloud pubblico, per un cloud privato locale o il bordo. È possibile distribuire il contenitore Kubernetes nel servizio di Azure, istanze di contenitore di Azure o a un cluster Kubernetes in Azure stack. Per altre informazioni, vedere [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuire Kubernetes in Azure Stack).
+  Abilitare la creazione di un'architettura di app portabile, in modo da poter distribuire la soluzione di cloud pubblico, privato del cloud on-premises o il bordo. È possibile distribuire il contenitore Kubernetes nel servizio di Azure, istanze di contenitore di Azure o a un cluster Kubernetes in Azure stack. Per altre informazioni, vedere [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuire Kubernetes in Azure Stack).
 
 - **Velocità effettiva elevata e bassa latenza**  
    Fornire agli utenti di app la possibilità di ridimensionare i picchi di traffico per una velocità effettiva elevata e bassa latenza. Abilitare i servizi cognitivi per l'esecuzione in Azure Kubernetes Service fisicamente vicino al loro logica dell'applicazione e dati.
@@ -66,7 +66,7 @@ Prima di iniziare, è necessario:
 
 Creare una risorsa di servizi cognitivi in Azure per visualizzare in anteprima i contenitori di viso, LUIS o testo riconoscere, rispettivamente. È necessario usare l'URL di endpoint e chiave di sottoscrizione dalla risorsa per creare un'istanza dei contenitori dei servizi cognitivi.
 
-1.  Creare una risorsa di Azure nel portale di Azure. Se si desidera visualizzare in anteprima i contenitori di viso, è necessario creare innanzitutto una risorsa faccia corrispondente nel portale di Azure. Per altre informazioni, vedere [Guida introduttiva: Creare un account servizi cognitivi nel portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1.  Creare una risorsa di Azure nel portale di Azure. Se si desidera visualizzare in anteprima i contenitori di viso, è necessario creare innanzitutto una risorsa faccia corrispondente nel portale di Azure. Per altre informazioni, vedere [Avvio rapido: Creare un account di Servizi cognitivi nel portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
     >  [!Note]  
     >  La risorsa faccia o visione artificiale è necessario usare il piano tariffario F0.

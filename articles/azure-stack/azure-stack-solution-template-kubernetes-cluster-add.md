@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 0cac5658d5f6f32795b5988008b3b895024ecc06
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e89575323b87ba28ef4f062da098fea4f0e27035
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960535"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264055"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Aggiungere Kubernetes per il Marketplace di Azure Stack
 
@@ -46,7 +46,7 @@ Creare un piano, un'offerta e una sottoscrizione per l'elemento del Marketplace 
 
 1. Selezionare **Panoramica** nel pannello dell'offerta.
 
-1. Selezionare **modifica stato**. Selezionare **pubblica**.
+1. Selezionare **modifica stato**. Selezionare **Pubblica**.
 
 1. Selezionare **+ crea una risorsa** > **offerte e piani** > **sottoscrizione** per creare una nuova sottoscrizione.
 
@@ -73,9 +73,9 @@ Nel Marketplace, aggiungere l'immagine di Ubuntu Server seguente:
 1. Immettere `UbuntuServer`.
 
 1. Selezionare la versione più recente del server. Controllare la versione completa e assicurarsi di avere la versione più recente:
-    - **Server di pubblicazione**: Canonical
-    - **Offrire**: UbuntuServer
-    - **Versione**: 16.04.201806120
+    - **Publisher** (Editore): Canonical
+    - **Offer** (Offerta): UbuntuServer
+    - **Versione**: 16.04.201806120 (o versioni successive)
     - **SKU**: 16.04-LTS
 
 1. Selezionare **scaricare.**
@@ -93,12 +93,12 @@ Aggiunta di Kubernetes da Marketplace:
 1. Immettere `Custom Script for Linux`.
 
 1. Selezionare lo script con il seguente profilo:
-    - **Offrire**: Script personalizzato per Linux 2.0
-    - **Versione**: 2.0.6
-    - **Server di pubblicazione**: Microsoft Corp
+    - **Offer** (Offerta): Script personalizzato per Linux 2.0
+    - **Versione**: 2.0.6 (o versioni successive)
+    - **Publisher** (Editore): Microsoft Corp
 
     > [!Note]  
-    > Potrebbe essere presente più di una versione dello Script personalizzata per Linux. È necessario aggiungere la versione corrispondente. Il Kubernetes richiede la versione esatta dell'elemento.
+    > Potrebbe essere presente più di una versione dello Script personalizzata per Linux. È necessario aggiungere la versione più recente dell'elemento.
 
 1. Selezionare **scaricare.**
 
@@ -149,7 +149,5 @@ Per rimuovere l'elemento di Kubernetes:
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Distribuire un Kubernetes in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
-
-
 
 [Panoramica dell'offerta di servizi in Azure Stack](azure-stack-offer-services-overview.md)

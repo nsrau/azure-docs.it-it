@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.reviewer: unknown
-ms.openlocfilehash: 53c739c17007b99d90cd146e6bf01ea4a120cabd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.reviewer: fiseraci
+ms.openlocfilehash: 4ffbf552b2c35039ceadfdf6940873a22cb194aa
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245685"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306540"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Panoramica dell'identità per Azure Stack
 
 Azure Stack richiede Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS), supportato da Active Directory come provider di identità. La scelta di un provider è una decisione una-tantum effettuate durante la distribuzione di Azure Stack. I concetti e i dettagli di autorizzazione in questo articolo consente di scegliere tra i provider di identità.
 
-La scelta di Azure AD o AD FS può essere determinata dalla modalità in cui si distribuisce Azure Stack:
+La scelta di Azure AD o AD FS è determinata dalla modalità in cui si distribuisce Azure Stack:
 
 - Quando viene distribuita in una modalità connessa, è possibile usare Azure AD o AD FS.
 - Quando viene distribuito in modalità disconnessa, senza una connessione a internet, è supportato solo da AD FS.

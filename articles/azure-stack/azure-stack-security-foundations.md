@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/9/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.reviewer: fiseraci
+ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727090"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306455"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Comportamento di sicurezza di Azure Stack dell'infrastruttura
 
@@ -70,7 +71,7 @@ Ogni componente in Azure Stack (host Hyper-V e macchine virtuali) è protetto co
 In scenari connessi, gli aggiornamenti antivirus motore e delle definizioni vengono applicati molte volte al giorno. Negli scenari disconnessi vengono applicati aggiornamenti antimalware come parte degli aggiornamenti mensili di Azure Stack. Per altre informazioni, vedere [aggiornamento di Windows Defender Antivirus in Azure Stack](azure-stack-security-av.md).
 
 ## <a name="constrained-administration-model"></a>Modello di amministrazione limitata
-Amministrazione in Azure Stack è controllata tramite l'utilizzo di tre punti di ingresso, ciascuno con uno scopo specifico: 
+Amministrazione in Azure Stack è controllata tramite tre punti di ingresso, ciascuno con uno scopo specifico: 
 1. Il [portale di amministrazione](azure-stack-manage-portals.md) offre un'esperienza di puntamento e clic per operazioni di gestione quotidiane.
 2. Azure Resource Manager espone tutte le operazioni di gestione del portale dell'amministratore tramite l'API REST, usato da PowerShell e CLI di Azure. 
 3. Per le operazioni di basso livello specifiche, ad esempio dati center integration o supportano scenari, Azure Stack espone un endpoint di PowerShell denominato [Privileged Endpoint](azure-stack-privileged-endpoint.md). L'endpoint espone solo un gruppo di nell'elenco elementi consentiti di cmdlet e viene eseguito il controllo in modo rilevante.

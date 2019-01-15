@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 6b73cf04d768381bcc0e27cc76b6c2a25d4d9a2c
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341056"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265618"
 ---
 # <a name="azure-stack-telemetry"></a>Dati di telemetria di Azure Stack
 
@@ -33,7 +33,7 @@ Per un operatore di Azure Stack, i dati di telemetria possono fornire informazio
 > [!NOTE]
 > È anche possibile configurare Azure Stack per inoltrare le informazioni sull'utilizzo di Azure per la fatturazione. Ciò è necessario per i clienti a più nodi Azure Stack che scegliere come si-pagamento in fatturazione. Report sull'utilizzo viene controllato in modo indipendente dai dati di telemetria e non è necessaria per i clienti a nodi multipli che scegliere il modello di capacità o per gli utenti di Azure Stack Development Kit. Per questi scenari, segnalazione utilizzo può essere disattivata [usando lo script di registrazione](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting).
 
-I dati di telemetria di Azure Stack si basa sul componente esperienza per utente connesso di Windows Server 2016 e i dati di telemetria, che usa il [Event Tracing for Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) tecnologia TraceLogging per raccogliere e archiviare gli eventi e dati. I componenti di Azure Stack utilizzano la stessa tecnologia per pubblicare eventi e i dati raccolti tramite la registrazione degli eventi di sistema operativo pubblico e la traccia API. Questi componenti di Azure Stack sono esempi di questi provider: risorsa di rete, risorsa di archiviazione, il monitoraggio risorse e risorsa di aggiornamento. Il componente esperienze utente connesse e telemetria crittografa i dati tramite SSL e Usa l'associazione del certificato per trasmettere dati tramite HTTPS al servizio di gestione dati Microsoft.
+I dati di telemetria di Azure Stack si basa sul componente esperienza per utente connesso di Windows Server 2016 e i dati di telemetria, che usa il [Event Tracing for Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) tecnologia TraceLogging per raccogliere e archiviare gli eventi e dati. I componenti di Azure Stack utilizzano la stessa tecnologia per pubblicare eventi e i dati raccolti tramite la registrazione degli eventi di sistema operativo pubblico e la traccia API. Questi provider sono esempi di questi componenti di Azure Stack: Risorsa, risorsa di archiviazione, il monitoraggio risorse di rete e aggiornare la risorsa. Il componente esperienze utente connesse e telemetria crittografa i dati tramite SSL e Usa l'associazione del certificato per trasmettere dati tramite HTTPS al servizio di gestione dati Microsoft.
 
 > [!IMPORTANT]
 > Per abilitare il flusso di dati di telemetria, la porta 443 (HTTPS) deve essere aperta in rete. Il componente di esperienze utente connesse e telemetria si connette al servizio di gestione dati di Microsoft a https://v10.vortex-win.data.microsoft.com. Il componente esperienze utente connesse e telemetria si connette inoltre a https://settings-win.data.microsoft.com per scaricare le informazioni di configurazione.
@@ -48,7 +48,7 @@ Siamo consapevoli che la privacy e sicurezza delle informazioni dei clienti è i
 
 - Siamo aperti con i clienti sui tipi di dati che vengono raccolte.
 - I clienti aziendali è inclusa nel controllo, è possibile personalizzare le proprie impostazioni di privacy.
-- Viene inserito prima della protezione e privacy dei clienti.
+- Mettiamo privacy e sicurezza al primo posto.
 - Siamo trasparente sull'utilizzo Ottiene i dati di telemetria.
 - Usiamo i dati di telemetria per migliorare le esperienze dei clienti.
 
@@ -74,10 +74,10 @@ Prima di modificare le impostazioni di telemetria, è necessario comprendere i l
 
 Le impostazioni di telemetria sono raggruppate in quattro livelli (0-3) che sono cumulativi e categorizzate come l'illustrato di seguito:
 
-**0 (sicurezza)**</br>
+**0 (Security)**</br>
 Solo i dati di sicurezza. Informazioni necessarie per proteggere il sistema operativo. Sono inclusi i dati sulle esperienze utente connesse e telemetria impostazioni del componente e Windows Defender. A questo livello viene generato alcun dato di telemetria specifico di Azure Stack.
 
-**1 (base)**</br>
+**1 (Basic)**</br>
 I dati di sicurezza e integrità di base e la qualità dei dati. Informazioni di base del dispositivo, tra cui: relative alla qualità dei dati, compatibilità delle applicazioni, i dati sull'utilizzo delle app e i dati dal **sicurezza** livello. Impostazione del livello dati di telemetria per la telemetria di Azure Stack consente di base. I dati raccolti a questo livello includono:
 
 - *Informazioni di base del dispositivo* che consente di conoscere sui tipi e le configurazioni di istanze di Windows Server 2016 native e virtuali all'interno dell'ecosistema. Sono inclusi:
@@ -112,7 +112,7 @@ Disattivazione della telemetria di Windows e Azure Stack viene disabilitato anch
 Prima di distribuire Azure Stack nell'host di kit di sviluppo, eseguire l'avvio in CloudBuilder.vhdx ed eseguire lo script seguente in una finestra di PowerShell con privilegi elevata:
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host

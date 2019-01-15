@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2769b78632e1a7f776359f2a4d768154c224aab5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036240"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264615"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versioni di API del provider di risorse supportate da profili in Azure Stack
 
@@ -26,7 +26,7 @@ ms.locfileid: "54036240"
 
 Il profilo di API Usa le convenzioni di denominazione tre:
 
- - **più recente**
+ - **latest**
  - **yyyy-mm-dd-hybrid**
  - **yyyy-mm-dd-profile**
 
@@ -48,7 +48,7 @@ Per una spiegazione dei profili di API e ritmo di rilascio versione per Azure St
 | Resources (Azure Resource Manager se stesso) | 2016-02-01 |
 | Authorization (operazioni di criteri) | 2015-11-01 |
 | Microsoft.Insights | 2015-11-01 |
-| Microsoft. keyvault | 2016-10-01 |
+| Microsoft.Keyvault | 2016-10-01 |
 | Criterio | 2016-10-01 |
 | Risorse | 2016-10-01 |
 | Resources_Links | 2016-10-01 |
@@ -70,7 +70,7 @@ Per più un elenco delle versioni per ogni tipo di risorsa per i provider nel pr
 | Microsoft.Resources<br>(Azure Resource Manager se stesso) | 2016-02-01 |
 | Microsoft.Authorization<Br>(operazioni di criteri) | 2015-11-01 |
 | Microsoft.Insights | 2015-11-01 |
-| Microsoft. keyvault | 2016-10-01 |
+| Microsoft.Keyvault | 2016-10-01 |
 | Criterio | 2015-10-01-preview |
 | Risorse | 2016-02-01 |
 | Resources_Links | 2016-09-01 |
@@ -94,7 +94,7 @@ Usare controllo degli accessi in base al ruolo per gestire le azioni che gli ute
 | Definizioni dei criteri | 2016-12-01 |
 | Operazioni di provider | 2015-07-01-preview |
 | Assegnazioni di ruoli | 2015-07-01 |
-| Definizioni di ruolo | 2015-07-01 |
+| Definizioni dei ruoli | 2015-07-01 |
 
 ### <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -118,7 +118,7 @@ L'API di calcolo di Azure forniscono accesso programmatico alle macchine virtual
 | Località/operazioni | 2016-03-30 |
 | Server di pubblicazione/località | 2016-03-30 |
 | Utilizzi di percorsi / | 2016-03-30 |
-| Località/vmSizes | 2016-03-30 |
+| Locations/vmSizes | 2016-03-30 |
 | Operazioni | 2016-03-30 |
 | Macchine virtuali | 2016-03-30 |
 | Le macchine virtuali/extensions | 2016-03-30 |
@@ -176,7 +176,7 @@ Il risultato della chiamata di operazioni è una rappresentazione in forma di el
 | Servizi di bilanciamento del carico | 2015-06-15 |
 | Gateway di rete locale | 2015-06-15 |
 | Località | 2016-04-01 |
-| Percorso/operationResults | 2016-04-01 |
+| Location/operationResults | 2016-04-01 |
 | Località/operazioni | 2016-04-01 |
 | Utilizzi di percorsi / | 2016-04-01 |
 | Interfacce di rete | 2015-06-15 |
@@ -215,8 +215,8 @@ Azure Resource Manager consente di distribuire e gestire l'infrastruttura per le
 | Gruppi di risorse/sottoscrizioni | 2016-09-01 |
 | Le sottoscrizioni/resourceGroups/risorse | 2016-09-01 |
 | Le sottoscrizioni e risorse | 2016-09-01 |
-| Le sottoscrizioni/tagNames | 2016-09-01 |
-| Le sottoscrizioni/tagNames/tagValues | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
 | Tenant | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
@@ -245,7 +245,7 @@ Il Provider di risorse archiviazione (SRP) consente di gestire l'account di arch
 | Definizioni dei criteri | 2016-12-01 |
 | Operazioni di provider | 2015-07-01-preview |
 | Assegnazioni di ruoli | 2015-07-01 |
-| Definizioni di ruolo | 2015-07-01 |
+| Definizioni dei ruoli | 2015-07-01 |
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -256,7 +256,7 @@ Il Provider di risorse archiviazione (SRP) consente di gestire l'account di arch
 | Località/operazioni | 2016-03-30 |
 | Server di pubblicazione/località | 2016-03-30 |
 | Utilizzi di percorsi / | 2016-03-30 |
-| Località/vmSizes | 2016-03-30 |
+| Locations/vmSizes | 2016-03-30 |
 | Operazioni | 2016-03-30 |
 | Macchine virtuali | 2016-03-30 |
 | Le macchine virtuali/extensions | 2016-03-30 |
@@ -275,7 +275,7 @@ Il Provider di risorse archiviazione (SRP) consente di gestire l'account di arch
 | Servizi di bilanciamento del carico | 2015-06-15 |
 | Gateway di rete locale | 2015-06-15 |
 | Località | 2016-04-01 |
-| Percorso/operationResults | 2016-04-01 |
+| Location/operationResults | 2016-04-01 |
 | Località/operazioni | 2016-04-01 |
 | Utilizzi di percorsi / | 2016-04-01 |
 | Interfacce di rete | 2015-06-15 |
@@ -312,8 +312,8 @@ Il Provider di risorse archiviazione (SRP) consente di gestire l'account di arch
 | Gruppi di risorse/sottoscrizioni | 2016-09-01 |
 | Le sottoscrizioni/resourceGroups/risorse | 2016-09-01 |
 | Le sottoscrizioni e risorse | 2016-09-01 |
-| Subscriptiosn/tagNames | 2016-09-01 |
-| Le sottoscrizioni/tagNames/tagValues | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
 | Tenant | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage

@@ -16,12 +16,12 @@ ms.custom: ''
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: ecdfb0f062ebad903d35401a2f5303d3e6d04b5d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 91ac75f3cb41f73ea18595138969dfb7b1444173
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037380"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263512"
 ---
 # <a name="redeploy-the-asdk"></a>Ridistribuire il ASDK
 In questo articolo descrive come ridistribuire Azure Stack Development Kit (ASDK) in un ambiente non di produzione. Poiché non è supportato l'aggiornamento di ASDK, è necessario ridistribuirla completamente per spostare in una versione più recente. È anche possibile ridistribuire il ASDK ogni volta che si desidera solo ricominciare da zero.
@@ -32,7 +32,7 @@ In questo articolo descrive come ridistribuire Azure Stack Development Kit (ASDK
 ## <a name="remove-azure-registration"></a>Rimuovere la registrazione di Azure 
 Se è stato registrato in precedenza l'installazione ASDK con Azure, è necessario rimuovere la risorsa di registrazione prima di ridistribuire il ASDK. Registrare nuovamente il ASDK per abilitare la disponibilità degli elementi del Marketplace quando si ridistribuisce il ASDK. Se non è stato registrato in precedenza il ASDK nella sottoscrizione di Azure, è possibile ignorare questa sezione.
 
-Per rimuovere la risorsa di registrazione, usare il **Remove-AzsRegistration** cmdlet per annullare la registrazione di Azure Stack. Quindi, usare il **Remove-AzureRMRsourceGroup** cmdlet per eliminare il gruppo di risorse di Azure Stack dalla sottoscrizione di Azure:
+Per rimuovere la risorsa di registrazione, usare il **Remove-AzsRegistration** cmdlet per annullare la registrazione di Azure Stack. Quindi, usare il **Remove-AzureRMResourceGroup** cmdlet per eliminare il gruppo di risorse di Azure Stack dalla sottoscrizione di Azure:
 
 1. Aprire una console PowerShell come amministratore in un computer dotato di accesso all'endpoint con privilegi. Per ASDK, ovvero il computer host kit di sviluppo.
 

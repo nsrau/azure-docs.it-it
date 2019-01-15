@@ -14,12 +14,13 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 1393dd32aea8cb6d348092ea1fc56752f659beab
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: 947886a96ab31150cf81ebea0a3cdd69e0273b01
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717875"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305755"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Archiviazione di Azure Stack: Differenze e considerazioni
 
@@ -33,21 +34,21 @@ Questo articolo riepiloga le differenze note di archiviazione di Azure Stack dai
 
 | Funzionalità | Azure (globale) | Azure Stack |
 | --- | --- | --- |
-|Archiviazione file|Basato sul cloud di condivisioni file SMB è supportate|Non è ancora supportata
+|Archiviazione file|Condivisioni di file SMB basate sul cloud supportate|Non è ancora supportata
 |Crittografia del servizio di archiviazione di Azure per dati inattivi|crittografia AES a 256 bit. Supporta la crittografia con chiavi gestite dal cliente in Azure Key Vault.|Crittografia AES a 128 bit di BitLocker. Crittografia con chiavi gestite dal cliente non è supportata.
 |Tipo di account di archiviazione|Account di archiviazione per utilizzo generico V1, V2 e Blob|Solo per utilizzo generico V1.
 |Opzioni di replica|Archiviazione con ridondanza locale, archiviazione con ridondanza geografica, archiviazione con ridondanza geografica e accesso in lettura e archiviazione con ridondanza della zona|Archiviazione con ridondanza locale.
 |Archiviazione Premium|Supporto completo|Può essere eseguito il provisioning, ma nessun limite delle prestazioni o garanzia.
 |Dischi gestiti|Premium e standard supportati|È supportato quando si usa 1808 o versione successiva.
-|Nome del BLOB|1024 caratteri (2.048 byte)|880 caratteri (1,760 byte)
-|Dimensioni massime blob di blocco|4,75 TB (100 MB X 50.000 blocchi)|4,75 TB (100 MB x 50.000 blocchi) per l'aggiornamento 1802 o una versione più recente. 50.000 x 4 MB (circa 195 GB) per le versioni precedenti.
+|Nome del BLOB|1.024 caratteri (2.048 byte)|880 caratteri (1.760 byte)
+|Dimensioni massime blob di blocco|4,75 TB (100 MB x 50.000 blocchi)|4,75 TB (100 MB x 50.000 blocchi) per l'aggiornamento 1802 o una versione più recente. 50.000 x 4 MB (circa 195 GB) per le versioni precedenti.
 |Copia di snapshot blob di pagine|Backup non gestito della macchina virtuale nei dischi Azure collegati a una macchina virtuale in esecuzione supportata|Non è ancora supportata.
 |Copia di snapshot incrementale blob di pagine|Premium e standard BLOB di Azure supportate|Non è ancora supportata.
 |Livelli di archiviazione per l'archiviazione blob|Accesso frequente, sporadico e archivio i livelli di archiviazione.|Non è ancora supportata.
 |Eliminazione temporanea per l'archiviazione blob|Disponibilità generale|Non è ancora supportata.
 |Dimensioni massime blob pagina|8 TB|1 TB
-|Dimensioni di pagina pagina blob|512 byte|4 KB
-|Dimensioni chiave di riga e chiave di partizione di tabella|1024 caratteri (2.048 byte)|400 caratteri (800 byte)
+|Dimensioni pagina del BLOB di pagine|512 byte|4 KB
+|Dimensioni chiave di riga e chiave di partizione di tabella|1.024 caratteri (2.048 byte)|400 caratteri (800 byte)
 |Snapshot BLOB|Il numero massimo di snapshot di un blob non è limitato.|Il numero massimo di snapshot di un blob è 1.000.
 |Autenticazione di Azure AD per l'archiviazione|In anteprima|Non è ancora supportata.
 |BLOB non modificabili|Disponibilità generale|Non è ancora supportata.
@@ -104,13 +105,13 @@ Archiviazione di Azure Stack supporta le librerie client seguenti:
 
 | Libreria client | Versione supportata di Azure Stack | Collegamento                                                                                                                                                                                                                                                                                                                                     | Specifica dell'endpoint       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET           | Da 6.2.0 a 8.7.0.          | Pacchetto NuGet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | file app. config              |
-| Java           | Da 4.1.0 a 6.1.0           | Pacchetto Maven:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Configurazione della stringa di connessione      |
-| Node.js        | Da 1.1.0 per 2.7.0           | Collegamento NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Ad esempio: eseguire "npm installare azure-storage@2.7.0")<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Dichiarazione dell'istanza del servizio |
+| .NET           | Dalla versione 6.2.0 alla 8.7.0.          | Pacchetto NuGet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | file app.config              |
+| Java           | Dalla versione 4.1.0 alla 6.1.0           | Pacchetto Maven:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Configurazione della stringa di connessione      |
+| Node.js        | Dalla versione 1.1.0 alla 2.7.0           | Collegamento NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Ad esempio: eseguire "npm installare azure-storage@2.7.0")<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Dichiarazione istanza del servizio |
 | C++            | Dalla versione 2.4.0 alla 3.1.0           | Pacchetto NuGet:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Configurazione della stringa di connessione      |
-| PHP            | Da 0.15.0 su 1.0.0          | Versione di GitHub:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Installazione tramite Composer (vedere i dettagli sotto)                                                                                                                                                                                                                  | Configurazione della stringa di connessione      |
-| Python         | Da 0.30.0 su 1.0.0          | Versione di GitHub:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Dichiarazione dell'istanza del servizio |
-| Ruby           | Da 0.12.1 a 1.0.1          | Pacchetto RubyGems:<br>Comuni:<br>https://rubygems.org/gems/azure-storage-common/<br>BLOB: https://rubygems.org/gems/azure-storage-blob/<br>Coda: https://rubygems.org/gems/azure-storage-queue/<br>tavolo: https://rubygems.org/gems/azure-storage-table/<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-ruby/releases | Configurazione della stringa di connessione      |
+| PHP            | Dalla versione 0.15.0 alla 1.0.0          | Versione di GitHub:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Installazione tramite Composer (vedere i dettagli sotto)                                                                                                                                                                                                                  | Configurazione della stringa di connessione      |
+| Python         | Dalla versione 0.30.0 alla 1.0.0          | Versione di GitHub:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Dichiarazione istanza del servizio |
+| Ruby           | Dalla versione 0.12.1 alla 1.0.1          | Pacchetto RubyGems:<br>Comuni:<br>https://rubygems.org/gems/azure-storage-common/<br>BLOB: https://rubygems.org/gems/azure-storage-blob/<br>Coda: https://rubygems.org/gems/azure-storage-queue/<br>tavolo: https://rubygems.org/gems/azure-storage-table/<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-ruby/releases | Configurazione della stringa di connessione      |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

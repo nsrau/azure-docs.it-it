@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 49f1d7e1fac1125984f7376cffdcaf2e60f5611b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 984f6713445b53429758d616945a6e64245b42bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247878"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263221"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Esercitazione: Distribuire app in Azure Stack e Azure
 
@@ -282,14 +282,14 @@ Ora che le informazioni sull'endpoint esistente, i servizi di DevOps di Azure al
 
 | NOME | Esempio | DESCRIZIONE |
 | --- | --- | --- |
-| Nome connessione | Azure Stack, Azure AD | Il nome della connessione. |
+| Nome connessione | Azure Stack Azure AD | Il nome della connessione. |
 | Environment | AzureStack | Il nome dell'ambiente. |
 | URL dell'ambiente | `https://management.local.azurestack.external` | L'endpoint di gestione. |
 | Livello di ambito | Sottoscrizione | L'ambito della connessione. |
 | ID sottoscrizione | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID sottoscrizione dell'utente da Azure Stack |
 | Nome della sottoscrizione | name@contoso.com | Nome della sottoscrizione utente da Azure Stack. |
-| ID client dell'entità servizio | FF74AACF-XXXX-4776-FC 93-C63E6E021D59 | L'ID dell'entità da [ciò](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sezione in questo articolo. |
-| Chiave dell'entità servizio | THESCRETGOESHERE = | La chiave da stesso articolo (o la password se si usa lo script). |
+| ID client dell'entità servizio | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | L'ID dell'entità da [ciò](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sezione in questo articolo. |
+| Chiave dell'entità servizio | THESCRETGOESHERE= | La chiave da stesso articolo (o la password se si usa lo script). |
 | ID tenant | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | L'ID tenant è recuperare in seguito con l'istruzione [ottenere l'ID tenant](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
 | Connessione: | Non verificato | Convalidare le impostazioni di connessione per l'entità servizio. |
 
@@ -313,7 +313,7 @@ L'aggiornamento più recente a DevOps di Azure consente di creare una connession
 | Livello di ambito | Sottoscrizione | L'ambito della connessione. |
 | ID sottoscrizione | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID sottoscrizione dell'utente da Azure Stack |
 | Nome della sottoscrizione | name@contoso.com | Nome della sottoscrizione utente da Azure Stack. |
-| ID client dell'entità servizio | FF74AACF-XXXX-4776-FC 93-C63E6E021D59 | L'ID client dall'entità servizio creata per AD FS. |
+| ID client dell'entità servizio | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | L'ID client dall'entità servizio creata per AD FS. |
 | Certificate | `<certificate>` |  Convertire il file di certificato da PFX PEM. Incollare il contenuto di file di certificato con estensione PEM in questo campo. <br> Conversione di file PFX in PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
 | ID tenant | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | L'ID tenant è recuperare in seguito con l'istruzione [ottenere l'ID tenant](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
 | Connessione: | Non verificato | Convalidare le impostazioni di connessione per l'entità servizio. |
@@ -360,7 +360,7 @@ Integrazione continua/distribuzione ibrida è possibile applicare al codice dell
 
 1. Accedi a servizi di Azure DevOps con un'organizzazione che è possibile creare una pipeline di compilazione.
 
-2. Passare il **compilazione di applicazioni Web** pagina per il progetto.
+2. Passare il **compilazione dell'applicazione Web** pagina per il progetto.
 
 3. Nelle **argomenti**, aggiungere **- r win10-x64** codice. Questa operazione è necessaria per attivare una distribuzione autonoma con.NET Core.
 

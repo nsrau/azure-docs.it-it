@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: e784185cfc7f2c588db354bab1cfb36934b9c417
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 8e577a95fc3cda3aafe1273cbc6b4e3c4fbb0317
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585867"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304360"
 ---
 # <a name="optimize-sql-server-performance"></a>Ottimizzare le prestazioni di SQL Server
 
@@ -29,7 +29,7 @@ Questo articolo fornisce indicazioni per l'ottimizzazione delle prestazioni di S
 Durante la creazione di immagini di SQL Server [considerare il provisioning delle macchine virtuali nel portale di Azure Stack](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Scaricare l'estensione SQL IaaS dalla gestione di Marketplace nel portale di amministrazione di Azure Stack e scaricare la scelta di dischi rigidi virtuali SQL macchina virtuale (VHD). Questi includono SQL2014SP2 SQL2016SP1 e SQL2017.
 
 > [!NOTE]  
-> Anche se l'articolo descrive come eseguire il provisioning di una macchina virtuale di SQL Server usando il portale di Azure globale, il materiale sussidiario si applica anche ad Azure Stack con le seguenti differenze: SSD non è disponibile per il disco del sistema operativo, i dischi gestiti non sono disponibili, e Esistono piccole differenze nella configurazione dell'archivio.
+> Anche se l'articolo descrive come eseguire il provisioning di una macchina virtuale di SQL Server usando il portale di Azure globale, il materiale sussidiario si applica anche ad Azure Stack con le differenze seguenti: SSD non è disponibile per il disco del sistema operativo, i dischi gestiti non sono disponibili e sono presenti differenze minime nella configurazione dell'archivio.
 
 Ottenere il *migliore* prestazioni per SQL Server nelle macchine virtuali di Azure Stack sono l'obiettivo di questo articolo. Se il carico di lavoro richiede un livello inferiore, è possibile richiedere non tutte le ottimizzazione consigliate. Prendere in considerazione le esigenze di prestazioni e i modelli di carico di lavoro durante la valutazione di queste indicazioni.
 
@@ -76,11 +76,11 @@ Quando si crea un account di archiviazione in Azure Stack, l'opzione della repli
 
 Esistono tre tipi di disco principali in una macchina virtuale di Azure Stack:
 
-- **Disco del sistema operativo:** quando si crea una macchina virtuale di Azure Stack, la piattaforma associa almeno un disco (etichettato come i **C** unità) alla macchina virtuale per il disco del sistema operativo. Si tratta di un disco rigido virtuale memorizzato come BLOB di pagine nell'archivio.
+- **Disco del sistema operativo:** Quando si crea una macchina virtuale di Azure Stack, la piattaforma associa almeno un disco (etichettato come le **C** unità) alla macchina virtuale per il disco del sistema operativo. Si tratta di un disco rigido virtuale memorizzato come BLOB di pagine nell'archivio.
 
-- **Disco temporaneo:** le macchine virtuali di Azure Stack contengono un altro disco, chiamato disco temporaneo (etichettato come i **1!d** unità). Questo è un disco sul nodo che può essere usato come area scratch.
+- **Disco temporaneo:** Macchine virtuali di Azure Stack contengono un altro disco, chiamato disco temporaneo (etichettato come le **1!d** unità). Questo è un disco sul nodo che può essere usato come area scratch.
 
-- **I dischi dati:** è possibile collegare dischi aggiuntivi alla macchina virtuale come dischi dati e questi dischi vengono archiviati nell'archiviazione come BLOB di pagine.
+- **Dischi dati:** È possibile collegare dischi aggiuntivi alla macchina virtuale come dischi dati e questi dischi vengono archiviati nell'archiviazione come BLOB di pagine.
 
 Nelle sezioni seguenti sono riportati alcuni consigli per l'uso di questi diversi dischi.
 
@@ -101,7 +101,7 @@ Unità di archiviazione temporanea, etichettata come le **1!d** unità, non è p
 > [!NOTE]  
 > Quando si effettua il provisioning di una macchina virtuale di SQL Server nel portale, è possibile modificare la configurazione dell'archiviazione. A seconda della configurazione, Azure Stack consente di configurare uno o più dischi. Più dischi sono combinati in un unico pool di archiviazione. Entrambi i file di dati e di log risiedono insieme in questa configurazione.
 
-- **Lo striping del disco:** aumento della velocità effettiva, è possibile aggiungere ulteriori dischi dati e usare lo striping del disco. Per determinare il numero di dischi dati che ti servono, analizzare il numero di IOPS e larghezza di banda necessaria per i file di log e per i file di dati e TempDB. Si noti che sono previsti limiti di IOPS per disco dati la famiglia della serie di macchine virtuali in base e non basati sulle dimensioni della macchina virtuale. I limiti della larghezza di banda di rete, tuttavia, si basano su dimensioni della macchina virtuale. Vedere le tabelle relative [dimensioni delle macchine virtuali in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) per altri dettagli. Usare le linee guida seguenti:
+- **Striping del disco:** Per una velocità effettiva maggiore, è possibile aggiungere ulteriori dischi dati e usare lo striping del disco. Per determinare il numero di dischi dati che ti servono, analizzare il numero di IOPS e larghezza di banda necessaria per i file di log e per i file di dati e TempDB. Si noti che sono previsti limiti di IOPS per disco dati la famiglia della serie di macchine virtuali in base e non basati sulle dimensioni della macchina virtuale. I limiti della larghezza di banda di rete, tuttavia, si basano su dimensioni della macchina virtuale. Vedere le tabelle relative [dimensioni delle macchine virtuali in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) per altri dettagli. Usare le linee guida seguenti:
 
     - Per Windows Server 2012 o versioni successive, usare [spazi di archiviazione](https://technet.microsoft.com/library/hh831739.aspx) con le linee guida seguenti:
 
@@ -120,8 +120,8 @@ Unità di archiviazione temporanea, etichettata come le **1!d** unità, non è p
 
 - Determinare il numero di dischi associati al pool di archiviazione dell'utente in base alle aspettative di carico. Tenere presente che le dimensioni di macchina virtuale diversa consentono diversi numeri di dischi dati collegati. Per altre informazioni, vedere [le dimensioni di macchina virtuale supportate in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - Per ottenere il numero massimo di IOPS possibili per i dischi dati, si consiglia di aggiungere il numero massimo di dischi dati supportati per i [dimensioni della macchina virtuale](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) e usare lo striping del disco.
-- **Dimensioni unità di allocazione NTFS:** quando si formatta il disco dati, è consigliabile usare una dimensione di unità di allocazione di 64 KB per file di log e dati, nonché di TempDB.
-- **Procedure di gestione del disco:** quando si rimuove un disco dati, arrestare il servizio SQL Server durante la modifica. Inoltre, non modificare le impostazioni della cache sui dischi perché non fornisce miglioramenti delle prestazioni.
+- **Dimensioni unità di allocazione NTFS:** Quando si formatta il disco dati, è consigliabile usare una dimensione di unità di allocazione di 64 KB per file di log e dati, nonché di TempDB.
+- **Procedure di gestione del disco:** Quando si rimuove un disco dati, arrestare il servizio SQL Server durante la modifica. Inoltre, non modificare le impostazioni della cache sui dischi perché non fornisce miglioramenti delle prestazioni.
 
 > [!WARNING]  
 > La mancata interruzione del servizio SQL durante queste operazioni può causare il danneggiamento del database.

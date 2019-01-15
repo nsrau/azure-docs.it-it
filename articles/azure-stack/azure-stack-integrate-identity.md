@@ -10,12 +10,12 @@ ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 63ac30728cceae76f869f5529905cd6d3dde9ae2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188897"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263797"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
 È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -56,7 +56,7 @@ Requirements:
 |Componente|Requisito|
 |---------|---------|
 |Grafico|Microsoft Active Directory 2012 o 2012 R2 o 2016|
-|AD FS|Windows Server 2012 o 2012 R2 o 2016|
+|AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Configurazione di integrazione di Graph
 
@@ -123,7 +123,7 @@ Servizio Graph nello Stack di Azure Usa i seguenti protocolli e porte per comuni
 |LDAP|389|TCP E UDP|
 |LDAP SSL|636|TCP|
 |LDAP GC|3268|TCP|
-|CATALOGO GLOBALE LDAP SSL|3269|TCP|
+|LDAP GC SSL|3269|TCP|
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Impostazione dell'integrazione di AD FS, scaricare i metadati della federazione
 
@@ -171,7 +171,7 @@ Le informazioni seguenti sono necessarie come input per i parametri di automazio
 |Parametro|DESCRIZIONE|Esempio|
 |---------|---------|---------|
 |CustomAdfsName|Nome del provider di attestazioni. Viene visualizzato in questo modo nella pagina di destinazione AD FS.|Contoso|
-|CustomADFSFederationMetadataFileContent|Contenuto dei metadati|$using: federationMetadataFileContent|
+|CustomADFSFederationMetadataFileContent|Contenuto dei metadati|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Creare il file di metadati di federazione
 
@@ -319,7 +319,7 @@ Se si verifica un errore che lascia l'ambiente in uno stato in cui è non è pi�
 2. Eseguire quindi il cmdlet seguente:
 
    ```PowerShell  
-   Reset-DatacenterIntegationConfiguration
+   Reset-DatacenterIntegrationConfiguration
    ```
 
    Dopo aver eseguito l'azione di rollback, tutte le modifiche di configurazione il rollback. Solo l'autenticazione con le funzionalità integrate **CloudAdmin** utente è possibile.

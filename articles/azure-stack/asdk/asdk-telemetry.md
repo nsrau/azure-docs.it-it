@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 0e8138f66c9284531b9610c9bc2996974e2075ad
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 831c233672e162462439056e56a244e6fb8a2f31
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339510"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264209"
 ---
 # <a name="azure-stack-telemetry"></a>Dati di telemetria di Azure Stack
 
@@ -42,11 +42,11 @@ Il servizio ETW instrada i dati di telemetria all'archiviazione cloud protetto. 
 Microsoft ritiene e procedure consigliate di minimizzazione di informazioni. Microsoft si impegna raccogliere solo le informazioni che è necessario perché viene archiviata solo finché è necessaria per fornire un servizio o per l'analisi. Molte delle informazioni sulle modalità di funzionamento tra il sistema Azure Stack e i servizi di Azure verrà eliminato entro sei mesi. Riepilogare o dati aggregati vengono conservati per un periodo più lungo.
 
 Siamo consapevoli che la privacy e sicurezza delle informazioni dei clienti è importante. Sono state prese un approccio ponderato e completa per la privacy dei clienti e la protezione dei dati dei clienti con Azure Stack. Gli amministratori IT dispongono di controlli per personalizzare le funzionalità e le impostazioni di privacy in qualsiasi momento. Il nostro impegno per trasparenza e la relazione di trust è chiaro:
-- Siamo aperti con i clienti sui tipi di dati che vengono raccolte.
-- I clienti aziendali è inclusa nel controllo, è possibile personalizzare le proprie impostazioni di privacy.
-- Viene inserito prima della protezione e privacy dei clienti.
-- Siamo trasparente sull'utilizzo Ottiene i dati di telemetria.
-- Usiamo i dati di telemetria per migliorare le esperienze dei clienti.
+- Siamo aperti con i clienti circa i tipi di dati che raccogliamo.
+- Affidiamo il controllo alle aziende che potranno personalizzare le impostazioni di privacy.
+- Mettiamo privacy e sicurezza al primo posto.
+- Siamo trasparenti sull'uso della telemetria.
+- Usiamo la telemetria per migliorare le esperienze dei clienti.
 
 Microsoft non si intende raccogliere informazioni riservate, ad esempio numeri di carta di credito, nomi utente e password, indirizzi di posta elettronica o altre informazioni riservate in modo analogo. Se si determina che le informazioni riservate sono state ricevute inavvertitamente, vengono eliminati.
 
@@ -68,7 +68,7 @@ L'Editor del Registro di sistema di Windows viene utilizzato per impostare manua
 Prima di distribuire Azure Stack nell'host di kit di sviluppo, avviare il CloudBuilder.vhdx ed eseguire lo script seguente in una finestra di PowerShell con privilegi elevata:
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host
@@ -82,7 +82,7 @@ I livelli di dati di telemetria sono cumulativi e categorizzate in quattro livel
 
 **0 (sicurezza)**. Solo i dati di sicurezza. Proteggere le informazioni necessarie per mantenere il sistema operativo, inclusi i dati sulle esperienze utente connesse e telemetria impostazioni del componente e Windows Defender. Nessuna telemetria specifici di Azure Stack viene generata questo livello.
 
-**1 (base)**. I dati di sicurezza e integrità di base e la qualità dei dati. Informazioni di base del dispositivo, tra cui: dati relativi alla qualità, compatibilità delle app, i dati sull'utilizzo delle app e i dati dal livello di sicurezza. Impostazione del livello dati di telemetria per la telemetria di Azure Stack consente di base. I dati raccolti a questo livello includono:
+**1 (Basic)**. I dati di sicurezza e integrità di base e la qualità dei dati. Informazioni di base del dispositivo, tra cui: dati relativi alla qualità, compatibilità delle app, i dati sull'utilizzo delle app e i dati dal livello di sicurezza. Impostazione del livello dati di telemetria per la telemetria di Azure Stack consente di base. I dati raccolti a questo livello includono:
 
 - **Informazioni di base del dispositivo** che aiuta a garantire una conoscenza sui tipi e le configurazioni di istanze di Windows Server 2016 native che virtualizzate nell'ecosistema, tra cui:
   - Attributi di computer, ad esempio OEM, modellare,

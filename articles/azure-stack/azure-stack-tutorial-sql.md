@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: b123caebfdba94b8b5e1c7bcf1c8a998d5199fda
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954913"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259751"
 ---
-# <a name="tutorial-offer-highly-available-sql-databases"></a>Esercitazione: Offrono disponibilità elevata SQL database
+# <a name="tutorial-offer-highly-available-sql-databases"></a>Esercitazione: Offrire database SQL a disponibilità elevata
 
 Un operatore di Stack di Azure, è possibile configurare le macchine virtuali server per ospitare i database di SQL Server. Dopo un SQL server di hosting è stata creata e gestita da Azure Stack, utenti che hanno sottoscritto a SQL services possono facilmente creare database SQL.
 

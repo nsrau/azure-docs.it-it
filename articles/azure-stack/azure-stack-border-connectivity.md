@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 12219e2df875d317aece73cabebdfb55115f7b41
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 51f9d2dbc8a0aef6dc84e76755a71eeb73149192
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021085"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262745"
 ---
 # <a name="border-connectivity"></a>Connettività del bordo 
 Pianificazione dell'integrazione di rete è un prerequisito fondamentale per la corretta distribuzione di sistemi integrati di Azure Stack, l'operazione e gestione. Pianificazione della connettività di bordo inizia con la scelta di usare il routing dinamico con bordo BGP gateway protocol () o meno. Questo richiede l'assegnazione di un numero sistema autonomo BGP 16 bit (pubblico o privato) o Usa il routing statico, in cui una route predefinita statico viene assegnata ai dispositivi del bordo.
@@ -29,7 +29,7 @@ Pianificazione dell'integrazione di rete è un prerequisito fondamentale per la 
 > Parte superiore di opzioni di rack (TOR) richiedono uplink Layer 3 con gli indirizzi IP da punto a punto (/ 30 reti) configurato nelle interfacce fisiche. Non è supportata per l'uso di livello 2 uplink con commutatori TOR che supportano le operazioni di Azure Stack. 
 
 ## <a name="bgp-routing"></a>Routing BGP
-Usando un protocollo di routing dinamico, ad esempio BGP garantisce che il sistema è sempre a conoscenza delle modifiche alla rete e facilita l'amministrazione. Per la sicurezza avanzate sono contraddistinte dal, una password può essere impostata su BGP peering tra il bordo e il commutatore TOR. 
+Usando un protocollo di routing dinamico, ad esempio BGP garantisce che il sistema è sempre a conoscenza delle modifiche alla rete e facilita l'amministrazione. Per una maggiore sicurezza, una password può essere impostata su BGP peering tra il bordo e il commutatore TOR. 
 
 Come illustrato nel diagramma seguente, annuncio dell'indirizzo IP privato il spazio nel commutatore TOR è bloccato tramite un elenco di prefissi. L'elenco di prefissi Nega l'annuncio della rete privata e viene applicata come una mappa di route per la connessione tra il bordo e il commutatore TOR.
 

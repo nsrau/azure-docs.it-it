@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249898"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304398"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gestire la capacità di archiviazione per Azure Stack 
 
@@ -90,7 +90,7 @@ Come operatore di cloud, è possibile utilizzare il portale di amministrazione p
 1. Accedi per il [del portale di amministrazione](https://adminportal.local.azurestack.external).
 2. Selezionare **tutti i servizi** > **archiviazione** per aprire l'elenco di condivisione file in cui è possibile visualizzare le informazioni sull'utilizzo. 
 
-  ![Esempio: Condivisioni di file di archiviazione](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+  ![Esempio: Condivisioni file di archiviazione](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **TOTALE** è lo spazio totale in byte che sono disponibili per la condivisione. Questo spazio viene usato per i dati e metadati gestiti da servizi di archiviazione.
   - **UTILIZZATO** è la quantità di dati in byte che viene usato da tutti gli extent dai file di cui sono archiviati i dati dei tenant e i metadati associati.
@@ -101,12 +101,12 @@ Quando si usa il portale di amministrazione, si ricevere avvisi sulle condivisio
 > [!IMPORTANT]
 > Come operatore di cloud, mantenere le condivisioni di raggiungere l'utilizzo completo. Quando una condivisione è 100% di utilizzo, la risorsa di archiviazione del servizio non sono più funzioni per tale condivisione. Per recuperare spazio disponibile e ripristinare le operazioni in una condivisione che è usata al 100%, è necessario contattare il supporto tecnico Microsoft.
 
-**Avviso**: quando una condivisione file è superiore all'80% utilizzata, viene visualizzato un *avviso* avviso nel portale di amministrazione: ![esempio: messaggio di avviso](media/azure-stack-manage-storage-shares/alert-warning.png)
+**Avviso**: Quando una condivisione file è superiore all'80% utilizzata, si riceve un *avviso* avviso nel portale di amministrazione: ![Esempio: Messaggio di avviso](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 
-**Critici**: quando una condivisione file è oltre il 90% usato, si riceve un *critici* avviso nel portale di amministrazione: ![esempio: avviso critico](media/azure-stack-manage-storage-shares/alert-critical.png)
+**Critica**: Quando una condivisione file è oltre il 90% usato, si riceve un *critico* avviso nel portale di amministrazione: ![Esempio: Avviso critico](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**Visualizzare i dettagli**: nel portale di amministrazione è possibile aprire i dettagli per un avviso per visualizzare le opzioni di mitigazione: ![esempio: visualizzare i dettagli degli avvisi](media/azure-stack-manage-storage-shares/alert-details.png)
+**Visualizzare i dettagli**: Nel portale di amministrazione è possibile aprire i dettagli per un avviso per visualizzare le opzioni di mitigazione: ![Esempio: Visualizzare i dettagli degli avvisi](media/azure-stack-manage-storage-shares/alert-details.png)
 
 
 ## <a name="manage-available-space"></a>Gestire lo spazio disponibile
@@ -196,7 +196,7 @@ Migrazione consolida tutti un blob in contenitori nella nuova condivisione.
   Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
   ````
 
-  ![Esempio: Lo stato di ripristino dello stato precedente](media/azure-stack-manage-storage-shares/rollback.png)
+  ![Esempio: Stato rollback](media/azure-stack-manage-storage-shares/rollback.png)
 
 7. È possibile eseguire nuovamente il comando del passaggio 6, fino a quando lo stato confermi che il processo di migrazione viene **Canceled**:  
 

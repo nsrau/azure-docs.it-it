@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ab5dad550e590cd70f54ad5c8d4727d0f6370190
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5a9859fda2c6cac6acf08c8dcca3a0ce205d2e15
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379713"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302732"
 ---
 # <a name="tenant-resource-usage-api"></a>API di utilizzo delle risorse del tenant
 
@@ -36,7 +36,7 @@ La richiesta ottiene i dettagli di utilizzo per le sottoscrizioni di richieste e
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version= 2015-06-01-preview & continuationToken = {token-value} |
 
 ### <a name="arguments"></a>Argomenti
-| **argomento** | **Descrizione** |
+| **Argomento** | **Descrizione** |
 | --- | --- |
 | *armendpoint* |Endpoint Azure Resource Manager dell'ambiente Azure Stack. La convenzione di Azure Stack è che il nome dell'endpoint di Azure Resource Manager è nel formato `https://management.{domain-name}`. Ad esempio, per il kit di sviluppo, il nome di dominio è local.azurestack.external, quindi l'endpoint di Resource Manager è `https://management.local.azurestack.external`. |
 | *subId* |ID sottoscrizione dell'utente che effettua la chiamata. È possibile usare questa API solo per query per l'utilizzo di una singola sottoscrizione. I provider possono utilizzare l'API di utilizzo di Provider di risorse all'utilizzo di query per tutti i tenant. |
@@ -74,7 +74,7 @@ OTTIENI /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reporte
 ```
 
 ### <a name="response-details"></a>Dettagli della risposta
-| **argomento** | **Descrizione** |
+| **Argomento** | **Descrizione** |
 | --- | --- |
 | *id* |ID univoco dell'aggregazione dell'utilizzo |
 | *nome* |Nome della funzione di aggregazione dell'utilizzo |
@@ -82,7 +82,7 @@ OTTIENI /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reporte
 | *subscriptionId* |Identificatore della sottoscrizione dell'utente di Azure |
 | *usageStartTime* |UTC ora di inizio di bucket di utilizzo a cui appartiene questa aggregazione di utilizzo |
 | *usageEndTime* |UTC ora di fine del bucket dell'utilizzo a cui appartiene questa aggregazione di utilizzo |
-| *instanceData* |Coppie chiave-valore di dettagli dell'istanza (in un nuovo formato):<br>  *resourceUri*: ID di risorsa, inclusi i gruppi di risorse e il nome di istanza in modo completo <br>  *percorso*: area in cui è stato eseguito il servizio <br>  *i tag*: i tag delle risorse specificate dall'utente <br>  *additionalInfo*: altri dettagli sulla risorsa che è stata utilizzata, ad esempio, il tipo di versione o l'immagine del sistema operativo |
+| *instanceData* |Coppie chiave-valore di dettagli dell'istanza (in un nuovo formato):<br>  *resourceUri*: ID risorsa completo, inclusi i gruppi di risorse e il nome di istanza <br>  *percorso*: Area in cui è stato eseguito il servizio <br>  *i tag*: Tag delle risorse specificate dall'utente <br>  *additionalInfo*: Digitare altri dettagli sulla risorsa che è stata utilizzata, ad esempio, versione del sistema operativo o immagine |
 | *quantity* |Quantità di utilizzo delle risorse che si sono verificati in questo intervallo di tempo |
 | *meterId* |ID univoco per la risorsa che è stata utilizzata (chiamato anche *ResourceID*) |
 

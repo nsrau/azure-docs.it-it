@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 4cbbc482a05e125f92efd98b0824ec38ae1ddefd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: d47a90851777b3256474a88e5881afd8f52547f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244699"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263323"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -79,7 +79,7 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
 - Servizio di backup dell'infrastruttura viene spostato dal [rete infrastruttura pubblico](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) per il [rete indirizzi VIP pubblici](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). I clienti dovranno assicurarsi che il servizio ha accesso il percorso di archiviazione di backup dalla rete VIP pubblica.  
 
 > [!IMPORTANT]  
-> Se è presente un firewall che non consente le connessioni dalla rete VIP pubblica al file server, questa modifica causa backup infrastructure con "Errore 53 il percorso di rete non trovato". Si tratta di una modifica sostanziale che non dispone di alcuna soluzione ragionevole. In base ai suggerimenti dei clienti, Microsoft sarà annullare questa modifica in un aggiornamento rapido. Vedere le [post sezione passaggi di aggiornamento](#post-update-steps) per altre informazioni sulle correzioni disponibili per 1809. Dopo l'aggiornamento rapido è disponibile, assicurarsi di applicarlo dopo l'aggiornamento a 1809 solo se i criteri di rete non consentono la rete VIP pubblica accedere alle risorse di infrastruttura. in 1811, questa modifica verrà applicata a tutti i sistemi. Se è applicato l'aggiornamento rapido in 1809, non è richiesta alcuna azione ulteriore.  
+> Se è presente un firewall che non consente le connessioni dalla rete VIP pubblica al file server, questa modifica causa backup infrastructure con "Errore 53 il percorso di rete non trovato". Si tratta di una modifica sostanziale che non dispone di alcuna soluzione ragionevole. In base ai suggerimenti dei clienti, Microsoft sarà annullare questa modifica in un aggiornamento rapido. Vedere le [post sezione passaggi di aggiornamento](#post-update-steps) per altre informazioni sulle correzioni disponibili per 1809. Dopo l'aggiornamento rapido è disponibile, assicurarsi di applicarlo dopo l'aggiornamento a 1809 solo se i criteri di rete non consentono la rete VIP pubblica per accedere alle risorse di infrastruttura. in 1811, questa modifica verrà applicata a tutti i sistemi. Se è applicato l'aggiornamento rapido in 1809, non è richiesta alcuna azione ulteriore.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Esposizione e vulnerabilità comuni
 

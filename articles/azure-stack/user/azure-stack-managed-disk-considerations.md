@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 78cb969aa96378dd84243545be1678ae4eaf0e0e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ecbd555809799619d61a7ff33911b7f28dcb3005
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232533"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262711"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: differenze e considerazioni
 
@@ -44,7 +44,7 @@ Managed Disks semplifica la gestione dei dischi per le macchine virtuali IaaS ge
 |Dischi Premium  |Supporto completo |Può essere eseguito il provisioning, ma nessun limite delle prestazioni o garanzia  |
 |IOPs di dischi Premium  |Dipende dalle dimensioni del disco  |2300 IOPs per disco |
 |Velocità effettiva di dischi Premium |Dipende dalle dimensioni del disco |145 MB al secondo per disco |
-|Dimensioni disco  |Disco Premium di Azure: P4 (32 GiB) a P80 (32 TiB)<br>Disco SSD Standard di Azure: E10 (128 GiB) a E80 (32 TiB)<br>Disco di Azure Standard HDD: S4 (32 GiB) a S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GiB<br>M20: 512 GiB<br>L30: 1024 GiB |
+|Dimensioni disco  |Azure Premium Disk: P4 (32 GiB) a P80 (32 TiB)<br>Disco SSD Standard di Azure: E10 (128 GiB) a E80 (32 TiB)<br>Disco di Azure Standard HDD: S4 (32 GiB) a S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GiB<br>M20: 512 GiB<br>M30: 1024 GiB |
 |Copia di snapshot di dischi|Lo snapshot di Azure collegati a una macchina virtuale in esecuzione supportata dischi gestiti|Non è ancora supportata |
 |Analisi delle prestazioni di dischi |Aggregare le metriche e metriche per disco supportate |Non è ancora supportata |
 |Migrazione      |Fornisce lo strumento per eseguire la migrazione da non gestiti Azure Resource Manager le macchine virtuali esistenti senza dover ricreare la macchina virtuale  |Non è ancora supportata |
@@ -72,7 +72,7 @@ Dopo aver applicato la 1808 aggiornare o versioni successive, è necessario eseg
 - Se è stata creata una sottoscrizione prima dell'aggiornamento 1808, seguire questa procedura per aggiornare la sottoscrizione. In caso contrario, la distribuzione di macchine virtuali in questa sottoscrizione potrebbe non riuscire con un messaggio di errore "Errore interno in Gestione disco".
    1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
    2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
-- Se si usa un ambiente multi-tenant, porre l'operatore cloud (maggio nella propria organizzazione o dal Provider di servizi) per riconfigurare tutte le directory guest, seguire questa procedura nel [questo articolo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). In caso contrario, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore "Errore interno in Gestione disco".
+- Se si usa un ambiente multi-tenant, porre l'operatore cloud (può essere un'organizzazione o dal Provider di servizi) per riconfigurare tutte le directory guest seguendo questi passaggi nel [questo articolo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). In caso contrario, la distribuzione di macchine virtuali in una sottoscrizione associata a tale directory guest potrebbe non riuscire con un messaggio di errore "Errore interno in Gestione disco".
 
 
 ## <a name="next-steps"></a>Passaggi successivi

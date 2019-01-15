@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 7ce501be5458282273e51a5b2bc18482592d2333
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ad1234b6a0296a2fa46fe56786bbca4aca9ed470
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376953"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305962"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Sostituire un disco fisico in Azure Stack
 
@@ -29,10 +29,10 @@ Questo articolo descrive il processo generale per sostituire un disco fisico in 
 
 È possibile utilizzare questa procedura per i sistemi integrati e per le distribuzioni kit di sviluppo che dispongono di dischi a caldo.
 
-Sostituzione del disco effettivi passaggi variano in base al fornitore dell'hardware OEM (OEM). Vedere la documentazione del fornitore campo unità sostituibile sul (FRU) per informazioni dettagliate specifiche per il sistema. 
+Sostituzione del disco effettivi passaggi variano in base al fornitore dell'hardware OEM (OEM). Vedere la documentazione del fornitore campo unità sostituibile sul (FRU) per informazioni dettagliate specifiche per il sistema. 
 
 ## <a name="review-disk-alert-information"></a>Informazioni sugli avvisi di revisione del disco
-Quando un disco non riesce, si riceve un avviso che indica che la connettività è stata interrotta a un disco fisico. 
+Quando un disco non riesce, si riceve un avviso che indica che la connettività è stata interrotta a un disco fisico. 
 
  ![Visualizzazione degli avvisi connettività persa al disco fisico](media/azure-stack-replace-disk/DiskAlert.png)
 
@@ -47,7 +47,7 @@ Seguire le istruzioni FRU del produttore dell'hardware OEM per la sostituzione e
 
 Per evitare l'uso di un disco non supportato in un sistema integrato, il sistema consente di bloccare i dischi che non sono supportati dal fornitore del sistema. Se si prova a usare un disco non supportato, un nuovo avviso indica che un disco è stato messo in quarantena a causa di un modello non supportato o firmware.
 
-Dopo aver sostituito il disco, Azure Stack automaticamente consente di individuare il nuovo disco e viene avviato il processo di ripristino del disco virtuale.  
+Dopo aver sostituito il disco, Azure Stack automaticamente consente di individuare il nuovo disco e viene avviato il processo di ripristino del disco virtuale.  
  
  ## <a name="check-the-status-of-virtual-disk-repair"></a>Controllare lo stato di ripristino disco virtuale
  

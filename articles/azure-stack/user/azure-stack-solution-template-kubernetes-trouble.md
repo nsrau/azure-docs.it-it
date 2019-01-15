@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e9eb3cc029e60acd18fc6611ca14817488a2d983
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956721"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266554"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Risolvere i problemi di distribuzione in Kubernetes in Azure Stack
 
@@ -34,7 +34,7 @@ L'articolo seguente esamina la risoluzione dei problemi del cluster Kubernetes. 
 
 Prima di iniziare la risoluzione dei problemi del cluster, si potrebbe voler esaminare il processo di distribuzione di cluster Kubernetes di Azure Stack. La distribuzione Usa un modello di soluzione di Azure Resource Manager per creare le macchine virtuali e installare il motore ACS per il cluster.
 
-### <a name="deployment-workflow"></a>Flusso di lavoro di distribuzione
+### <a name="deployment-workflow"></a>Flusso di lavoro per la distribuzione
 
 Il diagramma seguente illustra il processo generale per distribuire il cluster.
 
@@ -45,10 +45,10 @@ Il diagramma seguente illustra il processo generale per distribuire il cluster.
 1. Raccolta di parametri di input dall'elemento di marketplace.
 
     Immettere i valori necessari per configurare il cluster Kubernetes, tra cui:
-    -  **Nome utente**: il nome utente per le macchine virtuali Linux che fanno parte di un cluster Kubernetes e DVM.
-    -  **Chiave pubblica SSH**: la chiave che viene usata per l'autorizzazione di tutti i computer Linux che sono stati creati come parte del cluster Kubernetes e DVM.
-    -  **Entità servizio**: l'ID utilizzato dal provider di cloud di Azure in Kubernetes. L'ID client è stato identificato come l'ID dell'applicazione durante la creazione dell'entità servizio. 
-    -  **Segreto client**: la chiave creata durante la creazione dell'entità servizio.
+    -  **User name** (Nome utente): Il nome utente per le macchine virtuali Linux che fanno parte di un cluster Kubernetes e DVM.
+    -  **Chiave pubblica SSH**: La chiave che viene usata per l'autorizzazione di tutti i computer Linux che sono stati creati come parte del cluster Kubernetes e DVM.
+    -  **Entità servizio**: L'ID utilizzato dal provider di cloud di Azure in Kubernetes. L'ID client è stato identificato come l'ID dell'applicazione durante la creazione dell'entità servizio. 
+    -  **Segreto client**: Chiave creato al momento della creazione dell'entità servizio.
 
 2. Creare la distribuzione della macchina virtuale e l'estensione script personalizzato.
     -  Creare la distribuzione di VM Linux usando l'immagine Linux in marketplace **Ubuntu Server 16.04-LTS**.
@@ -90,7 +90,7 @@ Il diagramma seguente illustra il processo generale per distribuire il cluster.
 3.  Esaminare i file di creazione della macchina virtuale. Si potrebbero avere avuto problemi seguenti:  
     - La chiave pubblica potrebbe non essere valida. Esaminare la chiave creata.  
     - Creazione della macchina virtuale è possibile che hanno generato un errore interno o ha generato un errore di creazione. Numerosi fattori possono causare errori, quali i limiti di capacità per la sottoscrizione di Azure Stack.
-    - Assicurarsi che il nome di dominio completo (FDQN) per la macchina virtuale inizia con un prefisso duplicato.
+    - Assicurarsi che il nome di dominio completo (FQDN) per la macchina virtuale inizia con un prefisso duplicato.
 4.  Se la macchina virtuale viene **OK**, quindi valutare di DVM. Se il DVM dispone di un messaggio di errore:
 
     - La chiave pubblica potrebbe non essere valida. Esaminare la chiave creata.  
@@ -153,10 +153,10 @@ Per ottenere i log, procedere come segue:
 4. Esaminare i parametri e impostare i valori nel proprio ambiente.
     | Parametro           | DESCRIZIONE                                                                                                      | Esempio                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i,-identity-file | File chiave privata RSA per connettere la VM master di Kubernetes. La chiave deve iniziare con `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.PEM                                                        |
+    | -i, --identity-file | File chiave privata RSA per connettere la VM master di Kubernetes. La chiave deve iniziare con `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
     | -h, --host          | L'indirizzo IP pubblico o il nome di dominio completo (FQDN) del master del cluster Kubernetes della macchina virtuale. Il nome VM viene avviata con `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | -u, --utente          | Il nome utente del master del cluster Kubernetes della macchina virtuale. Questo nome viene impostato quando si configura l'elemento del marketplace.                                                                    | azureuser                                                                     |
-    | -d, - vmdhost       | L'indirizzo IP pubblico o il FQDN di DVM. Il nome VM viene avviata con `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | -d, --vmdhost       | L'indirizzo IP pubblico o il FQDN di DVM. Il nome VM viene avviata con `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
 
    Quando si aggiungono i valori dei parametri, che potrebbe essere simile al codice seguente:
 
