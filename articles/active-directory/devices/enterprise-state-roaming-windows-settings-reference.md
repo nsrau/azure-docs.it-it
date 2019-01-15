@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: c225761f18a89539ea4966fab620104a25d1270e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 45bf554e457e48704684fe8ac3b32c29f3f646b2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50129216"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189284"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Riferimento alle impostazioni di roaming di Windows 10
 Di seguito è riportato un elenco completo di tutte le impostazioni di cui verrà effettuato il roaming o il backup in Windows 10. 
@@ -48,7 +48,7 @@ I gruppi di impostazioni seguenti permettono agli utenti finali di abilitare o d
 * Preferenze lingua: dizionario per il controllo ortografico, impostazioni della lingua del sistema. 
 * Accessibilità: Assistente vocale, tastiera su schermo, lente di ingrandimento. 
 * Altre impostazioni di Windows: vedere la sezione Dettagli relativi alle impostazioni di Windows.
-* Impostazioni del browser Microsoft Edge: preferiti Microsoft Edge, elenco di lettura e altre impostazioni
+* Impostazioni del browser Microsoft Edge: Preferiti di Microsoft Edge,Elenco di lettura e altre impostazioni
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -70,14 +70,14 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | --- | --- | --- | --- |
 | **Account**: immagine dell'account |sync |X |Tema |
 | **Account**: altre impostazioni account |X |X | |
-| **Banda larga mobile avanzata**: nome della rete di Condivisione connessione Internet, che consente il rilevamento automatico degli hotspot Wi-Fi per dispositivi mobili tramite Bluetooth |X |X |Password |
+| **Banda larga mobile avanzata**: nome della rete di condivisione della connessione Internet, che consente il rilevamento automatico degli hotspot Wi-Fi per dispositivi mobili tramite Bluetooth |X |X |Password |
 | **Dati app**: singole app possono sincronizzare i dati |backup sincronizzazione |backup sincronizzazione |Interne |
 | **Elenco app**: elenco delle app installate |X |backup |Altre |
 | **Bluetooth**: tutte le impostazioni Bluetooth |X |X | |
 | **Prompt dei comandi**: impostazioni dei valori predefiniti del prompt dei comandi |sync |X |Interne |
 | **Credenziali**: Casella di sicurezza delle credenziali |sync |sync |password |
 | **Data, ora e opzioni internazionali**: ora automatica (sincronizzazione con l'ora Internet) |sync |sync |Linguaggio |
-| **Data, ora e opzioni internazionali**: formato a 24 ore |sync |X |Linguaggio |
+| **Data, ora e area**: formato 24 ore |sync |X |Linguaggio |
 | **Data, ora e opzioni internazionali**: data e ora |sync |X |Linguaggio |
 | **Data, ora e opzioni internazionali**: fuso orario | |X |Linguaggio |
 | **Data, ora e opzioni internazionali**: ora legale |sync |X |Linguaggio |
@@ -95,11 +95,11 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Dispositivi**: stampanti condivise a cui è stata eseguita la connessione |X |X |Altre |
 | **Browser Microsoft Edge**: Elenco di lettura |sync |sync |Interne |
 | **Browser Microsoft Edge**: Preferiti |sync |sync |Interne |
-| **Browser Microsoft Edge**: siti principali <sup> [[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: siti principali <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Browser Microsoft Edge**: URL digitati <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Browser Microsoft Edge**: impostazioni barra Preferiti <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Browser Microsoft Edge**: mostra pulsante Home <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: blocca popup <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: Blocca popup <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Browser Microsoft Edge**: richiedi l'operazione da eseguire con ogni download <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Browser Microsoft Edge**: offri la possibilità di salvare le password <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Browser Microsoft Edge**: invia richieste Do Not Track <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
@@ -108,8 +108,8 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Browser Microsoft Edge**: preferenze cookie <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Browser Microsoft Edge**: consenti ai siti di archiviare le licenze per i contenuti multimediali protetti nel dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Browser Microsoft Edge**: impostazione utilità per la lettura dello schermo <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Contrasto elevato**: abilitazione/disabilitazione |sync |X |Accessibilità |
-| **Contrasto elevato**: impostazioni del tema |sync |X |Accessibilità |
+| **Contrasto elevato**: ON oppure OFF |sync |X |Accessibilità |
+| **Contrasto elevato**: Impostazioni tema |sync |X |Accessibilità |
 | **Internet Explorer**: schede aperte (URL e titolo) |sync |sync |Internet Explorer |
 | **Internet Explorer**: Elenco di lettura |sync |sync |Internet Explorer |
 | **Internet Explorer**: URL digitati |sync |sync |Internet Explorer |
@@ -122,7 +122,7 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Tastiera**: Attiva Tasti permanenti (disabilitati per impostazione predefinita) |sync |X |Accessibilità |
 | **Tastiera**: Attiva Filtro tasti (disabilitato per impostazione predefinita) |sync |X |Accessibilità |
 | **Tastiera**: Attiva Segnali acustici (disabilitati per impostazione predefinita) |sync |X |Accessibilità |
-| **Internet Explorer**: cinese (QWERTY), abilitazione dell'apprendimento automatico della lingua del dominio |sync |X |Linguaggio |
+| **Internet Explorer**: Lingua dominio: Cinese (CHS) QWERTY - abilitazione dell'apprendimento automatico |sync |X |Linguaggio |
 | **Lingua**: cinese (QWERTY), abilitazione della classificazione dinamica dei candidati |sync |X |Linguaggio |
 | **Lingua**: cinese (QWERTY), set di caratteri cinese semplificato |sync |X |Linguaggio |
 | **Lingua**: cinese (QWERTY), set di caratteri cinese tradizionale |sync |X |Linguaggio |
@@ -133,12 +133,12 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Lingua**: cinese (QWERTY), correzione automatica lettura |sync |X |Linguaggio |
 | **Lingua**: cinese (QWERTY), cambio tastiera C/E, MAIUSC |sync |X |Linguaggio |
 | **Lingua**: cinese (QWERTY), cambio tastiera C/E, CTRL |sync |X |Linguaggio |
-| **Lingua**: cinese (WUBI), Modalità di input a singolo carattere |sync |X |Linguaggio |
-| **Lingua**: cinese (WUBI), Mostra il codice rimanente dei candidati |sync |X |Lingua |
-| **Lingua**: cinese (WUBI), Emetti un segnale acustico se la codifica 4 non è valida |sync |X |Linguaggio |
+| **Lingua**: cinese (WUBI), modalità di input a singolo carattere |sync |X |Linguaggio |
+| **Lingua**: cinese (WUBI), mostra il codice rimanente del candidato |sync |X |Linguaggio |
+| **Lingua**: cinese (WUBI), emetti un segnale acustico se la codifica 4 non è valida |sync |X |Linguaggio |
 | **Lingua**: Bopomofo cinese tradizionale, incluso CJK estensione A |sync |X |Linguaggio |
 | **Lingua**: IME giapponese, digitazione predittiva e parole personalizzate |sync |sync |Linguaggio |
-| **Lingua**: IME coreano |X |X |Linguaggio |
+| **Lingua**: Coreano (Corea) IME |X |X |Linguaggio |
 | **Lingua**: riconoscimento della grafia |X |X |Linguaggio |
 | **Lingua**: profilo lingua |sync |backup |Linguaggio |
 | **Lingua**: controllo ortografico, correzione automatica ed evidenziazione degli errori di ortografia |sync |backup |Linguaggio |

@@ -6,21 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: d10ca5d704892ae0a1494d729b46abf0fc06aa64
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b2f8a299dfc52bcc1f2eaa17e658b841d27bf62c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092253"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54154930"
 ---
-# <a name="azure-data-box-disk-system-requirements-preview"></a>Requisiti di sistema di Azure Data Box Disk (anteprima)
+# <a name="azure-data-box-disk-system-requirements"></a>Requisiti di sistema di Azure Data Box Disk
 
 Questo articolo descrive i requisiti di sistema importanti per la soluzione Microsoft Azure Data Box Disk e per i client connessi a Data Box Disk. Prima di distribuire Data Box Disk è consigliabile leggere attentamente queste informazioni e quindi farvi riferimento, se necessario, durante la distribuzione e il successivo funzionamento.
-
-> [!IMPORTANT]
-> Data Box Disk è disponibile in anteprima. Prima di distribuire la soluzione, leggere le [condizioni d'uso per l'anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 I requisiti di sistema includono le piattaforme supportate per i client che si connettono ai dischi, gli account di archiviazione supportati e i tipi di archiviazione.
 
@@ -32,7 +29,7 @@ Di seguito è riportato l'elenco dei sistemi operativi supportati per lo sblocco
 | **Sistema operativo** | **Versioni testate** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows |7, 8, 10 |
+|  Windows |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Altri software obbligatori per i client Windows
@@ -61,6 +58,9 @@ Di seguito è riportato un elenco dei tipi di archiviazione supportati per Data 
 | --- | --- |
 | Classico | Standard |
 | Utilizzo generico  |Standard; sono supportati sia V1 che V2. Sono supportati livelli ad accesso frequente e sporadico. |
+
+>[!NOTE]
+> Gli account di Azure Data Lake Storage Gen 2 non sono supportati.
 
 
 ## <a name="supported-storage-types"></a>Tipi di archiviazione supportati

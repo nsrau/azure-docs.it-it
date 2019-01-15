@@ -81,7 +81,7 @@ Se l'elemento `htmlContent` è una stringa (ad es. come l'impostazione predefini
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Aggiungere eventi del mouse all'indicatore HTML predefinito' src='//codepen.io/azuremaps/embed/ZmZLBa/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento 2078801 <a href='https://codepen.io/azuremaps/pen/ZmZLBa/'>Aggiungere eventi del mouse all'indicatore HTML predefinito</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Aggiungere eventi del mouse all'indicatore HTML predefinito' src='//codepen.io/azuremaps/embed/ZmZLBa/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento 2078801 <a href='https://codepen.io/azuremaps/pen/ZmZLBa/'>Aggiungere eventi del mouse a indicatori HTML predefinito</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passaggi successivi
