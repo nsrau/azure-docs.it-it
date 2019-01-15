@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d727c9c3a9add701263e799dba778b37e637adef
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc9892882cfd4c3f68118648baaaf278133bb2a8
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194284"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191922"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivio per le novità in Azure Active Directory
 
@@ -857,7 +857,7 @@ L'estensione del browser App personali è ora disponibile tramite un utile strum
 - Possibilità di accedere direttamente ad app con accesso SSO basato su password dalla pagina di accesso dell'app
 - Avvio delle app tramite la funzionalità di ricerca rapida
 - Collegamenti alle app usate di recente dall'estensione
-- L'estensione è disponibile per Microsoft Edge, Chrome e Firefox.
+- L'estensione è disponibile per il download in Microsoft Edge, Chrome e Firefox.
  
 Per altre informazioni, vedere [Estensione per l'accesso sicuro alle app personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 

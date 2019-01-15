@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 6750276cf31d0c804b38cdf3ea6e41a4505c93f1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971819"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187418"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Riscrivere le intestazioni HTTP con il gateway applicazione (anteprima pubblica)
 
 Le intestazioni HTTP consentono al client e al server di passare informazioni aggiuntive insieme alla richiesta o alla risposta. Riscrivere le intestazioni HTTP consente di affrontare diversi scenari importanti, ad esempio l'aggiunta di campi di intestazione correlati come HSTS/X-XSS-Protection o la rimozione di campi di intestazione di risposta, che potrebbero rivelare informazioni riservate come il nome del server back-end.
 
-Il gateway applicazione supporta ora la possibilità di riscrivere le intestazioni delle richieste HTTP in ingresso e in uscita. Sarà possibile aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP, mentre i pacchetti di richiesta/risposta si spostano tra client e pool di back-end. È possibile riscrivere sia i campi di intestazione standard, definiti in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt), sia i campi di intestazione non standard.
+Il gateway applicazione supporta ora la possibilità di riscrivere le intestazioni delle richieste HTTP in ingresso e in uscita. Sarà possibile aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP, mentre i pacchetti di richiesta/risposta si spostano tra client e pool di back-end. È possibile riscrivere sia i campi di intestazione standard che quelli non standard.
 
 > [!NOTE] 
 >
@@ -84,7 +84,11 @@ Con questa modifica, è necessario:
 
 - Una combinazione delle precedenti.
 
-Le variabili server indicate in precedenza sono le variabili che forniscono informazioni sul server, la connessione con il client e la richiesta corrente per la connessione. Questa funzionalità supporta la riscrittura delle intestazioni per le variabili server seguenti:
+## <a name="server-variables"></a>Variabili del server
+
+Le variabili del server archiviano informazioni utili su un server Web. Queste variabili forniscono informazioni relative al server, la connessione con il client e la richiesta corrente per la connessione, come l'indirizzo IP del client o il tipo di Web browser. Cambiano in modo dinamico, ad esempio quando viene caricata una nuova pagina o viene inviato un modulo.  Usando queste variabili gli utenti possono impostare le intestazioni della richiesta, oltre alle intestazioni della risposta. 
+
+Questa funzionalità supporta la riscrittura delle intestazioni per le variabili server seguenti:
 
 | Variabili server supportate | DESCRIZIONE                                                  |
 | -------------------------- | :----------------------------------------------------------- |
@@ -100,7 +104,7 @@ Le variabili server indicate in precedenza sono le variabili che forniscono info
 | http_status                | Stato della sessione, ad esempio: 200, 400, 403 e così via.                       |
 | http_version               | Protocollo di richiesta, in genere "HTTP/1.0", "HTTP/1.1" o "HTTP/2.0" |
 | query_string               | Elenco di coppie variabile-valore che seguono il simbolo "?" nell'URL richiesto. |
-| received_byte              | Lunghezza della richiesta, incluse riga della richiesta, intestazione e corpo della richiesta |
+| received_bytes             | Lunghezza della richiesta, incluse riga della richiesta, intestazione e corpo della richiesta |
 | request_query              | Argomenti nella riga della richiesta                                |
 | request_scheme             | Schema della richiesta, "http" o "https"                            |
 | request_uri                | URI completo originale della richiesta (con gli argomenti)                   |

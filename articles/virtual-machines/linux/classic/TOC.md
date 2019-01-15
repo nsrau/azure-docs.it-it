@@ -1,7 +1,7 @@
-# [Overview](../overview.md)
+# Panoramica
 ## [Estensioni di VM](agents-and-extensions-classic.md)
 ## [Disponibilità](configure-availability-classic.md)
-## [DOMANDE FREQUENTI](faq-classic.md)
+## [Domande frequenti](faq-classic.md)
 
 # Attività iniziali
 ## [Creare una macchina virtuale Linux](createportal-classic.md)
@@ -33,7 +33,6 @@
 ### [Applicazione Web Ruby on Rails](ruby-rails-web-app.md)
 ### [Client Node.js e Cassandra](cassandra-nodejs.md)
 ### [Tomcat](setup-tomcat.md)
-### [Cluster RDMA per eseguire applicazioni MPI](rdma-cluster.md)
 ### HPC Pack
 #### [Creare un cluster per i carichi di lavoro Linux](hpcpack-cluster-powershell-script.md)
 #### [Gestire un cluster con nodi Linux](hpcpack-cluster.md)
@@ -46,11 +45,10 @@
 ### [Riavviare o ridimensionare una VM](restart-resize-error-troubleshooting.md)
 ### [Collegare un disco rigido virtuale alla VM di risoluzione dei problemi](troubleshoot-recovery-disks-portal.md)
 
-# Riferimenti
+# riferimento
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/vm)
 ## [Java](/java/api)
-## [Creare modelli di Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Modelli della community](https://azure.microsoft.com/documentation/templates)
 ## [REST di calcolo](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [REST di rete](https://msdn.microsoft.com/library/jj157182.aspx)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971308"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190902"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -188,7 +188,7 @@ Nell'ambiente del servizio app, si ha il controllo totale sul traffico in ingres
 3. Verificare che la scheda **Rete** sia selezionata, quindi selezionare il pulsante **Riproduci** di colore verde.
 4. Eseguire i passaggi per riprodurre il problema.
 5. Selezionare il pulsante **Termina** di colore rosso.
-6. Selezionare il pulsante **Salva** (icona del disco) e salvare il file HAR (in Internet Explorer ed Edge) *o* il file HAR, quindi scegliere **Salva come HAR con contenuto** (in Chrome).
+6. Selezionare il pulsante **Salva** (icona del disco) e salvare il file HAR (in Internet Explorer e Microsoft Edge) *oppure* fare clic con il pulsante destro del mouse sul file HAR, quindi selezionare **Salva come HAR con contenuto** (in Chrome).
 
 ### <a name="f12-console-output"></a>Output di console F12
 

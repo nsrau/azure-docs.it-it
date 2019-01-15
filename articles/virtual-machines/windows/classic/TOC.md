@@ -1,6 +1,7 @@
 # Panoramica
-## [Informazioni sulle macchine virtuali](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-## [DOMANDE FREQUENTI](faq-classic.md)
+## [Estensioni di VM](agents-and-extensions-classic.md)
+## [Disponibilità](configure-availability-classic.md)
+## [Domande frequenti](faq-classic.md)
 
 # Attività iniziali
 ## [Creare una macchina virtuale con il portale di Azure](tutorial-classic.md)
@@ -29,20 +30,17 @@
 ### [Manutenzione](planned-maintenance-schedule-classic.md)
 
 ## Gestisci
-### [Migrazione dal modello classico a Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+### [Migrazione dal modello classico a Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-deep-dive)
 ### [Gestire le VM con Azure PowerShell](manage-psh-classic.md)
 ### [Informazioni sull'agente e sulle estensioni delle VM](agents-and-extensions-classic.md)
 ### [Gestire le estensioni di VM](manage-extensions-classic.md)
 
 ## Gestire i carichi di lavoro
-### [High-performance Computing (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)
+### HPC (High Performance Computing)
 #### [Ridimensionare automaticamente le risorse](hpcpack-cluster-node-autogrowshrink.md)
 #### [Gestire i nodi di calcolo](hpcpack-cluster-node-manage.md)
 #### [Creare un cluster](hpcpack-cluster-powershell-script.md)
 #### [Configurare un cluster per l'esecuzione di applicazioni MPI](hpcpack-rdma-cluster.md)
-#### [Eseguire carichi di lavoro di Excel e SOA](../../virtual-machines-windows-excel-cluster-hpcpack.md)
-#### [Creare il nodo head con un'immagine del Marketplace](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
-#### [Inviare processi da locale ad Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MySQL](mysql-2008r2.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
@@ -52,12 +50,11 @@
 ### [Reimpostare la password RDP](reset-rdp.md)
 ### [Collegare un disco rigido virtuale alla VM di risoluzione dei problemi](troubleshoot-recovery-disks-portal.md)
 
-# Riferimenti
+# riferimento
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
-## [Creare modelli di Resource Manager](../../../resource-group-authoring-templates.md)
 ## [Modelli della community](https://azure.microsoft.com/documentation/templates)
 ## [REST di calcolo](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [REST di rete](https://msdn.microsoft.com/library/jj157182.aspx)

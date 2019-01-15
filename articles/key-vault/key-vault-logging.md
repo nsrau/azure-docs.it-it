@@ -10,16 +10,15 @@ ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 8e3076f2176739f5b9df5776f27d7483c9fd2692
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2a36993e9406613ad9182d01c3681056114dca18
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000411"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159962"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione dell'insieme di credenziali delle chiavi di Azure
 
@@ -39,11 +38,11 @@ Usare questa esercitazione per un'introduzione all'uso della registrazione dell'
 > [!NOTE]
 > Questa esercitazione non include istruzioni per la creazione di insiemi di credenziali delle chiavi, chiavi o segreti. Per altre informazioni, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md). In alternativa, per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [questa esercitazione equivalente](key-vault-manage-with-cli2.md).
 >
-> Attualmente non è possibile configurare l'insieme di credenziali delle chiavi di Azure nel portale di Azure. Usare invece queste istruzioni per Azure PowerShell.
+> Questo articolo fornisce istruzioni per l'aggiornamento della registrazione diagnostica per Azure PowerShell. Tuttavia, lo stesso può essere abilitato tramite Monitoraggio di Azure nel portale di Azure, all'interno della sezione **Log di diagnostica**. 
 >
 >
 
-Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-whatis.md)
+Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](key-vault-whatis.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -113,7 +112,7 @@ Per abilitare la registrazione dell'insieme di credenziali delle chiavi, si user
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 ```
 
-L'output includerà:
+L'output dettagliato sarà simile al seguente:
 
     StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
     ServiceBusRuleId   :
@@ -222,7 +221,7 @@ A questo punto si può iniziare a osservare il contenuto dei log. Prima di conti
 
 ## <a id="interpret"></a>Interpretare i log dell'insieme di credenziali delle chiavi
 
-I singoli BLOB vengono archiviati come testo, formattati come BLOB JSON. Con l'esecuzione di
+I singoli BLOB vengono archiviati come testo, formattati come BLOB JSON. In esecuzione
 
 ```PowerShell
 Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
@@ -230,6 +229,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
 
 verrà restituita una voce di log simile a quella riportata di seguito:
 
+```json
     {
         "records":
         [
@@ -250,6 +250,7 @@ verrà restituita una voce di log simile a quella riportata di seguito:
             }
         ]
     }
+```
 
 La tabella seguente elenca i nomi dei campi e le descrizioni.
 

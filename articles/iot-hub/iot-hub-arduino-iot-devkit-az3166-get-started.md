@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: f7eea6e9fdbe69003a93e34f9107d279f2105d7f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2f480fd4d5d7d6261776660f1a7eab587320c849
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720340"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052514"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure
 
@@ -142,7 +142,7 @@ Seguire questa procedura per preparare l'ambiente di sviluppo per DevKit:
 
 5. Configurare Visual Studio Code con le impostazioni di Arduino.
 
-    In Visual Studio Code fare clic su **File > Preferenze > Impostazioni**. Quindi fare clic su **...** e **Apri settings.json**.
+    In Visual Studio Code fare clic su **File > Preferenze > Impostazioni**. Quindi fare clic su di **...** e **Apri settings.json**.
     ![Installare Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
     
     Aggiungere le seguenti righe per configurare Arduino a seconda della piattaforma: 
@@ -199,7 +199,7 @@ A questo punto tutto pronto con la preparazione e la configurazione dell'ambient
 
 1. Premere `F1` per aprire il riquadro comandi, digitare e selezionare **Azure IoT Device Workbench: Open Examples** (Azure IoT Device Workbench: Apri esempi). Quindi selezionare **IoT DevKit** (DevKit di IoT) come lavagna.
 
-1. Nella pagina di esempi di Workbench IoT, individuare **Get Started** (Introduzione) e fare clic su **Open Sample** (Apri esempio). Selezionare quindi il percorso predefinito per scaricare il codice di esempio.
+1. Nella pagina di esempi di Workbench IoT, individuare **Get Started**(Introduzione) e fare clic su **Open Sample** (Apri esempio). Selezionare quindi il percorso predefinito per scaricare il codice di esempio.
     ![Aprire esempio](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/open-sample.png)
 
 1. Nella nuova finestra del progetto aperta premere `F1` per aprire il riquadro comandi, digitare e selezionare **Azure IoT Device Workbench: Provision Azure Services** (Azure IoT Device Workbench: Effettua il provisioning dei servizi di Azure). Seguire la guida passo passo per completare il provisioning dell'hub IoT di Azure e creare il dispositivo dell'hub IoT.
@@ -236,9 +236,7 @@ L'applicazione di esempio viene eseguita correttamente quando vengono visualizza
 
 ### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>Visualizzare i dati di telemetria ricevuti dall'hub IoT di Azure
 
-È possibile usare il [Toolkit dell'hub IoT di Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (precedentemente Toolkit di Azure IoT) per il monitoraggio dei messaggi da dispositivo a cloud (D2C) nell'hub IoT.
-
-1. In Visual Studio Code, cercare **Toolkit dell'hub IoT di Azure** nel marketplace delle estensioni e installarlo.
+È possibile usare il [Toolkit Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) per il monitoraggio dei messaggi da dispositivo a cloud (D2C) nell'hob IoT.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e cercare l'hub IoT creato.
     ![Portale di Azure](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)

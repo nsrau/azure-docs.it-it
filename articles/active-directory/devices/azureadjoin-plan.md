@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310372"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189514"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -113,7 +113,7 @@ Se si creano utenti in:
 
 - **Azure AD**, non sono necessarie altre configurazioni.
 
-Gli [ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) non sono supportati nei dispositivi aggiunti ad Azure AD. Se gli utenti usano un ID di accesso alternativo, è consigliabile valutare di passare all'uso dei rispettivi UPN primari in Azure AD.
+In locale gli UPN che sono diversi da Azure AD UPN non sono supportati nei dispositivi aggiunti Azure AD. Se gli utenti usano un UPN locali, è consigliabile valutare di passare all'uso dei rispettivi UPN primari in Azure AD.
 
 
 

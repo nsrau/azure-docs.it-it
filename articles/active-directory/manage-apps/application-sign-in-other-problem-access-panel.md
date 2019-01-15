@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 830fc1d96825e28aad41aac9afee499b9bc1f7ae
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 02aa4eb37437861d428c6f361b3ff21def56b49b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356164"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189831"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemi di accesso a un'applicazione dal pannello di accesso
 
@@ -68,7 +68,7 @@ Per l'accesso Single Sign-On basato su password il browser dell'utente finale pu
 
 -   Internet Explorer 8, 9, 10, 11 su Windows 7 o versioni successive
 
--   Edge su Windows 10 Anniversary Edition o versioni successive
+-   Microsoft Edge su Windows 10 Anniversary Edition o versioni successive
 
 -   Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
 
@@ -96,7 +96,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 -   [Estensione Pannello di accesso per Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Estensione Pannello di accesso per Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+-   [Estensione Pannello di accesso per Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Come configurare l'accesso Single Sign-On federato per un'applicazione della raccolta di Azure AD
 
@@ -285,7 +285,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione non inclusa nella r
 
   1. Per configurare l'applicazione come SSO avviato da IdP, immettere l'URL di risposta e l'identificatore.
 
-  2. **Facoltativo:** per configurare l'applicazione come SSO avviato da provider di servizi, l'URL di accesso è un valore obbligatorio.
+  2. **Facoltativo:** Per configurare l'applicazione come SSO avviato da provider di servizi, l'URL di accesso è un valore obbligatorio.
 
 12. In **Attributi utente** selezionare l'identificatore univoco per gli utenti nel menu a discesa **Identificatore utente**.
 
@@ -500,7 +500,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 11. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
 
-12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **selezionato**.
+12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **Selezionati**.
 
 13. Dopo avere selezionato gli utenti, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
 
