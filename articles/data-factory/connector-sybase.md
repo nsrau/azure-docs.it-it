@@ -21,7 +21,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51242212"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiare dati da Sybase usando Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
 > * [Versione 1](v1/data-factory-onprem-sybase-connector.md)
 > * [Versione corrente](connector-sybase.md)
 
