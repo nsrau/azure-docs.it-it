@@ -1,6 +1,6 @@
 ---
 title: Macchina virtuale di aggiornamento e la gestione con Azure Stack | Microsoft Docs
-description: Informazioni su come usare le soluzioni gestione aggiornamenti, rilevamento modifiche e inventario in automazione di Azure per gestire le macchine virtuali Windows distribuite in Azure Stack.
+description: Informazioni su come usare le soluzioni gestione aggiornamenti, rilevamento modifiche e inventario in automazione di Azure per gestire le macchine virtuali Linux distribuite in Azure Stack e Windows.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -15,30 +15,30 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
-ms.openlocfilehash: be793fa5d346d05e6b7bd9f93f1108b7a3542fa6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b86a9a0cff397148b0632b3108f58a1977b518e9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959173"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332507"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Aggiornamento dello Stack della macchina virtuale e gestione di Azure
-È possibile utilizzare le seguenti funzionalità di soluzione di automazione di Azure per gestire le macchine virtuali Windows distribuite tramite Azure Stack:
+È possibile usare le seguenti funzionalità di soluzione di automazione di Azure per gestire le macchine virtuali Linux distribuite con Azure Stack e Windows:
 
-- **[Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-update-management)**. Con la soluzione gestione aggiornamenti, è possibile valutare lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire rapidamente il processo di installazione degli aggiornamenti necessari per queste macchine virtuali Windows.
+- **[Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-update-management)**. Con la soluzione gestione aggiornamenti, è possibile valutare lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire rapidamente il processo di installazione degli aggiornamenti necessari per queste macchine virtuali di Linux e Windows.
 
-- **[Il rilevamento delle modifiche](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Le modifiche al software installato, i servizi Windows, del Registro di sistema di Windows e i file nei server monitorati vengono inviate al servizio Log Analitica nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
+- **[Il rilevamento delle modifiche](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Le modifiche al software installato, ai servizi di Windows, ai file e al Registro di sistema di Windows e ai daemon Linux nei server monitorati vengono inviate al servizio Log Analytics nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
 
-- **[Inventario](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. Il monitoraggio dell'inventario per una macchina virtuale di Azure Stack Windows fornisce un'interfaccia utente basata sul browser per l'installazione e configurazione di raccolta dell'inventario. 
+- **[Inventory](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. Il monitoraggio dell'inventario per una macchina virtuale di Azure Stack offre un'interfaccia utente basata sul browser per l'installazione e configurazione di raccolta dell'inventario. 
 
 > [!IMPORTANT]
-> Queste soluzioni sono uguali a quelli usati per gestire macchine virtuali di Azure. Azure e macchine virtuali Windows di Azure Stack vengono gestite nello stesso modo, dalla stessa interfaccia, usando gli stessi strumenti. Le macchine virtuali di Azure Stack sono inoltre hanno lo stesso prezzo come macchine virtuali di Azure quando si usa la gestione degli aggiornamenti, rilevamento modifiche e inventario soluzioni con Azure Stack.
+> Queste soluzioni sono uguali a quelli usati per gestire macchine virtuali di Azure. Azure e macchine virtuali di Azure Stack vengono gestite nello stesso modo, dalla stessa interfaccia, usando gli stessi strumenti. Le macchine virtuali di Azure Stack sono inoltre hanno lo stesso prezzo come macchine virtuali di Azure quando si usa la gestione degli aggiornamenti, rilevamento modifiche e inventario soluzioni con Azure Stack.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di usare queste funzionalità per aggiornare e gestire macchine virtuali Windows di Azure Stack è necessario soddisfare alcuni prerequisiti. Questi includono i passaggi da effettuare nel portale di Azure, nonché nel portale di amministrazione di Azure Stack.
+Prima di usare queste funzionalità per aggiornare e gestire macchine virtuali di Azure Stack è necessario soddisfare alcuni prerequisiti. Questi includono i passaggi da effettuare nel portale di Azure, nonché nel portale di amministrazione di Azure Stack.
 
 ### <a name="in-the-azure-portal"></a>Nel portale di Azure
-Per usare l'inventario, rilevamento modifiche e le funzionalità di automazione di Azure di gestione aggiornamenti per le macchine virtuali Windows di Azure Stack, è necessario innanzitutto abilitare queste soluzioni in Azure.
+Per usare l'inventario, rilevamento modifiche e le funzionalità di automazione di Azure di gestione aggiornamenti per le macchine virtuali di Azure Stack, è necessario innanzitutto abilitare queste soluzioni in Azure.
 
 > [!TIP]
 > Se hai già queste funzionalità abilitate per le macchine virtuali di Azure, è possibile usare le credenziali dell'area di lavoro di log Analytics già esistente. Se hai già un LogAnalytics WorkspaceID e chiave primaria a cui si desidera utilizzare, passare a [nella sezione successiva](./vm-update-management.md#in-the-azure-stack-administration-portal). In caso contrario, continuare in questa sezione per creare un nuovo account di automazione e l'area di lavoro di log Analytics.
@@ -60,18 +60,18 @@ Successivamente, è necessario [creare un Account di automazione](https://docs.m
    [![](media/vm-update-management/1-sm.PNG "Abilitare le funzionalità di account di automazione")](media/vm-update-management/1-lg.PNG#lightbox)
 
 ### <a name="in-the-azure-stack-administration-portal"></a>Nel portale di amministrazione di Azure Stack
-Dopo aver abilitato le soluzioni di automazione di Azure nel portale di Azure, è quindi necessario accedere al portale di amministrazione di Azure Stack come amministratore del cloud e scaricare il **aggiornamento di Azure e la gestione della configurazione** estensione di Azure Elemento del marketplace dello stack. 
+Dopo aver abilitato le soluzioni di automazione di Azure nel portale di Azure, è quindi necessario accedere al portale di amministrazione di Azure Stack come amministratore del cloud e scaricare il **aggiornamento di Azure e la gestione della configurazione** e il  **Aggiornamento e la gestione della configurazione per Linux Azure** elementi del marketplace Azure Stack estensione. 
 
    ![Azure Aggiorna e la configurazione Gestione estensione elemento del marketplace](media/vm-update-management/2.PNG) 
 
 ## <a name="enable-update-management-for-azure-stack-virtual-machines"></a>Abilitare gestione aggiornamenti per le macchine virtuali di Azure Stack
-Seguire questi passaggi per abilitare gestione aggiornamenti per le macchine virtuali Windows di Azure Stack.
+Seguire questi passaggi per abilitare gestione aggiornamenti per le macchine virtuali di Azure Stack.
 
 1. Accedere al portale per gli utenti Azure Stack.
 
-2. In Azure Stack-portale per gli utenti, passare al pannello estensioni di Windows di macchine virtuali per cui si desidera abilitare queste soluzioni, fare clic su **+ Aggiungi**, selezionare il **aggiornamento di Azure e la gestione della configurazione**estensione e fare clic su **Create**:
+2. In Azure Stack-portale per gli utenti, passare al pannello estensioni delle macchine virtuali per cui si desidera abilitare queste soluzioni, fare clic su **+ Aggiungi**, selezionare la **aggiornamento di Azure e la gestione della configurazione** estensione e fare clic su **Create**:
 
-   [![](media/vm-update-management/3-sm.PNG "Pannello di estensione della macchina virtuale Windows")](media/vm-update-management/3-lg.PNG#lightbox)
+   [![](media/vm-update-management/3-sm.PNG "Pannello di estensione della macchina virtuale")](media/vm-update-management/3-lg.PNG#lightbox)
 
 3. Fornire l'ID area di lavoro e chiave primaria creata in precedenza per collegare l'agente con l'area di lavoro di log Analytics e fare clic su **OK** per distribuire l'estensione.
 
@@ -82,9 +82,9 @@ Seguire questi passaggi per abilitare gestione aggiornamenti per le macchine vir
    [![](media/vm-update-management/5-sm.PNG "Fornire l'ID area di lavoro e una chiave")](media/vm-update-management/5-lg.PNG#lightbox) 
 
    > [!TIP]
-   > Ripetere questo passaggio per abilitare ogni soluzione per le macchine virtuali Windows di Azure Stack report all'area di lavoro. 
+   > Ripetere questo passaggio per abilitare ogni soluzione per le VM di Azure Stack report all'area di lavoro. 
   
-Dopo l'aggiornamento di Azure e la gestione della configurazione l'estensione è abilitata, viene eseguita un'analisi due volte al giorno per ogni macchina virtuale Windows gestito. Ogni 15 minuti per eseguire query per l'ora dell'ultimo aggiornamento determinare se è stato modificato lo stato viene chiamata l'API di Windows. Se lo stato è cambiato, viene avviata un'analisi della conformità.
+Dopo l'aggiornamento di Azure e la gestione della configurazione l'estensione è abilitata, viene eseguita un'analisi due volte al giorno per ogni macchina virtuale gestita. L'API viene chiamato ogni 15 minuti per eseguire query per l'ora dell'ultimo aggiornamento determinare se lo stato è stato modificato. Se lo stato è cambiato, viene avviata un'analisi della conformità.
 
 Dopo che le macchine virtuali vengono analizzate, verranno visualizzati nell'account di automazione di Azure nella soluzione di gestione degli aggiornamenti: 
 
@@ -93,10 +93,10 @@ Dopo che le macchine virtuali vengono analizzate, verranno visualizzati nell'acc
 > [!IMPORTANT]
 > La visualizzazione nel dashboard dei dati aggiornati dei computer gestiti può richiedere da 30 minuti a 6 ore.
 
-Le macchine virtuali Windows di Azure Stack può ora essere inclusi nelle distribuzioni di aggiornamenti pianificate insieme alle macchine virtuali di Azure.
+Le macchine virtuali di Azure Stack può ora essere inclusi nelle distribuzioni di aggiornamenti pianificate insieme alle macchine virtuali di Azure.
 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Abilitare gestione aggiornamenti usando un modello di Resource Manager
-Se si dispone di un numero elevato di macchine virtuali Windows di Azure Stack, è possibile usare [questo modello di Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) per distribuire più facilmente la soluzione in macchine virtuali di Windows. Il modello distribuisce l'estensione Microsoft Monitoring Agent in una VM Windows esistente e lo aggiunge a un'area di lavoro di log Analytics di Azure esistente.
+Se si dispone di un numero elevato di macchine virtuali di Azure Stack, è possibile usare [questo modello di Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) per distribuire più facilmente la soluzione in macchine virtuali. Il modello distribuisce l'estensione Microsoft Monitoring Agent in una VM di Azure Stack esistente e lo aggiunge a un'area di lavoro di log Analytics di Azure esistente.
  
 ## <a name="next-steps"></a>Passaggi successivi
 [Ottimizzare le prestazioni di SQL Server](azure-stack-sql-server-vm-considerations.md)

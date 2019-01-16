@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 064a9fc48ae60e530a11633b0823764a2f862811
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722397"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320022"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Distribuzione di Kubernetes in Azure Stack
 
@@ -139,7 +139,7 @@ Assegnare l'entità servizio l'accesso alla sottoscrizione in modo che l'entità
 
 1. Immettere il **chiave pubblica SSH** utilizzati per l'autorizzazione a tutti i computer Linux creato come parte del cluster Kubernetes e DVM.
 
-1. Immettere il **Master del prefisso DNS del profilo** che è univoco nell'area. Deve essere un nome univoco con area, ad esempio `k8s-12345`. Provare a scelta lo stesso del gruppo di risorse nome ritiene più pratica.
+1. Immettere il **Master del prefisso DNS del profilo** che è univoco nell'area. Deve essere un nome univoco con area, ad esempio `k8s-12345`. Provare a renderlo lo stesso come il nome del gruppo di risorse come procedura consigliata.
 
     > [!Note]  
     > Per ogni cluster, usare un prefisso DNS del profilo master nuovi ed esclusivi.
@@ -150,9 +150,9 @@ Assegnare l'entità servizio l'accesso alla sottoscrizione in modo che l'entità
 
 1. Selezionare il **numero profilo del Pool di nodi Kubernetes**. Il conteggio contiene il numero di agenti nel cluster. 
 
-1. Selezionare il **profilo di archiviazione**. È possibile scegliere **Blob di disco** oppure **disco gestito**. Specifica le macchine virtuali del nodo dimensioni di macchina virtuale di Kubernetes. 
+1. Selezionare il **profilo di archiviazione**. È possibile scegliere **Blob di disco** oppure **disco gestito**. 
 
-1. Immettere il **entità servizio ClientId** viene utilizzato dal provider di cloud di Azure in Kubernetes. L'ID Client identificato come l'ID dell'applicazione durante la creazione dell'entità servizio.
+1. Immettere il **entità servizio ClientId** viene utilizzato dal provider di cloud di Azure in Kubernetes. L'ID Client è stato identificato come l'ID dell'applicazione durante la creazione dell'entità servizio.
 
 1. Immettere il **segreto Client entità servizio** creato al momento della creazione dell'entità servizio.
 
@@ -160,7 +160,7 @@ Assegnare l'entità servizio l'accesso alla sottoscrizione in modo che l'entità
 
 ### <a name="3-summary"></a>3. Summary
 
-1. Selezionare riepilogo. Il pannello visualizza un messaggio di convalida per le impostazioni delle configurazioni di Kubernetes Cluster.
+1. Selezionare riepilogo. Il pannello visualizza un messaggio di convalida per le impostazioni di configurazione di un Kubernetes Cluster.
 
     ![Distribuisci modello di soluzione](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
