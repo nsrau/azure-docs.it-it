@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 951a202f8d57c736af8c17af91859ce89e9efc7d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4e2feb1f5b0cad9a05f796d160a0a641622d6b59
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717960"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189220"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot LUIS in C# con Bot Framework 3.x e il bot app Web di Azure
 
@@ -161,6 +161,8 @@ Ulteriori informazioni su [Bot Framework](https://dev.botframework.com/) e [3.x]
 ## <a name="next-steps"></a>Passaggi successivi
 
 Aggiungere le finalità LUIS e le finestre di dialogo del servizio Bot per gestire le finalità **Help** (Guida), **Cancel** (Annulla) e **Greeting** (Saluti). Ricordarsi eseguire il training, di pubblicare e di [compilare](#build-the-bot) il bot dell'app Web. LUIS e il bot devono avere le stesse finalità.
+
+Vedere altri [esempi](https://github.com/Microsoft/AI) con i bot di conversazione. 
 
 > [!div class="nextstepaction"]
 > [Aggiungere finalità](./luis-how-to-add-intents.md)
