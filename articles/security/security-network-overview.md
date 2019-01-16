@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2237d523b8023c0a6551515f9a2740e92e7beb3f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a5943c1d2e6b04564e1de732b8f3924a67393753
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548924"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065682"
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
 
@@ -171,7 +171,7 @@ Altre informazioni:
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-vpn"></a>Connessione della rete locale a una rete virtuale tramite una VPN
 
-È possibile che si desideri connettere l'intera rete aziendale, o parti di essa, a una rete virtuale. Questo approccio è comune negli scenari di IT ibrido in cui le aziende [estendono il data center locale ad Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). In molti casi, le organizzazioni ospitano parti di un servizio in Azure e parti in locale. Questo approccio potrebbe essere utile, ad esempio, quando una soluzione include server Web front-end in Azure e database back-end locali. Questo tipo di connessioni "cross-premise" rende anche più sicura la gestione delle risorse residenti in Azure e apre a scenari come l'estensione di controller di dominio Active Directory in Azure.
+È possibile che si desideri connettere l'intera rete aziendale, o parti di essa, a una rete virtuale. Questo approccio è comune negli scenari di IT ibrido in cui le aziende [estendono il data center locale ad Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). In molti casi, le organizzazioni ospitano parti di un servizio in Azure e parti in locale. Questo approccio potrebbe essere utile, ad esempio, quando una soluzione include server Web front-end in Azure e database back-end locali. Questo tipo di connessioni "cross-premise" rende anche più sicura la gestione delle risorse residenti in Azure e abilita scenari come l'estensione di controller di dominio Active Directory in Azure.
 
 A questo scopo è possibile usare una [VPN da sito a sito](https://www.techopedia.com/definition/30747/site-to-site-vpn). La differenza tra una VPN da sito a sito e una VPN da punto a sito è che quest'ultima connette un dispositivo singolo a una rete virtuale. Una VPN da sito a sito connette un'intera rete, ad esempio quella locale, a una rete virtuale. Le VPN da sito a sito che si connettono a una rete virtuale usano il protocollo VPN in modalità tunnel IPsec altamente sicuro.
 
@@ -231,7 +231,7 @@ Le organizzazioni che eseguono servizi basati sul Web spesso preferiscono implem
 Il gateway applicazione di Azure offre il bilanciamento del carico basato su HTTP per i servizi basati sul Web. Il gateway applicazione supporta:
 
 * Affinità di sessione basata su cookie Questa funzionalità garantisce che le connessioni stabilite a uno dei server controllati dal servizio di bilanciamento del carico restino inalterate tra il client e il server. In questo modo si assicura la stabilità delle transazioni.
-* Offload SSL Quando un client si connette con il servizio di bilanciamento del carico, la sessione viene crittografata tramite l'utilizzo del protocollo HTTPS (SSL). Per migliorare le prestazioni, è tuttavia possibile usare il protocollo HTTP (senza crittografia) per la connessione tra il servizio di bilanciamento del carico e il server Web controllato dal servizio di bilanciamento del carico. Questa modalità è definita "offload SSL", perché i server Web controllati dal servizio di bilanciamento del carico non sono soggetti al sovraccarico del processore interessato dalla crittografia e quindi saranno in grado di soddisfare le richieste più rapidamente.
+* Offload SSL Quando un client si connette con il servizio di bilanciamento del carico, la sessione viene crittografata tramite l'utilizzo del protocollo HTTPS (SSL). Per migliorare le prestazioni, è tuttavia possibile usare il protocollo HTTP (senza crittografia) per la connessione tra il servizio di bilanciamento del carico e il server Web controllato dal servizio di bilanciamento del carico. Questa modalità è definita "offload SSL", perché i server Web controllati dal servizio di bilanciamento del carico non sono soggetti al sovraccarico del processore interessato dalla crittografia. e quindi saranno in grado di soddisfare le richieste più rapidamente.
 * Routing di contenuto basato su URL. Questa funzionalità consente al servizio di bilanciamento del carico di scegliere dove inoltrare le connessioni in base all'URL di destinazione, offrendo quindi maggiore flessibilità rispetto alle soluzioni che prendono decisioni sul bilanciamento del carico in base agli indirizzi IP.
 
 Altre informazioni:
@@ -268,7 +268,7 @@ Altre informazioni:
 
 ## <a name="name-resolution"></a>Risoluzione dei nomi
 
-La risoluzione dei nomi è una funzione critica per tutti i servizi ospitati in Azure. Dal punto di vista della sicurezza, la compromissione della funzione di risoluzione dei nomi può consentire a un utente malintenzionato di reindirizzare le richieste dai siti dell'utente al suo sito. La sicurezza della risoluzione dei nomi è un requisito per tutti i servizi cloud ospitati.
+La risoluzione dei nomi è una funzione critica per tutti i servizi ospitati in Azure. Dal punto di vista della sicurezza la compromissione della funzione di risoluzione dei nomi può consentire a un utente malintenzionato di reindirizzare le richieste dai siti dell'utente al suo sito. La sicurezza della risoluzione dei nomi è un requisito per tutti i servizi cloud ospitati.
 
 Esistono due tipi di risoluzione dei nomi che occorre considerare:
 
@@ -324,7 +324,7 @@ Con la piattaforma Azure, Microsoft offre la protezione DDoS denominata **Basic*
 * **Ottimizzazione adattiva:** la profilatura intelligente del traffico apprende il modello di traffico dell'applicazione nel tempo e seleziona e aggiorna il profilo più adatto per il servizio. Il profilo viene modificato in base ai cambiamenti del traffico nel tempo. Protezione dal livello 3 al livello 7: offre protezione DDoS dello stack completo se usata con un web application firewall.
 * **Scala di mitigazione completa:** è possibile mitigare più di 60 tipi diversi di attacchi con capacità globale, per una protezione dai più noti attacchi DDoS.
 * **Metriche degli attacchi:** tramite Monitoraggio di Azure è possibile accedere al riepilogo delle metriche per ogni attacco.
-* **Avviso in caso di attacco:** è possibile configurare avvisi all'inizio e alla fine di un attacco, oltre che nel corso dell'attacco, usando le metriche integrate relative agli attacchi. Gli avvisi si integrano nel software operativo, come Microsoft Azure Log Analytics, Splunk, Archiviazione di Azure, posta elettronica e il portale di Azure.
+* **Avviso in caso di attacco:** è possibile configurare avvisi all'inizio e alla fine di un attacco, così come durante l'attacco, usando le metriche integrate relative agli attacchi. Gli avvisi si integrano nel software operativo, come Microsoft Azure Log Analytics, Splunk, Archiviazione di Azure, posta elettronica e il portale di Azure.
 * **Garanzia sui costi:**  crediti per il servizio di trasferimento dati e scale-out dell'applicazione per attacchi DDoS documentati.
 * **DDoS Rapid Response** I clienti con Protezione DDoS Standard dispongono ora dell'accesso al team Rapid Response durante un attacco in corso. DRR può facilitare l'analisi dell'attacco, le mitigazioni personalizzate durante un attacco e l'analisi post-attacco.
 

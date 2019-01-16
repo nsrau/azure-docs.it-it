@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.author: tulasim
-ms.openlocfilehash: f732391cc73f0a7cb417409cd6f6f2b3c54f93d6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a26c4b6d16ac16596f8b1b0606aca029be335d71
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994131"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038501"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
@@ -149,6 +149,23 @@ Se non è presente contenuto pre-esistente per popolare la Knowledge Base, è po
 ## <a name="formatting-considerations"></a>Considerazioni di formattazione
 
 Dopo aver importato un file o un URL, questo viene convertito in Markdown e archiviato in questo formato. Se il processo di conversione non converte correttamente i collegamenti nei file e gli URL, è consigliabile modificare le domande e risposte nella pagina **Modifica**. 
+
+|Format|Scopo|
+|--|--|
+|`\n\n`| Nuova riga|
+|`\n*`|Punto elenco per elenco ordinato|
+
+## <a name="editing-your-knowledge-base-locally"></a>Modificare la knowledge base in locale
+
+Dopo aver creato una knowledge base, si consiglia di apportare modifiche al testo della knowledge base nel [portale di QnA Maker](https://qnamaker.ai), invece di esportare e reimportare tramite file locali. Tuttavia, potrebbe essere talvolta necessario modificare una knowledge base in locale. 
+
+Esportare la knowledge base dalla pagina **Impostazioni** e modificarla con Microsoft Excel. Se si sceglie di usare un'altra applicazione per modificare il file TSV esportato, l'applicazione può comportare errori di sintassi perché non è completamente conforme al formato TSV. File TSV Microsoft Excel, in genere non introducono eventuali errori di formattazione. 
+
+Dopo aver completato le modifiche, reimportare il file TSV dalla pagina **Impostazioni**. In questo modo si sostituirà completamente la knowledge base corrente con la knowledge base importata. 
+
+## <a name="testing-your-markdown"></a>Test di Markdown
+
+Usare l'esercitazione **[CommonMark](https://commonmark.org/help/tutorial/index.html)** per convalidare il codice Markdown. L'esercitazione contiene la funzionalità **Prova** per la convalida veloce copia/incolla. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

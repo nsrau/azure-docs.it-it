@@ -1,18 +1,18 @@
 ---
 title: Utilizzo dei database, dei contenitori e degli elementi di Azure Cosmos DB
 description: Questo articolo descrive come creare e usare i database, i contenitori e gli elementi di Azure Cosmos DB
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807687"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107736"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Utilizzo dei database, dei contenitori e degli elementi di Azure Cosmos DB
 
@@ -77,10 +77,10 @@ Un contenitore Azure Cosmos DB dispone di un set di proprietà definite dal sist
 
 | **Proprietà definita dal sistema** | **Generata dal sistema o impostabile dall'utente** | **Scopo** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__rid | Generata dal sistema | Identificatore univoco di contenitore | Yes | No  | No  | No  | No  |
-|__etag | Generata dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No  | No  | No  | No  |
-|__ts | Generata dal sistema | Ultimo timestamp aggiornato del contenitore | Yes | No  | No  | No  | No  |
-|__self | Generata dal sistema | URI indirizzabile del contenitore | Yes | No  | No  | No  | No  |
+|_rid | Generata dal sistema | Identificatore univoco di contenitore | Yes | No  | No  | No  | No  |
+|_etag | Generata dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No  | No  | No  | No  |
+|_ts | Generata dal sistema | Ultimo timestamp aggiornato del contenitore | Yes | No  | No  | No  | No  |
+|_self | Generata dal sistema | URI indirizzabile del contenitore | Yes | No  | No  | No  | No  |
 |id | Configurabile dall'utente | Nome univoco definito dall'utente del contenitore | Yes | Sì | Sì | Sì | Yes |
 |indexingPolicy | Configurabile dall'utente | Offre la possibilità di modificare il percorso di indice, la precisione e il modello di coerenza. | Yes | No  | No  | No  | Yes |
 |TimeToLive | Configurabile dall'utente | Offre la possibilità di eliminare elementi automaticamente da un contenitore dopo un determinato periodo di tempo. Per altri dettagli, vedere l'articolo sulla funzionalità [TTL](time-to-live.md). | Yes | No  | No  | No  | Yes |
@@ -113,10 +113,10 @@ Ogni elemento Azure Cosmos DB dispone delle proprietà definite dal sistema segu
 
 |**Proprietà definita dal sistema** | **Generata dal sistema o impostabile dall'utente**| **Scopo** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__id | Generata dal sistema | Identificatore univoco di elemento | Yes | No  | No  | No  | No  |
-|__etag | Generata dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No  | No  | No  | No  |
-|__ts | Generata dal sistema | Ultimo timestamp aggiornato dell'elemento | Yes | No  | No  | No  | No  |
-|__self | Generata dal sistema | URI indirizzabile dell'elemento | Yes | No  | No  | No  | No  |
+|_id | Generata dal sistema | Identificatore univoco di elemento | Yes | No  | No  | No  | No  |
+|_etag | Generata dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No  | No  | No  | No  |
+|_ts | Generata dal sistema | Ultimo timestamp aggiornato dell'elemento | Yes | No  | No  | No  | No  |
+|_self | Generata dal sistema | URI indirizzabile dell'elemento | Yes | No  | No  | No  | No  |
 |id | È possibile usare il | Nome univoco definito dall'utente all'interno di una partizione logica. Se l'utente non specifica l'id, il sistema ne genererà uno automaticamente. | Yes | Sì | Sì | Sì | Yes |
 |Proprietà definite dall'utente arbitrarie | Route definite dall'utente | Proprietà definite dall'utente rappresentate nella rappresentazione nativa dell'API (JSON, BSON, CQL e così via) | Yes | Sì | Sì | Sì | Yes |
 

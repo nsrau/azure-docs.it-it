@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: c9e31bdc2b526c442b4ac62d98725254a38e5967
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794550"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157633"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -145,11 +145,13 @@ Se lo stato di integrità dell'endpoint server è impostato su "Nessuna attivit�
 
 È possibile che in un endpoint server non vengano registrate attività di sincronizzazione per i motivi seguenti:
 
-- Il server ha raggiunto il numero massimo di sessioni di sincronizzazione simultanee. Sincronizzazione file di Azure supporta attualmente due sessioni di sincronizzazione attive per ogni processore o fino a otto sessioni di sincronizzazione attive per ogni server.
+- Il server ha una sessione di sincronizzazione VSS (SnapshotSync) attiva. Se in un endpoint server è attiva una sessione di sincronizzazione VSS, gli altri endpoint presenti nel volume del server non possono avviare una sessione di sincronizzazione fino al completamento della sessione di sincronizzazione VSS.
 
-- Il server ha una sessione di sincronizzazione VSS (SnapshotSync) attiva. Se in un endpoint server è attiva una sessione di sincronizzazione VSS, gli altri endpoint presenti nel server non possono avviare una sessione di sincronizzazione fino al completamento della sessione di sincronizzazione VSS.
+    Per verificare le attività di sincronizzazione attualmente in esecuzione su un server, vedere [Come monitorare lo stato di avanzamento di una sessione di sincronizzazione corrente?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Per verificare le attività di sincronizzazione attualmente in esecuzione su un server, vedere [Come monitorare lo stato di avanzamento di una sessione di sincronizzazione corrente?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- Il server ha raggiunto il numero massimo di sessioni di sincronizzazione simultanee. 
+    - Versione dell'agente 4.x e versioni successive: il limite dipende dalle risorse di sistema disponibili.
+    - Agente versione 3 x: 2 sessioni di sincronizzazione attive per ogni processore o fino a 8 sessioni di sincronizzazione attive per ogni server.
 
 > [!Note]  
 > Se lo stato del server nel pannello dei server registrati è "Risulta offline", eseguire i passaggi documentati nella sezione [L'endpoint server ha uno stato di integrità "Nessuna attività" o "In sospeso" e lo stato del server nel pannello dei server registrati è "Risulta offline"](#server-endpoint-noactivity).
@@ -244,13 +246,14 @@ Per visualizzare questi errori, eseguire lo script **FileSyncErrorsReport.ps1** 
 **Log ItemResults - errori di sincronizzazione per ogni elemento**  
 | HRESULT | HRESULT (decimale) | Stringa di errore | Problema | Correzione |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | Il file ha prodotto errori persistenti durante la sincronizzazione e pertanto tenterà di eseguire la sincronizzazione solo una volta al giorno. L'errore sottostante è rintracciabile in un registro eventi precedenti. | Negli agenti R2 (2.0) e versioni successive, viene presentato l'errore originale anziché quest'ultimo. Aggiornare l'agente più recente per visualizzare l'errore sottostante o esaminare i registri eventi precedenti per individuare la causa dell'errore originale. |
-| 0x7b | 123 | ERROR_INVALID_NAME | Il nome della directory o dei file non è valido. | Rinominare il file o la directory in questione. Visualizzare le [Linee guida per la denominazione di File di Azure](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) e l'elenco dei caratteri non supportati qui di seguito. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | Il nome della directory o dei file non è valido. | Rinominare il file o la directory in questione. Visualizzare le [Linee guida per la denominazione di File di Azure](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) e l'elenco dei caratteri non supportati qui di seguito. |
-| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Un file è stato modificato, ma la modifica non è ancora stata rilevata dalla sincronizzazione. La sincronizzazione verrà ripristinata dopo il rilevamento di questa modifica. | Non è necessaria alcuna azione. |
-| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Impossibile sincronizzare un file poiché in uso. Il file verrà sincronizzato quando non sarà più in uso. | Non è necessaria alcuna azione. Sincronizzazione file di Azure crea uno snapshot VSS temporaneo una volta al giorno nel server per sincronizzare i file con handle aperti. |
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | Impossibile sincronizzare un file poiché in uso. Il file verrà sincronizzato quando non sarà più in uso. | Non è necessaria alcuna azione. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Impossibile sincronizzare una modifica di file o directory al momento poiché una cartella dipendente non è ancora stata sincronizzata. Questo elemento verrà sincronizzato dopo la sincronizzazione delle modifiche dipendenti. | Non è necessaria alcuna azione. |
+| 0x7b | 123 | ERROR_INVALID_NAME | Il nome della directory o dei file non è valido. | Rinominare il file o la directory in questione. Vedere [Gestione dei caratteri non supportati](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) per altre informazioni. |
+| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | Il nome della directory o dei file non è valido. | Rinominare il file o la directory in questione. Vedere [Gestione dei caratteri non supportati](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) per altre informazioni. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Impossibile sincronizzare un file poiché in uso. Il file verrà sincronizzato quando non sarà più in uso. | Non è necessaria alcuna azione. Sincronizzazione file di Azure crea uno snapshot VSS temporaneo una volta al giorno nel server per sincronizzare i file con handle aperti. |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Un file è stato modificato, ma la modifica non è ancora stata rilevata dalla sincronizzazione. La sincronizzazione verrà ripristinata dopo il rilevamento di questa modifica. | Non è necessaria alcuna azione. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Il file non può essere sincronizzato perché è stato raggiunto il limite di condivisione file di Azure. | Per risolvere questo problema, vedere la sezione [È stato raggiunto il limite di archiviazione di condivisione file di Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) nella Guida alla risoluzione dei problemi. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Questo errore può verificarsi se il file è crittografato da una soluzione non supportata (ad esempio NTFS EFS) o se il file ha un'operazione di eliminazione in sospeso. | Se il file è crittografato da una soluzione non supportata, decrittografare il file e usare una soluzione di crittografia supportata. Per un elenco delle soluzioni di supporto, vedere la sezione [Soluzioni di crittografia](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) nella Guida alla pianificazione. Se il file ha un'operazione di eliminazione in sospeso-stato, tale file verrà eliminato dopo che tutti gli handle di file aperti vengono chiusi. |
+| 0x20 | 32 | ERROR_SHARING_VIOLATION | Impossibile sincronizzare un file poiché in uso. Il file verrà sincronizzato quando non sarà più in uso. | Non è necessaria alcuna azione. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Un file è stato modificato durante la sincronizzazione ed è quindi necessario sincronizzarlo di nuovo. | Non è necessaria alcuna azione. |
 
 #### <a name="handling-unsupported-characters"></a>Gestione dei caratteri non supportati
@@ -549,6 +552,16 @@ Nei casi in cui sono presenti numerosi errori di sincronizzazione file, le sessi
 | **Rimedio necessario** | Yes |
 
 Assicurarsi che il percorso esista, che si trovi in un volume NTFS locale e che non sia un reparse point o un endpoint server esistente.
+
+<a id="-2134375817"></a>**La sincronizzazione non è riuscita perché la versione del driver di filtro non è compatibile con la versione dell'agente**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C80277 |
+| **HRESULT (decimale)** | -2134375817 |
+| **Stringa di errore** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
+| **Rimedio necessario** | Yes |
+
+Questo errore si verifica perché la versione del driver cloud a livelli caricata (StorageSync.sys) non è compatibile con il servizio agente di sincronizzazione archiviazione (FileSyncSvc). Se l'agente Sincronizzazione file di Azure è stato aggiornato, riavviare il server per completare l'installazione. Se l'errore persiste, disinstallare l'agente, riavviare il server e reinstallare l'agente Sincronizzazione file di Azure.
 
 <a id="-2134376373"></a>**Il servizio non è attualmente disponibile.**  
 | | |

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993292"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077472"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -33,26 +33,28 @@ Gruppi di contenitori distribuiti in una rete virtuale di Azure abilitano scenar
 
 Quando si distribuiscono gruppi di contenitori in una rete virtuale, si applicano alcune limitazioni.
 
-* I contenitori Windows non sono supportati
 * Per distribuire gruppi di contenitori in una subnet, quest'ultima non può contenere altri tipi di risorse. Rimuovere tutte le risorse presenti in una subnet esistente prima di distribuire gruppi di contenitori nella subnet oppure creare una nuova subnet.
 * Gruppi di contenitori distribuiti in una rete virtuale attualmente non supportano gli indirizzi IP pubblici né etichette del nome DNS.
 * A causa di altre risorse di rete coinvolte, la distribuzione di un gruppo di contenitori in una rete virtuale è leggermente più lenta, in genere, rispetto a quella di un'istanza di contenitore standard.
 
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
-Se la funzionalità è disponibile in anteprima, quando si distribuiscono istanze di contenitore in una rete virtuale si applicano le limitazioni seguenti.
+Se la funzionalità è disponibile in anteprima, quando si distribuiscono istanze di contenitore in una rete virtuale si applicano le limitazioni seguenti. 
 
-Aree **supportate**:
+**Aree supportate e limiti delle risorse**
 
-* Europa settentrionale (northeurope)
-* Europa occidentale (westeurope)
-* Stati Uniti occidentali (westus)
-* Stati Uniti orientali (eastus)
+| Località | OS | CPU | Memoria (GB) |
+| -------- | :---: | :---: | :-----------: |
+| Europa occidentale | Linux | 4 | 14 |
+| Stati Uniti orientali, Stati Uniti occidentali | Linux | 2 | 3,5 |
+| Australia orientale, Europa settentrionale | Linux | 1 | 1,5 |
 
-Risorse di rete **non supportate**:
+I limiti delle risorse del contenitore possono differire dai limiti delle istanze contenitore non in rete in queste aree. Attualmente sono supportati i contenitori Linux per questa funzionalità. È previsto il supporto per la versione Windows.
 
-* Gruppo di sicurezza di rete
+**Risorse di rete e funzionalità non supportate**
+
 * Azure Load Balancer
+* Peering di rete virtuale
 
 L'**eliminazione delle risorse di rete** richiede [passaggi aggiuntivi](#delete-network-resources) dopo la distribuzione di gruppi di contenitori nella rete virtuale.
 

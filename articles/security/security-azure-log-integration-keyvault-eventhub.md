@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 4653803623ed0c847fa63663204b5842f7a03d08
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584208"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063914"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Esercitazione su Integrazione log di Azure: Elaborare gli eventi di Azure Key Vault tramite Hub eventi
 
@@ -25,13 +25,13 @@ ms.locfileid: "53584208"
 
 È possibili usare l'integrazione dei log di Azure per recuperare gli eventi registrati e renderli disponibili per il sistema di gestione delle informazioni e degli eventi di sicurezza (SIEM). Questa esercitazione illustra un esempio di come usare l'integrazione dei log di Azure per elaborare i log acquisiti tramite Hub eventi di Azure.
 
-Il metodo preferito per l'integrazione dei log di Azure consiste nell'usare un connettore per Monitoraggio di Azure del fornitore SIEM e seguire queste [istruzioni](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Tuttavia, se il fornitore SIEM non offre un connettore per Monitoraggio di Azure, è possibile usare Integrazione log di Azure come soluzione temporanea (se SIEM è supportato da Integrazione log di Azure) fino a quando non diventa disponibile un connettore di questo tipo.
+Il metodo preferito per l'integrazione dei log di Azure consiste nell'usare un connettore per Monitoraggio di Azure del fornitore SIEM e seguire queste [istruzioni](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Tuttavia, se il fornitore SIEM non offre un connettore per Monitoraggio di Azure, è possibile usare Integrazione log di Azure come soluzione temporanea (se SIEM è supportato da Integrazione log di Azure) fino a quando non sia disponibile un connettore di questo tipo.
 
  
 Usare questa esercitazione per acquisire familiarità con l'interazione tra l'integrazione dei log di Azure e Hub eventi seguendo la procedura di esempio e comprendendo in che modo ogni passaggio supporta la soluzione. È quindi possibile applicare quanto appreso qui per creare i passaggi personalizzati per supportare i requisiti specifici della propria azienda.
 
 >[!WARNING]
-Non copiare o incollare i passaggi e i comandi in questa esercitazione. Si tratta solo di esempi. Non usare i comandi di PowerShell "così come sono" nell'ambiente live, in quanto devono essere personalizzati in base all'ambiente univoco.
+Non copiare o incollare i passaggi e i comandi in questa esercitazione. Si tratta solo di esempi. Non usare i comandi di PowerShell "così come sono" nell'ambiente live. in quanto devono essere personalizzati in base all'ambiente univoco.
 
 
 Questa esercitazione illustra il processo per estrarre l'attività di Azure Key Vault registrata in un hub eventi e renderla disponibile come file JSON nel sistema SIEM. È quindi possibile configurare il sistema SIEM per elaborare i file JSON.
@@ -80,7 +80,7 @@ Per poter completare la procedura descritta in questo articolo, è necessario qu
 ## <a name="create-supporting-infrastructure-elements"></a>Creare elementi dell'infrastruttura di supporto
 
 1. Aprire una finestra di PowerShell con privilegi elevati e passare a **C:\Programmi\Integrazione log di Microsoft Azure**.
-1. Importare i cmdlet AzLog eseguendo lo script LoadAzLogModule.ps1. Immettere il comando `.\LoadAzLogModule.ps1`. Si noti l'uso di ".\" in questo comando. Verrà visualizzata una schermata analoga alla seguente:</br>
+1. Importare i cmdlet AzLog eseguendo lo script LoadAzLogModule.ps1. Immettere il comando `.\LoadAzLogModule.ps1`. (Si noti l'uso di ".\" in questo comando.) Verrà visualizzata una schermata analoga alla seguente:</br>
 
    ![Elenco dei moduli caricati](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
@@ -93,7 +93,7 @@ Per poter completare la procedura descritta in questo articolo, è necessario qu
 
    ![Finestra di PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Creare variabili per archiviare i valori che verranno usati successivamente. Immettere ognuna delle seguenti righe di PowerShell. Potrebbe essere necessario regolare i valori per adattarli all'ambiente.
-    - ```$subscriptionName = �Visual Studio Ultimate with MSDN�``` Il nome della sottoscrizione potrebbe essere diverso. È possibile visualizzarlo come parte dell'output del comando precedente.
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` Il nome della sottoscrizione potrebbe essere diverso. È possibile visualizzarlo come parte dell'output del comando precedente.
     - ```$location = 'West US'``` (Verrà usata questa variabile per passare la posizione in cui si devono creare le risorse. È possibile modificare questa variabile con qualsiasi località di propria scelta.
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` Si può indicare qualsiasi nome, ma deve contenere solo numeri e lettere minuscole.
