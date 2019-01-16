@@ -1,35 +1,35 @@
 ---
-title: Funzionalità univoche dei BLOB di pagine di Azure | Microsoft Docs
-description: Una panoramica dei BLOB di pagine di Azure e dei relativi vantaggi, inclusi casi d'uso con script di esempio.
+title: Panoramica dei BLOB di pagine di Azure | Microsoft Docs
+description: Panoramica dei BLOB di pagine di Azure e dei relativi vantaggi, inclusi casi d'uso con script di esempio.
 services: storage
 author: anasouma
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 01/03/2019
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 6d1c443cfe3454d1b1e50a7270bd78598f69f6de
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022689"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063933"
 ---
-# <a name="unique-features-of-azure-page-blobs"></a>Funzionalità univoche dei BLOB di pagine di Azure
+# <a name="overview-of-azure-page-blobs"></a>Panoramica dei BLOB di pagine di Azure
 
-Archiviazione di Azure offre tre tipi di archivio BLOB: BLOB in blocchi, BLOB di accodamento e BLOB di pagine. I BLOB in blocchi sono costituiti da blocchi e sono ideali per l'archiviazione di file di testo o binari e per il caricamento di file di grandi dimensioni in modo efficiente. Anche i BLOB di accodamento sono costituiti da blocchi, ma sono ottimizzati per le operazioni di accodamento e per questo sono ideali per gli scenari di registrazione. I BLOB di pagine sono costituiti da pagine da 512 byte fino a 8 TB di dimensione totale e sono progettati per operazioni frequenti di lettura/scrittura casuali. I BLOB di pagine sono alla base dei dischi IaaS di Azure. Questo articolo descrive le funzionalità e i vantaggi dei BLOB di pagine.
+Archiviazione di Azure offre tre tipi di archiviazione BLOB: BLOB in blocchi, BLOB di aggiunta e BLOB di pagine I BLOB in blocchi sono costituiti da blocchi e sono ideali per l'archiviazione di file di testo o binari e per il caricamento di file di grandi dimensioni in modo efficiente. Anche i BLOB di accodamento sono costituiti da blocchi, ma sono ottimizzati per le operazioni di accodamento e per questo sono ideali per gli scenari di registrazione. I BLOB di pagine sono costituiti da pagine da 512 byte fino a 8 TB di dimensione totale e sono progettati per operazioni frequenti di lettura/scrittura casuali. I BLOB di pagine sono alla base dei dischi IaaS di Azure. Questo articolo descrive le funzionalità e i vantaggi dei BLOB di pagine.
 
 I BLOB di pagine sono una raccolta di pagine da 512 byte, che offrono la possibilità di leggere/scrivere intervalli arbitrari di byte. I BLOB di pagine sono quindi ideali per l'archiviazione di strutture di dati di tipo sparse e basati sull'indice, ad esempio i dischi del sistema operativo e di dati per le macchine virtuali e i database. Il database SQL di Azure, ad esempio, usa i BLOB di pagine come risorsa di archiviazione permanente sottostante per i database. I BLOB di pagine vengono spesso usati anche per i file con aggiornamenti basati su intervalli.  
 
-Le funzionalità principali dei BLOB di pagine di Azure sono l'interfaccia REST, la durabilità della risorsa di archiviazione sottostante e le funzionalità di migrazione senza problemi in Azure. Queste funzionalità sono illustrate in modo più dettagliato nella sezione successiva. I BLOB di pagine di Azure sono inoltre attualmente supportati in due tipi di risorsa di archiviazione: Archiviazione Premium e Archiviazione Standard. Archiviazione Premium è progettato specificamente per i carichi di lavoro che richiedono prestazioni elevate coerenti e bassa latenza e rende i BLOB di pagine Premium ideali per i database di archiviazione dati ad alte prestazioni.  Archiviazione Standard è economicamente più conveniente per l'esecuzione di carichi di lavoro non sensibili alla latenza.
+Le funzionalità principali dei BLOB di pagine di Azure sono l'interfaccia REST, la durabilità della risorsa di archiviazione sottostante e le funzionalità di migrazione senza problemi in Azure. Queste funzionalità sono illustrate in modo più dettagliato nella sezione successiva. I BLOB di pagine di Azure sono inoltre attualmente supportati in due tipi di archiviazione: Archiviazione Premium e Archiviazione Standard. Archiviazione Premium è progettato specificamente per i carichi di lavoro che richiedono prestazioni elevate coerenti e bassa latenza e rende i BLOB di pagine Premium ideali per i database di archiviazione dati ad alte prestazioni.  Archiviazione Standard è economicamente più conveniente per l'esecuzione di carichi di lavoro non sensibili alla latenza.
 
 ## <a name="sample-use-cases"></a>Caso d'uso di esempio
 
 Verrà ora esaminato qualche caso d'uso per i BLOB di pagine a partire dai dischi IaaS di Azure. I BLOB di pagine di Azure sono alla base della piattaforma di dischi virtuali per il servizio IaaS di Azure. Sia i dischi dati che quelli del sistema operativo di Azure vengono implementati come dischi virtuali in cui i dati vengono resi persistenti nella piattaforma di archiviazione di Azure e quindi recapitati alle macchine virtuali per ottenere prestazioni ottimali. I dischi di Azure vengono resi persistenti nel [formato VHD](https://technet.microsoft.com/library/dd979539.aspx) di Hyper-V e archiviati come [BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) in Archiviazione di Azure. Oltre a usare i dischi virtuali per le VM IaaS di Azure, i BLOB di pagine abilitano anche scenari PaaS e DBaaS, ad esempio il servizio database SQL di Azure, che usa attualmente i BLOB di pagine per l'archiviazione dei dati SQL, consentendo operazioni casuali rapide di lettura/scrittura per il database. Un altro esempio è quello in cui si ha un servizio PaaS per l'accesso multimediale condiviso per applicazioni di collaborazione per la modifica di video e i BLOB di pagine consentono di accedere rapidamente a percorsi casuali nei file multimediali. Consente anche a più utenti di modificare e unire in modo rapido ed efficiente gli stessi file multimediali. 
 
 I servizi forniti da Microsoft, ad esempio Azure Site Recovery e Backup di Azure, e molti sviluppatori di terze parti hanno implementato le innovazioni leader del settore usando l'interfaccia REST del BLOB di pagine. Di seguito sono elencati alcuni degli scenari univoci implementati in Azure: 
-* Gestione degli snapshot incrementali controllata dell'applicazione: le applicazioni possono sfruttare gli snapshot dei BLOB di pagine e le API REST per il salvataggio dei checkpoint dell'applicazione senza dover sostenere la costosa duplicazione dei dati. Archiviazione di Azure supporta gli snapshot locali per i BLOB di pagine, che non richiedono la copia dell'intero BLOB. Queste API snapshot pubbliche consentono anche l'accesso e la copia dei valori differenziali tra gli snapshot.
-* Migrazione in tempo reale dell'applicazione e dei dati dall'ambiente locale al cloud: copiare i dati locali e usare le API REST per scrivere direttamente in un BLOB di pagine di Azure mentre la VM locale è ancora in esecuzione. Dopo l'aggiornamento della destinazione, è possibile effettuare rapidamente il failover nella VM di Azure usando tali dati. In questo modo, è possibile eseguire la migrazione delle VM e dei dischi virtuali dall'ambiente locale al cloud con un tempo di inattività minimo perché la migrazione dei dati avviene in background mentre si continua a usare la VM e il tempo di inattività necessario per il failover sarà di pochi minuti.
+* Gestione degli snapshot incrementali controllata dall'applicazione: le applicazioni possono sfruttare gli snapshot dei BLOB di pagine e le API REST per il salvataggio dei checkpoint dell'applicazione senza dover sostenere la costosa duplicazione dei dati. Archiviazione di Azure supporta gli snapshot locali per i BLOB di pagine, che non richiedono la copia dell'intero BLOB. Queste API snapshot pubbliche consentono anche l'accesso e la copia dei valori differenziali tra gli snapshot.
+* Migrazione in tempo reale dell'applicazione e dei dati dall'ambiente locale al cloud: copiare i dati locali e usare le API REST per scrivere direttamente in un BLOB di pagine di Azure mentre la macchina virtuale locale è ancora in esecuzione. Dopo l'aggiornamento della destinazione, è possibile effettuare rapidamente il failover nella VM di Azure usando tali dati. In questo modo, è possibile eseguire la migrazione delle VM e dei dischi virtuali dall'ambiente locale al cloud con un tempo di inattività minimo perché la migrazione dei dati avviene in background mentre si continua a usare la VM e il tempo di inattività necessario per il failover sarà di pochi minuti.
 * Accesso condiviso [basato sulla firma di accesso condiviso](../common/storage-dotnet-shared-access-signature-part-1.md), che consente scenari come quelli con più lettori e un singolo writer con il supporto per il controllo della concorrenza.
 
 ## <a name="page-blob-features"></a>Funzionalità dei BLOB di pagine

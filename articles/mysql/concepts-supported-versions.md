@@ -5,28 +5,40 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/10/2018
-ms.openlocfilehash: 720644519eb0031f9f2837cc8321a0def39c37a6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/07/2019
+ms.openlocfilehash: ecd6466d8d7a7e4497d076ced0c9f2375d5dfb7f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545706"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106037"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versioni supportate del Database di Azure per il server MySQL
-Database di Azure per MySQL è stato sviluppato da [MySQL Community Edition](https://www.mysql.com/products/community/) tramite il motore InnoDB. Al momento il Database di Azure per MySQL supporta le versioni indicate di seguito:
+Database di Azure per MySQL è stato sviluppato da [MySQL Community Edition](https://www.mysql.com/products/community/) tramite il motore InnoDB.
 
-## <a name="mysql-version-5639"></a>MySQL versione 5.6.39
-Per altre informazioni sui miglioramenti e sulle correzioni in MySQL 5.6.39, vedere la [documentazione](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-39.html) di MySQL.
+MySQL usa lo schema di denominazione X.Y.Z. X è la versione principale, Y è la versione secondaria Z è la versione di correzione di bug. Per altre informazioni sullo schema, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
-## <a name="mysql-version-5721"></a>MySQL versione 5.7.21
-Per informazioni sui miglioramenti e sulle correzioni in MySQL 5.7.21, vedere la [documentazione](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-21.html) di MySQL.
+Al momento il Database di Azure per MySQL supporta le versioni indicate di seguito:
+
+## <a name="mysql-version-56"></a>MySQL versione 5.6
+
+Versione di correzione di bug: 5.6.39
+
+Per altre informazioni sui miglioramenti e sulle correzioni in MySQL 5.6.39, vedere le [note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-39.html) di MySQL.
+
+## <a name="mysql-version-57"></a>MySQL versione 5.7
+
+Versione di correzione di bug: 5.7.21
+
+Per altre informazioni sui miglioramenti e sulle correzioni in MySQL 5.7.21, vedere le [note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-21.html) di MySQL.
 
 > [!NOTE]
 > Nel servizio viene usato un gateway per reindirizzare le connessioni alle istanze del server. Dopo che è stata stabilita la connessione, il client MySQL visualizza la versione di MySQL impostata nel gateway e non la versione effettiva in esecuzione nell'istanza del server MySQL. Per determinare la versione dell'istanza del server MySQL, usare il comando `SELECT VERSION();` dal prompt di MySQL.
 
 ## <a name="managing-updates-and-upgrades"></a>Gestire gli aggiornamenti
-Il servizio gestisce automaticamente l'applicazione di patch per gli aggiornamenti delle versioni di correzione dei bug. L'aggiornamento di versioni secondarie non è attualmente supportato. Ad esempio, l'aggiornamento da MySQL 5.6 a MySQL 5.7 non è supportato. Se si vuole eseguire l'aggiornamento alla versione secondaria successiva, eseguire un [dump e ripristinarlo](./concepts-migrate-dump-restore.md) in un server creato con la nuova versione del motore.
+Il servizio gestisce automaticamente l'applicazione di patch per gli aggiornamenti delle versioni di correzione dei bug. Ad esempio, da 5.7.20 a 5.7.21.  
+
+Attualmente, gli aggiornamenti di versioni principali e secondarie non sono supportati. Ad esempio l'aggiornamento da MySQL 5.6 a MySQL 5.7 non è supportato. Se si vuole eseguire l'aggiornamento dalla 5.6 alla 5.7, eseguire un [dump e ripristinarlo](./concepts-migrate-dump-restore.md) in un server creato con la nuova versione del motore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d193cfcd03eb4e686ba829e121fbf77e2e0c18a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 054215a44b66d8fbf30c1a3e61f66425350392b1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233015"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074534"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Favorire lo sviluppo della propria azienda nel marketplace 
 Dopo aver pubblicato l'offerta su AppSource o in Azure Marketplace, è possibile usare l'inserzione come piattaforma di lancio per attività congiunte di go-to-market con Microsoft. Ad esempio, favorire il traffico verso l'offerta del Marketplace e monitorare i lead del Marketplace sono ottimi modi per accelerare la crescita della propria azienda. 
@@ -33,7 +33,7 @@ Le tabelle nelle sezioni successive forniscono suggerimenti per la creazione di 
 ### <a name="storefront-offer-details"></a>Dettagli dell'offerta della vetrina
 | Impostazione della vetrina | Procedura consigliata |
 |:--- |:--- |  
-| Nome offerta | Specificare un titolo efficace:<br>Il nome dell'app deve comunicare ai clienti il valore essenziale dell'offerta. Può essere utile includere parole chiave di ricerca nel titolo dell'app per migliorare la classificazione dell'app nei risultati dei motori di ricerca.<br><br>Seguire un formato di titolo impostato per le inserzioni di servizi di consulenza:<br>[Nome offerta] : [Durata] [Tipo di offerta] (ad esempio, *Contoso: implementazione di 2 settimane*)<br><br>Attenersi alle linee guida del marchio:<br>Quando si fa riferimento a marchi Microsoft e a nomi di software, prodotti e servizi Microsoft, seguire le [linee guida per i marchi Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e quelle relative ad altri prodotti specifici. |
+| Nome offerta | Specificare un titolo efficace:<br>Il nome dell'app deve comunicare ai clienti il valore essenziale dell'offerta. Può essere utile includere parole chiave di ricerca nel titolo dell'app per migliorare la classificazione dell'app nei risultati dei motori di ricerca.<br><br>Seguire un formato di titolo impostato per le inserzioni di servizi di consulenza:<br>[Nome offerta] : [Durata] [Tipo di offerta] (ad esempio, *Contoso: implementazione di 2 settimane*)<br><br>Attenersi alle linee guida del marchio:<br>Quando si fa riferimento a marchi Microsoft e a nomi di software, prodotti e servizi Microsoft, seguire le [linee guida per i marchi Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) e quelle relative ad altri prodotti specifici. |
 | Descrizione dell'offerta | Fornire una descrizione chiara dell'offerta:<br>Descrivere chiaramente la proposta di valore dell'offerta subito nelle prime frasi della descrizione. Tenere presente che le prime frasi possono essere visualizzate nei risultati dei motori di ricerca. Per vendere un prodotto, non basarsi sulle funzionalità, ma concentrarsi sul valore che può offrire. Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti.<br><br>I componenti fondamentali di una proposta di valore devono includere le informazioni seguenti:<ul><li>Descrizione del prodotto</li><li>Tipo di utente che trae vantaggio dal prodotto</li><li>Esigenza o problema del cliente risolto dal prodotto</li></ul> |
 
 ### <a name="storefront-listing-details"></a>Dettagli dell'inserzione della vetrina

@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0fbb389120857a167867a5804c670e181f5232b6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306664"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051442"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizzare i dati con Power BI
 Questa esercitazione illustra come usare Power BI per connettersi a SQL Data Warehouse e creare alcune visualizzazioni di base.
@@ -77,7 +77,7 @@ Per aprire Power BI e connettersi al database AdventureWorksDW:
 
 Per salvare lo stato in qualsiasi momento, fare clic su **File** e selezionare **Salva**.
 
-## <a name="using-direct-connnect"></a>Uso della connessione diretta
+## <a name="using-direct-connect"></a>Uso della connessione diretta
 Analogamente al database SQL di Azure, la connessione diretta con SQL Data Warehouse consente la distribuzione dinamica logica insieme alle capacità analitiche di Power BI. Con la connessione diretta le query vengono restituite ad Azure SQL Data Warehouse in tempo reale durante l'esplorazione dei dati.  Questa funzione, unitamente alla scalabilità di SQL Data Warehouse, permette di creare report dinamici in pochi minuti su terabyte di dati. L'introduzione del pulsante Apri in Power BI permette agli utenti di connettere direttamente Power BI al proprio SQL Data Warehouse, senza raccogliere informazioni da altre parti di Azure.
 
 Quando si usa la connessione diretta:

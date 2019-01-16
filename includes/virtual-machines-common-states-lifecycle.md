@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b48de6a6eeed997fe162cabe4d57e6770e016971
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035416"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54122803"
 ---
 Per Macchine virtuali di Azure (VM) sono previsti vari stati che possono essere categorizzati come stati di *provisioning* e di *alimentazione*. Lo scopo di questo articolo è descrivere questi stati e sottolineare in particolare quando viene addebitato l'utilizzo delle istanze ai clienti. 
 
@@ -108,7 +108,7 @@ Fatturazione dell'utilizzo dell'istanza
  ]</code><br>
 </td>
 <td>
-<p><b>Non fatturato&#42;</b></p>
+<p><b>Fatturato&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -151,7 +151,7 @@ Fatturazione dell'utilizzo dell'istanza
 </table>
 
 
-&#42;Alcune risorse di Azure, ad esempio dischi e rete, comportano costi indipendentemente dallo stato dell'istanza. 
+&#42;Alcune risorse di Azure, ad esempio dischi e rete, comportano l'addebito di costi. Le licenze software nell'istanza non comportano l'addebito di costi.
 
 ## <a name="provisioning-states"></a>Stati di provisioning
 

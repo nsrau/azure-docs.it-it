@@ -5,15 +5,15 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 01/03/2019
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: c0672ddb3e6791fae3b9b8c04e9ff98827c9e22f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 03d307a324826a4805da5ed6ff8b995b7c3eab62
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256732"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019305"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Trasferire dati con AzCopy in Windows
 AzCopy è un'utilità della riga di comando progettata la copia dei dati in/dall'archiviazione di oggetti BLOB, file e tabelle di Microsoft Azure usando semplici comandi progettati per garantire prestazioni ottimali. È possibile copiare dati tra un file system e un account di archiviazione o tra più account di archiviazione.  
@@ -458,7 +458,7 @@ Si noti che AzCopy supporta solo l'importazione per JSON, non per CSV. AzCopy no
 
 ### <a name="import-entities-into-a-table-from-blob-storage"></a>Importare entità in una tabella da Archiviazione BLOB
 
-Si supponga che in un contenitore BLOB siano presenti: un file JSON che rappresenta una tabella di Azure e il relativo file manifesto associato.
+Supponiamo che in un contenitore BLOB siano presenti un file JSON che rappresenta una tabella di Azure e il file manifesto associato.
 
     myaccount_mytable_20140103T112020.manifest
     myaccount_mytable_20140103T112020_0_0_0AF395F1DC42E952.json
@@ -642,13 +642,13 @@ I parametri per AzCopy sono descritti nella tabella seguente. È anche possibile
 
 Specifica i dati di origine da cui eseguire la copia. L'origine può essere una directory di file system, un contenitore BLOB, una directory virtuale BLOB, una condivisione file di archiviazione, una directory file di archiviazione o una tabella di Azure.
 
-**Applicabile a:** BLOB, file, tabelle
+**Applicabile a:** BLOB, File, Tabelle
 
 ### <a name="destdestination"></a>/Dest:"destination"
 
 Specifica la destinazione in cui eseguire la copia. La destinazione può essere una directory di file system, un contenitore BLOB, una directory virtuale BLOB, una condivisione file di archiviazione, una directory file di archiviazione o una tabella di Azure.
 
-**Applicabile a:** BLOB, file, tabelle
+**Applicabile a:** BLOB, File, Tabelle
 
 ### <a name="patternfile-pattern"></a>/Pattern:"file-pattern"
 
@@ -662,15 +662,15 @@ Se l'origine specificata è una condivisione file di Azure, è necessario specif
 
 AzCopy utilizza la corrispondenza tra maiuscole e minuscole quando l’opzione /Source è un contenitore BLOB o una directory virtuale di BLOB e non utilizza la corrispondenza tra maiuscole e minuscole in tutti gli altri casi.
 
-Il criterio predefinito per i file, se non specificato in modo esplicito, è *.* per un percorso del file system o un prefisso vuoto per un percorso di Archiviazione di Azure. Non è consentito specificare più criteri file.
+Il criterio predefinito per i file, se non specificato in modo esplicito, è *.*  per un percorso del file system o un prefisso vuoto per un percorso di Archiviazione di Azure. Non è consentito specificare più criteri file.
 
-**Applicabile a:** BLOB, file
+**Applicabile a:** BLOB, File
 
 ### <a name="destkeystorage-key"></a>/DestKey:"storage-key"
 
 Specifica la chiave dell'account di archiviazione per la risorsa di destinazione.
 
-**Applicabile a:** BLOB, file, tabelle
+**Applicabile a:** BLOB, File, Tabelle
 
 ### <a name="destsassas-token"></a>/DestSAS:"sas-token"
 
@@ -680,13 +680,13 @@ Se la risorsa di destinazione è una tabella, una condivisione file o un conteni
 
 Se l'origine e la destinazione sono entrambi BLOB, il BLOB di destinazione deve essere nello stesso account di archiviazione del BLOB di origine.
 
-**Applicabile a:** BLOB, file, tabelle
+**Applicabile a:** BLOB, File, Tabelle
 
 ### <a name="sourcekeystorage-key"></a>/SourceKey:"storage-key"
 
 Specifica la chiave dell'account di archiviazione per la risorsa di origine.
 
-**Applicabile a:** BLOB, file, tabelle
+**Applicabile a:** BLOB, File, Tabelle
 
 ### <a name="sourcesassas-token"></a>/SourceSAS:"sas-token"
 
@@ -696,29 +696,29 @@ Se la risorsa di origine è un contenitore BLOB e non viene fornita né una chia
 
 Se l'origine è una tabella o una condivisione file, è necessario specificare una chiave o una firma di accesso condiviso.
 
-**Applicabile a:** BLOB, file, tabelle
+**Applicabile a:** BLOB, File, Tabelle
 
 ### <a name="s"></a>/S
 
 Specifica la modalità ricorsiva per le operazioni di copia. In modalità ricorsiva, AzCopy copia tutti i BLOB o i file corrispondenti al criterio di file specificato, inclusi quelli nelle sottocartelle.
 
-**Applicabile a:** BLOB, file
+**Applicabile a:** BLOB, File
 
 ### <a name="blobtypeblock--page--append"></a>/BlobType:"block" | "page" | "append"
 
 Specifica se il BLOB di destinazione è un BLOB in blocchi, un BLOB di pagine o un BLOB di accodamento. Questa opzione è applicabile solo per l'upload di un BLOB. In caso contrario, viene generato un errore. Se la destinazione è un BLOB e questa opzione non è specificata, per impostazione predefinita AzCopy crea un BLOB in blocchi.
 
-**Applicabile a:** BLOB
+**Applicabile a:** Blobs
 
 ### <a name="checkmd5"></a>/CheckMD5
 
-Calcola un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nella proprietà Content-MD5 del BLOB o del file corrisponda all'hash calcolato. Il controllo MD5 è disattivato per impostazione predefinita, quindi è necessario specificare questa opzione per eseguire il controllo MD5 al download dei dati.
+Calcola un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nella proprietà Content-MD5 del BLOB o del file corrisponda all'hash calcolato. Se i valori non corrispondono, AzCopy non riesce a scaricare i dati. Il controllo MD5 è disattivato per impostazione predefinita, quindi è necessario specificare questa opzione per eseguire il controllo MD5 al download dei dati.
 
-Si noti che Archiviazione di Azure non garantisce che l'hash MD5 archiviato per il BLOB o il file sia aggiornato. È responsabilità del client aggiornare l'hash MD5 ogni volta che il BLOB o il file viene modificato.
+Si noti che Archiviazione di Azure non garantisce che l'hash MD5 archiviato per il BLOB o il file sia aggiornato. È responsabilità del client aggiornare l'hash MD5 ogni volta che il BLOB o il file viene modificato. Nel caso delle immagini di dischi (dischi gestiti o non gestiti), le macchine virtuali di Azure non aggiornano il valore MD5 quando cambiano i contenuti del disco, pertanto /CheckMD5 genera un errore quando vengono scaricate le immagini dei dischi.
 
-AzCopy imposta sempre la proprietà Content-MD5 per un BLOB o un file di Azure dopo averlo caricato nel servizio.  
+AzCopy v8 imposta sempre la proprietà Content-MD5 per un BLOB o un file di Azure dopo averlo caricato nel servizio.  
 
-**Applicabile a:** BLOB, file
+**Applicabile a:** BLOB, File
 
 ### <a name="snapshot"></a>/Snapshot
 
@@ -728,7 +728,7 @@ Gli snapshot di BLOB trasferiti vengono rinominati nel formato seguente: nome-BL
 
 Per impostazione predefinita, gli snapshot non vengono copiati.
 
-**Applicabile a:** BLOB
+**Applicabile a:** Blobs
 
 ### <a name="vverbose-log-file"></a>/V:[verbose-log-file]
 
@@ -736,7 +736,7 @@ Esegue l'output dei messaggi di stato dettagliati in un file di log.
 
 Per impostazione predefinita, al file di log dettagliato viene assegnato il nome AzCopyVerbose.log in `%LocalAppData%\Microsoft\Azure\AzCopy`. Se per questa opzione si specifica un percorso di file esistente, al file viene aggiunto il log dettagliato.  
 
-**Applicabile a:** BLOB, file, tabelle
+**Applicabile a:** BLOB, File, Tabelle
 
 ### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
 
@@ -754,7 +754,7 @@ Se l'operazione viene completata senza errori, il file journal viene eliminato.
 
 Si noti che la ripresa di un'operazione da un file journal creato da una versione precedente di AzCopy non è supportata.
 
-**Applicabile a:** BLOB, file, tabelle
+**Applicabile a:** BLOB, File, Tabelle
 
 ### <a name="parameter-file"></a>/@:"parameter-file"
 
@@ -766,13 +766,13 @@ I file di risposta possono includere righe di commento che iniziano con il simbo
 
 È possibile specificare più file di risposta. Tuttavia, tenere presente che AzCopy non supporta file di risposta annidati.
 
-**Applicabile a:** BLOB, file, tabelle
+**Applicabile a:** BLOB, File, Tabelle
 
 ### <a name="y"></a>/Y
 
 Elimina tutte le richieste di conferma di AzCopy. Questa opzione consente anche l'uso di token di firma di accesso condiviso in sola scrittura per scenari di caricamento dei dati, se non sono specificate le opzioni /XO e /XN.
 
-**Applicabile a:** BLOB, file, tabelle
+**Applicabile a:** BLOB, File, Tabelle
 
 ### <a name="l"></a>/L
 
@@ -784,30 +784,30 @@ Il comportamento di questa opzione è determinato dal percorso dei dati di origi
 
 AzCopy richiede l'autorizzazione ELENCO e LETTURA per questo percorso di origine quando si utilizza questa opzione.
 
-**Applicabile a:** BLOB, file
+**Applicabile a:** BLOB, File
 
 ### <a name="mt"></a>/MT
 
 Imposta l'ora dell'ultima modifica di un file scaricato sulla stessa ora del file o del BLOB di origine.
 
-**Applicabile a:** BLOB, file
+**Applicabile a:** BLOB, File
 
 ### <a name="xn"></a>/XN
 
 Esclude una risorsa di origine più recente. La risorsa non viene copiata se l'ora dell'ultima modifica dell'origine è uguale alla destinazione o più recente.
 
-**Applicabile a:** BLOB, file
+**Applicabile a:** BLOB, File
 
 ### <a name="xo"></a>/XO
 Esclude una risorsa di origine meno recente. La risorsa non viene copiata se l'ora dell'ultima modifica dell'origine è uguale alla destinazione o meno recente.
 
-**Applicabile a:** BLOB, file
+**Applicabile a:** BLOB, File
 
 ### <a name="a"></a>/A
 
 Carica solo i file per i quali è impostato l'attributo Archive.
 
-**Applicabile a:** BLOB, file
+**Applicabile a:** BLOB, File
 
 ### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
 
@@ -826,7 +826,7 @@ Gli attributi disponibili sono:
 * O = File offline
 * I = File non indicizzati
 
-**Applicabile a:** BLOB, file
+**Applicabile a:** BLOB, File
 
 ### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
 
@@ -845,7 +845,7 @@ Gli attributi disponibili sono:
 * O = File offline
 * I = File non indicizzati
 
-**Applicabile a:** BLOB, file
+**Applicabile a:** BLOB, File
 
 ### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
 
@@ -855,7 +855,7 @@ Per impostazione predefinita, AzCopy usa il carattere / come delimitatore. Tutta
 
 Questa opzione si applica solo per il download di BLOB.
 
-**Applicabile a:** BLOB
+**Applicabile a:** Blobs
 
 ### <a name="ncnumber-of-concurrent-operations"></a>/NC:"number-of-concurrent-operations"
 
@@ -865,19 +865,19 @@ Per impostazione predefinita, AzCopy avvia un determinato numero di operazioni s
 
 Il limite massimo per le operazioni simultanee è 512.
 
-**Applicabile a:** BLOB, file, tabelle
+**Applicabile a:** BLOB, File, Tabelle
 
 ### <a name="sourcetypeblob--table"></a>/SourceType:"Blob" | "Table"
 
 Indica che la risorsa `source` è un BLOB disponibile nell'ambiente di sviluppo locale, in esecuzione nell'emulatore di archiviazione.
 
-**Applicabile a:** BLOB, tabelle
+**Applicabile a:** BLOB, Tabelle
 
 ### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
 
 Indica che la risorsa `destination` è un BLOB disponibile nell'ambiente di sviluppo locale, in esecuzione nell'emulatore di archiviazione.
 
-**Applicabile a:** BLOB, tabelle
+**Applicabile a:** BLOB, Tabelle
 
 ### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
 
@@ -893,7 +893,7 @@ Ogni operazione esporta uno dei tre intervalli di chiavi di partizione, nel modo
 
   [bb, last-partition-key]
 
-**Applicabile a:** tabelle
+**Applicabile a:** Tabelle
 
 ### <a name="splitsizefile-size"></a>/SplitSize:"file-size"
 
@@ -903,7 +903,7 @@ Se questa opzione non è specificata, AzCopy esporta i dati della tabella in un 
 
 Se i dati della tabella vengono esportati in un BLOB e le dimensioni del file esportato raggiungono il limite di 200 GB per le dimensioni del BLOB, AzCopy divide il file esportato, anche se questa opzione non viene specificata.
 
-**Applicabile a:** tabelle
+**Applicabile a:** Tabelle
 
 ### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
 
@@ -913,7 +913,7 @@ Specifica il comportamento di importazione dei dati della tabella.
 * InsertOrMerge - Unisce un'entità esistente oppure ne inserisce una nuova se non esiste nella tabella.
 * InsertOrReplace - Sostituisce un'entità esistente oppure ne inserisce una nuova se non esiste nella tabella.
 
-**Applicabile a:** tabelle
+**Applicabile a:** Tabelle
 
 ### <a name="manifestmanifest-file"></a>/Manifest:"manifest-file"
 
@@ -923,7 +923,7 @@ Questa opzione è facoltativa durante l'operazione di esportazione. Se non viene
 
 Questa opzione è necessaria durante l'operazione di importazione per individuare i file di dati.
 
-**Applicabile a:** tabelle
+**Applicabile a:** Tabelle
 
 ### <a name="synccopy"></a>/SyncCopy
 
@@ -933,7 +933,7 @@ Per impostazione predefinita, AzCopy esegue la copia in modo asincrono sul lato 
 
 È possibile utilizzare questa opzione quando si copiano file all'interno dell'archiviazione BLOB o dell'archiviazione file oppure quando i file vengono copiati dall'archiviazione BLOB all'archiviazione file o viceversa.
 
-**Applicabile a:** BLOB, file
+**Applicabile a:** BLOB, File
 
 ### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
 
@@ -943,7 +943,7 @@ Per impostazione predefinita, AzCopy imposta il tipo di contenuto per un BLOB o 
 
 Se si specifica questa opzione senza fornire un valore, AzCopy imposta il tipo di contenuto di ogni BLOB o file in base alla loro estensione.
 
-**Applicabile a:** BLOB, file
+**Applicabile a:** BLOB, File
 
 ### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
 
@@ -951,7 +951,7 @@ Specifica il formato del file di dati tabella esportato.
 
 Se questa opzione non è specificata, per impostazione predefinita AzCopy esporta il file di dati tabella nel formato JSON.
 
-**Applicabile a:** tabelle
+**Applicabile a:** Tabelle
 
 ## <a name="known-issues-and-best-practices"></a>Problemi noti e procedure consigliate
 
@@ -998,9 +998,9 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 ### <a name="azure-storage-blog-posts"></a>Post del blog di Archiviazione di Azure:
 * [Introduzione alla versione di anteprima della libreria per lo spostamento dei dati di Archiviazione di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: introduzione alla copia sincrona e al tipo di contenuto personalizzato](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: annuncio della disponibilità per tutti di AzCopy 3.0 oltre alla versione di anteprima di AzCopy 4.0 con il supporto di tabelle e file](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: annuncio della disponibilità generale di AzCopy 3.0 oltre alla versione di anteprima di AzCopy 4.0 con il supporto di tabelle e file](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: ottimizzazione per gli scenari di copia su larga scala](https://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy:supporto per l'archiviazione con ridondanza geografica e accesso in lettura](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy:trasferimento di dati con modalità riavviabile e token di firma di accesso condiviso](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: supporto per l'archiviazione con ridondanza geografica e accesso in lettura](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: trasferimento di dati con modalità riavviabile e token di firma di accesso condiviso](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: uso del comando di copia dei BLOB tra account](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Caricamento e download di file per BLOB di Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

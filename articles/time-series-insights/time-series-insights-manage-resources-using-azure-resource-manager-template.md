@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 9200b3b8cd85bfd94bbc4c66cccb35b78a97aaff
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 282a20beb11172aa3a1d2c7326dc38ce8a7acfcf
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554691"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062656"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
 
@@ -34,6 +34,7 @@ Un modello di Resource Manager è un file JSON che definisce l'infrastruttura e 
 
 - [Panoramica di Azure Resource Manager - Distribuzione modelli](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+- [Tipi di risorsa Microsoft.TimeSeriesInsights](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 Il modello di avvio rapido [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) viene pubblicato su GitHub. Questo modello crea un ambiente Time Series Insights, un origine evento figlio configurato per usare gli eventi da un hub eventi e i criteri di accesso che concedono l'accesso ai dati dell'ambiente. Se non è specificato un hub eventi esistente, ne verrà creato uno con la distribuzione.
 

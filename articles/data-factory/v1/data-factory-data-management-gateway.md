@@ -9,17 +9,16 @@ ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698758"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022309"
 ---
 # <a name="data-management-gateway"></a>Gateway di gestione dati
 > [!NOTE]
@@ -152,7 +151,7 @@ A livello di Windows Firewall queste porte in uscita sono generalmente abilitate
 
 > [!NOTE]
 > 1. In base all'origine o ai sink, potrebbe essere necessario consentire altri domini e porte in uscita nel firewall aziendale o in Windows Firewall.
-> 2. Per alcuni database cloud (ad esempio, [Database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) e così via), potrebbe essere necessario consentire l'indirizzo IP del computer gateway nella configurazione del firewall.
+> 2. Per alcuni database su cloud (ad esempio: [Database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) e così via), potrebbe essere necessario consentire l'indirizzo IP del computer gateway nella configurazione del firewall.
 >
 >
 
@@ -307,7 +306,7 @@ Lo stato dell'operazione di aggiornamento, manuale o automatica, viene visualizz
 Dopo aver installato il gateway, è possibile avviare Gestione configurazione di Gateway di gestione dati in uno dei modi seguenti:
 
 1. Nella finestra **Cerca** digitare **Gateway di gestione dati** per accedere a questa utilità.
-2. Eseguire il file **ConfigManager.exe** nella cartella: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+2. Eseguire il file eseguibile **ConfigManager.exe** nella cartella: **C:\Programmi\Microsoft Data Management Gateway\2.0\Shared**
 
 ### <a name="home-page"></a>Home page
 Nella home page è possibile eseguire queste operazioni:

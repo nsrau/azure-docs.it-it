@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1697830f699c9cd50548bcfcdd038348db314020
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 31f0517cd4d61fa324072eae954404c899451cc3
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969660"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117402"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) genera log di controllo contenenti inf
 > [!IMPORTANT]
 > I log di controllo vengono conservati solo per sette giorni. Se è necessario conservarli per un periodo più lungo, pianificare il download e l'archiviazione dei log con uno dei metodi illustrati sotto. 
 
-##<a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Panoramica delle attività disponibili nella categoria B2C dei log di controllo
+## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Panoramica delle attività disponibili nella categoria B2C dei log di controllo
 La categoria **B2C** nei log di controllo contiene i tipi di attività seguenti:
 |Tipo di attività |DESCRIZIONE  |
 |---------|---------|
@@ -38,10 +38,10 @@ La categoria **B2C** nei log di controllo contiene i tipi di attività seguenti:
 > [!NOTE]
 > Per le attività CRUD sugli oggetti utente, vedere la categoria **Directory principale**.
 
-##<a name="example-activity"></a>Attività di esempio
+## <a name="example-activity"></a>Attività di esempio
 L'esempio seguente mostra i dati acquisiti quando un utente esegue l'accesso con un provider di identità esterno: ![Log di controllo - Esempio](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
-##<a name="accessing-audit-logs-through-the-azure-portal"></a>Accesso ai log di controllo dal portale di Azure
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Accesso ai log di controllo dal portale di Azure
 1. Accedere al [portale di Azure](https://portal.azure.com). Verificare di essere nella directory B2C.
 2. Fare clic su **Azure Active Directory** nella barra dei preferiti a sinistra 
     
@@ -62,18 +62,18 @@ Verrà visualizzato un elenco delle attività registrate negli ultimi sette gior
 - Se si fa clic su una riga specifica nell'elenco, una casella contestuale a destra visualizzerà gli attributi aggiuntivi associati all'attività
 - Fare clic su **Scarica** per scaricare le attività come file CSV
 
-##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Accesso ai log di controllo tramite l'API di creazione di report di Azure AD
+## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Accesso ai log di controllo tramite l'API di creazione di report di Azure AD
 I log di controllo vengono pubblicati nella stessa pipeline delle altre attività di Azure Active Directory e quindi sono accessibili tramite l'[API di creazione di report di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
-###<a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Per l'autenticazione con l'API di creazione di report di Azure AD, è prima necessario registrare un'applicazione. Assicurarsi di seguire i passaggi nei [prerequisiti per l'accesso alle API per la creazione di report di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
-###<a name="accesing-the-api"></a>Accesso all'API
+### <a name="accessing-the-api"></a>Accesso all'API
 Per scaricare i log di controllo di Azure AD B2C tramite l'API, sarà necessario filtrare i log nella categoria **B2C**. Per filtrare in base alla categoria, usare il parametro della stringa di query quando si chiama l'endpoint API di creazione di report di Azure AD, come illustrato di seguito:
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
 
-###<a name="powershell-script"></a>Script di PowerShell
+### <a name="powershell-script"></a>Script di PowerShell
 Lo script seguente fornisce un esempio dell'uso di PowerShell per eseguire una query sull'API di creazione di report di Azure AD e archiviare i risultati come file JSON:
 
 ```powershell

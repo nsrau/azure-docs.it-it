@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 94ff3aca84eb27df5171df2a7a3b2b0f708a1d24
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ba870cf722f95fb6516e1969350d3d25ba280a8c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624229"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043788"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creare un cluster di Service Fabric usando Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -170,7 +170,7 @@ Usare il comando seguente per creare il cluster, se si dispone già di un certif
 Se si tratta di un certificato firmato da un'autorità di certificazione utilizzabile anche per altri scopi, è consigliabile fornire un gruppo di risorse distinto specifico per l'insieme di credenziali delle chiavi. È consigliabile inserire l'insieme di credenziali delle chiavi in un proprio gruppo di risorse. Questa azione consente di rimuovere i gruppi di risorse di calcolo e di archiviazione, incluso il gruppo di risorse contenente il cluster di Service Fabric, senza perdere le chiavi e i segreti. **Il gruppo di risorse che contiene l'insieme di credenziali delle chiavi *deve essere situato nella stessa area* del cluster che lo usa.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Usare il modello predefinito a 5 nodi e 1 tipo di nodo fornito nel modulo
-Il modello utilizzato è disponibile tra gli [esempi di Azure: modello di Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e nel [modello Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+Il modello usato è disponibile negli [esempi di Azure: modello di Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e nel [modello Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 Distribuire il cluster usando PowerShell:
 
@@ -288,6 +288,8 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, si dispone di un cluster sicuro in esecuzione in Azure. Successivamente, [connettersi al cluster](service-fabric-connect-to-secure-cluster.md) e scoprire come [gestire i segreti delle applicazioni](service-fabric-application-secret-management.md).
+
+Per la sintassi e le proprietà JSON da usare in un modello, vedere [Microsoft.ServiceFabric/clusters template reference](/azure/templates/microsoft.servicefabric/clusters) (Informazioni di riferimento sul modello di cluster Microsoft.ServiceFabric).
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps

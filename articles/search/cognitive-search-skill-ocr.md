@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 097fd93955a4ca3fd96ae6452fa3b503b029ffc3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b07c71a9365fca3a2e5d7c837acf689af980afdd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313225"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075822"
 ---
 # <a name="ocr-cognitive-skill"></a>Competenza cognitiva OCR
 
@@ -30,9 +30,9 @@ La competenza **OCR** estrae il testo dai file di immagine. I formati di file su
 + .GIF
 
 > [!NOTE]
-> A partire dal 21 dicembre 2018 è possibile associare una risorsa di Servizi cognitivi a un set di competenze di Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare l'esecuzione del set di competenze. Da questa data ha inizio anche l'addebito dell'estrazione di immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continuerà a essere offerta gratuitamente.
+> A partire dal 21 dicembre 2018 è possibile associare una risorsa di Servizi cognitivi a un set di competenze di Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare per l'esecuzione del set di competenze. In questa data avrà inizio anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione del testo dai documenti continuerà a essere offerta gratuitamente.
 >
-> L'esecuzione delle competenze predefinite verrà addebitata in base ai [prezzi con pagamento in base al consumo di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione di immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
+> L'esecuzione delle competenze predefinite verrà addebitata in base ai[prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione delle immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
 >
 >  Viene eseguito il mapping della competenza OCR alle funzionalità di servizi cognitivi seguenti: Quando il parametro textExtractionAlgorithm è impostato su "handwritten", viene utilizzata la funzionalità ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md).
 >  Quando il parametro textExtractionAlgorithm è impostato su "printed", per le lingue diverse dall'inglese viene usata la funzionalità ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md). Per l'inglese viene usata la nuova funzionalità di ["riconoscimento del testo"](../cognitive-services/computer-vision/concept-recognizing-text.md) per il testo stampato.
@@ -44,7 +44,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 | Nome parametro     | DESCRIZIONE |
 |--------------------|-------------|
 | detectOrientation | Abilita il rilevamento automatico dell'orientamento dell'immagine. <br/> Valori validi: true / false.|
-|defaultLanguageCode | <p>  Codice lingua del testo di input. Le lingue supportate comprendono: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (ceco) <br/>da (danese) <br/>nl (olandese) <br/>en (inglese) <br/>fi (finlandese)  <br/>fr (francese) <br/>  de (tedesco) <br/>el (greco) <br/> hu (ungherese) <br/> it (italiano) <br/>  ja (giapponese) <br/> ko (coreano) <br/> nb (norvegese) <br/>   pl (polacco) <br/> pt (portoghese) <br/>  ru (russo) <br/>  es (spagnolo) <br/>  sv (svedese) <br/>  tr (turco) <br/> ar (arabo) <br/> ro (romeno) <br/> sr-Cyrl (SerbianCyrillic) <br/> sr-Latn (SerbianLatin) <br/>  sk (slovacco). <br/>  unk (sconosciuto) <br/><br/> Se il codice lingua non è specificato o è Null, la lingua viene rilevata automaticamente. </p> |
+|defaultLanguageCode | <p>  Codice lingua del testo di input. Le lingue supportate comprendono: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (ceco) <br/>da (danese) <br/>nl (olandese) <br/>en (inglese) <br/>fi (finlandese)  <br/>fr (francese) <br/>  de (tedesco) <br/>el (greco) <br/> hu (ungherese) <br/> it (italiano) <br/>  ja (giapponese) <br/> ko (coreano) <br/> nb (norvegese) <br/>   pl (polacco) <br/> pt (portoghese) <br/>  ru (russo) <br/>  es (spagnolo) <br/>  sv (svedese) <br/>  tr (turco) <br/> ar (arabo) <br/> ro (romeno) <br/> sr-Cyrl (SerbianCyrillic) <br/> sr-Latn (SerbianLatin) <br/>  sk (slovacco). <br/>  unk (sconosciuto) <br/><br/> Se il codice lingua non è specificato o è Null, la lingua verrà impostata sull'inglese. Se la lingua è impostata esplicitamente su "unk", la lingua verrà rilevata automaticamente. </p> |
 | textExtractionAlgorithm | "stampato" o "scritto a mano". L'algoritmo OCR per il riconoscimento del testo "scritto a mano" è attualmente in anteprima e supportato solo in inglese. |
 
 ## <a name="skill-inputs"></a>Input competenze

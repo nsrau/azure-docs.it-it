@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: e3aefc23cd0f4d8043232214591155aa893f4522
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 09b5f387b0c7f765ea0835dcef79932203d68338
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390137"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014353"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Trasformare i dati in Azure Data Factory
 > [!div class="op_single_selector"]
@@ -62,7 +61,7 @@ Nel corso del tempo è necessario ripetere il training dei modelli predittivi ne
 Vedere [Usare le attività Machine Learning](transform-data-using-machine-learning.md) per i relativi dettagli. 
 
 ## <a name="stored-procedure-activity"></a>Attività stored procedure
-È possibile usare l'attività stored procedure di SQL Server in una pipeline di Data Factory per richiamare una stored procedure in uo dei seguenti archivi dati: database SQL di Azure, Azure SQL Data Warehouse, database di SQL Server in azienda o in una VM. Per i dettagli, vedere l'articolo [Attività stored procedure](transform-data-using-stored-procedure.md).  
+È possibile usare l'attività stored procedure di SQL Server in una pipeline di Data Factory per richiamare una stored procedure in uno degli archivi dati seguenti: database SQL di Azure, Azure SQL Data Warehouse, database di SQL Server nell'organizzazione o macchina virtuale di Azure. Per i dettagli, vedere l'articolo [Attività stored procedure](transform-data-using-stored-procedure.md).  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Attività U-SQL di Data Lake Analytics
 L'attività U-SQL di Data Lake Analytics esegue uno script U-SQL in un cluster Azure Data Lake Analytics. Per i dettagli, vedere l'articolo [Attività U-SQL di Analisi dei dati](transform-data-using-data-lake-analytics.md). 
@@ -87,10 +86,10 @@ Se è necessario trasformare i dati in una modalità non supportata da Data Fact
 ## <a name="compute-environments"></a>Ambienti di calcolo
 Creare un servizio collegato per l'ambiente di calcolo e quindi usare il servizio collegato quando si definisce un'attività di trasformazione. Esistono due tipi di ambienti di calcolo supportati da Data factory. 
 
-- **On Demand**: in questo caso, l'ambiente informatico è completamente gestito da Data factory. Viene automaticamente creato dal servizio Data Factory prima che un processo venga inviato per l’elaborazione dati e rimosso quando il processo viene completato. È possibile configurare e controllare le impostazioni granulari dell'ambiente di elaborazione su richiesta per l'esecuzione del processo, la gestione del cluster e azioni di avvio automatico. 
-- **Bring Your Own**: In questo caso, è possibile registrare il proprio ambiente di elaborazione (ad esempio cluster HDInsight) come servizio collegato in Data factory. L'ambiente di elaborazione viene gestito dall'utente e il servizio Data factory viene usato per eseguire le attività. 
+- **On-Demand**:  in questo caso, l'ambiente informatico è completamente gestito da Data Factory. Viene automaticamente creato dal servizio Data Factory prima che un processo venga inviato per l’elaborazione dati e rimosso quando il processo viene completato. È possibile configurare e controllare le impostazioni granulari dell'ambiente di elaborazione su richiesta per l'esecuzione del processo, la gestione del cluster e azioni di avvio automatico. 
+- **Bring Your Own**: in questo caso, è possibile registrare il proprio ambiente di elaborazione (ad esempio cluster HDInsight) come servizio collegato in Data Factory. L'ambiente di elaborazione viene gestito dall'utente e il servizio Data factory viene usato per eseguire le attività. 
 
 Per informazioni sui servizi di calcolo supportati da Data factory, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md) . 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un esempio di uso di un'attività di trasformazione, vedere l'esercitazione seguente: [Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md) (Esercitazione: Trasformare dati tramite Spark)
+Per un esempio di uso di un'attività di trasformazione, vedere l'esercitazione seguente: [Esercitazione: Trasformare dati tramite Spark](tutorial-transform-data-spark-powershell.md)

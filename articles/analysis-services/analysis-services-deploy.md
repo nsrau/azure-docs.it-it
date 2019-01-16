@@ -1,24 +1,26 @@
 ---
-title: Eseguire la distribuzione in Azure Analysis Services con SSDT | Microsoft Docs
+title: Eseguire la distribuzione in Azure Analysis Services con Visual Studio (SSDT) | Microsoft Docs
 description: Informazioni su come distribuire un modello tabulare in un server Azure Analysis Services usando SSDT.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5f56ee65cd2ec5dfb39929f6985c26ebc339953e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a9f3dfba4c79b2369e99b95c13557557ed930c24
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429049"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188590"
 ---
-# <a name="deploy-a-model-from-ssdt"></a>Distribuire un modello da SSDT
+# <a name="deploy-a-model-from-visual-studio"></a>Distribuire un modello da Visual Studio
+
 Dopo aver creato un server nella sottoscrizione di Azure, si è pronti per distribuire un database modello tabulare a tale server. È possibile usare SQL Server Data Tools (SSDT) per compilare e distribuire un progetto modello tabulare in uso. 
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per iniziare, è necessario:
 
 * Un **server Analysis Services** in Azure. Per altre informazioni, vedere [Creare un server Azure Analysis Services](analysis-services-create-server.md).
@@ -53,10 +55,12 @@ Questo è tutto ciò che occorre fare.
 
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
+
 Se la distribuzione non riesce durante la distribuzione dei metadati, probabilmente è dovuto al fatto che SSDT non può connettersi al server. Assicurarsi di potersi connettere al server usando SSMS. Verificare quindi che la proprietà del server di distribuzione per il progetto sia corretta.
 
 Se la distribuzione non riesce in una tabella, probabilmente è dovuto al fatto che il server non ha potuto connettersi a un'origine dati. Se l'origine dati è locale nella rete dell'organizzazione, assicurarsi di installare un [gateway dati locale](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Ora che il modello tabulare è stato distribuito nel server, si è pronti per la connessione. È possibile [connettersi al modello con SSMS](analysis-services-manage.md) per gestirlo. Ed è anche possibile [connettersi al modello usando uno strumento client](analysis-services-connect.md) come Power BI, Power BI Desktop o Excel e avviare la creazione di report.
 

@@ -3,7 +3,7 @@ title: Creazione e registrazione dell'account di pubblicazione | Documentazione 
 description: Istruzioni per la creazione di un account Microsoft Developer per consentire all'utente, dopo l'approvazione, di vendere diversi tipi di offerte in Azure Marketplace.
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 3b1d0a7476cff2be00aa44bb8b859261099298d8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: f32a3a992445bc3aeccc035e54653555bfd64d6c
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236690"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078423"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Creare un account di Microsoft Developer
 In questo articolo viene illustrata la creazione e la registrazione dell'account necessario per diventare un Microsoft Developer approvato per Azure Marketplace.
@@ -42,15 +43,15 @@ Quando si crea un account aziendale, seguire queste linee guida se più di una p
 
 * Creare l'account di Microsoft usando un indirizzo di posta elettronica appartenente al dominio dell'azienda, ma non a un singolo utente, ad esempio, windowsapps@fabrikam.com.
 * Limitare l'accesso a questo account Microsoft al minor numero possibile di sviluppatori.
-* Impostare una lista di distribuzione di posta elettronica aziendale che includa tutti gli utenti che hanno necessità di accedere all'account per sviluppatori e aggiungere questo indirizzo email alle informazioni di sicurezza. In questo modo tutti i dipendenti nella lista riceveranno i codici di sicurezza quando necessario e potranno gestire le informazioni di sicurezza dell'account Microsoft. Se non è possibile impostare una lista di distribuzione, il proprietario del singolo account di posta elettronica dovrà accedere e condividere il codice di sicurezza quando richiesto (ad esempio quando viene aggiunta una nuova informazione di sicurezza all'account o quando si deve eseguire l'accesso da un nuovo dispositivo).
+* Impostare una lista di distribuzione di posta elettronica aziendale che includa tutti gli utenti che hanno necessità di accedere all'account per sviluppatori e aggiungere questo indirizzo email alle informazioni di sicurezza. Con questa configurazione tutti i dipendenti nella lista di distribuzione riceveranno i codici di sicurezza quando necessario e potranno gestire le informazioni di sicurezza dell'account Microsoft. Se non è possibile impostare una lista di distribuzione, il proprietario del singolo account di posta elettronica dovrà accedere e condividere il codice di sicurezza quando richiesto (ad esempio quando viene aggiunta una nuova informazione di sicurezza all'account o quando si deve eseguire l'accesso da un nuovo dispositivo).
 * Aggiungere un numero di telefono aziendale che non richieda un'estensione e che sia accessibile ai membri principali del team.
-* In generale, gli sviluppatori devono usare dispositivi affidabili per accedere all'account per gli sviluppatori dell'azienda. Tutti i principali membri del team devono avere accesso a questi dispositivi affidabili. Questo riduce la necessità di inviare i codici di sicurezza quando si accede all'account.
+* In generale, gli sviluppatori devono usare dispositivi affidabili per accedere all'account per sviluppatori dell'azienda. Tutti i principali membri del team devono avere accesso a questi dispositivi affidabili. Questo approccio riduce la necessità di inviare i codici di sicurezza quando si accede all'account.
 * Se si desidera consentire l'accesso all'account a un computer non affidabile, limitare tale accesso a un massimo di cinque sviluppatori. In teoria, questi sviluppatori devono accedere all'account da computer che condividono la stessa area geografica e lo stesso percorso di rete.
 * Verificare spesso le informazioni di sicurezza dell'azienda all'indirizzo [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) per accertarsi che siano aggiornate.
 
-L'accesso all'account sviluppatore deve avvenire principalmente da PC affidabili. Questo è fondamentale poiché è previsto un limite al numero di codici generati per ogni account, ogni settimana. Consente inoltre di eseguire un accesso il più trasparente possibile.
+L'accesso all'account sviluppatore deve avvenire principalmente da PC affidabili. Questa limitazione è fondamentale poiché è previsto un limite al numero di codici generati per ogni account, ogni settimana. Consente inoltre di eseguire un accesso il più trasparente possibile.
 
-Per maggiori informazioni sulla sicurezza e le linee guida dell'account per sviluppatori, fare clic [qui](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+Per altre informazioni sulla sicurezza e le linee guida dell'account per sviluppatori, fare clic [qui](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Istruzioni
 1. Aprire una nuova sessione in incognito in Chrome o InPrivate Browsing in Internet Explorer per assicurarsi di non essere connessi a un account esistente.
@@ -62,7 +63,7 @@ Per maggiori informazioni sulla sicurezza e le linee guida dell'account per svil
 4. A questo punto si è pronti per usare il nuovo account Microsoft nel Microsoft Developer Center.
 
 ## <a name="2-register-your-account-in-microsoft-developer-center"></a>2. Registrare l'account nel centro per sviluppatori di Microsoft
-Microsoft Developer Center viene usato per registrare le informazioni della società una sola volta. La persona che effettua la registrazione deve essere un rappresentante della società valido e deve fornire le informazioni personali come metodo per convalidare la propria identità. La persona che esegue la registrazione deve usare un account Microsoft condiviso per la società, **che deve essere usato anche nel portale di pubblicazione di Azure**. Assicurarsi che l'azienda non possieda già un account Microsoft Developer Center prima di provare a crearne uno. Durante il processo, Microsoft raccoglierà informazioni sull'indirizzo dell'azienda, sul conto bancario e sui dati fiscali. Tali informazioni possono generalmente essere ottenute da contatti finanziari o aziendali.
+Microsoft Developer Center viene usato per registrare le informazioni della società una sola volta. La persona che effettua la registrazione deve essere un rappresentante della società valido e deve fornire le informazioni personali come metodo per convalidare la propria identità. La persona che esegue la registrazione deve usare un account Microsoft condiviso per la società, *che deve essere usato anche nel portale di pubblicazione di Azure*. Assicurarsi che l'azienda non possieda già un account Microsoft Developer Center prima di provare a crearne uno. Durante il processo, Microsoft raccoglierà informazioni sull'indirizzo dell'azienda, sul conto bancario e sui dati fiscali. Questi dati possono generalmente essere ottenuti da contatti finanziari o aziendali.
 
 > [!IMPORTANT]
 > I seguenti componenti del profilo sviluppatore devono essere completati per l'avanzamento attraverso le diverse fasi della creazione e della distribuzione dell'offerta.
@@ -82,11 +83,10 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
 
 ### <a name="register-your-company-account"></a>Registrare l'account della società
 1. Aprire una nuova sessione di navigazione in incognito su Chrome o InPrivate Browsing in Internet Explorer per assicurarsi di non essere connessi a un account personale.
-2. Andare a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) per registrarsi come venditore in Dev Center. Prima di procedere, leggere la seguente nota importante.
+2. Andare a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) per registrarsi come venditore in Dev Center. Tenere presente quanto segue:
 
    > [!IMPORTANT]
-   > Assicurarsi che l'ID di posta elettronica o la lista di distribuzione (si consiglia l'uso di una lista di distribuzione per eliminare la dipendenza da una singola persona) che sarà usata per la registrazione in Dev Center sia prima registrata come un account Microsoft. In caso contrario, registrarsi mediante questo [collegamento](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Inoltre, per la registrazione in Dev Center, **non è consentito usare nessun ID di e-mail appartenente al dominio dell'azienda Microsoft, ad esempio @microsoft.com non può essere usato**.
-   >
+   > Assicurarsi che l'ID di posta elettronica o la lista di distribuzione (si consiglia l'uso di una lista di distribuzione per eliminare la dipendenza da una singola persona) che sarà usata per la registrazione in Dev Center sia prima registrata come un account Microsoft. In caso contrario, registrarsi mediante questo [collegamento](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Inoltre, per la registrazione in Dev Center, *non è consentito usare nessun ID di e-mail appartenente al dominio dell'azienda Microsoft, ad esempio @microsoft.com non può essere usato*.
    >
 
     ![disegno][img-signin]
@@ -98,7 +98,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
     ![disegno](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
 
    > [!WARNING]
-   > **Paesi di origine della vendita:** per vendere i propri servizi in Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro perciò non rimane che attendere. Per altre informazioni, vedere [Criteri di partecipazione a Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
+   > **Paesi di origine della vendita:** per vendere i propri servizi in Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati indicati in precedenza. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro perciò non rimane che attendere. Per altre informazioni, vedere [Criteri di partecipazione a Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
    >
    >
 5. Selezionare **Azienda** per "Tipo di account" e fare clic sul pulsante **Avanti**.
@@ -183,7 +183,7 @@ In caso di problemi con la registrazione in Developer Center, inoltrare un ticke
 3. Scegliere "Help with Dev Center" (Aiuto con Dev Center) come **Tipo di problema** e "Publish and manage apps" (Pubblicare e gestire le app) come **Categoria**. Quindi fare clic sul pulsante "Start email" ("Inizia messaggio di posta elettronica").
 
     ![disegno](media/marketplace-publishing-accounts-creation-registration/imgAddTax_03.png)
-4. Viene visualizzata una pagina di accesso. Usare qualsiasi account Microsoft per effettuare l'accesso. Se non si dispone di un account Microsoft, crearne una seguendo questo [collegamento](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
+4. Viene visualizzata una pagina di accesso. Usare qualsiasi account Microsoft per effettuare l'accesso. Se non si ha un account Microsoft, crearne uno seguendo questo [collegamento](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
 5. Inserire i dettagli del problema e inviare il ticket facendo clic sul pulsante **Invia**.
 
     ![disegno](media/marketplace-publishing-accounts-creation-registration/imgAddTax_05.png)
@@ -231,7 +231,7 @@ Se si viene aggiunti come coamministratore nel portale di pubblicazione, è poss
 Dopo avere creato e registrato l'account, assicurarsi di completare o rispettare tutti i prerequisiti non tecnici per pubblicare l'offerta verificando i [prerequisiti non tecnici](marketplace-publishing-pre-requisites.md).
 
 ## <a name="see-also"></a>Vedere anche 
-* [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Introduzione: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg
 [img-email]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-verifyemail.jpg

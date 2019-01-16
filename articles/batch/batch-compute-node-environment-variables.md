@@ -1,8 +1,8 @@
 ---
-title: Variabili di ambiente per i nodi di calcolo di Azure Batch | Microsoft Docs
+title: Variabili di ambiente per i nodi di calcolo - Azure Batch | Microsoft Docs
 description: Riferimento variabile di ambiente del nodo di calcolo per le analisi di Azure Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,16 +10,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 05/05/2017
-ms.author: danlep
-ms.openlocfilehash: ca8d6a6484cd1f145e7d807681bf2d012f2399e0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.date: 01/03/2019
+ms.author: lahugh
+ms.openlocfilehash: 48c2172e02e935dde28ac323c776c8895b1d36b2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30312702"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017362"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Variabili di ambiente per i nodi di calcolo di Azure Batch
+
 Il [servizio Azure Batch](https://azure.microsoft.com/services/batch/) imposta le variabili di ambiente seguenti sui nodi di calcolo. È possibile fare riferimento a queste variabili di ambiente nelle righe di comando delle attività e nei programmi e negli script eseguiti dalle righe di comando.
 
 Per altre informazioni sull'uso delle variabili di ambiente con Batch, vedere [Impostazioni di ambiente per le attività](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
@@ -41,6 +42,7 @@ Le righe di comando eseguite dalle attività sui nodi di calcolo non vengono ese
 | Nome variabile                     | DESCRIZIONE                                                              | Disponibilità | Esempio |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Nome dell'account Batch a cui appartiene l'attività.                  | Tutte le attività.   | mybatchaccount |
+| AZ_BATCH_AUTHENTICATION_TOKEN   | Token di autenticazione che concede l'accesso a un set limitato di operazioni del servizio Batch. Questa variabile di ambiente è presente solo se la definizione [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) è impostata quando l'[attività viene aggiunta](/rest/api/batchservice/task/add#request-body). Il valore del token viene usato nelle API Batch come credenziale per creare un client Batch, ad esempio nell'[API .NET BatchClient.Open()](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Tutte le attività. | Token di accesso OAuth2 |
 | AZ_BATCH_CERTIFICATES_DIR       | Una directory all'interno della [directory di lavoro dell'attività][files_dirs] in cui sono archiviati i certificati i nodi di calcolo Linux. Si noti che questa variabile di ambiente non è applicabile a Windows i nodi di calcolo.                                                  | Tutte le attività.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_JOB_ID                 | ID del processo a cui appartiene l'attività. | Tutte le attività tranne l'attività di avvio. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | Percorso completo della [directory delle attività][files_dirs] di preparazione del processo sul nodo. | Tutte le attività ad eccezione dell'attività di preparazione del processo e dell'attività di avvio. Questo campo è disponibile solo se il processo è configurato con un'attività di preparazione del processo. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |

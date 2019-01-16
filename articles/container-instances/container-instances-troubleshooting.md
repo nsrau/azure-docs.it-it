@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 01/08/2019
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820359"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119051"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di contenitore di Azure
 
@@ -48,7 +48,7 @@ Se si specifica un'immagine non supportata da Istanze di contenitore di Azure, v
 
 Questo errore viene spesso rilevato durante la distribuzione di immagini Windows basate su una versione Canale semestrale di Windows. Ad esempio, le versioni Windows 1709 e 1803 sono versioni Canale semestrale di Windows e generano questo errore al momento della distribuzione.
 
-Istanze di contenitore di Azure supporta le immagini di Windows che si basano solo sulle versioni Long-Term Servicing Channel (LTSC). Per attenuare questo problema durante la distribuzione di contenitori Windows, distribuire sempre immagini basate sul Long-Term Servicing Channel.
+Istanze di Azure Container supporta attualmente le immagini di Windows che si basano solo sulla versione **Long-Term Servicing Channel (LTSC) di Windows Server 2016**. Per attenuare questo problema durante la distribuzione di contenitori Windows, distribuire sempre immagini basate sul Windows Server 2016 (LTSC). Le immagini basate su Windows Server 2019 (LTSC) non sono supportate.
 
 Per informazioni dettagliate sulle versioni Long-Term Servicing Channel e Canale semestrale di Windows, vedere [Panoramica del Canale semestrale di Windows Server][windows-sac-overview].
 

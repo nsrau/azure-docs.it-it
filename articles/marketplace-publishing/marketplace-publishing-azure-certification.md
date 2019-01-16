@@ -3,7 +3,7 @@ title: Ottenere la pre-approvazione tramite il programma Microsoft Azure Certifi
 description: Informazioni sul programma per i partner Microsoft Azure Certified e su come vendere un'immagine di macchina virtuale, un modello di soluzione, un servizio per sviluppatori o un servizio dati in Azure Marketplace
 services: marketplace-publishing
 documentationcenter: na
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 tags: ''
@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-ms.openlocfilehash: 300b94aea0c06092a5fb6bdecd49771ef1cd517d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: d0bfb4112aabda00355e670e1e20735bbe40a26b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234188"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073771"
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Ottenere la pre-approvazione tramite il programma Microsoft Azure Certified
 Questo articolo contiene istruzioni su come diventare partner Microsoft Azure Certified Azure in modo che sia possibile pubblicare la propria soluzione in Azure Marketplace e ottenere i vantaggi marketing. Per una panoramica dettagliata del programma Microsoft Azure Certified e dei relativi vantaggi, visitare l'indirizzo [http://azure.com/certified](http://azure.com/certified).
@@ -31,7 +32,7 @@ Questo articolo contiene istruzioni su come diventare partner Microsoft Azure Ce
 ## <a name="getting-started"></a>introduttiva
 1. Il primo passaggio per la certificazione della soluzione in Azure Marketplace consiste nel compilare il modulo di richiesta nella pagina Web [Microsoft Azure Certified](https://createopportunity.azurewebsites.net) .
 2. Se si soddisfano i criteri di idoneità e l'applicazione viene approvata, verrà avviato il caricamento della soluzione in Azure Marketplace.
-3. Se si lavora con un gestore di account partner o con un gestore di partner sviluppatori, chiedere di proporre la soluzione per il programma Azure Certified OPPURE accedere alla pagina Web [Microsoft Azure Certified](http://createopportunity.azurewebsites.net), compilare il modulo di richiesta e immettere l'indirizzo di posta elettronica del gestore di account partner o di partner sviluppatori nel campo relativo al contatto dello sponsor Microsoft.
+3. Se si lavora con un Partner Account Manager o un DX Partner Manager, chiedere loro di candidare la soluzione per il programma Azure Certified OPPURE accedere alla pagina Web [Microsoft Azure Certified](http://createopportunity.azurewebsites.net), compilare il modulo di richiesta e immettere l'indirizzo di posta elettronica del Partner Account Manager o del DX Partner Manager nel campo relativo al contatto dello sponsor Microsoft.
 
 > [!IMPORTANT]
 > **Paesi di origine della vendita:** per vendere i propri servizi in Microsoft Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro perciò non rimane che attendere. Per l'elenco completo, vedere la sezione 1b delle [politiche di partecipazione ad Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
@@ -41,4 +42,4 @@ Questo articolo contiene istruzioni su come diventare partner Microsoft Azure Ce
 Dopo aver ricevuto la pre-approvazione dal programma Microsoft Azure Certified, è possibile [registrare il proprio account Microsoft come venditore Microsoft](marketplace-publishing-accounts-creation-registration.md).
 
 ## <a name="see-also"></a>Vedere anche 
-* [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Introduzione: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)

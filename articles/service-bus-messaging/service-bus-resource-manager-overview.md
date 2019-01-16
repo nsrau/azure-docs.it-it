@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 5693307f9d032ad544a44eabd19126700c5a4099
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e23173b006fcc83f0e4b30b59a65e772b68a612d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407162"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062010"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Creare risorse del bus di servizio usando i modelli di Azure Resource Manager
 
@@ -258,6 +258,7 @@ Finora sono stati illustrati il flusso di lavoro di base e i comandi per la dist
 * [Panoramica di Azure Resource Manager][Azure Resource Manager overview]
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell][Deploy resources with Azure Resource Manager templates]
 * [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Tipi di risorsa Microsoft.ServiceBus](/azure/templates/microsoft.servicebus/allversions)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md

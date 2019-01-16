@@ -6,13 +6,13 @@ ms.service: container-service
 author: iainfoulds
 ms.author: iainfou
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 01/09/2019
+ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853629"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188454"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Esercitazione: Eseguire la distribuzione da GitHub nel servizio Azure Kubernetes (AKS) con integrazione continua e distribuzione continua di Jenkins
 
@@ -229,11 +229,6 @@ Nella home page del portale di Jenkins selezionare **New item** (Nuovo elemento)
 1. Immettere *azure-vote* come nome del processo. Scegliere **Freestyle project** (Progetto Freestyle) e quindi selezionare **OK**
 1. Nella sezione **General** (Generale) selezionare **GitHub project** (Progetto GirHub) e immettere l'URL della copia del repository creata tramite fork, ad esempio *https://github.com/\<your-github-account\>/azure-voting-app-redis*
 1. Nella sezione **Source code management** (Gestione del codice sorgente) selezionare **Git** e immettere l'URL *.git* del repository con fork, ad esempio *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
-    - Per le credenziali, fare clic su **Add** > **Jenkins** (Aggiungi > Jenkins)
-    - In **Kind** (Tipo) selezionare **Secret text** (Testo segreto) e immettere il [token di accesso personale di GitHub][git-access-token] come segreto.
-    - Al termine selezionare **Add** (Aggiungi).
-
-    ![Credenziali per GitHub](media/aks-jenkins/github-creds.png)
 
 1. Nella sezione **Build Triggers** (Trigger di compilazione) selezionare **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm).
 1. In **Build Environment** (Ambiente di compilazione) selezionare **Use secret texts or files** (Usa testi o file segreti).

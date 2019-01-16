@@ -10,16 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086948"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040660"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procedura: Configurare il writeback delle password
-
-È consigliabile usare la funzionalità di aggiornamento automatico di [Azure AD Connect](../hybrid/how-to-connect-install-express.md) quando si usa il writeback delle password.
 
 La procedura seguente presuppone che Azure AD Connect sia già stato configurato nell'ambiente tramite le impostazioni [Rapida](../hybrid/how-to-connect-install-express.md) o [Personalizzata](../hybrid/how-to-connect-install-custom.md).
 
@@ -38,7 +36,25 @@ Per le attività di risoluzione dei problemi comuni correlate al writeback delle
 > [!WARNING]
 > Per i clienti che usano Azure AD Connect 1.0.8641.0 e versioni precedenti, il writeback delle password non funzionerà più dopo il [ritiro del Servizio di controllo di accesso di Azure in data 7 novembre 2018](../develop/active-directory-acs-migration.md). A partire da tale data, Azure AD Connect 1.0.8641.0 e versioni precedenti non consentiranno più il writeback delle password perché per questa funzionalità dipendono dal Servizio di controllo di accesso di Azure.
 >
-> Per evitare un'interruzione del servizio, eseguire l'aggiornamento da una versione precedente di Azure AD Connect a una più recente. Vedere l'articolo [Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente](../hybrid/how-to-upgrade-previous-version.md).
+> Per evitare un'interruzione del servizio, eseguire l'aggiornamento da una versione precedente di Azure AD Connect a una più recente. Vedere l'articolo [Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente](../hybrid/how-to-upgrade-previous-version.md)
+>
+
+## <a name="licensing-requirements-for-password-writeback"></a>Requisiti di licenza per il writeback delle password
+
+**La reimpostazione, la modifica e lo sblocco self-service della password con writeback locale sono funzionalità Premium di Azure AD**. Per altre informazioni sulle licenze, vedere il sito [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Per usare il writeback delle password, è necessario disporre una delle licenze seguenti assegnate nel tenant:
+
+* Azure AD Premium P1
+* Azure AD Premium P2
+* Enterprise Mobility + Security E3 o A3
+* Enterprise Mobility + Security E5 o A5
+* Microsoft 365 E3 o A3
+* Microsoft 365 E5 o A5
+* Microsoft 365 F1
+
+> [!WARNING]
+> I piani di licenza Office 365 autonomi *non supportano "Reimpostazione/modifica/sblocco con writeback in locale delle password in modalità self-service"* e richiedono uno dei piani precedenti per l'uso della funzionalità.
 >
 
 ## <a name="active-directory-permissions"></a>Autorizzazioni di Active Directory

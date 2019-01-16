@@ -1,5 +1,5 @@
 ---
-title: Backup di SAP HANA in Azure basato su snapshot di archiviazione | Documentazione Microsoft
+title: Backup di SAP HANA in Azure basato su snapshot di archiviazione | Microsoft Docs
 description: Esistono due possibilità principali per il backup di SAP HANA su macchine virtuali di Azure e questo articolo descrive il backup di SAP HANA basato su snapshot di archiviazione
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 031cb10e476ba068f7e3d7baf3b19f7703caf170
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 74f47344afff630a8633b340ea4ce21db28db7ca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580046"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159928"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Backup di SAP HANA basato su snapshot di archiviazione
 
@@ -52,14 +52,14 @@ Sul disco lo snapshot appare nella directory dei dati di SAP HANA.
 
 Prima di eseguire lo snapshot di archiviazione, mentre SAP HANA si trova nella modalità di preparazione dello snapshot, è necessario assicurarsi che sia garantita anche la coerenza del file system. Vedere _Coerenza dei dati SAP HANA durante l'esecuzione degli snapshot di archiviazione_ nell'articolo correlato [Guida del backup di SAP HANA in Macchine virtuali di Azure](sap-hana-backup-guide.md).
 
-Dopo avere completato lo snapshot di archiviazione, è fondamentale confermare lo snapshot di SAP HANA. C'è un'istruzione SQL corrispondente da eseguire, ovvero BACKUP DATA CLOSE SNAPSHOT: vedere [BACKUP DATA CLOSE SNAPSHOT Statement - Backup and Recovery](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm) (Istruzione BACKUP DATA CLOSE SNAPSHOT - Backup e ripristino).
+Dopo avere completato lo snapshot di archiviazione, è fondamentale confermare lo snapshot di SAP HANA. È necessario eseguire un'istruzione SQL corrispondente: BACKUP DATA CLOSE SNAPSHOT. Vedere [BACKUP DATA CLOSE SNAPSHOT Statement (Backup and Recovery)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm) (Istruzione BACKUP DATA CLOSE SNAPSHOT (Backup e ripristino).
 
 > [!IMPORTANT]
 > Confermare lo snapshot HANA. A causa di &quot;Copy-on-Write&quot; SAP HANA potrebbe richiedere ulteriore spazio su disco nella modalità di preparazione dello snapshot e non è possibile avviare nuovi backup fino a quando lo snapshot di SAP HANA viene confermato.
 
 ## <a name="hana-vm-backup-via-azure-backup-service"></a>Backup di VM HANA tramite il servizio Backup di Azure
 
-L'agente di backup del servizio Backup di Azure non è disponibile per le VM Linux. Inoltre Linux non dispone di una funzionalità simile a quella di cui dispone Windows con VSS.  Per usare il backup di Azure a livello di file o directory, è necessario copiare i file di backup di SAP HANA in una VM Windows e quindi usare l'agente di backup. 
+L'agente di backup del servizio Backup di Azure non è disponibile per le VM Linux. Inoltre, Linux non ha una funzionalità simile a quella di cui dispone Windows con VSS.  Per usare il backup di Azure a livello di file o directory, è necessario copiare i file di backup di SAP HANA in una VM Windows e quindi usare l'agente di backup. 
 
 Altrimenti è possibile soltanto eseguire un backup completo di una VM Linux tramite il servizio Backup di Azure. Per altre informazioni, vedere [Panoramica delle funzionalità di Backup di Azure](../../../backup/backup-introduction-to-azure-backup.md).
 

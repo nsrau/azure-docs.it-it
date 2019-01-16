@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a28ae46a449d4aacf046636793585a84adc5ba83
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2b4fcb42c913149f8caf05a72fb089586ee21e2a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089634"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106121"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Ricevere eventi da Hub eventi di Azure usando l'host del processore di eventi
 
@@ -123,7 +123,9 @@ In questo caso, ogni host acquisisce la proprietà di una partizione per un dete
 
 ## <a name="receive-messages"></a>Ricevere messaggi
 
-Ogni chiamata a [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) prevede una raccolta di eventi. L'utente è responsabile di tali eventi. Si consiglia di eseguire le operazioni con una certa rapidità; vale a dire, elaborandole il meno possibile. In caso contrario, usare i gruppi di consumer. Se è necessario scrivere nell'archiviazione ed eseguire alcune route, è in genere consigliabile usare due gruppi di consumer e disporre di due implementazioni [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) che verranno eseguite separatamente.
+Ogni chiamata a [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) prevede una raccolta di eventi. L'utente è responsabile di tali eventi. Se si vuole avere la certezza che l'host del processore elabori ogni messaggio almeno una volta, è necessario scrivere il proprio codice di ripetizione dei tentativi. Fare attenzione, tuttavia, a inserire messaggi non elaborabili.
+
+Si consiglia di eseguire le operazioni con una certa rapidità; vale a dire, elaborandole il meno possibile. In caso contrario, usare i gruppi di consumer. Se è necessario scrivere nell'archiviazione ed eseguire alcune route, è in genere consigliabile usare due gruppi di consumer e disporre di due implementazioni [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) che verranno eseguite separatamente.
 
 A un certo punto durante l'elaborazione, si potrebbe voler tenere traccia di ciò che è stato letto e completato. Tenere traccia è essenziale qualora sia necessario riavviare la lettura, in modo da non dover tornare all'inizio del flusso. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) semplifica il rilevamento mediante i *checkpoint*. Un checkpoint è una posizione o un offset, per una data partizione, all'interno di un gruppo di consumer specifico, in cui si è soddisfatti di aver eseguito l'elaborazione dei messaggi. Per contrassegnare un checkpoint in **EventProcessorHost** chiamare il metodo [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) nell'oggetto [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext). Questa operazione viene eseguita all'interno del metodo [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync), ma è possibile anche in [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 

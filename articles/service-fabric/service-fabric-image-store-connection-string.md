@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 7d164fea62afac83c4fe2216c56a9980d9279f3a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5f69de9ba9a3226209a339c6f6fa778d9ded9755
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207129"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050989"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Informazioni sull'impostazione ImageStoreConnectionString
 
-In alcuni documenti di Microsoft si accenna brevemente all'esistenza di un parametro "ImageStoreConnectionString" senza che descriverne il significato reale. E dopo aver consultato un articolo come [Deploy and remove applications using PowerShell][10] (Distribuire e rimuovere applicazioni tramite PowerShell), sembra che sia sufficiente copiare e incollare il valore così come viene visualizzato nel manifesto del cluster del cluster di destinazione. L'impostazione quindi deve essere configurabile per ogni cluster, ma quando si crea un cluster nel [Portale di Azure][11], non è possibile configurare questa impostazione che è sempre "fabric:ImageStore". Qual è lo scopo di questa impostazione quindi?
+In alcuni documenti di Microsoft si accenna brevemente all'esistenza di un parametro "ImageStoreConnectionString" senza che descriverne il significato reale. E dopo aver consultato l'articolo [Distribuire e rimuovere applicazioni con PowerShell][10] sembra che sia sufficiente copiare e incollare il valore così come viene visualizzato nel manifesto del cluster del cluster di destinazione. L'impostazione quindi deve essere configurabile per ogni cluster, ma quando si crea un cluster nel [Portale di Azure][11], non è possibile configurare questa impostazione che è sempre "fabric:ImageStore". Qual è lo scopo di questa impostazione quindi?
 
 ![Manifesto del cluster][img_cm]
 
@@ -47,7 +47,7 @@ Il provider di File System viene usato al posto del servizio di archiviazione im
 
 Inoltre, né il provider di File System né il provider di Archiviazione di Azure devono essere usati come metodo di condivisione di un archivio immagini tra più cluster. Tale operazione determinerebbe il danneggiamento dei dati di configurazione del cluster, perché ogni cluster potrebbe scrivere dati in conflitto nell'archivio immagini. Per condividere i pacchetti dell'applicazione con provisioning tra più cluster, usare i file [sfpkg][12], che possono essere caricati in qualsiasi archivio esterno con un URI di download.
 
-Pertanto nonostante ImageStoreConnectionString sia configurabile, generalmente viene usata solo l'impostazione predefinita. Durante la pubblicazione in Azure tramite Visual Studio, il parametro viene impostato automaticamente in base alle esigenze dell'utente. Per la distribuzione a livello di codice ai cluster ospitati in Azure, la stringa di connessione è sempre "fabric:ImageStore". In caso di dubbi, il suo valore può essere verificato sempre recuperando il manifesto del cluster da [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) o [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Sia i test in locale che i cluster di produzione devono essere sempre configurati per poter usare anche il provider del Servizio di archivio immagini.
+Quindi, sebbene ImageStoreConnectionString sia configurabile, viene semplicemente usata l'impostazione predefinita. Durante la pubblicazione in Azure tramite Visual Studio, il parametro viene impostato automaticamente in base alle esigenze dell'utente. Per la distribuzione a livello di codice ai cluster ospitati in Azure, la stringa di connessione è sempre "fabric:ImageStore". In caso di dubbi, il suo valore può essere verificato sempre recuperando il manifesto del cluster da [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) o [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Sia i test in locale che i cluster di produzione devono essere sempre configurati per poter usare anche il provider del Servizio di archivio immagini.
 
 ### <a name="next-steps"></a>Passaggi successivi
 [Deploy and remove applications using PowerShell][10] (Distribuire e rimuovere applicazioni con PowerShell)

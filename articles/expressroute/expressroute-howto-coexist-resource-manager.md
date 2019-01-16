@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 01/07/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a35bde6e89290fd2282ba6ec829f46cb4c6fc225
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104034"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103316"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurare connessioni coesistenti da sito a sito ed ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
@@ -43,6 +43,7 @@ Questo articolo illustra i passaggi necessari per configurare entrambi questi sc
 * **Il gateway SKU Basic non è supportato.** È necessario usare un gateway SKU non Basic sia per il [gateway ExpressRoute](expressroute-about-virtual-network-gateways.md) che per il [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **È supportato solo il gateway VPN basato su route.** È necessario usare un [gateway VPN basato su route](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Deve essere configurata una route statica per il gateway VPN.** Se la rete locale è connessa sia a ExpressRoute che a una VPN da sito a sito, per il routing della connessione VPN da sito a sito alla rete Internet pubblica è necessario che nella rete locale sia configurata una route statica.
+* **Il gateway VPN viene automaticamente impostato su ASN 65515, se non altrimenti specificato.** Il gateway VPN di Azure supporta il protocollo di routing BGP. È possibile specificare il codice ASN (AS Number) per la rete virtuale aggiungendo il parametro -Asn. Se non si specifica questo parametro, il codice ASN predefinito è 65515. È possibile usare qualsiasi codice ASN per la configurazione, ma se si seleziona un valore diverso da 65515, è necessario reimpostare il gateway per rendere effettiva la modifica.
 
 ## <a name="configuration-designs"></a>Progetti di configurazione
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurare una VPN da sito a sito come percorso di failover per ExpressRoute

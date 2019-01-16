@@ -5,8 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457290"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052394"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Esempio 1: Creare una rete perimetrale semplice usando gruppi di sicurezza di rete con un modello di Azure Resource Manager
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -51,7 +49,7 @@ Un collegamento nella sezione Riferimenti a un modello di Azure Resource Manager
 
 **Per compilare questo ambiente**. Istruzioni dettagliate sono disponibili nella sezione Riferimenti di questo documento;
 
-1. Distribuire il modello di Azure Resource Manager in [Modelli di avvio rapido di Azure][Template]
+1. Distribuire il modello di Azure Resource Manager in: [Modelli di avvio rapido di Azure][Template]
 2. Installare l'applicazione di esempio in: [Script di applicazione di esempio][SampleApp]
 
 >[!NOTE]
@@ -350,7 +348,7 @@ Per distribuire il modello che usa questo esempio da GitHub e il portale di Azur
 Per rimuovere questa distribuzione, eliminare il gruppo di risorse; verranno eliminate anche tutte le risorse figlio.
 
 #### <a name="sample-application-scripts"></a>Script di applicazione di esempio
-Dopo la corretta esecuzione del modello è possibile configurare il server Web e il server applicazioni con un'applicazione Web di esempio per consentire l'esecuzione di test con questa configurazione della rete perimetrale. Per installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, è possibile trovarne una in [Script di applicazione di esempio][SampleApp]
+Dopo la corretta esecuzione del modello è possibile configurare il server Web e il server applicazioni con un'applicazione Web di esempio per consentire l'esecuzione di test con questa configurazione della rete perimetrale. Per installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, è possibile trovarne una in: [Script di applicazione di esempio][SampleApp]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

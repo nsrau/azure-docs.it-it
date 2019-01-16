@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e5bf7cc199fc8a439b5071faa89cce2e3ed47a75
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e115db18770ef304d823ff9c35d7d2cf302d5ccf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724316"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187763"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalizzazione della lingua in Azure AD B2C
 
@@ -179,7 +179,7 @@ Chrome e Firefox richiedono entrambi la relativa lingua preimpostata. Se è supp
 
 ### <a name="supported-languages"></a>Lingue supportate
 
-| Linguaggio              | Codice lingua |
+| Lingua              | Codice lingua |
 |-----------------------|---------------|
 | Bengalese                | bn            |
 | Ceco                 | cs            |

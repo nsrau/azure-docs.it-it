@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5eb30c65032332825d05097f86d0275b015a8929
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6b02714c3a62e8d11512c1cc2dfc7a75a422441d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057583"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076383"
 ---
 # <a name="containers-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di contenitori
 
@@ -40,7 +40,7 @@ Microsoft supporta attualmente i modelli di licenza BYOL (Bring Your Own License
 |:--- |:--- |  
 | Fatturazione e misurazione | Supporta il modello di fatturazione BYOL o di fatturazione gratuita. |  
 | Immagine creata da Dockerfile | Le immagini del contenitore devono essere basate sulla specifica per immagini Docker e devono essere create da Dockerfile.<ul> <li>Per altre informazioni sulla creazione delle immagini Docker, consultare la sezione Usage (Utilizzo) all'indirizzo [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
-| Hosting nel record di controllo di accesso | Le immagini del contenitore devono essere ospitate in un repository del Registro contenitori di Azure.<ul> <li>Per altre informazioni sull'uso del Registro contenitori di Azure, visitare la pagina Avvio rapido: Creare un registro contenitori con il portale di Azure all'indirizzo [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
+| Hosting nel record di controllo di accesso | Le immagini del contenitore devono essere ospitate in un repository del Registro contenitori di Azure.<ul> <li>Per altre informazioni sull'uso di Registro Azure Container, vedere l'argomento di avvio rapido: Creare un registro contenitori con il portale di Azure all'indirizzo [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
 | Tag di immagine | Le immagini del contenitore devono includere almeno 1 tag (numero massimo di tag: 16).<ul> <li>Per altre informazioni sui tag di immagine, visitare la pagina docker tag all'indirizzo [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 
@@ -48,8 +48,9 @@ Microsoft supporta attualmente i modelli di licenza BYOL (Bring Your Own License
 
 Se non è già stato fatto, 
 
-- [Registrarsi](https://azuremarketplace.microsoft.com/sell) in Marketplace
+- [Registrarsi](https://azuremarketplace.microsoft.com/sell) in Marketplace.
 
 Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
 
-- [Accedere al portale Cloud Partner](https://cloudpartner.azure.com) per creare e completare l'offerta
+- [Accedere al portale Cloud Partner](https://cloudpartner.azure.com) per creare o completare l'offerta.
+- Vedere [Contenitori](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) per altre informazioni.

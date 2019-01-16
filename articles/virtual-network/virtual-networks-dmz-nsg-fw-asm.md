@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdc4885c079a3659d394517f0a10394eff0720c8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23126929"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119154"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Esempio 2: Creare una rete perimetrale per proteggere le applicazioni con un firewall e gruppi di sicurezza di rete
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -31,7 +31,7 @@ Questo esempio illustra come creare una rete perimetrale con un firewall, quattr
 ## <a name="environment-description"></a>Descrizione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
-* Due servizi cloud, "FrontEnd001" e "BackEnd001"
+* Due servizi cloud: "FrontEnd001" e "BackEnd001"
 * Una rete virtuale, "CorpNetwork", con due subnet: "FrontEnd" e "BackEnd"
 * Un singolo gruppo di sicurezza di rete applicato a entrambe le subnet.
 * Un dispositivo virtuale di rete, in questo esempio Barracuda NextGen Firewall, connesso alla subnet FrontEnd
@@ -52,11 +52,11 @@ Per creare l'ambiente, eseguire queste operazioni:
 2. Aggiornare le variabili utente incluse nello script in modo che corrispondano all'ambiente in cui lo script verrà eseguito, ad esempio sottoscrizioni, nomi dei servizi e così via.
 3. Eseguire lo script in PowerShell.
 
-**Nota**: l'area indicata nello script di PowerShell deve corrispondere all'area indicata nel file XML di configurazione di rete.
+**Nota**: L'area indicata nello script di PowerShell deve corrispondere all'area indicata nel file XML di configurazione di rete.
 
 Dopo l'esecuzione corretta dello script, si potranno eseguire i passaggi successivi allo script seguenti:
 
-1. Configurare le regole del firewall illustrate nella sezione seguente intitolata Regole del firewall.
+1. Configurare le regole del firewall illustrate nella sezione seguente intitolata: Regole del firewall.
 2. Facoltativamente, nella sezione Riferimenti sono disponibili due script per configurare il server Web e il server applicazioni per consentire l'esecuzione dei test con questa configurazione della rete perimetrale.
 
 La sezione successiva descrive la maggior parte delle istruzioni dello script relativamente ai gruppi di sicurezza di rete.
@@ -95,7 +95,7 @@ Per creare la regola seguente, o verificare le regole predefinite esistenti, dal
 
 Creare una nuova regola e specificare un nome, ad esempio "WebTraffic". 
 
-L'icona della regola della NAT di destinazione è simile alla seguente: ![Icona NAT di destinazione][2]
+L'icona della regola Destination NAT è simile alla seguente:  ![Icona di Destination NAT][2]
 
 La regola stessa dovrebbe essere simile alla schermata seguente:
 
@@ -427,7 +427,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -568,7 +568,7 @@ Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento 
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Script di applicazione di esempio
-Se si vuole installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, è possibile trovarne una in [Script di applicazione di esempio][SampleApp]
+Per installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, è possibile trovarne una in: [Script di applicazione di esempio][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Rete perimetrale in ingresso con gruppo di sicurezza di rete"

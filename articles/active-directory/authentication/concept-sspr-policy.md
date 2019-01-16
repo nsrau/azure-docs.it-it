@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/08/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d7f364ac5863c70cd0034d9c458e94cfb164cba
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190993"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116960"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
-Questo articolo descrive i criteri password e i requisiti di complessità associati agli account utente archiviati nel tenant di Azure Active Directory (Azure AD).
+Questo articolo descrive i criteri password e i requisiti di complessità associati agli account utente nel tenant di Azure Active Directory (Azure AD).
 
 ## <a name="administrator-reset-policy-differences"></a>Differenze dei criteri di reimpostazione degli amministratori
 
@@ -79,7 +79,7 @@ La tabella seguente descrive le impostazioni disponibili per i criteri password 
 | Proprietà | Requisiti |
 | --- | --- |
 | Caratteri consentiti |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Caratteri non consentiti |<ul><li>Caratteri Unicode.</li><li>Spazi.</li><li> Solo password complesse</li></ul> |
+| Caratteri non consentiti |<ul><li>Caratteri Unicode.</li><li>Spazi.</li><li> Solo password complesse: non possono contenere un punto "." subito prima del simbolo "\@\"".</li></ul> |
 | Restrizioni per le password |<ul><li>Devono avere un numero di caratteri compreso tra 8 e 16.</li><li>Solo password complesse: è necessario soddisfare tre dei quattro requisiti seguenti:<ul><li>Caratteri minuscoli.</li><li>Caratteri maiuscoli.</li><li>Numeri (da 0 a 9).</li><li>Simboli (vedere le restrizioni per le password elencate sopra).</li></ul></li></ul> |
 | Durata di validità della password |<ul><li>Valore predefinito: **90** giorni.</li><li>Il valore può essere configurato con il cmdlet `Set-MsolPasswordPolicy` del modulo di Azure Active Directory per Windows PowerShell.</li></ul> |
 | Notifica della scadenza della password |<ul><li>Valore predefinito: **14** giorni (prima della scadenza della password).</li><li>Il valore può essere configurato con il cmdlet `Set-MsolPasswordPolicy`.</li></ul> |

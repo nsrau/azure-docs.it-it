@@ -8,17 +8,16 @@ ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: ac0e1945e75ee7aea346c103a671b4a47b9e5994
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048615"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017617"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Note sulla versione di Gateway di gestione dati
 > [!NOTE]
@@ -50,7 +49,7 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 ### <a name="enhancements-"></a>Miglioramenti
 -   È possibile aggiungere le voci DNS per aggiungere il bus di servizio all'elenco elementi consentiti, invece di inserire in tale elenco tutti gli indirizzi IP di Azure IP dal firewall (se necessario). Altri dettagli sono disponibili qui.
 -   È ora possibile copiare i dati in/da un singolo BLOB in blocchi fino a 4,75 TB, che corrisponde alle dimensioni massime supportate per i BLOB in blocchi. Il limite precedente era di 195 GB.
--   Corretto: problema relativo alla memoria esaurita durante la decompressione di alcuni file di piccole dimensioni durante l'attività di copia.
+-   Corretto: problema relativo all'esaurimento della memoria durante la decompressione di alcuni file di piccole dimensioni durante l'attività di copia.
 -   Corretto: problema relativo all'indice non compreso nell'intervallo durante la copia da Document DB a un'istanza locale di SQL Server con funzionalità di idempotenza.
 -   Corretto: lo script di pulizia di SQL non funziona con l'istanza locale di SQL Server dalla Copia guidata.
 -   Corretto: il nome di colonna con uno spazio finale non funziona nell'attività di copia.

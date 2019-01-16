@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 478b1352d0bf2eec9af62e519b50e61dea6cc8fc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584877"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158432"
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -103,7 +103,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 ```
 
 #### <a name="example"></a>Esempio
- Questo esempio mostra come eseguire operazioni di filtro sui contenuti rimuovendo elementi di dati dalla risposta ricevuta dal servizio back-end quando si usa il prodotto `Starter`. Per una dimostrazione relativa alla configurazione e all'uso di questo criterio, vedere l'[episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 34:30. Iniziare dal minuto 31:50 per visualizzare una panoramica di [The Dark Sky Forecast API](https://developer.forecast.io/), l'API usata in questa dimostrazione.
+ Questo esempio mostra come eseguire operazioni di filtro sui contenuti rimuovendo elementi di dati dalla risposta ricevuta dal servizio back-end quando si usa il prodotto `Starter`. Per una dimostrazione relativa alla configurazione e all'uso di questi criteri, vedere l'[Episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 34:30. Iniziare dal minuto 31:50 per visualizzare una panoramica di [The Dark Sky Forecast API](https://developer.forecast.io/), l'API usata in questa dimostrazione.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -449,7 +449,7 @@ status code and media type. If no example or schema found, the content is empty.
 > [!NOTE]
 >  Se è specificato solo `interval`, vengono eseguiti tentativi a intervallo **fisso**.
 > Se vengono specificati solo `interval` e `delta`, viene usato un algoritmo di ripetizione a intervalli **lineari**, in cui il tempo di attesa tra i tentativi viene calcolato secondo la formula seguente: `interval + (count - 1)*delta`.
-> Se vengono specificati `interval`, `max-interval` e `delta`,viene applicato un algoritmo di ripetizione a intervalli **esponenziali**, in cui il tempo di attesa tra i tentativi cresce in modo esponenziale dal valore `interval` al valore `max-interval`, secondo la formula seguente: `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
+> Se vengono specificati `interval`, `max-interval` e `delta`, viene applicato un algoritmo di ripetizione a intervalli **esponenziali**, in cui il tempo di attesa tra i tentativi cresce in modo esponenziale dal valore `interval` al valore `max-interval`, secondo la formula seguente: `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti. Si noti che le restrizioni sull'uso dei criteri figlio verranno ereditate da questo criterio.

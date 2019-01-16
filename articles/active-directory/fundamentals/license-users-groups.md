@@ -13,12 +13,12 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6cf3e9a9b767dfaa6f04d151864f64123e3d6ae7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0d3f417b5a169b3d8d91d85b5f47496064c8f5f3
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077462"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063353"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Assegnare o rimuovere licenze usando il portale di Azure Active Directory
 Molti servizi di Azure Active Directory (Azure AD) richiedono l'attivazione di un prodotto Azure AD e la concessione della licenza ai singoli utenti o gruppi (e relativi membri associati) per quel prodotto. Solo gli utenti con licenze attive saranno in grado di eseguire l'accesso e usare i servizi di Azure AD concessi in licenza.
@@ -57,7 +57,8 @@ Per informazioni specifiche su ogni edizione del prodotto e i dettagli di licenz
 ## <a name="assign-licenses-to-users-or-groups"></a>Assegnare licenze a utenti o gruppi
 Verificare che chiunque necessiti di usare un servizio Azure AD concesso in licenza abbia la licenza appropriata. Si può decidere se aggiungere i diritti di licenza ai singoli utenti o a un intero gruppo.
 
->![Nota] La gestione delle licenze basata su gruppi è una funzionalità in anteprima pubblica di Azure AD ed è disponibile con qualsiasi piano di licenza a pagamento di Azure AD. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Per informazioni dettagliate su come aggiungere gli utenti, vedere [Come aggiungere o eliminare utenti in Azure Active Directory](add-users-azure-active-directory.md). Per informazioni dettagliate su come creare gruppi e aggiungervi membri, vedere [Creare un gruppo di base e aggiungere membri](active-directory-groups-create-azure-portal.md).
+>[!Note]
+>La gestione delle licenze basata su gruppi è una funzionalità in anteprima pubblica di Azure AD ed è disponibile con qualsiasi piano di licenza a pagamento di Azure AD. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Per informazioni dettagliate su come aggiungere gli utenti, vedere [Come aggiungere o eliminare utenti in Azure Active Directory](add-users-azure-active-directory.md). Per informazioni dettagliate su come creare gruppi e aggiungervi membri, vedere [Creare un gruppo di base e aggiungere membri](active-directory-groups-create-azure-portal.md).
 
 ### <a name="to-assign-a-license-to-a-specific-user"></a>Per assegnare una licenza a un utente specifico
 1. Nella pagina **Prodotti** selezionare il nome dell'edizione da assegnare all'utente. Ad esempio, _Azure Active Directory Premium - Piano 2_.

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e791514cc25c645775de260e7f190ee20812d4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4a595e4c955b08bda6fcf49b9ca6a050e8440621
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428491"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187502"
 ---
 # <a name="create-relationships"></a>Creare relazioni
 
@@ -25,7 +25,7 @@ Tempo previsto per il completamento della lezione: **10 minuti**
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 3: Contrassegnare come tabella data](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Esaminare le relazioni esistenti e aggiungere nuove relazioni  
-Quando sono stati importati i dati usando Recupera dati, dal database AdventureWorksDW2014 si sono ottenute sette tabelle. In genere, quando si importano dati da un'origine relazionale, le relazioni esistenti vengono importate automaticamente insieme ai dati. Affinché la funzionalità Recupera dati crei automaticamente le relazioni nel modello di dati, deve esserci una relazione tra le tabelle nell'origine dati.
+Quando sono stati importati i dati usando Recupera dati, dal database AdventureWorksDW2014 si sono ottenute sette tabelle. In genere, quando si importano dati da un'origine relazionale, le relazioni esistenti vengono importate automaticamente insieme ai dati. Per consentire alla funzionalità Recupera dati di creare automaticamente relazioni nel modello di dati, devono esistere relazioni tra tabelle nell'origine dati.
 
 Prima di procedere alla creazione del modello, verificare che tali relazioni tra tabelle siano state create in modo appropriato. Per questa esercitazione vengono aggiunte anche tre nuove relazioni.  
 

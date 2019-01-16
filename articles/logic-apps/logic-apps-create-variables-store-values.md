@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231628"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063217"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Creare variabili per salvare e gestire i valori nelle App per la logica di Azure
 
@@ -28,7 +28,10 @@ Questo articolo illustra come archiviare e gestire i valori con l'app per la log
 * Assegnare un valore diverso alla variabile.
 * Inserire o *aggiungere* il valore della variabile come ultima volta in una stringa o matrice.
 
-Le variabili esistono e sono globali solo all'interno dell'istanza dell'app per la logica che le crea. Inoltre persistono in tutte le iterazioni di ciclo all'interno di un'istanza dell'app per la logica. Per fare riferimento a una variabile, usare il nome della variabile come token, non il nome dell'azione, che è il modo usuale per fare riferimento agli output di un'azione.
+Le variabili esistono e sono globali solo all'interno dell'istanza dell'app per la logica che le crea. Inoltre persistono in tutte le iterazioni di ciclo all'interno di un'istanza dell'app per la logica. Per fare riferimento a una variabile, usare il nome della variabile come token, non il nome dell'azione, che è il modo usuale per fare riferimento agli output di un'azione. 
+
+> [!IMPORTANT]
+> Per impostazione predefinita, in una versione di "Foreach" i cicli sono eseguiti in parallelo. Quando si usano le variabili nei cicli, eseguire il ciclo [in sequenza](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) in modo che le variabili restituiscano risultati prevedibili. 
 
 Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>. 
 
@@ -38,7 +41,7 @@ Per seguire questo articolo, ecco gli elementi necessari:
 
 * App per la logica in cui si desidera creare una variabile 
 
-  Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) come primo passo nell'app per la logica 
 
@@ -73,7 +76,7 @@ Per seguire questo articolo, ecco gli elementi necessari:
    |----------|----------|-------|--------------|
    | NOME | Yes | <*variable-name*> | Nome della variabile da incrementare | 
    | type | Yes | <*variable-type*> | Tipo di dati per la variabile | 
-   | Valore | No  | <*start-value*> | Valore iniziale della variabile <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata in modo da conoscere sempre il valore iniziale della variabile. | 
+   | Valore | No  | <*start-value*> | Valore iniziale della variabile <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore iniziale della variabile. | 
    ||||| 
 
    ![Inizializzare una variabile](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -208,7 +211,7 @@ Per aumentare o *incrementare* una variabile di un valore costante aggiungere l'
    | Proprietà | Obbligatoria | Valore |  DESCRIZIONE |
    |----------|----------|-------|--------------|
    | NOME | Yes | <*variable-name*> | Nome della variabile da incrementare | 
-   | Valore | No  | <*increment-value*> | Valore usato per incrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata in modo da conoscere sempre il valore specifico per incrementare la variabile. | 
+   | Valore | No  | <*increment-value*> | Valore usato per incrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore specifico per incrementare la variabile. | 
    |||| 
 
    Ad esempio:  
@@ -232,7 +235,7 @@ Passando dalla finestra di progettazione all'editor di visualizzazione del codic
 },
 ```
 
-## <a name="example-create-loop-counter"></a>Esempio: Creazione del contatore di cicli
+## <a name="example-create-loop-counter"></a>Esempio: Creare il contatore di cicli
 
 Le variabili vengono comunemente usate per contare il numero di volte in cui viene eseguito un ciclo. Questo esempio mostra come creare e usare le variabili per questa attività creando un ciclo che conta gli allegati in un'email.
 
@@ -328,7 +331,7 @@ Ecco le proprietà per l'azione **Decrementare una variabile**:
 | Proprietà | Obbligatoria | Valore |  DESCRIZIONE |
 |----------|----------|-------|--------------|
 | NOME | Yes | <*variable-name*> | Nome della variabile da decrementare | 
-| Valore | No  | <*increment-value*> | Valore per decrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata in modo da conoscere sempre il valore specifico per decrementare la variabile. | 
+| Valore | No  | <*increment-value*> | Valore per decrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore specifico per decrementare la variabile. | 
 ||||| 
 
 Passando dalla finestra di progettazione all'editor di visualizzazione del codice, ecco come viene visualizzata l'azione **Decrementare una variabile** all'interno della definizione dell'app per la logica, nel formato JSON.

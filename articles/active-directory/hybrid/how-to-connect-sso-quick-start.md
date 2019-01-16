@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Accesso Single Sign-On facile - avvio rapido| Microsoft Docs'
+title: 'Azure AD Connect: Accesso Single Sign-On facile - Avvio rapido | Microsoft Docs'
 description: Questo articolo descrive come iniziare a usare l'accesso Single Sign-On facile di Azure Active Directory.
 services: active-directory
 keywords: che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 2a842646d2696c0d7d26ad7218d298d2df0be1a1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687334"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187639"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
+# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: Avvio rapido
 
 ## <a name="deploy-seamless-single-sign-on"></a>Distribuire l'accesso Single Sign-On facile
 
@@ -34,7 +34,7 @@ Per distribuire l'accesso SSO facile, seguire questa procedura.
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
-* **Configurare il server Azure AD Connect**: se come metodo di accesso si usa l'[autenticazione pass-through](how-to-connect-pta.md), non sono necessari altri controlli dei prerequisiti. Se si usa invece la [sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md) e se è presente un firewall tra Azure AD Connect e Azure AD:
+* **Configurare il server di Azure AD Connect**: se come metodo di accesso si usa l'[autenticazione pass-through](how-to-connect-pta.md), non sono necessari altri controlli dei prerequisiti. Se si usa invece la [sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md) e se è presente un firewall tra Azure AD Connect e Azure AD:
    - Usare Azure AD Connect 1.1.644.0 o versioni successive. 
    - Se il firewall o il proxy consente l'inserimento di DNS nell'elenco elementi consentiti, aggiungere all'elenco le connessioni agli URL di **\*.msappproxy.net** tramite la porta 443. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana. Questo prerequisito è applicabile solo quando si abilita la funzionalità. Non è necessario per gli accessi utente effettivi.
 
@@ -46,11 +46,11 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
     >[!NOTE]
     >L'accesso Seamless SSO supporta più foreste di AD in presenza di trust di AD o meno.
 
-* **Configurare le credenziali dell'amministratore di dominio**: è necessario disporre di credenziali dell'amministratore di dominio per ogni foresta di Active Directory che:
+* **Configurare le credenziali dell'amministratore di dominio**: è necessario avere le credenziali dell'amministratore di dominio per ogni foresta di Active Directory che:
     * Si sincronizza con Azure AD tramite Azure AD Connect.
     * Contiene gli utenti che si intende abilitare per l'accesso SSO facile.
     
-* **Abilitare l'autenticazione moderna**: per eseguire questa funzionalità è necessario abilitare l'[autenticazione moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) sul proprio tenant.
+* **Abilitare l'autenticazione moderna**: per il corretto funzionamento di questa funzionalità è necessario abilitare l'[autenticazione moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) nel tenant.
 
 * **Usare le versioni più recenti dei client di Office 365**: per ottenere un'esperienza di accesso invisibile all'utente con i client di Office 365 (Outlook, Word, Excel e altri), gli utenti devono usare le versioni 16.0.8730.xxxx o successive.
 
@@ -88,7 +88,7 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 3. Selezionare **Azure AD Connect**.
 4. Verificare che la funzionalità **Accesso Single Sign-On facile** sia impostata su **Abilitato**.
 
-![Portale di Azure: riquadro Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
+![Portale di Azure: riquadro di Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
 > L'accesso Single Sign-On facile crea un account computer denominato `AZUREADSSOACC`, che rappresenta Azure AD, in Active Directory (AD) locale in ciascuna foresta di AD. Questo account computer è necessario per poter usare questa funzionalità. In caso di uso delle architetture Pass-the-Hash e Credential Theft Mitigation nell'ambiente locale, assicurarsi che l'account computer denominato `AZUREADSSOACC` non venga inserito nel contenitore Quarantine. Apportare le modifiche appropriate per creare l'account computer nel contenitore Computers. Dopo aver abilitato l'accesso Seamless SSO nella procedura guidata di Azure AD Connect, spostare l'account computer denominato `AZUREADSSOACC` in un'unità organizzativa in cui vengono gestiti altri account computer per assicurarsi che non venga eliminato per errore.
@@ -97,7 +97,7 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 
 È possibile distribuire gradualmente la funzionalità Accesso Single Sign-On facile agli utenti usando le istruzioni seguenti. Prima di tutto, aggiungere l'URL di Azure AD seguente alle impostazioni dell'area Intranet di tutti gli utenti o di quelli selezionati usando Criteri di gruppo in Active Directory:
 
-- https://autologon.microsoftazuread-sso.com
+- `https://autologon.microsoftazuread-sso.com`
 
 Inoltre, attraverso Criteri di gruppo è necessario abilitare l'impostazione **Consenti aggiornamenti alla barra di stato tramite script** relativa ai criteri dell'area Intranet. 
 
@@ -106,7 +106,7 @@ Inoltre, attraverso Criteri di gruppo è necessario abilitare l'impostazione **C
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Motivo per cui è necessario modificare le impostazioni della zona Intranet degli utenti
 
-Per impostazione predefinita, il browser calcola automaticamente l'area corretta, Internet o Intranet, in base a un URL specifico. Ad esempio, "http://contoso/" esegue il mapping all'area Intranet, mentre "http://intranet.contoso.com/" esegue il mapping all'area Internet perché l'URL contiene un punto. I browser non invieranno ticket Kerberos a un endpoint del cloud, come l'URL di Azure AD, a meno che l'URL in questione non venga esplicitamente aggiunto all'area Intranet del browser.
+Per impostazione predefinita, il browser calcola automaticamente l'area corretta, Internet o Intranet, in base a un URL specifico. Ad esempio, `http://contoso/` esegue il mapping all'area Intranet, mentre `http://intranet.contoso.com/` esegue il mapping all'area Internet (perché l'URL contiene un punto). I browser non invieranno ticket Kerberos a un endpoint del cloud, come l'URL di Azure AD, a meno che l'URL in questione non venga esplicitamente aggiunto all'area Intranet del browser.
 
 È possibile modificare le impostazioni dell'area Intranet degli utenti in due modi:
 
@@ -122,12 +122,12 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 3. Passare a **Configurazione utente** > **Modelli amministrativi** > **Componenti di Windows** > **Internet Explorer** > **Pannello di controllo Internet** > **Scheda Sicurezza**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Abilitare i criteri e quindi immettere i valori seguenti nella finestra di dialogo:
-   - **Nome valore**: l'URL di Azure AD a cui vengono inoltrati i ticket Kerberos.
+   - **Nome valore**: è l'URL di Azure AD a cui vengono inoltrati i ticket Kerberos.
    - **Valore** (dati): **1** indica l'area Intranet.
 
     Il risultato sarà analogo a questo:
 
-    Nome valore: https://autologon.microsoftazuread-sso.com
+    Nome valore: `https://autologon.microsoftazuread-sso.com`
   
     Valore (dati): 1
 
@@ -158,7 +158,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 4. Immettere i valori seguenti nei campi appropriati e fare clic su **OK**.
    - **Percorso chiave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
    - **Nome valore**: ***https***.
-   - **Tipo di valore**: ***REG_DWORD***.
+   - **Tipo valore**: ***REG_DWORD***.
    - **Dati valore**: ***00000001***.
  
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
@@ -181,7 +181,7 @@ Mozilla Firefox non usa automaticamente l'autenticazione Kerberos. Ogni utente d
 1. Eseguire Firefox e immettere `about:config` nella barra degli indirizzi. Eliminare tutte le notifiche visualizzate.
 2. Cercare la preferenza **network.negotiate-auth.trusted-uris**. Questa preferenza elenca i siti attendibili di Firefox per l'autenticazione Kerberos.
 3. Fare clic con il pulsante destro del mouse e scegliere **Modify**.
-4. Immettere https://autologon.microsoftazuread-sso.com nel campo.
+4. Immettere `https://autologon.microsoftazuread-sso.com` nel campo.
 5. Fare clic su **OK** e quindi riaprire il browser.
 
 #### <a name="safari-macos"></a>Safari (macOS)
@@ -190,7 +190,7 @@ Verificare che il computer che esegue macOS sia stato aggiunto ad AD. Le istruzi
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (tutte le piattaforme)
 
-Se nel proprio ambiente si è scelto di ignorare le impostazioni dei criteri [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist), assicurarsi di aggiungervi anche l'URL di Azure AD (https://autologon.microsoftazuread-sso.com).
+Se nell'ambiente in uso si è scelto di ignorare le impostazioni dei criteri [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist), aggiungere a tali impostazioni anche l'URL di Azure AD (`https://autologon.microsoftazuread-sso.com`).
 
 #### <a name="google-chrome-macos-only"></a>Google Chrome (solo macOS)
 
@@ -200,7 +200,7 @@ L'uso di estensioni di terze parti di Criteri di gruppo di Active Directory per 
 
 #### <a name="known-browser-limitations"></a>Limitazioni note dei browser
 
-L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox e nel browser Microsoft Edge. Non funziona nemmeno in Internet Explorer se il browser è in esecuzione in modalità protetta avanzata.
+L'accesso SSO facile non funziona in modalità di esplorazione privata nei browser Firefox e Microsoft Edge. Non funziona nemmeno in Internet Explorer se il browser è in esecuzione in modalità protetta avanzata.
 
 ## <a name="step-4-test-the-feature"></a>Passaggio 4: Testare la funzionalità
 
@@ -211,15 +211,15 @@ Per testare la funzionalità per un utente specifico, verificare che siano soddi
   - La [funzionalità è stata distribuita](##step-3-roll-out-the-feature) all'utente tramite Criteri di gruppo.
 
 Per testare lo scenario in cui l'utente immette solo il nome utente ma non la password:
-   - Accedere a https://myapps.microsoft.com/ in una nuova sessione privata del browser.
+   - Accedere a `https://myapps.microsoft.com/` in una nuova sessione privata del browser.
 
 Per testare lo scenario in cui l'utente non è obbligato a immettere il nome utente o la password, seguire una di queste procedure: 
-   - Accedere a https://myapps.microsoft.com/contoso.onmicrosoft.com in una nuova sessione privata del browser. Sostituire *contoso* con il nome del tenant.
-   - Accedere a https://myapps.microsoft.com/contoso.com in una nuova sessione privata del browser. Sostituire *contoso.com* con un dominio verificato, non federato, nel tenant.
+   - Accedere a `https://myapps.microsoft.com/contoso.onmicrosoft.com` in una nuova sessione privata del browser. Sostituire *contoso* con il nome del tenant.
+   - Accedere a `https://myapps.microsoft.com/contoso.com` in una nuova sessione privata del browser. Sostituire *contoso.com* con un dominio verificato, non federato, nel tenant.
 
 ## <a name="step-5-roll-over-keys"></a>Passaggio 5: Rinnovare le chiavi
 
-Nel passaggio 2 Azure AD Connect crea account computer, che rappresentano Azure AD, in tutte le foreste di Active Directory in cui è stato abilitato l'accesso SSO facile. Per altre informazioni, vedere [Accesso Single Sign-On facile di Azure Active Directory: approfondimento tecnico](how-to-connect-sso-how-it-works.md).
+Nel passaggio 2 Azure AD Connect crea account computer, che rappresentano Azure AD, in tutte le foreste di Active Directory in cui è stato abilitato l'accesso SSO facile. Per altre informazioni, vedere [Accesso Single Sign-On facile di Azure Active Directory: Approfondimento tecnico](how-to-connect-sso-how-it-works.md).
 
 >[!IMPORTANT]
 >In caso di perdita, la chiave di decrittografia Kerberos su un account computer può essere usata per generare ticket Kerberos per qualsiasi utente nella relativa foresta AD. Eventuali attori malintenzionati possono quindi rappresentare gli accessi di Azure AD per gli utenti di cui è stata compromessa la chiave. È altamente consigliabile eseguire periodicamente il rollover delle chiavi di decrittografia di Kerberos, almeno ogni 30 giorni.
@@ -233,5 +233,5 @@ Per istruzioni su come rinnovare le chiavi, vedere [Accesso Single Sign-On facil
 
 - [Approfondimento tecnico](how-to-connect-sso-how-it-works.md): comprendere come funziona l'accesso Single Sign-On facile.
 - [Domande frequenti](how-to-connect-sso-faq.md): ottenere risposte alle domande frequenti sull'accesso Single Sign-On facile.
-- [Risoluzione dei problemi](tshoot-connect-sso.md): apprendere come risolvere i problemi comuni relativi alla funzionalità di accesso Single Sign-On facile.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.
+- [Risolvere i problemi](tshoot-connect-sso.md): informazioni su come risolvere i problemi comuni relativi all'accesso Single Sign-On facile.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): come usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.

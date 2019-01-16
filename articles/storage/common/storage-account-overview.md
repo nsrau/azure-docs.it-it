@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2940e1d8328ffaea799ddff4afc9669aaa85a2f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255763"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065631"
 ---
 # <a name="azure-storage-account-overview"></a>Panoramica dell'account di archiviazione di Azure
 
@@ -23,33 +23,13 @@ Per informazioni su come creare un account di archiviazione di Azure, vedere [Cr
 
 ## <a name="types-of-storage-accounts"></a>Tipi di account di archiviazione
 
-Archiviazione di Azure offre tre tipi di account di archiviazione. Ogni tipo supporta caratteristiche diverse e ha uno specifico modello di prezzi. È importante tenere in considerazione tali differenze prima di creare un account di archiviazione per determinare il tipo di account ottimale per le proprie applicazioni. I tipi di account di archiviazione sono i seguenti:
-
-* **[Account per utilizzo generico v2](#general-purpose-v2-accounts)** (scelta consigliata per la maggior parte degli scenari)
-* **[Account per utilizzo generico v1](#general-purpose-v1-accounts)**
-* **[Account di archiviazione BLOB](#blob-storage-accounts)** 
-
-Nella tabella seguente sono descritti i tipi di account di archiviazione e le relative funzionalità:
-
-| Tipo di account di archiviazione | Servizi supportati                       | Livelli di prestazioni supportati | Livelli di accesso supportati               | Opzioni di replica                                                | Modello di distribuzione<sup>1</sup>  | Crittografia<sup>2</sup> |
-|----------------------|------------------------------------------|-----------------------------|--------------------------------------|--------------------------------------------------------------------|-------------------|------------|
-| Utilizzo generico v2   | BLOB, file, coda, tabella e disco       | Standard, Premium           | Accesso frequente, accesso sporadico, archivio<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Gestione risorse | Crittografato  |
-| Utilizzo generico v1   | BLOB, file, coda, tabella e disco       | Standard, Premium           | N/D                                  | LRS, GRS, RA-GRS                                                   | Resource Manager, classica  | Crittografato  |
-| Archiviazione BLOB         | BLOB (solo BLOB in blocchi e BLOB di accodamento) | Standard                    | Accesso frequente, accesso sporadico, archivio<sup>3</sup>                            | LRS, GRS, RA-GRS                                                   | Gestione risorse  | Crittografato  |
-
-<sup>1</sup>È consigliabile usare il modello di distribuzione Azure Resource Manager. Gli account di archiviazione che usano il modello di distribuzione classico possono comunque essere creati in alcune posizioni e gli account classici esistenti continuano a essere supportati. Per altre informazioni, vedere [Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse](../../azure-resource-manager/resource-manager-deployment-model.md).
-
-<sup>2</sup>Tutti gli account di archiviazione sono crittografati tramite Crittografia del servizio di archiviazione per i dati inattivi. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md).
-
-<sup>3</sup>Il livello archivio è disponibile solo a livello di singolo BLOB, non a livello di account di archiviazione. Possono essere archiviati solo i BLOB in blocchi e i BLOB di accodamento. Per altre informazioni, vedere [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
-
-<sup>4</sup>L'archiviazione con ridondanza della zona (ZRS) è disponibile solo per gli account di archiviazione standard per utilizzo generico v2. Per altre informazioni sull'archiviazione con ridondanza della zona, vedere [Archiviazione con ridondanza della zona: applicazioni di Archiviazione Azure a disponibilità elevata](storage-redundancy-zrs.md). Per altre informazioni sulle altre opzioni di replica, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ### <a name="general-purpose-v2-accounts"></a>Account per utilizzo generico v2
 
 Gli account di archiviazione per utilizzo generico v2 supportano le funzionalità di archiviazione di Azure più recenti e incorporano tutte le funzionalità degli account di archiviazione BLOB e per utilizzo generico v1. Gli account per utilizzo generico v2 offrono i prezzi per gigabyte più bassi per Archiviazione di Azure, oltre a prezzi per transazione competitivi a livello di settore. Gli account di archiviazione per utilizzo generico v2 supportano i servizi di archiviazione di Azure seguenti:
 
-- BLOB (tutti i tipi: blocchi, accodamento, pagina)
+- BLOB (tutti i tipi: in blocchi, di accodamento e di pagine)
 - File
 - Dischi
 - Queues
@@ -98,7 +78,7 @@ Quando si assegna un nome all'account di archiviazione, tenere presenti queste r
 Gli account di archiviazione per utilizzo generico possono essere configurati per uno dei livelli di prestazioni seguenti:
 
 * Un livello di prestazioni standard per l'archiviazione di BLOB, file, tabelle, code e dischi delle macchine virtuali di Azure.
-* Un livello di prestazioni Premium per l'archiviazione solo dei dischi delle macchine virtuali di Azure. Per una panoramica approfondita del servizio di archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../virtual-machines/windows/premium-storage.md) .
+* Un livello di prestazioni Premium per l'archiviazione solo dei dischi delle macchine virtuali di Azure. Vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../virtual-machines/windows/premium-storage.md) per una panoramica approfondita del servizio di archiviazione Premium.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Livelli di accesso per i dati BLOB in blocchi
 
@@ -114,7 +94,7 @@ I livelli di accesso disponibili sono i seguenti:
 * Il livello **archivio**, che è disponibile solo per singoli BLOB in blocchi. Il livello archivio è ottimizzato per i dati che possono tollerare alcune ore di latenza di recupero e rimarranno nel livello archivio per almeno 180 giorni. Il livello archivio è l'opzione più conveniente per l'archiviazione dei dati, ma l'accesso ai dati è più costoso rispetto ai livelli ad accesso frequente o ad accesso sporadico. 
 
 
-Se il modello di utilizzo dei dati cambia, è possibile passare da uno di questi livelli di accesso all'altro in qualsiasi momento. Per altre informazioni sui livelli di accesso, vedere [Archivio BLOB di Azure: livelli di archiviazione Premium (anteprima), ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
+Se il modello di utilizzo dei dati cambia, è possibile passare da uno di questi livelli di accesso all'altro in qualsiasi momento. Per altre informazioni sui livelli di accesso, vedere [Archiviazione BLOB di Azure: livelli di archiviazione Premium (anteprima), ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > La modifica del livello di accesso per un account di archiviazione o un BLOB esistente può comportare costi aggiuntivi. Per altre informazioni, vedere la sezione [Fatturazione dell'account di archiviazione](#storage-account-billing).
@@ -157,7 +137,7 @@ Ogni richiesta effettuata all'account di archiviazione deve essere autorizzata. 
 
 È possibile concedere l'accesso ai dati nell'account di archiviazione usando uno degli approcci seguenti:
 
-- **Azure Active Directory:** usare le credenziali di Azure Active Directory (Azure AD) per autenticare un utente, gruppo o un'altra identità per l'accesso ai dati BLOB e della coda (anteprima). Se l'autenticazione di un'identità ha esito positivo, Azure AD restituisce un token da usare per l'autorizzazione della richiesta con l'archiviazione BLOB di Azure o con l'archiviazione code. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory (anteprima)](storage-auth-aad.md).
+- **Azure Active Directory:** usare le credenziali di Azure Active Directory (Azure AD) per autenticare un utente, un gruppo o un'altra identità per l'accesso ai dati BLOB e della coda (anteprima). Se l'autenticazione di un'identità ha esito positivo, Azure AD restituisce un token da usare per l'autorizzazione della richiesta con l'archiviazione BLOB di Azure o con l'archiviazione code. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory (anteprima)](storage-auth-aad.md).
 - **Autorizzazione con chiave condivisa:** usare la chiave di accesso dell'account di archiviazione per creare una stringa di connessione usata dall'applicazione in fase di esecuzione per accedere ad Archiviazione di Azure. I valori nella stringa di connessione vengono usati per creare l'intestazione *Autorizzazione* che viene passata ad Archiviazione di Azure. Per altre informazioni, vedere [Configurare le stringhe di connessione di Archiviazione di Azure](storage-configure-connection-string.md).
 - **Firma di accesso condiviso:** usare una firma di accesso condiviso per delegare l'accesso alle risorse nell'account di archiviazione, se non si usa l'autenticazione di Azure AD. Una firma di accesso condiviso è un token che incapsula nell'URL tutte le informazioni necessarie per autorizzare una richiesta ad Archiviazione di Azure. È possibile specificare la risorsa di archiviazione, le autorizzazioni concesse e l'intervallo per cui sono valide le autorizzazioni come parte della firma di accesso condiviso. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 

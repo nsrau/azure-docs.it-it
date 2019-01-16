@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dbd97ba8faacdc387a6e0b78c206f65a201ca246
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261548"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074088"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servizi di consulenza per Azure Marketplace e AppSource
 I Servizi di consulenza in Azure Marketplace e AppSource consentono ai partner Microsoft di connettere i clienti con servizi per supportare ed estendere l'uso di Azure e gli obiettivi aziendali. 
@@ -66,8 +66,8 @@ I partner devono avere **competenze Silver o Gold** nell'area pertinente al serv
 |Prodotto principale |Requisito di idoneità |
 |---------|---------|
 | Dynamics 365 for Customer Engagement    |   Competenza Silver o Gold di [Cloud Customer Relationship Management](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).    | 
-|Dynamics 365 for Finance and Operations, Enterprise edition  |  Competenza Silver o Gold di [Enterprise Resource Planning](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) e un fatturato minimo di $ 25.000 derivante dalle operazioni cloud degli ultimi 12 mesi.       |
-|Dynamics 365 for Finance and Operations, Business edition  |  Aver operato come [Provider di servizi Cloud (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) o come [Digital POR (Partner of Record)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) per almeno un cliente      |
+|Dynamics 365 for Finance and Operations, Enterprise edition  |  Competenza Silver o Gold di [Enterprise Resource Planning](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e un fatturato minimo di $ 25.000 derivante dalle operazioni cloud degli ultimi 12 mesi.       |
+|Dynamics 365 for Finance and Operations, Business edition  |  Aver operato come [Provider di servizi Cloud (CSP)](https://partner.microsoft.com/cloud-solution-provider) o come [Digital POR (Partner of Record)](https://partner.microsoft.com/membership/digital-partner-of-record) per almeno un cliente      |
 |Power BI, oggetti visivi personalizzati di Power BI | Soddisfare i [criteri di Partner di soluzioni](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
 |PowerApps | Avere pubblicato una soluzione di [presentazione dei partner]()
 
@@ -87,7 +87,7 @@ I partner devono avere **competenze Silver o Gold** nell'area pertinente al serv
 Il lancio dei servizi di consulenza avverrà nell'area geografica specifica. Il primo lancio sarà in: Stati Uniti, Canada, Regno Unito e Australia. I cataloghi per gli altri paesi verranno attivati dopo che i partner avranno inviato e Microsoft avrà approvato un numero significativo e una selezione accattivante di offerte di servizi.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Come effettuare la registrazione ai servizi di consulenza in Azure Marketplace e AppSource
-Iniziare [registrando](https://azuremarketplace.microsoft.com/en-us/sell/signup) le informazioni sulla società nel marketplace. Gli editori possono fare riferimento a [Diventare un editore nel Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) per un elenco di controllo completo dei requisiti di registrazione. 
+Iniziare [registrando](https://azuremarketplace.microsoft.com/sell/signup) le informazioni sulla società nel marketplace. Gli editori possono fare riferimento a [Diventare un editore nel Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) per un elenco di controllo completo dei requisiti di registrazione. 
 
 **Cosa aspettarsi dopo la registrazione** Il team di onboarding si metterà in contatto entro 1-3 giorni lavorativi con un messaggio di benvenuto che include le informazioni di accesso al portale Cloud Partner. Il [portale Cloud Partner](https://cloudpartner.azure.com) è il portale di inserzione delle offerte in cui gli editori inviano informazioni di presentazione e invii. 
 
@@ -130,18 +130,18 @@ L'inserzione dell'offerta del servizio di consulenza in Azure Marketplace e AppS
 Le offerte devono essere di uno dei cinque tipi di servizi seguenti (è possibile elencarne più di uno): 
 
 * **Valutazione:** valutazione dell'ambiente di un cliente per determinare l'applicabilità di una soluzione e fornire una stima dei costi e delle tempistiche. 
-* **Briefing**: introduzione a una soluzione o a un servizio di consulenza per suscitare l'interesse del cliente con framework, demo ed esempi di clienti. 
-* **Implementazione:** installazione completa che fornisce una soluzione perfettamente funzionante. È consigliabile limitarla alle soluzioni implementabili in non più di due settimane. 
+* **Briefing:** introduzione a una soluzione o a un servizio di consulenza per suscitare l'interesse del cliente con framework, demo ed esempi di clienti. 
+* **Implementazione**: installazione completa che fornisce una soluzione perfettamente funzionante. È consigliabile limitarla alle soluzioni implementabili in non più di due settimane. 
 * **Modello di verifica:** implementazione di ambito limitato per determinare se una soluzione soddisfa i requisiti del cliente. 
-* **Workshop**: impegno interattivo condotto presso la sede di un cliente. Può includere training, briefing, valutazioni o demo basati sui dati o sull'ambiente del cliente. 
+* **Workshop:** impegno interattivo condotto presso la sede di un cliente. Può includere training, briefing, valutazioni o demo basati sui dati o sull'ambiente del cliente. 
 
-**Nota:** fatta eccezione per il tipo di servizio *Briefing*, i servizi di consulenza possono essere offerti di persona (ovvero in loco presso la sede di un cliente o la struttura di un partner) o virtualmente (ovvero tramite teleconferenza, conferenza Web o implementazione remota). I briefing devono essere offerti di persona.
+**Nota:** Fatta eccezione per il tipo di servizio *Briefing*, i servizi di consulenza possono essere offerti di persona (ovvero in loco presso la sede di un cliente o la struttura di un partner) o virtualmente (ovvero tramite teleconferenza, conferenza Web o implementazione remota). I briefing devono essere offerti di persona.
 
 Dopo aver configurato gli elementi obbligatori elencati sopra, il team di revisione del contenuto verificherà che la descrizione dell'offerta sia completa e offra sufficienti informazioni ai destinatari. 
 
 #### <a name="listing-title"></a>Titolo offerta
 
-Il campo del titolo ha un limite di 50 caratteri e deve trasmettere la durata e il tipo di servizio dell'offerta per sfruttare al massimo l'ottimizzazione motore di ricerca. Il formato da seguire è NOME: TIPO DI DURATA
+Il campo del titolo ha un limite di 50 caratteri e deve trasmettere la durata e il tipo di servizio dell'offerta per sfruttare al massimo l'ottimizzazione motore di ricerca. Il formato da seguire è il seguente: NOME: TIPO DI DURATA
 
 Esempi:
 
@@ -150,7 +150,7 @@ Esempi:
 |---------|---------|
 |Introduzione ad Azure IoT nel settore della produzione    |   IoT nel settore della produzione: valutazione di 2 giorni      |
 |Workshop sui toaster intelligenti        |  Toaster intelligenti: workshop di 1 settimana       |
-|  Modello di verifica della migrazione a SQL    | Migrazione a SQL: modello di verifica di 3 settimane        |
+|  Modello di verifica della migrazione a SQL    | Migrazione a SQL: modello di verifica di 3 giorni        |
 
 #### <a name="listing-summaries-and-descriptions"></a>Riepiloghi e descrizioni delle offerte
 
@@ -180,8 +180,9 @@ Nel portale Cloud Partner è possibile aggiungere la formattazione all'inserzion
 
 Se non è già stato fatto, 
 
-- [Registrarsi](https://azuremarketplace.microsoft.com/sell) in Marketplace
+- [Registrarsi](https://azuremarketplace.microsoft.com/sell) in Marketplace.
 
 Se si è registrati e si utilizza il portale Cloud Partner, 
 
-- [Accedere al portale Cloud Partner](https://cloudpartner.azure.com) per creare e completare l'offerta
+- [Accedere al portale Cloud Partner](https://cloudpartner.azure.com) per creare o completare l'offerta.
+- Per altre informazioni vedere [Offerta di servizi di consulenza per Azure e Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer).

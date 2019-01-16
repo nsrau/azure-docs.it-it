@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 74a5d687535915fab7d518faaf916b98ab262c4b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 731df55a11f4671670a65dac8a83927d81da454c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053899"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015798"
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Attività Wait in Azure Data Factory
 Quando si usa un'attività Wait in una pipeline, la pipeline attende per il periodo di tempo specificato prima di proseguire con l'esecuzione delle attività successive. 
@@ -40,9 +39,9 @@ Quando si usa un'attività Wait in una pipeline, la pipeline attende per il peri
 
 Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività `Wait`. | string | Sì
-type | Deve essere impostata su **Wait**. | string | Sì
-waitTimeInSeconds | Numero di secondi di attesa prima che la pipeline continui con l'elaborazione. | Integer | Sì
+name | Nome dell'attività `Wait`. | string | Yes
+type | Deve essere impostata su **Wait**. | string | Yes
+waitTimeInSeconds | Numero di secondi di attesa prima che la pipeline continui con l'elaborazione. | Integer | Yes
 
 ## <a name="example"></a>Esempio
 
@@ -50,7 +49,7 @@ waitTimeInSeconds | Numero di secondi di attesa prima che la pipeline continui c
 > Questa sezione include le definizioni JSON e i comandi di PowerShell di esempio per eseguire la pipeline. Per la procedura dettagliata di creazione di una pipeline di Data Factory tramite Azure PowerShell e le definizioni JSON, vedere [Esercitazione: Creare una data factory con Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-wait-activity"></a>Pipeline con attività Wait
-In questo esempio nella pipeline sono presenti due attività: **Until** e **Wait**. L'attività Wait è configurata per attendere un secondo. La pipeline esegue l'attività Web in un ciclo con un periodo di attesa di un secondo tra un'esecuzione e l'altra. 
+In questo esempio, la pipeline include due attività: **Until** e **Wait**. L'attività Wait è configurata per attendere un secondo. La pipeline esegue l'attività Web in un ciclo con un periodo di attesa di un secondo tra un'esecuzione e l'altra. 
 
 ```json
 {

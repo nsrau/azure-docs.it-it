@@ -1,18 +1,17 @@
 ---
-title: Panoramica del routing di contenuti basato su URL | Documentazione Microsoft
-description: Questa pagina fornisce una panoramica del routing di contenuti basato su URL del gateway applicazione, della configurazione UrlPathMap e della regola PathBasedRouting.
+title: Panoramica del routing di contenuti basato su URL nel gateway applicazione di Azure
+description: Questa pagina fornisce una panoramica del routing di contenuti basato su URL del gateway applicazione di Azure, della configurazione UrlPathMap e della regola PathBasedRouting.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: bc123307a3cc3a5040e93e517c60604dc75fc7e7
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218424"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188760"
 ---
 # <a name="url-path-based-routing-overview"></a>Panoramica del routing basato su percorso URL
 
@@ -20,7 +19,7 @@ Il routing basato su percorso URL consente di instradare il traffico a pool di s
 
 Uno degli scenari è l'instradamento delle richieste di tipi di contenuto diversi a pool di server back-end diversi.
 
-Nell'esempio seguente, il gateway applicazione soddisfa le richieste di traffico per contoso.com dai tre pool di server back-end, ad esempio VideoServerPool, ImageServerPool e DefaultServerPool.
+Nell'esempio seguente, il gateway applicazione soddisfa le richieste di traffico per contoso.com dai tre pool di server back-end, ad esempio: VideoServerPool, ImageServerPool e DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
@@ -62,8 +61,37 @@ L'elemento UrlPathMap consente di specificare modelli di percorso dei mapping de
 }]
 ```
 
-> [!NOTE]
-> PathPattern: questa impostazione è un elenco dei modelli di percorso usati per la corrispondenza. Ognuno deve iniziare con una barra / e l'unica posizione in cui è consentito il carattere "*" è alla fine dopo "/". La stringa inviata al selettore di percorsi non include alcun testo dopo il primo carattere ? o # e questi caratteri non sono consentiti. Tutti i caratteri consentiti in un URL sono consentiti in PathPattern.
+### <a name="pathpattern"></a>PathPattern
+
+PathPattern è un elenco di modelli di percorso usati per la corrispondenza. Ognuno deve iniziare con una barra / e l'unica posizione in cui è consentito il carattere "*" è alla fine dopo "/". La stringa inviata al selettore di percorsi non include alcun testo dopo il primo carattere ? o # e questi caratteri non sono consentiti. Tutti i caratteri consentiti in un URL sono consentiti in PathPattern.
+
+I modelli supportati variano a seconda che si distribuisca il gateway applicazione v1 o v2:
+
+#### <a name="v1"></a>v1
+
+Le regole di percorso non fanno distinzione tra maiuscole e minuscole.
+
+|Modello di percorso v1  |È supportato?  |
+|---------|---------|
+|`/images/*`     |Sì|
+|`/images*`     |no|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
+|`/CurrentUser/Comments/*`     |Sì|
+
+#### <a name="v2"></a>v2
+
+Le regole di percorso fanno distinzione tra maiuscole e minuscole.
+
+|Modello di percorso v2  |È supportato?  |
+|---------|---------|
+|`/images/*`     |Sì|
+|`/images*`     |Sì|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
+|`/CurrentUser/Comments/*`     |Sì|
 
 Per altre informazioni, vedere un [modello di Azure Resource Manager che usa il routing basato su URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) .
 

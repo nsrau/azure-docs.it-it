@@ -8,19 +8,18 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: douglasl
-ms.openlocfilehash: abe2fabc505f94f19d4b15a406fc59bf6d6e7ac1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a25505a976be9d9ae38f562591d86ca9b56b8859
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050336"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025613"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività Spark in Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-spark.md)
 > * [Versione corrente](transform-data-using-spark.md)
 
@@ -63,18 +62,18 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella de
 
 | Proprietà              | DESCRIZIONE                              | Obbligatoria |
 | --------------------- | ---------------------------------------- | -------- |
-| name                  | Nome dell'attività nella pipeline.    | Sì      |
+| name                  | Nome dell'attività nella pipeline.    | Yes      |
 | description           | Testo che descrive l'attività.  | No        |
-| type                  | Per l'attività Spark il tipo corrisponde a HDInsightSpark. | Sì      |
-| linkedServiceName     | Nome del servizio collegato di HDInsight Spark in cui viene eseguito il programma Spark. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
+| type                  | Per l'attività Spark il tipo corrisponde a HDInsightSpark. | Yes      |
+| linkedServiceName     | Nome del servizio collegato di HDInsight Spark in cui viene eseguito il programma Spark. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Yes      |
 | SparkJobLinkedService | Il servizio collegato di archiviazione di Azure che contiene il file di processo, le dipendenze e i log di Spark.  Se non si specifica un valore per questa proprietà, viene usato lo spazio di archiviazione associato al cluster HDInsight. Il valore di questa proprietà può essere solo un servizio collegato di Archiviazione di Azure. | No        |
-| rootPath              | Contenitore BLOB di Azure e cartella che contiene il file Spark. Il nome del file distingue tra maiuscole e minuscole. Per informazioni dettagliate sulla struttura della cartella, fare riferimento alla prossima sezione, relativa alla struttura delle cartelle. | Sì      |
-| entryFilePath         | Percorso relativo alla cartella radice del pacchetto/codice Spark. Il file di ingresso deve essere un file Python o un file JAR. | Sì      |
+| rootPath              | Contenitore BLOB di Azure e cartella che contiene il file Spark. Il nome del file distingue tra maiuscole e minuscole. Per informazioni dettagliate sulla struttura della cartella, fare riferimento alla prossima sezione, relativa alla struttura delle cartelle. | Yes      |
+| entryFilePath         | Percorso relativo alla cartella radice del pacchetto/codice Spark. Il file di ingresso deve essere un file Python o un file JAR. | Yes      |
 | className             | Classe principale Java/Spark dell'applicazione      | No        |
 | arguments             | Elenco di argomenti della riga di comando del programma Spark. | No        |
 | proxyUser             | Account utente da rappresentare per eseguire il programma Spark | No        |
-| sparkConfig           | Specificare i valori delle proprietà di configurazione di Spark elencati nell'argomento: [Configurazione di SparK: proprietà dell'applicazione](https://spark.apache.org/docs/latest/configuration.html#available-properties). | No        |
-| getDebugInfo          | Specifica quando i file di log di Spark vengono copiati nell'archiviazione di Azure usata dal cluster HDInsight (o) specificata da sparkJobLinkedService. Valori consentiti: None, Always o Failure. Valore predefinito: None. | No        |
+| sparkConfig           | Specificare i valori delle proprietà di configurazione di Spark elencati nell'argomento [Spark Configuration - Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configurazione di Spark: proprietà dell'applicazione). | No        |
+| getDebugInfo          | Specifica quando i file di log di Spark vengono copiati nell'archiviazione di Azure usata dal cluster HDInsight (o) specificata da sparkJobLinkedService. Valori consentiti: None, Always e Failure. Valore predefinito: No. | No        |
 
 ## <a name="folder-structure"></a>Struttura di cartelle
 I processi Spark sono più estendibili dei processi Pig/Hive. Per i processi Spark è possibile offrire più dipendenze, ad esempio pacchetti jar (posizionati in CLASSPATH di java), file python (posizionati in PYTHONPATH) e qualsiasi altro file.
@@ -83,8 +82,8 @@ Creare la struttura seguente di cartelle nell'archivio BLOB di Azure a cui fa ri
 
 | path                  | DESCRIZIONE                              | Obbligatoria | type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.` (radice)            | Percorso radice del processo Spark nel servizio collegato di archiviazione | Sì      | Cartella |
-| &lt;definito dall'utente &gt; | Percorso che punta al file di ingresso del processo Spark | Sì      | File   |
+| `.` (radice)            | Percorso radice del processo Spark nel servizio collegato di archiviazione | Yes      | Cartella |
+| &lt;definito dall'utente &gt; | Percorso che punta al file di ingresso del processo Spark | Yes      | File   |
 | ./jars                | Tutti i file in questa cartella vengono caricati e inseriti nel classpath java del cluster | No        | Cartella |
 | ./pyFiles             | Tutti i file in questa cartella vengono caricati e inseriti nel PYTHONPATH del cluster | No        | Cartella |
 | ./files               | Tutti i file in questa cartella vengono caricati e inseriti nella directory di lavoro executor | No        | Cartella |

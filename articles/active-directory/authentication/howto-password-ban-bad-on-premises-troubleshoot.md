@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 1e5782ce3421cc5f0d2e0e51484d4bbe6b9eb6ab
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: d9f3ba642a5d00594aa6bdef597d5db43c2fc121
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978639"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188981"
 ---
-# <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Anteprima: monitoraggio, creazione di report e risoluzione dei problemi nella protezione password di Azure AD
+# <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Anteprima: Monitoraggio, creazione di report e risoluzione dei problemi nella protezione password di Azure AD
 
 |     |
 | --- |
@@ -274,7 +274,7 @@ Se si decide di disinstallare il software in versione di anteprima pubblica e di
 
    ```Powershell
    $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
-   Remove-ADObject $passwordProtectonConfigContainer
+   Remove-ADObject -Recursive $passwordProtectonConfigContainer
    ```
 
 6. Rimuovere manualmente tutto lo stato correlato a sysvol eliminando manualmente la cartella seguente e tutto il suo contenuto:

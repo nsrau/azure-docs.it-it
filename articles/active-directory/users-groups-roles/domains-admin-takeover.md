@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 01/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e11d370f58028ee4c1665d84d0e48541e7d3344
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837172"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121193"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
-Questo articolo illustra due modi per acquisire la proprietà di un nome di dominio DNS in una directory non gestita in Azure Active Directory (Azure AD). Quando un utente self-service si iscrive a un servizio cloud che usa Azure AD, viene aggiunto a una directory di Azure AD non gestita basata sul dominio di posta elettronica. Per altre informazioni sull'iscrizione self-service o "virale" a un servizio, vedere [Informazioni sull'iscrizione self-service per Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup).
+Questo articolo illustra due modi per acquisire la proprietà di un nome di dominio DNS in una directory non gestita in Azure Active Directory (Azure AD). Quando un utente self-service si iscrive a un servizio cloud che usa Azure AD, viene aggiunto a una directory di Azure AD non gestita basata sul dominio di posta elettronica. Per altre informazioni sull'iscrizione self-service o "virale" per un servizio, vedere [Informazioni sull'iscrizione self-service per Azure Active Directory](directory-self-service-signup.md).
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decidere come acquisire la proprietà di una directory non gestita
 Durante il processo di acquisizione della proprietà da parte di un amministratore, è possibile dimostrare la proprietà come illustrato in [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md). Nelle sezioni successive viene illustrata l'esperienza di amministratore in modo più dettagliato; in ogni caso qui di seguito è riportato un riepilogo:
@@ -41,7 +41,7 @@ Alcuni prodotti che includono SharePoint e OneDrive, ad esempio Office 365, non 
 
 3. Nel messaggio di conferma da Power BI selezionare **Yes, that's me** (Sì, sono io).
 
-4. Accedere all'[interfaccia di amministrazione di Office 365](https://portal.office.com/adminportal/Home) con l'account utente di Power BI. Si riceve un messaggio che invita a **diventare l'amministratore** del nome di dominio già verificato nel tenant non gestito. Selezionare **Yes, I want to be the admin** (Sì, voglio essere l'amministratore).
+4. Accedere all'[interfaccia di amministrazione di Office 365](https://portal.office.com/admintakeover) con l'account utente di Power BI. Si riceve un messaggio che invita a **diventare l'amministratore** del nome di dominio già verificato nel tenant non gestito. Selezionare **Yes, I want to be the admin** (Sì, voglio essere l'amministratore).
   
   ![Primo screenshot per Become the Admin (Diventa l'amministratore)](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -53,9 +53,9 @@ Quando i record TXT DNS vengono verificati nel registrar del nome di dominio, è
 
 Dopo avere completato i passaggi precedenti, si è l'amministratore globale del tenant Fourth Coffee in Office 365. Per integrare il nome di dominio con gli altri servizi di Azure, è possibile rimuoverlo da Office 365 e aggiungerlo a un tenant gestito diverso in Azure.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Aggiunta del nome di dominio a un tenant gestito in Azure AD 
+### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Aggiunta del nome di dominio a un tenant gestito in Azure AD
 
-1. Aprire l'[interfaccia di amministrazione di Office 365](https://portal.office.com/adminportal/Home).
+1. Aprire l'[interfaccia di amministrazione di Office 365](https://portal.office.com/admintakeover).
 2. Selezionare la scheda **Utenti** e creare un nuovo account utente con un nome simile a *user@fourthcoffeexyz.onmicrosoft.com* che non usa il nome di dominio personalizzato. 
 3. Assicurarsi che il nuovo account utente abbia privilegi di amministratore globale per il tenant di Azure AD.
 4. Aprire la scheda **Domini** nell'interfaccia di amministrazione di Office 365, selezionare il nome di dominio e selezionare **Rimuovi**. 

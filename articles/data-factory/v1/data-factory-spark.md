@@ -10,17 +10,16 @@ ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246767"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015815"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Chiamare i programmi Spark dalle pipeline Azure Data Factory
 
@@ -74,7 +73,7 @@ Per creare una data factory, seguire questa procedura:
 1. Nel pannello **Nuova data factory** immettere **SparkDF** nel campo **Nome**.
 
    > [!IMPORTANT]
-   > È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore "Il nome SparkDF per la data factory non è disponibile", modificare il nome della data factory. Usare ad esempio nomeutenteSparkDFdata e creare di nuovo la data factory. Per altre informazioni sulle regole di denominazione, vedere [Data Factory - Regole di denominazione](data-factory-naming-rules.md).
+   > È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore "Il nome SparkDF per la data factory non è disponibile", modificare il nome della data factory. Usare ad esempio nomeutenteSparkDFdata e creare di nuovo la data factory. Per altre informazioni sulle regole di denominazione, vedere [Data Factory: Regole di denominazione](data-factory-naming-rules.md).
 
 1. In **Sottoscrizione** selezionare la sottoscrizione di Azure in cui creare la data factory.
 
@@ -109,7 +108,7 @@ In questo passaggio, l'account di archiviazione viene collegato alla data factor
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Sostituire **nome account** e **chiave account** con il nome e la chiave di accesso dell'account di archiviazione. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere come visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione in [Gestire l'account di archiviazione](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Sostituire **nome account** e **chiave account** con il nome e la chiave di accesso dell'account di archiviazione. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere come visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione in [Gestire l'account di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
 
 1. Per distribuire il servizio collegato, selezionare **Distribuisci** sulla barra dei comandi. Al termine della distribuzione del servizio collegato, la finestra Bozza-1 viene nascosta e nella visualizzazione struttura ad albero a sinistra viene visualizzato **AzureStorageLinkedService**.
 

@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: b5512186913eb59be2b89ce8b8bb9fb881f59cd8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 671c0ea11c832d635eb92eda64669c3aab12b1e9
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699822"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062639"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione usando un modello di Azure Resource Manager
 
 Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio nonché un argomento e una sottoscrizione in quello spazio dei nomi. L'articolo spiega come specificare le risorse da distribuire e come definire i parametri che devono essere specificati quando viene eseguita la distribuzione. È possibile usare questo modello per la distribuzione o personalizzarlo in base alle esigenze.
 
-Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates].
+Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Per il modello completo, vedere il [modello dello spazio dei nomi con argomento e sottoscrizione del bus di servizio][Service Bus namespace with topic and subscription] su GitHub.
 
@@ -41,7 +41,7 @@ Per il modello completo, vedere il [modello dello spazio dei nomi con argomento 
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>Distribuzione
+## <a name="what-do-you-deploy"></a>Cosa distribuire?
 
 Questo modello consente di distribuire uno spazio dei nomi del bus di servizio con un argomento e una sottoscrizione.
 
@@ -53,9 +53,9 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
 ## <a name="parameters"></a>Parametri
 
-Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. È necessario definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
+Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. Definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
 
-Il modello definisce i parametri seguenti.
+Il modello definisce i parametri seguenti:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Nome dello spazio dei nomi del bus di servizio da creare.
@@ -130,6 +130,8 @@ Crea uno spazio dei nomi del bus di servizio standard di tipo **Messaggistica**c
         }]
     }]
 ```
+
+Per la sintassi e le proprietà JSON, vedere [Spazi dei nomi](/azure/templates/microsoft.servicebus/namespaces), [Argomenti](/azure/templates/microsoft.servicebus/namespaces/topics) e [Sottoscrizioni](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions).
 
 ## <a name="commands-to-run-deployment"></a>Comandi per eseguire la distribuzione
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

@@ -10,22 +10,21 @@ ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: d2f9327841e0c6193a89df6459b4d8fffb14c05e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f2ba077b23a1fb12d1b547f8c9e3013135db1d87
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302844"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076027"
 ---
 # <a name="certificate-creation-methods"></a>Metodi di creazione dei certificati
 
  Un certificato di Key Vault può essere creato o importato in un insieme di credenziali delle chiavi. Quando viene creato un certificato KV la chiave privata è creata all'interno dell'insieme di credenziali delle chiavi e mai esposta al proprietario del certificato. È possibile creare un certificato in Key Vault nei modi seguenti.  
 
--   **Creare un certificato autofirmato:** viene creata una coppia di chiavi pubblica e privata che viene associata con un certificato. Il certificato viene firmato dalla propria chiave.  
+-   **Creare un certificato autofirmato:** viene creata una coppia di chiavi pubblica e privata che viene associata a un certificato. Il certificato viene firmato dalla propria chiave.  
 
 -    **Creare un nuovo certificato manualmente:** viene creata una coppia di chiavi pubblica e privata e viene generata un richiesta di firma del certificato X.509. La richiesta di firma può essere firmata dall'autorità di registrazione o di certificazione. Per completare il certificato KV in Key Vault, il certificato X.509 firmato può essere unito con la coppia di chiavi in sospeso. Anche se questo metodo richiede più passaggi, offre maggiore sicurezza perché la chiave privata viene creata e limitata a Key Vault. Il concetto è illustrato nel diagramma seguente.  
 
@@ -93,7 +92,7 @@ La creazione del certificato può essere completata manualmente oppure usando un
 
 Si noti che quando viene passato un ordine al provider di autorità di certificazione, può rispettare o ignorare le estensioni e il periodo di validità del certificato X.509 in base al tipo di certificato.  
 
- Autorizzazione: richiede l'autorizzazione di creazione certificati.
+ A livello di autorizzazione, è necessaria l'autorizzazione a creare certificati.
 
  ## <a name="see-also"></a>Vedere anche
  - [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)

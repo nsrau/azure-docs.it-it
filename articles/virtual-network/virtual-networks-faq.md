@@ -1,5 +1,6 @@
 ---
-title: Domande frequenti sulla rete virtuale di Azure | Documentazione Microsoft
+title: Domande frequenti sulla rete virtuale di Azure
+titlesuffix: Azure Virtual Network
 description: Risposte alle domande più frequenti sulla rete virtuale di Microsoft Azure.
 services: virtual-network
 documentationcenter: na
@@ -11,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 686985c705b4026ccc26238fc5919296c98d5cb7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5a92f4543f865141d446f5b681674961f6fef046
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277523"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021034"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -317,7 +318,7 @@ Sì, è possibile. Le reti virtuali e le risorse dei servizi di Azure possono tr
 No, gli endpoint di servizio di rete virtuale e gli elenchi di controllo di accesso di rete virtuale non sono supportati tra tenant di AD diversi.
 
 ### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-express-route-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>Un indirizzo IP di un dispositivo locale connesso tramite il gateway di rete virtuale (VPN) di Azure o il gateway di ExpressRoute può accedere al servizio PaaS di Azure tramite endpoint di servizio di rete virtuale?
-Per impostazione predefinita, le risorse del servizio associate alle reti virtuali non sono raggiungibili da reti locali. Se si vuole consentire il traffico dall'ambiente locale, è necessario autorizzare anche gli indirizzi IP pubblici (generalmente NAT) dall'ambiente locale o da ExpressRoute. Questi indirizzi IP possono essere aggiunti tramite la configurazione del firewall IP per le risorse dei servizi di Azure.
+per impostazione predefinita, le risorse del servizio associate alle reti virtuali non sono raggiungibili da reti locali. Se si vuole consentire il traffico dall'ambiente locale, è necessario autorizzare anche gli indirizzi IP pubblici (generalmente NAT) dall'ambiente locale o da ExpressRoute. Questi indirizzi IP possono essere aggiunti tramite la configurazione del firewall IP per le risorse dei servizi di Azure.
 
 ### <a name="can-i-use-vnet-service-endpoint-feature-to-secure-azure-service-to-multiple-subnets-with-in-a-virtual-network-or-across-multiple-virtual-networks"></a>È possibile usare la funzionalità di endpoint di servizio di rete virtuale per proteggere il servizio di Azure in più subnet in una rete virtuale o tra più reti virtuali?
 Per proteggere i servizi di Azure in più subnet in una o più reti virtuali, è possibile abilitare gli endpoint di servizio sul lato rete in ognuna delle subnet in modo indipendente e quindi proteggere le risorse dei servizi di Azure in tutte le subnet configurando gli elenchi di controllo di accesso di rete virtuale appropriati sul lato servizio di Azure.

@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9cbbf8c5ea05915293c785028bdd0a47ba081036
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4c383fe30b8a6be3a5915f3cc1c0f5e5712ab328
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426023"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188998"
 ---
-# <a name="mark-as-date-table"></a>Contrassegna come tabella data
+# <a name="mark-as-date-table"></a>Contrassegnare come tabella data
 
-Nella lezione 2: Ottenere i dati è stata importata una tabella delle dimensioni denominata DimDate. Anche se nel modello questa tabella è denominata DimDate, è anche nota come *tabella data*, perché contiene dati di data e ora.  
+In Lezione 2: Ottenere i dati è stata importata una tabella di dimensioni denominata DimDate. Anche se nel modello questa tabella è denominata DimDate, è anche nota come *tabella data*, perché contiene dati di data e ora.  
   
 Quando si usano funzioni di Business Intelligence per le gerarchie temporali DAX, è necessario specificare alcune proprietà, tra cui una *tabella data* e una *colonna data* che funge da identificatore univoco nella tabella.
   
@@ -25,10 +25,10 @@ In questa lezione la tabella DimDate verrà contrassegnata come *tabella data* e
 
 Prima di contrassegnare la tabella data e la colonna data, è il momento di eseguire alcuni piccoli aggiustamenti per rendere il modello più facile da comprendere. Nella tabella DimDate è presente un colonna denominata **FullDateAlternateKey**, che contiene una riga per ogni giorno di ogni anno di calendario incluso nella tabella. Questa colonna viene usata molto spesso nelle formule per le misure e nei report, ma FullDateAlternateKey non è in realtà un buon identificatore per questa colonna. La colonna viene rinominata **Date** per facilitarne l'identificazione e l'uso nelle formule. Quando possibile, è consigliabile rinominare gli oggetti, come le tabelle e le colonne, in modo che siano più facilmente identificabili in SSDT e in applicazioni client per la creazione di report, come Power BI ed Excel. 
   
-Tempo previsto per il completamento della lezione: **tre minuti**  
+Tempo previsto per il completamento della lezione: **Tre minuti**  
   
 ## <a name="prerequisites"></a>Prerequisiti  
-Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 2: Ottenere i dati](../tutorials/aas-lesson-2-get-data.md). 
+Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 2: Scaricare i dati](../tutorials/aas-lesson-2-get-data.md). 
 
 ### <a name="to-rename-the-fulldatealternatekey-column"></a>Per rinominare la colonna FullDateAlternateKey
 

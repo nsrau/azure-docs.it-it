@@ -1,19 +1,19 @@
 ---
 title: Limiti del servizio durante l'anteprima pubblica di Gemelli digitali di Azure | Microsoft Docs
-description: Informazioni sui limiti del servizio durante l'anteprima pubblica di Gemelli digitali di Azure
+description: Informazioni sui limiti del servizio durante l'anteprima pubblica di Gemelli digitali di Azure.
 author: dwalthermsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 86ae75118dd1311ea2ae92fb718fe4c58b8e5673
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1e7b6ed7c401bed741142dfc02efc7990cf67f6e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961756"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118816"
 ---
 # <a name="public-preview-service-limits"></a>Limiti del servizio durante l'anteprima pubblica
 
@@ -35,21 +35,25 @@ Durante l'anteprima pubblica, ogni sottoscrizione di Azure può creare o eseguir
 
 A sua volta, ogni istanza di Gemelli digitali di Azure può avere:
 
-- Una risorsa **IotHub**.
-- Un endpoint **EventHub** per il tipo di evento **DeviceMessage**.
+- Esattamente una risorsa **IotHub**.
+- Esattamente un endpoint **EventHub** per il tipo di evento **DeviceMessage**.
 - Fino a tre endpoint **EventHub**, **ServiceBus** o **EventGrid** per il tipo di evento **SensorChange**, **SpaceChange**, **TopologyOperation** o **UdfCustom**.
 
-## <a name="management-api-limits"></a>Limiti relativi all'API di gestione
+> [!NOTE]
+> Alcuni parametri che vengono in genere definiti durante la creazione delle entità di Azure IoT indicate sopra non sono necessari durante l'anteprima pubblica.
+> - Consultare la [documentazione di riferimento di Swagger](./how-to-use-swagger.md) per le specifiche di API più recenti.
 
-I limiti per il numero di richieste per l'API di gestione sono i seguenti:
+## <a name="azure-digital-twins-management-api-limits"></a>Limiti dell'API di gestione di Gemelli digitali di Azure
 
-- 100 richieste al secondo all'API di gestione.
-- Fino a 1.000 oggetti restituiti da una singola query sull'API di gestione. 
+I limiti per il numero di richieste per l'API di gestione di Gemelli digitali di Azure sono i seguenti:
+
+- 100 richieste al secondo all'API di gestione di Gemelli digitali di Azure.
+- Fino a 1000 oggetti restituiti da una singola query sull'API di gestione di Gemelli digitali di Azure.
 
 > [!IMPORTANT]
-> Se si supera il limite di 1.000 oggetti, si riceverà un errore e sarà necessario semplificare la query.
+> Se si supera il limite di 1000 oggetti, si riceverà un errore e sarà necessario semplificare la query.
 
-## <a name="udf-rate-limits"></a>Limiti relativi al numero di funzioni definite dall'utente
+## <a name="user-defined-functions-rate-limits"></a>Limiti al numero di funzioni definite dall'utente
 
 I limiti seguenti definiscono il numero totale di tutte le chiamate delle funzioni definite dall'utente inviate all'istanza di Gemelli digitali di Azure:
 
@@ -59,7 +63,7 @@ I limiti seguenti definiscono il numero totale di tutte le chiamate delle funzio
 > [!NOTE]
 > Le operazioni seguenti potrebbero generare l'applicazione temporanea di altri limiti:
 > - Modifiche ai metadati di oggetti della topologia
-> - Aggiornamenti alle definizioni delle funzioni definite dall'utente
+> - Aggiornamenti apportati alla definizione di funzione definita dall'utente
 > - Dispositivi che inviano dati di telemetria per la prima volta
 
 ## <a name="device-telemetry-limits"></a>Limiti relativi alla telemetria dei dispositivi
@@ -70,4 +74,4 @@ I limiti seguenti si applicano al numero totale di tutti i messaggi che i dispos
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per provare un esempio di Gemelli digitali di Azure, vedere [Guida introduttiva per la ricerca di stanze disponibili](./quickstart-view-occupancy-dotnet.md).
+- Per provare un esempio di Gemelli digitali di Azure, vedere [Guida introduttiva per la ricerca di stanze disponibili](./quickstart-view-occupancy-dotnet.md).

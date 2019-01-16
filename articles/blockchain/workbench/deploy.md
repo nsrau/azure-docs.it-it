@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 12/4/2018
+ms.date: 1/8/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2c5e3664a9ef26319eb8a51d03ddef6a5392ffa9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876150"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102993"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuire Azure Blockchain Workbench
 
@@ -119,7 +119,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
     | Impostazione | DESCRIZIONE  |
     |---------|--------------|
-    | Endpoint RPC Ethereum | Fornire l'endpoint RPC di una rete blockchain PoA esistente. L'endpoint inizia con https:// o http:// e termina con un numero di porta. Ad esempio: `https://network.westus.cloudapp.com:8540` |
+    | Endpoint RPC Ethereum | Fornire l'endpoint RPC di una rete blockchain PoA esistente. L'endpoint inizia con https:// o http:// e termina con un numero di porta. Ad esempio: `http<s>://<network-url>:<port>` |
     | Impostazioni di Azure Active Directory | Scegliere **Add Later** (Aggiungi in seguito).</br>Note: se si sceglie di [pre-configurare Azure AD](#azure-ad-configuration) o si sta eseguendo una ridistribuzione, scegliere *Add Now* (Aggiungi adesso). |
     | Seleziona macchina virtuale | Scegliere le dimensioni di macchina virtuale preferite per la rete blockchain. |
 

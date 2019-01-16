@@ -9,20 +9,19 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d31859a2af0402789b03447510d510a9658961de
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aa6c6a35a66569d5db182e1871012b9697c2802c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051009"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023346"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiare dati in un indice di Ricerca di Azure usando Azure Data Factory
 
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-azure-search-connector.md)
 > * [Versione corrente](connector-azure-search.md)
 
@@ -44,8 +43,8 @@ Per il servizio collegato di Ricerca di Azure sono supportate le proprietà segu
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **AzureSearch** | Sì |
-| URL | URL del servizio Ricerca di Azure. | Sì |
+| type | La proprietà type deve essere impostata su: **AzureSearch** | Yes |
+| URL | URL del servizio Ricerca di Azure. | Yes |
 | key | Chiave amministratore del servizio Ricerca di Azure. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
@@ -82,8 +81,8 @@ Per copiare dati in Ricerca di Azure, impostare la proprietà type del set di da
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **AzureSearchIndex** | Sì |
-| indexName | Nome dell'indice di Ricerca di Azure. Il servizio Data Factory non crea l'indice. L'indice deve essere presente in Ricerca di Azure. | Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **AzureSearchIndex** | Yes |
+| indexName | Nome dell'indice di Ricerca di Azure. Il servizio Data Factory non crea l'indice. L'indice deve essere presente in Ricerca di Azure. | Yes |
 
 **Esempio:**
 
@@ -113,8 +112,8 @@ Per copiare dati in Ricerca di Azure, impostare il tipo di origine nell'attivit�
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AzureSearchIndexSink** | Sì |
-| writebehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).<br/><br/>I valori consentiti sono: **Merge** (predefinito) e **Carica**. | No  |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **AzureSearchIndexSink** | Yes |
+| writebehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).<br/><br/>I valori consentiti sono i seguenti: **Merge** (predefinito) e **Upload**. | No  |
 | writeBatchSize | Consente di caricare dati nell'indice di Ricerca di Azure quando le dimensioni del buffer raggiungono il valore indicato da writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property).<br/><br/>I valori consentiti sono: integer da 1 a 1.000; il valore predefinito è 1000. | No  |
 
 ### <a name="writebehavior-property"></a>Proprietà WriteBehavior

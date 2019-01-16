@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-ms.openlocfilehash: d955f5c11121e8d42bc4b02b75427ab07298e74b
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 660120a1314c0071aa5b1cf3eae668e1626813a1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264183"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073459"
 ---
-# <a name="azure-applications-solution-template-offer-publishing-guide"></a>Applicazioni di Azure: Guida alla pubblicazione dell'offerta di modello di soluzione
+# <a name="azure-applications-solution-template-offer-publishing-guide"></a>Applicazioni Azure: Guida alla pubblicazione dell'offerta di modello di soluzione
 
 I modelli di soluzione sono uno dei modi principali per pubblicare una soluzione nel Marketplace. Usare questa guida per comprendere i requisiti per questa offerta. 
 

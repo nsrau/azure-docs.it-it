@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339264"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053909"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT SDK per dispositivi per C
 
@@ -75,11 +75,11 @@ Esistono diversi strumenti open source che consentono di gestire l'hub IoT.
 
 * Un'applicazione Windows denominata [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* Un'estensione di Visual Studio Code multipiattaforma denominata [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (in precedenza Azure IoT Toolkit).
+* Un'estensione Visual Studio Code multipiattaforma denominata [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 * Uno strumento dell'interfaccia della riga di comando multipiattaforma di Python denominato [estensione IoT per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension).
 
-Questa esercitazione usa lo strumento grafico *Device Explorer*. È possibile usare l'*estensione Azure IoT Hub Toolkit per Visual Studio Code* se si sviluppa in Visual Studio Code. È anche possibile usare *l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0* se si preferisce uno strumento dell'interfaccia della riga di comando.
+Questa esercitazione usa lo strumento grafico *Device Explorer*. È possibile usare *Azure IoT Tools per Visual Studio Code* se si sviluppa in Visual Studio Code. È anche possibile usare *l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0* se si preferisce uno strumento dell'interfaccia della riga di comando.
 
 Lo strumento Device Explorer usa le librerie del servizio IoT di Azure per eseguire diverse funzioni nell'hub IoT, inclusa l'aggiunta di dispositivi. Se si usa lo strumento Device Explorer per aggiungere un dispositivo, si ottiene una stringa di connessione per il dispositivo, che sarà necessaria per eseguire le applicazioni di esempio.
 

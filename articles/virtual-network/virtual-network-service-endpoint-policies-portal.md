@@ -1,13 +1,10 @@
 ---
-title: Creare e associare criteri degli endpoint di servizio - Portale di Azure | Microsoft Docs
+title: Creare e associare criteri degli endpoint di servizio - Portale di Azure
+titlesuffix: Azure Virtual Network
 description: In questo articolo viene illustrato come configurare e associare i criteri degli endpoint di servizio usando il portale di Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: anithaa
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633011"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054436"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Creare, modificare o eliminare i criteri degli endpoint di servizio usando il portale di Azure
 
@@ -47,7 +44,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 3. Immettere o selezionare le informazioni seguenti in **Informazioni di base** 
 
    - Sottoscrizione: selezionare la propria sottoscrizione per il criterio.    
-   - Gruppo di risorse: selezionare **Crea nuovo** e immettere *myResourceGroup*.     
+   - Gruppo di risorse: Selezionare **Crea nuovo** e immettere *myResourceGroup*.     
    - Nome: myEndpointPolicy
    - Località: Stati Uniti centro-occidentali     
  
@@ -58,7 +55,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
    - Fare clic su **+ Aggiungi una risorsa**, immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi fare clic su **Aggiungi**.  
    - Ambito: selezionare **Account singolo**, **Tutti gli account nella sottoscrizione** o **Tutti gli account nel gruppo di risorse**.    
    - Sottoscrizione: selezionare la propria sottoscrizione per l'account di archiviazione. I criteri e gli account di archiviazione possono essere in sottoscrizioni diverse.   
-   - Gruppo di risorse: selezionare il gruppo di risorse. Questa operazione è obbligatoria se l'ambito è impostato come "Tutti gli account nel gruppo di risorse" o "Account singolo".  
+   - Gruppo di risorse: Selezionare un gruppo di risorse. Questa operazione è obbligatoria se l'ambito è impostato come "Tutti gli account nel gruppo di risorse" o "Account singolo".  
    - Risorsa: mystorageaccountportal    
    - Fare clic su **+ Aggiungi una risorsa** per continuare ad aggiungere altre risorse.
    
@@ -66,8 +63,8 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
    
 5. Facoltativo: immettere o selezionare le informazioni seguenti in **Tag**:
    
-   - Chiave: selezionare la chiave per il criterio, ad esempio Rep.     
-   - Valore: immettere la coppia chiave-valore, ad esempio Finanza.
+   - Chiave: selezionare la chiave per il criterio, ad esempio Rep     
+   - Valore: immettere la coppia chiave-valore, ad esempio Finanza
 
 6. Selezionare **Rivedi e crea**. Convalidare le informazioni e fare clic su **Crea**. Per apportare altre modifiche, fare clic su **Indietro**. 
 
@@ -101,8 +98,8 @@ Per poter associare un criterio a una subnet, è necessario creare una rete virt
 3. In **Crea rete virtuale** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
    - Nome: myVirtualNetwork      
    - Spazio indirizzi: 10.0.0.0/16      
-   - Sottoscrizione: selezionare la propria sottoscrizione. Il criterio deve essere nella stessa sottoscrizione della rete virtuale     
-   - Gruppo di risorse: selezionare **Usa esistente** e quindi *myResourceGroup*     
+   - Sottoscrizione: Selezionare la propria sottoscrizione. Il criterio deve essere nella stessa sottoscrizione della rete virtuale     
+   - Gruppo di risorse: Selezionare **Usa esistente** e quindi *myResourceGroup*     
    - Località: Stati Uniti centro-occidentali     
    - Nome subnet: private     
    - Intervallo di indirizzi: 10.0.0.0/24

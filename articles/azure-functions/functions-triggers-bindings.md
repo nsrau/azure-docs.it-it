@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: ba2441044d63e63b969054e84e163352d2b376e8
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a44b348e0c41e96c575555f2b5c275e196284c5b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993816"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074531"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
@@ -674,6 +674,10 @@ In C# e altri linguaggi .NET, è possibile usare criteri di associazione imperat
 ## <a name="functionjson-file-schema"></a>Schema del file function.json
 
 Lo schema del file *function.json* è disponibile all'indirizzo [http://json.schemastore.org/function](http://json.schemastore.org/function).
+
+## <a name="testing-bindings"></a>Test delle associazioni
+
+Quando si sviluppano funzioni in locale, è possibile testare le associazioni usando Visual Studio 2017 o Visual Studio Code. Per altre informazioni, vedere [Strategie per il test del codice in Funzioni di Azure](functions-test-a-function.md). È anche possibile richiamare le associazioni non HTTP con le API REST. Per altre informazioni, vedere [Eseguire manualmente una funzione non attivata da HTTP](functions-manually-run-non-http.md).
 
 ## <a name="handling-binding-errors"></a>Gestione degli errori di associazione
 

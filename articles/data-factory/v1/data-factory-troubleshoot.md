@@ -9,17 +9,16 @@ ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: cbd51c48ec5b1801062e7aaf0b77e7b347018b31
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c41f03494720c9283bb3ce91fda6e3981f305084
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051866"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023023"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Risolvere i problemi di Data factory
 > [!NOTE]
@@ -43,7 +42,7 @@ Se viene visualizzato questo errore, il provider di risorse di Azure Data Factor
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
-### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: errore di mancata autorizzazione quando si esegue un cmdlet di Data factory
+### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: errore di mancata autorizzazione quando si esegue un cmdlet di Data Factory
 È probabile che non si stia usando l'account o la sottoscrizione di Azure corretta con Azure PowerShell. Usare i cmdlet seguenti per selezionare l'account e la sottoscrizione di Azure corretti per Azure PowerShell.
 
 1. Connect-AzureRmAccount: usare l'ID utente e la password corretti
@@ -63,7 +62,7 @@ L'installazione rapida del Gateway di gestione dati richiede Internet Explorer o
 ### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Problema: impossibile connettersi all'istanza di SQL Server locale
 Avviare **Gestione configurazione di Gateway di gestione dati** nel computer gateway e usare la scheda **Risoluzione dei problemi** per testare la connessione a SQL Server dal computer gateway. Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .   
 
-### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problema: le sezioni di input rimangono nello stato Waiting
+### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problema: Lo stato delle sezioni di input è sempre In attesa
 Le sezioni potrebbero essere **In attesa** per diversi motivi. Uno dei motivi più comuni è che la proprietà **external** non è impostata su **true**. Eventuali set di dati prodotti all'esterno dell'ambito di Azure Data Factory devono essere contrassegnati con la proprietà **external** . Questa proprietà indica che i dati sono esterni e non sono supportati da alcuna pipeline nel Data Factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
 
 Per l'uso della proprietà **external** , vedere l'esempio seguente. È possibile specificare facoltativamente **externalData*** quando si imposta la proprietà external su true.
@@ -112,7 +111,7 @@ Questo errore di solito indica che il percorso dell'account di archiviazione spe
 
 È anche disponibile una seconda proprietà JSON additionalLinkedServiceNames in cui è possibile specificare account di archiviazione aggiuntivi in HDInsight su richiesta. Gli account di archiviazione aggiuntivi collegati devono trovarsi nello stesso percorso del cluster HDInsight oppure avranno esito negativo, producendo lo stesso errore.
 
-### <a name="problem-custom-net-activity-fails"></a>Problema: l'attività .NET personalizzata non riesce
+### <a name="problem-custom-net-activity-fails"></a>Problema: L'attività .NET personalizzata non riesce
 Per una procedura dettagliata, vedere la sezione [Eseguire il debug della pipeline](data-factory-use-custom-activities.md#troubleshoot-failures) .
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Usare il portale di Azure per la risoluzione dei problemi

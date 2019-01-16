@@ -1,5 +1,5 @@
 ---
-title: Trasformare dati usando l'attività Pig in Azure Data Factory | Microsoft Docs
+title: Trasformare dati usando l'attività Pig in Azure Data Factory | Documentazione Microsoft
 description: Informazioni su come usare l'attività Pig in una data factory di Azure per eseguire query Pig in un cluster HDInsight su richiesta o nel proprio cluster HDInsight.
 services: data-factory
 documentationcenter: ''
@@ -9,17 +9,16 @@ ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5abd0b07037559b14158a3c314b6ca6ce30ab655
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 48cbd33d4cbaff5d362731d67bbd3d4041e26f89
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045117"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025646"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Pig in Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -41,7 +40,7 @@ ms.locfileid: "37045117"
 L'attività Pig di HDInsight in una [pipeline](data-factory-create-pipelines.md) di Data factory esegue query Pig sul cluster HDInsight [dell'utente](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o sul cluster HDInsight [su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basato su Windows o Linux. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
 > [!NOTE] 
-> Se non si ha familiarità con Azure Data Factory, prima di leggere questo articolo leggere [Introduzione ad Azure Data Factory](data-factory-introduction.md) ed eseguire l'esercitazione [Creare la prima pipeline di dati](data-factory-build-your-first-pipeline.md) . 
+> Se non si ha familiarità con Azure Data Factory, prima di leggere questo articolo vedere [Introduzione ad Azure Data Factory](data-factory-introduction.md) ed eseguire l'esercitazione [Creare la prima pipeline di dati](data-factory-build-your-first-pipeline.md). 
 
 ## <a name="syntax"></a>Sintassi
 
@@ -84,12 +83,12 @@ L'attività Pig di HDInsight in una [pipeline](data-factory-create-pipelines.md)
 ## <a name="syntax-details"></a>Dettagli sintassi
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
-| name |Nome dell'attività |Sì |
+| name |Nome dell'attività |Yes |
 | description |Testo descrittivo per lo scopo dell'attività |No  |
-| type |HDInsightPig |Sì |
+| type |HDInsightPig |Yes |
 | inputs |Uno o più input usati dall'attività Pig |No  |
-| outputs |Uno o più input prodotti dall'attività Pig |Sì |
-| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Sì |
+| outputs |Uno o più input prodotti dall'attività Pig |Yes |
+| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Yes |
 | script |Specificare lo script Pig inline |No  |
 | script path |Archiviare lo script Pig in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No  |
 | defines |Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Pig |No  |

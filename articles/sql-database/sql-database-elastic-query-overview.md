@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: dd6a9ee00ba6244e5a0d04f654e6b57db8896ea6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a1ad976be258c418c115d0dbd79d4d6700a15b31
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603948"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158415"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Panoramica delle query elastiche del database SQL di Azure (anteprima)
 
@@ -108,11 +108,11 @@ L'uso delle query elastiche per eseguire attività di creazione report su un liv
 
 I passaggi seguenti configurano le query su database elastiche per scenari di partizionamento orizzontale che richiedono l'accesso a un set di tabelle situate, in genere, in alcuni database SQL remoti:
 
-* [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
+* [CREATE MASTER KEY](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
+* [CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) mycredential
 * Creare una [mappa partizioni](sql-database-elastic-scale-shard-map-management.md) che rappresenta il livello dati usando la libreria client dei database elastici.
-* [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource di tipo **SHARD_MAP_MANAGER**
-* [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
+* [CREATE/DROP EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource di tipo **SHARD_MAP_MANAGER**
+* [CREATE/DROP EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
 Dopo avere eseguito questi passaggi, sarà possibile accedere alla tabella con partizionamento orizzontale "mytable" come se fosse una tabella locale. Il database SQL di Azure apre automaticamente più connessioni parallele ai database remoti in cui vengono archiviate fisicamente le tabelle, elabora le richieste nei database remoti e restituisce i risultati.
 Per altre informazioni sui passaggi necessari per gli scenari di partizionamento orizzontale, vedere [Query elastiche per il partizionamento orizzontale](sql-database-elastic-query-horizontal-partitioning.md).
@@ -146,7 +146,7 @@ Le query elastiche sono incluse nei costi dei database SQL di Azure. Sono suppor
 
 ## <a name="feedback"></a>Commenti e suggerimenti
 
-Per condividere commenti e suggerimenti sull'esperienza con le query elastiche, usare i forum MSDN o Stackoverflow. Siamo interessati a tutti i tipi di commenti e suggerimenti relativi al servizio (difetti, bordi approssimativo, gap di funzionalità).
+Per condividere feedback sulla propria esperienza con le query elastiche, usare i forum MSDN o Stack Overflow. Siamo interessati a tutti i tipi di commenti e suggerimenti relativi al servizio (difetti, bordi approssimativo, gap di funzionalità).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

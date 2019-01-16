@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 90837092390cd2550805658471ff7aa884773371
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f39832b50ed983e7d8a0bfc0a06366870717fa3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239594"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051986"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Connettere un dispositivo Raspberry Pi all'applicazione Azure IoT Central (Python)
 
@@ -46,7 +46,7 @@ Un'applicazione creata dal modello di applicazione **Sample Devkits** include un
     - Velocità della ventola
     - Attiva/Disattiva runtime di integrazione.
 - Properties
-    - Proprietà del dispositivo del codice
+    - Proprietà Numero stampo del dispositivo
     - Proprietà cloud della posizione
 
 Per i dettagli completi sulla configurazione del modello del dispositivo, vedere [Dettagli del modello del dispositivo Raspberry PI](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)

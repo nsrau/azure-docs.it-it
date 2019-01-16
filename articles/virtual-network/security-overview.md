@@ -1,22 +1,23 @@
 ---
-title: Panoramica dei gruppi di sicurezza di Azure | Microsoft Docs
+title: Panoramica dei gruppi di sicurezza di Azure
+titlesuffix: Azure Virtual Network
 description: Informazioni sui gruppi di sicurezza di rete e delle applicazioni. I gruppi di sicurezza consentono di filtrare il traffico di rete tra le risorse di Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: ad5205bcf063cd3375e68ef609c71ced2f551b61
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 52cac856fbec79842cc4661f38342cb972ea40df
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311763"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159061"
 ---
 # <a name="security-groups"></a>Gruppi di sicurezza
 <a name="network-security-groups"></a>
@@ -70,15 +71,18 @@ Le regole di sicurezza ottimizzate semplificano la definizione della sicurezza p
 * **MicrosoftContainerRegistry** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio Registro Container di Microsoft. Se si specifica *MicrosoftContainerRegistry* come valore, verrà consentito o impedito il traffico verso MicrosoftContainerRegistry. Se si vuole solo consentire l'accesso ad MicrosoftContainerRegistry in un'[area](https://azure.microsoft.com/regions) specifica, è possibile specificare l'area nel formato seguente MicrosoftContainerRegistry.[nome dell'area]. 
 * **AzureContainerRegistry** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio Registro Azure Container. Se si specifica *AzureContainerRegistry* come valore, verrà consentito o impedito il traffico verso AzureContainerRegistry. Se si vuole solo consentire l'accesso a AzureContainerRegistry in un'[area](https://azure.microsoft.com/regions) specifica, è possibile specificare l'area nel formato seguente AzureContainerRegistry.[nome dell'area]. 
 * **AppService** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio Azure AppService. Se si specifica *AppService* come valore, verrà consentito o impedito il traffico verso AppService. Se si vuole solo consentire l'accesso ad AppService in un'[area](https://azure.microsoft.com/regions) specifica, è possibile specificare l'area nel formato seguente AppService.[nome dell'area]. 
-* **AppServiceManagement** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio Azure AppService Management. Se si specifica *AppServiceManagement* come valore, verrà consentito o impedito il traffico verso AppServiceManagement. Se si vuole solo consentire l'accesso ad AppServiceManagement in un'[area](https://azure.microsoft.com/regions) specifica, è possibile specificare l'area nel formato seguente AppServiceManagement.[nome dell'area]. 
-* **ApiManagement** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio Azure Api Management. Se si specifica *ApiManagement* come valore, verrà consentito o impedito il traffico verso ApiManagement. Se si vuole solo consentire l'accesso ad ApiManagement in un'[area](https://azure.microsoft.com/regions) specifica, è possibile specificare l'area nel formato seguente ApiManagement.[nome dell'area]. 
+* **AppServiceManagement** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio Azure AppService Management. Se si specifica *AppServiceManagement* come valore, verrà consentito o impedito il traffico verso AppServiceManagement. 
+* **ApiManagement** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio Azure Api Management. Se si specifica *ApiManagement* come valore, verrà consentito o impedito il traffico verso ApiManagement.  
 * **AzureConnectors** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio Azure Connectors. Se si specifica *AzureConnectors* come valore, verrà consentito o impedito il traffico verso AzureConnectors. Se si vuole solo consentire l'accesso ad AzureConnectors in un'[area](https://azure.microsoft.com/regions) specifica, è possibile specificare l'area nel formato seguente AzureConnectors.[nome dell'area]. 
-* **GatewayManager** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio Azure Gateway Manager. Se si specifica *GatewayManager* come valore, verrà consentito o impedito il traffico verso GatewayManager. Se si vuole solo consentire l'accesso a GatewayManager in un'[area](https://azure.microsoft.com/regions) specifica, è possibile specificare l'area nel formato seguente GatewayManager.[nome dell'area]. 
+* **GatewayManager** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio Azure Gateway Manager. Se si specifica *GatewayManager* come valore, verrà consentito o impedito il traffico verso GatewayManager.  
 * **AzureDataLake** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio Azure Data Lake. Se si specifica *AzureDataLake* come valore, verrà consentito o impedito il traffico verso AzureDataLake. 
 * **AzureActiveDirectory** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio AzureActiveDirectory. Se si specifica *AzureActiveDirectory* come valore, verrà consentito o impedito il traffico verso AzureActiveDirectory.  
+* **AzureMonitor** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio AzureMonitor. Se si specifica *AzureMonitor* come valore, verrà consentito o impedito il traffico verso AzureMonitor. 
+* **ServiceFabric** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio ServiceFabric. Se si specifica *ServiceFabric* come valore, verrà consentito o impedito il traffico verso ServiceFabric. 
+* **AzureMachineLearning** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio AzureMachineLearning. Se si specifica *AzureMachineLearning* come valore, verrà consentito o impedito il traffico verso AzureMachineLearning. 
 
 > [!NOTE]
-> I tag di servizio per i servizi Azure identificano i prefissi di indirizzo dal cloud specifico in uso. I tag di servizio di area non sono supportati nei cloud nazionali, ma solo in formato globale, ad esempio *Archiviazione* e *Sql*.
+> I tag di servizio per i servizi Azure identificano i prefissi di indirizzo dal cloud specifico in uso. 
 
 > [!NOTE]
 > Se si implementa un [endpoint servizio di rete virtuale](virtual-network-service-endpoints-overview.md) per un servizio come Archiviazione di Azure o Database SQL di Azure, Azure aggiunge una [route](virtual-networks-udr-overview.md#optional-default-routes) a una subnet di rete virtuale per il servizio. I prefissi di indirizzo nella route sono gli stessi prefissi di indirizzo o intervalli CIDR del tag di servizio corrispondente.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 058aad72ea8e5741bc632b3c27c032613683ae78
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4dc34a390303ffe5e4bafc6b71d77a19e554374c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444083"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052190"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Esercitazione: Integrazione di Azure Active Directory con SkyDesk Email
 
@@ -115,7 +115,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://mail.skydesk.jp/portal/<companyname>`
 
     > [!NOTE] 
-    > Poiché non è reale, aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto client di SkyDesk Email](https://www.skydesk.sg/support/). 
+    > Poiché non è reale, aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto client di SkyDesk Email](https://www.skydesk.jp/apps/support/). 
  
 1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -177,7 +177,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     f. Fare clic su **Ok** per salvare le modifiche.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -220,7 +220,7 @@ In questa sezione si crea un utente di nome Britta Simon in SkyDesk Email.
     ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 >[!NOTE] 
->Per creare utenti in blocco, è necessario contattare il [team di supporto client di SkyDesk Email](https://www.skydesk.sg/support/).
+>Per creare utenti in blocco, è necessario contattare il [team di supporto client di SkyDesk Email](https://www.skydesk.jp/apps/support/).
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD

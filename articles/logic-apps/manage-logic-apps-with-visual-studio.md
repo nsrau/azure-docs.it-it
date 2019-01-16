@@ -3,20 +3,20 @@ title: Gestire le app per la logica con Visual Studio - App per la logica di Azu
 description: Gestire le app per la logica e altri asset di Azure con Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445644"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158146"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 
@@ -172,6 +172,13 @@ Per eliminare l'app per la logica dal portale di Azure, in Cloud Explorer aprire
 
 > [!NOTE]
 > Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso vengono annullate. Se si dispone di migliaia di esecuzioni, l'annullamento potrebbe richiedere molto tempo. 
+
+## <a name="troubleshooting"></a>risoluzione dei problemi
+
+Quando si apre il progetto dell'app per la logica in Progettazione app per la logica, l'opzione per la selezione della sottoscrizione di Azure potrebbe non essere presente. L'app per la logica viene invece aperta con una sottoscrizione di Azure diversa da quella che si vuole usare. Questo comportamento si verifica perché, dopo aver aperto il file JSON di un'app per la logica, Visual Studio memorizza nella cache la prima sottoscrizione selezionata per un uso futuro. Per risolvere il problema, provare a eseguire uno di questi passaggi:
+
+* Rinominare il file JSON dell'app per la logica. La cache della sottoscrizione dipende dal nome del file. 
+* Per rimuovere le sottoscrizioni selezionate in precedenza per *tutte* le app per la logica nella soluzione, eliminare la cartella *nascosta* .vs nella directory della soluzione. In questa posizione sono archiviate le informazioni sulla sottoscrizione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

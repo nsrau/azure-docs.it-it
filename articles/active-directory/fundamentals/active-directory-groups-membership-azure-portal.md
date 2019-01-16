@@ -12,12 +12,12 @@ ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 12f557e9453db0d8bff2ab91fe8453e026e0320c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c13be8cbe9c05b9dcf513588825a22722c66e529
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104272"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061896"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory
 Questo articolo descrive come aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory.
@@ -29,7 +29,7 @@ Questo articolo descrive come aggiungere o rimuovere un gruppo da un altro grupp
 È possibile aggiungere un gruppo di sicurezza esistente a un altro gruppo di sicurezza esistente, ovvero creare gruppi annidati, creando un gruppo membri, o sottogruppo, e un gruppo padre. Il gruppo membri eredita gli attributi e le proprietà del gruppo padre, consentendo di risparmiare tempo di configurazione.
 
 >[!Important]
->Attualmente non sono supportate le operazioni seguenti:<ul><li>Aggiunta di gruppi a un gruppo sincronizzato con Active Directory locale</li><li>Aggiunta di gruppi di sicurezza a gruppi di Office 365</li><li>Aggiunta di gruppi di Office 365 a gruppi di sicurezza o ad altri gruppi di Office 365</li><li>Assegnazione di app a gruppi annidati</li><li>Applicazione di licenze a gruppi annidati</li></ul>
+>Attualmente non sono supportate le operazioni seguenti:<ul><li>Aggiunta di gruppi a un gruppo sincronizzato con Active Directory locale.</li><li>Aggiunta di gruppi di sicurezza a gruppi di Office 365.</li><li>Aggiunta di gruppi di Office 365 a gruppi di sicurezza o ad altri gruppi di Office 365.</li><li>Assegnazione di app a gruppi annidati.</li><li>Applicazione di licenze a gruppi annidati.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Per aggiungere un gruppo come membro di un altro gruppo
 

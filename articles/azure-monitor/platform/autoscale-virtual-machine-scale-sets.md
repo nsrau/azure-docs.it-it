@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 5ff6e29fc4d7607c44541c7947404a0bc0301207
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: c7b4da7292600f3d477d5c16263660eb6d4d4226
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581490"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051273"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configurazione di scalabilità automatica avanzata con modelli di Resource Manager per set di scalabilità di macchine virtuali di Microsoft Azure
 È possibile aumentare e ridurre il numero di istanze dei set di scalabilità di macchine virtuali in base ai valori soglia per le metriche delle prestazioni, a una pianificazione ricorrente oppure a una data specifica. È anche possibile configurare notifiche di posta elettronica e webhook per le azioni di scalabilità. Questa procedura dettagliata illustra un esempio di configurazione di tutti tali oggetti usando in modello di Resource Manager in un set di scalabilità di macchine virtuali.
@@ -247,3 +247,5 @@ Per altre informazioni sulla scalabilità automatica, usare questi collegamenti.
 [Gestire il ridimensionamento automatico con l'interfaccia della riga di comando](cli-samples.md#autoscale)
 
 [Configurare notifiche webhook e di posta elettronica per il ridimensionamento automatico](autoscale-webhook-email.md)
+
+Informazioni di riferimento sul modello [Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

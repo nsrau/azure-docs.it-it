@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 00e50d60ed7f13a2f28338891b39b1b55b7adbfa
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076356"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074377"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure
 
@@ -483,12 +483,12 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 Il dispositivo STONITH usa un'entità servizio per l'autorizzazione in Microsoft Azure. Per creare un'entità servizio, seguire questa procedura.
 
-1. Passare a <https://portal.azure.com>.
+1. Passare a <https\://portal.azure.com>
 1. Aprire il pannello Azure Active Directory  
    Passare a Proprietà e annotare l'ID directory. Si tratta dell'**ID tenant**.
 1. Fare clic su Registrazioni per l'app
 1. Fare clic su Aggiungi.
-1. Immettere un nome, selezionare il tipo di applicazione "App Web/API", immettere un URL di accesso (ad esempio, http://localhost) e fare clic su Crea.
+1. Immettere un nome, selezionare il tipo di applicazione "App Web/API", immettere un URL di accesso (ad esempio http\://localhost) e fare clic su Crea
 1. L'URL di accesso non viene usato e può essere qualsiasi URL valido
 1. Selezionare la nuova app e fare clic su Chiavi nella scheda Impostazioni
 1. Immettere una descrizione per una nuova chiave, selezionare "Non scade mai" e fare clic su Salva
@@ -525,7 +525,7 @@ Per il file di input usare il contenuto seguente. Tale contenuto deve essere ada
 
 Assegnare all'entità servizio il ruolo personalizzato "Linux Fence Agent Role" creato nel capitolo precedente. Non usare più il ruolo Owner.
 
-1. Passare a https://portal.azure.com.
+1. Passare a https\://portal.azure.com
 1. Aprire il pannello Tutte le risorse
 1. Selezionare la macchina virtuale del primo nodo del cluster.
 1. Fare clic su Controllo di accesso (IAM)

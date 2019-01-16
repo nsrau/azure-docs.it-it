@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: domande frequenti | Microsoft Docs'
+title: 'Azure Data Factory: Domande frequenti | Microsoft Docs'
 description: Risposte alle domande frequenti su Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,16 +9,15 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249588"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024094"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 Questo articolo risponde ad alcune domande frequenti su Azure Data Factory.  
@@ -92,9 +91,9 @@ Dopo la versione di anteprima pubblica iniziale del 2017, Data Factory è stato 
 ## <a name="what-is-integration-runtime"></a>Che cos'è il runtime di integrazione?
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati seguenti in diversi ambienti di rete:
 
-- **Spostamento dati**: per lo spostamento dati, il runtime di integrazione sposta i dati tra gli archivi dati di origine e di destinazione, fornendo al tempo stesso il supporto per connettori predefiniti, conversione di formati, mapping di colonne e trasferimenti di dati efficienti e ridimensionabili.
-- **Attività di invio**: per la trasformazione, il runtime di integrazione fornisce le funzionalità per l'esecuzione nativa di pacchetti SSIS.
-- **Esecuzione del pacchetto SSIS**: esegue in modo nativo i pacchetti SSIS in un ambiente di calcolo di Azure gestito. Il runtime di integrazione supporta anche l'invio e il monitoraggio delle attività di trasformazione in esecuzione in diversi servizi di calcolo, ad esempio Azure HDInsight, Azure Machine Learning, database SQL di Azure, SQL Server e altro ancora.
+- **Spostamento dei dati**: Per lo spostamento dei dati, il runtime di integrazione sposta i dati tra gli archivi dati di origine e di destinazione, fornendo al tempo stesso il supporto per connettori incorporati, conversione di formati, mapping di colonne e trasferimenti di dati efficienti e ridimensionabili.
+- **Attività di invio**: per la trasformazione, il runtime di integrazione mette a disposizione le funzionalità per l'esecuzione nativa di pacchetti SSIS.
+- **Esecuzione di pacchetti SSIS**: esegue in modo nativo i pacchetti SSIS in un ambiente di calcolo di Azure gestito. Il runtime di integrazione supporta anche l'invio e il monitoraggio delle attività di trasformazione in esecuzione in diversi servizi di calcolo, ad esempio Azure HDInsight, Azure Machine Learning, database SQL di Azure, SQL Server e altro ancora.
 
 Gli utenti possono distribuire una o più istanze del runtime di integrazione in base alla necessità per lo spostamento e la trasformazione di dati. Il runtime di integrazione può essere eseguito in una rete pubblica di Azure o in una rete privata (locale, Rete virtuale di Azure o cloud privato virtuale di Amazon Web Services). 
 
@@ -179,5 +178,5 @@ Sì. È possibile utilizzare un output di attività in un'attività successiva c
 ## <a name="next-steps"></a>Passaggi successivi
 Per istruzioni dettagliate per la creazione di una data factory, vedere le esercitazioni seguenti:
 
-- [Guida introduttiva: Creare una data factory](quickstart-create-data-factory-dot-net.md)
+- [Avvio rapido: Creare una data factory](quickstart-create-data-factory-dot-net.md)
 - [Esercitazione: Copiare i dati nel cloud](tutorial-copy-data-dot-net.md)

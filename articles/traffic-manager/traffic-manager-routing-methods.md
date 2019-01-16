@@ -1,8 +1,7 @@
 ---
-title: Gestione traffico di Azure - Metodi di routing del traffico | Microsoft Docs
+title: Metodi di routing del traffico di Gestione traffico di Azure
 description: Questo articolo fornisce informazioni sui diversi metodi di routing del traffico usati da Gestione traffico
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3cabfeda458011c5d3006642085f78dc74f3451e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139342"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054725"
 ---
 # <a name="traffic-manager-routing-methods"></a>Metodi di routing di Gestione traffico
 
@@ -24,10 +23,10 @@ Gestione traffico di Azure supporta sei metodi di routing del traffico per deter
 
 In Gestione traffico sono disponibili i metodi di routing del traffico seguenti:
 
-* **[Priorità](#priority):** selezionare **Priorità** quando si vuole usare un endpoint di servizio primario per tutto il traffico e prevedere endpoint di backup nel caso in cui l'endpoint primario o gli endpoint di backup non siano disponibili.
+* **[Priorità](#priority):** selezionare **Priorità** quando si vuole usare un endpoint di servizio primario per tutto il traffico e fornire copie di backup nel caso in cui l'endpoint primario o gli endpoint di backup non siano disponibili.
 * **[Ponderato](#weighted):** selezionare **Ponderato** quando si vuole distribuire il traffico in un set di endpoint in modo uniforme o in base alle ponderazioni definite.
 * **[Prestazioni](#performance):** selezionare **Prestazioni** quando gli endpoint si trovano in aree geografiche diverse e si vuole che gli utenti finali usino l'endpoint "più vicino" in termini di latenza di rete più bassa.
-* **[Geografico](#geographic):** selezionare **Geografico** in modo che gli utenti vengono indirizzati a endpoint specifici (Azure, Esterno o Annidato) in base alla posizione geografica da cui provengono le query DNS. Questo consente ai clienti di Gestione traffico di abilitare scenari in cui è importante conoscere l'area geografica dell'utente ed eseguirne il routing in base a questa. Ne sono esempi la presenza di determinati requisiti sui dati, la localizzazione del contenuto e dell'esperienza dell'utente e la misurazione del traffico da aree diverse.
+* **[Geografico](#geographic):** selezionare **Geografico** in modo che gli utenti vengano indirizzati a endpoint specifici (Azure, Esterno o Annidato) in base alla posizione geografica da cui proviene la query DNS. Questo consente ai clienti di Gestione traffico di abilitare scenari in cui è importante conoscere l'area geografica dell'utente ed eseguirne il routing in base a questa. Ne sono esempi la presenza di determinati requisiti sui dati, la localizzazione del contenuto e dell'esperienza dell'utente e la misurazione del traffico da aree diverse.
 * **[Multivalore](#multivalue):** selezionare **Multivalore** per i profili di Gestione traffico che possono avere come endpoint solo indirizzi IPv4/IPv6. Quando viene ricevuta una query per profili di questo tipo, vengono restituiti tutti gli endpoint integri.
 * **[Subnet](#subnet):** selezionare il metodo di routing del traffico **Subnet** per eseguire il mapping di set di intervalli di indirizzi IP dell'utente finale a uno specifico endpoint all'interno di un profilo di Gestione traffico. Al ricevimento di una richiesta, verrà restituito l'endpoint mappato per l'indirizzo IP di origine della richiesta. 
 

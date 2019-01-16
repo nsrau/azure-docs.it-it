@@ -9,17 +9,16 @@ ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 505f7345af6224b767d6d3719c123d91f54e48f5
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 632e605a6f7c9885f3854ca1f7b69ed337a1eacc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054293"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025879"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 
@@ -210,8 +209,8 @@ Configurare l'impostazione **enableStaging** nell'attività di copia per specifi
 | Proprietà | Descrizione | Valore predefinito | Obbligatorio |
 | --- | --- | --- | --- |
 | **enableStaging** |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |False |No |
-| **linkedServiceName** |Specificare il nome di un servizio collegato [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/> L'archiviazione non può essere usata con una firma di accesso condiviso per caricare dati in SQL Data Warehouse tramite PolyBase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
-| **path** |Specificare il percorso dell'archivio BLOB che deve contenere i dati di staging. Se non si specifica un percorso, il servizio crea un contenitore in cui archiviare i dati temporanei. <br/><br/> Specificare un percorso solo se si usa l'archiviazione con una firma di accesso condiviso o se i dati temporanei devono trovarsi in un percorso specifico. |N/D |No |
+| **linkedServiceName** |Specificare il nome di un servizio collegato [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/>  L'archiviazione non può essere usata con una firma di accesso condiviso per caricare dati in SQL Data Warehouse tramite PolyBase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
+| **path** |Specificare il percorso dell'archivio BLOB che deve contenere i dati di staging. Se non si specifica un percorso, il servizio crea un contenitore in cui archiviare i dati temporanei. <br/><br/>  Specificare un percorso solo se si usa l'archiviazione con una firma di accesso condiviso o se i dati temporanei devono trovarsi in un percorso specifico. |N/D |No |
 | **enableCompression** |Specifica se è necessario comprimere i dati prima di copiarli nella destinazione. Questa impostazione ridurre il volume dei dati da trasferire. |False |No |
 
 Di seguito è riportata una definizione di esempio di attività di copia con le proprietà descritte nella tabella precedente:
@@ -296,7 +295,7 @@ Se si copiano dati da un archivio BLOB a SQL Data Warehouse, valutare l'uso di *
 ### <a name="relational-data-stores"></a>Archivi dati relazionali
 *Inclusi database SQL, SQL Data Warehouse, Amazon Redshift, database SQL Server e database Oracle, MySQL, DB2, Teradata, Sybase e PostgreSQL*
 
-* **Modello di dati**: lo schema di tabella influisce sulla velocità effettiva di copia. Una riga di grandi dimensioni offre migliori prestazioni rispetto a una riga di piccole dimensioni per copiare la stessa quantità di dati. Questo perché il database è in grado di recuperare in modo più efficiente un minor numero di batch di dati che contengono meno righe.
+* **Modello di dati**: Lo schema di tabella influisce sulla velocità effettiva di copia. Una riga di grandi dimensioni offre migliori prestazioni rispetto a una riga di piccole dimensioni per copiare la stessa quantità di dati. Questo perché il database è in grado di recuperare in modo più efficiente un minor numero di batch di dati che contengono meno righe.
 * **Query o stored procedure**: ottimizzare la logica della query o della stored procedure specificata nell'origine dell'attività di copia per recuperare i dati in modo più efficiente.
 * Per i **database relazionali locali** come SQL Server e Oracle, in cui è necessario usare **Gateway di gestione dati**, vedere la sezione [Considerazioni su Gateway di gestione dati](#considerations-on-data-management-gateway).
 
@@ -397,7 +396,7 @@ Uno o più dei fattori seguenti possono provocare un collo di bottiglia nelle pr
 In tal caso, la compressione dati bzip2 potrebbe rallentare l'intera pipeline. Il passaggio al codec di compressione gzip può ridurre questo collo di bottiglia.
 
 ## <a name="sample-scenarios-use-parallel-copy"></a>Scenari di esempio: usare la copia parallela
-**Scenario I** : copiare 1.000 file da 1 MB dal file system locale nell'archivio BLOB.
+**Scenario I:** copiare 1.000 file da 1 MB dal file system locale nell'archivio BLOB.
 
 **Analisi e ottimizzazione delle prestazioni**: si supponga di aver installato il gateway in un computer quad-core. Data Factory usa 16 copie parallele per spostare simultaneamente i file dal file system all'archivio BLOB. L'esecuzione parallela deve garantire una velocità effettiva elevata. È anche possibile specificare in modo esplicito il numero di copie parallele. Quando si copiano molti file di piccole dimensioni, le copie parallele migliorano notevolmente la velocità effettiva garantendo un uso più efficiente delle risorse.
 
@@ -423,4 +422,4 @@ Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione
 * Azure SQL Data Warehouse: la funzionalità viene misurata in unità data warehouse (DWU). Vedere in proposito [Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [livelli di prestazioni in Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * SQL Server locale: [Monitoraggio e ottimizzazione delle prestazioni](https://msdn.microsoft.com/library/ms189081.aspx)
-* File server locale: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
+* File server locale: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)

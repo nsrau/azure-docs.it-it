@@ -8,16 +8,21 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: bc311ca5c49584ae3715fa4507e1fd678bcc93bb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: db37515926bf3872a1183467e0449035f7bf6097
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53007945"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54122837"
 ---
 Le dimensioni delle macchine virtuali ottimizzate per la GPU sono macchine virtuali specializzate disponibili con una o più GPU NVIDIA. Queste dimensioni sono progettate per carichi di lavoro di visualizzazione oppure a elevato utilizzo di calcolo o di grafica. Questo articolo fornisce informazioni relative a numero e tipo di GPU, vCPU, dischi dati e schede di rete. Anche velocità effettiva di archiviazione e larghezza di banda della rete sono incluse per ogni dimensione di questo raggruppamento. 
 
 * Le dimensioni **NC, NCv2, NCv3, ND e NDv2** sono ottimizzate per le applicazioni e gli algoritmi a elevato utilizzo di calcolo e di rete. Alcuni esempi sono applicazioni e simulazioni basate su CUDA e OpenCL, intelligenza artificiale e Deep Learning. La serie NCv3 è progettata per i carichi di lavoro HPC (High-Performance Computing) e dotata di GPU NVIDIA Tesla V100.  La serie ND è progettata per gli scenari di training e inferenza per l'apprendimento profondo. Questa serie usa GPU NVIDIA Tesla P40.
+
+* La **serie NC** è dotata di un processore Intel Xeon® E5-2690 versione 3 da 2,60 GHz.
+
+* Le dimensioni **NCSv3**, **NCSv2** e **ND** sono dotate di un processore Intel Xeon® E5-2690 versione 4 da 2,60 GHz.
+                      
 * Le dimensioni **NV e NVv2** sono ottimizzate e progettate per scenari di visualizzazione remota, streaming, gioco, codifica e VDI che usano framework come OpenGL e DirectX.  Queste macchine virtuali hanno GPU NVIDIA Tesla M60.
 
 

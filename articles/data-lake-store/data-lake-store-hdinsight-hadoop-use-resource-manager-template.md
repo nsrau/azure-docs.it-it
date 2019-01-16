@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0f6f485bb251bfae942c258b9be879c0aff5f5b9
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5b98513625a6179585601320d45996396fca7207
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955687"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035904"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Creare un cluster HDInsight con Data Lake Storage Gen1 usando un modello di Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -66,6 +66,12 @@ Get-AzureRmSubscription
 # Select a subscription
 Set-AzureRmContext -SubscriptionId <subscription ID>
 ```
+
+Il modello distribuisce i tipi di risorse seguenti:
+
+* [Microsoft.DataLakeStore/accounts](/azure/templates/microsoft.datalakestore/accounts)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)
 
 ## <a name="upload-sample-data-to-data-lake-storage-gen1"></a>Caricare dati di esempio in Data Lake Storage Gen1
 Il modello di Resource Manager crea un nuovo account Data Lake Storage Gen1 e lo associa al cluster HDInsight. È ora necessario caricare alcuni dati di esempio in Data Lake Storage Gen1. Questi dati saranno necessari più avanti nell'esercitazione per eseguire i processi da un cluster HDInsight che accede ai dati nell'account Data Lake Storage Gen1. Per istruzioni su come caricare i dati, vedere [Caricare un file nell'account Data Lake Storage Gen1](data-lake-store-get-started-portal.md#uploaddata). Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).

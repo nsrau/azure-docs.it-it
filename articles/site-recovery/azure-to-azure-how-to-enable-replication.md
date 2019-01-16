@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 797cef2d3a0e2cfeb28411c30a7da8a5b6f2d953
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 79ad4b3598c227ad2c2e3b76562cf95a30e82ad3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834520"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101548"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali di Azure in un'altra area di Azure
 
@@ -65,7 +65,7 @@ Abilitare la replica. Questa procedura presuppone che l'area di Azure primaria s
     - **Criteri di replica**: Site Recovery definisce le impostazioni per la cronologia della conservazione del punto di recupero e per una frequenza snapshot coerente con l'app. Per impostazione predefinita, Azure Site Recovery crea nuovi criteri di replica con impostazioni predefinite di 24 ore per la conservazione del punto di recupero e di 60 minuti per la frequenza snapshot coerente con l'app.
 
     ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
-
+  
 ## <a name="customize-target-resources"></a>Personalizzare le risorse di destinazione
 
 È possibile modificare le impostazioni di destinazione predefinite usate da Site Recovery.
@@ -79,7 +79,13 @@ Abilitare la replica. Questa procedura presuppone che l'area di Azure primaria s
     - In **Account di archiviazione di destinazione**, selezionare l'account da usare.
 
         ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
-
+1. Fare clic su **Personalizza** per modificare le impostazioni di replica.
+   - In **Coerenza tra più macchine virtuali** selezionare le macchine virtuali da replicare insieme. 
+   - Tutte le macchine virtuali in un gruppo di replica avranno punti di ripristino coerenti con l'arresto anomalo del sistema e coerenti con l'app quando si esegue il failover. L'abilitazione della coerenza tra più macchine virtuali può influire sulle prestazioni del carico di lavoro, in quanto implica un uso intensivo della CPU, e deve essere usata solo se le macchine eseguono lo stesso carico di lavoro ed è necessaria la coerenza tra più macchine virtuali. Ad esempio, se un'applicazione ha due macchine virtuali SQL e due server Web, solo le macchine virtuali SQL devono essere aggiunte in un gruppo di replica.
+   - È possibile scegliere di inserire al massimo 16 macchine virtuali in un gruppo di replica.
+   - Se si abilita la coerenza tra più macchine virtuali, i computer inclusi nel gruppo di replica comunicano tra loro sulla porta 20004. Verificare che nessuna appliance firewall blocchi la comunicazione interna tra VM sulla porta 20004. Se le VM Linux devono far parte di un gruppo di replica, verificare che il traffico in uscita sulla porta 20004 venga aperto manualmente in base alle indicazioni della versione Linux specifica.
+![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+    
 2. Fare clic su **Crea risorsa di destinazione** > **Abilitazione della replica**.
 3. Una volta abilitate le macchine virtuali per la replica è possibile controllare lo stato di integrità della macchina virtuale in **Elementi replicati**
 

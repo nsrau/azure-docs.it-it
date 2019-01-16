@@ -1,5 +1,5 @@
 ---
-title: Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory | Microsoft Docs
+title: Come pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido in Azure Active Directory (Azure AD) | Microsoft Docs
 description: Informazioni su come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: bddd183c517c611373afd1df64f22bfcd6a0cea8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993288"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102279"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Come pianificare l'implementazione dell'aggiunta all'identità ibrida di Azure Active Directory
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
-Analogamente agli utenti, i dispositivi stanno diventando un'altra identità da proteggere e anche da usare per proteggere le risorse sempre e ovunque. Questo obiettivo si raggiunge trasferendo le identità dei dispositivi in Azure AD usando uno dei metodi seguenti:
+Analogamente agli utenti, i dispositivi stanno diventando un'altra identità da proteggere e da usare per proteggere le risorse in qualsiasi momento e ovunque. Questo obiettivo si raggiunge trasferendo le identità dei dispositivi in Azure AD usando uno dei metodi seguenti:
 
 - Aggiunta ad Azure AD
 - Aggiunta ad Azure AD ibrido
@@ -54,7 +54,6 @@ Per pianificare l'implementazione di Azure AD ibrido, è necessario acquisire fa
 
 
  
-
 
 ## <a name="review-supported-devices"></a>Esaminare i dispositivi supportati 
 
@@ -112,6 +111,11 @@ Se l'organizzazione richiede l'accesso a Internet tramite un proxy in uscita aut
 
 L'aggiunta ad Azure AD ibrido è un processo che consente di registrare automaticamente i dispositivi aggiunti a un dominio locale con Azure AD. In alcuni casi non si vuole che tutti i dispositivi vengano registrati automaticamente. In questo caso, vedere [Come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD](hybrid-azuread-join-control.md).
 
+Se i dispositivi aggiunti a un dominio di Windows 10 sono già [registrati in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) nel tenant, è opportuno valutare la possibilità di rimuovere questo stato prima di abilitare l'aggiunta ad Azure AD ibrido. Lo stato doppio per un dispositivo, ovvero aggiunto ad Azure AD ibrido e registrato in Azure AD, non è supportato. Dalla versione 1809 di Windows 10 sono state introdotte le modifiche seguenti per evitare questo stato doppio: 
+ - L'eventuale stato esistente di registrato in Azure AD viene rimosso automaticamente dopo l'aggiunta del dispositivo ad Azure AD ibrido. 
+ - È possibile evitare che il dispositivo aggiunto a un dominio venga registrato in Azure AD aggiungendo questa chiave del Registro di sistema: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
+
+
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Esaminare come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD
 
 L'aggiunta ad Azure AD ibrido è un processo che consente di registrare automaticamente i dispositivi aggiunti a un dominio locale con Azure AD. In alcuni casi non si vuole che tutti i dispositivi vengano registrati automaticamente. Questo avviene ad esempio durante l'implementazione iniziale, per verificare che tutto funzioni come previsto.
@@ -146,7 +150,7 @@ A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedur
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Supporto per ID di accesso alternativo nell'aggiunta ad Azure AD ibrido
 
-L'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per gli [ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) in base al tipo di ID di accesso alternativo, al [metodo di autenticazione](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di ID di accesso alternativo diversi.
+L'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per gli [ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) in base al tipo di ID di accesso alternativo, al [metodo di autenticazione](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di ID di accesso alternativo diversi:
 
  - ID di accesso alternativo instradabili: un ID di accesso alternativo instradabile ha un dominio verificato valido, registrato con un registrar. Ad esempio, se contoso.com è il dominio primario, contoso.org e contoso.co.uk sono domini validi di proprietà di Contoso e [verificati in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  

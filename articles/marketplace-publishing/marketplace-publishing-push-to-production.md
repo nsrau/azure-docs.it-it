@@ -3,7 +3,7 @@ title: Distribuire l'offerta in Azure Marketplace | Documentazione Microsoft
 description: Informazioni e istruzioni dettagliate per distribuire l'offerta (immagine di macchina virtuale, servizio per sviluppatori, servizio dati e così via) in Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 8f79b891-84e2-4f41-ba0d-66420e2c6b2e
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 058f50853795453617593a6a07e2951f15f28174
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714282"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076112"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Distribuire l'offerta in Azure Marketplace
 Quando si è soddisfatti dell'offerta (ad esempio, è stato eseguito il testing degli scenari dei clienti, del contenuto marketing e così via) e si è pronti per il lancio, richiedere **Push in produzione** nella scheda **Pubblica**.  
@@ -62,15 +63,15 @@ Quando si è soddisfatti dell'offerta (ad esempio, è stato eseguito il testing 
 * La progettazione di Azure ha una tavolozza dei colori semplice. Nel logo usare un numero ridotto di colori primari e secondari.
 * I colori del tema del portale di Azure sono il bianco e il nero. Pertanto evitare di usare questi colori per lo sfondo dei logo. Usare un colore che faccia risaltare i logo nel portale di Azure. Si consiglia di usare colori primari semplici. Se si usa lo sfondo trasparente, verificare che il logo e il testo non siano bianchi o neri.
 * Non usare uno sfondo sfumato sul logo.
-* Evitare di inserire testo, anche il nome del marchio o della società, sul logo.
+* Non inserire testo, neppure il nome del marchio o della società, nel logo.
 * L'aspetto del logo deve essere semplice e senza sfumature.
 * Il logo non può essere allungato.
 
 **Indicazioni aggiuntive per il logo alto:**
 
 * Il logo alto è facoltativo. L'autore può scegliere di non caricare un logo alto. **Tuttavia, una volta caricata, l'icona del logo alto non può essere eliminata dal portale di pubblicazione. A quel punto il partner deve seguire le istruzioni di Azure Marketplace per le icone del logo alto o l'offerta non verrà approvata per la produzione.**
-* Il nome visualizzato dell'autore, il titolo dello SKU e il riepilogo lungo dell'offerta sono visualizzati con il testo bianco. Di conseguenza non è consigliabile usare un colore chiaro come sfondo dell'icona del logo alto. Lo sfondo nero, bianco o trasparente non è ammesso per le icone del logo alto.
-* Il nome visualizzato dell'autore, il titolo dello SKU, il riepilogo lungo dell'offerta e il pulsante Crea vengono incorporati a livello di codice all'interno del logo alto quando l'offerta viene elencata. Pertanto non è necessario inserire testo mentre si progetta il logo alto. Lasciare uno spazio vuoto a destra, perché il testo (nome visualizzato dell'editore, titolo dello SKU e riepilogo lungo dell'offerta) viene automaticamente incluso a livello di codice. Lo spazio vuoto per il testo deve essere 415 x 100 a destra e viene spostato con un offset di 370 px da sinistra.
+* Il nome visualizzato dell'editore, il titolo dello SKU e il riepilogo lungo dell'offerta sono visualizzati con il testo bianco. Di conseguenza non è consigliabile usare un colore chiaro come sfondo dell'icona del logo alto. Lo sfondo nero, bianco o trasparente non è ammesso per le icone del logo alto.
+* Il nome visualizzato dell'autore, il titolo dello SKU, il riepilogo lungo dell'offerta e il pulsante Crea vengono incorporati a livello di codice all'interno del logo alto quando l'offerta viene elencata. Pertanto non è necessario inserire testo mentre si progetta il logo alto. Lasciare uno spazio vuoto a destra, perché il testo (nome visualizzato dell'editore, titolo dello SKU e riepilogo lungo dell'offerta) viene automaticamente incluso a livello di codice. Lo spazio vuoto per il testo deve essere 415x100 a destra e viene spostato con un offset di 370 px da sinistra.
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Elenco di controllo di produzione aggiuntivo per le offerte per macchina virtuale già elencate
 * Controllare se è già presente un'offerta della propria azienda con lo stesso nome. Se è così, è necessario aggiungere una nuova versione dello SKU nell'offerta esistente anziché creare una nuova offerta duplicata.
@@ -81,7 +82,7 @@ Quando si è soddisfatti dell'offerta (ad esempio, è stato eseguito il testing 
 Una volta che l'offerta è pubblicata, testare gli scenari dei clienti per convalidare il corretto funzionamento di tutti i contratti e le funzionalità nell'ambiente di produzione, come testato e convalidato nell'ambiente di gestione temporanea.
 
 ## <a name="see-also"></a>Vedere anche 
-* [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Introduzione: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png

@@ -14,12 +14,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 088d8155fda6c370d89cded516bfa6c174c9380a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b8b3b28d2bf7fc75b9f70d145290af1edf44c94f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438032"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063184"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gestire Log Analytics con PowerShell
 È possibile usare i [cmdlet di PowerShell per Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) per eseguire varie funzioni in Log Analytics dalla riga di comando o nell'ambito di uno script.  Esempi di attività che è possibile eseguire con PowerShell:
@@ -186,6 +186,21 @@ New-AzureRmOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroup
 New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
+Nell'esempio precedente regexDelimiter è stato definito come "\\n" per la nuova riga. Il delimitatore di log potrebbe anche essere un timestamp.  Questi sono i formati supportati:
+
+| Format | Il formato RegEx JSON usa due \\ per ogni \ in un'espressione RegEx standard, quindi in caso di test in un'app RegEx ridurre \\ a \ |
+| --- | --- |
+| AAAA-MM-GG HH:MM:SS  | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
+| M/G/AAAA HH:MM:SS AM/PM | (([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm) |
+| gg/MMM/aaaa HH:MM:SS | ((([0-3]\\\\d)\|(\\\\d))/(Gen\|Feb\|Mar\|Mag\|Apr\|Lug\|Giu\|Ago\|Ott\|Set\|Nov\|Dic\|gen\|feb\|mar\|mag\|apr\|lug\|giu\|ago\|ott\|set\|nov\|dic)/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]) |
+| MMM gg aaaa HH:MM:SS | (((?:Gen(?:naio)?\|Feb(?:braio)?\|Mar(?:zo)?\|Apr(?:ile)?\|Mag(?:gio)?\|Giu(?:gno)?\|Lug(?:lio)?\|Ago(?:sto)?\|Set(?:tembre)?\|Sett\|Ott(?:obre)?\|Nov(?:embre)?\|Dic(?:embre)?)).*?((?:(?:[0-2]?\\\\d{1})\|(?:[3][01]{1})))(?![\\\\d]).*?((?:(?:[1]{1}\\\\d{1}\\\\d{1}\\\\d{1})\|(?:[2]{1}\\\\d{3})))(?![\\\\d]).*?((?:(?:[0-1][0-9])\|(?:[2][0-3])\|(?:[0-9])):(?:[0-5][0-9])(?::[0-5][0-9])?(?:\\\\s?(?:am\|AM\|pm\|PM))?)) |
+| aaMMgg hh: mm:ss | ([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
+| ggMMaa HH:mm:ss | (([0-2][0-9]\|[3][0-1])([0][1-9]\|[1][0-2])[0-9]{2}\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
+| MMM g HH:mm:ss | (Gen\|Feb\|Mar\|Apr\|Mag\|Giu\|Lug\|Ago\|Set\|Ott\|Nov\|Dic)\\\\s\\\\s?([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0-1]?[0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9]) |
+| MMM  g HH:mm:ss<br> due spazi dopo MMM | (Gen\|Feb\|Mar\|Apr\|Mag\|Giu\|Lug\|Ago\|Set\|Ott\|Nov\|Dic)\\\\s\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
+| MMM g HH:mm:ss | (Gen\|Feb\|Mar\|Apr\|Mag\|Giu\|Lug\|Ago\|Set\|Ott\|Nov\|Dic)\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
+| gg/MMM/aaaa:HH:mm:ss +zzzz<br> dove + è + o -<br> dove zzzz è la differenza di orario | (([0-2][1-9]\|[3][0-1])\\\\/(Gen\|Feb\|Mar\|Apr\|Mag\|Giu\|Lug\|Ago\|Set\|Ott\|Nov\|Dic)\\\\/((19\|20)[0-9][0-9]):([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\\\s[\\\\+\|\\\\-][0-9]{4}) |
+| aaaa-MM-ggTHH:mm:ss<br> T è una valore letterale per la lettera T | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configurazione di Log Analytics per indicizzare Diagnostica di Azure
 Per il monitoraggio senza agenti delle risorse di Azure, in queste ultime la diagnostica di Azure deve essere abilitata e configurata per la scrittura in un'area di lavoro di Log Analytics. Questo approccio permette di inviare i dati direttamente a Log Analytics e non ne richiede la scrittura in un account di archiviazione. Le risorse supportate includono:

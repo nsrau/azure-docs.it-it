@@ -9,20 +9,19 @@ ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 5f21f33678b8cf09d9dbd8966d42b1a5ebac9ffb
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 8ab6dad36bf47430a925d21ca2464286e7e70002
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224653"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022071"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Trasformare i dati eseguendo un notebook di Databricks
 
-L'attività dei notebook di Azure Databricks in una [pipeline di Data Factory](concepts-pipelines-activities.md) esegue un notebook di Databricks nell'area di lavoro di Azure Databricks. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](transform-data.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate. Azure Databricks è una piattaforma gestita per l'esecuzione di Apache Spark.
+L'attività dei notebook di Azure Databricks in una [pipeline di Data Factory](concepts-pipelines-activities.md) esegue un notebook di Databricks nell'area di lavoro di Azure Databricks. Questo articolo si basa sull'articolo relativo alle  [attività di trasformazione dei dati](transform-data.md) , che presenta una panoramica generale della trasformazione dei dati e delle attività di trasformazione supportate. Azure Databricks è una piattaforma gestita per l'esecuzione di Apache Spark.
 
 ## <a name="databricks-notebook-activity-definition"></a>Definizione di attività dei notebook di Databricks
 
@@ -63,7 +62,7 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella de
 |name|Nome dell'attività nella pipeline.|Yes|
 |description|Testo che descrive l'attività.|No |
 |type|Per l'attività dei notebook di Databricks il tipo di attività è DatabricksNotebook.|Yes|
-|linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione il notebook di Databricks. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).|Yes|
+|linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione il notebook di Databricks. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Yes|
 |notebookPath|Percorso assoluto del notebook da eseguire nell'area di lavoro di Databricks. Questo percorso deve iniziare con una barra.|Yes|
 |baseParameters|Matrice di coppie chiave-valore. I parametri base possono essere usati per ogni esecuzione attività. Se il notebook accetta un parametro non specificato, verrà usato il valore predefinito del notebook. Per altre informazioni sui parametri, vedere [Notebook di Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|No |
 |libraries|Un elenco di librerie da installare nel cluster che eseguirà il processo. Può essere una matrice di \<stringa, oggetto>.|No |

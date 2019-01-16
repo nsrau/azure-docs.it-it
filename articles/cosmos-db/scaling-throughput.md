@@ -1,25 +1,24 @@
 ---
 title: Ridimensionare la velocità effettiva per i contenitori di Azure Cosmos DB
 description: In questo articolo viene descritto come Azure Cosmos DB ridimensiona la velocità effettiva in modo elastico
-services: cosmos-db
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7e3f6d053e9466f07e15b0c2c1092fece76c98a4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c5e4720a6b830158581d17bbdcb9aba49e13183b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160665"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064492"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Ridimensionare la velocità effettiva per i contenitori di Azure Cosmos DB
 
-In Azure Cosmos DB, la velocità effettiva con provisioning viene rappresentata come unità di richieste al secondo (UR/s, plurale: unità richiesta). Le UR misurano il costo delle operazioni sia lettura che di scrittura sul contenitore Cosmos, come illustrato nell'immagine seguente:
+In Azure Cosmos DB la velocità effettiva con provisioning viene rappresentata come unità di richieste al secondo (UR/s, plurale: unità richiesta). Le UR misurano il costo delle operazioni sia lettura che di scrittura sul contenitore Cosmos, come illustrato nell'immagine seguente:
 
-![Unità richiesta](./media/scale-throughput/figure1.png)
+![Unità richiesta](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
 È possibile effettuare il provisioning delle unità richiesta in un contenitore Cosmos o in un database Cosmos. Le unità richiesta con provisioning in un contenitore sono disponibili esclusivamente per le operazioni eseguite in tale contenitore. Le unità richiesta con provisioning in un database sono condivise tra tutti i contenitori all'interno del database (ad eccezione di eventuali contenitori esclusivamente assegnati a unità di richiesta).
 

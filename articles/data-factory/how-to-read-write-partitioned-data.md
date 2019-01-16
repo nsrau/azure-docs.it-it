@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: 24464d110b00508cfb3fde4ab1a050773511e255
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f2d780900a0cd24f2d70499573a4055dc836ae0b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091050"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013571"
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Informazioni su come leggere o scrivere dati partizionati in Azure Data Factory
 

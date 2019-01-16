@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: 702ebdc0966a72396ac644b154ba13d2321fd5d4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a4671d383c46bf0b932ce528f4eacb7255bad5e7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631346"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105407"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 
@@ -64,7 +64,10 @@ Per modificare il ruolo Amministratore dispositivo, configurare **Amministratori
 
 ![Amministratori locali aggiuntivi](./media/assign-local-admin/10.png)
 
- 
+>[!NOTE]
+> Questa opzione richiede un tenant Azure AD Premium. 
+
+
 Gli amministratori dispositivo vengono assegnati a tutti i dispositivi aggiunti ad Azure AD. Non è possibile includere gli amministratori dispositivo nell'ambito di un set specifico di dispositivi. L'aggiornamento del ruolo Amministratore dispositivo non ha necessariamente un impatto immediato sugli utenti interessati. Per i dispositivi a cui un utente ha già effettuato l'accesso, l'aggiornamento dei privilegi viene eseguito:
      
 

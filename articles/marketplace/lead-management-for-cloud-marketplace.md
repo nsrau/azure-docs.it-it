@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: abaad7eabf92b6f3f53d7807af132959533552b9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840164"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076961"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Gestione dei lead per il marketplace cloud
 

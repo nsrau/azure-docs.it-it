@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4efd4622745a4a86c691cec32f5b93225715930a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6e2621103e79e201a6f3a9d45350e3b71d15f47c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974376"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119612"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Indirizzi IP usati da Application Insights e Log Analytics
-Il servizio [Azure Application Insights](../../application-insights/app-insights-overview.md) usa diversi indirizzi IP. Potrebbe essere necessario conoscere questi indirizzi se l'app che si sta monitorando è ospitata dietro un firewall.
+Il servizio [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa diversi indirizzi IP. Potrebbe essere necessario conoscere questi indirizzi se l'app che si sta monitorando è ospitata dietro un firewall.
 
 > [!NOTE]
-> Anche se questi indirizzi sono statici, a volte potrebbe essere necessari modificarli.
+> Anche se questi indirizzi sono statici, a volte potrebbe essere necessari modificarli. Tutto il traffico di Application Insights rappresenta il traffico in uscita ad eccezione del monitoraggio della disponibilità e dei webhook che richiedono regole firewall in entrata.
 > 
 > 
 

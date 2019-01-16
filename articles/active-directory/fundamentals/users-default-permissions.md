@@ -12,18 +12,18 @@ ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 58354bf95b11e497f05fdf08ba4740b3f55c6d6e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096596"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022785"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Autorizzazioni utente predefinite in Azure Active Directory
 In Azure Active Directory (Azure AD) a tutti gli utenti viene concesso un set di autorizzazioni predefinite. L'accesso di un utente è costituito dal tipo di utente, dalle [appartenenze a ruoli](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) e dalla proprietà di singoli oggetti. Questo articolo descrive tali autorizzazioni predefinite e contiene un confronto delle impostazioni predefinite degli utenti membro e guest.
 
 ## <a name="member-and-guest-users"></a>Utenti guest e membro
-Il set di autorizzazioni predefinite ricevuto varia a seconda che l'utente sia un membro nativo del tenant (utente membro) o un guest di Collaborazione B2B (utente guest). Per altre informazioni su Collaborazione B2B, vedere [Informazioni su Collaborazione B2B di Azure AD](../b2b/what-is-b2b.md) (per gli utenti guest). 
+Il set di autorizzazioni predefinite ricevuto varia a seconda che l'utente sia un membro nativo del tenant (utente membro) o un guest di Collaborazione B2B (utente guest). Per altre informazioni su Collaborazione B2B per gli utenti guest, vedere [Informazioni su Collaborazione B2B di Azure AD](../b2b/what-is-b2b.md). 
 * Gli utenti membro possono registrare le applicazioni, gestire il proprio numero di cellulare e la propria foto profilo, modificare la propria password e invitare guest B2B. Gli utenti possono anche leggere tutte le informazioni della directory (con alcune eccezioni). 
 * Gli utenti guest di B2B di Azure AD hanno autorizzazioni directory limitate. Gli utenti guest, ad esempio, non possono esplorare le informazioni dal tenant, se non quelle del proprio profilo. Un utente guest può tuttavia recuperare informazioni su un altro utente, fornendo il nome dell'entità utente o un ID oggetto. Un guest non può visualizzare informazioni su altri oggetti del tenant, ad esempio i gruppi e le applicazioni.
 

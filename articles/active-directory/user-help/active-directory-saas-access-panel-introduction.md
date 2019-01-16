@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1f51fb1d92fdec93fdb57fd25f8ca1cbaeb4fc46
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834707"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188930"
 ---
 # <a name="what-is-the-myapps-portal"></a>Che cos'è il portale App personali?
 
@@ -65,7 +65,7 @@ Il programma di installazione è specifico dell'architettura. Facendo clic sul c
 
 
 L'estensione del portale delle app personali è attualmente disponibile per:
-- **Microsoft Edge**: su Windows 10 Anniversary Edition o versioni successive. 
+- **Microsoft Edge**: in Windows 10 Anniversary Edition o versioni successive. 
 - **Chrome**: in Windows 7 o versioni successive e in MacOS X o versioni successive.
 - **Firefox 26.0 o versioni successive**: in Windows XP SP2 o versioni successive e in Mac OS X 10.6 o versioni successive.
 - **Internet Explorer 11**: in Windows 7 o versioni successive (supporto limitato).
@@ -79,7 +79,7 @@ Per usare l'accesso Single Sign-On basato su password, è necessario usare l'est
 - È possibile usare URL aziendali interne in remoto tramite [Proxy dell'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
-> Sono disponibili funzionalità aggiuntive per Microsoft Edge, Chrome e Firefox.
+> Sono disponibili funzionalità aggiuntive solo per Microsoft Edge, Chrome e Firefox.
 >
 È possibile scaricare l'estensione direttamente dai siti seguenti:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)

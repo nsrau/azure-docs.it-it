@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
+ms.component: performance
 ms.topic: how-to
-ms.component: monitor and tune
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d366850bc886dc48afc59ffaf0958b39314ebb1
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2a0504ae0e5c3dbf70ad84526176beae52f55870
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385533"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103129"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Come monitorare la cache Gen2
 L'architettura di archiviazione Gen2 automaticamente livella i segmenti columnstore più frequentemente sottoposti a query in una cache che si trova in unità SSD basate su NVMe, progettata per i data warehouse Gen2. Vengono realizzate prestazioni migliori quando le query recuperano i segmenti che si trovano nella cache. Questo articolo descrive come monitorare e risolvere i problemi di prestazione delle query lente, determinando se il carico di lavoro sta sfruttando in modo ottimale la cache Gen2.  
@@ -39,13 +39,13 @@ La matrice seguente descrive scenari in base ai valori della metrica della cache
 | **Elevata percentuale usata della cache** |          Scenario 1           |          Scenario 2          |
 | **Bassa percentuale usata della cache**  |          Scenario 3           |          Scenario 4          |
 
-**Scenario 1:**. Uso ottimale della cache. [Risoluzione dei problemi](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) di altre aree che possono rallentare le query.
+**Scenario 1:** La cache viene usata in modo ottimale. [Risoluzione dei problemi](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) di altre aree che possono rallentare le query.
 
-**Scenario 2:**. Il set di dati di lavoro corrente non può entrare nella cache, ciò comporta una bassa percentuale di riscontro nella cache dovuta a letture fisiche. Si consiglia di aumentare il livello della prestazione ed eseguire nuovamente il carico di lavoro per popolare la cache.
+**Scenario 2:** Il set di dati di lavoro corrente non può entrare nella cache, ciò comporta una bassa percentuale di riscontro nella cache dovuta a letture fisiche. Si consiglia di aumentare il livello della prestazione ed eseguire nuovamente il carico di lavoro per popolare la cache.
 
 **Scenario 3:** È probabile che la query venga eseguita lentamente per motivi non relativi alla cache. [Risoluzione dei problemi](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) di altre aree che possono rallentare le query. È inoltre possibile considerare di [ridurre l'istanza](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) per ridurre le dimensioni della cache e i costi. 
 
-**Scenario 4:** Si è verificato un cold cache che potrebbe essere il motivo della lentezza della query. Si consiglia di eseguire nuovamente la query poiché il set di dati di lavoro dovrebbe ora essere memorizzato nella cache. 
+**Scenario 4:** La cache vuota potrebbe essere il motivo della lentezza della query. Si consiglia di eseguire nuovamente la query poiché il set di dati di lavoro dovrebbe ora essere memorizzato nella cache. 
 
 **Importante: se la percentuale di riscontro nella cache o la percentuale usata della cache non viene aggiornata dopo aver eseguito nuovamente il carico di lavoro, il set di lavoro può già trovarsi in memoria. Tenere presente che solo le tabelle columnstore cluster vengono memorizzate nella cache.**
 

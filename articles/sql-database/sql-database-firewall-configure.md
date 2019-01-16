@@ -11,21 +11,20 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 6de91e28ebced1d41e128cec1180839e4b353020
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/03/2019
+ms.openlocfilehash: e4079a4dcaadab8e9cea0cc1b30a609a091e5937
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945468"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035271"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Regole del firewall per il database SQL di Azure e SQL Data Warehouse
 
 Il [database SQL di Microsoft Azure](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) forniscono un servizio di database relazionale per Azure e altre applicazioni basate su Internet. Per proteggere i dati, il firewall impedisce qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso ai database in base all'indirizzo IP di origine di ogni richiesta.
 
 > [!NOTE]
-> Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. 
-
+> Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
 > [!IMPORTANT]
 > Le informazioni di questo articolo *non* sono valide per **Istanza gestita di database SQL di Azure**. Vedere l'articolo seguente sulla [connessione a un'istanza gestita](sql-database-managed-instance-connect-app.md) per ulteriori informazioni sulla configurazione di rete necessaria.
 
@@ -58,9 +57,9 @@ I tentativi di connessione da Internet e Azure devono prima superare il firewall
 
 È consigliabile usare le regole del firewall a livello di database quando è possibile, allo scopo di migliorare la sicurezza e la portabilità del database. Usare le regole del firewall a livello di server per gli amministratori e quando sono disponibili molti database che presentano gli stessi requisiti di accesso e non si vuole dedicare tempo alla configurazione di ogni singolo database.
 
-> [!Important]
+> [!IMPORTANT]
 > Database SQL di Windows Azure supporta un massimo di 128 regole del firewall.
-> [!Note]
+> [!NOTE]
 > Per informazioni sui database portabili per la continuità aziendale, vedere nel contesto della continuità aziendale, vedere i [requisiti di autenticazione per il ripristino di emergenza](sql-database-geo-replication-security-config.md).
 
 ### <a name="connecting-from-the-internet"></a>Connessione da Internet
@@ -102,7 +101,7 @@ Per impostare una regola del firewall a livello di server nel portale di Azure, 
 
 ### <a name="from-database-overview-page"></a>Dalla pagina di panoramica del database
 
-1. Per impostare una regola del firewall a livello di server dalla pagina di panoramica del database, fare clic su **Imposta firewall server** sulla barra degli strumenti, come illustrato nella figura seguente: la pagina **Impostazioni del Firewall** verrà visualizzata per il server del Database SQL.
+1. Per impostare una regola del firewall a livello di server dalla pagina di panoramica del database, fare clic su **Imposta firewall server** sulla barra degli strumenti, come illustrato nella figura seguente: Si apre la pagina **Impostazioni del firewall** per il server del database SQL.
 
       ![Regola del firewall del server](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
@@ -248,7 +247,7 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 
 - Per una Guida introduttiva alla creazione di un database e di una regola del firewall a livello di server, vedere [Creare un database SQL di Azure nel portale di Azure](sql-database-get-started-portal.md).
 - Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere [Esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-- Per informazioni sulle porte aggiuntive che si possono dover aprire vedere la sezione **Esterno rispetto all'interno** di [Porte successive alla 1433 per ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Per altre informazioni sulle porte aggiuntive che può essere necessario aprire, vedere la sezione **Esterno rispetto all'interno** di [Porte successive alla 1433 per ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md)
 - Per una panoramica della sicurezza del Database SQL di Azure vedere [Protezione del Database SQL](sql-database-security-overview.md)
 
 <!--Image references-->

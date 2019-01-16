@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 01/04/2019
 ms.author: danlep
-ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b18638057def03a02024200edb157e5caf08a669
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857772"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065172"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Eliminare le immagini del contenitore nel registro contenitori di Azure
 
@@ -20,7 +20,7 @@ Per mantenere le dimensioni del registro contenitori di Azure, è consigliabile 
 
 Poiché è possibile eliminare i dati di immagini in modi diversi, è importante comprendere l'impatto di ciascun tipo di eliminazione sull'utilizzo dello spazio di archiviazione. Prima di tutto, l'articolo descrive i componenti di un registro Docker e le immagini del contenitore, quindi illustra vari modi per eliminare i dati di immagini.
 
-## <a name="registry"></a>Registro
+## <a name="registry"></a> Registro
 
 Un *registro* contenitori è un servizio che archivia e distribuisce immagini del contenitore. Docker Hub è un registro contenitori di Docker pubblico, mentre il registro contenitori di Azure fornisce registri contenitori di Docker privati in Azure.
 
@@ -60,7 +60,7 @@ In un registro privato, ad esempio il registro contenitori di Azure, il nome del
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
-Per una discussione sulle procedure consigliate per l'assegnazione dei tag alle immagini, consultare il post di blog [Docker Tagging: Best practices for tagging and versioning docker images][tagging-best-practices] (Assegnazione di tag in Docker: procedure consigliate per assegnare tag e controllare le versioni delle immagini Docker) in MSDN.
+Per una discussione sulle procedure consigliate per il tag di immagine, vedere il post di blog [Docker Tagging: Best practices for tagging and versioning docker images][tagging-best-practices] (Assegnazione tag di Docker: procedure consigliate per l'assegnazione di tag e il controllo delle versioni delle immagini Docker) su MSDN.
 
 ### <a name="layer"></a>Livello
 
@@ -131,7 +131,7 @@ Esistono vari modi per eliminare i dati di immagini dal registro contenitori:
 
 * Eliminare un [repository](#delete-repository): elimina tutte le immagini e tutti i livelli univoci all'interno del repository.
 * Eliminare in base ai [tag](#delete-by-tag): elimina un'immagine, il tag, tutti i livelli univoci a cui l'immagine fa riferimento e tutti gli altri tag a essa associati.
-* Eliminare in base all'[hash di manifesto](#delete-by-manifest-digest): elimina un'immagine, tutti i livelli univoci a cui fa riferimento l'immagine e tutti i tag a essa associati.
+* Eliminare in base al [digest del manifesto](#delete-by-manifest-digest): elimina un'immagine, tutti i livelli univoci a cui fa riferimento l'immagine e tutti i tag a essa associati.
 
 ## <a name="delete-repository"></a>Eliminare un repository
 
@@ -239,20 +239,20 @@ Come accennato nella sezione [Hash di manifesto](#manifest-digest), il push di u
      },
      {
        "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
-       "tags": null,
+       "tags": [],
        "timestamp": "2018-07-11T21:32:21.1400513Z"
      }
    ]
    ```
 
-Come si evince dall'output dell'ultimo passaggio della sequenza, ora è presente un manifesto orfano la cui proprietà `"tags"` è `null`. Questo manifesto è ancora presente nel registro, insieme a tutti i dati dei livelli univoci a cui fa riferimento. **Per eliminare le immagini orfane e i relativi dati di livelli, è necessario eliminarle tramite l'hash di manifesto**.
+Come si evince dall'output dell'ultimo passaggio della sequenza, ora è presente un manifesto orfano la cui proprietà `"tags"` è una matrice vuota. Questo manifesto è ancora presente nel registro, insieme a tutti i dati dei livelli univoci a cui fa riferimento. **Per eliminare le immagini orfane e i relativi dati di livelli, è necessario eliminarle tramite l'hash di manifesto**.
 
 ### <a name="list-untagged-images"></a>Elencare le immagini senza tag
 
 È possibile elencare tutte le immagini senza tag nel repository usando il comando seguente dell'interfaccia della riga di comando di Azure. Sostituire `<acrName>` e `<repositoryName>` con i valori appropriati all'ambiente.
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>  --query "[?tags==null].digest"
+az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?!(tags[?'*'])].digest"
 ```
 
 ### <a name="delete-all-untagged-images"></a>Eliminare tutte le immagini senza tag
@@ -283,7 +283,7 @@ REPOSITORY=myrepository
 # Delete all untagged (orphaned) images
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags==null].digest" -o tsv \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?!(tags[?'*'])].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
@@ -310,7 +310,7 @@ $registry = "myregistry"
 $repository = "myrepository"
 
 if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags==null].digest" -o tsv `
+    az acr repository show-manifests --name $registry --repository $repository --query "[?!(tags[?'*'])].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
     Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."

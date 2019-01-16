@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: 587ba52a1a30d187268119567b84d2dd8e471b8d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 13637e4de0d555bdd0e70c69097b204c286eb24c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300592"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063829"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Creare la prima applicazione contenitore di Service Fabric in Windows
 > [!div class="op_single_selector"]
@@ -328,6 +328,61 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
     </Policies>
     ...
 </ServiceManifestImport>
+```
+
+### <a name="configure-cluster-wide-credentials"></a>Configurare credenziali a livello di cluster
+
+A partire dal runtime 6.3, Service Fabric consente di configurare credenziali a livello di cluster che possono essere usate come credenziali del repository predefinite dalle applicazioni.
+
+È possibile abilitare o disabilitare questa funzionalità aggiungendo l'attributo `UseDefaultRepositoryCredentials` a `ContainerHostPolicies` nel file ApplicationManifest.xml con un valore `true` o `false`.
+
+```xml
+<ServiceManifestImport>
+    ...
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code" UseDefaultRepositoryCredentials="true">
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+    ...
+</ServiceManifestImport>
+```
+
+Service Fabric usa quindi le credenziali del repository predefinite che possono essere specificate in ClusterManifest nella sezione `Hosting`.  Se `UseDefaultRepositoryCredentials` è `true`, Service Fabric legge i valori seguenti da ClusterManifest:
+
+* DefaultContainerRepositoryAccountName (stringa)
+* DefaultContainerRepositoryPassword (stringa)
+* IsDefaultContainerRepositoryPasswordEncrypted (bool)
+* DefaultContainerRepositoryPasswordType (stringa) - Supportato a partire dal runtime 6.4
+
+Ecco un esempio di cosa è possibile aggiungere nella sezione `Hosting` del file ClusterManifestTemplate.json. Per altre informazioni, vedere [Personalizzare le impostazioni di un cluster di Service Fabric](service-fabric-cluster-fabric-settings.md) e [Gestire i segreti nelle applicazioni di Service Fabric](service-fabric-application-secret-management.md).
+
+```json
+      {
+        "name": "Hosting",
+        "parameters": [
+          {
+            "name": "EndpointProviderEnabled",
+            "value": "true"
+          },
+          {
+            "name": "DefaultContainerRepositoryAccountName",
+            "value": "someusername"
+          },
+          {
+            "name": "DefaultContainerRepositoryPassword",
+            "value": "somepassword"
+          },
+          {
+            "name": "IsDefaultContainerRepositoryPasswordEncrypted",
+            "value": "false"
+          },
+          {
+            "name": "DefaultContainerRepositoryPasswordType",
+            "value": "PlainText"
+          }
+        ]
+      },
 ```
 
 ## <a name="configure-isolation-mode"></a>Configurare la modalità di isolamento

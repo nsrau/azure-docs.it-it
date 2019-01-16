@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 722f350c4f11648753465e302e84949fc340e281
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f488f8aa991b3d4baae05097af9b6e2f2db481cc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42140309"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158925"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure
 
@@ -88,7 +88,7 @@ Usare `Ctrl+P` (macOS: `Cmd+P`) per eseguire `task cloud-deploy` e avviare la di
 
 Compilare e caricare quindi il codice del dispositivo.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 1. Usare `Ctrl+P` per eseguire `task device-upload`.
 
@@ -118,7 +118,7 @@ A questo punto la stringa di connessione è impostata, verifica e carica l'app, 
 
 2. Il DevKit viene riavviato e inizia a eseguire il codice.
 
-È possibile che venga visualizzato il messaggio "Errore: AZ3166: Pacchetto sconosciuto". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere questo problema, vedere l'[errore "unknown package" (pacchetto sconosciuto) nelle domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+È possibile che venga visualizzato il messaggio "Errore AZ3166: Pacchetto sconosciuto". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere questo problema, vedere l'[errore "unknown package" (pacchetto sconosciuto) nelle domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Verificare il progetto
 
@@ -202,7 +202,7 @@ Può anche capitare che, durante l'esecuzione del codice, si verifichi un proble
 Se si verificano altri problemi, fare riferimento alle [domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o contattare i canali seguenti:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

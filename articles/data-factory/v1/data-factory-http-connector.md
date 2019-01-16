@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 06eb11132d7e3968850aadb4bfdaa53261f14ada
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167478"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017260"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Spostare dati da un'origine HTTP tramite Azure Data Factory
 
@@ -36,7 +35,7 @@ Data Factory supporta attualmente solo lo spostamento di dati da un'origine HTTP
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Scenari supportati e tipi di autenticazione
 
-È possibile usare questo connettore HTTP per recuperare dati da *endpoint HTTP/S cloud e locali* tramite il metodo HTTP **GET** o **POST**. Sono supportati i seguenti tipi di autenticazione: **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. Notare la differenza tra questo connettore e il [connettore di tabella Web](data-factory-web-table-connector.md). Il connettore di tabella Web estrae il contenuto della tabella da una pagina Web HTML.
+È possibile usare questo connettore HTTP per recuperare dati da *endpoint HTTP/S cloud e locali* tramite il metodo HTTP **GET** o **POST**. Sono supportati i tipi di autenticazione seguenti: **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. Notare la differenza tra questo connettore e il [connettore di tabella Web](data-factory-web-table-connector.md). Il connettore di tabella Web estrae il contenuto della tabella da una pagina Web HTML.
 
 Nel copiare dati da un endpoint HTTP locale, è necessario installare Gateway di gestione dati nell'ambiente locale o in una macchina virtuale di Azure. Per informazioni su Gateway di gestione dati e per istruzioni dettagliate su come configurare il gateway, vedere [Moving data between on-premises locations and the cloud](data-factory-move-data-between-onprem-and-cloud.md) (Spostamento di dati tra posizioni locali e nel cloud).
 
@@ -44,7 +43,7 @@ Nel copiare dati da un endpoint HTTP locale, è necessario installare Gateway di
 
 È possibile creare una pipeline con l'attività di copia per spostare i dati da un'origine HTTP usando diversi strumenti o API:
 
-- Il modo più semplice per creare una pipeline è usare la procedura guidata di copia. Per una rapida procedura dettagliata di creazione di una pipeline mediante la procedura guidata di copia dei dati, vedere [Tutorial: Create a pipeline by using the Copy wizard](data-factory-copy-data-wizard-tutorial.md) (Esercitazione: Creare una pipeline tramite la procedura guidata di copia).
+- Il modo più semplice per creare una pipeline è usare la procedura guidata di copia. Per una rapida procedura dettagliata di creazione di una pipeline tramite la procedura guidata Copia dati, vedere [Esercitazione: Creare una pipeline usando la copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
 - Per creare una pipeline, è possibile usare anche questi strumenti: il **portale di Azure**, **Visual Studio**, **Azure PowerShell** un **modello di Azure Resource Manager**, l'**API .NET** o l'**API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Per gli esempi JSON per copiare i dati da un'origine HTTP nell'archiviazione BLOB di Azure, vedere [Esempi JSON](#json-examples).
 
@@ -72,7 +71,7 @@ Impostare **authenticationType** su **Basic**, **Digest** o **Windows**. Oltre a
 | username | Nome utente da usare per accedere all'endpoint HTTP. | Yes |
 | password | Password per l'utente (**username**). | Yes |
 
-**Esempio: Uso dell'autenticazione di base, digest o di Windows**
+**Esempio: Uso dell'autenticazione Basic, Digest o Windows**
 
 ```json
 {
@@ -166,8 +165,8 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati. La sezion
 | requestMethod | Metodo HTTP. I valori consentiti sono **GET** e **POST**. | No  <br />Il valore predefinito è **GET** |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No  |
 | requestBody | Corpo della richiesta HTTP. | No  |
-| format | Se si vuole *recuperare i dati da un endpoint HTTP così come sono*, senza analizzarli, ignorare l'impostazione di **format**. <br><br> Se si vuole analizzare il contenuto della risposta HTTP durante la copia, sono supportati questi tipi di formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Per altre informazioni, vedere le sezioni relative ai formati [testo](data-factory-supported-file-and-compression-formats.md#text-format), [JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc](data-factory-supported-file-and-compression-formats.md#orc-format) e [Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |No  |
-| compressione | Specificare il tipo e il livello di compressione dei dati. Tipi supportati: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Livelli supportati: **Optimal** e **Fastest**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No  |
+| format | Se si vuole *recuperare i dati da un endpoint HTTP così come sono*, senza analizzarli, ignorare l'impostazione di **format**. <br><br> Se si vuole analizzare il contenuto della risposta HTTP durante la copia, sono supportati i tipi di formato file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Per altre informazioni, vedere le sezioni relative ai formati [testo](data-factory-supported-file-and-compression-formats.md#text-format), [JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc](data-factory-supported-file-and-compression-formats.md#orc-format) e [Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |No  |
+| compressione | Specificare il tipo e il livello di compressione dei dati. Tipi supportati: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Livelli supportati: **Optimal** (Ottimale) e **Fastest** (Più veloce). Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No  |
 
 **Esempio: Uso del metodo GET (predefinito)**
 
@@ -234,7 +233,7 @@ Vedere [File and compression formats in Azure Data Factory](data-factory-support
 
 Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Gli esempi mostrano come copiare dati da un'origine HTTP all'archiviazione BLOB di Azure. Tuttavia, i dati possono anche essere copiati *direttamente* da una delle origini in qualsiasi sink [supportato](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tramite l'attività di copia in Azure Data Factory.
 
-**Esempio: Copiare dati da un'origine HTTP all'archiviazione BLOB di Azure**
+**Esempio: Copiare dati da un'origine HTTP ad Archiviazione BLOB di Azure**
 
 La soluzione di Data Factory per questo esempio contiene le entità Data Factory seguenti:
 

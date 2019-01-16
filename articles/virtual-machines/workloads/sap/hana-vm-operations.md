@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d716a27cc2b4879451a8d5edbca46ca1bbfeaf40
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 96b0c44ff36dac3832e518deeed7f07b11e78c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968988"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160047"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurazioni e operazioni dell'infrastruttura SAP HANA in Azure
 Questa guida contiene le indicazioni necessarie per configurare l'infrastruttura di Azure e gestire i sistemi SAP HANA distribuiti in macchine virtuali native di Azure. Il documento include anche informazioni sulla configurazione per lo scale-out di SAP HANA per lo SKU di VM M128s. Questo documento non deve sostituire la documentazione standard di SAP, che include:
@@ -317,7 +317,7 @@ Per quanto riguarda la scheda di interfaccia di rete virtuale di una VM con scal
 - Se necessario, per il traffico verso **/hana/shared**, distribuire una terza subnet nella rete virtuale in cui si distribuisce la configurazione con scale-out SAP HANA e assegnare una terza scheda di interfaccia di rete virtuale ospitata in tale subnet. Usare la terza scheda di interfaccia di rete virtuale e l'indirizzo IP associato per il traffico verso la condivisione NFS. È quindi possibile applicare regole di routing e accesso separate.
 
 >[!IMPORTANT]
->In nessun caso il traffico di rete tra le VM con SAP HANA distribuito con lo scale-out e NFS a disponibilità elevata può essere instradato tramite un'[appliance virtuale di rete](https://azure.microsoft.com/solutions/network-appliances/) o appliance virtuali simili. I gruppi di sicurezza di rete di Azure invece non sono dispositivi di questo tipo. Controllare le regole di routing per verificare che le appliance virtuali di rete o appliance virtuali simili vengano deviate quando accedono alla condivisione NFS a disponibilità elevata dalle VM che eseguono SAP HANA.
+>In nessun caso il traffico di rete tra le VM con SAP HANA distribuito con lo scale-out e NFS a disponibilità elevata può essere instradato tramite un'[appliance virtuale di rete](https://azure.microsoft.com/solutions/network-appliances/) o appliance virtuali simili. I gruppi di sicurezza di rete di Azure invece non sono dispositivi di questo tipo. Controllare le regole di routing per verificare che le appliance virtuali di rete o appliance virtuali simili vengano deviate quando accedono alla condivisione NFS a disponibilità elevata dalle macchine virtuali che eseguono SAP HANA.
 > 
 
 Per condividere il cluster NFS a disponibilità elevata tra le configurazioni SAP HANA, spostare tutte le configurazioni HANA nella stessa rete virtuale. 

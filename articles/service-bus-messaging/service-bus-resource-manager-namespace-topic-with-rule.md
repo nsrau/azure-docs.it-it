@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: dd0ef94c7efb27641d5f0bf50d87bf852bcd1e9a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 42be349a5f89a2057d67b5bcab5eda70c5c9e7eb
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696337"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064203"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola usando un modello di Azure Resource Manager
 
@@ -43,7 +43,7 @@ Per il modello completo, vedere il [modello dello spazio dei nomi del bus di ser
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>Distribuzione
+## <a name="what-do-you-deploy"></a>Cosa distribuire?
 
 Questo modello consente di distribuire uno spazio dei nomi del bus di servizio con un argomento, una sottoscrizione e una regola (filtro).
 
@@ -59,7 +59,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
 ## <a name="parameters"></a>Parametri
 
-Con Azure Resource Manager è necessario definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. È necessario definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
+Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. Definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
 
 Il modello definisce i parametri seguenti:
 
@@ -160,6 +160,8 @@ Crea uno spazio dei nomi del bus di servizio standard di tipo **Messaggistica** 
         }]
     }]
 ```
+
+Per la sintassi e le proprietà JSON, vedere [Spazi dei nomi](/azure/templates/microsoft.servicebus/namespaces), [Argomenti](/azure/templates/microsoft.servicebus/namespaces/topics), [Sottoscrizioni](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions) e [Regole](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions/rules).
 
 ## <a name="commands-to-run-deployment"></a>Comandi per eseguire la distribuzione
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

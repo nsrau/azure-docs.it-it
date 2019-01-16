@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: f460c063ded489c8ec0ef23b35ab304c62943a98
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337071"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187746"
 ---
-# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso della mappa di Monitoraggio di Azure per le macchine virtuali (anteprima) per comprendere i componenti dell'applicazione
+# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso della mappa di Monitoraggio di Azure per le macchine virtuali (anteprima) per comprendere i componenti delle applicazioni
 I componenti di applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure nell'ambiente dell'utente possono essere visualizzati in due modi con Monitoraggio di Azure per le macchine virtuali, ovvero direttamente da una macchina virtuale o tra gruppi di macchine virtuali in Monitoraggio di Azure. 
 
 Questo articolo descrive la diversa esperienza tra le due prospettive e il modo in cui usare la funzionalità Mappa. Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine virtuali, vedere [Enable Azure Monitor for VMs](vminsights-onboard.md) (Abilitare Monitoraggio di Azure per le macchine virtuali).

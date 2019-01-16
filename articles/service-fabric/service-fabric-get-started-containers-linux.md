@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 1/4/2019
 ms.author: twhitney
-ms.openlocfilehash: 07c227c198166254eb130604685a4ba5884b783a
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e02acb0d283257658d4466295e3be323072210b5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299878"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062367"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Creare la prima applicazione contenitore di Service Fabric in Linux
 > [!div class="op_single_selector"]
@@ -193,6 +193,11 @@ Specificare il mapping della porta nel formato appropriato. Per questo articolo,
    </ServiceManifestImport>
 ``` 
 
+È consigliabile crittografare la password del repository. Per istruzioni, vedere [Gestire i segreti crittografati nelle applicazioni di Service Fabric](service-fabric-application-secret-management.md).
+
+### <a name="configure-cluster-wide-credentials"></a>Configurare credenziali a livello di cluster
+Fare riferimento alla documentazione disponibile [qui](
+service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ## <a name="configure-isolation-mode"></a>Configurare la modalità di isolamento
 Con la versione del runtime 6.3, l'isolamento delle macchine virtuali è supportato per i contenitori Linux, consentendo in tal modo il supporto di due modalità di isolamento per i contenitori, ovvero process e hyperv. Nella modalità di isolamento hyperv i kernel sono isolati tra ogni contenitore e l'host dei contenitori. L'isolamento hyperv viene implementato tramite [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). La modalità di isolamento viene specificata per i cluster Linux nell'elemento `ServicePackageContainerPolicy` nel file manifesto dell'applicazione. Le modalità di isolamento specificabili sono `process`, `hyperv` e `default`. Il valore predefinito è la modalità di isolamento processo. Il frammento seguente indica come è specificata la modalità di isolamento nel file manifesto dell'applicazione.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228216"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063999"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurare uno o più listener di gruppi di disponibilità AlwaysOn - Resource Manager
 Questo argomento illustra come:
@@ -45,7 +45,7 @@ Configurare Windows Firewall per consentire l'accesso a SQL Server. Le regole de
 
 Se si limita l'accesso con un gruppo di sicurezza di rete di Azure, assicurarsi che le regole di autorizzazione includano gli indirizzi IP della macchina virtuale di SQL Server di back-end e gli indirizzi IP del bilanciamento del carico mobile per il listener AG e l'indirizzo IP principale del cluster, se disponibile.
 
-## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script di esempio: creare un servizio di bilanciamento del carico interno con PowerShell
+## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script di esempio: Creare un servizio di bilanciamento del carico interno con PowerShell
 > [!NOTE]
 > Se il gruppo di disponibilità è stato creato con il [modello Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), il bilanciamento del carico interno è già stato creato. 
 > 
@@ -101,7 +101,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a> Script di esempio: aggiungere un indirizzo IP a un servizio di bilanciamento del carico esistente con PowerShell
+## <a name="Add-IP"></a> Script di esempio: Aggiungere un indirizzo IP a un servizio di bilanciamento del carico esistente con PowerShell
 Per usare più di un gruppo di disponibilità, aggiungere un altro indirizzo IP al bilanciamento del carico. Ogni indirizzo IP richiede la sua regola di bilanciamento, la sua porta probe e la sua porta front-end.
 
 La porta front-end è quella usata dalle applicazioni per connettersi all'istanza di SQL Server. Gli indirizzi IP per i diversi gruppi di disponibilità possono usare la stessa porta front-end.
@@ -176,7 +176,7 @@ Per testare la connessione:
 1. Usare l'utilità **sqlcmd** per testare la connessione. Lo script seguente, ad esempio, stabilisce una connessione **sqlcmd** alla replica primaria tramite il listener con l'autenticazione di Windows:
    
     ```
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
     ```
    
     Se il listener usa una porta diversa da quella predefinita (1433), specificare la porta nella stringa di connessione. Il seguente comando sqlcmd, ad esempio, si connette a un listener nella porta 1435: 

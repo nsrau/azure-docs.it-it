@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 05e5c0a37d2de78393048728b73d9bcf6e56c491
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138586"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159167"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB standard di settore. Questo articolo descrive gli obiettivi di scalabilità e prestazioni per File di Azure e Sincronizzazione file di Azure.
@@ -60,8 +60,8 @@ Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di
 | Numero di oggetti | 10 milioni di oggetti | 
 | Dimensioni del set di dati| Circa 4 TiB |
 | Dimensioni medie dei file | 500 KiB (File più grande: 100 GiB) |
-| Velocità effettiva di caricamento | 15 oggetti al secondo |
-| Velocità effettiva di download dello spazio dei nomi* | 350 oggetti al secondo |
+| Velocità effettiva di caricamento | 20 oggetti al secondo |
+| Velocità effettiva di download dello spazio dei nomi* | 400 oggetti al secondo |
  
 * Quando viene creato un nuovo endpoint del server, l'agente di Sincronizzazione file di Azure non scarica il contenuto di alcun file. Sincronizza prima di tutto lo spazio dei nomi completo e quindi attiva il richiamo in background per scaricare i file, interamente o, se è abilitato il cloud a più livelli, in base ai criteri di suddivisione in livelli cloud impostati nell'endpoint del server.
 
@@ -70,8 +70,8 @@ Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di
 | Numero di oggetti sincronizzati| 125.000 oggetti (circa 1% di varianza) | 
 | Dimensioni del set di dati| 50 GiB |
 | Dimensioni medie dei file | ~500 KiB |
-| Velocità effettiva di caricamento | 20 oggetti al secondo |
-| Velocità effettiva per il download completo* | 30 oggetti al secondo |
+| Velocità effettiva di caricamento | 30 oggetti al secondo |
+| Velocità effettiva per il download completo* | 60 oggetti al secondo |
  
 *Se è abilitato il cloud a più livelli, è probabile che si osserveranno prestazioni migliori, in quanto vengono scaricati solo alcuni dei dati dei file. Sincronizzazione file di Azure scarica solo i dati dei file memorizzati nella cache quando vengono modificati in uno degli endpoint. Per tutti i file a più livelli o appena creati, l'agente non scarica i dati dei file e sincronizza invece solo lo spazio dei nomi per tutti gli endpoint del server. L'agente supporta anche download parziali di file a più livelli man mano che vi accedono gli utenti. 
  

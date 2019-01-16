@@ -8,20 +8,19 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c22d2cba23e8bae965fa7c5746c9fff69ad3fa9e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2aa272c126e06b758dc3903a8ec71b7043491057
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054416"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017651"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Spostare dati da un server SFTP usando Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](data-factory-sftp-connector.md)
 > * [Versione 2 (corrente)](../connector-sftp.md)
 
@@ -43,23 +42,23 @@ Quando si copiano dati da un server SFTP locale, è necessario installare un gat
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un'origine SFTP usando diversi strumenti/API.
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-- È possibile anche usare gli strumenti seguenti per creare una pipeline: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. Per esempi JSON per copiare dati da server SFTP all'archivio BLOB di Azure, vedere la sezione [Esempio JSON: copiare i dati dal server SFTP in BLOB di Azure](#json-example-copy-data-from-sftp-server-to-azure-blob) di questo articolo.
+- Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. Per esempi JSON di copia di dati da un server SFTP ad Archiviazione BLOB di Azure, vedere la sezione [Esempio di JSON: Copiare dati da un server SFTP a BLOB di Azure](#json-example-copy-data-from-sftp-server-to-azure-blob) di questo articolo.
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato FTP.
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- | --- |
-| type | La proprietà type deve essere impostata su `Sftp`. |Sì |
-| host | Nome o indirizzo IP del server SFTP. |Sì |
-| port |Porta su cui è in ascolto il server SFTP. Il valore predefinito è 21 |No  |
-| authenticationType |Specificare il tipo di autenticazione. Valori consentiti: **Base**, **SshPublicKey**. <br><br> Fare riferimento alle sezioni [Uso dell'autenticazione di base](#using-basic-authentication) e [Uso dell'autenticazione con chiave pubblica SSH](#using-ssh-public-key-authentication) rispettivamente per vedere altre proprietà ed esempi JSON. |Sì |
-| skipHostKeyValidation | Specificare se si desidera ignorare la convalida tramite della chiave host. | No. Il valore predefinito è: falso |
+| type | La proprietà type deve essere impostata su `Sftp`. |Yes |
+| host | Nome o indirizzo IP del server SFTP. |Yes |
+| port |Porta su cui è in ascolto il server SFTP. Il valore predefinito è: 21 |No  |
+| authenticationType |Specificare il tipo di autenticazione. Valori consentiti: **Basic**, **SshPublicKey**. <br><br> Fare riferimento alle sezioni [Uso dell'autenticazione di base](#using-basic-authentication) e [Uso dell'autenticazione con chiave pubblica SSH](#using-ssh-public-key-authentication) rispettivamente per vedere altre proprietà ed esempi JSON. |Yes |
+| skipHostKeyValidation | Specificare se si desidera ignorare la convalida tramite della chiave host. |  No. Il valore predefinito è: falso |
 | hostKeyFingerprint | Specificare le impronte digitali della chiave host. | Sì se `skipHostKeyValidation` è impostato su falso.  |
 | gatewayName |Nome del gateway di gestione dati per connettersi a un server SFTP locale. | Sì se si copiano i dati da un server SFTP locale. |
-| encryptedCredential | Credenziali crittografate per accedere al server SFTP. Generato automaticamente quando si specifica l'autenticazione di base (nome utente e password) o l'autenticazione SshPublicKey (nome utente e percorso della chiave privato o contenuto) nella copia guidata o nella finestra di dialogo popup ClickOnce. | No. Applicare solo se si copiano i dati da un server SFTP locale. |
+| encryptedCredential | Credenziali crittografate per accedere al server SFTP. Generato automaticamente quando si specifica l'autenticazione di base (nome utente e password) o l'autenticazione SshPublicKey (nome utente e percorso della chiave privato o contenuto) nella copia guidata o nella finestra di dialogo popup ClickOnce. |  No. Applicare solo se si copiano i dati da un server SFTP locale. |
 
 ### <a name="using-basic-authentication"></a>Uso dell'autenticazione di base
 
@@ -67,10 +66,10 @@ Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` 
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- | --- |
-| username | Utente che ha accesso al server SFTP. |Sì |
-| password | Password per l'utente (nome utente). | Sì |
+| username | Utente che ha accesso al server SFTP. |Yes |
+| password | Password per l'utente (nome utente). | Yes |
 
-#### <a name="example-basic-authentication"></a>Esempio: autenticazione di base
+#### <a name="example-basic-authentication"></a>Esempio: Autenticazione di base
 ```json
 {
     "name": "SftpLinkedService",
@@ -90,7 +89,7 @@ Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` 
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>Esempio: autenticazione di base con credenziali crittografate
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>Esempio: Autenticazione di base con credenziali crittografate
 
 ```JSON
 {
@@ -117,7 +116,7 @@ Per usare l'autenticazione con chiave pubblica SSH, impostare `authenticationTyp
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- | --- |
-| username |Utente che ha accesso al server SFTP |Sì |
+| username |Utente che ha accesso al server SFTP |Yes |
 | privateKeyPath | Specificare un percorso assoluto al file di chiave privato a cui il gateway può accedere. | Specificare `privateKeyPath` o `privateKeyContent`. <br><br> Applicare solo se si copiano i dati da un server SFTP locale. |
 | privateKeyContent | Una stringa serializzata del contenuto di chiave privata. La copia guidata può leggere il file di chiave privata ed estrarre automaticamente il contenuto della chiave privata. Se si usa un qualsiasi altro strumento/SDK, usare la proprietà privateKeyPath. | Specificare `privateKeyPath` o `privateKeyContent`. |
 | passPhrase | Specificare la passphrase o la password per decrittografare la chiave privata se il file della chiave è protetto da una passphrase. | Sì se il file della chiave privata è protetto da una passphrase. |
@@ -125,7 +124,7 @@ Per usare l'autenticazione con chiave pubblica SSH, impostare `authenticationTyp
 > [!NOTE]
 > Il connettore SFTP supporta chiavi OpenSSH RSA/DSA. Verificare che il contenuto del file di codice inizi con "-----BEGIN [RSA/DSA] PRIVATE KEY-----". Se il file di codice privato è un file in formato ppk, usare lo strumento Putty per convertirlo dal formato ppk in formato OpenSSH.
 
-#### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>Esempio: Autenticazione SshPublicKey con chiave privata filePath
+#### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>Esempio: autenticazione SshPublicKey con chiave privata filePath
 
 ```json
 {
@@ -146,7 +145,7 @@ Per usare l'autenticazione con chiave pubblica SSH, impostare `authenticationTyp
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Esempio: Autenticazione SshPublicKey con contenuto della chiave privata
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Esempio: autenticazione SshPublicKey con contenuto della chiave privata
 
 ```json
 {
@@ -173,13 +172,13 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati. Fornisce 
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
-| folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) .<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Sì |
-| fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: <br/><br/>Data.<Guid>.txt, ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No  |
+| folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) .<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Yes |
+| fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: <br/><br/>Data.<Guid>.txt (esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No  |
 | fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file.<br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempi 1: `"fileFilter": "*.log"`<br/>Esempio 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter è applicabile per un set di dati di input FileShare. Questa proprietà non è supportata con HDFS. |No  |
 | partitionedBy |partitionedBy può essere usato per specificare un valore folderPath dinamico e un nome file per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. |No  |
-| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No  |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No  |
-| useBinaryTransfer |Specificare se usare la modalità di trasferimento binario. True per la modalità binaria e false per ASCII. Valore predefinito: True. Questa proprietà può essere usata solo quando il tipo di servizio collegato associato è di tipo: FtpServer. |No  |
+| format | Sono supportati i formati di file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No  |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono: **Optimal** (Ottimale) e **Fastest** (Più veloce). Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No  |
+| useBinaryTransfer |Specificare se usare la modalità di trasferimento binario. True per la modalità binaria e false per ASCII. Valore predefinito: vero. Questa proprietà può essere usata solo quando il tipo di servizio collegato associato è FtpServer. |No  |
 
 > [!NOTE]
 > filename e fileFilter non possono essere usati contemporaneamente.
@@ -225,7 +224,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 ## <a name="supported-file-and-compression-formats"></a>Formati di file e di compressione supportati
 Per i dettagli, vedere l'articolo relativo ai [file e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
-## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>Esempio JSON: copiare i dati dal server SFTP in BLOB di Azure
+## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>Esempio di JSON: Copiare dati da un server SFTP a BLOB di Azure
 L'esempio seguente fornisce le definizioni JSON campione da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un'origine SFTP in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Data factory di Azure.
 
 > [!IMPORTANT]
@@ -309,7 +308,7 @@ Impostando "external": "true" si comunica al servizio Data Factory che il set di
 
 **Set di dati di output del BLOB di Azure**
 
-I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
+I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: oraria, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
 
 ```JSON
 {

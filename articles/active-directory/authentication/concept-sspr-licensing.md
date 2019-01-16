@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158999"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043040"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisiti di licenza per la reimpostazione password self-service di Azure AD
 
-Azure Active Directory (Azure AD) è disponibile in quattro edizioni: Gratuito, Basic, P1 Premium e P2 Premium. Sono diverse le funzionalità che costituiscono la reimpostazione della password self-service, tra cui la modifica, la reimpostazione, lo sblocco e il writeback, tutte disponibili nelle diverse edizioni di Azure AD. Questo articolo tenta di spiegarne le differenze. Informazioni dettagliate sulle funzionalità incluse in ogni edizione di Azure AD sono disponibili nella pagina [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory (Azure AD) è disponibile in quattro edizioni: Gratuito, Basic, Premium P1 e Premium P2. Sono diverse le funzionalità che costituiscono la reimpostazione della password self-service, tra cui la modifica, la reimpostazione, lo sblocco e il writeback, tutte disponibili nelle diverse edizioni di Azure AD. Questo articolo tenta di spiegarne le differenze. Informazioni dettagliate sulle funzionalità incluse in ogni edizione di Azure AD sono disponibili nella pagina [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Confrontare le edizioni e le funzionalità
 
@@ -41,7 +41,7 @@ La licenza per la reimpostazione della password self-service di Azure AD viene c
    * Questa funzionalità è inclusa nelle edizioni Azure AD Premium P1 e Premium P2.
 
 > [!WARNING]
-> I piani di licenza Office 365 autonomi **non supportano il writeback delle password** e richiedono l'edizione Azure AD Premium P1 o Premium P2 per l'uso della funzionalità.
+> I piani di licenza Office 365 autonomi *non supportano "Reimpostazione/modifica/sblocco con writeback in locale delle password in modalità self-service"* e richiedono un piano che includa le edizioni Azure AD Premium P1 o Premium P2 per l'uso della funzionalità.
 >
 
 Informazioni aggiuntive sulle licenze, ad esempio i costi, sono disponibili nelle pagine seguenti:

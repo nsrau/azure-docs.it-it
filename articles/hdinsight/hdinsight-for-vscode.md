@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c86fd2affa08999ae574f55315c6a0b32fa58fca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723672"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076791"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usare gli strumenti di Azure HDInsight per Visual Studio Code
 
@@ -127,7 +127,7 @@ Prima di inviare script ai cluster HDInsight da Visual Studio Code, è necessari
 
 1. Aprire il riquadro comandi premendo **CTRL+MAIUSC+P**, quindi immettere **HDInsight: Link a Cluster**.
 2. Selezionare**Endpoint livy generico**.
-3. Immettere l'endpoint Livy generico, ad esempio: http://10.172.41.42:18080.
+3. Immettere l'endpoint Livy generico, ad esempio: http\://10.172.41.42:18080.
 4. Selezionare **Base** quando è richiesta un'autorizzazione per l'endpoint Livy generico, in caso contrario, selezionare **Nessuna**.
 5. Immettere il nome utente quando si seleziona **Base** nel passaggio 4.
 6. Immettere la password quando si seleziona **Base** nel passaggio 4.

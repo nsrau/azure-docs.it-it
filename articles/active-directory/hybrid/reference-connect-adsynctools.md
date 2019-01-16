@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Informazioni di riferimento sul modulo di PowerShell ADSyncTools | Microsoft Docs'
+title: 'Azure AD Connect: Informazioni di riferimento su PowerShell ADSyncTools | Microsoft Docs'
 description: Questo documento fornisce informazioni di riferimento sul modulo di PowerShell ADSyncTools.psm1.
 author: billmath
 manager: mtillman
@@ -8,14 +8,14 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 586f3c81fad79f49b3506b0bd84a4f7b218d8605
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426486"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054963"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: Informazioni di riferimento sul modulo di PowerShell ADSyncTools
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  Informazioni di riferimento su PowerShell ADSyncTools
 La documentazione seguente fornisce informazioni di riferimento sul modulo di PowerShell ADSyncTools.psm1 incluso in Azure AD Connect.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
@@ -338,7 +338,7 @@ Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>DESCRIZIONE
-Restituisce un oggetto di AD DA FARE: supporto di più foreste
+Restituisce un oggetto di AD: supporto di più foreste
 
 ### <a name="examples"></a>ESEMPI
 
@@ -470,7 +470,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 ## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
 ### <a name="synopsis"></a>RIEPILOGO
-Ottiene la cronologia di esecuzione di AAD Connnect
+Ottiene la cronologia di esecuzione di AAD Connect
 
 ### <a name="syntax"></a>SINTASSI
 
@@ -719,7 +719,7 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 Questo script accetta tutti gli oggetti da un'unità organizzativa di destinazione nel dominio di Active Directory filtrati in base alla classe dell'oggetto (utente/computer) ed elimina tutti i certificati scaduti presenti nell'attributo UserCertificate.
 Per impostazione predefinita (modalità BackupOnly) verrà solo eseguito il backup dei certificati scaduti in un file e non verranno apportate modifiche in AD.
 Se si usa -BackupOnly $false, qualsiasi certificato scaduto presente nell'attributo UserCertificate per questi oggetti scaduti verrà rimosso da AD dopo la copia nel file.
-Ogni certificato verrà sottoposto a backup in un file separato: ObjectClass_ObjectGUID_CertThumprint.cer. Lo script creerà anche un file di log in formato CSV che mostra tutti gli utenti con certificati validi o scaduti e l'azione intrapresa (ignorato/esportato/eliminato).
+Verrà eseguito il backup di ogni certificato in un file separato: ObjectClass_ObjectGUID_CertThumprint.cer. Lo script creerà anche un file di log in formato CSV che mostra tutti gli utenti con certificati validi o scaduti e l'azione intrapresa (ignorato/esportato/eliminato).
 
 ### <a name="examples"></a>ESEMPI
 

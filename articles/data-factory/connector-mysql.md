@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: bb3179f1db077aacc7e36acf16486ee77a7f36e7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1f3d6434c7226465f9e054d5e5bf35fbb228b311
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051264"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014488"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiare i dati da MySQL mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Versione corrente](connector-mysql.md)
 
@@ -33,7 +32,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 In particolare, questo connettore MySQL supporta la **versione 5.1 e le versioni successive** di MySQL.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Se il database MySQL non è accessibile pubblicamente, è necessario configurare un runtime di integrazione self-hosted. Per altre informazioni sui runtime di integrazione self-hosted, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md). Il runtime di integrazione offre un driver MySQL predefinito a partire dalla versione 3.7 e non è quindi necessario installare manualmente alcun driver.
 
@@ -51,7 +50,7 @@ Per il servizio collegato di MySQL sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **MySql** | Sì |
+| type | La proprietà type deve essere impostata su: **MySql** | Yes |
 | connectionString | Specifica le informazioni necessarie per connettersi all'istanza del database di Azure per MySQL. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
@@ -117,7 +116,7 @@ Per copiare dati da MySQL, impostare la proprietà type del set di dati su **Rel
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Yes |
 | tableName | Nome della tabella nel database MySQL. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -147,7 +146,7 @@ Per copiare dati da MySQL, impostare il tipo di origine nell'attività di copia 
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **RelationalSource** | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **RelationalSource** | Yes |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

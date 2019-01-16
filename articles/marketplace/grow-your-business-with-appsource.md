@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2a4343b036716e6c49f7a05a8a480c6e74463760
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054175"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077998"
 ---
 # <a name="grow-your-business-with-appsource"></a>Favorire lo sviluppo della propria azienda con AppSource  
 Usare AppSource quando si coinvolgono gli utenti aziendali per trovare, provare e acquisire applicazioni software come servizio (SaaS) line-of-business e servizi di implementazione per favorire la crescita di risultati aziendali e ridurre il time-to-value.  
@@ -67,7 +67,7 @@ La qualità della pubblicazione di app e l'impegno dedicato a favorire la genera
 L'elenco di controllo seguente illustra le procedure consigliate per il marketing e le risorse da prendere in considerazione quando si creano offerte da pubblicare in AppSource:  
 *   **Tenere presenti le linee guida per i marchi Microsoft**.  
     Quando si sceglie il nome per un'app e si fa riferimento a marchi Microsoft e a nomi di software, prodotti e servizi Microsoft, seguire le linee guida per i marchi Microsoft e quelle relative ai prodotti specifici.  
-    *   Per altre informazioni sui marchi Microsoft, visitare la pagina delle linee guida per i marchi Microsofti disponibile all'indirizzo [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).  
+    *   Per altre informazioni sui marchi Microsoft, visitare la pagina delle linee guida per i marchi Microsofti disponibile all'indirizzo [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
 *   **Rendere disponibile un'esperienza di acquisto immediato, un'offerta di valutazione gratuita o un'esperienza di test drive per l'app**.  
     Per gli utenti aziendali, è importante avere l'opportunità di provare direttamente l'app.  
 *   **Creare una proposta di valore sicuro**.  
@@ -104,7 +104,7 @@ Le tabelle seguenti illustrano in dettaglio ogni passaggio da seguire per creare
 
 | Impostazione dell'offerta | Procedure consigliate | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Nome** | **Scelta del nome per l'offerta**<br />La scelta di un nome per la propria app è una decisione fondamentale. I nomi basati sui vantaggi offerti sono più efficaci dei nomi descrittivi. Il nome dell'app deve comunicare ai clienti il valore essenziale dell'offerta. Può essere utile includere parole chiave di ricerca nel titolo dell'app per migliorare la classificazione dell'app nei risultati dei motori di ricerca. Quando si fa riferimento a marchi Microsoft e a nomi di software, prodotti e servizi Microsoft, seguire le linee guida per i marchi Microsoft e quelle relative ai prodotti specifici.<ul> <li>Per altre informazioni sui marchi Microsoft, visitare la pagina delle linee guida per i marchi Microsofti disponibile all'indirizzo [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Nome** | **Scelta del nome per l'offerta**<br />La scelta di un nome per la propria app è una decisione fondamentale. I nomi basati sui vantaggi offerti sono più efficaci dei nomi descrittivi. Il nome dell'app deve comunicare ai clienti il valore essenziale dell'offerta. Può essere utile includere parole chiave di ricerca nel titolo dell'app per migliorare la classificazione dell'app nei risultati dei motori di ricerca. Quando si fa riferimento a marchi Microsoft e a nomi di software, prodotti e servizi Microsoft, seguire le linee guida per i marchi Microsoft e quelle relative ai prodotti specifici.<ul> <li>Per altre informazioni sui marchi Microsoft, visitare la pagina delle linee guida per i marchi Microsofti disponibile all'indirizzo [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
 
 **Dettagli della vetrina - Dettagli dell'offerta**  
 
@@ -153,7 +153,7 @@ https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-87
 ```  
 
 >[!Important]  
->Quando si definisce l'URL, non includere il codice della lingua, ad esempio `/en-us/`.  
+>Quando si definisce l'URL, non includere il codice della lingua, ad esempio ``.  
 
 
 #### <a name="link-to-gtm-benefits"></a>Collegamento a Vantaggi di GTM

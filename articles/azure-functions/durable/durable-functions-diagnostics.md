@@ -1,6 +1,6 @@
 ---
-title: Diagnostica in Funzioni permanenti - Azure
-description: Informazioni su come eseguire la diagnostica dei problemi con l'estensione Funzioni permanenti per Funzioni di Azure.
+title: Diagnostica in Durable Functions - Azure
+description: Informazioni su come eseguire la diagnostica dei problemi con l'estensione Durable Functions per Funzioni di Azure.
 services: functions
 author: kashimiz
 manager: jeconnoc
@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5a09bd8db89f85c785d3d701a3b7180e4616e52c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713232"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118422"
 ---
-# <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostica in Funzioni permanenti (Funzioni di Azure)
+# <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostica in Durable Functions in Azure
 
-Per la diagnostica dei problemi con [Funzioni permanenti](durable-functions-overview.md) sono disponibili diverse opzioni. Alcune opzioni sono le stesse disponibili per le funzioni normali e alcune sono specifiche di Funzioni permanenti.
+Per la diagnostica dei problemi con [Durable Functions](durable-functions-overview.md) sono disponibili diverse opzioni. Alcune opzioni sono le stesse disponibili per le funzioni normali e alcune sono specifiche di Durable Functions.
 
 ## <a name="application-insights"></a>Application Insights
 
-Per eseguire la diagnostica e il monitoraggio in Funzioni di Azure, è consigliabile usare [Application Insights](../../application-insights/app-insights-overview.md). Lo stesso consiglio vale per Funzioni permanenti. Per una panoramica su come usare Application Insights nell'app per le funzioni, vedere [Monitorare Funzioni di Azure](../functions-monitoring.md).
+Per eseguire la diagnostica e il monitoraggio in Funzioni di Azure, è consigliabile usare [Application Insights](../../azure-monitor/app/app-insights-overview.md). Lo stesso consiglio vale per Durable Functions. Per una panoramica su come usare Application Insights nell'app per le funzioni, vedere [Monitorare Funzioni di Azure](../functions-monitoring.md).
 
 L'estensione Funzioni permanenti di Funzioni di Azure genera anche *eventi di rilevamento* che consentono di tenere traccia dell'esecuzione end-to-end di un'orchestrazione. È possibile individuarli ed eseguire query su di essi usando lo strumento [Application Insights Analytics](../../azure-monitor/app/analytics.md) nel portale di Azure.
 
@@ -314,7 +314,7 @@ I client visualizzano la risposta seguente:
 
 ## <a name="debugging"></a>Debug
 
-Funzioni di Azure supporta direttamente il debug del codice della funzione e lo stesso supporto si estende a Funzioni permanenti, in esecuzione in Azure o in locale. Quando si esegue il debug, è tuttavia opportuno conoscere alcuni comportamenti:
+Funzioni di Azure supporta direttamente il debug del codice della funzione e lo stesso supporto si estende a Durable Functions, in esecuzione in Azure o in locale. Quando si esegue il debug, è tuttavia opportuno conoscere alcuni comportamenti:
 
 * **Replay**: le funzioni dell'agente di orchestrazione vengono rieseguite regolarmente alla ricezione di nuovi input. Ciò implica che una singola esecuzione *logica* di una funzione dell'agente di orchestrazione può comportare l'accesso più volte allo stesso punto di interruzione, soprattutto se è impostata all'inizio del codice della funzione.
 * **Await**: ogni volta che viene rilevato `await`, il controllo viene restituito al dispatcher di Durable Task Framework. Se è la prima volta che uno specifico `await` è stato rilevato, l'attività associata non viene ripresa *mai*. Poiché l'attività non viene ripresa mai, non è possibile eseguire lo *step over* per await (F10 in Visual Studio). Questa operazione funziona solo se un'attività è in corso di riesecuzione.
@@ -325,14 +325,14 @@ Funzioni di Azure supporta direttamente il debug del codice della funzione e lo 
 
 ## <a name="storage"></a>Archiviazione
 
-Per impostazione predefinita, Funzioni permanenti archivia lo stato in Archiviazione di Azure. È quindi possibile controllare lo stato delle orchestrazioni tramite strumenti come [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Per impostazione predefinita, Durable Functions archivia lo stato in Archiviazione di Azure. È quindi possibile controllare lo stato delle orchestrazioni tramite strumenti come [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
 ![Schermata di Azure Storage Explorer](./media/durable-functions-diagnostics/storage-explorer.png)
 
 Risulta utile per il debug perché viene visualizzato esattamente lo stato in cui potrebbe trovarsi un'orchestrazione. È possibile esaminare i messaggi nelle code anche per individuare le attività in sospeso o, in alcuni casi, bloccate.
 
 > [!WARNING]
-> Sebbene sia utile esaminare la cronologia di esecuzioni in archiviazione tabelle, evitare di creare qualsiasi dipendenza in questa tabella, che può cambiare con l'evoluzione dell'estensione Funzioni permanenti.
+> Sebbene sia utile esaminare la cronologia di esecuzioni in archiviazione tabelle, evitare di creare qualsiasi dipendenza in questa tabella, che può cambiare con l'evoluzione dell'estensione Durable Functions.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

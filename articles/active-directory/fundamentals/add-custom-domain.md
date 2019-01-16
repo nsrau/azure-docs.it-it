@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 14035fe9061af98b10b822c3b7b9213cdda3fbbd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3fdbbd1d3cf27172ed9ba5c5087ffc331e01ccf9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098299"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076808"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Aggiungere un nome di dominio personalizzato usando il portale di Azure Active Directory
 Ogni nuovo tenant di Azure AD include un nome di dominio iniziale, *nomedominio*.onmicrosoft.com. Non è possibile modificare o eliminare il nome di dominio iniziale, ma è possibile aggiungere i nomi dell'organizzazione all'elenco. L'aggiunta di nome di dominio personalizzati consente di creare nomi familiari per gli utenti, ad esempio *alain@contoso.com*.
@@ -63,7 +63,7 @@ Dopo aver creato la directory, è possibile aggiungere il nome di dominio person
 ## <a name="add-your-dns-information-to-the-domain-registrar"></a>Aggiungere le informazioni sul DNS al registrar
 Dopo aver aggiunto il nome di dominio personalizzato ad Azure AD, è necessario tornare al registrar e aggiungere le informazioni sul DNS di Azure AD dal file TXT copiato. La creazione di questo record TXT per il dominio "verifica" la proprietà del nome di dominio.
 
--  Tornare al registrar, creare un nuovo record TXT per il dominio basato sulle informazioni sul DNS copiate, impostare il **TTL** (durata) su 60 minuti e quindi salvare le informazioni.
+-  Tornare al registrar, creare un nuovo record TXT per il dominio basato sulle informazioni sul DNS copiate, impostare il **TTL** (durata) su 3600 secondi (60 minuti) e quindi salvare le informazioni.
 
     >[!Important]
     >È possibile registrare tutti i nomi di dominio desiderati. Tuttavia, ogni dominio ottiene il proprio record TXT da Azure AD. Prestare attenzione quando si immettono le informazioni del file TXT nel registrar. Se per errore si immettono informazioni non corrette o duplicate, sarà necessario attendere che il TTL raggiunga il timeout (60 minuti) prima di poter riprovare.
@@ -98,10 +98,10 @@ Dopo aver registrato il nome di dominio personalizzato, è necessario verificare
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Aggiungere un altro amministratore globale alla directory. Per altre informazioni, vedere [Come assegnare ruoli e amministratori](active-directory-users-assign-role-azure-portal.md)
+- Aggiungere un altro amministratore globale alla directory. Per altre informazioni, vedere [Come assegnare ruoli e amministratori](active-directory-users-assign-role-azure-portal.md).
 
-- Per aggiungere utenti al dominio, vedere [Come aggiungere o eliminare utenti](add-users-azure-active-directory.md)
+- Aggiungere utenti al dominio. Vedere [Come aggiungere o eliminare utenti](add-users-azure-active-directory.md).
 
-- Gestire le informazioni sul nome di dominio in Azure AD. Per altre informazioni, vedere [Gestione dei nomi di dominio personalizzati](../users-groups-roles/domains-manage.md)
+- Gestire le informazioni sul nome di dominio in Azure AD. Per altre informazioni, vedere [Gestione dei nomi di dominio personalizzati](../users-groups-roles/domains-manage.md).
 
 - Se sono disponibili versioni locali di Windows Server che si vuole usare con Azure Active Directory, vedere [Integrare le directory locali con Azure Active Directory](../connect/active-directory-aadconnect.md).

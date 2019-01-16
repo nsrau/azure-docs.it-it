@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5856824ba4aec2998ad38ac73cc5acc0840584cd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987697"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023839"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
@@ -260,7 +260,7 @@ Il corretto funzionamento della maggior parte delle risorse dipende dalle altre 
 ],
 ```
 
-Resource Manager consente di distribuire in parallelo le risorse la cui distribuzione non dipende da un'altra risorsa. Prestare attenzione quando si impostano le dipendenze in quanto si può rallentare inavvertitamente la distribuzione, specificando dipendenze non necessarie. Le dipendenze possono concatenare più risorse. Ad esempio, l'interfaccia di rete dipende dall'indirizzo IP pubblico e dalle risorse della rete virtuale.
+Resource Manager distribuisce in parallelo le risorse che non dipendono da un'altra risorsa in corso di distribuzione. Prestare attenzione quando si impostano le dipendenze in quanto si può rallentare inavvertitamente la distribuzione, specificando dipendenze non necessarie. Le dipendenze possono concatenare più risorse. Ad esempio, l'interfaccia di rete dipende dall'indirizzo IP pubblico e dalle risorse della rete virtuale.
 
 Come è possibile stabilire se è necessaria una dipendenza? Esaminare i valori impostati nel modello. Una dipendenza è necessaria se un elemento nella definizione di risorsa della macchina virtuale punta a un'altra risorsa distribuita nello stesso modello. Ad esempio, la macchina virtuale di esempio definisce un profilo di rete:
 
@@ -287,7 +287,7 @@ Quando si definisce una risorsa di macchina virtuale, vengono usati diversi elem
 
 ## <a name="disks-and-images"></a>Dischi e immagini
    
-In Azure i file del disco rigido virtuale possono rappresentare [dischi o immagini](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando il sistema operativo in un file di disco rigido virtuale è specializzato per essere una VM specifica, vi viene fatto riferimento come disco. Quando il sistema operativo in un file di disco rigido virtuale è generalizzato per essere usato per creare più VM, viene considerato un'immagine.   
+In Azure i file del disco rigido virtuale possono rappresentare [dischi o immagini](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando il sistema operativo in un file di disco rigido virtuale è specializzato per essere una macchina virtuale specifica, vi viene fatto riferimento come disco. Quando il sistema operativo in un file di disco rigido virtuale è generalizzato per essere usato per creare più macchine virtuali, viene considerato un'immagine.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Creare nuove macchine virtuali e nuovi dischi da un'immagine della piattaforma
 
@@ -374,7 +374,7 @@ Se si vuole creare una macchina virtuale da un'immagine gestita, cambiare l'elem
 
 ## <a name="extensions"></a>Estensioni
 
-Sebbene siano una risorsa separata, le [estensioni](extensions-features.md) sono strettamente legate alle VM. Le estensioni possono essere aggiunte come risorsa figlio della VM o come risorsa separata. L'esempio illustra l'aggiunta dell'[estensione Diagnostica](extensions-diagnostics-template.md) alle VM:
+Sebbene siano una risorsa separata, le [estensioni](extensions-features.md) sono strettamente legate alle macchine virtuali. Le estensioni possono essere aggiunte come risorsa figlio della VM o come risorsa separata. L'esempio illustra l'aggiunta dell'[estensione Diagnostica](extensions-diagnostics-template.md) alle VM:
 
 ```
 { 
@@ -436,7 +436,7 @@ Sono disponibili numerose estensioni che è possibile installare in una VM, ma l
 }
 ```
 
-Lo script start.ps1 può eseguire molte attività di configurazione. Ad esempio, i dischi di dati aggiunti alle VM nell'esempio non vengono inizializzati; è possibile usare uno script personalizzato per inizializzarli. Se si devono eseguire più attività di avvio, è possibile usare il file start.ps1 per chiamare altri script PowerShell in Archiviazione di Azure. L'esempio usa PowerShell, ma è possibile usare qualsiasi metodo di scripting disponibile nel sistema operativo in uso.
+Lo script start.ps1 può eseguire molte attività di configurazione. Ad esempio, i dischi di dati aggiunti alle macchine virtuali nell'esempio non vengono inizializzati; è possibile usare uno script personalizzato per inizializzarli. Se si devono eseguire più attività di avvio, è possibile usare il file start.ps1 per chiamare altri script PowerShell in Archiviazione di Azure. L'esempio usa PowerShell, ma è possibile usare qualsiasi metodo di scripting disponibile nel sistema operativo in uso.
 
 È possibile visualizzare lo stato delle estensioni installate dalle impostazioni Estensioni nel portale:
 
@@ -448,7 +448,7 @@ Lo script start.ps1 può eseguire molte attività di configurazione. Ad esempio,
 
 Quando si distribuisce un modello, Azure tiene traccia delle risorse distribuite come gruppo e assegna automaticamente un nome a questo gruppo distribuito. Il nome della distribuzione corrisponde a quello del modello.
 
-Per conoscere lo stato delle risorse nella distribuzione, è possibile usare il pannello Gruppo di risorse nel portale di Azure:
+Per conoscere lo stato delle risorse nella distribuzione, visualizzare il gruppo di risorse nel portale di Azure:
 
 ![Ottenere informazioni sulla distribuzione](./media/template-description/virtual-machines-deployment-info.png)
     
@@ -459,3 +459,4 @@ Non è un problema usare lo stesso modello per creare risorse o per aggiornare l
 - È possibile creare un modello personalizzato usando le informazioni presenti in [Creazione di modelli di Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Distribuire il modello creato usando [Creare una macchina virtuale Windows con un modello di Resource Manager](ps-template.md).
 - Per informazioni su come gestire le macchine virtuali create, vedere [Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Per la sintassi JSON e le proprietà dei tipi di risorsa nei modelli, vedere le [informazioni di riferimento sui modelli di Azure Resource Manager](/azure/templates/).

@@ -9,19 +9,19 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91f6254fe756f256a2c88429fb4d96156867ef4a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001907"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117147"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Dati di telemetria richiesta: Modello di dati di Application Insights
 
-In [Application Insights](../../application-insights/app-insights-overview.md), un elemento di telemetria delle richieste rappresenta la sequenza logica di esecuzione attivata da una richiesta esterna all'applicazione. Ogni esecuzione di richiesta è identificato da un `ID` univoco e un `url` contenente tutti i parametri di esecuzione. È possibile raggruppare le richieste in base al `name` logico e definire il `source` della richiesta. L'esecuzione del codice può restituire un campo `success` o `fail` e ha un campo `duration` specificato. Le esecuzioni con esito positivo e negativo possono essere ulteriormente raggruppate in base a `resultCode`. L'ora di inizio della telemetria delle richieste è definita a livello di busta.
+In [Application Insights](../../azure-monitor/app/app-insights-overview.md), un elemento di telemetria delle richieste rappresenta la sequenza logica di esecuzione attivata da una richiesta esterna all'applicazione. Ogni esecuzione di richiesta è identificato da un `ID` univoco e un `url` contenente tutti i parametri di esecuzione. È possibile raggruppare le richieste in base al `name` logico e definire il `source` della richiesta. L'esecuzione del codice può restituire un campo `success` o `fail` e ha un campo `duration` specificato. Le esecuzioni con esito positivo e negativo possono essere ulteriormente raggruppate in base a `resultCode`. L'ora di inizio della telemetria delle richieste è definita a livello di busta.
 
 La telemetria delle richieste supporta il modello di estendibilità standard usando `properties` e `measurements` personalizzate.
 
@@ -63,9 +63,9 @@ Lunghezza massima: 1024 caratteri
 
 ## <a name="success"></a>Success
 
-Indicazione di chiamata con esito positivo o con esito negativo. Questo campo è obbligatorio. Se non è impostata in modo esplicito su `false` la richiesta viene considerata con esito positivo. Impostare questo valore su `false` se l'operazione è stata interrotta da un'eccezione o un codice di errore restituito.
+Indicazione di chiamata con esito positivo o con esito negativo. Questo campo è obbligatorio. Se non è impostata in modo esplicito su `false`, una richiesta viene considerata con esito positivo. Impostare questo valore su `false` se l'operazione è stata interrotta da un'eccezione o un codice di errore restituito.
 
-Per le applicazioni Web, Application Insights definisce una richiesta come non riuscita quando il codice di risposta è minore di `400` o uguale a `401`. Esistono tuttavia casi in cui questo mapping predefinito non corrisponde alla semantica dell'applicazione. Il codice di risposta `404` può indicare "Nessun record" e quindi fare parte del normale flusso. Può indicare anche un collegamento interrotto. Nel caso di collegamenti interrotti, è anche possibile implementare una logica più avanzata. È possibile contrassegnare i collegamenti interrotti come errori solo se tali collegamenti vengono individuati nello stesso sito analizzando il riferimento dell'URL. È possibile contrassegnarli come errori anche quando l'accesso viene effettuato dall'applicazione per dispositivi mobili dell'azienda. I codici `301` e `302` indicano un errore quando si accede dal client che non supporta il reindirizzamento.
+Per le applicazioni Web, Application Insights definisce una richiesta come riuscita quando il codice di risposta è minore di `400` o uguale a `401`. Esistono tuttavia casi in cui questo mapping predefinito non corrisponde alla semantica dell'applicazione. Il codice di risposta `404` può indicare "Nessun record" e quindi fare parte del normale flusso. Può indicare anche un collegamento interrotto. Nel caso di collegamenti interrotti, è anche possibile implementare una logica più avanzata. È possibile contrassegnare i collegamenti interrotti come errori solo se tali collegamenti vengono individuati nello stesso sito analizzando il riferimento dell'URL. È possibile contrassegnarli come errori anche quando l'accesso viene effettuato dall'applicazione per dispositivi mobili dell'azienda. I codici `301` e `302` indicano un errore quando si accede dal client che non supporta il reindirizzamento.
 
 Il codice `206` di contenuto parzialmente accettato può indicare un errore di una richiesta globale. L'endpoint di Application Insights riceve, ad esempio, un batch di elementi di telemetria come una singola richiesta. Restituisce `206` quando alcuni elementi del batch non sono stati elaborati correttamente. Un aumento della frequenza di `206` indica un problema che richiede attenzione. Si applica una logica simile a `207` - Multi-Status in cui l'esito positivo può essere il peggiore dei codici di risposta separati.
 

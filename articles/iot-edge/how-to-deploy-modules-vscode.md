@@ -4,31 +4,31 @@ description: Usare Visual Studio Code per distribuire i moduli in un dispositivo
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 01/09/2019
 ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 212f103a356dc3663795a5e5453869c99da3fff9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 91a074cf98291b105864a69730314efff3482254
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100821"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155015"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Distribuire i moduli di Azure IoT Edge da Visual Studio Code
 
-Dopo aver creato i moduli di IoT Edge in base alla propria logica di business, si distribuiscono i moduli nei dispositivi per consentirne l'uso a livello perimetrale. Se si hanno più moduli che interagiscono per raccogliere ed elaborare dati, è possibile distribuirli contemporaneamente e dichiarare le regole di routing che li connettono. 
+Dopo aver creato i moduli di IoT Edge in base alla propria logica di business, si distribuiscono i moduli nei dispositivi per consentirne l'uso a livello perimetrale. Se si hanno più moduli che interagiscono per raccogliere ed elaborare dati, è possibile distribuirli contemporaneamente e dichiarare le regole di routing che li connettono.
 
 Questo articolo illustra come creare un manifesto della distribuzione JSON e quindi usare tale file per eseguire il push della distribuzione in un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione da assegnare a più dispositivi in base ai relativi tag condivisi, vedere [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) nella sottoscrizione di Azure. 
-* Un [dispositivo IoT Edge](how-to-register-device-portal.md) con il runtime di IoT Edge installato. 
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) nella sottoscrizione di Azure.
+* Un [dispositivo IoT Edge](how-to-register-device-portal.md) con il runtime di IoT Edge installato.
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Estensione Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) per Visual Studio Code. 
+* [Strumenti di Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) per Visual Studio Code.
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
@@ -101,52 +101,53 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
      }
    }
    ```
-   
+
 ## <a name="sign-in-to-access-your-iot-hub"></a>Eseguire l'accesso all'hub IoT
 
 Per eseguire operazioni con l'hub IoT, è possibile usare le estensioni Azure IoT per Visual Studio Code. Per il corretto funzionamento di queste operazioni è necessario accedere all'account Azure e selezionare l'hub IoT in cui si sta lavorando.
 
 1. In Visual Studio Code aprire la **finestra di esplorazione**.
 
-2. Nella parte inferiore della finestra di esplorazione espandere la sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). 
+1. Nella parte inferiore della finestra di esplorazione espandere la sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure).
 
    ![Espandere la sezione Azure IoT Hub Devices (Dispositivi dell'Hub IoT di Azure).](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-3. Fare clic sui puntini di sospensione (**...**) nell'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione. 
+1. Fare clic sui puntini di sospensione (**...**) nell'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione.
 
-4. Scegliere **Select IoT Hub** (Seleziona l'hub IoT).
+1. Scegliere **Select IoT Hub** (Seleziona l'hub IoT).
 
-5. Se ancora non lo si è fatto, eseguire l'accesso all'account di Azure seguendo le istruzioni. 
+1. Se ancora non lo si è fatto, eseguire l'accesso all'account di Azure seguendo le istruzioni.
 
-6. Selezionare la sottoscrizione di Azure. 
+1. Selezionare la sottoscrizione di Azure.
 
-7. Selezionare l'hub IoT. 
-
+1. Selezionare l'hub IoT.
 
 ## <a name="deploy-to-your-device"></a>Eseguire la distribuzione nel dispositivo
 
-I moduli vengono distribuiti nel dispositivo applicando il manifesto della distribuzione configurato con le informazioni relative ai moduli. 
+I moduli vengono distribuiti nel dispositivo applicando il manifesto della distribuzione configurato con le informazioni relative ai moduli.
 
-1. Nella visualizzazione di esplorazione di Visual Studio Code espandere la sezione **Azure IoT Hub Devices** (Dispositivi dell'Hub IoT di Azure). 
+1. Nella visualizzazione di esplorazione di Visual Studio Code espandere la sezione **Azure IoT Hub Devices** (Dispositivi dell'Hub IoT di Azure).
 
-2. Fare clic con il pulsante destro del mouse sul dispositivo che si vuole configurare con il manifesto di distribuzione. 
+1. Fare clic con il pulsante destro del mouse sul dispositivo IoT Edge che si vuole configurare con il manifesto di distribuzione.
 
-3. Selezionare **Create Deployment for Single Device** (Crea la distribuzione per un unico dispositivo). 
+    > [!TIP]
+    > Per controllare di aver scelto un dispositivo IoT Edge, selezionarlo per espandere l'elenco dei moduli e verificare la presenza di **$edgeHub** e **$edgeAgent**. Ogni dispositivo IoT Edge include questi due moduli.
 
-4. Passare al file JSON del manifesto di distribuzione che si vuole usare e fare clic su **Select Edge deployment manifest** (Seleziona il manifesto della distribuzione di Edge). 
+1. Selezionare **Create Deployment for Single Device** (Crea la distribuzione per un unico dispositivo).
+
+1. Passare al file JSON del manifesto di distribuzione che si vuole usare e fare clic su **Select Edge deployment manifest** (Seleziona il manifesto della distribuzione di Edge).
 
    ![Selezionare il manifesto della distribuzione di Edge](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
 
-
-I risultati della distribuzione vengono stampati nell'output di VS Code. Le distribuzioni corrette vengono applicate entro pochi minuti se il dispositivo di destinazione è in esecuzione e connesso a Internet. 
+I risultati della distribuzione vengono stampati nell'output di VS Code. Le distribuzioni corrette vengono applicate entro pochi minuti se il dispositivo di destinazione è in esecuzione e connesso a Internet.
 
 ## <a name="view-modules-on-your-device"></a>Visualizzare i moduli nel dispositivo
 
-Dopo aver distribuito i moduli nel dispositivo, è possibile visualizzarli tutti nella sezione **Azure IoT Hub Devices** (Dispositivi dell'Hub IoT di Azure). Selezionare la freccia accanto al dispositivo IoT Edge per espanderlo. Vengono visualizzati tutti i moduli attualmente in esecuzione. 
+Dopo aver distribuito i moduli nel dispositivo, è possibile visualizzarli tutti nella sezione **Azure IoT Hub Devices** (Dispositivi dell'Hub IoT di Azure). Selezionare la freccia accanto al dispositivo IoT Edge per espanderlo. Vengono visualizzati tutti i moduli attualmente in esecuzione.
 
-Se sono stati distribuiti di recente nuovi moduli in un dispositivo, passare il mouse sull'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi dell'Hub IoT di Azure) e selezionare l'icona di aggiornamento per aggiornare la visualizzazione. 
+Se sono stati distribuiti di recente nuovi moduli in un dispositivo, passare il mouse sull'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi dell'Hub IoT di Azure) e selezionare l'icona di aggiornamento per aggiornare la visualizzazione.
 
-Fare clic con il pulsante destro del mouse sul nome di un modulo per visualizzare e modificare il modulo gemello. 
+Fare clic con il pulsante destro del mouse sul nome di un modulo per visualizzare e modificare il modulo gemello.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

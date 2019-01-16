@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23127159"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119442"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Esempio 3: Creare una rete perimetrale per proteggere le reti con un firewall, routing definito dall'utente e un gruppo di sicurezza di rete
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -31,7 +31,7 @@ Questo esempio illustra come creare una rete perimetrale con un firewall, quattr
 ## <a name="environment-setup"></a>Configurazione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
-* Tre servizi cloud, "SecSvc001", "FrontEnd001" e "BackEnd001".
+* Tre servizi cloud: "SecSvc001", "FrontEnd001" e "BackEnd001"
 * Una rete virtuale, "CorpNetwork", con tre subnet: "SecNet", "FrontEnd" e "BackEnd"
 * Un dispositivo virtuale di rete, in questo esempio un firewall, connesso alla subnet SecNet.
 * Un server Windows che rappresenta un server Web applicazioni ("IIS01").
@@ -46,14 +46,14 @@ Per creare l'ambiente, eseguire queste operazioni:
 2. Aggiornare le variabili utente incluse nello script in modo che corrispondano all'ambiente in cui lo script verrà eseguito, ad esempio sottoscrizioni, nomi dei servizi e così via.
 3. Eseguire lo script in PowerShell.
 
-**Nota**: l'area indicata nello script di PowerShell deve corrispondere all'area indicata nel file XML di configurazione di rete.
+**Nota**: L'area indicata nello script di PowerShell deve corrispondere all'area indicata nel file XML di configurazione di rete.
 
 Dopo l'esecuzione corretta dello script, si potranno eseguire i passaggi successivi allo script seguenti:
 
-1. Configurare le regole del firewall illustrate nella sezione seguente intitolata Descrizione delle regole del firewall.
+1. Configurare le regole del firewall illustrate nella sezione seguente intitolata: Descrizione della regola del firewall.
 2. Facoltativamente, nella sezione Riferimenti sono disponibili due script per configurare il server Web e il server applicazioni per consentire l'esecuzione dei test con questa configurazione della rete perimetrale.
 
-Dopo l'esecuzione corretta dello script, sarà necessario completare le regole del firewall come descritto nella sezione intitolata Regole del firewall.
+Dopo l'esecuzione corretta dello script, sarà necessario completare le regole del firewall come descritto nella sezione intitolata: Regole del firewall.
 
 ## <a name="user-defined-routing-udr"></a>Routing definito dall'utente
 Per impostazione predefinita, le route di sistema seguenti sono definite in questo modo:
@@ -275,11 +275,11 @@ Questo processo deve essere ripetuto per creare i servizi RDP per i server riman
 ### <a name="firewall-rules-creation"></a>Creazione di regole del firewall
 In questo esempio si usano tre tipi di regole del firewall ognuna con icone distinte:
 
-La regola di reindirizzamento dell'applicazione: ![Icona di reindirizzamento dell'applicazione][7]
+Regola Application Redirect:  ![Icona di Application Redirect][7]
 
-Regola Destination NAT: ![Icona di Destination NAT][8]
+Regola Destination NAT:  ![Icona di Destination NAT][8]
 
-Regola Pass: ![Icona di Pass][9]
+Regola Pass:  ![Icona di Pass][9]
 
 Altre informazioni su queste regole sono disponibili sul sito Web Barracuda.
 
@@ -298,7 +298,7 @@ Le specifiche di ogni regola necessaria per completare questo esempio sono descr
 > 
 > 
 
-* **Regole RDP**: queste regole Destination NAT consentiranno la gestione di singoli server tramite RDP.
+* **Regole RDP**:  queste regole Destination NAT consentiranno la gestione di singoli server tramite RDP.
   Per creare questa regola sono necessari quattro campi critici:
   
   1. Source: per consentire il traffico RDP da qualsiasi origine, nel campo Source viene usato il riferimento "Any".
@@ -419,7 +419,7 @@ Tenere anche presente che per il traffico Internet in ingresso sulle subnet fron
 5. Il firewall inizia l'elaborazione delle regole:
    1. Regola firewall 1 (FW Mgmt) non applicabile, passa alla regola successiva.
    2. Regole firewall da 2 a 5 (regole RDP) non applicabili, passa alla regola successiva.
-   3. Regola firewall 6 (App: Web) applicabile, il traffico è consentito, il firewall lo inoltra tramite NAT a 10.0.1.4 (IIS01).
+   3. Regola firewall 6 (App: Web) applicabile, il traffico è consentito, il firewall lo inoltra tramite NAT a 10.0.1.4 (IIS01)
 6. La subnet front-end inizia l'elaborazione delle regole in ingresso:
    1. Regola gruppo di sicurezza di rete 1 (blocco Internet) non applicabile, il traffico è stato inoltrato tramite NAT dal firewall, quindi l'indirizzo di origine ora è il firewall che si trova sulla subnet front-end e considerato dal gruppo di sicurezza di rete come traffico "locale" e quindi consentito; passa alla regola successiva.
    2. Regole gruppo di sicurezza di rete predefinite, consentono il traffico da subnet a subnet, il traffico è consentito, l'elaborazione della regola del gruppo di sicurezza di rete viene arrestata.
@@ -430,8 +430,8 @@ Tenere anche presente che per il traffico Internet in ingresso sulle subnet fron
 11. Il firewall inizia l'elaborazione delle regole:
     1. Regola firewall 1 (FW Mgmt) non applicabile, passa alla regola successiva.
     2. Regole firewall da 2 a 5 (regole RDP) non applicabili, passa alla regola successiva.
-    3. Regola firewall 6 (App: Web) non applicabile, passa alla regola successiva.
-    4. Regola firewall 7 (App: back-end) non applicabile, il traffico è consentito, il firewall inoltra il traffico a 10.0.2.5 (AppVM01).
+    3. Regola firewall 6 (App: Web) non applicabile, passa alla regola successiva
+    4. Regola firewall 7 (App: back-end) non applicabile, il traffico è consentito, il firewall inoltra il traffico a 10.0.2.5 (AppVM01)
 12. La subnet back-end inizia l'elaborazione delle regole in ingresso:
     1. Regola gruppo di sicurezza di rete 1 (blocco Internet), non applicabile, passa alla regola successiva.
     2. Regole gruppo di sicurezza di rete predefinite, consentono il traffico da subnet a subnet, il traffico è consentito, l'elaborazione della regola del gruppo di sicurezza di rete viene arrestata.
@@ -782,7 +782,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -959,7 +959,7 @@ Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento 
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Script di applicazione di esempio
-Se si vuole installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, è possibile trovarne una in [Script di applicazione di esempio][SampleApp]
+Per installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, è possibile trovarne una in: [Script di applicazione di esempio][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "Rete perimetrale bidirezionale con appliance virtuale di rete, gruppo di sicurezza di rete e routing definito dall'utente"

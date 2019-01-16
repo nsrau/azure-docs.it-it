@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 2126871472b044f9b8c0df99c7cb14df348eab0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166747"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120514"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Esercitazione: Connettersi ad Azure Data Box Gateway (Anteprima), configurarlo e attivarlo 
+# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Esercitazione: Connettersi ad Azure Data Box Gateway (anteprima), configurarlo e attivarlo 
 
 ## <a name="introduction"></a>Introduzione
 
@@ -84,7 +84,10 @@ Viene aperto il **Dashboard** del dispositivo.
     - Se nell'ambiente è abilitato DHCP, le interfacce di rete vengono configurate automaticamente. Di conseguenza, indirizzo IP, subnet, gateway e DNS vengono assegnati automaticamente.
     - Se DHCP non è abilitato, è possibile assegnare indirizzi IP statici se necessario.
     - È possibile configurare l'interfaccia di rete come IPv4.
-   
+
+    >[!NOTE] 
+    > È consigliabile non cambiare l'indirizzo IP locale dell'interfaccia di rete da statico a DHCP, a meno che non si abbia un altro indirizzo IP per la connessione al dispositivo. Se si usa un'interfaccia di rete e si passa a DHCP, non sarà possibile determinare l'indirizzo DHCP. Se si vuole passare a un indirizzo DHCP, attendere fino al termine della registrazione del dispositivo con il servizio e quindi eseguire il passaggio. È possibile visualizzare gli indirizzi IP di tutti gli adattatori in **Proprietà dispositivo** nel portale di Azure per il servizio.
+
 4. Configurare il server proxy Web (facoltativo). Sebbene la configurazione del proxy Web sia facoltativa, tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui.
    
    ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)

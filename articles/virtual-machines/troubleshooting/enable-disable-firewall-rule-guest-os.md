@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
+ms.lasthandoff: 01/08/2019
 ms.locfileid: "52319060"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>Abilitare o disabilitare una regola del firewall in un sistema operativo guest in una macchina virtuale di Azure
@@ -35,7 +35,7 @@ La modalità di configurazione delle regole del firewall dipende dal livello di 
 
 ### <a name="online-troubleshooting"></a>Risoluzione dei problemi in modalità online 
 
-#### <a name="mitigation-1-custom-script-extension"></a>Mitigazione 1: Estensione dello script personalizzata
+#### <a name="mitigation-1-custom-script-extension"></a>Mitigazione 1: Estensione di script personalizzati
 
 1.  Creare lo script usando il modello seguente.
 

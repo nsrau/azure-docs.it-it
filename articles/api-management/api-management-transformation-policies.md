@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 87d2ebcf6a12f51775b15e906ea7813962e3630f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5dc39d2f64aa2cd895cbf57d95100d831a6f4432
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965377"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159792"
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -318,7 +318,7 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 </set-body>
 ```
 
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Esempio di accesso al corpo come JObject. Si noti che il corpo della richiesta originale non viene mantenuto e l'accesso a tale corpo più avanti nella pipeline genererà un'eccezione.
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Esempio di accesso al corpo come JObject. Si noti che il corpo della richiesta originale non viene mantenuto e l'accesso a tale corpo più avanti nella pipeline genererà un'eccezione.
 
 ```xml
 <set-body> 

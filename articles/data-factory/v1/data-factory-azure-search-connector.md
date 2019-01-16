@@ -9,17 +9,16 @@ ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f68e1077ebc26245b25eae3b0310db74b6d1357e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4d3c67974bc1dd0e52d3de457071d550a6379e36
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046446"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023090"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Push dei dati in un indice di Ricerca di Azure con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,9 +38,9 @@ Gateway di gestione dati consente di connettere le origini dati locali ai serviz
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con un'attività di copia che esegue il push dei dati da un archivio dati di origine all'indice di Ricerca di Azure usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-È possibile anche usare gli strumenti seguenti per creare una pipeline: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink: 
 
@@ -49,7 +48,7 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. 
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di data factory utilizzate per copiare dati nell'indice di Ricerca di Azure, vedere la sezione [Esempio JSON: Copiare dati da un'istanza di SQL Server locale all'indice di Ricerca di Azure](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) di questo articolo. 
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di Data Factory usate per copiare dati in un indice di Ricerca di Azure, vedere la sezione [Esempio di JSON: Copiare dati da un'istanza di SQL Server locale in un indice di Ricerca di Azure](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) di questo articolo. 
 
 Le sezioni seguenti riportano le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche dell'indice di Ricerca di Azure:
 
@@ -59,9 +58,9 @@ La tabella seguente include le descrizioni degli elementi JSON specifici del ser
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | -------- | ----------- | -------- |
-| type | La proprietà type deve essere impostata su **AzureSearch**. | Sì |
-| URL | URL del servizio Ricerca di Azure. | Sì |
-| key | Chiave amministratore del servizio Ricerca di Azure. | Sì |
+| type | La proprietà type deve essere impostata su: **AzureSearch**. | Yes |
+| URL | URL del servizio Ricerca di Azure. | Yes |
+| key | Chiave amministratore del servizio Ricerca di Azure. | Yes |
 
 ## <a name="dataset-properties"></a>Proprietà dei set di dati
 
@@ -69,8 +68,8 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | -------- | ----------- | -------- |
-| type | La proprietà type deve essere impostata su **AzureSearchIndex**.| Sì |
-| indexName | Nome dell'indice di Ricerca di Azure. Il servizio Data Factory non crea l'indice. L'indice deve essere presente in Ricerca di Azure. | Sì |
+| type | La proprietà type deve essere impostata su **AzureSearchIndex**.| Yes |
+| indexName | Nome dell'indice di Ricerca di Azure. Il servizio Data Factory non crea l'indice. L'indice deve essere presente in Ricerca di Azure. | Yes |
 
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
@@ -110,7 +109,7 @@ La tabella seguente indica se un tipo di dati di Ricerca di Azure è supportato 
 | String Array | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Esempio JSON: Copiare dati da un'istanza di SQL Server locale all'indice di Ricerca di Azure
+## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Esempio di JSON: Copiare dati da un'istanza di SQL Server locale in un indice di Ricerca di Azure
 
 L'esempio seguente mostra:
 

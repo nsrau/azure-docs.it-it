@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d53de431ea619dfc8865ef23439146517d37764
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076118"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013299"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Che cos'è l'architettura di Azure Active Directory?
 Azure Active Directory (Azure AD) consente di gestire in modo sicuro l'accesso ai servizi e alle risorse di Azure per gli utenti. In Azure AD è inclusa una suite completa di funzionalità di gestione delle identità. Per informazioni sulle funzionalità di Azure AD, vedere [Informazioni su Azure Active Directory](active-directory-whatis.md).
@@ -34,7 +34,7 @@ In questo articolo vengono illustrati gli elementi dell'architettura seguenti:
  *  Data center
 
 ### <a name="service-architecture-design"></a>Progettazione dell'architettura del servizio
-L'approccio più diffuso per la compilazione di un sistema accessibile, utilizzabile e ad alto contenuto di dati consiste nell'usare blocchi predefiniti o unità di scala indipendenti per il livello dati di Azure AD. Le unità di scala sono denominate *partizioni*. 
+L'approccio più diffuso per la compilazione di un sistema accessibile, utilizzabile e ad alto contenuto di dati consiste nell'usare blocchi predefiniti o unità di scala indipendenti. Per il livello di dati di Azure AD, le unità di scala sono note come *partizioni*. 
 
 Il livello dati ha diversi servizi front-end che forniscono funzionalità di lettura/scrittura. Il diagramma seguente illustra come i componenti di una partizione di directory singola vengono distribuiti in data center distribuiti geograficamente. 
 

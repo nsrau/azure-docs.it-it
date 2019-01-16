@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: b996d42e5c543235d09b46d29889bc5eaeafd52a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412133"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118976"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Informazioni sui messaggi di errore comuni quando si gestiscono le macchine virtuali in Azure
 

@@ -9,17 +9,16 @@ ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 843b92c20b2ec930ce67659802a4287328a08650
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 77c55657f57af655b5b8154dbcf58472434396a6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618870"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015493"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
 > [!div class="op_single_selector"]
@@ -162,7 +161,7 @@ Quando la data factory è stata distribuita e le pipeline hanno un periodo attiv
 
 ![Diagramma di stato](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-Il flusso di transizione di stato del set dati nella data factory è il seguente: In attesa -> In corso/In corso (Convalida) -> Pronto/Non riuscito.
+Il flusso della transizione di stato del set di dati nella data factory è il seguente: In attesa -> In corso/In corso (Convalida) -> Pronto/Errore.
 
 La sezione viene avviata nello stato **In attesa** e prima dell'esecuzione è necessario che vengano soddisfatte le precondizioni. In seguito inizia l'esecuzione dell'attività e la sezione passa allo stato **In corso**. L'esecuzione dell'attività può avere esito positivo o negativo. Lo stato della sezione sarà **Pronto** o **Non riuscito** in base al risultato dell'esecuzione.
 

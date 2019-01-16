@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/7/2018
+ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: 7a0d72ac67b329cb6d25be955205a2bbcef38e81
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281694"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188495"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creazione di oggetti visivi in Azure Data Factory
 L'interfaccia utente di Azure Data Factory consente di creare e distribuire con strumenti visivi le risorse della data factory senza dover scrivere il codice. È possibile trascinare le attività in un'area di disegno della pipeline, eseguire test, eseguire il debug in modo iterativo, nonché distribuire e monitorare le esecuzioni della pipeline. Sono disponibili due approcci per usare l'esperienza utente per la creazione di oggetti visivi:
@@ -77,11 +76,11 @@ Viene visualizzato un riquadro di configurazione. Per informazioni dettagliate s
 
 ![Configurare le impostazioni del repository di codice per la creazione nell'esperienza utente](media/author-visually/configure-repo-2.png)
 
-## <a name="use-a-different-azure-active-directory-tenant"></a>Usare un tenant di Azure Active Directory diverso
+### <a name="use-a-different-azure-active-directory-tenant"></a>Usare un tenant di Azure Active Directory diverso
 
 È possibile creare un repository GIT Azure Repos in un tenant di Azure Active Directory diverso. Per specificare un tenant di Azure AD diverso, è necessario avere autorizzazioni di amministratore per la sottoscrizione di Azure usata.
 
-## <a name="use-your-personal-microsoft-account"></a>Usare l'account Microsoft personale
+### <a name="use-your-personal-microsoft-account"></a>Usare l'account Microsoft personale
 
 Per usare un account Microsoft personale per l'integrazione con Git, è possibile collegare il repository di Azure personale con l'istanza di Active Directory dell'organizzazione.
 
@@ -95,7 +94,7 @@ Dopo questi passaggi di configurazione, il repository personale è disponibile q
 
 Per altre informazioni sulla connessione di Azure Repos all'istanza di Active Directory dell'organizzazione, vedere [Connect your Azure DevOps organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad) (Connettere un'organizzazione di Azure DevOps ad Azure Active Directory).
 
-## <a name="switch-to-a-different-git-repo"></a>Cambiare repository Git
+### <a name="switch-to-a-different-git-repo"></a>Cambiare repository Git
 
 Per passare a un repository Git diverso, individuare l'icona nell'angolo superiore destro della pagina di panoramica di Data Factory, come illustrato nella schermata seguente. Se l'icona non è visibile, cancellare la cache del browser locale. Selezionare l'icona per rimuovere l'associazione al repository corrente.
 
@@ -103,7 +102,7 @@ Dopo aver rimosso l'associazione al repository corrente, è possibile configurar
 
 ![Rimuovere l'associazione al repository Git corrente](media/author-visually/remove-repo.png)
 
-## <a name="use-version-control"></a>Usare il controllo della versione
+### <a name="use-version-control"></a>Usare il controllo della versione
 I sistemi di controllo della versione (o del _controllo del codice sorgente_) consentono agli sviluppatori di collaborare alla creazione e alla modifica del codice e di tenere traccia delle modifiche apportate alla codebase. Il controllo del codice sorgente è uno strumento essenziale per i progetti in cui sono coinvolti più sviluppatori.
 
 Ogni repository GIT Azure Repos associato a una data factory ha un ramo di collaborazione. (`master` è il ramo di collaborazione predefinito). Gli utenti possono anche creare rami funzionalità facendo clic su **Aggiungi nuovo ramo** e sviluppando i rami funzionalità.
@@ -114,7 +113,7 @@ Quando si è pronti con lo sviluppo di funzionalità nel ramo funzionalità, è 
 
 ![Creare una nuova richiesta pull](media/author-visually/create-pull-request.png)
 
-## <a name="configure-publishing-settings"></a>Configurare le impostazioni di pubblicazione
+### <a name="configure-publishing-settings"></a>Configurare le impostazioni di pubblicazione
 
 Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. Ad esempio: 
 
@@ -132,13 +131,39 @@ Quando si specifica un nuovo ramo di pubblicazione, Data Factory non elimina il 
 
 Data Factory legge il file `publish_config.json` solo al momento del caricamento della factory. Se la factory è già caricata nel portale, aggiornare il browser per rendere effettive le modifiche.
 
-## <a name="publish-code-changes"></a>Pubblicare le modifiche al codice
+### <a name="publish-code-changes"></a>Pubblicare le modifiche al codice
 Dopo aver unito le modifiche nel ramo di collaborazione (`master` è l'impostazione predefinita), selezionare **Pubblica** per pubblicare manualmente le modifiche del codice nel ramo master del servizio Data Factory.
 
 ![Pubblicare le modifiche nel servizio Data Factory](media/author-visually/publish-changes.png)
 
 > [!IMPORTANT]
 > Il ramo principale non è rappresentativo di ciò che viene distribuito nel servizio Data Factory. Il ramo master *deve* essere pubblicato manualmente nel servizio Data Factory.
+
+### <a name="advantages-of-git-integration"></a>Vantaggi dell'integrazione con GIT
+
+-   **Controllo del codice sorgente**. Man mano che i carichi di lavoro della data factory assumono un'importanza cruciale, può essere opportuno integrare la factory con GIT per sfruttare alcuni vantaggi del controllo del codice sorgente, come i seguenti:
+    -   Possibilità di controllare le modifiche e tenerne traccia.
+    -   Possibilità di annullare le modifiche che hanno introdotto bug.
+-   **Salvataggi parziali**. Quando si apportano numerose modifiche nella factory, si noterà che nella normale modalità LIVE non è possibile salvare le modifiche come bozza perché non si è pronti o non si vogliono perdere le modifiche in caso di arresto anomalo del computer. Grazie all'integrazione con GIT, è possibile continuare a salvare le modifiche in modo incrementale ed eseguire la pubblicazione nella factory solo quando si è pronti. GIT funziona come un punto di gestione temporanea finché le modifiche non sono state testate e risultano soddisfacenti.
+-   **Collaborazione e controllo**. Se più membri del team partecipano alla stessa factory, può essere opportuno offrire loro l'opportunità di collaborare tramite un processo di revisione del codice. È anche possibile configurare la factory in modo che non tutti i collaboratori abbiano le autorizzazioni per eseguire distribuzioni nella factory. I membri del team potrebbero essere autorizzati solo ad apportare modifiche tramite GIT, mentre solo determinati utenti potrebbero disporre dell'autorizzazione a "pubblicare" le modifiche nella factory.
+-   **Visualizzazione delle differenze**. In modalità GIT è possibile visualizzare un diff del payload che sta per essere pubblicato nella factory. Il diff mostra tutte le risorse o le entità che sono state modificate, aggiunte o eliminate dall'ultima pubblicazione nella factory. In base a questo diff, è possibile proseguire con la pubblicazione o tornare indietro e controllare le modifiche prima di riprendere il processo.
+-   **Integrazione continua/Distribuzione continua più efficaci**. Se si usa la modalità GIT, è possibile configurare la pipeline di versione in modo che venga attivata automaticamente non appena vengono apportate modifiche nella factory di sviluppo. È anche possibile personalizzare le proprietà nella factory che sono disponibili come parametri nel modello di Resource Manager. Ciò può essere utile per mantenere come parametri solo il set di proprietà richiesto e impostare tutto il resto come hardcoded.
+-   **Prestazioni migliori**. In modalità GIT una factory media viene caricata a una velocità 10 maggiore rispetto alla normale modalità LIVE, perché le risorse vengono scaricate tramite GIT.
+
+### <a name="best-practices-for-git-integration"></a>Procedure consigliate per l'integrazione con GIT
+
+-   **Autorizzazioni**. In genere è preferibile che non tutti i membri del team abbiano le autorizzazioni per aggiornare la factory.
+    -   Tutti i membri del team devono avere le autorizzazioni di accesso in lettura alla data factory.
+    -   Solo un determinato set di utenti deve essere autorizzato a pubblicare nella factory e a tale scopo questi devono far parte del ruolo "Collaboratore Data factory" nella factory.
+    -   Una delle procedure consigliate del controllo del codice sorgente è anche quella di impedire le archiviazioni dirette nel ramo di collaborazione. Questo requisito consente di evitare bug perché ogni archiviazione passa attraverso un processo di richiesta pull.
+-   **Passaggio da una modalità all'altra**.
+    -    Quando è attiva la modalità GIT, non è consigliabile alternare questa modalità con la modalità LIVE, principalmente perché le modifiche apportate in modalità LIVE non vengono visualizzate quando si passa alla modalità GIT. Cercare di apportare le modifiche in modalità GIT e quindi pubblicarle tramite l'interfaccia utente.
+    -   Analogamente, non usare cmdlet di PowerShell per Data factory, perché raggiungono lo stesso effetto applicando le modifiche direttamente alla factory in modalità LIVE.
+-   **Usare password da Azure Key Vault**.
+    -   È consigliabile usare Azure Key Vault per archiviare eventuali password o stringhe di connessione in Servizi collegati di Data factory.
+    -   Le informazioni segrete di questo tipo non vengono archiviate in GIT (per motivi di sicurezza) e pertanto le modifiche apportate a Servizi collegati vengono pubblicate direttamente nella factory in modalità LIVE. In alcuni casi questa pubblicazione immediata non è appropriata perché le modifiche potrebbero non essere state testate, vanificando così lo scopo di GIT.
+    -   Tutti i segreti di questo tipo devono pertanto essere recuperati da Servizi collegati basati su Azure Key Vault.
+    -   Tra i vantaggi offerti dall'uso di Key Vault è inclusa anche la semplificazione del processo di Integrazione continua/Distribuzione continua, poiché l'utente non deve specificare questi segreti durante la distribuzione del modello di Resource Manager.
 
 ## <a name="author-with-github-integration"></a>Creazione tramite l'integrazione di GitHub
 

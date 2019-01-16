@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976580"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039470"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
 
@@ -142,7 +142,7 @@ Per ogni computer da replicare, trovare l'indirizzo IP:
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Passaggio 2: Creare un insieme di credenziali e selezionare un obiettivo di replica
 
-1. Nel portale di Azure selezionare **Crea una risorsa** > **Monitoraggio e gestione** > **Backup e Site Recovery**.
+1. Nel portale di Azure selezionare **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery**.
 2. In **Nome**immettere un nome descrittivo per identificare l'insieme di credenziali. 
 3. In **Gruppo di risorse** creare o selezionare un gruppo di risorse. Viene usato il gruppo **contosoRG**.
 4. In **Località** immettere l'area di Azure. Viene usato **Europa occidentale**.

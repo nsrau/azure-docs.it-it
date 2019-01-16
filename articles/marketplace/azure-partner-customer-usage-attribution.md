@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602172"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077743"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -36,10 +36,8 @@ L'attribuzione dell'utilizzo dei clienti è necessaria in tutti i [modelli di so
 
 ## <a name="use-resource-manager-templates"></a>Usare i modelli di Resource Manager
 
-Molte soluzioni dei partner vengono distribuite nella sottoscrizione del cliente usando i modelli di Resource Manager. Se si dispone di un modello di Resource Manager presente in Azure Marketplace, in GitHub o come una Guida introduttiva, il processo di modifica del modello per abilitare questo nuovo metodo di rilevamento deve essere semplice. Se non si usa un modello di Azure Resource Manager, ecco alcuni collegamenti che consentono una migliore comprensione dei modelli di Resource Manager e spiegano come crearne uno: 
+Molte soluzioni dei partner vengono distribuite nella sottoscrizione del cliente usando i modelli di Resource Manager. Se si dispone di un modello di Resource Manager presente in Azure Marketplace, in GitHub o come una Guida introduttiva, il processo di modifica del modello per abilitare questo nuovo metodo di rilevamento deve essere semplice. Per altre informazioni, vedere [Creare e distribuire il primo modello di Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
 
-*   [Creare e distribuire il primo modello di Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*   [Creare un modello di soluzione per Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
 ## <a name="add-a-guid-to-your-template"></a>Aggiungere un GUID al modello
 
@@ -270,11 +268,15 @@ Microsoft fornisce ai partner una panoramica delle distribuzioni dei clienti dei
 
 **Chi può aggiungere un GUID a un modello?**
 
-La risorsa di rilevamento è destinata a collegare la soluzione del partner all'uso di Azure da parte dei clienti. I dati di utilizzo sono legati all'identità di un partner in Microsoft Partner Network (MPN ID). 
+La risorsa di rilevamento è destinata a collegare la soluzione del partner all'uso di Azure da parte dei clienti. I dati di utilizzo sono legati all'identità di un partner in Microsoft Partner Network (MPN ID). La creazione di report è disponibile per i partner nel CPP.
 
 **Dopo essere stato aggiunto, un GUID può essere modificato?**
  
 Sì, un cliente o un partner di implementazione può personalizzare il modello e può modificare o rimuovere il GUID. Si consiglia ai partner di descrivere in modo proattivo il ruolo della risorsa e del GUID ai propri clienti e al partner per impedire la rimozione o la modifica del GUID di rilevamento. La modifica del GUID ha effetto solo su implementazioni e risorse nuove e non esistenti.
+
+**Quando sarà disponibile la funzione di creazione report?**
+
+Una versione beta della funzione di creazione report sarà disponibile a breve. La funzione di creazione report verrà integrata nel portale CPP.
 
 **È possibile monitorare i modelli distribuiti da un repository non Microsoft, ad esempio GitHub?**
 

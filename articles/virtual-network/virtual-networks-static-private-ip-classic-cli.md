@@ -1,13 +1,10 @@
 ---
-title: Configurare indirizzi IP privati per le macchine virtuali (classiche) - Interfaccia della riga di comando classica di Azure | Microsoft Docs
+title: Configurare indirizzi IP privati per le macchine virtuali (classiche) - Interfaccia della riga di comando classica di Azure
+titlesuffix: Azure Virtual Network
 description: Informazioni su come configurare gli indirizzi IP privati per le macchine virtuali (classiche) usando l'interfaccia della riga di comando classica di Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,13 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: abc551f796cb2d8921b6b1f67fb6a6714655ffde
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134676"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023890"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Configurare gli indirizzi IP privati per una macchina virtuale (classica) usando l'interfaccia della riga di comando classica di Azure
 
@@ -118,7 +114,7 @@ Output previsto:
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>Impostare gli indirizzi IP all'interno del sistema operativo
 
-È consigliabile non assegnare staticamente l'indirizzo IP privato assegnato alla macchina virtuale di Azure all'interno del sistema operativo di una macchina virtuale, se non necessario. Se si imposta manualmente l'indirizzo IP privato all'interno del sistema operativo, assicurarsi che sia uguale all'indirizzo IP privato assegnato alla macchina virtuale di Azure. In caso contrario, si può perdere la connettività alla macchina virtuale. Non assegnare mai manualmente l'indirizzo IP pubblico assegnato a una macchina virtuale di Azure all'interno del sistema operativo della macchina virtuale.
+È consigliabile non assegnare staticamente l'indirizzo IP privato assegnato alla macchina virtuale di Azure all'interno del sistema operativo di una macchina virtuale, se non necessario. Se si imposta manualmente l'indirizzo IP privato all'interno del sistema operativo, assicurarsi che sia uguale all'indirizzo IP privato assegnato alla macchina virtuale di Azure. In caso contrario, si può perdere la connettività alla macchina virtuale. Non assegnare manualmente l'indirizzo IP pubblico assegnato a una macchina virtuale di Azure all'interno del sistema operativo della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su [indirizzi IP pubblici riservati](virtual-networks-reserved-public-ip.md) .

@@ -9,15 +9,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 8c3eac208a4e1b0fd55e56956035b3fb5a23fc00
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1431ba658a6eb898553804f0c81b3babb23f4fe2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730280"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015203"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Linee guida per la distribuzione di app Web tramite i modelli di Azure Resource Manager
 
@@ -138,3 +138,4 @@ Per un modello di esempio, vedere [Distribuire un certificato di app Web dal seg
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per un'esercitazione sulla distribuzione di app Web con un modello, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](deploy-complex-application-predictably.md).
+* Per informazioni sulla sintassi e le proprietà JSON per i tipi di risorsa nei modelli, vedere [Azure Resource Manager template reference](/azure/templates/) (Informazioni di riferimento sui modelli di Azure Resource Manager).

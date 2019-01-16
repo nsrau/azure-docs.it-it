@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420099"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065801"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -234,11 +234,11 @@ Il firewall può anche bloccare le connessioni tra il bus di servizio e i data c
 
 ## <a name="configure-ports"></a>Configurare le porte
 
-Il gateway crea una connessione in uscita al [Bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) e comunica sulle porte in uscita: TCP 443 (predefinita), 5671, 5672, 9350 attraverso 9354. Non sono richieste porte in ingresso. Altre informazioni su [bus di servizio di Azure e soluzioni ibride](../service-bus-messaging/service-bus-messaging-overview.md).
+Il gateway crea una connessione in uscita al [bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) e comunica sulle porte in uscita: TCP 443 (predefinita), 5671, 5672 e dalla 9350 alla 9354. Non sono richieste porte in ingresso. Altre informazioni su [bus di servizio di Azure e soluzioni ibride](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Il gateway usa i nomi di dominio completi seguenti:
 
-| Nomi di dominio | Porte in uscita | Descrizione | 
+| Nomi di dominio | Porte in uscita | DESCRIZIONE | 
 | ------------ | -------------- | ----------- | 
 | *. analysis.windows.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
@@ -262,7 +262,7 @@ Alcuni proxy consentono il passaggio di traffico solo alle porte 80 e 443. Per i
 
    In alternativa, per trovare il percorso del client, aprire la console dei servizi nello stesso computer, eseguire una ricerca di **On-premises data gateway service** (Servizio gateway dati locale) e visualizzare la proprietà **Path to executable** (Percorso del file eseguibile).
 
-2. Aprire il file di *configurazione* seguente: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+2. Aprire questo file di *configurazione*: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. Modificare il valore **ServiceBusSystemConnectivityModeString** da **AutoDetect** in **Https**:
 
@@ -276,10 +276,9 @@ Alcuni proxy consentono il passaggio di traffico solo alle porte 80 e 443. Per i
 
 ## <a name="windows-service-account"></a>Account del servizio Windows
 
-Il gateway dati locale viene eseguito come un servizio Windows denominato "On-premises data gateway service" (Servizio gateway dati locale), ma usa "NT SERVICE\PBIEgwService" per le credenziali dell'account "Accedi come". Per impostazione predefinita, il gateway dati locale dispone delle autorizzazioni "Accesso come servizio" per il computer in cui si installa il gateway. Per creare e gestire il gateway nel portale di Azure, l'account del servizio di Windows deve avere almeno autorizzazioni di **Collaboratore**. 
+Nel computer in cui si installa il gateway dati locale, il gateway viene eseguito come account del servizio di Windows denominato "servizio Gateway dati locale". Il gateway usa tuttavia il nome "NT SERVICE\PBIEgwService" per le credenziali dell'account "Accedi come". Per impostazione predefinita, il gateway ha le autorizzazioni "Accesso come servizio" per il computer in cui si installa il gateway. Questo account del servizio di Windows per il gateway è in genere diverso dall'account usato per la connessione a origini dati locali e dall'account aziendale o dell'istituto di istruzione usato per accedere ai servizi cloud.
 
-> [!NOTE]
-> Questo account del servizio Windows è diverso dall'account usato per la connessione a origini dati locali e dall'account aziendale o dell'istituto di istruzione usato per accedere ai servizi cloud.
+Per poter creare e gestire il gateway nel portale di Azure, l'account del servizio di Windows deve avere almeno autorizzazioni di **Collaboratore**. Per controllare queste autorizzazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md). 
 
 <a name="restart-gateway"></a>
 
@@ -362,24 +361,24 @@ I passaggi seguenti descrivono quello che accade quando un utente nel cloud inte
 **R**: Nella scheda Servizi in Gestione attività, il nome del servizio è "PBIEgwService" o servizio Power BI Gateway Enterprise. Nella console servizi, il nome del servizio è "On-premises data gateway service" (Servizio gateway dati locale). Il servizio di Windows usa "NT SERVICE\PBIEgwService" come il SID del servizio (SSID).
 
 **D**: Il servizio gateway di Windows può essere eseguito con un account Azure Active Directory? <br/>
-**R**: No, il servizio Windows deve disporre di un account Windows valido.
+**R**: No, il servizio di Windows deve avere un account Windows valido.
 
 ### <a name="disaster-recovery"></a>Ripristino di emergenza
 
 **D**: Quali opzioni sono disponibili per il ripristino di emergenza? <br/>
 **R**: È possibile usare la chiave di ripristino per ripristinare o spostare un gateway. La chiave di ripristino viene specificata al momento dell'installazione del gateway.
 
-**D**: Qual è il vantaggio della chiave di ripristino? <br/>
+**D**: Quale vantaggio offre la chiave di ripristino? <br/>
 **R**: La chiave di ripristino consente di eseguire la migrazione o di ripristinare le impostazioni del gateway in caso di emergenza.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Questa sezione affronta alcuni dei problemi comuni che possono verificarsi durante la configurazione e l'uso del gateway dati locale.
 
 **D**: Perché l'installazione del gateway non è riuscita? <br/>
 **R**: Questo problema può verificarsi se il software antivirus nel computer di destinazione non è aggiornato. È possibile aggiornare il software antivirus oppure disabilitarlo temporaneamente durante l'installazione del gateway e quindi abilitarlo nuovamente.
 
-**D**: Perché non viene visualizzata l'installazione del gateway durante la creazione della risorsa del gateway in Azure? <br/>
+**D**: Perché non viene visualizzata l'installazione del gateway durante la creazione della risorsa gateway in Azure? <br/>
 **R**: Questo problema può verificarsi per i motivi seguenti:
 
 * L'installazione del gateway è già registrata e richiesta da un'altra risorsa del gateway in Azure. Le installazioni del gateway non vengono visualizzate nell'elenco delle istanze dopo che le risorse del gateway vengono create per loro.
@@ -444,7 +443,7 @@ Per attività aggiuntive di monitoraggio e risoluzione dei problemi, è possibil
 
    In alternativa, per trovare il percorso del client, aprire la console dei servizi nello stesso computer, eseguire una ricerca di **On-premises data gateway service** (Servizio gateway dati locale) e visualizzare la proprietà **Path to executable** (Percorso del file eseguibile).
 
-2. Aprire il file di *configurazione* seguente: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+2. Aprire questo file di *configurazione*: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. Impostare il valore **SendTelemetry** su **true**:
 
@@ -506,7 +505,7 @@ Per determinare la durata di una query, seguire questa procedura:
 
    2. Per trovare una query, cercare un tipo di attività, ad esempio: 
 
-      | Tipo di attività | Descrizione | 
+      | Tipo di attività | DESCRIZIONE | 
       |---------------|-------------| 
       | MGEQ | Query eseguite su ADO.NET. | 
       | MGEO | Query eseguite su OLEDB. | 

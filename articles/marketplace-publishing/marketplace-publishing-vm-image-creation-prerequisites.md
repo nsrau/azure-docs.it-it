@@ -3,7 +3,7 @@ title: Prerequisiti tecnici per la creazione di un'immagine di macchina virtuale
 description: Informazioni sui requisiti per la creazione e la distribuzione di un'immagine di macchina virtuale in Azure Marketplace per l'acquisto da parte di altri utenti.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 79fb9869b37e82df3f41a50e4425e7c0cd08c841
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1fdf945645b2d5c89d7f3750ec836595adb90b06
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255269"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077080"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Prerequisiti tecnici per la creazione di un'immagine di macchina virtuale per Azure Marketplace
 Leggere attentamente le informazioni sul processo prima di iniziare e comprendere dove e perché viene eseguito ogni passaggio. Per quanto possibile, è necessario preparare le informazioni sulla società e altri dati, scaricare gli strumenti necessari e/o creare i componenti tecnici prima di iniziare il processo di creazione dell'offerta. Questi elementi dovrebbero risultare chiari dalla lettura di questo articolo.  
@@ -50,6 +51,6 @@ Leggere attentamente le informazioni sul processo prima di iniziare e comprender
 È possibile sviluppare i dischi rigidi virtuali di Azure nel cloud o in locale:
 
 * Lo sviluppo basato sul cloud implica che tutte le operazioni di sviluppo vengono eseguite in modalità remota su un disco rigido virtuale residente in Azure.
-* Lo sviluppo in locale richiede il download di un disco rigido virtuale e il relativo sviluppo tramite l'infrastruttura locale. Sebbene questa operazione sia possibile, non è consigliabile. Si noti che lo sviluppo per Windows o SQL in locale richiede la disponibilità in locale dei codici di licenza appropriati. Non è possibile includere o installare SQL Server dopo aver creato una VM. È inoltre necessario basare l’offerta su un'immagine SQL approvata dal portale di Azure. Se si decide di eseguire lo sviluppo in locale, è necessario effettuare alcuni passaggi in modo diverso rispetto allo sviluppo nel cloud. È possibile trovare le informazioni appropriate in [Creare un'immagine di VM in locale](marketplace-publishing-vm-image-creation-on-premise.md).
+* Lo sviluppo in locale richiede il download di un disco rigido virtuale e il relativo sviluppo tramite l'infrastruttura locale. Sebbene questo approccio sia possibile, non è consigliabile. Lo sviluppo per Windows o SQL in locale richiede la disponibilità in locale dei codici di licenza appropriati. Non è possibile includere o installare SQL Server dopo aver creato una VM. È inoltre necessario basare l’offerta su un'immagine SQL approvata dal portale di Azure. Se si decide di eseguire lo sviluppo in locale, è necessario effettuare alcuni passaggi in modo diverso rispetto allo sviluppo nel cloud. È possibile trovare le informazioni appropriate in [Creare un'immagine di VM in locale](marketplace-publishing-vm-image-creation-on-premise.md).
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md

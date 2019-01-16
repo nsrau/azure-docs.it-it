@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: sincronizzazione con ambito | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Sincronizzazione con ambito | Microsoft Docs'
 description: Configurare la sincronizzazione con ambito da Azure AD nei domini gestiti
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ae51151bd20d2c715d868e916f7bc633040efa40
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442982"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121531"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurare la sincronizzazione con ambito da Azure AD nel dominio gestito
 Questo articolo illustra come configurare solo account utente specifici per sincronizzarli dalla directory di Azure AD nel dominio gestito di Azure AD Domain Services.
@@ -60,7 +60,7 @@ Completare i passaggi seguenti per configurare la sincronizzazione con ambito ba
 1. Completare le attività seguenti:
   * [Attività 1: Installare i moduli di PowerShell necessari](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
   * [Attività 2: Creare l'entità servizio richiesta nella directory di Azure AD](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-  * [Attività 3: Creare e configurare il gruppo "AAD DC Administrators"](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
+  * [Attività 3: Creare e configurare il gruppo 'AAD DC Administrators'](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
   * [Attività 4: Registrare il provider di risorse di Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
   * [Attività 5: Creare un gruppo di risorse](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
   * [Attività 6: Creare e configurare la rete virtuale](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
@@ -79,7 +79,7 @@ Completare i passaggi seguenti per configurare la sincronizzazione con ambito ba
   > È necessario includere il gruppo "AAD DC Administrators" nell'elenco dei gruppi configurati per la sincronizzazione con ambito. Se non si include questo gruppo, il dominio gestito sarà inutilizzabile.
   >
 
-4. Creare un nuovo dominio gestito e abilitare la sincronizzazione con ambito basata sui gruppi per il dominio gestito. Includere la proprietà ```"filteredSync" = "Enabled"``` nel parametro ```Properties```. Vedere ad esempio il frammento di script seguente, copiato dall'[Attività 7: Eseguire il provisioning del dominio gestito di Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+4. Creare un nuovo dominio gestito e abilitare la sincronizzazione con ambito basata sui gruppi per il dominio gestito. Includere la proprietà ```"filteredSync" = "Enabled"``` nel parametro ```Properties```. Ad esempio, vedere il frammento di script seguente, copiato da [Attività 7: Eseguire il provisioning del dominio gestito di Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
   ```powershell
   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -173,7 +173,7 @@ foreach ($id in $newGroupIds)
     }
     catch
     {
-        Write-Error "Exception occured assigning Object-ID: $id. Exception: $($_.Exception)."
+        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
     }
 }
 

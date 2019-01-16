@@ -10,17 +10,16 @@ ms.assetid: 37724021-f55f-4e85-9206-6d4a48bda3d8
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3419f8718396bfb4ec894310e545f6a8a5b8f718
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e9a99fcbe161e0b6cdabf1363ab3121a77869df7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049265"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024859"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usare modelli per creare entità di Azure Data Factory
 > [!NOTE]
@@ -41,8 +40,8 @@ I [modelli di Azure Resource Manager](../../azure-resource-manager/resource-grou
 ## <a name="tutorials"></a>Esercitazioni
 Per istruzioni dettagliate sulla creazione di entità di Data Factory tramite i modelli di Resource Manager, vedere le esercitazioni seguenti:
 
-* [Tutorial: Create a pipeline to copy data by using Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Esercitazione: Creare una pipeline per copiare dati usando il modello di Azure Resource Manager)
-* [Tutorial: Create a pipeline to process data by using Azure Resource Manager template](data-factory-build-your-first-pipeline.md) (Esercitazione: Creare una pipeline per elaborare dati usando il modello di Azure Resource Manager)
+* [Esercitazione: Create a pipeline to copy data by using Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Esercitazione: Creare una pipeline per copiare dati usando il modello di Azure Resource Manager)
+* [Esercitazione: Create a pipeline to process data by using Azure Resource Manager template](data-factory-build-your-first-pipeline.md) (Esercitazione: Creare una pipeline per elaborare dati usando il modello di Azure Resource Manager)
 
 ## <a name="data-factory-templates-on-github"></a>Modelli di data factory in GitHub
 Vedere i modelli di avvio rapido di Azure in GitHub elencati di seguito:

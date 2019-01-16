@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268445"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053977"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -51,9 +51,7 @@ Per altre informazioni sull'assegnazione dell'autorizzazione ai dati di Gestione
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Creare un budget nel portale di Azure
 
-È possibile creare un budget per una sottoscrizione di Azure per un periodo mensile, trimestrale o annuale. Il contenuto per la navigazione nel portale di Azure determina se si crea un budget per una sottoscrizione o per un gruppo di risorse.
-
-Nel portale di Azure passare a **Gestione dei costi e fatturazione** &gt; **Sottoscrizioni** &gt; Selezionare una sottoscrizione &gt; **Budget**. In questo esempio, il budget creato è per la sottoscrizione selezionata.
+È possibile creare un budget per una sottoscrizione di Azure per un periodo mensile, trimestrale o annuale. Il contenuto per la navigazione nel portale di Azure determina se si crea un budget per una sottoscrizione o per un gruppo di risorse. Ad esempio, nel portale di Azure passare a **Sottoscrizioni** &gt; selezionare una sottoscrizione &gt; **Budget**. In questo esempio, il budget creato è per la sottoscrizione selezionata. Se si vuole creare un budget per un gruppo di risorse, passare a **Gruppi di risorse** > selezionare un gruppo di risorse > **Budget**.
 
 Dopo aver creato i budget, viene mostrata una semplice visualizzazione della spesa corrente corrispondente.
 

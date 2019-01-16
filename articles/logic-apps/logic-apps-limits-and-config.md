@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: e5c5d1a3e0316c96a6df7e01e6d6796d6a72506a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853830"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159027"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -85,10 +85,10 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 | NOME | Limite | Note | 
 | ---- | ----- | ----- | 
-| Concorrenza di trigger | 50 | Il limite predefinito è 20. Questo limite descrive il numero massimo di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50, estremi inclusi, vedere [Modifica della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Numero massimo di esecuzioni in attesa | 100 | Il limite predefinito è 10. Questo limite descrive il numero massimo di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 0 e 100, estremi inclusi, vedere [Modifica del limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Elementi ForEach | 100.000 | Questo limite descrive il numero massimo di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](../connectors/connectors-native-query.md). | 
-| Iterazioni foreach | 50 | Il limite predefinito è 20. Questo limite descrive il numero massimo di iterazioni "for each" che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50, estremi inclusi, vedere [Modifica della concorrenza "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Esecuzione dei cicli "for each" in modo sequenziale](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Concorrenza di trigger | 50 quando si limita la concorrenza | Quando si attiva il controllo della concorrenza per un trigger, il limite predefinito è 25. Questo limite descrive il numero massimo di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Numero massimo di esecuzioni in attesa | 100 quando si limita la concorrenza | Quando si attiva il controllo della concorrenza per un trigger, il limite predefinito è 10. Questo limite descrive il numero massimo di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 0 e 100, estremi inclusi, vedere [Modifica del limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Elementi della matrice foreach | 100.000 | Questo limite descrive il numero massimo di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](../connectors/connectors-native-query.md). | 
+| Concorrenza foreach | 50 quando si limita la concorrenza | Quando si attiva il controllo della concorrenza per questo ciclo, il limite predefinito è 20. Questo limite descrive il numero massimo di iterazioni "for each" che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Eseguire i cicli "for each" in modo sequenziale](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | Elementi SplitOn | 100.000 | | 
 | Iterazioni Until | 5.000 | | 
 |||| 
@@ -104,8 +104,8 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 | Azione: esecuzioni per 5 minuti | 300.000 | Il limite predefinito è 100.000. Per modificare il limite predefinito, vedere [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (Eseguire l'app per la logica in modalità di velocità effettiva elevata), attualmente in anteprima. In alternativa, è possibile distribuire il carico di lavoro tra più app per la logica in base alle esigenze. | 
 | Azione: chiamate in uscita simultanee | ~2.500 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 | Endpoint di runtime: chiamate in ingresso simultanee | ~1,000 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
-| Endpoint di runtime: lettura delle chiamate per 5 minuti  | 60.000 | È possibile distribuire un carico di lavoro tra più app in base alle esigenze. | 
-| Endpoint di runtime: richiamata delle chiamate per 5 minuti | 45,000 | È possibile distribuire un carico di lavoro tra più app in base alle esigenze. | 
+| Endpoint di runtime: leggere le chiamate per 5 minuti  | 60.000 | È possibile distribuire un carico di lavoro tra più app in base alle esigenze. | 
+| Endpoint di runtime: richiamare le chiamate per 5 minuti | 45,000 | È possibile distribuire un carico di lavoro tra più app in base alle esigenze. | 
 | Velocità effettiva del contenuto per 5 minuti | 600 MB | È possibile distribuire un carico di lavoro tra più app in base alle esigenze. | 
 |||| 
 
@@ -119,9 +119,9 @@ Per superare questi limiti nell'elaborazione normale o per eseguire test di cari
 
 | NOME | Limite | Note |
 |------|-------|-------|
-| FTP | 50 MB | Per ignorare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. | 
-| SFTP | 50 MB | Per ignorare questo limite, usare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md) oppure vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. | 
-| SFTP-SSH | 1 GB | Per ignorare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. | 
+| FTP | 50 MB | Per superare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. | 
+| SFTP | 50 MB | Per superare questo limite, usare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md) oppure vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. | 
+| SFTP-SSH | 1 GB | Per superare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. | 
 |||| 
 
 <a name="request-limits"></a>
@@ -238,10 +238,10 @@ Usare il livello gratuito solo per scenari esplorativi, non per scenari di produ
 | ---- | ----- | ----- | 
 | SCHEMA | 8 MB | Per caricare file di dimensioni maggiori di 2 MB, usare l'[URI del BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Mappa (file XSLT) | 2 MB | | 
-| Endpoint di runtime: lettura delle chiamate per 5 minuti | 60.000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
-| Endpoint di runtime: richiamata delle chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
+| Endpoint di runtime: leggere le chiamate per 5 minuti | 60.000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
+| Endpoint di runtime: richiamare le chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
 | Endpoint di runtime: verifica delle chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
-| Endpoint di runtime: blocco delle chiamate simultanee | ~1,000 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
+| Endpoint di runtime: blocco di chiamate simultanee | ~1,000 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
@@ -259,7 +259,7 @@ Ecco i limiti che si applicano ai protocolli B2B:
 
 <a name="configuration"></a>
 
-## <a name="configuration-ip-addresses"></a>Configurazione: indirizzi IP
+## <a name="configuration-ip-addresses"></a>Configurazione: Indirizzi IP
 
 ### <a name="azure-logic-apps-service"></a>Servizio App per la logica
 

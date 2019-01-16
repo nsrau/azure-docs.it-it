@@ -11,26 +11,27 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 53aba5192ddf57598965fcfe0db5f2b18423c7e9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 01/03/2019
+ms.openlocfilehash: 1718177a0902bc7049eb6986e5a1d128eeb3f233
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345594"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040959"
 ---
 # <a name="configure-an-existing-vnet-for-azure-sql-database-managed-instance"></a>Configurare una rete virtuale esistente per Istanza gestita di database SQL di Azure
 
-Istanza gestita di database SQL di Azure deve essere distribuita in una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure e nella subnet dedicate solo alle istanze gestite. È possibile usare la rete virtuale e la subnet esistenti se sono configurate in base ai [requisiti per la rete virtuale di Istanza gestita](sql-database-managed-instance-connectivity-architecture.md#network-requirements). 
+Istanza gestita di database SQL di Azure deve essere distribuita in una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure e nella subnet dedicate solo alle istanze gestite. È possibile usare la rete virtuale e la subnet esistenti se sono configurate in base ai [requisiti per la rete virtuale di Istanza gestita](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
-Se si ha una nuova subnet non ancora configurata, non si è sicuri che la subnet sia allineata ai [requisiti](sql-database-managed-instance-connectivity-architecture.md#network-requirements) o si vuole controllare che la subnet sia ancora conforme ai [requisiti di rete](sql-database-managed-instance-connectivity-architecture.md#network-requirements) dopo avere apportato alcune modifiche, è possibile convalidare e modificare la rete usando lo script illustrato in questa sezione. 
+Se si ha una nuova subnet non ancora configurata, non si è sicuri che la subnet sia allineata ai [requisiti](sql-database-managed-instance-connectivity-architecture.md#network-requirements) o si vuole controllare che la subnet sia ancora conforme ai [requisiti di rete](sql-database-managed-instance-connectivity-architecture.md#network-requirements) dopo avere apportato alcune modifiche, è possibile convalidare e modificare la rete usando lo script illustrato in questa sezione.
 
   > [!Note]
-  > È possibile creare un'istanza gestita solo in reti virtuali di Resource Manager. Le reti virtuali di Azure distribuite usando il modello di distribuzione classica non sono supportate. Calcolare le dimensioni della subnet seguendo le linee guida indicate nella sezione [Determinare le dimensioni della subnet per le istanze gestite](#determine-the-size-of-subnet-for-managed-instances), perché la subnet non può essere ridimensionata dopo avervi distribuito le risorse.
+  > È possibile creare un'istanza gestita solo in reti virtuali di Resource Manager. Le reti virtuali di Azure distribuite usando il modello di distribuzione classica non sono supportate. Calcolare le dimensioni della subnet seguendo le linee guida indicate nell'articolo [Determinare le dimensioni di una subnet della rete virtuale per Istanza gestita di database SQL di Azure](sql-database-managed-instance-determine-size-vnet-subnet.md), in quanto la subnet non può essere ridimensionata dopo avervi distribuito le risorse.
 
-## <a name="validate-and-modify-an-existing-virtual-network"></a>Convalidare e modificare una rete virtuale esistente 
+## <a name="validate-and-modify-an-existing-virtual-network"></a>Convalidare e modificare una rete virtuale esistente
 
 Per creare un'istanza gestita all'interno di una subnet esistente, è consigliabile usare lo script di PowerShell seguente per preparare la subnet:
+
 ```powershell
 $scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
 
@@ -43,6 +44,7 @@ $parameters = @{
 
 Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
+
 La preparazione della subnet viene eseguita in tre semplici passaggi:
 
 1. Convalida: la rete virtuale e la subnet selezionate vengono convalidate in base ai requisiti di rete dell'istanza gestita.

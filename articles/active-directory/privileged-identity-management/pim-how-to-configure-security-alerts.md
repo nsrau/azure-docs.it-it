@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/21/2018
+ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 0231eaad26fbc3e7157999c0023c5001f37d70d5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291216"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063286"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurare gli avvisi di sicurezza per i ruoli della directory di Azure AD in PIM
 
@@ -30,8 +30,8 @@ Azure AD Privileged Identity Management (PIM) genera avvisi quando si verificano
 
 Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli della directory, oltre a fornire indicazioni su come risolverli ed evitarli. Ecco il significato dei vari livelli di gravità:
 
-* **Elevata**: richiede un'azione immediata a causa di una violazione dei criteri.
-* **Media**: non richiede un'azione immediata ma segnala una potenziale violazione dei criteri.
+* **Alta**: richiede un'azione immediata a causa di una violazione dei criteri.
+* **Medium**: non richiede un'azione immediata ma segnala una potenziale violazione dei criteri.
 * **Bassa**: non richiede un'azione immediata ma suggerisce una modifica dei criteri.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Gli amministratori non usano i ruoli con privilegi
@@ -69,7 +69,7 @@ Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli della directory,
 | | |
 | --- | --- |
 | **Severity** | Media |
-| **Perché viene visualizzato questo avviso?** | Gli account per cui non è stata cambiata la password di recente possono essere account di servizio o condivisi che non sono gestiti. Questi account nei ruoli con privilegi sono vulnerabili ad attacchi. |
+| **Perché viene visualizzato questo avviso?** | Account in un ruolo con privilegi che non hanno cambiato la password negli ultimi 90 giorni. Questi account potrebbero essere account di servizio o condivisi che non vengono mantenuti aggiornati e sono vulnerabili agli attacchi. |
 | **Come correggerlo?** | Esaminare gli account nell'elenco. Se l'accesso non è più necessario, rimuovere gli account dai ruoli con privilegi. |
 | **Prevenzione** | Assicurarsi che per gli account condivisi venga eseguita la rotazione di password complesse quando cambiano gli utenti che conoscono la password. </br>Esaminare regolarmente gli account con ruoli con privilegi usando le [verifiche di accesso](pim-how-to-start-security-review.md) e rimuovere le assegnazioni di ruolo che non sono più necessarie. |
 | **Azione di mitigazione nel portale** | Rimuove l'account dal ruolo con privilegi. |

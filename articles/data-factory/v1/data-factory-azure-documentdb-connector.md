@@ -9,17 +9,16 @@ ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
 ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f3ebd704129aabecffdaa2589b8b086803a2d092
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d95534cceb11f7bf20f6966e0205694fc1db021d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046603"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017600"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Spostare dati da e verso il BLOB di Azure mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,9 +40,9 @@ Per copiare i dati così come sono da e verso i file JSON o un'altra raccolta Co
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso Azure Cosmos DB usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-È possibile anche usare gli strumenti seguenti per creare una pipeline: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink: 
 
@@ -60,8 +59,8 @@ La tabella seguente fornisce la descrizione degli elementi JSON specifici del se
 
 | **Proprietà** | **Descrizione** | **Obbligatorio** |
 | --- | --- | --- |
-| type |La proprietà del tipo deve essere impostata su: **DocumentDb** |Sì |
-| connectionString |Specificare le informazioni necessarie per connettersi al database di Azure Cosmos DB. |Sì |
+| type |La proprietà type deve essere impostata su: **DocumentDb** |Yes |
+| connectionString |Specificare le informazioni necessarie per connettersi al database di Azure Cosmos DB. |Yes |
 
 Esempio:
 
@@ -84,7 +83,7 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 
 | **Proprietà** | **Descrizione** | **Obbligatorio** |
 | --- | --- | --- |
-| collectionName |Nome della raccolta documenti di Cosmos DB. |Sì |
+| collectionName |Nome della raccolta documenti di Cosmos DB. |Yes |
 
 Esempio:
 
@@ -133,8 +132,8 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 | **Proprietà** | **Descrizione** | **Valori consentiti** | **Obbligatorio** |
 | --- | --- | --- | --- |
 | nestingSeparator |È necessario un carattere speciale nel nome della colonna di origine per indicare tale documento nidificato. <br/><br/>Per l'esempio sopra: `Name.First` nella tabella di output produce la struttura JSON seguente nel documento di Cosmos DB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Carattere utilizzato per separare i livelli di nidificazione.<br/><br/>Il valore predefinito è `.` (punto). |Carattere utilizzato per separare i livelli di nidificazione. <br/><br/>Il valore predefinito è `.` (punto). |
-| writeBatchSize |Numero di richieste in parallelo per il servizio Azure Cosmos DB per creare documenti.<br/><br/>È possibile ottimizzare le prestazioni quando si copiano dati da e verso Cosmos DB usando questa proprietà. È possibile prevedere prestazioni migliori quando si aumenta writeBatchSize, poiché vengono inviate più richieste in parallelo a Cosmos DB. Tuttavia è necessario evitare la limitazione che può generare il messaggio di errore: "La frequenza delle richieste è troppo elevata".<br/><br/>La limitazione è dovuta a diversi fattori, inclusi la dimensione dei documenti, il numero di termini nei documenti, i criteri di indicizzazione della raccolta di destinazione, ecc. Per le operazioni di copia, è possibile usare una raccolta migliore, ad esempio S3, per disporre della massima velocità effettiva disponibile, ovvero 2500 unità di richiesta al secondo. |Integer |No (valore predefinito: 5) |
-| writeBatchTimeout |Tempo di attesa per il completamento dell’operazione prima del timeout. |Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No  |
+| writeBatchSize |Numero di richieste in parallelo per il servizio Azure Cosmos DB per creare documenti.<br/><br/>È possibile ottimizzare le prestazioni quando si copiano dati da e verso Cosmos DB usando questa proprietà. È possibile prevedere prestazioni migliori quando si aumenta writeBatchSize, poiché vengono inviate più richieste in parallelo a Cosmos DB. È tuttavia necessario evitare la limitazione che può generare il messaggio di errore: "La frequenza delle richieste è troppo elevata".<br/><br/>La limitazione è dovuta a diversi fattori, inclusi la dimensione dei documenti, il numero di termini nei documenti, i criteri di indicizzazione della raccolta di destinazione, ecc. Per le operazioni di copia, è possibile usare una raccolta migliore, ad esempio S3, per disporre della massima velocità effettiva disponibile, ovvero 2500 unità di richiesta al secondo. |Integer |No (valore predefinito: 5) |
+| writeBatchTimeout |Tempo di attesa per il completamento dell’operazione prima del timeout. |Intervallo di tempo<br/><br/> Esempio: "00:30:00" (30 minuti). |No  |
 
 ## <a name="importexport-json-documents"></a>Importare/esportare documenti JSON
 Usando questo connettore Cosmos DB, è possibile:
@@ -150,7 +149,7 @@ Per ottenere la copia senza schema,
 ## <a name="json-examples"></a>Esempi JSON
 Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati da e verso Azure Cosmos DB e Archivio BLOB di Azure. I dati possono anche essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
 
-## <a name="example-copy-data-from-azure-cosmos-db-to-azure-blob"></a>Esempio: Copiare dati da Azure Cosmos DB a BLOB di Azure
+## <a name="example-copy-data-from-azure-cosmos-db-to-azure-blob"></a>Esempio: copiare dati da Azure Cosmos DB a BLOB di Azure
 L'esempio seguente mostra:
 
 1. Un servizio collegato di tipo [DocumentDB](#linked-service-properties).
@@ -299,7 +298,7 @@ La pipeline seguente copia i dati dalla raccolta Person nel database di Azure Co
   }
 }
 ```
-## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Esempio: Copiare dati da BLOB di Azure ad Azure Cosmos DB 
+## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Esempio: copiare dati da BLOB di Azure ad Azure Cosmos DB 
 L'esempio seguente mostra:
 
 1. Un servizio collegato di tipo [DocumentDB](#azure-documentdb-linked-service-properties).
@@ -483,18 +482,18 @@ Quindi l'output JSON in Cosmos DB sarà analogo al seguente:
 Azure Cosmos DB è un archivio NoSQL per i documenti JSON, dove sono consentite strutture nidificate. Azure Data Factory consente di indicare una gerarchia tramite **nestingSeparator**, ovvero "." in questo esempio. Con il separatore, l'attività copia genererà l'oggetto "Name" con tre elementi figlio First, Middle e Last, in base a "Name.First", "Name.Middle" e "Name.Last" nella definizione della tabella.
 
 ## <a name="appendix"></a>Appendice
-1. **Domanda:** C’è l'aggiornamento del supporto di attività di copia dei record esistenti?
+1. **Domanda:** l'attività di copia supporta l'aggiornamento dei record esistenti?
 
-    **Risposta:** No.
+    **Risposta:**  No.
 2. **Domanda:** in che modo un nuovo tentativo di copia in Azure Cosmos DB gestisce i record già copiati?
 
     **Risposta:** se i record dispongono di un campo "ID" e l'operazione di copia tenta di inserire un record con lo stesso ID, l'operazione di copia genera un errore.  
 3. **Domanda:** Data Factory supporta il [partizionamento dei dati basato su hash o su intervalli](../../cosmos-db/sql-api-partition-data.md)?
 
-    **Risposta:** No.
-4. **Domanda:** è possibile specificare più raccolte di Azure Cosmos DB per una tabella?
+    **Risposta:**  No.
+4. **Domanda:** è possibile specificare più raccolte Azure Cosmos DB per una tabella?
 
-    **Risposta:** No. In questo momento, è possibile specificare solo una raccolta.
+    **Risposta:**  No. In questo momento, è possibile specificare solo una raccolta.
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).

@@ -9,17 +9,16 @@ ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1bf915bf702cdf9492cce1f32886c0049fbf9867
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242841"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015832"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Spostare dati tra origini locali e il cloud con Gateway di gestione dati
 > [!NOTE]
@@ -63,7 +62,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
     ![Aggiungi a schermata iniziale](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato un errore simile a **Nome "ADFTutorialOnPremDF" per la data factory non disponibile**, cambiare il nome della data factory (ad esempio, nomeutenteADFTutorialOnPremDF) e provare di nuovo a crearla. Durante l'esecuzione dei passaggi rimanenti in questa esercitazione usare questo nome anziché ADFTutorialOnPremDF.
+   > È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore **Il nome "ADFTutorialOnPremDF" per la data factory non è disponibile**, cambiare il nome della data factory (ad esempio, nomeutenteADFTutorialOnPremDF) e provare di nuovo a crearla. Durante l'esecuzione dei passaggi rimanenti in questa esercitazione usare questo nome anziché ADFTutorialOnPremDF.
    >
    > Il nome della data factory può essere registrato come nome **DNS** in futuro e quindi divenire visibile pubblicamente.
    >
@@ -106,7 +105,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 
     ![Gateway - Pagina Configura](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-    Si tratta del metodo più semplice (con un clic) per scaricare, installare, configurare e registrare il gateway in un unico passaggio. È possibile vedere l'applicazione **Gateway di gestione dati di Microsoft Configuration Manager** installata nel computer. È anche possibile trovare l'eseguibile **ConfigManager.exe** nella cartella: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**.
+    Si tratta del metodo più semplice (con un clic) per scaricare, installare, configurare e registrare il gateway in un unico passaggio. È possibile vedere l'applicazione **Gateway di gestione dati di Microsoft Configuration Manager** installata nel computer. È anche possibile trovare il file eseguibile **ConfigManager.exe** nella cartella: **C:\Programmi\Microsoft Data Management Gateway\2.0\Shared**.
 
     È anche possibile scaricare e installare manualmente il gateway usando i collegamenti nella pagina e registrarlo usando la chiave visualizzata nella casella di testo **NUOVA CHIAVE**.
 
@@ -119,7 +118,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 5. Attendere qualche minuto o finché non viene visualizzato il messaggio di notifica seguente:
 
     ![Installazione del gateway riuscita](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. Avviare l'applicazione **Gateway di gestione dati di Configuration Manager** nel computer. Nella finestra **Cerca** digitare **Gateway di gestione dati** per accedere a questa utilità. È anche possibile trovare l'eseguibile **ConfigManager.exe** nella cartella: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+6. Avviare l'applicazione **Gateway di gestione dati di Configuration Manager** nel computer. Nella finestra **Cerca** digitare **Gateway di gestione dati** per accedere a questa utilità. È anche possibile trovare il file eseguibile **ConfigManager.exe** nella cartella: **C:\Programmi\Microsoft Data Management Gateway\2.0\Shared**
 
     ![Gestione configurazione di gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. Verificare che venga visualizzato il messaggio `adftutorialgateway is connected to the cloud service`. La barra di stato visualizza **Connesso al servizio cloud** insieme a un **segno di spunta verde**.
@@ -281,7 +280,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
    * **folderPath** è impostato su **adftutorial/outfromonpremdf** dove outfromonpremdf è la cartella nel contenitore adftutorial. Se non esiste ancora, creare il contenitore **adftutorial** .
    * L'oggetto **availability** è impostato su **hourly**. L'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**.  Il servizio Data Factory genera una sezione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
 
-   Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data.<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Per impostare **folderPath** e **fileName** dinamicamente in base all'ora **SliceStart**, usare la proprietà partitionedBy. Nell'esempio seguente folderPath usa Year, Month e Day dall'oggetto SliceStart (ora di inizio della sezione elaborata), mentre fileName usa Hour dall'oggetto SliceStart. Ad esempio, se una sezione viene generata per 2014-10-20T08:00:00, folderName è impostato su wikidatagateway/wikisampledataout/2014/10/20 e fileName è impostato su 08.csv.
 
@@ -363,7 +362,7 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
    * Nella sezione **typeProperties** vengono specificati **SqlSource** come **tipo di origine** e archivio dati e **BlobSink ** è specificato come **tipo di sink**.
    * La query SQL `select * from emp` è specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
 
-   Per la data e l'ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato.
+   Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio:  2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato.
 
    Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9/9/9999** come valore per la proprietà **end**.
 

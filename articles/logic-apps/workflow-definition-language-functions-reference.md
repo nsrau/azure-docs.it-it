@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 179d8fc0f17bf43792db6a9b0e15a6f63349f002
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 43ca62191f0dc5a306ea5891f31a316242694a02
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890943"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107872"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Informazioni di riferimento sulle funzioni per il linguaggio di definizione del flusso di lavoro in App per la logica di Azure
 
@@ -102,6 +102,7 @@ Per eseguire operazioni con le raccolte, generalmente matrici, stringhe e talvol
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Verifica se una raccolta è vuota. | 
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Restituisce il primo elemento di una raccolta. | 
 | [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Restituisce una raccolta che contiene *solo* gli elementi comuni alle raccolte specificate. | 
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Quando si trova all'interno di un'azione ripetuta su una matrice, restituisce l'elemento corrente nella matrice durante l'iterazione corrente dell'azione. | 
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Restituisce una stringa con *tutti* gli elementi di una matrice, separati dal carattere specificato. | 
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Restituisce l'ultimo elemento di una raccolta. | 
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Restituisce il numero di elementi in una stringa o matrice. | 
@@ -4014,7 +4015,7 @@ xml('<value>')
 
 | Parametro | Obbligatoria | type | DESCRIZIONE | 
 | --------- | -------- | ---- | ----------- | 
-| <*value*> | Yes | string | Stringa con l'oggetto JSON da convertire <p>L'oggetto JSON deve avere una sola proprietà radice. <br>Il carattere barra rovesciata (\\) viene usato come carattere di escape per le virgolette doppie ("). | 
+| <*value*> | Yes | string | Stringa con l'oggetto JSON da convertire <p>L'oggetto JSON deve avere una sola proprietà radice, che non può essere una matrice. <br>Il carattere barra rovesciata (\\) viene usato come carattere di escape per le virgolette doppie ("). | 
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 

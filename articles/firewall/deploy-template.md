@@ -8,12 +8,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: 86fdbbacf3e8064afe0aaaaebea1d6ef6c25f9d4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865830"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038960"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Distribuire Firewall di Azure con un modello
 
@@ -51,6 +51,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
    La creazione delle risorse richiederà alcuni minuti. 
    
 1. Esplorare le risorse create con il firewall. 
+
+Per altre informazioni sulla sintassi JSON e sulle proprietà di un firewall in un modello, vedere [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -10,17 +10,16 @@ ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b74a431664faa95e8be9c9ff90970fd6e7c0ec7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 90f78428601d7b039d00d39c1ca8339ab3ace9ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048721"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020354"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiare o spostare facilmente i dati con Copia guidata di Azure Data Factory
 > [!NOTE]
@@ -41,7 +40,7 @@ Questa procedura guidata consente di spostare facilmente i dati da un'ampia gamm
 > 
 > 
 
-La procedura guidata è totalmente pensata per i Big Data. È semplice ed efficiente creare pipeline di Data Factory che spostano centinaia di cartelle, file o tabelle con la procedura guidata per copiare i dati. La procedura guidata supporta le tre funzionalità seguenti: anteprima automatica dei dati, acquisizione dello schema e mapping e filtro dei dati. 
+La procedura guidata è totalmente pensata per i Big Data. È semplice ed efficiente creare pipeline di Data Factory che spostano centinaia di cartelle, file o tabelle con la procedura guidata per copiare i dati. La procedura guidata supporta le tre funzionalità seguenti: anteprima automatica dei dati, mapping e acquisizione dello schema e filtro dei dati. 
 
 ## <a name="automatic-data-preview"></a>Anteprima automatica dei dati
 La copia guidata consente di esaminare parte dei dati dall'origine dati selezionata per confermare che si tratti esattamente dei dati che si desidera copiare. in più, se l'origine dati è in un file di testo, la copia guidata analizza il file di testo per apprendere automaticamente lo schema e i delimitatori di riga e colonna. 
@@ -94,5 +93,5 @@ Un'operazione di copia eseguita una sola volta permette di spostare dati da un'o
 ![Proprietà di pianificazione](./media/data-factory-copy-wizard/scheduling-properties.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per una procedura dettagliata sull'uso di Copia guidata di Data Factory per creare una pipeline con l'attività di copia, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md).
+Per una procedura dettagliata sull'uso di Copia guidata di Data Factory per creare una pipeline con l'attività di copia, vedere [Esercitazione: Creare una pipeline usando la copia guidata](data-factory-copy-data-wizard-tutorial.md).
 

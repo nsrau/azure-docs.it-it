@@ -4,15 +4,15 @@ description: L'articolo contiene informazioni sull'appliance Agente di raccolta 
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/08/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255976"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104211"
 ---
 # <a name="about-the-collector-appliance"></a>Informazioni sull'appliance Agente di raccolta
 
@@ -63,7 +63,7 @@ Agente di raccolta deve superare alcuni controlli dei prerequisiti per verificar
     - Selezionare Azure globale, se si prevede di eseguire la migrazione al cloud commerciale di Azure.
     - In base al cloud specificato qui, l'appliance invia i metadati individuati ai rispettivi punti finali.
 - **Controllo della connessione Internet**: Agente di raccolta può connettersi a Internet direttamente o tramite un proxy.
-    - Il controllo dei prerequisiti verifica la connettività a [URL necessari e facoltativi](#connect-to-urls).
+    - Il controllo dei prerequisiti verifica la connettività a [URL necessari e facoltativi](#urls-for-connectivity).
     - Se si dispone di una connessione diretta a Internet, non è necessaria alcuna azione specifica, ma si deve solo verificare che Agente di raccolta possa accedere agli URL necessari.
     - Se ci si connette tramite un proxy, tenere presenti i [requisiti indicati di seguito](#connect-via-a-proxy).
 - **Verificare sincronizzazione ora**: Agente di raccolta deve essere sincronizzato con il server di riferimento ora Internet per assicurarsi che le richieste al servizio siano autenticate.
@@ -105,7 +105,7 @@ Agente di raccolta deve superare alcuni controlli dei prerequisiti per verificar
 
 
 
-### <a name="connect-to-urls"></a>Connettersi agli URL
+### <a name="urls-for-connectivity"></a>URL per la connettività
 
 La verifica della connettività viene eseguita tramite la connessione a un elenco di URL.
 
@@ -219,7 +219,7 @@ Per ogni macchina virtuale, l'appliance Agente di raccolta individua i metadati 
 
 #### <a name="performance-counters"></a>Contatori delle prestazioni
 
- L'appliance Agente di raccolta raccoglie i contatori delle prestazioni seguenti per ogni macchina virtuale dall'host ESXi a intervalli di 20 secondi. Questi contatori sono i contatori di vCenter e, anche se la terminologia afferma Media, i campioni raccolti ogni 20 secondi sono di fatto contatori real-time. I dati sulle prestazioni per le macchine virtuali sono disponibili nel portale a partire da due ore dopo l'avvio dell'individuazione. È altamente consigliabile attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni per ottenere elementi consigliati affidabili relativi alle dimensioni. Per risultati immediati, è possibile creare valutazioni con un criterio di determinazione delle dimensioni *come in locale*, che non considera i dati sulle prestazioni per il dimensionamento corretto.
+ L'appliance Agente di raccolta raccoglie i contatori delle prestazioni seguenti per ogni macchina virtuale dall'host ESXi a intervalli di 20 secondi. Questi contatori sono i contatori di vCenter e, anche se la terminologia afferma Media, i campioni raccolti ogni 20 secondi sono di fatto contatori real-time. I dati sulle prestazioni per le macchine virtuali sono disponibili nel portale a partire da due ore dopo l'avvio dell'individuazione. Per ottenere elementi consigliati affidabili relativi alle dimensioni, è consigliabile attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni. Per risultati immediati, è possibile creare valutazioni con un criterio di determinazione delle dimensioni *come in locale*, che non considera i dati sulle prestazioni per il dimensionamento corretto.
 
 **Contatore** |  **Impatto sulla valutazione**
 --- | ---

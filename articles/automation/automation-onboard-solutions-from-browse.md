@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039429"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062945"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Abilitare le soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario in più VM
 
@@ -59,6 +59,24 @@ Se l'area di lavoro selezionata non è collegata a un account di Automazione, ve
 
 ![Nessuna area di lavoro](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
+Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro di Log Analytics e un account di Automazione.
+
+La tabella seguente mostra i mapping supportati:
+
+|**Area dell'area di lavoro di Log Analytics**|**Area di Automazione di Azure**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS|WestCentralUS|
+|Europa occidentale|Europa occidentale|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP|CentralUSEUAP|
+
 Deselezionare la casella di controllo accanto alle macchine virtuali che non si vuole abilitare. Le macchine virtuali che non è possibile abilitare sono già deselezionate.
 
 Fare clic su **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
@@ -80,13 +98,13 @@ Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti 
 
 1. Nel portale di Azure aprire l'account di Automazione e nella pagina Account di automazione selezionare **Area di lavoro collegata** nella sezione **Risorse correlate** a sinistra.
 
-1. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)**.
+2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)**.
 
    ![Pagina Unlink workspace (Scollega area di lavoro)](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    Verrà richiesto di confermare l'operazione.
 
-1. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro di Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
+3. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro di Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
 
 Se è stata usata la soluzione di gestione degli aggiornamenti, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione della soluzione.
 
@@ -106,19 +124,19 @@ Durante l'onboarding di più computer, per alcuni computer potrebbe essere visua
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>La VM invia report a un'area di lavoro diversa: "\<workspaceName\>".  Modificare la configurazione per usarla per l'abilitazione
 
-**Causa**: questo errore indica che la VM che si sta provando a caricare invia report a un'altra area di lavoro.
+**Causa**: questo errore indica che la macchina che si sta provando a caricare segnala i dati a un'altra area di lavoro.
 
-**Soluzione**: fare clic su **Use as configuration** (Usa come configurazione) per modificare l'account di Automazione e l'area di lavoro di Log Analytics di destinazione.
+**Soluzione**: fare clic su **Usa come configurazione** per modificare l'account di Automazione e l'area di lavoro di Log Analytics di destinazione.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>La VM invia report a un'area di lavoro che non è disponibile in questa sottoscrizione
 
-**Causa**: l'area di lavoro a cui la macchina virtuale invia i report:
+**Causa**: l'area di lavoro a cui la macchina virtuale segnala i dati:
 
 * È in una sottoscrizione diversa
 * Non esiste più
 * È in un gruppo di risorse per cui non si hanno autorizzazioni di accesso
 
-**Soluzione**: trovare l'account di Automazione associato all'area di lavoro a cui la VM invia i report e caricare la macchina virtuale modificando la configurazione dell'ambito.
+**Soluzione**: trovare l'account di Automazione associato all'area di lavoro a cui la macchina virtuale segnala i dati e caricare la macchina virtuale modificando la configurazione dell'ambito.
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>La versione o la distribuzione del sistema operativo della macchina virtuale non è supportata
 
@@ -136,7 +154,7 @@ Durante l'onboarding di più computer, per alcuni computer potrebbe essere visua
 
 **Causa**: lo stato della macchina virtuale non è **In esecuzione**.
 
-**Soluzione**: per caricare una VM in una soluzione la VM deve essere in esecuzione. Fare clic sul collegamento inline **Avvia macchina virtuale** per avviare la VM senza uscire dalla pagina.
+**Soluzione**: per caricare una macchina virtuale in una soluzione la macchina virtuale deve essere in esecuzione. Fare clic sul collegamento inline **Avvia macchina virtuale** per avviare la VM senza uscire dalla pagina.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

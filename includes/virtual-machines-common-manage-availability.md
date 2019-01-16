@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035127"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084056"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informazioni sui riavvii delle VM: manutenzione e tempo di inattività
 Sono tre gli scenari che possono interessare la macchina virtuale in Azure: manutenzione dell'hardware non pianificata, tempo di inattività imprevisto e manutenzione pianificata.
@@ -65,6 +65,10 @@ Se si intende usare macchine virtuali con [dischi non gestiti](../articles/virtu
 1. **Mantenere tutti i dischi (sistema operativo e dati) associati a una macchina virtuale nello stesso account di archiviazione**
 2. **Esaminare i [limiti](../articles/storage/common/storage-scalability-targets.md) al numero di dischi non gestiti in un account di archiviazione** prima di aggiungere altri dischi rigidi virtuali a un account di archiviazione
 3. **Usare un account di archiviazione separato per ogni macchina virtuale di un set di disponibilità.** Non condividere gli account di archiviazione con più macchine virtuali in uno stesso set di disponibilità. Le macchine virtuali di set di disponibilità diversi possono condividere gli account di archiviazione, purché vengano seguite le procedure consigliate indicate in precedenza in ![Domini di errore dei dischi non gestiti](./media/virtual-machines-common-manage-availability/umd-updated.png)
+
+## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Usare Eventi pianificati per rispondere in modo proattivo agli eventi che hanno impatto sulle macchine virtuali
+
+Quando si esegue la sottoscrizione a [eventi pianificati](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), la macchina virtuale riceve una notifica sugli eventi di manutenzione imminenti che possono influire su di essa. Quando gli eventi pianificati sono abilitati, alla macchina virtuale viene concessa una quantità minima di tempo prima che l'attività di manutenzione venga eseguita. Ad esempio, gli aggiornamenti del sistema operativo host che possono influire sulla macchina virtuale vengono accodati come eventi che specificano l'impatto, insieme a un orario in cui verrà eseguita la manutenzione se non viene effettuata alcuna azione. Gli eventi pianificati vengono accodati anche quando Azure rileva un errore hardware imminente che potrebbe influire sulla macchina virtuale, consentendo di decidere quando deve essere eseguita la correzione. I clienti possono usare l'evento per eseguire attività prima della manutenzione, ad esempio il salvataggio dello stato, il failover su un sistema secondario e così via. Dopo aver completato la logica per gestire correttamente l'evento di manutenzione, è possibile approvare l'evento pianificato in sospeso per consentire alla piattaforma di procedere con la manutenzione.
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Configurare ogni livello dell'applicazione in set di disponibilità separati
 Se le macchine virtuali sono quasi identiche e svolgono tutte la stessa funzione per l'applicazione, è consigliabile configurare un set di disponibilità per ogni livello dell'applicazione.  Se in un set di disponibilità si definiscono due livelli diversi, è possibile riavviare contemporaneamente tutte le macchine virtuali dello stesso livello applicazione. Configurando almeno due macchine virtuali per ogni livello di un set di disponibilità, si garantisce la disponibilità di almeno una macchina virtuale in ogni livello.

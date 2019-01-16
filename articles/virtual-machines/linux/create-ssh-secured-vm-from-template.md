@@ -13,23 +13,25 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6b431ee55ee73b4f5a69471cca3cc16270198c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: c6e4e142025e40e77afee01d70de9cef68eca1f0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930240"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013197"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Procedura per creare una macchina virtuale Linux con i modelli di Azure Resource Manager
-Questo articolo illustra come distribuire rapidamente una macchina virtuale (VM) Linux con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure. 
 
+Questo articolo illustra come distribuire rapidamente una macchina virtuale (VM) Linux con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure. È possibile eseguire questi passaggi anche tramite l'[interfaccia della riga di comando classica di Azure](create-ssh-secured-vm-from-template-nodejs.md).
+
+
+Questo articolo illustra come distribuire rapidamente una macchina virtuale (VM) Linux con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure. 
 
 ## <a name="templates-overview"></a>Panoramica dei modelli
 I modelli di Azure Resource Manager sono file JSON che definiscono l'infrastruttura e la configurazione della soluzione Azure. Usando il modello è possibile distribuire ripetutamente la soluzione nel corso del ciclo di vita garantendo al contempo che le risorse vengano distribuite in uno stato coerente. Per altre informazioni sul formato del modello e sulla sua costruzione, vedere [Creare il primo modello di Azure Resource Manager](../../azure-resource-manager/resource-manager-create-first-template.md). Per visualizzare la sintassi JSON per i tipi di risorse, vedere [Define resources in Azure Resource Manager templates](/azure/templates/) (Definire le risorse nei modelli di Azure Resource Manager).
-
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Il gruppo di risorse deve essere creato prima della macchina virtuale. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupVM* nell'area *stati uniti orientali*:
@@ -70,3 +72,11 @@ ssh azureuser@<ipAddress>
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo esempio è stata creata una VM Linux di base. Per altri modelli di Resource Manager che includono i framework di applicazioni o creano ambienti più complessi, visitare la [Raccolta di modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
+
+Per altre informazioni sulla creazione di modelli, vedere la sintassi e le proprietà JSON dei tipi di risorse distribuiti:
+
+* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 18de5ce2f47b6593d4c8556af045f14ade957fb9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 164fc42d905c9354a58ea6f66a739ea05f12e601
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979234"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157769"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Token di accesso di Azure Active Directory
 
@@ -38,7 +38,7 @@ Vedere le sezioni seguenti per informazioni su come una risorsa può convalidare
 
 ## <a name="sample-tokens"></a>Token di esempio
 
-I token v1.0 e v2.0 sono molto simili e contengono molte delle stesse attestazioni. Di seguito sono illustrati esempi di ognuno.
+I token v1.0 e v2.0 sono simili e contengono molte delle stesse attestazioni. Di seguito sono illustrati esempi di ognuno.
 
 ### <a name="v10"></a>v1.0
 
@@ -79,7 +79,7 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Di conseguenza
 | `nonce` | string | Identificatore univoco usato per la protezione contro attacchi di riproduzione dei token. La risorsa può registrare questo valore per la protezione da operazioni di riproduzione. |
 | `alg` | string | Indica l'algoritmo usato per firmare il token, ad esempio "RS256" |
 | `kid` | string | Specifica l'identificazione personale per la chiave pubblica usata per firmare il token. Generata nei token di accesso sia v1.0 che v2.0. |
-| `x5t` | string | Funziona in modo analogo, per uso e valore, a `kid`. Si tratta di un'attestazione legacy generata solo nei token di accesso v1.0 per motivi di compatibilità. |
+| `x5t` | string | Funziona in modo analogo, per uso e valore, a `kid`. `x5t` è un'attestazione legacy generata solo nei token di accesso v1.0 per motivi di compatibilità. |
 
 ### <a name="payload-claims"></a>Attestazioni di payload
 
@@ -121,7 +121,7 @@ Le attestazioni seguenti vengono incluse nei token v1.0, se applicabili, ma non 
 | Attestazione | Format | DESCRIZIONE |
 |-----|--------|-------------|
 | `ipaddr`| string | Indirizzo IP da cui l'utente ha eseguito l'autenticazione. |
-| `onprem_sid`| Stringa, in [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nei casi in cui l'utente ha un'autenticazione in locale, questa attestazione fornisce il relativo SID. Può essere usata per l'autorizzazione nelle applicazioni legacy. |
+| `onprem_sid`| Stringa, in [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nei casi in cui l'utente ha un'autenticazione in locale, questa attestazione fornisce il relativo SID. È possibile usare `onprem_sid` per l'autorizzazione nelle applicazioni legacy. |
 | `pwd_exp`| int, timestamp UNIX | Indica quando scade la password dell'utente. |
 | `pwd_url`| string | URL a cui gli utenti possono essere rimandati per reimpostare la password. |
 | `in_corp`|boolean | Segnala se il client sta effettuando l'accesso dalla rete aziendale. In caso contrario, l'attestazione non è inclusa. |
@@ -200,7 +200,7 @@ La logica di business dell'applicazione richiede questo passaggio e di seguito s
 * Convalidare lo stato dell'autenticazione del client chiamante usando `appidacr`: il valore non deve essere 0 se i client pubblici non sono autorizzati a chiamare l'API.
 * Eseguire una verifica in base a un elenco di attestazioni `nonce` passate per controllare che il token non venga riprodotto.
 * Controllare che `tid` corrisponda a un tenant autorizzato a chiamare l'API.
-* Usare l'attestazione `acr` per verificare che l'utente abbia eseguito l'autenticazione a più fattori. Si noti che ciò può essere applicato usando l'[accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Usare l'attestazione `acr` per verificare che l'utente abbia eseguito l'autenticazione a più fattori. Ciò deve essere applicato usando l'[accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Se è stata richiesta l'attestazione `roles` o `groups` nel token di accesso, verificare che l'utente sia incluso nel gruppo autorizzato a eseguire questa azione.
   * Per i token recuperati tramite il flusso implicito, sarà probabilmente necessario eseguire una query su [Microsoft Graph](https://developer.microsoft.com/graph/) per ottenere questi dati, in quanto in genere le dimensioni sono troppo grandi per l'inserimento nel token. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con SAP NetWeaver | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con SAP NetWeaver | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SAP NetWeaver.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: fac22508e679c1e1c93ec62a5b120ba9c7c52317
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 607d05818966e62407795640d223f1aed2f59bbb
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162359"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156749"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Esercitazione: Integrazione di Azure Active Directory con SAP NetWeaver
 
@@ -142,7 +142,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento di download del certificato](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
-6. Modificare **Provider Name** (Nome provider) da T01122 a **http://T01122** e fare clic su **Save** (Salva).
+6. Sostituire **Provider Name** (Nome provider) T01122 con `http://T01122` e fare clic su **Save** (Salva).
 
     > [!NOTE]
     > Per impostazione predefinita il nome del provider è nel formato <sid><client>, mentre in Azure AD è richiesto il formato <protocol>://<name>, quindi è consigliabile mantenere il nome del provider come https://<sid><client> per consentire la configurazione di più motori ABAP SAP NetWeaver in Azure AD.

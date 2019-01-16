@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c88ea7433232b62c006c908cd2768d318d36d43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 292f8ae1821cdcc4fd6274808b53454ec51eaea0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854049"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157400"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prelettura dei messaggi del bus di servizio di Azure
 

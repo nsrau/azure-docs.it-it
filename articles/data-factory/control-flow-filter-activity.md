@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: b3b26869a84b8519ced19a4c93a6d39d6ed20f9b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050353"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021833"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Attività filtro in Azure Data Factory
 È possibile usare un'attività filtro in una pipeline per applicare un'espressione filtro a una matrice di input. 
@@ -40,14 +39,14 @@ ms.locfileid: "37050353"
 
 Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività `Filter`. | string | Sì
-type | Deve essere impostato su **filter**. | string | Sì
-condition | Condizione da usare per il filtraggio dell'input. | Expression | Sì
-items | Matrice di input a cui deve essere applicato il filtro. | Expression | Sì
+name | Nome dell'attività `Filter`. | string | Yes
+type | Deve essere impostato su **filter**. | string | Yes
+condition | Condizione da usare per il filtraggio dell'input. | Expression | Yes
+items | Matrice di input a cui deve essere applicato il filtro. | Expression | Yes
 
 ## <a name="example"></a>Esempio
 
-In questo esempio, la pipeline contiene due attività: **Filter** e **ForEach**. L'attività filtro è configurata per filtrare la matrice di input per gli elementi con un valore maggiore di 3. L'attività ForEach quindi scorre i valori filtrati e attende il numero di secondi specificato dal valore corrente.
+In questo esempio, la pipeline include due attività: **Filtro** e **ForEach**. L'attività filtro è configurata per filtrare la matrice di input per gli elementi con un valore maggiore di 3. L'attività ForEach quindi scorre i valori filtrati e attende il numero di secondi specificato dal valore corrente.
 
 ```json
 {

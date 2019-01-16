@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6b4b1b74ace534517157edc20c33236d516205c5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c2afd1c5a85ec393acfb0f754dd4ca9d77162061
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635017"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065495"
 ---
-# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migrazione di Contoso: valutare i carichi di lavoro in locale per la migrazione ad Azure
+# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migrazione di Contoso: Valutare i carichi di lavoro locali per la migrazione in Azure
 
 Questo articolo descrive come Contoso valuta l'app SmartHotel360 locale per la migrazione ad Azure.
 
@@ -26,14 +26,14 @@ Articolo | Dettagli | Status
 [Articolo 1: Panoramica](contoso-migration-overview.md) | Panoramica della serie di articoli, della strategia di migrazione di Contoso e delle app di esempio usate nella serie. | Disponibile
 [Articolo 2: Distribuire un'infrastruttura di Azure](contoso-migration-infrastructure.md) | Contoso prepara la propria infrastruttura locale e l'infrastruttura di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli articoli della serie. | Disponibile
 Articolo 3: Valutare le risorse locali per la migrazione in Azure | Contoso esegue una valutazione dell'app SmartHotel360 locale in esecuzione su VMware. Valuta le macchine virtuali dell'app con il servizio Azure Migrate e il database SQL Server dell'app con Data Migration Assistant. | Questo articolo
-[Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in Istanza gestita di database SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel360 locale. Esegue la migrazione del front-end dell'app usando il servizio Azure Site Recovery, mentre per la migrazione del database dell'app in un'istanza gestita di database SQL di Azure viene usato il Servizio Migrazione del database di Azure. | Disponibile
-[Articolo 5: Eseguire il rehosting di un'app in VM di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel360 nelle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
+[Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in un'istanza gestita di database SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel360 locale. Esegue la migrazione del front-end dell'app usando il servizio Azure Site Recovery, mentre per la migrazione del database dell'app in un'istanza gestita di database SQL di Azure viene usato il Servizio Migrazione del database di Azure. | Disponibile
+[Articolo 5: Effettuare il rehosting di un'app nelle macchine virtuali di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel360 nelle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
 [Articolo 6: Eseguire il rehosting di un'app in macchine virtuali di Azure e in un gruppo di disponibilità AlwaysOn di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso esegue la migrazione dell'app SmartHotel360 usando Site Recovery per la migrazione delle macchine virtuali dell'app e il Servizio Migrazione del database per la migrazione del database dell'app a un cluster di SQL Server protetto da un gruppo di disponibilità AlwaysOn. | Disponibile
-[Articolo 7: Eseguire il rehosting di un'app Linux in VM di Azure](contoso-migration-rehost-linux-vm.md) | Contoso completa una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
+[Articolo 7: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure](contoso-migration-rehost-linux-vm.md) | Contoso completa una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
 [Articolo 8: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure e in Database di Azure per MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux alle macchine virtuali di Azure usando Site Recovery. Esegue inoltre la migrazione del database dell'app in Database di Azure per MySQL tramite MySQL Workbench. | Disponibile
 [Articolo 9: Eseguire il refactoring di un'app in un'app Web di Azure e un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Contoso esegue la migrazione dell'app SmartHotel360 a un'app Web di Azure e del database dell'app a un'istanza di SQL Server di Azure con Data Migration Assistant. | Disponibile
 [Articolo 10: Eseguire il refactoring di un'app Linux in un'app Web di Azure e Database di Azure per MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux a un'app Web di Azure in più aree di Azure usando Gestione traffico di Azure, integrato con GitHub per il recapito continuo. Contoso esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Disponibile
-[Articolo 11: eseguire il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
+[Articolo 11: Eseguire il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
 [Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database SQL di Azure. | Disponibile
 [Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizio app di Azure, il servizio Kubernetes di Azure (AKS), Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile
 [Articolo 14: Passare a una migrazione completa in Azure](contoso-migration-scale.md) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Disponibile
@@ -68,10 +68,10 @@ Questo diagramma illustra l'infrastruttura locale corrente di Contoso:
 
 Il team dei responsabili IT di Contoso ha collaborato attivamente con i partner commerciali dell'azienda per comprendere gli obiettivi da raggiungere con questa migrazione:
 
-- **Affrontare la crescita del business**: Contoso è in crescita. Di conseguenza, la pressione è aumentata sui sistemi locali e l'infrastruttura dell'azienda.
-- **Aumentare l'efficienza**: Contoso deve rimuovere le procedure inutili e semplificare i processi per sviluppatori e utenti. L'azienda richiede un reparto IT rapido ed efficiente in termini di tempo e costi, per consentire di soddisfare più velocemente le esigenze dei clienti.
-- **Migliorare l'agilità**: il settore IT di Contoso deve essere più reattivo alle esigenze dell'azienda. Deve essere in grado di reagire più rapidamente dei cambiamenti nel marketplace, in modo da consentire all'azienda di raggiungere risultati positivi in un'economia globale. Il reparto IT di Contoso non deve rappresentare un ostacolo per le attività aziendali.
-- **Favorire la scalabilità**: il reparto IT di Contoso deve fornire sistemi in grado di crescere di pari passo con l'espansione dell'azienda.
+- **Stare al passo con la crescita del business**: Contoso è in crescita. Di conseguenza, la pressione è aumentata sui sistemi locali e l'infrastruttura dell'azienda.
+- **Aumentare l'efficienza**: Occorre rimuovere le procedure inutili e semplificare i processi per sviluppatori e utenti. L'azienda richiede un reparto IT rapido ed efficiente in termini di tempo e costi, per consentire di soddisfare più velocemente le esigenze dei clienti.
+- **Ottimizzare l'agilità**:  il settore IT di Contoso deve essere più reattivo alle esigenze dell'azienda. Deve essere in grado di reagire più rapidamente dei cambiamenti nel marketplace, in modo da consentire all'azienda di raggiungere risultati positivi in un'economia globale. Il reparto IT di Contoso non deve rappresentare un ostacolo per le attività aziendali.
+- **Scalabilità**: Il reparto IT di Contoso deve mettere a punto sistemi in grado di crescere di pari passo con l'espansione dell'azienda.
 
 ## <a name="assessment-goals"></a>Obiettivi della valutazione
 
@@ -136,11 +136,11 @@ Ecco come Contoso esegue la valutazione:
 
 > [!div class="checklist"]
 > * **Passaggio 1: Scaricare e installare Data Migration Assistant**: Contoso prepara Data Migration Assistant per la valutazione del database di SQL Server locale.
-> * **Passaggio 2: Valutare il database tramite Data Migration Assistant** - Contoso esegue e analizza la valutazione del database.
-> * **Passaggio 3: Preparare la valutazione delle macchine virtuali con Azure Migrate** - Contoso configura gli account locali e configura le impostazioni di VMware.
-> * **Passaggio 4: Individuare le macchine virtuali locali con Azure Migrate** - Contoso crea una macchina virtuale dell'agente di raccolta di Azure Migrate. Contoso esegue quindi l'agente di raccolta per individuare le macchine virtuali per la valutazione.
-> * **Passaggio 5: Preparare l'analisi delle dipendenze con Azure Migrate** - Contoso installa gli agenti di Azure Migrate nelle macchine virtuali per poter verificare il mapping delle dipendenze tra le macchine virtuali.
-> * **Passaggio 6: Valutare le macchine virtuali con Azure Migrate** - Contoso verifica le dipendenze, raggruppa le macchine virtuali ed esegue la valutazione. Quando la valutazione è pronta, Contoso la analizza in preparazione per la migrazione.
+> * **Passaggio 2: Valutare il database locale usando Data Migration Assistant**: Contoso esegue e analizza la valutazione del database.
+> * **Passaggio 3: Preparare la valutazione delle macchine virtuali con Azure Migrate**: Contoso configura gli account locali e configura le impostazioni di VMware.
+> * **Passaggio 4: Individuare le macchine virtuali locali con Azure Migrate**: Contoso crea una macchina virtuale dell'agente di raccolta di Azure Migrate. Contoso esegue quindi l'agente di raccolta per individuare le macchine virtuali per la valutazione.
+> * **Passaggio 5: Preparare l'analisi delle dipendenze con Azure Migrate**: Contoso installa gli agenti di Azure Migrate nelle macchine virtuali per poter verificare il mapping delle dipendenze tra le macchine virtuali.
+> * **Passaggio 6: Valutare le macchine virtuali con Azure Migrate**: Contoso verifica le dipendenze, raggruppa le macchine virtuali ed esegue la valutazione. Quando la valutazione è pronta, Contoso la analizza in preparazione per la migrazione.
 
 ## <a name="step-1-download-and-install-data-migration-assistant"></a>Passaggio 1: Scaricare e installare Data Migration Assistant
 
@@ -217,7 +217,7 @@ Contoso deve creare un account VMware che può essere usato da Azure Migrate per
 
 L'individuazione delle macchine virtuali richiede un account di sola lettura nel server vCenter, con le proprietà seguenti:
 
-- **Tipo di utente**: almeno un utente di sola lettura.
+- **Tipo di utente**: Almeno un utente di sola lettura.
 - **Autorizzazioni**: per l'oggetto data center selezionare la casella di controllo **Propagate to Child Objects** (Propaga a oggetti figlio). Per **Ruolo** selezionare **Sola lettura**.
 - **Dettagli**: l'utente viene assegnato a livello di data center, con accesso a tutti gli oggetti nel data center.
 - Per limitare l'accesso, assegnare il ruolo **No access** (Nessun accesso) con **Propagate to Child Objects** (Propaga a oggetti figlio) agli oggetti figlio (host vSphere, archivi dati, macchine virtuali e reti).
@@ -251,7 +251,7 @@ Per impostare il livello:
 
     ![Livello delle statistiche nel server vCenter](./media/contoso-migration-assessment/vcenter-statistics-level.png)
 
-## <a name="step-4-discover-vms"></a>Passaggio 4: Individuare le macchine virtuali
+## <a name="step-4-discover-vms"></a>Passaggio 4: Individuare le VM
 
 Per individuare le macchine virtuali in Contoso, si crea un progetto di Azure Migrate. Contoso Scarica e configura la macchina virtuale dell'agente di raccolta. Contoso esegue quindi l'agente di raccolta per individuare le macchine virtuali in locale.
 

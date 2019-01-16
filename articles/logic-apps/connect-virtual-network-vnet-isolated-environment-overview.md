@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/03/2018
-ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845196"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061024"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
@@ -33,7 +33,7 @@ Questa panoramica descrive come un ambiente del servizio di integrazione consent
 
 ## <a name="isolated-versus-global"></a>Ambiente isolato e ambiente globale
 
-Quando si crea un ambiente del servizio di integrazione (ISE) in Azure, selezionare una rete virtuale di Azure in cui *inserire* l'ambiente. Azure distribuisce un'istanza privata del servizio App per la logica nella rete virtuale. Questa azione crea un ambiente isolato in cui è possibile creare ed eseguire le app per la logica in risorse dedicate. Quando si crea un'app per la logica, selezionare questo ambiente come percorso dell'app, fornendo così all'app per la logica l'accesso diretto alle risorse nella rete virtuale. 
+Quando si crea un ambiente del servizio di integrazione (ISE) in Azure, selezionare la rete virtuale di Azure in cui si vuole *inserire* l'ambiente. Azure distribuisce un'istanza privata del servizio App per la logica nella rete virtuale. Questa azione crea un ambiente isolato in cui è possibile creare ed eseguire le app per la logica in risorse dedicate. Quando si crea un'app per la logica, selezionare questo ambiente come percorso dell'app, fornendo così all'app per la logica l'accesso diretto alle risorse nella rete virtuale. 
 
 Le app per la logica in un ambiente del servizio di integrazione offrono le stesse esperienze utente e funzionalità simili a quelle del servizio App per la logica globale. Non solo è possibile usare le stesse azioni predefinite e gli stessi connettori nel servizio App per la logica globale, ma è anche possibile usare connettori specifici dell'ambiente del servizio di integrazione (ISE). Ecco ad esempio alcuni connettori standard che offrono versioni eseguite in un ambiente del servizio di integrazione:
  

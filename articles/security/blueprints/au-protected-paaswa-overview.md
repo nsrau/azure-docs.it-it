@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 3505d65b55807010904494079532fe5741e6df77
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8fd3725a5f3cd45da261aca17bf0f89a3e5a5aa0
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601169"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055184"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Progetto per la sicurezza e la conformità di Azure - Applicazione Web PaaS per Australia PROTECTED
 
@@ -201,7 +201,7 @@ Le seguenti [soluzioni di gestione](https://docs.microsoft.com/azure/log-analyti
 
 **Monitoraggio di Azure**: [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) consente agli utenti di tenere traccia delle prestazioni, implementare la sicurezza e identificare le tendenze, permettendo alle organizzazioni di eseguire verifiche, creare avvisi e archiviare i dati, incluso il rilevamento delle chiamate API nelle relative risorse di Azure.
 
-Azure Network Watcher: [Azure Network Watcher]9 https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornisce gli strumenti per il monitoraggio, la diagnostica, la visualizzazione delle metriche e l'abilitazione o la disabilitazione dei log per le risorse in una rete virtuale di Azure.  Le entità del Commonwealth devono implementare i log dei flussi di Network Watcher per i gruppi di sicurezza di rete e le macchine virtuali. Questi log devono essere archiviati in un account di archiviazione dedicato in cui vengono archiviati solo i log di sicurezza e l'accesso all'account di archiviazione deve essere protetto con controlli degli accessi in base al ruolo.
+Azure Network Watcher: [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornisce gli strumenti per il monitoraggio, la diagnostica, la visualizzazione delle metriche e l'abilitazione o la disabilitazione dei log per le risorse in una rete virtuale di Azure.  Le entità del Commonwealth devono implementare i log dei flussi di Network Watcher per i gruppi di sicurezza di rete e le macchine virtuali. Questi log devono essere archiviati in un account di archiviazione dedicato in cui vengono archiviati solo i log di sicurezza e l'accesso all'account di archiviazione deve essere protetto con controlli degli accessi in base al ruolo.
 
 ## <a name="threat-model"></a>Modello di minaccia
 

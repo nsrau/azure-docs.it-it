@@ -1,6 +1,6 @@
 ---
-title: Raccogliere log personalizzati in Monitoraggio di Azure | Microsoft Docs
-description: Monitoraggio di Azure può raccogliere gli eventi dai file di testo nei computer Windows e Linux.  Questo articolo descrive come definire un nuovo log personalizzato e i dettagli dei record creati in Monitoraggio di Azure.
+title: Raccogliere log personalizzati in Log Analytics | Microsoft Docs
+description: Log Analytics può raccogliere gli eventi dai file di testo nei computer Windows e Linux.  Questo articolo descrive come definire un nuovo log personalizzato e i dettagli dei record creati in Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: bwren
-ms.openlocfilehash: 28c8ca5a81f76e10e7c8b84897f77702ee68cdc0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: dc1de1bb43295d2ff9f260613ae568cdd2fbe6ae
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434393"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103501"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Log personalizzati in Monitoraggio di Azure
-L'origine dati dei log personalizzati in Monitoraggio di Azure consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog. Al termine della raccolta, è possibile analizzare i dati nei singoli campi nelle query o estrarli durante la raccolta in singoli campi.
+# <a name="custom-logs-in-log-analytics"></a>Log personalizzati in Log Analytics
+L'origine dati dei log personalizzati in Log Analytics consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog. Al termine della raccolta, è possibile analizzare i dati nei singoli campi nelle query o estrarli durante la raccolta in singoli campi.
 
 ![Raccolta di log personalizzati](media/data-sources-custom-logs/overview.png)
 
@@ -35,7 +35,7 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 - Il file di log deve usare la codifica ASCII o UTF-8.  Non sono supportati altri formati, ad esempio UTF-16.
 
 >[!NOTE]
->Se sono presenti voci duplicate nel file di log, Monitoraggio di Azure le raccoglierà.  Tuttavia, i risultati delle query non saranno coerenti se i risultati del filtro mostrano più eventi rispetto al numero di risultati.  È importante convalidare il log per determinare se l'applicazione che lo crea è la causa di questo comportamento e indirizzarlo se possibile prima di creare la definizione della raccolta dei log personalizzati.  
+>Se sono presenti voci duplicate nel file di log, Log Analytics le raccoglierà.  Tuttavia, i risultati delle query non saranno coerenti se i risultati del filtro mostrano più eventi rispetto al numero di risultati.  È importante convalidare il log per determinare se l'applicazione che lo crea è la causa di questo comportamento e indirizzarlo se possibile prima di creare la definizione della raccolta dei log personalizzati.  
 >
   
 >[!NOTE]
@@ -54,11 +54,11 @@ La procedura guidata per i log personalizzati viene eseguita nel portale di Azur
 4. Fare clic su **Aggiungi+** per aprire la procedura guidata per i log personalizzati.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Passaggio 2. Caricare e analizzare un log di esempio
-Per iniziare, caricare un esempio del log personalizzato.  La procedura guidata analizza e visualizza le voci nel file da convalidare.  Monitoraggio di Azure usa il delimitatore specificato per identificare ciascun record.
+Per iniziare, caricare un esempio del log personalizzato.  La procedura guidata analizza e visualizza le voci nel file da convalidare.  Log Analytics usa il delimitatore specificato per identificare tutti i record.
 
 **Nuova riga** è il delimitatore predefinito e viene usato per i file di log con una sola voce per riga.  Se la riga inizia con una data e ora in uno dei formati disponibili, è possibile specificare un delimitatore **Timestamp** che supporta le voci che si estendono su più righe.
 
-Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni record archiviato in Monitoraggio di Azure viene popolata con il valore di data/ora specificato per quella voce nel file di log.  Se viene usato un delimitatore nuova riga, TimeGenerated viene popolata con la data e l'ora in cui Monitoraggio di Azure ha raccolto la voce.
+Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni record archiviato in Log Analytics viene popolata con il valore di data/ora specificato per la voce nel file di log.  Se viene usato un delimitatore Nuova riga, TimeGenerated viene popolato con la data e l'ora in cui Log Analytics ha raccolto la voce.
 
 
 1. Fare clic su **Sfoglia** e passare a un file di esempio.  In alcuni browser, questo pulsante potrebbe essere denominato **Scegli file** .
@@ -97,16 +97,16 @@ Il nome specificato viene usato per il tipo di log come descritto in precedenza.
 3. Fare clic su **Avanti** per salvare la definizione del log personalizzato.
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Passaggio 5. Verificare che i log personalizzati vengano raccolti
-La visualizzazione dei dati iniziali di un nuovo log personalizzato in Monitoraggio di Azure potrebbe richiedere fino a un'ora.  La procedura inizia con la raccolta delle voci dai log trovati nel percorso specificato dal punto in cui è stato definito il log personalizzato.  Le voci caricate durante la creazione del log personalizzato non vengono mantenute, ma vengono raccolte le voci già esistenti nei file di log individuati.
+La visualizzazione dei dati iniziali di un nuovo log personalizzato in Log Analytics potrebbe richiedere fino a un'ora.  La procedura inizia con la raccolta delle voci dai log trovati nel percorso specificato dal punto in cui è stato definito il log personalizzato.  Le voci caricate durante la creazione del log personalizzato non vengono mantenute, ma vengono raccolte le voci già esistenti nei file di log individuati.
 
-Dopo che Monitoraggio di Azure avvia la raccolta dal log personalizzato, i record vengono resi disponibili con una query di log.  Usare il nome assegnato al log personalizzato come **Tipo** nella query.
+Dopo che Log Analytics avvia la raccolta dal log personalizzato, i record vengono resi disponibili con una query di log.  Usare il nome assegnato al log personalizzato come **Tipo** nella query.
 
 > [!NOTE]
 > Se la proprietà RawData non è presente nella query, potrebbe essere necessario chiudere e riaprire il browser.
 
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Passaggio 6. Analizzare le voci del log personalizzato
-L'intera voce di log viene archiviata in una singola proprietà denominata **RawData**.  È probabile che si preferisca separare le diverse parti di informazioni di ogni voce in singole proprietà per ciascun record. Fare riferimento a [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analisi dei dati di testo in Monitoraggio di Azure) per le opzioni relative all'analisi di **RawData** in più proprietà.
+L'intera voce di log viene archiviata in una singola proprietà denominata **RawData**.  È probabile che si preferisca separare le diverse parti di informazioni di ogni voce in singole proprietà per ciascun record. Fare riferimento ad [Analizzare i dati di testo in Log Analytics](../log-query/parse-text.md) per le opzioni relative all'analisi di **RawData** in più proprietà.
 
 ## <a name="removing-a-custom-log"></a>Rimozione di un log personalizzato
 Usare la procedura seguente nel portale di Azure per rimuovere un log personalizzato definito in precedenza.
@@ -116,16 +116,16 @@ Usare la procedura seguente nel portale di Azure per rimuovere un log personaliz
 
 
 ## <a name="data-collection"></a>Raccolta dei dati
-Monitoraggio di Azure raccoglie nuove voci da ogni log personalizzato a intervalli di circa 5 minuti.  L'agente registra la propria posizione in ogni file di log da cui esegue la raccolta.  Se l'agente risulta offline per un certo periodo di tempo, Monitoraggio di Azure raccoglie le voci dal punto in cui è stato interrotto, anche se le voci sono state create mentre l'agente era offline.
+Log Analytics raccoglie nuove voci da ogni log personalizzato a intervalli di circa 5 minuti.  L'agente registra la propria posizione in ogni file di log da cui esegue la raccolta.  Se l'agente risulta offline per un certo periodo di tempo, Log Analytics raccoglie le voci dal momento in cui è stato interrotto, anche se le voci sono state create mentre l'agente era offline.
 
-L'intero contenuto della voce di log viene scritto in una singola proprietà denominata **RawData**.  Vedere [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analisi dei dati di testo in Monitoraggio di Azure) per i metodi per analizzare ogni voce di log importata in più proprietà.
+L'intero contenuto della voce di log viene scritto in una singola proprietà denominata **RawData**.  Vedere [Analizzare i dati di testo in Log Analytics](../log-query/parse-text.md) per i metodi per analizzare ogni voce di log importata in più proprietà.
 
 ## <a name="custom-log-record-properties"></a>Proprietà dei record del log personalizzato
 Il tipo dei record del log personalizzato corrisponde al nome del log specificato e le proprietà sono indicate nella tabella seguente.
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| TimeGenerated |Data e ora di raccolta del record con Monitoraggio di Azure.  Se il log usa un delimitatore basato sul tempo, questa proprietà indica la data e l'ora raccolte dalla voce. |
+| TimeGenerated |Data e ora di raccolta del record con Log Analytics.  Se il log usa un delimitatore basato sul tempo, questa proprietà indica la data e l'ora raccolte dalla voce. |
 | SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o System Center Operations Manager <br>  Linux – Tutti gli agenti Linux |
 | RawData |Testo completo della voce raccolta. È più probabile che si desideri [analizzare i dati in singole proprietà](../log-query/parse-text.md). |
 | ManagementGroupName |Nome del gruppo di gestione per gli agenti System Center Operations Manager.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
@@ -166,5 +166,5 @@ Viene usato Campi personalizzati per definire i campi *EventTime*, *Code*, *Stat
 ![Query di log con campi personalizzati](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Vedere [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analisi dei dati di testo in Monitoraggio di Azure) per i metodi per analizzare ogni voce di log importata in più proprietà.
+* Vedere [Analizzare i dati di testo in Log Analytics](../log-query/parse-text.md) per i metodi per analizzare ogni voce di log importata in più proprietà.
 * Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.

@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: cd137462235431f0a0c1562e15a32951fe2a41c5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346709"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025692"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da o nel database SQL di Azure tramite Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [Versione 1](v1/data-factory-azure-sql-connector.md)
 > * [Versione corrente](connector-azure-sql-database.md)
 
@@ -63,8 +62,8 @@ Per un servizio collegato al database SQL di Azure sono supportate queste propri
 Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relative, rispettivamente, ai prerequisiti e agli esempi JSON:
 
 - [Autenticazione SQL](#sql-authentication)
-- [Autenticazione token dell'applicazione Azure AD: entità servizio](#service-principal-authentication)
-- [Autenticazione token dell'applicazione Azure AD: identità gestite per le risorse di Azure](#managed-identity)
+- [Autenticazione del token dell'applicazione Azure AD: Entità servizio](#service-principal-authentication)
+- [Autenticazione del token dell'applicazione Azure AD: Identità gestite per le risorse di Azure](#managed-identity)
 
 >[!TIP]
 >Se viene restituito l'errore con codice "UserErrorFailedToConnectToSqlServer" e un messaggio quale "Il limite di sessioni per il database è XXX ed è stato raggiunto.", aggiungere `Pooling=false` alla stringa di connessione e riprovare.
@@ -343,8 +342,8 @@ Per copiare i dati in un database SQL di Azure, impostare la proprietà **type**
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del sink dell'attività di copia deve essere impostata su **SqlSink**. | Yes |
-| writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge **writeBatchSize**.<br/> Il valore consentito è **integer** (numero di righe). | No. Il valore predefinito è 10000. |
-| writeBatchTimeout | Il tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout.<br/> Il valore consentito è **timespan**. Ad esempio: "00:30:00" (30 minuti). | No  |
+| writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge **writeBatchSize**.<br/> Il valore consentito è **integer** (numero di righe). |  No. Il valore predefinito è 10000. |
+| writeBatchTimeout | Il tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout.<br/> Il valore consentito è **timespan**. Esempio: "00:30:00" (30 minuti). | No  |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nel database SQL di Azure. Viene richiamata solo una volta per esecuzione della copia. Usare questa proprietà per pulire i dati precaricati. | No  |
 | sqlWriterStoredProcedureName | Il nome della stored procedure che definisce come applicare i dati di origine in una tabella di destinazione. Un esempio è eseguire operazioni di upsert o trasformare usando la propria logica di business. <br/><br/>Questa stored procedure viene **richiamata per batch**. Per le operazioni che vengono eseguite una sola volta e non hanno nulla a che fare con dati di origine, usare la proprietà `preCopyScript`. Esempi di operazioni sono eliminazione e troncamento. | No  |
 | storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No  |
@@ -503,7 +502,7 @@ Quando si copiano dati in un database SQL di Azure, è anche possibile configura
 
 È possibile usare una stored procedure quando non si possono usare i meccanismi di copia predefiniti. Generalmente vengono usati quando è necessario eseguire un'operazione di upsert, cioè inserimento e aggiornamento, o un'elaborazione extra prima dell'inserimento finale dei dati di origine nella tabella di destinazione. Alcuni esempi di elaborazione extra sono l'unione di colonne, la ricerca di altri valori e l'inserimento in più di una tabella.
 
-L'esempio seguente illustra come usare una stored procedure per eseguire un'operazione di upsert in una tabella del database SQL di Azure. Si presuppone che i dati di input e la tabella **Marketing** del sink abbiano tre colonne: **ProfileID**, **Stato** e **Categoria**. Eseguire l'operazione di upsert nella colonna **ProfileID** e applicarla solo a una categoria specifica.
+L'esempio seguente illustra come usare una stored procedure per eseguire un'operazione di upsert in una tabella del database SQL di Azure. Si presuppone che i dati di input e la tabella **Marketing** del sink abbiano tre colonne: **ProfileID**, **State** e **Category**. Eseguire l'operazione di upsert nella colonna **ProfileID** e applicarla solo a una categoria specifica.
 
 #### <a name="output-dataset"></a>Set di dati di output
 
@@ -603,7 +602,7 @@ Quando si copiano i dati da o verso il database SQL di Azure, vengono usati i ma
 | sql_variant |Object * |
 | text |String, Char[] |
 | time |Intervallo di tempo |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |

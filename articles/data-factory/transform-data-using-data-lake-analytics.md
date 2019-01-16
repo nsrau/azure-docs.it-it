@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: cbe4d3931a5e7b279218a1f56a3842efbc238780
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053568"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016495"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-usql-activity.md)
 > * [Versione corrente](transform-data-using-data-lake-analytics.md)
 
@@ -37,7 +36,7 @@ La tabella seguente fornisce le descrizioni delle proprietà generiche usate nel
 
 | Proprietà                 | DESCRIZIONE                              | Obbligatoria                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. | Yes                                      |
+| **type**                 | La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. | Yes                                      |
 | **accountName**          | Nome dell'account di Azure Data Lake Analytics.  | Yes                                      |
 | **dataLakeAnalyticsUri** | URI di Azure Data Lake Analytics.           | No                                        |
 | **subscriptionId**       | ID sottoscrizione di Azure                    | No                                        |
@@ -60,7 +59,7 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 | **servicePrincipalKey** | Specificare la chiave dell'applicazione.           | Yes      |
 | **tenant**              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Yes      |
 
-**Esempio: autenticazione basata su entità servizio**
+**Esempio: autenticazione di un'entità servizio**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -130,7 +129,7 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 | priority            | Determina quali processi rispetto a tutti gli altri disponibili nella coda devono essere selezionati per essere eseguiti per primi. Più è basso il numero, maggiore sarà la priorità. | No        |
 | Parametri          | Parametri da passare allo script U-SQL.    | No        |
 | runtimeVersion      | Versione di runtime del motore di U-SQL da usare. | No        |
-| compilationMode     | <p>Modalità di compilazione di U-SQL. Deve corrispondere a uno dei valori seguenti: **Semantic:** consente di eseguire solo controlli semantici e i controlli di integrità necessari. **Full:** consente di eseguire una compilazione completa, inclusi il controllo della sintassi, l'ottimizzazione, la generazione di codice e così via. **SingleBox:** consente di eseguire una compilazione completa usando SingleBox come impostazione di TargetType. Se per questa proprietà non si specifica alcun valore, il server determina la modalità di compilazione ottimale. | No  |
+| compilationMode     | <p>Modalità di compilazione di U-SQL. Deve essere uno dei valori seguenti: **Semantic:** esegue solo controlli semantici e i controlli di integrità necessari. **Full:** esegue la compilazione completa, inclusi il controllo della sintassi, l'ottimizzazione, la generazione di codice e così via. **SingleBox:** esegue la compilazione completa, con TargetType impostato su SingleBox. Se per questa proprietà non si specifica alcun valore, il server determina la modalità di compilazione ottimale. | No  |
 
 Per la definizione dello script, vedere lo [script SearchLogProcessing.txt](#sample-u-sql-script). 
 

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: 37f0ba800cca4b096691a8bb6b43eb33a636d833
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c36572230387ffc33a46913dbcc1259ea65f84f5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284864"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104234"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - Passare a una migrazione completa in Azure
 
@@ -27,14 +27,14 @@ Questo articolo fa parte di una serie di articoli che descrivono come la societ�
 [Articolo 1: Panoramica](contoso-migration-overview.md) | Panoramica della serie di articoli, della strategia di migrazione di Contoso e delle app di esempio usate nella serie. | Disponibile
 [Articolo 2: Distribuire un'infrastruttura di Azure](contoso-migration-infrastructure.md) | Contoso prepara la propria infrastruttura locale e l'infrastruttura di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli articoli della serie relativi alla migrazione. | Disponibile.
 [Articolo 3: Valutare le risorse locali per la migrazione in Azure](contoso-migration-assessment.md)  | Contoso esegue una valutazione dell'app SmartHotel360 locale in esecuzione su VMware. Valuta le macchine virtuali dell'app con il servizio Azure Migrate e il database SQL Server dell'app con Data Migration Assistant. | Disponibile
-[Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in Istanza gestita di database SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel360 locale. Usa [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) per la migrazione della macchina virtuale del front-end dell'app. mentre per la migrazione del database dell'app in un'Istanza gestita di database SQL di Azure viene usato il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Disponibile   
-[Articolo 5: Eseguire il rehosting di un'app in VM di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel360 nelle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
+[Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in un'istanza gestita di database SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel360 locale. Usa [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) per la migrazione della macchina virtuale del front-end dell'app. mentre per la migrazione del database dell'app in un'Istanza gestita di database SQL di Azure viene usato il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Disponibile   
+[Articolo 5: Effettuare il rehosting di un'app nelle macchine virtuali di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel360 nelle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
 [Articolo 6: Eseguire il rehosting di un'app in macchine virtuali di Azure e in un gruppo di disponibilità AlwaysOn di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso esegue la migrazione dell'app usando Site Recovery per la migrazione delle macchine virtuali dell'app e il Servizio Migrazione del database per la migrazione del database dell'app a un cluster di SQL Server protetto da un gruppo di disponibilità AlwaysOn. | Disponibile
-[Articolo 7: Eseguire il rehosting di un'app Linux in VM di Azure](contoso-migration-rehost-linux-vm.md) | Contoso completa una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
+[Articolo 7: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure](contoso-migration-rehost-linux-vm.md) | Contoso completa una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
 [Articolo 8: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure e in Database di Azure per MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux alle macchine virtuali di Azure mediante Site Recovery. Esegue la migrazione del database dell'app in Database di Azure per MySQL tramite MySQL Workbench. | Disponibile
 [Articolo 9: Eseguire il refactoring di un'app in un'app Web di Azure e un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Contoso esegue la migrazione dell'app SmartHotel360 a un'app Web di Azure e del database dell'app a un'istanza di SQL Server di Azure con Data Migration Assistant. | Disponibile    
 [Articolo 10: Eseguire il refactoring di un'app Linux in un'app Web di Azure e Database di Azure per MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso esegue la migrazione dell'app osTicket Linux in un'app Web di Azure su più siti. L'app Web è integrata con GitHub per il recapito continuo. Esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Disponibile
-[Articolo 11: eseguire il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
+[Articolo 11: Eseguire il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
 [Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database di app SQL di Azure. | Disponibile    
 [Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizio app di Azure, il servizio Kubernetes di Azure (AKS), Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile 
 Articolo 14: Passare a una migrazione completa in Azure | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Questo articolo
@@ -43,10 +43,10 @@ Articolo 14: Passare a una migrazione completa in Azure | Dopo aver provato alcu
 
 Il team di leadership IT collabora attivamente con i partner commerciali per capire gli obiettivi da raggiungere con questa migrazione:
 
-- **Gestire la crescita aziendale**: Contoso è in espansione e, di conseguenza, l'infrastruttura e i sistemi locali iniziano a sentirne la pressione.
-- **Aumentare l'efficienza**: Contoso deve rimuovere le procedure inutili e semplificare i processi per sviluppatori e utenti. L'azienda richiede un settore IT rapido ed efficiente in termini di tempo e costi, in modo da soddisfare più velocemente le esigenze dei clienti.
-- **Migliorare l'agilità**: il settore IT di Contoso deve essere più reattivo alle esigenze dell'azienda. Deve essere in grado di reagire più rapidamente ai cambiamenti nel marketplace, in modo da raggiungere risultati di successo in un'economia globale. Non deve rappresentare un ostacolo per le attività aziendali.
-- **Favorire la scalabilità**: il team IT di Contoso deve offrire sistemi in grado di crescere di pari passo con l'espansione dell'azienda.
+- **Stare al passo con la crescita del business**: Contoso è in espansione e l'infrastruttura e i sistemi locali iniziano a sentirne la pressione.
+- **Aumentare l'efficienza**: occorre rimuovere le procedure inutili e semplificare i processi per sviluppatori e utenti. L'azienda richiede un settore IT rapido ed efficiente in termini di tempo e costi, in modo da soddisfare più velocemente le esigenze dei clienti.
+- **Aumentare l'agilità**: il settore IT di Contoso deve essere più reattivo alle esigenze dell'azienda. Deve essere in grado di reagire più rapidamente ai cambiamenti nel marketplace, in modo da raggiungere risultati di successo in un'economia globale. Non deve rappresentare un ostacolo per le attività aziendali.
+- **Scalabilità**: Il team IT di Contoso deve offrire sistemi in grado di crescere di pari passo con l'espansione dell'azienda.
 - **Migliorare i modelli di costo**: Contoso punta a ridurre i requisiti di capitale nel budget IT.  Contoso vuole usare le capacità cloud per garantire la scalabilità e ridurre la necessità di hardware costoso.
 - **Ridurre i costi di licenza**: Contoso vuole ridurre al minimo i costi del cloud.
 
@@ -89,7 +89,7 @@ Dopo aver definito i driver di business e gli obiettivi di migrazione, Contoso d
 Queste fasi non vengono eseguite in serie nell'intera organizzazione. Ogni parte del progetto di migrazione di Contoso sarà in una fase diversa del processo di valutazione e migrazione. L'ottimizzazione, la sicurezza e la gestione saranno attività svolte in modo continuativo.
 
 
-## <a name="phase-1-assess"></a>Fase 1: valutazione
+## <a name="phase-1-assess"></a>Fase 1: Valutare
 
 Contoso avvia il processo individuando e valutando app, dati e infrastruttura locale. Ecco le operazioni che eseguirà Contoso:
 
@@ -174,8 +174,8 @@ Il servizio Azure Migrate consente di individuare e valutare le macchine virtual
     - Azure Migrate esegue il rilevamento tramite una macchina virtuale VMware in cui è in esecuzione il servizio Agente di raccolta di Azure Migrate. Lo stesso agente di raccolta può individuare macchine virtuali in diversi server vCenter e inviare i dati a progetti differenti.
 1. Valutazione dell'idoneità: valutare se i computer locali sono idonei per l'esecuzione in Azure. La valutazione include:
     - Informazioni sulle dimensioni consigliate: ottenere informazioni sulle dimensioni consigliate per le macchine virtuali di Azure in base alla cronologia delle prestazioni delle macchine virtuali locali.
-    - Stima dei costi mensili: ottenere una stima dei costi per l'esecuzione macchine locali in Azure.
-2. Identificazione delle dipendenze: visualizzare le dipendenze delle macchine locali, per creare gruppi ottimali per la valutazione e migrazione.
+    - Stima dei costi mensili: ottenere una stima dei costi per l'esecuzione dei computer locali in Azure.
+2. Identificazione delle dipendenze:  visualizzare le dipendenze delle macchine locali, per creare gruppi ottimali per la valutazione e migrazione.
 
 
 ![Azure Migrate](./media/contoso-migration-scale/azure-migrate.png)
@@ -216,7 +216,7 @@ Oltre al servizio Migrazione del database, Contoso dispone di alcuni altri scrip
 
 Esistono diversi altri strumenti dei partner che possono consentire a Contoso di valutare l'ambiente locale per la migrazione ad Azure. [Altre informazioni](https://azure.microsoft.com/migration/partners/) sui partner per la migrazione ad Azure.  
 
-## <a name="phase-2-migrate"></a>Fase 2: migrazione
+## <a name="phase-2-migrate"></a>Fase 2: Migrazione
 
 Dopo aver completato la valutazione, Contoso deve identificare gli strumenti per spostare le app, i dati e l'infrastruttura in Azure. 
 
@@ -289,7 +289,7 @@ Contoso deve determinare come distribuire questi componenti, in base a considera
 --- | ---
 **Frequenza massima di modifica giornaliera** | Un singolo server di elaborazione può gestire fino a 2 TB di frequenza di modifica giornaliera. Poiché una macchina virtuale può usare un solo server di elaborazione, la frequenza massima di modifica giornaliera dei dati supportata per una macchina virtuale replicata è 2 TB.
 **Velocità effettiva massima** | Un account di archiviazione standard di Azure può gestire fino a 20.000 richieste al secondo e il numero di operazioni di input/output al secondo (IOPS) in una macchina virtuale da replicare deve essere inferiore a questo limite. Se, ad esempio, una macchina virtuale ha 5 dischi e ogni disco genera 120 IOPS (dimensione pari a 8 K) nella macchina virtuale, questa rientra nel limite di Azure pari a 500 IOPS per disco.<br/><br/> Il numero di account di archiviazione necessari è uguale al numero complessivo di IOPS della macchina di origine diviso per 20.000. Una macchina replicata può appartenere a un solo account di archiviazione in Azure.
-**Server di configurazione** | In base alla stima di Contoso di una replica di 100-200 macchine virtuali contemporaneamente e ai [requisiti di dimensione del server di configurazione](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server), Contoso prevede che sarà necessario un server di configurazione con le caratteristiche seguenti:<br/><br/> CPU: 16 vCPU (2 socket * 8 core a 2,5 GHz)<br/><br/> Memoria: 32 GB<br/><br/> Disco della cache: 1 TB<br/><br/> Frequenza di modifica dei dati: da 1 TB a 2 TB.<br/><br/> Oltre ai requisiti di dimensione, Contoso dovrà assicurarsi che il server di configurazione sia posizionato in modo ottimale, nella stessa rete e nello stesso segmento LAN delle macchine virtuali di cui verrà eseguita la migrazione.
+**Server di configurazione** | In base alla stima di Contoso di una replica di 100-200 macchine virtuali contemporaneamente e ai [requisiti di dimensione del server di configurazione](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server), Contoso prevede che sarà necessario un server di configurazione con le caratteristiche seguenti:<br/><br/> CPU: 16 vCPU (2 socket * 8 core a 2,5 GHz)<br/><br/> Memoria: 32 GB<br/><br/> Disco della cache: 1 TB<br/><br/> Frequenza di modifica dei dati: da 1 TB a 2 TB.<br/><br/> Oltre ai requisiti di dimensione, Contoso dovrà assicurarsi che il server di configurazione sia posizionato in modo ottimale, nella stessa rete e nello stesso segmento LAN delle macchine virtuali di cui verrà eseguita la migrazione.
 **Server di elaborazione** | Contoso distribuirà un server di elaborazione dedicato autonomo in grado di replicare 100-200 macchine virtuali:<br/><br/> CPU: 16 vCPU (2 socket * 8 core a 2,5 GHz)<br/><br/> Memoria: 32 GB<br/><br/> Disco della cache: 1 TB<br/><br/> Frequenza di modifica dei dati: da 1 TB a 2 TB.<br/><br/> Il server di elaborazione sarà sottoposto a un carico elevato, di conseguenza deve essere posizionato su un host ESXi capace di gestire l'I/O del disco, il traffico di rete e la CPU necessari per la replica. Contoso valuterà l'uso di un host dedicato per questo scopo. 
 **Rete** | Contoso ha esaminato l'infrastruttura VPN da sito a sito corrente e ha deciso di implementare Azure ExpressRoute. L'implementazione è fondamentale perché comporterà una minore latenza e migliorerà la larghezza di banda per l'area di Azure primaria di Contoso, Stati Uniti orientali 2.<br/><br/> **Monitoraggio**: Contoso dovrà monitorare attentamente i dati trasmessi dal server di elaborazione. Se i dati dovessero sovraccaricare la larghezza di banda della rete, Contoso prenderà in considerazione la [limitazione della larghezza di banda del server di elaborazione](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 **Archiviazione di Azure** | Per la migrazione, Contoso deve identificare il tipo e il numero corretti di account di archiviazione di Azure di destinazione.  Site Recovery replica i dati delle macchine virtuali nell'archiviazione di Azure.<br/><br/> Site Recovery può eseguire la replica in account di archiviazione Standard o Premium (SSD).<br/><br/> Per prendere una decisione in merito all'archiviazione, Contoso deve esaminare i [limiti di archiviazione](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) e tenere conto della crescita prevista e dell'aumento dell'uso nel corso del tempo. Data la velocità e la priorità delle migrazioni, Contoso ha deciso di usare account di archiviazione Premium.<br/><br/> Verranno creati e riutilizzati più account di archiviazione durante il processo di migrazione.
@@ -327,7 +327,7 @@ Oltre al servizio Migrazione del database, Contoso può usare altri strumenti e 
 - È anche possibile usare numerosi [strumenti dei partner](https://azure.microsoft.com/migration/partners/) per la migrazione.
 
 
-## <a name="phase-3-optimize"></a>Fase 3: ottimizzazione
+## <a name="phase-3-optimize"></a>Fase 3: Eseguire l'ottimizzazione
 
 Dopo aver spostato le risorse in Azure, Contoso deve razionalizzarle in modo da migliorare le prestazioni e ottimizzare il ritorno sugli investimenti con strumenti di gestione dei costi. Poiché Azure è un servizio con pagamento in base al consumo, per Contoso è fondamentale conoscere le prestazioni dei sistemi e assicurarsi che siano dimensionati correttamente.
 

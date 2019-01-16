@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2d92edd0bda15ecd57a5a29375adae3a51c661c2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bb0a17d4b7e11dd83439d943abf0bdd34ef915ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428131"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187451"
 ---
 # <a name="create-calculated-columns"></a>Creare colonne calcolate
 
@@ -42,7 +42,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
   
     Una nuova colonna denominata **Colonna calcolata 1** verrà inserita a sinistra della colonna **CalendarQuarter**.  
   
-4.  Nella barra della formula sopra la tabella, digitare la formula DAX seguente: La funzionalità Completamento automatico è utile per digitare correttamente i nomi completi di colonne e tabelle ed elenca le funzioni disponibili.  
+4.  Nella barra della formula sopra la tabella digitare la formula DAX seguente: La funzionalità Completamento automatico è utile per digitare correttamente i nomi completi di colonne e tabelle ed elenca le funzioni disponibili.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  

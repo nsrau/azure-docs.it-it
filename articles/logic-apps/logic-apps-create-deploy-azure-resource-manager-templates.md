@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 274fa3153f6a354b121b7fd8338d8e0d2d94f4f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 52aea4e47473d4dd27519ae53322b0e72d93f20e
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230813"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062894"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Creare e distribuire app con i modelli di Azure Resource Manager
 
-App per la logica di Azure offre modelli di Azure Resource Manager che è possibile usare non solo per creare app per la logica per automatizzare i flussi di lavoro, ma anche per definire le risorse e i parametri usati per la distribuzione. È possibile usare questo modello per i propri scenari aziendali o personalizzarlo in base alle esigenze. Sono disponibili altre informazioni sul [modello di Resource Manager per le app per la logica](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) e sulla [struttura e la sintassi del modello di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+App per la logica di Azure offre modelli di Azure Resource Manager che è possibile usare non solo per creare app per la logica per automatizzare i flussi di lavoro, ma anche per definire le risorse e i parametri usati per la distribuzione. È possibile usare questo modello per i propri scenari aziendali o personalizzarlo in base alle esigenze. Sono disponibili altre informazioni sul [modello di Resource Manager per le app per la logica](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) e sulla [struttura e la sintassi del modello di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Per la sintassi e le proprietà JSON, vedere [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions) (Tipi di risorsa Microsoft.Logic).
 
 ## <a name="define-the-logic-app"></a>Definire l'app per la logica
 

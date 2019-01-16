@@ -9,23 +9,22 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 58fffafe9658919a96d1aef2881424c0d324e688
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d103061289991fb149b7c8d76430b37a6b385f80
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876478"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064373"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Versione 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versione corrente](concepts-pipeline-execution-triggers.md)
 
-Una _esecuzione di pipeline_ in Azure Data Factory definisce un'istanza dell'esecuzione di una pipeline. Se una pipeline viene eseguita alle ore 8:00, alle 9:00 e alle 10:00, ad esempio, si hanno tre esecuzioni di pipeline separate. ognuna con un ID di esecuzione pipeline univoco. Un ID di esecuzione è un GUID che definisce in modo univoco la specifica esecuzione della pipeline. 
+Una _esecuzione di pipeline_ in Azure Data Factory definisce un'istanza dell'esecuzione di una pipeline. Se una pipeline viene eseguita alle ore 8:00, alle 9:00 e alle 10:00, ad esempio, si hanno tre esecuzioni di pipeline separate. ognuna con un ID di esecuzione pipeline univoco. Un ID di esecuzione è un GUID che definisce in modo univoco la specifica esecuzione della pipeline.
 
 Le istanze delle esecuzioni di pipeline vengono in genere create passando argomenti ai parametri definiti nelle pipeline. È possibile eseguire una pipeline manualmente o tramite un _trigger_. Questo articolo fornisce informazioni dettagliate su entrambe le modalità di esecuzione di una pipeline.
 
@@ -85,7 +84,7 @@ Nella definizione JSON la pipeline accetta due parametri: **sourceBlobContainer*
 - Python SDK
 
 ### <a name="rest-api"></a>API REST
-Il comando di esempio seguente illustra come eseguire manualmente la pipeline usando l'API REST:  
+Il comando di esempio seguente illustra come eseguire manualmente la pipeline usando l'API REST:
 
 ```
 POST
@@ -176,7 +175,7 @@ Un trigger di pianificazione esegue le pipeline con una pianificazione basata su
 Per altre informazioni ed esempi sui trigger di pianificazione, vedere [Creare un trigger di pianificazione](how-to-create-schedule-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definizione del trigger di pianificazione
-Quando si crea un trigger di pianificazione, si specificano la pianificazione e la ricorrenza usando una definizione JSON. 
+Quando si crea un trigger di pianificazione, si specificano la pianificazione e la ricorrenza usando una definizione JSON.
 
 Per fare in modo che il trigger di pianificazione attivi l'esecuzione di una pipeline, includere un riferimento di pipeline della pipeline specifica nella definizione del trigger. Pipeline e trigger hanno una relazione molti-a-molti. Più trigger possono attivare una singola pipeline. Un singolo trigger può attivare più pipeline.
 
@@ -293,7 +292,7 @@ La tabella seguente illustra come la proprietà **startTime** controlla l'esecuz
 
 È possibile esaminare uno scenario in cui l'ora di inizio è nel passato, con una ricorrenza, ma nessuna pianificazione. Si supponga che l'ora corrente sia le 13:00 del 08/04/2017, l'ora di inizio sia le 14:00 del 07/04/2017 e la ricorrenza sia ogni due giorni. Il valore **recurrence** viene definito impostando la proprietà **frequency** su "day" e la proprietà **interval** su 2. Si noti che il valore **startTime** è nel passato e si verifica prima dell'ora corrente.
 
-In queste condizioni, la prima esecuzione avviene il 09/04/2017 alle 14:00. Il motore dell'utilità di pianificazione calcola le occorrenze dall'ora di inizio dell'esecuzione. Vengono eliminate tutte le istanze in passato. Il motore utilizza l'istanza successiva che si verifica in futuro. In questo scenario l'ora di inizio corrisponde alle 14:00 del 07/04/2017. L'istanza successiva viene eseguita due giorni dopo tale orario, ovvero alle 14:00 del 09/04/2017.
+In queste condizioni, la prima esecuzione avviene il 9 aprile 2017 alle 14:00. Il motore dell'utilità di pianificazione calcola le occorrenze dall'ora di inizio dell'esecuzione. Vengono eliminate tutte le istanze in passato. Il motore utilizza l'istanza successiva che si verifica in futuro. In questo scenario l'ora di inizio corrisponde alle 14:00 del 07/04/2017. L'istanza successiva viene eseguita due giorni dopo tale orario, ovvero alle 14:00 del 09/04/2017.
 
 Si noti che la prima esecuzione sarebbe la stessa anche se **startTime** fosse alle 14:00 del 05/04/2017 o alle 14:00 del 01/04/2017. Dopo la prima esecuzione, le esecuzioni successive vengono calcolate in base alla pianificazione. Le esecuzioni successive saranno alle 14:00 dell'11/04/2017, quindi alle 14:00 del 13/04/2017, alle 14:00 del 15/04/2017 e così via.
 
@@ -313,7 +312,7 @@ La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 | **minutes** | Minuti dell'ora in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi|
 | **hours** | Ore del giorno in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi|
 | **weekDays** | Giorni della settimana in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza settimanale.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Matrice di valori relativi ai giorni (la dimensione massima della matrice è 7)<br /><br />I valori dei giorni non fanno distinzione tra maiuscole e minuscole|
-| **monthlyOccurrences** | Giorni del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. |- Matrice di oggetti **monthlyOccurrence**: `{ "day": day,  "occurrence": occurrence }`<br />- L'attributo **day** è il giorno della settimana in cui verrà eseguito il trigger. Ad esempio, una proprietà **monthlyOccurrences** con un valore **day** uguale a `{Sunday}` indica ogni domenica del mese. L'attributo **day** è obbligatorio.<br />- L'attributo **occurrence** indica l'occorrenza dell'attributo **day** specificato durante il mese. Ad esempio, una proprietà **monthlyOccurrences** con i valori **day** e **occurrence** uguali a `{Sunday, -1}` indica l'ultima domenica del mese. L'attributo **occurrence** è facoltativo.|
+| **monthlyOccurrences** | Giorni del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. |- Matrice di oggetti **monthlyOccurrence**: `{ "day": day, "occurrence": occurrence }`<br />- L'attributo **day** è il giorno della settimana in cui verrà eseguito il trigger. Ad esempio, una proprietà **monthlyOccurrences** con un valore **day** uguale a `{Sunday}` indica ogni domenica del mese. L'attributo **day** è obbligatorio.<br />- L'attributo **occurrence** indica l'occorrenza dell'attributo **day** specificato durante il mese. Ad esempio, una proprietà **monthlyOccurrences** con i valori **day** e **occurrence** uguali a `{Sunday, -1}` indica l'ultima domenica del mese. L'attributo **occurrence** è facoltativo.|
 | **monthDays** | Giorno del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. |- Qualsiasi valore <= -1 e >= -31<br />- Qualsiasi valore >= 1 e <= 31<br />- Matrice di valori|
 
 ## <a name="tumbling-window-trigger"></a>Trigger di finestra a cascata
@@ -373,7 +372,7 @@ La tabella seguente contiene un confronto del trigger di finestra a cascata e de
 | **Funzionalità di ripetizione dei tentativi** | Supportato. Le esecuzioni non riuscite delle pipeline hanno un criterio di ripetizione predefinito pari a 0 oppure un criterio specificato dall'utente nella definizione di un trigger. Esegue automaticamente un nuovo tentativo quando le esecuzioni della pipeline non riescono a causa di limiti di concorrenza/server/limitazione delle richieste (codici di stato 400: Errore utente, 429: Troppe richieste e 500: Errore interno del server). | Non supportati. |
 | **Concorrenza** | Supportato. Gli utenti possono impostare in modo esplicito i limiti di concorrenza per il trigger. Consente un numero di esecuzioni di pipeline simultanee attivate compreso tra 1 e 50. | Non supportati. |
 | **Variabili di sistema** | Supporta l'uso delle variabili di sistema **WindowStart** e **WindowEnd**. Gli utenti possono accedere a `triggerOutputs().windowStartTime` e a `triggerOutputs().windowEndTime` come variabile di sistema del trigger nella definizione del trigger. I valori vengono usati rispettivamente come ora di inizio della finestra e ora di fine della finestra. Ad esempio, per un trigger di finestra a cascata che viene eseguito ogni ora, per la finestra compresa tra la 01:00 e le 02:00, la definizione è `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Non supportati. |
-| **Relazione tra pipeline e trigger** | Supporta una relazione uno a uno. Può essere attivata una sola pipeline. | Supporta relazioni molti a molti. Più trigger possono attivare una singola pipeline. Un singolo trigger può attivare più pipeline. | 
+| **Relazione tra pipeline e trigger** | Supporta una relazione uno a uno. Può essere attivata una sola pipeline. | Supporta relazioni molti a molti. Più trigger possono attivare una singola pipeline. Un singolo trigger può attivare più pipeline. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere le esercitazioni seguenti:

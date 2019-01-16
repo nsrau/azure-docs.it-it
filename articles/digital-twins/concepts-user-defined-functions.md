@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 915c57033209ff982946163c408cf8557515e2f5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999204"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106842"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Elaborazione dati e funzioni definite dall'utente
 
@@ -102,6 +102,15 @@ Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi 
 - Collegare metadati del grafico alla lettura del sensore prima di inviare una notifica.
 
 Per altre informazioni, vedere [Come usare le funzioni definite dall'utente](./how-to-user-defined-functions.md).
+
+
+#### <a name="examples"></a>Esempi
+
+Il [repository GitHub per l'esempio C# di Gemelli digitali](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contiene alcuni esempi delle funzioni definite dall'utente:
+- [Questa funzione](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) cerca i valori relativi ad anidride carbonica, movimento e temperatura per determinare se una stanza è disponibile con questi valori compresi nell'intervallo. Le [esercitazioni per Gemelli digitali](tutorial-facilities-udf.md) illustrano più in dettaglio questa funzione. 
+- [Questa funzione](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) cerca i dati di più sensori di movimento e determina che lo spazio è disponibile se nessuno di essi rileva movimenti. È possibile sostituire facilmente la funzione definita dall'utente usata nell'argomento di [avvio rapido](quickstart-view-occupancy-dotnet.md) o nelle [esercitazioni](tutorial-facilities-setup.md), apportando le modifiche indicate nella sezione del file relativa ai commenti. 
+
+
 
 ### <a name="role-assignment"></a>Assegnazione di ruolo
 

@@ -9,17 +9,16 @@ ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3f234e49f1a28fd0881e47ede13ae72483ed31f3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053117"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025420"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione
 > [!div class="op_single_selector"]
@@ -60,7 +59,7 @@ Nell'elenco di finestre attività nel riquadro centrale viene visualizzata una f
 Se non è disponibile un'applicazione Data Factory con cui testare questa procedura, eseguire l'esercitazione [Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Informazioni sull'app di monitoraggio e gestione
-Sulla sinistra sono presenti tre schede: **Esplora risorse**, **Monitoring Views** (Visualizzazioni monitoraggio) e **Avvisi**. La prima scheda (**Esplora risorse**) è selezionata per impostazione predefinita.
+A sinistra sono presenti tre schede: **Esplora inventario risorse**, **viste Monitoraggio** e **Avvisi**. La prima scheda (**Esplora risorse**) è selezionata per impostazione predefinita.
 
 ### <a name="resource-explorer"></a>Scheda Resource Explorer
 Saranno visualizzate le informazioni illustrate nell'immagine seguente:
@@ -110,7 +109,7 @@ Fare clic sull'opzione **Apri pipeline** per visualizzare tutte le attività all
 
 ![Menu Apri pipeline](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-Nella visualizzazione pipeline aperta vengono visualizzate tutte le attività della pipeline. In questo esempio è presente soltanto l'attività di copia. 
+Nella visualizzazione pipeline aperta vengono visualizzate tutte le attività della pipeline. In questo esempio è presente una sola attività: un'attività di copia. 
 
 ![Pipeline aperta](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
@@ -146,7 +145,7 @@ Nel popup Activity Windows (Finestre attività) e in Activity Window Explorer (E
 
 ![Freccia sinistra/destra in Activity Window Explorer (Esplora finestra attività)](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-Nella parte inferiore della visualizzazione diagramma, sono presenti i questi pulsanti: Fare zoom avanti, Fare zoom indietro, Adatta alla finestra, Zoom 100% e Lock layout (Blocca il layout). Il pulsante **Lock layout** (Blocca il layout) impedisce di spostare accidentalmente tabelle e pipeline nella visualizzazione diagramma. È attivo per impostazione predefinita. È possibile disabilitarlo e spostare le entità nel diagramma. Quando il blocco viene disabilitato, è possibile usare l'ultimo pulsante per posizionare automaticamente pipeline e tabelle. È inoltre possibile ingrandire o ridurre utilizzando la rotellina del mouse.
+Nella parte inferiore della visualizzazione diagramma, sono presenti questi pulsanti: Zoom avanti, Zoom indietro, Adatta alla finestra, Zoom 100%, Blocca layout. Il pulsante **Lock layout** (Blocca il layout) impedisce di spostare accidentalmente tabelle e pipeline nella visualizzazione diagramma. È attivo per impostazione predefinita. È possibile disabilitarlo e spostare le entità nel diagramma. Quando il blocco viene disabilitato, è possibile usare l'ultimo pulsante per posizionare automaticamente pipeline e tabelle. È inoltre possibile ingrandire o ridurre utilizzando la rotellina del mouse.
 
 ![Comandi di zoom nella visualizzazione diagramma](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
@@ -268,7 +267,7 @@ Modificare le impostazioni relative all'**ora di inizio** e all'**ora di fine** 
 >
 >
 
-Nell' **elenco Finestre attività**fare clic sul nome di una colonna, ad esempio Stato.
+Nell'**elenco Activity Windows** (Finestre attività) fare clic sul nome di una colonna, ad esempio Status (Stato).
 
 ![Menu della colonna nell'elenco Activity Windows (Finestre attività)](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
@@ -291,7 +290,7 @@ Per cancellare i filtri è possibile usare la stessa finestra popup. Per cancell
 Selezionare una finestra attività, fare clic sulla freccia giù del primo pulsante nella barra dei comandi e selezionare **Riesegui** / **Rerun with upstream in pipeline** (Riesegui con upstream nella pipeline). L'opzione **Rerun with upstream in pipeline** (Riesegui con upstream nella pipeline) consente di rieseguire anche tutte le finestre attività upstream.
     ![Rieseguire una finestra attività](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-È anche possibile selezionare più finestre attività nell'elenco e rieseguirle contemporaneamente. È possibile filtrare le finestre attività in base allo stato (ad esempio **Non riuscito**), quindi rieseguire le finestre attività non riuscite dopo aver corretto il problema che ne causa l'errore. Vedere la sezione seguente per informazioni dettagliate sull'applicazione di filtri alle finestre attività nell'elenco.  
+È anche possibile selezionare più finestre attività nell'elenco e rieseguirle contemporaneamente. È possibile filtrare le finestre attività in base allo stato, ad esempio **Failed** (Non riuscita), quindi rieseguire le finestre attività non riuscite dopo aver corretto il problema che ne causa l'errore. Vedere la sezione seguente per informazioni dettagliate sull'applicazione di filtri alle finestre attività nell'elenco.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Sospendere o riprendere l'esecuzione di più pipeline
 È possibile selezionare più due o più pipeline utilizzando il tasto CTRL. È possibile utilizzare i pulsanti della barra dei comandi (che vengono evidenziati nel rettangolo rosso nella figura seguente) per sospendere o riprendere le pipeline.

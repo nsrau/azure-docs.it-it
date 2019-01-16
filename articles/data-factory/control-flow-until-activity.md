@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: cd4b58dea43e497a2d7a5b977379d95f7004af45
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9a1623cca1c185ff3dba07ad5fbe354d8662dc68
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052308"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020966"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Attività Until in Azure Data Factory
 L'attività Until svolge la stessa funzione della struttura di ciclo do-until nei linguaggi di programmazione. Esegue infatti un set di attività in un ciclo finché la condizione associata con l'attività restituisce true. È possibile specificare un valore di timeout per l'attività Until in Data Factory. 
@@ -55,11 +54,11 @@ L'attività Until svolge la stessa funzione della struttura di ciclo do-until ne
 
 Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività `Until`. | string | Sì
-type | Deve essere impostata su **Until**. | string | Sì
-expression | Espressione che deve restituire true o false | Espressione.  | Sì
-timeout | Il ciclo do-until raggiunge il timeout allo scadere del tempo specificato qui. | Stringa. `d.hh:mm:ss`(o) `hh:mm:ss`. Il valore predefinito è 7 giorni. Il valore massimo è 90 giorni. | No 
-attività | Set di attività che vengono eseguite fino a quando l'espressione restituisce `true`. | Matrice di attività. |  Sì
+name | Nome dell'attività `Until`. | string | Yes
+type | Deve essere impostata su **Until**. | string | Yes
+expression | Espressione che deve restituire true o false | Espressione.  | Yes
+timeout | Il ciclo do-until raggiunge il timeout allo scadere del tempo specificato qui. | Stringa. `d.hh:mm:ss`(o) `hh:mm:ss`. Il valore predefinito è 7 giorni. Valore massimo: 90 giorni. | No 
+attività | Set di attività che vengono eseguite fino a quando l'espressione restituisce `true`. | Matrice di attività. |  Yes
 
 ## <a name="example-1"></a>Esempio 1
 
@@ -67,7 +66,7 @@ attività | Set di attività che vengono eseguite fino a quando l'espressione re
 > Questa sezione include le definizioni JSON e i comandi di PowerShell di esempio per eseguire la pipeline. Per la procedura dettagliata di creazione di una pipeline di Data Factory tramite Azure PowerShell e le definizioni JSON, vedere [Esercitazione: Creare una data factory con Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-until-activity"></a>Pipeline con attività Until
-In questo esempio nella pipeline sono presenti due attività: **Until** e **Wait**. L'attività Wait attende per il periodo di tempo specificato prima di eseguire l'attività Web nel ciclo. Per informazioni sulle espressioni e sulle funzioni di Data Factory, vedere [Linguaggio e funzioni delle espressioni](control-flow-expression-language-functions.md). 
+In questo esempio, la pipeline include due attività: **Until** e **Wait**. L'attività Wait attende per il periodo di tempo specificato prima di eseguire l'attività Web nel ciclo. Per informazioni sulle espressioni e sulle funzioni di Data Factory, vedere [Linguaggio e funzioni delle espressioni](control-flow-expression-language-functions.md). 
 
 ```json
 {

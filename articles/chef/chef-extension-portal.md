@@ -3,25 +3,25 @@ title: Installare il client Chef dal portale di Azure
 description: Informazioni su come distribuire e configurare il client Chef dal portale di Azure
 keywords: azure, chef, devops, client, installare, portale
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: e121cd038b8becee1e9c4c12659dbbee0696a9f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e5de21e8e493871150d302f1d2c0e31d067affde
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378653"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051329"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installare il client Chef dal portale di Azure
 Quando si crea o si modifica una macchina virtuale Linux o Windows dal portale di Azure, è possibile aggiungere l'estensione Chef alla macchina virtuale. Questo articolo illustra nel dettaglio il processo usando una macchina virtuale Linux nuova.
 
 ## <a name="prerequisites"></a>Prerequisiti
-- **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+- **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
-- **Chef**: se non si ha un account Chef attivo, iscriversi a una [prova gratuita di Chef ospitato](https://manage.chef.io/signup). Per proseguire con le istruzioni di questo articolo è necessario avere i valori seguenti dell'account Chef: 
+- **Chef**: se non si ha un account Chef attivo, iscriversi a una [prova gratuita di Chef ospitato](https://manage.chef.io/signup). Per proseguire con le istruzioni di questo articolo, è necessario avere i valori seguenti dell'account Chef: 
     - Chiave organization_validation
     - rb
     - run_list
@@ -87,7 +87,7 @@ In questa sezione si usa il portale di Azure per creare una macchina virtuale Li
     - **Validation Client Name** (Nome client di convalida): immettere il nome del client Chef di convalida. ad esempio, *tarcher validator*.
     - **Chiave di convalida**: selezionare un file contenente la chiave di convalida usata per il bootstrap delle macchine. 
     - **Client Configuration File** (File di configurazione client): selezionare un file di configurazione per il client Chef. Questo può essere lasciato vuoto.
-    - **Chef Client version** (Versione client Chef): immettere la versione del client Chef da installare. Questo può essere lasciato vuoto. Se il valore resta vuoto viene installata la versione più recente. 
+    - **Chef Client version** (Versione client Chef): immettere la versione del client Chef da installare. Questo può essere lasciato vuoto. Un valore vuoto comporta l'installazione della versione più recente. 
     - **SSL Verification Mode** (Modalità di verifica SSL): selezionare **Nessuna** o **Peer**. *Nessuno* è stato selezionato per la demo.
     - **Chef Environment** (Ambiente Chef): specificare l'ambiente Chef del quale è membro il nodo corrente. Questo può essere lasciato vuoto.
     - **Encrypted Databag Secret** (Segreto databag crittografato): selezionare un file contenente il segreto per il databag crittografato al quale avrà accesso la macchina. Questo può essere lasciato vuoto.

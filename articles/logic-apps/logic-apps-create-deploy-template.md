@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000564"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065733"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creare modelli di Azure Resource Manager per la distribuzione di app per la logica
 
@@ -34,7 +34,7 @@ Nella risorsa di app per la logica è possibile trovare questa definizione nella
 * **Connessioni**: si riferisce a risorse separate per archiviare in modo sicuro i metadati su qualsiasi connessione del connettore, ad esempio una stringa di connessione e un token di accesso.
 Nella risorsa di app per la logica, l'app per la logica si riferisce a queste risorse nella sezione `parameters`.
 
-È possibile visualizzare tutti questi elementi delle app per la logica esistenti usando uno strumento come [Esplora inventario risorse di Azure](http://resources.azure.com).
+È possibile visualizzare tutti questi elementi delle app per la logica esistenti usando uno strumento come [Esplora inventario risorse di Azure](http://resources.azure.com). Per la sintassi e le proprietà JSON, vedere [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions) (Tipi di risorsa Microsoft.Logic).
 
 Per creare un modello per un'app per la logica da usare con distribuzioni di gruppi di risorse, è necessario definire le risorse e creare i parametri necessari.
 Ad esempio, se si esegue la distribuzione in un ambiente di sviluppo, un ambiente di test e un ambiente di produzione, è probabile che in ogni si vogliano usare stringhe di connessione a un database SQL diverse.

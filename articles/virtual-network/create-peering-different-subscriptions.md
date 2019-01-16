@@ -1,13 +1,10 @@
 ---
-title: Creare un peering di rete virtuale di Azure - Resource Manager - Sottoscrizioni diverse | Microsoft Docs
+title: Creare un peering di rete virtuale di Azure - Resource Manager - sottoscrizioni diverse
+titlesuffix: Azure Virtual Network
 description: Informazioni su come creare un peering di rete virtuale tra reti virtuali distribuite tramite Resource Manager e incluse in sottoscrizioni di Azure diverse.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f06f0b5392ebb60cd852d3c2eb201478b31ae167
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727478"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014967"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Creare un peering di rete virtuale - Resource Manager, sottoscrizioni diverse
 

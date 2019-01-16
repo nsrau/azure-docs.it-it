@@ -1,21 +1,19 @@
 ---
 title: 'Azure Cosmos DB: API SQL .NET Core, SDK e risorse'
 description: Informazioni complete sull'SDK e sull'API SQL.NET Core, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB .NET Core SDK.
-services: cosmos-db
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.author: sngun
+ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413507"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053552"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>.NET Core SDK di Azure Cosmos DB per l'API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -57,6 +55,14 @@ Azure Cosmos DB .NET Core SDK ha le stesse funzionalità della versione più rec
 * Nuovo modello a oggetti con il modulo CosmosClient di livello superiore e metodi suddivisi tra le relative classi CosmosDatabases, CosmosContainers e CosmosItems.
 * Supporto dei flussi.
 * Classe CosmosResponseMessage aggiornata a partire dal server per restituire il codice di stato e generare un'eccezione solo se non viene restituita alcuna risposta.
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* Miglioramento nella logica di ripetizione dei tentativi durante il failover per le chiamate di esecuzione di StoredProcedure.
+
+* Creazione del singleton DocumentClientEventSource. 
+
+* Correzione del timeout di GatewayAddressCache timeout che non rispetta RequestTimeout di ConnectionPolicy.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -227,6 +233,7 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](https://stackov
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 dicembre 2018 |--- |
 | [2.2.0](#2.2.0) |7 dicembre 2018 |--- |
 | [2.1.3](#2.1.3) |15 ottobre 2018 |--- |
 | [2.1.2](#2.1.2) |4 ottobre 2018 |--- |

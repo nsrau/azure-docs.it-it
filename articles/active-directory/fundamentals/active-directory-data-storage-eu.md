@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 371c7b2eb2f2e0e34dc80cf8fe6771620fa76765
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 51658fe686e2826618b2044cd969e6b4d463b93f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099938"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063182"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Archivi dati relativi all'identità per i clienti europei - Azure Active Directory
 Azure Active Directory aiuta a gestire le identità degli utenti e a creare criteri di accesso basati su intelligence che consentono di proteggere le risorse dell'organizzazione. I dati di identità vengono archiviati in un percorso basato sull'indirizzo dell'organizzazione fornito quando è stato sottoscritto il servizio, ad esempio quando è stata effettuata la sottoscrizione di Office 365 o Azure. Per informazioni specifiche su dove vengono archiviati i dati di identità, è possibile usare la sezione [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Percorso di archiviazione dei dati) di Microsoft Trust Center.
@@ -72,7 +72,7 @@ La maggior parte dei dati di identità europei relativi ad Azure AD, per le orga
     Per altre informazioni sulla residenza dei dati dei servizi Microsoft, vedere la sezione [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Percorso di archiviazione dei dati) di Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle caratteristiche e le funzionalità descritte in precedenza, vedere questi articoli.
+Per altre informazioni sulle caratteristiche e le funzionalità descritte in precedenza, vedere questi articoli:
 - [Informazioni su Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 - [Reimpostazione self-service delle password di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
 - [Informazioni su Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

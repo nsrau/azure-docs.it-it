@@ -1,37 +1,33 @@
 ---
-title: Configurare l'accesso SSO Azure Active Directory per le applicazioni | Documentazione Microsoft
-description: 'Informazioni sulla connessione self-service di applicazioni in Azure Active Directory con SAML e SSO basato su password '
+title: Accesso Single Sign-On - applicazioni non incluse nella raccolta - Azure Active Directory | Microsoft Docs
+description: Configurare l'accesso Single Sign-On (SSO) per applicazioni non incluse nella raccolta in Azure Active Directory (Azure AD)
 services: active-directory
 author: barbkess
-documentationcenter: na
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2018
+ms.date: 01/08/2019
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: bb2fcbad3d415a8ac7a8e0c3237fcb97042defd7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408128"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121346"
 ---
-# <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurare il servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory
+# <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurare l'accesso Single Sign-On per applicazioni non incluse nella raccolta in Azure Active Directory
 
-Questo articolo illustra una funzionalità che consente agli amministratori di configurare l'accesso Single Sign-On alle applicazioni non presenti nella raccolta di app di Azure Active Directory *senza scrivere codice*. Questa funzionalità è stata rilasciata dall'anteprima tecnica il 18 novembre 2015 ed è inclusa in [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md). Se si cercano invece indicazioni per gli sviluppatori sull'integrazione delle app personalizzate con Azure AD tramite il codice, vedere [Scenari di autenticazione per Azure AD](../develop/authentication-scenarios.md).
+Questo articolo illustra una funzionalità che consente agli amministratori di configurare l'accesso Single Sign-On alle applicazioni non presenti nella raccolta di app di Azure Active Directory *senza scrivere codice*. Se si cercano invece indicazioni per gli sviluppatori sull'integrazione delle app personalizzate con Azure AD tramite il codice, vedere [Scenari di autenticazione per Azure AD](../develop/authentication-scenarios.md).
 
 La raccolta di applicazioni di Azure Active Directory offre un elenco di applicazioni che supportano un formato di Single Sign-On con Azure Active Directory, come descritto in [questo articolo](what-is-single-sign-on.md). Dopo aver trovato l'applicazione a cui connettersi, come specialista IT o come integratore di sistemi, è possibile iniziare seguendo le istruzioni dettagliate presentate nel portale di Azure per abilitare l'accesso Single Sign-On.
 
-I clienti con licenza [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) ottengono anche le funzionalità aggiuntive seguenti:
+Sono disponibili anche queste funzionalità in base al contratto di licenza. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/active-directory/). 
 
-* Integrazione self-service di qualsiasi applicazione che supporta i provider di identità SAML 2.0 (avviato dal provider di servizi o dal provider di identità)
-* Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](what-is-single-sign-on.md#password-based-sso)
+- Integrazione self-service di qualsiasi applicazione che supporta i provider di identità SAML 2.0 (avviato dal provider di servizi o dal provider di identità)
+- Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](what-is-single-sign-on.md#password-based-sso)
 * Connessione self-service di applicazioni che usano il protocollo SCIM per il provisioning dell'utente ([descritto qui](use-scim-to-provision-users-and-groups.md))
 * Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](what-is-single-sign-on.md#linked-sso)
 

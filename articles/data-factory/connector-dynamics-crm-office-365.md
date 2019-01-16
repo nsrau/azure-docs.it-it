@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: d58e72c4487a3ab6d7b562fd328098d98761da5e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: f40be655481481946929c4d79210cb360797f174
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620337"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017158"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiare i dati da e in Dynamics 365 (Common Data Service) o Dynamics CRM usando Azure Data Factory
 
@@ -76,7 +75,7 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
 >[!NOTE]
 >Connettore di Dynamics che permette di usare la proprietà facoltativa "organizationName" per identificare l'istanza di Dynamics CRM/365 Online. Durante l'esecuzione, viene consigliato di specificare invece la nuova proprietà "serviceUri" per ottenere prestazioni migliori per l'individuazione dell'istanza.
 
-**Esempio: Dynamics Online usando l'autenticazione di Office365**
+**Esempio: Dynamics Online con l'autenticazione di Office365**
 
 ```json
 {
@@ -121,7 +120,7 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
 >[!IMPORTANT]
 >Per copiare i dati in Dynamics, [creare un Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione vicina all'istanza di Dynamics. Associarlo al servizio collegato come nell'esempio seguente.
 
-**Esempio: Dynamics locale con IFD usando l'autenticazione IFD**
+**Esempio: Dynamics locale con IFD e autenticazione IFD**
 
 ```json
 {

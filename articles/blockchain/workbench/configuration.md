@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/4/2018
+ms.date: 1/8/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: caaee4cb155fc05b78bc47f1e53c79ecb0597183
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f93bfcb076bfae5c50c751ac664a145e1b375f23
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341940"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107770"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Informazioni di riferimento sulla configurazione di Azure Blockchain Workbench
 
@@ -53,17 +53,17 @@ Per un esempio, vedere il [file di configurazione di esempio](#configuration-fil
 
 La logica di business di un'applicazione può essere modellata come macchina a stati in cui l'esecuzione di un'azione fa sì che il flusso della logica di business passi da uno stato a un altro. Un flusso di lavoro è una raccolta di questi stati e azioni. Ogni flusso di lavoro è costituito da uno o più contratti intelligenti, che rappresentano la logica di business nei file di codice. Un contratto eseguibile è un'istanza di un flusso di lavoro.
 
-| Campo | DESCRIZIONE | Obbligatoria |
-|-------|-------------|:--------:|
-| NOME | Nome univoco del flusso di lavoro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la classe di contratto applicabile. | Yes |
-| DisplayName | Nome visualizzato descrittivo del flusso di lavoro. | Yes |
-| DESCRIZIONE | Descrizione del flusso di lavoro. | No  |
-| Initiators | Raccolta di [ruoli applicazione](#application-roles). Ruoli assegnati agli utenti autorizzati a creare contratti nel flusso di lavoro. | Yes |
-| StartState | Nome dello stato iniziale del flusso di lavoro. | Yes |
-| Properties | Raccolta di [identificatori](#identifiers). Rappresenta i dati che possono essere letti off-chain o visualizzati in uno strumento di visualizzazione dell'esperienza utente. | Yes |
-| Costruttore | Definisce i parametri di input per la creazione di un'istanza del flusso di lavoro. | Yes |
-| Funzioni | Raccolta di [funzioni](#functions) che possono essere eseguite nel flusso di lavoro. | Yes |
-| Stati | Raccolta di [stati](#states) del flusso di lavoro. | Yes |
+| Campo | DESCRIZIONE | Obbligatoria | Lunghezza massima |
+|-------|-------------|:--------:|-----------:|
+| NOME | Nome univoco del flusso di lavoro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la classe di contratto applicabile. | Yes | 50 |
+| DisplayName | Nome visualizzato descrittivo del flusso di lavoro. | Yes | 255 |
+| DESCRIZIONE | Descrizione del flusso di lavoro. | No  | 255 |
+| Initiators | Raccolta di [ruoli applicazione](#application-roles). Ruoli assegnati agli utenti autorizzati a creare contratti nel flusso di lavoro. | Yes | |
+| StartState | Nome dello stato iniziale del flusso di lavoro. | Yes | |
+| Properties | Raccolta di [identificatori](#identifiers). Rappresenta i dati che possono essere letti off-chain o visualizzati in uno strumento di visualizzazione dell'esperienza utente. | Yes | |
+| Costruttore | Definisce i parametri di input per la creazione di un'istanza del flusso di lavoro. | Yes | |
+| Funzioni | Raccolta di [funzioni](#functions) che possono essere eseguite nel flusso di lavoro. | Yes | |
+| Stati | Raccolta di [stati](#states) del flusso di lavoro. | Yes | |
 
 Per un esempio, vedere il [file di configurazione di esempio](#configuration-file-example).
 
@@ -207,12 +207,12 @@ Definisce i parametri di input per un'istanza di un flusso di lavoro.
 
 Definisce le funzioni che possono essere eseguite nel flusso di lavoro.
 
-| Campo | DESCRIZIONE | Obbligatoria |
-|-------|-------------|:--------:|
-| NOME | Nome univoco della funzione. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la funzione applicabile. | Yes |
-| DisplayName | Nome visualizzato descrittivo della funzione. | Yes |
-| DESCRIZIONE | Descrizione della funzione | No  |
-| Parametri | Raccolta di [identificatori](#identifiers) corrispondenti ai parametri della funzione. | Yes |
+| Campo | DESCRIZIONE | Obbligatoria | Lunghezza massima |
+|-------|-------------|:--------:|-----------:|
+| NOME | Nome univoco della funzione. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la funzione applicabile. | Yes | 50 |
+| DisplayName | Nome visualizzato descrittivo della funzione. | Yes | 255 |
+| DESCRIZIONE | Descrizione della funzione | No  | 255 |
+| Parametri | Raccolta di [identificatori](#identifiers) corrispondenti ai parametri della funzione. | Yes | |
 
 ### <a name="functions-example"></a>Esempio di funzioni
 
@@ -255,14 +255,14 @@ Definisce le funzioni che possono essere eseguite nel flusso di lavoro.
 
 Raccolta di stati univoci all'interno di un flusso di lavoro. Ogni stato acquisisce una fase nel flusso di controllo della logica di business. 
 
-| Campo | DESCRIZIONE | Obbligatoria |
-|-------|-------------|:--------:|
-| NOME | Nome univoco dello stato. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per lo stato applicabile. | Yes |
-| DisplayName | Nome visualizzato descrittivo dello stato. | Yes |
-| DESCRIZIONE | Descrizione dello stato. | No  |
-| PercentComplete | Valore intero visualizzato nell'interfaccia utente di Blockchain Workbench per mostrare lo stato di avanzamento all'interno del flusso di controllo della logica di business. | Yes |
-| Style | Indicatore visivo che specifica se lo stato è di esito positivo o negativo. I due valori validi sono `Success` e `Failure`. | Yes |
-| Transizioni | Raccolta di [transizioni](#transitions) disponibili dallo stato corrente al set successivo di stati. | No  |
+| Campo | DESCRIZIONE | Obbligatoria | Lunghezza massima |
+|-------|-------------|:--------:|-----------:|
+| NOME | Nome univoco dello stato. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per lo stato applicabile. | Yes | 50 |
+| DisplayName | Nome visualizzato descrittivo dello stato. | Yes | 255 |
+| DESCRIZIONE | Descrizione dello stato. | No  | 255 |
+| PercentComplete | Valore intero visualizzato nell'interfaccia utente di Blockchain Workbench per mostrare lo stato di avanzamento all'interno del flusso di controllo della logica di business. | Yes | |
+| Style | Indicatore visivo che specifica se lo stato è di esito positivo o negativo. I due valori validi sono `Success` e `Failure`. | Yes | |
+| Transizioni | Raccolta di [transizioni](#transitions) disponibili dallo stato corrente al set successivo di stati. | No  | |
 
 ### <a name="states-example"></a>Esempio di stati
 
@@ -369,10 +369,10 @@ Azioni disponibili per lo stato successivo. Uno o più ruoli utente possono eseg
 
 I ruoli applicazione definiscono un set di ruoli che possono essere assegnati agli utenti che vogliono operare o partecipare all'interno dell'applicazione. I ruoli applicazione possono essere usati per limitare le azioni e la partecipazione all'interno dell'applicazione blockchain e dei flussi di lavoro corrispondenti. 
 
-| Campo | DESCRIZIONE | Obbligatoria |
-|-------|-------------|:--------:|
-| NOME | Identificatore univoco del ruolo applicazione. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per il ruolo applicabile. I nomi del tipo di base sono riservati. Non è possibile assegnare a un ruolo applicazione lo stesso nome come [tipo](#type)| Yes |
-| DESCRIZIONE | Descrizione del ruolo applicazione. | No  |
+| Campo | DESCRIZIONE | Obbligatoria | Lunghezza massima |
+|-------|-------------|:--------:|-----------:|
+| NOME | Identificatore univoco del ruolo applicazione. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per il ruolo applicabile. I nomi del tipo di base sono riservati. Non è possibile assegnare a un ruolo applicazione lo stesso nome come [tipo](#type)| Yes | 50 |
+| DESCRIZIONE | Descrizione del ruolo applicazione. | No  | 255 |
 
 ### <a name="application-roles-example"></a>Esempio di ruoli applicazione
 
@@ -392,11 +392,11 @@ I ruoli applicazione definiscono un set di ruoli che possono essere assegnati ag
 
 Gli identificatori rappresentano una raccolta di informazioni usate per descrivere le proprietà, il costruttore e i parametri di funzione del flusso di lavoro. 
 
-| Campo | DESCRIZIONE | Obbligatoria |
-|-------|-------------|:--------:|
-| NOME | Nome univoco della proprietà o del parametro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la proprietà o il parametro applicabile. | Yes |
-| DisplayName | Nome visualizzato descrittivo per la proprietà o il parametro. | Yes |
-| DESCRIZIONE | Descrizione della proprietà o del parametro. | No  |
+| Campo | DESCRIZIONE | Obbligatoria | Lunghezza massima |
+|-------|-------------|:--------:|-----------:|
+| NOME | Nome univoco della proprietà o del parametro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la proprietà o il parametro applicabile. | Yes | 50 |
+| DisplayName | Nome visualizzato descrittivo per la proprietà o il parametro. | Yes | 255 |
+| DESCRIZIONE | Descrizione della proprietà o del parametro. | No  | 255 |
 
 ### <a name="identifiers-example"></a>Esempio di identificatori
 
@@ -423,7 +423,7 @@ Gli identificatori rappresentano una raccolta di informazioni usate per descrive
 
 ## <a name="configuration-file-example"></a>File di configurazione di esempio
 
-Il trasferimento di cespiti è uno scenario di contratto intelligente per l'acquisto e la vendita di cespiti di valore elevato, che richiedono un responsabile controllo e un responsabile valutazione. I venditori possono elencare i loro cespiti creando un'istanza di un contratto intelligente di trasferimento cespiti. Gli acquirenti possono presentare offerte eseguendo un'azione nel contratto intelligente e altre parti possono eseguire azioni per controllare o valutare il cespite. Dopo che il cespite è stato contrassegnato come controllato e valutato, l'acquirente e il venditore confermeranno di nuovo la vendita prima che il contratto sia impostato come completato. In ogni passaggio del processo tutti i partecipanti hanno la visibilità sullo stato del contratto mentre viene aggiornato. 
+Il trasferimento di cespiti è uno scenario di contratto intelligente per l'acquisto e la vendita di cespiti di valore elevato, che richiedono un responsabile controllo e un responsabile valutazione. I venditori possono elencare i loro cespiti creando un'istanza di un contratto intelligente di trasferimento cespiti. Gli acquirenti possono presentare offerte eseguendo un'azione nel contratto intelligente e altre parti possono eseguire azioni per controllare o valutare il cespite. Dopo che il cespite è stato contrassegnato come controllato e valutato, l'acquirente e il venditore confermeranno di nuovo la vendita prima che il contratto sia impostato come completato. In ogni passaggio del processo tutti i partecipanti hanno la visibilità sullo stato del contratto mentre viene aggiornato. 
 
 Per altre informazioni, inclusi i file di codice, vedere l'[esempio di trasferimento cespiti per Azure Blockchain Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni | Documentazione Microsoft'
+title: 'Servizio di sincronizzazione Azure AD Connect: Informazioni di riferimento sulle funzioni | Microsoft Docs'
 description: Riferimento delle espressioni di provisioning dichiarativo nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db427d0c171e164cb03d7280103fa85e5add4dd1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425694"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157480"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
 In Azure AD Connect le funzioni vengono usate per modificare il valore di un attributo durante la sincronizzazione.  
@@ -146,7 +146,7 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 **Sintassi:**  
 `dt CDate(str value)`
 
-* Value: una stringa con una data, un'ora e facoltativamente un fuso orario
+* Valore: stringa con una data, un'ora e facoltativamente un fuso orario
 
 **Osservazioni:**  
  La stringa restituita è sempre espressa in UTC.
@@ -248,7 +248,7 @@ Restituisce i nomi del soggetto e dell'autorità di certificazione di un certifi
 **Sintassi:**  
 `str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
 *   certificateRawData: rappresentazione in forma di matrice di byte di un certificato X.509. La matrice di byte può essere costituita da dati X.509 in codifica binaria (DER) o Base64.
-*   X509NameType: il valore X509NameType per il soggetto.
+*   X509NameType: valore X509NameType per il soggetto.
 *   includesIssuerName: true per includere il nome dell'autorità di certificazione, in caso contrario, false.
 
 - - -
@@ -393,7 +393,7 @@ Se l'attributo proxyAddresses include un indirizzo di posta elettronica primario
 `str ConvertFromBase64(str source)`: presuppone l'uso di Unicode per la codifica  
 `str ConvertFromBase64(str source, enum Encoding)`
 
-* source: stringa con codifica Base 64  
+* source: Stringa con codifica Base64  
 * Encoding: Unicode, ASCII, UTF8
 
 **Esempio**  
@@ -511,7 +511,7 @@ Converte il valore di una matrice di interi nella rappresentazione di stringa eq
   * n Minute
   * s Second
 * value: numero di unità da aggiungere. Può essere positivo (per ottenere date nel futuro) o negativo (per ottenere date nel passato).
-* date: data/ora che rappresenta la data alla quale viene aggiunto l'intervallo.
+* date: valore DateTime che rappresenta la data alla quale viene aggiunto l'intervallo.
 
 **Esempio:**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
@@ -556,7 +556,7 @@ Converte il valore di una matrice di interi nella rappresentazione di stringa eq
 
 * dn: attributo di riferimento da interpretare
 * ComponentNumber: componente nel DN da restituire
-* Options: DC - Ignora tutti i componenti con "dc="
+* Opzioni: DC - Ignora tutti i componenti con "dc="
 
 **Esempio:**  
 Se dn è "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com", allora  
@@ -600,7 +600,7 @@ Se dn è "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com", allora
 * format: stringa che rappresenta il formato in cui effettuare la conversione.
 
 **Osservazioni:**  
-I valori possibili per il formato sono disponibili qui: [Formati di data/ora definiti dall'utente (funzione Format)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+I valori possibili per il formato sono disponibili qui: [Custom date and time formats for the FORMAT function](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function) (Formati di data e ora personalizzati per la funzione FORMAT).
 
 **Esempio:**  
 
@@ -852,7 +852,7 @@ Se l'indice non è compreso nell'intervallo, restituisce un valore Null.
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-* attribute: attributo multivalore contenente stringhe da unire.
+* è presente: attributo multivalore contenente le stringhe da unire.
 * delimiter: qualsiasi stringa usata per separare le sottostringhe nella stringa restituita. Se omessa, viene usato uno spazio (" "). Se Delimiter è una stringa di lunghezza zero ("") o Nothing, tutti gli elementi nell'elenco vengono concatenati senza delimitatori.
 
 **Osservazioni:**  
@@ -983,7 +983,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 
 * string: stringa da riempire.
 * length: intero che rappresenta la lunghezza della stringa desiderata.
-* padCharacter: stringa costituita da un singolo carattere da usare come carattere di riempimento
+* padCharacter: stringa costituita da un singolo carattere da usare come carattere di riempimento.
 
 **Osservazioni:**
 
@@ -1008,7 +1008,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 
 * string: stringa da riempire.
 * length: intero che rappresenta la lunghezza della stringa desiderata.
-* padCharacter: stringa costituita da un singolo carattere da usare come carattere di riempimento
+* padCharacter: stringa costituita da un singolo carattere da usare come carattere di riempimento.
 
 **Osservazioni:**
 
@@ -1297,7 +1297,7 @@ La funzione With consente di semplificare un'espressione complessa usando una va
 `With(var variable, exp subExpression, exp complexExpression)`  
 * variable: rappresenta la sottoespressione.
 * subExpression: sottoespressione rappresentata dalla variabile.
-* complexExpression: un'espressione complessa.
+* complexExpression: espressione complessa.
 
 **Esempio:**  
 `With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
@@ -1335,5 +1335,5 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Informazioni sulle espressioni di provisioning dichiarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: personalizzazione delle opzioni di sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

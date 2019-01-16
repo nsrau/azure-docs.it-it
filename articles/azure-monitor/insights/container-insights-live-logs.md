@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: da11bb0669bf6bde2c65b2a7a0badaa1ae35abda
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1a51e9b636e15f178de072af8372404af1dc47e2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189125"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187995"
 ---
-# <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Come visualizzare i log dei contenitori in tempo reale con Monitoraggio di Azure per i contenitori (Anteprima)
-Questa funzionalità, attualmente in anteprima, offre una visualizzazione in tempo reale dei log dei contenitori nel servizio Azure Kubernetes (stdout o stderr) senza bisogno di eseguire comandi kubectl. Quando si seleziona questa opzione, sotto la tabella di dati delle prestazioni dei contenitori, nella visualizzazione **Contenitori**, compare un nuovo riquadro che mostra una registrazione dal vivo generata dal motore del contenitore per agevolare ulteriormente la risoluzione dei problemi in tempo reale.  
+# <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Come visualizzare i log dei contenitori in tempo reale con Monitoraggio di Azure per i contenitori (anteprima)
+Questa funzionalità, attualmente in anteprima, offre una visualizzazione in tempo reale dei log dei contenitori nel servizio Azure Kubernetes (stdout o stderr) senza bisogno di eseguire comandi kubectl. Quando si seleziona questa opzione, viene visualizzato un nuovo riquadro sotto la tabella dei dati delle prestazioni dei contenitori nella visualizzazione **Contenitori**.  Il riquadro mostra i dati di registrazione in tempo reale generati dal motore dei contenitori per facilitare la risoluzione dei problemi in tempo reale.  
 
 I log in tempo reale supportano tre metodi diversi per il controllo dell'accesso ai log:
 
@@ -39,33 +39,33 @@ Se è stata abilitata l'autorizzazione del controllo degli accessi in base al ru
 1. Copiare e incollare il file yaml e salvarlo come LogReaderRBAC.yaml.  
 
    ```
-   kind: ClusterRole 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRole 
+   metadata: 
       name: containerHealth-log-reader 
    rules: 
-      - apiGroups: [""]   
-        resources: ["pods/log"]   
+      - apiGroups: [""] 
+        resources: ["pods/log"] 
         verbs: ["get"] 
    --- 
-   kind: ClusterRoleBinding 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRoleBinding 
+   metadata: 
       name: containerHealth-read-logs-global 
-   subjects:   
-      - kind: User     
-        name: clusterUser
-        apiGroup: rbac.authorization.k8s.io 
-    roleRef:   
-       kind: ClusterRole
-       name: containerHealth-log-reader
+   roleRef: 
+       kind: ClusterRole 
+       name: containerHealth-log-reader 
        apiGroup: rbac.authorization.k8s.io 
+   subjects: 
+      - kind: User 
+        name: clusterUser 
+        apiGroup: rbac.authorization.k8s.io 
    ```
 
 2. Creare l'associazione di ruolo del cluster eseguendo il comando seguente: `kubectl create -f LogReaderRBAC.yaml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configurare il servizio Azure Kubernetes con Azure Active Directory
-Il servizio Azure Kubernetes può essere configurato in modo da usare Azure Active Directory (AD) per l'autenticazione utente. Se è la prima volta che si esegue questa configurazione, vedere [Integrare Azure Active Directory con il servizio Azure Kubernetes](../../aks/aad-integration.md). Durante la procedura per creare l'[applicazione client](../../aks/aad-integration.md#create-client-application) e specificare l'**URI di reindirizzamento**, è necessario aggiungere un altro URI all'elenco ** https://ininprodeusuxbase.microsoft.com/***.  
+Il servizio Azure Kubernetes può essere configurato in modo da usare Azure Active Directory (AD) per l'autenticazione utente. Se è la prima volta che si esegue questa configurazione, vedere [Integrare Azure Active Directory con il servizio Azure Kubernetes](../../aks/aad-integration.md). Durante la procedura per creare l'[applicazione client](../../aks/aad-integration.md#create-client-application) e specificare l'**URI di reindirizzamento**, è necessario aggiungere un altro URI all'elenco `https://ininprodeusuxbase.microsoft.com/*`.  
 
 >[!NOTE]
 >La configurazione dell'autenticazione con Azure Active Directory per il Single Sign-On può essere eseguita solo durante la distribuzione iniziale di un nuovo cluster del servizio Azure Kubernetes. Non è possibile configurare l'accesso Single Sign-On per un cluster del servizio Azure Kubernetes già distribuito.  

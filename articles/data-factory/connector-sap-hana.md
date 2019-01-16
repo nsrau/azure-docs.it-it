@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1ded69225319e447ad210aed267741b2803889ac
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048085"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022972"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiare dati da SAP HANA usando Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-sap-hana-connector.md)
 > * [Versione corrente](connector-sap-hana.md)
 
@@ -40,7 +39,7 @@ In particolare, il connettore SAP HANA supporta:
 > [!NOTE]
 > Per copiare dati **in** un archivio dati SAP HANA, usare il connettore ODBC generico. Per i dettagli, vedere [Sink SAP HANA](connector-odbc.md#sap-hana-sink). Si noti che i servizi collegati per i connettori SAP HANA e ODBC sono associati a tipi diversi e pertanto non possono essere riusati.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per usare questo connettore SAP HANA, è necessario:
 
@@ -59,12 +58,12 @@ Per il servizio collegato di SAP HANA sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **SapHana** | Sì |
-| server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | Sì |
-| authenticationType | Tipo di autenticazione usato per la connessione al database SAP HANA.<br/>I valori consentiti sono: **Basic** e **Windows** | Sì |
-| userName | Nome dell'utente che ha accesso al server SAP. | Sì |
+| type | La proprietà type deve essere impostata su: **SapHana** | Yes |
+| server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | Yes |
+| authenticationType | Tipo di autenticazione usato per la connessione al database SAP HANA.<br/>I valori consentiti sono i seguenti: **Basic** e **Windows** | Yes |
+| userName | Nome dell'utente che ha accesso al server SAP. | Yes |
 | password | Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Yes |
 
 **Esempio:**
 
@@ -122,8 +121,8 @@ Per copiare dati da SAP HANA, impostare il tipo di origine nell'attività di cop
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **RelationalSource** | Sì |
-| query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **RelationalSource** | Yes |
+| query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | Yes |
 
 **Esempio:**
 

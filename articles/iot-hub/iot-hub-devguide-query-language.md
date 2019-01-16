@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: b7919a86c5f0b6b6990b465ed0c563fb42ea8bbc
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d3b039c30557499233eec72d7c560ad4bf49a776
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747916"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157208"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
@@ -168,15 +168,15 @@ SELECT * FROM devices.modules
 Il join tra i dispositivi e le raccolte devices.modules non è consentito. Per eseguire query sui moduli gemelli nei dispositivi, usare i tag. Questa query restituirà tutti i moduli gemelli presenti in tutti i dispositivi con lo stato di analisi:
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning'
+SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 ```
 
 Questa query restituirà tutti i moduli gemelli con lo stato di analisi, ma solo nel subset di dispositivi specificato:
 
 ```sql
-Select * from devices.modules 
-  where properties.reported.status = 'scanning' 
-  and deviceId IN ['device1', 'device2']
+SELECT * FROM devices.modules 
+  WHERE properties.reported.status = 'scanning' 
+  AND deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>Esempio in C#
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Clausola FROM
 
-La clausola **FROM <from_specification>** può avere solo due valori: **FROM devices**, per effettuare una query dei dispositivi gemelli, o **FROM devices.jobs**, per effettuare una query dei dettagli di ogni dispositivo.
+La clausola **FROM <from_specification>** può avere solo due valori: **FROM devices** per effettuare una query dei dispositivi gemelli o **FROM devices.jobs** per effettuare una query dei dettagli per ogni dispositivo.
 
 
 ## <a name="where-clause"></a>Clausola WHERE

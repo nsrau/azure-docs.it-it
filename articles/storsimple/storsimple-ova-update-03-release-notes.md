@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
-ms.openlocfilehash: fe9d4f6b232e9abcf1fe9fc5657044b6c72fedb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 635b5f4edf5d403c569b4957540fc105997b3e8e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109339"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117674"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>Note sulla versione dell'aggiornamento 0.3 per l'array virtuale StorSimple
 ## <a name="overview"></a>Panoramica
@@ -40,15 +40,15 @@ L'aggiornamento 0.3 è principalmente una build per la correzione di bug. In que
 ## <a name="issues-fixed-in-the-update-03"></a>Problemi risolti nell'Aggiornamento 0.3
 La tabella seguente fornisce un riepilogo dei problemi risolti in questa versione.
 
-| di serie | Funzionalità | Problema |
+|  No. | Funzionalità | Problema |
 | --- | --- | --- |
-| 1 |Backup |Nella versione precedente è stato riscontrato un problema che impediva il completamento dei backup per una condivisone file. Se si verifica questo problema, il processo di backup ha esito negativo e viene generato un avviso critico nel servizio StorSimple Manager per notificare l'evento all'utente. Questo problema non influisce sui dati delle condivisioni o sull'accesso ai dati. In questa versione il problema è stato risolto una volta individuata la causa radice. <br></br> La correzione non viene applicata in modo retroattivo alle condivisioni in cui il problema era già presente. I clienti che riscontrano questo problema devono innanzitutto applicare l'aggiornamento 0.3, quindi contattare il supporto Microsoft per eseguire un backup completo del sistema al fine di risolvere il problema. In alternativa, anziché rivolgersi al supporto Microsoft, i clienti possono anche ripristinare le condivisioni interessate dal problema usando il backup di una versione integra. |
-| 2 |iSCSI |Nella versione precedente è stato individuato un problema in cui i volumi scomparivano al momento di copiare dati in un volume della matrice virtuale StorSimple. In questa versione il problema è stato corretto. <br></br> Le correzioni hanno effetto solo sui nuovi volumi. Le correzioni non vengono applicate in modo retroattivo ai volumi in cui il problema era già presente. I clienti sono invitati a portare online i volumi interessati tramite il portale di Azure classico, a eseguirne il backup e quindi a ripristinarli in volumi nuovi. |
+| 1 |Backup |Nella versione precedente è stato riscontrato un problema che impediva il completamento dei backup per una condivisone file. Se si verifica questo problema, il processo di backup ha esito negativo e viene generato un avviso critico nel servizio StorSimple Manager per notificare l'evento all'utente. Questo problema non influisce sui dati delle condivisioni o sull'accesso ai dati. In questa versione il problema è stato risolto una volta individuata la causa radice. <br></br>  La correzione non viene applicata in modo retroattivo alle condivisioni in cui il problema era già presente. I clienti che riscontrano questo problema devono innanzitutto applicare l'aggiornamento 0.3, quindi contattare il supporto Microsoft per eseguire un backup completo del sistema al fine di risolvere il problema. In alternativa, anziché rivolgersi al supporto Microsoft, i clienti possono anche ripristinare le condivisioni interessate dal problema usando il backup di una versione integra. |
+| 2 |iSCSI |Nella versione precedente è stato individuato un problema in cui i volumi scomparivano al momento di copiare dati in un volume della matrice virtuale StorSimple. In questa versione il problema è stato corretto. <br></br>  Le correzioni hanno effetto solo sui nuovi volumi. Le correzioni non vengono applicate in modo retroattivo ai volumi in cui il problema era già presente. I clienti sono invitati a portare online i volumi interessati tramite il portale di Azure classico, a eseguirne il backup e quindi a ripristinarli in volumi nuovi. |
 
 ## <a name="known-issues-in-the-update-03"></a>Problemi noti nell'aggiornamento 0.3
 La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale StorSimple e include i problemi delle versioni precedenti. 
 
-| di serie | Funzionalità | Problema | Soluzione alternativa/commenti |
+|  No. | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 | **1.** |Aggiornamenti |È impossibile aggiornare i dispositivi virtuali creati nella versione di anteprima in una versione supportata di disponibilità generale. |Questi dispositivi virtuali devono essere sottoposti a failover per la versione di disponibilità generale tramite un flusso di lavoro di ripristino di emergenza. |
 | **2.** |Disco dati sottoposto a provisioning |Dopo il provisioning di un disco dati di una determinata dimensione specificata e la creazione di un dispositivo virtuale StorSimple corrispondente, non si deve espandere o compattare il disco dati. Il tentativo di eseguire questa operazione comporta la perdita di tutti i dati nei livelli locali del dispositivo. | |

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 2d42d2014432b72f35e9b0d9543fe499a6ab721b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355312"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063661"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>L'avvio della macchina virtuale di Azure si blocca in Windows Update
 
 Questo articolo consente di risolvere il problema per cui una macchina virtuale si blocca in fase di avvio in Windows Update. 
 
 > [!NOTE] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse. Invece del modello di distribuzione classica, per le nuove distribuzioni è consigliabile usare questo modello.
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse. Invece del modello di distribuzione classica, per le nuove distribuzioni è consigliabile usare questo modello.
 
  ## <a name="symptom"></a>Sintomo
 
@@ -47,16 +47,16 @@ A seconda del numero di aggiornamenti di cui si sta eseguendo l'installazione o 
 
 1. Creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md). 
 2. [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](troubleshoot-recovery-disks-portal-windows.md).
-3. Dopo aver collegato il disco del sistema operativo alla macchina virtuale di ripristino, aprire il **servizio di gestione dischi** e assicurarsi che sia **ONLINE**. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato in cui è contenuta la cartella \windows. Se il disco è crittografato, decrittografarlo prima di procedere con gli altri passaggi descritti in questo documento.
+3. Una volta collegato il disco del sistema operativo alla macchina virtuale di ripristino, eseguire **diskmgmt.msc** per aprire Gestione disco e verificare che il disco collegato sia **ONLINE**. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato in cui è contenuta la cartella \windows. Se il disco è crittografato, decrittografarlo prima di procedere con gli altri passaggi descritti in questo documento.
 
-3. Ottenere l'elenco dei pacchetti di aggiornamento in esecuzione sul disco del sistema operativo collegato:
+4. Aprire un'istanza del prompt dei comandi con privilegi elevati (Esegui come amministratore). Eseguire il comando seguente per ottenere l'elenco dei pacchetti di aggiornamento in esecuzione sul disco del sistema operativo collegato:
 
         dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
 
     Se ad esempio il disco del sistema operativo collegato corrisponde all'unità F, eseguire il comando seguente:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-4. Aprire il file C:\temp\Patch_level.txt e leggerlo dal basso verso l'alto. Individuare l'aggiornamento che si trova in stato **Installazione in sospeso** o **Disinstallazione in sospeso**.  Di seguito è riportato un esempio dello stato di aggiornamento:
+5. Aprire il file C:\temp\Patch_level.txt e leggerlo dal basso verso l'alto. Individuare l'aggiornamento che si trova in stato **Installazione in sospeso** o **Disinstallazione in sospeso**.  Di seguito è riportato un esempio dello stato di aggiornamento:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
@@ -64,7 +64,7 @@ A seconda del numero di aggiornamenti di cui si sta eseguendo l'installazione o 
     Release Type : Security Update
     Install Time :
     ```
-5. Rimuovere l'aggiornamento che ha causato il problema:
+6. Rimuovere l'aggiornamento che ha causato il problema:
     
     ```
     dism /Image:<Attached OS disk>:\ /Remove-Package /PackageName:<PACKAGE NAME TO DELETE>
@@ -72,10 +72,10 @@ A seconda del numero di aggiornamenti di cui si sta eseguendo l'installazione o 
     Esempio: 
 
     ```
-    dism /Image:F:\ /Remove-Package /Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
+    dism /Image:F:\ /Remove-Package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     ```
 
     > [!NOTE] 
     > A seconda delle dimensioni del pacchetto, è possibile che, per elaborare la disinstallazione, lo strumento Gestione e manutenzione immagini distribuzione richieda un po' di tempo. In genere, il processo viene completato in 16 minuti.
 
-6. Scollegare il disco del sistema operativo e quindi [ricreare la macchina virtuale usando il disco del sistema operativo](troubleshoot-recovery-disks-portal-windows.md). 
+7. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Controllare quindi se il problema è stato risolto.

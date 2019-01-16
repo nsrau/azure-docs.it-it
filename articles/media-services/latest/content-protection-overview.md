@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 09c8b63cddde547b0dc42cf1f15a8ac5002d0a3e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2a5383952f64edb08717b1a100c74352c9b4246f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725139"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187978"
 ---
 # <a name="content-protection-overview"></a>Panoramica della protezione del contenuto
 
@@ -60,7 +60,7 @@ Per completare la progettazione del sistema o dell'applicazione con "protezione 
 
     Per testare il contenuto crittografato con AES o CENC (Widevine e/o PlayReady), è possibile usare [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Assicurarsi di fare clic su "Opzioni avanzate" e controllare le opzioni d crittografia.
 
-    Se si vuole testare il contenuto crittografato di FairPlay, usare [questo lettore di test](https://aka.ms/amtest). Il lettore supporta Widevine, PlayReady e DRM FairPlay oltre alla crittografia AES-128 a chiave non crittografata. È necessario scegliere il browser appropriato per testare i vari DRM: Opera/Chrome o Firefox per Widevine, MS Edge/Internet Explorer 11 per PlayReady, Safari su macOS per FairPlay.
+    Se si vuole testare il contenuto crittografato di FairPlay, usare [questo lettore di test](https://aka.ms/amtest). Il lettore supporta Widevine, PlayReady e DRM FairPlay oltre alla crittografia AES-128 a chiave non crittografata. È necessario scegliere il browser appropriato per testare i vari DRM: Chrome, Opera o Firefox per Widevine, Microsoft Edge o Internet Explorer 11 per PlayReady, Safari su macOS per FairPlay.
 
 3. Secure Token Service (STS) che rilascia JSON Web Token (JWT) come token di accesso per l'accesso alle risorse back-end. È possibile usare i servizi di distribuzione di licenze di AMS come risorsa di back-end. Un STS deve definire gli elementi seguenti:
 

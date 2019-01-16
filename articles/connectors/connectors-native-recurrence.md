@@ -1,36 +1,33 @@
 ---
-title: "Pianificare attività e flussi di lavoro regolarmente in esecuzione - App per la logica di Azure - Microsoft Docs"
-description: "Creare e pianificare attività, azioni, flussi di lavoro, processi e carichi di lavoro regolarmente in esecuzione con le app per la logica"
+title: Pianificare ed eseguire attività e flussi di lavoro automatizzati con App per la logica di Azure - Microsoft Docs
+description: Automatizzare le attività pianificate e ricorrenti con il connettore Ricorrenza in App per la logica di Azure
 services: logic-apps
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
+tags: connectors
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/25/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 01/08/2019
+ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107838"
 ---
-# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Creare e pianificare attività eseguite regolarmente con App per la logica di Azure
+# <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Creare ed eseguire le attività ricorrenti e flussi di lavoro con le App per la logica di Azure
 
-Per pianificare attività, azioni, carichi di lavoro o processi regolarmente in esecuzione, è possibile creare un flusso di lavoro delle app per la logica che ha inizio con il [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Pianificazione - Ricorrenza**. Con questo trigger è possibile impostare una data e un'ora per l'inizio della ricorrenza e una pianificazione di ricorrenza per l'esecuzione di attività, come quelle riportate in questi esempi e altre ancora:
+Per pianificare azioni, carichi di lavoro o processi regolarmente in esecuzione, creare un flusso di lavoro delle app per la logica che ha inizio con il [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Pianificazione - Ricorrenza**. È possibile impostare una data e un'ora per l'inizio del flusso di lavoro e una pianificazione di ricorrenza per l'esecuzione di attività, come quelle riportate in questi esempi e altre ancora:
 
-* Recupero dei dati interni: [eseguire una stored procedure SQL](../connectors/connectors-create-api-sqlazure.md) ogni giorno.
-* Recupero dei dati esterni: eseguire il pull dei bollettini meteo da NOAA ogni 15 minuti.
-* Segnalazione dei dati: inviare tramite e-mail un riepilogo di tutti gli ordini maggiori di una quantità specifica nella settimana precedente.
-* Elaborazione dei dati: comprimere quotidianamente le immagini caricate del giorno corrente in orari di scarso traffico.
-* Pulizia dei dati: eliminare tutti i tweet precedenti a tre mesi.
-* Archiviazione dei dati: eseguire il push delle fatture a un servizio di backup ogni mese.
+* Recuperare dati interni: [eseguire una stored procedure SQL](../connectors/connectors-create-api-sqlazure.md) ogni giorno.
+* Recuperare dati esterni: eseguire il pull dei bollettini meteo da NOAA ogni 15 minuti.
+* Segnalare i dati: inviare tramite posta elettronica un riepilogo di tutti gli ordini maggiori di una quantità specifica nella settimana precedente.
+* Elaborare i dati: comprimere quotidianamente le immagini caricate del giorno corrente in orari di scarso traffico.
+* Pulire i dati: eliminare tutti i tweet precedenti a tre mesi.
+* Archiviare i dati: eseguire il push delle fatture a un servizio di backup ogni mese.
 
 Questo trigger supporta numerosi criteri, tra cui:
 
@@ -40,9 +37,11 @@ Questo trigger supporta numerosi criteri, tra cui:
 * Esecuzione e ripetizione ogni settimana, ma solo in giorni specifici, ad esempio sabato e domenica.
 * Esecuzione e ripetizione ogni settimana, ma solo in ore e giorni specifici, ad esempio dal lunedì al venerdì alle 8:00 e alle 17:00.
 
-Ogni volta che viene attivato il trigger di ricorrenza, App per la logica crea ed esegue una nuova istanza del flusso di lavoro delle app per la logica.
+Ogni volta che viene attivato il trigger di ricorrenza, App per la logica crea ed esegue una nuova istanza del flusso di lavoro delle app per la logica. 
 
-## <a name="prerequisites"></a>prerequisiti
+Per attivare l'app per la logica ed eseguirla una sola volta in futuro, vedere [Eseguire i processi una sola volta](#run-once) più avanti in questo argomento.
+
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/). In alternativa, è possibile [iscriversi per ottenere una sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -52,9 +51,9 @@ Ogni volta che viene attivato il trigger di ricorrenza, App per la logica crea e
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Creare un'app per la logica vuota o acquisire informazioni su [come creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Quando Progettazione app per la logica viene visualizzato, nella casella di ricerca immettere "ricorrenza" come filtro. Selezionare il trigger **Pianificazione - Ricorrenza**. 
+2. Dopo la visualizzazione di Progettazione app per la logica, sotto la casella di ricerca scegliere **Tutti**. Nella casella di ricerca digitare "ricorrenza" come filtro. Nell'elenco di trigger selezionare questo trigger: **Ricorrenza - Pianificazione** 
 
-   ![Trigger Pianificazione - Ricorrenza](./media/connectors-native-recurrence/add-recurrence-trigger.png)
+   ![Selezionare il trigger "Ricorrenza - Pianificazione"](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
    Questo trigger rappresenta ora il primo passaggio nell'app per la logica.
 
@@ -98,10 +97,10 @@ Ogni volta che viene attivato il trigger di ricorrenza, App per la logica crea e
 
 | NOME | Obbligatoria | Nome proprietà | type | DESCRIZIONE | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frequenza** | Sì | frequency | string | L'unità di tempo per la ricorrenza: **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** | 
-| **Interval** | Sì | interval | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. <p>L'intervallo predefinito è 1. Di seguito sono riportati gli intervalli minimi e massimi: <p>- Mese: 1-16 mesi </br>- Giorno: 1-500 giorni </br>- Ora: 1-12.000 ore </br>- Minuto: 1-72.000 minuti </br>- Secondo: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. | 
+| **Frequenza** | Yes | frequency | string | Unità di tempo per la ricorrenza: **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** | 
+| **Interval** | Yes | interval | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. <p>L'intervallo predefinito è 1. Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi </br>- Giorno: 1-500 giorni </br>- Ora: 1-12.000 ore </br>- Minuto: 1-72.000 minuti </br>- Secondo: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. | 
 | **Fuso orario** | No  | timeZone | string | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. | 
-| **Ora di inizio** | No  | startTime | string | Specificare un'ora di inizio nel formato seguente: <p>AAAA-MM-GGThh:mm:ss se si seleziona un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si seleziona un fuso orario <p>Ad esempio, per il 18 settembre 2017 alle 14:00, specificare "2017-09-18T14:00:00" e selezionare un fuso orario, ad esempio Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** l'ora di inizio deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza una [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si seleziona un fuso orario, è necessario aggiungere la lettera "Z" alla fine, senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non si attiva prima dell'ora di inizio. [*In quali modi posso usare la data e l'ora di inizio?*](#start-time) | 
+| **Ora di inizio** | No  | startTime | string | Specificare un'ora di inizio nel formato seguente: <p>AAAA-MM-GGThh:mm:ss se si seleziona un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si seleziona un fuso orario <p>Ad esempio, per il 18 settembre 2017 alle 14:00, specificare "2017-09-18T14:00:00" e selezionare un fuso orario, ad esempio Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** l'ora di inizio deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si seleziona un fuso orario, è necessario aggiungere la lettera "Z" alla fine, senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non si attiva prima dell'ora di inizio. [*In quali modi posso usare la data e l'ora di inizio?*](#start-time) | 
 | **In questi giorni** | No  | weekDays | Stringa o matrice di stringhe | Se si seleziona "Settimana", è possibile selezionare uno o più giorni in cui eseguire il flusso di lavoro: **Lunedì**, **Martedì**, **Mercoledì**, **Giovedì**, **Venerdì**, **Sabato** e **Domenica** | 
 | **A queste ore** | No  | hours | Intero o matrice di intero | Se si seleziona "Giorno" o "Settimana", è possibile selezionare uno o più numeri interi da 0 a 23 come ore del giorno in cui si desidera eseguire il flusso di lavoro. <p>Ad esempio, se si specificano "10", "12" e "14", 10:00, 12:00 e 14:00 rappresentano gli indicatori di ora. | 
 | **A questi minuti** | No  | minutes | Intero o matrice di intero | Se si seleziona "Giorno" o "Settimana", è possibile selezionare uno o più numeri interi da 0 a 59 come minuti dell'ora in cui si desidera eseguire il flusso di lavoro. <p>Ad esempio, è possibile specificare "30" come indicatore dei minuti e, usando l'esempio precedente per le ore del giorno, si otterranno le ore 10.30, 12.30 e 14.30. | 
@@ -112,35 +111,42 @@ Ogni volta che viene attivato il trigger di ricorrenza, App per la logica crea e
 Di seguito è riportato un esempio di [definizione di trigger di ricorrenza](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
-{
-    "triggers": {
-        "Recurrence": {
-            "type": "Recurrence",
-            "recurrence": {
-                "frequency": "Week",
-                "interval": 1,
-                "schedule": {
-                    "hours": [
-                        10,
-                        12,
-                        14
-                    ],
-                    "minutes": [
-                        30
-                    ],
-                    "weekDays": [
-                        "Monday"
-                    ]
-                },
-               "startTime": "2017-09-07T14:00:00",
-               "timeZone": "Pacific Standard Time"
-            }
-        }
-    }
+"triggers": {
+   "Recurrence": {
+      "type": "Recurrence",
+      "recurrence": {
+         "frequency": "Week",
+         "interval": 1,
+         "schedule": {
+            "hours": [
+               10,
+               12,
+               14
+            ],
+            "minutes": [
+               30
+            ],
+            "weekDays": [
+               "Monday"
+            ]
+         },
+         "startTime": "2017-09-07T14:00:00",
+         "timeZone": "Pacific Standard Time"
+      }
+   }
 }
 ```
 
 ## <a name="faq"></a>Domande frequenti
+
+<a name="run-once"></a>
+
+**D:** Come procedere se si vuole eseguire un'app per la logica una sola volta in futuro? </br>
+**R:** Per attivare l'app per la logica ed eseguirla una sola volta senza ricorrenza, è possibile usare il modello **Scheduler: Run once jobs** (Utilità di pianificazione: esegui i processi una sola volta). Dopo aver creato una nuova app per la logica, ma prima di aprire Progettazione app per la logica, nella sezione **Modelli**, nell'elenco **Categoria** selezionare **Pianificazione** e quindi selezionare il modello:
+
+![Selezionare il modello "Scheduler: Run once jobs (Utilità di pianificazione: esegui i processi una sola volta)](./media/connectors-native-recurrence/choose-run-once-template.png)
+
+Se invece si usa un modello di app per la logica vuoto, avviare l'app per la logica con il trigger **Alla ricezione di una richiesta HTTP - Richiesta**. Passare l'ora di inizio del trigger come parametro. Per il passaggio successivo, aggiungere l'azione **Ritarda fino a - Pianificazione** e immettere l'ora di inizio dell'esecuzione dell'azione successiva.
 
 <a name="example-recurrences"></a>
 
@@ -174,14 +180,14 @@ Di seguito è riportato un esempio di [definizione di trigger di ricorrenza](../
 
 <a name="start-time"></a>
 
-**D:** In quali modi posso usare la data e l'ora di inizio? </br>
+**D:** In quali modi è possibile usare la data e l'ora di inizio? </br>
 **R:** Di seguito sono riportati alcuni formati che indicano come controllare la ricorrenza con la data e l'ora di inizio e in che modo il motore App per la logica esegue queste ricorrenze:
 
 | Ora di inizio | Ricorrenza senza pianificazione | Ricorrenza con pianificazione | 
 | ---------- | --------------------------- | ------------------------ | 
 | {none} | Esegue immediatamente il primo carico di lavoro. <p>Esegue i carichi di lavoro futuri in base all'ultima esecuzione. | Esegue immediatamente il primo carico di lavoro. <p>Esegue i carichi di lavoro futuri in base alla pianificazione specificata. | 
-| Ora di inizio nel passato | Calcola le esecuzioni in base all'ora di inizio specificata e rimuove le esecuzioni precedenti. Esegue il primo carico di lavoro all'esecuzione successiva. <p>Esegue i carichi di lavoro futuri in base ai calcoli dell'ultima esecuzione. <p>Per altri chiarimenti, vedere l'esempio dopo questa tabella. | Esegue il primo carico di lavoro *non prima* dell'ora di inizio, in base alla pianificazione calcolata dall'ora di inizio. <p>Esegue i carichi di lavoro futuri in base alla pianificazione specificata. <p>**Nota:** se si specifica una ricorrenza con una pianificazione, ma non specificano ore o minuti per la pianificazione, le esecuzioni future verranno calcolate rispettivamente in ore o minuti dalla prima esecuzione. | 
-| Ora di inizio attuale o nel futuro | Esegue il primo carico di lavoro all'ora di inizio specificata. <p>Esegue i carichi di lavoro futuri in base ai calcoli dell'ultima esecuzione. | Esegue il primo carico di lavoro *non prima* dell'ora di inizio, in base alla pianificazione calcolata dall'ora di inizio. <p>Esegue i carichi di lavoro futuri in base alla pianificazione specificata. <p>**Nota:** se si specifica una ricorrenza con una pianificazione, ma non specificano ore o minuti per la pianificazione, le esecuzioni future verranno calcolate rispettivamente in ore o minuti dalla prima esecuzione. | 
+| Ora di inizio nel passato | Calcola le esecuzioni in base all'ora di inizio specificata e rimuove le esecuzioni precedenti. Esegue il primo carico di lavoro all'esecuzione successiva. <p>Esegue i carichi di lavoro futuri in base ai calcoli dell'ultima esecuzione. <p>Per altri chiarimenti, vedere l'esempio dopo questa tabella. | Esegue il primo carico di lavoro *non prima* dell'ora di inizio, in base alla pianificazione calcolata dall'ora di inizio. <p>Esegue i carichi di lavoro futuri in base alla pianificazione specificata. <p>**Nota:** se si specifica una ricorrenza con una pianificazione, ma non si specificano ore o minuti per la pianificazione, le esecuzioni future verranno calcolate rispettivamente in ore o minuti dalla prima esecuzione. | 
+| Ora di inizio attuale o nel futuro | Esegue il primo carico di lavoro all'ora di inizio specificata. <p>Esegue i carichi di lavoro futuri in base ai calcoli dell'ultima esecuzione. | Esegue il primo carico di lavoro *non prima* dell'ora di inizio, in base alla pianificazione calcolata dall'ora di inizio. <p>Esegue i carichi di lavoro futuri in base alla pianificazione specificata. <p>**Nota:** se si specifica una ricorrenza con una pianificazione, ma non si specificano ore o minuti per la pianificazione, le esecuzioni future verranno calcolate rispettivamente in ore o minuti dalla prima esecuzione. | 
 ||||
 
 **Esempio di un'ora di inizio precedente con ricorrenza, ma senza pianificazione** 

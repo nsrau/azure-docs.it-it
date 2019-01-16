@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 647ed64d405424431419da1e693abea2bdf07ace
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: dd8e0950de6aae71dd123d21b59c6de591bd7f29
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262266"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107717"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 Questo articolo risponde alle domande comuni sul servizio Backup di Azure.
@@ -24,7 +24,7 @@ Questo articolo risponde alle domande comuni sul servizio Backup di Azure.
 Sì. Si possono creare fino a 500 insiemi di credenziali di Servizi di ripristino per area di Backup di Azure supportata per ogni sottoscrizione. Se sono necessari più insiemi di credenziali, creare una sottoscrizione aggiuntiva.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Esistono limiti al numero di server/computer che possono essere registrati in ogni insieme di credenziali?
-È possibile registrare fino a 1000 macchine virtuali di Azure per insieme di credenziali. Se si usano agenti MAB, è possibile registrare fino a 50 agenti MAB per insieme di credenziali. È possibile registrare 50 server MAB/server DPM in un insieme di credenziali.
+È possibile registrare fino a 1000 macchine virtuali di Azure per insieme di credenziali. Se si usa l'agente di Backup di Microsoft Azure, è possibile registrare fino a 50 agenti di Backup di Microsoft Azure per insieme di credenziali. È possibile registrare 50 server MAB/server DPM in un insieme di credenziali.
 
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Se l'organizzazione ha un insieme di credenziali, come è possibile isolare i dati di server diversi nell'insieme di credenziali durante il ripristino dei dati?

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: bf16c0fbc7090bf9b548796765502cde1731aef9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a3d6cb745c782d2a7166208f2a8dd1202a330b15
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669708"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050490"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Spostamento dei dati nel cluster vFXT - Inserimento di dati parallelo 
 
@@ -19,7 +19,7 @@ Dopo aver creato un nuovo cluster vFXT, la prima attività da eseguire potrebbe 
 
 Poiché il cluster Avere vFXT è una cache multi-client scalabile, il modo più rapido ed efficiente per copiare i dati consiste nell'usare più thread. Questa tecnica parallelizza l'inserimento dei file e degli oggetti.
 
-![Diagramma che mostra lo spostamento dati multi-client a thread multipli: in alto a sinistra, da un'icona per la risorsa di archiviazione hardware locale partono più frecce. Le frecce puntano a quattro computer client. Da ogni computer client tre frecce puntano verso Avere vFXT. Da Avere vFXT, più frecce puntano all'archiviazione BLOB.](media/avere-vfxt-parallel-ingest.png) 
+![Diagramma che mostra lo spostamento dei dati multi-client e multithread: in alto a sinistra, da un'icona per la risorsa di archiviazione hardware locale partono più frecce. Le frecce puntano a quattro computer client. Da ogni computer client tre frecce puntano verso Avere vFXT. Da Avere vFXT, più frecce puntano all'archiviazione BLOB.](media/avere-vfxt-parallel-ingest.png) 
 
 I comandi ``cp`` o ``copy`` che vengono comunemente usati per trasferire dati da un sistema di archiviazione all'altro sono processi a thread singolo, che copiano un solo file alla volta. Questo significa che il file server riceve un solo file alla volta, il che rappresenta uno spreco di risorse del cluster.
 
@@ -272,7 +272,7 @@ Per usare msrsync per popolare un volume cloud di Azure con un cluster di Avere,
 1. Installare msrsync e i relativi prerequisiti (rsync e Python 2.6 o versioni successive)
 1. Determinare il numero totale di file e directory da copiare.
 
-   Ad esempio, usare l'utilità di Avere ``prime.py`` con gli argomenti ```prime.py --directory /path/to/some/directory``` (disponibile per il download all'indirizzo https://raw.githubusercontent.com/Azure/Avere/master/src/dataingestor/prime.py).
+   Ad esempio, usare l'utilità di Avere ``prime.py`` con gli argomenti ```prime.py --directory /path/to/some/directory``` (disponibile per il download all'indirizzo https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py).
 
    Se non si usa ``prime.py``, è possibile calcolare il numero di elementi con lo strumento Gnu ``find``, come segue:
 

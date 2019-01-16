@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d1e44eae7e87a450ac5f36e621d559fca92ca74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309179"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016155"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -180,6 +180,9 @@ Gli utenti eliminati o disabilitati che non hanno effettuato l'accesso in preced
 
 - [Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md)
  
+**D: Perché viene visualizzato un record di registrazione in Azure AD duplicato per un dispositivo Windows 10 aggiunto ad Azure AD ibrido nell'elenco dei dispositivi Azure AD?**
+
+**R:** Quando gli utenti aggiungono il proprio account alle app in un dispositivo aggiunto al dominio, potrebbe essere visualizzata la richiesta "Aggiungi account a Windows?". Se si fa clic su "Sì" per questa richiesta, il dispositivo viene registrato in Azure AD e il tipo di trust viene contrassegnato come registrato in Azure AD. Quando si abilita l'aggiunta ad Azure AD ibrido nell'organizzazione, il dispositivo verrà aggiunto anche ad Azure AD ibrido. Di conseguenza, per lo stesso dispositivo verranno visualizzati due stati. Lo stato di aggiunto ad Azure AD ibrido ha tuttavia la precedenza rispetto allo stato di registrato in Azure AD. Il dispositivo verrà quindi considerato aggiunto ad Azure AD ibrido per qualsiasi processo di autenticazione e di valutazione di accesso condizionale. Pertanto, è possibile eliminare in modo sicuro il record di dispositivo registrato in Azure AD dal portale di Azure AD. Vedere [questa sezione](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) nell'articolo relativo all'aggiunta ad Azure AD ibrido per informazioni su come evitare questo doppio stato o come eliminarlo nel computer Windows 10. 
 
 ---
 

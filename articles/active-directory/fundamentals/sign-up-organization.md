@@ -12,15 +12,15 @@ ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 53536604ed2f371d1ae7e63b286b17501b260c8c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 286c46f760dda4991fd89651bc3a01424d8a5502
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100719"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054793"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Iscrivere l'organizzazione per l'uso di Azure Active Directory
-Iscriversi a Azure Active Directory (Azure AD), una nuova sottoscrizione di Microsoft Azure usando:
+Iscriversi ad Azure Active Directory (Azure AD) o per una nuova sottoscrizione di Microsoft Azure usando:
 
 - **Account Microsoft.** Usare l'account Microsoft personale per accedere ad Azure e a tutti i prodotti e ai servizi cloud Microsoft destinati agli utenti privati, ad esempio Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE o Office 365. Con l'iscrizione a Outlook.com viene creato automaticamente un account Microsoft. Per altre informazioni, vedere [Microsoft account overview (Panoramica dell'account Microsoft)](https://account.microsoft.com/account).
 

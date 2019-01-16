@@ -8,19 +8,18 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 87a71cff07d18dde25fa5c58b3718e7a57e3ce8d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 494aa435f2b3e682ae330baa61d4778f3d91d789
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046014"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025743"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Versione corrente](transform-data-using-machine-learning.md)
 
@@ -131,15 +130,15 @@ Il frammento JSON seguente definisce un'attività di esecuzione batch di Azure M
 
 | Proprietà          | DESCRIZIONE                              | Obbligatoria |
 | :---------------- | :--------------------------------------- | :------- |
-| name              | Nome dell'attività nella pipeline     | Sì      |
+| name              | Nome dell'attività nella pipeline     | Yes      |
 | description       | Testo che descrive l'attività.  | No        |
-| type              | Per l'attività U-SQL di Data Lake Analytics, il tipo di attività è **AzureMLBatchExecution**. | Sì      |
-| linkedServiceName | Servizi collegati al servizio collegato di Azure Machine Learning. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
+| type              | Per l'attività U-SQL di Data Lake Analytics, il tipo di attività è **AzureMLBatchExecution**. | Yes      |
+| linkedServiceName | Servizi collegati al servizio collegato di Azure Machine Learning. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Yes      |
 | webServiceInputs  | Coppie valore, chiave, che eseguono il mapping dei nomi di input dei servizi Web di Azure Machine Learning. La chiave deve corrispondere ai parametri di input definiti nel servizio Web pubblicato di Azure Machine Learning. Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di input. | No        |
 | webServiceOutputs | Coppie valore, chiave, che eseguono il mapping dei nomi di output dei servizi Web di Azure Machine Learning. La chiave deve corrispondere ai parametri di output definiti nel servizio Web pubblicato di Azure Machine Learning. Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di output. | No        |
 | globalParameters  | Coppie di valore, chiave da passare all'endpoint del servizio esecuzione batch di Azure Machine Learning. Le chiavi devono corrispondere ai nomi dei parametri dei servizi Web definiti nel servizio Web pubblicato di Azure Machine Learning. I valori vengono passati nella proprietà GlobalParameters della richiesta di esecuzione batch di Azure Machine Learning | No        |
 
-### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Scenario 1: Esperimenti di uso degli input/output del servizio Web che fanno riferimento ai dati presenti nell'archiviazione BLOB di Azure
+### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Scenario 1: Esperimenti di uso degli input/output del servizio Web che fanno riferimento ai dati presenti in Archiviazione BLOB di Azure
 
 Il questo scenario il servizio Web Azure Machine Learning esegue stime usando dati provenienti da un file dell'archiviazione BLOB di Azure e archivia i risultati nell'archiviazione BLOB. Il frammento di codice JSON seguente definisce una pipeline di Data factory con un'attività AzureMLBatchExecution. Viene fatto riferimento ai dati di input e output nell'archiviazione BLOB di Azure tramite una coppia di LinkedName e FilePath. Nell'esempio i servizi collegati di input e output sono diversi; è possibile usare servizi collegati diversi per ognuno degli input/output per Data Factory per poter selezionare i file corretti e inviarli al servizio Web di Azure Machine Learning. 
 
@@ -193,17 +192,17 @@ Il questo scenario il servizio Web Azure Machine Learning esegue stime usando da
     }
 }
 ```
-### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Scenario 2: Esperimenti di uso dei moduli Reader e Writer per fare riferimento ai dati in diversi archivi
+### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Scenario 2: Esperimenti di uso dei moduli Reader e Writer per fare riferimento ai dati in diverse risorse di archiviazione
 Un altro scenario comune durante la creazione di esperimenti di Azure Machine Learning è quello relativo all'uso dei moduli Import Data e Output Data. Il modulo Import Data consente di caricare i dati in un esperimento, mentre il modulo Output Data consente di salvare i dati derivanti dagli esperimenti. Per informazioni dettagliate sui moduli Import Data e Output Data, vedere gli argomenti [Import Data](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Output Data](https://msdn.microsoft.com/library/azure/dn905984.aspx) in MSDN Library.     
 
-Quando si usano i moduli Import Data e Output Data, è consigliabile usare un parametro del servizio Web per ogni proprietà di tali moduli. Questi parametri Web consentono di configurare i valori durante il runtime. Ad esempio, è possibile creare un esperimento con un modulo Import Data che usa un database SQL di Azure: XXX.database.windows.net. Dopo aver distribuito il servizio Web, si intende consentire ai consumer del servizio Web di specificare un altro server SQL di Azure denominato `YYY.database.windows.net`. È possibile usare un parametro del servizio Web per consentire la configurazione di questo valore.
+Quando si usano i moduli Import Data e Output Data, è consigliabile usare un parametro del servizio Web per ogni proprietà di tali moduli. Questi parametri Web consentono di configurare i valori durante il runtime. È ad esempio possibile creare un esperimento con un modulo Import Data che usa un database SQL di Azure: XXX.database.windows.net. Dopo aver distribuito il servizio Web, si intende consentire ai consumer del servizio Web di specificare un altro server SQL di Azure denominato `YYY.database.windows.net`. È possibile usare un parametro del servizio Web per consentire la configurazione di questo valore.
 
 > [!NOTE]
 > L'input e l'output del servizio Web sono diversi dai parametri del servizio Web. Nel primo scenario è stato illustrato come è possibile specificare un input e un output per un servizio Web Azure ML. In questo scenario si passano i parametri per un servizio Web corrispondenti alle proprietà dei moduli Import Data e Output Data.
 >
 > 
 
-Viene preso in esame uno scenario relativo all'uso dei parametri del servizio Web. È stato distribuito un servizio Web di Azure Machine Learning che usa un modulo Reader per leggere i dati da una delle origini dati di Azure Machine Learning supportate, ad esempio un database SQL di Azure. Dopo l'esecuzione batch, i risultati vengono scritti usando un modulo Writer (database SQL di Azure).  Negli esperimenti non sono definiti input e output del servizio Web. In questo caso, è consigliabile configurare i parametri del servizio Web rilevanti per i moduli Reader e Writer. Ciò consente la configurazione dei moduli Reader e Writer quando si usa l'attività AzureMLBatchExecution. Specificare i parametri del servizio Web nella sezione **globalParameters** del codice JSON dell'attività come indicato di seguito.
+Viene preso in esame uno scenario relativo all'uso dei parametri del servizio Web. È stato distribuito un servizio Web di Azure Machine Learning che usa un modulo Reader per leggere i dati da una delle origini supportate da Azure Machine Learning, ad esempio un database SQL di Azure. Dopo l'esecuzione batch, i risultati vengono scritti usando un modulo Writer (database SQL di Azure).  Negli esperimenti non sono definiti input e output del servizio Web. In questo caso, è consigliabile configurare i parametri del servizio Web rilevanti per i moduli Reader e Writer. Ciò consente la configurazione dei moduli Reader e Writer quando si usa l'attività AzureMLBatchExecution. Specificare i parametri del servizio Web nella sezione **globalParameters** del codice JSON dell'attività come indicato di seguito.
 
 ```JSON
 "typeProperties": {

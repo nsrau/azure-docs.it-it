@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 501dc942fc41a4e06aa13fba2eb670f8bc0f8a21
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 293c2325f57f04c3a77b0b2b8ec2ef30e8c912b8
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597821"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156239"
 ---
 # <a name="door-monitor"></a>Monitoraggio della porta          
 
@@ -108,7 +108,7 @@ Compilare i campi nel modulo di iscrizione.
 
    * **Gruppo di risorse**: creare un gruppo di risorse per ospitare il servizio SendGrid o usarne uno esistente. Vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-portal.md).
 
-   * **Nome hub IoT**: nome dell'hub IoT. Scegliere un nome univoco, diverso da quello di altri servizi già presenti.
+   * **Nome hub IoT**: il nome dell'hub IoT. Scegliere un nome univoco, diverso da quello di altri servizi già presenti.
 
    * **Iot Hub Sku** (SKU per hub IoT): F1 (solo uno per ogni sottoscrizione) è gratuito. Per altre informazioni sui prezzi, vedere la [pagina Prezzi](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -154,7 +154,7 @@ Nel terminale di VS Code una riga di comando interattiva guiderà nel processo d
 
 Caricare ora il codice per il dispositivo.
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 1. Usare `Ctrl+P` per eseguire `task device-upload`.
 
@@ -162,7 +162,7 @@ Caricare ora il codice per il dispositivo.
 
 #### <a name="macos"></a>macOS
 
-1. Impostare il DevKit in modalità di configurazione: tenere premuto il pulsante A e quindi premere e rilasciare il pulsante di reimpostazione. Verrà visualizzata la schermata 'Configuration'.
+1. Attivare la modalità di configurazione per DevKit: Tenere premuto il pulsante A, quindi premere e rilasciare il pulsante di reimpostazione. Verrà visualizzata la schermata 'Configuration'.
 
 2. Fare clic su `Cmd+P` per eseguire `task device-upload`.
 
@@ -177,7 +177,7 @@ VS Code inizia a verificare e caricare lo sketch Arduino nel DevKit.
 Il DevKit viene riavviato e inizia a eseguire il codice.
 
 > [!NOTE]
-> È possibile che a volte venga visualizzato il messaggio "Error: AZ3166: Unknown package". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere questo errore, vedere la [sezione sullo sviluppo delle domande frequenti di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> In alcuni casi, è possibile che venga visualizzato il messaggio "Errore: AZ3166: Pacchetto sconosciuto". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere questo errore, vedere la [sezione sullo sviluppo delle domande frequenti di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Verificare il progetto
 
@@ -194,7 +194,7 @@ Dopo l'inizializzazione, il messaggio `Door closed` viene visualizzato sullo sch
 In caso di problemi, vedere le [domande frequenti di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o mettersi in contatto usando i canali seguenti:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

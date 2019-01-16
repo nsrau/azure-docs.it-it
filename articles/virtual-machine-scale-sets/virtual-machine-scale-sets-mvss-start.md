@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 29c0a1a15db7670d83ff384a1ba0f37499389ef7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741881"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036563"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Informazioni sui modelli di set di scalabilità di macchine virtuali
 I [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) sono un ottimo modo di distribuire gruppi di risorse correlate. Questa serie di esercitazioni illustra come creare un modello di set di scalabilità a validità minima e come modificarlo per adattarsi a vari scenari. Tutti gli esempi provengono da questo [archivio GitHub](https://github.com/gatneil/mvss). 
@@ -70,7 +70,7 @@ La sezione successiva del modello riguarda le risorse. In questa sezione si defi
    "resources": [
 ```
 
-Tutte le risorse richiedono le proprietà `type`, `name`, `apiVersion` e `location`. La prima risorsa di questo esempio è di tipo `Microsft.Network/virtualNetwork`, nome `myVnet` e apiVersion `2016-03-30`. Per determinare la versione più recente dell'API di un tipo di risorsa, vedere [Azure REST API documentation](https://docs.microsoft.com/rest/api/) (Documentazione dell'API REST di Azure).
+Tutte le risorse richiedono le proprietà `type`, `name`, `apiVersion` e `location`. La prima risorsa dell'esempio è di tipo [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), è denominata `myVnet` e l'apiVersion è `2016-03-30`. Per determinare la versione più recente dell'API di un tipo di risorsa, vedere le [informazioni di riferimento sui modelli di Azure Resource Manager](/azure/templates/).
 
 ```json
      {
@@ -124,7 +124,7 @@ In questo caso c'è solo un elemento nell'elenco, ovvero la rete virtuale dell'e
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Specificare le proprietà del set di scalabilità
-I set di scalabilità hanno molte proprietà per personalizzare le macchine virtuali nel set di scalabilità. Per un elenco completo di queste proprietà, vedere [Scale set REST API documentation](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set) (Documentazione dell'API REST del set di scalabilità). Per questa esercitazione, vengono impostate solo alcune proprietà usate di frequente.
+I set di scalabilità hanno molte proprietà per personalizzare le macchine virtuali nel set di scalabilità. Per un elenco completo di queste proprietà, vedere le [informazioni di riferimento sui modelli](/azure/templates/microsoft.compute/virtualmachinescalesets). Per questa esercitazione, vengono impostate solo alcune proprietà usate di frequente.
 ### <a name="supply-vm-size-and-capacity"></a>Specificare capacità e dimensioni della macchina virtuale
 Il set di scalabilità deve conoscere le dimensioni della macchina virtuale da creare ("nome SKU") e quante macchine virtuali di questo tipo deve creare ("capacità SKU"). Per visualizzare le dimensioni disponibili di macchine virtuali, vedere [VM Sizes documentation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes) (Documentazione delle dimensioni di macchine virtuali).
 

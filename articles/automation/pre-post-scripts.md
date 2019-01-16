@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: edbb953111fb4589539369bd9b2519b48b9b70eb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584622"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121312"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gestire i pre-script e i post-script (anteprima)
 
@@ -100,10 +100,7 @@ Di seguito è riportato un esempio di stringa JSON passata al parametro **Softwa
    }
 ```
 
-Un esempio completo con tutte le proprietà è disponibile in: [Configurazioni degli aggiornamenti software - Recupero in base al nome](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
-
-> [!NOTE]
-> I computer aggiunti a una distribuzione usando [Gruppi dinamici (anteprima)](automation-update-management.md#using-dynamic-groups) non fanno attualmente parte del parametro **SoftwareUpdateConfigurationRunContext**.
+Un esempio completo con tutte le proprietà è disponibile in: [Software Update Configurations - Get By Name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples) (Configurazioni degli aggiornamenti software - Recupero per nome)
 
 ## <a name="samples"></a>Esempi
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione su Data Factory: prima pipeline di dati | Documentazione Microsoft'
+title: 'Esercitazione su Data Factory: prima pipeline di dati | Microsoft Docs'
 description: Questa esercitazione di Azure Data Factory illustra come creare e pianificare una data factory che elabora i dati usando uno script Hive in un cluster Hadoop.
 services: data-factory
 documentationcenter: ''
@@ -10,22 +10,21 @@ ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 63ae8699af5213634eeac7dfc5045a3fc888b6c0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 266d16311115f788283eadc60ca16f95b433d6b0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734253"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015951"
 ---
-# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Esercitazione: Creare la prima pipeline per trasformare i dati usando il cluster Hadoop
+# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Esercitazione: Creare la prima pipeline per la trasformazione di dati usando il cluster Hadoop
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
-> * [portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -33,11 +32,11 @@ ms.locfileid: "45734253"
 
 
 > [!NOTE]
-> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere la [guida introduttiva per la creazione di una data factory con Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-dot-net.md) (Creare una data factory con Azure Data Factory).
 
 In questa esercitazione si compila la prima data factory di Azure con una pipeline di dati. La pipeline trasforma i dati di input tramite l'esecuzione di script Hive su un cluster Azure HDInsight (Hadoop) per generare i dati di output.  
 
-Questo articolo fornisce una panoramica e i prerequisiti per l'esercitazione. Dopo avere completato i prerequisiti, è possibile eseguire l'esercitazione usando uno degli strumenti/SDK seguenti: Portale di Azure, Visual Studio, PowerShell, modello di Resource Manager, API REST. Selezionare una delle opzioni nell'elenco a discesa all'inizio o i collegamenti alla fine di questo articolo per eseguire l'esercitazione sull'uso di una di queste opzioni.    
+Questo articolo fornisce una panoramica e i prerequisiti per l'esercitazione. Dopo avere completato i prerequisiti, è possibile eseguire l'esercitazione con uno degli strumenti o SDK seguenti: portale di Azure, Visual Studio, PowerShell, modello di Resource Manager e API REST. Selezionare una delle opzioni nell'elenco a discesa all'inizio o i collegamenti alla fine di questo articolo per eseguire l'esercitazione sull'uso di una di queste opzioni.    
 
 ## <a name="tutorial-overview"></a>Panoramica dell'esercitazione
 In questa esercitazione si segue questa procedura:
@@ -45,12 +44,12 @@ In questa esercitazione si segue questa procedura:
 1. Creare una **data factory**. Una data factory può contenere una o più pipeline di dati che spostano e trasformano i dati. 
 
     In questa esercitazione si creerà una pipeline nella data factory. 
-2. Creare una **pipeline**. Una pipeline può comprendere una o più attività (esempi: attività di copia, attività Hive HDInsight). In questo esempio viene usata un'attività Hive di HDInsight che esegue uno script Hive in un cluster Hadoop di HDInsight. Lo script crea prima di tutto una tabella che fa riferimento ai dati di blog non elaborati contenuti nell'archivio BLOB di Azure e quindi esegue il partizionamento dei dati non elaborati per anno e per mese.
+2. Creare una **pipeline**. Una pipeline può avere una o più attività, ad esempio l'attività di copia o l'attività Hive di HDInsight. In questo esempio viene usata un'attività Hive di HDInsight che esegue uno script Hive in un cluster Hadoop di HDInsight. Lo script crea prima di tutto una tabella che fa riferimento ai dati di blog non elaborati contenuti nell'archivio BLOB di Azure e quindi esegue il partizionamento dei dati non elaborati per anno e per mese.
 
     In questa esercitazione, la pipeline usa l'attività Hive per trasformare i dati eseguendo una query Hive in un cluster Hadoop di HDInsight di Azure. 
 3. Creare **servizi collegati**. Creare un servizio collegato per collegare un archivio dati o un servizio di calcolo alla data factory. Un archivio dati come Archiviazione di Azure contiene i dati di input/output delle attività nella pipeline. Un servizio di calcolo come un cluster Hadoop di HDInsight elabora/trasforma i dati.
 
-    In questa esercitazione guidata si creano due servizi collegati : **Archiviazione di Azure** e **Azure HDInsight**. Il servizio collegato Archiviazione di Azure collega un account di archiviazione di Azure contenente i dati di input/output alla data factory. Il servizio collegato Azure HDInsight collega un cluster HDInsight di Azure usato per trasformare i dati alla data factory. 
+    In questa esercitazione vengono creati due servizi collegati: **Archiviazione di Azure** e **Azure HDInsight** . Il servizio collegato Archiviazione di Azure collega un account di archiviazione di Azure contenente i dati di input/output alla data factory. Il servizio collegato Azure HDInsight collega un cluster HDInsight di Azure usato per trasformare i dati alla data factory. 
 3. Creare **set di dati**di input e di output. Un set di dati di input rappresenta l'input per un'attività nella pipeline, un set di dati di output rappresenta l'output dell'attività.
 
     In questa esercitazione i set di dati di input e output specificano i percorsi dei dati di input e output nell'Archiviazione BLOB di Azure. Il servizio collegato Archiviazione di Azure specifica l'account di archiviazione di Azure che viene usato. Un set di dati di input specifica la posizione in cui si trovano i file di input e un set di dati di output specifica la posizione in cui verranno inseriti i file di output. 
@@ -63,7 +62,7 @@ Di seguito è riportata la **vista diagramma** della data factory di esempio cre
 ![Vista diagramma nell'esercitazione su Data Factory](media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 
-In questa esercitazione la cartella **inputdata** del contenitore BLOB di Azure **adfgetstarted** contiene un file denominato input.log. Questo file di log contiene voci relative ai tre mesi di gennaio, febbraio e marzo 2016. Ecco le righe di esempio per ogni mese nel file di input. 
+In questa esercitazione la cartella **inputdata** del contenitore BLOB di Azure **adfgetstarted** contiene un file denominato input.log. Questo file di log contiene voci relative a tre mesi: gennaio, febbraio e marzo 2016. Ecco le righe di esempio per ogni mese nel file di input. 
 
 ```
 2016-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871 
@@ -94,7 +93,7 @@ Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 
 Dopo avere completato i prerequisiti, selezionare uno dei seguenti strumenti/SDK per eseguire l'esercitazione: 
 
-- [portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -103,7 +102,7 @@ Dopo avere completato i prerequisiti, selezionare uno dei seguenti strumenti/SDK
 Il portale di Azure e Visual Studio forniscono l'interfaccia utente grafica per la creazione di data factory. Le opzioni PowerShell, il modello di Resource Manager e l'API REST forniscono una modalità di programmazione/script per la creazione di data factory.
 
 > [!NOTE]
-> La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Non copia dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come copiare dati usando Azure Data Factory, vedere [Copiare dati da un archivio BLOB al database SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Non copia dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come copiare dati usando Azure Data Factory, vedere [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Esercitazione: Copiare dati da archiviazione BLOB a database SQL).
 > 
 > È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). 
 

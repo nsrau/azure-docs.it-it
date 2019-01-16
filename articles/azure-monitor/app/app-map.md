@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: e89ba38b7993b8f2d17704ff592eecd3d02d303e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 238b75681ec525187ea27f60ac8b21b05b13954d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730602"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063115"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: Valutazione delle applicazioni distribuite
 
@@ -197,7 +197,7 @@ Se si verificano problemi nel far funzionare come previsto la mappa delle applic
 
 2. Aggiornare tutti i componenti alla versione più recente dell'SDK.
 
-3. Se si usano le Funzioni di Azure con C#, eseguire l'aggiornamento a [Funzioni V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Se si usa Funzioni di Azure con C#, eseguire l'aggiornamento a [Funzioni V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
 4. Confermare che [cloud_RoleName](app-map.md#Set-cloud-RoleName) è configurato correttamente.
 

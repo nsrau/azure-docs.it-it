@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: database SQL - Azure Key Vault | Documentazione Microsoft'
+title: 'Always Encrypted: database SQL - Azure Key Vault | Microsoft Docs'
 description: Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia dei dati usando la procedura guidata Always Encrypted di SQL Server Management Studio.
 keywords: crittografia dei dati, chiave di crittografia, crittografia del cloud
 services: sql-database
@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 5499193ba96d5a32ac6d3b310eee531c68fd52fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/03/2019
+ms.openlocfilehash: e988a3c86302b875f8393264279e4a65c45ba1eb
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255923"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041238"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Proteggere i dati sensibili e archiviare le chiavi di crittografia in Azure Key Vault
 
@@ -60,6 +60,7 @@ Quando l'app client è configurata e si dispone dell'ID applicazione, è necessa
     $userPrincipalName = '<username@domain.com>'
     $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
+    # Use the same resource group name when creating your SQL Database below
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
 
@@ -132,7 +133,7 @@ SSMS offre una procedura guidata per configurare facilmente la crittografia semp
    
     ![Crittografa colonne](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
-La procedura guidata Always Encrypted include le sezioni seguenti: **Selezione colonne**, **Configurazione della chiave master**, **Convalida** e **Riepilogo**.
+La procedura guidata Always Encrypted contiene le sezioni seguenti: **Selezione colonne**, **Configurazione della chiave master**, **Convalida** e **Riepilogo**.
 
 ### <a name="column-selection"></a>Selezione colonne
 Fare clic su **Avanti** nella pagina **Introduzione** per aprire la pagina **Selezione colonne**. In questa pagina verranno selezionate le colonne da crittografare, [il tipo di crittografia e la chiave di crittografia di colonna (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) da usare.

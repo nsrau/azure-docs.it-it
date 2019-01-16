@@ -9,20 +9,19 @@ ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88e56f522545f9c1f38bf0d0fdbcebdc171c294b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046531"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015135"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Spostare dati da DB2 mediante l'attività di copia di Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](data-factory-onprem-db2-connector.md)
 > * [Versione 2 (corrente)](../connector-db2.md)
 
@@ -34,7 +33,7 @@ Questo articolo descrive come usare l'attività di copia in Azure Data Factory p
 
 Data Factory consente attualmente solo lo spostamento dei dati da un database DB2 a un [archivio dati sink supportato](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Lo spostamento dei dati da altri archivi dati in un database DB2 non è consentito.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Data Factory supporta la connessione a database DB2 locali mediante il [gateway di gestione dati](data-factory-data-management-gateway.md). Per istruzioni passo per passo su come configurare il gateway di una pipeline di dati per spostare i dati, vedere [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
 Un gateway è necessario anche se il DB2 è ospitato in una VM IaaS di Azure. È possibile installare il gateway nella stessa VM IaaS dell'archivio dati. Se il gateway può connettersi al database, è possibile installare il gateway su una VM diversa.
@@ -64,7 +63,7 @@ Il connettore Data Factory DB2 supporta le piattaforme e le versioni di IBM DB2 
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con un'attività di copia per spostare i dati da un archivio dati DB2 usando diversi strumenti e API: 
 
-- Il modo più semplice per creare una pipeline è usare la Copia guidata di Azure Data Factory. Per una rapida procedura dettagliata di creazione di una pipeline mediante la copia guidata dei dati, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md). 
+- Il modo più semplice per creare una pipeline è usare la Copia guidata di Azure Data Factory. Per una rapida procedura dettagliata di creazione di una pipeline mediante la copia guidata, vedere [Esercitazione: Creare una pipeline usando la copia guidata](data-factory-copy-data-wizard-tutorial.md). 
 - Per creare una pipeline è possibile anche usare strumenti come il portale di Azure, Visual Studio, Azure PowerShell, un modello di Azure Resource Manager, l'API .NET e l'API REST. Per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
@@ -73,7 +72,7 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i set di dati per rappresentare i dati di input e di output per le operazioni di copia. 
 3. Creare una pipeline con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
 
-Quando si usa la Copia guidata, le definizioni JSON per i servizi collegati, i set di dati e le entità pipeline di data factory vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione dell'API .NET, usare il formato JSON per definire le entità di Data Factory. La sezione [Esempio JSON: Copiare dati da DB2 a BLOB di Azure](#json-example-copy-data-from-db2-to-azure-blob) mostra le definizioni JSON per le entità di Data Factory utilizzate per copiare dati da un archivio dati DB2 locale.
+Quando si usa la Copia guidata, le definizioni JSON per i servizi collegati, i set di dati e le entità pipeline di data factory vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione dell'API .NET, usare il formato JSON per definire le entità di Data Factory. L'esempio di [JSON: Copiare dati da DB2 ad Archiviazione BLOB di Azure](#json-example-copy-data-from-db2-to-azure-blob) illustra le definizioni JSON per le entità di Data Factory usate per copiare dati da un archivio dati DB2 locale.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di Data Factory specifiche di un archivio dati DB2.
 
@@ -82,14 +81,14 @@ La tabella seguente elenca le proprietà JSON che sono specifiche di un servizio
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
-| **type** |Questa proprietà deve essere impostata su **OnPremisesDb2**. |Sì |
-| **server** |Il nome del server DB2. |Sì |
-| **database** |Il nome del database DB2. |Sì |
+| **type** |Questa proprietà deve essere impostata su **OnPremisesDb2**. |Yes |
+| **server** |Il nome del server DB2. |Yes |
+| **database** |Il nome del database DB2. |Yes |
 | **schema** |Il nome dello schema nel database DB2. Questa proprietà fa distinzione tra maiuscole e minuscole. |No  |
-| **authenticationType** |Il tipo di autenticazione utilizzato per connettersi al database DB2. I valori possibili sono: anonima, di base e Windows. |Sì |
+| **authenticationType** |Il tipo di autenticazione utilizzato per connettersi al database DB2. I valori possibili sono: Anonymous, Basic e Windows. |Yes |
 | **username** |Il nome dell'account utente, se si usa l'autenticazione di base o di Windows. |No  |
 | **password** |La password per l'account utente. |No  |
-| **gatewayName** |Il nome del gateway che il servizio Data factory deve usare per connettersi al database DB2 locale. |Sì |
+| **gatewayName** |Il nome del gateway che il servizio Data factory deve usare per connettersi al database DB2 locale. |Yes |
 
 ## <a name="dataset-properties"></a>Proprietà dei set di dati
 Per un elenco delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati in Azure Data Factory](data-factory-create-datasets.md). Le sezioni come **struttura**, **disponibilità** e **policy** di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, archiviazione BLOB di Azure, archiviazione tabelle di Azure e così via.
@@ -112,7 +111,7 @@ Per le attività di copia con origine di tipo **RelationalSource** (che comprend
 > [!NOTE]
 > I nomi di schemi e tabelle fanno distinzione tra maiuscole e minuscole. Nell'istruzione della query racchiudere i nomi di proprietà fra virgolette doppie ("").
 
-## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Esempio JSON: Copiare dati da DB2 a BLOB di Azure
+## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Esempio di JSON: Copiare i dati da DB2 ad Archiviazione BLOB di Azure
 Questo esempio fornisce le definizioni JSON di esempio da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). L'esempio illustra come copiare dati da un database DB2 nell'archivio BLOB. Tuttavia, è possibile copiare i dati in [qualsiasi tipo di sink di archivio dati supportato](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia di Azure Data Factory.
 
 L'esempio include le entità della data factory seguenti:

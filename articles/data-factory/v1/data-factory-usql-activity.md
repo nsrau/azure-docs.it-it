@@ -9,20 +9,19 @@ ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 534fbeaa8ba3c27c8d3f3bbcc59717d8bdb5c654
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7631b103d6d14cceb2c320d56e9f68d9ea57e4d8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050319"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020847"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](data-factory-usql-activity.md)
 > * [Versione 2 (corrente)](../transform-data-using-data-lake-analytics.md)
 
@@ -49,8 +48,8 @@ La tabella seguente fornisce le descrizioni delle proprietà generiche usate nel
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
-| **type** |La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. |Sì |
-| **accountName** |Nome dell'account di Azure Data Lake Analytics. |Sì |
+| **type** |La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. |Yes |
+| **accountName** |Nome dell'account di Azure Data Lake Analytics. |Yes |
 | **dataLakeAnalyticsUri** |URI di Azure Data Lake Analytics. |No  |
 | **subscriptionId** |ID sottoscrizione di Azure |No (se non specificata, viene usata la sottoscrizione della Data factory). |
 | **resourceGroupName** |Nome del gruppo di risorse di Azure |No (se non specificata, viene usato il gruppo di risorse di Data Factory). |
@@ -65,11 +64,11 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Specificare l'ID client dell'applicazione. | Sì |
-| **servicePrincipalKey** | Specificare la chiave dell'applicazione. | Sì |
-| **tenant** | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
+| **servicePrincipalId** | Specificare l'ID client dell'applicazione. | Yes |
+| **servicePrincipalKey** | Specificare la chiave dell'applicazione. | Yes |
+| **tenant** | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Yes |
 
-**Esempio: autenticazione basata su entità servizio**
+**Esempio: autenticazione di un'entità servizio**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -93,10 +92,10 @@ In alternativa, è possibile usare l'autenticazione delle credenziali dell'utent
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| **authorization** | Fare clic sul pulsante **Autorizza** nell'editor di Data Factory e immettere le credenziali per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Sì |
-| **sessionId** | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì |
+| **authorization** | Fare clic sul pulsante **Autorizza** nell'editor di Data Factory e immettere le credenziali per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Yes |
+| **sessionId** | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Yes |
 
-**Esempio: autenticazione basata su credenziali utente**
+**Esempio: Autenticazione basata su credenziali utente**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -115,7 +114,7 @@ In alternativa, è possibile usare l'autenticazione delle credenziali dell'utent
 ```
 
 #### <a name="token-expiration"></a>Scadenza del token
-Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione potrebbe essere visualizzato un messaggio di errore simile al seguente: Errore dell'operazione relativa alle credenziali: invalid_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z.
+Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. È possibile che venga visualizzato il seguente messaggio di errore alla **scadenza del token** di autenticazione: Errore dell'operazione relativa alle credenziali: invalid_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: la concessione dell'accesso specificata è scaduta o è stata revocata. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
 
 | Tipo di utente | Scade dopo |
 |:--- |:--- |
@@ -209,8 +208,8 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 
 | Proprietà            | DESCRIZIONE                              | Obbligatoria                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| Tipo                | La proprietà type deve essere impostata su **DataLakeAnalyticsU-SQL**. | Sì                                      |
-| linkedServiceName   | Riferimento all'istanza di Azure Data Lake Analytics registrata come servizio collegato in Data Factory | Sì                                      |
+| Tipo                | La proprietà type deve essere impostata su **DataLakeAnalyticsU-SQL**. | Yes                                      |
+| linkedServiceName   | Riferimento all'istanza di Azure Data Lake Analytics registrata come servizio collegato in Data Factory | Yes                                      |
 | scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | No (se si usa uno script)                   |
 | scriptLinkedService | Servizi collegati che collegano la risorsa di archiviazione contenente lo script alla Data factory | No (se si usa uno script)                   |
 | script              | Specificare lo script inline anziché scriptPath e scriptLinkedService. Ad esempio: `"script": "CREATE DATABASE test"`. | No (se si usano le proprietà scriptPath e scriptLinkedService) |

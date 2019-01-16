@@ -4,22 +4,20 @@ description: Informazioni sulle funzioni che è possibile usare in un modello di
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 110b909106f5b9eae639639adf418647e3e8bea9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407355"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022343"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funzioni di distribuzione per i modelli di Azure Resource Manager 
 
@@ -97,6 +95,8 @@ Quando si [distribuisce in una sottoscrizione di Azure](deploy-to-subscription.m
     "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
 }
 ```  
+
+Se si ridistribuisce un modello dalla cronologia di distribuzione nel portale, il modello viene distribuito come file locale. La proprietà `templateLink` non viene restituita nella funzione di distribuzione. Se il modello si basa su `templateLink` per costruire un collegamento a un altro modello, non usare il portale per la ridistribuzione. Usare invece i comandi usati in origine per distribuire il modello.
 
 ### <a name="example"></a>Esempio
 

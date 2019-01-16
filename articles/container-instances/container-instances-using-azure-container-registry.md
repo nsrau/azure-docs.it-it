@@ -5,29 +5,29 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bbdf9a88c19e8006ffa9669b0c6d95d85506b256
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854457"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064645"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di contenitore di Azure da Registro contenitori di Azure
 
-Registro contenitori di Azure è un registro privato basato su Azure per le immagini del contenitore Docker. Questo articolo illustra come distribuire in Istanze di contenitore di Azure immagini del contenitore archiviate in un registro contenitori di Azure.
+[Registro Azure Container](../container-registry/container-registry-intro.md) è un servizio gestito di registro contenitori usato per archiviare immagini di un contenitore Docker privato. Questo articolo illustra come distribuire in Istanze di contenitore di Azure immagini del contenitore archiviate in un registro contenitori di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-**Registro contenitori di Azure**: per completare i passaggi descritti in questo articolo sono necessari un registro contenitori di Azure e almeno un'immagine del contenitore nel registro. Se occorre un registro, vedere [Creare un registro di contenitori usando l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
+**Registro Azure Container**: per completare i passaggi descritti in questo articolo, sono necessari un registro Azure Container e almeno un'immagine del contenitore nel registro. Se occorre un registro, vedere [Creare un registro di contenitori usando l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
 **Interfaccia della riga di comando di Azure**: gli esempi della riga di comando in questo articolo usano l'[interfaccia della riga di comando di Azure](/cli/azure/) e sono formattati per la shell Bash. È possibile [installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) localmente o usare [Azure Cloud Shell][cloud-shell-bash].
 
 ## <a name="configure-registry-authentication"></a>Configurare l'autenticazione del registro
 
-In qualsiasi scenario di produzione l'accesso a un registro contenitori di Azure deve essere fornito tramite [entità servizio](../container-registry/container-registry-auth-service-principal.md). Mediante le entità servizio è possibile fornire il controllo degli accessi in base al ruolo alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
+In qualsiasi scenario di produzione l'accesso a un registro contenitori di Azure deve essere fornito tramite [entità servizio](../container-registry/container-registry-auth-service-principal.md). Le entità servizio consentono di fornire il [controllo degli accessi in base al ruolo](../container-registry/container-registry-roles.md) alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
 
 In questa sezione vengono creati un insieme di credenziali delle chiavi di Azure e un'entità servizio e le credenziali dell'entità servizio vengono archiviate nell'insieme.
 
@@ -35,7 +35,7 @@ In questa sezione vengono creati un insieme di credenziali delle chiavi di Azure
 
 Se non si ha già un insieme di credenziali delle chiavi in [Azure Key Vault](/azure/key-vault/), crearne uno usando i comandi seguenti nell'interfaccia della riga di comando di Azure.
 
-Aggiornare la variabile `RES_GROUP` con il nome del gruppo di risorse in cui creare l'insieme di credenziali delle chiavi e `ACR_NAME` con il nome del registro contenitori. Specificare un nome per il nuovo insieme di credenziali delle chiavi in `AKV_NAME`. Il nome dell'insieme di credenziali deve essere univoco in Azure e avere una lunghezza compresa tra 3 e 24 caratteri alfanumerici, iniziare con una lettera, finire con una lettera o una cifra e non contenere trattini consecutivi.
+Aggiornare la variabile `RES_GROUP` con il nome di un gruppo di risorse esistente in cui creare l'insieme di credenziali delle chiavi e `ACR_NAME` con il nome del registro contenitori. Specificare un nome per il nuovo insieme di credenziali delle chiavi in `AKV_NAME`. Il nome dell'insieme di credenziali deve essere univoco in Azure e avere una lunghezza compresa tra 3 e 24 caratteri alfanumerici, iniziare con una lettera, finire con una lettera o una cifra e non contenere trattini consecutivi.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -57,14 +57,14 @@ az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
   --value $(az ad sp create-for-rbac \
-                --name $ACR_NAME-pull \
+                --name http://$ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-L'argomento `--role` nel comando precedente configura l'entità servizio con il ruolo *lettore*, che concede l'accesso di tipo pull-only al registro. Per concedere l'accesso sia push che pull, impostare l'argomento `--role` su *collaboratore*.
+L'argomento `--role` nel comando precedente configura l'entità servizio con il ruolo *acrpull*, che concede l'accesso al registro con autorizzazioni solo di pull. Per concedere l'accesso con autorizzazioni sia di push che di pull, impostare l'argomento `--role` su *acrpush*.
 
 Quindi, archiviare nell'insieme di credenziali il valore *appId* dell'entità servizio, che corrisponde al **nome utente** passato a Registro contenitori di Azure per l'autenticazione.
 
@@ -87,14 +87,20 @@ Ora è possibile fare riferimento a questi segreti per nome quando gli utenti o 
 
 Ora che le credenziali dell'entità servizio sono archiviate nei segreti di Azure Key Vault, le applicazioni e i servizi possono usarle per accedere al registro privato.
 
+Ottenere prima di tutto il nome del server di accesso del registro usando il comando [az acr show][az-acr-show]. Il nome del server di accesso contiene solo lettere minuscole ed è simile a `myregistry.azurecr.io`.
+
+```azurecli
+ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
+```
+
 Eseguire il comando [az container create][az-container-create] seguente per distribuire un'istanza di contenitore. Il comando usa le credenziali dell'entità servizio archiviate in Azure Key Vault per eseguire l'autenticazione con il registro contenitori e presuppone che sia stato precedentemente eseguito il push dell'immagine [aci-helloworld](container-instances-quickstart.md) nel registro. Aggiornare il valore di `--image` se si vuole usare un'immagine del registro diversa.
 
 ```azurecli
 az container create \
     --name aci-demo \
     --resource-group $RES_GROUP \
-    --image $ACR_NAME.azurecr.io/aci-helloworld:v1 \
-    --registry-login-server $ACR_NAME.azurecr.io \
+    --image $ACR_LOGIN_SERVER/aci-helloworld:v1 \
+    --registry-login-server $ACR_LOGIN_SERVER \
     --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) \
     --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) \
     --dns-name-label aci-demo-$RANDOM \
@@ -104,7 +110,7 @@ az container create \
 Il valore di `--dns-name-label` deve essere univoco in Azure, quindi il comando precedente accoda un numero casuale all'etichetta del nome DNS del contenitore. L'output del comando visualizza il nome di dominio completo (FQDN) del contenitore, ad esempio:
 
 ```console
-$ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_NAME.azurecr.io/aci-helloworld:v1 --registry-login-server $ACR_NAME.azurecr.io --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label aci-demo-$RANDOM --query ipAddress.fqdn
+$ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_LOGIN_SERVER/aci-helloworld:v1 --registry-login-server $ACR_LOGIN_SERVER --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label aci-demo-$RANDOM --query ipAddress.fqdn
 "aci-demo-25007.eastus.azurecontainer.io"
 ```
 
@@ -158,6 +164,7 @@ Per altre informazioni sull'autenticazione con Registro contenitori di Azure, ve
 [cloud-shell-powershell]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
+[az-acr-show]: /cli/azure/acr#az-acr-show
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-container-create]: /cli/azure/container#az-container-create
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set

@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e561a59ebe503e0088362087dbda4d7d89fee4c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 35c0d9190a11ad76ef44b43ef5160d2b39bee1fc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275687"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016912"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Versione corrente](connector-oracle.md)
 
@@ -59,11 +58,11 @@ Per il servizio collegato di Oracle sono supportate le proprietà seguenti.
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **Oracle**. | Yes |
-| connectionString | Specifica le informazioni necessarie per la connessione all'istanza del database Oracle. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Tipo di connessione supportato**: è possibile usare l'**ID di sicurezza Oracle** o il **nome del servizio Oracle** per identificare il database:<br>- Se si usa il SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Se si usa il nome del servizio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Yes |
+| connectionString | Specifica le informazioni necessarie per la connessione all'istanza del database Oracle. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Tipo di connessione supportato**: per identificare il database, è possibile usare il **SID Oracle** o il **nome del servizio Oracle**:<br>- Se si usa il SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Se si usa il nome del servizio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Yes |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 >[!TIP]
->Se si trova l'errore che indica "ORA 01025:UPI parameter out of range" e la versione Oracle è la 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione e riprovare.
+>Se si verifica l'errore "ORA 01025: UPI parameter out of range" (parametro UPI esterno all'intervallo) e la versione Oracle è la 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione e riprovare.
 
 **Per abilitare la crittografia sulla connessione Oracle**, sono disponibili due opzioni:
 

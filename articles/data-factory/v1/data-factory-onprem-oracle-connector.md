@@ -9,21 +9,20 @@ ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 848616bb69aa0eae384b9c4e7ea1c2ac3da3c04e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167121"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024910"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiare dati da o verso un database Oracle locale con Azure Data Factory
 
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](data-factory-onprem-oracle-connector.md)
 > * [Versione 2 (corrente)](../connector-oracle.md)
 
@@ -70,7 +69,7 @@ Il connettore Oracle supporta due versioni di driver:
     > Il driver Microsoft per Oracle supporta attualmente solo la copia dei dati da Oracle, ma non la scrittura in Oracle. La funzionalità di connessione di test nella scheda **Diagnostica** di Gateway di gestione dati non supporta questo driver. In alternativa, è possibile usare la Copia guidata per convalidare la connettività.
     >
 
-- **Provider di dati Oracle per .NET:** è possibile usare il provider di dati Oracle per copiare i dati da o verso Oracle. Questo componente è incluso in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installare la versione corrispondente (32 bit o 64 bit) nel computer in cui è installato il gateway. Il [provider di dati Oracle per .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) può accedere a Oracle Database 10g Release 2 e versioni successive.
+- **Provider di dati Oracle per .NET**: è possibile usare il provider di dati Oracle per copiare i dati da o verso Oracle. Questo componente è incluso in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installare la versione corrispondente (32 bit o 64 bit) nel computer in cui è installato il gateway. Il [provider di dati Oracle per .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) può accedere a Oracle Database 10g Release 2 e versioni successive.
 
     Se si sceglie di **installare XCopy**, completare i passaggi descritti nel file readme.htm. È consigliabile selezionare il programma di installazione con l'interfaccia utente (non il programma di installazione XCopy).
 
@@ -82,7 +81,7 @@ Se si usa la Copia guidata per creare la pipeline di copia, il tipo di driver vi
 
 È possibile creare una pipeline con un'attività di copia. La pipeline sposta i dati da o verso un database Oracle locale usando diversi strumenti o API.
 
-Il modo più semplice per creare una pipeline è usare la Copia guidata. Vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md) per una rapida procedura dettagliata di creazione di una pipeline mediante la procedura guidata Copia dati.
+Il modo più semplice per creare una pipeline è usare la Copia guidata. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md) per una rapida procedura dettagliata di creazione di una pipeline mediante la procedura guidata Copia dati.
 
 Per creare una pipeline, è possibile usare anche uno di questi strumenti: il **portale di Azure**, **Visual Studio**, **Azure PowerShell**, un **modello di Azure Resource Manager**, l'**API .NET** o l'**API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -111,7 +110,7 @@ La tabella seguente descrive gli elementi JSON specifici del servizio collegato 
 **Esempio: mediante il driver Microsoft**
 
 > [!TIP]
-> Se viene visualizzato un errore che indica "ORA 01025: UPI parameter out of range" (Parametro UPI fuori intervallo) e la versione Oracle è la 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione e riprovare:
+> Se viene visualizzato un errore che indica "ORA 01025: UPI parameter out of range" (parametro UPI esterno all'intervallo) e la versione Oracle è la 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione e riprovare:
 
 ```json
 {
@@ -182,7 +181,7 @@ Nell'attività di copia con origine di tipo **OracleSource** sono disponibili le
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |**timespan**<br/><br/> Ad esempio: 00:30:00 (30 minuti) |No  |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |**timespan**<br/><br/> Esempio: 00:30:00 (30 minuti) |No  |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge il valore di **writeBatchSize**. |Numero intero (numero di righe) |No (valore predefinito: 100) |
 | sqlWriterCleanupScript |Specifica una query da eseguire nell'attività di copia per eseguire la pulizia dei dati di una sezione specifica. |Istruzione di query. |No  |
 | sliceIdentifierColumnName |Specifica il nome della colonna per l'attività di copia da riempire con un identificatore di sezione generato automaticamente.  Il valore di **sliceIdentifierColumnName** viene usato per eseguire la pulizia dei dati di una sezione specifica quando viene nuovamente eseguita. |Nome di colonna di una colonna con tipo di dati **binary(32)**. |No  |

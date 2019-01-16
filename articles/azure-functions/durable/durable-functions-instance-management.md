@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ab2e35c916c6bd6f2d73a328f71710378fac890
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343939"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042462"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>Gestire le istanze in Funzioni permanenti (Funzioni di Azure)
+# <a name="manage-instances-in-durable-functions-in-azure"></a>Gestire le istanze in Durable Functions in Azure
 
 Le istanze di orchestrazione di [Funzioni permanenti](durable-functions-overview.md) possono essere avviate e terminate, è possibile eseguire query su esse e inviare a esse eventi di notifica. La gestione delle istanza viene eseguita usando l'[associazione del client di orchestrazione](durable-functions-bindings.md). Questo articolo riporta informazioni dettagliate su ogni operazione di gestione delle istanze.
 
@@ -520,7 +520,7 @@ Un'istanza di orchestrazione non riuscita può essere *riportata* a uno stato di
 > [!NOTE]
 > Questa API non deve sostituire una corretta gestione degli errori e i criteri di ripetizione dei tentativi, ma deve essere usata solo nei casi in cui le istanze di orchestrazione hanno esito negativo per motivi non previsti. Per altre informazioni sulla gestione degli errori e sui criteri di ripetizione dei tentativi, vedere l'argomento [Gestione degli errori](durable-functions-error-handling.md).
 
-Un esempio di caso d'uso di *ripristino* è un flusso di lavoro che prevede una serie di [approvazioni umane](durable-functions-overview.md#pattern-5-human-interaction). Si supponga che esista una serie di funzioni di attività in cui un utente viene informato che è necessaria la sua approvazione e che si attenda la risposta in tempo reale. Dopo che tutte le attività di approvazione hanno ricevuto le risposte o sono scadute, un'altra attività ha esito negativo a causa di un errore di configurazione dell'applicazione (come una stringa di connessione del database non valida). Ne consegue un errore di orchestrazione nel flusso di lavoro. Con l'API `RewindAsync` (.NET) o `rewindAsync` (JavaScript), un amministratore dell'applicazione può correggere l'errore di configurazione e *riportare* l'orchestrazione non riuscita allo stato immediatamente precedente all'errore. Nessuna delle operazioni che prevedono l'interazione umana deve essere nuovamente approvata e l'orchestrazione può essere ora completata.
+Un esempio di caso d'uso di *ripristino* è un flusso di lavoro che prevede una serie di [approvazioni umane](durable-functions-concepts.md#human). Si supponga che esista una serie di funzioni di attività in cui un utente viene informato che è necessaria la sua approvazione e che si attenda la risposta in tempo reale. Dopo che tutte le attività di approvazione hanno ricevuto le risposte o sono scadute, un'altra attività ha esito negativo a causa di un errore di configurazione dell'applicazione (come una stringa di connessione del database non valida). Ne consegue un errore di orchestrazione nel flusso di lavoro. Con l'API `RewindAsync` (.NET) o `rewindAsync` (JavaScript), un amministratore dell'applicazione può correggere l'errore di configurazione e *riportare* l'orchestrazione non riuscita allo stato immediatamente precedente all'errore. Nessuna delle operazioni che prevedono l'interazione umana deve essere nuovamente approvata e l'orchestrazione può essere ora completata.
 
 > [!NOTE]
 > La funzionalità di *ripristino* non supporta istanze di ripristino dell'orchestrazione in cui siano usati timer permanenti.

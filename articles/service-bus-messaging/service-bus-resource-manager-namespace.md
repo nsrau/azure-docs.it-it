@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: c616ad86e6846800d214feeaf100f63e311f78b0
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282731"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062068"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio tramite il modello di Azure Resource Manager
 In questa guida introduttiva viene creato un modello di Azure Resource Manager che crea uno spazio dei nomi del bus di servizio di tipo **Messaggistica** con uno SKU **Standard**. L'articolo definisce anche i parametri specificati per eseguire la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates]. Per il modello completo, vedere il [modello dello spazio dei nomi del bus di servizio][Service Bus namespace template] su GitHub.
@@ -96,7 +96,7 @@ Creare un file JSON denominato **MyServiceBusNamespace.json** con il contenuto s
 }
 ```
 
-Questo modello crea uno spazio dei nomi del bus di servizio standard.
+Questo modello crea uno spazio dei nomi del bus di servizio standard. Per la sintassi e le proprietà JSON, vedere le informazioni di riferimento sui modelli [spazi dei nomi](/azure/templates/microsoft.servicebus/namespaces).
 
 ## <a name="create-the-parameters-json"></a>Creare i parametri JSON
 Il modello creato nel passaggio precedente include una sezione denominata `Parameters`. Definire i parametri per i valori che variano in base al progetto distribuito o all'ambiente di destinazione. Questo modello definisce i parametri seguenti: **serviceBusNamespaceName**, **serviceBusSku** e **location**. Per altre informazioni sugli SKU del bus di servizio, vedere [Prezzi di Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/) da creare.

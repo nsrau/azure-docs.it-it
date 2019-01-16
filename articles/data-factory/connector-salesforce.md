@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: bc98fc2465c280c41a77823de239a5572c5d27e4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409578"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015084"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce usando Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-salesforce-connector.md)
 > * [Versione corrente](connector-salesforce.md)
 
@@ -61,7 +60,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 
 Per il servizio collegato di Salesforce sono supportate le proprietà seguenti.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type |La proprietà type deve essere impostata su **Salesforce**. |Sì |
 | environmentUrl | Specificare l'URL dell'istanza di Salesforce. <br> - Il valore predefinito è `"https://login.salesforce.com"`. <br> - Per copiare dati dalla sandbox, specificare `"https://test.salesforce.com"`. <br> - Per copiare dati dal dominio personalizzato, specificare ad esempio `"https://[domain].my.salesforce.com"`. |No  |
@@ -139,7 +138,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da e in Salesforce, impostare la proprietà type del set di dati su **SalesforceObject**. Sono supportate le proprietà seguenti.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **SalesforceObject**.  | Sì |
 | objectApiName | Nome dell'oggetto di Salesforce da cui recuperare i dati. | No per l'origine, Sì per il sink |
@@ -168,9 +167,9 @@ Per copiare dati da e in Salesforce, impostare la proprietà type del set di dat
 ```
 
 >[!NOTE]
->Per compatibilità con le versioni precedenti, quando si copiano dati da Salesforce, l'uso del set di dati di tipo "RelationalTable" precedente continua a funzionare, anche se viene consigliato di passare all'uso del nuovo tipo "SalesforceObject".
+>Per compatibilità con le versioni precedenti: quando si copiano dati da Salesforce, l'uso del set di dati di tipo "RelationalTable" precedente continua a funzionare, anche se viene consigliato di passare all'uso del nuovo tipo "SalesforceObject".
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su **RelationalTable**. | Sì |
 | tableName | Nome della tabella in Salesforce. | No (se nell'origine dell'attività è specificato "query") |
@@ -183,7 +182,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Salesforce, impostare il tipo di origine nell'attività di copia su **SalesforceSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **SalesforceSource**. | Sì |
 | query |Usare la query personalizzata per leggere i dati. È possibile usare una query SQL-92 o una query [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Vedere altri suggerimenti nella sezione [Suggerimenti di query](#query-tips). Se la proprietà query non viene specificata, tutti i dati dell'oggetto Salesforce specificato in "objectApiName" nel set di dati verranno recuperati. | No (se "objectApiName" è specificato nel set di dati) |
@@ -227,13 +226,13 @@ Per copiare dati da Salesforce, impostare il tipo di origine nell'attività di c
 ```
 
 >[!NOTE]
->Per compatibilità con le versioni precedenti, quando si copiano dati da Salesforce, se si usa il tipo "RelationalSource" precedente, l'origine continua a funzionare anche se viene consigliato di passare all'uso del nuovo tipo "SalesforceSource".
+>Per compatibilità con le versioni precedenti: quando si copiano dati da Salesforce, l'uso del set di dati di tipo "RelationalSource" precedente continua a funzionare, anche se viene consigliato di passare all'uso del nuovo tipo "SalesforceSource".
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce come tipo di sink
 
 Per copiare dati in Salesforce, impostare il tipo di sink nell'attività di copia su **SalesforceSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del sink dell'attività di copia deve essere impostata su **SalesforceSink**. | Sì |
 | writebehavior | Comportamento dell'azione di scrittura per l'operazione.<br/>I valori consentiti sono: **Insert** e **Upsert**. | No (il valore predefinito è Insert) |

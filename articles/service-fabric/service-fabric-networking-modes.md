@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866067"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024791"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
@@ -35,7 +35,7 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
 
 ## <a name="set-up-open-networking-mode"></a>Configurare la modalità di rete Open
 
-1. Configurare il modello Azure Resource Manager. Nella sezione **fabricSettings** abilitare il servizio DNS e il provider di IP: 
+1. Configurare il modello Azure Resource Manager. Nella sezione **fabricSettings** della risorsa cluster abilitare il servizio DNS e il provider di IP: 
 
     ```json
     "fabricSettings": [
@@ -77,8 +77,10 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
                 }
             ],
     ```
+    
+2. Configurare la sezione relativa al profilo di rete della risorsa set di scalabilità di macchine virtuali. Ciò consente la configurazione di più indirizzi IP in ogni nodo del cluster. Nell'esempio seguente vengono configurati cinque indirizzi IP per ogni nodo di un cluster di Service Fabric basato su Windows/Linux. Per ogni nodo, quindi, è possibile avere cinque istanze di servizio in ascolto sulla porta. Affinché i cinque indirizzi IP siano accessibili da Azure Load Balancer, registrare i cinque indirizzi IP nel Pool di indirizzi di back-end di Azure Load Balancer come mostrato di seguito.  Sarà necessario anche aggiungere le variabili all'inizio del modello nella sezione relativa alle variabili.
 
-2. Configurare la sezione del profilo di rete per consentire la configurazione di più indirizzi IP in ogni nodo del cluster. Nell'esempio seguente vengono configurati cinque indirizzi IP per ogni nodo di un cluster di Service Fabric basato su Windows/Linux. Per ogni nodo, quindi, è possibile avere cinque istanze di servizio in ascolto sulla porta. Affinché i cinque indirizzi IP siano accessibili da Azure Load Balancer, registrare i cinque indirizzi IP nel Pool di indirizzi di back-end di Azure Load Balancer come mostrato di seguito.
+    Aggiungere questa sezione a Variables:
 
     ```json
     "variables": {
@@ -97,6 +99,11 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
         "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
         "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
     }
+    ```
+    
+    Aggiungere questa sezione alla risorsa set di scalabilità di macchine virtuali:
+
+    ```json   
     "networkProfile": {
                 "networkInterfaceConfigurations": [
                   {

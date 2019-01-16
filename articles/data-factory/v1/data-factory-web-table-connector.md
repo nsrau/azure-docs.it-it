@@ -9,20 +9,19 @@ ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 05833599059c2724529f9fd23edcd86934793835
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1ba8db3ebe2caf4c37d147f744326b6e631cb556
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048857"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022054"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Spostare i dati da un'origine tabella Web con Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](data-factory-web-table-connector.md)
 > * [Versione 2 (corrente)](../connector-web-table.md)
 
@@ -36,7 +35,7 @@ Data Factory supporta attualmente solo lo spostamento di dati da una tabella Web
 > [!IMPORTANT]
 > Questo connettore Web attualmente supporta soltanto l'estrazione del contenuto della tabella da una pagina HTML. Per recuperare dati da un endpoint HTTP/s, usare invece il [connettore HTTP](data-factory-http-connector.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per usare questo connettore tabella Web, è necessario impostare un runtime di integrazione self-hosted (ovvero un gateway di gestione dati) e configurare la proprietà `gatewayName` nel servizio collegato sink. Ad esempio, per copiare dalla tabella Web all'archiviazione BLOB di Azure, configurare il servizio collegato di archiviazione di Azure come indicato di seguito:
 
@@ -56,8 +55,8 @@ Per usare questo connettore tabella Web, è necessario impostare un runtime di i
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
-- È possibile anche usare gli strumenti seguenti per creare una pipeline: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
+- Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -65,7 +64,7 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. 
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con le definizioni JSON per le entità di Data Factory usate per copiare dati da una tabella Web, vedere la sezione [Esempio JSON: Copiare dati da una tabella Web a BLOB di Azure](#json-example-copy-data-from-web-table-to-azure-blob) di questo articolo. 
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di Data Factory usate per copiare dati da una tabella Web, vedere la sezione [Esempio di JSON: Copiare dati da una tabella Web a BLOB di Azure](#json-example-copy-data-from-web-table-to-azure-blob) di questo articolo. 
 
 Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità della Data Factory specifiche di una tabella Web:
 
@@ -74,9 +73,9 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **Web** |Sì |
-| Url |URL dell'origine Web |Sì |
-| authenticationType |Anonimo. |Sì |
+| type |La proprietà type deve essere impostata su: **Web** |Yes |
+| Url |URL dell'origine Web |Yes |
+| authenticationType |Anonimo. |Yes |
 
 ### <a name="using-anonymous-authentication"></a>Uso dell'autenticazione anonima
 
@@ -102,9 +101,9 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type |Tipo del set di dati. Deve essere impostato su **WebTable** |Sì |
-| path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
-| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
+| type |Tipo del set di dati. Deve essere impostato su **WebTable** |Yes |
+| path |URL relativo della risorsa che contiene la tabella. | No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
+| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Yes |
 
 **Esempio:**
 
@@ -135,7 +134,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 Quando l'origine nell'attività di copia è di tipo **WebSource**non sono attualmente supportate altre proprietà.
 
 
-## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>Esempio JSON: Copiare dati da una tabella Web a BLOB di Azure
+## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>Esempio di JSON: Copiare dati da una tabella Web a BLOB di Azure
 L'esempio seguente mostra:
 
 1. Un servizio collegato di tipo [Web](#linked-service-properties).
@@ -209,7 +208,7 @@ Questo esempio illustra come copiare dati da una tabella Web a un BLOB di Azure.
 
 **Set di dati di output del BLOB di Azure**
 
-I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1).
+I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: oraria, intervallo: 1).
 
 ```json
 {
@@ -290,7 +289,7 @@ Per l'elenco delle proprietà supportate da WebSource, vedere le [proprietà del
 2. Fare clic su **Nuova query** sulla barra degli strumenti, scegliere **Da altre origini** e fare clic su **Da Web**.
 
     ![Menu di Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. Nella finestra di dialogo **Da Web** immettere l'**URL** che si intende usare nel servizio collegato JSON, ad esempio https://en.wikipedia.org/wiki/), insieme al percorso specificato per il set di dati, ad esempio AFI%27s_100_Years...100_Movies e fare clic su **OK**.
+3. Nella finestra di dialogo **Da Web** immettere l'**URL** che si intende usare nel codice JSON del servizio collegato (ad esempio, https://en.wikipedia.org/wiki/) insieme al percorso specificato per il set di dati (ad esempio, AFI%27s_100_Years...100_Movies) e fare clic su **OK**.
 
     ![Finestra di dialogo Da Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 

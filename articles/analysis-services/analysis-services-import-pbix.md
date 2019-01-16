@@ -5,25 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3adf0c9c2e2b264904e66b82716447d634aaeee7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 47223f22c797d892bc7cbdc0086439ee9cae9fcb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209650"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187723"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importare un file di Power BI Desktop
 
-È possibile importare un modello di dati in un file di Power BI Desktop in Azure Analysis Services. Vengono importati i metadati del modello, i dati memorizzati nella cache e le connessioni dell'origine dati. Non vengono importati i report e le visualizzazioni. I modelli di dati importati da Power BI Desktop hanno il livello di compatibilità 1400.
+È possibile importare un modello di dati in un file di Power BI Desktop in Azure Analysis Services. Vengono importati i metadati del modello, i dati memorizzati nella cache e le connessioni dell'origine dati. Non vengono importati i report e le visualizzazioni. I modelli di dati importati da Power BI Desktop hanno i livelli di compatibilità 1400 e 1465.
 
 > [!IMPORTANT]
 > Questa funzionalità è deprecata. Potrebbe venire rimossa o cambiata in modo significativo in un aggiornamento futuro. È consigliabile interrompere l'uso di questa funzionalità nei progetti nuovi ed esistenti per mantenere la compatibilità con gli aggiornamenti futuri. Per operazioni più avanzate di sviluppo e testing dei modelli, è consigliabile usare Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
 
-**Restrizioni**   
-
+## <a name="restrictions"></a>Restrizioni  
 
 - Se il modello di dati è stato creato in Power BI Desktop, aggiornamento di luglio 2018 (2.60.5169.3201) o successivo, assicurarsi che nessuna funzionalità di anteprima è abilitata. Le funzionalità di anteprima non sono ancora supportate in Azure Analysis Services. Se viene visualizzato l'errore seguente durante l'importazione, sono abilitate funzionalità di anteprima del file pbix che non sono ancora supportate in Azure Analysis Services.
 

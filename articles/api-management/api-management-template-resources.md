@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4a7e3e9ff414c8f7ba1c49924f1d8659d72ae3e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970332"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158211"
 ---
 # <a name="azure-api-management-template-resources"></a>Risorse del modello Gestione API di Azure
 Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli del portale per sviluppatori.  
@@ -108,7 +108,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Are you sure that you want to remove application? (Rimuovere l'applicazione?)|  
 |WebDevelopersAppNotPublished|Not published (Non pubblicata)|  
-|WebDevelopersAppNotSubminted|Not submitted (Non inviata)|  
+|WebDevelopersAppNotSubmitted|Not submitted (Non inviata)|  
 |WebDevelopersAppTableCategoryHeader|Categoria|  
 |WebDevelopersAppTableNameHeader|NOME|  
 |WebDevelopersAppTableStateHeader|Stato|  
@@ -275,7 +275,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |OAuth2TokenType_ImplicitGrant_AuthorizationResponse|OBBLIGATORIO. The type of the token issued. (Il tipo di token generato.)|  
 |OAuth2TokenType_ResourceOwnerPasswordCredentialsGrant_TokenResponse|OBBLIGATORIO. The type of the token issued. (Il tipo di token generato.)|  
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|OBBLIGATORIO. Il nome utente del proprietario delle risorse.|  
-|OAuth2UnsupportedTokenType|Il tipo di token "{0}" non è supportato.|  
+|OAuth2UnsupportedTokenType|Il tipo di token '{0}' non è supportato.|  
 |OAuth2InvalidState|Invalid response from authorization server (Risposta non valida dal server di autorizzazione)|  
 |OAuth2GrantType_AuthorizationCode|Authorization code (Codice di autorizzazione)|  
 |OAuth2GrantType_Implicit|Implicit (Implicita)|  
@@ -287,7 +287,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |OAuth2SendingMethod_QueryParam|Query parameter (Parametro di query)|  
 |OAuth2AuthorizationServerGeneralException|Si è verificato un errore durante l'autorizzazione di accesso tramite {0}|  
 |OAuth2AuthorizationServerCommunicationException|An HTTP connection to authorization server could not be established or it has been unexpectedly closed. (Non è stato possibile stabilire la connessione HTTP al server di autorizzazione oppure è stata chiusa in modo imprevisto.)|  
-|WebDocumentationOAuth2GeneralErrorMessage|Errore imprevisto.|  
+|WebDocumentationOAuth2GeneralErrorMessage|Si è verificato un errore imprevisto.|  
 |AuthorizationServerCommunicationException|Authorization server communication exception has happened. (Si è verificata un'eccezione di comunicazione con il server di autorizzazione.) Contattare l'amministratore.|  
 |TextblockSubscriptionKeyHeaderDescription|Subscription key which provides access to this API. (Chiave di sottoscrizione che fornisce l'accesso a questa API.) Si trova in <a href='/developer'\>Profilo</a\>.|  
 |TextblockOAuthHeaderDescription|Token di accesso OAuth 2.0 ottenuto da <i\>{0}</i\>. Tipi di concessione supportati: <i\>{1}</i\>.|  
@@ -361,7 +361,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |WebProductsUsageLimitsHeader|Limiti di consumo|  
 |WebProductsYouAreNotSubscribed|You are subscribed to this product. (È presente una sottoscrizione al prodotto.)|  
 |WebProductsYouRequestedSubscription|You requested subscription to this product. (È stata richiesta una sottoscrizione al prodotto.)|  
-|ErrorYouNeedtoAgreeWithLegalTerms|You must agree to the Terms of Use before you can proceed. (È necessario accettare le Condizioni per l'utilizzo prima di continuare.)|  
+|ErrorYouNeedToAgreeWithLegalTerms|You must agree to the Terms of Use before you can proceed. (È necessario accettare le Condizioni per l'utilizzo prima di continuare.)|  
 |ButtonLabelAddSubscription|Aggiungi sottoscrizione|  
 |LinkLabelChangeSubscriptionName|change (modifica)|  
 |ButtonLabelConfirm|Confirm|  
@@ -517,7 +517,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |WebDevelopersSecondaryKey|Secondary key (Chiave secondaria)|  
 |ButtonLabelShowKey|Mostra|  
 |ButtonLabelRenewSubscription|Renew|  
-|WebDevelopersSubscriptionReqested|Richiesta in data {0}|  
+|WebDevelopersSubscriptionRequested|Richiesta in data {0}|  
 |WebDevelopersSubscriptionRequestedState|Requested (Richiesta)|  
 |WebDevelopersSubscriptionTableNameHeader|NOME|  
 |WebDevelopersSubscriptionTableStateHeader|Stato|  

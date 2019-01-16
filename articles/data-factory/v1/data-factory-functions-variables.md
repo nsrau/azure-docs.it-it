@@ -9,17 +9,16 @@ ms.assetid: b6b3c2ae-b0e8-4e28-90d8-daf20421660d
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b4d9a684c2c21ed9ec00b04963432f9ebcff7493
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 48a0bf2a7209812af23c3dd9eec9703ec5826fa9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048455"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019572"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funzioni e variabili di sistema
 > [!NOTE]
@@ -80,24 +79,24 @@ Le tabelle seguenti elencano tutte le funzioni di Data factory di Azure.
 
 | Categoria | Funzione | Parametri | DESCRIZIONE |
 | --- | --- | --- | --- |
-| Tempo |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y ore all'ora X specificata. <br/><br/>Esempio: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Tempo |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y minuti a X.<br/><br/>Esempio: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Tempo |StartOfHour(X) |X: DateTime  |Ottiene l'ora di inizio per l'ora rappresentata dal componente ora di X. <br/><br/>Esempio: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Data |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Aggiunge Y giorni a X. <br/><br/>Esempio: 9/15/2013 12:00:00 PM + 2 giorni = 9/17/2013 12:00:00 PM.<br/><br/>È possibile anche sottrarre giorni specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Data |AddMonths(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y mesi a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>È possibile anche sottrarre mesi specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Data |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y * 3 mesi a X.<br/><br/>Esempio: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Data |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |Aggiunge Y * 7 giorni a X.<br/><br/>Esempio: 15/09/2013 12:00:00 + 1 settimana = 22/09/2013 12:00:00<br/><br/>È possibile anche sottrarre settimane specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Data |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |Aggiunge Y anni a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>È possibile anche sottrarre anni specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Data |Day(X) |X: DateTime |Ottiene il componente giorno di X.<br/><br/>Esempio: `Day of 9/15/2013 12:00:00 PM is 9`. |
-| Data |DayOfWeek(X) |X: DateTime |Ottiene il giorno del componente settimana di X.<br/><br/>Esempio: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Data |DayOfYear(X) |X: DateTime |Ottiene il giorno dell'anno rappresentato dal componente anno di X.<br/><br/>Esempi:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| Data |DaysInMonth(X) |X: DateTime |Ottiene i giorni del mese rappresentati dal componente mese del parametro X.<br/><br/>Esempio: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
-| Data |EndOfDay(X) |X: DateTime |Ottiene la data e ora che rappresenta la fine del giorno (componente giorno) X.<br/><br/>Esempio: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Data |EndOfMonth(X) |X: DateTime |Ottiene la fine del mese rappresentato dal componente mese del parametro X. <br/><br/>Esempio: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (data e ora che rappresentano la fine del mese di settembre) |
-| Data |StartOfDay(X) |X: DateTime |Ottiene l'inizio del giorno rappresentato dal componente giorno del parametro X.<br/><br/>Esempio: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| Datetime |From(X) |X: String |Analizza la stringa X fino a una data/ora. |
-| Datetime |Ticks(X) |X: DateTime |Ottiene la proprietà dei tick del parametro X. Un tick equivale a 100 nanosecondi. Il valore di questa proprietà rappresenta il numero di tick trascorsi dalla mezzanotte 12:00:00 del 1 gennaio 0001. |
-| Text |Format(X) |X: variabile stringa |Formatta il testo (usare la combinazione `\\'` per il carattere di escape `'`).|
+| Tempo |AddHours(X,Y) |X: Datetime <br/><br/>Y: int |Aggiunge Y ore all'ora X specificata. <br/><br/>Esempio: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Tempo |AddMinutes(X,Y) |X: Datetime <br/><br/>Y: int |Aggiunge Y minuti a X.<br/><br/>Esempio: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Tempo |StartOfHour(X) |X: DateTime |Ottiene l'ora di inizio per l'ora rappresentata dal componente ora di X. <br/><br/>Esempio: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Data |AddDays(X,Y) |X: Datetime<br/><br/>Y: int |Aggiunge Y giorni a X. <br/><br/>Esempio: 9/15/2013 12:00:00 PM + 2 days = 9/17/2013 12:00:00 PM.<br/><br/>È possibile anche sottrarre giorni specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Data |AddMonths(X,Y) |X: Datetime<br/><br/>Y: int |Aggiunge Y mesi a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>È possibile anche sottrarre mesi specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Data |AddQuarters(X,Y) |X: Datetime <br/><br/>Y: int |Aggiunge Y * 3 mesi a X.<br/><br/>Esempio: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Data |AddWeeks(X,Y) |X: Datetime<br/><br/>Y: int |Aggiunge Y * 7 giorni a X.<br/><br/>Esempio: 9/15/2013 12:00:00 PM + 1 week = 9/22/2013 12:00:00 PM<br/><br/>È possibile anche sottrarre settimane specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Data |AddYears(X,Y) |X: Datetime<br/><br/>Y: int |Aggiunge Y anni a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>È possibile anche sottrarre anni specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Data |Day(X) |X: Datetime |Ottiene il componente giorno di X.<br/><br/>Esempio: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Data |DayOfWeek(X) |X: Datetime |Ottiene il giorno del componente settimana di X.<br/><br/>Esempio: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Data |DayOfYear(X) |X: Datetime |Ottiene il giorno dell'anno rappresentato dal componente anno di X.<br/><br/>Esempi:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Data |DaysInMonth(X) |X: Datetime |Ottiene i giorni del mese rappresentati dal componente mese del parametro X.<br/><br/>Esempio: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
+| Data |EndOfDay(X) |X: Datetime |Ottiene la data e ora che rappresenta la fine del giorno (componente giorno) X.<br/><br/>Esempio: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Data |EndOfMonth(X) |X: Datetime |Ottiene la fine del mese rappresentato dal componente mese del parametro X. <br/><br/>Esempio: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (data e ora che rappresentano la fine del mese di settembre) |
+| Data |StartOfDay(X) |X: Datetime |Ottiene l'inizio del giorno rappresentato dal componente giorno del parametro X.<br/><br/>Esempio: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| Datetime |From(X) |X: string |Analizza la stringa X fino a una data/ora. |
+| Datetime |Ticks(X) |X: Datetime |Ottiene la proprietà dei tick del parametro X. Un tick equivale a 100 nanosecondi. Il valore di questa proprietà rappresenta il numero di tick trascorsi dalla mezzanotte 12:00:00 del 1 gennaio 0001. |
+| Text |Format(X) |X: variabile String |Formatta il testo (usare la combinazione `\\'` per il carattere di escape `'`).|
 
 > [!IMPORTANT]
 > Quando si usa una funzione all'interno di un'altra funzione, non è necessario usare il prefisso **$$** per la funzione interna. Ad esempio: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In questo esempio il prefisso **$$** non viene usato per la funzione **Time.AddHours**. 

@@ -8,17 +8,16 @@ ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9453099af8d9be21a97808733ffa8f8bfe5a364a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047565"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022539"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Risolvere i problemi nell'uso del gateway di gestione dati
 Questo articolo offre informazioni sulla risoluzione dei problemi nell'uso del gateway di gestione dati.
@@ -169,7 +168,7 @@ Il gateway non può connettersi al servizio cloud tramite il bus di servizio.
 #### <a name="resolution"></a>Risoluzione
 Seguire questi passaggi per fare in modo che il gateway torni online:
 
-1. Consentire le regole in uscita degli indirizzi IP nel computer gateway e nel firewall aziendale. È possibile trovare gli indirizzi IP nel registro eventi di Windows (ID == 401): si è verificato un tentativo di accesso a un socket in modalità non consentite dalle relative autorizzazioni di accesso XX.XX.XX.XX:9350.
+1. Consentire le regole in uscita degli indirizzi IP nel computer gateway e nel firewall aziendale. È possibile trovare gli indirizzi IP nel log eventi di Windows (ID == 401): Si è verificato un tentativo di accesso a un socket in modalità non consentite dalle relative autorizzazioni di accesso XX.XX.XX.XX:9350.
 * Configurare le impostazioni proxy nel gateway. Per conoscere i dettagli, vedere la sezione [Considerazioni sui server proxy](#proxy-server-considerations).
 * Abilitare le porte in uscita 5671 e 9350-9354 sia su Windows Firewall nel computer gateway che nel firewall aziendale. Per conoscere i dettagli, vedere la sezione [Porte e firewall](#ports-and-firewall). Questo passaggio è facoltativo, ma consigliato per considerazioni relative alle prestazioni.
 

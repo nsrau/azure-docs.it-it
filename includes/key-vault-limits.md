@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: efa367157a8fd896cdc9680bf2ab6ba6a9e3dbb0
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 9a39abf77a7396302f93e5a423271402b7c3edb3
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429986"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084005"
 ---
 Transazioni chiave (transazioni max consentite entro 10 secondi, per ogni insieme di credenziali e per ogni area<sup>1</sup>):
 
@@ -23,6 +23,9 @@ Transazioni chiave (transazioni max consentite entro 10 secondi, per ogni insiem
 |ECC P-521|5|1000|10|2000|
 |ECC SECP256K1|5|1000|10|2000|
 |
+
+> [!NOTE]
+> Le soglie sopra elencate sono ponderate e l'imposizione viene applicata alla somma. È possibile eseguire le operazioni 125 RSA-HSM-4k e 0 RSA-HSM-2k oppure 124 RSA-HSM-4k e 16 RSA-HSM-2k. In seguito, nello stesso intervallo di 10 secondi, qualsiasi altra operazione genererà un'eccezione del client di Azure Key Vault.
 
 > [!NOTE]
 > Se si esamina la tabella seguente, si noterà che per le chiavi basate su software sono consentite 2000 transazioni ogni 10 secondi, mentre per le chiavi basate sul modulo di protezione hardware sono consentite 1000 transazioni ogni 10 secondi. Il rapporto delle transazioni basate su software per le chiavi a 3072 bit rispetto alle chiavi a 2048 bit è 500/2000 ovvero 0,4. In altre parole, se un cliente esegue 500 transazioni con chiave a 3072 bit in 10 secondi, viene raggiunto il limite massimo e non è possibile eseguire altre operazioni con chiave. 

@@ -1,13 +1,10 @@
 ---
-title: Creare, modificare o eliminare un prefisso dell'indirizzo IP pubblico di Azure | Microsoft Docs
+title: Creare, modificare o eliminare un prefisso dell'indirizzo IP pubblico di Azure
+titlesuffix: Azure Virtual Network
 description: Informazioni su come creare, modificare o eliminare un prefisso dell'indirizzo IP pubblico.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: a0ae1f3fbf9189068cae4b18ac92f0bea0498f67
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427574"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015288"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creare, modificare o eliminare un prefisso dell'indirizzo IP pubblico
 
@@ -84,7 +81,7 @@ Dopo aver creato un prefisso, è necessario creare gli indirizzi IP statici di u
 1. Nella casella che contiene il testo *Cerca risorse*, nella parte superiore del portale di Azure, digitare *prefisso di indirizzo ip pubblico*. Selezionare la voce **prefissi di indirizzi IP pubblici** visualizzata nei risultati della ricerca.
 2. Selezionare il nome del prefisso di indirizzo IP pubblico da visualizzare, eliminare dall'elenco o di cui modificare le impostazioni.
 3. Completare una delle seguenti opzioni a seconda che si desideri visualizzare, eliminare o modificare il prefisso dell'indirizzo IP pubblico.
-    - **Vista**: la sezione **Panoramica** mostra le impostazioni chiave per il prefisso dell'indirizzo IP pubblico, ad esempio prefisso.
+    - **Visualizza**: la sezione **Panoramica** mostra le impostazioni chiave per il prefisso dell'indirizzo IP pubblico, ad esempio prefisso.
     - **Elimina**: per eliminare il prefisso dell'indirizzo IP pubblico, selezionare **Elimina** nella sezione **Panoramica**. Se gli indirizzi all'interno del prefisso sono associati a risorse di indirizzo IP pubblico, è innanzitutto necessario eliminare le risorse di indirizzo IP pubblico. Vedere [eliminare un indirizzo IP pubblico](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
 
 **Comandi**

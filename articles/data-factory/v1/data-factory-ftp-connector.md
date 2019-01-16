@@ -9,17 +9,16 @@ ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bbbbaab6090941141abd7a2bbd2eac6dbf9fd354
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 52c89804c87348843bb7a4006ab38e4d417740ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051543"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025437"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Spostare dati da un server FTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,9 +43,9 @@ Se si spostano dati da un server FTP **locale** in un archivio dati cloud, ad es
 ## <a name="get-started"></a>Attività iniziali
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un'origine FTP usando diversi strumenti o API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata di Data Factory**. Per una procedura dettagliata, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
+Il modo più semplice per creare una pipeline è usare la **Copia guidata di Data Factory**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una rapida procedura dettagliata.
 
-È possibile anche usare gli strumenti seguenti per creare una pipeline: **portale di Azure**, **Visual Studio**, **PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -54,7 +53,7 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per un esempio con definizioni JSON per entità di Data Factory usate per copiare dati da un archivio dati FTP, vedere la sezione [Esempio JSON: copiare dati da un server FTP al BLOB di Azure](#json-example-copy-data-from-ftp-server-to-azure-blob) di questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per un esempio con definizioni JSON per entità di data factory usate per copiare dati da un archivio dati FTP, vedere la sezione [Esempio di JSON: Copiare dati da un server FTP a BLOB di Azure](#json-example-copy-data-from-ftp-server-to-azure-blob) di questo articolo.
 
 > [!NOTE]
 > Per altre informazioni sui formati di compressione e i file e supportati da usare, vedere [Informazioni sui formati di compressione e sui file supportati da Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
@@ -66,9 +65,9 @@ La tabella seguente descrive gli elementi JSON specifici di un servizio collegat
 
 | Proprietà | DESCRIZIONE | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
-| type |Impostare su FtpServer. |Sì |&nbsp; |
-| host |Specificare il nome o indirizzo IP del server FTP. |Sì |&nbsp; |
-| authenticationType |Specificare il tipo di autenticazione. |Sì |Di base, anonimo |
+| type |Impostare su FtpServer. |Yes |&nbsp; |
+| host |Specificare il nome o indirizzo IP del server FTP. |Yes |&nbsp; |
+| authenticationType |Specificare il tipo di autenticazione. |Yes |Di base, anonimo |
 | username |Specificare l'utente che ha accesso al server FTP. |No  |&nbsp; |
 | password |Specificare la password per l'utente (nome utente). |No  |&nbsp; |
 | encryptedCredential |Specificare le credenziali crittografate per accedere al server FTP. |No  |&nbsp; |
@@ -156,13 +155,13 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati. Fornisce 
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
-| folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) .<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio e fine delle sezioni. |Sì |
-| fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando **fileName** non viene specificato per un set di dati di output, il formato del nome del file generato è il seguente: <br/><br/>Data<Guid>.txt, ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No  |
+| folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) .<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio e fine delle sezioni. |Yes |
+| fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando **fileName** non viene specificato per un set di dati di output, il formato del nome del file generato è il seguente: <br/><br/>Data.<Guid>.txt (esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No  |
 | fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in **folderPath** anziché tutti i file.<br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempio 1: `"fileFilter": "*.log"`<br/>Esempio 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** è applicabile per un set di dati di input FileShare. Questa proprietà non è supportata con Hadoop Distributed File System (HDFS). |No  |
 | partitionedBy |Usata per specificare una proprietà **folderPath** e **fileName** dinamica per i dati della serie temporale. È ad esempio possibile specificare un **folderPath** contenente i parametri per ogni ora di dati. |No  |
-| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato AVRO](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato OCR](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No  |
+| format | Sono supportati i formati di file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato AVRO](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato OCR](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No  |
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**, mentre i livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No  |
-| useBinaryTransfer |Specificare se usare la modalità di trasferimento binario. I valori sono true per la modalità binaria (valore predefinito) e false per ASCII. Questa proprietà può essere usata solo quando il tipo di servizio collegato associato è di tipo: FtpServer. |No  |
+| useBinaryTransfer |Specificare se usare la modalità di trasferimento binario. I valori sono true per la modalità binaria (valore predefinito) e false per ASCII. Questa proprietà può essere usata solo quando il tipo di servizio collegato associato è FtpServer. |No  |
 
 > [!NOTE]
 > **fileName** e **fileFilter** non possono essere usati contemporaneamente.
@@ -209,7 +208,7 @@ Nell'attività di copia con origine di tipo **FileSystemSource**, nella sezione 
 | --- | --- | --- | --- |
 | ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No  |
 
-## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Esempio JSON: copiare i dati dal server FTP in BLOB di Azure
+## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Esempio di JSON: Copiare dati da un server FTP a BLOB di Azure
 Questo esempio illustra come copiare dati dal server FTP in Archiviazione BLOB di Azure. I dati possono tuttavia essere copiati direttamente in uno qualsiasi dei sink indicati nella sezione [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats), usando l'attività di copia in Data Factory.  
 
 Gli esempi seguenti specificano le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
@@ -287,7 +286,7 @@ Impostando **external** su **true** si comunica al servizio data factory che il 
 
 ### <a name="azure-blob-output-dataset"></a>Set di dati di output del BLOB di Azure
 
-I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
+I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: oraria, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
 
 ```JSON
 {
