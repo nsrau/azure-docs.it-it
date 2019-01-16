@@ -87,7 +87,7 @@ Per eseguire le operazioni di questa esercitazione, è necessario un cluster Spa
 
     * Immettere un nome per il cluster.
     * Per questo articolo, creare un cluster con il runtime **5.1**.
-    * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo ___ minuti di inattività). Se il cluster non viene usato, specificare una durata in minuti per terminarlo.
+    * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di inattività). Se il cluster non viene usato, specificare una durata in minuti per terminarlo.
 
 1. Selezionare **Crea cluster**.
 
@@ -336,7 +336,7 @@ Dopo aver concluso l'esercitazione è possibile terminare il cluster. Nell'area 
 
 ![Arrestare un cluster Databricks](./media/data-lake-storage-handle-data-using-databricks/terminate-databricks-cluster.png "Arrestare un cluster Databricks")
 
-Se non viene terminato manualmente, il cluster si arresta automaticamente se è stata selezionata la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo __ minuti di inattività) quando è stato creato. In tal caso, il cluster viene automaticamente arrestato se è rimasto inattivo per il tempo specificato.
+Se non viene terminato manualmente, il cluster si arresta automaticamente se è stata selezionata la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di inattività) quando è stato creato. In tal caso, il cluster viene automaticamente arrestato se è rimasto inattivo per il tempo specificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
