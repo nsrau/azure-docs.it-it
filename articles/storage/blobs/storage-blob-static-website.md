@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598891"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191820"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 Gli account per utilizzo generico v2 di Archiviazione di Azure consentono di usare contenuti statici (file HTML, CSS, JavaScript e di immagine) direttamente da un contenitore di archiviazione denominato *$web*. Sfruttando i vantaggi dell'hosting in Archiviazione di Azure è possibile di usare le architetture serverless tra cui [Funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi PaaS.
@@ -21,16 +21,16 @@ Gli account per utilizzo generico v2 di Archiviazione di Azure consentono di usa
 A differenza dell'hosting di siti Web statici, i siti dinamici che dipendono dal codice sul lato server sono meglio ospitati con il [Servizio app di Azure](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Come funziona?
-Quando si abilita l'hosting di siti Web statici nell'account di archiviazione, è possibile selezionare il nome del file predefinito e, facoltativamente, fornire un percorso a una pagina 404 personalizzata. Poiché la funzionalità è abilitata, viene creato un contenitore denominato *$web* se non esiste già. 
+Quando si abilita l'hosting di siti Web statici nell'account di archiviazione, è possibile selezionare il nome del file predefinito e, facoltativamente, fornire un percorso a una pagina 404 personalizzata. Poiché la funzionalità è abilitata, viene creato un contenitore denominato *$web* se non esiste già.
 
 I file nel contenitore *$web* sono:
 
 - gestiti tramite richieste di accesso anonimo
 - disponibili solo tramite operazioni di lettura oggetti
 - fa distinzione tra maiuscole e minuscole
-- disponibili sul Web pubblico seguendo questo modello: 
+- disponibili sul Web pubblico seguendo questo modello:
     - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- disponibili tramite un endpoint di archiviazione Blob seguendo questo modello: 
+- disponibili tramite un endpoint di archiviazione Blob seguendo questo modello:
     - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
 È possibile usare l'endpoint di archiviazione Blob per caricare i file. Ad esempio, il file caricato in questo percorso:
@@ -97,10 +97,10 @@ Query per l'URL dell'endpoint Web:
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Caricare gli oggetti nel contenitore *$web* da una directory di origine:
+Caricare gli oggetti nel contenitore *$web* da una directory di origine. Assicurarsi di far precedere da un carattere di escape il riferimento al contenitore *$web* nel comando. Se ad esempio si usa l'interfaccia della riga di comando di Azure da CloudShell nel portale di Azure, far precedere il contenitore *$web* da un carattere di escape, come mostrato di seguito:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>Distribuzione
@@ -120,7 +120,7 @@ Per abilitare le metriche nelle pagine dei siti Web statici, fare clic su **Impo
 
 I dati delle metriche vengono generati mediante l'associazione a diverse API di metrica. Il portale visualizza solo i membri delle API usati in un determinato intervallo di tempo per concentrarsi solo sui membri che restituiscono dati. Per assicurasi di poter selezionare il membro dell'API necessario, il primo passaggio è quello di espandere l'intervallo di tempo.
 
-Fare clic sul pulsante dell'intervallo di tempo e selezionare **Ultime 24 ore** e quindi fare clic su **Applica**. 
+Fare clic sul pulsante dell'intervallo di tempo e selezionare **Ultime 24 ore** e quindi fare clic su **Applica**.
 
 ![Intervallo di tempo delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 6354b4b0224effb1eef063779dba736cb6263286
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 21634c5eeacd9a52c6a970d24b0f8afa3a0d9345
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141629"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191633"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>La pagina dell'applicazione non viene visualizzata correttamente per un'applicazione proxy di applicazione
 
@@ -28,7 +28,7 @@ Questo articolo semplifica la risoluzione dei problemi relativi ad applicazioni 
 ## <a name="overview"></a>Panoramica
 Quando si pubblica un'app proxy di applicazione, solo le pagine all'interno della radice sono accessibili quando si accede all'applicazione. Se la pagina non viene visualizzata correttamente, l'URL interno radice usato per l'applicazione potrebbe non includere alcune risorse della pagina. Per risolvere questo problema, assicurarsi di aver pubblicato *tutte* le risorse per la pagina come parte dell'applicazione.
 
-Per verificare che il problema siano le risorse mancanti, aprire lo strumento di individuazione di rete, ad esempio Fiddler o altri strumenti F12 in Internet Explorer/Microsoft Edge, caricare la pagina e cercare eventuali errori 404. Questi errori indicano che le pagine non possono essere trovate e che è necessario pubblicarle.
+Per verificare se il problema è dovuto a risorse mancanti, aprire lo strumento di individuazione di rete, ad esempio Fiddler o altri strumenti F12 in Internet Explorer o Microsoft Edge, caricare la pagina e cercare eventuali errori 404. Questi errori indicano che le pagine non possono essere trovate e che è necessario pubblicarle.
 
 Come esempio di questo caso, si supponga di avere pubblicato un'applicazione per il calcolo delle spese usando l'URL interno http://myapps/expenses, mentre l'app usa il foglio di stile http://myapps/style.css. In questo caso, il foglio di stile non viene pubblicato nell'applicazione e di conseguenza il caricamento dell'app genera un errore 404 mentre tenta di caricare style.css. In questo esempio il problema viene risolto pubblicando l'applicazione con l'URL interno http://myapp/.
 

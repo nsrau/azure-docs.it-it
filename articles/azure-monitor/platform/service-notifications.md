@@ -5,15 +5,15 @@ author: dkamstra
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2017
+ms.date: 4/12/2018
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 8603ccf4643d7b1abd977cc372cde3fe24f98e07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724869"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190698"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure
 
@@ -49,52 +49,36 @@ category | Questa proprietà è sempre **ServiceHealth**.
 ResourceId | ID risorsa della risorsa interessata.
 Properties.title | Titolo della comunicazione localizzato. L'inglese è la lingua predefinita.
 Properties.communication | Dettagli localizzati della comunicazione con markup HTML. L'inglese è la lingua predefinita.
-Properties.incidentType | Uno dei valori seguenti: **ActionRequired**, **Information**, **Incident**, **Maintenance** o **Security**.
+Properties.incidentType | Uno dei valori seguenti: **ActionRequired**, **Informational**, **Incident**, **Maintenance** o **Security**.
 Properties.trackingId | L'evento imprevisto a cui è associato l'evento. Usare questa proprietà per correlare gli eventi relativi a un evento imprevisto.
 Properties.impactedServices | BLOB JSON preceduto da un carattere di escape che descrive i servizi e le aree su cui ha effetto l'evento imprevisto. La proprietà include un elenco di servizi, ognuno dei quali ha un **ServiceName** e un elenco delle aree interessate, ognuna con un nome di area **RegionName**.
 Properties.defaultLanguageTitle | La comunicazione in inglese.
 Properties.defaultLanguageContent | La comunicazione in inglese con markup HTML o come testo normale.
-Properties.stage | I valori possibili di **Incident** e **Security** sono **Active,** **Resolved** o **RCA**. Per **ActionRequired** o **Information** l'unico valore è **Active.** Per **Maintenance** i valori possibili sono: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved** o **Complete**.
+Properties.stage | I valori possibili di **Incident** e **Security** sono **Active,** **Resolved** o **RCA**. Per **ActionRequired** o **Informational** l'unico valore è **Active.** Per **Maintenance** i valori possibili sono: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved** o **Complete**.
 Properties.communicationId | La comunicazione a cui è associato l'evento.
 
 ### <a name="details-on-service-health-level-information"></a>Informazioni sui livelli di integrità dei servizi
-  <ul>
-    <li><b>Azione necessaria</b> (properties.incidentType == ActionRequired) <dl>
-            <dt>Informativo</dt>
-            <dd>L'azione dell'amministratore è necessaria per evitare l'impatto sui servizi esistenti</dd>
-        </dl>
-    </li>
-    <li><b>Manutenzione</b> (properties.incidentType == Maintenance) <dl>
-            <dt>Avvertenza</dt>
-            <dd>manutenzione emergenze<dd>
-            <dt>Informativo</dt>
-            <dd>manutenzione pianificata standard</dd>
-        </dl>
-    </li>
-    <li><b>Informazioni</b> (properties.incidentType == Information) <dl>
-            <dt>Informativo</dt>
-            <dd>L'amministratore potrebbe essere necessario per evitare l'impatto sui servizi esistenti</dd>
-        </dl>
-    </li>
-    <li><b>Sicurezza</b> (properties.incidentType == Security) <dl>
-            <dt>Errore</dt>
-            <dd>Un grande numero di clienti ha problemi di ampia portata ad accedere a più servizi in più aree.</dd>
-            <dt>Avvertenza</dt>
-            <dd>Un sottoinsieme di clienti ha problemi ad accedere a servizi specifici e/o aree specifiche.</dd>
-            <dt>Informativo</dt>
-            <dd>Problemi che influiscono sulle operazioni di gestione e/o sulla latenza senza influire sulla disponibilità del servizio.</dd>
-        </dl>
-    </li>
-    <li><b>Problemi relativi al servizio</b> (properties.incidentType == Incident) <dl>
-            <dt>Errore</dt>
-            <dd>Un grande numero di clienti ha problemi di ampia portata ad accedere a più servizi in più aree.</dd>
-            <dt>Avvertenza</dt>
-            <dd>Un sottoinsieme di clienti ha problemi ad accedere a servizi specifici e/o aree specifiche.</dd>
-            <dt>Informativo</dt>
-            <dd>Problemi che influiscono sulle operazioni di gestione e/o sulla latenza senza influire sulla disponibilità del servizio.</dd>
-        </dl>
-    </li>
-  </ul>
+
+**Azione necessaria** (properties.incidentType == ActionRequired)
+    - Informativo: l'azione dell'amministratore è necessaria per evitare l'impatto sui servizi esistenti
+    
+**Manutenzione** (properties.incidentType == Maintenance)
+    - Avviso: manutenzione emergenze
+    - Informativo: manutenzione pianificata standard
+
+**Informazioni** (properties.incidentType == Information)
+    - Informativo: l'azione dell'amministratore può essere necessaria per evitare l'impatto sui servizi esistenti
+
+**Sicurezza** (properties.incidentType == Security)
+    - Errore: un grande numero di clienti ha problemi di ampia portata ad accedere a più servizi in più aree.
+    - Avviso: un sottoinsieme di clienti ha problemi ad accedere a servizi specifici e/o aree specifiche.
+    - Informativo: i problemi influiscono sulle operazioni di gestione e/o sulla latenza senza alcun impatto sulla disponibilità del servizio.
+
+**Problemi relativi al servizio** (properties.incidentType == Incident)
+    - Errore: un grande numero di clienti ha problemi di ampia portata ad accedere a più servizi in più aree.
+    - Avviso: un sottoinsieme di clienti ha problemi ad accedere a servizi specifici e/o aree specifiche.
+    - Informativo: i problemi influiscono sulle operazioni di gestione e/o sulla latenza senza alcun impatto sulla disponibilità del servizio.
+
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Visualizzare le notifiche sull'integrità del servizio nel portale di Azure
 1.  Nel [portale di Azure](https://portal.azure.com) selezionare **Monitoraggio**.

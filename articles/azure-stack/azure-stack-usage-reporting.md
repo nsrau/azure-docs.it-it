@@ -11,24 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: e4e1b3cb823d08948c31aa6486c08a930a377dfa
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 147242e7d5d62204198360f580848cd997850d09
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161957"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332524"
 ---
-# <a name="report-azure-stack-usage-data-to-azure"></a>Segnalare i dati di utilizzo di Azure Stack in Azure 
+# <a name="report-azure-stack-usage-data-to-azure"></a>Segnalare i dati di utilizzo di Azure Stack in Azure
 
-I dati di utilizzo, detto anche dati relativi al consumo, rappresentano la quantità di risorse usate. 
+I dati di utilizzo, detto anche dati relativi al consumo, rappresentano la quantità di risorse usate.
 
 Azure Stack multinodo i sistemi che utilizzano il modello di fatturazione in base al consumo devono segnalare i dati di utilizzo in Azure per scopi di fatturazione. Operatori di Azure Stack è necessario configurare l'istanza di Azure Stack per segnalare i dati di utilizzo in Azure.
 
-> [!NOTE]
-> Report sull'utilizzo dei dati è obbligatorio per gli utenti a più nodi di Azure Stack che acquistano una licenza in base al modello di come è a pagamento. È facoltativo per i clienti che acquistano una licenza in base al modello di capacità (vedere la [modalità di acquisto pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Per gli utenti di Azure Stack Development Kit, operatori di Azure Stack possono segnalare i dati di utilizzo e la funzionalità di test. Tuttavia, gli utenti non verranno addebitati per qualsiasi utilizzo che comportano. 
+> [!IMPORTANT]
+> Tutti i carichi di lavoro [devono essere distribuiti in sottoscrizioni tenant](#are-users-charged-for-the-infrastructure-vms) rispettare le condizioni di licenza di Azure Stack.
+
+Report sull'utilizzo dei dati è obbligatorio per gli utenti a più nodi di Azure Stack che acquistano una licenza in base al modello di come è a pagamento. È facoltativo per i clienti che acquistano una licenza in base al modello di capacità (vedere la [modalità di acquisto pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Per gli utenti di Azure Stack Development Kit, operatori di Azure Stack possono segnalare i dati di utilizzo e la funzionalità di test. Tuttavia, gli utenti non verranno addebitati per qualsiasi utilizzo che comportano.
 
 ![flusso di fatturazione](media/azure-stack-usage-reporting/billing-flow.png)
 

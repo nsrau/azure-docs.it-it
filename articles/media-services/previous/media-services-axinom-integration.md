@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 81247863eb86752113989f6e48e79f5c8bc75505
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d269818e82261c51b63379bb41f69efdc21de18a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061155"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191259"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di Axinom per fornire licenze Widevine ai Servizi multimediali di Azure
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "37061155"
 ## <a name="overview"></a>Panoramica
 Servizi multimediali di Azure (AMS) ha aggiunto la protezione dinamica Google Widevine. Per altre informazioni, vedere il [blog di Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/). Azure Media Player (AMP) ha aggiunto anche il supporto per Widevine. Per informazioni dettagliate, vedere il [documento su AMP](http://amp.azure.net/libs/amp/latest/docs/). Ciò offre molti vantaggi per lo streaming di contenuto DASH protetto da CENC con DRM multi-native (PlayReady e Widevine) in browser moderni dotati di MSE ed EME.
 
-A partire da Servizi Multimediali .NET SDK versione 3.5.2, Servizi multimediali consente di configurare il modello di licenza Widevine e ottenere licenze Widevine. È anche possibile usare i partner AMS seguenti per facilitare la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/).
+A partire da Servizi Multimediali .NET SDK versione 3.5.2, Servizi multimediali consente di configurare il modello di licenza Widevine e ottenere licenze Widevine. Per distribuire le licenze Widevine, è anche possibile ricorrere ai partner AMS seguenti: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 Questo articolo illustra come integrare e testare il server licenze Widevine gestito da Axinom. In particolare, illustra le operazioni seguenti:  
 
@@ -44,11 +44,11 @@ Il sistema completo e il flusso di chiavi simmetriche, ID della chiave, semi chi
 ![DASH e CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>Protezione del contenuto
-Per configurare la protezione dinamica e i criteri di distribuzione delle chiavi, vedere il blog di Mingfei relativo a [come configurare la creazione di pacchetti Widevine con Servizi multimediali di Azure](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
+Per configurare la protezione dinamica e i criteri di distribuzione delle chiavi, vedere il blog di Mingfei: [How to configure Widevine packaging with Azure Media Services](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services) (Come configurare pacchetti Widewine con Servizi multimediali di Azure).
 
 È possibile configurare la protezione CENC dinamica con DRM multiplo per lo streaming DASH in modo che includa gli elementi seguenti:
 
-1. Protezione PlayReady per Microsoft Edge e IE11, che potrebbe presentare restrizioni relative all'autorizzazione con token. I criteri con restrizione token devono essere associati a un token emesso da un servizio token di sicurezza, ad esempio Azure Active Directory.
+1. Protezione PlayReady per Microsoft Edge e Internet Explorer 11, che potrebbe presentare una restrizione relativa all'autorizzazione con token. I criteri con restrizione token devono essere associati a un token emesso da un servizio token di sicurezza, ad esempio Azure Active Directory.
 2. Protezione Widevine per Chrome. Può richiedere l'autenticazione con token tramite token emessi da un altro servizio token di sicurezza. 
 
 Per informazioni sui motivi per cui non è possibile usare Azure Active Directory come servizio token di sicurezza per il server licenze Widevine di Axinom, vedere [Generazione di token JWT](media-services-axinom-integration.md#jwt-token-generation) .
@@ -59,7 +59,7 @@ Per informazioni sui motivi per cui non è possibile usare Azure Active Director
 
 ## <a name="azure-media-player-preparation"></a>Preparazione di Azure Media Player
 Azure Media Player v1.4.0 supporta la riproduzione di contenuto AMS incluso dinamicamente in pacchetti con PlayReady e Widevine DRM.
-Se il server licenze Widevine non richiede l'autenticazione tramite token, non sono necessarie altre operazioni per testare un contenuto DASH protetto da Widevine. Per un esempio, il team AMP fornisce un semplice [esempio](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html), dove è possibile vederlo funzionante nel bordo e in IE11 con PlayReady e Chrome con Widevine.
+Se il server licenze Widevine non richiede l'autenticazione tramite token, non sono necessarie altre operazioni per testare un contenuto DASH protetto da Widevine. Il team AMP fornisce comunque un [esempio](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html) semplice in cui è possibile vederlo in funzione in Microsoft Edge e Internet Explorer 11 con PlayReady e in Chrome con Widevine.
 Il server licenze Widevine fornito da Axinom richiede l'autenticazione tramite token JWT. Il token JWT deve essere inviato con la richiesta di licenza tramite un'intestazione HTTP "X-AxDRM-Message". Per questo scopo è necessario aggiungere il codice javascript seguente nella pagina Web che ospita AMP prima di configurare l'origine:
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
@@ -200,5 +200,5 @@ I parametri seguenti sono necessari nella soluzione minima che sfrutta il server
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Ringraziamenti
-Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Kristjan Jõgi di Axinom, Mingfei Yan e Amit Rajput.
+Microsoft è lieta di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Kristjan Jõgi di Axinom, Mingfei Yan e Amit Rajput.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: aa0602ec0ecb97e9174fe6ef552b88fc30900d09
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 46f1d49e210a483b8e7645d7eba84ad21ed477da
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355529"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190520"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installare l'estensione del browser per il pannello di accesso
 
@@ -59,7 +59,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 7.  Accedere al pannello di accesso e verificare se è possibile avviare le applicazioni con SSO basato su password.
 
-È anche possibile scaricare l'estensione per Chrome ed Microsoft Edge direttamente dai siti seguenti:
+È anche possibile scaricare l'estensione per Chrome e Microsoft Edge direttamente dai siti seguenti:
 
 - [Estensione per Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 - [Estensione per Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: a2f654043146536ecf543ae2a0aa49537c2223e1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 737e05f3d936481e06acfc0604ff739b9f01d5db
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344041"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191650"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Comprendere l'integrità delle macchine virtuali di Azure con Monitoraggio di Azure per le macchine virtuali (anteprima)
+# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Informazioni sull'integrità delle macchine virtuali di Azure con Monitoraggio di Azure per le macchine virtuali (anteprima)
 Azure include più servizi che singolarmente eseguono un'attività o un ruolo specifico nello spazio di monitoraggio, ma la possibilità di avere una prospettiva approfondita sull'integrità del sistema operativo ospitato nelle macchine virtuali di Azure non era disponibile.  Anche se è possibile monitorare diverse condizioni utilizzando Log Analytics o Monitoraggio di Azure, queste applicazioni non sono progettate per modellare e rappresentare l'integrità dei componenti di base o quella globale della macchina virtuale.  Con la funzionalità dell'integrità di Monitoraggio di Azure per macchine virtuali, è possibile monitorare in modo proattivo la disponibilità e le prestazioni dei sistemi operativi guest Windows o Linux con un modello che rappresenta i componenti principali e le relative relazioni, criteri che specificano come misurare l'integrità di tali componenti e avvisi che segnalano quando viene rilevata una condizione di non integrità.  
 
 Lo stato di integrità globale della macchina virtuale di Azure e del sistema operativo sottostante può essere visualizzato da due prospettive con Monitoraggio di Azure per le macchine virtuali, direttamente dalla macchina virtuale o per tutte le macchine virtuali in un gruppo di risorse da Monitoraggio di Azure.

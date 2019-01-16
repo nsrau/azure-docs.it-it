@@ -5,24 +5,25 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc9ed103f8c6d1436fed1048446ad1eb0f78bcd8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e2c60d48595f2c3687bd178e0f4eed010f14b568
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426006"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191531"
 ---
 # <a name="connecting-to-servers"></a>Connessione ai server
 
 In questo articolo viene descritta la connessione a un server tramite modellazione di dati e applicazioni di gestione come SQL Server Management Studio (SSMS) o SQL Server Data Tools (SSDT). In alternativa, con applicazioni reporting client come Microsoft Excel, Power BI Desktop o applicazioni personalizzate. Le connessioni ad Azure Analysis Services usano HTTPS.
 
 ## <a name="client-libraries"></a>Librerie client
+
 [Ottenere le librerie client più recenti](analysis-services-data-providers.md)
 
-Tutte le connessioni a qualunque tipo di server richiedono le librerie client AMO, ADOMD.NET e OLEDB aggiornate per connettersi e interagire con un server di Analysis Services. Per SSMS, SSDT, Excel 2016 e Power BI, le librerie client più recenti vengono installate o aggiornate con le versioni mensili. In alcuni casi, tuttavia, è possibile che un'applicazione non abbia la versione più recente. Ad esempio, quando alcuni criteri ritardano gli aggiornamenti o quando gli aggiornamenti di Office 365 sono su Deferred Channel.
+Tutte le connessioni a qualunque tipo di server richiedono le librerie client AMO, ADOMD.NET e OLEDB aggiornate per connettersi e interagire con un server di Analysis Services. Per SSMS, SSDT, Excel 2016 e versioni successive e Power BI, le librerie client più recenti vengono installate o aggiornate con le versioni mensili. In alcuni casi, tuttavia, è possibile che un'applicazione non abbia la versione più recente. Ad esempio, quando alcuni criteri ritardano gli aggiornamenti o quando gli aggiornamenti di Office 365 sono su Deferred Channel.
 
 ## <a name="server-name"></a>Nome server
 
@@ -34,6 +35,7 @@ Quando si crea un server di Analysis Services in Azure, si specifica un nome uni
  Dove protocol è la stringa **asazure**, region è l'Uri in cui è stato creato il server, ad esempio westus.asazure.windows.net, e servername è il nome del server univoco all'interno dell'area.
 
 ### <a name="get-the-server-name"></a>Ottenere il nome del server
+
 Nel **portale di Azure** > server > **Panoramica** > **Nome server** copiare l'intero nome del server. Se anche altri utenti nell'organizzazione si connettono a questo server, è opportuno condividere il nome del server. Quando si specifica un nome di server, è necessario usare l'intero percorso.
 
 ![Ottenere il nome del server in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
@@ -44,6 +46,7 @@ Nel **portale di Azure** > server > **Panoramica** > **Nome server** copiare l'i
 Quando ci si connette a Azure Analysis Services usando il modello a oggetti tabulare, usare i formati seguenti per la stringa di connessione:
 
 ###### <a name="integrated-azure-active-directory-authentication"></a>Autenticazione integrata di Azure Active Directory
+
 L'autenticazione integrata seleziona la cache delle credenziali di Azure Active Directory, se disponibile. In caso contrario, viene visualizzata la finestra di accesso di Azure.
 
 ```
@@ -58,19 +61,20 @@ L'autenticazione integrata seleziona la cache delle credenziali di Azure Active 
 ```
 
 ###### <a name="windows-authentication-integrated-security"></a>Autenticazione di Windows (sicurezza integrata)
+
 Usare l'account di Windows su cui è in esecuzione il processo corrente.
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>; Integrated Security=SSPI;Persist Security Info=True;"
 ```
 
-
-
 ## <a name="connect-using-an-odc-file"></a>Connettersi usando un file con estensione odc
+
 Con le versioni precedenti di Excel, gli utenti possono connettersi a un server di Azure Analysis Services usando un file Office Data Connection, con estensione odc. Per altre informazioni, vedere [Creare un file Office Data Connection (con estensione odc)](analysis-services-odc.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Connettersi con Excel](analysis-services-connect-excel.md)    
 [Connettersi con Power BI](analysis-services-connect-pbi.md)   
 [Gestire il server](analysis-services-manage.md)   

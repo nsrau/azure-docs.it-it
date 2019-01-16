@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 7b3f6410e65e9a43578d50d6aacaec0ea4ec4684
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 3e9909de5ec05710214279357134112804ab4ceb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753490"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191242"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso 
 

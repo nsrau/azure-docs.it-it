@@ -9,41 +9,41 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: e373e7c3ca83a0200cd1b6b945c5e4cb43b77a51
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ebeed6d2a52937a6e80dfe28574ad854643fa7f2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974863"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119220"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Come eseguire il debug di funzioni definite dall'utente in Gemelli digitali di Azure
 
-Questo articolo fornisce un riepilogo su come eseguire la diagnosi delle funzioni definite dall'utente e quindi identifica alcuni degli scenari più comuni che si possono riscontrare quando si usano tali funzioni.
+Questo articolo fornisce un riepilogo su come eseguire la diagnosi e il debug delle funzioni definite dall'utente. Quindi identifica alcuni degli scenari più comuni riscontrati quando si esegue il debug di tali funzioni.
 
 >[!TIP]
 > Vedere [Come configurare il monitoraggio in Gemelli digitali di Azure](./how-to-configure-monitoring.md) per altre informazioni su come configurare gli strumenti di debug in Gemelli digitali di Azure mediante log attività, log di diagnostica e Monitoraggio di Azure.
 
 ## <a name="debug-issues"></a>Eseguire il debug dei problemi
 
-Imparare a eseguire la diagnosi degli eventuali problemi che si verificano all'interno dell'istanza di Gemelli digitali di Azure aiuterà l'utente a identificare in modo efficace il problema, la causa di tale problema e una possibile soluzione.
+Imparare a eseguire la diagnosi degli eventuali problemi che si verificano all'interno dell'istanza di Gemelli digitali di Azure aiuta l'utente a identificare in modo efficace il problema, la relativa causa e una possibile soluzione.
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Abilitare Log Analytics per l'istanza in uso
 
-I log e le metriche per l'istanza di Gemelli digitali di Azure in uso sono esposti tramite Monitoraggio di Azure. Nella documentazione seguente si presuppone che sia stata creata un'area di lavoro di [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) tramite il [portale di Azure](../azure-monitor/learn/quick-create-workspace.md), l'[interfaccia della riga di comando di Azure](../azure-monitor/learn/quick-create-workspace-cli.md) o [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+Le metriche e i log per l'istanza di Gemelli digitali di Azure vengono visualizzati nel Monitoraggio di Azure. In questa documentazione si presuppone che sia stata creata un'area di lavoro di [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) tramite il [portale di Azure](../azure-monitor/learn/quick-create-workspace.md), l'[interfaccia della riga di comando di Azure](../azure-monitor/learn/quick-create-workspace-cli.md) o [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
 > Quando si inviano eventi ad Azure Log Analytics per la prima volta, può verificarsi un ritardo di 5 minuti.
 
 Per configurare il monitoraggio e la registrazione delle risorse di Gemelli digitali di Azure, vedere [Come configurare il monitoraggio in Gemelli digitali di Azure](./how-to-configure-monitoring.md).
 
-Leggere l'articolo [Raccogliere e usare i dati dei log dalle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md) per una panoramica completa delle impostazioni dei log di diagnostica per l'istanza di Gemelli digitali di Azure tramite il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell.
+Leggere l'articolo [Raccogliere e usare i dati dei log dalle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md) per configurare le impostazioni dei log di diagnostica in Gemelli digitali di Azure tramite il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell.
 
 >[!IMPORTANT]
 > Assicurarsi di selezionare tutte le categorie di log, le metriche e l'area di lavoro di Azure Log Analytics.
 
 ### <a name="trace-sensor-telemetry"></a>Tracciare i dati di telemetria del sensore
 
-Assicurarsi che le impostazioni di diagnostica siano abilitate nell'istanza di Gemelli digitali di Azure, che tutte le categorie di log siano selezionate e che i log vengano inviati ad Azure Log Analytics.
+Per tracciare i dati di telemetria del sensore, verificare che siano abilitate le impostazioni di diagnostica per l'istanza di Gemelli digitali di Azure. Quindi assicurarsi che tutte le categorie di log desiderate siano selezionate. Infine, verificare che i log desiderati vengano inviati ad Azure Log Analytics.
 
 Per associare un messaggio di telemetria del sensore ai rispettivi log, è possibile specificare un ID di correlazione per i dati dell'evento inviati. A tale scopo, impostare la proprietà `x-ms-client-request-id` su un GUID.
 
@@ -58,7 +58,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | ID di correlazione specificato per i dati dell'evento |
 
-Se la funzione definita dall'utente viene registrata, questi log verranno visualizzati nell'istanza di Azure Log Analytics con la categoria `UserDefinedFunction`. Per recuperarli, immettere la seguente condizione di query in Azure Log Analytics:
+Se la funzione definita dall'utente viene registrata, questi log vengono visualizzati nell'istanza di Azure Log Analytics con la categoria `UserDefinedFunction`. Per recuperarli, immettere la seguente condizione di query in Azure Log Analytics:
 
 ```Kusto
 AzureDiagnostics
@@ -69,13 +69,13 @@ Per altre informazioni sulle operazioni di query avanzate, vedere [Introduzione 
 
 ## <a name="identify-common-issues"></a>Identificare i problemi più comuni
 
-La diagnosi e l'identificazione dei problemi più comuni sono importanti per la risoluzione dei problemi della soluzione. Di seguito viene fornito un riepilogo di alcuni problemi comuni riscontrati durante lo sviluppo di funzioni definite dall'utente.
+La diagnosi e l'identificazione dei problemi più comuni sono importanti per la risoluzione dei problemi della soluzione. Nelle sottosezioni seguenti viene fornito un riepilogo di alcuni problemi comuni riscontrati durante lo sviluppo di funzioni definite dall'utente.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-### <a name="ensure-a-role-assignment-was-created"></a>Verificare che sia stata creata un'assegnazione di ruolo
+### <a name="check-if-a-role-assignment-was-created"></a>Verificare che sia stata creata un'assegnazione di ruolo
 
-Se non è stata creata un'assegnazione di ruolo all'interno dell'API Gestione, la funzione definita dall'utente non potrà accedere per eseguire le azioni, ad esempio l'invio delle notifiche, il recupero dei metadati e l'impostazione dei valori calcolati all'interno della topologia.
+Se non è stata creata un'assegnazione di ruolo all'interno dell'API Gestione, la funzione definita dall'utente non può accedere per eseguire alcuna azione, come ad esempio l'invio delle notifiche, il recupero di metadati e l'impostazione dei valori calcolati all'interno della topologia.
 
 Controllare se esiste un'assegnazione di ruolo per la funzione definita dall'utente tramite l'API Gestione:
 
@@ -89,9 +89,9 @@ GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_U
 
 Se non esiste alcuna assegnazione di ruolo, vedere [Come creare funzioni definite dall'utente in Gemelli digitali di Azure](./how-to-user-defined-functions.md).
 
-### <a name="check-if-the-matcher-will-work-for-a-sensors-telemetry"></a>Controllare se il matcher funzionerà per i dati di telemetria di un sensore
+### <a name="check-if-the-matcher-works-for-a-sensors-telemetry"></a>Controllare se il matcher funziona per i dati di telemetria di un sensore
 
-Con la chiamata seguente all'API Gestione delle istanze di Gemelli digitali di Azure, sarà possibile determinare se un dato matcher è valido per il sensore specificato.
+Con la chiamata seguente all'API Gestione delle istanze di Gemelli digitali di Azure, è possibile determinare se un dato matcher è valido per il sensore specificato.
 
 ```plaintext
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
@@ -113,9 +113,9 @@ Risposta:
 }
 ```
 
-### <a name="check-what-a-sensor-will-trigger"></a>Controllare i dati che attiverà un sensore
+### <a name="check-what-a-sensor-triggers"></a>Controllare ciò che viene attivato da un sensore
 
-Con la chiamata seguente all'API Gestione delle istanze di Gemelli digitali di Azure, sarà possibile determinare gli identificatori delle funzioni definite dall'utente che verranno attivate dai dati di telemetria in ingresso del sensore specificato:
+Con la chiamata seguente alle API Gestione di Gemelli digitali di Azure, è possibile individuare gli identificatori delle funzioni definite dall'utente attivate dai dati di telemetria in ingresso del sensore specificato:
 
 ```plaintext
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
@@ -123,7 +123,7 @@ GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=Use
 
 | Parametro | Sostituire con |
 | --- | --- |
-| *YOUR_SENSOR_IDENTIFIER* | ID del sensore che invierà i dati di telemetria |
+| *YOUR_SENSOR_IDENTIFIER* | L'ID del sensore a cui inviare i dati di telemetria |
 
 Risposta:
 
@@ -156,7 +156,7 @@ Risposta:
 
 ### <a name="issue-with-receiving-notifications"></a>Problema relativo alla ricezione delle notifiche
 
-Quando non si ricevono notifiche dall'interno della funzione definita dall'utente attivata, assicurarsi che il parametro del tipo di oggetto della topologia corrisponda al tipo dell'identificatore in uso.
+Quando non si ricevono notifiche dalla funzione definita dall'utente attivata, assicurarsi che il parametro del tipo di oggetto della topologia corrisponda al tipo di identificatore in uso.
 
 Esempio **non corretto**:
 
@@ -201,12 +201,12 @@ function process(telemetry, executionContext) {
 
 Se si abilitano le impostazioni di diagnostica, è possibile riscontrare queste eccezioni comuni:
 
-1. **Limitazione delle richieste**: se la funzione definita dall'utente supera i limiti della velocità di esecuzione descritti nell'articolo [Limiti del servizio](./concepts-service-limits.md), il numero di richiesta verrà limitato. La limitazione delle richieste implica che non verranno eseguite altre operazioni fino alla scadenza dei limiti.
+1. **Limitazione delle richieste**: se la funzione definita dall'utente supera i limiti della velocità di esecuzione descritti nell'articolo [Limiti del servizio](./concepts-service-limits.md), il numero di richiesta verrà limitato. Non verranno eseguite correttamente altre operazioni fino alla scadenza della limitazione delle richieste.
 
-1. **Impossibile trovare dati**: se la funzione definita dall'utente prova ad accedere a metadati che non esistono, l'operazione avrà esito negativo.
+1. **Impossibile trovare dati**: se la funzione definita dall'utente prova ad accedere a metadati non esistenti, l'operazione avrà esito negativo.
 
 1. **Non autorizzato**: se per la funzione definita dall'utente non è impostata un'assegnazione di ruolo o se tale funzione non ha autorizzazioni sufficienti per accedere a determinati metadati della topologia, l'operazione avrà esito negativo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come abilitare il [monitoraggio e i log](../azure-monitor/platform/activity-logs-overview.md) in Gemelli digitali di Azure
+- Informazioni su come abilitare il [monitoraggio e i log](../azure-monitor/platform/activity-logs-overview.md) in Gemelli digitali di Azure

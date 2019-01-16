@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5aaaee6f9a69f9cb619935f18f614d7572a755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 11be6d10589d981335d1f63d06933dba5265348a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429696"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191837"
 ---
 # <a name="create-partitions"></a>Creare partizioni
 
@@ -40,7 +40,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
 
     ![aas-lesson10-query-editor](../tutorials/media/aas-lesson10-query-editor.png)
 
-6.  Nella finestra di dialogo Filtra righe in **Mostra righe in cui: OrderDate**, lasciare **è dopo o uguale a** e quindi immettere **1/1/2010** nel campo della data. Lasciare selezionato l'operatore **And**, selezionare **è prima di**, immettere **1/1/2011** nel campo della data e quindi fare clic su **OK**.
+6.  Nella finestra di dialogo Filtra righe in **Mostra le righe dove: OrderDate**, lasciare **è dopo o uguale a** e quindi immettere **1/1/2010** nel campo della data. Lasciare selezionato l'operatore **And**, selezionare **è prima di**, immettere **1/1/2011** nel campo della data e quindi fare clic su **OK**.
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     

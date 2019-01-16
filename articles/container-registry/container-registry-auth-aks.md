@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 850919f8ca8bb68af544ae528a779e16068424b1
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 0dbdf2261b851b303a0c606e5de70354578c6d2e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752538"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078780"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Eseguire l'autenticazione con Registro contenitori di Azure dal servizio Kubernetes di Azure
 
@@ -44,7 +44,7 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Accedere mediante un segreto Kubernetes
 
-In alcuni casi, potrebbe non essere possibile assegnare i ruoli necessari all'entità servizio AKS generata automaticamente per garantire l'accesso ad ACR. Ad esempio, a causa del modello di sicurezza dell'organizzazione, si potrebbe non disporre di autorizzazioni sufficienti nella directory di Azure AD per assegnare un ruolo all'entità servizio generata da AKS. In tal caso, è possibile creare una nuova entità servizio, quindi concedere l'accesso al registro contenitori tramite un segreto Kubernetes per il pull delle immagini.
+In alcuni casi, potrebbe non essere possibile assegnare i ruoli necessari all'entità servizio AKS generata automaticamente per garantire l'accesso ad ACR. Ad esempio, a causa del modello di sicurezza dell'organizzazione, si potrebbe non disporre delle autorizzazioni sufficienti nella directory di Azure Active Directory per assegnare un ruolo all'entità servizio generata da servizio Azure Kubernetes. L'assegnazione di un ruolo a un'entità servizio richiede l'account di Azure AD per disporre dell'autorizzazione di scrittura al tenant di Azure AD. Se non si dispone dell'autorizzazione, è possibile creare una nuova entità servizio, quindi concedere l'accesso al registro contenitori tramite un segreto Kubernetes per il pull immagine.
 
 Usare lo script seguente per creare una nuova entità servizio (si userà le credenziali per il segreto Kubernetes per il pull delle immagini). Modificare la variabile `ACR_NAME` per l'ambiente prima di eseguire lo script.
 

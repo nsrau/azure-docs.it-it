@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: d1214df922e8e656ba2ff566571d878b0031fea9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000258"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052037"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -81,9 +81,9 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 
   Per altre informazioni su come generare i token di firma di accesso condiviso, vedere la sezione sui dispositivi nell'articolo [Uso dei token di sicurezza dell'hub IoT][lnk-sas-tokens].
 
-  Durante il test è anche possibile usare l'[estensione Azure IoT Hub Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) multipiattaforma (in precedenza estensione Azure IoT Toolkit) o lo strumento[Device Explorer][lnk-device-explorer] per generare rapidamente un token di firma di accesso condiviso da copiare e incollare nel codice:
+  Durante il test è anche possibile usare la multipiattaforma [Azure IoT Tools per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o lo strumento[Device Explorer][lnk-device-explorer] per generare rapidamente un token di firma di accesso condiviso da copiare e incollare nel codice:
 
-Per Azure IoT Hub Toolkit:
+Per Azure IoT Tools:
 
   1. Espandere la scheda **DISPOSITIVI DELL'HUB AZURE IOT** nell'angolo inferiore sinistro di Visual Studio Code.
   2. Fare clic con il tasto destro sul dispositivo e selezionare **Genera token di firma di accesso condiviso per dispositivo**.

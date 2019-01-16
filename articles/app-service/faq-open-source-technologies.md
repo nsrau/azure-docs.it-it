@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: ac80cd5ee1c530736666338e8bc3763b110c688c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388427"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191446"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle tecnologie open source per App Web in Azure
 
@@ -46,7 +46,7 @@ Per attivare la registrazione PHP:
 11. Modificare il testo specificando il codice seguente:
    ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
    ```
 12. Nel portale di Azure riavviare l'app Web dal menu corrispondente.
 

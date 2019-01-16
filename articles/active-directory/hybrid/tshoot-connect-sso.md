@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory Connect: risolvere i problemi relativi all'accesso Single Sign-On facile | Microsoft Docs"
+title: "Azure Active Directory Connect: Risolvere i problemi relativi all'accesso Single Sign-On facile | Microsoft Docs"
 description: Questo argomento descrive come risolvere i problemi dell'accesso Single Sign-On (SSO) facile di Azure Active Directory
 services: active-directory
 author: billmath
@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 308623b4643724d95777d7e21d1138f808e9c1c9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055901"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190426"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
 
@@ -27,7 +27,7 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 
 - In alcuni casi, l'abilitazione dell'accesso Single Sign-On facile può richiedere fino a 30 minuti.
 - Se si disabilita e si abilita di nuovo l'accesso Single Sign-On facile nel tenant, gli utenti non potranno usare l'accesso Single Sign-On fino alla scadenza dei ticket Kerberos memorizzati nella cache, validi in genere per 10 ore.
-- Non è disponibile il supporto per il browser Microsoft Edge.
+- Il supporto del browser Microsoft Edge non è disponibile.
 - Se l'accesso SSO facile ha esito positivo, l'utente non ha la possibilità di scegliere **Mantieni l'accesso**. A causa di questo comportamento, [gli scenari di mapping di SharePoint e OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) non funzionano.
 - I client Office 365 Win32 (Outlook, Word, Excel e altri) con le versioni 16.0.8730.xxxx e successive sono supportati tramite un flusso non interattivo. Altre versioni non sono supportate. In tali versioni, per effettuare l'accesso gli utenti immetteranno i nomi utente, ma non le password. Per OneDrive, è necessario attivare la [funzionalità di configurazione automatica di OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) per un'esperienza di accesso automatico.
 - L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox.
@@ -42,17 +42,17 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 
 Assicurarsi che la funzionalità di accesso SSO facile sia ancora **abilitata** nel tenant. Per verificare lo stato, passare al riquadro **Azure AD Connect** nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/).
 
-![Interfaccia di amministrazione di Azure Active Directory: riquadro Azure AD Connect](./media/tshoot-connect-sso/sso10.png)
+![Interfaccia di amministrazione di Azure Active Directory: riquadro di Azure AD Connect](./media/tshoot-connect-sso/sso10.png)
 
 Fare clic per visualizzare tutte le foreste di AD abilitate per l'accesso SSO facile.
 
-![Interfaccia di amministrazione di Azure Active Directory: riquadro per l'accesso SSO facile](./media/tshoot-connect-sso/sso13.png)
+![Interfaccia di amministrazione di Azure Active Directory: Riquadro Accesso Single Sign-On facile](./media/tshoot-connect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Motivi degli errori di accesso nell'interfaccia di amministrazione di Azure Active Directory (necessaria licenza Premium)
 
 Se al tenant è associata una licenza di Azure AD Premium, è anche possibile esaminare il [report delle attività di accesso](../reports-monitoring/concept-sign-ins.md) nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/).
 
-![Interfaccia di amministrazione di Azure Active Directory: report sugli accessi](./media/tshoot-connect-sso/sso9.png)
+![Interfaccia di amministrazione di Azure Active Directory: Report sugli accessi](./media/tshoot-connect-sso/sso9.png)
 
 Passare ad **Azure Active Directory** > **Accessi** nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/) e quindi fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
 
@@ -104,18 +104,18 @@ Se si abilita il controllo delle operazioni riuscite nel controller di dominio, 
 
 Se il problema persiste, è possibile reimpostare manualmente la funzionalità nel tenant. Seguire questa procedura nel server locale in cui si esegue Azure AD Connect.
 
-### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Passaggio 1: importare il modulo di PowerShell per l'accesso SSO facile
+### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Passaggio 1: Importare il modulo di PowerShell Seamless SSO
 
 1. Prima, scaricare e installare [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
 
-### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Passaggio 2: ottenere l'elenco di foreste di Active Directory in cui è stata abilitato l'accesso SSO facile
+### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Passaggio 2: Ottenere l'elenco di foreste di Active Directory in cui è stato abilitato l'accesso SSO facile
 
 1. Eseguire PowerShell come amministratore. In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Quando richiesto, immettere le credenziali di amministratore globale del tenant.
 2. Eseguire la chiamata a `Get-AzureADSSOStatus`. Questo comando consente di visualizzare l'elenco di foreste di Active Directory, ovvero l'elenco "Domini", in cui è stata abilitata questa funzionalità.
 
-### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Passaggio 3: disabilitare l'accesso SSO facile per ogni foresta di Active Directory in cui la funzionalità è configurata
+### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Passaggio 3: Disabilitare l'accesso SSO facile per ogni foresta di Active Directory in cui la funzionalità è configurata
 
 1. Eseguire la chiamata a `$creds = Get-Credential`. Quando richiesto, immettere le credenziali dell'amministratore di dominio per la foresta di Active Directory da usare.
 
@@ -125,7 +125,7 @@ Se il problema persiste, è possibile reimpostare manualmente la funzionalità n
 2. Eseguire la chiamata a `Disable-AzureADSSOForest -OnPremCredentials $creds`. Questo comando rimuove l'account computer `AZUREADSSOACCT` dal controller di dominio locale per questa foresta di Active Directory specifica.
 3. Ripetere la procedura precedente per ogni foresta di Active Directory in cui la funzionalità è configurata.
 
-### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Passaggio 4: abilitare l'accesso SSO facile per ogni foresta di Active Directory
+### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Passaggio 4: Abilitare l'accesso SSO facile per ogni foresta di Active Directory
 
 1. Eseguire la chiamata a `Enable-AzureADSSOForest`. Quando richiesto, immettere le credenziali dell'amministratore di dominio per la foresta di Active Directory da usare.
 

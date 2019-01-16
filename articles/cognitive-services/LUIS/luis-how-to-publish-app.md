@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 01/08/2019
 ms.author: diberry
-ms.openlocfilehash: a3d27e7be97901c6757ca6991a7404f3b00f21e7
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 241227270aeede93b74d3d94c782dfe7eaf1fbf2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605569"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121703"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Pubblicare l'app attiva di cui si è eseguito il training in un endpoint di staging o di produzione
 
@@ -56,11 +56,9 @@ L'analisi dei sentiment consente a LUIS di integrarsi con [Analisi del testo](ht
 
 Non è necessario specificare una chiave di analisi del testo e non è previsto alcun addebito per questo servizio al proprio account Azure. Dopo averla selezionata, questa impostazione è permanente. 
 
-I dati sentiment sono un punteggio compreso tra 1 e 0 che indica il sentiment positivo (più vicino a 1) o negativo (più vicino a 0) dei dati.
+I dati sentiment sono un punteggio compreso tra 1 e 0 che indica il sentiment positivo (più vicino a 1) o negativo (più vicino a 0) dei dati. L'etichetta sentiment `positive`, `neutral`, e `negative` è specifica per ogni lingua supportata. Attualmente solo la lingua inglese supporta le etichette sentiment. 
 
 Per altre informazioni sulla risposta dell'endpoint JSON con l'analisi del sentiment, vedere [Analisi del sentiment](luis-concept-data-extraction.md#sentiment-analysis)
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

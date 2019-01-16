@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 6af369c9ba1621dcedc2adf74f0c25321422f3c4
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0008384b53671b76e5cc0a6a405d3aa4986e73d2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356024"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191769"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On basato su password
 
@@ -76,7 +76,7 @@ I prerequisiti includono:
 
 -   [Servizi di dominio Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)è già stato configurato e i computer degli utenti sono stati aggiunti al dominio.
 
--   Per modificare l'oggetto Criteri di gruppo è necessaria l'autorizzazione "Modifica impostazione". Questa autorizzazione è assegnata per impostazione predefinita ai membri dei gruppi di sicurezza seguenti: Domain Administrators, Enterprise Administrators e Group Policy Creator Owners. [Altre informazioni](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Per modificare l'oggetto Criteri di gruppo è necessaria l'autorizzazione "Modifica impostazione". Per impostazione predefinita, i membri dei gruppi di sicurezza seguenti hanno questa autorizzazione: Amministratori di dominio, Amministratori dell'organizzazione e Proprietari autori criteri di gruppo. [Altre informazioni](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 Per istruzioni passo passo su come configurare i Criteri di gruppo e distribuirli agli utenti, seguire l'esercitazione [Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
 
@@ -172,7 +172,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 11. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
 
-12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **selezionato**.
+12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **Selezionati**.
 
 13. Dopo avere selezionato gli utenti, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
 

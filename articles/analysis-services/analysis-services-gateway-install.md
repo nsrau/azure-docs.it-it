@@ -5,20 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa089db385995f6c44ea2238c91a3ac59946daae
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407657"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190375"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
+
 Quando uno o più server Azure Analysis Services nella stessa area si connettono a origini dati locali, è necessario un gateway dati locale. Per altre informazioni sul gateway, vedere [Gateway dati locale](analysis-services-gateway.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 **Requisiti minimi:**
 
 * .NET Framework 4.5
@@ -44,6 +46,7 @@ Quando uno o più server Azure Analysis Services nella stessa area si connettono
 
 
 ## <a name="download"></a>Scaricare
+
  [Scaricare il gateway](https://aka.ms/azureasgateway)
 
 ## <a name="install"></a>Installare
@@ -62,6 +65,7 @@ Quando uno o più server Azure Analysis Services nella stessa area si connettono
    > Se si accede con un account di dominio, questo viene mappato all'account aziendale in Azure AD. L'account aziendale viene usato come amministratore del gateway.
 
 ## <a name="register"></a>Registrare
+
 Per creare una risorsa per il gateway in Azure, è necessario registrare l'istanza locale installata con il servizio cloud gateway. 
 
 1.  Selezionare l'opzione che **consente di registrare un nuovo gateway in questo computer**.
@@ -77,23 +81,24 @@ Per creare una risorsa per il gateway in Azure, è necessario registrare l'istan
 
 
 ## <a name="create-resource"></a>Creare una risorsa per il gateway di Azure
+
 Dopo aver installato e registrato il gateway, è necessario creare una risorsa per il gateway nella sottoscrizione di Azure. Accedere ad Azure con lo stesso account usato durante la registrazione del gateway.
 
 1. Nel portale di Azure, fare clic su **Crea una risorsa** > **Integrazione** > **Gateway dati locale**.
 
    ![Creazione di una risorsa per il gateway](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
-2. In **Crea gateway di connessione**, immettere queste impostazioni:
+2. In **Crea gateway di connessione** immettere queste impostazioni:
 
-    * **Nome**: inserire un nome per la risorsa del gateway. 
+    * **Nome**: immettere un nome per la risorsa del gateway. 
 
     * **Sottoscrizione**: selezionare la sottoscrizione di Azure da associare alla risorsa del gateway. 
    
       La sottoscrizione predefinita si basa sull'account di Azure usato per accedere.
 
-    * **Gruppo di risorse**: creare un gruppo di risorse o selezionarne uno esistente.
+    * **Gruppo di risorse**: Creare un gruppo di risorse o selezionarne uno esistente.
 
-    * **Percorso**: selezionare l'area in cui è stato registrato il gateway.
+    * **Località**: selezionare l'area in cui è stato registrato il gateway.
 
     * **Nome installazione**: se l'installazione del gateway non è già selezionata, selezionare il gateway registrato. 
 
@@ -115,6 +120,7 @@ Dopo aver installato e registrato il gateway, è necessario creare una risorsa p
 È tutto. Se è necessario aprire le porte o risolvere eventuali problemi, vedere l'articolo su [Gateway dati locale](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Gestire Analysis Services](analysis-services-manage.md)   
 * [Ottenere dati da Azure Analysis Services](analysis-services-connect.md)   
 * [Usare il gateway per le origini dati in un'istanza di Rete virtuale di Azure](analysis-services-vnet-gateway.md)

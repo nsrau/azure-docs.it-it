@@ -5,17 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f10bae780ebb05d3450f4dab7e53fa87fe25b022
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958670"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189554"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
+
 È possibile eseguire operazioni di aggiornamento asincrono dei dati sui modelli tabulari di Azure Analysis Services usando qualsiasi linguaggio di programmazione che supporta le chiamate REST. È inclusa la sincronizzazione delle repliche di sola lettura per la scalabilità orizzontale delle query. 
 
 Le operazioni di aggiornamento dei dati possono richiedere tempo a causa di fattori diversi tra cui volume dei dati, livello di ottimizzazione nell'uso delle partizioni e così via. Queste operazioni erano chiamate in genere con metodi esistenti come l'uso di [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), cmdlet di [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Tuttavia questi metodi possono richiedere spesso connessioni HTTP non affidabili e con esecuzione prolungata.
@@ -94,6 +95,7 @@ Il corpo dovrebbe essere simile al seguente:
 ```
 
 ### <a name="parameters"></a>Parametri
+
 Non è necessario specificare parametri. Viene applicato il valore predefinito.
 
 |NOME  |type  |DESCRIZIONE  |Predefinito  |
@@ -186,8 +188,8 @@ Valori per `syncstate`:
 
 - 0: replica in corso. I file di database sono in fase di replica in una cartella di destinazione.
 - 1: riattivazione in corso. Il database è in fase di riattivazione su istanze del server di sola lettura.
-- 2: comokleto. L'operazione di sincronizzazione è stata completata correttamente.
-- 3: operazione non riuscita. L'operazione di sincronizzazione non è riuscita.
+- 2: completato. L'operazione di sincronizzazione è stata completata correttamente.
+- 3: non riuscito. L'operazione di sincronizzazione non è riuscita.
 - 4: finalizzazione in corso. L'operazione di sincronizzazione è stata completata ma è in corso la fase di pulizia.
 
 ## <a name="code-sample"></a>Esempio di codice

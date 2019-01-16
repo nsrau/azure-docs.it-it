@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014498"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191667"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Risorsa di archiviazione BLOB di Azure: livelli di archiviazione Premium (anteprima), ad accesso frequente, ad accesso sporadico e archivio
 
@@ -63,7 +63,7 @@ Durante l'anteprima, il livello di accesso Premium:
 
 - È disponibile come risorsa di archiviazione con ridondanza locale
 - È disponibile solo nelle regioni seguenti: Stati Uniti orientali 2, Stati Uniti centrali e Stati Uniti occidentali
-- Non supporta la suddivisione automatica in livelli e la gestione del ciclo di vita dei dati
+- Non supporta la suddivisione in livelli automatizzata o a livello di oggetto con la gestione del ciclo di vita dei dati
 
 Per informazioni su come registrarsi per l'anteprima del livello di accesso Premium, vedere [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob) (Presentazione dell'archiviazione BLOB Premium di Azure).
 
@@ -86,7 +86,8 @@ Il livello di archiviazione ad accesso sporadico ha costi di archiviazione più 
 
 Il livello di archiviazione archivio ha costi di archiviazione più bassi e costi di recupero dati più alti rispetto all'archiviazione ad accesso sporadico e ad accesso frequente. Questo livello è destinato ai dati che possono tollerare alcune ore di latenza di recupero e rimarranno nel livello archivio per almeno 180 giorni.
 
-Quando un BLOB si trova nel livello di archiviazione archivio, è offline e non può essere letto (eccetto i metadati che sono online e disponibili), copiato, sovrascritto o modificato. Né è possibile creare snapshot del BLOB. È tuttavia possibile usare le operazioni esistenti per eliminarli, elencarli, ottenere proprietà o metadati dei BLOB oppure modificare il livello dei BLOB.
+Se un BLOB si trova nel livello archivio, i dati del BLOB sono offline e non è possibile leggerli, copiarli, sovrascriverli o modificarli. Né è possibile creare snapshot del BLOB. I metadati del BLOB rimangono tuttavia online e disponibili ed è quindi possibile visualizzare il BLOB e le relative proprietà. Per i BLOB nel livello di accesso archivio, le uniche operazioni valide sono GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier e DeleteBlob. 
+
 
 Gli scenari di utilizzo di esempio per il livello di archiviazione archivio includono:
 
@@ -110,20 +111,27 @@ In tutti e tre i livelli di archiviazione i BLOB possono coesistere nello stesso
 > [!NOTE]
 > Il livello di archiviazione archivio e l'organizzazione a livello di BLOB supportano solo BLOB in blocchi. Non è inoltre possibile modificare il livello di un BLOB in blocchi con snapshot.
 
-I dati archiviati nel livello di accesso Premium non possono passare al livello ad accesso frequente, sporadico o archivio usando [Set Blob Tier](/rest/api/storageservices/set-blob-tier) o la gestione del ciclo di vita di Archiviazione BLOB di Azure. Per spostare i dati, è necessario copiare in modo sincrono i BLOB dall'accesso Premium a quello frequente usando [Put Block From URL](/rest/api/storageservices/put-block-from-url) o una versione di AzCopy che supporta questa API. L'API *Put Block From URL* copia in modo sincrono i dati nel server, vale a dire che la chiamata viene completata solo dopo che tutti i dati sono stati spostati dal percorso del server originale al percorso di destinazione.
+> [!NOTE]
+> I dati archiviati nel livello di accesso Premium non possono attualmente passare al livello ad accesso frequente, sporadico o archivio tramite [Imposta livello BLOB](/rest/api/storageservices/set-blob-tier) o la gestione del ciclo di vita di Archiviazione BLOB di Azure. Per spostare i dati, è necessario copiare in modo sincrono i BLOB dall'accesso Premium a quello frequente usando [Put Block From URL](/rest/api/storageservices/put-block-from-url) o una versione di AzCopy che supporta questa API. L'API *Put Block From URL* copia in modo sincrono i dati nel server, vale a dire che la chiamata viene completata solo dopo che tutti i dati sono stati spostati dal percorso del server originale al percorso di destinazione.
 
 ### <a name="blob-lifecycle-management"></a>Gestione del ciclo di vita di Archiviazione BLOB
 La gestione del ciclo di vita di Archiviazione BLOB (anteprima) offre criteri avanzati basati su regole che è possibile usare per trasferire i dati al livello di accesso più appropriato e definirne la scadenza al termine del relativo ciclo di vita. Per altre informazioni, vedere [Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md).  
 
 ### <a name="blob-level-tiering-billing"></a>Fatturazione per l'organizzazione a livello di BLOB
 
-Quando un BLOB viene spostato in un livello ad accesso più sporadico (frequente -> sporadico, frequente -> archivio o sporadico -> archivio), l'operazione viene fatturata come operazione di scrittura nel livello di destinazione, dove vengono applicati i costi per le operazioni di scrittura (ogni 10.000) e la scrittura dati (per GB). Se un BLOB viene spostato in un livello ad accesso più frequente (archivio -> sporadico, archivio -> frequente o sporadico -> frequente), l'operazione viene fatturata come un'operazione di lettura nel livello di origine, dove vengono applicati i costi per le operazioni di lettura (ogni 10.000) e il recupero dati (per GB).
+Quando un BLOB viene spostato in un livello ad accesso più sporadico (frequente -> sporadico, frequente -> archivio o sporadico -> archivio), l'operazione viene fatturata come operazione di scrittura nel livello di destinazione, dove vengono applicati i costi per le operazioni di scrittura (ogni 10.000) e la scrittura dati (per GB). Quando un BLOB viene spostato in un livello ad accesso più frequente (archivio -> sporadico, archivio -> frequente o sporadico -> frequente), l'operazione viene fatturata come un'operazione di lettura nel livello di origine, dove vengono applicati i costi per le operazioni di lettura (ogni 10.000) e il recupero dati (per GB).
+
+| | **Addebito per scrittura** | **Addebito per lettura** 
+| ---- | ----- | ----- |
+| **Direzione impostazione livello BLOB** | frequente -> sporadico, frequente -> archivio, sporadico -> archivio | archivio -> sporadico, archivio -> frequente, sporadico -> frequente
 
 Se si attiva il livello di account da accesso frequente ad accesso sporadico, verrà addebitato l'importo per le operazioni di scrittura (ogni 10.000) per tutti i BLOB senza un livello impostato solo negli account per utilizzo generico v2. Non è previsto alcun addebito per questa modifica negli account di archiviazione BLOB. Se un account di archiviazione BLOB o per utilizzo generico v2 passa dal livello ad accesso sporadico al livello ad accesso frequente, verranno addebitati sia le operazioni di lettura (ogni 10.000) che il recupero dati (per GB). Possono essere addebitati anche i costi delle eliminazioni anticipate per i BLOB spostati al di fuori del livello di accesso sporadico o archivio.
 
 ### <a name="cool-and-archive-early-deletion"></a>Eliminazione anticipata per accesso sporadico o archivio
 
 Oltre all'addebito mensile per GB, ogni BLOB che passa al livello ad accesso sporadico (solo account per utilizzo generico v2) è soggetto a un periodo di eliminazione anticipata ad accesso sporadico di 30 giorni e ogni BLOB che passa al livello archivio è soggetto a un periodo di eliminazione anticipata dell'archivio di 180 giorni. Questo addebito è ripartito proporzionalmente. Ad esempio, se un BLOB viene spostato al livello di accesso archivio e quindi eliminato o spostato al livello ad accesso frequente dopo 45 giorni, verrà addebitata una tariffa per eliminazione anticipata equivalente a 135 (180 meno 45) giorni di archiviazione del BLOB nel livello archivio.
+
+È possibile calcolare l'eliminazione anticipata usando la proprietà di BLOB, **creation-time**, se non si è verificata alcuna variazione dei livelli di accesso. In caso contrario, è possibile usare la data dell'ultima modifica del livello di accesso come sporadico o archivio visualizzando la proprietà di BLOB **access-tier-change-time**. Per altre informazioni sulle proprietà di BLOB, vedere l'articolo relativo all'operazione [Get Blob Properties](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
 ## <a name="comparison-of-the-storage-tiers"></a>Confronto tra i livelli di archiviazione
 
@@ -140,7 +148,7 @@ La tabella seguente illustra un confronto tra i livelli di archiviazione ad acce
 | **Obiettivi di scalabilità e prestazioni** | Uguali a quelli degli account di archiviazione di uso generico | Uguali a quelli degli account di archiviazione di uso generico | Uguali a quelli degli account di archiviazione di uso generico |
 
 > [!NOTE]
-> Gli account di archiviazione BLOB supportano gli stessi obiettivi di prestazioni e scalabilità degli account di archiviazione di uso generico. Per ulteriori informazioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) .
+> Gli account di archiviazione BLOB supportano gli stessi obiettivi di prestazioni e scalabilità degli account di archiviazione di uso generico. Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 ## <a name="quickstart-scenarios"></a>Scenari introduttivi
 

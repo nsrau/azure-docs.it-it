@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: b4229ca7ff96a9806ac82cf9452de496d858f6b4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: a761e6a42e478aafca75709689a022edec2a64db
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705685"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191037"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Risolvere i problemi di accesso e utilizzo del portale delle app personali
 
@@ -49,7 +49,7 @@ Per il portale delle app personali è necessario un browser che supporti JavaScr
 
 Verificare che vengano soddisfatti i requisiti del browser seguenti:
 
-- **Microsoft Edge**: su Windows 10 Anniversary Edition o versioni successive.
+- **Microsoft Edge**: in Windows 10 Anniversary Edition o versioni successive.
 - **Chrome**: in Windows 7 o versione successiva e in Mac OS X o versione successiva.
 - **Firefox 26.0 o versioni successive**: in Windows XP SP2 o versioni successive e in Mac OS X 10.6 o versioni successive.
 - **Internet Explorer 11**: in Windows 7 o versioni successive (supporto limitato).
@@ -87,10 +87,10 @@ Se l'estensione è stata installata e continuano a verificarsi problemi, procede
    2. Selezionare l'icona dell'estensione per aprirne il menu.
    3. Cercare un'app disponibile nel portale delle app personali.
    4. Nell'elenco dei risultati della ricerca selezionare l'app.  
-       Nell'elenco di collegamenti **Usati di recente** verranno visualizzate le ultime tre app usate.
+       Nell'elenco di collegamenti **Recently Used** (Usate di recente) verranno visualizzate le ultime tre app usate.
 
 > [!NOTE]
-> Queste funzionalità sono disponibili solo per Microsoft Edge, Chrome e Firefox.
+> Queste opzioni sono disponibili solo per Microsoft Edge, Chrome e Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Come aggiungere una nuova app
 

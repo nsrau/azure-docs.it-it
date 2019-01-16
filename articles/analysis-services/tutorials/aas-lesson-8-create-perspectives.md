@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e92e86f59058f1f226c67f873530cd9c06b5d5fc
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c26da5d047a1e904510f96b44d81632b6e98689e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428335"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190970"
 ---
 # <a name="create-perspectives"></a>Creare prospettive
 
@@ -23,7 +23,7 @@ La prospettiva Internet Sales che viene creata in questa lezione esclude l'ogget
   
 Lo scopo di questa lezione è descrivere come creare prospettive e acquisire familiarità con gli strumenti per la creazione di modelli tabulari. Se successivamente si espande questo modello per includere ulteriori tabelle, è possibile creare altre prospettive per definire punti di vista diversi del modello, ad esempio, inventario e vendite.  
   
-Tempo previsto per il completamento della lezione: **cinque minuti**  
+Tempo previsto per il completamento della lezione: **Cinque minuti**  
   
 ## <a name="prerequisites"></a>Prerequisiti  
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 7: Creare indicatori di prestazioni chiave](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  

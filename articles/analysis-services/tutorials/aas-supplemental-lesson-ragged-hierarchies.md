@@ -1,19 +1,19 @@
 ---
-title: "Lezione supplementare dell'esercitazione su Azure Analysis Services: gerarchie incomplete | Microsoft Docs"
+title: "Lezione supplementare dell'esercitazione su Azure Analysis Services: Gerarchie incomplete | Microsoft Docs"
 description: Questo articolo descrive come correggere le gerarchie incomplete nell'esercitazione di Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 50926b7c8b06668770d9a00b8342d209fdb94649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426332"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191106"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lezione supplementare: gerarchie incomplete
 
@@ -23,7 +23,7 @@ Questa lezione supplementare spiega come risolvere un problema comune che si ver
 
 I modelli tabulari a livello di compatibilità 1400 offrono un'altra proprietà **Nascondi membri** per le gerarchie. L'impostazione **Default** (Predefinito) presuppone che non vi siamo membri vuoti ad alcun livello. L'impostazione **Nascondi membri vuoti** esclude i membri vuoti dalla gerarchia quando la si aggiunge a una tabella pivot o a un report.  
   
-Tempo previsto per il completamento dell'esercitazione:**20 minuti**  
+Tempo previsto per il completamento della lezione: **20 minuti**  
   
 ## <a name="prerequisites"></a>Prerequisiti  
 L'argomento di questa lezione supplementare fa parte di un'esercitazione sulla creazione di modelli tabulari. Prima di eseguire le attività di questa lezione supplementare, è necessario avere completato tutte le lezioni precedenti o avere completato il progetto modello di esempio Adventure Works Internet Sales. 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 146467ef50c605f730fe6f65c349fc8a3a1fd045
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 92bab3e6dcea0b6b234d361a346698be15088fc0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426244"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191514"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services: esercitazione su Adventure Works
 
@@ -45,7 +45,7 @@ Per completare questa esercitazione, sono necessari:
 
 -   Un'istanza di [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) con il **database AdventureWorksDW di esempio** o un'istanza di SQL Server Data Warehouse con il [database Adventure Works di esempio](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
 
-    **Importante:** se si installa il database di esempio in un'istanza di SQL Server Data Warehouse locale e si distribuisce il modello in un server Azure Analysis Services, è richiesto un [gateway dati locale](../analysis-services-gateway.md).
+    **Importante:** se si installa il database di esempio in un'istanza di SQL Server Data Warehouse locale e si distribuisce il modello in un server Azure Analysis Services, è necessario un [gateway dati locale](../analysis-services-gateway.md).
 
 -   La versione più recente di [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) per Visual Studio.
 

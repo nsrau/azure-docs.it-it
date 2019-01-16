@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c0aa2d43001100a392f8882316b7998838d90b9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121941"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190834"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -74,22 +74,26 @@ In **Panoramica** > modello > **Sincronizza modello**.
 ![Dispositivo di scorrimento di ridimensionamento orizzontale](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API REST
+
 Usare l'operazione **sync**.
 
 #### <a name="synchronize-a-model"></a>Sincronizzare un modello   
+
 `POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 #### <a name="get-sync-status"></a>Ottenere lo stato di sincronizzazione  
-`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
+
 Prima di usare PowerShell, [installare il modulo AzureRM più recente o effettuare l'aggiornamento a questo](https://github.com/Azure/azure-powershell/releases). 
 
 Per impostare il numero di repliche di query, usare [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Specificare il parametro facoltativo `-ReadonlyReplicaCount`.
 
 Per eseguire la sincronizzazione, usare [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
-## <a name="connections"></a>Connessioni
+## <a name="connections"></a>connessioni
 
 Nella pagina Panoramica del server sono presenti due nomi di server. Se il ridimensionamento orizzontale non è stato ancora configurato per un server, entrambi i nomi di server funzionano allo stesso modo. Dopo che per un server è stato configurato il ridimensionamento orizzontale, è necessario specificare il nome del server appropriato a seconda del tipo di connessione. 
 
