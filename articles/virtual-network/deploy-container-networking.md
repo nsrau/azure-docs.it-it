@@ -25,7 +25,7 @@ ms.locfileid: "46970975"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Distribuire il plug-in CNI (Container Network Interface) della rete virtuale di Azure
 
-Il plug-in CNI (Container Network Interface) della rete virtuale di Azure viene installato in una macchina virtuale di Azure e aggiunge funzionalità di rete virtuale ai pod Kubernetes e ai contenitori Docker. Per altre informazioni sul plug-in, vedere [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md) (Abilitare i contenitori all'uso delle funzionalità di rete virtuale di Azure). Il plug-in può inoltre essere usato con il servizio Kubernetes di Azure (AKS) scegliendo l'opzione [Rete avanzata](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), che inserisce automaticamente i contenitori AKS in una rete virtuale.
+Il plug-in CNI (Container Network Interface) della rete virtuale di Azure viene installato in una macchina virtuale di Azure e aggiunge funzionalità di rete virtuale ai pod Kubernetes e ai contenitori Docker. Per altre informazioni sul plug-in, vedere [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md) (Abilitare i contenitori all'uso delle funzionalità di rete virtuale di Azure). Il plug-in può inoltre essere usato con il servizio Azure Kubernetes scegliendo l'opzione [Rete avanzata](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), che inserisce automaticamente i contenitori del servizio Azure Kubernetes in una rete virtuale.
 
 ## <a name="deploy-plug-in-for-acs-engine-kubernetes-cluster"></a>Distribuire il plug-in per un cluster Kubernetes del motore ACS
 

@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/10/2018
-ms.openlocfilehash: 3760e2a5ccae1d21574412ec223cade03bebda1e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/15/2019
+ms.openlocfilehash: 49c9d908970425165fcdd76171c20ab65454f42a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548936"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318579"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Piani tariffari di Database di Azure per PostgreSQL
 
@@ -53,14 +53,14 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 | Stati Uniti centro-meridionali | X | X |
 | Stati Uniti occidentali | X | X |
 | Stati Uniti occidentali 2 |  | X |
+| Brasile meridionale | X | X |
 | Canada centrale | X | X |
 | Canada orientale | X | X |
-| Brasile meridionale | X | X |
 | Europa settentrionale | X | X |
 | Europa occidentale |  | X |
 | Francia centrale |  | X |
-| Regno Unito occidentale |  | X |
 | Regno Unito meridionale |  | X |
+| Regno Unito occidentale |  | X |
 | Asia orientale | X | X |
 | Asia sud-orientale | X | X |
 | Australia orientale |  | X |
@@ -68,17 +68,22 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 | Australia centrale 2 |  | X |
 | Australia sud-orientale |  | X |
 | India centrale | X | X |
-| India occidentale | X | X |
 | India meridionale |  | X |
+| India occidentale | X | X |
 | Giappone orientale | X | X |
 | Giappone occidentale | X | X |
 | Corea del Sud centrale |  | X |
 | Corea del Sud meridionale |  | X |
+| Cina orientale 1 | X |  |
+| Cina orientale 2 |  | X |
+| Cina settentrionale 1 | X |  |
+| Cina settentrionale 2 |  | X |
 | Germania centrale |  | X |
 | US DoD (area centrale)  | X |  |
 | US DoD (area orientale)  | X |  |
 | US Gov Arizona |  | X |
 | US Gov Texas |  | X |
+| US Gov Virginia |  | X |
 
 ## <a name="storage"></a>Archiviazione
 

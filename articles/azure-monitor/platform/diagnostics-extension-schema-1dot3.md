@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1d092d0afcb4c9689a55f9af2940884867a17089
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b5f1247c43dcbd836c684dbf41bafd0d319e5f7c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104591"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230476"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Schema di configurazione di Diagnostica di Azure 1.3 e versioni successive
 > [!NOTE]
@@ -613,7 +613,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
-|**scheduledTransferLogLevelFilterr**|**string**|facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
+|**scheduledTransferLogLevelFilter**|**string**|facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
 |**scheduledTransferPeriod**|**duration**|facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
 |**sinks** |**string**| Aggiunto nella versione 1.5. facoltativo. Punta a una posizione di sink per l'invio di dati di diagnostica, ad esempio Application Insights o Hub eventi.|  
 

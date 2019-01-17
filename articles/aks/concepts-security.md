@@ -1,6 +1,6 @@
 ---
 title: Concetti - Sicurezza nei servizi Kubernetes di Azure
-description: Informazioni sulla sicurezza nel servizio Kubernetes di Azure, inclusi comunicazione master e tra nodi, criteri di rete e segreti di Kubernetes.
+description: Informazioni sulla sicurezza nel servizio Azure Kubernetes, inclusi comunicazione master e tra nodi, criteri di rete e segreti di Kubernetes.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2018
 ms.locfileid: "49380696"
 ---
-# <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Kubernetes di Azure
+# <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes
 
-Per proteggere i dati dei clienti durante l'esecuzione di carichi di lavoro dell'applicazione nel servizio Kubernetes di Azure, la sicurezza del cluster è un fattore fondamentale. Kubernetes include componenti di sicurezza, ad esempio *criteri di rete* e *segreti*. Azure aggiunge quindi componenti come i gruppi di sicurezza di rete e gli aggiornamenti del cluster orchestrati. Questi componenti di sicurezza vengono combinati in modo che il cluster del servizio Kubernetes di Azure esegua sempre gli aggiornamenti della sicurezza del sistema operativo e le versioni di Kubernetes più recenti, con il traffico di pod e l'accesso sicuri alle credenziali sensibili.
+Per proteggere i dati dei clienti durante l'esecuzione di carichi di lavoro dell'applicazione nel servizio Azure Kubernetes, la sicurezza del cluster è un fattore fondamentale. Kubernetes include componenti di sicurezza, ad esempio *criteri di rete* e *segreti*. Azure aggiunge quindi componenti come i gruppi di sicurezza di rete e gli aggiornamenti del cluster orchestrati. Questi componenti di sicurezza vengono combinati in modo che il cluster del servizio Kubernetes di Azure esegua sempre gli aggiornamenti della sicurezza del sistema operativo e le versioni di Kubernetes più recenti, con il traffico di pod e l'accesso sicuri alle credenziali sensibili.
 
 Questo articolo introduce i principali concetti per proteggere le applicazioni nel servizio Kubernetes di Azure:
 

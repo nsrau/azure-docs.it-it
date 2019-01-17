@@ -1,6 +1,6 @@
 ---
 title: Concetti - Archiviazione nel servizio Kubernetes di Azure (AKS)
-description: Informazioni sull'archiviazione nel servizio Kubernetes di Azure, inclusi volumi, volumi permanenti, classi di archiviazione e attestazioni
+description: Informazioni sull'archiviazione nel servizio Azure Kubernetes, inclusi volumi, volumi permanenti, classi di archiviazione e attestazioni
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2018
 ms.locfileid: "49380766"
 ---
-# <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di archiviazione per le applicazioni nel servizio Kubernetes di Azure (AKS)
+# <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes
 
-Le applicazioni eseguite nel servizio Kubernetes di Azure (AKS) potrebbero richiedere l'archiviazione e il recupero dei dati. Per alcuni carichi di lavoro delle applicazioni, l'archiviazione dei dati può usare risorse di archiviazione locali e veloci sul nodo, che non sono più necessarie quando vengono eliminati i pod. Per altri carichi di lavoro potrebbe essere richiesta l'archiviazione permanente su volumi di dati più regolari all'interno della piattaforma di Azure. Più pod potrebbero dover condividere gli stessi volumi di dati oppure potrebbe essere necessario ricollegare i volumi di dati se il pod viene ripianificato su un nodo diverso. Infine, potrebbe essere necessario inserire i dati sensibili o le informazioni di configurazione delle applicazioni nei pod.
+Le applicazioni eseguite nel servizio Azure Kubernetes potrebbero richiedere l'archiviazione e il recupero dei dati. Per alcuni carichi di lavoro delle applicazioni, l'archiviazione dei dati può usare risorse di archiviazione locali e veloci sul nodo, che non sono più necessarie quando vengono eliminati i pod. Per altri carichi di lavoro potrebbe essere richiesta l'archiviazione permanente su volumi di dati più regolari all'interno della piattaforma di Azure. Più pod potrebbero dover condividere gli stessi volumi di dati oppure potrebbe essere necessario ricollegare i volumi di dati se il pod viene ripianificato su un nodo diverso. Infine, potrebbe essere necessario inserire i dati sensibili o le informazioni di configurazione delle applicazioni nei pod.
 
 ![Opzioni di archiviazione per le applicazioni in un cluster del servizio Kubernetes di Azure (AKS)](media/concepts-storage/aks-storage-options.png)
 

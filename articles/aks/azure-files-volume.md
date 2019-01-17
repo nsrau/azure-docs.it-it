@@ -1,6 +1,6 @@
 ---
-title: Creare un volume statico per pod multipli nel servizio Kubernetes di Azure (AKS)
-description: Informazioni su come creare manualmente un volume con i File di Azure per l'uso con pod multipli contemporaneamente nel servizio Kubernetes di Azure (AKS)
+title: Creare un volume statico per pod multipli nel servizio Azure Kubernetes
+description: Informazioni su come creare manualmente un volume con i File di Azure per l'uso con pod multipli contemporaneamente nel servizio Azure Kubernetes
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/10/2018
 ms.locfileid: "49068078"
 ---
-# <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Creare manualmente e usare un volume con la condivisione di File di Azure nel servizio Kubernetes di Azure (AKS)
+# <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Creare manualmente e usare un volume con la condivisione di File di Azure nel servizio Azure Kubernetes
 
 Le applicazioni basate su contenitore hanno spesso necessità di accedere e salvare in modo permanente i dati in un volume di dati esterno. Se più pod necessitano di accesso simultaneo allo stesso volume di archiviazione, è possibile usare File di Azure per connettersi usando il [protocollo Server Message Block (SMB)][smb-overview]. Questo articolo illustra come creare manualmente una condivisione di File di Azure e collegarla a un pod nel servizio Kubernetes di Azure.
 

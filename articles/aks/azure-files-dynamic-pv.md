@@ -1,6 +1,6 @@
 ---
-title: Creare in modo dinamico un volume di file per pod multipli nel servizio Kubernetes di Azure (AKS)
-description: Informazioni su come creare in modo dinamico un volume persistente con i File di Azure per l'uso con pod multipli contemporaneamente nel servizio Kubernetes di Azure (AKS)
+title: Creare in modo dinamico un volume di file per pod multipli nel servizio Azure Kubernetes
+description: Informazioni su come creare in modo dinamico un volume persistente con i File di Azure per l'uso con pod multipli contemporaneamente nel servizio Azure Kubernetes
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2019
 ms.locfileid: "53968990"
 ---
-# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con File di Azure nel servizio Kubernetes di Azure (AKS)
+# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con File di Azure nel servizio Azure Kubernetes
 
-Un volume permanente rappresenta una parte di risorsa di archiviazione di cui è stato eseguito il provisioning per l'uso con pod Kubernetes. Un volume permanente può essere usato da uno o più pod e se ne può eseguire il provisioning in modo dinamico o in modo statico. Se più pod necessitano di accesso simultaneo allo stesso volume di archiviazione, è possibile usare File di Azure per connettersi usando il [protocollo Server Message Block (SMB)][smb-overview]. Questo articolo illustra come creare in modo dinamico una condivisione di file di Azure per l'uso da più POD in un cluster del servizio Kubernetes di azure (AKS).
+Un volume permanente rappresenta una parte di risorsa di archiviazione di cui è stato eseguito il provisioning per l'uso con pod Kubernetes. Un volume permanente può essere usato da uno o più pod e se ne può eseguire il provisioning in modo dinamico o in modo statico. Se più pod necessitano di accesso simultaneo allo stesso volume di archiviazione, è possibile usare File di Azure per connettersi usando il [protocollo Server Message Block (SMB)][smb-overview]. Questo articolo illustra come creare in modo dinamico una condivisione di file di Azure per l'uso da più POD in un cluster del servizio Azure Kubernetes.
 
 Per altre informazioni sui volumi Kubernetes permanenti, vedere [Kubernetes persistent volumes][kubernetes-volumes] (Volumi Kubernetes permanenti).
 

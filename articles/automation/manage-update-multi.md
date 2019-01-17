@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679530"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214029"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -113,7 +113,11 @@ La tabella seguente descrive le origini connesse supportate da questa soluzione:
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
 
-Per ogni computer Windows gestito viene eseguita un'analisi due volte al giorno. Ogni 15 minuti viene chiamata l'API Windows per eseguire una query su data/ora dell'ultimo aggiornamento e determinare se lo stato è cambiato. Se lo stato è cambiato, viene avviata un'analisi della conformità. Per ogni computer Linux gestito viene eseguita un'analisi ogni 3 ore.
+Quando un computer ha completato l'analisi di conformità degli aggiornamenti, l'agente inoltra le informazioni in blocco ad Azure Log Analytics. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita.
+
+Oltre all'analisi pianificata, l'analisi della conformità degli aggiornamenti viene avviata entro 15 minuti dal momento del riavvio di MMA e prima e dopo l'installazione degli aggiornamenti.
+
+Per un computer Linux, l'analisi della conformità viene eseguita ogni 3 ore per impostazione predefinita. Se l'agente MMA viene riavviato, viene avviata un'analisi della conformità entro 15 minuti.
 
 La visualizzazione nel dashboard dei dati aggiornati dei computer gestiti può richiedere da 30 minuti a 6 ore.
 

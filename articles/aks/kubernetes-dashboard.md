@@ -1,6 +1,6 @@
 ---
-title: Gestire un cluster del servizio Kubernetes di Azure con il dashboard Web
-description: Di seguito sono riportate informazioni su come usare il dashboard dell'interfaccia utente Web Kubernetes incorporato per gestire un cluster del servizio Kubernetes di Azure (AKS)
+title: Gestire un cluster del servizio Azure Kubernetes con il dashboard Web
+description: Di seguito sono riportate informazioni su come usare il dashboard dell'interfaccia utente Web Kubernetes incorporato per gestire un cluster del servizio Azure Kubernetes
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/09/2018
 ms.locfileid: "51299130"
 ---
-# <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accesso al dashboard di Kubernetes con il servizio Kubernetes di Azure (AKS)
+# <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accesso al dashboard di Kubernetes con il servizio Azure Kubernetes
 
 Kubernetes include un dashboard web che può essere utilizzato per le operazioni di gestione di base. Questo dashboard consente di visualizzare lo stato di integrità di base e le metriche per le applicazioni, creare e distribuire servizi e modificare applicazioni esistenti. Questo articolo spiega come accedere al dashboard di Kubernetes tramite l’interfaccia della riga di comando di Azure e quindi mostra alcune operazioni di base del dashboard.
 

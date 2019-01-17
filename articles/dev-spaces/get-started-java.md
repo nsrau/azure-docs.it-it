@@ -9,7 +9,7 @@ ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
+keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
 manager: mmontwil
 ms.openlocfilehash: 5f0a72dd3187703de183b432453c6dcb56060a97
 ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8

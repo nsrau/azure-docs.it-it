@@ -5,6 +5,7 @@ description: Questa esercitazione illustra come creare un servizio di bilanciame
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 1ed77e8573479665d0caac15941d6b6c6ab790cb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 16c9eea61391511f7515308131b3541e186cd7ae
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262351"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232618"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico interno con un servizio di bilanciamento del carico Basic nel portale di Azure
 
@@ -146,9 +147,9 @@ Per consentire al servizio di bilanciamento del carico di monitorare lo stato de
    
 1. Nella pagina **Aggiungi probe integrità** digitare o selezionare i valori seguenti:
    
-   - **Nome**: Digitare *MyHealthProbe*.
+   - **Nome**: digitare *MyHealthProbe*.
    - **Protocollo**: Nell'elenco a discesa selezionare **HTTP**. 
-   - **Porta**: Digitare *80*. 
+   - **Porta**: digitare *80*. 
    - **Percorso**: Accettare */* come URI predefinito. È possibile sostituire questo valore con qualsiasi altro URI. 
    - **Intervallo**: Digitare *15*. L'intervallo specifica il numero di secondi tra i tentativi del probe.
    - **Soglia non integra**: Digitare *2*. Questa impostazione specifica il numero di errori di probe consecutivi che si verificano prima che una macchina virtuale venga considerata non integra.
@@ -173,7 +174,7 @@ La regola di bilanciamento del carico denominata **MyLoadBalancerRule** rimane i
    
    - **Nome**: Digitare *MyLoadBalancerRule*.
    - **Indirizzo IP front-end:** Digitare *LoadBalancerFrontEnd* se non presente.
-   - **Protocollo**: Selezionare **TCP**.
+   - **Protocollo**: selezionare **TCP**.
    - **Porta**: Digitare *80*.
    - **Porta back-end**: Digitare *80*.
    - **Pool back-end**: Selezionare **MyBackendPool**.

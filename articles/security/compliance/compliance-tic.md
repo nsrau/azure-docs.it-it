@@ -151,7 +151,7 @@ Le tabelle seguenti elencano i servizi che supportano la distribuzione di istanz
 |Service                               |Disponibilità      |
 |--------------------------------------|------------------|
 |Istanza gestita di database SQL di Azure   | Anteprima pubblica   |
-|Azure Kubernetes Service (AKS)        | Anteprima pubblica   |
+|Servizio Azure Kubernetes        | Anteprima pubblica   |
 |Azure Service Fabric                  | GA               |
 |Gestione API di Azure                  | GA               |
 |Azure Active Directory                | GA               |
@@ -257,7 +257,7 @@ Le reti nelle aree monitorate da Network Watcher possono eseguire test di hop su
 | Web e dispositivi mobili | Applicazione mobile interna | | Ambiente del servizio app | |
 | Web e dispositivi mobili | Applicazioni per le API | | Ambiente del servizio app | |
 | Contenitori | Servizio contenitore di Azure | | | Yes |
-| Contenitori | Servizio Kubernetes di Azure (AKS) \* | | | Yes |
+| Contenitori | Servizio Azure Kubernetes \* | | | Yes |
 | Database | Database SQL di Azure | | Istanza gestita di database SQL di Azure \* | SQL di Azure |
 | Database | Database di Azure per MySQL | | | Yes |
 | Database | Database di Azure per PostgreSQL | | | Yes |

@@ -1,6 +1,6 @@
 ---
-title: Versioni Kubernetes supportate nel servizio Kubernetes di Azure
-description: Comprendere i criteri di supporto di della versione di Kubernetes e il ciclo di vita dei cluster nel servizio Kubernetes di Azure (AKS)
+title: Versioni Kubernetes supportate nel servizio Azure Kubernetes
+description: Comprendere i criteri di supporto di della versione di Kubernetes e il ciclo di vita dei cluster nel servizio Azure Kubernetes
 services: container-service
 author: sauryadas
 ms.service: container-service
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "53001816"
 ---
-# <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Kubernetes di Azure (AKS)
+# <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
 La community di Kubernetes rilascia le versioni secondarie all'incirca ogni tre mesi. Queste versioni includono miglioramenti e nuove funzionalità. Le versioni delle patch sono più frequenti (in alcuni casi settimanali) e sono destinate esclusivamente a correzioni di bug importanti in una versione secondaria. Le versioni delle patch consentono di risolvere le vulnerabilità della sicurezza o i bug rilevanti con impatto su un numero elevato di clienti e prodotti in esecuzione in ambienti di produzione basati su Kubernetes.
 
@@ -81,7 +81,7 @@ Il master viene aggiornato automaticamente alla versione supportata più recente
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come aggiornare il cluster, vedere [Aggiornare un cluster di Azure Kubernetes Service (AKS)][aks-upgrade].
+Per informazioni su come aggiornare il cluster, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade].
 
 <!-- LINKS - External -->
 [aks-engine]: https://github.com/Azure/aks-engine

@@ -1,6 +1,6 @@
 ---
-title: Eseguire Virtual Kubelet in un cluster di Azure Kubernetes Service (AKS)
-description: Informazioni su come usare Virtual Kubelet con Azure Kubernetes Service (AKS) per eseguire contenitori Linux e Windows in istanze di contenitore di Azure.
+title: Eseguire Virtual Kubelet in un cluster del servizio Azure Kubernetes
+description: Informazioni su come usare Virtual Kubelet con il servizio Azure Kubernetes per eseguire contenitori Linux e Windows in Istanze di Azure Container.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54054013"
 ---
-# <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usare Virtual Kubelet con Azure Kubernetes Service (AKS)
+# <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usare Virtual Kubelet con il servizio Azure Kubernetes
 
 Istanze di contenitore di Azure offre un ambiente ospitato per l'esecuzione di contenitori in Azure. Quando si usa Istanze di contenitore di Azure, non è necessario gestire l'infrastruttura di calcolo sottostante, che viene gestita da Azure. Quando si eseguono i contenitori in Istanze di contenitore di Azure, ogni contenitore in esecuzione viene addebitato in base ai secondi effettivi.
 
@@ -28,7 +28,7 @@ Quando si usa il provider Virtual Kubelet per Istanze di contenitore di Azure, �
 
 ## <a name="prerequisite"></a>Prerequisito
 
-Questo documento presuppone che si abbia già un cluster AKS. Se è necessario un cluster AKS, vedere la [guida introduttiva su Azure Kubernetes Service (AKS)][aks-quick-start].
+Questo documento presuppone che si abbia già un cluster AKS. Se è necessario un cluster del servizio Azure Kubernetes, vedere la [guida introduttiva al servizio Azure Kubernetes][aks-quick-start].
 
 È anche necessaria l'interfaccia della riga di comando di Azure versione **2.0.33**. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 

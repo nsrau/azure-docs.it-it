@@ -81,7 +81,7 @@ Una distribuzione di base crea i servizi seguenti nella sottoscrizione di Azure:
 
 ### <a name="standard"></a>Standard
 
-Una distribuzione standard è una distribuzione pronta per l'ambiente di produzione che uno sviluppatore può personalizzare ed estendere. Usare l'opzione di distribuzione standard quando si è pronti a personalizzare un'architettura per la produzione, creata per la scalabilità e l'estendibilità. I microservizi dell'applicazione vengono creati come contenitori Docker e distribuiti tramite il servizio Kubernetes di Azure (AKS). L'agente di orchestrazione Kubernetes distribuisce, ridimensiona e gestisce i microservizi.
+Una distribuzione standard è una distribuzione pronta per l'ambiente di produzione che uno sviluppatore può personalizzare ed estendere. Usare l'opzione di distribuzione standard quando si è pronti a personalizzare un'architettura per la produzione, creata per la scalabilità e l'estendibilità. I microservizi dell'applicazione vengono creati come contenitori Docker e distribuiti tramite il servizio Azure Kubernetes. L'agente di orchestrazione Kubernetes distribuisce, ridimensiona e gestisce i microservizi.
 
 Una distribuzione standard crea i servizi seguenti nella sottoscrizione di Azure:
 

@@ -50,7 +50,7 @@ Se, ad esempio, non è stato effettuato il push dell'immagine di Nginx come illu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso le nozioni di base sulla visualizzazione e l'uso di repository nel portale, provare a usare Registro contenitori di Azure con un cluster di [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md).
+Dopo aver appreso le nozioni di base sulla visualizzazione e l'uso di repository nel portale, provare a usare Registro Azure Container con un cluster del [servizio Azure Kubernetes](../aks/tutorial-kubernetes-prepare-app.md).
 
 <!-- LINKS - External -->
 [docker-install]: https://docs.docker.com/engine/installation/

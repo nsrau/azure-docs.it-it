@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione su Kubernetes in Azure: ridimensionare un'applicazione"
-description: In questa esercitazione sul servizio Kubernetes di Azure (AKS) viene illustrato come ridimensionare nodi e pod in Kubernetes e implementare la scalabilità automatica orizzontale dei pod.
+description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come ridimensionare nodi e pod in Kubernetes e implementare la scalabilità automatica orizzontale dei pod.
 services: container-service
 author: iainfoulds
 ms.service: container-service

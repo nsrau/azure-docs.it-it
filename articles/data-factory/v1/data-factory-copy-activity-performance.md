@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 632e605a6f7c9885f3854ca1f7b69ed337a1eacc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025879"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331646"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 
@@ -108,7 +108,7 @@ L' **unità di spostamento dati cloud** è una misura che rappresenta la potenza
 Per ignorare l'impostazione predefinita, è possibile specificare un valore per la proprietà **cloudDataMovementUnits** procedendo come segue. I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono 2, 4, 8, 16, 32. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati. Per informazioni sul livello di miglioramento delle prestazioni che è possibile ottenere quando si configurano più unità per un sink e un'origine della copia specifici, vedere la sezione [Informazioni di riferimento sulle prestazioni](#performance-reference).
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -135,7 +135,7 @@ Per ignorare l'impostazione predefinita, è possibile specificare un valore per 
 ### <a name="parallelcopies"></a>parallelCopies
 È possibile usare la proprietà **parallelCopies** per indicare il parallelismo che l'attività di copia deve usare. Questa proprietà può essere considerata come il numero massimo di thread all'interno dell'attività di copia che possono leggere dall'origine o scrivere negli archivi dati sink in parallelo.
 
-Per ogni esecuzione dell'attività di copia, Data Factory determina il numero di copie parallele da usare per copiare i dati dall'archivio dati di origine all'archivio dati di destinazione. Il numero predefinito di copie parallele usate dipende dal tipo di origine e dal tipo di sink usati.  
+Per ogni esecuzione dell'attività di copia, Data Factory determina il numero di copie parallele da usare per copiare i dati dall'archivio dati di origine all'archivio dati di destinazione. Il numero predefinito di copie parallele usate dipende dal tipo di origine e dal tipo di sink usati.
 
 | Origine e sink | Numero predefinito di copie parallele determinato dal servizio |
 | --- | --- |
@@ -146,7 +146,7 @@ Per ogni esecuzione dell'attività di copia, Data Factory determina il numero di
 In genere, il comportamento predefinito dovrebbe garantire la velocità effettiva migliore. Tuttavia, per controllare il carico sui computer che ospitano gli archivi dati o per ottimizzare le prestazioni di copia, è possibile scegliere di ignorare il valore predefinito e specificare un valore per la proprietà **parallelCopies** . Il valore deve essere compreso tra 1 e 32, estremi inclusi. Per garantire prestazioni ottimali in fase di esecuzione, l'attività di copia usa un valore minore o uguale al valore configurato.
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -176,7 +176,7 @@ Punti da notare:
 >
 >
 
-Per usare al meglio queste due proprietà e per migliorare la velocità effettiva dello spostamento dati, vedere i [casi d'uso di esempio](#case-study-use-parallel-copy). Per usare il comportamento predefinito non è necessario configurare **parallelCopies** . Se si esegue la configurazione e il valore di **parallelCopies** è troppo basso, è possibile che più unità di spostamento dati cloud non vengano utilizzate appieno.  
+Per usare al meglio queste due proprietà e per migliorare la velocità effettiva dello spostamento dati, vedere i [casi d'uso di esempio](#case-study-use-parallel-copy). Per usare il comportamento predefinito non è necessario configurare **parallelCopies** . Se si esegue la configurazione e il valore di **parallelCopies** è troppo basso, è possibile che più unità di spostamento dati cloud non vengano utilizzate appieno.
 
 ### <a name="billing-impact"></a>Impatto della fatturazione
 È **importante** ricordare che l'addebito è basato sul tempo totale impiegato per l'operazione di copia. Se un processo di copia impiegava un'ora con una unità cloud e ora richiede 15 minuti con quattro unità cloud, la fattura complessiva rimane pressoché identica. Si prenda ad esempio un utilizzo di quattro unità cloud. La prima unità cloud impiega 10 minuti, la seconda 10 minuti, la terza 5 minuti e la quarta 5 minuti, tutto in un'unica esecuzione dell'attività di copia. Verrà addebitato il tempo totale dell'operazione di copia, ovvero di spostamento dei dati, che è pari a 10 + 10 + 5 + 5 = 30 minuti. L'uso di **parallelCopies** non influisce sulla fatturazione.
@@ -216,7 +216,7 @@ Configurare l'impostazione **enableStaging** nell'attività di copia per specifi
 Di seguito è riportata una definizione di esempio di attività di copia con le proprietà descritte nella tabella precedente:
 
 ```json
-"activities":[  
+"activities":[
 {
     "name": "Sample copy activity",
     "type": "Copy",
@@ -273,9 +273,9 @@ Per ottimizzare le prestazioni del servizio Data Factory con l'attività di copi
 3. **Espandere la configurazione all'intero set di dati**. Dopo aver ottenuto prestazioni e risultati di esecuzione soddisfacenti, è possibile espandere la definizione del set di dati e il periodo attivo della pipeline per coprire l'intero set di dati.
 
 ## <a name="considerations-for-data-management-gateway"></a>Considerazioni su Gateway di gestione dati
-**Configurazione del gateway**: è consigliabile usare un computer dedicato per ospitare Gateway di gestione dati. Vedere [Considerazioni sull'uso di Gateway di gestione dati](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+**Configurazione del gateway**: è consigliabile usare un computer dedicato per ospitare Gateway di gestione dati. Vedere [Considerazioni sull'uso di Gateway di gestione dati](data-factory-data-management-gateway.md#considerations-for-using-gateway).
 
-**Monitoraggio e scalabilità verticale/orizzontale del gateway**: un singolo gateway logico con uno o più nodi del gateway può consentire più esecuzioni di attività di copia contemporaneamente. È possibile visualizzare lo snapshot quasi in tempo quasi reale dell'utilizzo delle risorse, ad esempio CPU, memoria, rete (ingresso/uscita) e così via, in un computer gateway oltre che il numero di processi simultanei in esecuzione rispetto ai limiti nel portale di Azure. Vedere [Monitorare il gateway nel portale](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Se si hanno necessità complesse di spostamento di dati ibridi, con un numero elevato di esecuzioni di attività di copia simultanee o con un volume elevato di dati da copiare, prendere in considerazione la possibilità di [aumentare le prestazioni o sfruttare la scalabilità orizzontale del gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) in modo da utilizzare al meglio la risorsa o effettuare il provisioning di più risorse a supporto della copia. 
+**Monitoraggio e scalabilità verticale/orizzontale del gateway**: un singolo gateway logico con uno o più nodi del gateway può consentire più esecuzioni di attività di copia contemporaneamente. È possibile visualizzare lo snapshot quasi in tempo quasi reale dell'utilizzo delle risorse, ad esempio CPU, memoria, rete (ingresso/uscita) e così via, in un computer gateway oltre che il numero di processi simultanei in esecuzione rispetto ai limiti nel portale di Azure. Vedere [Monitorare il gateway nel portale](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Se si hanno necessità complesse di spostamento di dati ibridi, con un numero elevato di esecuzioni di attività di copia simultanee o con un volume elevato di dati da copiare, prendere in considerazione la possibilità di [aumentare le prestazioni o sfruttare la scalabilità orizzontale del gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) in modo da utilizzare al meglio la risorsa o effettuare il provisioning di più risorse a supporto della copia.
 
 ## <a name="considerations-for-the-source"></a>Considerazioni sull'origine
 ### <a name="general"></a>Generale
@@ -404,7 +404,7 @@ In tal caso, la compressione dati bzip2 potrebbe rallentare l'intera pipeline. I
 
 **Scenario II**: copiare 20 BLOB da 500 MB dall'archivio BLOB in Data Lake Store Analytics e ottimizzare le prestazioni.
 
-**Analisi e ottimizzazione delle prestazioni**: in questo scenario Data Factory copia i dati dall'archivio BLOB in Data Lake Store tramite copia singola, con **parallelCopies** impostato su 1, e unità di spostamento dati cloud singole. La velocità effettiva osservata si avvicinerà ai valori indicati nella sezione [Informazioni di riferimento sulle prestazioni](#performance-reference)precedente.   
+**Analisi e ottimizzazione delle prestazioni**: in questo scenario Data Factory copia i dati dall'archivio BLOB in Data Lake Store tramite copia singola, con **parallelCopies** impostato su 1, e unità di spostamento dati cloud singole. La velocità effettiva osservata si avvicinerà ai valori indicati nella sezione [Informazioni di riferimento sulle prestazioni](#performance-reference)precedente.
 
 ![Scenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 

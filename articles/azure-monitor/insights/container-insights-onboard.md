@@ -21,7 +21,7 @@ ms.lasthandoff: 01/14/2019
 ms.locfileid: "54260908"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Come eseguire l'onboarding di Monitoraggio di Azure per contenitori  
-Questo articolo descrive come configurare Monitoraggio di Azure per contenitori per monitorare le prestazioni dei carichi di lavoro distribuiti negli ambienti Kubernetes e ospitati nel [servizio Kubernetes di Azure](https://docs.microsoft.com/azure/aks/).
+Questo articolo descrive come configurare Monitoraggio di Azure per contenitori per monitorare le prestazioni dei carichi di lavoro distribuiti negli ambienti Kubernetes e ospitati nel [servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/).
 
 Monitoraggio di Azure per i contenitori può essere abilitato per le nuove distribuzioni oppure per una o più distribuzioni esistenti del servizio Azure Kubernetes usando i metodi supportati seguenti:
 
@@ -49,7 +49,7 @@ Quando viene rilasciata una nuova versione dell'agente, questo viene aggiornato 
 Accedere al [portale di Azure](https://portal.azure.com). 
 
 ## <a name="enable-monitoring-for-a-new-cluster"></a>Abilitare il monitoraggio per un nuovo cluster
-Durante la distribuzione, è possibile abilitare il monitoraggio di un nuovo cluster del servizio Azure Kubernetes nel portale di Azure, con l'interfaccia della riga di comando di Azure o con Terraform.  Seguire la procedura nell'articolo introduttivo [Distribuire un cluster Azure Kubernetes Service (AKS)](../../aks/kubernetes-walkthrough-portal.md) se si desidera abilitarlo dal portale. Nella pagina **Monitoraggio** selezionare **Sì** per l'opzione **Abilita monitoraggio** e quindi selezionare un'area di lavoro di Log Analytics esistente o crearne una nuova. 
+Durante la distribuzione, è possibile abilitare il monitoraggio di un nuovo cluster del servizio Azure Kubernetes nel portale di Azure, con l'interfaccia della riga di comando di Azure o con Terraform.  Seguire la procedura nell'articolo introduttivo [Distribuire un cluster del servizio Azure Kubernetes](../../aks/kubernetes-walkthrough-portal.md) se si desidera abilitarlo dal portale. Nella pagina **Monitoraggio** selezionare **Sì** per l'opzione **Abilita monitoraggio** e quindi selezionare un'area di lavoro di Log Analytics esistente o crearne una nuova. 
 
 ### <a name="enable-using-azure-cli"></a>Abilitare tramite l'interfaccia della riga di comando di Azure
 Per abilitare il monitoraggio di un nuovo cluster AKS creato con l'interfaccia della riga di comando di Azure, seguire la procedura nell'articolo introduttivo nella sezione [Creare il cluster AKS](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
@@ -391,4 +391,4 @@ Dopo alcuni minuti, il comando viene completato e vengono restituite informazion
 
 * Se si verificano problemi durante il tentativo di onboarding della soluzione, esaminare la [guida risoluzione dei problemi](container-insights-troubleshoot.md).
 
-* Con il monitoraggio abilitato per acquisire le metriche di integrità sia per i nodi del cluster AKS che per i pod, queste metriche di integrità sono disponibili nel portale di Azure. Per informazioni su come usare Monitoraggio di Azure per contenitori, vedere [Visualizzare l'integrità del servizio Kubernetes di Azure](container-insights-analyze.md).
+* Con il monitoraggio abilitato per acquisire le metriche di integrità sia per i nodi del cluster AKS che per i pod, queste metriche di integrità sono disponibili nel portale di Azure. Per informazioni su come usare Monitoraggio di Azure per contenitori, vedere [Visualizzare l'integrità del servizio Azure Kubernetes](container-insights-analyze.md).

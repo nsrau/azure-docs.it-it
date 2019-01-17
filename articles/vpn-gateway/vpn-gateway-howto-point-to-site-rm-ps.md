@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: c579bb32fdd43c95f027e6c9f5a6ef656d059d60
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f688c0e277f807ff27731c103ca407807052c9d3
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847406"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199749"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativo: PowerShell
 
@@ -41,7 +41,7 @@ Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscriz
 
 * **Nome: VNet1**
 * **Spazio degli indirizzi: 192.168.0.0/16** e **10.254.0.0/16**<br>Questo esempio usa più di uno spazio indirizzi per mostrare che la configurazione funziona con più spazi indirizzi, ma per questa configurazione non sono necessari più spazi indirizzi.
-* **Nome subnet: Front-end**
+* **Nome subnet: FrontEnd**
   * **Intervallo di indirizzi subnet: 192.168.1.0/24**
 * **Nome subnet: BackEnd**
   * **Intervallo di indirizzi subnet: 10.254.1.0/24**
@@ -50,7 +50,7 @@ Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscriz
 * **Pool di indirizzi client VPN: 172.16.201.0/24**<br>I client VPN che si connettono alla rete virtuale con questa connessione da punto a sito ricevono un indirizzo IP dal pool di indirizzi client VPN.
 * **Sottoscrizione:** se si dispone di più sottoscrizioni, verificare di usare quella corretta.
 * **Gruppo di risorse: TestRG**
-* **Percorso: Stati Uniti orientali**
+* **Posizione: Stati Uniti orientali**
 * **Server DNS: indirizzo IP** del server DNS che si vuole usare per la risoluzione dei nomi. (facoltativo).
 * **Nome GW: Vnet1GW**
 * **Nome IP pubblico: VNet1GWPIP**
@@ -62,7 +62,7 @@ In questa sezione si accede e si dichiarano i valori usati per la configurazione
 
 ### <a name="sign-in"></a>Accesso
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="declare-variables"></a>Dichiarare le variabili
 

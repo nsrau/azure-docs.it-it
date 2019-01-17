@@ -20,7 +20,7 @@ sections:
 - title: Esperienza di sviluppo Kubernetes rapida e iterativa per i team
   items:
   - type: paragraph
-    text: Con una configurazione minima del computer di sviluppo, è possibile eseguire il codice in maniera iterativa ed eseguire il debug dei contenitori direttamente in Azure Kubernetes Service (AKS).  È anche possibile collaborare con il team in un cluster Kubernetes condiviso ed eseguire test end-to-end con altri componenti senza replicare o simulare dipendenze. Con Azure Dev Spaces è possibile sviluppare in Windows, Mac o Linux usando strumenti familiari come Visual Studio, Visual Studio Code o la riga di comando.
+    text: Con una configurazione minima del computer di sviluppo, è possibile eseguire il codice in maniera iterativa ed eseguire il debug dei contenitori direttamente nel servizio Azure Kubernetes.  È anche possibile collaborare con il team in un cluster Kubernetes condiviso ed eseguire test end-to-end con altri componenti senza replicare o simulare dipendenze. Con Azure Dev Spaces è possibile sviluppare in Windows, Mac o Linux usando strumenti familiari come Visual Studio, Visual Studio Code o la riga di comando.
   - type: markdown
     text: >-
       > [!IMPORTANT]

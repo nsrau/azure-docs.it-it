@@ -1,6 +1,6 @@
 ---
-title: Usare OpenFaaS con Azure Kubernetes Service (AKS)
-description: Distribuire e usare OpenFaaS con Azure Kubernetes Service (AKS)
+title: Usare OpenFaaS con servizio Azure Kubernetes
+description: Distribuire e usare OpenFaaS con il servizio Azure Kubernetes
 services: container-service
 author: justindavies
 manager: jeconnoc
@@ -9,23 +9,23 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: b5484233c7d3d32e51098baad8c22ec51df8f0d8
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: dc0f4bd1e5b07e30f3c89807fbbbc908b3149810
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260618"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542532"
 ---
 # <a name="using-openfaas-on-aks"></a>Uso di OpenFaaS in AKS
 
-[OpenFaaS][open-faas] è un framework per la compilazione di funzioni senza server su contenitori. Il fatto che si tratta di un progetto Open Source ne ha favorito l'adozione su larga scala all'interno della community. Questo documento descrive l'installazione e l'uso di OpenFaaS in un cluster Azure Kubernetes Service (AKS).
+[OpenFaaS][open-faas] è un framework per la compilazione di funzioni serverless su contenitori. Il fatto che si tratti di un progetto Open Source ne ha favorito l'adozione su larga scala all'interno della community. Questo documento descrive l'installazione e l'uso di OpenFaaS in un cluster del servizio Azure Kubernetes.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare la procedura descritta in questo articolo è necessario quanto segue.
 
 * Conoscenza di base di Kubernetes.
-* Un cluster Azure Kubernetes Service (AKS) e le credenziali di AKS configurate nel sistema di sviluppo.
+* Un cluster del servizio Azure Kubernetes e le credenziali del servizio Azure Kubernetes configurate nel sistema di sviluppo.
 * Avere l'interfaccia della riga di comando di Azure installata nel sistema di sviluppo.
 * Strumenti da riga di comando di GIT installati nel sistema.
 

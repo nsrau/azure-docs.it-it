@@ -9,7 +9,7 @@ ms.author: zarhoads
 ms.date: 10/04/2018
 ms.topic: article
 description: Informazioni su come creare in modo rapido un cluster Kubernetes abilitato per Azure Dev Spaces direttamente dal browser senza installare alcun componente.
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
+keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
 ms.openlocfilehash: 531781ec48617d2038698665696fdc61b3c52cd9
 ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT

@@ -1,6 +1,6 @@
 ---
 title: Esercitazione su Kubernetes in Azure - Aggiornare un cluster
-description: In questa esercitazione sul servizio Kubernetes di Azure (AKS) viene illustrato come aggiornare un cluster AKS esistente alla versione più recente disponibile di Kubernetes.
+description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come aggiornare un cluster servizio Azure Kubernetes esistente alla versione più recente disponibile di Kubernetes.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -17,7 +17,7 @@ ms.locfileid: "53719439"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Esercitazione: Aggiornare Kubernetes nel servizio Azure Kubernetes
 
-Durante il ciclo di vita dell'applicazione e del cluster, potrebbe essere necessario eseguire l'aggiornamento alla versione più recente disponibile di Kubernetes e usare le nuove funzionalità. È possibile aggiornare un cluster di Azure Kubernetes Service (AKS) tramite l'interfaccia della riga di comando di Azure.
+Durante il ciclo di vita dell'applicazione e del cluster, potrebbe essere necessario eseguire l'aggiornamento alla versione più recente disponibile di Kubernetes e usare le nuove funzionalità. È possibile aggiornare un cluster del servizio Azure Kubernetes tramite l'interfaccia della riga di comando di Azure.
 
 In questa esercitazione, la settima parte di sette, viene aggiornato un cluster Kubernetes. Si apprenderà come:
 

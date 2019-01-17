@@ -1,6 +1,6 @@
 ---
-title: Usare i propri certificati TLS per l'ingresso con cluster del servizio Kubernetes di Azure (AKS)
-description: Informazioni su come installare e configurare un controller di ingresso NGINX che usa i propri certificati in un cluster del servizio Kubernetes di Azure (AKS).
+title: Usare i propri certificati TLS per l'ingresso con cluster del servizio Azure Kubernetes
+description: Informazioni su come installare e configurare un controller di ingresso NGINX che usa i propri certificati in un cluster del servizio Azure Kubernetes.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,11 +14,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54154981"
 ---
-# <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS e usare i propri certificati TLS in servizio Kubernetes di Azure (AKS)
+# <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS e usare i propri certificati TLS nel servizio Azure Kubernetes
 
 Un controller di ingresso è un componente software che fornisce proxy inverso, routing del traffico configurabile e terminazione TLS per i servizi Kubernetes. Le risorse di ingresso Kubernetes vengono usate per configurare le regole di ingresso e le route per i singoli servizi Kubernetes. Usando un controller di ingresso e regole di ingresso è possibile servirsi di un singolo indirizzo IP per instradare il traffico a più servizi in un cluster Kubernetes.
 
-Questo articolo illustra come distribuire il [controller di ingresso NGINX][nginx-ingress] in un cluster del servizio Kubernetes di Azure (AKS). Si generano i propri certificati e si crea un segreto Kubernetes per l'utilizzo con la route in ingresso. Infine, due applicazioni vengono eseguite nel cluster AKS, ognuna delle quali è accessibile tramite un singolo indirizzo IP.
+Questo articolo illustra come distribuire il [controller di ingresso NGINX][nginx-ingress] in un cluster del servizio Azure Kubernetes. Si generano i propri certificati e si crea un segreto Kubernetes per l'utilizzo con la route in ingresso. Infine, due applicazioni vengono eseguite nel cluster AKS, ognuna delle quali è accessibile tramite un singolo indirizzo IP.
 
 È anche possibile:
 

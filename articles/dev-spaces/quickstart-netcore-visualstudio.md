@@ -9,7 +9,7 @@ ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
+keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
 ms.openlocfilehash: eebec24702456ec1062a1ac4b3cb9bc6d6580c29
 ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT

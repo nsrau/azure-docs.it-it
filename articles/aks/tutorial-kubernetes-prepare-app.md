@@ -1,6 +1,6 @@
 ---
 title: Esercitazione su Kubernetes in Azure - Preparare un'applicazione
-description: In questa esercitazione sul servizio Kubernetes di Azure (AKS) viene illustrato come preparare e compilare con Docker Compose un'app multicontenitore che è quindi possibile distribuire in AKS.
+description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come preparare e compilare con Docker Compose un'app multicontenitore che è quindi possibile distribuire nel servizio Azure Kubernetes.
 services: container-service
 author: iainfoulds
 ms.service: container-service

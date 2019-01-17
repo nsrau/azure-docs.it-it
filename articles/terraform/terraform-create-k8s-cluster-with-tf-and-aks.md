@@ -1,6 +1,6 @@
 ---
-title: Creare un cluster Kubernetes con Azure Kubernetes Service (AKS) e Terraform
-description: Esercitazione che illustra come creare un cluster Kubernetes con Azure Kubernetes Service e Terraform
+title: Creare un cluster Kubernetes con il servizio Azure Kubernetes e Terraform
+description: Esercitazione che illustra come creare un cluster Kubernetes con il servizio Azure Kubernetes e Terraform
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, macchina virtuale, azure, kubernetes
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2019
 ms.locfileid: "54078950"
 ---
-# <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Creare un cluster Kubernetes con Azure Kubernetes Service e Terraform
+# <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Creare un cluster Kubernetes con il servizio Azure Kubernetes e Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) gestisce l'ambiente Kubernetes ospitato consentendo di distribuire e gestire applicazioni in contenitori in modo semplice e rapido senza competenze nell'orchestrazione di contenitori. Elimina anche l'impegno delle operazioni in corso e della manutenzione effettuando il provisioning, l'aggiornamento e il ridimensionamento delle risorse su richiesta, senza portare le applicazioni offline.
 
 Questa esercitazione illustra come eseguire le attività seguenti nella creazione di un cluster [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) usando [Terraform](http://terraform.io) e AKS:

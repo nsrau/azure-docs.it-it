@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione da Servizio contenitore di Azure (ACS) al servizio Kubernetes di Azure (AKS)
-description: Eseguire la migrazione da Servizio contenitore di Azure (ACS) al servizio Kubernetes di Azure (AKS)
+title: Eseguire la migrazione dal servizio Azure Container (ACS) al servizio Azure Kubernetes
+description: Eseguire la migrazione dal servizio Azure Container (ACS) al servizio Azure Kubernetes
 services: container-service
 author: noelbundick
 manager: jeconnoc
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: cb143998ac46f7f86b2dbf47b69cee7843418f5d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191607"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385042"
 ---
-# <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Eseguire la migrazione da Servizio contenitore di Azure (ACS) al servizio Kubernetes di Azure (AKS)
+# <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Eseguire la migrazione dal servizio Azure Container (ACS) al servizio Azure Kubernetes
 
-L'obiettivo di questo documento è di consentire la pianificazione e l'esecuzione corretta di una migrazione tra il Servizio contenitore di Azure con Kubernetes (ACS) e il Servizio Kubernetes di Azure (AKS). Questa guida illustra nel dettaglio le differenze tra ACS e AKS, offre una panoramica del processo di migrazione e consente di prendere decisioni chiave.
+L'obiettivo di questo documento è di consentire la pianificazione e l'esecuzione corretta di una migrazione tra il servizio Azure Container con Kubernetes (ACS) e il servizio Azure Kubernetes. Questa guida illustra nel dettaglio le differenze tra ACS e AKS, offre una panoramica del processo di migrazione e consente di prendere decisioni chiave.
 
 ## <a name="differences-between-acs-and-aks"></a>Differenze tra ACS e AKS
 
@@ -29,7 +29,7 @@ ACS e AKS differiscono in alcune aree chiave che influiscono sulla migrazione. �
     * Gli oggetti personalizzati `StorageClass` per i dischi di Azure devono essere modificati da `unmanaged` a `managed`
     * Qualsiasi `PersistentVolumes` dovrà usare `kind: Managed`
 * AKS supporta attualmente solo un pool di agenti
-* I nodi basati su Windows Server sono attualmente in [anteprima privata](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)
+* I nodi basati su Windows Server sono attualmente in [anteprima privata](https://azure.microsoft.com/blog/kubernetes-on-azure/)
 * Controllare l'elenco delle [aree supportate](https://docs.microsoft.com/azure/aks/container-service-quotas) di AKS
 * AKS è un servizio gestito con un piano di controllo di Kubernetes ospitato. Potrebbe essere necessario modificare le applicazioni se è stata precedentemente modificata la configurazione di master ACS
 
@@ -51,9 +51,9 @@ Esempio:
 | NOME | Conteggio | Dimensioni macchina virtuale | Sistema operativo |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
-| agentpool1 | 1 | Standard_D2_v2 | Windows |
+| agentpool1 | 1 | Standard_D2_v2 |  Windows |
 
-Poiché le macchine virtuali aggiuntive verranno distribuite nella sottoscrizione durante la migrazione, è necessario verificare che i limiti e le quote siano sufficienti per tali risorse. È possibile ottenere più informazioni esaminando [Sottoscrizione di Azure e limiti dei servizi](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). Per controllare le quote correnti, andare sul [Pannello delle sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) nel portale di Azure, selezionare la sottoscrizione, quindi selezionare `Usage + quotas`.
+Poiché le macchine virtuali aggiuntive verranno distribuite nella sottoscrizione durante la migrazione, è necessario verificare che i limiti e le quote siano sufficienti per tali risorse. È possibile ottenere più informazioni esaminando [Sottoscrizione di Azure e limiti dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits). Per controllare le quote correnti, andare sul [Pannello delle sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) nel portale di Azure, selezionare la sottoscrizione, quindi selezionare `Usage + quotas`.
 
 ### <a name="networking"></a>Rete
 
@@ -86,7 +86,7 @@ Esistono molteplici fattori da considerare se si sta migrando volumi persistenti
 2. Dischi di snapshot
 3. Creare nuovi dischi gestiti da snapshot
 4. Creare volumi persistenti in AKS
-5. Aggiornare le specifiche del Pod per [usare i volumi esistenti](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume) anziché PersistentVolumeClaims (provisioning statico)
+5. Aggiornare le specifiche del Pod per [usare i volumi esistenti](https://docs.microsoft.com/azure/aks/azure-disk-volume) anziché PersistentVolumeClaims (provisioning statico)
 6. Distribuire l'applicazione a AKS
 7. Convalida
 8. Indirizzare il traffico verso il cluster AKS
@@ -112,7 +112,7 @@ In caso contrario, un approccio di migrazione possibile prevede i passaggi segue
 4. Convalida
 5. Indirizzare il traffico verso il cluster AKS
 
-Nei casi i cui si desidera iniziare con una condivisione vuota, per eseguire un copia dei dati di origine è possibile usare i comandi [`az storage file copy`](https://docs.microsoft.com/en-us/cli/azure/storage/file/copy?view=azure-cli-latest) per effettuare la migrazione dei dati.
+Nei casi i cui si desidera iniziare con una condivisione vuota, per eseguire un copia dei dati di origine è possibile usare i comandi [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) per effettuare la migrazione dei dati.
 
 ### <a name="deployment-strategy"></a>Strategia di distribuzione
 
@@ -134,7 +134,7 @@ Esistono anche molteplici strumenti open source che possono essere utili, in bas
 
 ### <a name="1-create-an-aks-cluster"></a>1. Creare un cluster del servizio contenitore di Azure
 
-È possibile seguire la documentazione per [Creare un cluster AKS](https://docs.microsoft.com/en-us/azure/aks/create-cluster) tramite il portale di Azure, interfaccia della riga di comando di Azure o modello di Gestione risorse.
+È possibile seguire la documentazione per [Creare un cluster AKS](https://docs.microsoft.com/azure/aks/create-cluster) tramite il portale di Azure, interfaccia della riga di comando di Azure o modello di Gestione risorse.
 
 > È possibile trovare modelli di esempio di Gestione risorse di Azure per AKS sui repository [AZURE/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) su GitHub
 

@@ -74,7 +74,7 @@ I dati di monitoraggio sono utili solo se possono aumentare la visibilità del f
 ![Informazioni sull'app](media/overview/app-insights.png)
 
 ### <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per contenitori
-Monitoraggio di Azure per contenitori è una funzionalità progettata per monitorare le prestazioni dei carichi di lavoro del contenitore distribuiti nei cluster gestiti di Kubernetes ospitati nel servizio Kubernetes di Azure (AKS). Offre la visibilità delle prestazioni raccogliendo metriche sulla memoria e sul processore da controller, nodi e contenitori disponibili in Kubernetes tramite l'API per le metriche. Vengono raccolti anche i log dei contenitori.  Dopo aver abilitato il monitoraggio dai cluster di Kubernetes, le metriche e i log vengono raccolti automaticamente tramite una versione dell'agente di Log Analytics per Linux inclusa in un contenitore.
+Monitoraggio di Azure per contenitori è una funzionalità progettata per monitorare le prestazioni dei carichi di lavoro dei contenitori distribuiti nei cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes. Offre la visibilità delle prestazioni raccogliendo metriche sulla memoria e sul processore da controller, nodi e contenitori disponibili in Kubernetes tramite l'API per le metriche. Vengono raccolti anche i log dei contenitori.  Dopo aver abilitato il monitoraggio dai cluster di Kubernetes, le metriche e i log vengono raccolti automaticamente tramite una versione dell'agente di Log Analytics per Linux inclusa in un contenitore.
 
 ![Integrità dei contenitori](media/overview/container-insights.png)
 

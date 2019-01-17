@@ -100,6 +100,6 @@ La soluzione è anche open source e il codice è disponibile nel [repository Azu
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni sul [servizio Kubernetes di Azure](../aks/intro-kubernetes.md).
+- Informazioni sul [servizio Azure Kubernetes](../aks/intro-kubernetes.md).
 -  Informazioni sulla [rete dei contenitori](container-networking-overview.md).
 - [Distribuire il plug-in](deploy-container-networking.md) per i cluster Kubernetes o i contenitori Docker.

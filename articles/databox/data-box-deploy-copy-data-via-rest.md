@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 88880fbfe0f6020a0a982c42b6df0e9eb71b2fc9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: fa0883c18e0d586e6e9b35fb19dbe304388045b5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550452"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215287"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST  
 
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, assicurarsi di:
+Prima di iniziare, verificare che:
 
 1. Aver completato l'esercitazione descritta in [Esercitazione: Configurare Azure Data Box](data-box-deploy-set-up.md).
 2. Aver ricevuto Data Box e che lo stato dell'ordine nel portale sia **Recapitati**.
@@ -154,7 +154,7 @@ Il primo passaggio consiste nel creare un contenitore, in quanto i BLOB devono s
 
    ![Menu di scelta rapida Crea contenitore BLOB](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. Sotto la cartella **BLOB Containers** (Contenitori BLOB) viene visualizzata una casella di testo. Immettere il nome per il contenitore BLOB. Per informazioni sulle regole e sulle restrizioni relative alla denominazione dei contenitori BLOB, vedere [Creare il contenitore e impostare le autorizzazioni](/articles/storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions).
+4. Sotto la cartella **BLOB Containers** (Contenitori BLOB) viene visualizzata una casella di testo. Immettere il nome per il contenitore BLOB. Per informazioni sulle regole e sulle restrizioni relative alla denominazione dei contenitori BLOB, vedere [Creare il contenitore e impostare le autorizzazioni](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions).
 5. Premere **INVIO** al termine della creazione del contenitore BLOB o **ESC** per annullare. Dopo la creazione, il contenitore BLOB viene visualizzato all'interno della cartella **BLOB Containers** (Contenitori BLOB) per l'account di archiviazione selezionato.
 
    ![Contenitore BLOB creato](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)

@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Distribuire app ASP.NET Core nel servizio Azure Kubernetes usando Azure DevOps Projects'
-description: Azure DevOps Projects permette di iniziare a usare Azure velocemente. Con DevOps Projects è possibile distribuire un'app ASP.NET Core con il servizio Kubernetes di Azure (AKS) in pochi rapidi passaggi.
+description: Azure DevOps Projects permette di iniziare a usare Azure velocemente. Con DevOps Projects è possibile distribuire un'app ASP.NET Core con il servizio Azure Kubernetes in pochi rapidi passaggi.
 ms.author: mlearned
 ms.manager: douge
 ms.prod: devops
@@ -21,7 +21,7 @@ ms.locfileid: "53993785"
 Azure DevOps Projects offre un'esperienza semplificata in cui è possibile usare il codice esistente e il repository Git oppure scegliere un'applicazione di esempio per creare una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) in Azure. 
 
 DevOps Projects permette anche di:
-* Creare automaticamente risorse di Azure, ad esempio un servizio Kubernetes di Azure (AKS).
+* Creare automaticamente risorse di Azure, ad esempio un servizio Azure Kubernetes.
 * Creare e configurare una pipeline di versione in Azure DevOps per configurare una compilazione e pipeline di versione per CI/CD.
 * Creare una risorsa di Azure Application Insights per il monitoraggio.
 * Consente a [Monitoraggio di Azure per i contenitori](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) di monitorare le prestazioni per i carichi di lavoro dei contenitori nel cluster del servizio Azure Kubernetes

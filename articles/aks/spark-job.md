@@ -1,6 +1,6 @@
 ---
-title: Eseguire un processo Apache Spark con Azure Kubernetes Service (AKS)
-description: Usare Azure Kubernetes Service (AKS) per eseguire un processo Apache Spark
+title: Eseguire un processo Apache Spark con il servizio Azure Kubernetes
+description: Usare il servizio Azure Kubernetes per eseguire un processo Apache Spark
 services: container-service
 author: lenadroid
 manager: jeconnoc
@@ -18,7 +18,7 @@ ms.locfileid: "50414030"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Esecuzione di processi Apache Spark in AKS
 
-[Apache Spark][apache-spark] è un motore ad alta velocità per l'elaborazione di dati su larga scala. A partire dalla [versione 2.3.0][spark-latest-release], Apache Spark supporta l'integrazione nativa con i cluster Kubernetes. Azure Kubernetes Service (AKS) è un ambiente Kubernetes gestito in esecuzione in Azure. Questo documento descrive la preparazione e l'esecuzione di processi Apache Spark in un cluster di Azure Kubernetes Service (AKS).
+[Apache Spark][apache-spark] è un motore ad alta velocità per l'elaborazione di dati su larga scala. A partire dalla [versione 2.3.0][spark-latest-release], Apache Spark supporta l'integrazione nativa con i cluster Kubernetes. Il servizio Azure Kubernetes è un ambiente Kubernetes gestito in esecuzione in Azure. Questo documento descrive la preparazione e l'esecuzione di processi Apache Spark in un cluster del servizio Azure Kubernetes.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +33,7 @@ Per completare la procedura descritta in questo articolo è necessario quanto se
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio contenitore di Azure
 
-Spark viene usato per l'elaborazione di dati su larga scala ed è necessario che le dimensioni dei nodi Kubernetes soddisfino i requisiti di Spark in termini di risorse. Per i nodi di Azure Kubernetes Service (AKS) si consigliano le dimensioni minime `Standard_D3_v2`.
+Spark viene usato per l'elaborazione di dati su larga scala ed è necessario che le dimensioni dei nodi Kubernetes soddisfino i requisiti di Spark in termini di risorse. Per i nodi del servizio Azure Kubernetes si consigliano le dimensioni minime `Standard_D3_v2`.
 
 Se è necessario un cluster AKS che soddisfi questo requisito minimo, eseguire i comandi seguenti.
 

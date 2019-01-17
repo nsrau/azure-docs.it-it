@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 2a862a6f1165b0cdd4dfe46e638dc6b10eae9ee5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 46febbeb2675c38bf68c6ba0b911f799b268e208
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191327"
+ms.locfileid: "54201109"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Usare il routing dipendente dai dati per indirizzare una query al database appropriato
 
@@ -68,7 +68,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 
 * Il parametro **key** viene usato come chiave di ricerca nella mappa partizioni per determinare il database appropriato per la richiesta.
 * Il parametro **connectionString** viene usato per passare solo le credenziali utente per la connessione specifica. In *connectionString* non viene incluso il nome del database o del server perché il metodo determina il database e il server usando **ShardMap**.
-* Il parametro **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options) o [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) deve essere impostato su **ConnectionOptions.Validate** per un ambiente in cui le mappe partizioni possono essere modificate e le righe possono essere spostate in altri database in seguito a operazioni di divisione o unione. Tale convalida prevede una breve query sulla mappa locale partizioni nel database di destinazione (non sulla mappa globale partizioni) prima che la connessione venga fornita all'applicazione.
+* Il parametro **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions) o [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) deve essere impostato su **ConnectionOptions.Validate** per un ambiente in cui le mappe partizioni possono essere modificate e le righe possono essere spostate in altri database in seguito a operazioni di divisione o unione. Tale convalida prevede una breve query sulla mappa locale partizioni nel database di destinazione (non sulla mappa globale partizioni) prima che la connessione venga fornita all'applicazione.
 
 In caso di esito negativo della convalida in base alla mappa partizioni locale (che indica che la cache non è corretta), il gestore delle mappe partizioni esegue una query sulla mappa partizioni globale per ottenere il nuovo valore corretto per la ricerca, aggiornare la cache e ottenere e restituire la connessione al database appropriato.
 

@@ -1,6 +1,6 @@
 ---
-title: Configurare funzionalità di rete avanzate nel servizio Kubernetes di Azure (AKS)
-description: Informazioni su come configurare funzionalità di rete avanzate nel servizio Kubernetes di Azure (AKS), inclusa la distribuzione di un cluster AKS in una rete virtuale e una subnet esistenti.
+title: Configurare funzionalità di rete avanzate nel servizio Azure Kubernetes
+description: Informazioni su come configurare funzionalità di rete avanzate nel servizio Azure Kubernetes, inclusa la distribuzione di un cluster servizio Azure Kubernetes in una rete virtuale e una subnet esistenti.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52994562"
 ---
-# <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete avanzate nel servizio Kubernetes di Azure (AKS)
+# <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete avanzate nel servizio Azure Kubernetes
 
 Per impostazione predefinita, i cluster AKS usano funzionalità di rete di *base*, che creano e configurano una rete virtuale e una subnet per l'uso con il cluster. Per un ulteriore controllo di queste opzioni di rete, ad esempio gli intervalli IP, è invece possibile usare le funzionalità di rete *avanzate*. Con le funzionalità di rete avanzate è possibile creare anche un cluster AKS in una rete virtuale e una subnet esistenti. Questa rete virtuale esistente spesso offre connettività a una rete locale tramite Azure ExpressRoute o VPN da sito a sito.
 

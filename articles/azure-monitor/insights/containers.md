@@ -34,7 +34,7 @@ La soluzione indica quali contenitori sono in esecuzione, quale immagine del con
 - Service Fabric
 - Red Hat OpenShift
 
-Se si è interessati al monitoraggio delle prestazioni dei carichi di lavoro distribuiti in ambienti Kubernetes ospitati in Azure Kubernetes Service (AKS), vedere [Monitoraggio di Azure Kubernetes Service (AKS)](../../azure-monitor/insights/container-insights-overview.md). La soluzione di monitoraggio contenitori non include il supporto per il monitoraggio di tale piattaforma.  
+Se si è interessati al monitoraggio delle prestazioni dei carichi di lavoro distribuiti in ambienti Kubernetes ospitati nel servizio Azure Kubernetes, vedere [Monitoraggio del servizio Azure Kubernetes](../../azure-monitor/insights/container-insights-overview.md). La soluzione di monitoraggio contenitori non include il supporto per il monitoraggio di tale piattaforma.  
 
 Il diagramma seguente mostra le relazioni tra vari host del contenitore e agenti con Log Analytics.
 

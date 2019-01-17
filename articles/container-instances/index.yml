@@ -20,7 +20,7 @@ metadata:
   ms.date: 07/26/2017
   ms.author: carolz
 abstract:
-  description: Istanze di contenitore di Azure rappresenta il modo più semplice e rapido per eseguire un contenitore in Azure, senza dover effettuare il provisioning di macchine virtuali o adottare un servizio di livello superiore. Informazioni su come creare e gestire istanze di contenitore con guide introduttive, esercitazioni ed esempi.<p>Se è necessaria una soluzione di orchestrazione del contenitore completa, vedere la <a href="/azure/aks/">Documentazione del servizio contenitore di Azure</a>.</p>
+  description: Istanze di contenitore di Azure rappresenta il modo più semplice e rapido per eseguire un contenitore in Azure, senza dover effettuare il provisioning di macchine virtuali o adottare un servizio di livello superiore. Informazioni su come creare e gestire istanze di contenitore con guide introduttive, esercitazioni ed esempi.<p>Se è necessaria una soluzione di orchestrazione del contenitore completa, vedere la <a href="/azure/aks/">Documentazione del servizio Azure Container</a>.</p>
 sections:
 - title: Guide introduttive di 5 minuti
   items:

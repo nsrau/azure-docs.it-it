@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187418"
+ms.locfileid: "54198526"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Riscrivere le intestazioni HTTP con il gateway applicazione (anteprima pubblica)
 
@@ -116,8 +116,6 @@ Questa funzionalità supporta la riscrittura delle intestazioni per le variabili
 ## <a name="limitations"></a>Limitazioni
 
 - Questa funzionalità per la riscrittura delle intestazioni HTTP è attualmente disponibile solo tramite Azure PowerShell, API di Azure e Azure SDK. Il supporto tramite il portale e l'interfaccia della riga di comando di Azure sarà disponibile a breve.
-
-- Dopo aver applicato una riscrittura dell'intestazione nel gateway applicazione, è consigliabile non usare il portale per apportare modifiche successive a tale gateway finché la funzionalità non sarà supportata nel portale. Se si usa il portale per apportare modifiche al gateway applicazione dopo aver applicato una regola di riscrittura, la regola di riscrittura dell'intestazione. È possibile continuare ad apportare modifiche usando Azure PowerShell, le API di Azure o Azure SDK.
 
 - Il supporto della riscrittura dell'intestazione HTTP è disponibile solo per il nuovo SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). La funzionalità non sarà supportata nello SKU precedente.
 

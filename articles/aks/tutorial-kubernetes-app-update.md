@@ -1,6 +1,6 @@
 ---
 title: Esercitazione su Kubernetes in Azure - Aggiornare un'applicazione
-description: In questa esercitazione sul servizio Kubernetes di Azure (AKS) viene illustrato come aggiornare la distribuzione di un'applicazione esistente in AKS con una nuova versione del codice dell'applicazione.
+description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come aggiornare la distribuzione di un'applicazione esistente nel servizio Azure Kubernetes con una nuova versione del codice dell'applicazione.
 services: container-service
 author: iainfoulds
 ms.service: container-service

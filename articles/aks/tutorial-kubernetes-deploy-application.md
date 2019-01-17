@@ -1,6 +1,6 @@
 ---
 title: Esercitazione su Kubernetes in Azure - Distribuire un'applicazione
-description: In questa esercitazione sul servizio Kubernetes di Azure (AKS) si distribuisce un'applicazione multicontenitore nel cluster usando un'immagine archiviata in Registro contenitori di Azure.
+description: In questa esercitazione sul servizio Azure Kubernetes si distribuisce un'applicazione multicontenitore nel cluster usando un'immagine archiviata in Registro Azure Container.
 services: container-service
 author: iainfoulds
 ms.service: container-service

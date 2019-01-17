@@ -341,7 +341,7 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
-## <a name="azure-kubernetes-service-cluster-admin-role"></a>Ruolo di amministratore del cluster del servizio Kubernetes di Azure
+## <a name="azure-kubernetes-service-cluster-admin-role"></a>Ruolo di amministratore del cluster del servizio Azure Kubernetes
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -350,7 +350,7 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Elenca la credenziale clusterAdmin di un cluster gestito |
 
-## <a name="azure-kubernetes-service-cluster-user-role"></a>Ruolo di utente del cluster del servizio Kubernetes di Azure
+## <a name="azure-kubernetes-service-cluster-user-role"></a>Ruolo di utente del cluster del servizio Azure Kubernetes
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

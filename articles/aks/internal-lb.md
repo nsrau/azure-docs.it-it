@@ -1,6 +1,6 @@
 ---
-title: Creare un bilanciamento del carico interno nel servizio Kubernetes di Azure (AKS)
-description: Informazioni su come creare e usare un servizio di bilanciamento del carico interno per esporre i servizi con Azure Kubernetes Service (AKS).
+title: Creare un bilanciamento del carico interno nel servizio Azure Kubernetes
+description: Informazioni su come creare e usare un servizio di bilanciamento del carico interno per esporre i servizi con il servizio Azure Kubernetes.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "53001227"
 ---
-# <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico interno con Azure Kubernetes Service (AKS)
+# <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico interno con il servizio Azure Kubernetes
 
-Per limitare l'accesso alle applicazioni nel servizio Kubernetes di Azure (AKS), è possibile creare e usare un bilanciamento del carico interno. Un bilanciamento del carico interno rende accessibile un servizio Kubernetes solo alle applicazioni in esecuzione nella stessa rete virtuale del cluster Kubernetes. Questo articolo descrive come usare un servizio di bilanciamento del carico interno con Azure Kubernetes Service (AKS).
+Per limitare l'accesso alle applicazioni nel servizio Azure Kubernetes, è possibile creare e usare un bilanciamento del carico interno. Un bilanciamento del carico interno rende accessibile un servizio Kubernetes solo alle applicazioni in esecuzione nella stessa rete virtuale del cluster Kubernetes. Questo articolo descrive come usare un servizio di bilanciamento del carico interno con il servizio Azure Kubernetes.
 
 > [!NOTE]
 > Azure Load Balancer è disponibile in due SKU: *Basic* e *Standard*. Per altre informazioni, vedere [Confronto tra SKU di Load Balancer][azure-lb-comparison]. Servizio Kubernetes di Azure supporta attualmente la SKU *Basic*. Se si vuole usare la SKU *Standard*, è possibile usare [aks-engine][aks-engine] upstream.

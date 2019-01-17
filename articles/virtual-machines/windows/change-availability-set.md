@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: zarhoads
-ms.openlocfilehash: fbbe6753bd8aa3e43c8a45db5692ce38c18de50c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: df59b3ec7da0c12a17e10790d69e244f9a0d03f5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467294"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259531"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Modificare il set di disponibilità per una VM Windows
 I passaggi seguenti descrivono come modificare il set di disponibilità di una VM tramite Azure PowerShell. Una VM può essere aggiunta a un set di disponibilità solo in fase di creazione. Per modificare il set di disponibilità, è necessario eliminare e quindi ricreare la macchina virtuale. 
@@ -35,7 +35,7 @@ Lo script seguente offre un esempio di raccolta delle informazioni necessarie ed
     $vmName = "myVM"
     $newAvailSetName = "myAvailabilitySet"
 
-# Get the details of the VM to be moved to the Availablity Set
+# Get the details of the VM to be moved to the Availability Set
     $originalVM = Get-AzureRmVM `
        -ResourceGroupName $resourceGroup `
        -Name $vmName

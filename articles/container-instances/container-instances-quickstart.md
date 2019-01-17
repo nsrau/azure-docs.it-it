@@ -145,7 +145,7 @@ In questa guida introduttiva è stata creata un'istanza di contenitore di Azure 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)
 
-Per provare le opzioni per l'esecuzione di contenitori in un sistema di orchestrazione in Azure, vedere la guida introduttiva per [Service Fabric][service-fabric] o [Azure Kubernetes Service (AKS)][container-service].
+Per provare le opzioni per l'esecuzione di contenitori in un sistema di orchestrazione in Azure, vedere la guida introduttiva per [Service Fabric][service-fabric] o il [servizio Azure Kubernetes][container-service].
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

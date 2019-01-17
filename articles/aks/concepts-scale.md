@@ -1,6 +1,6 @@
 ---
 title: Concetti - Ridimensionare le applicazioni nel servizio Kubernetes di Azure (AKS)
-description: Informazioni sul ridimensionamento nel servizio Kubernetes di Azure (AKS), tra cui il ridimensionamento automatico orizzontale dei pod, il ridimensionamento automatico del cluster e il connettore di Istanze di contenitore di Azure.
+description: Informazioni sul ridimensionamento nel servizio Azure Kubernetes, tra cui il ridimensionamento automatico orizzontale dei pod, il ridimensionamento automatico del cluster e il connettore di Istanze di Azure Container.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2018
 ms.locfileid: "49380695"
 ---
-# <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Kubernetes di Azure (AKS)
+# <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Azure Kubernetes
 
-Quando si eseguono applicazioni nel servizio Kubernetes di Azure (AKS) può risultare necessario aumentare o ridurre la quantità di risorse di calcolo. Se cambia il numero di istanze dell'applicazione necessarie, potrebbe risultare necessario cambiare anche il numero di nodi Kubernetes sottostanti. Potrebbe anche nascere l'esigenza di effettuare rapidamente il provisioning di un numero elevato di istanze aggiuntive dell'applicazione.
+Quando si eseguono applicazioni nel servizio Azure Kubernetes può risultare necessario aumentare o ridurre la quantità di risorse di calcolo. Se cambia il numero di istanze dell'applicazione necessarie, potrebbe risultare necessario cambiare anche il numero di nodi Kubernetes sottostanti. Potrebbe anche nascere l'esigenza di effettuare rapidamente il provisioning di un numero elevato di istanze aggiuntive dell'applicazione.
 
 Questo articolo introduce i principali concetti utili per gestire il ridimensionamento delle applicazioni nel servizio Kubernetes di Azure:
 

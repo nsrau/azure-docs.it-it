@@ -3,7 +3,7 @@ title: Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione
 description: Informazioni su come connettersi a SQL Server in esecuzione su una macchina virtuale di Azure. In questo argomento viene usato il modello di distribuzione classica. Gli scenari variano a seconda della configurazione di rete e della posizione del client.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.assetid: 416948af-454f-4cfe-8fd2-7cf971cbd3e9
@@ -13,14 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
-ms.author: jroth
+ms.author: mathoma
+ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: c856c8c67d410a3b528c4f8b12b1225cf395bca4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: d766465f8319b83cd614bfcf24018ef901923429
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "29398370"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329691"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione classica)
 > [!div class="op_single_selector"]
@@ -33,7 +34,7 @@ ms.locfileid: "29398370"
 Questo argomento descrive la modalità di connessione all'istanza di SQL Server in esecuzione su una macchina virtuale di Azure. Illustra alcuni [scenari di connettività generali](#connection-scenarios) e quindi descrive la [procedura dettagliata per la configurazione della connettività di SQL Server in una macchina virtuale di Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Se si usano macchine virtuali di Resource Manager, vedere [Connettersi a una macchina virtuale di SQL Server in Azure con Resource Manager](../sql/virtual-machines-windows-sql-connect.md).
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Se si usano macchine virtuali di Resource Manager, vedere [Connettersi a una macchina virtuale di SQL Server in Azure con Resource Manager](../sql/virtual-machines-windows-sql-connect.md).
 
 ## <a name="connection-scenarios"></a>Scenari di connessione
 La modalità di connessione di un client a SQL Server in esecuzione in una macchina virtuale varia a seconda della posizione del client e della configurazione tra il computer e la rete. Tali scenari includono:

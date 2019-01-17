@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/10/2018
 ms.locfileid: "53164773"
 ---
-# <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usare Draft con Azure Kubernetes Service (AKS)
+# <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usare Draft con il servizio Azure Kubernetes
 
 Draft è uno strumento open source che consente di includere e distribuire questi contenitori in un cluster Kubernetes, permettendo all'utente di concentrarsi sulla fase centrale del ciclo di sviluppo. Draft viene eseguito mentre è in corso lo sviluppo del codice, ma prima del commit nel controllo della versione. Con Draft è possibile ridistribuire rapidamente un'applicazione in Kubernetes quando il codice viene modificato. Per altre informazioni su Draft, vedere la [documentazione di Draft su GitHub][draft-documentation].
 
@@ -26,7 +26,7 @@ I passaggi dettagliati contenuti in questo articolo presuppongono che sia stato 
 
 È necessario un registro Docker privato in Registro contenitori di Azure. Per la procedura di creazione di un'istanza di Registro contenitori di Azure, vedere la [guida introduttiva al Registro contenitori di Azure][acr-quickstart].
 
-Anche Helm deve essere installato nel cluster AKS. Per altre informazioni sull'installazione e la configurazione di Helm, vedere [Usare Helm con Azure Kubernetes Service (AKS)][aks-helm].
+Anche Helm deve essere installato nel cluster AKS. Per altre informazioni sull'installazione e la configurazione di Helm, vedere [Usare Helm con il servizio Azure Kubernetes][aks-helm].
 
 È infine necessario installare [Docker](https://www.docker.com).
 

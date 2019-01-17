@@ -28,7 +28,7 @@ Insieme al [catalogo di servizi di Kubernetes][kubernetes-service-catalog], Open
 
 * Autorizzazioni per creare un'entità servizio con il ruolo Collaboratore nella sottoscrizione di Azure
 
-* Cluster di Azure Kubernetes Service (AKS) esistente. Se è necessario un cluster del servizio contenitore di Azure consultare la guida introduttiva [Creare un cluster del servizio contenitore di Azure][create-aks-cluster].
+* Cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio contenitore di Azure consultare la guida introduttiva [Creare un cluster del servizio contenitore di Azure][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Installare il catalogo di servizi
 
@@ -189,7 +189,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'articolo ha descritto la distribuzione di un catalogo di servizi in un cluster di Azure Kubernetes Service (AKS). Con Open Service Broker for Azure è stato possibile distribuire un'installazione di WordPress che usa i servizi gestiti di Azure, in questo caso il Database di Azure per MySQL.
+L'articolo ha descritto la distribuzione di un catalogo di servizi in un cluster del servizio Azure Kubernetes. Con Open Service Broker for Azure è stato possibile distribuire un'installazione di WordPress che usa i servizi gestiti di Azure, in questo caso il Database di Azure per MySQL.
 
 Consultare il repository [Azure/helm-charts][helm-charts] per accedere ad altri grafici Helm basati su OSBA aggiornati. Per creare grafici che funzionino con OSBA, consultare [Creating a New Chart][helm-create-new-chart] (Creazione di un nuovo grafico).
 

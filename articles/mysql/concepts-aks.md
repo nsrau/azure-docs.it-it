@@ -1,6 +1,6 @@
 ---
-title: Connettere servizio Kubernetes di Azure con il Database di Azure per MySQL
-description: Informazioni sulla connessione del servizio Kubernetes di Azure con il Database di Azure per MySQL
+title: Connettere servizio Azure Kubernetes con il Database di Azure per MySQL
+description: Informazioni sulla connessione del servizio Azure Kubernetes con il Database di Azure per MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -13,9 +13,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/17/2018
 ms.locfileid: "53538175"
 ---
-# <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Connessione del servizio Kubernetes di Azure e del Database di Azure per MySQL
+# <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Connessione del servizio Azure Kubernetes e del Database di Azure per MySQL
 
-Il servizio Kubernetes di Azure fornisce un cluster Kubernetes gestito che è possibile usare in Azure. Di seguito sono riportate alcune opzioni da prendere in considerazione quando si usano insieme il servizio Kubernetes di Azure e il Database di Azure per MySQL per creare un'applicazione.
+Il servizio Azure Kubernetes fornisce un cluster Kubernetes gestito che è possibile usare in Azure. Di seguito sono riportate alcune opzioni da prendere in considerazione quando si usano insieme il servizio Kubernetes di Azure e il Database di Azure per MySQL per creare un'applicazione.
 
 
 ## <a name="accelerated-networking"></a>Rete accelerata

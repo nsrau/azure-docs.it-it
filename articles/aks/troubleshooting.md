@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi comuni del servizio Kubernetes di Azure
-description: Informazioni su come individuare e risolvere i problemi comuni quando si usa il servizio Kubernetes di Azure (AKS)
+title: Risolvere i problemi comuni del servizio Azure Kubernetes
+description: Informazioni su come individuare e risolvere i problemi comuni quando si usa il servizio Azure Kubernetes
 services: container-service
 author: sauryadas
 ms.service: container-service

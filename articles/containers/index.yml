@@ -54,7 +54,7 @@ sections:
     columns: 2
     items:
     - href: ../aks/kubernetes-walkthrough.md
-      title: Creare un cluster Kubernetes con Azure Kubernetes Service (AKS)
+      title: Creare un cluster Kubernetes con il servizio Azure Kubernetes
       image:
         src: /azure/media/index/ContainerService.svg
     - href: https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers
@@ -95,7 +95,7 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Informazioni su come usare Azure Kubernetes Service (AKS)
+    text: Informazioni su come usare il servizio Azure Kubernetes
   - type: list
     style: unordered
     items:

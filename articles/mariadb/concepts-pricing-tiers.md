@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b85737adb8f1c9481fb4b7b2005d2856d2bce9f5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bb6e27f92f60712cce71ba6fca53b40af00ee714
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544584"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354451"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Piani tariffari di Database di Azure per MariaDB
 
@@ -53,8 +53,7 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 
 È possibile aggiungere capacità di archiviazione durante e dopo la creazione del server. Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo. Nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria, la scalabilità delle operazioni di I/O al secondo rispetto allo spazio di archiviazione sottoposto a provisioning è in un rapporto di 3 a 1.
 
-È possibile monitorare il consumo di I/O nel portale di Azure oppure usando i comandi dell'interfaccia della riga di comando di Azure. Le metriche pertinenti al monitoraggio sono il limite di archiviazione, la percentuale di archiviazione, lo spazio di archiviazione usato e la percentuale di IO.
-<!--[storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md)-->
+È possibile monitorare il consumo di I/O nel portale di Azure oppure usando i comandi dell'interfaccia della riga di comando di Azure. Le metriche pertinenti al monitoraggio sono il [limite di archiviazione, la percentuale di archiviazione, lo spazio di archiviazione usato e la percentuale di I/O](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Raggiungimento del limite di archiviazione
 
@@ -64,7 +63,7 @@ Mentre il servizio tenta di impostare il server come sola lettura, tutte le nuov
 
 È consigliabile configurare un avviso per ricevere una notifica quando l'archiviazione server sta per raggiungere la soglia in modo tale da evitare di ottenere lo stato di sola lettura. 
 
-<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+Per altre informazioni, vedere la documentazione sulla [procedura di configurazione di un avviso](howto-alert-metric.md).
 
 ## <a name="backup"></a>Backup
 

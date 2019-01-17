@@ -1,6 +1,6 @@
 ---
-title: Eseguire la distribuzione nel servizio Kubernetes di Azure (AKS) usando Jenkins e il modello di distribuzione di tipo blu-verde
-description: Di seguito viene spiegato come eseguire la distribuzione nel servizio Kubernetes di Azure (AKS) usando Jenkins e il modello di distribuzione di tipo blu-verde.
+title: Eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu-verde
+description: Di seguito viene spiegato come eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu-verde.
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, distribuzione di tipo blu-verde, recapito continuo, cd
 author: tomarchermsft
@@ -15,9 +15,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2019
 ms.locfileid: "54073884"
 ---
-# <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Eseguire la distribuzione nel servizio Kubernetes di Azure (AKS) usando Jenkins e il modello di distribuzione di tipo blu-verde
+# <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu-verde
 
-Azure Kubernetes Service (AKS) gestisce l'ambiente Kubernetes ospitato consentendo di distribuire e gestire applicazioni in contenitori in modo semplice e rapido senza competenze nell'orchestrazione di contenitori. Il servizio Kubernetes di Azure elimina anche l'impegno delle operazioni e della manutenzione continui effettuando il provisioning, l'aggiornamento e il ridimensionamento delle risorse su richiesta, senza portare le applicazioni offline. Per altre informazioni sul servizio Kubernetes di Azure, vedere la [documentazione specifica](/azure/aks/).
+Il servizio Azure Kubernetes gestisce l'ambiente Kubernetes ospitato consentendo di distribuire e gestire applicazioni in contenitori in modo semplice e rapido senza competenze nell'orchestrazione di contenitori. Il servizio Kubernetes di Azure elimina anche l'impegno delle operazioni e della manutenzione continui effettuando il provisioning, l'aggiornamento e il ridimensionamento delle risorse su richiesta, senza portare le applicazioni offline. Per altre informazioni sul servizio Kubernetes di Azure, vedere la [documentazione specifica](/azure/aks/).
 
 La distribuzione di tipo blu-verde è un modello di recapito continuo Azure DevOps che si basa sul mantenimento di una versione esistente (blu) attiva mentre viene distribuita una versione nuova (verde). In genere questo modello usa il bilanciamento del carico per indirizzare volumi di traffico crescenti alla distribuzione verde. Se il monitoraggio rileva un evento imprevisto, il traffico può essere reindirizzato alla distribuzione di tipo blu che è ancora in esecuzione. Per altre informazioni sul recapito continuo, consultare [Informazioni sul recapito continuo](/azure/devops/what-is-continuous-delivery).
 

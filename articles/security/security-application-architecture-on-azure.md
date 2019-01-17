@@ -12,30 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 8ca9f0b75627e7ad366b3c02ec3126713a283ed2
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 4945978fdc27a298daf4de0604b894c53ba51dbe
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233736"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321417"
 ---
 # <a name="application-architecture-on-azure"></a>Architettura delle applicazioni in Azure
 Per proteggere le soluzioni basate sul cloud in Microsoft Azure, è fondamentale avere un'architettura affidabile. Architetti, progettisti e responsabili dell'implementazione beneficiano di una conoscenza avanzata dell'architettura di applicazioni e servizi. Queste informazioni fondamentali permettono di comprendere tutti i componenti delle soluzioni basate sul cloud e semplificano l'integrazione della sicurezza in tutti gli aspetti della progettazione e dell'implementazione.
 
 Per semplificare l'analisi dell'architettura e la progettazione, sono disponibili:
 
-* Infografici dell'architettura
 * Progetti dell'architettura
 * Set di simboli per Cloud ed Enterprise
 * Modello di progetto Visio 3D
-
-## <a name="architectural-infographics"></a>Infografici dell'architettura
-Microsoft pubblica vari poster/infografici relativi all'architettura, tra cui:
-
-* [Creazione di app reali per il cloud](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
-* [Scalabilità delle applicazioni con Servizi cloud](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
 ## <a name="architectural-blueprints"></a>Progetti dell'architettura
 Microsoft pubblica un set di [Progetti dell'architettura](https://aka.ms/azblueprints) generali che illustrano come creare tipi specifici di sistemi usando prodotti Microsoft.

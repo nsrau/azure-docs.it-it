@@ -1,6 +1,6 @@
 ---
 title: Kubernetes in Azure - Ridimensionamento automatico del cluster
-description: Informazioni su come usare il ridimensionamento automatico del cluster con Azure Kubernetes Service (AKS) per ridimensionare automaticamente il cluster e soddisfare la richiesta.
+description: Informazioni su come usare il ridimensionamento automatico del cluster con il servizio Azure Kubernetes per ridimensionare automaticamente il cluster e soddisfare la richiesta.
 services: container-service
 author: sakthivetrivel
 manager: jeconnoc
@@ -16,19 +16,19 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/11/2019
 ms.locfileid: "54214981"
 ---
-# <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Ridimensionamento automatico del cluster su Azure Kubernetes Service (AKS) - Anteprima
+# <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Ridimensionamento automatico del cluster nel servizio Azure Kubernetes - Anteprima
 
-Il servizio Kubernetes di Azure (AKS) fornisce una soluzione flessibile per la distribuzione di un cluster Kubernetes gestito in Azure. Con la crescita delle richieste di risorsa, il ridimensionamento automatico del cluster consente l'aumento delle dimensioni del cluster per soddisfare tale richiesta, in base ai vincoli impostati. Il ridimensionamento automatico del cluster (CA) esegue tale operazione, ridimensionando i nodi agente in base ai pod in sospeso. Analizza il cluster periodicamente per cercare in pod in sospeso o nodi vuoti e ne aumenta la dimensione, se possibile. Per impostazione predefinita, CA analizza i pod in sospeso ogni 10 secondi e rimuove un nodo, se non risulta necessario per più di 10 minuti. Se usato con il [ridimensionamento automatico orizzontale dei pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA), l'attributo di protezione host aggiornerà le repliche di pod e le risorse in base alla richiesta. Se non vi sono nodi sufficienti o nodi non necessari applicando la scalabilità del pod, la CA risponderà e pianificherà i pod nel nuovo set di nodi.
+Il servizio Azure Kubernetes fornisce una soluzione flessibile per la distribuzione di un cluster Kubernetes gestito in Azure. Con la crescita delle richieste di risorsa, il ridimensionamento automatico del cluster consente l'aumento delle dimensioni del cluster per soddisfare tale richiesta, in base ai vincoli impostati. Il ridimensionamento automatico del cluster (CA) esegue tale operazione, ridimensionando i nodi agente in base ai pod in sospeso. Analizza il cluster periodicamente per cercare in pod in sospeso o nodi vuoti e ne aumenta la dimensione, se possibile. Per impostazione predefinita, CA analizza i pod in sospeso ogni 10 secondi e rimuove un nodo, se non risulta necessario per più di 10 minuti. Se usato con il [ridimensionamento automatico orizzontale dei pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA), l'attributo di protezione host aggiornerà le repliche di pod e le risorse in base alla richiesta. Se non vi sono nodi sufficienti o nodi non necessari applicando la scalabilità del pod, la CA risponderà e pianificherà i pod nel nuovo set di nodi.
 
 Questo articolo descrive come distribuire il ridimensionamento automatico del cluster nei nodi agente. Tuttavia, poiché il ridimensionamento automatico del cluster viene distribuito nello spazio dei nomi kube-system, non ridurrà le prestazioni del nodo che esegue questo pod.
 
 > [!IMPORTANT]
-> L'integrazione di ridimensionamento automatico del cluster di Azure AD per il servizio Kubernetes di Azure (AKS) è attualmente in **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> L'integrazione di ridimensionamento automatico del cluster di Azure AD per il servizio Azure Kubernetes è attualmente in **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 >
 
 ## <a name="prerequisites-and-considerations"></a>Prerequisiti e considerazioni
 
-Questo documento presuppone che si abbia già un cluster AKS di RBAC abilitato. Se è necessario un cluster AKS, vedere la [guida introduttiva su Azure Kubernetes Service (AKS)][aks-quick-start].
+Questo documento presuppone che si abbia già un cluster AKS di RBAC abilitato. Se è necessario un cluster del servizio Azure Kubernetes, vedere la [guida introduttiva al servizio Azure Kubernetes][aks-quick-start].
 
  Per sfruttare il ridimensionamento automatico del cluster, il cluster deve usare Kubernetes v1.10.X o versione successiva e deve essere abilitato per RBAC. Per aggiornare il cluster, vedere l'articolo sull'[aggiornamento di un cluster AKS][aks-upgrade].
 

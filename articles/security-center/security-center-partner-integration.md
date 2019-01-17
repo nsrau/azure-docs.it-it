@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 97153f4e11f9346083718a83dc7bcd292dc503c7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 25975739f7992a8e7a5318775b99d05715863ed1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580740"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260118"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
 Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Centro sicurezza di Azure e ad aggiungerne di nuove.
@@ -28,34 +28,17 @@ Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Cent
 Il Centro sicurezza semplifica l'abilitazione di soluzioni di sicurezza integrate in Azure. I vantaggi includono:
 
 - **Distribuzione semplificata**: il Centro sicurezza offre provisioning semplificato delle soluzioni dei partner integrate. Per le soluzioni come quelle antimalware e di valutazione delle vulnerabilità, il Centro sicurezza può effettuare il provisioning dell'agente necessario nelle macchine virtuali, mentre per gli appliance firewall il Centro sicurezza può occuparsi di gran parte delle attività di configurazione di rete necessarie.
-- **Rilevamenti integrati**: gli eventi di sicurezza delle soluzioni partner vengono raccolti, aggregati e visualizzati automaticamente nell'ambito degli avvisi e degli eventi imprevisti del Centro sicurezza. Questi eventi vengono anche combinati con i rilevamenti di altre origini per offrire funzionalità avanzate di rilevamento delle minacce.
-- **Gestione e monitoraggio dell'integrità unificati**: i clienti possono usare gli eventi di integrità integrati per monitorare in modo immediato tutte le soluzioni partner. Sono disponibili funzionalità di gestione di base, con un facile accesso alla configurazione avanzata con la soluzione partner.
+- **Rilevamenti integrati**: Gli eventi di sicurezza delle soluzioni partner vengono raccolti, aggregati e visualizzati automaticamente nell'ambito degli avvisi e degli eventi imprevisti del Centro sicurezza. Questi eventi vengono anche combinati con i rilevamenti di altre origini per offrire funzionalità avanzate di rilevamento delle minacce.
+- **Gestione e monitoraggio dell'integrità unificati**: I clienti possono usare gli eventi di integrità integrati per monitorare in modo immediato tutte le soluzioni partner. Sono disponibili funzionalità di gestione di base, con un facile accesso alla configurazione avanzata con la soluzione partner.
 
 Attualmente le soluzioni di sicurezza integrate includono:
 
-- Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) e [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))
 - Web application firewall ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) e [gateway applicazione di Azure](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - Firewall di nuova generazione ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) e [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Valutazione delle vulnerabilità ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) e [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
 > Centro sicurezza non installa Microsoft Monitoring Agent nelle appliance virtuali dei partner perché la maggior parte dei fornitori di soluzioni di sicurezza non consente che vengano eseguiti agenti esterni nelle proprie appliance.
->
->
-
-
-| Endpoint Protection               | Piattaforme                             | Installazione del Centro sicurezza | Individuazione del Centro sicurezza |
-|-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | No, predefinito nel sistema operativo           | Sì                       |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione                | Sì                       |
-| Trend Micro – Tutte le versioni         | Famiglia Windows Server                 | No                            | Sì                       |
-| Symantec v12.1.1100+              | Famiglia Windows Server                 | No                           | Sì                       |
-| McAfee v10+                       | Famiglia Windows Server                 | No                           | Sì                       |
-| Kaspersky                         | Famiglia Windows Server                 | No                           | No                        |
-| Sophos                            | Famiglia Windows Server                 | No                           | No                        |
-
-> [!NOTE]
-> Per poter rilevare System Center Endpoint Protection (SCEP) in una macchina virtuale Windows Server 2008 R2, SCEP deve essere installato dopo PowerShell 3.0 (o versione successiva).
 >
 >
 

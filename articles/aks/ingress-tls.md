@@ -1,6 +1,6 @@
 ---
-title: Creare una risorsa di ingresso HTTPS con il cluster del servizio Kubernetes di Azure (AKS)
-description: Informazioni su come installare e configurare un controller di ingresso NGINX che usa Let's Encrypt per la generazione automatica di certificati SSL in un cluster del servizio Kubernetes di Azure (AKS).
+title: Creare una risorsa di ingresso HTTPS con il cluster del servizio Azure Kubernetes
+description: Informazioni su come installare e configurare un controller di ingresso NGINX che usa Let's Encrypt per la generazione automatica di certificati SSL in un cluster del servizio Azure Kubernetes.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,11 +14,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/25/2018
 ms.locfileid: "50093962"
 ---
-# <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS in servizio Kubernetes di Azure (AKS)
+# <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS nel servizio Azure Kubernetes
 
 Un controller di ingresso è un componente software che fornisce proxy inverso, routing del traffico configurabile e terminazione TLS per i servizi Kubernetes. Le risorse di ingresso Kubernetes vengono usate per configurare le regole di ingresso e le route per i singoli servizi Kubernetes. Usando un controller di ingresso e regole di ingresso è possibile servirsi di un singolo indirizzo IP per instradare il traffico a più servizi in un cluster Kubernetes.
 
-Questo articolo illustra come distribuire il [controller di ingresso NGINX][nginx-ingress] in un cluster del servizio Kubernetes di Azure (AKS). Il progetto [cert-manager][cert-manager] viene usato per generare e configurare automaticamente certificati [Let's Encrypt][lets-encrypt]. Infine, due applicazioni vengono eseguite nel cluster AKS, ognuna delle quali è accessibile tramite un singolo indirizzo IP.
+Questo articolo illustra come distribuire il [controller di ingresso NGINX][nginx-ingress] in un cluster del servizio Azure Kubernetes. Il progetto [cert-manager][cert-manager] viene usato per generare e configurare automaticamente certificati [Let's Encrypt][lets-encrypt]. Infine, due applicazioni vengono eseguite nel cluster AKS, ognuna delle quali è accessibile tramite un singolo indirizzo IP.
 
 È anche possibile:
 

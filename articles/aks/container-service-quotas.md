@@ -1,6 +1,6 @@
 ---
-title: Disponibilità di quote e aree di Azure Kubernetes Service (AKS)
-description: Disponibilità di quote e aree predefinite di Azure Kubernetes Service (AKS).
+title: Disponibilità di quote e aree del servizio Azure Kubernetes
+description: Disponibilità di quote e aree predefinite del servizio Azure Kubernetes.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -15,9 +15,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "53000135"
 ---
-# <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Disponibilità di quote e aree per Azure Kubernetes Service (AKS)
+# <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Disponibilità di quote e aree per il servizio Azure Kubernetes
 
-Tutti i servizi di Azure prevedono determinati limiti predefiniti e quote per le risorse e le funzionalità. Le sezioni seguenti illustrano in modo dettagliato i limiti predefiniti per determinate risorse di Azure Kubernetes Service (AKS), oltre alla disponibilità del servizio contenitore di Azure nelle aree di Azure.
+Tutti i servizi di Azure prevedono determinati limiti predefiniti e quote per le risorse e le funzionalità. Le sezioni seguenti illustrano in modo dettagliato i limiti predefiniti per determinate risorse del servizio Azure Kubernetes, oltre alla disponibilità del servizio Azure Container nelle aree di Azure.
 
 ## <a name="service-quotas-and-limits"></a>Quote e limiti del servizio
 
@@ -29,7 +29,7 @@ Tutte le altre limitazioni relative alla rete, al calcolo e all'archiviazione si
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Azure Kubernetes Service (AKS) è disponibile nelle aree seguenti:
+Il servizio Azure Kubernetes è disponibile nelle aree seguenti:
 
 - Australia orientale
 - Canada centrale

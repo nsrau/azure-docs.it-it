@@ -24,7 +24,7 @@ ms.locfileid: "50980330"
 # <a name="containers"></a>Contenitori
 
 <table> <tr> <td>Questa sezione descrive come pubblicare un'immagine di contenitore in <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.  
-Il tipo di offerta "contenitore" supporta immagini del contenitore Docker di cui è stato effettuato il provisioning come istanze del <a href="https://docs.microsoft.com/azure/aks/index">Servizio Kubernetes di Azure</a> o come <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">istanze di contenitore di Azure</a> e che sono ospitate in un repository <a href="https://docs.microsoft.com/azure/container-registry">Registro contenitori di Azure</a>. </td> <td><img src="./media/container-icon.png"  alt="Azure container icon" /></td> </tr> </table>
+Il tipo di offerta "contenitore" supporta immagini del contenitore Docker di cui è stato effettuato il provisioning come istanze del <a href="https://docs.microsoft.com/azure/aks/index">servizio Azure Kubernetes</a> o come <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">Istanze di Azure Container</a> e che sono ospitate in un repository di <a href="https://docs.microsoft.com/azure/container-registry">Registro Azure Container</a>. </td> <td><img src="./media/container-icon.png"  alt="Azure container icon" /></td> </tr> </table>
 
 ## <a name="offer-components"></a>Componenti dell'offerta
 

@@ -101,7 +101,7 @@ Service Fabric offre diverse funzionalità relative ai contenitori che consenton
 * Possibilità di impostare le credenziali di sicurezza nel contenitore.
 * Scelta tra modalità di rete diverse per i contenitori.
 
-Per una panoramica completa del supporto dei contenitori in Azure, ad esempio come creare un cluster Kubernetes con il servizio Kubernetes di Azure, come creare un registro Docker privato in Registro contenitori di Azure e altro ancora, vedere [Azure per contenitori](https://docs.microsoft.com/azure/containers/).
+Per una panoramica completa del supporto dei contenitori in Azure, ad esempio come creare un cluster Kubernetes con il servizio Azure Kubernetes, come creare un registro Docker privato in Registro Azure Container e altro ancora, vedere [Azure per contenitori](https://docs.microsoft.com/azure/containers/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

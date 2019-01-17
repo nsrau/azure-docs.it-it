@@ -1,5 +1,5 @@
 items:
-- name: Azure Kubernetes Service (AKS)
+- name: Servizio Azure Kubernetes
   href: ./index.yml
 - name: Panoramica
   items:

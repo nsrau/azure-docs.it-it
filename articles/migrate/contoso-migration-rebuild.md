@@ -17,7 +17,7 @@ ms.locfileid: "54002502"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migrazione di Contoso: Ricompilare un’app locale in Azure
 
-Questo articolo descrive il modo in cui Contoso esegue la migrazione e ricompila l'app SmartHotel360 in Azure. Contoso esegue la migrazione della macchina virtuale front-end dell'app alle app Web di Servizi app di Azure. Il back-end dell'app viene compilato usando microservizi distribuiti ai contenitori gestiti da Azure Kubernetes Service (AKS). Il sito interagisce con Funzioni di Azure per rendere disponibili funzionalità per fotografie di animali domestici. 
+Questo articolo descrive il modo in cui Contoso esegue la migrazione e ricompila l'app SmartHotel360 in Azure. Contoso esegue la migrazione della macchina virtuale front-end dell'app alle app Web di Servizi app di Azure. Il back-end dell'app viene compilato usando microservizi distribuiti ai contenitori gestiti dal servizio Azure Kubernetes. Il sito interagisce con Funzioni di Azure per rendere disponibili funzionalità per fotografie di animali domestici. 
 
 Questo documento fa parte di una serie di articoli che descrivono in che modo la società fittizia Contoso esegue la migrazione delle risorse locali al cloud di Microsoft Azure. La serie include informazioni generali e scenari che illustrano la configurazione di un'infrastruttura di migrazione, la valutazione di risorse locali per la migrazione e l'esecuzione di diversi tipi di migrazioni. La complessità degli scenari aumenta man mano che si procede. Altri articoli verranno aggiunti in seguito.
 
@@ -81,7 +81,7 @@ Dopo aver definito obiettivi e requisiti, Contoso progetta ed esamina una soluzi
 - Il front-end dell'app viene distribuito come app Web di Servizi app di Azure, nella rispettiva area primaria.
 - Una funzione di Azure consente di caricare le fotografie degli animali domestici e il sito interagisce con tale funzionalità.
 - La funzione delle fotografie per animali domestici sfrutta l'API Visione artificiale di Servizi cognitivi e CosmosDB.
-- Il back-end del sito viene compilato usando i microservizi. Questi verranno distribuiti ai contenitori gestiti nel servizio Kubernetes di Azure (AKS).
+- Il back-end del sito viene compilato usando i microservizi. Questi verranno distribuiti ai contenitori gestiti nel servizio Azure Kubernetes.
 - I contenitori verranno compilati con Azure DevOps e ne verrà eseguito il push nel Registro contenitori di Azure.
 - Per il momento, Contoso distribuisce manualmente il codice della funzione e dell'app Web usando Visual Studio.
 - I microservizi verranno distribuiti tramite uno script di PowerShell che chiama gli strumenti da riga di comando di Kubernetes.
@@ -653,7 +653,7 @@ Al termine della migrazione delle risorse in Azure, Contoso deve rendere piename
 
 ## <a name="conclusion"></a>Conclusioni
 
-In questo articolo Contoso ricompila l'app SmartHotel360 in Azure. Viene ricompilata l'app in locale della macchina virtuale front-end per l'app Web di Servizi app di Azure. Il back-end dell'app viene compilato usando microservizi distribuiti ai contenitori gestiti da Azure Kubernetes Service (AKS). Vengono migliorate le funzionalità delle app grazie a un'app per le foto di animali domestici.
+In questo articolo Contoso ricompila l'app SmartHotel360 in Azure. Viene ricompilata l'app in locale della macchina virtuale front-end per l'app Web di Servizi app di Azure. Il back-end dell'app viene compilato usando microservizi distribuiti ai contenitori gestiti dal servizio Azure Kubernetes. Vengono migliorate le funzionalità delle app grazie a un'app per le foto di animali domestici.
 
 
 

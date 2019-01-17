@@ -1,6 +1,6 @@
 ---
 title: Controllare le distribuzioni di Kubernetes in Azure per l'implementazione di procedure consigliate
-description: Informazioni su come controllare l'implementazione delle procedure consigliate nelle distribuzioni nel servizio Kubernetes di Azure mediante kube-advisor
+description: Informazioni su come controllare l'implementazione delle procedure consigliate nelle distribuzioni nel servizio Azure Kubernetes mediante kube-advisor
 services: container-service
 author: seanmck
 ms.service: container-service

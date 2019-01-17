@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
-ms.openlocfilehash: a8d588b186652ab86ee1e8152bd9be08f0f1ef04
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978869"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193409"
 ---
 Bing Statistics offre analisi per le API di ricerca Bing. Le analisi includono il volume delle chiamate, le principali stringhe di query, la distribuzione geografica e altro ancora. Per abilitare Bing Statistics nella sottoscrizione a pagamento di Ricerca Bing, passare al [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), selezionare la sottoscrizione a pagamento e fare clic su Enable Bing Statistics (Abilita Bing Statistics). L'abilitazione di Bing Statistics aumenta leggermente la tariffa della sottoscrizione (vedere i [prezzi](https://aka.ms/bingstatisticspricing)).
 

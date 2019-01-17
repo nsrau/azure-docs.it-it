@@ -3,21 +3,22 @@ title: Domande frequenti su SQL Server in macchine virtuali Linux di Azure | Mic
 description: Questo articolo offre risposta ad alcune domande frequenti sull'esecuzione di SQL Server in macchine virtuali Linux di Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
-ms.author: jroth
-ms.openlocfilehash: e8297892c533f3b0126f925f81d3e9bc429828ef
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: fb1cafcf9405576749ea91aeea033c6ee783a026
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039956"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330433"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Domande frequenti su SQL Server nelle macchine virtuali Linux di Azure
 
@@ -72,7 +73,7 @@ Questo articolo offre risposte ad alcune delle domande più comuni sull'esecuzio
 
 1. **È possibile modificare una VM per l'uso di una licenza di SQL Server, se è stata creata da una delle immagini della raccolta con pagamento in base al consumo?**
 
-   No. Non è possibile sostituire una licenza con costo al secondo con una propria licenza. È necessario creare una nuova VM Linux, installare SQL Server ed eseguire la migrazione dei dati. Per altre informazioni sull'opzione Bring Your Own License, vedere la domanda precedente.
+    No. Non è possibile sostituire una licenza con costo al secondo con una propria licenza. È necessario creare una nuova VM Linux, installare SQL Server ed eseguire la migrazione dei dati. Per altre informazioni sull'opzione Bring Your Own License, vedere la domanda precedente.
 
 ## <a name="administration"></a>Administration
 

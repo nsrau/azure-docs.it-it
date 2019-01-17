@@ -398,7 +398,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Azure Kubernetes Service (AKS)</p>
+                                                <p>Servizio Azure Kubernetes</p>
                                             </a>
                                         </li>
                                         <li>
@@ -536,7 +536,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Kubernetes Service (AKS)</p>
+                                                <p>Servizio Azure Kubernetes</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1942,7 +1942,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Kubernetes Service (AKS)</h3>
+                                                    <h3>Servizio Azure Kubernetes</h3>
                                                     <p>Semplificare la distribuzione, la gestione e le operazioni di Kubernetes</p>
                                                 </div>
                                             </div>
@@ -2936,7 +2936,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Kubernetes Service (AKS)</h3>
+                                                    <h3>Servizio Azure Kubernetes</h3>
                                                     <p>Semplificare la distribuzione, la gestione e le operazioni di Kubernetes</p>
                                                 </div>
                                             </div>

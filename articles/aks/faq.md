@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti relative al servizio Kubernetes di Azure
-description: Risposte ad alcune domande comuni sul servizio Kubernetes di Azure.
+title: Domande frequenti relative al servizio Azure Kubernetes
+description: Risposte ad alcune domande comuni sul servizio Azure Kubernetes.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -15,11 +15,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/14/2018
 ms.locfileid: "51636918"
 ---
-# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative ad Azure Kubernetes Service (AKS)
+# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
-Questo articolo tratta alcune domande frequenti relative ad Azure Kubernetes Service (AKS).
+Questo articolo tratta alcune domande frequenti relative al servizio Azure Kubernetes.
 
-## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Quali aree di Azure forniscono Azure Kubernetes Service (AKS) oggi?
+## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Quali aree di Azure forniscono il servizio Azure Kubernetes oggi?
 
 Per un elenco completo delle aree disponibili, vedere [Aree del servizio Kubernetes di Azure e disponibilità][aks-regions].
 

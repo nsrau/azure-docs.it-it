@@ -1,6 +1,6 @@
 ---
-title: Componente aggiuntivo Routing di applicazioni HTTP nel servizio Kubernetes di Azure (AKS)
-description: Usare il componente aggiuntivo Routing di applicazioni HTTP nel servizio Kubernetes di Azure (AKS).
+title: Componente aggiuntivo Routing di applicazioni HTTP nel servizio Azure Kubernetes
+description: Usare il componente aggiuntivo Routing di applicazioni HTTP nel servizio Azure Kubernetes.
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -17,7 +17,7 @@ ms.locfileid: "53742389"
 ---
 # <a name="http-application-routing"></a>Routing di applicazioni HTTP
 
-La soluzione Routing di applicazioni HTTP semplifica l'accesso alle applicazioni distribuite nel cluster del servizio Kubernetes di Azure (AKS, Azure Kubernetes Service). Quando è abilitata, la soluzione configura un controller di ingresso nel cluster AKS. Man mano che le applicazioni vengono distribuite, la soluzione crea anche nomi DNS pubblicamente accessibili per gli endpoint applicazione.
+La soluzione Routing di applicazioni HTTP semplifica l'accesso alle applicazioni distribuite nel cluster del servizio Azure Kubernetes. Quando è abilitata, la soluzione configura un controller di ingresso nel cluster AKS. Man mano che le applicazioni vengono distribuite, la soluzione crea anche nomi DNS pubblicamente accessibili per gli endpoint applicazione.
 
 Quando il componente aggiuntivo è abilitato, viene creata una zona DNS nella sottoscrizione. Per altre informazioni sul costo del DNS, vedere la pagina relativa ai [prezzi del DNS][dns-pricing].
 
@@ -272,7 +272,7 @@ ingress "party-clippy" deleted
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come installare un controller di ingresso protetto con HTTPS in AKS, vedere [Ingresso HTTPS nel servizio Kubernetes di Azure (AKS)][ingress-https].
+Per informazioni su come installare un controller di ingresso protetto con HTTPS nel servizio Azure Kubernetes, vedere [Ingresso HTTPS nel servizio Azure Kubernetes][ingress-https].
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

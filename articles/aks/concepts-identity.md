@@ -1,6 +1,6 @@
 ---
 title: Concetti - Accesso e identità nei servizi Kubernetes di Azure
-description: Informazioni su accesso e identità nel servizio Kubernetes di Azure, inclusi integrazione di Azure Active Directory, controllo degli accessi in base al ruolo di Kubernetes e ruoli e associazioni.
+description: Informazioni su accesso e identità nel servizio Azure Kubernetes, inclusi integrazione di Azure Active Directory, controllo degli accessi in base al ruolo di Kubernetes e ruoli e associazioni.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2018
 ms.locfileid: "49380926"
 ---
-# <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Kubernetes di Azure
+# <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
 
-Esistono diversi modi per eseguire l'autenticazione con i cluster Kubernetes e proteggerli. Usando i controlli degli accessi in base al ruolo, è possibile concedere agli utenti o ai gruppi l'accesso solo alle risorse necessarie. Con il servizio Kubernetes di Azure, è possibile migliorare ulteriormente la struttura di autorizzazioni e la sicurezza usando Azure Active Directory. Questi approcci consentono di proteggere i carichi di lavoro dell'applicazione e i dati dei clienti.
+Esistono diversi modi per eseguire l'autenticazione con i cluster Kubernetes e proteggerli. Usando i controlli degli accessi in base al ruolo, è possibile concedere agli utenti o ai gruppi l'accesso solo alle risorse necessarie. Con il servizio Azure Kubernetes, è possibile migliorare ulteriormente la struttura di autorizzazioni e la sicurezza usando Azure Active Directory. Questi approcci consentono di proteggere i carichi di lavoro dell'applicazione e i dati dei clienti.
 
 Questo articolo introduce i principali concetti utili per l'autenticazione e l'assegnazione di autorizzazioni nel servizio Kubernetes di Azure:
 

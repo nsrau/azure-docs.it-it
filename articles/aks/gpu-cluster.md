@@ -1,6 +1,6 @@
 ---
-title: Usare GPU in Azure Kubernetes Service (AKS)
-description: Informazioni su come usare le GPU per carichi di lavoro a elevato utilizzo di grafica o di calcolo ad alte prestazioni in Azure Kubernetes Service (AKS)
+title: Usare GPU nel servizio Azure Kubernetes
+description: Informazioni su come usare le GPU per carichi di lavoro a elevato utilizzo di grafica o di calcolo ad alte prestazioni nel servizio Azure Kubernetes
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/31/2018
 ms.locfileid: "50419249"
 ---
-# <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usare le GPU per carichi di lavoro a elevato utilizzo di calcolo nel servizio Kubernetes di Azure (AKS)
+# <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usare le GPU per carichi di lavoro a elevato utilizzo di calcolo nel servizio Azure Kubernetes
 
 Le unità di elaborazione grafica (GPU) sono spesso usate per carichi di lavoro a elevato utilizzo di calcolo, ad esempio i carichi di lavoro di visualizzazione o di grafica. Il servizio AKS supporta la creazione di pool di nodi abilitati per la GPU per l'esecuzione di questi carichi di lavoro a elevato utilizzo di calcolo in Kubernetes. Per altre informazioni sulle macchine virtuali abilitate per GPU disponibili, vedere [Dimensioni delle macchine virtuali ottimizzate per la GPU][gpu-skus]. Per i nodi AKS è consigliabile una dimensione minima di *Standard_NC6*.
 

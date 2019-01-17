@@ -1,6 +1,6 @@
 ---
-title: Creare un controller di ingresso per una rete interna del servizio Kubernetes di Azure (AKS)
-description: Informazioni su come installare e configurare un controller di ingresso NGINX per una rete interna e privata in un cluster del servizio Kubernetes di Azure (AKS).
+title: Creare un controller di ingresso per una rete interna del servizio Azure Kubernetes
+description: Informazioni su come installare e configurare un controller di ingresso NGINX per una rete interna e privata in un cluster del servizio Azure Kubernetes.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,11 +14,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/25/2018
 ms.locfileid: "50093582"
 ---
-# <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso per una rete interna virtuale del servizio Kubernetes di Azure (AKS)
+# <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso per una rete interna virtuale del servizio Azure Kubernetes
 
 Un controller di ingresso è un componente software che fornisce proxy inverso, routing del traffico configurabile e terminazione TLS per i servizi Kubernetes. Le risorse di ingresso Kubernetes vengono usate per configurare le regole di ingresso e le route per i singoli servizi Kubernetes. Usando un controller di ingresso e regole di ingresso è possibile servirsi di un singolo indirizzo IP per instradare il traffico a più servizi in un cluster Kubernetes.
 
-Questo articolo illustra come distribuire il [controller di ingresso NGINX][nginx-ingress] in un cluster del servizio Kubernetes di Azure (AKS). Il controller di ingresso è configurato su una rete virtuale interna e privata e su un indirizzo IP. Non è consentito alcun accesso esterno. Due applicazioni vengono eseguite nel cluster AKS, ognuna delle quali è accessibile tramite un singolo indirizzo IP.
+Questo articolo illustra come distribuire il [controller di ingresso NGINX][nginx-ingress] in un cluster del servizio Azure Kubernetes. Il controller di ingresso è configurato su una rete virtuale interna e privata e su un indirizzo IP. Non è consentito alcun accesso esterno. Due applicazioni vengono eseguite nel cluster AKS, ognuna delle quali è accessibile tramite un singolo indirizzo IP.
 
 È anche possibile:
 
@@ -29,7 +29,7 @@ Questo articolo illustra come distribuire il [controller di ingresso NGINX][ngin
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo usa Helm per installare il controller di ingresso NGINX, il certificato cert-manager e un'app Web di esempio. È necessario disporre di Helm inizializzato nel cluster AKS e usare un account del servizio per Tiller. Per altre informazioni sulla configurazione e l'uso di Helm, vedere [Installare le applicazioni con Helm nel servizio Kubernetes di Azure (AKS)][use-helm].
+Questo articolo usa Helm per installare il controller di ingresso NGINX, il certificato cert-manager e un'app Web di esempio. È necessario disporre di Helm inizializzato nel cluster AKS e usare un account del servizio per Tiller. Per altre informazioni sulla configurazione e l'uso di Helm, vedere [Installare le applicazioni con Helm nel servizio Azure Kubernetes][use-helm].
 
 Questo articolo richiede anche che sia in esecuzione l'interfaccia della riga di comando di Azure versione 2.0.41 o successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 

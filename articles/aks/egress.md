@@ -1,97 +1,119 @@
 ---
-title: Configurare l'elenco elementi consentiti per il traffico in uscita da un cluster Azure Kubernetes Service (AKS)
-description: Configurare l'elenco elementi consentiti per il traffico in uscita da un cluster Azure Kubernetes Service (AKS)
+title: Indirizzo IP statico per il traffico in uscita nel servizio Azure Kubernetes
+description: Informazioni su come creare e usare un indirizzo IP pubblico statico per il traffico in uscita in un cluster del servizio Azure Kubernetes
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: e2793a72fcbc20b79bdd564e331426fedf1ae34b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 175fa625a94626cde4d782abd1e9629530cab8b4
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347801"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408523"
 ---
-# <a name="azure-kubernetes-service-aks-egress"></a>Uscita da Azure Kubernetes Service (AKS)
+# <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Usare un indirizzo IP statico per il traffico in uscita nel servizio Azure Kubernetes
 
-Per impostazione predefinita, l'indirizzo in uscita da un cluster Azure Kubernetes Service (AKS) viene assegnato in modo casuale. Questa configurazione non è ideale quando è necessario identificare un indirizzo IP per l'accesso a servizi esterni. Questo documento illustra in dettaglio come creare e gestire un indirizzo IP in uscita assegnato in modo statico in un cluster AKS.
+Per impostazione predefinita, l'indirizzo IP in uscita da un cluster del servizio Azure Kubernetes viene assegnato in modo casuale. Questa configurazione non è ideale ad esempio quando è necessario identificare un indirizzo IP per l'accesso a servizi esterni. Al contrario, potrebbe essere necessario assegnare un indirizzo IP statico che può essere inserito nell'elenco elementi consentiti per l'accesso al servizio.
 
-## <a name="egress-overview"></a>Panoramica del flusso in uscita
+Questo articolo illustra come creare e usare un indirizzo IP pubblico statico per il traffico in uscita in un cluster di AKS.
 
-Il traffico in uscita da un cluster AKS segue le convenzioni di Azure Load Balancer, documentate [qui][outbound-connections]. Prima che venga creato il primo servizio Kubernetes di tipo `LoadBalancer`, i nodi dell'agente non appartengono ad alcun pool di Azure Load Balancer. In questa configurazione i nodi sono privi di indirizzo IP pubblico a livello di istanza. Azure trasla il flusso in uscita a un indirizzo IP pubblico di origine che non è configurabile o deterministico.
+## <a name="before-you-begin"></a>Prima di iniziare
 
-Dopo che è stato creato un servizio Kubernetes di tipo `LoadBalancer`, i nodi dell'agente vengono aggiunti a un pool di Azure Load Balancer. Azure trasla il flusso in uscita al primo indirizzo IP pubblico che è stato configurato nel bilanciamento del carico.
+Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva su AKS [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+
+È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure versione 2.0.46 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+
+## <a name="egress-traffic-overview"></a>Panoramica sul traffico in uscita
+
+Il traffico in uscita da un cluster AKS segue le [convenzioni di Azure Load Balancer][outbound-connections]. Prima che venga creato il primo servizio Kubernetes di tipo `LoadBalancer`, i nodi dell'agente in un cluster di AKS non appartengono ad alcun pool di Azure Load Balancer. In questa configurazione i nodi sono privi di indirizzo IP pubblico a livello di istanza. Azure trasla il flusso in uscita a un indirizzo IP pubblico di origine che non è configurabile o deterministico.
+
+Dopo che è stato creato un servizio Kubernetes di tipo `LoadBalancer`, i nodi dell'agente vengono aggiunti a un pool di Azure Load Balancer. Azure trasla il flusso in uscita al primo indirizzo IP pubblico che è stato configurato nel bilanciamento del carico. Questo indirizzo IP pubblico è valido solo per la durata di tale risorsa. Se si elimina il servizio di Kubernetes di tipo LoadBalancer, vengono eliminati anche il bilanciamento del carico e l'indirizzo IP associati. Se si vuole assegnare un indirizzo IP specifico o mantenere un indirizzo IP per i servizi Kubernetes ridistribuiti, è possibile creare e usare un indirizzo IP pubblico statico.
 
 ## <a name="create-a-static-public-ip"></a>Creare un IP pubblico statico
 
-Per evitare che siano usati indirizzi IP casuali, creare un indirizzo IP statico e assicurarsi che il bilanciamento del carico usi questo indirizzo. L'indirizzo IP deve essere creato nel gruppo di risorse del **nodo** AKS.
+Quando si crea un indirizzo IP pubblico statico per l'utilizzo con AKS, è necessario creare la risorsa indirizzo IP nel gruppo di risorse del **nodo**. Ottenere il nome del gruppo di risorse con il comando [az aks show][az-aks-show] e aggiungere il parametro di query `--query nodeResourceGroup`. L'esempio seguente ottiene il gruppo di risorse del nodo per il nome del cluster AKS *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*:
 
-Ottenere il nome del gruppo di risorse con il comando [az resource show][az-resource-show]. Aggiornare il nome del gruppo di risorse e il nome del cluster affinché corrispondano al proprio ambiente.
-
-```
-$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
+```azurecli
+$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Quindi usare il comando [az network public-ip create][public-ip-create] per creare un indirizzo IP pubblico statico. Aggiornare il nome del gruppo di risorse in modo che corrisponda al nome ottenuto nell'ultimo passaggio.
+Quindi usare il comando [az network public-ip create][az-network-public-ip-create] per creare un indirizzo IP pubblico statico. Specificare il nome del gruppo di risorse del nodo ottenuto nel comando precedente e quindi un nome per la risorsa indirizzo IP, ad esempio *myAKSPublicIP*:
 
-```console
-$ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static --query publicIp.ipAddress -o table
+```azurecli
+az network public-ip create \
+    --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+    --name myAKSPublicIP \
+    --allocation-method static
+```
 
-Result
--------------
-23.101.128.81
+Viene visualizzato l'indirizzo IP, come illustrato nell'esempio sintetico di output seguente:
+
+```json
+{
+  "publicIp": {
+    "dnsSettings": null,
+    "etag": "W/\"6b6fb15c-5281-4f64-b332-8f68f46e1358\"",
+    "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
+    "idleTimeoutInMinutes": 4,
+    "ipAddress": "40.121.183.52",
+    [..]
+  }
+````
+
+È possibile ottenere l'indirizzo IP pubblico in un secondo momento usando il comando [az network public-ip list][az-network-public-ip-list]. Specificare il nome del gruppo di risorse del nodo e quindi eseguire una query per *ipAddress* come illustrato nell'esempio seguente:
+
+```azurecli
+$ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+
+40.121.183.52
 ```
 
 ## <a name="create-a-service-with-the-static-ip"></a>Creare un servizio con l'indirizzo IP statico
 
-Ora che si dispone di un indirizzo IP, creare un servizio Kubernetes con il tipo `LoadBalancer` e assegnare l'indirizzo IP al servizio.
-
-Creare un file denominato `egress-service.yaml` e copiarlo nel codice YAML seguente. Aggiornare l'indirizzo IP in modo corrispondente al proprio ambiente.
+Per creare un servizio con l'indirizzo IP pubblico statico, aggiungere la proprietà `loadBalancerIP` e il valore dell'indirizzo IP pubblico statico al manifesto YAML. Creare un file denominato `egress-service.yaml` e copiarlo nel codice YAML seguente. Aggiungere il proprio indirizzo IP pubblico creato nel passaggio precedente.
 
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: aks-egress
+  name: azure-egress
 spec:
-  loadBalancerIP: 23.101.128.81
+  loadBalancerIP: 40.121.183.52
   type: LoadBalancer
   ports:
-  - port: 8080
+  - port: 80
 ```
 
 Creare il servizio e la distribuzione con il comando `kubectl apply`.
 
 ```console
-$ kubectl apply -f egress-service.yaml
-
-service "aks-egress" created
+kubectl apply -f egress-service.yaml
 ```
 
-Creando questo servizio viene configurato un nuovo indirizzo IP front-end in Azure Load Balancer. Se non sono configurati altri indirizzi IP, ora **tutto** il traffico in uscita dovrebbe usare questo indirizzo. Quando sono configurati più indirizzi in Azure Load Balancer, il flusso in uscita usa il primo indirizzo IP di questo bilanciamento del carico.
+Questo servizio configura un nuovo indirizzo IP front-end in Azure Load Balancer. Se non sono configurati altri indirizzi IP, ora **tutto** il traffico in uscita dovrebbe usare questo indirizzo. Quando sono configurati più indirizzi in Azure Load Balancer, il flusso in uscita usa il primo indirizzo IP di questo bilanciamento del carico.
 
 ## <a name="verify-egress-address"></a>Verificare l'indirizzo in uscita
 
-Per verificare che l'indirizzo IP pubblico sia in uso, utilizzare un servizio come `checkip.dyndns.org`.
+Per verificare che si stia usando l'indirizzo IP pubblico statico, è possibile usare un servizio di ricerca DNS, ad esempio `checkip.dyndns.org`.
 
-Avviare e connettersi a un pod:
-
-```console
-$ kubectl run -it --rm aks-ip --image=debian
-```
-
-Se necessario, installare curl nel contenitore:
+Avviare e connettersi a un pod *Debian* di base:
 
 ```console
-$ apt-get update && apt-get install curl -y
+kubectl run -it --rm aks-ip --image=debian
 ```
 
-Curl `checkip.dyndns.org`, che restituisce l'indirizzo IP in uscita:
+Per accedere a un sito web dall'interno del contenitore, usare `apt-get` per installare `curl` nel contenitore.
+
+```console
+apt-get update && apt-get install curl -y
+```
+
+Viene usato curl per accedere al sito *checkip.dyndns.org*. Viene visualizzato l'indirizzo IP di uscita, come illustrato nell'esempio di output seguente. Questo indirizzo IP corrisponde all'indirizzo IP pubblico statico creato e definito per il servizio loadBalancer:
 
 ```console
 $ curl -s checkip.dyndns.org
@@ -99,30 +121,18 @@ $ curl -s checkip.dyndns.org
 <html><head><title>Current IP Check</title></head><body>Current IP Address: 23.101.128.81</body></html>
 ```
 
-Si noterà che l'indirizzo IP corrisponde all'indirizzo IP statico associato al bilanciamento del carico di Azure.
-
-## <a name="ingress-controller"></a>Controller di ingresso
-
-Per evitare di mantenere più indirizzi IP pubblici in Azure Load Balancer, provare a usare un controller di ingresso. I controller di ingresso forniscono vantaggi come il bilanciamento del carico, la terminazione SSL/TLS, il supporto per la riscrittura degli URI e la crittografia SSL/TLS a monte. Per altre informazioni sui controller di ingresso in AKS, vedere la guida sulla [configurazione del controller di ingresso NGINX in un cluster AKS][ingress-aks-cluster].
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sul software illustrato in questo documento.
-
-- [Interfaccia della riga di comando di Helm][helm-cli-install]
-- [Controller di ingresso NGINX][nginx-ingress]
-- [Connessioni in uscita di Azure Load Balancer][outbound-connections]
+Per evitare di mantenere più indirizzi IP pubblici in Azure Load Balancer, è possibile usare un controller di ingresso. I controller di ingresso forniscono vantaggi aggiuntivi come la terminazione SSL/TLS, il supporto per la riscrittura degli URI e la crittografia SSL/TLS a monte. Per altre informazioni, vedere l'argomento relativo alla [creazione di un controller di ingresso di base in AKS][ingress-aks-cluster].
 
 <!-- LINKS - internal -->
-[az-resource-show]: /cli/azure/resource#az-resource-show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [azure-cli-install]: /cli/azure/install-azure-cli
-[azure-cloud-shell]: ../cloud-shell/overview.md
-[aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[create-aks-cluster]: ./kubernetes-walkthrough.md
-[helm-cli-install]: ./kubernetes-helm.md#install-helm-cli
 [ingress-aks-cluster]: ./ingress-basic.md
 [outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#scenarios
 [public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
-
-<!-- LINKS - external -->
-[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

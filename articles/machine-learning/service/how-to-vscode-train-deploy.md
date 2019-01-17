@@ -184,7 +184,7 @@ Ecco un esempio per la registrazione del modello in Azure Machine Learning: [![R
 
 Tramite VS Code è possibile distribuire il servizio Web in:
 + Istanza di contenitore di Azure: per l'ambiente di test
-+ Servizio Kubernetes di Azure (AKS): per l'ambiente di produzione 
++ Servizio Azure Kubernetes: per l'ambiente di produzione 
 
 Non occorre creare un contenitore di Istanza di contenitore di Azure da testare in anticipo in quanto il contenitore viene creato al momento. I cluster AKS non devono necessariamente essere configurati in anticipo. 
 

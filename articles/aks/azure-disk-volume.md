@@ -1,6 +1,6 @@
 ---
-title: Creare un volume statico per i pod nel servizio Kubernetes di Azure (AKS)
-description: Informazioni su come creare manualmente un volume con i dischi di Azure per l'uso con un pod nel servizio Kubernetes di Azure (AKS)
+title: Creare un volume statico per i pod nel servizio Azure Kubernetes
+description: Informazioni su come creare manualmente un volume con i dischi di Azure per l'uso con un pod nel servizio Azure Kubernetes
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/10/2018
 ms.locfileid: "49068185"
 ---
-# <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare manualmente e usare un volume con i dischi di Azure nel servizio Kubernetes di Azure (AKS)
+# <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare manualmente e usare un volume con i dischi di Azure nel servizio Azure Kubernetes
 
 Le applicazioni basate su contenitore hanno spesso necessità di accedere e salvare in modo permanente i dati in un volume di dati esterno. Se un singolo pod deve accedere all'archiviazione, è possibile usare i dischi di Azure per presentare un volume nativo per l'uso dell'applicazione. Questo articolo illustra come creare un manualmente un disco di Azure e collegarlo a un pod nel servizio Kubernetes di Azure.
 
@@ -31,7 +31,7 @@ Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è ne
 
 ## <a name="create-an-azure-disk"></a>Creare un disco di Azure
 
-Quando si crea un disco di Azure da usare con il servizio Kubernetes di Azure, è possibile creare la risorsa disco nel gruppo di risorse del **nodo**. Questo approccio consente al cluster del servizio Kubernetes di Azure di accedere e gestire la risorsa disco. Se invece si crea il disco in un gruppo di risorse separato, è necessario fornire all'entità servizio del servizio Kubernetes di Azure (AKS) per il cluster il ruolo `Contributor` al gruppo di risorse del disco.
+Quando si crea un disco di Azure da usare con il servizio Kubernetes di Azure, è possibile creare la risorsa disco nel gruppo di risorse del **nodo**. Questo approccio consente al cluster del servizio Kubernetes di Azure di accedere e gestire la risorsa disco. Se invece si crea il disco in un gruppo di risorse separato, è necessario fornire all'entità servizio del servizio Azure Kubernetes per il cluster il ruolo `Contributor` al gruppo di risorse del disco.
 
 Per questo articolo, creare il disco nel gruppo di risorse del nodo. Per prima cosa, ottenere il nome del gruppo di risorse con il comando [az aks show][az-aks-show] e aggiungere il parametro di query `--query nodeResourceGroup`. L'esempio seguente ottiene il gruppo di risorse del nodo per il nome del cluster AKS *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*:
 

@@ -1,6 +1,6 @@
 ---
 title: Concetti - Nozioni di base di Kubernetes per il servizio Kubernetes di Azure (AKS)
-description: Informazioni sui componenti di base del cluster e del carico di lavoro di Kubernetes e sulle loro relazioni con le funzionalità del servizio Kubernetes di Azure (AKS)
+description: Informazioni sui componenti di base del cluster e del carico di lavoro di Kubernetes e sulle loro relazioni con le funzionalità del servizio Azure Kubernetes
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52998086"
 ---
-# <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Kubernetes di Azure (AKS)
+# <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
-Poiché lo sviluppo di applicazioni è passato a un approccio basato su contenitori, la necessità di orchestrare e gestire risorse interconnesse diventa importante. Kubernetes è la piattaforma leader che offre programmazione affidabile di carichi di lavoro applicativi dotati di tolleranza agli errori. Il servizio Kubernetes di Azure (AKS) è un'offerta Kubernetes gestita che semplifica ulteriormente lo sviluppo e la gestione di applicazioni basate su contenitori.
+Poiché lo sviluppo di applicazioni è passato a un approccio basato su contenitori, la necessità di orchestrare e gestire risorse interconnesse diventa importante. Kubernetes è la piattaforma leader che offre programmazione affidabile di carichi di lavoro applicativi dotati di tolleranza agli errori. Il servizio Azure Kubernetes è un'offerta Kubernetes gestita che semplifica ulteriormente lo sviluppo e la gestione di applicazioni basate su contenitori.
 
 Questo articolo presenta i componenti principali dell'infrastruttura Kubernetes, fra cui i *master del cluster*, i *nodi* e i *pool di nodi*. Sono presentate anche risorse del carico di lavoro come *pod*, *distribuzioni* e *set*, nonché la procedura per raggruppare risorse in *spazi dei nomi*.
 
@@ -28,7 +28,7 @@ Kubernetes è una piattaforma in rapida evoluzione che gestisce applicazioni bas
 
 In quanto piattaforma aperta, Kubernetes consente di compilare le applicazioni con il linguaggio di programmazione, il sistema operativo, le librerie e il bus di messaggistica preferiti. Gli strumenti esistenti di integrazione continua e recapito continuo (CI/CD) possono integrarsi con Kubernetes per la pianificazione e la distribuzione delle versioni.
 
-Il servizio Kubernetes di Azure (AKS) è un servizio Kubernetes gestito che riduce la complessità delle attività di distribuzione e delle attività principali di gestione, tra cui il coordinamento degli aggiornamenti. I master del cluster di AKS sono gestiti dalla piattaforma Azure e si paga solo per i nodi di AKS che eseguono le applicazioni. AKS si basa sul motore open source del servizio Azure Kubernetes (aks-engine).
+Il servizio Azure Kubernetes è un servizio Kubernetes gestito che riduce la complessità delle attività di distribuzione e delle attività principali di gestione, tra cui il coordinamento degli aggiornamenti. I master del cluster di AKS sono gestiti dalla piattaforma Azure e si paga solo per i nodi di AKS che eseguono le applicazioni. AKS si basa sul motore open source del servizio Azure Kubernetes (aks-engine).
 
 ## <a name="kubernetes-cluster-architecture"></a>Architettura del cluster Kubernetes
 
@@ -162,7 +162,7 @@ Per poter usare Helm, viene installato un componente server denominato *Tiller* 
 
 ![Helm include un componente client e un componente Tiller lato-server che crea risorse all'interno del cluster Kubernetes](media/concepts-clusters-workloads/use-helm.png)
 
-Per altre informazioni, vedere [Installare le applicazioni con Helm nel servizio Kubernetes di Azure (AKS)][aks-helm].
+Per altre informazioni, vedere [Installare le applicazioni con Helm nel servizio Azure Kubernetes][aks-helm].
 
 ## <a name="statefulsets-and-daemonsets"></a>Oggetti StatefulSet e DaemonSet
 

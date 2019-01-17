@@ -1,18 +1,18 @@
 ---
 title: Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza di macchine virtuali VMware in Azure | Microsoft Docs
 description: Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza di macchine virtuali VMware in Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 58dc344cc7ab40218a122e34a9032276107a944c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.author: mayg
+ms.openlocfilehash: 9a9129d376c0a39c54f297fcae883f8d90016970
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964459"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320566"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.

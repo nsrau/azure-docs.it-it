@@ -1,6 +1,6 @@
 ---
-title: Usare un indirizzo IP statico con il bilanciamento del carico di Azure Kubernetes Service (AKS)
-description: Informazioni su come creare e usare un indirizzo IP statico con il bilanciamento del carico del servizio Kubernetes di Azure (AKS).
+title: Usare un indirizzo IP statico con il bilanciamento del carico del servizio Azure Kubernetes
+description: Informazioni su come creare e usare un indirizzo IP statico con il bilanciamento del carico del servizio Azure Kubernetes.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2019
 ms.locfileid: "53994488"
 ---
-# <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usare un indirizzo IP pubblico statico con il bilanciamento del carico del servizio Kubernetes di Azure (AKS)
+# <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usare un indirizzo IP pubblico statico con il bilanciamento del carico del servizio Azure Kubernetes
 
 Per impostazione predefinita, l'indirizzo IP pubblico assegnato a una risorsa di bilanciamento del carico creata da un cluster AKS vale solo per la durata di tale risorsa. Se si elimina il servizio Kubernetes, vengono eliminati anche il bilanciamento del carico e l'indirizzo IP associati. Se si vuole assegnare un indirizzo IP specifico o mantenere un indirizzo IP per i servizi Kubernetes ridistribuiti, è possibile creare e usare un indirizzo IP pubblico statico.
 

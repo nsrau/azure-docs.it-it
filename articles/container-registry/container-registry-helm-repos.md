@@ -30,7 +30,7 @@ Questo articolo illustra come usare un repository di grafici Helm archiviato nel
 Per completare la procedura descritta in questo articolo, è necessario soddisfare i prerequisiti seguenti:
 
 - **Registro contenitori di Azure**: creare un registro di contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
-- **Versione del client Helm 2.11.0 (non una versione finale candidata) o versione successiva**: eseguire `helm version` per trovare la versione corrente. È anche necessario un server Helm (Tiller) inizializzato in un cluster Kubernetes. Se necessario, è possibile [creare un cluster del servizio Kubernetes di Azure][aks-quickstart]. Per altre informazioni su come installare e aggiornare Helm, vedere [Installing Helm][helm-install] (Installazione di Helm).
+- **Versione del client Helm 2.11.0 (non una versione finale candidata) o versione successiva**: eseguire `helm version` per trovare la versione corrente. È anche necessario un server Helm (Tiller) inizializzato in un cluster Kubernetes. Se necessario, è possibile [creare un cluster del servizio Azure Kubernetes][aks-quickstart]. Per altre informazioni su come installare e aggiornare Helm, vedere [Installing Helm][helm-install] (Installazione di Helm).
 - **Interfaccia della riga di comando di Azure versione 2.0.46 o successiva** - Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="add-a-repository-to-helm-client"></a>Aggiungere un repository al client Helm

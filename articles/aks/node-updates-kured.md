@@ -1,6 +1,6 @@
 ---
-title: Aggiornare e riavviare i nodi con kured nel servizio Kubernetes di Azure (AKS)
-description: Informazioni su come aggiornare e riavviare automaticamente i nodi con kured in nel servizio Kubernetes di Azure (AKS)
+title: Aggiornare e riavviare i nodi con kured nel servizio Azure Kubernetes
+description: Informazioni su come aggiornare e riavviare automaticamente i nodi con kured nel servizio Azure Kubernetes
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/13/2018
 ms.locfileid: "51617809"
 ---
-# <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>Applicare aggiornamenti di sicurezza e del kernel ai nodi nel servizio Kubernetes di Azure (AKS)
+# <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>Applicare aggiornamenti di sicurezza e del kernel ai nodi nel servizio Azure Kubernetes
 
 Per proteggere i cluster, gli aggiornamenti di sicurezza vengono applicati automaticamente ai nodi nel servizio Kubernetes di Azure. Questi aggiornamenti includono correzioni della sicurezza del sistema operativo o gli aggiornamenti del kernel. Alcuni di questi aggiornamenti richiedono il riavvio di un nodo per completare il processo. Il servizio Kubernetes di Azure non riavvia automaticamente i nodi per completare il processo di aggiornamento.
 

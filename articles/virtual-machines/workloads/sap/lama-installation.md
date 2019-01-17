@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: d5d344f47fa46e9fe0adea048db200ec67a3fadc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728226"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262582"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connettore SAP LaMa per Azure
 
@@ -116,7 +116,7 @@ nella parte inferiore del sito Web.
 
 ## <a name="provision-a-new-adaptive-sap-system"></a>Effettuare il provisioning di un nuovo sistema SAP adattivo
 
-È possibile distribuire manualmente una nuova macchina virtuale o usare uno dei modelli di Azure nel [repository di avvio rapido](https://github.com/Azure/azure-quickstart-templates) che contiene modelli per [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), i [server applicazioni SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps) e il [database](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-db). È anche possibile usare questi modelli per effettuare il provisioning di nuovi host come parte di un'operazione di copia/clonazione di sistema e così via.
+È possibile distribuire manualmente una nuova macchina virtuale o usare uno dei modelli di Azure nel [repository di avvio rapido](https://github.com/Azure/azure-quickstart-templates) che contiene modelli per [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), i [server applicazioni SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps) e il [database](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database). È anche possibile usare questi modelli per effettuare il provisioning di nuovi host come parte di un'operazione di copia/clonazione di sistema e così via.
 
 È consigliabile usare una subnet separata per tutte le macchine virtuali da gestire con SAP LaMa e non usare indirizzi IP dinamici per impedire l'acquisizione inappropriata di indirizzi IP quando si distribuiscono nuove macchine virtuali e le istanze SAP non sono preparate.
 

@@ -1,18 +1,18 @@
 ---
 title: Esaminare il report della stima dei costi in Azure Site Recovery Deployment Planner | Microsoft Docs
 description: Questo articolo descrive come esaminare il report della stima dei costi generato da Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 46ec116b357df8cc5de889f64d4620544c062979
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848341"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321489"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Esaminare il report della stima dei costi in Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 
@@ -28,13 +28,13 @@ Il riepilogo consente di conoscere il costo che è necessario sostenere per arch
  
 È possibile visualizzare i costi su base mensile o annuale. Vedere altre informazioni sulle [aree di destinazione supportate](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) e sulle [valute supportate](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Cost by components** (Costo per componente). Il costo totale per il ripristino di emergenza è suddiviso in quattro componenti: calcolo, archiviazione, rete e costo della licenza di Azure Site Recovery. Il costo viene calcolato in base all'utilizzo che si verificherà durante la replica e in fase di esercitazione sul ripristino di emergenza per il calcolo, l'archiviazione (Premium e Standard), la connessione ExpressRoute/VPN configurata tra il sito locale e Azure e la licenza di Azure Site Recovery.
+**Costo per componente** Il costo totale per il ripristino di emergenza è suddiviso in quattro componenti: calcolo, archiviazione, rete e costo della licenza di Azure Site Recovery. Il costo viene calcolato in base all'utilizzo che si verificherà durante la replica e in fase di esercitazione sul ripristino di emergenza per il calcolo, l'archiviazione (Premium e Standard), la connessione ExpressRoute/VPN configurata tra il sito locale e Azure e la licenza di Azure Site Recovery.
 
 **Cost by states** (Costo per stato). Il costo totale del ripristino di emergenza viene classificato in base a due diversi stati: Replication (Replica) e DR-Drill (Esercitazione sul ripristino di emergenza). 
 
-**Replication cost** (Costo della replica):  Il costo che verrà addebitato durante la replica. Copre il costo dell'archiviazione, della rete e della licenza di Azure Site Recovery. 
+**Costo della replica**:  Il costo che verrà addebitato durante la replica. Copre il costo dell'archiviazione, della rete e della licenza di Azure Site Recovery. 
 
-**DR-Drill cost** (Costo dell'esercitazione sul ripristino di emergenza): Il costo che verrà addebitato durante i failover di test. Durante il failover di test, Azure Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione. 
+**Costo dell'esercitazione sul ripristino di emergenza**: Il costo che verrà addebitato durante i failover di test. Durante il failover di test, Azure Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione. 
 
 **Azure storage cost per Month/Year** (Costo di archiviazione di Azure al mese/all'anno). Mostra il costo di archiviazione totale che verrà addebitato per l'archiviazione Premium e Standard per la replica e l'esercitazione sul ripristino di emergenza.
 
@@ -112,7 +112,7 @@ Per aggiungere manualmente le VM:
 
 **Nome macchina virtuale**: Nome della macchina virtuale.
 
-**Number of VMs** (Numero di macchine virtuali): Numero di macchine virtuali corrispondenti alla configurazione. È possibile aggiornare il numero delle VM esistenti se sono presenti VM con configurazione simile che non sono state profilate ma verranno protette.
+**Numero di macchine virtuali**: Numero di macchine virtuali corrispondenti alla configurazione. È possibile aggiornare il numero delle VM esistenti se sono presenti VM con configurazione simile che non sono state profilate ma verranno protette.
 
 **Dimensioni IaaS (suggerimento)**: Dimensioni del ruolo macchina virtuale consigliate dallo strumento per le macchine virtuali compatibili. 
 

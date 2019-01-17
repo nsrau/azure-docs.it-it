@@ -1,6 +1,6 @@
 ---
-title: Introduzione ad Azure Kubernetes Service
-description: Informazioni sulle funzioni e i vantaggi del servizio Kubernetes di Azure nella distribuzione e gestione delle applicazioni basate su contenitore in Azure.
+title: Introduzione al servizio Azure Kubernetes
+description: Informazioni sulle funzioni e i vantaggi del servizio Azure Kubernetes nella distribuzione e gestione delle applicazioni basate su contenitore in Azure.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -15,9 +15,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52992369"
 ---
-# <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
+# <a name="azure-kubernetes-service-aks"></a>Servizio Azure Kubernetes
 
-Il servizio Kubernetes di Azure (AKS) semplifica la distribuzione di un cluster Kubernetes gestito in Azure. AKS riduce la complessità e i costi operativi di gestione di Kubernetes, affidando la maggior parte di queste attività ad Azure. Come servizio Kubernetes ospitato, Azure gestisce attività critiche quali il monitoraggio dell'integrità e la manutenzione per l'utente. I master di Kubernetes sono gestiti da Azure. È necessario solo gestire e mantenere i nodi agente. AKS è gratuito in quanto servizio Kubernetes gestito: si paga solo per i nodi dell'agente all'interno dei cluster e non per i master.
+Il servizio Azure Kubernetes semplifica la distribuzione di un cluster Kubernetes gestito in Azure. AKS riduce la complessità e i costi operativi di gestione di Kubernetes, affidando la maggior parte di queste attività ad Azure. Come servizio Kubernetes ospitato, Azure gestisce attività critiche quali il monitoraggio dell'integrità e la manutenzione per l'utente. I master di Kubernetes sono gestiti da Azure. È necessario solo gestire e mantenere i nodi agente. AKS è gratuito in quanto servizio Kubernetes gestito: si paga solo per i nodi dell'agente all'interno dei cluster e non per i master.
 
 È possibile creare un cluster AKS nel portale di Azure, con l'interfaccia della riga di comando di Azure o mediante opzioni di distribuzione basate su modello come i modelli di Gestione risorse e Terraform. Quando si distribuisce un cluster AKS, il master Kubernetes e tutti i nodi vengono distribuiti e configurati automaticamente. Durante il processo di distribuzione è anche possibile configurare caratteristiche aggiuntive come funzionalità di rete avanzate, integrazione di Azure Active Directory e monitoraggio.
 
@@ -37,7 +37,7 @@ Per proteggere i cluster AKS, vedere [Integrare Azure Active Directory con AKS][
 
 Per capire come sono le prestazioni del cluster AKS e delle applicazioni distribuite, Monitoraggio di Azure per l'integrità dei contenitori raccoglie le metriche di memoria e processore da contenitori, nodi e controller. Sono disponibili i log dei contenitori ed è anche possibile [esaminare i log master di Kubernetes][aks-master-logs]. Questi dati di monitoraggio sono archiviati in un'area di lavoro di Azure Log Analytics e sono disponibili tramite il portale di Azure, l'interfaccia della riga di comando di Azure o un endpoint REST.
 
-Per altre informazioni, vedere [Monitor Azure Kubernetes Service container health][container-health] (Monitorare l'integrità del contenitore del servizio Kubernetes di Azure).
+Per altre informazioni, vedere [Monitorare l'integrità dei contenitori del servizio Azure Kubernetes][container-health].
 
 ## <a name="cluster-and-node"></a>Cluster e nodo
 
@@ -47,13 +47,13 @@ I nodi di AKS sono eseguiti in macchine virtuali di Azure. È possibile connette
 
 Al variare della richiesta di risorse, il numero di nodi del cluster o di pod che eseguono i servizi aumenta o diminuisce automaticamente. È possibile usare sia la scalabilità automatica orizzontale dei pod che la scalabilità automatica del cluster. Questo approccio al ridimensionamento consente al cluster AKS di adattarsi automaticamente alle richieste eseguendo solo le risorse necessarie.
 
-Per altre informazioni, vedere [Ridimensionare un cluster del servizio Kubernetes di Azure][aks-scale].
+Per altre informazioni, vedere [Ridimensionare un cluster del servizio Azure Kubernetes][aks-scale].
 
 ### <a name="cluster-node-upgrades"></a>Aggiornamenti dei nodi del cluster
 
-Il servizio Kubernetes di Azure offre più versioni di Kubernetes. Non appena sono disponibili nuove versioni in AKS, il cluster può essere aggiornato tramite il portale di Azure o l'interfaccia della riga di comando di Azure. Durante il processo di aggiornamento, i nodi vengono accuratamente contrassegnati come non pianificabili e svuotati per ridurre al minimo le interruzioni nelle applicazioni in esecuzione.
+Il servizio Azure Kubernetes offre più versioni di Kubernetes. Non appena sono disponibili nuove versioni in AKS, il cluster può essere aggiornato tramite il portale di Azure o l'interfaccia della riga di comando di Azure. Durante il processo di aggiornamento, i nodi vengono accuratamente contrassegnati come non pianificabili e svuotati per ridurre al minimo le interruzioni nelle applicazioni in esecuzione.
 
-Per altre informazioni sulle versioni del ciclo di vita, vedere [Supported Kubernetes versions in AKS][aks-supported versions] (Versioni di Kubernetes supportate in AKS). Per la procedura di aggiornamento, vedere [Aggiornare un cluster del servizio Kubernetes di Azure][aks-upgrade].
+Per altre informazioni sulle versioni del ciclo di vita, vedere [Supported Kubernetes versions in AKS][aks-supported versions] (Versioni di Kubernetes supportate in AKS). Per la procedura di aggiornamento, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade].
 
 ### <a name="gpu-enabled-nodes"></a>Nodi abilitati per la GPU
 
@@ -97,11 +97,11 @@ Per creare l'archivio immagini privato, vedere [Registro contenitori di Azure][a
 
 ## <a name="kubernetes-certification"></a>Certificazione Kubernetes
 
-Il servizio Kubernetes di Azure ha ottenuto la certificazione CNCF per la conformità a Kubernetes.
+Il servizio Azure Kubernetes ha ottenuto la certificazione CNCF per la conformità a Kubernetes.
 
 ## <a name="regulatory-compliance"></a>Conformità alle normative
 
-Il servizio Kubernetes di Azure (AKS) è conforme agli standard SOC, ISO, PCI DSS e HIPAA.
+Il servizio Azure Kubernetes è conforme agli standard SOC, ISO, PCI DSS e HIPAA.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

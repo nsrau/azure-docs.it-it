@@ -1,6 +1,6 @@
 ---
-title: Aggiornare un cluster di Azure Kubernetes Service (AKS)
-description: Aggiornare un cluster di Azure Kubernetes Service (AKS)
+title: Aggiornare un cluster del servizio Azure Kubernetes
+description: Aggiornare un cluster del servizio Azure Kubernetes
 services: container-service
 author: gabrtv
 manager: jeconnoc
@@ -16,9 +16,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 08/17/2018
 ms.locfileid: "42141996"
 ---
-# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster di Azure Kubernetes Service (AKS)
+# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
-Azure Kubernetes Service (AKS) semplifica l'esecuzione di attività di gestione comuni, ad esempio l'aggiornamento dei cluster Kubernetes.
+Il servizio Azure Kubernetes semplifica l'esecuzione di attività di gestione comuni, ad esempio l'aggiornamento dei cluster Kubernetes.
 
 ## <a name="upgrade-an-aks-cluster"></a>Aggiornare un cluster del servizio contenitore di Azure
 

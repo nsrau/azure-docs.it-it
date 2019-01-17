@@ -1,6 +1,6 @@
 ---
-title: Accesso SSH in nodi del cluster Azure Kubernetes Service (AKS)
-description: Di seguito viene spiegato come creare una connessione SSH con i nodi del cluster Azure Kubernetes Service (AKS) per la risoluzione dei problemi e le attività di manutenzione.
+title: Accesso SSH in nodi del cluster del servizio Azure Kubernetes
+description: Di seguito viene spiegato come creare una connessione SSH con i nodi del cluster del servizio Azure Kubernetes per la risoluzione dei problemi e le attività di manutenzione.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/04/2018
 ms.locfileid: "52846132"
 ---
-# <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Connessione con SSH ai nodi del cluster Azure Kubernetes Service (AKS) per la risoluzione dei problemi e le attività di manutenzione
+# <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Connessione con SSH ai nodi del cluster del servizio Azure Kubernetes per la risoluzione dei problemi e le attività di manutenzione
 
-Durante l'intero ciclo di vita del cluster Azure Kubernetes Service (AKS), potrebbe essere necessario accedere a un nodo AKS. Questo accesso potrebbe servire per la manutenzione, la raccolta dei registri o altre operazioni di risoluzione dei problemi. I nodi AKS sono macchine virtuali Linux, quindi è possibile accedervi utilizzando SSH. Per motivi di sicurezza, i nodi di Azure Kubernetes Service (AKS) non sono esposti in Internet.
+Durante l'intero ciclo di vita del cluster del servizio Azure Kubernetes, potrebbe essere necessario accedere a un nodo del servizio Azure Kubernetes. Questo accesso potrebbe servire per la manutenzione, la raccolta dei registri o altre operazioni di risoluzione dei problemi. I nodi AKS sono macchine virtuali Linux, quindi è possibile accedervi utilizzando SSH. Per motivi di sicurezza, i nodi di Azure Kubernetes Service (AKS) non sono esposti in Internet.
 
 Questo articolo mostra come creare una connessione SSH con un nodo AKS utilizzando i loro indirizzi IP privati.
 

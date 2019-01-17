@@ -290,7 +290,7 @@ Dopo aver completato la compilazione manuale, integrare GitHub nella compilazion
 1. Jenkins avvia il processo di compilazione ed esegue il pull del commit di codice più recente da GitHub.
 1. Viene avviata una compilazione di Docker usando il codice aggiornato e la nuova immagine di contenitore è contrassegnata con il numero di build più recente.
 1. Viene eseguito il push di tale immagine nel Registro contenitori di Azure.
-1. L'applicazione viene distribuita negli aggiornamenti del servizio Kubernetes di Azure con l'immagine del contenitore più recente dal Registro contenitori di Azure.
+1. L'applicazione viene distribuita negli aggiornamenti del servizio Azure Kubernetes con l'immagine del contenitore più recente di Registro Azure Container.
 
 Nel computer di sviluppo aprire l'applicazione clonata con un editor di codice. Nella directory */azure-vote/azure-vote* aprire il file denominato **config_file.cfg**. Aggiornare i valori di voto in questo file su un valore rilevante, come illustrato nell'esempio seguente:
 

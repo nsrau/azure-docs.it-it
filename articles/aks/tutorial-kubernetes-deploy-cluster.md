@@ -1,6 +1,6 @@
 ---
 title: Esercitazione su Kubernetes in Azure - Distribuire un cluster
-description: In questa esercitazione sul servizio Kubernetes di Azure (AKS) si crea un cluster AKS e si usa kubectl per connettersi al nodo master Kubernetes.
+description: In questa esercitazione sul servizio Azure Kubernetes si crea un cluster del servizio Azure Kubernetes e si usa kubectl per connettersi al nodo master Kubernetes.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53720663"
 ---
-# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: Distribuire un cluster Azure Kubernetes Service (AKS)
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: Distribuire un cluster del servizio Azure Kubernetes
 
 Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori. Il servizio Azure Kubernetes consente di creare rapidamente un cluster Kubernetes per la produzione. In questa esercitazione, la terza di sette parti, viene distribuito un cluster Kubernetes in AKS. Si apprenderà come:
 

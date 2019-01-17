@@ -1,6 +1,6 @@
 ---
 title: Concetti - Funzionalità di rete nel servizio Kubernetes di Azure (AKS)
-description: Informazioni sulle funzionalità di rete nel servizio Kubernetes di Azure (AKS), tra cui funzionalità di rete di base e avanzate, controller di ingresso, bilanciamento del carico e indirizzi IP statici.
+description: Informazioni sulle funzionalità di rete nel servizio Azure Kubernetes, tra cui funzionalità di rete di base e avanzate, controller di ingresso, bilanciamento del carico e indirizzi IP statici.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2018
 ms.locfileid: "49380886"
 ---
-# <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Kubernetes di Azure (AKS)
+# <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes
 
 In un approccio allo sviluppo delle applicazioni come microservizi basati su contenitori, i componenti dell'applicazione devono interagire per elaborare le proprie attività. Kubernetes offre diverse risorse che consentono queste comunicazioni tra le applicazioni. È possibile connettersi alle applicazioni ed esporle internamente o esternamente. Per sviluppare applicazioni a disponibilità elevata, è possibile bilanciare il carico delle applicazioni. Le applicazioni più complesse possono richiedere la configurazione del traffico in ingresso per la terminazione SSL/TLS o il routing di più componenti. Per motivi di sicurezza, potrebbe anche essere necessario limitare il flusso del traffico di rete all'interno o tra i pod e i nodi.
 

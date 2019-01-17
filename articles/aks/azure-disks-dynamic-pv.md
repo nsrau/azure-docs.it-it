@@ -1,6 +1,6 @@
 ---
-title: Creare in modo dinamico un volume disco per pod multipli nel servizio Kubernetes di Azure (AKS)
-description: Informazioni su come creare in modo dinamico un volume persistente con i dischi di Azure per l'uso con pod multipli contemporaneamente nel servizio Kubernetes di Azure (AKS)
+title: Creare in modo dinamico un volume disco per pod multipli nel servizio Azure Kubernetes
+description: Informazioni su come creare in modo dinamico un volume persistente con i dischi di Azure per l'uso con pod multipli contemporaneamente nel servizio Azure Kubernetes
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/10/2018
 ms.locfileid: "49067008"
 ---
-# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con i dischi di Azure nel servizio Kubernetes di Azure (AKS)
+# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con i dischi di Azure nel servizio Azure Kubernetes
 
-Un volume permanente rappresenta una parte di risorsa di archiviazione di cui è stato eseguito il provisioning per l'uso con pod Kubernetes. Un volume permanente può essere usato da uno o più pod e se ne può eseguire il provisioning in modo dinamico o in modo statico. Questo articolo mostra come creare in modo dinamico volumi persistenti con i dischi di Azure per l'uso con un singolo pod in un cluster del servizio Kubernetes di Azure (AKS).
+Un volume permanente rappresenta una parte di risorsa di archiviazione di cui è stato eseguito il provisioning per l'uso con pod Kubernetes. Un volume permanente può essere usato da uno o più pod e se ne può eseguire il provisioning in modo dinamico o in modo statico. Questo articolo mostra come creare in modo dinamico volumi persistenti con i dischi di Azure per l'uso con un singolo pod in un cluster del servizio Azure Kubernetes.
 
 > [!NOTE]
 > Un disco di Azure può essere montato solo con la *modalità di accesso* *ReadWriteOnce*, che lo rende disponibile solo a un singolo pod nel servizio Kubernetes di Azure. Se è necessario condividere un volume permanente tra più pod, usare i [File di Azure][azure-files-pvc].

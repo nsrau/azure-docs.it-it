@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 44703a2547f685aaa0b6c583c39c08ef6a570d56
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3a255b21e8bfd7d78954603e9aa6e5ca39cee95b
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016529"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321994"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Aggiungere la tolleranza di errore all'attività di copia ignorando le righe incompatibili
 
@@ -61,8 +61,8 @@ L'esempio seguente offre la definizione JSON per specificare di ignorare le righ
     },
     "sink": {
         "type": "SqlSink",
-    },         
-    "enableSkipIncompatibleRow": true,           
+    },
+    "enableSkipIncompatibleRow": true,
     "redirectIncompatibleRowSettings": {
         "linkedServiceName": "BlobStorage",
         "path": "redirectcontainer/erroroutput"

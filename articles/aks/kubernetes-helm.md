@@ -1,6 +1,6 @@
 ---
 title: Distribuire contenitori con Helm in Kubernetes in Azure
-description: Usare lo strumento di creazione dei pacchetti Helm per distribuire i contenitori in un cluster di un servizio Kubernetes di Azure (AKS)
+description: Usare lo strumento di creazione dei pacchetti Helm per distribuire i contenitori in un cluster del servizio Azure Kubernetes
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52993247"
 ---
-# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installare le applicazioni con Helm nel servizio Kubernetes di Azure (AKS)
+# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installare le applicazioni con Helm nel servizio Azure Kubernetes
 
 [Helm][helm] è uno strumento per la creazione di pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente agli strumenti di gestione pacchetti di Linux, come *APT* e *Yum*, Helm viene usato per gestire i grafici per Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurate.
 

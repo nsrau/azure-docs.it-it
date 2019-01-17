@@ -1,6 +1,6 @@
 ---
 title: Entità servizio per Azure Kubernetes Service (AKS)
-description: Creare e gestire un'entità servizio di Azure Active Directory per un cluster in Azure Kubernetes Service (AKS)
+description: Creare e gestire un'entità servizio di Azure Active Directory per un cluster nel servizio Azure Kubernetes
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2018
 ms.locfileid: "53435396"
 ---
-# <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con Azure Kubernetes Service (AKS)
+# <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con il servizio Azure Kubernetes
 
 Per l'interazione con le API di Azure, un cluster AKS richiede un'[entità servizio di Azure Active Directory (AD)][aad-service-principal]. L'entità servizio è necessaria per creare e gestire in modo dinamico altre risorse quali il bilanciamento del carico o un registro contenitori di Azure.
 

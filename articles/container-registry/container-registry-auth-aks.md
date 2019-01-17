@@ -1,6 +1,6 @@
 ---
-title: Eseguire l'autenticazione con Registro contenitori di Azure dal servizio Kubernetes di Azure
-description: Informazioni su come fornire l'accesso alle immagini nel registro contenitori privato dal servizio Kubernetes di Azure usando un'entità servizio di Azure Active Directory.
+title: Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes
+description: Informazioni su come fornire l'accesso alle immagini nel registro contenitori privato dal servizio Azure Kubernetes usando un'entità servizio di Azure Active Directory.
 services: container-service
 author: dlepow
 ms.service: container-service
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2019
 ms.locfileid: "54078780"
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Eseguire l'autenticazione con Registro contenitori di Azure dal servizio Kubernetes di Azure
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes
 
-Quando si usa Registro contenitori di Azure (ACR) con il servizio Kubernetes di Azure (AKS), è necessario definire un meccanismo di autenticazione. Questo articolo illustra in dettaglio le configurazioni consigliate per l'autenticazione tra questi due servizi di Azure.
+Quando si usa Registro Azure Container con il servizio Azure Kubernetes, è necessario definire un meccanismo di autenticazione. Questo articolo illustra in dettaglio le configurazioni consigliate per l'autenticazione tra questi due servizi di Azure.
 
 ## <a name="grant-aks-access-to-acr"></a>Concedere al servizio contenitore di Azure l'accesso a Registro contenitori di Azure
 
