@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilità nelle funzionalità di connettività back-end di Azure: installazione test | Microsoft Docs'
+title: 'Interoperabilità nelle funzionalità di connettività back-end di Azure: Installazione test | Microsoft Docs'
 description: Questo articolo illustra un'installazione test che è possibile usare per analizzare l'interoperabilità tra ExpressRoute, una VPN da sito a sito e il peering reti virtuali in Azure.
 documentationcenter: na
 services: networking
@@ -10,22 +10,22 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: bded5dbf0084d230997be178c1f9a7b8a184ac07
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4e077e496479d146306bd301f303b4e8c0f97d05
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613230"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191871"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Interoperabilità nelle funzionalità di connettività back-end di Azure: installazione test
+# <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Interoperabilità nelle funzionalità di connettività back-end di Azure: Installazione test
 
 Questo articolo descrive un'installazione test che è possibile usare per analizzare l'interoperabilità dei servizi di rete di Azure a livello di piano di controllo e a livello di piano dati. Verranno ora esaminati brevemente i componenti di rete di Azure:
 
 -   **Azure ExpressRoute**: il peering privato in Azure ExpressRoute consente di connettere direttamente gli spazi IP privati nella rete locale alle distribuzioni di reti virtuali di Azure. Con ExpressRoute è possibile ottenere una maggiore larghezza di banda e una connessione privata. Numerosi partner di ExpressRoute offrono la connettività di ExpressRoute con contratti di servizio. Per altre informazioni su ExpressRoute e su come configurarlo, vedere [Panoramica di ExpressRoute][ExpressRoute].
--   **VPN da sito a sito**: è possibile usare il gateway VPN di Azure come VPN da sito a sito per connettere in modo sicuro una rete locale ad Azure tramite Internet o usando ExpressRoute. Per informazioni su come configurare una VPN da sito a sito per la connessione ad Azure, vedere [Configurare il gateway VPN][VPN].
+-   **VPN da sito a sito**: è possibile usare Gateway VPN di Azure come VPN da sito a sito per connettere in modo sicuro una rete locale ad Azure tramite Internet o usando ExpressRoute. Per informazioni su come configurare una VPN da sito a sito per la connessione ad Azure, vedere [Configurare il gateway VPN][VPN].
 -   **Peering reti virtuali**: usare il peering reti virtuali per stabilire la connettività tra reti virtuali nella rete virtuale di Azure. Per altre informazioni sul peering reti virtuali, vedere l'[esercitazione sul peering reti virtuali][VNet].
 
-## <a name="test-setup"></a>Impostazione del test
+## <a name="test-setup"></a>Installazione test
 
 La figura seguente illustra l'installazione test:
 
@@ -53,7 +53,7 @@ ExpressRoute funge da coppia di circuiti ridondanti per garantire la disponibili
 
 Per altre informazioni su come configurare connessioni coesistenti per ExpressRoute e VPN da sito a sito, vedere [Configurare connessioni coesistenti da sito a sito ed ExpressRoute usando PowerShell][ExR-S2S-CoEx].
 
-## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Estendere la connettività back-end a reti virtuali spoke e posizioni delle filiali
+## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Estendere la connettività back-end a reti virtuali spoke e del ramo
 
 ### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Connettività della rete virtuale spoke tramite il peering reti virtuali
 
@@ -61,9 +61,9 @@ L'architettura di rete virtuale dell'hub e spoke è molto diffusa. L'hub è una 
 
 Nel peering reti virtuali all'interno di un'area, le reti virtuali spoke possono usare i gateway di rete virtuale dell'hub (gateway ExpressRoute e VPN) per comunicare con le reti remote.
 
-### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Connettività delle reti virtuali delle filiali tramite VPN da sito a sito
+### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Connettività delle reti virtuali del ramo mediante VPN da sito a sito
 
-È possibile far comunicare tra loro le reti virtuali delle filiali, che si trovano in aree diverse, e le reti locali tramite una rete virtuale dell'hub. La soluzione di Azure nativa per questa configurazione è la connettività VPN da sito a sito tramite una rete VPN. In alternativa, è possibile usare un'appliance virtuale di rete per il routing nell'hub.
+È possibile far comunicare tra loro le reti virtuali del ramo in aree diverse e le reti virtuali tramite una rete virtuale dell'hub. La soluzione di Azure nativa per questa configurazione è la connettività VPN da sito a sito tramite una rete VPN. In alternativa, è possibile usare un'appliance virtuale di rete per il routing nell'hub.
 
 Per altre informazioni, vedere [Che cos'è un Gateway VPN?][VPN] e [Distribuire appliance virtuali di rete con disponibilità elevata][Deploy-NVA].
 
@@ -88,13 +88,7 @@ Vedere le [domande frequenti su ExpressRoute][ExR-FAQ] per:
 [ExpressRoute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
 [VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[Configuration]: https://docs.microsoft.com/azure/connectivty-interoperability-configuration
-[Control-Analysis]:https://docs.microsoft.com/azure/connectivty-interoperability-control-plane
-[Data-Analysis]: https://docs.microsoft.com/azure/connectivty-interoperability-data-plane
-[ExR-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
-[S2S-Over-ExR]: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
-[ExR-S2S-CoEx]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager
-[Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-[Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
+[Configuration]: connectivty-interoperability-configuration.md
+[Control-Analysis]connectivty-interoperability-control-plane.md [Data-Analysis]: connectivty-interoperability-data-plane.md [ExR-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs [S2S-Over-ExR]: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering [ExR-S2S-CoEx]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager [Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke [Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-haa
 
 
