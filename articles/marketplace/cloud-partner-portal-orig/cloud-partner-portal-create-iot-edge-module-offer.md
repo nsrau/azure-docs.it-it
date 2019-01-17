@@ -31,7 +31,7 @@ I seguenti prerequisiti si applicano alla pubblicazione di un modulo IoT Edge pe
 
 -   Accedere al [portale Cloud Partner (CPP)](https://cloudpartner.azure.com/#alloffers). Per altre informazioni, consultare la [guida alla pubblicazione](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 
--   Ospitare il modulo IoT Edge in un Registro contenitori di Azure.
+-   Ospitare il modulo IoT Edge in un'istanza di Registro Azure Container.
 
 -   Avere pronti i metadati del modulo IoT Edge (incluso l'elenco non completo):
 

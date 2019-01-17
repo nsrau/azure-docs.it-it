@@ -1,6 +1,6 @@
 ---
-title: Esercitazione - Automatizzare la compilazione di immagini dei contenitori in caso di aggiornamento dell'immagine - Attività del Registro Azure Container
-description: Questa esercitazione illustra come configurare un'attività del registro Azure Container per attivare automaticamente le compilazioni delle immagini dei contenitori nel cloud quando viene aggiornata un'immagine di base.
+title: Esercitazione - Automatizzare la compilazione di immagini dei contenitori in caso di aggiornamento dell'immagine - Attività di Registro Azure Container
+description: Questa esercitazione illustra come configurare un'attività di Registro Azure Container per attivare automaticamente le compilazioni delle immagini dei contenitori nel cloud quando viene aggiornata un'immagine di base.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2018
 ms.locfileid: "53254038"
 ---
-# <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori quando viene aggiornata un'immagine nel registro Azure Container 
+# <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori quando viene aggiornata un'immagine in Registro Azure Container 
 
 ACR Tasks supporta l'esecuzione automatica della compilazione quando viene aggiornata l'immagine di base di un contenitore, ad esempio per applicare patch al sistema operativo o al framework applicazioni in una delle immagini di base. Questa esercitazione illustra come creare un'attività in ACR Tasks che attiva una compilazione nel cloud in seguito al push nel registro dell'immagine di base di un contenitore.
 
@@ -38,7 +38,7 @@ Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, �
 
 Questa esercitazione presuppone che siano già state completate le procedure delle prime due esercitazioni della serie, in cui viene illustrato come:
 
-* Creare un'istanza di Registro contenitori di Azure
+* Creare un'istanza di Registro Azure Container
 * Creare una copia tramite fork del repository di esempio
 * Clonare il repository di esempio
 * Creare un token di accesso personale GitHub

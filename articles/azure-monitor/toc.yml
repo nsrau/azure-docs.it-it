@@ -702,6 +702,8 @@ items:
         items:
         - name: Esempi
           href: log-query/examples.md
+        - name: Funzioni di analisi avanzate
+          href: log-query/smart-analytics.md
         - name: Ricerche in più risorse
           href: log-query/cross-workspace-query.md
         - name: Espressione dell'app
@@ -902,7 +904,7 @@ items:
         href: insights/solutions-best-practices.md
       - name: Raccogliere i dati di monitoraggio da un runbook
         href: platform/runbook-datacollect.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Application Insights
     items:
@@ -1015,9 +1017,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 17eb4c93d7e8cb27175c2ffb0a4d0161863aa522
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: a0dc6965328ed73059342f36d89d5fdd405bfc9d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321467"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352615"

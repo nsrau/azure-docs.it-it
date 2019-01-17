@@ -81,7 +81,7 @@ cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --pa
 
 ## <a name="download-container-images-from-the-private-container-registry"></a>Scaricare le immagini dei contenitori dal registro contenitori privato
 
-L'immagine del contenitore Viso è disponibile in un registro contenitori Docker privato, denominato `containerpreview.azurecr.io`, nel Registro contenitori di Azure. L'immagine del contenitore Viso deve essere scaricata dal repository per eseguire il contenitore in locale.
+L'immagine del contenitore Viso è disponibile in un registro contenitori Docker privato, denominato `containerpreview.azurecr.io`, in Registro Azure Container. L'immagine del contenitore Viso deve essere scaricata dal repository per eseguire il contenitore in locale.
 
 Usare il comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal repository. Per scaricare, ad esempio, l'immagine del contenitore Viso più recente dal repository, usare il comando seguente:
 

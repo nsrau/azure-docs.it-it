@@ -53,15 +53,15 @@ Risorse per lo sviluppo:
 >[!Note]
 >I moduli C per Azure IoT Edge non supportano i contenitori Windows.
 
-## <a name="create-a-container-registry"></a>Creare un registro di contenitori
+## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
 In questa esercitazione vengono usati gli strumenti di Azure IoT per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo IoT Edge.
 
-È possibile usare qualsiasi registro compatibile con Docker per inserire le immagini dei contenitori. Due servizi di registro Docker molto diffusi sono [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro contenitori di Azure.
+È possibile usare qualsiasi registro compatibile con Docker per inserire le immagini dei contenitori. Due servizi di registro Docker molto diffusi sono [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro Azure Container.
 
 Se non è ancora disponibile alcun registro contenitori, seguire questa procedura per crearne uno nuovo in Azure:
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori**.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro Container**.
 
 2. Specificare i valori seguenti per creare il registro contenitori:
 
@@ -99,7 +99,7 @@ Creare un modello di soluzione C che è possibile personalizzare con il proprio 
    | Provide a solution name (Specificare un nome per la soluzione) | Immettere un nome descrittivo per la soluzione oppure accettare quello predefinito **EdgeSolution**. |
    | Select module template (Selezionare un modello di modulo) | Scegliere **C Module** (Modulo C). |
    | Provide a module name (Specificare un nome per il modulo) | Assegnare al modulo il nome **CModule**. |
-   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata dall'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso nel registro contenitori di Azure. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. La stringa finale è simile a \<nome registro\>.azurecr.io/cmodule. |
+   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata dall'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. La stringa finale è simile a \<nome registro\>.azurecr.io/cmodule. |
  
    ![Specificare il repository di immagini Docker](./media/tutorial-c-module/repository.png)
 
@@ -326,12 +326,12 @@ Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggi
 
 1. Aprire il terminale integrato di VS Code selezionando **Visualizza** > **Terminale integrato**.
 
-1. Accedere a Docker immettendo il comando seguente nel terminale integrato di Visual Studio Code. È necessario accedere con le credenziali del Registro contenitori di Azure in modo che sia possibile eseguire il push dell'immagine del modulo nel registro.
+1. Accedere a Docker immettendo il comando seguente nel terminale integrato di Visual Studio Code. È necessario accedere con le credenziali di Registro Azure Container in modo che sia possibile eseguire il push dell'immagine del modulo nel registro.
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   Usare il nome utente, la password e il server di accesso copiati dal registro contenitori di Azure nella prima sezione oppure recuperarli nuovamente dalla sezione **Chiavi di accesso** del registro nel portale di Azure.
+   Usare il nome utente, la password e il server di accesso copiati da Registro Azure Container nella prima sezione oppure recuperarli nuovamente dalla sezione **Chiavi di accesso** del registro nel portale di Azure.
 
 2. Nello strumento di esplorazione di Visual Studio Code fare clic con il pulsante destro del mouse sul file **deployment.template.json** e scegliere **Build and Push IoT Edge solution** (Compila ed esegui il push della soluzione IoT Edge).
 

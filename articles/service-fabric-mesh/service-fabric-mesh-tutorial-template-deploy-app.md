@@ -29,7 +29,7 @@ Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuir
 Nella prima parte della serie si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un'istanza privata di Registro contenitori di Azure
+> * Creare un'istanza privata di Registro Azure Container
 > * Effettuare il push dell'immagine del contenitore nel registro
 > * Creare i file del modello di Resource Manager e dei parametri
 > * Distribuire un'applicazione in Service Fabric Mesh
@@ -53,9 +53,9 @@ Prima di iniziare questa esercitazione:
 
 * [Installare l'interfaccia della riga di comando di Azure e l'interfaccia della riga di comando di Service Fabric Mesh in locale](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
-## <a name="create-a-container-registry"></a>Creare un registro di contenitori
+## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
-Le immagini del contenitore associate ai servizi nell'applicazione Service Fabric Mesh devono essere archiviate in un registro contenitori.  Questa esercitazione usa un'istanza privata di Registro contenitori di Azure. 
+Le immagini del contenitore associate ai servizi nell'applicazione Service Fabric Mesh devono essere archiviate in un registro contenitori.  Questa esercitazione usa un'istanza privata di Registro Azure Container. 
 
 Seguire questa procedura per creare un'istanza di Registro contenitori di Azure.  Se è già disponibile un'istanza di Registro contenitori di Azure, è possibile procedere oltre.
 
@@ -107,7 +107,7 @@ Quando viene creato il registro, l'output generato sarà simile al seguente:
 }
 ```
 
-## <a name="push-the-images-to-azure-container-registry"></a>Eseguire il push delle immagini nel Registro contenitori di Azure
+## <a name="push-the-images-to-azure-container-registry"></a>Eseguire il push delle immagini in Registro Azure Container
 
 Questa esercitazione usa l'applicazione di esempio To Do List come esempio.  Le immagini del contenitore per i servizi [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) sono disponibili nell'hub Docker. Vedere [come creare un'app Web Servic Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md) per informazioni su come compilare l'applicazione in Visual Studio. Service Fabric Mesh supporta l'esecuzione di contenitori Docker Windows o Linux.  Se si utilizzano contenitori Linux, selezionare **Switch to Linux containers** (Passa a contenitori Linux) in Docker.  Se si utilizzano contenitori Windows, selezionare **Switch to Windows containers** (Passa a contenitori Windows) in Docker.
 
@@ -139,7 +139,7 @@ docker tag seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709 mycontainer
 docker tag seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709 mycontainerregistry.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709
 ```
 
-Accedere al Registro contenitori di Azure.
+Accedere al Registro Azure Container.
 
 ```azurecli
 az acr login -n myContainerRegistry

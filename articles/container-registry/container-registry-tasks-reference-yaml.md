@@ -1,5 +1,5 @@
 ---
-title: Riferimenti ad Attività del Registro contenitori di Azure - YAML
+title: Riferimenti ad attività di Registro Azure Container - YAML
 description: Riferimento per la definizione di attività in YAML per Attività di Registro Azure Container, incluse le proprietà delle attività, i tipi e le proprietà dei passaggi e le variabili predefinite.
 services: container-registry
 author: dlepow
@@ -96,7 +96,7 @@ Attività di Registro Azure Container supporta tre tipi di passaggi. Ogni tipo d
 | Tipo di passaggio | DESCRIZIONE |
 | --------- | ----------- |
 | [`build`](#build) | Compila un'immagine del contenitore con la sintassi `docker build` nota. |
-| [`push`](#push) | Esegue un'operazione `docker push` delle immagini compilate o contrassegnate nuovamente in un registro contenitori. Sono supportati il Registro contenitori di Azure, altri registri privati e l'hub Docker.
+| [`push`](#push) | Esegue un'operazione `docker push` delle immagini compilate o contrassegnate nuovamente in un registro contenitori. Sono supportati Registro Azure Container, altri registri privati e l'hub Docker.
 | [`cmd`](#cmd) | Esegue un contenitore come un comando con parametri passati all'elemento `[ENTRYPOINT]` del contenitore. Il tipo di passaggio `cmd` supporta parametri come env, detach e altre opzioni familiari del comando `docker run`, consentendo in tal modo il test funzionale e di unità con l'esecuzione simultanea dei contenitori. |
 
 ## <a name="build"></a>build
@@ -157,7 +157,7 @@ steps:
 
 ## <a name="push"></a>push
 
-Esegue il push di una o più immagini compilate o contrassegnate nuovamente in un registro contenitori. Supporta il push in registri privati, ad esempio nel Registro contenitori di Azure o nell'hub Docker pubblico.
+Esegue il push di una o più immagini compilate o contrassegnate nuovamente in un registro contenitori. Supporta il push in registri privati, ad esempio in Registro Azure Container o nell'hub Docker pubblico.
 
 ### <a name="syntax-push"></a>Sintassi: push
 
@@ -289,7 +289,7 @@ steps:
 
 Se si usa la convenzione di riferimento alle immagini `docker run` standard, `cmd` può possibile eseguire immagini che si trovano in qualsiasi registro contenitori privato o nell'hub Docker pubblico. Se si fa riferimento a immagini nello stesso registro contenitori in cui è in esecuzione Attività di Registro Azure Container, non è necessario specificare alcuna credenziale di registro.
 
-* Eseguire un'immagine che si trova in un Registro contenitori di Azure
+* Eseguire un'immagine che si trova in un registro contenitori di Azure
 
     Sostituire `[myregistry]` con il nome del proprio registro contenitori:
 
@@ -303,7 +303,7 @@ Se si usa la convenzione di riferimento alle immagini `docker run` standard, `cm
 
     Anziché impostare il nome del registro contenitori come hardcoded in un file `acr-task.yaml`, è possibile aumentarne la portabilità usando una [variabile di esecuzione](#run-variables). La variabile `Run.Registry` si espande in fase di esecuzione nel nome del registro contenitori in cui l'attività in esecuzione.
 
-    Per generalizzare l'attività precedente in modo che funzioni in qualsiasi Registro contenitori di Azure, fare riferimento alla variabile [Run.Registry](#runregistry) nel nome dell'immagine:
+    Per generalizzare l'attività precedente in modo che funzioni in qualsiasi Registro Azure Container, fare riferimento alla variabile [Run.Registry](#runregistry) nel nome dell'immagine:
 
     ```yaml
     version: 1.0-preview-1

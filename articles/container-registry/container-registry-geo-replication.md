@@ -15,9 +15,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/08/2018
 ms.locfileid: "48870339"
 ---
-# <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro contenitori di Azure
+# <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro Azure Container
 
-Le aziende con esigenze di presenza online locale o di backup a caldo scelgono di eseguire i servizi da più aree di Azure. Come procedura consigliata, l'inserimento di un registro contenitori in ogni area in cui vengono eseguite le immagini consente l'esecuzione di operazioni in posizioni di rete vicine e quindi di trasferimenti di livelli di immagine più veloci e affidabili. La replica geografica consente al registro contenitori di Azure di fungere da singolo registro in modo da servire più aree con registri regionali multimaster.
+Le aziende con esigenze di presenza online locale o di backup a caldo scelgono di eseguire i servizi da più aree di Azure. Come procedura consigliata, l'inserimento di un registro contenitori in ogni area in cui vengono eseguite le immagini consente l'esecuzione di operazioni in posizioni di rete vicine e quindi di trasferimenti di livelli di immagine più veloci e affidabili. La replica geografica consente a un registro contenitori di Azure di fungere da singolo registro in modo da servire più aree con registri regionali multimaster.
 
 Un registro con replica geografica è caratterizzato dai vantaggi seguenti:
 
@@ -52,7 +52,7 @@ Le tipiche problematiche relative alla presenza di più registri sono descritte 
 
 ![Esecuzione del pull da un registro con replica geografica](media/container-registry-geo-replication/after-geo-replicate-pull.png)
 
-L'uso della funzionalità di replica geografica del Registro contenitori di Azure è caratterizzato dai vantaggi descritti di seguito:
+L'uso della funzionalità di replica geografica di Registro Azure Container è caratterizzato dai vantaggi descritti di seguito:
 
 * Gestione di un unico registro per tutte le aree: `contoso.azurecr.io`
 * Gestione di un'unica configurazione per le distribuzioni delle immagini in quanto tutte le aree usano lo stesso URL immagine: `contoso.azurecr.io/public/products/web:1.2`
@@ -67,7 +67,7 @@ La replica geografica è una funzionalità disponibile solo per i [registri Prem
 
 Per configurare la replica geografica per un registro Premium, accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
-Passare al Registro contenitori di Azure e selezionare **Repliche**:
+Passare a Registro Azure Container e selezionare **Repliche**:
 
 ![Repliche nell'interfaccia utente del registro contenitori del portale di Azure](media/container-registry-geo-replication/registry-services.png)
 
@@ -89,7 +89,7 @@ Il servizio Registro Azure Container inizia a sincronizzare le immagine tra le r
 
 ## <a name="geo-replication-pricing"></a>Prezzi della replica geografica
 
-La replica geografica è una funzionalità dello [SKU Premium](container-registry-skus.md) del Registro contenitori di Azure. Quando viene eseguita la replica di un registro nelle aree desiderate, si devono sostenere i costi relativi a un registro Premium per ogni area.
+La replica geografica è una funzionalità dello [SKU Premium](container-registry-skus.md) di Registro Azure Container. Quando viene eseguita la replica di un registro nelle aree desiderate, si devono sostenere i costi relativi a un registro Premium per ogni area.
 
 Nell'esempio precedente, Contoso ha unificato due registri mediante il consolidamento e ha aggiunto repliche per le aree Stati Uniti orientali, Canada centrale ed Europa occidentale. Contoso dovrà pagare quattro tariffe Premium al mese, senza costi aggiuntivi per la configurazione e la gestione. Ogni area esegue ora il pull delle relative immagini in locale, migliorando in questo modo prestazioni e affidabilità senza alcun costo aggiuntivo per il traffico in uscita dagli Stati Uniti occidentali al Canada e agli Stati Uniti orientali.
 
@@ -99,7 +99,7 @@ Grazie alla replica geografica è possibile gestire data center regionali come u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Fare riferimento alla serie di esercitazioni in tre parti relativa alla [replica geografica nel Registro contenitori di Azure](container-registry-tutorial-prepare-registry.md). Eseguire la procedura dettagliata relativa alla creazione di un registro con replica geografica, alla compilazione di un contenitore e alla sua distribuzione mediante un unico comando `docker push` in più istanze regionali delle app Web per contenitori.
+Fare riferimento alla serie di esercitazioni in tre parti relativa alla [replica geografica in Registro Azure Container](container-registry-tutorial-prepare-registry.md). Eseguire la procedura dettagliata relativa alla creazione di un registro con replica geografica, alla compilazione di un contenitore e alla sua distribuzione mediante un unico comando `docker push` in più istanze regionali delle app Web per contenitori.
 
 > [!div class="nextstepaction"]
 > [Replica geografica nel servizio Registro contenitori di Azure](container-registry-tutorial-prepare-registry.md)

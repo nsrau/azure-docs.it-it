@@ -141,7 +141,7 @@ items:
       href: event-schema-subscriptions.md
     - name: Archiviazione BLOB
       href: event-schema-blob-storage.md
-    - name: Registro di sistema del contenitore
+    - name: Registro Container
       href: event-schema-container-registry.md
     - name: Hub eventi
       href: event-schema-event-hubs.md

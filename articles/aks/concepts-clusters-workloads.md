@@ -156,7 +156,7 @@ Per altre informazioni, vedere le [distribuzioni Kubernetes][kubernetes-deployme
 
 ### <a name="package-management-with-helm"></a>Gestione dei pacchetti con Helm
 
-Un approccio comune alla gestione di applicazioni in Kubernetes è l'uso di [Helm][helm]. È possibile creare e usare *grafici* Helm pubblici esistente che contengono una versione pacchetto del codice applicativo e manifesti YAML di Kubernetes per distribuire le risorse. Questi grafici Helm possono essere archiviati in locale e spesso in un repository remoto, ad esempio un [repository per grafici Helm del Registro contenitori di Azure][acr-helm].
+Un approccio comune alla gestione di applicazioni in Kubernetes è l'uso di [Helm][helm]. È possibile creare e usare *grafici* Helm pubblici esistente che contengono una versione pacchetto del codice applicativo e manifesti YAML di Kubernetes per distribuire le risorse. Questi grafici Helm possono essere archiviati in locale e spesso in un repository remoto, ad esempio un [repository per grafici Helm di Registro Azure Container][acr-helm].
 
 Per poter usare Helm, viene installato un componente server denominato *Tiller* nel cluster Kubernetes. Tiller gestisce l'installazione dei grafici all'interno del cluster. Il client Helm è installato localmente nel computer o può essere usato in [Azure Cloud Shell][azure-cloud-shell]. È possibile cercare o creare grafici Helm con il client e quindi installarli nel cluster Kubernetes.
 

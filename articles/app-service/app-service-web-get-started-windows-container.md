@@ -108,7 +108,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![](media/app-service-web-get-started-windows-container/portal-configure-container-vs.png)
 
-    Se si ha un'immagine personalizzata per l'applicazione Web in un'altra posizione, ad esempio in [Registro contenitori di Azure](/azure/container-registry/) o in qualsiasi altro repository privato, si può configurare tale immagine.
+    Se si ha un'immagine personalizzata per l'applicazione Web in un'altra posizione, ad esempio in [Registro Azure Container](/azure/container-registry/) o in qualsiasi altro repository privato, si può configurare tale immagine.
 
 6. Fare clic su **Crea** e attendere che Azure crei le risorse necessarie.
 

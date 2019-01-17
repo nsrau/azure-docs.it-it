@@ -34,7 +34,7 @@ Al termine, l'applicazione seguente sarà accessibile nell'ambiente di sviluppo 
 
 ![Immagine del cluster Kubernetes in Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-Nelle esercitazioni successive, l'immagine del contenitore verrà caricata in un'istanza di Registro contenitori di Azure e quindi eseguita in un cluster Kubernetes ospitato in Azure.
+Nelle esercitazioni successive, l'immagine del contenitore verrà caricata in un'istanza di Registro Azure Container e quindi eseguita in un cluster Kubernetes ospitato in Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -109,7 +109,7 @@ Passare a http://localhost:8080 per vedere l'applicazione in esecuzione.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Ora che le funzionalità dell'applicazione sono state verificate, i contenitori in esecuzione possono essere arrestati e rimossi. Non eliminare le immagini del contenitore. L'immagine `azure-vote-front` verrà caricata in un'istanza del Registro contenitori di Azure nella prossima esercitazione.
+Ora che le funzionalità dell'applicazione sono state verificate, i contenitori in esecuzione possono essere arrestati e rimossi. Non eliminare le immagini del contenitore. L'immagine `azure-vote-front` verrà caricata in un'istanza di Registro Azure Container nella prossima esercitazione.
 
 Eseguire questo comando per arrestare i contenitori in esecuzione.
 
@@ -134,7 +134,7 @@ In questa esercitazione è stata testata un'applicazione e sono state create le 
 > * Creazione di un'immagine del contenitore dall'origine applicazione
 > * Test dell'applicazione in un ambiente Docker locale
 
-Passare alla prossima esercitazione per apprendere informazioni sull'archiviazione delle immagini del contenitore in un Registro contenitori di Azure.
+Passare alla prossima esercitazione per apprendere informazioni sull'archiviazione delle immagini del contenitore in Registro Azure Container.
 
 > [!div class="nextstepaction"]
 > [Eseguire il push delle immagini nel Registro contenitori di Azure](./container-service-tutorial-kubernetes-prepare-acr.md)

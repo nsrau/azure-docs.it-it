@@ -1,6 +1,6 @@
 ---
-title: Archiviazione immagini nel registro contenitori di Azure
-description: Contiene informazioni dettagliate sulla modalità di archiviazione delle immagini del contenitore Docker nel registro contenitori di Azure, tra cui sicurezza, ridondanza e capacità.
+title: Archiviazione immagini in Registro Azure Container
+description: Contiene informazioni dettagliate sulla modalità di archiviazione delle immagini del contenitore Docker in Registro Azure Container, tra cui sicurezza, ridondanza e capacità.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/08/2018
 ms.locfileid: "48856648"
 ---
-# <a name="container-image-storage-in-azure-container-registry"></a>Archiviazione immagini del contenitore nel registro contenitori di Azure
+# <a name="container-image-storage-in-azure-container-registry"></a>Archiviazione immagini del contenitore in Registro Azure Container
 
 Ogni registro contenitori di Azure [Basic, Standard e Premium](container-registry-skus.md) beneficia delle funzionalità di archiviazione avanzate di Azure, come ad esempio la crittografia dei dati inattivi per la sicurezza dei dati di immagine e la ridondanza geografica per la protezione dei dati di immagine. Le sezioni seguenti descrivono sia le funzionalità che i limiti di archiviazione immagini in Registro Azure Container.
 
@@ -24,7 +24,7 @@ Tutte le immagini del contenitore presenti nel registro vengono crittografate a 
 
 ## <a name="geo-redundant-storage"></a>Archiviazione con ridondanza geografica
 
-Azure usa uno schema di archiviazione con ridondanza geografica per evitare la perdita delle immagini del contenitore. Il Registro contenitori di Azure replica automaticamente le immagini del contenitore in più data center geograficamente distanti, impedendone la perdita in caso di guasto di un sistema di archiviazione regionale.
+Azure usa uno schema di archiviazione con ridondanza geografica per evitare la perdita delle immagini del contenitore. Registro Azure Container replica automaticamente le immagini del contenitore in più data center geograficamente distanti, impedendone la perdita in caso di guasto di un sistema di archiviazione regionale.
 
 ## <a name="geo-replication"></a>Replica geografica
 
@@ -42,15 +42,15 @@ Nella tabella seguente vengono descritti i limiti di archiviazione e di immagine
 | Tag | Nessun limite|
 | Archiviazione | 5 TB |
 
-Un numero molto elevato di repository e tag può compromettere le prestazioni del registro. Eliminare periodicamente i repository inutilizzati, tag e le immagini come parte di una routine di manutenzione del registro. Le risorse del registro eliminate, come repository, immagini e tag, *non possono* essere recuperate dopo l'eliminazione. Per altre informazioni sull'eliminazione delle risorse del registro, vedere [Eliminare le immagini del contenitore nel Registro contenitori di Azure](container-registry-delete.md).
+Un numero molto elevato di repository e tag può compromettere le prestazioni del registro. Eliminare periodicamente i repository inutilizzati, tag e le immagini come parte di una routine di manutenzione del registro. Le risorse del registro eliminate, come repository, immagini e tag, *non possono* essere recuperate dopo l'eliminazione. Per altre informazioni sull'eliminazione delle risorse del registro, vedere [Eliminare le immagini del contenitore in Registro Azure Container](container-registry-delete.md).
 
 ## <a name="storage-cost"></a>Costo di archiviazione
 
-Per informazioni dettagliate sui prezzi, vedere [Prezzi del Registro contenitori di Azure][pricing].
+Per informazioni dettagliate sui prezzi, vedere [Prezzi di Registro Azure Container][pricing].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui diversi SKU del Registro contenitori di Azure (Basic, Standard e Premium), vedere [SKU del Registro contenitori di Azure](container-registry-skus.md).
+Per altre informazioni sui diversi SKU di Registro Azure Container (Basic, Standard e Premium), vedere [SKU di Registro Azure Container](container-registry-skus.md).
 
 <!-- IMAGES -->
 

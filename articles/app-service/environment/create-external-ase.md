@@ -132,7 +132,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
     d. Selezionare l'intervallo IP della subnet.
 
 1.  Selezionare l'opzione "Configura contenitore".
-    * Immettere il nome dell'immagine personalizzata (è possibile usare Registro contenitori di Azure, Hub Docker e il proprio registro privato). Se non si intende usare il proprio contenitore personalizzato, è possibile usare il proprio codice e un'immagine personalizzata con il servizio app in Linux seguendo le istruzioni precedenti. 
+    * Immettere il nome dell'immagine personalizzata (è possibile usare Registro Azure Container, Hub Docker e il proprio registro privato). Se non si intende usare il proprio contenitore personalizzato, è possibile usare il proprio codice e un'immagine personalizzata con il servizio app in Linux seguendo le istruzioni precedenti. 
 
     ![Configura contenitore][9]
 

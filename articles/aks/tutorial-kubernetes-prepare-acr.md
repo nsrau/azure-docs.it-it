@@ -33,9 +33,9 @@ Nell'[esercitazione precedente][aks-tutorial-prepare-app] è stata creata un'imm
 
 Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.53 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
-## <a name="create-an-azure-container-registry"></a>Creare un Registro contenitori di Azure
+## <a name="create-an-azure-container-registry"></a>Creare un'istanza di Registro Azure Container
 
-Per creare un Registro contenitori di Azure, è necessario che esista un gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+Per creare un'istanza di Registro Azure Container, è necessario che esista un gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
 Creare un gruppo di risorse con il comando [az group create][az-group-create]. Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*:
 
@@ -138,7 +138,7 @@ Result
 v1
 ```
 
-È ora disponibile un'immagine del contenitore archiviata in un'istanza privata di Registro contenitori di Azure. Questa immagine verrà distribuita da Registro Azure Container a un cluster Kubernetes nell'esercitazione successiva.
+È ora disponibile un'immagine del contenitore archiviata in un'istanza privata di Registro Azure Container. Questa immagine verrà distribuita da Registro Azure Container a un cluster Kubernetes nell'esercitazione successiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

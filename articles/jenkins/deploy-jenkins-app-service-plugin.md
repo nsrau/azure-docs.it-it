@@ -135,10 +135,10 @@ App Web in Linux supporta la distribuzione tramite Docker. Per distribuire l'app
 
 App Web in Linux supporta anche metodi di distribuzione tradizionali, come GIT e il caricamento di file, ma solo per i linguaggi predefiniti come .NET Core, Node.js, PHP e Ruby. Per altri linguaggi, è necessario creare un pacchetto del runtime di servizio e del codice dell'applicazione in un'immagine Docker e usare Docker per la distribuzione.
 
-Prima di configurare il processo in Jenkins, è necessaria un'app Web in Linux. Per archiviare e gestire immagini del contenitore Docker private è necessario anche un registro contenitori. Per creare il registro contenitori si può usare DockerHub. In questo esempio viene usato il Registro contenitori di Azure.
+Prima di configurare il processo in Jenkins, è necessaria un'app Web in Linux. Per archiviare e gestire immagini del contenitore Docker private è necessario anche un registro contenitori. Per creare il registro contenitori si può usare DockerHub. In questo esempio viene usato il Registro Azure Container.
 
 * [Creare l'app Web in Linux](../app-service/containers/quickstart-nodejs.md).
-* Registro contenitori di Azure è un servizio gestito di [registri Docker](https://docs.docker.com/registry/) basato sull'applicazione open source Docker Registry 2.0. [Creare un registro contenitori di Azure](/azure/container-registry/container-registry-get-started-azure-cli). È anche possibile usare DockerHub.
+* Registro Azure Container è un servizio gestito di [registri Docker](https://docs.docker.com/registry/) basato sull'applicazione open source Docker Registry 2.0. [Creare un registro contenitori di Azure](/azure/container-registry/container-registry-get-started-azure-cli). È anche possibile usare DockerHub.
 
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Impostare il processo Jenkins per Docker
 

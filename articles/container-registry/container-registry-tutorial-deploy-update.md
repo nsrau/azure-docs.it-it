@@ -17,21 +17,21 @@ ms.locfileid: "53256622"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Esercitazione: Eseguire il push di un'immagine del contenitore aggiornata in un registro contenitori con replica geografica per distribuzioni di app Web regionali
 
-Questa è la terza parte di un'esercitazione in tre parti. Nell'[esercitazione precedente](container-registry-tutorial-deploy-app.md) è stata configurata la replica geografica per due diverse distribuzioni regionali di app Web. In questa esercitazione, verrà prima di tutto modificata l'applicazione, poi si compilerà una nuova immagine del contenitore e si eseguirà il push di tale immagine nel registro con replica geografica. Infine, si visualizzerà la modifica, distribuita automaticamente dai webhook di Registro contenitori di Azure, in entrambe le istanze delle app Web.
+Questa è la terza parte di un'esercitazione in tre parti. Nell'[esercitazione precedente](container-registry-tutorial-deploy-app.md) è stata configurata la replica geografica per due diverse distribuzioni regionali di app Web. In questa esercitazione, verrà prima di tutto modificata l'applicazione, poi si compilerà una nuova immagine del contenitore e si eseguirà il push di tale immagine nel registro con replica geografica. Infine, si visualizzerà la modifica, distribuita automaticamente dai webhook di Registro Azure Container, in entrambe le istanze delle app Web.
 
 In questa esercitazione, l'ultima parte della serie, vengono illustrate le seguenti attività:
 
 > [!div class="checklist"]
 > * Modificare il codice HTML dell'applicazione Web
 > * Compilare l'immagine Docker a aggiungere tag per l'immagine
-> * Eseguire il push della modifica in Registro contenitori di Azure
+> * Eseguire il push della modifica in Registro Azure Container
 > * Visualizzare l'app aggiornata in due aree diverse
 
-Se non sono ancora state configurate le due distribuzioni regionali di *app Web per contenitori*, tornare all'esercitazione precedente della serie, [Distribuire un'app Web dal Registro contenitori di Azure](container-registry-tutorial-deploy-app.md).
+Se non sono ancora state configurate le due distribuzioni regionali di *app Web per contenitori*, tornare all'esercitazione precedente della serie, [Distribuire un'app Web da Registro Azure Container](container-registry-tutorial-deploy-app.md).
 
 ## <a name="modify-the-web-application"></a>Modificare l'applicazione web
 
-In questo passaggio verrà apportata una modifica all'applicazione Web che risulterà molto visibile dopo il push dell'immagine del contenitore aggiornata in Registro contenitori di Azure.
+In questo passaggio verrà apportata una modifica all'applicazione Web che risulterà molto visibile dopo il push dell'immagine del contenitore aggiornata in Registro Azure Container.
 
 Trovare il file `AcrHelloworld/Views/Home/Index.cshtml` nell'origine dell'applicazione [clonata da GitHub](container-registry-tutorial-prepare-registry.md#get-application-code) in un'esercitazione precedente e aprirlo nell'editor di testo preferito. Aggiungere la riga seguente sotto la riga `<h1>` esistente:
 
@@ -76,7 +76,7 @@ Dopo aver aggiornato l'applicazione Web, è necessario ricompilare l'immagine de
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-## <a name="push-image-to-azure-container-registry"></a>Eseguire il push dell'immagine in Registro contenitori di Azure
+## <a name="push-image-to-azure-container-registry"></a>Eseguire il push dell'immagine in Registro Azure Container
 
 In seguito, eseguire il push dell'immagine del contenitore aggiornata *acr helloworld* nel registro con replica geografica. In questo caso, viene eseguito un singolo comando `docker push` per distribuire l'immagine aggiornata nelle repliche del registro in entrambe le aree *Stati Uniti occidentali* e *Stati Uniti orientali*.
 
@@ -101,9 +101,9 @@ v1: digest: sha256:4c3f2211569346fbe2d1006c18cbea2a4a9dcc1eb3a078608cef70d3a186e
 
 ## <a name="view-the-webhook-logs"></a>Visualizzare i log dei webhook
 
-Durante la replica dell'immagine è possibile visualizzare i webhook di Registro contenitori di Azure attivati.
+Durante la replica dell'immagine è possibile visualizzare i webhook di Registro Azure Container attivati.
 
-Per visualizzare i webhook regionali creati in seguito alla distribuzione del contenitore in *app Web per contenitori* in un'esercitazione precedente, passare al registro di contenitori nel portale di Azure e quindi selezionare **Webhook**in **SERVIZI**.
+Per visualizzare i webhook regionali creati in seguito alla distribuzione del contenitore in *app Web per contenitori* in un'esercitazione precedente, passare al registro contenitori nel portale di Azure e quindi selezionare **Webhook** in **SERVIZI**.
 
 ![Webhook del registro contenitori nel portale di Azure][tutorial-portal-01]
 
@@ -127,11 +127,11 @@ Verificare che l'immagine del contenitore aggiornata sia stata distribuita anche
 
 ![Visualizzazione nel browser dell'app Web modificata in esecuzione nell'area Stati Uniti orientali][deployed-app-eastus-modified]
 
-Con un singolo `docker push`, è stata aggiornata automaticamente l'applicazione Web in esecuzione in entrambe le distribuzioni dell'app Web a livello di area. Inoltre, Registro contenitori di Azure ha servito le immagini del contenitore dai repository più vicini a ogni distribuzione.
+Con un singolo `docker push`, è stata aggiornata automaticamente l'applicazione Web in esecuzione in entrambe le distribuzioni dell'app Web a livello di area. Inoltre, Registro Azure Container ha servito le immagini del contenitore dai repository più vicini a ogni distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è visto come aggiornare il contenitore dell'applicazione Web ed eseguire il push della nuova versione nel registro con replica geografica. I webhook in Registro contenitori di Azure hanno inviato una notifica dell'aggiornamento alle app Web per contenitori, che hanno attivato un pull locale delle repliche dei registri più vicini.
+In questa esercitazione si è visto come aggiornare il contenitore dell'applicazione Web ed eseguire il push della nuova versione nel registro con replica geografica. I webhook in Registro Azure Container hanno inviato una notifica dell'aggiornamento alle app Web per contenitori, che hanno attivato un pull locale delle repliche dei registri più vicini.
 
 ### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: patch e build delle immagini automatizzate
 

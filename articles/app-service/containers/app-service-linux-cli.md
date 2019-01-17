@@ -73,7 +73,7 @@ az webapp config container set -n sname1 -g rgname -c <container name> -r <serve
 
 ## <a name="enable-continuous-deployments-for-custom-docker-images"></a>Abilitare la distribuzione continua per le immagini Docker personalizzate
 
-Con il comando seguente è possibile abilitare la funzionalità CD e ottenere l'url del webhook. Questo URL consente di configurare i repository DockerHub o registro contenitori di Azure.
+Con il comando seguente è possibile abilitare la funzionalità CD e ottenere l'url del webhook. Questo URL consente di configurare i repository DockerHub o Registro Azure Container.
 
 ```azurecli-interactive
 az webapp deployment container config -n sname -g rgname -e true

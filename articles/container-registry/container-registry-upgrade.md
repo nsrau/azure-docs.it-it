@@ -1,5 +1,5 @@
 ---
-title: Aggiornamento del registro contenitori di Azure classico
+title: Aggiornamento di Registro Azure Container classico
 description: Sfruttare il set di funzionalità ampliato dei registri di contenitori gestiti di base, standard e premium tramite l'aggiornamento del registro di contenitori classico non gestito.
 services: container-registry
 author: dlepow

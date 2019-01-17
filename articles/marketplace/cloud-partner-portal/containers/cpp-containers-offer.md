@@ -43,7 +43,7 @@ Il diagramma seguente illustra ad alto livello la procedura di pubblicazione di 
 I passaggi generali per la pubblicazione di un'offerta di contenitore sono:
 
 1. Creazione dell'offerta: specificare le informazioni dettagliate sull'offerta. Queste informazioni includono la descrizione dell'offerta, il materiale di marketing, le informazioni di supporto e le specifiche degli asset.
-2. Creazione degli asset tecnici e aziendali: creare gli asset aziendali (documenti legali e materiali di marketing) e gli asset tecnici per la soluzione associata (immagini del contenitore ospitate in un Registro contenitori di Azure).
+2. Creazione degli asset tecnici e aziendali: creare gli asset aziendali (documenti legali e materiali di marketing) e gli asset tecnici per la soluzione associata (immagini del contenitore ospitate in un'istanza di Registro Azure Container).
 3. Creazione dello SKU: creare gli SKU associati all'offerta. È necessario uno SKU per ogni immagine che si intende pubblicare.
 4. Certificazione e pubblicazione dell'offerta: dopo aver completato l'offerta e le risorse tecniche, è possibile procedere all'invio dell'offerta. L'invio dell'offerta avvia il processo di pubblicazione. Durante questo processo la soluzione viene sottoposta a test, viene convalidata e certificata e quindi viene "aggiunta" in Azure Marketplace.
 

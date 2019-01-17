@@ -137,7 +137,7 @@ L'SDK dei moduli IoT è necessario per ottenere dati di telemetria sul numero di
 
 I partner devono aggiornare i moduli e ripetere la certificazione usando lo strumento del portale Cloud Partner.
 
-## <a name="host-your-iot-edge-module-in-an-azure-container-registry"></a>Ospitare il modulo IoT Edge in un Registro contenitori di Azure
+## <a name="host-your-iot-edge-module-in-an-azure-container-registry"></a>Ospitare il modulo IoT Edge in un'istanza di Registro Azure Container
 
 Per caricare il modulo IoT Edge nel portale Cloud Partner, è innanzitutto necessario ospitarlo in un'istanza di [Registro Azure Container](https://azure.microsoft.com/services/container-registry/). Il modulo deve includere tutti i tag che si intende pubblicare, compresi i tag di immagine referenziati da un tag di manifesto.
 

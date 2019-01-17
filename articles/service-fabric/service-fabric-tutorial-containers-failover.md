@@ -83,7 +83,7 @@ In questa esercitazione sono stati illustrati il failover del contenitore e il r
 In questa serie di esercitazioni si è appreso come:
 > [!div class="checklist"]
 > * Creare immagini del contenitore
-> * Eseguire il push delle immagini del contenitore nel registro contenitori di Azure
+> * Eseguire il push delle immagini del contenitore in Registro Azure Container
 > * Creare un pacchetto di contenitori per Service Fabric usando Yeoman
 > * Creare ed eseguire un'applicazione di Service Fabric con i contenitori
 > * Gestire il failover e il ridimensionamento in Service Fabric

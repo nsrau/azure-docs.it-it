@@ -54,15 +54,15 @@ Risorse per lo sviluppo:
    * Per lo sviluppo in un dispositivo Windows, verificare che Docker sia [configurato per l'uso di contenitori Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 
 
-## <a name="create-a-container-registry"></a>Creare un registro di contenitori
+## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
 In questa esercitazione vengono usati gli strumenti di Azure IoT per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo IoT Edge.  
 
-È possibile usare qualsiasi registro compatibile con Docker per inserire le immagini dei contenitori. Due servizi di registro Docker molto diffusi sono [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro contenitori di Azure. 
+È possibile usare qualsiasi registro compatibile con Docker per inserire le immagini dei contenitori. Due servizi di registro Docker molto diffusi sono [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro Azure Container. 
 
 Se non è ancora disponibile alcun registro contenitori, seguire questa procedura per crearne uno nuovo in Azure:
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori**.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro Container**.
 
 2. Specificare i valori seguenti per creare il registro contenitori:
 
@@ -99,7 +99,7 @@ Creare un modello di soluzione Java da poter personalizzare con il proprio codic
    | Select module template (Selezionare un modello di modulo) | Scegliere **Java Module** (Modulo Java). |
    | Specificare il valore per l'ID gruppo | Immettere un valore per l'ID gruppo o accettare quello predefinito **com.edgemodule**. |
    | Provide a module name (Specificare un nome per il modulo) | Assegnare il modulo il nome **JavaModule**. |
-   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata dall'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso nel registro contenitori di Azure. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. La stringa finale è simile a \<nome registro\>.azurecr.io/javamodule. |
+   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata dall'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. La stringa finale è simile a \<nome registro\>.azurecr.io/javamodule. |
  
    ![Specificare il repository di immagini Docker](./media/tutorial-java-module/repository.png)
    

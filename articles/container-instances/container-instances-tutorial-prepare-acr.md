@@ -17,13 +17,13 @@ ms.locfileid: "53188921"
 ---
 # <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Esercitazione: Distribuire un registro contenitori di Azure ed eseguire il push di un'immagine del contenitore
 
-Questa è la parte due di un'esercitazione in tre parti. Nella [prima parte](container-instances-tutorial-prepare-app.md) dell'esercitazione è stata creata un'immagine del contenitore Docker per un'applicazione Web Node.js. In questa esercitazione si esegue il push dell'immagine in Registro contenitori di Azure. Se l'immagine del contenitore non è ancora stata creata, tornare all'esercitazione [1: Creare un'immagine del contenitore](container-instances-tutorial-prepare-app.md).
+Questa è la parte due di un'esercitazione in tre parti. Nella [prima parte](container-instances-tutorial-prepare-app.md) dell'esercitazione è stata creata un'immagine del contenitore Docker per un'applicazione Web Node.js. In questa esercitazione si esegue il push dell'immagine in Registro Azure Container. Se l'immagine del contenitore non è ancora stata creata, tornare all'esercitazione [1: Creare un'immagine del contenitore](container-instances-tutorial-prepare-app.md).
 
-Registro contenitori di Azure è il registro Docker privato in Azure. In questa esercitazione si crea un'istanza di Registro contenitori di Azure nella sottoscrizione e quindi si esegue il push dell'immagine del contenitore creata in precedenza in tale istanza. In questo articolo, che corrisponde alla seconda parte della serie, è possibile eseguire queste operazioni:
+Registro Azure Container è il registro Docker privato in Azure. In questa esercitazione si crea un'istanza di Registro Azure Container nella sottoscrizione e quindi si esegue il push dell'immagine del contenitore creata in precedenza in tale istanza. In questo articolo, che corrisponde alla seconda parte della serie, è possibile eseguire queste operazioni:
 
 > [!div class="checklist"]
-> * Creare un'istanza di Registro contenitori di Azure
-> * Assegnare un tag all'immagine del contenitore per il Registro contenitori di Azure
+> * Creare un'istanza di Registro Azure Container
+> * Assegnare un tag all'immagine del contenitore per il Registro Azure Container
 > * Caricare l'immagine nel registro
 
 Nell'articolo successivo, che corrisponde all'ultimo della serie, il contenitore viene distribuito dal registro privato a Istanze di Azure Container.
@@ -32,7 +32,7 @@ Nell'articolo successivo, che corrisponde all'ultimo della serie, il contenitore
 
 [!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
-## <a name="create-azure-container-registry"></a>Creare un'istanza di Registro contenitori di Azure
+## <a name="create-azure-container-registry"></a>Creare un'istanza di Registro Azure Container
 
 Prima di creare il registro contenitori, è necessario un *gruppo di risorse* in cui eseguirne la distribuzione. Un gruppo di risorse è una raccolta logica in cui vengono distribuite e gestite tutte le risorse di Azure.
 
@@ -48,7 +48,7 @@ Dopo aver creato il gruppo di risorse, creare un'istanza di Registro Azure Conta
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Di seguito è riportato l'output di esempio (qui troncato) per una nuova istanza di Registro contenitori di Azure denominata *mycontainerregistry082*:
+Di seguito è riportato l'output di esempio (qui troncato) per una nuova istanza di Registro Azure Container denominata *mycontainerregistry082*:
 
 ```console
 $ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
@@ -77,7 +77,7 @@ Nel resto dell'esercitazione viene usato `<acrName>` come segnaposto per il nome
 
 ## <a name="log-in-to-container-registry"></a>Accedere al registro contenitori
 
-È necessario accedere all'istanza del Registro contenitori di Azure prima di eseguire il push di immagini. Usare il comando [az acr login][az-acr-login] per completare l'operazione. È necessario specificare il nome univoco scelto per il registro contenitori al momento della creazione.
+È necessario accedere all'istanza di Registro Azure Container prima di eseguire il push di immagini. Usare il comando [az acr login][az-acr-login] per completare l'operazione. È necessario specificare il nome univoco scelto per il registro contenitori al momento della creazione.
 
 ```azurecli
 az acr login --name <acrName>
@@ -92,9 +92,9 @@ Login Succeeded
 
 ## <a name="tag-container-image"></a>Assegnare tag all'immagine del contenitore
 
-Per eseguire il push di un'immagine del contenitore in un registro privato come Registro contenitori di Azure, è prima necessario assegnare all'immagine un tag con il nome completo del server di accesso del registro.
+Per eseguire il push di un'immagine del contenitore in un registro privato come Registro Azure Container, è prima necessario assegnare all'immagine un tag con il nome completo del server di accesso del registro.
 
-Per prima cosa, ottenere il nome completo del server di accesso dell'istanza di Registro contenitori di Azure. Eseguire questo comando [az acr show][az-acr-show], sostituendo `<acrName>` con il nome del registro appena creato:
+Per prima cosa, ottenere il nome completo del server di accesso dell'istanza di Registro Azure Container. Eseguire questo comando [az acr show][az-acr-show], sostituendo `<acrName>` con il nome del registro appena creato:
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
@@ -138,7 +138,7 @@ aci-tutorial-app                                      latest    5c745774dfa9    
 mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    7 minutes ago     68.1 MB
 ```
 
-## <a name="push-image-to-azure-container-registry"></a>Eseguire il push dell'immagine in Registro contenitori di Azure
+## <a name="push-image-to-azure-container-registry"></a>Eseguire il push dell'immagine in Registro Azure Container
 
 Dopo aver assegnato all'immagine *aci-tutorial-app* il tag con il nome completo del server di accesso del registro privato, è possibile eseguire il push dell'immagine nel registro con il comando [docker push][docker-push]. Sostituire `<acrLoginServer>` con il nome completo del server di accesso ottenuto nel passaggio precedente.
 
@@ -160,7 +160,7 @@ d8fbd47558a8: Pushed
 v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05715 size: 1576
 ```
 
-## <a name="list-images-in-azure-container-registry"></a>Elencare le immagini in Registro contenitori di Azure
+## <a name="list-images-in-azure-container-registry"></a>Elencare le immagini in Registro Azure Container
 
 Per verificare che l'immagine di cui è appena stato eseguito il push si trovi effettivamente nell'istanza di Registro Azure Container, visualizzare l'elenco delle immagini nel registro con il comando [az acr repository list][az-acr-repository-list]. Sostituire `<acrName>` con il nome del registro contenitori.
 
@@ -197,9 +197,9 @@ v1
 In questa esercitazione è stata preparata un'istanza di Registro Azure Container da usare con Istanze di Azure Container ed è stato eseguito il push di un'immagine del contenitore nel registro. Sono stati completati i passaggi seguenti:
 
 > [!div class="checklist"]
-> * Distribuzione di un'istanza di Registro contenitori di Azure
-> * Assegnazione di un tag all'immagine del contenitore per il Registro contenitori di Azure
-> * Caricamento di un'immagine nel Registro contenitori di Azure
+> * Distribuzione di un'istanza di Registro Azure Container
+> * Assegnazione di un tag all'immagine del contenitore per Registro Azure Container
+> * Caricamento di un'immagine in Registro Azure Container
 
 Passare all'esercitazione successiva per apprendere come distribuire il contenitore in Azure usando Istanze di Azure Container:
 

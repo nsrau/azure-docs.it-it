@@ -17,7 +17,7 @@ ms.locfileid: "53255925"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Guida introduttiva: Creare un registro contenitori privato usando l'interfaccia della riga di comando di Azure
 
-Registro contenitori di Azure è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro Azure Container tramite l'interfaccia della riga di comando di Azure, l'inserimento di un'immagine del contenitore nel registro e infine la distribuzione del contenitore dal registro in Istanze di Azure Container.
+Registro Azure Container è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro Azure Container tramite l'interfaccia della riga di comando di Azure, l'inserimento di un'immagine del contenitore nel registro e infine la distribuzione del contenitore dal registro in Istanze di Azure Container.
 
 Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.27 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
@@ -33,9 +33,9 @@ L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella 
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-container-registry"></a>Creare un registro di contenitori
+## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
-In questa guida introduttiva viene creato un registro contenitori di *base*. Registro contenitori di Azure è disponibile in diversi SKU, descritti brevemente nella tabella riportata di seguito. Per altri dettagli su ogni SKU, vedere [SKU di Registro contenitori][container-registry-skus].
+In questa guida introduttiva viene creato un registro contenitori di *base*. Registro Azure Container è disponibile in diversi SKU, descritti brevemente nella tabella riportata di seguito. Per altri dettagli su ogni SKU, vedere [SKU di Registro Container][container-registry-skus].
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -82,7 +82,7 @@ Il comando restituisce un messaggio `Login Succeeded` al termine dell'esecuzione
 
 ## <a name="push-image-to-acr"></a>Eseguire il push di un'immagine nel record di controllo di accesso
 
-Per eseguire il push di un'immagine nel registro contenitori di Azure è necessario innanzitutto disporre di un'immagine. Se non sono ancora disponibili immagini del contenitore locale, eseguire il comando seguente per eseguire il pull di un'immagine esistente da Hub Docker.
+Per eseguire il push di un'immagine in Registro Azure Container è necessario innanzitutto disporre di un'immagine. Se non sono ancora disponibili immagini del contenitore locale, eseguire il comando seguente per eseguire il pull di un'immagine esistente da Hub Docker.
 
 ```bash
 docker pull microsoft/aci-helloworld

@@ -27,7 +27,7 @@ ms.locfileid: "49458844"
 | Replica geografica | N/D | N/D | [Supportato][geo-replication] |
 | Attendibilità dei contenuti (anteprima) | N/D | N/D | [Supportato][content-trust] |
 
-<sup>1</sup> I limiti di archiviazione specificati sono la quantità di archiviazione *inclusa* per ogni livello. Viene addebitata una tariffa giornaliera aggiuntiva per GiB di archiviazione di immagini oltre questi limiti. Per informazioni sui costi, vedere [Prezzi del Registro contenitori di Azure][pricing].
+<sup>1</sup> I limiti di archiviazione specificati sono la quantità di archiviazione *inclusa* per ogni livello. Viene addebitata una tariffa giornaliera aggiuntiva per GiB di archiviazione di immagini oltre questi limiti. Per informazioni sui costi, vedere [Prezzi di Registro Azure Container][pricing].
 
 <sup>2</sup> I dati delle *operazioni di lettura*, *operazioni di scrittura* e *larghezza di banda* sono stime minime. Registro Azure Container migliora le prestazioni in base alle necessità d'uso.
 

@@ -1,6 +1,6 @@
 ---
-title: Formati di contenuto di Registro contenitori di Azure
-description: Informazioni sui formati di contenuto supportati in Registro contenitori di Azure.
+title: Formati di contenuto di Registro Azure Container
+description: Informazioni sui formati di contenuto supportati in Registro Azure Container.
 services: container-registry
 author: dlepow
 manager: jeconnoc
@@ -15,9 +15,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/14/2018
 ms.locfileid: "51634845"
 ---
-# <a name="content-formats-supported-in-azure-container-registry"></a>Formati di contenuto supportati in Registro contenitori di Azure
+# <a name="content-formats-supported-in-azure-container-registry"></a>Formati di contenuto supportati in Registro Azure Container
 
-Usare un repository privato in Registro contenitori di Azure per gestire uno dei formati di contenuto seguenti. 
+Usare un repository privato in Registro Azure Container per gestire uno dei formati di contenuto seguenti. 
 
 ## <a name="docker-compatible-container-images"></a>Immagini di contenitori compatibili con Docker
 
@@ -30,16 +30,16 @@ Usare un repository privato in Registro contenitori di Azure per gestire uno dei
 
 ## <a name="helm-charts"></a>Grafici Helm
 
-Registro contenitori di Azure può anche ospitare i repository per i [grafici Helm](https://helm.sh/), un formato di creazione di pacchetti usato per gestire e distribuire rapidamente le applicazioni per Kubernetes. Sono supportati i [client Helm](https://docs.helm.sh/using_helm/#installing-helm) versione 2.11.0 o successiva.
+Registro Azure Container può anche ospitare i repository per i [grafici Helm](https://helm.sh/), un formato di creazione di pacchetti usato per gestire e distribuire rapidamente le applicazioni per Kubernetes. Sono supportati i [client Helm](https://docs.helm.sh/using_helm/#installing-helm) versione 2.11.0 o successiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Leggere le informazioni su come [eseguire il push e il pull](container-registry-get-started-docker-cli.md) delle immagini con Registro contenitori di Azure.
+* Leggere le informazioni su come [eseguire il push e il pull](container-registry-get-started-docker-cli.md) delle immagini con Registro Azure Container.
 
 * Usare [Attività di Registro Azure Container](container-registry-tasks-overview.md) per creare e testare immagini dei contenitori. 
 
 * Usare [Moby BuildKit](https://github.com/moby/buildkit) per la compilazione e la creazione di pacchetti dei contenitori in formato OCI.
 
-* Configurare un [repository Helm](container-registry-helm-repos.md) ospitato in Registro contenitori di Azure. 
+* Configurare un [repository Helm](container-registry-helm-repos.md) ospitato in Registro Azure Container. 
 
 

@@ -89,7 +89,7 @@ L'oggetto `--scope` per una risorsa deve essere un ID risorsa completo, ad esemp
 
 Le sezioni seguenti illustrano le deleghe comuni che potrebbe essere necessario creare.
 
-### <a name="azure-container-registry"></a>Registro contenitori di Azure
+### <a name="azure-container-registry"></a>Registro Azure Container
 
 Se si usa Registro Azure Container come archivio di immagini del contenitore, è necessario concedere le autorizzazioni per il cluster servizio Azure Kubernetes per leggere ed eseguire il pull di immagini. All'entità servizio del cluster servizio Azure Kubernetes deve essere delegato il ruolo *Lettore* nel Registro di sistema. Per informazioni dettagliate, vedere [Concedere al servizio Azure Container l'accesso a Registro Azure Container][aks-to-acr].
 

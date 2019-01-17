@@ -129,7 +129,7 @@ In questa esercitazione è stata creata un'immagine del contenitore distribuibil
 > * Creazione di un'immagine del contenitore dall'origine applicazione
 > * Test del contenitore in locale
 
-Passare all'esercitazione successiva per apprendere come archiviare l'immagine del contenitore in Registro contenitori di Azure:
+Passare all'esercitazione successiva per apprendere come archiviare l'immagine del contenitore in Registro Azure Container:
 
 > [!div class="nextstepaction"]
 > [Eseguire il push dell'immagine in Registro contenitori di Azure](container-instances-tutorial-prepare-acr.md)

@@ -518,7 +518,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                         <li>
                                             <a href="/azure/container-registry/">
                                                 <img src="media/index/container-registry.svg" alt="" />
-                                                <p>Registro di sistema del contenitore</p>
+                                                <p>Registro Container</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2879,7 +2879,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Registro contenitori di Azure</h3>
+                                                    <h3>Registro Azure Container</h3>
                                                     <p>Archiviare e gestire le immagini dei contenitori in tutti i tipi di distribuzione di Azure</p>
                                                 </div>
                                             </div>

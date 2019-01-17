@@ -66,7 +66,7 @@ Tutti i criteri e le condizioni dei contratti di Microsoft Azure Marketplace si 
 Per pubblicare un modulo Azure IoT Edge in Azure Marketplace, è necessario soddisfare i seguenti prerequisiti:
 
 - Ottenere l'accesso al portale Cloud Partner (CPP). Per altre informazioni, vedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
-- Ospitare il modulo Azure IoT Edge in un Registro contenitori di Azure. 
+- Ospitare il modulo Azure IoT Edge in un'istanza di Registro Azure Container. 
 - Avere a pronti i metadati del modulo Azure IoT Edge, come i seguenti (elenco non completo): 
     - Un titolo
     - Una descrizione (in formato HTML)

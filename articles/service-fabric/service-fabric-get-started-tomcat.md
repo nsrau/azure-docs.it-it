@@ -32,7 +32,7 @@ Per altre informazioni su Apache Tomcat, vedere la [home page di Apache Tomcat](
   * [Docker CE per Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 
-* Un registro contenitori in Registro contenitori di Azure. È possibile creare un registro contenitori nella sottoscrizione di Azure con il [portale di Azure](../container-registry/container-registry-get-started-portal.md) o l'[interfaccia della riga di comando di Azure](./service-fabric-tutorial-create-container-images.md#deploy-azure-container-registry). 
+* Un registro contenitori in Registro Azure Container. È possibile creare un registro contenitori nella sottoscrizione di Azure con il [portale di Azure](../container-registry/container-registry-get-started-portal.md) o l'[interfaccia della riga di comando di Azure](./service-fabric-tutorial-create-container-images.md#deploy-azure-container-registry). 
 
 ## <a name="build-a-tomcat-image-and-run-it-locally"></a>Creare un'immagine Tomcat ed eseguirla in locale
 Seguire i passaggi descritti in questa sezione per creare un'immagine Docker basata su un'immagine Apache Tomcat e una semplice app Web e quindi eseguirla in un contenitore nel sistema locale. 
@@ -109,9 +109,9 @@ Seguire i passaggi descritti in questa sezione per creare un'immagine Docker bas
    ```
 
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Eseguire il push dell'immagine Tomcat nel registro contenitori
-Dopo aver verificato che l'immagine Tomcat venga eseguita in un contenitore nel computer di sviluppo, eseguirne il push in un repository in un registro contenitori. Questo articolo usa Registro contenitori di Azure per archiviare l'immagine, ma è possibile usare qualsiasi registro contenitori modificando alcuni passaggi. Questo articolo presuppone che il nome del registro sia *myregistry* e che il nome completo del registro sia myregistry.azurecr.io. Modificare queste impostazioni in base al proprio scenario. 
+Dopo aver verificato che l'immagine Tomcat venga eseguita in un contenitore nel computer di sviluppo, eseguirne il push in un repository in un registro contenitori. Questo articolo usa Registro Azure Container per archiviare l'immagine, ma è possibile usare qualsiasi registro contenitori modificando alcuni passaggi. Questo articolo presuppone che il nome del registro sia *myregistry* e che il nome completo del registro sia myregistry.azurecr.io. Modificare queste impostazioni in base al proprio scenario. 
 
-1. Eseguire `docker login` per accedere al registro di contenitori con le [credenziali del registro](../container-registry/container-registry-authentication.md).
+1. Eseguire `docker login` per accedere al registro contenitori con le [credenziali del registro](../container-registry/container-registry-authentication.md).
 
    L'esempio seguente passa l'ID e la password di un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) di Azure Active Directory. Ad esempio, è possibile che sia stata assegnata un'entità servizio al registro per uno scenario di automazione. In alternativa, è possibile eseguire l'accesso usando il nome utente e la password del registro.
 

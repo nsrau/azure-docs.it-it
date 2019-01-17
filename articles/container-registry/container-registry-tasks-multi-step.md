@@ -1,5 +1,5 @@
 ---
-title: Automatizzare la creazione, i test e l'applicazione di patch a un'immagine con le attività in più passaggi di Registro contenitori di Azure
+title: Automatizzare la creazione, i test e l'applicazione di patch a un'immagine con le attività in più passaggi di Registro Azure Container
 description: Introduzione alle attività in più passaggi, una funzionalità di Attività di Registro Azure Container che fornisce flussi di lavoro basati su attività per la compilazione, i test e l'applicazione di patch di immagini dei contenitori nel cloud.
 services: container-registry
 author: dlepow
@@ -30,7 +30,7 @@ Le attività in più passaggi estendono la singola funzionalità di creazione ed
 1. Se i test vengono superati, compilare un pacchetto di archivio del grafico di Helm
 1. Eseguire un `helm upgrade` usando il nuovo pacchetto di archivio del grafico di Helm
 
-Tutti i passaggi vengono eseguiti all'interno di Azure, riducendo così il lavoro per le risorse di calcolo di Azure e liberando l'utente dalla gestione dell'infrastruttura. Oltre al Registro contenitori di Azure, si paga solo per le risorse che si usano. Per informazioni sui prezzi, vedere la sezione relativa alla **Creazione di contenitori** sul sito [Prezzi di Registro di sistema del contenitore][pricing].
+Tutti i passaggi vengono eseguiti all'interno di Azure, riducendo così il lavoro per le risorse di calcolo di Azure e liberando l'utente dalla gestione dell'infrastruttura. Oltre al Registro Azure Container, si paga solo per le risorse che si usano. Per informazioni sui prezzi, vedere la sezione relativa alla **Creazione di contenitori** sul sito [Prezzi di Registro di sistema del contenitore][pricing].
 
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
@@ -50,7 +50,7 @@ Le attività in più passaggi rendono possibili scenari come la logica seguente:
 Un'attività in più passaggi in Attività di Registro Azure Container viene definita come una serie di passaggi all'interno di un file YAML. Ogni passaggio può specificare le dipendenze dal completamento di uno o più passaggi precedenti. Sono disponibili i tipi di passaggi di attività seguenti:
 
 * [`build`](container-registry-tasks-reference-yaml.md#build): creare una o più immagini del contenitore usando la nota sintassi `docker build`, in serie o in parallelo.
-* [`push`](container-registry-tasks-reference-yaml.md#push): eseguire il push di immagini create a un registro contenitori. Sono supportati i registri privati, ad esempio Registro contenitori di Azure, nonché l'hub Docker pubblico.
+* [`push`](container-registry-tasks-reference-yaml.md#push): eseguire il push di immagini create a un registro contenitori. Sono supportati i registri privati, ad esempio Registro Azure Container, nonché l'hub Docker pubblico.
 * [`cmd`](container-registry-tasks-reference-yaml.md#cmd): eseguire un contenitore, in modo che possa operare come una funzione all'interno del contesto dell'attività in esecuzione. È possibile passare parametri a `[ENTRYPOINT]` del contenitore e specificare proprietà come env, detach e altri parametri `docker run` comuni. Il tipo di passaggio `cmd` consente l'esecuzione di test funzionali e di unit test, con l'esecuzione simultanea del contenitore.
 
 I frammenti di codice seguenti illustrano come combinare questi tipi di passaggi delle attività. Le attività in più passaggi possono essere semplici, come la creazione di un'unica immagine da un documento Dockerfile e il push nel registro, con un file YAML simile a:
@@ -93,7 +93,7 @@ Le attività supportano sia l'esecuzione manuale, denominata "esecuzione veloce"
 
 Per eseguire un'attività, è prima di tutto necessario definire i passaggi dell'attività in un file YAML, quindi eseguire il comando [az acr run][az-acr-run] dell'interfaccia della riga di comando di Azure.
 
-Ecco un comando dell'interfaccia della riga di comando di Azure di esempio che esegue un'attività usando un file YAML di attività di esempio. I passaggi creano e quindi eseguono il push di un'immagine. Prima di eseguire il comando, aggiornare `\<acrName\>` con il nome del proprio registro contenitori di Azure.
+Ecco un comando dell'interfaccia della riga di comando di Azure di esempio che esegue un'attività usando un file YAML di attività di esempio. I passaggi creano e quindi eseguono il push di un'immagine. Prima di eseguire il comando, aggiornare `\<acrName\>` con il nome del proprio Registro Azure Container.
 
 ```azurecli
 az acr run --registry <acrName> -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git

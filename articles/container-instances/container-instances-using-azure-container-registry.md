@@ -21,7 +21,7 @@ ms.locfileid: "54064645"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-**Registro Azure Container**: per completare i passaggi descritti in questo articolo, sono necessari un registro Azure Container e almeno un'immagine del contenitore nel registro. Se occorre un registro, vedere [Creare un registro di contenitori usando l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
+**Registro Azure Container**: per completare i passaggi descritti in questo articolo, sono necessari un registro Azure Container e almeno un'immagine del contenitore nel registro. Se occorre un registro, vedere [Creare un registro contenitori usando l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
 **Interfaccia della riga di comando di Azure**: gli esempi della riga di comando in questo articolo usano l'[interfaccia della riga di comando di Azure](/cli/azure/) e sono formattati per la shell Bash. È possibile [installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) localmente o usare [Azure Cloud Shell][cloud-shell-bash].
 
@@ -66,7 +66,7 @@ az keyvault secret set \
 
 L'argomento `--role` nel comando precedente configura l'entità servizio con il ruolo *acrpull*, che concede l'accesso al registro con autorizzazioni solo di pull. Per concedere l'accesso con autorizzazioni sia di push che di pull, impostare l'argomento `--role` su *acrpush*.
 
-Quindi, archiviare nell'insieme di credenziali il valore *appId* dell'entità servizio, che corrisponde al **nome utente** passato a Registro contenitori di Azure per l'autenticazione.
+Quindi, archiviare nell'insieme di credenziali il valore *appId* dell'entità servizio, che corrisponde al **nome utente** passato a Registro Azure Container per l'autenticazione.
 
 ```azurecli
 # Store service principal ID in AKV (the registry *username*)
@@ -118,7 +118,7 @@ Una volta avviato il contenitore, è possibile passare al suo FQDN nel browser p
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Distribuire con un modello di Azure Resource Manager
 
-È possibile specificare le proprietà di Registro contenitori di Azure in un modello di Azure Resource Manager includendo la proprietà `imageRegistryCredentials` nella definizione del gruppo di contenitori:
+È possibile specificare le proprietà di Registro Azure Container in un modello di Azure Resource Manager includendo la proprietà `imageRegistryCredentials` nella definizione del gruppo di contenitori:
 
 ```JSON
 "imageRegistryCredentials": [
@@ -140,7 +140,7 @@ Se si conservano le immagini del contenitore in Registro Azure Container, è pos
 
 1. Selezionare **Repository**, quindi selezionare il repository da cui si desidera eseguire la distribuzione, fare clic con il pulsante destro del mouse sul tag dell'immagine del contenitore che si vuole distribuire e selezionare **Esegui istanza**.
 
-    !["Esegui istanza" nel Registro contenitori di Azure nel portale di Azure][acr-runinstance-contextmenu]
+    !["Esegui istanza" in Registro Azure Container nel portale di Azure][acr-runinstance-contextmenu]
 
 1. Immettere un nome per il contenitore e un nome per il gruppo di risorse. Se si vuole, è anche possibile cambiare i valori predefiniti.
 
@@ -152,7 +152,7 @@ Se si conservano le immagini del contenitore in Registro Azure Container, è pos
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'autenticazione con Registro contenitori di Azure, vedere [Eseguire l'autenticazione con un registro contenitori Docker privato](../container-registry/container-registry-authentication.md).
+Per altre informazioni sull'autenticazione con Registro Azure Container, vedere [Eseguire l'autenticazione con un registro contenitori Docker privato](../container-registry/container-registry-authentication.md).
 
 <!-- IMAGES -->
 [acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png

@@ -54,7 +54,7 @@ Il *tag* di un'immagine ne specifica la versione. A una singola immagine all'int
 
 Il nome di un'immagine è definito dal repository (o da repository e spazio dei nomi) e da un tag. È possibile eseguire il push e il pull di un'immagine specificandone il nome nella relativa operazione.
 
-In un registro privato, ad esempio il registro contenitori di Azure, il nome dell'immagine include anche il nome completo dell'host del registro. L'host del registro per immagini nel registro contenitori di Azure è nel formato *acrname.azurecr.io*. Ad esempio, il nome completo della prima immagine nello spazio dei nomi "marketing" della sezione precedente è:
+In un registro privato, ad esempio il registro contenitori di Azure, il nome dell'immagine include anche il nome completo dell'host del registro. L'host del registro per immagini in Registro Azure Container è nel formato *acrname.azurecr.io*. Ad esempio, il nome completo della prima immagine nello spazio dei nomi "marketing" della sezione precedente è:
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/web:v2

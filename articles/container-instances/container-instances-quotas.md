@@ -1,6 +1,6 @@
 ---
-title: Quote e aree disponibili per Istanze di contenitore di Azure
-description: Quote predefinite e aree disponibili per il servizio Istanze di contenitore di Azure.
+title: Quote e aree disponibili per Istanze di Azure Container
+description: Quote predefinite e aree disponibili per il servizio Istanze di Azure Container.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2019
 ms.locfileid: "54075499"
 ---
-# <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quote e aree disponibili per Istanze di contenitore di Azure
+# <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quote e aree disponibili per Istanze di Azure Container
 
-Tutti i servizi di Azure prevedono determinati limiti predefiniti e quote per le risorse e le funzionalità. Le sezioni seguenti illustrano in modo dettagliato i limiti predefiniti per alcune risorse di Istanze di contenitore di Azure e la disponibilità di questo servizio nelle aree di Azure.
+Tutti i servizi di Azure prevedono determinati limiti predefiniti e quote per le risorse e le funzionalità. Le sezioni seguenti illustrano in modo dettagliato i limiti predefiniti per alcune risorse di Istanze di Azure Container e la disponibilità di questo servizio nelle aree di Azure.
 
 ## <a name="service-quotas-and-limits"></a>Quote e limiti del servizio
 
@@ -24,7 +24,7 @@ Tutti i servizi di Azure prevedono determinati limiti predefiniti e quote per le
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Istanze di contenitore di Azure è disponibile nelle aree seguenti con i limiti di CPU e memoria specificati. I valori sono aggiornati al momento della pubblicazione. Per informazioni aggiornate, usare l'API di [elenco delle funzionalità](/rest/api/container-instances/listcapabilities/listcapabilities). La disponibilità e i limiti delle risorse possono variare quando si usano le Istanze di Azure Container con una [rete virtuale](container-instances-vnet.md) (anteprima) o con le [risorse della GPU](container-instances-gpu.md) (anteprima).
+Istanze di Azure Container è disponibile nelle aree seguenti con i limiti di CPU e memoria specificati. I valori sono aggiornati al momento della pubblicazione. Per informazioni aggiornate, usare l'API di [elenco delle funzionalità](/rest/api/container-instances/listcapabilities/listcapabilities). La disponibilità e i limiti delle risorse possono variare quando si usano le Istanze di Azure Container con una [rete virtuale](container-instances-vnet.md) (anteprima) o con le [risorse della GPU](container-instances-gpu.md) (anteprima).
 
 | Località | OS | CPU | Memoria (GB) |
 | -------- | -- | :---: | :-----------: |
@@ -36,11 +36,11 @@ Istanze di contenitore di Azure è disponibile nelle aree seguenti con i limiti 
 | Stati Uniti orientali, Europa occidentale, Stati Uniti occidentali |  Windows | 4 | 14 |
 | Australia orientale, Canada centrale, India centrale, Asia orientale, Stati Uniti orientali 2, Giappone orientale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, India meridionale, Asia sud-orientale, Stati Uniti occidentali 2 |  Windows | 2 | 3,5 |
 
-La disponibilità di Istanze di contenitore con questi limiti di risorse dipende dell'area di distribuzione. Quando un'area ha un carico elevato, può verificarsi un errore durante la distribuzione delle istanze. Per mitigare tale errore di distribuzione, provare a distribuire le istanze con impostazioni di memoria e CPU inferiori oppure provare a eseguire la distribuzione in un secondo momento.
+La disponibilità di Istanze di Container con questi limiti di risorse dipende dell'area di distribuzione. Quando un'area ha un carico elevato, può verificarsi un errore durante la distribuzione delle istanze. Per mitigare tale errore di distribuzione, provare a distribuire le istanze con impostazioni di memoria e CPU inferiori oppure provare a eseguire la distribuzione in un secondo momento.
 
 Segnalare al team aree geografiche aggiuntive necessarie o incrementi dei limiti di CPU/memoria all'indirizzo [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 
-Per altre informazioni sulla risoluzione dei problemi di distribuzione di Istanze di contenitore, vedere [Risolvere i problemi di distribuzione di Istanze di contenitore di Azure](container-instances-troubleshooting.md).
+Per altre informazioni sulla risoluzione dei problemi di distribuzione di Istanze di Container, vedere [Risolvere i problemi di distribuzione di Istanze di Azure Container](container-instances-troubleshooting.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

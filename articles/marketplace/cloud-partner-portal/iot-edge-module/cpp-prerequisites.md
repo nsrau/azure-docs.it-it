@@ -34,7 +34,7 @@ Per pubblicare un modulo IoT Edge in Azure Marketplace, è necessario soddisfare
 <!-- P2: It would be great to point to the terms of use of CPP here. This can often be a blocker for big companies and these terms of use are not anonymously visible yet.-->
 - Accedere al [portale Cloud Partner (CPP)](https://cloudpartner.azure.com/). Per altre informazioni, vedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 - Contratto per le [Condizioni di Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace-terms/)
-- Ospitare l'asset tecnico del modulo IoT Edge in un Registro contenitori di Azure.  Per altre informazioni, vedere [come preparare gli asset tecnici del modulo IoT Edge](./cpp-create-technical-assets.md)
+- Ospitare l'asset tecnico del modulo IoT Edge in un'istanza di Registro Azure Container.  Per altre informazioni, vedere [come preparare gli asset tecnici del modulo IoT Edge](./cpp-create-technical-assets.md)
 - Preparare i metadati del modulo IoT Edge all'uso. Ad esempio (elenco non completo):
     - Un titolo
     - Una descrizione (in formato HTML)

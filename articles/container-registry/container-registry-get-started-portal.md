@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: creare un registro Docker privato in Azure - Portale di Microsoft Azure'
-description: Informazioni su come apprendere rapidamente a creare un registro Docker privato con il portale di Azure.
+description: Informazioni su come apprendere rapidamente a creare un registro contenitori Docker privato con il portale di Azure.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -15,9 +15,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2018
 ms.locfileid: "53255364"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Guida introduttiva: creare un registro contenitori privato usando il portale di Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Guida introduttiva: Creare un registro contenitori privato usando il portale di Azure
 
-Un Registro contenitori di Azure è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. In questa guida introduttiva si crea un registro contenitori con il portale di Azure, si esegue il push di un'immagine del contenitore nel registro e infine si distribuisce il contenitore dal registro a Istanze di Azure Container.
+Un registro contenitori di Azure è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. In questa guida introduttiva si crea un registro contenitori con il portale di Azure, si esegue il push di un'immagine del contenitore nel registro e infine si distribuisce il contenitore dal registro a Istanze di Azure Container.
 
 Per completare questa Guida introduttiva, è necessario che Docker sia installato in locale. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
@@ -25,9 +25,9 @@ Per completare questa Guida introduttiva, è necessario che Docker sia installat
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-## <a name="create-a-container-registry"></a>Creare un registro di contenitori
+## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
-Selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori**.
+Selezionare **Crea una risorsa** > **Contenitori** > **Registro Container**.
 
 ![Creazione di un registro contenitori con il portale di Azure][qs-portal-01]
 
@@ -35,7 +35,7 @@ Immettere i valori nei campi **Nome registro** e **Gruppo di risorse**. Il nome 
 
 ![Creazione di un registro contenitori con il portale di Azure][qs-portal-03]
 
-In questa guida introduttiva viene creato un registro contenitori di *base*. Registro contenitori di Azure è disponibile in diversi SKU, descritti brevemente nella tabella riportata di seguito. Per altri dettagli su ogni SKU, vedere [SKU di Registro contenitori][container-registry-skus].
+In questa guida introduttiva viene creato un registro contenitori di *base*. Registro Azure Container è disponibile in diversi SKU, descritti brevemente nella tabella riportata di seguito. Per altri dettagli su ogni SKU, vedere [SKU di Registro Container][container-registry-skus].
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -65,7 +65,7 @@ Il comando restituisce `Login Succeeded` al termine dell'esecuzione. È possibil
 
 ## <a name="push-image-to-acr"></a>Eseguire il push di un'immagine nel record di controllo di accesso
 
-Per eseguire il push di un'immagine nel Registro contenitori di Azure è necessario innanzitutto disporre di un'immagine. Se necessario, eseguire il comando seguente per eseguire il pull di un'immagine esistente dall'Hub Docker.
+Per eseguire il push di un'immagine in Registro Azure Container è necessario innanzitutto disporre di un'immagine. Se necessario, eseguire il comando seguente per eseguire il pull di un'immagine esistente dall'Hub Docker.
 
 ```bash
 docker pull microsoft/aci-helloworld

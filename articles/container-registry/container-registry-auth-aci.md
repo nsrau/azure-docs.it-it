@@ -16,7 +16,7 @@ ms.locfileid: "48855834"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container
 
-È possibile usare un'entità servizio Azure Active Directory (Azure AD) per fornire l'accesso ai registri contenitori privati in Registro contenitori di Azure.
+È possibile usare un'entità servizio Azure Active Directory (Azure AD) per fornire l'accesso ai registri contenitori privati in Registro Azure Container.
 
 Questo articolo illustra come creare e configurare un'entità servizio Azure AD con le autorizzazioni *pull* al registro. Si avvia un contenitore nelle Istanze di Azure Container che esegue il pull delle immagini dal registro privato usando l'entità servizio per l'autenticazione.
 

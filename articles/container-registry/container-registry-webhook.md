@@ -1,5 +1,5 @@
 ---
-title: Webhook del Registro contenitori di Azure
+title: Webhook di Registro Azure Container
 description: Informazioni su come usare i webhook per attivare eventi specifici quando nei repository del registro si verificano determinate azioni.
 services: container-registry
 author: dlepow
@@ -14,15 +14,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/08/2018
 ms.locfileid: "48854100"
 ---
-# <a name="using-azure-container-registry-webhooks"></a>Uso dei webhook del Registro contenitori di Azure
+# <a name="using-azure-container-registry-webhooks"></a>Uso dei webhook di Registro Azure Container
 
 Un registro contenitori di Azure archivia e gestisce le immagini dei contenitori Docker private, in modo analogo a come Docker Hub archivia le immagini Docker pubbliche. È possibile usare i webhook per attivare eventi specifici quando in uno dei repository del registro si verificano determinate azioni. I webhook possono rispondere agli eventi a livello di registro oppure possono essere limitati a un tag di repository specifico.
 
-Per informazioni dettagliate sulle richieste di webhook, vedere le [informazioni di riferimento sullo schema del webhook del registro contenitori di Azure](container-registry-webhook-reference.md).
+Per informazioni dettagliate sulle richieste di webhook, vedere le [informazioni di riferimento sullo schema del webhook di Registro Azure Container](container-registry-webhook-reference.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Registro di contenitori di Azure: creare un registro di contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
+* Registro contenitori di Azure: creare un registro contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
 * Interfaccia della riga di comando di Docker: per configurare il computer locale come host Docker e accedere ai comandi della riga di comando di Docker, installare [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## <a name="create-webhook-azure-portal"></a>Creare un webhook tramite il portale di Azure
@@ -96,12 +96,12 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ### <a name="webhook-schema-reference"></a>Informazioni di riferimento per lo schema di webhook
 
-Per informazioni dettagliate sul formato e sulle proprietà dei payload degli eventi JSON generati dal Registro contenitori di Azure, vedere le informazioni di riferimento per lo schema di webhook:
+Per informazioni dettagliate sul formato e sulle proprietà dei payload degli eventi JSON generati da Registro Azure Container, vedere le informazioni di riferimento per lo schema di webhook:
 
 [Informazioni di riferimento sullo schema del webhook del registro contenitori di Azure](container-registry-webhook-reference.md)
 
 ### <a name="event-grid-events"></a>Eventi di Griglia di eventi
 
-Oltre agli eventi di webhook del registro nativo descritti in questo articolo, Registro contenitori di Azure può trasmettere eventi a Griglia di eventi:
+Oltre agli eventi di webhook del registro nativo descritti in questo articolo, Registro Azure Container può trasmettere eventi a Griglia di eventi:
 
 [Guida introduttiva: inviare eventi del registro contenitori a Griglia di eventi ](container-registry-event-grid-quickstart.md)

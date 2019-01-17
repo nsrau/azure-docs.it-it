@@ -55,7 +55,7 @@ sections:
       image:
         src: /learn/achievements/run-docker-with-azure-container-instances.svg
         href: /learn/modules/run-docker-with-azure-container-instances/
-    - title: Compilare e archiviare immagini del contenitore con il Registro contenitori di Azure
+    - title: Compilare e archiviare immagini del contenitore con Registro Azure Container
       href: /learn/modules/build-and-store-container-images/
       image:
         src: /learn/achievements/build-and-store-container-images.svg

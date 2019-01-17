@@ -16,33 +16,45 @@ items:
   - name: Gestire una VM Linux
     href: /azure/virtual-machines/linux/ansible-manage-linux-vm
     maintainContext: true
+  - name: Eseguire un playbook in Cloud Shell
+    href: ./ansible-run-playbook-in-cloudshell.md
   expanded: true
 - name: Esercitazioni
   items:
-  - name: Eseguire un playbook in Cloud Shell
-    href: ./ansible-run-playbook-in-cloudshell.md
-    maintainContext: true
-  - name: Gestire gli inventari dinamici
-    href: ./ansible-manage-azure-dynamic-inventories.md
-    maintainContext: true
-  - name: Creare e configurare VMSS
-    href: ./ansible-create-configure-vmss.md
-  - name: Distribuire app in VMSS
-    href: ./ansible-deploy-app-vmss.md
-  - name: Ridimensionare automaticamente i set di scalabilità di macchine virtuale
-    href: ./ansible-auto-scale-vmss.md
-  - name: Creare e configurare cluster di AKS
-    href: ./ansible-create-configure-aks.md
-  - name: Creare e configurare il gateway applicazione di Azure
-    href: ./ansible-create-configure-application-gateway.md
-  - name: Creare e configurare Database di Azure per MySQL
-    href: ./ansible-create-configure-mysql.md
-  - name: Creare e configurare app Web di Azure
-    href: ./ansible-create-configure-azure-web-apps.md
-  - name: Ridimensionare app Web di Azure
-    href: ./ansible-scale-azure-web-apps.md
-  - name: Creare e configurare tabelle di route
-    href: ./ansible-create-configure-route-table.md
+  - name: Servizio contenitore di Azure
+    items:
+    - name: Creare e configurare cluster di AKS
+      href: ./ansible-create-configure-aks.md
+  - name: Servizio app
+    items:
+    - name: Creare e configurare app Web di Azure
+      href: ./ansible-create-configure-azure-web-apps.md
+    - name: Ridimensionare app Web di Azure
+      href: ./ansible-scale-azure-web-apps.md
+  - name: Gateway applicazione
+    items:
+    - name: Creare e configurare il gateway applicazione di Azure
+      href: ./ansible-create-configure-application-gateway.md
+  - name: Database
+    items:
+    - name: Creare e configurare Database di Azure per MySQL
+      href: ./ansible-create-configure-mysql.md
+  - name: Inventario dinamico
+    items:
+    - name: Gestire gli inventari dinamici
+      href: ./ansible-manage-azure-dynamic-inventories.md
+  - name: Rete virtuale
+    items:
+    - name: Creare e configurare tabelle di route
+      href: ./ansible-create-configure-route-table.md
+  - name: VMSS
+    items:
+    - name: Creare e configurare VMSS
+      href: ./ansible-create-configure-vmss.md
+    - name: Distribuire app in VMSS
+      href: ./ansible-deploy-app-vmss.md
+    - name: Ridimensionare automaticamente i set di scalabilità di macchine virtuale
+      href: ./ansible-auto-scale-vmss.md
 - name: Informazioni di riferimento
   items:
   - name: Ruoli dei playbook
@@ -67,9 +79,9 @@ items:
   items:
   - name: Estensione Visual Studio Code per Ansible
     href: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible
-ms.openlocfilehash: a54936953aa812cbe943394b9d083d8957f770ae
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 914987ee58a2ba09295d425c2107ba7eb192c131
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789841"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359239"

@@ -81,7 +81,7 @@ In questa sezione si segue questa procedura:
 
 - Usare l'interfaccia della riga di comando di Azure 2.0 per creare un cluster Kubernetes gestito.
 - Informazioni su come configurare un cluster usando lo script di installazione o manualmente.
-- Creare un’istanza del servizio di registro contenitori di Azure.
+- Creare un’istanza del servizio di Registro Azure Container.
 
 ### <a name="use-the-azure-cli-20-to-create-a-managed-kubernetes-cluster"></a>Usare l'interfaccia della riga di comando di Azure 2.0 per creare un cluster Kubernetes gestito
 Per creare un cluster Kubernetes gestito con l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), assicurarsi di usare la versione dell'interfaccia della riga di comando di Azure 2.0.25 o successiva.

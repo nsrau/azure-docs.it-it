@@ -31,7 +31,7 @@ Durante la distribuzione di un modello nel servizio Azure Machine Learning, il s
     2. Creare un Dockerfile, con un ambiente Python basato sulle dipendenze specificate nel file YAML di ambiente.
     3. Aggiungere i file di modello e lo script di assegnazione dei punteggi fornito nel Dockerfile.
     4. Creare una nuova immagine Docker usando il Dockerfile.
-    5. Registrare l'immagine Docker con il Registro contenitori di Azure associato all'area di lavoro.
+    5. Registrare l'immagine Docker con il Registro Azure Container associato all'area di lavoro.
 
 3. Distribuire l'immagine Docker al servizio Istanze di Azure Container o Azure Kubernetes.
 

@@ -48,7 +48,7 @@ items:
       href: container-instances-vnet.md
     - name: Distribuire con risorse GPU (anteprima)
       href: container-instances-gpu.md
-    - name: Eseguire la distribuzione dal Registro contenitori di Azure
+    - name: Eseguire la distribuzione da Registro Azure Container
       href: container-instances-using-azure-container-registry.md
     - name: Impostare le variabili di ambiente (env)
       href: container-instances-environment-variables.md

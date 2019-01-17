@@ -191,9 +191,9 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ```
 
 
-### <a name="prefetch-images-from-a-private-container-registry"></a>Prelettura delle immagini da un registro di sistema del contenitore privato
+### <a name="prefetch-images-from-a-private-container-registry"></a>Prelettura delle immagini da un contenitori privato
 
-È anche possibile eseguire la prelettura delle immagini del contenitore eseguendo l'autenticazione a un server del registro di sistema del contenitore privato. Nell'esempio seguente gli oggetti `ContainerConfiguration` e `VirtualMachineConfiguration` eseguono la prelettura di un'immagine privata di TensorFlow dal Registro contenitori di Azure privato. Il riferimento all'immagine è lo stesso dell'esempio precedente.
+È anche possibile eseguire la prelettura delle immagini del contenitore eseguendo l'autenticazione a un server del registro contenitori privato. Nell'esempio seguente gli oggetti `ContainerConfiguration` e `VirtualMachineConfiguration` eseguono la prelettura di un'immagine privata di TensorFlow da un registro contenitori di Azure privato. Il riferimento all'immagine è lo stesso dell'esempio precedente.
 
 ```csharp
 // Specify a container registry

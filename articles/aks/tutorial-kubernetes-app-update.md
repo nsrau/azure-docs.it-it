@@ -24,7 +24,7 @@ In questa esercitazione, parte sei di sette, viene aggiornata l'app Azure Vote d
 > [!div class="checklist"]
 > * Aggiornare il codice dell'applicazione front-end
 > * Creare un'immagine del contenitore aggiornata
-> * Eseguire il push dell'immagine del contenitore in Registro contenitori di Azure
+> * Eseguire il push dell'immagine del contenitore in Registro Azure Container
 > * Distribuire un'immagine del contenitore aggiornata
 
 ## <a name="before-you-begin"></a>Prima di iniziare
@@ -154,7 +154,7 @@ In questa esercitazione è stata aggiornata un'applicazione e l'aggiornamento è
 > [!div class="checklist"]
 > * Aggiornare il codice dell'applicazione front-end
 > * Creare un'immagine del contenitore aggiornata
-> * Eseguire il push dell'immagine del contenitore in Registro contenitori di Azure
+> * Eseguire il push dell'immagine del contenitore in Registro Azure Container
 > * Distribuire un'immagine del contenitore aggiornata
 
 Passare all'esercitazione successiva per informazioni su come aggiornare un cluster servizio Azure Kubernetes a una nuova versione di Kubernetes.

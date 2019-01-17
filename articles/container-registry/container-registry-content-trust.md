@@ -1,6 +1,6 @@
 ---
-title: Attendibilità dei contenuti in Registro contenitori di Azure
-description: Informazioni su come abilitare l'attendibilità dei contenuti per Registro contenitori di Azure ed eseguire il push e il pull di immagini firmate.
+title: Attendibilità dei contenuti in Registro Azure Container
+description: Informazioni su come abilitare l'attendibilità dei contenuti per Registro Azure Container ed eseguire il push e il pull di immagini firmate.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/01/2018
 ms.locfileid: "52727342"
 ---
-# <a name="content-trust-in-azure-container-registry"></a>Attendibilità dei contenuti in Registro contenitori di Azure
+# <a name="content-trust-in-azure-container-registry"></a>Attendibilità dei contenuti in Registro Azure Container
 
-Per ogni sistema distribuito progettato con particolare attenzione alla sicurezza, è importante verificare sia l'*origine* che l'*integrità* dei dati in ingresso nel sistema. I consumer dei dati devono poter verificare l'editore (origine) dei dati, nonché assicurarsi che i dati non siano stati modificati dopo la pubblicazione (integrità). Registro contenitori di Azure supporta entrambe le operazioni grazie all'implementazione del modello di [attendibilità dei contenuti][docker-content-trust] Docker e questo articolo fornisce le informazioni introduttive.
+Per ogni sistema distribuito progettato con particolare attenzione alla sicurezza, è importante verificare sia l'*origine* che l'*integrità* dei dati in ingresso nel sistema. I consumer dei dati devono poter verificare l'editore (origine) dei dati, nonché assicurarsi che i dati non siano stati modificati dopo la pubblicazione (integrità). Registro Azure Container supporta entrambe le operazioni grazie all'implementazione del modello di [attendibilità dei contenuti][docker-content-trust] Docker e questo articolo fornisce le informazioni introduttive.
 
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
@@ -91,7 +91,7 @@ Per concedere le autorizzazioni di firma a un utente con l'interfaccia della rig
 az role assignment create --scope <registry ID> --role AcrImageSigner --assignee <user name>
 ```
 
-Per concedere, ad esempio, il ruolo a se stessi, è possibile eseguire i comandi seguenti in una sessione dell'interfaccia della riga di comando di Azure autenticata. Modificare il valore di `REGISTRY` in base al nome di Registro contenitori di Azure.
+Per concedere, ad esempio, il ruolo a se stessi, è possibile eseguire i comandi seguenti in una sessione dell'interfaccia della riga di comando di Azure autenticata. Modificare il valore di `REGISTRY` in base al nome di Registro Azure Container.
 
 ```bash
 # Grant signing permissions to authenticated Azure CLI user
@@ -108,7 +108,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee <service principal ID>
 ```
 
-Il valore di `<service principal ID>` può corrispondere a **appId** o **objectId** dell'entità servizio oppure a uno dei relativi valori **servicePrincipalNames**. Per altre informazioni sull'uso di entità servizio e Registro contenitori di Azure, vedere [Autenticazione al Registro contenitori di Azure con entità servizio](container-registry-auth-service-principal.md).
+Il valore di `<service principal ID>` può corrispondere a **appId** o **objectId** dell'entità servizio oppure a uno dei relativi valori **servicePrincipalNames**. Per altre informazioni sull'uso di entità servizio e Registro Azure Container, vedere [Autenticazione al Registro Azure Container con entità servizio](container-registry-auth-service-principal.md).
 
 ## <a name="push-a-trusted-image"></a>Eseguire il push di un'immagine attendibile
 
@@ -159,7 +159,7 @@ No valid trust data for unsigned
 
 ### <a name="behind-the-scenes"></a>Dietro le quinte
 
-Quando si esegue `docker pull`, il client Docker usa la stessa libreria dell'[interfaccia della riga di comando Notary][docker-notary-cli] per richiedere il mapping del digest da tag a SHA-256 per il tag di cui si esegue il pull. Dopo aver verificato le firme nei dati attendibili, il client comunica al motore Docker di eseguire un "pull in base al digest". Durante il pull, il motore usa il checksum SHA-256 come indirizzo dei contenuti per richiedere e convalidare il manifesto dell'immagine da Registro contenitori di Azure.
+Quando si esegue `docker pull`, il client Docker usa la stessa libreria dell'[interfaccia della riga di comando Notary][docker-notary-cli] per richiedere il mapping del digest da tag a SHA-256 per il tag di cui si esegue il pull. Dopo aver verificato le firme nei dati attendibili, il client comunica al motore Docker di eseguire un "pull in base al digest". Durante il pull, il motore usa il checksum SHA-256 come indirizzo dei contenuti per richiedere e convalidare il manifesto dell'immagine da Registro Azure Container.
 
 ## <a name="key-management"></a>Gestione della chiave
 
@@ -175,14 +175,14 @@ Eseguire il backup delle chiavi radice e del repository comprimendole in un arch
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
 ```
 
-Insieme alle chiavi radice e del repository generate in locale ne vengono generate e archiviate anche altre da Registro contenitori di Azure quando si esegue il push di un'immagine attendibile. Per informazioni dettagliate sulle diverse chiavi nell'implementazione dell'attendibilità dei contenuti di Docker, incluse indicazioni aggiuntive sulla gestione, vedere [Manage keys for content trust][docker-manage-keys] (Gestire le chiavi per l'attendibilità dei contenuti) nella documentazione di Docker.
+Insieme alle chiavi radice e del repository generate in locale ne vengono generate e archiviate anche altre da Registro Azure Container quando si esegue il push di un'immagine attendibile. Per informazioni dettagliate sulle diverse chiavi nell'implementazione dell'attendibilità dei contenuti di Docker, incluse indicazioni aggiuntive sulla gestione, vedere [Manage keys for content trust][docker-manage-keys] (Gestire le chiavi per l'attendibilità dei contenuti) nella documentazione di Docker.
 
 ### <a name="lost-root-key"></a>Chiave radice persa
 
-Se si perde l'accesso alla chiave radice, si perde l'accesso ai tag firmati in tutti i repository in cui i tag sono stati firmati con tale chiave. Registro contenitori di Azure non è in grado di ripristinare l'accesso ai tag delle immagini firmati con una chiave radice persa. Per rimuovere tutti i dati di attendibilità (firme) per il registro, disabilitare e quindi abilitare di nuovo l'attendibilità dei contenuti per il registro.
+Se si perde l'accesso alla chiave radice, si perde l'accesso ai tag firmati in tutti i repository in cui i tag sono stati firmati con tale chiave. Registro Azure Container non è in grado di ripristinare l'accesso ai tag delle immagini firmati con una chiave radice persa. Per rimuovere tutti i dati di attendibilità (firme) per il registro, disabilitare e quindi abilitare di nuovo l'attendibilità dei contenuti per il registro.
 
 > [!WARNING]
-> Disabilitando e quindi abilitando di nuovo l'attendibilità dei contenuti nel registro **vengono eliminati tutti i dati di attendibilità per tutti i tag firmati in ogni repository nel registro**. Questa azione è irreversibile e Registro contenitori di Azure non può ripristinare i dati di attendibilità eliminati. La disabilitazione dell'attendibilità dei contenuti non elimina le immagini stesse.
+> Disabilitando e quindi abilitando di nuovo l'attendibilità dei contenuti nel registro **vengono eliminati tutti i dati di attendibilità per tutti i tag firmati in ogni repository nel registro**. Questa azione è irreversibile e Registro Azure Container non può ripristinare i dati di attendibilità eliminati. La disabilitazione dell'attendibilità dei contenuti non elimina le immagini stesse.
 
 Per disabilitare l'attendibilità dei contenuti per il registro, passare al registro nel portale di Azure. In **CRITERI** selezionare **Attendibilità dei contenuti (anteprima)** > **Disabilitata** > **Salva**. Verrà visualizzato un avviso relativo alla perdita di tutte le firme nel registro. Selezionare **OK** per eliminare in modo permanente tutte le firme nel registro.
 

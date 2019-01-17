@@ -20,13 +20,13 @@ ms.locfileid: "52996339"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-In questo articolo viene illustrato l'uso del Registro contenitori di Azure con un cluster del controller di dominio/sistema operativo. L'uso del record di controllo di accesso consente di archiviare privatamente e di gestire le immagini del contenitore. Questa esercitazione illustra le attività seguenti:
+In questo articolo viene illustrato l'uso di Registro Azure Container con un cluster del controller di dominio/sistema operativo. L'uso del record di controllo di accesso consente di archiviare privatamente e di gestire le immagini del contenitore. Questa esercitazione illustra le attività seguenti:
 
 > [!div class="checklist"]
-> * Distribuire il Registro contenitori di Azure (se necessario)
+> * Distribuire il Registro Azure Container (se necessario)
 > * Configurare l'autenticazione del record di controllo di accesso in un cluster del controller di dominio/sistema operativo
-> * Caricare un'immagine nel Registro contenitori di Azure
-> * Eseguire un'immagine del contenitore dal Registro contenitori di Azure
+> * Caricare un'immagine in Registro Azure Container
+> * Eseguire un'immagine del contenitore da Registro Azure Container
 
 È necessario un cluster del controller di dominio/sistema operativo del servizio contenitore di Azure per completare i passaggi in questa esercitazione. Se necessario, questo [script di esempio](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) può crearne uno appositamente.
 
@@ -34,7 +34,7 @@ Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-azure-container-registry"></a>Distribuire il Registro contenitori di Azure
+## <a name="deploy-azure-container-registry"></a>Distribuire Registro Azure Container
 
 Se necessario, creare un'istanza di Registro Azure Container con il comando [az acr create](/cli/azure/acr#az-acr-create). 
 
@@ -73,7 +73,7 @@ Ottenere le credenziali del registro contenitori tramite il comando [az acr cred
 az acr credential show --name myContainerRegistry23489
 ```
 
-Per altre informazioni sul Registro contenitori di Azure, vedere [Introduzione ai registri per contenitori Docker privati](../../container-registry/container-registry-intro.md). 
+Per altre informazioni sul Registro Azure Container, vedere [Introduzione ai registri per contenitori Docker privati](../../container-registry/container-registry-intro.md). 
 
 ## <a name="manage-acr-authentication"></a>Gestire l'autenticazione del record di controllo di accesso
 
@@ -97,7 +97,7 @@ Creare un collegamento SSH con il master (o il primo master) del cluster basato 
 ssh azureuser@$FQDN
 ```
 
-Eseguire il comando seguente per l'accesso al Registro contenitori di Azure. Sostituire `--username` con il nome del registro contenitori e `--password` con una delle password fornite. Sostituire l'ultimo argomento *mycontainerregistry.azurecr.io* nell'esempio con il nome loginServer del registro contenitori. 
+Eseguire il comando seguente per l'accesso al Registro Azure Container. Sostituire `--username` con il nome del registro contenitori e `--password` con una delle password fornite. Sostituire l'ultimo argomento *mycontainerregistry.azurecr.io* nell'esempio con il nome loginServer del registro contenitori. 
 
 Questo comando archivia i valori di autenticazione in locale nel percorso `~/.docker`.
 
@@ -119,7 +119,7 @@ cp docker.tar.gz /mnt/share/dcosshare
 
 ## <a name="upload-image-to-acr"></a>Caricare un'immagine nel record di controllo di accesso
 
-A questo punto, da un computer di sviluppo o da qualsiasi altro sistema con Docker installato, creare un'immagine e caricarla nel Registro contenitori di Azure.
+A questo punto, da un computer di sviluppo o da qualsiasi altro sistema con Docker installato, creare un'immagine e caricarla in Registro Azure Container.
 
 Creare un contenitore dall'immagine Ubuntu.
 
@@ -133,7 +133,7 @@ Ora è possibile acquisire il contenitore in una nuova immagine. È necessario c
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
 ````
 
-Accedere al Registro contenitori di Azure. Sostituire il nome con il nome loginServer, --username con il nome del registro contenitori, e -- password con una delle password fornite.
+Accedere al Registro Azure Container. Sostituire il nome con il nome loginServer, --username con il nome del registro contenitori, e -- password con una delle password fornite.
 
 ```azurecli-interactive
 docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
@@ -195,10 +195,10 @@ dcos marathon app add acrDemo.json
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è necessario configurare il controller di dominio/sistema operativo per usare il Registro contenitori di Azure che comprende le seguenti attività:
+In questa esercitazione è necessario configurare il controller di dominio/sistema operativo per usare Registro Azure Container che comprende le seguenti attività:
 
 > [!div class="checklist"]
-> * Distribuire il Registro contenitori di Azure (se necessario)
+> * Distribuire il Registro Azure Container (se necessario)
 > * Configurare l'autenticazione del record di controllo di accesso in un cluster del controller di dominio/sistema operativo
-> * Caricare un'immagine nel Registro contenitori di Azure
-> * Eseguire un'immagine del contenitore dal Registro contenitori di Azure
+> * Caricare un'immagine in Registro Azure Container
+> * Eseguire un'immagine del contenitore da Registro Azure Container

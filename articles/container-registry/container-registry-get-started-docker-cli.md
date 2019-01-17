@@ -1,6 +1,6 @@
 ---
 title: Effettuare il push di un'immagine Docker in un registro contenitori di Azure privato
-description: Effettuare il push e il pull di immagini Docker in un registro di contenitori privati in Azure tramite l'interfaccia della riga di comando di Docker
+description: Effettuare il push e il pull di immagini Docker in un registro contenitori privato in Azure tramite l'interfaccia della riga di comando di Docker
 services: container-registry
 author: stevelas
 manager: jeconnoc
@@ -16,11 +16,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2018
 ms.locfileid: "53260583"
 ---
-# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro per contenitori Docker privati tramite l'interfaccia della riga di comando di Docker
+# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro contenitori Docker privato tramite l'interfaccia della riga di comando di Docker
 
-Un registro di contenitori di Azure archivia e gestisce le immagini dei contenitori [Docker](http://hub.docker.com) private, in modo analogo a come [Docker Hub](https://hub.docker.com/) archivia le immagini Docker pubbliche. È possibile usare l'[interfaccia della riga di comando di Docker](https://docs.docker.com/engine/reference/commandline/cli/) per eseguire l'[accesso](https://docs.docker.com/engine/reference/commandline/login/), il [push](https://docs.docker.com/engine/reference/commandline/push/), il [pull](https://docs.docker.com/engine/reference/commandline/pull/) e altre operazioni sul registro di contenitori.
+Un registro di contenitori di Azure archivia e gestisce le immagini dei contenitori [Docker](http://hub.docker.com) private, in modo analogo a come [Docker Hub](https://hub.docker.com/) archivia le immagini Docker pubbliche. È possibile usare l'[interfaccia della riga di comando di Docker](https://docs.docker.com/engine/reference/commandline/cli/) per eseguire l'[accesso](https://docs.docker.com/engine/reference/commandline/login/), il [push](https://docs.docker.com/engine/reference/commandline/push/), il [pull](https://docs.docker.com/engine/reference/commandline/pull/) e altre operazioni sul registro contenitori.
 
-La procedura seguente esegue il download di un'[immagine di Nginx](https://store.docker.com/images/nginx) ufficiale dal registro pubblico di Docker Hub, la contrassegna per il registro di contenitori di Azure privato, ne effettua il push nel registro e quindi ne effettua il pull dal registro.
+La procedura seguente esegue il download di un'[immagine di Nginx](https://store.docker.com/images/nginx) ufficiale dal registro pubblico di Docker Hub, la contrassegna per il registro contenitori di Azure privato, ne effettua il push nel registro e quindi ne effettua il pull dal registro.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -78,7 +78,7 @@ Usare [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) pe
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
-Per altre informazioni sull'assegnazione di tag con spazi dei nomi, vedere la sezione [Spazi dei nomi dell'archivio](container-registry-best-practices.md#repository-namespaces) nell'argomento [Procedure consigliate per il Registro contenitori di Azure](container-registry-best-practices.md).
+Per altre informazioni sull'assegnazione di tag con spazi dei nomi, vedere la sezione [Spazi dei nomi dell'archivio](container-registry-best-practices.md#repository-namespaces) nell'argomento [Procedure consigliate per Registro Azure Container](container-registry-best-practices.md).
 
 ## <a name="push-the-image-to-your-registry"></a>Eseguire il push dell'immagine nel registro
 

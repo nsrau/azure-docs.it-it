@@ -71,7 +71,7 @@ echo "Service principal password: $SP_PASSWD"
 
 Le credenziali dell'entità servizio possono ora essere archiviate in un [segreto per il pull delle immagini][image-pull-secret] Kubernetes a cui il cluster servizio Azure Kubernetes farà riferimento durante l'esecuzione di contenitori.
 
-Usare il comando **kubectl** seguente per creare un segreto Kubernetes. Sostituire `<acr-login-server>` con il nome completo del registro contenitori di Azure (con formato "acrname.azurecr.io"). Sostituire `<service-principal-ID>` e `<service-principal-password>` con i valori ottenuti dall'esecuzione dello script precedente. Sostituire `<email-address>` con qualsiasi indirizzo di posta elettronica valido.
+Usare il comando **kubectl** seguente per creare un segreto Kubernetes. Sostituire `<acr-login-server>` con il nome completo di Registro Azure Container (con formato "acrname.azurecr.io"). Sostituire `<service-principal-ID>` e `<service-principal-password>` con i valori ottenuti dall'esecuzione dello script precedente. Sostituire `<email-address>` con qualsiasi indirizzo di posta elettronica valido.
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>

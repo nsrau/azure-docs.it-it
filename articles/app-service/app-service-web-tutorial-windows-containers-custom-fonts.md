@@ -23,7 +23,7 @@ ms.locfileid: "53601645"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Eseguire la migrazione di un'app ASP.NET in Servizio app di Azure usando un contenitore Windows (anteprima)
 
-Il [servizio app di Azure](overview.md) offre stack di applicazioni predefiniti in Windows, ad esempio ASP.NET o Node.js, eseguiti in IIS. L'ambiente Windows preconfigurato blocca il sistema operativo impedendo l'accesso amministrativo, le installazioni di software, le modifiche alla Global Assembly Cache e così via (vedere [Funzionalità del sistema operativo in Servizio app di Azure](operating-system-functionality.md)). Tuttavia, usando un contenitore Windows personalizzato nel servizio app è possibile apportare le modifiche del sistema operativo necessarie per l'app, per poter eseguire in modo semplice la migrazione di un'app locale che richiede una configurazione personalizzata di software e sistema operativo. Questa esercitazione illustra come eseguire la migrazione al servizio app di un'app ASP.NET che usa tipi di carattere personalizzati installati nella libreria dei tipi di carattere Windows. Si distribuisce un'immagine Windows configurata in modo personalizzato da Visual Studio a [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e quindi la si esegue nel servizio app.
+Il [servizio app di Azure](overview.md) offre stack di applicazioni predefiniti in Windows, ad esempio ASP.NET o Node.js, eseguiti in IIS. L'ambiente Windows preconfigurato blocca il sistema operativo impedendo l'accesso amministrativo, le installazioni di software, le modifiche alla Global Assembly Cache e così via (vedere [Funzionalità del sistema operativo in Servizio app di Azure](operating-system-functionality.md)). Tuttavia, usando un contenitore Windows personalizzato nel servizio app è possibile apportare le modifiche del sistema operativo necessarie per l'app, per poter eseguire in modo semplice la migrazione di un'app locale che richiede una configurazione personalizzata di software e sistema operativo. Questa esercitazione illustra come eseguire la migrazione al servizio app di un'app ASP.NET che usa tipi di carattere personalizzati installati nella libreria dei tipi di carattere Windows. Si distribuisce un'immagine Windows configurata in modo personalizzato da Visual Studio a [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/) e quindi la si esegue nel servizio app.
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
@@ -91,9 +91,9 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 
 _InstallFont.ps1_ è disponibile nel progetto **CustomFontSample**. Si tratta di un semplice script che installa il tipo di carattere. Una versione più complessa dello script è disponibile in [Script Center](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
 
-## <a name="publish-to-azure-container-registry"></a>Eseguire la pubblicazione in Registro contenitori di Azure
+## <a name="publish-to-azure-container-registry"></a>Eseguire la pubblicazione in Registro Azure Container
 
-[Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) consente di archiviare le immagini per le distribuzioni di contenitori. È possibile configurare il servizio app per usare le immagini ospitate in Registro contenitori di Azure.
+[Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) consente di archiviare le immagini per le distribuzioni di contenitori. È possibile configurare il servizio app per usare le immagini ospitate in Registro Azure Container.
 
 ### <a name="open-publish-wizard"></a>Aprire la pubblicazione guidata
 
@@ -103,13 +103,13 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **C
 
 ### <a name="create-registry-and-publish"></a>Creare il registro ed eseguire la pubblicazione
 
-Nella pubblicazione guidata selezionare **Registro contenitori** > **Crea nuovo registro contenitori di Azure** > **Pubblica**.
+Nella pubblicazione guidata selezionare **Registro contenitori** > **Crea nuovo Registro Azure Container** > **Pubblica**.
 
 ![Finestra di dialogo Nuovo progetto ASP.NET](media/app-service-web-tutorial-windows-containers-custom-fonts/create-registry.png)
 
 ### <a name="sign-in-with-azure-account"></a>Accedere con l'account di Azure
 
-Nella finestra di dialogo **Crea un nuovo registro contenitori di Azure** selezionare **Aggiungi un account** e accedere alla sottoscrizione di Azure. Se è già stato eseguito l'accesso, selezionare l'account contenente la sottoscrizione desiderata dall'elenco a discesa.
+Nella finestra di dialogo **Crea un nuovo Registro Azure Container** selezionare **Aggiungi un account** e accedere alla sottoscrizione di Azure. Se è già stato eseguito l'accesso, selezionare l'account contenente la sottoscrizione desiderata dall'elenco a discesa.
 
 ![Accedere ad Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/add-an-account.png)
 
@@ -124,7 +124,7 @@ Configurare il nuovo registro contenitori in base ai valori suggeriti nella tabe
 |**SKU**| Basic | [Piani tariffari](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Percorso del registro**| Europa occidentale | |
 
-![Configurare il registro contenitori di Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
+![Configurare il Registro Azure Container](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
 
 Verrà aperta una finestra del terminale in cui viene visualizzato l'avanzamento della distribuzione dell'immagine. Attendere il completamento della distribuzione.
 
@@ -154,7 +154,7 @@ Fare clic su **Piano di servizio app/Località** > **Crea nuovo**. Assegnare un 
 
 ### <a name="configure-container"></a>Configurare il contenitore
 
-Fare clic su **Configura contenitore** > **Registro contenitori di Azure**. Selezionare il registro, l'immagine e il tag creati in precedenza in [Eseguire la pubblicazione in Registro contenitori di Azure](#publish-to-azure-container-registry) e fare clic su **OK**.
+Fare clic su **Configura contenitore** > **Registro Azure Container**. Selezionare il registro, l'immagine e il tag creati in precedenza in [Eseguire la pubblicazione in Registro Azure Container](#publish-to-azure-container-registry) e fare clic su **OK**.
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-container.png)
 

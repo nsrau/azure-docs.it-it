@@ -30,14 +30,14 @@ In questa esercitazione, parte sei di sette, viene aggiornata l'app Azure Vote d
 > [!div class="checklist"]
 > * Aggiornamento del codice dell'applicazione front-end
 > * Creazione di un'immagine del contenitore aggiornata
-> * Push dell'immagine del contenitore in Registro contenitori di Azure
+> * Push dell'immagine del contenitore in Registro Azure Container
 > * Distribuzione di un'immagine del contenitore aggiornata
 
 Nelle esercitazioni successive viene configurato Log Analytics per il monitoraggio del cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in un'immagine del contenitore, caricata poi in Registro contenitori di Azure, ed è stato creato un cluster Kubernetes. L'applicazione è stata quindi eseguita nel cluster Kubernetes. 
+Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in un'immagine del contenitore, caricata poi in Registro Azure Container, ed è stato creato un cluster Kubernetes. L'applicazione è stata quindi eseguita nel cluster Kubernetes. 
 
 È stato clonato anche un repository di applicazione che include il codice sorgente dell'applicazione e un file Docker Compose creato in precedenza usato in questa esercitazione. Verificare che sia stato creato un clone del repository e che si abbia cambiato le directory nella directory clonata. All'interno si trova una directory denominata `azure-vote` e un file denominato `docker-compose.yml`.
 
@@ -89,13 +89,13 @@ Ottenere il nome del server di accesso con il comando [az acr list](/cli/azure/a
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Usare [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) per assegnare il tag all'immagine. Sostituire `<acrLoginServer>` con il nome di accesso del server del Registro contenitori di Azure o un nome host di un registro pubblico. Si noti anche che la versione dell'immagine viene aggiornata a `redis-v2`.
+Usare [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) per assegnare il tag all'immagine. Sostituire `<acrLoginServer>` con il nome di accesso del server di Registro Azure Container o un nome host di un registro pubblico. Si noti anche che la versione dell'immagine viene aggiornata a `redis-v2`.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Usare [docker push](https://docs.docker.com/engine/reference/commandline/push/) per caricare l'immagine nel registro. Sostituire `<acrLoginServer>` con il nome del server di accesso del Registro contenitori di Azure.
+Usare [docker push](https://docs.docker.com/engine/reference/commandline/push/) per caricare l'immagine nel registro. Sostituire `<acrLoginServer>` con il nome del server di accesso di Registro Azure Container.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:redis-v2
@@ -167,7 +167,7 @@ In questa esercitazione è stata aggiornata un'applicazione e l'aggiornamento è
 > [!div class="checklist"]
 > * Aggiornamento del codice dell'applicazione front-end
 > * Creazione di un'immagine del contenitore aggiornata
-> * Push dell'immagine del contenitore in Registro contenitori di Azure
+> * Push dell'immagine del contenitore in Registro Azure Container
 > * Distribuzione dell'applicazione aggiornata
 
 Passare alla prossima esercitazione per apprendere come monitorare Kubernetes con Log Analytics.

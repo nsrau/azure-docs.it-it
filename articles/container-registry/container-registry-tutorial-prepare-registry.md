@@ -39,11 +39,11 @@ Per completare questa esercitazione è necessaria un'installazione locale di Doc
 
 Azure Cloud Shell non include i componenti di Docker necessari per completare ogni passaggio di questa esercitazione. È quindi consigliabile un'installazione locale dell'ambiente di sviluppo dell'interfaccia della riga di comando di Azure e di Docker.
 
-## <a name="create-a-container-registry"></a>Creare un registro di contenitori
+## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
 Accedere al [portale di Azure](http://portal.azure.com).
 
-Selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori di Azure**.
+Selezionare **Crea una risorsa** > **Contenitori** > **Registro Azure Container**.
 
 ![Creazione di un registro contenitori con il portale di Azure][tut-portal-01]
 
@@ -99,7 +99,7 @@ Il comando restituisce `Login Succeeded` al termine dell'esecuzione.
 
 ## <a name="get-application-code"></a>Ottenere il codice dell'applicazione
 
-L'esempio in questa esercitazione include un'applicazione Web di piccole dimensioni creata con [ASP.NET Core][aspnet-core]. L'app usa una pagina HTML che visualizza l'area da cui l'immagine viene distribuita dal Registro contenitori di Azure.
+L'esempio in questa esercitazione include un'applicazione Web di piccole dimensioni creata con [ASP.NET Core][aspnet-core]. L'app usa una pagina HTML che visualizza l'area da cui l'immagine viene distribuita da Registro Azure Container.
 
 ![App dell'esercitazione visualizzata in un browser][tut-app-01]
 
@@ -201,7 +201,7 @@ uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a m
 [...]
 ```
 
-## <a name="push-image-to-azure-container-registry"></a>Eseguire il push dell'immagine in Registro contenitori di Azure
+## <a name="push-image-to-azure-container-registry"></a>Eseguire il push dell'immagine in Registro Azure Container
 
 Usare quindi il comando `docker push` per eseguire il push dell'immagine *acr-helloworld* nel registro. Sostituire `<acrName>` con il nome del registro.
 

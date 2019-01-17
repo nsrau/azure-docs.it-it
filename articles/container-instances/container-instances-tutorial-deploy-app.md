@@ -17,7 +17,7 @@ ms.locfileid: "53191101"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Esercitazione: Distribuire un'applicazione contenitore in Istanze di Azure Container
 
-Questa è l'ultima esercitazione di una serie in tre parti. Nelle parti precedenti della serie, [è stata creata un'immagine del contenitore](container-instances-tutorial-prepare-app.md) e ne è stato eseguito il [push in Registro contenitori di Azure](container-instances-tutorial-prepare-acr.md). Questo articolo completa la serie con la distribuzione del contenitore in Istanze di Azure Container.
+Questa è l'ultima esercitazione di una serie in tre parti. Nelle parti precedenti della serie, [è stata creata un'immagine del contenitore](container-instances-tutorial-prepare-app.md) e ne è stato eseguito il [push in Registro Azure Container](container-instances-tutorial-prepare-acr.md). Questo articolo completa la serie con la distribuzione del contenitore in Istanze di Azure Container.
 
 In questa esercitazione:
 
@@ -32,7 +32,7 @@ In questa esercitazione:
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Distribuire il contenitore tramite l'interfaccia della riga di comando di Azure
 
-In questa sezione si userà l'interfaccia della riga di comando di Azure per distribuire l'immagine che è stata creata nella [prima esercitazione](container-instances-tutorial-prepare-app.md) e di cui è stato eseguito il push in Registro contenitori di Azure nella [seconda esercitazione](container-instances-tutorial-prepare-acr.md). Prima di procedere, assicurarsi di aver completato tali esercitazioni.
+In questa sezione si userà l'interfaccia della riga di comando di Azure per distribuire l'immagine che è stata creata nella [prima esercitazione](container-instances-tutorial-prepare-app.md) e di cui è stato eseguito il push in Registro Azure Container nella [seconda esercitazione](container-instances-tutorial-prepare-acr.md). Prima di procedere, assicurarsi di aver completato tali esercitazioni.
 
 ### <a name="get-registry-credentials"></a>Ottenere le credenziali del registro
 
@@ -116,7 +116,7 @@ az group delete --name myResourceGroup
 In questa esercitazione è stato completato il processo di distribuzione del contenitore in Istanze di Azure Container. Sono stati completati i passaggi seguenti:
 
 > [!div class="checklist"]
-> * Il contenitore è stato distribuito da Registro contenitori di Azure con l'interfaccia della riga di comando di Azure
+> * Il contenitore è stato distribuito da Registro Azure Container con l'interfaccia della riga di comando di Azure
 > * L'applicazione è stata visualizzata nel browser
 > * I log del contenitore sono stati visualizzati
 

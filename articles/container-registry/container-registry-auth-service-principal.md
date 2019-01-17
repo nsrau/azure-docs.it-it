@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/22/2018
 ms.locfileid: "53754204"
 ---
-# <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticazione al Registro contenitori di Azure con entità servizio
+# <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticazione al Registro Azure Container con entità servizio
 
 È possibile usare un'entità servizio Azure Active Directory (Azure AD) per fornire l'accesso `docker push` e `pull` dell'immagine del contenitore al registro contenitori. Se si usa un'entità servizio, è possibile fornire l'accesso ai servizi e alle applicazioni "headless".
 

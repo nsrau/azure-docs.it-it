@@ -19,7 +19,7 @@ Questo articolo introduce considerazioni e indicazioni per la sicurezza dei cont
 
 ## <a name="image-security"></a>Sicurezza dell'immagine
 
-I contenitori sono costituiti da immagini archiviati in una o più repository. Queste repository possono appartenere a registri di contenitori pubblici o privati. Un esempio di registro pubblico è [Hub Docker](https://hub.docker.com/). Un esempio di un registro privato è il [registro attendibile Docker](https://docs.docker.com/datacenter/dtr/2.0/), che può essere installato in locale o in un cloud privato virtuale. Sono inoltre disponibili servizi del registro contenitori privato basato su cloud che include [Registro contenitori di Azure](../articles/container-registry/container-registry-intro.md).
+I contenitori sono costituiti da immagini archiviati in una o più repository. Queste repository possono appartenere a registri di contenitori pubblici o privati. Un esempio di registro pubblico è [Hub Docker](https://hub.docker.com/). Un esempio di un registro privato è il [registro attendibile Docker](https://docs.docker.com/datacenter/dtr/2.0/), che può essere installato in locale o in un cloud privato virtuale. Sono inoltre disponibili servizi del registro contenitori privato basato su cloud che include [Registro Azure Container](../articles/container-registry/container-registry-intro.md).
 
 ### <a name="public-and-private-images"></a>Immagini pubbliche e private
 In generale, come con qualsiasi pacchetto software pubblicato, un'immagine del contenitore pubblica non garantisce la sicurezza. Le immagini del contenitore sono costituite da più livelli di software e ogni livello di software potrebbe avere vulnerabilità. È importante comprendere l'origine dell'immagine del contenitore, tra cui il proprietario dell'immagine (per stabilire se è una fonte attendibile o meno), i livelli di software da cui è costituita e le versioni del software. 
@@ -28,7 +28,7 @@ Ad esempio, se si passa alla [repository nginx](https://hub.docker.com/_/nginx/)
 
 ![Immagini di nginx in Hub Docker](./media/container-service-security/docker-hub-nginx.png)
 
-Le aziende sono molto interessate alla sicurezza e per proteggersi da attacchi alla sicurezza devono archiviare e recuperare le immagini da un registro privato, ad esempio del Registro contenitori di Azure o del Registro attendibile Docker. Oltre a garantire un registro privato gestito, il Registro contenitori di Azure supporta [l'autenticazione basata su entità servizio](../articles/container-registry/container-registry-authentication.md) tramite Azure Active Directory per i flussi di autenticazione di base, tra cui l'accesso basato sui ruoli per la sola lettura, la scrittura e le autorizzazioni del proprietario.
+Le aziende sono molto interessate alla sicurezza e per proteggersi da attacchi alla sicurezza devono archiviare e recuperare le immagini da un registro privato, ad esempio di Registro Azure Container o del Registro attendibile Docker. Oltre a garantire un registro privato gestito, Registro Azure Container supporta [l'autenticazione basata su entità servizio](../articles/container-registry/container-registry-authentication.md) tramite Azure Active Directory per i flussi di autenticazione di base, tra cui l'accesso basato sui ruoli per la sola lettura, la scrittura e le autorizzazioni del proprietario.
 
 ### <a name="image-security-scanning"></a>Analisi della sicurezza dell'immagine
 

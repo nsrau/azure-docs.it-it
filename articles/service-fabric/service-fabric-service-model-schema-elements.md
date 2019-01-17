@@ -3470,7 +3470,7 @@ Immagine del contenitore corrispondente al numero di versione della build del si
 
 <a id="ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType"></a>
 ## <a name="imagename-element"></a>Elemento ImageName
-Repository e immagine in https://hub.docker.com o nel Registro contenitori di Azure.
+Repository e immagine in https://hub.docker.com o in Registro Azure Container.
 
 |Attributo|Valore|
 |---|---|

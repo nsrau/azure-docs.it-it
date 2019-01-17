@@ -350,7 +350,7 @@ L'eseguibile specificato da EntryPoint è in genere l'host servizio a esecuzione
  Per altre informazioni, vedere [Elemento ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento ImageName
-Repository e immagine in https://hub.docker.com o nel Registro contenitori di Azure. Per altre informazioni, vedere [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+Repository e immagine in https://hub.docker.com o in Registro Azure Container. Per altre informazioni, vedere [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="environmentvariables-element"></a>Elemento EnvironmentVariables
 Passa le variabili di ambiente al contenitore o all'eseguibile.  Per altre informazioni, vedere [Elemento EnvironmentVariables](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -394,7 +394,7 @@ L'eseguibile specificato da EntryPoint è in genere l'host servizio a esecuzione
 Per altre informazioni, vedere [Elemento ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento ImageName
-Repository e immagine in https://hub.docker.com o nel Registro contenitori di Azure. Per altre informazioni, vedere [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+Repository e immagine in https://hub.docker.com o in Registro Azure Container. Per altre informazioni, vedere [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="commands-element"></a>Elemento Commands
 Passa un elenco di comandi delimitato da virgole al contenitore. Per altre informazioni, vedere [Elemento Commands](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)

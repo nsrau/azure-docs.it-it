@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Inviare eventi di Registro contenitori di Azure a Griglia di eventi'
+title: 'Guida introduttiva: Inviare eventi di Registro Azure Container a Griglia di eventi'
 description: In questa guida introduttiva si abilitano gli eventi di Griglia di eventi per il proprio registro contenitori e quindi si inviano gli eventi push e delete di un'immagine di contenitore a un'applicazione di esempio.
 services: container-registry
 author: dlepow
@@ -39,7 +39,7 @@ RESOURCE_GROUP_NAME=myResourceGroup
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
-## <a name="create-a-container-registry"></a>Creare un registro di contenitori
+## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
 Dopo aver creato il gruppo di risorse, distribuire un registro contenitori nel gruppo con i comandi seguenti. Prima di eseguire il comando [az acr create][az-acr-create], impostare `ACR_NAME` specificando un nome per il registro. Il nome del registro deve essere univoco in Azure e contenere un numero di caratteri alfanumerici compreso tra 5 e 50.
 
@@ -221,7 +221,7 @@ az group delete --name $RESOURCE_GROUP_NAME
 
 ## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
 
-È possibile trovare informazioni di riferimento sullo schema dei messaggi di evento di Registro contenitori di Azure nella documentazione relativa a Griglia di eventi:
+È possibile trovare informazioni di riferimento sullo schema dei messaggi di evento di Registro Azure Container nella documentazione relativa a Griglia di eventi:
 
 [Schema di eventi di Griglia di eventi di Azure per il Registro contenitori](../event-grid/event-schema-container-registry.md)
 

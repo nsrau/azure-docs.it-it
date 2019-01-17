@@ -55,13 +55,13 @@ Risorse per lo sviluppo:
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/). 
 
-## <a name="create-a-container-registry"></a>Creare un registro di contenitori
+## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
 In questa esercitazione vengono usati gli strumenti di Azure IoT per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo IoT Edge.  
 
-È possibile usare qualsiasi registro compatibile con Docker per inserire le immagini dei contenitori. Due servizi di registro Docker molto diffusi sono [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro contenitori di Azure. 
+È possibile usare qualsiasi registro compatibile con Docker per inserire le immagini dei contenitori. Due servizi di registro Docker molto diffusi sono [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro Azure Container. 
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori**.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro Container**.
 
     ![Creare un registro contenitori nel portale di Azure](./media/tutorial-deploy-function/create-container-registry.png)
 
@@ -98,7 +98,7 @@ Gli strumenti di Azure IoT per Visual Studio Code installati nei prerequisiti fo
    | Provide a solution name (Specificare un nome per la soluzione) | Immettere un nome descrittivo per la soluzione, ad esempio **FunctionSolution**, oppure accettare l'impostazione predefinita. |
    | Select module template (Selezionare un modello di modulo) | Scegliere **Azure Functions - C#** (Funzioni di Azure - C#). |
    | Provide a module name (Specificare un nome per il modulo) | Assegnare al modulo il nome **CSharpFunction**. |
-   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata dall'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso nel registro contenitori di Azure. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. La stringa finale è simile a \<nome registro\>.azurecr.io/CSharpFunction. |
+   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata dall'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. La stringa finale è simile a \<nome registro\>.azurecr.io/CSharpFunction. |
 
    ![Specificare il repository di immagini Docker](./media/tutorial-deploy-function/repository.png)
 
@@ -185,7 +185,7 @@ In questa sezione si forniscono due volte le credenziali per il registro conteni
 
 1. Aprire il terminale integrato di VS Code selezionando **Visualizza** > **Terminale**. 
 
-2. Accedere al registro contenitori immettendo il comando seguente nel terminale integrato. Usare il nome utente e il server di accesso copiati prima dal registro contenitori di Azure.
+2. Accedere al registro contenitori immettendo il comando seguente nel terminale integrato. Usare il nome utente e il server di accesso copiati prima da Registro Azure Container.
      
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -214,7 +214,7 @@ Quando si comunica a Visual Studio Code di compilare la soluzione, prima di tutt
 
 Visual Studio Code genera un messaggio di conferma quando viene eseguito il push dell'immagine del contenitore nel registro contenitori. Per verificare personalmente se l'operazione ha esito positivo, è possibile visualizzare l'immagine nel registro. 
 
-1. Nel portale di Azure passare al registro contenitori di Azure. 
+1. Nel portale di Azure passare al Registro Azure Container. 
 2. Selezionare **Repository**.
 3. Il repository **csharpfunction** dovrebbe essere visualizzato nell'elenco. Selezionare il repository per visualizzare altri dettagli.
 4. Nella sezione **Tag** dovrebbe essere visualizzato il tag **0.0.1-amd64**. Questo tag indica la versione e la piattaforma dell'immagine che è stata compilata. Questi valori sono impostati nel file module.json nella cartella CSharpFunction. 

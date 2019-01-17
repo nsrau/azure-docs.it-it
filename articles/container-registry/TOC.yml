@@ -1,17 +1,17 @@
 items:
-- name: Registro contenitori di Azure
+- name: Registro Azure Container
   href: ./index.yml
 - name: Panoramica
   items:
-  - name: Informazioni sul registro contenitori
+  - name: Informazioni su Registro Container
     href: container-registry-intro.md
 - name: Guide introduttive
   items:
-  - name: 'Registro contenitori: interfaccia della riga di comando'
+  - name: 'Registro Container: interfaccia della riga di comando'
     href: container-registry-get-started-azure-cli.md
-  - name: 'Registro contenitori: portale'
+  - name: 'Registro Container: portale'
     href: container-registry-get-started-portal.md
-  - name: 'Registro contenitori: PowerShell'
+  - name: 'Registro Container: PowerShell'
     href: container-registry-get-started-powershell.md
   - name: 'Eventi con Griglia di eventi: interfaccia della riga di comando'
     href: container-registry-event-grid-quickstart.md

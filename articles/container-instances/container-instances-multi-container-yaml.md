@@ -159,7 +159,7 @@ Per usare un registro privato di immagini di contenitori, includere il file YAML
     password: imageRegistryPassword
 ```
 
-Ad esempio, il file YAML seguente consente di distribuire un gruppo di contenitori con un singolo contenitore, la cui l'immagine viene recuperata tramite pull da un Registro contenitori di Azure privato denominato "myregistry":
+Ad esempio, il file YAML seguente consente di distribuire un gruppo di contenitori con un singolo contenitore, la cui l'immagine viene recuperata tramite pull da un registro contenitori di Azure privato denominato "myregistry":
 
 ```YAML
 apiVersion: 2018-06-01

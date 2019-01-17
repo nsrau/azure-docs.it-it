@@ -34,7 +34,7 @@ Nelle esercitazioni successive, l'applicazione Azure Vote viene distribuita nel 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nelle esercitazioni precedenti, un'immagine del contenitore è stata creata e caricata in un'istanza di Registro contenitori di Azure. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md) (Esercitazione 1: Creare immagini del contenitore).
+Nelle esercitazioni precedenti, un'immagine del contenitore è stata creata e caricata in un'istanza di Registro Azure Container. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md) (Esercitazione 1: Creare immagini del contenitore).
 
 ## <a name="create-kubernetes-cluster"></a>Creare un cluster Kubernetes
 

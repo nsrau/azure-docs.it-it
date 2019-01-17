@@ -118,7 +118,7 @@ items:
   - name: Monitoraggio di Azure
     tocHref: /azure/monitoring-and-diagnostics/
     topicHref: /azure/azure-monitor/
-  - name: Registro di sistema del contenitore
+  - name: Registro Container
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
   - name: Gestione costi

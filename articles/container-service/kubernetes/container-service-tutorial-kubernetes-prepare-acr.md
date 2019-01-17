@@ -23,7 +23,7 @@ ms.locfileid: "52998318"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-Registro Azure Container è un registro privato basato su Azure per le immagini del contenitore Docker. Questa esercitazione, parte due di sette, illustra la distribuzione di un'istanza di Registro contenitori di Azure e il push di un'immagine del contenitore al suo interno. I passaggi completati comprendono:
+Registro Azure Container è un registro privato basato su Azure per le immagini del contenitore Docker. Questa esercitazione, parte due di sette, illustra la distribuzione di un'istanza di Registro Azure Container e il push di un'immagine del contenitore al suo interno. I passaggi completati comprendono:
 
 > [!div class="checklist"]
 > * Distribuzione di un'istanza di Registro Azure Container
@@ -38,9 +38,9 @@ Nell'[esercitazione precedente](./container-service-tutorial-kubernetes-prepare-
 
 Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
-## <a name="deploy-azure-container-registry"></a>Distribuire il Registro contenitori di Azure
+## <a name="deploy-azure-container-registry"></a>Distribuire Registro Azure Container
 
-Prima di distribuire un Registro contenitori di Azure, è necessario che esista un gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+Prima di distribuire un'istanza di Registro Azure Container, è necessario che esista un gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). In questo esempio viene creato un gruppo di risorse denominato `myResourceGroup` nell'area `westeurope`.
 
@@ -155,14 +155,14 @@ Result
 v1
 ```
 
-Al termine dell'esercitazione, l'immagine del contenitore sarà stata archiviata in un'istanza privata di Registro contenitori di Azure. Questa immagine verrà distribuita da Registro Azure Container a un cluster Kubernetes nelle esercitazioni successive.
+Al termine dell'esercitazione, l'immagine del contenitore sarà stata archiviata in un'istanza privata di Registro Azure Container. Questa immagine verrà distribuita da Registro Azure Container a un cluster Kubernetes nelle esercitazioni successive.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione un Registro contenitori di Azure è stato preparato per l'uso in un cluster Kubernetes del servizio contenitore di Azure. Sono stati completati i passaggi seguenti:
+In questa esercitazione è stata preparata un'istanza di Registro Azure Container per l'uso in un cluster Kubernetes del servizio Azure Container. Sono stati completati i passaggi seguenti:
 
 > [!div class="checklist"]
-> * Distribuzione di un'istanza di Registro contenitori di Azure
+> * Distribuzione di un'istanza di Registro Azure Container
 > * Assegnazione di tag a un'immagine del contenitore per Registro Azure Container
 > * Caricamento dell'immagine in Registro Azure Container
 

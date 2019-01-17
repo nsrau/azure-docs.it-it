@@ -126,7 +126,7 @@ Tornare al progetto **FabrikamFiber.Web** e aggiornare la stringa di connessione
 ## <a name="run-the-containerized-application-locally"></a>Eseguire l'applicazione in un contenitore in locale
 Premere **F5** per eseguire l'applicazione ed eseguirne il debug in un contenitore nel cluster di sviluppo locale di Service Fabric. Fare clic su **Sì** se viene visualizzata una finestra di messaggio che richiede di concedere al gruppo "ServiceFabricAllowedUsers" le autorizzazioni di lettura ed esecuzione per la directory del progetto di Visual Studio.
 
-## <a name="create-a-container-registry"></a>Creare un registro di contenitori
+## <a name="create-a-container-registry"></a>Creare un registro contenitori
 Ora che l'applicazione viene eseguita in locale, iniziare a preparare la distribuzione in Azure.  Le immagini dei contenitori devono essere archiviate in un registro contenitori.  Creare un [registro contenitori di Azure](/azure/container-registry/container-registry-intro) usando lo script seguente. Il nome del registro contenitori è visibile per le altre sottoscrizioni di Azure, pertanto deve essere univoco.
 Prima di distribuire l'applicazione in Azure, eseguire il push dell'immagine del contenitore in questo registro.  Quando l'applicazione viene distribuita nel cluster in Azure, l'immagine del contenitore viene recuperata tramite pull da questo registro.
 
@@ -228,7 +228,7 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
   -VirtualNetworkSubnetId $subnetID;
 ```
 ## <a name="deploy-the-application-to-azure"></a>Distribuzione dell'applicazione in Azure
-Ora che l'applicazione è pronta, è possibile distribuirla nel cluster in Azure direttamente da Visual Studio.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di applicazione **FabrikamFiber.CallCenterApplication** e scegliere **Pubblica**.  In **Endpoint connessione** selezionare l'endpoint del cluster creato in precedenza.  In **Registro contenitori di Azure** selezionare il registro contenitori creato in precedenza.  Fare clic su **Pubblica** per distribuire l'applicazione nel cluster in Azure.
+Ora che l'applicazione è pronta, è possibile distribuirla nel cluster in Azure direttamente da Visual Studio.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di applicazione **FabrikamFiber.CallCenterApplication** e scegliere **Pubblica**.  In **Endpoint connessione** selezionare l'endpoint del cluster creato in precedenza.  In **Registro Azure Container** selezionare il registro contenitori creato in precedenza.  Fare clic su **Pubblica** per distribuire l'applicazione nel cluster in Azure.
 
 ![Pubblicare l'applicazione][publish-app]
 
@@ -240,7 +240,7 @@ Seguire lo stato della distribuzione nella finestra di output.  Al termine della
 Per informazioni su come usare Azure DevOps per configurare la distribuzione di un'applicazione con CI/CD in un cluster di Service Fabric, vedere [Esercitazione: distribuire un'applicazione con CI/CD in un cluster di Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). La procedura descritta nell'esercitazione è la stessa per il progetto FabrikamFiber. Ignorare il download dell'esempio Voting e sostituire Voting con FabrikamFiber come nome del repository.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Se l'operazione è terminata, assicurarsi di rimuovere tutte le risorse create.  Il modo più semplice consiste nel rimuovere i gruppi di risorse che contengono il cluster di Service Fabric, il database SQL di Azure e Registro contenitori di Azure.
+Se l'operazione è terminata, assicurarsi di rimuovere tutte le risorse create.  Il modo più semplice consiste nel rimuovere i gruppi di risorse che contengono il cluster di Service Fabric, il database SQL di Azure e Registro Azure Container.
 
 ```powershell
 $dbresourcegroupname = "fabrikam-fiber-db-group"

@@ -1553,7 +1553,7 @@ Per impostazione predefinita, il valore è impostato su False.
 ### <a name="content-element-details"></a>Dettagli relativi agli elementi di contenuto
 
 #### <a name="imagename"></a>ImageName
-Repository e immagine in https://hub.docker.com o nel Registro contenitori di Azure.
+Repository e immagine in https://hub.docker.com o in Registro Azure Container.
 |Attributo|Valore|
 |---|---|
 |name|ImageName|

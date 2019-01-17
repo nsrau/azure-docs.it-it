@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Usare Draft con il servizio Azure Container e il Registro Azure Container
-description: Creare un cluster Kubernetes ACS e un Registro contenitori di Azure per creare la prima applicazione in Azure con Draft.
+description: Creare un cluster Kubernetes ACS e un'istanza di Registro Azure Container per creare la prima applicazione in Azure con Draft.
 services: container-service
 author: squillace
 manager: jeconnoc
@@ -28,8 +28,8 @@ ms.locfileid: "52996495"
 È possibile usare Draft con qualsiasi registro di immagini Docker e cluster Kubernetes, anche in locale. Questa esercitazione illustra come usare il servizio Azure Container con Kubernetes e Registro Azure Container per creare una pipeline di sviluppo attiva ma protetta in Kubernetes usando Draft e come usare il servizio DNS di Azure per consentire la visualizzazione di tale pipeline di sviluppo agli altri utenti in un dominio.
 
 
-## <a name="create-an-azure-container-registry"></a>Creare un Registro contenitori di Azure
-È possibile [creare un nuovo Registro contenitori di Azure](../../container-registry/container-registry-get-started-azure-cli.md) facilmente, ma i passaggi sono i seguenti:
+## <a name="create-an-azure-container-registry"></a>Creare un'istanza di Registro Azure Container
+È possibile [creare una nuova istanza di Registro Azure Container](../../container-registry/container-registry-get-started-azure-cli.md) facilmente, ma i passaggi sono i seguenti:
 
 1. Creare un gruppo di risorse di Azure per gestire il Registro Azure Container e il cluster Kubernetes nel servizio Azure Container.
       ```azurecli
@@ -106,7 +106,7 @@ Dopo aver creato un cluster, è possibile importare le credenziali usando il com
 1. Scaricare Draft per il proprio ambiente all'indirizzo https://github.com/Azure/draft/releases e installarlo in PATH in modo da poter usare il comando.
 2. Scaricare Helm per il proprio ambiente all'indirizzo https://github.com/kubernetes/helm/releases e [installarlo in PATH in modo da poter usare il comando](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Configurare Draft per usare il registro e creare sottodomini per ogni grafico Helm creato. Per configurare Draft sono necessari:
-  - Il nome del Registro contenitori di Azure (in questo esempio, `draftacsdemo`)
+  - Il nome dell'istanza di Registro Azure Container (in questo esempio, `draftacsdemo`)
   - La chiave, o password, del registro da `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.
 
   Chiamare `draft init`. Il processo di configurazione richiede i valori sopra indicati. Si noti che il formato dell'URL per l'URL del registro è il nome del registro (in questo esempio, `draftacsdemo`) più `.azurecr.io`. Il nome utente è il nome del registro da solo. Alla prima esecuzione, il processo è simile al seguente.
@@ -286,7 +286,7 @@ Hello World, I'm Java!
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stato creato un cluster Kubernetes ACS, è possibile provare a usare il [Registro contenitori di Azure](../../container-registry/container-registry-intro.md) per creare altre distribuzioni diverse di questo scenario. È ad esempio possibile creare un recordset DNS di dominio draft._basedomain.toplevel_ che controlla le attività all'esterno di un sottodominio più profondo per distribuzioni specifiche del servizio contenitore di Azure.
+Ora che è stato creato un cluster Kubernetes ACS, è possibile provare a usare [Registro Azure Container](../../container-registry/container-registry-intro.md) per creare altre distribuzioni diverse di questo scenario. È ad esempio possibile creare un recordset DNS di dominio draft._basedomain.toplevel_ che controlla le attività all'esterno di un sottodominio più profondo per distribuzioni specifiche del servizio contenitore di Azure.
 
 
 

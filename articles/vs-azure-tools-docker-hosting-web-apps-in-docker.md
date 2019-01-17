@@ -24,7 +24,7 @@ ms.locfileid: "50968549"
 # <a name="deploy-an-aspnet-container-to-a-container-registry-using-visual-studio"></a>Distribuire un contenitore ASP.NET in un registro contenitori tramite Visual Studio
 ## <a name="overview"></a>Panoramica
 Docker è un motore contenitore leggero, simile in qualche modo a una macchina virtuale, che è possibile usare per ospitare applicazioni e servizi.
-Nell'esercitazione verrà usato Visual Studio per pubblicare l'applicazione in contenitori in un [Registro contenitori di Azure](https://azure.microsoft.com/services/container-registry).
+Nell'esercitazione verrà usato Visual Studio per pubblicare l'applicazione in contenitori in un [Registro Azure Container](https://azure.microsoft.com/services/container-registry).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs) prima di iniziare.
 
@@ -39,11 +39,11 @@ La procedura seguente illustra la creazione di un'app ASP.NET Core di base che v
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## <a name="2-publish-your-container-to-azure-container-registry"></a>2. Pubblicare il contenitore in Registro contenitori di Azure
+## <a name="2-publish-your-container-to-azure-container-registry"></a>2. Pubblicare il contenitore in Registro Azure Container
 1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica**.
 2. Nella finestra di dialogo Destinazione di pubblicazione, selezionare la scheda **Registro contenitori**.
-3. Scegliere **Nuovo registro contenitori di Azure** e fare clic su **Pubblica**.
-4. Inserire i valori desiderati in **Creare un nuovo Registro contenitori di Azure**.
+3. Scegliere **Nuovo Registro Azure Container** e fare clic su **Pubblica**.
+4. Inserire i valori desiderati in **Creare un nuovo Registro Azure Container**.
 
     | Impostazione      | Valore consigliato  | DESCRIZIONE                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -52,7 +52,7 @@ La procedura seguente illustra la creazione di un'app ASP.NET Core di base che v
     | **[Gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Nome del gruppo di risorse in cui creare il registro contenitori. Per creare un nuovo gruppo di risorse scegliere **Nuovo**.|
     | **[SKU](https://docs.microsoft.com/azure/container-registry/container-registry-skus)** | Standard | Livello di servizio del registro contenitori  |
     | **Percorso del registro** | Un percorso vicino | Scegliere un Percorso in una [regione](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi usati nel registro contenitori. |
-    ![Finestra di dialogo Creare un'istanza di Registro contenitori di Azure di Visual Studio][0]
+    ![Finestra di dialogo Creare un'istanza di Registro Azure Container di Visual Studio][0]
 5. Fare clic su **Crea**
 
 È possibile ora eseguire il pull del contenitore dal registro a qualsiasi host in grado di eseguire immagini Docker, ad esempio [Istanze di Azure Container ](./container-instances/container-instances-tutorial-deploy-app.md).

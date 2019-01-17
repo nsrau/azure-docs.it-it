@@ -372,7 +372,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="containers"></a>
 **È possibile montare una condivisione file di Azure in un'istanza di contenitore di Azure?**  
-    Sì, le condivisioni file di Azure sono un'opzione utile per salvare in modo permanente le informazioni oltre la durata di un'istanza del contenitore. Per altre informazioni vedere [Mount an Azure file share with Azure Container Instances](../../container-instances/container-instances-mounting-azure-files-volume.md) (Montare una condivisione file di Azure con istanze di contenitore di Azure).
+    Sì, le condivisioni file di Azure sono un'opzione utile per salvare in modo permanente le informazioni oltre la durata di un'istanza del contenitore. Per altre informazioni vedere [Mount an Azure file share with Azure Container Instances](../../container-instances/container-instances-mounting-azure-files-volume.md) (Montare una condivisione file di Azure con Istanze di Azure Container).
 
 * <a id="rest-rename"></a>
 **Esiste un'operazione di ridenominazione nell'API REST?**  

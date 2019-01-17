@@ -6,10 +6,10 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "47039599"
 documentType: LandingData
-title: Documentazione sul Registro del servizio contenitore di Azure
+title: Documentazione di Registro Azure Container
 metadata:
-  title: 'Documentazione di Registro contenitori di Azure: esercitazioni | Microsoft Docs'
-  description: Registro contenitori di Azure consente di creare, archiviare e gestire immagini per qualsiasi tipo di distribuzione di contenitori. Questo articolo contiene informazioni su come usare Registro contenitori di Azure con guide introduttive, esercitazioni ed esempi.
+  title: 'Documentazione di Registro Azure Container: esercitazioni | Microsoft Docs'
+  description: Registro Azure Container consente di creare, archiviare e gestire immagini per qualsiasi tipo di distribuzione di contenitori. Questo articolo contiene informazioni su come usare Registro Azure Container con guide introduttive, esercitazioni ed esempi.
   services: container-registry
   author: czeumault
   manager: carolz
@@ -20,12 +20,12 @@ metadata:
   ms.date: 07/26/2017
   ms.author: carolz
 abstract:
-  description: Registro contenitori di Azure consente di creare, archiviare e gestire immagini per qualsiasi tipo di distribuzione di contenitori. Questo articolo contiene informazioni su come usare Registro contenitori di Azure con guide introduttive, esercitazioni ed esempi.
+  description: Registro Azure Container consente di creare, archiviare e gestire immagini per qualsiasi tipo di distribuzione di contenitori. Questo articolo contiene informazioni su come usare Registro Azure Container con guide introduttive, esercitazioni ed esempi.
 sections:
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
-    text: Informazioni su come distribuire un'istanza di Registro contenitori di Azure.
+    text: Informazioni su come distribuire un'istanza di Registro Azure Container.
   - type: list
     style: icon48
     items:
@@ -44,7 +44,7 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Queste esercitazioni consentono di imparare a usare Registro contenitori di Azure.
+    text: Queste esercitazioni consentono di imparare a usare Registro Azure Container.
   - type: list
     style: unordered
     className: spaced noBullet
@@ -60,7 +60,7 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Compilare e archiviare immagini del contenitore con il Registro contenitori di Azure
+    - title: Compilare e archiviare immagini del contenitore con Registro Azure Container
       href: /learn/modules/build-and-store-container-images/
       image:
         src: /learn/achievements/build-and-store-container-images.svg

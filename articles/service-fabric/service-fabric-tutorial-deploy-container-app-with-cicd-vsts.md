@@ -94,13 +94,13 @@ In **Attività** selezionare **Hosted VS2017** come **pool di agenti**.
 
 Fare clic su **Tag images** (Contrassegna immagini).
 
-In **Tipo di registro contenitori** selezionare **Registro contenitori di Azure**. Selezionare una **sottoscrizione di Azure**, quindi fare clic su **Autorizza**. Selezionare un **registro contenitori di Azure**.
+In **Tipo di registro contenitori** selezionare **Registro Azure Container**. Selezionare una **sottoscrizione di Azure**, quindi fare clic su **Autorizza**. Selezionare un **Registro Azure Container**.
 
 ![Selezionare l'opzione per contrassegnare immagini Docker][select-tag-images]
 
 Fare clic su **Push images** (Esegui push di immagini).
 
-In **Tipo di registro contenitori** selezionare **Registro contenitori di Azure**. Selezionare una **sottoscrizione di Azure**, quindi fare clic su **Autorizza**. Selezionare un **registro contenitori di Azure**.
+In **Tipo di registro contenitori** selezionare **Registro Azure Container**. Selezionare una **sottoscrizione di Azure**, quindi fare clic su **Autorizza**. Selezionare un **Registro Azure Container**.
 
 ![Selezionare l'opzione per eseguire il push di immagini][select-push-images]
 

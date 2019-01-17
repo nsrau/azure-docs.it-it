@@ -1,6 +1,6 @@
 ---
-title: Esercitazione - Automatizzare la compilazione di immagini dei contenitori - Attività del Registro Azure Container
-description: Questa esercitazione illustra come configurare un'attività del registro Azure Container per attivare automaticamente compilazioni delle immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente in un repository Git.
+title: Esercitazione - Automatizzare la compilazione di immagini dei contenitori - Attività di Registro Azure Container
+description: Questa esercitazione illustra come configurare un'attività di Registro Azure Container per attivare automaticamente compilazioni delle immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente in un repository Git.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -41,7 +41,7 @@ Questa esercitazione presuppone che siano già state completate le procedure del
 
 ### <a name="container-registry"></a>Registro contenitori
 
-Per completare questa esercitazione è necessario che la sottoscrizione di Azure includa un registro contenitori di Azure. Se occorre un registro, vedere l'[esercitazione precedente](container-registry-tutorial-quick-task.md), o la [Guida introduttiva: Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md) (Creare un registro contenitori con l'interfaccia della riga di comando di Azure).
+Per completare questa esercitazione è necessario che la sottoscrizione di Azure includa un registro contenitori di Azure. Se occorre un registro, vedere l'[esercitazione precedente](container-registry-tutorial-quick-task.md), o la [Guida introduttiva: Create a Registro Container using the Azure CLI](container-registry-get-started-azure-cli.md) (Creare un registro contenitori con l'interfaccia della riga di comando di Azure).
 
 ## <a name="overview-of-acr-tasks"></a>Panoramica di ACR Tasks
 

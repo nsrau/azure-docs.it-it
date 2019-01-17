@@ -61,7 +61,7 @@ Sì, è possibile farlo tramite il sito di gestione controllo del codice sorgent
 
 **L'app Web usa ancora un'immagine obsoleta del contenitore Docker dopo l'aggiornamento dell'immagine su DockerHub. È supportata l'integrazione e distribuzione continua di contenitori personalizzati?**
 
-Sì, per configurare l'integrazione o la distribuzione continua per il Registro contenitori di Azure o le immagini di DockerHub, vedere [Distribuzione continua con l'app Web per contenitori](./app-service-linux-ci-cd.md). Per registri privati, è possibile aggiornare il contenitore arrestando e riavviando l'app Web. Oppure è possibile modificare o aggiungere un'impostazione dell'applicazione fittizia per forzare l'aggiornamento del contenitore.
+Sì, per configurare l'integrazione o la distribuzione continua per Registro Azure Container o le immagini di DockerHub, vedere [Distribuzione continua con l'app Web per contenitori](./app-service-linux-ci-cd.md). Per registri privati, è possibile aggiornare il contenitore arrestando e riavviando l'app Web. Oppure è possibile modificare o aggiungere un'impostazione dell'applicazione fittizia per forzare l'aggiornamento del contenitore.
 
 **Gli ambienti di gestione temporanea sono supportati?**
 

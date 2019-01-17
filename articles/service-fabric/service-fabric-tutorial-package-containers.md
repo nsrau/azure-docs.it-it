@@ -37,7 +37,7 @@ Questa è la seconda di una serie di esercitazioni. In questa esercitazione vien
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Vengono usate le immagini del contenitore di cui è stato eseguito il push nel Registro contenitori di Azure creato nella [prima](service-fabric-tutorial-create-container-images.md) di questa serie di esercitazioni.
+* Vengono usate le immagini del contenitore di cui è stato eseguito il push in Registro Azure Container creato nella [prima](service-fabric-tutorial-create-container-images.md) di questa serie di esercitazioni.
 * Viene [configurato](service-fabric-tutorial-create-container-images.md) l'ambiente di sviluppo Linux.
 
 ## <a name="install-yeoman"></a>Installare Yeoman
@@ -118,9 +118,9 @@ $ ls
 ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 ```
 
-## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Configurare il manifesto dell'applicazione con le credenziali per il Registro contenitori di Azure
+## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Configurare il manifesto dell'applicazione con le credenziali per Registro Azure Container
 
-Affinché Service Fabric possa eseguire il pull delle immagini del contenitore dal Registro contenitori di Azure, è necessario fornire le credenziali in **ApplicationManifest.xml**.
+Affinché Service Fabric possa eseguire il pull delle immagini del contenitore da Registro Azure Container, è necessario fornire le credenziali in **ApplicationManifest.xml**.
 
 Accedere all'istanza di Registro Azure Container. Usare il comando **az acr login** per completare l'operazione. Specificare il nome univoco assegnato al registro contenitori al momento della creazione.
 

@@ -86,7 +86,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ```
 
-## <a name="deploy-azure-container-registry"></a>Distribuire il Registro contenitori di Azure
+## <a name="deploy-azure-container-registry"></a>Distribuire Registro Azure Container
 
 Eseguire per prima cosa il comando **az login** per accedere al proprio account Azure.
 
@@ -94,13 +94,13 @@ Eseguire per prima cosa il comando **az login** per accedere al proprio account 
 az login
 ```
 
-Successivamente, usare il comando **az account** per scegliere la sottoscrizione per creare il Registro contenitori di Azure. Sostituire <subscription_id> con l'ID della sottoscrizione di Azure.
+Successivamente, usare il comando **az account** per scegliere la sottoscrizione per creare il registro contenitori di Azure. Sostituire <subscription_id> con l'ID della sottoscrizione di Azure.
 
 ```bash
 az account set --subscription <subscription_id>
 ```
 
-Prima di distribuire un Registro contenitori di Azure, è necessario che esista un gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+Prima di distribuire un'istanza di Registro Azure Container, è necessario che esista un gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
 Creare un gruppo di risorse con il comando **az group create**. In questo esempio viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *westus*.
 
@@ -204,7 +204,7 @@ Result
 azure-vote-front
 ```
 
-Al termine dell'esercitazione, l'immagine del contenitore sarà stata archiviata in un'istanza privata di Registro contenitori di Azure. Questa immagine verrà distribuita da Registro Azure Container a un cluster Service Fabric nelle esercitazioni successive.
+Al termine dell'esercitazione, l'immagine del contenitore sarà stata archiviata in un'istanza privata di Registro Azure Container. Questa immagine verrà distribuita da Registro Azure Container a un cluster Service Fabric nelle esercitazioni successive.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

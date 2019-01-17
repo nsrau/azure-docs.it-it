@@ -135,7 +135,7 @@ Selezionare l'account e la sottoscrizione di Azure. Assicurarsi che **Località*
 
 Assicurarsi che **Gruppo di risorse** sia impostato sul gruppo di risorse usato quando è stata pubblicata originariamente l'app to-do in Azure.
 
-Assicurarsi che **Registro contenitori di Azure** sia impostato sul nome del registro contenitori di Azure creato quando è stata pubblicata originariamente l'app to-do in Azure.
+Assicurarsi che **Registro Azure Container** sia impostato sul nome del registro contenitori di Azure creato quando è stata pubblicata originariamente l'app to-do in Azure.
 
 Nella finestra di dialogo per la pubblicazione fare clic sul pulsante **Pubblica** per aggiornare l'app to-do in Azure.
 

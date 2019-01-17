@@ -34,7 +34,7 @@ Per questa esercitazione è necessario eseguire l'interfaccia della riga di coma
 
 ## <a name="get-available-cluster-versions"></a>Ottenere le versioni disponibili del cluster
 
-Prima di aggiornare un cluster, usare il comando [az aks get-upgrades][] per verificare quali versioni di Kubernetes sono disponibili per l'aggiornamento:
+Prima di aggiornare un cluster, usare il comando [az servizio Azure Kubernetes get-upgrades][] per verificare quali versioni di Kubernetes sono disponibili per l'aggiornamento:
 
 ```azurecli
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
@@ -58,7 +58,7 @@ Per ridurre al minimo le interruzioni nelle applicazioni in esecuzione, i nodi d
 1. Quando il nuovo nodo è pronto ed è stato aggiunto al cluster, l'utilità di pianificazione di Kubernetes avvia l'esecuzione dei pod in tale nodo.
 1. Il nodo precedente viene eliminato e il nodo successivo del cluster avvia il processo di blocco e svuotamento.
 
-Usare il comando [az aks upgrade][] per aggiornare il cluster AKS. Nell'esempio seguente il cluster viene aggiornato alla versione *1.10.9* di Kubernetes.
+Usare il comando [az servizio Azure Kubernetes upgrade][] per aggiornare il cluster servizio Azure Kubernetes. Nell'esempio seguente il cluster viene aggiornato alla versione *1.10.9* di Kubernetes.
 
 > [!NOTE]
 > È possibile aggiornare solo una versione secondaria per volta. È ad esempio possibile eseguire l'aggiornamento da *1.9.11* a *1.10.9*, ma non da *1.9.6* direttamente a *1.11.x*. Per eseguire l'aggiornamento da *1.9.11* a *1.11.x*, eseguirlo prima da *1.9.11* a *1.10.x*, quindi eseguire un altro aggiornamento da *1.10.x* a *1.11.x*.
@@ -94,7 +94,7 @@ Nell'esempio sintetico di output seguente il valore di *kubernetesVersion* è or
 
 ## <a name="validate-an-upgrade"></a>Convalidare un aggiornamento
 
-Verificare che l'aggiornamento sia stato completato correttamente usando il comando [az aks show][] come di seguito:
+Verificare che l'aggiornamento sia stato completato correttamente usando il comando [az servizio Azure Kubernetes show][] come di seguito:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
@@ -117,18 +117,18 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster AKS non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio AKS e la sua eliminazione][sp-delete].
+> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio servizio Azure Kubernetes e la sua eliminazione][sp-delete].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato aggiornato Kubernetes in un cluster del servizio contenitore di Azure. Si è appreso come:
+In questa esercitazione è stato aggiornato Kubernetes in un cluster del servizio Azure Container. Si è appreso come:
 
 > [!div class="checklist"]
 > * Identificare le versioni corrente e disponibili di Kubernetes
 > * Aggiornare i nodi Kubernetes
 > * Convalidare la corretta esecuzione dell'aggiornamento
 
-Seguire questo collegamento per altre informazioni sul servizio contenitore di Azure.
+Seguire questo collegamento per altre informazioni sul servizio Azure Container.
 
 > [!div class="nextstepaction"]
 > [Panoramica del servizio contenitore di Azure][aks-intro]
@@ -139,9 +139,9 @@ Seguire questo collegamento per altre informazioni sul servizio contenitore di A
 <!-- LINKS - internal -->
 [aks-intro]: ./intro-kubernetes.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[az aks show]: /cli/azure/aks#az-aks-show
-[az aks get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az aks upgrade]: /cli/azure/aks#az-aks-upgrade
+[az servizio Azure Kubernetes show]: /cli/azure/aks#az-aks-show
+[az servizio Azure Kubernetes get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
+[az servizio Azure Kubernetes upgrade]: /cli/azure/aks#az-aks-upgrade
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-group-delete]: /cli/azure/group#az-group-delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations

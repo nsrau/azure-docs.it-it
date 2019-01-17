@@ -35,7 +35,7 @@ Questa immagine illustra in che modo Griglia di eventi collega origini e gestori
 Per informazioni dettagliate complete sulle funzionalità di ogni origine, con articoli correlati, vedere [Origini evento](event-sources.md). Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Griglia di eventi:
 
 * Sottoscrizioni di Azure (operazioni di gestione)
-* Registro di sistema del contenitore
+* Registro Container
 * Argomenti personalizzati
 * Hub eventi
 * Hub IoT

@@ -61,7 +61,7 @@ items:
     href: how-to-manage-workspace.md
   - name: Configurare l'ambiente di sviluppo 
     items:
-    - name: Configurare l'ambiente di sviluppo
+    - name: Configurare ambienti di sviluppo
       displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
     - name: Estensione Visual Studio Code
@@ -107,9 +107,7 @@ items:
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: Modelli ONNX
-    items:
-    - name: Creazione e distribuzione
-      href: how-to-build-deploy-onnx.md
+    href: how-to-build-deploy-onnx.md
   - name: Distribuire i modelli
     items:
     - name: Dove e come eseguire la distribuzione
@@ -131,6 +129,7 @@ items:
   - name: Monitorare i servizi Web
     items:
     - name: Raccogliere e valutare i dati dei modelli
+      displayName: track production
       href: how-to-enable-data-collection.md
     - name: Monitorare con Application Insights
       href: how-to-enable-app-insights.md
@@ -143,12 +142,12 @@ items:
     displayName: vnet
     href: how-to-enable-virtual-network.md
   - name: Usare l'interfaccia della riga di comando di Machine Learning
-    displayName: cli command line command-line az ci/cd automate automated
+    displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Esportare ed eliminare dati
     displayName: gdpr
     href: how-to-export-delete-data.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Machine Learning SDK
     displayName: api core package python
@@ -176,9 +175,9 @@ items:
     href: support-for-aml-services.md
   - name: Confrontare i prodotti di apprendimento automatico di Microsoft
     href: overview-more-machine-learning.md
-ms.openlocfilehash: a6975a6aaefb3a750ee73b1e9738f534be24f2ba
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 471928ec98a4fe037078e121a38286f30919d186
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319724"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359205"

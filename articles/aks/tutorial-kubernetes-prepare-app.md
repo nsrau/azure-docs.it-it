@@ -95,7 +95,7 @@ Per vedere l'applicazione in esecuzione, immettere http://localhost:8080 in un W
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Ora che le funzionalità dell'applicazione sono state verificate, i contenitori in esecuzione possono essere arrestati e rimossi. Non eliminare le immagini del contenitore perché nell'esercitazione successiva l'immagine *azure-vote-front* verrà caricata in un'istanza di Registro contenitori di Azure.
+Ora che le funzionalità dell'applicazione sono state verificate, i contenitori in esecuzione possono essere arrestati e rimossi. Non eliminare le immagini del contenitore perché nell'esercitazione successiva l'immagine *azure-vote-front* verrà caricata in un'istanza di Registro Azure Container.
 
 Arrestare e rimuovere le istanze e le risorse di contenitore con il comando [docker-compose down][docker-compose-down]:
 
@@ -114,7 +114,7 @@ In questa esercitazione è stata testata un'applicazione e sono state create le 
 > * Creare un'immagine del contenitore dall'origine dell'applicazione di esempio
 > * Testare l'applicazione multicontenitore in un ambiente Docker locale
 
-Passare alla prossima esercitazione per apprendere come archiviare le immagini del contenitore in Registro contenitori di Azure.
+Passare alla prossima esercitazione per apprendere come archiviare le immagini del contenitore in Registro Azure Container.
 
 > [!div class="nextstepaction"]
 > [Eseguire il push delle immagini nel Registro contenitori di Azure][aks-tutorial-prepare-acr]

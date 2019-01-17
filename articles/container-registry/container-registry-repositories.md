@@ -17,7 +17,7 @@ ms.locfileid: "33768329"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visualizzare repository di registri contenitori di Azure nel portale di Azure
 
-Il registro contenitori di Azure consente di archiviare immagini di contenitore Docker all'interno di repository. Archiviando le immagini in repository, è possibile archiviare gruppi di immagini (o versioni di immagini) in ambienti isolati. È possibile specificare questi repository quando si effettua il push delle immagini nel registro e visualizzarne il contenuto nel portale di Azure.
+Il Registro Azure Container consente di archiviare immagini di contenitore Docker all'interno di repository. Archiviando le immagini in repository, è possibile archiviare gruppi di immagini (o versioni di immagini) in ambienti isolati. È possibile specificare questi repository quando si effettua il push delle immagini nel registro e visualizzarne il contenuto nel portale di Azure.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -35,12 +35,12 @@ Se è stata seguita la procedura descritta in [Effettuare il push e il pull di u
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
- Il registro contenitori di Azure supporta spazi dei nomi dei repository multilivello ed è quindi possibile raggruppare raccolte di immagini correlate a un'app specifica oppure una raccolta di app per specifici team operativi o di sviluppo. Per altre informazioni sul repository nei registri contenitori, vedere [Effettuare il push della prima immagine in un registro per contenitori Docker privati tramite l'interfaccia della riga di comando di Docker](container-registry-intro.md).
+ Il Registro Azure Container supporta spazi dei nomi dei repository multilivello ed è quindi possibile raggruppare raccolte di immagini correlate a un'app specifica oppure una raccolta di app per specifici team operativi o di sviluppo. Per altre informazioni sul repository nei registri contenitori, vedere [Effettuare il push della prima immagine in un registro per contenitori Docker privati tramite l'interfaccia della riga di comando di Docker](container-registry-intro.md).
 
 Per visualizzare un repository:
 
 1. Accedere al [portale di Azure][portal]
-1. Selezionare il **Registro contenitori di Azure** in cui è stato effettuato il push dell'immagine di Nginx
+1. Selezionare il **Registro Azure Container** in cui è stato effettuato il push dell'immagine di Nginx
 1. Selezionare **Repository** per visualizzare un elenco dei repository contenenti le immagini disponibili nel registro
 1. Selezionare un repository per visualizzare i tag di immagine presenti all'interno del repository
 

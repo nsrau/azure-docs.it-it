@@ -17,7 +17,7 @@ ms.locfileid: "53255286"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Guida introduttiva: creare un registro contenitori privato usando Azure PowerShell
 
-Registro contenitori di Azure è un servizio gestito e privato di registri contenitori Docker usato per compilare, archiviare e servire immagini del contenitore Docker. In questa guida introduttiva si apprenderà a creare un registro contenitori di Azure usando PowerShell. Dopo aver creato il registro, eseguire il push di un'immagine del contenitore in esso, quindi distribuire il contenitore dal registro in Istanze di Azure Container.
+Registro Azure Container è un servizio gestito e privato di registri contenitori Docker usato per compilare, archiviare e servire immagini del contenitore Docker. In questa guida introduttiva si apprenderà come creare un registro contenitori di Azure usando PowerShell. Dopo aver creato il registro, eseguire il push di un'immagine del contenitore in esso, quindi distribuire il contenitore dal registro in Istanze di Azure Container.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -98,7 +98,7 @@ Digest: sha256:a3b2eb140e6881ca2c4df4d9c97bedda7468a5c17240d7c5d30a32850a2bc573
 Status: Downloaded newer image for microsoft/aci-helloworld:latest
 ```
 
-Prima di poter eseguire il push di un'immagine nel registro contenitori di Azure, è necessario contrassegnarla con il nome di dominio completo, ovvero FQDN, del registro. L'FQDN dei registri contenitore di Azure sono nel formato *\<registry-name\>.azurecr.io*.
+Prima di poter eseguire il push di un'immagine in Registro Azure Container, è necessario contrassegnarla con il nome di dominio completo, ovvero FQDN, del registro. L'FQDN dei registri contenitore di Azure sono nel formato *\<registry-name\>.azurecr.io*.
 
 Popolare una variabile con il tag completo dell'immagine. Includere il server di accesso, il nome del repository ("aci-helloworld") e la versione dell'immagine ("v1"):
 

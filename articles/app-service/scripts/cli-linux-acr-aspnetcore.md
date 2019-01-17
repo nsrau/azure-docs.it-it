@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'App ASP.NET Core nel registro Azure Container | Microsoft Docs
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'App ASP.NET Core in Registro Azure Container | Microsoft Docs
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app ASP.NET Core in un contenitore Docker nel servizio app dal Registro Azure Container
 services: appservice
 documentationcenter: appservice
@@ -25,7 +25,7 @@ ms.locfileid: "53653374"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Creare un'app ASP.NET Core in un contenitore Docker nel servizio app dal Registro Azure Container
 
-Questo script di esempio crea un gruppo di risorse, un piano di servizio app Linux e un'app. Distribuisce quindi un'applicazione ASP.NET Core usando un contenitore Docker del Registro contenitori di Azure.
+Questo script di esempio crea un gruppo di risorse, un piano di servizio app Linux e un'app. Distribuisce quindi un'applicazione ASP.NET Core usando un contenitore Docker di Registro Azure Container.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

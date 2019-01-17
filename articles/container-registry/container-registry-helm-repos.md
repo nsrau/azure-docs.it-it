@@ -1,6 +1,6 @@
 ---
-title: Usare i repository Helm nel Registro contenitori di Azure
-description: Informazioni su come usare un repository Helm con il Registro contenitori di Azure per archiviare i grafici per le applicazioni
+title: Usare i repository Helm in Registro Azure Container
+description: Informazioni su come usare un repository Helm con il Registro Azure Container per archiviare i grafici per le applicazioni
 services: container-registry
 author: iainfoulds
 ms.service: container-registry
@@ -14,13 +14,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/23/2018
 ms.locfileid: "49647007"
 ---
-# <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Usare il Registro contenitori di Azure come repository Helm per i grafici per le applicazioni
+# <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Usare il Registro Azure Container come repository Helm per i grafici per le applicazioni
 
-Per gestire e distribuire rapidamente applicazioni per Kubernetes, è possibile usare il [gestore pacchetti open source Helm][helm]. Con Helm le applicazioni sono definite come *grafici* archiviati in un repository di grafici Helm. Tali grafici definiscono le configurazioni e le dipendenze e possono essere con versione durante il ciclo di vita dell'applicazione. Il Registro contenitori di Azure può essere usato come host per il repository di grafici Helm.
+Per gestire e distribuire rapidamente applicazioni per Kubernetes, è possibile usare il [gestore pacchetti open source Helm][helm]. Con Helm le applicazioni sono definite come *grafici* archiviati in un repository di grafici Helm. Tali grafici definiscono le configurazioni e le dipendenze e possono essere con versione durante il ciclo di vita dell'applicazione. Il Registro Azure Container può essere usato come host per il repository di grafici Helm.
 
-Con il Registro contenitori di Azure è disponibile un repository di grafici Helm privato e sicuro in grado di integrarsi con le pipeline di compilazione o con altri servizi di Azure. I repository di grafici Helm nel Registro contenitori di Azure includono funzionalità di replica geografica per mantenere i grafici più vicini alle distribuzioni e per garantire la ridondanza. Viene addebitato solo il costo per l'archiviazione usata dai grafici di e sono disponibili tutti i livelli di prezzo del Registro contenitori di Azure.
+Con il Registro Azure Container è disponibile un repository di grafici Helm privato e sicuro in grado di integrarsi con le pipeline di compilazione o con altri servizi di Azure. I repository di grafici Helm in Registro Azure Container includono funzionalità di replica geografica per mantenere i grafici più vicini alle distribuzioni e per garantire la ridondanza. Viene addebitato solo il costo per l'archiviazione usata dai grafici di e sono disponibili tutti i livelli di prezzo di Registro Azure Container.
 
-Questo articolo illustra come usare un repository di grafici Helm archiviato nel Registro contenitori di Azure.
+Questo articolo illustra come usare un repository di grafici Helm archiviato in Registro Azure Container.
 
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
@@ -35,9 +35,9 @@ Per completare la procedura descritta in questo articolo, è necessario soddisfa
 
 ## <a name="add-a-repository-to-helm-client"></a>Aggiungere un repository al client Helm
 
-Un repository Helm è un server HTTP in cui possono essere archiviati i grafici Helm. Il Registro contenitori di Azure può rendere disponibile questa risorsa di archiviazione per i grafici Helm e gestire la definizione dell'indice quando si aggiungono e si rimuovono i grafici nel repository.
+Un repository Helm è un server HTTP in cui possono essere archiviati i grafici Helm. Il Registro Azure Container può rendere disponibile questa risorsa di archiviazione per i grafici Helm e gestire la definizione dell'indice quando si aggiungono e si rimuovono i grafici nel repository.
 
-Per aggiungere il Registro contenitori di Azure come un repository di grafici Helm, usare l'interfaccia della riga di comando di Azure. In questo modo il client Helm viene aggiornato con l'URI e le credenziali per il repository supportato dal Registro contenitori di Azure. Non è necessario specificare manualmente le informazioni di questo repository, pertanto le credenziali, ad esempio, non sono esposte nella cronologia dei comandi.
+Per aggiungere il Registro Azure Container come un repository di grafici Helm, usare l'interfaccia della riga di comando di Azure. In questo modo il client Helm viene aggiornato con l'URI e le credenziali per il repository supportato da Registro Azure Container. Non è necessario specificare manualmente le informazioni di questo repository, pertanto le credenziali, ad esempio, non sono esposte nella cronologia dei comandi.
 
 Se necessario, accedere all'interfaccia della riga di comando di Azure e seguire le istruzioni:
 
@@ -45,13 +45,13 @@ Se necessario, accedere all'interfaccia della riga di comando di Azure e seguire
 az login
 ```
 
-Configurare le impostazioni predefinite dell'interfaccia della riga di comando di Azure con il nome del Registro contenitori di Azure tramite il comando [az configure][az-configure]. Nell'esempio seguente sostituire `<acrName>` con il nome del registro:
+Configurare le impostazioni predefinite dell'interfaccia della riga di comando di Azure con il nome dell'istanza di Registro Azure Container tramite il comando [az configure][az-configure]. Nell'esempio seguente sostituire `<acrName>` con il nome del registro:
 
 ```azurecli
 az configure --defaults acr=<acrName>
 ```
 
-A questo punto aggiungere il repository di grafici Helm di Registro Azure Container al client Helm usando il comando [az acr helm repo add][az-acr-helm-repo-add]. Tale comando ottiene un tipo di token di autenticazione per il Registro contenitori di Azure che viene usato dal client Helm. Il token di autenticazione è valido per un'ora. In modo analogo a `docker login`, è possibile eseguire questo comando nelle sessioni future dell'interfaccia della riga di comando per autenticare il client Helm con il repository di grafici del Registro contenitori di Azure:
+A questo punto aggiungere il repository di grafici Helm di Registro Azure Container al client Helm usando il comando [az acr helm repo add][az-acr-helm-repo-add]. Tale comando ottiene un tipo di token di autenticazione per il Registro Azure Container che viene usato dal client Helm. Il token di autenticazione è valido per un'ora. In modo analogo a `docker login`, è possibile eseguire questo comando nelle sessioni future dell'interfaccia della riga di comando per autenticare il client Helm con il repository di grafici di Registro Azure Container:
 
 ```azurecli
 az acr helm repo add
@@ -59,7 +59,7 @@ az acr helm repo add
 
 ## <a name="add-a-chart-to-the-repository"></a>Aggiungere un grafico al repository
 
-In questo articolo si ottiene un grafico Helm esistente dal repository pubblico Helm *stable*. Il repository *stable* repository è un repository pubblico gestito che include i grafici di applicazione comuni. I responsabili della manutenzione dei pacchetti possono inviare i grafici al repository *stable* repository per renderli disponibili in modo analogo a come l'hub Docker offre un registro pubblico per le immagini dei contenitori comuni. Il grafico scaricato dal repository pubblico *stable* può quindi essere inserito nel repository del Registro contenitori di Azure privato. Nella maggior parte degli scenari è necessario compilare e caricare i propri grafici per le applicazioni sviluppate. Per altre informazioni su come compilare i grafici Helm, vedere [developing Helm charts][develop-helm-charts] (Sviluppare grafici Helm).
+In questo articolo si ottiene un grafico Helm esistente dal repository pubblico Helm *stable*. Il repository *stable* repository è un repository pubblico gestito che include i grafici di applicazione comuni. I responsabili della manutenzione dei pacchetti possono inviare i grafici al repository *stable* repository per renderli disponibili in modo analogo a come l'hub Docker offre un registro pubblico per le immagini dei contenitori comuni. Il grafico scaricato dal repository pubblico *stable* può quindi essere inserito nel repository di Registro Azure Container privato. Nella maggior parte degli scenari è necessario compilare e caricare i propri grafici per le applicazioni sviluppate. Per altre informazioni su come compilare i grafici Helm, vedere [developing Helm charts][develop-helm-charts] (Sviluppare grafici Helm).
 
 Creare una directory in *~/acr-helm*e quindi scaricare il grafico *stable/wordpress* esistente:
 
@@ -100,7 +100,7 @@ Il client Helm mantiene una copia del contenuto del repository remoto memorizzat
 az acr helm repo add
 ```
 
-Con un grafico archiviato nel repository e l'indice aggiornato disponibile in locale, è possibile usare i normali comandi del client Helm per eseguire una ricerca o un'installazione. Per visualizzare tutti i grafici in un repository, usare `helm search <acrName>`. Indicare il nome del proprio Registro contenitori di Azure:
+Con un grafico archiviato nel repository e l'indice aggiornato disponibile in locale, è possibile usare i normali comandi del client Helm per eseguire una ricerca o un'installazione. Per visualizzare tutti i grafici in un repository, usare `helm search <acrName>`. Indicare il nome del proprio Registro Azure Container:
 
 ```console
 helm search <acrName>
@@ -172,12 +172,12 @@ helm install <acrName>/wordpress
 ```
 
 > [!TIP]
-> Se si esegue il push nel repository di grafici Helm del Registro contenitori di Azure e in seguito si torna in una nuova sessione dell'interfaccia della riga di comando,per il client Helm locale è necessario un token di autenticazione aggiornato. Per ottenere un nuovo token di autenticazione, usare il comando [az acr helm repo add][az-acr-helm-repo-add].
+> Se si esegue il push nel repository di grafici Helm di Registro Azure Container e in seguito si torna in una nuova sessione dell'interfaccia della riga di comando,per il client Helm locale è necessario un token di autenticazione aggiornato. Per ottenere un nuovo token di autenticazione, usare il comando [az acr helm repo add][az-acr-helm-repo-add].
 
 Durante il processo di installazione vengono completati i passaggi seguenti:
 
 - Il client Helm cerca l'indice del repository locale.
-- Il grafico corrispondente viene scaricato dal repository del Registro contenitori di Azure.
+- Il grafico corrispondente viene scaricato dal repository di Registro Azure Container.
 - Il grafico viene distribuito usando Tiller nel cluster Kubernetes.
 
 L'output di esempio sintetico seguente illustra le risorse di Kubernetes distribuite tramite il grafico Helm:
@@ -218,9 +218,9 @@ az acr helm repo add
 
 In questo articolo è stato usato un grafico Helm esistente nel repository pubblico *stable*. Per altre informazioni su come creare e distribuire grafici Helm, vedere [Developing Helm charts][develop-helm-charts] (Distribuzione di grafici Helm).
 
-I grafici Helm possono essere usati come parte del processo di compilazione del contenitore. Per altre informazioni, vedere [Use Azure Container Registry Tasks][acr-tasks] (Usare le attività del Registro contenitore di Azure).
+I grafici Helm possono essere usati come parte del processo di compilazione del contenitore. Per altre informazioni, vedere [Use Azure Registro Container Tasks][acr-tasks] (Usare le attività del Registro contenitore di Azure).
 
-Per altre informazioni su come usare e gestire il Registro contenitori di Azure, vedere le [procedure consigliate][acr-bestpractices].
+Per altre informazioni su come usare e gestire il Registro Azure Container, vedere le [procedure consigliate][acr-bestpractices].
 
 <!-- LINKS - external -->
 [helm]: https://helm.sh/

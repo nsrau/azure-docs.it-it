@@ -26,7 +26,7 @@ ms.locfileid: "54062367"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Per eseguire un'applicazione esistente in un contenitore Linux in un cluster di Service Fabric non è necessario apportare modifiche all'applicazione. Questo articolo illustra come creare un'immagine Docker contenente un'applicazione Web Python [Flask](http://flask.pocoo.org/) e come distribuirla in un cluster di Service Fabric. Si condividerà anche l'applicazione in contenitore tramite [Registro contenitori di Azure](/azure/container-registry/). L'articolo presuppone una conoscenza di base di Docker. Per informazioni su Docker, vedere [Docker overview](https://docs.docker.com/engine/understanding-docker/) (Panoramica su Docker).
+Per eseguire un'applicazione esistente in un contenitore Linux in un cluster di Service Fabric non è necessario apportare modifiche all'applicazione. Questo articolo illustra come creare un'immagine Docker contenente un'applicazione Web Python [Flask](http://flask.pocoo.org/) e come distribuirla in un cluster di Service Fabric. Si condividerà anche l'applicazione in contenitore tramite [Registro Azure Container](/azure/container-registry/). L'articolo presuppone una conoscenza di base di Docker. Per informazioni su Docker, vedere [Docker overview](https://docs.docker.com/engine/understanding-docker/) (Panoramica su Docker).
 
 > [!NOTE]
 > Questo articolo si applica a un ambiente di sviluppo Linux.  Il runtime del cluster di Service Fabric e il runtime di Docker devono essere in esecuzione nello stesso sistema operativo.  Non è possibile eseguire contenitori Linux su un cluster Windows.
@@ -37,7 +37,7 @@ Per eseguire un'applicazione esistente in un contenitore Linux in un cluster di 
   * [Docker CE per Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 
-* Un registro all'interno del registro contenitori di Azure. A questo scopo, [creare un registro contenitori](../container-registry/container-registry-get-started-portal.md) nella sottoscrizione di Azure. 
+* Un registro all'interno di Registro Azure Container. A questo scopo, [creare un registro contenitori](../container-registry/container-registry-get-started-portal.md) nella sottoscrizione di Azure. 
 
 ## <a name="define-the-docker-container"></a>Definire il contenitore Docker
 Compilare un'immagine in base all'[immagine Python](https://hub.docker.com/_/python/) disponibile nell'hub Docker. 
@@ -139,9 +139,9 @@ docker rm my-web-site
 ```
 
 ## <a name="push-the-image-to-the-container-registry"></a>Effettuare il push dell'immagine nel registro contenitori
-Dopo aver verificato l'esecuzione dell'applicazione in Docker, eseguire il push dell'immagine nel registro all'interno di Registro contenitori di Azure.
+Dopo aver verificato l'esecuzione dell'applicazione in Docker, eseguire il push dell'immagine nel registro all'interno di Registro Azure Container.
 
-Eseguire `docker login` per accedere al registro di contenitori con le [credenziali del registro](../container-registry/container-registry-authentication.md).
+Eseguire `docker login` per accedere al registro contenitori con le [credenziali del registro](../container-registry/container-registry-authentication.md).
 
 L'esempio seguente passa l'ID e la password di un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) di Azure Active Directory. Ad esempio, è possibile che sia stata assegnata un'entità servizio al registro per uno scenario di automazione. In alternativa, è possibile eseguire l'accesso usando il nome utente e la password del registro.
 

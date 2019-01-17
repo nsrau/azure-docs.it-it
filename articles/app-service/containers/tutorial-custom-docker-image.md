@@ -387,13 +387,13 @@ Il comando mostra un output simile alla stringa JSON seguente, indicante che la 
 
 ## <a name="use-a-docker-image-from-any-private-registry-optional"></a>Usare un'immagine Docker da un registro privato (facoltativo)
 
-In questa sezione viene illustrato come usare un'immagine Docker da un registro privato nell'App Web per contenitori e viene usato il Registro contenitori di Azure come esempio. La procedura per l'uso di registri privati di tipo diverso è simile. 
+In questa sezione viene illustrato come usare un'immagine Docker da un registro privato nell'App Web per contenitori e viene usato il Registro Azure Container come esempio. La procedura per l'uso di registri privati di tipo diverso è simile. 
 
-Registro contenitori di Azure è un servizio Docker gestito di Azure per l'hosting di immagini private. Le distribuzioni possono essere di qualsiasi tipo, inclusi [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/) e app Web per contenitori. 
+Registro Azure Container è un servizio Docker gestito di Azure per l'hosting di immagini private. Le distribuzioni possono essere di qualsiasi tipo, inclusi [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/) e app Web per contenitori. 
 
-### <a name="create-an-azure-container-registry"></a>Creare un Registro contenitori di Azure
+### <a name="create-an-azure-container-registry"></a>Creare un'istanza di Registro Azure Container
 
-In Cloud Shell usare il comando [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az-acr-create) per creare un registro contenitori di Azure. Passare il nome, il gruppo di risorse e `Basic` per lo SKU. Gli SKU disponibili sono `Classic`, `Basic`, `Standard` e `Premium`.
+In Cloud Shell usare il comando [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az-acr-create) per creare un'istanza di Registro Azure Container. Passare il nome, il gruppo di risorse e `Basic` per lo SKU. Gli SKU disponibili sono `Classic`, `Basic`, `Standard` e `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -429,7 +429,7 @@ Use an existing service principal and assign access:
 }
 ```
 
-### <a name="log-in-to-azure-container-registry"></a>Accedere al Registro contenitori di Azure
+### <a name="log-in-to-azure-container-registry"></a>Accedere a Registro Azure Container
 
 Per eseguire il push di un'immagine nel registro, è necessario specificare le credenziali in modo che il registro accetti il push. È possibile recuperare queste credenziali usando il comando [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az-acr-show) in Cloud Shell. 
 
@@ -455,7 +455,7 @@ Il comando mostra due password che possono essere usate con il nome utente.
 }
 ```
 
-Dalla finestra del terminale locale accedere al Registro contenitori di Azure tramite il comando `docker login`. Per l'accesso è necessario il nome del server. Usare il formato `{azure-container-registry-name>.azurecr.io`. Digitare la password nella console quando richiesto.
+Dalla finestra del terminale locale accedere a Registro Azure Container tramite il comando `docker login`. Per l'accesso è necessario il nome del server. Usare il formato `{azure-container-registry-name>.azurecr.io`. Digitare la password nella console quando richiesto.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
@@ -463,7 +463,7 @@ docker login <azure-container-registry-name>.azurecr.io --username <registry-use
 
 Verificare che l'accesso sia riuscito. 
 
-### <a name="push-an-image-to-azure-container-registry"></a>Eseguire il push di un'immagine nel Registro contenitori di Azure
+### <a name="push-an-image-to-azure-container-registry"></a>Eseguire il push di un'immagine in Registro Azure Container
 
 > [!NOTE]
 > Se si usa la propria immagine, contrassegnare l'immagine come indicato di seguito:
@@ -491,11 +491,11 @@ L'elenco delle immagini nel registro conferma che `mydockerimage` è nel registr
 ]
 ```
 
-### <a name="configure-web-app-to-use-the-image-from-azure-container-registry-or-any-private-registry"></a>Configurare l'app Web per usare l'immagine dal Registro contenitori di Azure (o da qualsiasi registro privato)
+### <a name="configure-web-app-to-use-the-image-from-azure-container-registry-or-any-private-registry"></a>Configurare l'app Web per usare l'immagine da Registro Azure Container (o da qualsiasi registro privato)
 
-È possibile configurare l'app Web per contenitori in modo che esegua un contenitore archiviato in Registro contenitori di Azure. Usare Registro contenitori di Azure è come usare un registro privato, quindi se è necessario usare il proprio registro privato, i passaggi per completare questa attività saranno simili.
+È possibile configurare l'app Web per contenitori in modo che esegua un contenitore archiviato in Registro Azure Container. Usare Registro Azure Container è come usare un registro privato, quindi se è necessario usare il proprio registro privato, i passaggi per completare questa attività saranno simili.
 
-In Cloud Shell eseguire [`az acr credential show`](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show) per visualizzare il nome utente e la password per Registro contenitori di Azure. Copiare il nome utente e una delle password per poterli usare per configurare l'app Web nel passaggio successivo.
+In Cloud Shell eseguire [`az acr credential show`](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show) per visualizzare il nome utente e la password per Registro Azure Container. Copiare il nome utente e una delle password per poterli usare per configurare l'app Web nel passaggio successivo.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -517,7 +517,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-In Cloud Shell eseguire il comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) per assegnare l'immagine Docker personalizzata all'app Web. Sostituire *\<app_name>*, *\<docker-registry-server-url>*, _\<<registry-username>_ e _\<password>_. Per il Registro contenitori di Azure, *\<docker-registry-server-url>* si presenta nel formato `https://<azure-container-registry-name>.azurecr.io`. Se si usa qualsiasi registro diverso dall'hub Docker, il nome dell'immagine deve iniziare con il nome di dominio completo (FQDN) del registro. Per Registro contenitori di Azure, sarà simile a `<azure-container-registry>.azurecr.io/mydockerimage`. 
+In Cloud Shell eseguire il comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) per assegnare l'immagine Docker personalizzata all'app Web. Sostituire *\<app_name>*, *\<docker-registry-server-url>*, _\<<registry-username>_ e _\<password>_. Per il Registro contenitori di Azure, *\<docker-registry-server-url>* si presenta nel formato `https://<azure-container-registry-name>.azurecr.io`. Se si usa qualsiasi registro diverso dall'hub Docker, il nome dell'immagine deve iniziare con il nome di dominio completo (FQDN) del registro. Per Registro Azure Container, sarà simile a `<azure-container-registry>.azurecr.io/mydockerimage`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

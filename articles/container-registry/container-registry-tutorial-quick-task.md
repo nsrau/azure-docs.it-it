@@ -208,7 +208,7 @@ az keyvault secret set \
 
 L'argomento `--role` nel comando precedente configura l'entità servizio con il ruolo *acrpull*, che concede l'accesso al registro con autorizzazioni solo di pull. Per concedere l'accesso con autorizzazioni sia di push che di pull, impostare l'argomento `--role` su *acrpush*.
 
-Archiviare quindi nell'insieme di credenziali il valore *appId* dell'entità servizio, che è il **nome utente** passato a Registro contenitori di Azure per l'autenticazione:
+Archiviare quindi nell'insieme di credenziali il valore *appId* dell'entità servizio, che è il **nome utente** passato a Registro Azure Container per l'autenticazione:
 
 ```azurecli-interactive
 # Store service principal ID in AKV (the registry *username*)

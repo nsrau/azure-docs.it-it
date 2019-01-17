@@ -26,7 +26,7 @@ In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un modulo di Azure Machine Learning
-> * Eseguire il push di un contenitore di modulo nel registro contenitori di Azure
+> * Eseguire il push di un contenitore di modulo in Registro Azure Container
 > * Distribuire un modulo di Azure Machine Learning in un dispositivo IoT Edge
 > * Visualizzare i dati generati
 

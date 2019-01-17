@@ -33,7 +33,7 @@ items:
   href: /azure/templates/microsoft.consumption/allversions
 - name: Istanza di contenitore
   href: /azure/templates/microsoft.containerinstance/allversions
-- name: Registro di sistema del contenitore
+- name: Registro Container
   href: /azure/templates/microsoft.containerregistry/allversions
 - name: Servizio contenitore
   href: /azure/templates/microsoft.containerservice/containerservices-allversions

@@ -93,7 +93,7 @@ Per altre informazioni, vedere [Progetto DevOps di Azure][azure-devops].
 
 servizio Azure Kubernetes supporta il formato di immagine Docker. Per l'archiviazione privata delle immagini Docker è possibile integrare servizio Azure Kubernetes con Registro Azure Container.
 
-Per creare l'archivio immagini privato, vedere [Registro contenitori di Azure][acr-docs].
+Per creare l'archivio immagini privato, vedere [Registro Azure Container][acr-docs].
 
 ## <a name="kubernetes-certification"></a>Certificazione Kubernetes
 

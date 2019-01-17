@@ -42,7 +42,7 @@ Un dispositivo Azure IoT Edge:
 Risorse cloud:
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in Azure. 
-* Un registro contenitori. Questa esercitazione usa il [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/). 
+* Un registro contenitori. Questa esercitazione usa [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/). 
     * È necessario conoscere le credenziali dell'[account amministratore](../container-registry/container-registry-authentication.md#admin-account) del registro contenitori.
 
 Risorse per lo sviluppo:
@@ -159,7 +159,7 @@ Una soluzione è un modo logico per sviluppare e organizzare più moduli per una
    | Provide a solution name (Specificare un nome per la soluzione) | Immettere un nome descrittivo per la soluzione, come **CustomVisionSolution**, oppure accettare l'impostazione predefinita. |
    | Select module template (Selezionare un modello di modulo) | Scegliere **Modulo Python**. |
    | Provide a module name (Specificare un nome per il modulo) | Assegnare al modulo il nome **classifier**.<br><br>È importante che il nome del modulo sia in lettere minuscole. IoT Edge fa distinzione tra maiuscole e minuscole nei moduli e questa soluzione usa una libreria che formatta tutte le richieste in minuscolo. |
-   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata dall'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso nel registro contenitori di Azure. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. La stringa finale è simile a \<nome registro\>.azurecr.io/classifier. |
+   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata dall'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. La stringa finale è simile a \<nome registro\>.azurecr.io/classifier. |
  
    ![Specificare il repository di immagini Docker](./media/tutorial-deploy-custom-vision/repository.png)
 
@@ -208,7 +208,7 @@ In questa sezione si aggiungerà un nuovo modulo alla stessa CustomVisionSolutio
    | Select deployment template file (Selezionare il file del modello di distribuzione) | Selezionare il file deployment.template.json nella cartella CustomVisionSolution. |
    | Select module template (Selezionare un modello di modulo) | Selezionare **Modulo Python** |
    | Provide a module name (Specificare un nome per il modulo) | Assegnare al modulo il nome **cameraCapture** |
-   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Sostituire **localhost:5000** con il valore del server di accesso del registro contenitori di Azure. La stringa finale è simile a **\<nome registro\>.azurecr.io/cameracapture**. |
+   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Sostituire **localhost:5000** con il valore del server di accesso di Registro Azure Container. La stringa finale è simile a **\<nome registro\>.azurecr.io/cameracapture**. |
 
    La finestra di Visual Studio Code carica il nuovo modulo nell'area di lavoro della soluzione e aggiorna il file deployment.template.json. Ora si dovrebbero vedere due cartelle di moduli: classifier e cameraCapture. 
 
@@ -391,7 +391,7 @@ L'estensione IoT Edge per Visual Studio Code fornisce un modello in ogni soluzio
 
 Tra i prerequisiti di questa esercitazione è incluso un registro contenitori, necessario per archiviare le immagini del contenitore per i moduli creati. Occorre fornire le credenziali di accesso per il registro in due posizioni: in Visual Studio Code, per compilare le immagini ed eseguirne il push nel registro, e nel manifesto della distribuzione, per consentire al dispositivo IoT Edge di eseguire il pull delle immagini e distribuirle. 
 
-Se si usa il Registro contenitori di Azure, assicurarsi di conoscere il nome utente, il server di accesso e la password dell'[account amministratore](../container-registry/container-registry-authentication.md#admin-account). 
+Se si usa il Registro Azure Container, assicurarsi di conoscere il nome utente, il server di accesso e la password dell'[account amministratore](../container-registry/container-registry-authentication.md#admin-account). 
 
 1. In Visual Studio Code aprire il terminale integrato selezionando **Visualizza** > **Terminale**. 
 

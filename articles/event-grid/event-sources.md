@@ -32,14 +32,14 @@ Sottoscrivere gli eventi delle sottoscrizioni di Azure per rispondere alle modif
 | [PowerShell: sottoscrivere eventi per una sottoscrizione di Azure](./scripts/event-grid-powershell-azure-subscription.md)| Script di esempio che crea una sottoscrizione di Griglia di eventi per una sottoscrizione di Azure e invia eventi a un webhook. |
 | [Schema di eventi](event-schema-subscriptions.md) | Mostra i campi negli eventi delle sottoscrizione di Azure. |
 
-## <a name="container-registry"></a>Registro di sistema del contenitore
+## <a name="container-registry"></a>Registro Container
 
-Sottoscrivere gli eventi del Registro contenitori di Azure per rispondere alle modifiche delle immagini.
+Sottoscrivere gli eventi di Registro Azure Container per rispondere alle modifiche delle immagini.
 
 |Title |Descrizione  |
 |---------|---------|
-| [Guida introduttiva: inviare eventi del registro contenitori](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi del Registro contenitori di Azure. |
-| [Schema di eventi](event-schema-container-registry.md) | Mostrare gli eventi del Registro contenitori di Azure. |
+| [Guida introduttiva: inviare eventi del registro contenitori](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi di Registro Azure Container. |
+| [Schema di eventi](event-schema-container-registry.md) | Mostrare gli eventi di Registro Azure Container. |
 
 ## <a name="custom-topics"></a>Argomenti personalizzati
 

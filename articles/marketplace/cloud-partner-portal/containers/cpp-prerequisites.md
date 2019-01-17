@@ -31,7 +31,7 @@ Per pubblicare una nuova immagine contenitore, è necessario soddisfare i prereq
 
 - Accedere al portale Cloud Partner. Per altre informazioni, vedere la Guida alla pubblicazione per Azure Marketplace e AppSource.
 - Disporre del contratto per le Condizioni di Azure Marketplace
-- Ospitare l'asset tecnico del contenitore in un Registro contenitori di Azure.
+- Ospitare l'asset tecnico del contenitore in un'istanza di Registro Azure Container.
 - Disporre dei metadati del contenitore pronti per l'uso. Verificare, ad esempio, il seguente elenco non esaustivo:
   - Un titolo
   - Una descrizione (in formato HTML)

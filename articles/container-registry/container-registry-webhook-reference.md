@@ -1,6 +1,6 @@
 ---
-title: Informazioni di riferimento sullo schema dei webhook per il Registro contenitori di Azure
-description: Informazioni di riferimento sul payload JSON della richiesta di webhook per il Registro contenitori di Azure.
+title: Informazioni di riferimento sullo schema dei webhook per Registro Azure Container
+description: Informazioni di riferimento sul payload JSON della richiesta di webhook per Registro Azure Container.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -14,13 +14,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/08/2018
 ms.locfileid: "48857755"
 ---
-# <a name="azure-container-registry-webhook-reference"></a>Informazioni di riferimento sui webhook per il Registro contenitori di Azure
+# <a name="azure-container-registry-webhook-reference"></a>Informazioni di riferimento sui webhook per Registro Azure Container
 
-È possibile [configurare webhook](container-registry-webhook.md) per il registro contenitori, che generano eventi quando vengono eseguite determinate azioni nel registro. È ad esempio possibile abilitare webhook che vengono attivati per le operazioni `push` e `delete` dell'immagine del contenitore. Quando un webhook viene attivato, il Registro contenitori di Azure invia una richiesta HTTP o HTTPS contenente informazioni sull'evento a un endpoint specificato. L'endpoint può quindi elaborare il webhook e agire di conseguenza.
+È possibile [configurare webhook](container-registry-webhook.md) per il registro contenitori, che generano eventi quando vengono eseguite determinate azioni nel registro. È ad esempio possibile abilitare webhook che vengono attivati per le operazioni `push` e `delete` dell'immagine del contenitore. Quando un webhook viene attivato, Registro Azure Container invia una richiesta HTTP o HTTPS contenente informazioni sull'evento a un endpoint specificato. L'endpoint può quindi elaborare il webhook e agire di conseguenza.
 
 Le sezioni seguenti illustrano in dettaglio lo schema delle richieste dei webhook generate da eventi supportati. Le sezioni sugli eventi contengono lo schema del payload per il tipo di evento, un payload della richiesta di esempio e uno o più comandi di esempio che attiverebbero il webhook.
 
-Per informazioni sulla configurazione di webhook per il Registro contenitori di Azure, vedere [Uso dei webhook del Registro contenitori di Azure](container-registry-webhook.md).
+Per informazioni sulla configurazione di webhook per Registro Azure Container, vedere [Uso dei webhook di Registro Azure Container](container-registry-webhook.md).
 
 ## <a name="webhook-requests"></a>Richieste dei webhook
 
