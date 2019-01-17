@@ -16,12 +16,12 @@ ms.workload: ''
 ms.date: 05/02/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2b8766a5353b015030872176e9032034afb7cb9d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a0153cf11c3fe817ce397b4d0c47a786a4334f39
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779557"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214811"
 ---
 # <a name="azure-policy-sample-templates-for-virtual-network"></a>Esempi di modelli di criteri di Azure per la rete virtuale
 
@@ -43,7 +43,7 @@ La tabella seguente include i collegamenti agli esempi di modelli di [Criteri di
 | [Require match pattern](../azure-policy/scripts/enforce-match-pattern.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Richiedi modello corrispondente) | Assicura che i nomi delle risorse corrispondono al modello di denominazione specificato. |
 | [Require tag match pattern](../azure-policy/scripts/enforce-tag-match-pattern.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Richiedi modello corrispondenza tag) | Assicura che un valore del tag corrisponde a un modello di testo. |
 |**Tag**||
-| [Iniziativa relativa ai criteri dei tag di fatturazione](../azure-policy/scripts/billing-tags-policy-init.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Richiede i valori dei tag specificati per il centro di costo e il nome del prodotto. Usa i criteri predefiniti per applicare e imporre i tag obbligatori. Si specificano i valori obbligatori per i tag.  |
+| [Iniziativa relativa ai criteri dei tag di fatturazione](../governance/policy/samples/billing-tags-policy-initiative.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Richiede i valori dei tag specificati per il centro di costo e il nome del prodotto. Usa i criteri predefiniti per applicare e imporre i tag obbligatori. Si specificano i valori obbligatori per i tag.  |
 | [Imporre un tag e il relativo valore nei gruppi di risorse](../azure-policy/scripts/enforce-tag-rg.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Richiede un tag e un valore in un gruppo di risorse. Si specificano il nome del tag e il valore obbligatori.  |
 | [Imporre un tag e il relativo valore](../azure-policy/scripts/enforce-tag-val.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Richiede un nome e un valore di tag specificati. Si specificano il nome del tag e il valore da applicare.  |
 | [Apply tag and its default value](../azure-policy/scripts/apply-tag-def-val.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Applicare il tag e il valore predefinito) | Aggiunge un nome e un valore di tag specificati, se non è stato fornito il tag. Si specificano il nome e il valore del tag da applicare.  |

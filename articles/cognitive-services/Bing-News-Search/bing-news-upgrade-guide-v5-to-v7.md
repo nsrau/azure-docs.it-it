@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 565c0ed877cf4500131f7ad3099f3c7d3f1a1220
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 46551680937eddef898739fb57b671a0918f2338
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955038"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259292"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Ricerca notizie
 
@@ -37,7 +37,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 
 - I codici di errore della versione 5 sono stati sostituiti con i possibili valori `code` e `subCode` seguenti.
 
-|Codice|Sottocodice|Descrizione
+|Codice|Sottocodice|DESCRIZIONE
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing restituisce ServerError ogni volta che si verifica una delle condizioni del sottocodice. La risposta include questi errori se il codice di stato HTTP è 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloccato|Bing restituisce InvalidRequest ogni volta che una parte della richiesta non è valida, ad esempio quando non è specificato un parametro obbligatorio o un valore di parametro non è valido.<br/><br/>Se l'errore è ParameterMissing o ParameterInvalidValue, il codice di stato HTTP è 400.<br/><br/>Se l'errore è HttpNotAllowed, il codice di stato HTTP è 410.

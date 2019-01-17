@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0bc44dc31de4a45127468b956d01d7c3f8d92985
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122820"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54242354"
 ---
 È possibile sfruttare molte opportunità per il monitoraggio delle macchine virtuali tramite la raccolta, la visualizzazione e l'analisi dei dati di diagnostica e di log. Per eseguire semplici attività di [monitoraggio](../articles/azure-monitor/overview.md) della macchina virtuale, è possibile usare la schermata Panoramica per la macchina virtuale nel portale di Azure. È possibile usare [estensioni](../articles/virtual-machines/windows/extensions-features.md) per configurare la diagnostica nelle macchine virtuali e raccogliere metriche aggiuntive. È anche possibile usare opzioni di monitoraggio più avanzate, come [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -31,7 +31,7 @@ ms.locfileid: "54122820"
 
 ## <a name="alerts"></a>Avvisi
 
-È possibile creare [avvisi](../articles/azure-monitor/platform/alerts-overview.md) in base a metriche di prestazioni specifiche. I problemi che possono essere segnalati tramite avvisi, ad esempio, sono il superamento di una determinata soglia di utilizzo medio della CPU o la presenza di spazio su disco inferiore rispetto a una quantità specifica. Gli avvisi possono essere configurati nel [portale di Azure](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), tramite [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) o nell'[interfaccia della riga di comando di Azure](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+È possibile creare [avvisi](../articles/azure-monitor/platform/alerts-overview.md) in base a metriche di prestazioni specifiche. I problemi che possono essere segnalati tramite avvisi, ad esempio, sono il superamento di una determinata soglia di utilizzo medio della CPU o la presenza di spazio su disco inferiore rispetto a una quantità specifica. Gli avvisi possono essere configurati nel [portale di Azure](../articles/azure-monitor/platform/alerts-classic-portal.md), tramite [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell) o nell'[interfaccia della riga di comando di Azure](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
 
 ## <a name="azure-service-health"></a>Integrità dei servizi di Azure
 

@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 065b6551098a39fb737b7eface17d78b111d31b6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 23216df139ba3bc4023d3a01c8e7b9914cccfba5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074146"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261526"
 ---
 # <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>Suggerimenti per la risoluzione dei problemi a supporto del servizio e del runtime di QnA Maker
 QnA Maker è costituito da componenti ospitati nell'account Azure dell'utente. Ai fini del debug, può essere necessario che gli utenti modifichino le proprie risorse di Azure per QnA Maker o forniscano al team di supporto di QnA Maker informazioni aggiuntive sulla configurazione.

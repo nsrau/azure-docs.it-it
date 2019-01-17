@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/25/2018
+ms.date: 01/09/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 874643c5149cf6a222ab6d244dd561e5c4da5a84
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4d9f05ad1913646e7ca09690af965042817ef7ec
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251397"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193405"
 ---
 Questo articolo usa i cmdlet di PowerShell. Per eseguire i cmdlet, è possibile usare Azure Cloud Shell, una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. È sufficiente fare clic su **Copia** per copiare il codice, incollarlo in Cloud Shell e quindi premere INVIO per eseguirlo. Esistono alcuni modi per avviare Cloud Shell:
 
@@ -26,4 +26,4 @@ Questo articolo usa i cmdlet di PowerShell. Per eseguire i cmdlet, è possibile 
 
 Se non si vuole usare Azure Cloud Shell, è possibile installare PowerShell in locale. Se si sceglie di installare e usare PowerShell in locale, assicurarsi di installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. I cmdlet di PowerShell vengono modificati di frequente e in genere è necessario aggiornarli per ottenere le funzionalità più recenti. Se non si aggiornano i cmdlet di PowerShell, i valori specificati potrebbero avere esito negativo. 
 
-Per trovare la versione di PowerShell in esecuzione in locale, usare il cmdlet 'Get-Module -ListAvailable AzureRM'. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+Per trovare la versione di PowerShell in esecuzione in locale, usare il cmdlet 'Get-Module -ListAvailable AzureRM'. Per aggiornare, vedere [Installare il modulo Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/azurerm/overview).

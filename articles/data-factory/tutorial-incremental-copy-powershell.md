@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 5d4d6f85a465bed330cdfa011f619c7c3bf0c32d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bd331aa39ddb6db3f4b5301394f53817c677cb73
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024383"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352217"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Caricare i dati in modo incrementale da un database SQL di Azure a un archivio BLOB di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da una tabella di un database SQL di Azure a un archivio BLOB di Azure. 
@@ -131,7 +131,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 Eseguire questo comando per creare una stored procedure nel database SQL:
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -470,7 +470,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
                     "type": "SqlServerStoredProcedure",
                     "typeProperties": {
     
-                        "storedProcedureName": "sp_write_watermark",
+                        "storedProcedureName": "usp_write_watermark",
                         "storedProcedureParameters": {
                             "LastModifiedtime": {"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
                             "TableName":  { "value":"@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}", "type":"String"}

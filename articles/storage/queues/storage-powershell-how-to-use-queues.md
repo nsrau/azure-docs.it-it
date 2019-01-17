@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: fef6858383028d62a16472bd530bf456d01ee7d3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 016d6b1991085e3ed881deb68317dbde0ee46326
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634423"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213230"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Eseguire operazioni nell'archivio code di Azure con Azure PowerShell
 
@@ -77,7 +77,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Creare una coda
 
-Innanzitutto viene stabilita una connessione ad Archiviazione di Azure usando il contesto dell'account di archiviazione che include il nome dell'account di archiviazione e la relativa chiave di accesso. Viene poi chiamato il cmdlet [New-AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) per creare una coda denominata 'queuename'.
+Innanzitutto viene stabilita una connessione ad Archiviazione di Azure usando il contesto dell'account di archiviazione che include il nome dell'account di archiviazione e la relativa chiave di accesso. Viene poi chiamato il cmdlet [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) per creare una coda denominata 'queuename'.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -88,7 +88,7 @@ Per informazioni sulle convenzioni di denominazione per il servizio di accodamen
 
 ## <a name="retrieve-a-queue"></a>Recuperare una coda
 
-È possibile eseguire query e recuperare una coda specifica o un elenco di tutte le code di un account di archiviazione. Gli esempi seguenti illustrano come recuperare tutte le code nell'account di archiviazione e una coda specifica. Entrambi i comandi usano il cmdlet [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue).
+È possibile eseguire query e recuperare una coda specifica o un elenco di tutte le code di un account di archiviazione. Gli esempi seguenti illustrano come recuperare tutte le code nell'account di archiviazione e una coda specifica. Entrambi i comandi usano il cmdlet [Get-AzStorageQueue](/powershell/module/az.storage/Get-AzStorageQueue).
 
 ```powershell
 # Retrieve a specific queue

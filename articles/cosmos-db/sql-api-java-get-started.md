@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 4b03fc3721d7a2be1e2099bf4878f6abb50e6b76
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7b59ab5da89d7ab99560a777f5a685f8b33e31dc
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044043"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201177"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Esercitazione su NoSQL: Compilare un'applicazione console Java con l'API di SQL
 
@@ -90,7 +90,7 @@ Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su *
 ![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console Java. Mostra un account Azure Cosmos DB, con l'hub ACTIVE evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account Azure Cosmos DB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][keys]
 
 ## <a name="step-4-create-a-database"></a>Passaggio 4: Creare un database
-È possibile creare un [database](databases-containers-items.md#azure-cosmos-databases) di Azure Cosmos DB usando il metodo [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) della classe **DocumentClient**. Un database è il contenitore logico per l'archiviazione di documenti JSON partizionato nelle raccolte.
+È possibile creare un [database](databases-containers-items.md#azure-cosmos-databases) di Azure Cosmos DB usando il metodo [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) della classe **DocumentClient**. Un database è il contenitore logico per l'archiviazione di documenti JSON partizionato nelle raccolte.
 
     Database database = new Database();
     database.setId("familydb");
@@ -102,7 +102,7 @@ Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su *
 > 
 > 
 
-È possibile creare una raccolta usando il metodo [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) della classe **DocumentClient**. Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata.
+È possibile creare una raccolta usando il metodo [createCollection](/java/api/com.microsoft.azure.documentdb.documentclient.createcollection) della classe **DocumentClient**. Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata.
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -116,7 +116,7 @@ Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su *
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Passaggio 6: Creare documenti JSON
-È possibile creare un documento usando il metodo [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) della classe **DocumentClient**. I documenti sono contenuto JSON definito dall'utente (arbitrario). Ora è possibile inserire uno o più documenti. Se sono già disponibili dati da archiviare nel database, è possibile usare lo [strumento di migrazione dei dati](import-data.md) di Azure Cosmos DB per importare i dati in un database.
+È possibile creare un documento usando il metodo [createDocument](/java/api/com.microsoft.azure.documentdb.documentclient.createdocument) della classe **DocumentClient**. I documenti sono contenuto JSON definito dall'utente (arbitrario). Ora è possibile inserire uno o più documenti. Se sono già disponibili dati da archiviare nel database, è possibile usare lo [strumento di migrazione dei dati](import-data.md) di Azure Cosmos DB per importare i dati in un database.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -139,7 +139,7 @@ Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su *
 ![Diagramma che illustra la relazione gerarchica tra l'account, il database online, la raccolta e i documenti usati nell'esercitazione su NoSQL per creare un'applicazione console Java](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Passaggio 7: eseguire query sulle risorse di Azure Cosmos DB
-Azure Cosmos DB supporta [query complesse](how-to-sql-query.md) sui documenti JSON archiviati in ogni raccolta.  Il codice di esempio seguente mostra come eseguire query su documenti in Azure Cosmos DB usando la sintassi SQL con il metodo [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments).
+Azure Cosmos DB supporta [query complesse](how-to-sql-query.md) sui documenti JSON archiviati in ogni raccolta.  Il codice di esempio seguente mostra come eseguire query su documenti in Azure Cosmos DB usando la sintassi SQL con il metodo [queryDocuments](/java/api/com.microsoft.azure.documentdb.documentclient.querydocuments).
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -152,7 +152,7 @@ Azure Cosmos DB supporta [query complesse](how-to-sql-query.md) sui documenti JS
     }
 
 ## <a id="ReplaceDocument"></a>Passaggio 8: Sostituire un documento JSON
-Azure Cosmos DB supporta l'aggiornamento di documenti JSON con il metodo [replaceDocument](/java/api/com.microsoft.azure.documentdb._document_client.replacedocument).
+Azure Cosmos DB supporta l'aggiornamento di documenti JSON con il metodo [replaceDocument](/java/api/com.microsoft.azure.documentdb.documentclient.replacedocument).
 
     // Update a property
     andersenFamily.Children[0].Grade = 6;
@@ -163,7 +163,7 @@ Azure Cosmos DB supporta l'aggiornamento di documenti JSON con il metodo [replac
         null);
 
 ## <a id="DeleteDocument"></a>Passaggio 9: Eliminare un documento JSON
-Analogamente, Azure Cosmos DB supporta l'eliminazione di documenti JSON con il metodo [deleteDocument](/java/api/com.microsoft.azure.documentdb._document_client.deletedocument).  
+Analogamente, Azure Cosmos DB supporta l'eliminazione di documenti JSON con il metodo [deleteDocument](/java/api/com.microsoft.azure.documentdb.documentclient.deletedocument).  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 

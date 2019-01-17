@@ -13,19 +13,19 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4fd7d47313b67a0014919b14546926f5d78972a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3fc09255c38b4bbe8d416b97ea14a77a4b3014a0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240325"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305588"
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Creare una data factory di Azure e una pipeline usando l'API REST
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione corrente](quickstart-create-data-factory-rest-api.md)
 
-Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI). 
+Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI).
 
 Questa guida introduttiva descrive come usare l'API REST per creare una data factory di Azure. La pipeline in questa data factory copia i dati da un percorso a un altro nell'archiviazione BLOB di Azure.
 
@@ -44,10 +44,10 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 1. Avviare **PowerShell**. Tenere aperto Azure PowerShell fino al termine di questa guida introduttiva. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
 
     Eseguire questo comando e immettere il nome utente e la password usati per accedere al portale di Azure:
-        
+    
     ```powershell
     Connect-AzureRmAccount
-    ```        
+    ```
     Eseguire questo comando per visualizzare tutte le sottoscrizioni per l'account:
 
     ```powershell
@@ -56,7 +56,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     Eseguire il comando seguente per selezionare la sottoscrizione da usare. Sostituire **SubscriptionId** con l'ID della sottoscrizione di Azure:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
     ```
 2. Eseguire i comandi seguenti dopo aver sostituito i segnaposto con i propri valori, per impostare le variabili globali da usare nei passaggi successivi.
 
@@ -82,7 +82,7 @@ $authHeader = @{
 'Content-Type'='application/json'
 'Accept'='application/json'
 'Authorization'=$result.CreateAuthorizationHeader()
-} 
+}
 ```
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
@@ -112,17 +112,15 @@ Tenere presente quanto segue:
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.
     ```
-* Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+* Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
 Ecco la risposta di esempio:
 
 ```json
-
 {
-    "name":  "<dataFactoryName>",
+    "name": "<dataFactoryName>",
     "tags": {
-
-            },
+    },
     "properties":  {
         "provisioningState":  "Succeeded",
         "loggingStorageAccountKey":  "**********",
@@ -137,8 +135,7 @@ Ecco la risposta di esempio:
     "id":  "dataFactoryName",
     "type":  "Microsoft.DataFactory/factories",
     "location":  "East US"
-} 
-
+}
 ```
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
@@ -176,11 +173,11 @@ Di seguito è riportato l'output di esempio:
     "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/linkedservices/AzureStorageLinkedService",
     "name":  "AzureStorageLinkedService",
     "properties":  {
-                       "type":  "AzureStorage",
-                       "typeProperties":  {
-                                              "connectionString":  "@{value=**********; type=SecureString}"
-                                          }
-                   },
+        "type":  "AzureStorage",
+        "typeProperties":  {
+            "connectionString":  "@{value=**********; type=SecureString}"
+        }
+    },
     "etag":  "0000c552-0000-0000-0000-59b1459c0000"
 }
 ```
@@ -225,25 +222,25 @@ Di seguito è riportato l'output di esempio:
     "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/datasets/BlobDataset",
     "name":  "BlobDataset",
     "properties":  {
-                       "type":  "AzureBlob",
-                       "typeProperties":  {
-                                              "folderPath":  "@{value=@{dataset().path}; type=Expression}"
-                                          },
-                       "linkedServiceName":  {
-                                                 "referenceName":  "AzureStorageLinkedService",
-                                                 "type":  "LinkedServiceReference"
-                                             },
-                       "parameters":  {
-                                          "path":  "@{type=String}"
-                                      }
-                   },
+        "type":  "AzureBlob",
+        "typeProperties":  {
+            "folderPath":  "@{value=@{dataset().path}; type=Expression}"
+        },
+        "linkedServiceName":  {
+            "referenceName":  "AzureStorageLinkedService",
+            "type":  "LinkedServiceReference"
+        },
+        "parameters":  {
+            "path":  "@{type=String}"
+        }
+    },
     "etag":  "0000c752-0000-0000-0000-59b1459d0000"
 }
 ```
 
 ## <a name="create-pipeline"></a>Creare una pipeline
 
-In questo esempio la pipeline contiene un'attività e accetta due parametri, il percorso del BLOB di input e il percorso del BLOB di output. I valori per questi parametri vengono impostati all'esecuzione/attivazione della pipeline. L'attività di copia fa riferimento allo stesso set di dati del BLOB creato nel passaggio precedente come input e output. Quando il set di dati viene usato come set di dati di input, viene specificato il percorso di input. Quando il set di dati viene usato come set di dati di output, viene specificato il percorso di output. 
+In questo esempio la pipeline contiene un'attività e accetta due parametri, il percorso del BLOB di input e il percorso del BLOB di output. I valori per questi parametri vengono impostati all'esecuzione/attivazione della pipeline. L'attività di copia fa riferimento allo stesso set di dati del BLOB creato nel passaggio precedente come input e output. Quando il set di dati viene usato come set di dati di input, viene specificato il percorso di input. Quando il set di dati viene usato come set di dati di output, viene specificato il percorso di output.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
@@ -305,14 +302,14 @@ Di seguito è riportato l'output di esempio:
     "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/pipelines/Adfv2QuickStartPipeline",
     "name":  "Adfv2QuickStartPipeline",
     "properties":  {
-                       "activities":  [
-                                          "@{name=CopyFromBlobToBlob; type=Copy; inputs=System.Object[]; outputs=System.Object[]; typeProperties=}"
-                                      ],
-                       "parameters":  {
-                                          "inputPath":  "@{type=String}",
-                                          "outputPath":  "@{type=String}"
-                                      }
-                   },
+        "activities":  [
+            "@{name=CopyFromBlobToBlob; type=Copy; inputs=System.Object[]; outputs=System.Object[]; typeProperties=}"
+        ],
+        "parameters":  {
+            "inputPath":  "@{type=String}",
+            "outputPath":  "@{type=String}"
+        }
+    },
     "etag":  "0000c852-0000-0000-0000-59b1459e0000"
 }
 ```
@@ -375,19 +372,19 @@ Di seguito è riportato l'output di esempio:
         "dataFactoryName":  "<dataFactoryName>",
         "pipelineName":  "Adfv2QuickStartPipeline",
         "parameters":  [
-                        "inputPath: <inputBlobPath>",
-                        "outputPath: <outputBlobPath>"
-                    ],
+            "inputPath: <inputBlobPath>",
+            "outputPath: <outputBlobPath>"
+        ],
         "parametersCount":  2,
         "parameterNames":  [
-                            "inputPath",
-                            "outputPath"
-                        ],
+            "inputPath",
+            "outputPath"
+        ],
         "parameterNamesCount":  2,
         "parameterValues":  [
-                                "<inputBlobPath>",
-                                "<outputBlobPath>"
-                            ],
+            "<inputBlobPath>",
+            "<outputBlobPath>"
+        ],
         "parameterValuesCount":  2,
         "runStart":  "2017-09-07T13:12:00.3710792Z",
         "runEnd":  "2017-09-07T13:12:39.5561795Z",
@@ -410,24 +407,24 @@ Di seguito è riportato l'output di esempio:
     ```json
     {
         "value":  [
-                    {
-                        "id":  "000000000-0000-0000-0000-00000000000",
-                        "timestamp":  "2017-09-07T13:12:38.4780542Z",
-                        "pipelineRunId":  "000000000-0000-00000-0000-0000000000000",
-                        "pipelineName":  "Adfv2QuickStartPipeline",
-                        "status":  "Succeeded",
-                        "failureType":  "",
-                        "linkedServiceName":  "",
-                        "activityName":  "CopyFromBlobToBlob",
-                        "activityType":  "Copy",
-                        "activityStart":  "2017-09-07T13:12:02.3299261Z",
-                        "activityEnd":  "2017-09-07T13:12:38.4780542Z",
-                        "duration":  36148,
-                        "input":  "@{source=; sink=}",
-                        "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (West US); usedDataIntegrationUnits=2; billedDuration=22}",
-                        "error":  "@{errorCode=; message=; failureType=; target=CopyFromBlobToBlob}"
-                    }
-                ]
+            {
+                "id":  "000000000-0000-0000-0000-00000000000",
+                "timestamp":  "2017-09-07T13:12:38.4780542Z",
+                "pipelineRunId":  "000000000-0000-00000-0000-0000000000000",
+                "pipelineName":  "Adfv2QuickStartPipeline",
+                "status":  "Succeeded",
+                "failureType":  "",
+                "linkedServiceName":  "",
+                "activityName":  "CopyFromBlobToBlob",
+                "activityType":  "Copy",
+                "activityStart":  "2017-09-07T13:12:02.3299261Z",
+                "activityEnd":  "2017-09-07T13:12:38.4780542Z",
+                "duration":  36148,
+                "input":  "@{source=; sink=}",
+                "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (West US); usedDataIntegrationUnits=2; billedDuration=22}",
+                "error":  "@{errorCode=; message=; failureType=; target=CopyFromBlobToBlob}"
+            }
+        ]
     }
     ```
 
@@ -438,16 +435,16 @@ Usare Azure Storage Explorer per verificare che i BLOB siano stati copiati in "o
 ## <a name="clean-up-resources"></a>Pulire le risorse
 È possibile eseguire la pulizia delle risorse create nel corso della guida introduttiva in due modi. Si può eliminare il [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md), in modo da includere tutte le risorse del gruppo. Se invece si vogliono mantenere intatte le altre risorse, eliminare solo la data factory creata in questa esercitazione.
 
-Eseguire il comando seguente per eliminare l'intero gruppo di risorse: 
+Eseguire il comando seguente per eliminare l'intero gruppo di risorse:
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-Eseguire il comando seguente per eliminare solo la data factory: 
+Eseguire il comando seguente per eliminare solo la data factory:
 
 ```powershell
 Remove-AzureRmDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-La pipeline in questo esempio copia i dati da una posizione a un'altra in un archivio BLOB di Azure. Per informazioni sull'uso di Data Factory in più scenari, fare riferimento alle [esercitazioni](tutorial-copy-data-dot-net.md). 
+La pipeline in questo esempio copia i dati da una posizione a un'altra in un archivio BLOB di Azure. Per informazioni sull'uso di Data Factory in più scenari, fare riferimento alle [esercitazioni](tutorial-copy-data-dot-net.md).

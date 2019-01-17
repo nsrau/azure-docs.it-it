@@ -5,6 +5,7 @@ description: Questa esercitazione mostra come creare e gestire un'istanza di Loa
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create and Standard Load balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 76d7f0b959037808c3358c2b78b837a783117457
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c22f69764447ffd4f8b67e9162fd8b45b40b175b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260005"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230034"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico Internet verso le macchine virtuali con il portale di Azure
 

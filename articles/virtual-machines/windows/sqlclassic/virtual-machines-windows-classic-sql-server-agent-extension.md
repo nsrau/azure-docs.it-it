@@ -3,7 +3,7 @@ title: Automatizzare le attività di gestione in macchine virtuali SQL (distribu
 description: Questo argomento descrive come gestire l'estensione di SQL Server Agent, che consente di automatizzare attività di amministrazione di SQL Server specifiche. Queste includono il backup automatizzato, l'applicazione automatica delle patch e l'integrazione di Azure Key Vault. In questo argomento viene usata la modalità di distribuzione classica.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
-ms.author: jroth
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55a31d7a0ab603dd7fe7de514d11d003e044240a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 2b719185aabd39cd70b9cb890a9599aa06ca4ff4
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008332"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330535"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizzare le attività di gestione in macchine virtuali SQL con l'estensione SQL Server Agent (distribuzione classica)
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "39008332"
 L'Estensione Agente IaaS di SQL Server (SQLIaaSAgent) viene eseguita sulle macchine virtuali di Azure per automatizzare le attività di amministrazione. Questo argomento fornisce una panoramica dei servizi supportati dall'estensione e delle istruzioni per l'installazione, lo stato e la rimozione.
 
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per visualizzare la versione di Resource Manager di questo articolo, vedere [SQL Server Agent Extension for SQL Server VMs Gestione risorse](../sql/virtual-machines-windows-sql-server-agent-extension.md)(Estensione Agente IaaS per le VM SQL Resource Manager).
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per visualizzare la versione di Resource Manager di questo articolo, vedere [SQL Server Agent Extension for SQL Server VMs Gestione risorse](../sql/virtual-machines-windows-sql-server-agent-extension.md)(Estensione Agente IaaS per le VM SQL Resource Manager).
 
 ## <a name="supported-services"></a>Servizi supportati
 L'Estensione Agente IaaS di SQL Server supporta le attività di amministrazione seguenti:

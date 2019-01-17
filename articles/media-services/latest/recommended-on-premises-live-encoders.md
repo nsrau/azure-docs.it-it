@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 12/14/2018
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d1110669bd0ca8c0ba0caf34ef41861c500bdd33
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4d25e4cd94fec35f31594544b619aa054a35d58d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790029"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302341"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificatori di streaming live consigliati
 
@@ -52,7 +52,7 @@ Servizi multimediali consiglia di usare uno dei codificatori live seguenti che h
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificatori live con output MP4 frammentato
 
-Servizi multimediali consiglia di usare uno dei codificatori live seguenti che hanno Smooth Streaming (MP4 frammentato) a bitrate multipli come output. Gli schemi URL supportati sono `rtmp://` o `rtmps://`.
+Servizi multimediali consiglia di usare uno dei codificatori live seguenti che hanno Smooth Streaming (MP4 frammentato) a bitrate multipli come output. Gli schemi URL supportati sono `http://` o `https://`.
 
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200

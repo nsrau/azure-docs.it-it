@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.custom: seodec18
-ms.openlocfilehash: cded580e9083b9056bafe8070626a34726e8595a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 0ed7d868f0e46e16224e15caaefd2d819c923f29
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556000"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200752"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gestire i dati di riferimento di un ambiente Azure Time Series Insights con C#
 
@@ -241,4 +241,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-[API dei dati di riferimento](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)
+[API dei dati di riferimento](/rest/api/time-series-insights/ga-reference-data-api)

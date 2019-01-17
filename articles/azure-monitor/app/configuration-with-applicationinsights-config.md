@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 3c7b855588b45cd61bb13848720d6e926bbecba4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d17b1b754afc5067a885025dba83cd0fba2370d5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121108"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214573"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurazione di Application Insights SDK con ApplicationInsights.config o .xml
 Application Insights .NET SDK è costituito da alcuni pacchetti NuGet. Il [pacchetto di base](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fornisce l'API per l'invio di dati di telemetria ad Application Insights. [Altri pacchetti](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) forniscono *moduli* e *inizializzatori* di telemetria per il rilevamento automatico dei dati di telemetria dall'applicazione e dal rispettivo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e gli inizializzatori di telemetria e impostare parametri per alcuni di essi.
@@ -233,7 +233,7 @@ Determina le dimensioni massime in MB assegnate all'archivio permanente sul disc
 
 #### <a name="local-forwarder"></a>Server d'inoltro locale
 
-Il [server d'inoltro locale](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) è un agente che raccoglie dati di telemetria di Application Insights o [OpenCensus](https://opencensus.io/) da un'ampia gamma di SDK e framework e li instrada ad Application Insights. Può essere eseguito sia in Windows sia in Linux. Se usato in combinazione con Application Insights Java SDK il server d'inoltro locale offre il supporto completo per [Live Metrics](../../azure-monitor/app/live-stream.md) e il campionamento adattivo.
+Il [server d'inoltro locale](opencensus-local-forwarder.md) è un agente che raccoglie dati di telemetria di Application Insights o [OpenCensus](https://opencensus.io/) da un'ampia gamma di SDK e framework e li instrada ad Application Insights. Può essere eseguito sia in Windows sia in Linux. Se usato in combinazione con Application Insights Java SDK il server d'inoltro locale offre il supporto completo per [Live Metrics](../../azure-monitor/app/live-stream.md) e il campionamento adattivo.
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">

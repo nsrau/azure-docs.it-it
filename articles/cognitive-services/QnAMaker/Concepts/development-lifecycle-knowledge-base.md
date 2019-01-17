@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 68fcc8b324bebfc7ca4fa94b2633b475137ea580
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3fa6709292c0e099285014f11872008756f2c5f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075595"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263255"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo di vita della knowledge base in QnA Maker
 QnA Maker apprende meglio in un ciclo iterativo di modifiche ai modelli, esempi di espressioni, pubblicazione e raccolta dei dati dalle query degli endpoint. 

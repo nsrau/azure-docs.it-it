@@ -5,6 +5,7 @@ description: In questo avvio rapido si apprende come creare un servizio di bilan
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e7055e016abd06d20206d25cb1d7b9eac35142f0
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260226"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231972"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guida introduttiva: Creare un servizio di bilanciamento del carico Basic pubblico usando il portale di Azure
 
@@ -37,7 +38,7 @@ Creare prima di tutto un servizio di bilanciamento del carico Basic pubblico usa
    
 1. Nel riquadro **Crea servizio di bilanciamento del carico** digitare o selezionare i valori seguenti:
    
-   - **Nome**: digitare *MyLoadBalancer*.
+   - **Nome**: Digitare *MyLoadBalancer*.
    - **Tipo**: Selezionare **Pubblico**. 
    - **SKU**: Selezionare **Basic**.
    - **Indirizzo IP pubblico:** Selezionare **Crea nuovo**. 
@@ -60,8 +61,8 @@ Creare successivamente una rete virtuale e due macchine virtuali per il pool bac
 1. Nel riquadro **Crea rete virtuale** digitare o selezionare questi valori:
    
    - **Nome**: digitare *MyVnet*.
-   - **Gruppo di risorse**: selezionare l'elenco a discesa **Seleziona esistente** e quindi **MyResourceGroupLB**. 
-   - **Subnet** > **nome**: digitare *MyBackendSubnet*.
+   - **Gruppo di risorse**: selezionare nell'elenco a discesa **Seleziona esistente**, quindi **MyResourceGroupLB**. 
+   - **Subnet** > **Nome**: Digitare *MyBackendSubnet*.
    
 1. Selezionare **Create**.
 
@@ -73,12 +74,12 @@ Creare successivamente una rete virtuale e due macchine virtuali per il pool bac
    
 1. In **Crea macchina virtuale** digitare o selezionare i valori seguenti nella scheda **Nozioni di base**:
    - **Sottoscrizione** > **Gruppo di risorse**: Nell'elenco a discesa selezionare **MyResourceGroupLB**.
-   - **Dettagli dell'istanza** > **Nome macchina virtuale**: digitare *MyVM1*.
+   - **Dettagli istanza** > **Nome macchina virtuale**: Digitare *MyVM1*.
    - **Dettagli dell'istanza** > **Opzioni di disponibilità**: 
      1. Selezionare **Set di disponibilità** dall'elenco a discesa. 
      2. Selezionare **Crea nuovo**, digitare *MyAvailabilitySet* e quindi selezionare **OK**.
   
-1. Selezionare la scheda **Networking**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**. 
+1. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**. 
    
    Verificare che siano selezionate le opzioni seguenti:
    - **Rete virtuale**: **MyVnet**
@@ -107,14 +108,14 @@ In questa sezione si creano le regole del gruppo di sicurezza di rete (NSG) per 
    
 1. Nella finestra di dialogo **Aggiungi regola di sicurezza in ingresso**, per la regola HTTP, digitare o selezionare le impostazioni seguenti:
    
-   - **Origine**: Selezionare **Service Tag** (Tag del servizio).  
-   - **Tag del servizio di origine**: Selezionare **Internet**. 
+   - **Origine**: selezionare **Tag del servizio**.  
+   - **Tag del servizio di origine**: selezionare **Internet**. 
    - **Intervalli di porte di destinazione**: digitare *80*.
-   - **Protocollo**: Selezionare **TCP**. 
-   - **Azione**: Seleziona **Consenti**.  
-   - **Priorità**: Digitare *100*. 
+   - **Protocollo**: selezionare **TCP**. 
+   - **Azione**: selezionare **Consenti**.  
+   - **Priorità**: digitare *100*. 
    - **Nome**: digitare *MyHTTPRule*. 
-   - **Descrizione**: digitare *Consenti HTTP*. 
+   - **Descrizione**: digitare *Allow HTTP*. 
    
 1. Selezionare **Aggiungi**. 
    
@@ -144,7 +145,7 @@ Per distribuire il traffico alle macchine virtuali, il servizio di bilanciamento
    
    - **Nome**: digitare *MyBackEndPool*.
    - **Associato a**: Selezionare **Set di disponibilità** dall'elenco a discesa.
-   - **Set di disponibilità**: selezionare **MyAvailabilitySet**.
+   - **Set di disponibilità**: Selezionare **MyAvailabilitySet**.
    
 1. Selezionare **Aggiungi una configurazione IP della rete di destinazione**. 
    1. Aggiungere ogni macchina virtuale (**MyVM1** e **MyVM2**) creata al pool back-end.
@@ -169,11 +170,11 @@ Per consentire al servizio di bilanciamento del carico di monitorare lo stato de
 1. Nella pagina **Aggiungi probe integrità** digitare o selezionare i valori seguenti:
    
    - **Nome**: digitare *MyHealthProbe*.
-   - **Protocollo**: selezionare **HTTP** dall'elenco a discesa. 
+   - **Protocollo**: Nell'elenco a discesa selezionare **HTTP**. 
    - **Porta**: digitare *80*. 
-   - **Percorso**: accettare */* come URI predefinito. È possibile sostituire questo valore con qualsiasi altro URI. 
-   - **Intervallo**: digitare *15*. L'intervallo specifica il numero di secondi tra i tentativi del probe.
-   - **Soglia non integra**: digitare *2*. Questa impostazione specifica il numero di errori di probe consecutivi che si verificano prima che una macchina virtuale venga considerata non integra.
+   - **Percorso**: Accettare */* come URI predefinito. È possibile sostituire questo valore con qualsiasi altro URI. 
+   - **Intervallo**: Digitare *15*. L'intervallo specifica il numero di secondi tra i tentativi del probe.
+   - **Soglia non integra**: Digitare *2*. Questa impostazione specifica il numero di errori di probe consecutivi che si verificano prima che una macchina virtuale venga considerata non integra.
    
 1. Selezionare **OK**.
    
@@ -194,13 +195,13 @@ La regola di bilanciamento del carico denominata **MyLoadBalancerRule** rimane i
    
 1. Nella pagina **Aggiungi regola di bilanciamento del carico** digitare o selezionare i valori seguenti:
    
-   - **Nome**: digitare *MyLoadBalancerRule*.
+   - **Nome**: Digitare *MyLoadBalancerRule*.
    - **Indirizzo IP front-end:** digitare *LoadBalancerFrontend*.
-   - **Protocollo**: Selezionare **TCP**.
-   - **Porta**: digitare *80*.
-   - **Porta back-end**: digitare *80*.
-   - **Pool back-end**: selezionare **MyBackendPool**.
-   - **Probe di integrità**: selezionare **MyHealthProbe**. 
+   - **Protocollo**: selezionare **TCP**.
+   - **Porta**: Digitare *80*.
+   - **Porta back-end**: Digitare *80*.
+   - **Pool back-end**: Selezionare **MyBackendPool**.
+   - **Probe di integrità**: Selezionare **MyHealthProbe**. 
    
 1. Selezionare **OK**.
    

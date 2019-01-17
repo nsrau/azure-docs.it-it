@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 476e74a4d167fb3e9158f07cc5c073f129a74daa
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2ad641ae054f9542ec1ef42f5ebbe724ba4ecf87
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545893"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354026"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitoraggio in Database di Azure per MariaDB
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per MariaDB offre varie metriche che consentono di ottenere informazioni dettagliate sul comportamento del server.
@@ -19,7 +19,7 @@ Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi
 ## <a name="metrics"></a>Metriche
 Tutte le metriche di Azure hanno una frequenza di un minuto e offrono una cronologia di 30 giorni. È possibile configurare avvisi in base alle metriche. Le altre attività includono la configurazione di azioni automatiche, l'esecuzione di analisi avanzate e l'archiviazione della cronologia. Per altre informazioni, vedere la [Panoramica delle metriche di Azure] (../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-<!--For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). -->
+Per indicazioni dettagliate, vedere l'articolo su come [configurare gli avvisi](howto-alert-metric.md).
 
 ### <a name="list-of-metrics"></a>Elenco delle metriche
 Per Database di Azure per MariaDB sono disponibili le metriche seguenti:
@@ -45,5 +45,4 @@ Per Database di Azure per MariaDB sono disponibili le metriche seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sull'accesso alle metriche e la relativa esportazione con il portale di Azure, l'API REST o l'interfaccia della riga di comando, vedere [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-
-<!-- - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.-->
+ - Per informazioni sulla creazione di un avviso per una metrica, vedere [Come configurare gli avvisi](howto-alert-metric.md).

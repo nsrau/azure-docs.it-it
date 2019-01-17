@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5ba596a85abbb529990efdf7b15ac50515de011b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117266"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214454"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoraggio continuo con Monitoraggio di Azure
 
@@ -47,7 +47,7 @@ Le applicazioni sono solo affidabili come la relativa infrastruttura sottostante
 - Aggiungere [soluzioni di monitoraggio](insights/solutions-inventory.md) per applicazioni e servizi diversi nell'ambiente in uso.
 
 
-[Infrastruttura come codice](/devops/learn/what-is-infrastructure-as-code) è la gestione dell'infrastruttura in un modello descrittivo, usando lo stesso controllo delle versioni usato dai team DevOps per il codice sorgente. Aggiunge affidabilità e scalabilità all'ambiente e consente di sfruttare i processi simili che consentono di gestire le applicazioni.
+[Infrastruttura come codice](/azure/devops/learn/what-is-infrastructure-as-code) è la gestione dell'infrastruttura in un modello descrittivo, usando lo stesso controllo delle versioni usato dai team DevOps per il codice sorgente. Aggiunge affidabilità e scalabilità all'ambiente e consente di sfruttare i processi simili che consentono di gestire le applicazioni.
 
 -  Usare [modelli di Resource Manager](platform/template-workspace-configuration.md) per abilitare il monitoraggio e configurare gli avvisi tramite un ampio set di risorse.
 - Usare [Criteri di Azure](../governance/policy/overview.md) per applicare regole diverse in relazione alle risorse. Ciò assicura che tali risorse rimangano conformi con gli standard aziendali e i contratti di servizio. 
@@ -63,7 +63,7 @@ Integrazione continua/distribuzione continua consente di integrare automaticamen
 
 
 - Usare [Azure Pipelines](/azure/devops/pipelines) per implementare la distribuzione continua e automatizzare l'intero processo dal commit del codice all'ambiente di produzione in base ai test di integrazione continua/distribuzione continua.
-- Usare [Gate di qualità](/devops/pipelines/release/approvals/gates) per integrare il monitoraggio al momento della pre-distribuzione o della post-distribuzione. Ciò garantisce che si stiano soddisfacendo le metriche chiave di integrità/prestazioni (KPI) non appena le applicazioni si spostano dallo sviluppo alla produzione e le eventuali differenze nell'ambiente di infrastruttura o che la scalabilità non influisca negativamente sugli indicatori KPI.
+- Usare [Gate di qualità](/azure/devops/pipelines/release/approvals/gates) per integrare il monitoraggio al momento della pre-distribuzione o della post-distribuzione. Ciò garantisce che si stiano soddisfacendo le metriche chiave di integrità/prestazioni (KPI) non appena le applicazioni si spostano dallo sviluppo alla produzione e le eventuali differenze nell'ambiente di infrastruttura o che la scalabilità non influisca negativamente sugli indicatori KPI.
 - [Mantenere le istanze di monitoraggio separate](../azure-monitor/app/separate-resources.md) tra gli ambienti di distribuzione diversi, ad esempio sviluppo, Test, Canary e produzione. Ciò garantisce che i dati raccolti siano rilevanti per le applicazioni associate e per l'infrastruttura. Se è necessario correlare i dati negli ambienti, è possibile usare [i grafici a più risorse in Esplora metriche](../azure-monitor/platform/metrics-charts.md) oppure creare [query tra risorse in Log Analytics](log-query/cross-workspace-query.md).
 
 

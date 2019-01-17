@@ -11,19 +11,19 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 3f4a120e2aaf2925805bec26f721d5cfb4194bf1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/11/2019
+ms.openlocfilehash: 330726eecc19659d978b1072ad02ad6d5a4ccb8b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041544"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244376"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-database"></a>Rilevamento delle minacce del database SQL di Azure per un database singolo
 
 [Rilevamento delle minacce](sql-database-threat-detection-overview.md) SQL di Azure per database singoli di [Database SQL](sql-database-technical-overview.md) rileva le attività anomale che possono indicare tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. Rilevamento delle minacce può identificare **potenziali attacchi SQL injection**, **accessi da una posizione o un data center insolito**, **accessi da un'entità di sicurezza insolita o da un'applicazione potenzialmente dannosa** e **credenziali SQL tramite forza bruta**. Per altre informazioni dettagliate, vedere [Avvisi di rilevamento minacce](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
 
-È possibile ricevere notifiche sulle minacce rilevate tramite [posta elettronica](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) o il [portale di Azure](sql-database-threat-detection.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
+È possibile ricevere notifiche sulle minacce rilevate tramite [posta elettronica](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) o il [portale di Azure](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 
 [Rilevamento delle minacce](sql-database-threat-detection-overview.md) fa parte dell'offerta [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP), che è un pacchetto unificato per le funzionalità avanzate di sicurezza SQL. È possibile accedere e gestire Rilevamento delle minacce tramite il portale centrale ATP SQL. Il servizio di rilevamento delle minacce viene addebitato alla tariffa di $ 15/mese per ogni server logico. I primi 30 giorni non vengono addebiti.
 

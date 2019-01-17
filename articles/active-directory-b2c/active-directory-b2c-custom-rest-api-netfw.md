@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: fb0ad8efcd73b304ea5c68f0d3c45a38ce1b80e8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557292"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304908"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente
 
@@ -50,7 +50,7 @@ Panoramica
 * Usare il servizio RESTful nel percorso utente.
 * Inviare attestazioni di input e leggerle nel codice.
 * Convalidare il nome dell'utente.
-* Inviare un numero di programma fedeltà. 
+* Inviare un numero di programma fedeltà.
 * Aggiungere il numero di fedeltà a un token JSON Web (JWT).
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -77,11 +77,11 @@ Completare la procedura descritta nell'articolo [Introduzione ai criteri persona
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>Passaggio 2: Preparare l'endpoint dell'API REST
 
 ### <a name="step-21-add-data-models"></a>Passaggio 2.1: Aggiungere modelli di dati
-I modelli rappresentano i dati delle attestazioni di input e output presenti nel servizio RESTful. Il codice legge i dati di input per deserializzare il modello di attestazioni di input da una stringa JSON in un oggetto C# (modello dell'utente). L'API Web ASP.NET deserializza automaticamente il modello di attestazioni di output in JSON e quindi scrive i dati serializzati nel corpo del messaggio di risposta HTTP. 
+I modelli rappresentano i dati delle attestazioni di input e output presenti nel servizio RESTful. Il codice legge i dati di input per deserializzare il modello di attestazioni di input da una stringa JSON in un oggetto C# (modello dell'utente). L'API Web ASP.NET deserializza automaticamente il modello di attestazioni di output in JSON e quindi scrive i dati serializzati nel corpo del messaggio di risposta HTTP.
 
 Creare un modello che rappresenta le attestazioni di input seguendo questa procedura:
 
-1. Se Esplora soluzioni non è già aperto, selezionare **Visualizza** > **Esplora soluzioni**. 
+1. Se Esplora soluzioni non è già aperto, selezionare **Visualizza** > **Esplora soluzioni**.
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Modelli**, scegliere **Aggiungi** e quindi fare clic su **Classe**.
 
     ![Aggiungi modello](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
@@ -128,7 +128,7 @@ Creare un modello che rappresenta le attestazioni di input seguendo questa proce
                 this.userMessage = message;
                 this.status = (int)status;
                 this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }    
+            }
         }
     }
     ```
@@ -241,20 +241,20 @@ L'attestazione `loyaltyNumber` non è ancora definita nello schema. Aggiungere u
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>Passaggio 5: Aggiungere un provider di attestazioni 
-Ogni provider di attestazioni deve disporre di uno o più profili tecnici, che determinano gli endpoint e i protocolli necessari per comunicare con il provider stesso. 
+## <a name="step-5-add-a-claims-provider"></a>Passaggio 5: Aggiungere un provider di attestazioni
+Ogni provider di attestazioni deve disporre di uno o più profili tecnici, che determinano gli endpoint e i protocolli necessari per comunicare con il provider stesso.
 
-Un provider di attestazioni può avere più profili tecnici per molti motivi, ad esempio perché il provider di attestazioni supporta più protocolli, gli endpoint possono avere funzionalità diverse o le versioni possono contenere attestazioni con livelli di garanzia distinti. Potrebbe essere accettabile rilasciare attestazioni sensibili in un percorso utente, ma non in un altro. 
+Un provider di attestazioni può avere più profili tecnici per molti motivi, ad esempio perché il provider di attestazioni supporta più protocolli, gli endpoint possono avere funzionalità diverse o le versioni possono contenere attestazioni con livelli di garanzia distinti. Potrebbe essere accettabile rilasciare attestazioni sensibili in un percorso utente, ma non in un altro.
 
 Il frammento di codice XML seguente contiene un nodo di un provider di attestazioni con due profili tecnici:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: definisce il servizio RESTful. 
-   * `Proprietary` viene descritto come protocollo per un provider basato su RESTful. 
-   * `InputClaims` definisce le attestazioni che verranno inviate da Azure AD B2C al servizio REST. 
+* **TechnicalProfile Id="REST-API-SignUp"**: definisce il servizio RESTful.
+   * `Proprietary` viene descritto come protocollo per un provider basato su RESTful.
+   * `InputClaims` definisce le attestazioni che verranno inviate da Azure AD B2C al servizio REST.
 
    In questo esempio il contenuto dell'attestazione `givenName` viene inviato al servizio REST come `firstName`, il contenuto dell'attestazione `surname` viene inviato al servizio REST come `lastName` e `email` viene inviato così com'è. L'elemento `OutputClaims` definisce le attestazioni che vengono recuperate dal servizio RESTful e restituite ad Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: aggiunge un profilo tecnico di convalida al profilo tecnico esistente (definito nei criteri di base). Durante la fase di iscrizione il profilo tecnico di convalida richiama il profilo tecnico precedente. Se il servizio RESTful restituisce un errore HTTP 409 (un errore di conflitto), il messaggio di errore viene visualizzato dall'utente. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: aggiunge un profilo tecnico di convalida al profilo tecnico esistente (definito nei criteri di base). Durante la fase di iscrizione il profilo tecnico di convalida richiama il profilo tecnico precedente. Se il servizio RESTful restituisce un errore HTTP 409 (un errore di conflitto), il messaggio di errore viene visualizzato dall'utente.
 
 Individuare il nodo `<ClaimsProviders>` e quindi aggiungere il frammento XML seguente nel nodo `<ClaimsProviders>`:
 
@@ -329,7 +329,7 @@ Dopo aver aggiunto la nuova attestazione, il codice della relying party è simil
 
 2. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 
-3. Aprire **Tutti i criteri**. 
+3. Aprire **Tutti i criteri**.
 
 4. Selezionare **Carica criteri**.
 
@@ -354,7 +354,7 @@ Dopo aver aggiunto la nuova attestazione, il codice della relying party è simil
 
     ![Verificare i criteri](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4.  Digitare un nome (diverso da "Test") nella casella **Nome**.  
+4. Digitare un nome (diverso da "Test") nella casella **Nome**.  
     Azure AD B2C effettua l'iscrizione dell'utente e invia quindi un numero di identificazione personale (loyaltyNumber) all'applicazione. Prendere nota del numero in questo token JWT.
 
 ```
@@ -381,7 +381,7 @@ Dopo aver aggiunto la nuova attestazione, il codice della relying party è simil
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Facoltativo) Scaricare il codice e i file dei criteri completi
 * Dopo aver completato la procedura [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md), è consigliabile usare file di criteri personalizzati per definire scenari specifici. Per riferimento, sono disponibili [file di criteri di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw).
 * È possibile scaricare il codice completo da [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/) (Soluzione di Visual Studio di esempio per riferimento).
-    
+
 ## <a name="next-steps"></a>Passaggi successivi
 * [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) (Proteggere l'API RESTful con l'atenticazione di base - nome utente e password)
 * [Proteggere l'API RESTful con certificati client](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

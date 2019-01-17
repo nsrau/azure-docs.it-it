@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 72d557ec2fa0e23dafb498d94c86296a3a534f88
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: cc72cd3139a17017a645f749d906fad64603401e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064016"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304313"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Esercitazione: Integrazione di Azure Active Directory con Snowflake
 
@@ -115,7 +115,7 @@ Per configurare Single Sign-On di Azure AD con Snowflake, seguire questa procedu
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Snowflake](https://support.snowflake.net/s/snowflake-support). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Snowflake](https://support.snowflake.net/s/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 

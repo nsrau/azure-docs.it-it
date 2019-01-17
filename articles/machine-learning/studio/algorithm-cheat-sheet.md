@@ -1,23 +1,21 @@
 ---
-title: Foglio informativo sugli algoritmi di Machine Learning - Azure Machine Learning Studio | Microsoft Docs
+title: Foglio informativo sugli algoritmi di Machine Learning
+titleSuffix: Azure Machine Learning Studio
 description: Un foglio informativo sugli algoritmi di Machine Learning stampabile aiuta a scegliere il giusto algoritmo per il proprio modello predittivo in Azure Machine Learning Studio.
-keywords: foglio informativo sugli algoritmi, foglio informatico, algoritmo di machine learning
 services: machine-learning
-author: ericlicoding
-ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 7ddc3a9829dc05ac1c1df450091789e4cad2b2f5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 69b085faf10b9e22618fa248460d269bd2efdb73
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274514"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264309"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Foglio informativo sugli algoritmi di Machine Learning per Azure Machine Learning Studio
 

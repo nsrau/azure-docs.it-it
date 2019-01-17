@@ -3,7 +3,7 @@ title: Creare una macchina virtuale SQL Server in Azure PowerShell (distribuzion
 description: Fornisce procedure e script di PowerShell per la creazione di una macchina virtuale di Azure con le immagini della galleria di macchine virtuali SQL Server. In questo argomento viene usata la modalità di distribuzione classica.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
@@ -13,20 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
-ms.author: jroth
-ms.openlocfilehash: 66f44e27562f33373e0b67fe6e0ebf9c6bf99e03
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: ad8b59a9290c533a3687b5ff8956d8682fb6d9e9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399662"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332286"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Effettuare il provisioning di una macchina virtuale di SQL Server con Azure PowerShell (classico)
 
 In questo articolo viene descritta la procedura per creare una macchina virtuale SQL Server in Azure usando i cmdlet di PowerShell.
 
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 Per la versione di Resource Manager di questo argomento, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server con Azure PowerShell (Resource Manager)](../sql/virtual-machines-windows-ps-sql-create.md).
 

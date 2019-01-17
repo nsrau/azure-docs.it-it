@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: a8f7ccdb199f934011b6d64d813eb36cc9dff952
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 1d8a46287d2b84735ffb6d5159346cb9b8243472
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804549"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264001"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Lingua e regioni supportate dall'API Ricerca notizie Bing
 
@@ -47,7 +47,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 |Nuova Zelanda|Inglese|en-NZ|
 |Filippine|Inglese|en-PH|
 |Singapore|Inglese|en-SG|
-|Stati Uniti|Inglese|it-IT|
+|Stati Uniti|Inglese|en-US|
 |Inglese|generale|en-WW|
 |Inglese|generale|en-XA|
 |Sud Africa|Inglese|en-ZA|
@@ -86,7 +86,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 |Germania|Tedesco|de-DE|
 |Australia|Inglese|en-AU|
 |Regno Unito|Inglese|en-GB|
-|Stati Uniti|Inglese|it-IT|
+|Stati Uniti|Inglese|en-US|
 |Inglese|generale|en-WW|
 |Cile|Spagnolo|es-CL|
 |Messico|Spagnolo|es-MX|
@@ -108,7 +108,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 |Germania|Tedesco|de-DE|
 |Australia|Inglese|en-AU|
 |Regno Unito|Inglese|en-GB|
-|Stati Uniti|Inglese|it-IT|
+|Stati Uniti|Inglese|en-US|
 |Canada|Inglese|en-CA|
 |India|Inglese|en-IN|
 |Francia|Francese|fr-FR|

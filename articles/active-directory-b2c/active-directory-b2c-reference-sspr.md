@@ -10,18 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c9d6a66a9d54c75fbb20775f0ae4de4d22a7d599
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3d2019101abf1086a58d0224ab31f2aa27afe8de
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840869"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54350592"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configurare la reimpostazione self-service della password per i clienti
+
 La funzione di reimpostazione self-service della password consente ai clienti che si sono registrati per ottenere un account locale di reimpostare le password in modo autonomo. Questo riduce notevolmente il carico di lavoro per lo staff di supporto, soprattutto se l'applicazione viene usata regolarmente da milioni di clienti. L'unico metodo di recupero attualmente supportato è l'uso di un indirizzo di posta elettronica verificato.
 
 > [!NOTE]
-> Questo articolo si riferisce alla reimpostazione della password usata nel contesto del flusso di **Accesso** dell'utente a V1, che usa **Accesso all'account locale** come provider di identità. Se è necessario richiamare dall'app flussi dell'utente di reimpostazione della password completamente personalizzabili, vedere [questo articolo](active-directory-b2c-reference-policies.md#create-a-password-reset-user-flow).
+> Questo articolo si riferisce alla reimpostazione della password usata nel contesto del flusso di **Accesso** dell'utente a V1, che usa **Accesso all'account locale** come provider di identità. Se è necessario richiamare dall'app flussi dell'utente di reimpostazione della password completamente personalizzabili, vedere [questo articolo](active-directory-b2c-reference-policies.md).
 > 
 > 
 

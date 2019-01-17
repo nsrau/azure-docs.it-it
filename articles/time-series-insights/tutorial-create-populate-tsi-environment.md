@@ -9,12 +9,12 @@ ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: c2aeab6888cf93be75742028b0354c45a1834d51
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 58b19a039bb6aebcd2687ab80cdd29c5f378645e
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537283"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200208"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Esercitazione: Creare un ambiente Azure Time Series Insights
 
@@ -41,7 +41,7 @@ L'account di accesso di Azure deve anche essere membro del ruolo "Proprietario" 
 
 ## <a name="overview"></a>Panoramica
 
-L'ambiente TSI è l'ambiente in cui vengono raccolti e archiviati i dati dei dispositivi. Dopo l'archiviazione nell'ambiente TSI, è possibile usare [TSI Explorer](time-series-quickstart.md) e l'[API di query TSI](/rest/api/time-series-insights/time-series-insights-reference-queryapi) per eseguire query e analizzare i dati.
+L'ambiente TSI è l'ambiente in cui vengono raccolti e archiviati i dati dei dispositivi. Dopo l'archiviazione nell'ambiente TSI, è possibile usare [TSI Explorer](time-series-quickstart.md) e l'[API di query TSI](/rest/api/time-series-insights/ga-query-api) per eseguire query e analizzare i dati.
 
 Come tutti i dispositivi, simulati o fisici, l'hub IoT è il punto di connessione usato dai dispositivi per connettersi in modo sicuro e trasmettere dati al cloud di Azure. Come descritto nella [Panoramica su TSI](time-series-insights-overview.md), l'hub IoT funge anche da origine evento per trasmettere dati nell'ambiente TSI. 
 

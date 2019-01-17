@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: af45081df280f5542b5ba70892ee74c05b3e99cc
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2d0f3292a12505249ebc8594c58234a0c6e81a8a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808118"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212499"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Trasferire dati con AzCopy v10 (anteprima)
 
@@ -55,7 +55,7 @@ AzCopy v10 non richiede un'installazione. Aprire un'applicazione della riga di c
 
 AzCopy v10 consente di usare le opzioni seguenti durante l'autenticazione con Archiviazione di Azure:
 - **Azure Active Directory [supportato in BLOB e ADLS Gen2]**. Usare ```.\azcopy login``` per accedere tramite Azure Active Directory.  L'utente deve avere [assegnato il ruolo "Collaboratore ai dati del BLOB di archiviazione"](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) per scrivere nell'archivio BLOB usando l'autenticazione di Azure Active Directory.
-- **Token di firma di accesso condiviso [supportato in BLOB e Servizio file]**. Per usarlo, aggiungere il token di firma di accesso condiviso al percorso del BLOB nella riga di comando. È possibile generare token di firma di accesso condiviso tramite il portale di Azure, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStorageblobsastoken) o altri strumenti di propria scelta. Per altre informazioni, vedere gli [esempi](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+- **Token di firma di accesso condiviso [supportato in BLOB e Servizio file]**. Per usarlo, aggiungere il token di firma di accesso condiviso al percorso del BLOB nella riga di comando. È possibile generare token di firma di accesso condiviso tramite il portale di Azure, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) o altri strumenti di propria scelta. Per altre informazioni, vedere gli [esempi](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 ## <a name="getting-started"></a>Introduzione
 

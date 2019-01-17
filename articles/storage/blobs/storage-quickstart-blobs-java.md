@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 342b19927d290f5ff519d3fae5b84bcfa2b9d9cf
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 98b7481c22cc5f3c233de4c516d4be5f64bbe143
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711753"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198015"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Come caricare, scaricare ed elencare BLOB con Java SDK v7
 
@@ -96,7 +96,7 @@ Viene quindi descritto in dettaglio il codice di esempio, per consentire di comp
 
 La prima cosa da fare è creare i riferimenti agli oggetti usati per accedere e gestire l'archiviazione BLOB. Questi oggetti si compilano a vicenda: ognuno di essi viene usato da quello successivo nell'elenco.
 
-* Creare un'istanza dell'oggetto [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage._storage_account) che punti all'account di archiviazione.
+* Creare un'istanza dell'oggetto [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage.storageaccount) che punti all'account di archiviazione.
 
     L'oggetto **CloudStorageAccount** è una rappresentazione dell'account di archiviazione e consente di impostare le proprietà di tale account e di accedervi a livello di codice. Con l'oggetto **CloudStorageAccount** è possibile creare un'istanza di **CloudBlobClient**, necessaria per accedere al servizio BLOB.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584446"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232754"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Esercitazione: Creare un'app di elaborazione delle immagini - C&#35;
 
@@ -97,9 +97,6 @@ Prima di poter eseguire o esplorare l'app di esempio, è necessario compilarla i
    |Recognize Text (OCR) (Riconoscimento del testo - OCR) | Usa l'operazione [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) per riconoscere ed estrarre testo stampato da un'immagine. È possibile scegliere la lingua da usare o far rilevare automaticamente la lingua a Visione artificiale. |
    |Recognize Text V2 (English) (Riconoscimento del testo V2 - inglese) | Usa le operazioni [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (Riconosci testo) e [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Ottieni risultato dell'operazione Riconosci testo) per riconoscere ed estrarre in modo asincrono il testo stampato o scritto a mano da un'immagine. |
    |Get Thumbnail (Generazione dell'anteprima) | Usa l'operazione [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (Ottieni anteprima) per generare un'anteprima per un'immagine locale o remota. |
-
-   > [!IMPORTANT]
-   > Microsoft riceve le immagini che vengono caricate e può usarle per migliorare l'API Visione artificiale e i servizi correlati. Quando si invia un'immagine, si conferma di avere rispettato il [Codice di comportamento per gli sviluppatori](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    Lo screenshot seguente illustra la pagina visualizzata per lo scenario di analisi dell'immagine dopo l'analisi di un'immagine di esempio.
    ![Screenshot della pagina di analisi delle immagini](../Images/Analyze_Image_Example.PNG)

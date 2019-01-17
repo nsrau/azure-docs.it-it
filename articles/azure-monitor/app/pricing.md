@@ -9,17 +9,16 @@ ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 326f0e21582c1aee03c8a44adcd709f3ddf59b0b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ec0211c71b8be66262ef0f19dcd1f952051c97b8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119629"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332677"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -59,7 +58,7 @@ C. Visualizzare le tendenze del volume dei dati relative all'ultimo mese.
 D. Abilitare il [campionamento](../../azure-monitor/app/sampling.md) per l'inserimento dei dati.   
 E. Impostare il limite giornaliero di utilizzo per volume dati.  
 
-Per analizzare l'utilizzo di Application Insights a un livello più profondo, aprire la pagina **Metriche**, aggiungere la metrica denominata "Volume del punto dati" e quindi selezionare l'opzione *Applica suddivisione* per suddividere i dati in base al tipo di elemento di telemetria. 
+Per analizzare l'utilizzo di Application Insights a un livello più dettagliato, aprire la pagina **Metriche**, aggiungere la metrica denominata "Volume del punto dati" e quindi selezionare l'opzione *Applica suddivisione* per suddividere i dati in base al tipo di elemento di telemetria. 
 
 Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure. È possibile visualizzare i dettagli della fattura di Azure nella sezione **Fatturazione** del portale di Azure oppure nel [portale di fatturazione di Azure](https://account.windowsazure.com/Subscriptions). 
 
@@ -147,7 +146,7 @@ Per disabilitare i messaggi di posta elettronica relativi al limite di utilizzo 
 
 ## <a name="legacy-enterprise-pricing-plan"></a>Piano tariffario Enterprise precedente
 
-Per chi ha adottato da tempo Azure Application Insights, sono ancora possibili due piani tariffari: Basic ed Enterprise. Il piano tariffario Basic è identico a quello descritto in precedenza ed è il piano predefinito. Include tutte le funzionalità del piano Enterprise, senza alcun costo aggiuntivo. Nel piano Basic la fatturazione viene effettuata principalmente in base al volume di dati inseriti. 
+Per chi ha adottato da tempo Azure Application Insights, sono ancora possibili due piani tariffari: Basic ed Enterprise. Il piano tariffario Basic è identico a quello descritto sopra ed è il piano predefinito. Include tutte le funzionalità del piano Enterprise, senza alcun costo aggiuntivo. Nel piano Basic la fatturazione viene effettuata principalmente in base al volume di dati inseriti. 
 
 Il piano Enterprise prevede un addebito per nodo e una determinata quantità di dati giornaliera per ogni nodo. Nel piano tariffario Enterprise vengono addebitati i dati inseriti in aggiunta alla quantità inclusa. Se si usa Operations Management Suite, è consigliabile scegliere il piano Enterprise. 
 

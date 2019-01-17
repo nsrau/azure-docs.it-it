@@ -1,18 +1,18 @@
 ---
 title: Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello con Azure Site Recovery | Microsoft Docs
 description: Informazioni su come eseguire la replica di macchine virtuali Web farm IIS usando Azure Site Recovery.
-author: nsoneji
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 49435665ae1e99dd2b9696e5e5bb048e438dcc4c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832957"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320498"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello
 

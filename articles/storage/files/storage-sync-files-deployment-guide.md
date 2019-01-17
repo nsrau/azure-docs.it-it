@@ -8,19 +8,17 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 737cb31fd4e33229e0317e6a0610fb098beed6f4
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a1e315c7837f682e3b12624387902599138c957f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191905"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322011"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuire Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
 
 È consigliabile leggere [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md) e [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md) prima di completare i passaggi descritti in questo articolo.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Un account di archiviazione di Azure e una condivisione file di Azure nella stessa area in cui si vuole distribuire Sincronizzazione file di Azure. Per altre informazioni, vedere:

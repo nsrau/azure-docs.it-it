@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 68f7df2ab004477fae5df1d200fcd44929465e93
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233124"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232244"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Creare o aggiungere rami paralleli per le azioni del flusso di lavoro nelle App per la logica di Azure
 
@@ -37,7 +37,7 @@ Per eseguire simultaneamente passaggi indipendenti, è possibile aggiungere rami
 
 ![Eseguire i passaggi in parallelo](media/logic-apps-control-flow-branches/parallel.png)
 
-L'app per la logica attende il completamento di tutti i rami prima di continuare il flusso di lavoro. I rami paralleli vengono eseguiti solo quando i valori della proprietà `runAfter` corrispondono allo stato del passaggio padre completato. Ad esempio, sia `branchAction1` che `branchAction2` sono impostati per essere eseguiti solo quando `parentAction` termina con lo stato `Succeded`.
+L'app per la logica attende il completamento di tutti i rami prima di continuare il flusso di lavoro. I rami paralleli vengono eseguiti solo quando i valori della proprietà `runAfter` corrispondono allo stato del passaggio padre completato. Ad esempio, sia `branchAction1` che `branchAction2` sono impostati per essere eseguiti solo quando `parentAction` termina con lo stato `Succeeded`.
 
 > [!NOTE]
 > Prima di iniziare, l'app per la logica deve avere già un passaggio in cui è possibile aggiungere rami paralleli.

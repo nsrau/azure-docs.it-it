@@ -5,6 +5,7 @@ description: Questa esercitazione mostra come configurare il port forwarding con
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/18
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e3431ff7ee6991e5af3ecab0e734cc587009dcde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: da41b33f3e5d24c0391c8486d9c0b372877eff21
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273528"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232193"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Esercitazione: configurare il port forwarding in Azure Load Balancer tramite il portale
 
@@ -47,7 +48,7 @@ Per prima cosa, creare un servizio di bilanciamento del carico standard pubblico
    
 1. Nel riquadro **Crea servizio di bilanciamento del carico** digitare o selezionare i valori seguenti:
    
-   - **Nome**: digitare *MyLoadBalancer*.
+   - **Nome**: Digitare *MyLoadBalancer*.
    - **Tipo**: Selezionare **Pubblico**. 
    - **SKU**: Selezionare **Standard**.
    - **Indirizzo IP pubblico**: Selezionare **Crea nuovo**, quindi digitare *MyPublicIP* nel campo.
@@ -72,9 +73,9 @@ Creare una rete virtuale con due macchine virtuali, quindi aggiungere le VM al p
    
 1. Nel riquadro **Crea rete virtuale** digitare o selezionare questi valori:
    
-   - **Nome**: digitare *MyVNet*.
+   - **Nome**: Digitare *MyVNet*.
    - **Gruppo di risorse**: selezionare nell'elenco a discesa **Seleziona esistente**, quindi **MyResourceGroupLB**. 
-   - **Subnet** > **Nome**: digitare *MyBackendSubnet*.
+   - **Subnet** > **Nome**: Digitare *MyBackendSubnet*.
    
 1. Selezionare **Create**.
 
@@ -187,11 +188,11 @@ Per consentire al servizio di bilanciamento del carico di monitorare lo stato de
 1. Nella pagina **Aggiungi probe integrità** digitare o selezionare i valori seguenti:
    
    - **Nome**: digitare *MyHealthProbe*.
-   - **Protocollo**: selezionare **HTTP** nell'elenco a discesa. 
+   - **Protocollo**: Nell'elenco a discesa selezionare **HTTP**. 
    - **Porta**: digitare *80*. 
-   - **Percorso**: accettare */* come URI predefinito. È possibile sostituire questo valore con qualsiasi altro URI. 
-   - **Intervallo**: digitare *15*. L'intervallo specifica il numero di secondi tra i tentativi del probe.
-   - **Soglia non integra**: digitare *2*. Questa impostazione specifica il numero di errori di probe consecutivi che si verificano prima che una macchina virtuale venga considerata non integra.
+   - **Percorso**: Accettare */* come URI predefinito. È possibile sostituire questo valore con qualsiasi altro URI. 
+   - **Intervallo**: Digitare *15*. L'intervallo specifica il numero di secondi tra i tentativi del probe.
+   - **Soglia non integra**: Digitare *2*. Questa impostazione specifica il numero di errori di probe consecutivi che si verificano prima che una macchina virtuale venga considerata non integra.
    
 1. Selezionare **OK**.
    
@@ -211,10 +212,10 @@ La regola di bilanciamento del carico denominata **MyLoadBalancerRule** rimane i
    
    - **Nome**: digitare *MyLoadBalancerRule*.
    - **Protocollo**: selezionare **TCP**.
-   - **Porta**: digitare *80*.
-   - **Porta back-end**: digitare *80*.
-   - **Pool back-end**: selezionare **MyBackendPool**.
-   - **Probe di integrità**: selezionare **MyHealthProbe**. 
+   - **Porta**: Digitare *80*.
+   - **Porta back-end**: Digitare *80*.
+   - **Pool back-end**: Selezionare **MyBackendPool**.
+   - **Probe di integrità**: Selezionare **MyHealthProbe**. 
    
 1. Selezionare **OK**.
    

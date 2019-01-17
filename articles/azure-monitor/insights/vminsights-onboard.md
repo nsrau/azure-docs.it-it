@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 3c1caa2485437768781ada2c7271445ccd3c19e1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: cfbe1ce39d7f68dd6ea2510b5c6cbddf4eb71710
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190329"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331997"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Distribuire Monitoraggio di Azure per le macchine virtuali (anteprima)
 Questo articolo descrive come configurare Monitoraggio di Azure per le macchine virtuali. Il servizio consente di monitorare l'integrità del sistema operativo delle macchine virtuali e dei set di scalabilità di macchine virtuali di Azure, oltre che delle macchine virtuali nell'ambiente in uso. Il monitoraggio include l'individuazione e il mapping delle dipendenze delle applicazioni eventualmente ospitate al loro interno. 
@@ -308,7 +308,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
 1. È possibile distribuire il modello usando il comando di PowerShell seguente:
 
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
     Il completamento della modifica della configurazione può richiedere alcuni minuti. Al termine dell'operazione, viene visualizzato un messaggio simile al seguente in cui è incluso il risultato:

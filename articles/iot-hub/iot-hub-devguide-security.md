@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 6d15715379b06f55e1e190ebf5410995e3703d70
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3b49d568b1ca19a99359314bb181712f56ca5615
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053331"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201058"
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -418,7 +418,7 @@ Di seguito vengono indicati i passaggi principali del modello del servizio token
 4. Il dispositivo/modulo usa il token direttamente con l'hub IoT.
 
 > [!NOTE]
-> È possibile usare la classe .NET [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) o la classe Java [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token) per creare un token nel servizio token.
+> È possibile usare la classe .NET [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) o la classe Java [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) per creare un token nel servizio token.
 
 Il servizio token può impostare la scadenza del token, in base alle esigenze. Quando il token scade, l'hub IoT interrompe la connessione del dispositivo/modulo. Il dispositivo/modulo deve quindi richiedere un nuovo token dal servizio token. Un intervallo di scadenza breve aumenta il carico sia sul dispositivo/modulo che sul servizio token.
 

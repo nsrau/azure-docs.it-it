@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 1d4760eb6490ce458e699ad9bc59a57cb473ef6d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8ccd2bfe78ca7b0fabac2b8c9bfd6ba002782a41
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104123"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352808"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Connettere computer Windows al servizio Log Analytics in Azure
 
@@ -100,7 +100,7 @@ La tabella seguente illustra i parametri specifici di Log Analytics supportati d
 |OPINSIGHTS_PROXY_USERNAME               | Nome utente per accedere a un proxy autenticato |
 |OPINSIGHTS_PROXY_PASSWORD               | Password per accedere a un proxy autenticato |
 
-1. Per estrarre i file di installazione dell'agente, da un prompt dei comandi con privilegi elevati eseguire `MMASetup-<platform>.exe /c` e verrà chiesto il percorso in cui estrarre i file.  In alternativa, è possibile specificare il percorso passando gli argomenti `MMASetup-<platform>.exe /c /t:<Path>`.  
+1. Per estrarre i file di installazione dell'agente, da un prompt dei comandi con privilegi elevati eseguire `MMASetup-<platform>.exe /c` e verrà chiesto il percorso in cui estrarre i file.  In alternativa, è possibile specificare il percorso passando gli argomenti `MMASetup-<platform>.exe /c /t:<Full Path>`.  
 2. Per installare in modo invisibile l'agente e configurarlo in modo da fare riferimento a un'area di lavoro nel cloud commerciale di Azure, dalla cartella da cui sono stati estratti i file di installazione, digitare: 
    
      ```dos

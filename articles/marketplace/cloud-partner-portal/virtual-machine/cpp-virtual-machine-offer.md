@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d51fffad897ba2658c7bee51c26e7e3be9f10e88
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bbe757ccd1d6a37cbcf04f3ecd6dd088ef1ff211
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188759"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353021"
 ---
 # <a name="virtual-machine-offer"></a>Offerta di una macchina virtuale
 
@@ -32,7 +32,7 @@ ms.locfileid: "53188759"
 
 Il video seguente, [Optimize Your Azure Marketplace Offer](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player) (Ottimizzare l'offerta in Microsoft Azure Marketplace), presenta un'ampia panoramica di Microsoft Azure Marketplace, incluse le procedure per la pubblicazione nel marketplace (usando una soluzione di macchina virtuale), come ottimizzare l'esperienza utente con la pagina dei prodotti e l'esperienza Test Drive facoltativa, come vengono generati i lead dell'utente e come è possibile usarli e ottimizzare il coinvolgimento dei clienti.
 
-> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026]
+> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026/player]
 
 
 ## <a name="vm-publishing-process-flow"></a>Flusso del processo di pubblicazione di una macchina virtuale

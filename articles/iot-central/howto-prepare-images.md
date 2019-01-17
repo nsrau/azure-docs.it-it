@@ -1,19 +1,19 @@
 ---
 title: Caricare immagini nell'applicazione Azure IoT Central | Microsoft Docs
 description: Informazioni su come preparare e caricare immagini nell'applicazione Azure IoT Central in qualità di costruttore.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: b55b9929129b882f893b1fea58b7061131daffb8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+manager: philmea
+ms.openlocfilehash: 9d4de2a8be13718f7989f064b76b586407ca3a48
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005139"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198610"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparare e caricare immagini nell'applicazione Azure IoT Central
 

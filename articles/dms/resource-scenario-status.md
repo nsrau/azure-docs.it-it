@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: 9e153cca321e94233cfda2a03cf52ba85a0f6b02
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.date: 01/15/2019
+ms.openlocfilehash: e9f1b1a3df92c08b913a56aadc8eb8a9e80c7fdf
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102806"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320056"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Stato degli scenari di migrazione supportati dal Servizio Migrazione del database di Azure
 Il Servizio Migrazione del database di Azure è progettato per supportare una varietà di scenari di migrazione (coppie origine/destinazione) per le migrazioni sia offline (uniche) che online (sincronizzazione continua). Gli scenari supportati dal Servizio Migrazione del database di Azure aumentano con il tempo. Nuovi scenari vengono aggiunti regolarmente. Questo articolo identifica gli scenari di migrazione attualmente supportati dal Servizio Migrazione del database di Azure e lo stato (Anteprima privata [o limitata], Anteprima pubblica o Disponibile a livello generale) per ogni scenario.
@@ -45,11 +45,11 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 | **Istanza gestita di database SQL di Azure**  | SQL Server  | ✔ |
 |   | RDS SQL  | ✔ |
 |   | Oracle  | ✔  |
-| **VM di Azure SQL**  | SQL Server  | ✔ |
+| **VM di Azure SQL**  | SQL Server | ✔ |
 |   | Oracle  |   |
-| **Cosmos DB**  | MongoDB  | ✔ |
-| **Database di Azure per MySQL**  | MySQL  |  |
-|   | RDS MySQL  |  |
+| **Cosmos DB**  | MongoDB | ✔ |
+| **Database di Azure per MySQL**  | MySQL |  |
+|   | Servizi Desktop remoto MySQL  |  |
 | **Database di Azure per PostgreSQL**  | PostgreSQL |  |
 |  | RDS PostgreSQL  |  |
 
@@ -67,7 +67,7 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 | **VM di Azure SQL**  | SQL Server  |   |
 |   | Oracle  | ✔  |
 | **Cosmos DB**  | MongoDB  | ✔ |
-| **Database di Azure per MySQL**  | MySQL  | ✔ |
+| **Database di Azure per MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
 | **Database di Azure per PostgreSQL**  | PostgreSQL | ✔ |
 |  | RDS PostgreSQL  | ✔ |

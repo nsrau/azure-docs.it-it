@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 898080f445c54c93543a481bdd0487c70e772160
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994335"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214397"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Anteprima di Azure Data Lake Storage Gen2 - Introduzione
 
@@ -51,7 +51,7 @@ Archiviazione di Azure è scalabile per impostazione predefinita, sia che si acc
 
 ### <a name="cost-effectiveness"></a>Convenienza
 
-Uno dei numerosi vantaggi della compilazione di Data Lake Storage Gen2 sulla base di Archiviazione BLOB di Azure è il basso costo delle transazioni e della capacità di archiviazione. A differenza di altri servizi di archiviazione cloud, i dati archiviati in Data Lake Storage Gen2 non devono essere spostati o trasformati prima dell'analisi. Per altre informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure]((https://azure.microsoft.com/pricing/details/storage)).
+Uno dei numerosi vantaggi della compilazione di Data Lake Storage Gen2 sulla base di Archiviazione BLOB di Azure è il basso costo delle transazioni e della capacità di archiviazione. A differenza di altri servizi di archiviazione cloud, i dati archiviati in Data Lake Storage Gen2 non devono essere spostati o trasformati prima dell'analisi. Per altre informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage).
 
 Funzionalità quali lo [spazio dei nomi gerarchico](data-lake-storage-namespace.md) migliorano significativamente anche le prestazioni complessive di molti processi di analisi. Questo miglioramento nelle prestazioni implica una minore capacità di calcolo per elaborare la stessa quantità di dati, con conseguente riduzione del costo totale di proprietà (TCO) per il processo di analisi end-to-end.
 

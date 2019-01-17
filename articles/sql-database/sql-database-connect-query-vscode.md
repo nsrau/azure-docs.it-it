@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: 994f7d300b1e9a76e109e73467a2e7f0d4c1584d
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/11/2019
+ms.openlocfilehash: 53c325e586aa96f96a51ce4dd8b320bb7b50b4b2
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652116"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247793"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare Visual Studio Code per connettersi a un database SQL di Azure ed eseguire query
 
@@ -32,7 +32,7 @@ Per completare questa esercitazione, sono necessari:
 
 #### <a name="install-visual-studio-code"></a>Installare Visual Studio Code
 
-Assicurarsi di aver installato l'ultima versione di [Visual Studio Code](https://code.visualstudio.com/Download) e di aver caricato l'[estensione mssql](https://aka.ms/mssql-marketplace). Per indicazioni sull'installazione dell'estensione mssql, vedere [Installare Visual Studio Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) e [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) (mssql per Visual Studio Code). 
+Assicurarsi di aver installato l'ultima versione di [Visual Studio Code](https://code.visualstudio.com/Download) e di aver caricato l'[estensione mssql](https://aka.ms/mssql-marketplace). Per indicazioni sull'installazione dell'estensione mssql, vedere [Installare Visual Studio Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) e [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) (mssql per Visual Studio Code).
 
 ## <a name="configure-visual-studio-code"></a>Configurare Visual Studio Code 
 

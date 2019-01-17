@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2f964ac77ade69f14692a337f17011e93f85f68c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e86180a643b27056edc9901d590760cedcbf259
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025709"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331878"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Spostare i dati da PostgreSQL mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ ms.locfileid: "54025709"
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare dati da un database PostgreSQL locale. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
-È possibile copiare dati da un archivio dati PostgreSQL locale a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente lo spostamento di dati da un database PostgreSQL ad altri archivi dati, ma non da altri archivi dati a un database PostgreSQL. 
+È possibile copiare dati da un archivio dati PostgreSQL locale a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente lo spostamento di dati da un database PostgreSQL ad altri archivi dati, ma non da altri archivi dati a un database PostgreSQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,10 +46,10 @@ Il gateway è necessario anche se il database PostgreSQL è ospitato in una macc
 Affinché il gateway di gestione dati si connetta al database PostgreSQL, installare il [provider di dati Ngpsql per PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) scegliendo una versione tra la 2.0.12 e la 3.1.9 nello stesso sistema del gateway di gestione dati. Sono supportate le versioni di PostgreSQL a partire dalla 7.4.
 
 ## <a name="getting-started"></a>Introduzione
-È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati PostgreSQL usando diversi strumenti/API. 
+È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati PostgreSQL usando diversi strumenti/API.
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
-- Per creare una pipeline, è anche possibile usare gli strumenti seguenti: 
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+- Per creare una pipeline, è anche possibile usare gli strumenti seguenti:
     - Portale di Azure
     - Visual Studio
     - Azure PowerShell
@@ -57,15 +57,15 @@ Affinché il gateway di gestione dati si connetta al database PostgreSQL, instal
     - API .NET
     - API REST
 
-     Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+    Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. 
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
+2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
+3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di data factory usate per copiare dati da un archivio dati PostgreSQL locale, vedere la sezione [Esempio di JSON: Copiare dati da PostgreSQL a BLOB di Azure](#json-example-copy-data-from-postgresql-to-azure-blob) di questo articolo. 
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory. Per un esempio con definizioni JSON per entità di data factory usate per copiare dati da un archivio dati PostgreSQL locale, vedere la sezione [Esempio di JSON: Copiare dati da PostgreSQL a BLOB di Azure](#json-example-copy-data-from-postgresql-to-azure-blob) di questo articolo.
 
 Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità della Data Factory specifiche di un archivio dati PostgreSQL:
 
@@ -104,14 +104,14 @@ Se l'origine è di tipo **RelationalSource** (che comprende PostgreSQL), sono di
 | query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `"query": "select * from \"MySchema\".\"MyTable\""`. |No (se **tableName** di **set di dati** è specificato) |
 
 > [!NOTE]
-> I nomi di schemi e tabelle fanno distinzione tra maiuscole e minuscole. Racchiudere i nomi tra `""` (virgolette doppie) nella query.  
+> I nomi di schemi e tabelle fanno distinzione tra maiuscole e minuscole. Racchiudere i nomi tra `""` (virgolette doppie) nella query.
 
 **Esempio:**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Esempio di JSON: Copiare dati da PostgreSQL a BLOB di Azure
-Questo esempio fornisce le definizioni JSON di esempio da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un database PostgreSQL in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.   
+Questo esempio fornisce le definizioni JSON di esempio da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un database PostgreSQL in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
 
 > [!IMPORTANT]
 > Questo esempio fornisce frammenti di codice JSON. Non include istruzioni dettagliate per la creazione della data factory. Le istruzioni dettagliate sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) .
@@ -153,10 +153,10 @@ Come primo passaggio, impostare il gateway di gestione dati. Le istruzioni sono 
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
-    "typeProperties": {
-        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
-    }
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
+        }
     }
 }
 ```

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: cc89d174a201b38d79c7993d548c8eac4a47fbcb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3254b29ed380b526be6d5fe5f671adeccbd8ea46
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210682"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54196706"
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo di vita di Reliable Services
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Il ciclo di vita di un servizio senza stato è piuttosto semplice. Di seguito è
 
 1. Il servizio viene costruito.
 2. Questi eventi si verificano in parallelo:
-    - Viene richiamato `StatelessService.createServiceInstanceListeners()` e i listener restituiti vengono aperti. Viene chiamato `CommunicationListener.openAsync()` su ciascun listener.
+    - Viene richiamato `StatelessService.createServiceInstanceListeners()` e i listener restituiti vengono aperti. Viene richiamato `CommunicationListener.openAsync()` su ogni listener.
     - Viene chiamato il metodo `runAsync` del servizio (`StatelessService.runAsync()`).
 3. Se presente, viene chiamato il metodo `onOpenAsync` del servizio. Nello specifico, viene chiamato `StatelessService.onOpenAsync()`. Si tratta di un override insolito ma comunque disponibile.
 
@@ -64,7 +64,7 @@ Il ciclo di vita di un servizio senza stato è piuttosto semplice. Di seguito è
 Quando si arresta un servizio senza stato, si segue lo stesso modello, ma in senso inverso:
 
 1. Questi eventi si verificano in parallelo:
-    - Tutti i listener aperti vengono chiusi. Viene chiamato `CommunicationListener.closeAsync()` su ciascun listener.
+    - Tutti i listener aperti vengono chiusi. Viene richiamato `CommunicationListener.closeAsync()` su ogni listener.
     - Il token di annullamento che è stato passato a `runAsync()` viene annullato. La verifica della proprietà `isCancelled` del token di annullamento restituisce `true` e, se viene chiamato, il metodo `throwIfCancellationRequested` del token genera un'eccezione `CancellationException`.
 2. Al completamento di `closeAsync()` in ogni listener e al completamento di `runAsync()`, viene chiamato il metodo `StatelessService.onCloseAsync()` del servizio, se presente. Anche in questo caso si tratta di un override insolito, ma è possibile usarlo per chiudere in modo sicuro le risorse, arrestare qualsiasi elaborazione in background, completare il salvataggio dello stato esterno o chiudere le connessioni esistenti.
 3. Dopo il completamento di `StatelessService.onCloseAsync()`, l'oggetto servizio viene eliminato.
@@ -76,7 +76,7 @@ I servizi con stato hanno un modello simile ai servizi senza stato, con poche mo
 2. Viene chiamato `StatefulServiceBase.onOpenAsync()`. L'override della chiamata nel servizio non è comune.
 3. Questi eventi si verificano in parallelo:
     - Viene richiamato `StatefulServiceBase.createServiceReplicaListeners()`. 
-      - Se il servizio è di tipo primario, tutti i listener restituiti vengono aperti. Viene chiamato `CommunicationListener.openAsync()` su ciascun listener.
+      - Se il servizio è di tipo primario, tutti i listener restituiti vengono aperti. Viene richiamato `CommunicationListener.openAsync()` su ogni listener.
       - Se il servizio è di tipo secondario, solo i listener contrassegnati come `listenOnSecondary = true` vengono aperti. La presenza di listener aperti nei servizi secondari è meno comune.
     - Se il servizio è attualmente di tipo primario, viene chiamato il metodo `StatefulServiceBase.runAsync()` del servizio.
 4. Dopo che tutte le chiamate di `openAsync()` del listener della replica vengono completate e dopo la chiamata di `runAsync()`, viene chiamato `StatefulServiceBase.onChangeRoleAsync()`. L'override della chiamata nel servizio non è comune.
@@ -87,7 +87,7 @@ Analogamente ai servizi senza stato, nel servizio con stato non c'è alcun colle
 Analogamente ai servizi senza stato, gli eventi del ciclo di vita durante l'arresto corrispondono a quelli durante l'avvio, ma invertiti. Quando viene arrestato un servizio con stato, si verificano gli eventi seguenti:
 
 1. Questi eventi si verificano in parallelo:
-    - Tutti i listener aperti vengono chiusi. Viene chiamato `CommunicationListener.closeAsync()` su ciascun listener.
+    - Tutti i listener aperti vengono chiusi. Viene richiamato `CommunicationListener.closeAsync()` su ogni listener.
     - Il token di annullamento che è stato passato a `runAsync()` viene annullato. Una chiamata del metodo `isCancelled()` del token di annullamento restituisce `true` e, se viene chiamato, il metodo `throwIfCancellationRequested()` del token genera un'eccezione `OperationCanceledException`.
 2. Dopo il completamento di `closeAsync()` in ogni listener e il completamento di `runAsync()`, viene chiamato il metodo `StatefulServiceBase.onChangeRoleAsync()` del servizio. L'override della chiamata nel servizio non è comune.
 
@@ -104,7 +104,7 @@ Quando un servizio con stato è in esecuzione, i listener di comunicazione vengo
 Service Fabric richiede che la replica primaria abbassata di livello interrompa l'elaborazione dei messaggi e qualsiasi attività in background. Questo passaggio è simile a quando il servizio viene arrestato. Una differenza è che il servizio non viene eliminato o chiuso, in quanto rimane come secondario. Si verificano gli eventi seguenti:
 
 1. Questi eventi si verificano in parallelo:
-    - Tutti i listener aperti vengono chiusi. Viene chiamato `CommunicationListener.closeAsync()` su ciascun listener.
+    - Tutti i listener aperti vengono chiusi. Viene richiamato `CommunicationListener.closeAsync()` su ogni listener.
     - Il token di annullamento che è stato passato a `runAsync()` viene annullato. Una verifica del metodo `isCancelled()` del token di annullamento restituisce `true`. Se chiamato, il metodo `throwIfCancellationRequested()` del token genera un'eccezione `OperationCanceledException`.
 2. Dopo il completamento di `closeAsync()` in ogni listener e il completamento di `runAsync()`, viene chiamato il metodo `StatefulServiceBase.onChangeRoleAsync()` del servizio. L'override della chiamata nel servizio non è comune.
 
@@ -112,7 +112,7 @@ Service Fabric richiede che la replica primaria abbassata di livello interrompa 
 In modo analogo, Service Fabric richiede che la replica secondaria alzata di livello inizi ad ascoltare i messaggi in transito e avvii le attività in background necessarie. Questo processo è simile a quando il servizio viene creato. La differenza è che la replica stessa esiste già. Si verificano gli eventi seguenti:
 
 1. Questi eventi si verificano in parallelo:
-    - Viene richiamato `StatefulServiceBase.createServiceReplicaListeners()` e i listener restituiti vengono aperti. Viene chiamato `CommunicationListener.openAsync()` su ciascun listener.
+    - Viene richiamato `StatefulServiceBase.createServiceReplicaListeners()` e i listener restituiti vengono aperti. Viene richiamato `CommunicationListener.openAsync()` su ogni listener.
     - Viene chiamato il metodo `StatefulServiceBase.runAsync()` del servizio.
 2. Dopo che tutte le chiamate di `openAsync()` del listener della replica vengono completate e dopo la chiamata di `runAsync()`, viene chiamato `StatefulServiceBase.onChangeRoleAsync()`. L'override della chiamata nel servizio non è comune.
 
@@ -123,7 +123,7 @@ I servizi che non gestiscono correttamente l'annullamento possono essere soggett
 
 Trattandosi di servizi con stato, è anche probabile che i servizi usino [raccolte Reliable Collections](service-fabric-reliable-services-reliable-collections.md). In Service Fabric, quando un servizio primario viene abbassato di livello, una delle prime cose che accade è che viene revocato l'accesso in scrittura allo stato sottostante. Ciò comporta una seconda serie di problemi che potrebbero influire sul ciclo di vita del servizio. Le raccolte restituiscono eccezioni in base alla tempistica e al fatto che la replica venga spostata o arrestata. È importante gestire queste eccezioni correttamente. 
 
-Le eccezioni generate da Service Fabric sono permanenti [(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception) o temporanee [(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception._fabric_transient_exception). Le eccezioni permanenti dovrebbero essere registrate e generate, mentre quelle temporanee possono essere ripetute in base a una logica di ripetizione.
+Le eccezioni generate da Service Fabric sono permanenti [(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception) o temporanee [(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception.fabrictransientexception). Le eccezioni permanenti dovrebbero essere registrate e generate, mentre quelle temporanee possono essere ripetute in base a una logica di ripetizione.
 
 Una parte importante del test e della convalida di Reliable Services consiste nella gestione delle eccezioni che derivano dall'uso di `ReliableCollections` in combinazione con gli eventi del ciclo di vita del servizio. Si consiglia sempre di eseguire il servizio in condizioni di carico. È inoltre opportuno eseguire aggiornamenti e [test CHAOS](service-fabric-controlled-chaos.md) prima della distribuzione nell'ambiente di produzione. Questi passaggi di base contribuiscono ad assicurare che il servizio sia implementato correttamente e che gestisca gli eventi del ciclo di vita nel modo giusto.
 

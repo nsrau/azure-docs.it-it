@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4059d8d2f6020a23e3593bb906c2e3fc64a4779e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025590"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331538"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Spostare i dati da MongoDB con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,12 +31,12 @@ ms.locfileid: "54025590"
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da un database MongoDB locale. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
-È possibile copiare dati da un archivio dati MongoDB locale a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento dei dati da un archivio dati MongoDB ad altri archivi dati, ma non da altri archivi dati a un archivio dati MongoDB. 
+È possibile copiare dati da un archivio dati MongoDB locale a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento dei dati da un archivio dati MongoDB ad altri archivi dati, ma non da altri archivi dati a un archivio dati MongoDB.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per consentire al servizio Azure Data Factory di connettersi al database MongoDB in locale, è necessario installare i componenti seguenti:
 
-- Le versioni di MongoDB supportate sono:  2.4, 2.6, 3.0, 3.2, 3.4 e 3.6.
+- Le versioni di MongoDB supportate sono: 2.4, 2.6, 3.0, 3.2, 3.4 e 3.6.
 - Gateway di gestione dati nello stesso computer che ospita il database o in un computer separato per evitare che competa per le risorse con il database. Il Gateway di gestione dati è un software che connette le origini dati locali ai servizi cloud in modo sicuro e gestito. Leggere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per i dettagli sul Gateway di gestione dati. Per istruzioni passo per passo su come configurare il gateway di una pipeline di dati per spostare i dati, vedere [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
     Quando si installa il gateway, viene installato automaticamente un driver ODBC MongoDB Microsoft che viene usato per la connessione a MongoDB.
@@ -49,15 +49,15 @@ Per consentire al servizio Azure Data Factory di connettersi al database MongoDB
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
-Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink: 
+Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. 
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
+2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
+3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di data factory usate per copiare dati da un archivio dati MongoDB locale, vedere la sezione [Esempio di JSON: Copiare dati da MongoDB a BLOB di Azure](#json-example-copy-data-from-mongodb-to-azure-blob) di questo articolo. 
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di data factory usate per copiare dati da un archivio dati MongoDB locale, vedere la sezione [Esempio di JSON: Copiare dati da MongoDB a BLOB di Azure](#json-example-copy-data-from-mongodb-to-azure-blob) di questo articolo.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche dell'origine MongoDB:
 
@@ -68,7 +68,7 @@ La tabella seguente fornisce la descrizione degli elementi JSON specifici del se
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su: **OnPremisesMongoDb** |Yes |
 | server |Indirizzo IP o nome host del server MongoDB. |Yes |
-| port |Porta TCP che il server MongoDB usa per ascoltare le connessioni client. |Facoltativo, valore predefinito: 27017 |
+| port |Porta TCP che il server MongoDB usa per ascoltare le connessioni client. |Facoltativo (valore predefinito: 27017) |
 | authenticationType |Di base o anonima. |Yes |
 | username |Account utente per accedere a MongoDB. |Sì (se si usa l'autenticazione di base). |
 | password |Password per l'utente. |Sì (se si usa l'autenticazione di base). |
@@ -125,11 +125,11 @@ Per prima cosa, impostare il Gateway di gestione dati in base alle istruzioni co
         "typeProperties":
         {
             "authenticationType": "<Basic or Anonymous>",
-            "server": "< The IP address or host name of the MongoDB server >",  
+            "server": "< The IP address or host name of the MongoDB server >",
             "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
             "username": "<username>",
             "password": "<password>",
-           "authSource": "< The database that you want to use to check your credentials for authentication. >",
+            "authSource": "< The database that you want to use to check your credentials for authentication. >",
             "databaseName": "<database name>",
             "gatewayName": "<mygateway>"
         }
@@ -155,12 +155,12 @@ Per prima cosa, impostare il Gateway di gestione dati in base alle istruzioni co
 
 ```json
 {
-     "name":  "MongoDbInputDataset",
+    "name": "MongoDbInputDataset",
     "properties": {
         "type": "MongoDbCollection",
         "linkedServiceName": "OnPremisesMongoDbLinkedService",
         "typeProperties": {
-            "collectionName": "<Collection name>"    
+            "collectionName": "<Collection name>"
         },
         "availability": {
             "frequency": "Hour",
@@ -246,7 +246,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
                 "typeProperties": {
                     "source": {
                         "type": "MongoDbSource",
-                        "query": "$$Text.Format('select * from  MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
+                        "query": "$$Text.Format('select * from MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
                     },
                     "sink": {
                         "type": "BlobSink",

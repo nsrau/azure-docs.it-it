@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 7e90fb6bcfa1bfab59177cbc6c717fefc163a67a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3671f6a3e3832a384e968fbf38128aff6bfb2252
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960097"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247674"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connettività dei dispositivi in Azure IoT Central
 
@@ -54,14 +54,13 @@ La connessione di un singolo dispositivo a IoT Central usando firme di accesso c
 
     Di seguito sono riportati i riferimenti per altri linguaggi che è possibile usare.
 
-    *   **Linguaggio C:** se si usa C, seguire [questo client di dispositivo di esempio C](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) per connettere un dispositivo di esempio. Nell'esempio usare le impostazioni seguenti.   
+    *   **Linguaggio C:** se si usa C, seguire [questo client di dispositivo di esempio C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) per connettere un dispositivo di esempio. Nell'esempio usare le impostazioni seguenti.   
 
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
-         
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
 
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
+         ## Enter the Device Id and Symmetric keys 
+         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
 
     *   **Node.js:**  se si vuole usare Node.js [seguire queste istruzioni dettagliate](tutorial-add-device.md#prepare-the-client-code) iniziando dalla sezione **Preparare il codice client**.
@@ -118,12 +117,12 @@ Se per connettersi si usa il dispositivo **MxChip**, seguire [queste istruzioni 
 
 Di seguito sono riportati i riferimenti per altri linguaggi che è possibile usare.
 
-   *   **Linguaggio C:** se si usa C, seguire [questo client di dispositivo di esempio C](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) per connettere un dispositivo di esempio. Nell'esempio usare le impostazioni seguenti.   
+   *   **Linguaggio C:** se si usa C, seguire [questo client di dispositivo di esempio C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) per connettere un dispositivo di esempio. Nell'esempio usare le impostazioni seguenti.   
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
+         ## Enter the Device Id and Symmetric keys 
+         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
     * **Node.js:**  se si vuole usare Node.js [seguire queste istruzioni dettagliate](tutorial-add-device.md#prepare-the-client-code) iniziando dalla sezione **Preparare il codice client**.
 

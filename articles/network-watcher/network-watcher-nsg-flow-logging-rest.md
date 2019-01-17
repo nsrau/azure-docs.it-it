@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 30f20e2671b4428f08c38eeb93ec90f0b745eea6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 58486ab821b6b01f531f62445a9d4ade1336569a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819118"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332014"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurazione dei log di flusso del gruppo di sicurezza di rete con l'API REST
 
@@ -32,7 +32,7 @@ ms.locfileid: "51819118"
 I log di flusso del gruppo di sicurezza di rete sono una funzionalità di Network Watcher che consente di visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita in base a regole, scheda di rete a cui si applica il flusso, informazioni su 5 tuple relative al flusso (IP di origine/destinazione, porta di origine/destinazione, protocollo), e se il traffico è consentito o meno.
 
 > [!NOTE] 
-> I log di flusso versione 2 sono disponibili solo nell'area Stati Uniti centro-occidentali. La configurazione è disponibile tramite il portale di Azure e l'API REST. Se si abilitano i log della versione 2 in un'area non supportata, nel proprio account di archiviazione verranno restituiti i log della versione 1.
+> I log di flusso versione 2 sono disponibili solo nell'area Stati Uniti centro-occidentali. Se si abilitano i log della versione 2 in un'area non supportata, nel proprio account di archiviazione verranno restituiti i log della versione 1.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

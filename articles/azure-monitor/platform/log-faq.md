@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107228"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214743"
 ---
 # <a name="log-analytics-faq"></a>Domande frequenti su Log Analytics
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Log Analytics in Microsoft Azure. Per altre domande su Log Analytics, visitare il [forum di discussione](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e inviare una domanda. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -63,7 +63,7 @@ R: Per visualizzare i log della macchina virtuale, è necessario disporre dell'a
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>D: Perché è possibile accedere alla propria area di lavoro nel portale di OMS, ma viene visualizzato un errore di accesso nel portale di Azure?  
 
-R: Per accedere a un'area di lavoro in Azure, è necessario disporre delle autorizzazioni di Azure. In alcuni casi è possibile che non si disponga delle autorizzazioni di accesso appropriate. In questi casi, l'amministratore deve concedere all'utente le autorizzazioni in Azure. Per altre informazioni, vedere [Passaggio del portale di OMS in Azure](/../../azure-monitor/platform/oms-portal-transition.md).
+R: Per accedere a un'area di lavoro in Azure, è necessario disporre delle autorizzazioni di Azure. In alcuni casi è possibile che non si disponga delle autorizzazioni di accesso appropriate. In questi casi, l'amministratore deve concedere all'utente le autorizzazioni in Azure. Per altre informazioni, vedere [Passaggio del portale di OMS in Azure](oms-portal-transition.md).
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>D: Perché non è presente la voce Progettazione viste in Log? 
 R: Progettazione viste è disponibile in Log solo per gli utenti con autorizzazioni di collaboratore o superiori.

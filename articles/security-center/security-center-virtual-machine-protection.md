@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9c1eff58be52b0b4bd9561db51986c9f509d64ee
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723230"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321591"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protezione delle macchine virtuali nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali (VM) e computer, applicazioni, risorse di rete, SQL, identità e accesso.
@@ -44,7 +44,6 @@ In **Calcolo e app** sono disponibili le schede seguenti:
 - **Servizi cloud**: elenco dei ruoli Web e di lavoro monitorati dal Centro sicurezza.
 - **Servizi app (anteprima)**: elenco di ambienti del Servizio app e relativo stato di sicurezza corrente.
 - **Contenitori (anteprima)**: elenco dei contenitori ospitati in computer IaaS Linux e valutazione della sicurezza delle relative configurazioni Docker.
-- **Set di scalabilità di macchine virtuali (anteprima)**: elenco dei set di scalabilità e raccomandazioni per ognuno.
 - **Risorse di calcolo (anteprima)**: elenco di raccomandazioni per le risorse di calcolo, come cluster di Service Fabric e hub eventi.
 
 Per continuare, selezionare **Calcolo e app** in **Protezione della sicurezza delle risorse**.
@@ -162,24 +161,6 @@ Esistono tre tipi di icone rappresentate in questo elenco:
 
     ![Correzione del Servizio app di Azure](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## <a name="virtual-machine-scale-sets-preview"></a>Set di scalabilità di macchine virtuali (anteprima)
-Il Centro sicurezza individua automaticamente se si dispone di set di scalabilità e consiglia di installare Microsoft Monitoring Agent in questi set di scalabilità. 
-
-Per installare Microsoft Monitoring Agent: 
-
-1. Selezionare la raccomandazione **Install the monitoring agent on virtual machine scale set.**  (Installare l'agente di monitoraggio nel set di scalabilità di macchine virtuali). Si otterrà un elenco dei set di scalabilità non monitorati.
-2. Selezionare un set di scalabilità non integro. Seguire le istruzioni per installare l'agente di monitoraggio mediante un'area di lavoro popolata esistente o crearne una nuova. Assicurarsi di impostare il [piano tariffario](security-center-pricing.md)dell'area di lavoro se non è impostato.
-
- ![Installare Microsoft Monitoring Agent](./media/security-center-virtual-machine-recommendations/install-mms.png)
-
-Se si desidera impostare nuovi set di scalabilità affinché installino automaticamente Microsoft Monitoring Agent:
-1. Passare a Criteri di Azure e fare clic su **Definizioni**.
-2. Cercare il criterio **Deploy Log Analytics agent for Windows VM scale sets** (Implementa l'agente di Log Analytics per i set di scalabilità della macchina virtuale di Windows) e fare clic su di esso.
-3. Fare clic su **Assegna**.
-4. Impostare l'**ambito** e l'**area di lavoro di Log Analytics** e fare clic su **Assegna**.
-
-Se si desidera impostare tutti i set di scalabilità esistenti affinché installino Microsoft Monitoring Agent, in Criteri di Azure passare a **Correzione** e applicare i criteri esistenti ai set di scalabilità esistenti.
-
 
 ## <a name="compute-and-app-recommendations"></a>Consigli per le app e il calcolo
 |Tipo di risorsa|Punteggio di sicurezza|Raccomandazione|DESCRIZIONE|
@@ -238,11 +219,7 @@ Se si desidera impostare tutti i set di scalabilità esistenti affinché install
 |Machine|30|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|
 |Machine|1|Eseguire la migrazione delle macchine virtuali alle nuove risorse di Azure Resource Manager|Usare Azure Resource Manager per le macchine virtuali per fornire funzionalità di sicurezza migliorate quali controllo di accesso (Controllo degli accessi in base al ruolo) più avanzato, controllo migliore, distribuzione e governance basate su Resource Manager, accesso alle identità gestite, accesso all'insieme di credenziali delle chiavi per i segreti, autenticazione basata su Azure AD e supporto di tag e gruppi di risorse per una gestione della sicurezza semplificata. |
 |Machine|30|Risolvere le vulnerabilità tramite una soluzione di valutazione della vulnerabilità|Le macchine virtuali per cui viene distribuita una soluzione di terze parti per la valutazione della vulnerabilità vengono costantemente controllate per individuare vulnerabilità del sistema operativo e delle applicazioni. Ogni volta che vengono individuate queste vulnerabilità, sono disponibili altre informazioni nell'ambito dell'indicazione.|
-|Set di scalabilità di macchine virtuali |4|Abilitare i log di diagnostica nei set di scalabilità di macchine virtuali|Abilitare i log e conservarli per un periodo massimo di un anno. In questo modo è possibile ricreare la traccia delle attività per scopi di analisi. Ciò è utile quando si verifica un evento imprevisto di sicurezza o la rete è compromessa.|
-|Set di scalabilità di macchine virtuali|35|Risolvere le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali|Risolvere le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali per proteggerli da attacchi. |
-|Set di scalabilità di macchine virtuali|5|Risolvere i problemi di integrità della protezione degli endpoint nei set di scalabilità di macchine virtuali|Risolvere i problemi di integrità della protezione degli endpoint nei set di scalabilità di macchine virtuali per proteggerli da minacce e vulnerabilità. |
-|Set di scalabilità di macchine virtuali|10|Installare la soluzione di protezione degli endpoint nei set di scalabilità di macchine virtuali|Installare una soluzione di protezione degli endpoint nei set di scalabilità di macchine virtuali per proteggerli da minacce e vulnerabilità. |
-|Set di scalabilità di macchine virtuali|40|Installare gli aggiornamenti del sistema nei set di scalabilità di macchine virtuali|Installare gli aggiornamenti mancanti per la sicurezza del sistema e critici per proteggere i set di scalabilità di macchine virtuali Windows e Linux. |
+
  
 
 

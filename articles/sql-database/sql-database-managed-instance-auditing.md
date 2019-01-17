@@ -13,13 +13,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 045314980d0051e8b5ef71bdf95023084eff1880
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.date: 01/12/2019
+ms.openlocfilehash: 716c4caa1b28cc40470d366e5fc6901de9462f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063878"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267267"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introduzione al controllo di Istanza gestita di database SQL di Azure
 
@@ -172,9 +172,9 @@ Per visualizzare i log di controllo dei BLOB sono disponibili diversi metodi.
 
 - Usare la funzione di sistema `sys.fn_get_audit_file` (T-SQL) per restituire i dati dei log di controllo in formato tabulare. Per altre informazioni su questa funzione, vedere la [documentazione su sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- È possibile esplorare i log di controllo con uno strumento come Azure Storage Explorer. Nell'archiviazione di Azure, i log del controllo vengono salvati come raccolta di file BLOB in un contenitore denominato sqldbauditlogs. Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato dei log, vedere le informazioni di riferimento sul formato dei log del controllo BLOB.
+- È possibile esplorare i log di controllo con uno strumento come [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/). Nell'archiviazione di Azure, i log del controllo vengono salvati come raccolta di file BLOB in un contenitore denominato sqldbauditlogs. Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato dei log, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Per l'elenco completo dei metodi di consumo del log di controllo, fare riferimento a [Introduzione al controllo del database SQL](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- Per l'elenco completo dei metodi di consumo del log di controllo, fare riferimento a [Introduzione al controllo del database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 
 > [!IMPORTANT]
 > Il metodo per la visualizzazione dei record di controllo dal portale di Azure (riquadro "Record di controllo") non è attualmente disponibile per Istanza gestita.

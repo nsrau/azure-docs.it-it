@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 588fd951098b5c15b1d12b67e66e84a6e7862665
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 464e15b7fce706f07ff6a28c39fd4247fd8bf381
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018314"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352649"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
@@ -157,7 +157,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 Eseguire questo comando per creare una stored procedure nel database SQL. Questa stored procedure aggiorna il valore del limite dopo ogni esecuzione di pipeline. 
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -182,7 +182,7 @@ CREATE TYPE DataTypeforCustomerTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
+CREATE PROCEDURE usp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
 AS
 
 BEGIN
@@ -205,7 +205,7 @@ CREATE TYPE DataTypeforProjectTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_project_table @project_table DataTypeforProjectTable READONLY
+CREATE PROCEDURE usp_upsert_project_table @project_table DataTypeforProjectTable READONLY
 AS
 
 BEGIN
@@ -613,7 +613,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
                             "type": "SqlServerStoredProcedure",
                             "typeProperties": {
     
-                                "storedProcedureName": "sp_write_watermark",
+                                "storedProcedureName": "usp_write_watermark",
                                 "storedProcedureParameters": {
                                     "LastModifiedtime": {
                                         "value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}",
@@ -680,13 +680,13 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
                 "TABLE_NAME": "customer_table",
                 "WaterMark_Column": "LastModifytime",
                 "TableType": "DataTypeforCustomerTable",
-                "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+                "StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
             },
             {
                 "TABLE_NAME": "project_table",
                 "WaterMark_Column": "Creationtime",
                 "TableType": "DataTypeforProjectTable",
-                "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+                "StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
             }
         ]
     }

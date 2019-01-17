@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d36179685e2098455e00186827d35e6de18bf975
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 5396fefca3a60dea7a503f8b4e84cc575753ea30
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893057"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229116"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Aggiungere un livello per le immagini a una mappa
 
@@ -31,7 +31,7 @@ Questo articolo illustra come è possibile sovrapporre un'immagine a un set fiss
 
 ## <a name="add-an-image-layer"></a>Aggiungere un livello per le immagini
 
-In questo esempio viene illustrato come sovrapporre un'immagine di una [mappa di Newark, New Jersey del 1922]((https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg)) alla mappa.
+In questo esempio viene illustrato come sovrapporre un'immagine di una [mappa di Newark, New Jersey del 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) alla mappa.
 
 <br/>
 
@@ -40,7 +40,7 @@ In questo esempio viene illustrato come sovrapporre un'immagine di una [mappa di
 
 Nel codice precedente il primo blocco di codice costruisce un oggetto mappa. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
 
-Nel secondo blocco di codice, un [livello per le immagini](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) viene creato trasferendo un URL a un'immagine e le coordinate per i quattro angoli nel formato `[Top Left Corner, Top Right Corner, Bottom Right Conter, Bottom Left Corner]`.
+Nel secondo blocco di codice, un [livello per le immagini](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) viene creato trasferendo un URL a un'immagine e le coordinate per i quattro angoli nel formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ## <a name="import-a-kml-ground-overlay"></a>Importare una sovrapposizione di terra KML
 

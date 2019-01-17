@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 816b67488acc567d81bf1916735d13c0e480fe5d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/11/2019
+ms.openlocfilehash: b066c7f6c32b6e9fe1c1f63b5db88b4deaa2edae
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719558"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231819"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Problemi noti e limitazioni per le migrazioni online al database SQL di Azure
 
@@ -84,7 +84,7 @@ Può verificarsi un'eccezione SQL in cui è indicato che "ntext non è compatibi
 Se la lunghezza della colonna LOB (Large Object) è maggiore di 32 kB, è possibile che nella destinazione i dati vengano troncati. È possibile controllare la lunghezza della colonna LOB usando questa query: 
 
 ``` 
-SELECT max(len(ColumnName)) as LEN from TableName
+SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 ```
 
 **Soluzione alternativa**

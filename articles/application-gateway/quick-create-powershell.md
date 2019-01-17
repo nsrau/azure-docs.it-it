@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/8/2019
+ms.date: 1/11/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cb5a6a21cd6d33316e0560d7641bee99b2102373
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 9edfa85105bbc20cf7f149d4c31b60d9e570a7ad
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159826"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243730"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Azure PowerShell
 
@@ -25,7 +25,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="run-azure-powershell-locally"></a>Eseguire Azure PowerShell in locale
 
-Se si sceglie di installare e usare Azure PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva. 
+Se si sceglie di installare e usare Azure PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva.
 
 1. Per trovare la versione, eseguire `Get-Module -ListAvailable AzureRM`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 2. Eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
@@ -79,7 +79,7 @@ Quando si esegue l'esempio di codice seguente per creare le macchine virtuali, A
     
 ```azurepowershell-interactive
 $vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork myVNet -Name myBackendSubnet
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myBackendSubnet
 $cred = Get-Credential
 for ($i=1; $i -le 2; $i++)
 {
@@ -131,7 +131,7 @@ for ($i=1; $i -le 2; $i++)
 
 ```azurepowershell-interactive
 $vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork myVNet -Name myAGSubnet
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myAGSubnet
 $pip    = Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress 
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `

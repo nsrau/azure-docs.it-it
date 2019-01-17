@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 26337f8d1112c4903ee84e8b4300667b49d1d916
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7f70ab407e38797aae24530ea8fa5193e4fffda1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186600"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260908"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Come eseguire l'onboarding di Monitoraggio di Azure per contenitori  
 Questo articolo descrive come configurare Monitoraggio di Azure per contenitori per monitorare le prestazioni dei carichi di lavoro distribuiti negli ambienti Kubernetes e ospitati nel [servizio Kubernetes di Azure](https://docs.microsoft.com/azure/aks/).
@@ -31,7 +31,7 @@ Monitoraggio di Azure per i contenitori può essere abilitato per le nuove distr
 ## <a name="prerequisites"></a>Prerequisiti 
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
-- Un'area di lavoro di Log Analytics. È possibile crearla quando si abilita il monitoraggio del nuovo cluster AKS o lasciare che l'esperienza di onboarding crei un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster AKS. Se si è scelto di crearla in autonomia, è possibile procedere attraverso [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
+- Un'area di lavoro di Log Analytics. È possibile crearla quando si abilita il monitoraggio del nuovo cluster AKS o lasciare che l'esperienza di onboarding crei un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster AKS. Se si è scelto di crearla in autonomia, è possibile procedere attraverso [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
 - Si è membri del ruolo di collaboratore di Log Analytics per abilitare il monitoraggio dei contenitori. Per altre informazioni su come controllare l'accesso a un'area di lavoro di Log Analytics, vedere [Gestire le aree di lavoro](../../azure-monitor/platform/manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -167,7 +167,7 @@ Questo metodo include due modelli JSON. Un modello JSON specifica la configurazi
 >Il modello deve essere distribuito nello stesso gruppo di risorse del cluster.
 >
 
-L'area di lavoro di Log Analytics deve essere creata manualmente. Per creare l'area di lavoro, è possibile configurarla tramite [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
+L'area di lavoro di Log Analytics deve essere creata manualmente. Per creare l'area di lavoro, è possibile configurarla tramite [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
 
 Se non si ha familiarità con il concetto di distribuzione delle risorse tramite un modello, vedere:
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
@@ -275,7 +275,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {
-           "value": "/subscriptions/<SubscriptiopnId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+           "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
        },
        "aksResourceLocation": {
          "value": "<aksClusterLocation>"
@@ -372,7 +372,7 @@ omsagent   2         2         2         2            2           beta.kubernete
 Usare il comando `aks show` per ottenere dettagli, ad esempio se la soluzione è abilitata o meno, qual è l'ID risorsa dell'area di lavoro di Log Analytics e dati di riepilogo sul cluster.  
 
 ```azurecli
-az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 ```
 
 Dopo alcuni minuti, il comando viene completato e vengono restituite informazioni in formato JSON sulla soluzione.  I risultati del comando dovrebbero mostrare il profilo del componente aggiuntivo di monitoraggio ed essere simili al seguente output di esempio:

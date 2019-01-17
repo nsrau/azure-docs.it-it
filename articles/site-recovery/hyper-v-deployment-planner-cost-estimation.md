@@ -2,18 +2,18 @@
 title: Esaminare il report di stima dei costi di Azure Site Recovery Deployment Planner per il ripristino di emergenza di macchine virtuali Hyper-V in Azure | Microsoft Docs
 description: Questo articolo descrive come esaminare il report della stima dei costi generato da Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure.
 services: site-recovery
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: eaccbc93fa1e78132527798dcef27babc8a2cc09
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845026"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320281"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Report di stima dei costi di Azure Site Recovery Deployment Planner 
 
@@ -28,13 +28,13 @@ Il riepilogo consente di conoscere il costo che è necessario sostenere per arch
  
 È possibile visualizzare i costi su base mensile o annuale. Vedere altre informazioni sulle [aree di destinazione supportate](./hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) e sulle [valute supportate](./hyper-v-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Costo per componente**: Il costo totale per il ripristino di emergenza è suddiviso tra quattro componenti, ovvero calcolo, archiviazione, rete e costo della licenza di Site Recovery. Il costo viene calcolato in base all'utilizzo che si verifica durante la replica e l'esercitazione sul ripristino di emergenza. Vengono presi in considerazione il calcolo, l'archiviazione (Premium e Standard), la connessione ExpressRoute/VPN configurata tra il sito locale e Azure e la licenza di Site Recovery.
+**Costo per componenti**: Il costo totale per il ripristino di emergenza è suddiviso tra quattro componenti, ovvero calcolo, archiviazione, rete e costo della licenza di Site Recovery. Il costo viene calcolato in base all'utilizzo che si verifica durante la replica e l'esercitazione sul ripristino di emergenza. Vengono presi in considerazione il calcolo, l'archiviazione (Premium e Standard), la connessione ExpressRoute/VPN configurata tra il sito locale e Azure e la licenza di Site Recovery.
 
 **Costo per stato**: Il costo totale del ripristino di emergenza viene classificato in base a due diversi stati: Replica ed Esercitazione sul ripristino di emergenza. 
 
-**Costo della replica**: Il costo che viene addebitato durante la replica. Copre il costo dell'archiviazione, della rete e della licenza di Site Recovery. 
+**Costo della replica**: il costo che viene addebitato durante la replica. Copre il costo dell'archiviazione, della rete e della licenza di Site Recovery. 
 
-**Costo dell'esercitazione sul ripristino di emergenza**: Costo addebitato durante i failover di test. Durante il failover di test, Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione. 
+**Costo del drill del ripristino di emergenza**: il costo addebitato durante i failover di test. Durante il failover di test, Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione. 
 
 **Costo delle risorse di archiviazione Azure al mese/all’anno**: Costo di archiviazione totale addebitato per l'archiviazione Premium e Standard per la replica e l'esercitazione sul ripristino di emergenza.
 

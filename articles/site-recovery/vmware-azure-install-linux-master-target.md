@@ -1,17 +1,19 @@
 ---
 title: Installare un server di destinazione master Linux per il failback in un sito di Azure locale | Microsoft Docs
 description: Informazioni su come configurare un server di destinazione master Linux per eseguire il failback in un sito locale durante il ripristino di emergenza di macchine virtuali VMware in Azure tramite Azure Site Recovery.
-author: nsoneji
+author: mayurigupta13
+services: site-recovery
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 09f4637c24b146394dc0299e60e729c07420150a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.author: mayg
+ms.openlocfilehash: befc979b84c5ace3b8c787b184e52f09ada9ea2b
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974375"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321409"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installare un server di destinazione master Linux per il failback
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 

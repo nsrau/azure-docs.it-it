@@ -1,18 +1,18 @@
 ---
 title: Analizzare il report di Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure| Microsoft Docs
 description: Questo articolo descrive come analizzare un report generato da Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 995c4bbbde87315e92c182fbc91b58ee34cda04e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: ecb1d4cca5ebc8a699988c6556b080ffa810eca8
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839552"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319851"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analizzare il report di Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 
@@ -24,15 +24,15 @@ Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una pa
 
 **Data di inizio** e **data di fine**: date di inizio e fine dei dati di profilatura considerati per la generazione di report. Per impostazione predefinita, la data di inizio è la data in cui inizia la profilatura e la data di fine è la data in cui termina. Può trattarsi dei valori di 'StartDate' ed 'EndDate' se il report viene generato con questi parametri.
 
-**Numero totale di giorni di profilatura**: numero totale di giorni di profilatura tra le date di inizio e fine per i quali viene generato il report.
+**Numero totale di giorni di profilatura**: il numero totale di giorni di profilatura tra le date di inizio e fine per i quali viene generato il report.
 
 **Numero di macchine virtuali compatibili**: numero totale di VM compatibili per le quali vengono calcolati la larghezza di banda di rete e il numero necessario di account di archiviazione, core di Microsoft Azure, server di configurazione e server di elaborazione aggiuntivi.
 
 **Numero totale di dischi tra tutte le macchine virtuali compatibili**: il numero che viene usato come uno degli input per stabilire il numero di server di configurazione e di server di elaborazione aggiuntivi da usare nella distribuzione.
 
-**Numero medio di dischi per macchina virtuale compatibile**: Numero medio di dischi calcolato tra tutte le macchine virtuali compatibili.
+**Numero medio di dischi per macchina virtuale compatibile**: il numero medio di dischi calcolato tra tutte le macchine virtuali compatibili.
 
-**Dimensioni medie disco (GB)**: dimensioni medie dei dischi calcolate tra tutte le macchine virtuali compatibili.
+**Dimensioni medie disco (GB)**: le dimensioni medie dei dischi calcolate tra tutte le macchine virtuali compatibili.
 
 **RPO desiderato(minuti)**: obiettivo del punto di ripristino predefinito o valore passato per il parametro "DesiredRPO" al momento della generazione di report per stimare la larghezza di banda necessaria.
 
@@ -53,7 +53,7 @@ Il foglio Recommendations (Raccomandazioni) del report per lo scenario da VMware
 
 **Nome server**: nome o indirizzo IP del server VMware vCenter o dell'host ESXi contenente le macchine virtuali per le quali viene generato il report.
 
-**RPO desiderato**: obiettivo del punto di ripristino per la distribuzione. Per impostazione predefinita, la larghezza di banda di rete viene calcolata per i valori RPO di 15, 30 e 60 minuti. A seconda della selezione, i valori interessati verranno aggiornati nel foglio. Se è stato usato il parametro *DesiredRPOinMin* durante la generazione del report, tale valore verrà visualizzato nel risultato di Desired RPO (RPO desiderato).
+**RPO desiderato**: l'obiettivo del punto di recupero per la distribuzione. Per impostazione predefinita, la larghezza di banda di rete viene calcolata per i valori RPO di 15, 30 e 60 minuti. A seconda della selezione, i valori interessati verranno aggiornati nel foglio. Se è stato usato il parametro *DesiredRPOinMin* durante la generazione del report, tale valore verrà visualizzato nel risultato di Desired RPO (RPO desiderato).
 
 ### <a name="profiling-overview"></a>Panoramica della profilatura
 
@@ -63,9 +63,9 @@ Il foglio Recommendations (Raccomandazioni) del report per lo scenario da VMware
 
 **Macchine virtuali compatibili**: macchine virtuali che possono essere protette in Azure con Site Recovery. Si tratta del numero totale di VM compatibili per le quali vengono calcolati larghezza di banda di rete, numero di account di archiviazione, numero di core di Azure, numero di server di configurazione e di server di elaborazione aggiuntivi. I dettagli di ogni VM compatibile sono disponibili nella sezione "VM compatibili".
 
-**Macchine virtuali non compatibili**: macchine virtuali profilate incompatibili con la protezione con Site Recovery. I motivi dell'incompatibilità sono indicati nella sezione "Macchine virtuali incompatibili". Se VMListFile contiene nomi di VM non profilate, tali VM vengono escluse dal conteggio delle VM incompatibili. Queste VM sono elencate con la dicitura "Data not found" (Dati non trovati) alla fine della sezione Incompatible VMs (VM incompatibili).
+**Macchine virtuali non compatibili**: il numero di macchine virtuali profilate incompatibili con la protezione con Site Recovery. I motivi dell'incompatibilità sono indicati nella sezione "Macchine virtuali incompatibili". Se VMListFile contiene nomi di VM non profilate, tali VM vengono escluse dal conteggio delle VM incompatibili. Queste VM sono elencate con la dicitura "Data not found" (Dati non trovati) alla fine della sezione Incompatible VMs (VM incompatibili).
 
-**RPO desiderato**: L'obiettivo del punto di ripristino (RPO) desiderato, in minuti. Il report viene generato per tre valori RPO: 15 (impostazione predefinita), 30 e 60 minuti. La raccomandazione relativa alla larghezza di banda nel report varia in funzione della selezione nell'elenco a discesa Desired RPO (RPO desiderato) nella parte superiore destra del foglio. Se il report è stato generato usando il parametro *-DesiredRPO* con un valore personalizzato, questo valore personalizzato verrà visualizzato come predefinito nell'elenco a discesa Desired RPO (RPO desiderato).
+**RPO desiderato**: l'obiettivo del punto di recupero (RPO) desiderato, in minuti. Il report viene generato per tre valori RPO: 15 (impostazione predefinita), 30 e 60 minuti. La raccomandazione relativa alla larghezza di banda nel report varia in funzione della selezione nell'elenco a discesa Desired RPO (RPO desiderato) nella parte superiore destra del foglio. Se il report è stato generato usando il parametro *-DesiredRPO* con un valore personalizzato, questo valore personalizzato verrà visualizzato come predefinito nell'elenco a discesa Desired RPO (RPO desiderato).
 
 ### <a name="required-network-bandwidth-mbps"></a>Larghezza di banda di rete necessaria (Mbps)
 
@@ -158,17 +158,17 @@ Si possono verificare situazioni in cui non è possibile impostare una larghezza
 
 ![Selezione host di archiviazione delle VM](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Tipo di archiviazione disco**: account di archiviazione Standard o Premium usato per replicare tutte le macchine virtuali corrispondenti indicate nella colonna **VM da posizionare**.
+**Tipo di archiviazione su disco**: account di archiviazione standard o premium usato per replicare tutte le macchine virtuali corrispondenti indicate nella colonna **macchine virtuali da posizionare**.
 
-**Prefisso suggerito**: prefisso di tre caratteri che può essere usato per la denominazione dell'account di archiviazione. È possibile usare un prefisso personalizzato, ma il suggerimento dello strumento segue la [convenzione di denominazione delle partizioni per gli account di archiviazione](https://aka.ms/storage-performance-checklist).
+**Prefisso suggerito**: il prefisso di tre caratteri che può essere usato per la denominazione dell'account di archiviazione. È possibile usare un prefisso personalizzato, ma il suggerimento dello strumento segue la [convenzione di denominazione delle partizioni per gli account di archiviazione](https://aka.ms/storage-performance-checklist).
 
-**Nome Account suggerito**: nome dell'account di archiviazione dopo avere incluso il prefisso suggerito. Sostituire il nome nelle parentesi acute (< e >) con l'input personalizzato.
+**Nome account suggerito**: il nome dell'account di archiviazione dopo avere incluso il prefisso suggerito. Sostituire il nome nelle parentesi acute (< e >) con l'input personalizzato.
 
-**Account di archiviazione log**: tutti i log di replica vengono archiviati in un account di archiviazione Standard. Per le VM che eseguono la replica in un account di archiviazione Premium, configurare un account di archiviazione Standard aggiuntivo per l'archiviazione log. Un singolo account di archiviazione log Standard può essere usato da più account di archiviazione di replica Premium. Le VM replicate negli account di archiviazione Standard usano lo stesso account di archiviazione per i log.
+**Account di archiviazione log**: tutti i log di replica vengono archiviati in un account di archiviazione standard. Per le VM che eseguono la replica in un account di archiviazione Premium, configurare un account di archiviazione Standard aggiuntivo per l'archiviazione log. Un singolo account di archiviazione log Standard può essere usato da più account di archiviazione di replica Premium. Le VM replicate negli account di archiviazione Standard usano lo stesso account di archiviazione per i log.
 
-**Nome account log suggerito**: il nome dell'account di archiviazione log dopo avere incluso il prefisso suggerito. Sostituire il nome nelle parentesi acute (< e >) con l'input personalizzato.
+**Nome account log suggerito**: il nome dell'account log di archiviazione dopo avere incluso il prefisso suggerito. Sostituire il nome nelle parentesi acute (< e >) con l'input personalizzato.
 
-**Riepilogo di selezione host**: riepilogo del carico totale delle VM nell'account di archiviazione al momento della replica e del failover di test o del failover. Comprende il numero totale di VM mappate all'account di archiviazione, il numero totale di operazioni di I/O al secondo in lettura/scrittura per tutte le VM inserite in questo account di archiviazione, il totale delle operazioni di I/O al secondo in scrittura (replica), le dimensioni totali configurate per tutti i dischi e il numero totale di dischi.
+**Riepilogo di posizionamento**: riepilogo del carico totale delle VM nell'account di archiviazione al momento della replica e del failover di test o del failover. Comprende il numero totale di VM mappate all'account di archiviazione, il numero totale di operazioni di I/O al secondo in lettura/scrittura per tutte le VM inserite in questo account di archiviazione, il totale delle operazioni di I/O al secondo in scrittura (replica), le dimensioni totali configurate per tutti i dischi e il numero totale di dischi.
 
 **Macchine virtuali da inserire**: elenco di tutte le VM da inserire nell'account di archiviazione specificato per ottenere uso e prestazioni ottimali.
 
@@ -187,11 +187,11 @@ Si possono verificare situazioni in cui non è possibile impostare una larghezza
 
 Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla categoria P20 o P30, ma le dimensioni ne determinano l'associazione a un tipo di disco di archiviazione Premium inferiore, ad esempio, lo strumento contrassegna tale VM con **Yes**\* (Sì). Lo strumento consiglia anche di modificare le dimensioni del disco di origine per renderlo idoneo al tipo di disco di archiviazione Premium raccomandato oppure di modificare il tipo di disco di destinazione dopo il failover.
 
-**Tipo di archiviazione**: Standard o Premium.
+**Tipo di archiviazione**: standard o premium.
 
-**Prefisso suggerito**: prefisso di tre caratteri dell'account di archiviazione.
+**Prefisso suggerito**: il prefisso di tre caratteri dell'account di archiviazione.
 
-**Account di archiviazione**: nome che usa il prefisso dell'account di archiviazione suggerito.
+**Account di archiviazione**: il nome che usa il prefisso dell'account di archiviazione suggerito.
 
 **Picco di operazioni di I/O al secondo in lettura/scrittura (con fattore di crescita)** : picco di operazioni di I/O al secondo in lettura/scrittura del carico di lavoro nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che il numero totale di operazioni di I/O al secondo in lettura/scrittura di una VM non è sempre costituito dalla somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM, perché il picco di operazioni di I/O al secondo in lettura/scrittura della VM è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
 
@@ -203,11 +203,11 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 **Dimensioni disco (GB)**: dimensioni di installazione totali di tutti i dischi della VM. Lo strumento indica anche le dimensioni dei singoli dischi della VM.
 
-**Core**: numero di core CPU nella VM.
+**Core**: il numero di core CPU nella macchina virtuale.
 
-**Memoria (MB)**: RAM della VM.
+**Memoria (MB)**: la RAM della macchina virtuale.
 
-**Schede di interfaccia di rete**: numero di schede di interfaccia di rete della VM.
+**Schede di interfaccia di rete**: il numero di schede di interfaccia di rete della macchina virtuale.
 
 **Tipo di avvio**: tipo di avvio della macchina virtuale. Può essere BIOS o EFI.  Attualmente Azure Site Recovery supporta VM Windows Server basate su EFI (Windows Server 2012, 2012 R2 e 2016), a condizione che il numero di partizioni nel disco di avvio sia inferiore a 4 e che i settori di avvio abbiano dimensioni di 512 byte. Per proteggere le VM basate su EFI, la versione del servizio Mobility di Azure Site Recovery deve essere la 9.13 o successive. Per le VM basate su EFI è supportato solo il failover. Il failback non è supportato.  
 
@@ -220,7 +220,7 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 **Nome macchina virtuale**: nome o indirizzo IP della VM usato in VMListFile quando viene generato un report. Questa colonna elenca anche i dischi (VMDK) collegati alle VM. Per distinguere le VM vCenter con nomi o indirizzi IP duplicati, i nomi includono il nome dell'host ESXi. L'host ESXi elencato è quello in cui la VM è stata inserita quando lo strumento l'ha rilevata durante il periodo di profilatura.
 
-**Compatibilità VM**: indica perché la VM è incompatibile per l'uso con Site Recovery. I motivi vengono descritti per ogni disco incompatibile della VM e, in base ai [limiti di archiviazione](https://aka.ms/azure-storage-scalbility-performance) pubblicati, possono essere uno dei seguenti:
+**Compatibilità VM**: indica perché la macchina virtuale specificata è incompatibile per l'uso con Site Recovery. I motivi vengono descritti per ogni disco incompatibile della VM e, in base ai [limiti di archiviazione](https://aka.ms/azure-storage-scalbility-performance) pubblicati, possono essere uno dei seguenti:
 
 * Dimensioni disco superiori a 4095 GB. Archiviazione di Azure attualmente non supporta dischi dati di dimensioni superiori a 4095 GB.
 
@@ -253,11 +253,11 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 **Dimensioni disco (GB)**: dimensioni di installazione totali di tutti i dischi della VM. Lo strumento indica anche le dimensioni dei singoli dischi della VM.
 
-**Core**: numero di core CPU nella VM.
+**Core**: il numero di core CPU nella macchina virtuale.
 
-**Memoria (MB)**: quantità di RAM della VM.
+**Memoria (MB)**: la quantità di RAM della macchina virtuale.
 
-**Schede di interfaccia di rete**: numero di schede di interfaccia di rete della VM.
+**Schede di interfaccia di rete**: il numero di schede di interfaccia di rete della macchina virtuale.
 
 **Tipo di avvio**: tipo di avvio della macchina virtuale. Può essere BIOS o EFI.  Attualmente Azure Site Recovery supporta VM Windows Server basate su EFI (Windows Server 2012, 2012 R2 e 2016), a condizione che il numero di partizioni nel disco di avvio sia inferiore a 4 e che i settori di avvio abbiano dimensioni di 512 byte. Per proteggere le VM basate su EFI, la versione del servizio Mobility di Azure Site Recovery deve essere la 9.13 o successive. Per le VM basate su EFI è supportato solo il failover. Il failback non è supportato.
 

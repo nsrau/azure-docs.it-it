@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 33da0b09339460d66650c492ec125461bc0980b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730582"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215100"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configurare il monitoraggio in tempo reale degli accessi alle applicazioni con Microsoft Cloud App Security e Azure Active Directory
 Configurare un'applicazione in locale in Azure Active Directory (Azure AD) per usare Microsoft Cloud App Security (MCAS) per il monitoraggio in tempo reale. MCAS utilizza Controllo app per l'accesso condizionale per monitorare e controllare le sessioni in tempo reale in base ai criteri di accesso condizionale. È possibile applicare questi criteri alle applicazioni locali che usano Proxy di applicazione in Azure Active Directory (Azure AD).
@@ -27,7 +27,7 @@ Di seguito sono riportati alcuni esempi dei tipi di criteri che è possibile cre
 - Utilizzo dei certificati client o di conformità del dispositivo per bloccare l'accesso ad applicazioni specifiche da dispositivi non gestiti.
 - Limitazione delle sessioni utente dalle reti non aziendali. È possibile concedere un accesso limitato agli utenti che non fanno parte della rete aziendale. Ad esempio, l’accesso limitato può impedire all'utente di scaricare i documenti riservati.
 
-Per altre informazioni, vedere [Proteggere le app con Controllo app per l’accesso condizionale di Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad.md).
+Per altre informazioni, vedere [Proteggere le app con Controllo app per l’accesso condizionale di Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad).
 
 ## <a name="requirements"></a>Requisiti
 

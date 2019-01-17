@@ -4,15 +4,15 @@ description: Questo articolo descrive come individuare e valutare le macchine vi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8971bba1e25a8e87ed57463dcc9b013fea56a0ff
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 186d532f159db7d51ba4f93a250c00c7627280e0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976835"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229525"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -59,6 +59,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 **Area geografica** | **Posizione di archiviazione**
 --- | ---
 Azure Government | US Gov Virginia
+Asia | Asia sud-orientale
 Europa | Europa settentrionale o Europa occidentale
 Stati Uniti | Stati Uniti orientali o Stati Uniti centro-occidentali
 

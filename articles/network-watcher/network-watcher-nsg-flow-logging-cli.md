@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3540d68491d6f2c8282aa1ef0b385300aaa190cf
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3e7a03f1235dab7eefd63b6611890897285d86ea
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822484"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332337"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurazione dei log di flusso del gruppo di sicurezza di rete con l'interfaccia della riga di comando di Azure
 
@@ -34,7 +34,7 @@ I log di flusso del gruppo di sicurezza di rete sono una funzionalità di Networ
 Per eseguire i passaggi indicati in questo articolo è necessario [installare l'interfaccia della riga di comando (CLI) di Azure per Mac, Linux e Windows](/cli/azure/install-azure-cli).
 
 > [!NOTE] 
-> I log di flusso versione 2 sono disponibili solo nell'area Stati Uniti centro-occidentali. La configurazione è disponibile tramite il portale di Azure e l'API REST. Se si abilitano i log della versione 2 in un'area non supportata, nel proprio account di archiviazione verranno restituiti i log della versione 1.
+> I log di flusso versione 2 sono disponibili solo nell'area Stati Uniti centro-occidentali. Se si abilitano i log della versione 2 in un'area non supportata, nel proprio account di archiviazione verranno restituiti i log della versione 1.
 
 ## <a name="register-insights-provider"></a>Registrare il provider Insights
 
@@ -50,6 +50,8 @@ L'esempio seguente mostra il comando che consente di abilitare i log di flusso:
 
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
+# Configure 
+az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName  --format JSON --log-version 2
 ```
 
 L'account di archiviazione specificato non può avere regole di rete che limitano l'accesso alla rete solo ai servizi Microsoft o a specifiche reti virtuali. L'account di archiviazione può essere nella stessa sottoscrizione di Azure, o in una differente, rispetto al gruppo di sicurezza di rete per cui si abilita il log di flusso. Se si usano sottoscrizioni diverse, devono essere entrambe associate allo stesso tenant di Azure Active Directory. L'account usato per ogni sottoscrizione deve avere le [autorizzazioni necessarie](required-rbac-permissions.md). 
@@ -68,7 +70,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 Il percorso di archiviazione di un log di flusso viene definito al momento della creazione. Uno strumento utile per accedere ai log di flusso salvati in un account di archiviazione è Microsoft Azure Storage Explorer, disponibile qui: http://storageexplorer.com/
 
-Se viene specificato un account di archiviazione, i file di acquisizione di pacchetti vengono salvati in un account di archiviazione nel percorso seguente:
+Se viene specificato un account di archiviazione, i log di flusso vengono salvati in un account di archiviazione nel percorso seguente:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json

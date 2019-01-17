@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: douglasl
-ms.openlocfilehash: 9a724f8e319e652b85941810a6312c35a5036120
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a56e9c2a7cceed8012f35c9d02e9c3bc5703b31f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025726"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353210"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività stored procedure di SQL Server in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Di seguito è riportato il formato JSON per la definizione di un'attività di St
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
-        "storedProcedureName": "sp_sample",
+        "storedProcedureName": "usp_sample",
         "storedProcedureParameters": {
             "identifier": { "value": "1", "type": "Int" },
             "stringData": { "value": "str1" }
