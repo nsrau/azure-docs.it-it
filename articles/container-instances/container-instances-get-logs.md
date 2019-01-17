@@ -1,6 +1,6 @@
 ---
-title: Recuperare log ed eventi dei contenitori con Istanze di contenitore di Azure
-description: Informazioni su come eseguire il debug con i log e gli eventi dei contenitori con Istanze di contenitore di Azure
+title: Recuperare log ed eventi dei contenitori con Istanze di Azure Container
+description: Informazioni su come eseguire il debug con i log e gli eventi dei contenitori con Istanze di Azure Container
 services: container-instances
 author: jluk
 manager: jeconnoc
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 08/02/2018
 ms.locfileid: "39425589"
 ---
-# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperare log ed eventi dei contenitori in Istanze di contenitore di Azure
+# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperare log ed eventi dei contenitori in Istanze di Azure Container
 
 Quando un contenitore non funziona correttamente, iniziare a visualizzarne i log con [az container logs][az-container-logs] e a trasmetterne l'output standard e gli errori standard con [az container attach][az-container-attach].
 
@@ -79,7 +79,7 @@ Start streaming logs:
 
 ## <a name="get-diagnostic-events"></a>Recuperare gli eventi di diagnostica
 
-Se il contenitore non viene distribuito correttamente, è necessario esaminare le informazioni di diagnostica fornite dal provider di risorse Istanze di contenitore di Azure. Per visualizzare gli eventi per il contenitore, eseguire il comando [az container show][az-container-show]:
+Se il contenitore non viene distribuito correttamente, è necessario esaminare le informazioni di diagnostica fornite dal provider di risorse Istanze di Azure Container. Per visualizzare gli eventi per il contenitore, eseguire il comando [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -146,7 +146,7 @@ L'output include le proprietà principali del contenitore e gli eventi di distri
 }
 ```
 ## <a name="next-steps"></a>Passaggi successivi
-Scoprire come [risolvere i problemi comuni dei contenitori e delle distribuzioni](container-instances-troubleshooting.md) per Istanze di contenitore di Azure.
+Scoprire come [risolvere i problemi comuni dei contenitori e delle distribuzioni](container-instances-troubleshooting.md) per Istanze di Azure Container.
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

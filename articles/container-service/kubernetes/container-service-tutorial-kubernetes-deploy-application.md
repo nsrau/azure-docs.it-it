@@ -44,9 +44,9 @@ Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare 
 
 ## <a name="update-manifest-file"></a>Aggiornare il file manifesto
 
-In questa esercitazione, il Registro contenitori di Azure è stato usato per archiviare un'immagine del contenitore. Prima di eseguire l'applicazione, è necessario aggiornare il nome del server di accesso del Registro contenitori di Azure nel file manifesto Kubernetes.
+In questa esercitazione, Registro Azure Container è stato usato per archiviare un'immagine del contenitore. Prima di eseguire l'applicazione, è necessario aggiornare il nome del server di accesso di Registro Azure Container nel file manifesto Kubernetes.
 
-Ottenere il nome del server di accesso del Registro contenitori di Azure con il comando [az acr list](/cli/azure/acr#az-acr-list).
+Ottenere il nome del server di accesso di Registro Azure Container con il comando [az acr list](/cli/azure/acr#az-acr-list).
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -58,7 +58,7 @@ Il file manifesto è stato creato in precedenza con un nome di server di accesso
 vi azure-vote-all-in-one-redis.yml
 ```
 
-Sostituire `microsoft` con il nome del server di accesso del Registro contenitori di Azure. Questo valore è presente nella riga **47** del file manifesto.
+Sostituire `microsoft` con il nome del server di accesso di Registro Azure Container. Questo valore è presente nella riga **47** del file manifesto.
 
 ```yaml
 containers:

@@ -17,7 +17,7 @@ ms.locfileid: "53186413"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Esercitazione: Creare un'immagine del contenitore per la distribuzione in Istanze di Azure Container
 
-Istanze di contenitore di Azure consente di eseguire la distribuzione di contenitori Docker nell'infrastruttura di Azure senza effettuare il provisioning di macchine virtuali o adottare un servizio di livello superiore. In questa esercitazione si inserisce una piccola applicazione Web Node.js in un'immagine del contenitore eseguibile con Istanze di contenitore di Azure.
+Istanze di Azure Container consente di eseguire la distribuzione di contenitori Docker nell'infrastruttura di Azure senza effettuare il provisioning di macchine virtuali o adottare un servizio di livello superiore. In questa esercitazione si inserisce una piccola applicazione Web Node.js in un'immagine del contenitore eseguibile con Istanze di Azure Container.
 
 In questo articolo, che corrisponde alla seconda parte della serie, è possibile eseguire queste operazioni:
 
@@ -26,7 +26,7 @@ In questo articolo, che corrisponde alla seconda parte della serie, è possibile
 > * Creazione di un'immagine del contenitore dall'origine applicazione
 > * Test dell'immagine in un ambiente Docker locale
 
-Nella seconda e nella terza parte dell'esercitazione, l'immagine viene caricata in Registro contenitori di Azure e quindi distribuita in Istanze di contenitore di Azure.
+Nella seconda e nella terza parte dell'esercitazione, l'immagine viene caricata in Registro Azure Container e quindi distribuita in Istanze di Azure Container.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -103,7 +103,7 @@ aci-tutorial-app    latest    5c745774dfa9    39 seconds ago    68.1 MB
 
 ## <a name="run-the-container-locally"></a>Eseguire il contenitore in locale
 
-Prima di distribuire il contenitore in Istanze di contenitore di Azure, usare [docker run][docker-run] per eseguirlo in locale e verificarne il funzionamento. L'opzione `-d` consente di eseguire il contenitore in background, mentre `-p` consente di eseguire il mapping di una porta arbitraria del computer alla porta 80 del contenitore.
+Prima di distribuire il contenitore in Istanze di Azure Container, usare [docker run][docker-run] per eseguirlo in locale e verificarne il funzionamento. L'opzione `-d` consente di eseguire il contenitore in background, mentre `-p` consente di eseguire il mapping di una porta arbitraria del computer alla porta 80 del contenitore.
 
 ```bash
 docker run -d -p 8080:80 aci-tutorial-app
@@ -122,7 +122,7 @@ Passare quindi a http://localhost:8080 nel browser per verificare che il conteni
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata creata un'immagine del contenitore distribuibile in Istanze di contenitore di Azure e ne è stata verificata l'esecuzione in locale. Finora, sono state eseguite le operazioni seguenti:
+In questa esercitazione è stata creata un'immagine del contenitore distribuibile in Istanze di Azure Container e ne è stata verificata l'esecuzione in locale. Finora, sono state eseguite le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Clonazione dell'origine applicazione da GitHub

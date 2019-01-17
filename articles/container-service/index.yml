@@ -50,7 +50,7 @@ sections:
       image:
         src: /learn/achievements/intro-to-containers.svg
         href: /learn/modules/intro-to-containers/
-    - title: Eseguire contenitori Docker con Istanze di contenitore di Azure
+    - title: Eseguire contenitori Docker con Istanze di Azure Container
       href: /learn/modules/run-docker-with-azure-container-instances/
       image:
         src: /learn/achievements/run-docker-with-azure-container-instances.svg

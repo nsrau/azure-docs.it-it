@@ -96,7 +96,7 @@ I metadati SKU contengono i campi obbligatori seguenti:
 
 #### <a name="iot-edge-module-metadata-and-the-container-registry"></a>Il registro contenitori e i metadati del modulo IoT Edge
 
-I metadati del modulo IoT Edge includono informazioni di riferimento dell'immagine archiviate in Registro contenitori di Azure (ACR). Azure Marketplace consente di copiare l'immagine nel Registro di sistema del marketplace pubblico ed è disponibile per i clienti dopo la certificazione. Tutte le richieste dell'utente di utilizzare un'immagine del modulo IoT Edge vengono gestite dal registro contenitori di Marketplace.
+I metadati del modulo IoT Edge includono informazioni di riferimento dell'immagine archiviate in Registro Azure Container. Azure Marketplace consente di copiare l'immagine nel Registro di sistema del marketplace pubblico ed è disponibile per i clienti dopo la certificazione. Tutte le richieste dell'utente di utilizzare un'immagine del modulo IoT Edge vengono gestite dal registro contenitori di Marketplace.
 
 ![Immagini del contenitore](./media/cloud-partner-portal-create-iot-edge-module-offer/container-images.png)
 
@@ -117,7 +117,7 @@ I dettagli del Repository di immagini presenta i campi obbligatori seguenti:
 -   **Password**: la password associata al Registro contenitori di Azure.
 
     >[!Note]
-    >Il nome utente e la password sono necessarie per garantire che i partner abbiano accesso al Registro contenitori di Azure descritto nel processo di pubblicazione.
+    >Il nome utente e la password sono necessarie per garantire che i partner abbiano accesso all'istanza di Registro Azure Container descritta nel processo di pubblicazione.
 
 Quando si pubblica un'immagine del modulo IoT Edge, è possibile aggiungere uno o più tag di immagine. Assicurarsi di aggiungere un "ultimo" tag (predefinito) al modulo in modo che sia possibile identificare facilmente il modulo durante il test.
 

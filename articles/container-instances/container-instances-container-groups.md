@@ -1,6 +1,6 @@
 ---
-title: Gruppi di contenitori in Istanze di contenitore di Azure
-description: Informazioni sul funzionamento di gruppi di contenitori in Istanze di contenitore di Azure
+title: Gruppi di contenitori in Istanze di Azure Container
+description: Informazioni sul funzionamento di gruppi di contenitori in Istanze di Azure Container
 services: container-instances
 author: seanmck
 manager: jeconnoc
@@ -16,9 +16,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
 ms.locfileid: "32163300"
 ---
-# <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di contenitore di Azure
+# <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di Azure Container
 
-La risorsa di livello principale in Istanze di contenitore di Azure è il *gruppo di contenitori*. Questo articolo descrive le caratteristiche dei gruppi di contenitori e i tipi di scenari possibili.
+La risorsa di livello principale in Istanze di Azure Container è il *gruppo di contenitori*. Questo articolo descrive le caratteristiche dei gruppi di contenitori e i tipi di scenari possibili.
 
 ## <a name="how-a-container-group-works"></a>Come funziona un gruppo di contenitori
 
@@ -37,7 +37,7 @@ Questo gruppo di contenitori di esempio:
 * Include due condivisioni file di Azure come punti di montaggio di volume e ogni contenitore monta una delle due condivisioni in locale.
 
 > [!NOTE]
-> I gruppi multicontenitore sono attualmente limitati ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di contenitore di Azure).
+> I gruppi multicontenitore sono attualmente limitati ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di Azure Container).
 
 ## <a name="deployment"></a>Distribuzione
 

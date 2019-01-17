@@ -77,7 +77,7 @@ Per altre informazioni sulle dimensioni di macchina virtuale disponibili, vedere
 
 Quando occorre collegare risorse di archiviazione ai pod, si usano i volumi permanenti. Questi volumi possono essere creati in modo manuale o dinamico. La creazione manuale di volumi permanenti aumenta il carico di gestione e limita le possibilità di scalabilità. Usare quindi il provisioning dinamico dei volumi permanenti per semplificare la gestione dell'archiviazione e consentire una scalabilità delle applicazioni in entrambe le direzioni, in base alle necessità.
 
-![Attestazioni di volume permanente in un cluster del servizio Kubernetes di Azure (AKS)](media/concepts-storage/persistent-volume-claims.png)
+![Attestazioni di volume permanente in un cluster del servizio Azure Kubernetes](media/concepts-storage/persistent-volume-claims.png)
 
 Un'attestazione di volume permanente consente di creare dinamicamente le risorse di archiviazione necessarie. I dischi di Azure sottostanti vengono creati man mano che i pod li richiedono. Nella definizione del pod si richiede che un volume venga creato e collegato a un determinato percorso di montaggio.
 

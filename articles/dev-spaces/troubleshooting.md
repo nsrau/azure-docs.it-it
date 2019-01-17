@@ -91,7 +91,7 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-Questo perché i nodi AKS eseguono una versione precedente di Docker che non supporta compilazioni in più fasi. Sarà necessario riscrivere il Dockerfile per evitare compilazioni in più fasi.
+Questo perché i nodi servizio Azure Kubernetes eseguono una versione precedente di Docker che non supporta compilazioni in più fasi. Sarà necessario riscrivere il Dockerfile per evitare compilazioni in più fasi.
 
 ### <a name="re-running-a-service-after-controller-re-creation"></a>Riesecuzione di un servizio dopo la ripetizione della creazione del controller
 È possibile che questo errore venga visualizzato quando si tenta di rieseguire un servizio dopo la rimozione e quindi la ricreazione del controller Azure Dev Spaces associato al cluster. L'output dettagliato sarà simile al seguente:
@@ -271,7 +271,7 @@ Il riavvio dei nodi agente nel cluster risolve in genere questo problema.
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Il proxy Azure Dev Spaces può interferire con altri pod in esecuzione in uno spazio di sviluppo
 
 ### <a name="reason"></a>Motivo
-Quando si abilita Dev Spaces in uno spazio dei nomi nel cluster AKS, un contenitore aggiuntivo chiamato _mindaro-proxy_ viene installato in ciascuno dei pod in esecuzione all'interno di tale spazio dei nomi. Questo contenitore intercetta le chiamate ai servizi nel pod, che è parte integrante delle funzionalità di sviluppo in team di Dev Spaces.
+Quando si abilita Dev Spaces in uno spazio dei nomi nel cluster servizio Azure Kubernetes, un contenitore aggiuntivo chiamato _mindaro-proxy_ viene installato in ciascuno dei pod in esecuzione all'interno di tale spazio dei nomi. Questo contenitore intercetta le chiamate ai servizi nel pod, che è parte integrante delle funzionalità di sviluppo in team di Dev Spaces.
 
 Sfortunatamente può interferire con determinati servizi in esecuzione in tali pod. In particolare interferisce con i pod che eseguono Cache Redis di Azure, causando errori di connessione ed errori nella comunicazione primario/secondario.
 

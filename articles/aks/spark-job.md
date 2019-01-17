@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/31/2018
 ms.locfileid: "50414030"
 ---
-# <a name="running-apache-spark-jobs-on-aks"></a>Esecuzione di processi Apache Spark in AKS
+# <a name="running-apache-spark-jobs-on-aks"></a>Esecuzione di processi Apache Spark in servizio Azure Kubernetes
 
 [Apache Spark][apache-spark] è un motore ad alta velocità per l'elaborazione di dati su larga scala. A partire dalla [versione 2.3.0][spark-latest-release], Apache Spark supporta l'integrazione nativa con i cluster Kubernetes. Il servizio Azure Kubernetes è un ambiente Kubernetes gestito in esecuzione in Azure. Questo documento descrive la preparazione e l'esecuzione di processi Apache Spark in un cluster del servizio Azure Kubernetes.
 
@@ -31,11 +31,11 @@ Per completare la procedura descritta in questo articolo è necessario quanto se
 * SBT ([strumento di compilazione Scala][sbt-install]) installato nel sistema.
 * Strumenti da riga di comando di GIT installati nel sistema.
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio contenitore di Azure
+## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
 Spark viene usato per l'elaborazione di dati su larga scala ed è necessario che le dimensioni dei nodi Kubernetes soddisfino i requisiti di Spark in termini di risorse. Per i nodi del servizio Azure Kubernetes si consigliano le dimensioni minime `Standard_D3_v2`.
 
-Se è necessario un cluster AKS che soddisfi questo requisito minimo, eseguire i comandi seguenti.
+Se è necessario un cluster servizio Azure Kubernetes che soddisfi questo requisito minimo, eseguire i comandi seguenti.
 
 Creare un gruppo di risorse per il cluster.
 
@@ -43,23 +43,23 @@ Creare un gruppo di risorse per il cluster.
 az group create --name mySparkCluster --location eastus
 ```
 
-Creare il cluster AKS con nodi di dimensioni `Standard_D3_v2`.
+Creare il cluster servizio Azure Kubernetes con nodi di dimensioni `Standard_D3_v2`.
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2
 ```
 
-Connettersi al cluster AKS.
+Connettersi al cluster servizio Azure Kubernetes.
 
 ```azurecli
 az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
 ```
 
-Se si usa il Registro contenitori di Azure per archiviare le immagini dei contenitori, configurare l'autenticazione tra AKS e Registro contenitori di Azure. Vedere la [documentazione sull'autenticazione del Registro contenitori di Azure][acr-aks] per questa procedura.
+Se si usa Registro Azure Container per archiviare le immagini dei contenitori, configurare l'autenticazione tra servizio Azure Kubernetes e Registro Azure Container. Vedere la [documentazione sull'autenticazione di Registro Azure Container][acr-aks] per questa procedura.
 
 ## <a name="build-the-spark-source"></a>Compilare l'origine Spark
 
-Prima di eseguire processi di Spark su un cluster AKS, è necessario compilare il codice sorgente di Spark e crearne il pacchetto in un'immagine contenitore. L'origine Spark contiene script che è possibile usare per completare questo processo.
+Prima di eseguire processi di Spark su un cluster servizio Azure Kubernetes, è necessario compilare il codice sorgente di Spark e crearne il pacchetto in un'immagine contenitore. L'origine Spark contiene script che è possibile usare per completare questo processo.
 
 Clonare il repository del progetto Spark nel sistema di sviluppo.
 
@@ -86,7 +86,7 @@ Eseguire il comando seguente per compilare il codice sorgente di Spark con suppo
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-I comandi seguenti creano le immagini del contenitore di Spark e ne eseguono il push in un registro di immagini contenitore. Sostituire `registry.example.com` con il nome del registro contenitori e `v1` con il tag che si preferisce usare. Se si usa Hub Docker, questo valore è il nome del registro. Se si usa Registro contenitori di Azure, questo valore è il nome del server di accesso del Registro contenitori di Azure.
+I comandi seguenti creano le immagini del contenitore di Spark e ne eseguono il push in un registro di immagini contenitore. Sostituire `registry.example.com` con il nome del registro contenitori e `v1` con il tag che si preferisce usare. Se si usa Hub Docker, questo valore è il nome del registro. Se si usa Registro Azure Container, questo valore è il nome del server di accesso di Registro Azure Container.
 
 ```bash
 REGISTRY_NAME=registry.example.com

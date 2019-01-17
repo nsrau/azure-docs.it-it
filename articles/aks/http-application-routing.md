@@ -17,7 +17,7 @@ ms.locfileid: "53742389"
 ---
 # <a name="http-application-routing"></a>Routing di applicazioni HTTP
 
-La soluzione Routing di applicazioni HTTP semplifica l'accesso alle applicazioni distribuite nel cluster del servizio Azure Kubernetes. Quando è abilitata, la soluzione configura un controller di ingresso nel cluster AKS. Man mano che le applicazioni vengono distribuite, la soluzione crea anche nomi DNS pubblicamente accessibili per gli endpoint applicazione.
+La soluzione Routing di applicazioni HTTP semplifica l'accesso alle applicazioni distribuite nel cluster del servizio Azure Kubernetes. Quando è abilitata, la soluzione configura un controller di ingresso nel cluster servizio Azure Kubernetes. Man mano che le applicazioni vengono distribuite, la soluzione crea anche nomi DNS pubblicamente accessibili per gli endpoint applicazione.
 
 Quando il componente aggiuntivo è abilitato, viene creata una zona DNS nella sottoscrizione. Per altre informazioni sul costo del DNS, vedere la pagina relativa ai [prezzi del DNS][dns-pricing].
 
@@ -33,19 +33,19 @@ Il componente aggiuntivo distribuisce due componenti: un [controller di ingresso
 
 ## <a name="deploy-http-routing-cli"></a>Distribuire il routing HTTP: CLI
 
-Il componente aggiuntivo Routing di applicazioni HTTP può essere abilitato tramite l'interfaccia della riga di comando di Azure al momento dell'implementazione di un cluster AKS. A tale scopo, usare il comando [az aks create][az-aks-create] con l'argomento `--enable-addons`.
+Il componente aggiuntivo Routing di applicazioni HTTP può essere abilitato tramite l'interfaccia della riga di comando di Azure al momento dell'implementazione di un cluster servizio Azure Kubernetes. A tale scopo, usare il comando [az servizio Azure Kubernetes create][az-aks-create] con l'argomento `--enable-addons`.
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
-È anche possibile abilitare il routing HTTP su un cluster AKS esistente usando il comando [az aks enable-addons][az-aks-enable-addons]. Per abilitare il routing HTTP in un cluster esistente, aggiungere il `--addons`parametro e specificare *http_application_routing* come illustrato nell'esempio seguente:
+È anche possibile abilitare il routing HTTP su un cluster servizio Azure Kubernetes esistente usando il comando [az servizio Azure Kubernetes enable-addons][az-aks-enable-addons]. Per abilitare il routing HTTP in un cluster esistente, aggiungere il `--addons`parametro e specificare *http_application_routing* come illustrato nell'esempio seguente:
 
 ```azurecli
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-Dopo aver implementato o aggiornato il cluster, usare il comando [az aks show][az-aks-show] per recuperare il nome della zona DNS. Questo nome è necessario per la distribuzione delle applicazioni nel cluster AKS.
+Dopo aver implementato o aggiornato il cluster, usare il comando [az servizio Azure Kubernetes show][az-aks-show] per recuperare il nome della zona DNS. Questo nome è necessario per la distribuzione delle applicazioni nel cluster servizio Azure Kubernetes.
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
@@ -57,11 +57,11 @@ Result
 
 ## <a name="deploy-http-routing-portal"></a>Distribuire il routing HTTP: Portale
 
-Il componente aggiuntivo Routing di applicazioni HTTP può essere abilitato tramite il portale di Azure al momento dell'implementazione di un cluster AKS.
+Il componente aggiuntivo Routing di applicazioni HTTP può essere abilitato tramite il portale di Azure al momento dell'implementazione di un cluster servizio Azure Kubernetes.
 
 ![Abilitare la funzionalità di routing HTTP](media/http-routing/create.png)
 
-Dopo aver implementato il cluster, passare al gruppo di risorse AKS creato automaticamente e selezionare la zona DNS. Prendere nota del nome della zona DNS. Questo nome è necessario per la distribuzione delle applicazioni nel cluster AKS.
+Dopo aver implementato il cluster, passare al gruppo di risorse servizio Azure Kubernetes creato automaticamente e selezionare la zona DNS. Prendere nota del nome della zona DNS. Questo nome è necessario per la distribuzione delle applicazioni nel cluster servizio Azure Kubernetes.
 
 ![Ottenere il nome della zona DNS](media/http-routing/dns.png)
 
@@ -168,7 +168,7 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ## <a name="remove-http-routing"></a>Rimuovere il routing HTTP
 
-La soluzione di routing HTTP può essere rimossa tramite l'interfaccia della riga di comando di Azure. A tale scopo eseguire il comando seguente sostituendo il nome del cluster AKS e del gruppo di risorse.
+La soluzione di routing HTTP può essere rimossa tramite l'interfaccia della riga di comando di Azure. A tale scopo eseguire il comando seguente sostituendo il nome del cluster servizio Azure Kubernetes e del gruppo di risorse.
 
 ```azurecli
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait

@@ -1,6 +1,6 @@
 ---
-title: Aggiornare i contenitori in Istanze di contenitore di Azure
-description: Informazioni su come aggiornare i contenitori in esecuzione nei gruppi di contenitori in Istanze di contenitore di Azure.
+title: Aggiornare i contenitori in Istanze di Azure Container
+description: Informazioni su come aggiornare i contenitori in esecuzione nei gruppi di contenitori in Istanze di Azure Container.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/08/2018
 ms.locfileid: "48854542"
 ---
-# <a name="update-containers-in-azure-container-instances"></a>Aggiornare i contenitori in Istanze di contenitore di Azure
+# <a name="update-containers-in-azure-container-instances"></a>Aggiornare i contenitori in Istanze di Azure Container
 
 Durante il normale funzionamento delle istanze di contenitore, potrebbe essere necessario aggiornare i contenitori in un gruppo di contenitori. Ad esempio, è possibile aggiornare la versione dell'immagine, modificare un nome DNS, aggiornare le variabili di ambiente o aggiornare lo stato di un contenitore la cui applicazione si è arrestata in modo anomalo.
 
@@ -54,7 +54,7 @@ Non tutte le proprietà di un gruppo di contenitori supportano gli aggiornamenti
 
 Quando si aggiorna un gruppo di contenitori, tutti i contenitori in esso presenti vengono riavviati. È possibile eseguire un aggiornamento o un riavvio sul posto di un contenitore specifico in un gruppo multi-contenitore.
 
-L'indirizzo IP di un contenitore in genere non cambia tra gli aggiornamenti, ma non è comunque detto che rimanga invariato. Se distribuito nello stesso host sottostante, il gruppo di contenitori mantiene il proprio indirizzo IP. Anche se raramente e anche se le istanze di contenitore di Azure cercano sempre di eseguire la ridistribuzione nello stesso host, esistono alcuni eventi interni di Azure che possono causare la ridistribuzione in un host diverso. Per attenuare questo problema, usare sempre un'etichetta del nome DNS per le istanze di contenitore.
+L'indirizzo IP di un contenitore in genere non cambia tra gli aggiornamenti, ma non è comunque detto che rimanga invariato. Se distribuito nello stesso host sottostante, il gruppo di contenitori mantiene il proprio indirizzo IP. Anche se raramente e anche se Istanze di Azure Container cerca sempre di eseguire la ridistribuzione nello stesso host, esistono alcuni eventi interni di Azure che possono causare la ridistribuzione in un host diverso. Per attenuare questo problema, usare sempre un'etichetta del nome DNS per le istanze di contenitore.
 
 Non è possibile aggiornare i gruppi di contenitori terminati o eliminati. Se arrestato (ovvero in stato *Terminated*) o eliminato, il gruppo di contenitori viene distribuito come nuovo.
 
@@ -74,7 +74,7 @@ Quando si elimina un gruppo di contenitori e lo si ricrea, questo non viene "rid
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è menzionato più volte il **gruppo di contenitori**. Ogni contenitore delle istanze di contenitore di Azure viene distribuito in un gruppo di contenitori, che può contenere più contenitori.
+In questo articolo è menzionato più volte il **gruppo di contenitori**. Ogni contenitore di Istanze di Azure Container viene distribuito in un gruppo di contenitori, che può contenere più contenitori.
 
 [Gruppi di contenitori in Istanze di contenitore di Azure](container-instances-container-groups.md)
 

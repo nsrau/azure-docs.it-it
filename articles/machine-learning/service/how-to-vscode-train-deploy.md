@@ -186,7 +186,7 @@ Tramite VS Code è possibile distribuire il servizio Web in:
 + Istanza di contenitore di Azure: per l'ambiente di test
 + Servizio Azure Kubernetes: per l'ambiente di produzione 
 
-Non occorre creare un contenitore di Istanza di contenitore di Azure da testare in anticipo in quanto il contenitore viene creato al momento. I cluster AKS non devono necessariamente essere configurati in anticipo. 
+Non occorre creare un contenitore di Istanza di contenitore di Azure da testare in anticipo in quanto il contenitore viene creato al momento. I cluster servizio Azure Kubernetes non devono necessariamente essere configurati in anticipo. 
 
 Sono disponibili altre informazioni generali sulla [distribuzione con Azure Machine Learning](how-to-deploy-and-where.md).
 

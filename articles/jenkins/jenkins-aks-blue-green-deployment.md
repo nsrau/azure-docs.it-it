@@ -2,7 +2,7 @@
 title: Eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu-verde
 description: Di seguito viene spiegato come eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu-verde.
 ms.service: jenkins
-keywords: jenkins, azure, devops, kubernetes, k8s, aks, distribuzione di tipo blu-verde, recapito continuo, cd
+keywords: jenkins, azure, devops, kubernetes, k8s, servizio Azure Kubernetes, distribuzione di tipo blu-verde, recapito continuo, cd
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
@@ -17,7 +17,7 @@ ms.locfileid: "54073884"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu-verde
 
-Il servizio Azure Kubernetes gestisce l'ambiente Kubernetes ospitato consentendo di distribuire e gestire applicazioni in contenitori in modo semplice e rapido senza competenze nell'orchestrazione di contenitori. Il servizio Kubernetes di Azure elimina anche l'impegno delle operazioni e della manutenzione continui effettuando il provisioning, l'aggiornamento e il ridimensionamento delle risorse su richiesta, senza portare le applicazioni offline. Per altre informazioni sul servizio Kubernetes di Azure, vedere la [documentazione specifica](/azure/aks/).
+Il servizio Azure Kubernetes gestisce l'ambiente Kubernetes ospitato consentendo di distribuire e gestire applicazioni in contenitori in modo semplice e rapido senza competenze nell'orchestrazione di contenitori. Il servizio Azure Kubernetes elimina anche l'impegno delle operazioni e della manutenzione continui effettuando il provisioning, l'aggiornamento e il ridimensionamento delle risorse su richiesta, senza portare le applicazioni offline. Per altre informazioni sul servizio Azure Kubernetes, vedere la [documentazione specifica](/azure/aks/).
 
 La distribuzione di tipo blu-verde è un modello di recapito continuo Azure DevOps che si basa sul mantenimento di una versione esistente (blu) attiva mentre viene distribuita una versione nuova (verde). In genere questo modello usa il bilanciamento del carico per indirizzare volumi di traffico crescenti alla distribuzione verde. Se il monitoraggio rileva un evento imprevisto, il traffico può essere reindirizzato alla distribuzione di tipo blu che è ancora in esecuzione. Per altre informazioni sul recapito continuo, consultare [Informazioni sul recapito continuo](/azure/devops/what-is-continuous-delivery).
 
@@ -39,7 +39,7 @@ In questa esercitazione è possibile scoprire come si eseguono le seguenti attiv
 
 ## <a name="clone-the-sample-app-from-github"></a>Clonare l'app di esempio da GitHub
 
-Nel repository Microsoft in GitHub è possibile trovare un'app di esempio che illustra come distribuire nel servizio Kubernetes di Azure usando Jenkins e il modello di tipo blu-verde. In questa sezione si crea una copia tramite fork di questo repository in GitHub e si clona l'app nel sistema locale.
+Nel repository Microsoft in GitHub è possibile trovare un'app di esempio che illustra come distribuire nel servizio Azure Kubernetes usando Jenkins e il modello di tipo blu-verde. In questa sezione si crea una copia tramite fork di questo repository in GitHub e si clona l'app nel sistema locale.
 
 1. Passare al repository GitHub per individuare l'app di esempio [todo-app-java-on-azure](https://github.com/microsoft/todo-app-java-on-azure.git).
 
@@ -98,7 +98,7 @@ Per creare un cluster Kubernetes gestito con l'[interfaccia della riga di comand
     az account set -s <your-subscription-id>
     ```
 
-1. Creare un gruppo di risorse. Sostituire il segnaposto &lt;your-resource-group-name > con il nome del nuovo gruppo di risorse e sostituire il segnaposto &lt;your-location > con la località. Il comando `az account list-locations` visualizza tutte le località di Azure. Durante l'anteprima di AKS non tutte le località sono disponibili. Se si immette una località non valida in questo momento, nel messaggio di errore vengono elencate le località disponibili.
+1. Creare un gruppo di risorse. Sostituire il segnaposto &lt;your-resource-group-name > con il nome del nuovo gruppo di risorse e sostituire il segnaposto &lt;your-location > con la località. Il comando `az account list-locations` visualizza tutte le località di Azure. Durante l'anteprima di servizio Azure Kubernetes non tutte le località sono disponibili. Se si immette una località non valida in questo momento, nel messaggio di errore vengono elencate le località disponibili.
 
     ```bash
     az group create -n <your-resource-group-name> -l <your-location>
@@ -112,7 +112,7 @@ Per creare un cluster Kubernetes gestito con l'[interfaccia della riga di comand
 
 ### <a name="set-up-the-kubernetes-cluster"></a>Configurare il cluster Kubernetes
 
-È possibile configurare una distribuzione di tipo blu/verde in AKS manualmente o con uno script di configurazione fornito nell'esempio clonato in precedenza. In questa sezione verranno illustrati entrambi gli scenari.
+È possibile configurare una distribuzione di tipo blu/verde in servizio Azure Kubernetes manualmente o con uno script di configurazione fornito nell'esempio clonato in precedenza. In questa sezione verranno illustrati entrambi gli scenari.
 
 #### <a name="set-up-the-kubernetes-cluster-via-the-sample-setup-script"></a>Configurare il cluster Kubernetes tramite lo script di configurazione di esempio
 1. Modificare il file **deploy/aks/setup/setup.sh** sostituendo i segnaposto seguenti con i valori appropriati per l'ambiente: 
@@ -290,7 +290,7 @@ Se si rilevano bug con i plug-in Jenkins, segnalare un problema in [Jenkins JIRA
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come eseguire la distribuzione nel servizio Kubernetes di Azure (AKS) usando Jenkins e il modello di distribuzione di tipo blu/verde. Per altre informazioni sul provider Jenkins in Azure, vedere Jenkins nel sito di Azure.
+In questa esercitazione è stato illustrato come eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu/verde. Per altre informazioni sul provider Jenkins in Azure, vedere Jenkins nel sito di Azure.
 
 > [!div class="nextstepaction"]
 > [Jenkins in Azure](/azure/jenkins/)

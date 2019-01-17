@@ -16,14 +16,14 @@ ms.locfileid: "53322094"
 ---
 # <a name="azure-container-registry-skus"></a>SKU del Registro contenitori di Azure
 
-Il Registro contenitori di Azure è disponibile su più livelli di servizio, noti come SKU. Gli SKU offrono prezzi prevedibili e diverse opzioni per allinearsi ai modelli di capacità e utilizzo del registro docker privato in Azure.
+Registro Azure Container è disponibile su più livelli di servizio, noti come SKU. Gli SKU offrono prezzi prevedibili e diverse opzioni per allinearsi ai modelli di capacità e utilizzo del registro docker privato in Azure.
 
 | SKU | Gestito | DESCRIZIONE |
 | --- | :-------: | ----------- |
 | **Basic** | Yes | Un punto di ingresso di ottimizzazione dei costi per gli sviluppatori che iniziano a usare Registro contenitori di Azure. I registri Basic dispongono delle stesse funzionalità programmatiche del livello Standard e Premium, ovvero l'integrazione dell'autenticazione, l'eliminazione delle immagini e gli hook Web di Azure Active Directory. Tuttavia, le risorse di archiviazione incluse e la velocità effettiva di immagine sono più appropriate per scenari di utilizzo inferiore. |
 | **Standard** | Yes | I registri standard offrono le stesse funzionalità del livello base, con risorse di archiviazione incluse e velocità effettiva di immagine maggiori. I registri Standard devono soddisfare le esigenze della maggior parte degli scenari di produzione. |
 | **Premium** | Yes | I registri Premium offrono il massimo livello di risorse di archiviazione incluse e operazioni simultanee, consentendo scenari con volumi elevati. Oltre alla maggiore velocità effettiva per le immagini, il livello Premium aggiunge funzionalità come la [replica geografica][container-registry-geo-replication] per la gestione di un solo registro in più aree, e l'[attendibilità dei contenuti (anteprima)](container-registry-content-trust.md) per la firma dei tag di immagine. |
-| Classic<sup>1</sup> | No  | Lo SKU ha abilitato la versione iniziale del servizio Registro contenitori di Azure in Azure. I registri classici sono supportati da un account di archiviazione creato da Azure nella sottoscrizione, che limita la capacità di Registro contenitori di Azure di offrire funzionalità di livello superiore, ad esempio velocità effettiva e replica geografica aumentate. |
+| Classic<sup>1</sup> | No  | Lo SKU ha abilitato la versione iniziale del servizio Registro contenitori di Azure in Azure. I registri classici sono supportati da un account di archiviazione creato da Azure nella sottoscrizione, che limita la capacità di Registro Azure Container di offrire funzionalità di livello superiore, ad esempio velocità effettiva e replica geografica aumentate. |
 
 <sup>1</sup> Il codice SKU classico sarà **deprecato** a **marzo 2019**. Usare Basic, Standard o Premium per tutti i nuovi registri contenitori.
 
@@ -88,11 +88,11 @@ Per i dettagli sui prezzi per i trasferimenti dei dati, vedere [Dettagli sui pre
 
 **Guida del Registro contenitori di Azure**
 
-Visitare la [Guida del Registro contenitori di Azure][acr-roadmap] su GitHub per maggiori informazioni sulle funzionalità future del servizio.
+Visitare la [Guida di Registro Azure Container][acr-roadmap] su GitHub per maggiori informazioni sulle funzionalità future del servizio.
 
 **UserVoice del Registro contenitori di Azure**
 
-Inviare e votare i nuovi suggerimenti sulle funzionalità in [UserVoice del Registro contenitori di Azure][container-registry-uservoice].
+Inviare e votare i nuovi suggerimenti sulle funzionalità in [UserVoice di Registro Azure Container][container-registry-uservoice].
 
 <!-- IMAGES -->
 [update-registry-sku]: ./media/container-registry-skus/update-registry-sku.png

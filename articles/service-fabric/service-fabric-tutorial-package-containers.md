@@ -122,7 +122,7 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 Affinché Service Fabric possa eseguire il pull delle immagini del contenitore dal Registro contenitori di Azure, è necessario fornire le credenziali in **ApplicationManifest.xml**.
 
-Accedere all'istanza del Registro contenitori di Azure. Usare il comando **az acr login** per completare l'operazione. Specificare il nome univoco assegnato al registro contenitori al momento della creazione.
+Accedere all'istanza di Registro Azure Container. Usare il comando **az acr login** per completare l'operazione. Specificare il nome univoco assegnato al registro contenitori al momento della creazione.
 
 ```bash
 az acr login --name <acrName>
@@ -130,7 +130,7 @@ az acr login --name <acrName>
 
 Al termine, il comando restituisce un messaggio di **Accesso riuscito**.
 
-Eseguire quindi questo comando per ottenere la password del registro contenitori. Questa password viene usata da Service Fabric per l'autenticazione al Registro contenitori di Azure per eseguire il pull delle immagini del contenitore.
+Eseguire quindi questo comando per ottenere la password del registro contenitori. Questa password viene usata da Service Fabric per l'autenticazione al Registro Azure Container per eseguire il pull delle immagini del contenitore.
 
 ```bash
 az acr credential show -n <acrName> --query passwords[0].value

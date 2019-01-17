@@ -92,7 +92,7 @@ La tabella seguente descrive lo scopo, il contenuto e la formattazione dei campi
 
 In **Edge Module Images** (Immagini modulo Edge) specificare le informazioni necessarie per caricare il modulo IoT Edge.
 
-Specificare l'accesso al [Registro contenitori di Azure](https://azure.microsoft.com/services/container-registry/) contenente l'immagine del modulo IoT Edge per consentirne il caricamento e la certificazione. Dopo la pubblicazione, il modulo IoT Edge verrà copiato e distribuito mediante un registro contenitori pubblico ospitato da Azure Marketplace.
+Specificare l'accesso al [Registro Azure Container](https://azure.microsoft.com/services/container-registry/) contenente l'immagine del modulo IoT Edge per consentirne il caricamento e la certificazione. Dopo la pubblicazione, il modulo IoT Edge verrà copiato e distribuito mediante un registro contenitori pubblico ospitato da Azure Marketplace.
 
 È possibile specificare come destinazione più piattaforme e indicare varie versioni tramite tag. Altre informazioni sui [tag e sul controllo delle versioni sono disponibili in "Preparare gli asset tecnici del modulo IoT Edge"](./cpp-create-technical-assets.md).
 
@@ -106,12 +106,12 @@ La tabella seguente descrive lo scopo, il contenuto e la formattazione dei campi
 |  **Campo**       |     **Descrizione**                                                          |
 |  ---------       |     ---------------                                                          |
 |  ***Image Repository Details*** (Dettagli repository immagini)   |  |
-| **ID sottoscrizione**        | ID sottoscrizione di Azure di Registro contenitori di Azure.|
-| **Nome del gruppo di risorse**      | Nome del gruppo di risorse di Registro contenitori di Azure.|
-| **Nome registro**  | Nome del Registro di sistema di Registro contenitori di Azure. Copiare solo il nome del Registro di sistema, NON il nome del server di accesso (ad esempio, senza `azurecr.io`). |
-| **Nome repository**  | Nome del repository di Registro contenitori di Azure contenente il modulo IoT Edge. **Nota:** dopo averlo impostato, il nome non potrà essere più modificato. Usare un nome univoco in modo che nessun'altra offerta dell'account abbia lo stesso nome. |
-| **Nome utente** | Nome utente associato al Registro contenitori di Azure (nome utente amministratore). |
-| **Password** | Password associata al Registro contenitori di Azure. |
+| **ID sottoscrizione**        | ID sottoscrizione di Azure di Registro Azure Container.|
+| **Nome del gruppo di risorse**      | Nome del gruppo di risorse di Registro Azure Container.|
+| **Nome registro**  | Nome del Registro di sistema di Registro Azure Container. Copiare solo il nome del Registro di sistema, NON il nome del server di accesso (ad esempio, senza `azurecr.io`). |
+| **Nome repository**  | Nome del repository di Registro Azure Container contenente il modulo IoT Edge. **Nota:** dopo averlo impostato, il nome non potrà essere più modificato. Usare un nome univoco in modo che nessun'altra offerta dell'account abbia lo stesso nome. |
+| **Nome utente** | Nome utente associato al Registro Azure Container (nome utente amministratore). |
+| **Password** | Password associata al Registro Azure Container. |
 |  ***Versione immagine***   |  |
 | **Image Tag or Digest** (Digest o tag immagine) | Deve includere almeno un tag `latest` e un tag di versione (ad esempio, deve iniziare con `xx.xx.xx-`, dove xx rappresenta un numero). Devono essere [tag di manifesto](https://github.com/estesp/manifest-tool) per specificare come destinazione più piattaforme. È necessario aggiungere anche tutti i tag referenziati da un tag di manifesto per poterli caricare. È possibile aggiungere varie versioni di un modulo IoT Edge mediante tag. Tutti i tag di manifesto (tranne `latest`) devono iniziare con `X.Y-` o `X.Y.Z-`, dove X, Y, Z sono numeri interi. Altre informazioni sui [tag e sul controllo delle versioni sono disponibili in "Preparare gli asset tecnici del modulo IoT Edge"](./cpp-create-technical-assets.md). <br/> Se ad esempio un tag `latest` punta a `1.0.1-linux-x64`, `1.0.1-linux-arm32` e `1.0.1-windows-arm32`, questi 6 tag devono essere aggiunti qui. |
 

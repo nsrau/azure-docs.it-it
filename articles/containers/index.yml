@@ -35,7 +35,7 @@ sections:
     columns: 2
     items:
     - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
-      html: <p>Creare un'app inclusa in contenitori con Istanze di contenitore di Azure</p>
+      html: <p>Creare un'app inclusa in contenitori con Istanze di Azure Container</p>
       image:
         src: https://docs.microsoft.com/media/common/i_get-started.svg
       title: Attività iniziali
@@ -70,7 +70,7 @@ sections:
       image:
         src: /azure/media/index/container-registry.svg
     - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
-      title: Eseguire un'app contenitore su richiesta in Istanze di contenitore di Azure
+      title: Eseguire un'app contenitore su richiesta in Istanze di Azure Container
       image:
         src: /azure/media/index/containerinstances.svg
 - title: Video di formazione gratuiti su PluralSight

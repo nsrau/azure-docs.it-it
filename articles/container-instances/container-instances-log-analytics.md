@@ -16,7 +16,7 @@ ms.locfileid: "53337887"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registrazione di istanze di contenitore con Azure Log Analytics
 
-Le aree di lavoro di Log Analytics offrono una posizione centralizzata per l'archiviazione e l'esecuzione di query sui dati di log, non solo dalle risorse di Azure, ma anche per le risorse locali e quelle in altri cloud. Il servizio Istanze di contenitore di Azure supporta per impostazione predefinita l'invio di dati a Log Analytics.
+Le aree di lavoro di Log Analytics offrono una posizione centralizzata per l'archiviazione e l'esecuzione di query sui dati di log, non solo dalle risorse di Azure, ma anche per le risorse locali e quelle in altri cloud. Il servizio Istanze di Azure Container supporta per impostazione predefinita l'invio di dati a Log Analytics.
 
 Per inviare i dati delle istanze di contenitore a Log Analytics, è necessario creare un gruppo di contenitori usando l'interfaccia della riga di comando di Azure (o Cloud Shell) e un file YAML. Le sezioni seguenti descrivono la creazione di un gruppo di contenitori abilitato per la registrazione e l'esecuzione di query sui log.
 
@@ -29,7 +29,7 @@ Per abilitare la registrazione nelle istanze di contenitore, è necessario quant
 
 ## <a name="get-log-analytics-credentials"></a>Ottenere le credenziali di Log Analytics
 
-Il servizio Istanze di contenitore di Azure deve avere l'autorizzazione per l'invio dei dati all'area di lavoro di Log Analytics. Per concedere questa autorizzazione e abilitare la registrazione, è necessario fornire l'ID dell'area di lavoro di Log Analytics e una delle relative chiavi (primaria o secondaria) quando si crea il gruppo di contenitori.
+Il servizio Istanze di Azure Container deve avere l'autorizzazione per l'invio dei dati all'area di lavoro di Log Analytics. Per concedere questa autorizzazione e abilitare la registrazione, è necessario fornire l'ID dell'area di lavoro di Log Analytics e una delle relative chiavi (primaria o secondaria) quando si crea il gruppo di contenitori.
 
 Per ottenere l'ID e la chiave primaria dell'area di lavoro di Log Analytics:
 
@@ -111,7 +111,7 @@ Dovrebbero essere visibili vari risultati visualizzati dalla query`search *`. Se
 
 Log Analytics include un [linguaggio di query][query_lang] completo per estrarre informazioni potenzialmente da migliaia di righe di output del log.
 
-L'agente di registrazione di Istanze di contenitore di Azure invia le voci alla tabella `ContainerInstanceLog_CL` nell'area di lavoro di Log Analytics. La struttura di base di una query è costituita da una tabella di origine (`ContainerInstanceLog_CL`) seguita da una serie di operatori separati dal carattere barra verticale (`|`). È possibile concatenare più operatori per limitare i risultati ed eseguire funzioni avanzate.
+L'agente di registrazione di Istanze di Azure Container invia le voci alla tabella `ContainerInstanceLog_CL` nell'area di lavoro di Log Analytics. La struttura di base di una query è costituita da una tabella di origine (`ContainerInstanceLog_CL`) seguita da una serie di operatori separati dal carattere barra verticale (`|`). È possibile concatenare più operatori per limitare i risultati ed eseguire funzioni avanzate.
 
 Per visualizzare risultati di query di esempio, incollare la query seguente nella casella di testo di query (in "Mostra convertitore linguaggio legacy") e selezionare il pulsante **Esegui** per eseguire la query. Questa query consente di visualizzare tutte le voci di log il cui campo "Message" contiene la parola "warn":
 

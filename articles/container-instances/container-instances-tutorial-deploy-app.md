@@ -17,12 +17,12 @@ ms.locfileid: "53191101"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Esercitazione: Distribuire un'applicazione contenitore in Istanze di Azure Container
 
-Questa è l'ultima esercitazione di una serie in tre parti. Nelle parti precedenti della serie, [è stata creata un'immagine del contenitore](container-instances-tutorial-prepare-app.md) e ne è stato eseguito il [push in Registro contenitori di Azure](container-instances-tutorial-prepare-acr.md). Questo articolo completa la serie con la distribuzione del contenitore in Istanze di contenitore di Azure.
+Questa è l'ultima esercitazione di una serie in tre parti. Nelle parti precedenti della serie, [è stata creata un'immagine del contenitore](container-instances-tutorial-prepare-app.md) e ne è stato eseguito il [push in Registro contenitori di Azure](container-instances-tutorial-prepare-acr.md). Questo articolo completa la serie con la distribuzione del contenitore in Istanze di Azure Container.
 
 In questa esercitazione:
 
 > [!div class="checklist"]
-> * Distribuire il contenitore da Registro contenitori di Azure a Istanze di contenitore di Azure
+> * Distribuire il contenitore da Registro Azure Container a Istanze di Azure Container
 > * Visualizzare l'applicazione in esecuzione nel browser
 > * Visualizzare i log del contenitore
 
@@ -113,14 +113,14 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato completato il processo di distribuzione del contenitore in Istanze di contenitore di Azure. Sono stati completati i passaggi seguenti:
+In questa esercitazione è stato completato il processo di distribuzione del contenitore in Istanze di Azure Container. Sono stati completati i passaggi seguenti:
 
 > [!div class="checklist"]
 > * Il contenitore è stato distribuito da Registro contenitori di Azure con l'interfaccia della riga di comando di Azure
 > * L'applicazione è stata visualizzata nel browser
 > * I log del contenitore sono stati visualizzati
 
-Dopo aver acquisito queste nozioni di base, approfondire la conoscenza di Istanze di contenitore di Azure, ad esempio in relazione al funzionamento dei gruppi di contenitori:
+Dopo aver acquisito queste nozioni di base, approfondire la conoscenza di Istanze di Azure Container, ad esempio in relazione al funzionamento dei gruppi di contenitori:
 
 > [!div class="nextstepaction"]
 > [Gruppi di contenitori in Istanze di contenitore di Azure](container-instances-container-groups.md)

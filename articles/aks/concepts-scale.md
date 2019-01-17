@@ -1,5 +1,5 @@
 ---
-title: Concetti - Ridimensionare le applicazioni nel servizio Kubernetes di Azure (AKS)
+title: Concetti - Ridimensionare le applicazioni nel servizio Azure Kubernetes
 description: Informazioni sul ridimensionamento nel servizio Azure Kubernetes, tra cui il ridimensionamento automatico orizzontale dei pod, il ridimensionamento automatico del cluster e il connettore di Istanze di Azure Container.
 services: container-service
 author: iainfoulds
@@ -18,7 +18,7 @@ ms.locfileid: "49380695"
 
 Quando si eseguono applicazioni nel servizio Azure Kubernetes può risultare necessario aumentare o ridurre la quantità di risorse di calcolo. Se cambia il numero di istanze dell'applicazione necessarie, potrebbe risultare necessario cambiare anche il numero di nodi Kubernetes sottostanti. Potrebbe anche nascere l'esigenza di effettuare rapidamente il provisioning di un numero elevato di istanze aggiuntive dell'applicazione.
 
-Questo articolo introduce i principali concetti utili per gestire il ridimensionamento delle applicazioni nel servizio Kubernetes di Azure:
+Questo articolo introduce i principali concetti utili per gestire il ridimensionamento delle applicazioni nel servizio Azure Kubernetes:
 
 - [Ridimensionamento manuale](#manually-scale-pods-or-nodes)
 - [Ridimensionamento automatico orizzontale dei pod](#horizontal-pod-autoscaler)
@@ -29,17 +29,17 @@ Questo articolo introduce i principali concetti utili per gestire il ridimension
 
 È possibile ridimensionare manualmente le repliche (pod) e i nodi per verificare come risponde l'applicazione a una modifica delle risorse disponibili e dello stato. Il ridimensionamento manuale delle risorse consente anche di definire una quantità specifica di risorse da usare per mantenere un costo fisso, ad esempio il numero di nodi. Per il ridimensionamento manuale occorre definire il numero di repliche o di nodi e l'API di Kubernetes pianifica la creazione di pod aggiuntivi o lo svuotamento dei nodi.
 
-Per informazioni introduttive sul ridimensionamento manuale di pod e nodi, vedere [Ridimensionare le applicazioni nel servizio Kubernetes di Azure (AKS)][aks-scale].
+Per informazioni introduttive sul ridimensionamento manuale di pod e nodi, vedere [Ridimensionare le applicazioni nel servizio Azure Kubernetes][aks-scale].
 
 ## <a name="horizontal-pod-autoscaler"></a>Ridimensionamento automatico orizzontale dei pod
 
-Kubernetes usa il ridimensionamento automatico orizzontale dei pod per monitorare la richiesta di risorse e adattare automaticamente il numero di repliche. Per impostazione predefinita, il ridimensionamento automatico orizzontale dei pod controlla l'API Metriche ogni 30 secondi per rilevare eventuali modifiche richieste nel numero di repliche. Quando sono necessarie modifiche, il numero di repliche viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico orizzontale dei pod può essere applicato ai cluster AKS in cui è stato distribuito Metrics Server per Kubernetes 1.8+.
+Kubernetes usa il ridimensionamento automatico orizzontale dei pod per monitorare la richiesta di risorse e adattare automaticamente il numero di repliche. Per impostazione predefinita, il ridimensionamento automatico orizzontale dei pod controlla l'API Metriche ogni 30 secondi per rilevare eventuali modifiche richieste nel numero di repliche. Quando sono necessarie modifiche, il numero di repliche viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico orizzontale dei pod può essere applicato ai cluster servizio Azure Kubernetes in cui è stato distribuito Metrics Server per Kubernetes 1.8+.
 
 ![Ridimensionamento automatico orizzontale dei pod Kubernetes](media/concepts-scale/horizontal-pod-autoscaling.png)
 
 Quando si configura il ridimensionamento automatico orizzontale dei pod per una distribuzione specifica, si definisce il numero minimo e massimo di repliche che può essere eseguito. È anche possibile definire le metriche da monitorare e su cui basare qualsiasi decisione per il ridimensionamento, ad esempio l'utilizzo della CPU.
 
-Per informazioni introduttive sul ridimensionamento automatico orizzontale dei pod in AKS, vedere [Scalare automaticamente i pod][aks-hpa].
+Per informazioni introduttive sul ridimensionamento automatico orizzontale dei pod in servizio Azure Kubernetes, vedere [Scalare automaticamente i pod][aks-hpa].
 
 ### <a name="cooldown-of-scaling-events"></a>Raffreddamento degli eventi di ridimensionamento
 
@@ -51,13 +51,13 @@ Potrebbe essere necessario regolare questi valori di raffreddamento. I valori di
 
 ## <a name="cluster-autoscaler"></a>Ridimensionamento automatico del cluster
 
-Per rispondere alle variazioni della domanda di pod, Kubernetes include il ridimensionamento automatico del cluster che regola il numero di nodi in base alle risorse di calcolo richieste nel pool di nodi. Per impostazione predefinita, il ridimensionamento automatico del cluster controlla il server API ogni 10 secondi per rilevare eventuali modifiche necessarie al numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster AKS viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico del cluster funziona con i cluster AKS abilitati per RBAC che eseguono Kubernetes 1.10.x o versione successiva.
+Per rispondere alle variazioni della domanda di pod, Kubernetes include il ridimensionamento automatico del cluster che regola il numero di nodi in base alle risorse di calcolo richieste nel pool di nodi. Per impostazione predefinita, il ridimensionamento automatico del cluster controlla il server API ogni 10 secondi per rilevare eventuali modifiche necessarie al numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster servizio Azure Kubernetes viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico del cluster funziona con i cluster servizio Azure Kubernetes abilitati per RBAC che eseguono Kubernetes 1.10.x o versione successiva.
 
 ![Ridimensionamento automatico del cluster Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
 Il ridimensionamento automatico del cluster viene generalmente usato insieme al ridimensionamento automatico orizzontale dei pod. In combinazione, il l ridimensionamento automatico orizzontale dei pod aumenta o riduce il numero di pod in base alle richieste dell'applicazione e il ridimensionamento automatico del cluster regola di conseguenza il numero di nodi in base alle necessità per l'esecuzione di tali pod aggiuntivi.
 
-Per informazioni introduttive sul ridimensionamento automatico del cluster nel servizio Kubernetes di Azure, vedere [Ridimensionamento automatico del cluster su Azure Kubernetes Service (AKS)][aks-cluster-autoscaler].
+Per informazioni introduttive sul ridimensionamento automatico del cluster nel servizio Azure Kubernetes, vedere [Ridimensionamento automatico del cluster sul servizio Azure Kubernetes][aks-cluster-autoscaler].
 
 ### <a name="scale-up-events"></a>Eventi di aumento delle risorse
 
@@ -65,7 +65,7 @@ Se un nodo non ha risorse di calcolo sufficienti per eseguire un pod richiesto, 
 
 Quando il ridimensionamento automatico del cluster rileva pod non pianificabili a causa dei vincoli di risorse del pool di nodi, il numero di nodi all'interno del pool viene aumentato per fornire risorse di calcolo aggiuntive. Dopo la distribuzione corretta di tali nodi aggiuntivi e quando sono disponibili per l'uso all'interno del pool di nodi, i pod vengono quindi pianificati per l'esecuzione su tali nodi.
 
-Se l'applicazione deve essere ridimensionata rapidamente, alcuni pod potrebbero rimanere in attesa di pianificazione fino a quando i nodi aggiuntivi distribuiti dal ridimensionamento automatico del cluster non possono accettare i pod pianificati. Per le applicazioni con richieste burst elevate, è possibile gestire il [ridimensionamento con nodi virtuali e Istanze di contenitore di Azure](#burst-to-azure-container-instance).
+Se l'applicazione deve essere ridimensionata rapidamente, alcuni pod potrebbero rimanere in attesa di pianificazione fino a quando i nodi aggiuntivi distribuiti dal ridimensionamento automatico del cluster non possono accettare i pod pianificati. Per le applicazioni con richieste burst elevate, è possibile gestire il [ridimensionamento con nodi virtuali e Istanze di Azure Container](#burst-to-azure-container-instance).
 
 ### <a name="scale-down-events"></a>Eventi di riduzione delle risorse
 
@@ -75,27 +75,27 @@ Un nodo che supera una soglia perché non è più richiesto per 10 minuti viene 
 
 Le applicazioni potrebbero riscontrare alcuni problemi mentre i pod vengono pianificati per nodi diversi quando il ridimensionamento automatico del cluster riduce il numero di nodi. Per ridurre al minimo i disagi, evitare le applicazioni che usano una singola istanza di pod.
 
-## <a name="burst-to-azure-container-instances"></a>Ridimensionamento burst in Istanze di contenitore di Azure
+## <a name="burst-to-azure-container-instances"></a>Ridimensionamento burst in Istanze di Azure Container
 
-Per ridimensionare rapidamente il cluster AKS, è possibile ricorrere all'integrazione con Istanze di contenitore di Azure. Kubernetes include componenti predefiniti per modificare il numero di repliche e di nodi. Tuttavia, se l'applicazione deve essere ridimensionata rapidamente, il ridimensionamento automatico orizzontale dei pod può pianificare più pod di quelli che possono essere forniti dalle risorse di calcolo esistenti nel pool di nodi. Se configurato, questo scenario attiverebbe il ridimensionamento automatico del cluster per distribuire nodi aggiuntivi nel pool di nodi, ma potrebbero essere necessari alcuni minuti prima che venga completato il provisioning di tali nodi e prima che tali nodi consentano all'utilità di pianificazione di Kubernetes di eseguire pod su di essi.
+Per ridimensionare rapidamente il cluster del servizio Azure Kubernetes, è possibile ricorrere all'integrazione con Istanze di Azure Container. Kubernetes include componenti predefiniti per modificare il numero di repliche e di nodi. Tuttavia, se l'applicazione deve essere ridimensionata rapidamente, il ridimensionamento automatico orizzontale dei pod può pianificare più pod di quelli che possono essere forniti dalle risorse di calcolo esistenti nel pool di nodi. Se configurato, questo scenario attiverebbe il ridimensionamento automatico del cluster per distribuire nodi aggiuntivi nel pool di nodi, ma potrebbero essere necessari alcuni minuti prima che venga completato il provisioning di tali nodi e prima che tali nodi consentano all'utilità di pianificazione di Kubernetes di eseguire pod su di essi.
 
 ![Ridimensionamento burst di Kubernetes in Istanze di contenitore di Azure](media/concepts-scale/burst-scaling.png)
 
-Istanze di contenitore di Azure consente di distribuire rapidamente istanze di contenitore senza sovraccarico aggiuntivo per l'infrastruttura. Quando ci si connette con il servizio Kubernetes di Azure, Istanze di contenitore di Azure diventa un'estensione logica protetta del cluster AKS. Il componente kubelet virtuale viene installato nel cluster AKS che presenta Istanze di contenitore di Azure come nodo Kubernetes virtuale. Kubernetes può quindi pianificare i pod che vengono eseguiti come istanze di Istanze di contenitore di Azure tramite i nodi virtuali e non come pod sui nodi macchina virtuale direttamente nel cluster AKS.
+Istanze di Azure Container consente di distribuire rapidamente istanze di contenitore senza sovraccarico aggiuntivo per l'infrastruttura. Quando ci si connette con il servizio Azure Kubernetes, Istanze di Azure Container diventa un'estensione logica protetta del cluster servizio Azure Kubernetes. Il componente kubelet virtuale viene installato nel cluster servizio Azure Kubernetes che presenta Istanze di Azure Container come nodo Kubernetes virtuale. Kubernetes può quindi pianificare i pod che vengono eseguiti come istanze di Istanze di Azure Container tramite i nodi virtuali e non come pod sui nodi macchina virtuale direttamente nel cluster del servizio Azure Kubernetes.
 
-L'applicazione non richiede alcuna modifica per usare i nodi virtuali. Le distribuzioni possono essere ridimensionate su Istanze di contenitore di Azure e il servizio Kubernetes di Azure senza ritardo mentre il ridimensionamento automatico del cluster distribuisce nuovi nodi nel cluster AKS.
+L'applicazione non richiede alcuna modifica per usare i nodi virtuali. Le distribuzioni possono essere ridimensionate su Istanze di Azure Container e il servizio Azure Kubernetes senza ritardo mentre il ridimensionamento automatico del cluster distribuisce nuovi nodi nel cluster del servizio Azure Kubernetes.
 
-I nodi virtuali vengono distribuiti in una subnet aggiuntiva nella stessa rete virtuale del cluster AKS. Questa configurazione di rete virtuale consente di proteggere il traffico tra Istanze di contenitore di Azure e il servizio Kubernetes di Azure. Come un cluster AKS, un'istanza di Istanze di contenitore di Azure è una risorsa di calcolo logica e sicura isolata dagli altri utenti.
+I nodi virtuali vengono distribuiti in una subnet aggiuntiva nella stessa rete virtuale del cluster del servizio Azure Kubernetes. Questa configurazione di rete virtuale consente di proteggere il traffico tra Istanze di Azure Container e il servizio Azure Kubernetes. Come un cluster servizio Azure Kubernetes, un'istanza di Istanze di Azure Container è una risorsa di calcolo logica e sicura isolata dagli altri utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare le funzionalità di ridimensionamento delle applicazioni, seguire innanzitutto la [guida introduttiva per creare un cluster AKS con l'interfaccia della riga di comando di Azure][aks-quickstart]. È quindi possibile iniziare a ridimensionare manualmente o automaticamente le applicazioni nel cluster AKS:
+Per iniziare a usare le funzionalità di ridimensionamento delle applicazioni, seguire innanzitutto la [guida introduttiva per creare un cluster del servizio Azure Kubernetes con l'interfaccia della riga di comando di Azure][aks-quickstart]. È quindi possibile iniziare a ridimensionare manualmente o automaticamente le applicazioni nel cluster servizio Azure Kubernetes:
 
 - Ridimensionare manualmente i [pod][aks-manually-scale-pods] o i [nodi][aks-manually-scale-nodes]
 - Usare il [ridimensionamento automatico orizzontale dei pod][aks-hpa]
 - Usare il [ridimensionamento automatico del cluster][aks-cluster-autoscaler]
 
-Per altre informazioni sui concetti fondamentali di Kubernetes e del servizio Kubernetes di Azure, vedere gli articoli seguenti:
+Per altre informazioni sui concetti fondamentali di Kubernetes e del servizio Azure Kubernetes, vedere gli articoli seguenti:
 
 - [Kubernetes / Cluster AKS e carichi di lavoro][aks-concepts-clusters-workloads]
 - [Kubernetes / Accesso e identità per AKS][aks-concepts-identity]

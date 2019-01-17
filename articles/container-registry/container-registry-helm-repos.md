@@ -51,7 +51,7 @@ Configurare le impostazioni predefinite dell'interfaccia della riga di comando d
 az configure --defaults acr=<acrName>
 ```
 
-A questo punto aggiungere il repository di grafici Helm del Registro contenitori di Azure al client Helm usando il comando [az acr helm repo add][az-acr-helm-repo-add]. Tale comando ottiene un tipo di token di autenticazione per il Registro contenitori di Azure che viene usato dal client Helm. Il token di autenticazione è valido per un'ora. In modo analogo a `docker login`, è possibile eseguire questo comando nelle sessioni future dell'interfaccia della riga di comando per autenticare il client Helm con il repository di grafici del Registro contenitori di Azure:
+A questo punto aggiungere il repository di grafici Helm di Registro Azure Container al client Helm usando il comando [az acr helm repo add][az-acr-helm-repo-add]. Tale comando ottiene un tipo di token di autenticazione per il Registro contenitori di Azure che viene usato dal client Helm. Il token di autenticazione è valido per un'ora. In modo analogo a `docker login`, è possibile eseguire questo comando nelle sessioni future dell'interfaccia della riga di comando per autenticare il client Helm con il repository di grafici del Registro contenitori di Azure:
 
 ```azurecli
 az acr helm repo add
@@ -76,7 +76,7 @@ $ ls
 wordpress-2.1.10.tgz
 ```
 
-Eseguire il push del grafico nel repository di grafici Helm nel Registro contenitori di Azure tramite il comando dell'interfaccia della riga di comando di Azure [az acr helm push][az-acr-helm-push]. Specificare il nome del grafico Helm scaricato nel passaggio precedente, ad esempio *wordpress-2.1.10.tgz*:
+Eseguire il push del grafico nel repository di grafici Helm in Registro Azure Container tramite il comando dell'interfaccia della riga di comando di Azure [az acr helm push][az-acr-helm-push]. Specificare il nome del grafico Helm scaricato nel passaggio precedente, ad esempio *wordpress-2.1.10.tgz*:
 
 ```azurecli
 az acr helm push wordpress-2.1.10.tgz

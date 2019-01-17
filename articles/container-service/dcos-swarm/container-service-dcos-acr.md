@@ -36,7 +36,7 @@ Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4
 
 ## <a name="deploy-azure-container-registry"></a>Distribuire il Registro contenitori di Azure
 
-Se necessario, creare un Registro contenitori di Azure con il comando [az acr create](/cli/azure/acr#az-acr-create). 
+Se necessario, creare un'istanza di Registro Azure Container con il comando [az acr create](/cli/azure/acr#az-acr-create). 
 
 Nell'esempio seguente viene creato un registro con un nome generato in modo casuale. Il registro viene anche configurato con un account amministratore tramite l'argomento `--admin-enabled`.
 

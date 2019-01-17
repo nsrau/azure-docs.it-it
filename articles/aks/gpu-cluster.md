@@ -17,20 +17,20 @@ ms.locfileid: "50419249"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usare le GPU per carichi di lavoro a elevato utilizzo di calcolo nel servizio Azure Kubernetes
 
-Le unità di elaborazione grafica (GPU) sono spesso usate per carichi di lavoro a elevato utilizzo di calcolo, ad esempio i carichi di lavoro di visualizzazione o di grafica. Il servizio AKS supporta la creazione di pool di nodi abilitati per la GPU per l'esecuzione di questi carichi di lavoro a elevato utilizzo di calcolo in Kubernetes. Per altre informazioni sulle macchine virtuali abilitate per GPU disponibili, vedere [Dimensioni delle macchine virtuali ottimizzate per la GPU][gpu-skus]. Per i nodi AKS è consigliabile una dimensione minima di *Standard_NC6*.
+Le unità di elaborazione grafica (GPU) sono spesso usate per carichi di lavoro a elevato utilizzo di calcolo, ad esempio i carichi di lavoro di visualizzazione o di grafica. Il servizio servizio Azure Kubernetes supporta la creazione di pool di nodi abilitati per la GPU per l'esecuzione di questi carichi di lavoro a elevato utilizzo di calcolo in Kubernetes. Per altre informazioni sulle macchine virtuali abilitate per GPU disponibili, vedere [Dimensioni delle macchine virtuali ottimizzate per la GPU][gpu-skus]. Per i nodi servizio Azure Kubernetes è consigliabile una dimensione minima di *Standard_NC6*.
 
 > [!NOTE]
 > Le macchine virtuali abilitate per la GPU contengono hardware specializzato soggetto a prezzi maggiori e alla disponibilità a livello di area. Per altre informazioni, vedere il calcolatore dei [prezzi][azure-pricing] e la [disponibilità a livello di area][azure-availability].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente con nodi che supportano GPU. Il cluster AKS deve eseguire Kubernetes 1.10 o versioni successive. Se occorre un cluster AKS che soddisfi questi requisiti, vedere la prima sezione di questo articolo per [creare un cluster AKS](#create-an-aks-cluster).
+Questo articolo presuppone che si disponga di un cluster servizio Azure Kubernetes esistente con nodi che supportano GPU. Il cluster servizio Azure Kubernetes deve eseguire Kubernetes 1.10 o versioni successive. Se occorre un cluster servizio Azure Kubernetes che soddisfi questi requisiti, vedere la prima sezione di questo articolo per [creare un cluster servizio Azure Kubernetes](#create-an-aks-cluster).
 
 È necessario anche che sia installata e configurata l'interfaccia della riga di comando di Azure versione 2.0.49 o successiva. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio contenitore di Azure
+## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
-Se occorre un cluster AKS che soddisfi i requisiti minimi (nodo abilitato per la GPU e Kubernetes versione 1.10 o versioni successive), completare i passaggi seguenti. Se si dispone già di un cluster AKS che soddisfa questi requisiti, passare alla sezione successiva.
+Se occorre un cluster servizio Azure Kubernetes che soddisfi i requisiti minimi (nodo abilitato per la GPU e Kubernetes versione 1.10 o versioni successive), completare i passaggi seguenti. Se si dispone già di un cluster servizio Azure Kubernetes che soddisfa questi requisiti, passare alla sezione successiva.
 
 Creare prima di tutto un gruppo di risorse per il cluster usando il comando [az group create][az-group-create]. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *EastUS*:
 
@@ -38,7 +38,7 @@ Creare prima di tutto un gruppo di risorse per il cluster usando il comando [az 
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare ora un cluster AKS usando il comando [az aks create][az-aks-create]. L'esempio seguente crea un cluster con un singolo nodo di dimensione `Standard_NC6` ed esegue Kubernetes versione 1.10.8:
+Creare ora un cluster servizio Azure Kubernetes usando il comando [az servizio Azure Kubernetes create][az-aks-create]. L'esempio seguente crea un cluster con un singolo nodo di dimensione `Standard_NC6` ed esegue Kubernetes versione 1.10.8:
 
 ```azurecli
 az aks create \
@@ -49,7 +49,7 @@ az aks create \
     --kubernetes-version 1.10.8
 ```
 
-Ottenere le credenziali per il cluster AKS usando il comando [az aks get-credentials][az-aks-get-credentials]:
+Ottenere le credenziali per il cluster servizio Azure Kubernetes usando il comando [az servizio Azure Kubernetes get-credentials][az-aks-get-credentials]:
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -57,7 +57,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="confirm-that-gpus-are-schedulable"></a>Verificare che le GPU siano pianificabili
 
-Dopo avere creato il cluster AKS, verificare la pianificabilità delle GPU in Kubernetes. Elencare prima di tutto i nodi nel cluster usando il comando [kubectl get nodes][kubectl-get]:
+Dopo avere creato il cluster servizio Azure Kubernetes, verificare la pianificabilità delle GPU in Kubernetes. Elencare prima di tutto i nodi nel cluster usando il comando [kubectl get nodes][kubectl-get]:
 
 ```
 $ kubectl get nodes
@@ -272,7 +272,7 @@ Creare prima di tutto uno spazio dei nomi usando il comando [kubectl create name
 kubectl create namespace gpu-resources
 ```
 
-Creare un file denominato *nvidia-device-plugin-ds.yaml* e incollare il manifesto YAML seguente. Aggiornare `image: nvidia/k8s-device-plugin:1.10` a metà del file manifesto in modo che corrisponda alla versione di Kubernetes. Se ad esempio il cluster AKS esegue Kubernetes versione 1.11, aggiornare il tag a `image: nvidia/k8s-device-plugin:1.11`.
+Creare un file denominato *nvidia-device-plugin-ds.yaml* e incollare il manifesto YAML seguente. Aggiornare `image: nvidia/k8s-device-plugin:1.10` a metà del file manifesto in modo che corrisponda alla versione di Kubernetes. Se ad esempio il cluster servizio Azure Kubernetes esegue Kubernetes versione 1.11, aggiornare il tag a `image: nvidia/k8s-device-plugin:1.11`.
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -329,7 +329,7 @@ Eseguire di nuovo il comando [kubectl describe node][kubectl-describe] per verif
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per eseguire i processi Apache Spark, vedere [Eseguire un processo Apache Spark con il servizio Kubernetes di Azure][aks-spark].
+Per eseguire i processi Apache Spark, vedere [Eseguire un processo Apache Spark con il servizio Azure Kubernetes][aks-spark].
 
 Per altre informazioni sull'esecuzione di carichi di lavoro di Machine Learning (ML) in Kubernetes, vedere i [laboratori Kubeflow][kubeflow-labs].
 

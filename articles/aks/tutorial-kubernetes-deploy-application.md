@@ -38,9 +38,9 @@ Per questa esercitazione è necessario eseguire l'interfaccia della riga di coma
 
 ## <a name="update-the-manifest-file"></a>Aggiornare il file manifesto
 
-In queste esercitazioni un'istanza di Registro contenitori di Azure archivia l'immagine del contenitore per l'applicazione di esempio. Per distribuire l'applicazione, è necessario aggiornare il nome dell'immagine nel file manifesto di Kubernetes includendo il nome del server di accesso di Registro contenitori di Azure.
+In queste esercitazioni un'istanza di Registro Azure Container archivia l'immagine del contenitore per l'applicazione di esempio. Per distribuire l'applicazione, è necessario aggiornare il nome dell'immagine nel file manifesto di Kubernetes includendo il nome del server di accesso di Registro Azure Container.
 
-Ottenere il nome del server di accesso di Registro contenitori di Azure usando il comando [az acr list][az-acr-list] come di seguito:
+Ottenere il nome del server di accesso di Registro Azure Container usando il comando [az acr list][az-acr-list] come di seguito:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -52,7 +52,7 @@ Il file manifesto di esempio del repository Git clonato nella prima esercitazion
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Sostituire *microsoft* con il nome del server di accesso di Registro contenitori di Azure. Il nome dell'immagine è presente nella riga 47 del file manifesto. L'esempio seguente mostra il nome dell'immagine predefinito:
+Sostituire *microsoft* con il nome del server di accesso di Registro Azure Container. Il nome dell'immagine è presente nella riga 47 del file manifesto. L'esempio seguente mostra il nome dell'immagine predefinito:
 
 ```yaml
 containers:
@@ -60,7 +60,7 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-Immettere il proprio nome del server di accesso di Registro contenitori di Azure in modo che il file manifesto abbia un aspetto simile al seguente:
+Immettere il proprio nome del server di accesso di Registro Azure Container in modo che il file manifesto abbia un aspetto simile al seguente:
 
 ```yaml
 containers:

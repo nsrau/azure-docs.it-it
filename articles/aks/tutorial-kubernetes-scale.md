@@ -70,13 +70,13 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Scalare automaticamente i pod
 
-Kubernetes supporta la [scalabilità automatica orizzontale dei pod][kubernetes-hpa] per modificare il numero dei pod in una distribuzione a seconda dell'utilizzo della CPU o delle altre metriche selezionate. Il [server delle metriche][metrics-server] viene usato per fornire l'utilizzo delle risorse a Kubernetes e viene automaticamente distribuito nei cluster AKS 1.10 e versioni successive. Per vedere la versione del proprio cluster AKS, usare il comando [az aks show][az-aks-show], come illustrato nell'esempio seguente:
+Kubernetes supporta la [scalabilità automatica orizzontale dei pod][kubernetes-hpa] per modificare il numero dei pod in una distribuzione a seconda dell'utilizzo della CPU o delle altre metriche selezionate. Il [server delle metriche][metrics-server] viene usato per fornire l'utilizzo delle risorse a Kubernetes e viene automaticamente distribuito nei cluster servizio Azure Kubernetes 1.10 e versioni successive. Per vedere la versione del proprio cluster servizio Azure Kubernetes, usare il comando [az servizio Azure Kubernetes show][az-aks-show], come illustrato nell'esempio seguente:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-Se la versione del cluster AKS in uso è inferiore a *1.10*, installare il server delle metriche, in caso contrario ignorare questo passaggio. Per eseguire l'installazione, clonare il repository GitHub `metrics-server` e installare le definizioni di risorsa di esempio. Per visualizzare il contenuto di queste definizioni YAML, vedere [Metrics Server for Kuberenetes 1.8+][metrics-server-github] (Server delle metriche per Kuberenetes 1.8 +).
+Se la versione del cluster servizio Azure Kubernetes in uso è inferiore a *1.10*, installare il server delle metriche, in caso contrario ignorare questo passaggio. Per eseguire l'installazione, clonare il repository GitHub `metrics-server` e installare le definizioni di risorsa di esempio. Per visualizzare il contenuto di queste definizioni YAML, vedere [Metrics Server for Kuberenetes 1.8+][metrics-server-github] (Server delle metriche per Kuberenetes 1.8 +).
 
 ```console
 git clone https://github.com/kubernetes-incubator/metrics-server.git
@@ -110,7 +110,7 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 
 Dopo pochi minuti con un carico minimo sull'app Azure Vote, il numero di repliche di pod si riduce automaticamente a tre. È possibile usare nuovamente `kubectl get pods` per visualizzare la rimozione dei pod non necessari.
 
-## <a name="manually-scale-aks-nodes"></a>Ridimensionare manualmente i nodi AKS
+## <a name="manually-scale-aks-nodes"></a>Ridimensionare manualmente i nodi servizio Azure Kubernetes
 
 Se è stato creato usando i comandi nell'esercitazione precedente, il cluster Kubernetes include un nodo. Se si prevede un numero maggiore o minore di carichi di lavoro dei contenitori nel cluster, è possibile modificare manualmente il numero di nodi.
 

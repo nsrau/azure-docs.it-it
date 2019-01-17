@@ -25,7 +25,7 @@ Per altre informazioni sui volumi Kubernetes permanenti, vedere [Kubernetes pers
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva su AKS [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure versione 2.0.46 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
@@ -33,14 +33,14 @@ Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è ne
 
 Una classe di archiviazione viene usata per definire la creazione dinamica di un'unità di archiviazione con un volume permanente. Per altre informazioni sulle classi di archiviazione Kubernetes, vedere [Kubernetes Storage Classes][kubernetes-storage-classes] (Classi di archiviazione Kubernetes).
 
-Ogni cluster AKS include due classi di archiviazione predefinite, entrambe configurate per l'uso con i dischi di Azure:
+Ogni cluster servizio Azure Kubernetes include due classi di archiviazione predefinite, entrambe configurate per l'uso con i dischi di Azure:
 
 * La classe di archiviazione *predefinita* esegue il provisioning di un disco di Azure standard.
     * Archiviazione Standard è supportata da unità disco rigido e offre un'archiviazione conveniente con buone prestazioni. I dischi standard sono ideali per un carico di lavoro di test e sviluppo conveniente.
 * La classe di archiviazione *gestita Premium* esegue il provisioning di un disco di Azure premium.
-    * I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazioni basato su SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. Se i nodi del servizio contenitore di Azure nel cluster usano l'archiviazione premium, selezionare la classe *gestita Premium*.
+    * I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazioni basato su SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. Se i nodi del servizio Azure Container nel cluster usano l'archiviazione premium, selezionare la classe *gestita Premium*.
 
-Usare il comando [kubectl get sc][kubectl-get] per visualizzare le classi di archiviazione create in precedenza. L'esempio seguente illustra la creazione preliminare di classi di archiviazione disponibile all'interno di un cluster AKS:
+Usare il comando [kubectl get sc][kubectl-get] per visualizzare le classi di archiviazione create in precedenza. L'esempio seguente illustra la creazione preliminare di classi di archiviazione disponibile all'interno di un cluster servizio Azure Kubernetes:
 
 ```
 $ kubectl get sc
@@ -51,7 +51,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Le attestazioni di volumi permanenti sono specificate in GiB, ma i dischi gestiti di Azure vengono fatturati in base al codice SKU per una dimensione specifica. Questi SKU spaziano da 32 GiB per i dischi S4 o P4 a 32 TiB per i dischi S80 o P80. La velocità effettiva e le prestazioni delle operazioni di I/O al secondo per un disco gestito Premium dipendono sia dallo SKU sia dalla dimensione dell'istanza dei nodi nel cluster AKS. Per altre informazioni, vedere [Prezzi e prestazioni dei dischi gestiti][managed-disk-pricing-performance].
+> Le attestazioni di volumi permanenti sono specificate in GiB, ma i dischi gestiti di Azure vengono fatturati in base al codice SKU per una dimensione specifica. Questi SKU spaziano da 32 GiB per i dischi S4 o P4 a 32 TiB per i dischi S80 o P80. La velocità effettiva e le prestazioni delle operazioni di I/O al secondo per un disco gestito Premium dipendono sia dallo SKU sia dalla dimensione dell'istanza dei nodi nel cluster servizio Azure Kubernetes. Per altre informazioni, vedere [Prezzi e prestazioni dei dischi gestiti][managed-disk-pricing-performance].
 
 ## <a name="create-a-persistent-volume-claim"></a>Creare un'attestazione di volume permanente
 
@@ -169,7 +169,7 @@ $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-Usare l'ID del disco per creare lo snapshot di un disco con [az snapshot create][az-snapshot-create]. L'esempio seguente crea uno snapshot denominato *pvcSnapshot* nello stesso gruppo di risorse del cluster AKS (*MC_myResourceGroup_myAKSCluster_eastus*). Se si creano snapshot e si ripristinano dischi in gruppi di risorse a cui il cluster AKS non ha accesso, è possibile che si verifichino problemi di autorizzazione.
+Usare l'ID del disco per creare lo snapshot di un disco con [az snapshot create][az-snapshot-create]. L'esempio seguente crea uno snapshot denominato *pvcSnapshot* nello stesso gruppo di risorse del cluster servizio Azure Kubernetes (*MC_myResourceGroup_myservizio Azure KubernetesCluster_eastus*). Se si creano snapshot e si ripristinano dischi in gruppi di risorse a cui il cluster servizio Azure Kubernetes non ha accesso, è possibile che si verifichino problemi di autorizzazione.
 
 ```azurecli
 $ az snapshot create \

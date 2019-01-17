@@ -72,13 +72,13 @@ items:
       href: container-registry-authentication.md
     - name: Autenticazione di un'entità servizio
       href: container-registry-auth-service-principal.md
-    - name: Istanze di contenitore di Azure
+    - name: Istanze di Azure Container
       href: container-registry-auth-aci.md
     - name: Servizio Azure Kubernetes
       href: container-registry-auth-aks.md
   - name: Compilare e applicare patch
     items:
-    - name: ACR Tasks
+    - name: Attività di Registro Azure Container
       href: container-registry-tasks-overview.md
     - name: Attività in più passaggi (anteprima)
       href: container-registry-tasks-multi-step.md
@@ -86,7 +86,7 @@ items:
       href: container-registry-tasks-reference-yaml.md
   - name: Registri e altri servizi di Azure
     items:
-    - name: Istanze di contenitore di Azure
+    - name: Istanze di Azure Container
       href: ../container-instances/container-instances-tutorial-prepare-app.md
     - name: Servizio Azure Kubernetes
       href: ../aks/tutorial-kubernetes-prepare-app.md

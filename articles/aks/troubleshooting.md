@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2018
 ms.locfileid: "53654071"
 ---
-# <a name="aks-troubleshooting"></a>Risoluzione dei problemi di AKS
+# <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
 Quando si creano o gestiscono cluster del servizio Azure Kubernetes (AKS), in alcuni casi potrebbero verificarsi problemi. In questo articolo sono descritti alcuni problemi comuni e i passaggi per risolverli.
 
@@ -34,7 +34,7 @@ Il numero massimo di pod per nodo è 110 per impostazione predefinita se si dist
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Viene visualizzato l'errore "insufficientSubnetSize" durante la distribuzione di un cluster AKS con funzionalità di rete avanzate. Cosa devo fare?
 
-Nell'opzione personalizzata di Rete virtuale di Azure per la rete durante la creazione del servizio AKS, l'interfaccia di rete contenitore di Azure (CNI) viene usata per gestire gli indirizzi IP (IPAM). Il numero di nodi in un cluster AKS può essere compreso tra 1 e 100. In base alla sezione precedente, le dimensioni della subnet devono essere maggiori del prodotto tra il numero di nodi e il numero massimo di pod per nodo. La relazione può essere espressa in questo modo: dimensioni della subnet > numero di nodi nel cluster * numero massimo di pod per nodo.
+Nell'opzione personalizzata di Rete virtuale di Azure per la rete durante la creazione del servizio AKS, l'interfaccia di rete contenitore di Azure (CNI) viene usata per gestire gli indirizzi IP (IPAM). Il numero di nodi in un cluster servizio Azure Kubernetes può essere compreso tra 1 e 100. In base alla sezione precedente, le dimensioni della subnet devono essere maggiori del prodotto tra il numero di nodi e il numero massimo di pod per nodo. La relazione può essere espressa in questo modo: dimensioni della subnet > numero di nodi nel cluster * numero massimo di pod per nodo.
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Il pod è bloccato in modalità “CrashLoopBackOff”. Cosa devo fare?
 

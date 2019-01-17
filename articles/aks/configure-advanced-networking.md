@@ -16,16 +16,16 @@ ms.locfileid: "52994562"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete avanzate nel servizio Azure Kubernetes
 
-Per impostazione predefinita, i cluster AKS usano funzionalità di rete di *base*, che creano e configurano una rete virtuale e una subnet per l'uso con il cluster. Per un ulteriore controllo di queste opzioni di rete, ad esempio gli intervalli IP, è invece possibile usare le funzionalità di rete *avanzate*. Con le funzionalità di rete avanzate è possibile creare anche un cluster AKS in una rete virtuale e una subnet esistenti. Questa rete virtuale esistente spesso offre connettività a una rete locale tramite Azure ExpressRoute o VPN da sito a sito.
+Per impostazione predefinita, i cluster servizio Azure Kubernetes usano funzionalità di rete di *base*, che creano e configurano una rete virtuale e una subnet per l'uso con il cluster. Per un ulteriore controllo di queste opzioni di rete, ad esempio gli intervalli IP, è invece possibile usare le funzionalità di rete *avanzate*. Con le funzionalità di rete avanzate è possibile creare anche un cluster servizio Azure Kubernetes in una rete virtuale e una subnet esistenti. Questa rete virtuale esistente spesso offre connettività a una rete locale tramite Azure ExpressRoute o VPN da sito a sito.
 
-Questo articolo illustra come usare le funzionalità di rete avanzate per creare e usare una rete virtuale con un cluster AKS. Per altre informazioni generali sulle funzionalità di rete, vedere [Concetti relativi alla rete per le applicazioni nel servizio Kubernetes di Azure (AKS)][aks-network-concepts].
+Questo articolo illustra come usare le funzionalità di rete avanzate per creare e usare una rete virtuale con un cluster servizio Azure Kubernetes. Per altre informazioni generali sulle funzionalità di rete, vedere [Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes][aks-network-concepts].
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* La rete virtuale per il cluster AKS deve consentire la connettività Internet in uscita.
-* Non creare più di un cluster AKS nella stessa subnet.
-* I cluster AKS non possono usare `169.254.0.0/16`, `172.30.0.0/16` o `172.31.0.0/16` per l'intervallo di indirizzi del servizio Kubernetes.
-* L'entità servizio usata dal cluster AKS deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
+* La rete virtuale per il cluster servizio Azure Kubernetes deve consentire la connettività Internet in uscita.
+* Non creare più di un cluster servizio Azure Kubernetes nella stessa subnet.
+* I cluster servizio Azure Kubernetes non possono usare `169.254.0.0/16`, `172.30.0.0/16` o `172.31.0.0/16` per l'intervallo di indirizzi del servizio Kubernetes.
+* L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
@@ -38,13 +38,13 @@ Gli indirizzi IP per i pod e i nodi del cluster vengono assegnati dalla subnet s
 > [!IMPORTANT]
 > Per calcolare il numero di indirizzi IP necessari, è opportuno considerare le eventuali operazioni di aggiornamento e ridimensionamento. Se si imposta l'intervallo di indirizzi IP solo per supportare un numero fisso di nodi, non è possibile aggiornare o ridimensionare il cluster.
 >
-> - Quando si esegue l'**aggiornamento** del cluster AKS, viene distribuito un nuovo nodo nel cluster. Viene avviata l'esecuzione di servizi e carichi di lavoro nel nuovo nodo e il nodo precedente viene rimosso dal cluster. Questo processo di aggiornamento in sequenza richiede la disponibilità di almeno un altro blocco di indirizzi IP. Il numero di nodi risulta quindi pari a `n + 1`.
+> - Quando si esegue l'**aggiornamento** del cluster servizio Azure Kubernetes, viene distribuito un nuovo nodo nel cluster. Viene avviata l'esecuzione di servizi e carichi di lavoro nel nuovo nodo e il nodo precedente viene rimosso dal cluster. Questo processo di aggiornamento in sequenza richiede la disponibilità di almeno un altro blocco di indirizzi IP. Il numero di nodi risulta quindi pari a `n + 1`.
 >
-> - Quando si esegue il **ridimensionamento** di un cluster AKS, viene distribuito un nuovo nodo nel cluster. Viene avviata l'esecuzione di servizi e carichi di lavoro nel nuovo nodo. Per calcolare l'intervallo di indirizzi IP, è necessario considerare il modo in cui si vuole aumentare il numero di nodi e pod supportati dal cluster. È necessario includere anche un nodo aggiuntivo per le operazioni di aggiornamento. Il numero di nodi risulta quindi pari a `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
+> - Quando si esegue il **ridimensionamento** di un cluster servizio Azure Kubernetes, viene distribuito un nuovo nodo nel cluster. Viene avviata l'esecuzione di servizi e carichi di lavoro nel nuovo nodo. Per calcolare l'intervallo di indirizzi IP, è necessario considerare il modo in cui si vuole aumentare il numero di nodi e pod supportati dal cluster. È necessario includere anche un nodo aggiuntivo per le operazioni di aggiornamento. Il numero di nodi risulta quindi pari a `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
 Se si prevede che i nodi eseguano il numero massimo di pod e che distruggano e distribuiscano regolarmente pod, è necessario considerare alcuni indirizzi IP aggiuntivi per ogni nodo. L'uso di questi indirizzi implica che possano essere necessari alcuni secondi per eliminare un servizio e per consentire la distribuzione dell'indirizzo IP rilasciato per un nuovo servizio e l'acquisizione dei dati necessari.
 
-Il piano di indirizzo IP per un cluster AKS è costituito da una rete virtuale, almeno una subnet per i nodi e i pod e un intervallo di indirizzi per il servizio Kubernetes.
+Il piano di indirizzo IP per un cluster servizio Azure Kubernetes è costituito da una rete virtuale, almeno una subnet per i nodi e i pod e un intervallo di indirizzi per il servizio Kubernetes.
 
 | Intervallo di indirizzi / Risorsa di Azure | Limiti e dimensioni |
 | --------- | ------------- |
@@ -56,7 +56,7 @@ Il piano di indirizzo IP per un cluster AKS è costituito da una rete virtuale, 
 
 ## <a name="maximum-pods-per-node"></a>Numero massimo di pod per nodo
 
-Il numero massimo di pod per nodo in un cluster AKS è 110. Il numero massimo *predefinito* di pod per nodo varia tra la rete di base e avanzata e il metodo di distribuzione del cluster.
+Il numero massimo di pod per nodo in un cluster servizio Azure Kubernetes è 110. Il numero massimo *predefinito* di pod per nodo varia tra la rete di base e avanzata e il metodo di distribuzione del cluster.
 
 | Metodo di distribuzione | Predefiniti per la rete di base | Predefiniti per la rete avanzata | Configurabile in fase di distribuzione |
 | -- | :--: | :--: | -- |
@@ -74,11 +74,11 @@ Il numero massimo di pod per nodo in un cluster AKS è 110. Il numero massimo *p
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurare il valore massimo - cluster esistenti
 
-Non è possibile modificare il numero massimo di pod per ogni nodo in un cluster AKS esistente. È possibile modificare il numero solo quando si distribuisce inizialmente il cluster.
+Non è possibile modificare il numero massimo di pod per ogni nodo in un cluster servizio Azure Kubernetes esistente. È possibile modificare il numero solo quando si distribuisce inizialmente il cluster.
 
 ## <a name="deployment-parameters"></a>Parametri di distribuzione
 
-Quando si crea un cluster AKS, i parametri seguenti sono configurabili per la rete avanzata:
+Quando si crea un cluster servizio Azure Kubernetes, i parametri seguenti sono configurabili per la rete avanzata:
 
 **Rete virtuale**: rete virtuale in cui si vuole distribuire il cluster Kubernetes. Per creare una nuova rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una rete virtuale*. Per altre informazioni su limiti e quote per una rete virtuale di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
@@ -99,9 +99,9 @@ Sebbene sia tecnicamente possibile specificare un intervallo di indirizzi del se
 
 ## <a name="configure-networking---cli"></a>Configurare le impostazioni di rete - interfaccia della riga di comando
 
-Quando si crea un cluster AKS con l'interfaccia della riga di comando di Azure, è anche possibile configurare funzionalità di rete avanzate. Usare i comandi seguenti per creare un nuovo cluster AKS con avanzate funzionalità di rete abilitate.
+Quando si crea un cluster servizio Azure Kubernetes con l'interfaccia della riga di comando di Azure, è anche possibile configurare funzionalità di rete avanzate. Usare i comandi seguenti per creare un nuovo cluster servizio Azure Kubernetes con avanzate funzionalità di rete abilitate.
 
-Ottenere prima di tutto l'ID risorsa della subnet esistente in cui verrà aggiunto il cluster AKS:
+Ottenere prima di tutto l'ID risorsa della subnet esistente in cui verrà aggiunto il cluster servizio Azure Kubernetes:
 
 ```console
 $ az network vnet subnet list --resource-group myVnet --vnet-name myVnet --query [].id --output tsv
@@ -109,7 +109,7 @@ $ az network vnet subnet list --resource-group myVnet --vnet-name myVnet --query
 /subscriptions/d5b9d4b7-6fc1-46c5-bafe-38effaed19b2/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-Usare il comando [az aks create][az-aks-create] con l'argomento `--network-plugin azure` per creare un cluster con funzionalità di rete avanzate. Aggiornare il valore `--vnet-subnet-id` con l'ID della subnet raccolto nel passaggio precedente:
+Usare il comando [az servizio Azure Kubernetes create][az-aks-create] con l'argomento `--network-plugin azure` per creare un cluster con funzionalità di rete avanzate. Aggiornare il valore `--vnet-subnet-id` con l'ID della subnet raccolto nel passaggio precedente:
 
 ```azurecli
 az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin azure --vnet-subnet-id <subnet-id> --docker-bridge-address 172.17.0.1/16 --dns-service-ip 10.2.0.10 --service-cidr 10.2.0.0/24
@@ -117,7 +117,7 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin
 
 ## <a name="configure-networking---portal"></a>Configurare le impostazioni di rete - portale
 
-Lo screenshot seguente dal portale di Azure illustra un esempio di configurazione di queste impostazioni durante la creazione del cluster AKS:
+Lo screenshot seguente dal portale di Azure illustra un esempio di configurazione di queste impostazioni durante la creazione del cluster servizio Azure Kubernetes:
 
 ![Configurazione della rete avanzata nel portale di Azure][portal-01-networking-advanced]
 
@@ -141,7 +141,7 @@ Le domande e le risposte seguenti si applicano alla configurazione della rete**a
 
 * *Come si configurano altre proprietà per la subnet creata durante la creazione del cluster AKS? Ad esempio, gli endpoint di servizio.*
 
-  L'elenco completo delle proprietà per la rete virtuale e le subnet create durante la creazione del cluster AKS può essere configurato nella pagina di configurazione della rete virtuale standard nel portale di Azure.
+  L'elenco completo delle proprietà per la rete virtuale e le subnet create durante la creazione del cluster servizio Azure Kubernetes può essere configurato nella pagina di configurazione della rete virtuale standard nel portale di Azure.
 
 * *È possibile usare una subnet diversa all'interno della rete virtuale del cluster per l'***intervallo di indirizzi del servizio Kubernetes**?
 
@@ -149,9 +149,9 @@ Le domande e le risposte seguenti si applicano alla configurazione della rete**a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="networking-in-aks"></a>Rete in AKS
+### <a name="networking-in-aks"></a>Rete in servizio Azure Kubernetes
 
-Per altre informazioni sulla rete in AKS, vedere gli articoli seguenti:
+Per altre informazioni sulla rete in servizio Azure Kubernetes, vedere gli articoli seguenti:
 
 - [Usare un indirizzo IP statico con il bilanciamento del carico di Azure Kubernetes Service (AKS)](static-ip.md)
 - [Usare un servizio di bilanciamento del carico interno con il servizio contenitore di Azure (AKS)](internal-lb.md)

@@ -37,7 +37,7 @@ Per questa esercitazione è necessario eseguire l'interfaccia della riga di coma
 
 ## <a name="update-an-application"></a>Aggiornare un'applicazione
 
-Verrà apportata una modifica all'applicazione di esempio, quindi verrà aggiornata la versione già distribuita nel cluster AKS. Assicurarsi di essere nella directory clonata *azure-voto-app-redis*. Il codice sorgente dell'applicazione di esempio è disponibile nella directory *azure-vote*. Aprire il file *config_file.cfg* con un editor, ad esempio `vi`:
+Verrà apportata una modifica all'applicazione di esempio, quindi verrà aggiornata la versione già distribuita nel cluster servizio Azure Kubernetes. Assicurarsi di essere nella directory clonata *azure-voto-app-redis*. Il codice sorgente dell'applicazione di esempio è disponibile nella directory *azure-vote*. Aprire il file *config_file.cfg* con un editor, ad esempio `vi`:
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
@@ -73,19 +73,19 @@ I valori aggiornati specificati nel file *config_file.cfg* vengono visualizzati 
 
 ## <a name="tag-and-push-the-image"></a>Applicare tag ed eseguire il push dell'immagine
 
-Per usare correttamente l'immagine aggiornata, contrassegnare l'immagine *azure-vote-front* con il nome del server di accesso del Registro contenitori di Azure. Ottenere il nome del server di accesso con il comando [az acr list](/cli/azure/acr#az_acr_list):
+Per usare correttamente l'immagine aggiornata, contrassegnare l'immagine *azure-vote-front* con il nome del server di accesso di Registro Azure Container. Ottenere il nome del server di accesso con il comando [az acr list](/cli/azure/acr#az_acr_list):
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Usare [docker tag][docker-tag] per assegnare il tag all'immagine. Sostituire `<acrLoginServer>` con il nome del server di accesso di Registro contenitori di Azure o con il nome host del registro pubblico e aggiornare la versione dell'immagine a *:v2* come di seguito:
+Usare [docker tag][docker-tag] per assegnare il tag all'immagine. Sostituire `<acrLoginServer>` con il nome del server di accesso di Registro Azure Container o con il nome host del registro pubblico e aggiornare la versione dell'immagine a *:v2* come di seguito:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Usare ora [docker push][docker-push] per caricare l'immagine nel registro. Sostituire `<acrLoginServer>` con il nome del server di accesso di Registro contenitori di Azure. In caso di problemi nell'esecuzione del push nella propria istanza di Registro contenitori di Azure, verificare di aver eseguito il comando [az acr login][az-acr-login].
+Usare ora [docker push][docker-push] per caricare l'immagine nel registro. Sostituire `<acrLoginServer>` con il nome del server di accesso di Registro Azure Container. In caso di problemi nell'esecuzione del push nella propria istanza di Registro contenitori di Azure, verificare di aver eseguito il comando [az acr login][az-acr-login].
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -157,7 +157,7 @@ In questa esercitazione è stata aggiornata un'applicazione e l'aggiornamento è
 > * Eseguire il push dell'immagine del contenitore in Registro contenitori di Azure
 > * Distribuire un'immagine del contenitore aggiornata
 
-Passare all'esercitazione successiva per informazioni su come aggiornare un cluster AKS a una nuova versione di Kubernetes.
+Passare all'esercitazione successiva per informazioni su come aggiornare un cluster servizio Azure Kubernetes a una nuova versione di Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Aggiornare Kubernetes][aks-tutorial-upgrade]

@@ -1,6 +1,6 @@
 ---
-title: Impostare le variabili di ambiente in Istanze di contenitore di Azure
-description: Informazioni su come impostare le variabili di ambiente nei contenitori eseguiti in Istanze di contenitore di Azure
+title: Impostare le variabili di ambiente in Istanze di Azure Container
+description: Informazioni su come impostare le variabili di ambiente nei contenitori eseguiti in Istanze di Azure Container
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -24,7 +24,7 @@ Se ad esempio si esegue l'immagine del contenitore [microsoft/aci-wordcount][aci
 
 *MinLength*: il numero minimo di caratteri in una parola perché venga contata. Un numero più alto ignora le parole comuni, ad esempio "di" e "il".
 
-Se è necessario passare segreti come variabili di ambiente, Istanze di contenitore di Azure supporta [valori sicuri](#secure-values) per i contenitori sia Windows che Linux.
+Se è necessario passare segreti come variabili di ambiente, Istanze di Azure Container supporta [valori sicuri](#secure-values) per i contenitori sia Windows che Linux.
 
 ## <a name="azure-cli-example"></a>Esempio di interfaccia della riga di comando di Azure
 
@@ -156,7 +156,7 @@ Per visualizzare i log del contenitore, in **IMPOSTAZIONI** selezionare **Conten
 
 ## <a name="secure-values"></a>Valori sicuri
 
-Gli oggetti con valori sicuri sono progettati per contenere informazioni riservate, ad esempio le password o le chiavi per le applicazioni. L'uso di valori sicuri per le variabili di ambiente è sia più sicuro che più flessibile rispetto all'inclusione nell'immagine del contenitore. Un'altra opzione consiste nell'usare volumi segreti, come descritto in [Montare un volume segreto in Istanze di contenitore di Azure](container-instances-volume-secret.md).
+Gli oggetti con valori sicuri sono progettati per contenere informazioni riservate, ad esempio le password o le chiavi per le applicazioni. L'uso di valori sicuri per le variabili di ambiente è sia più sicuro che più flessibile rispetto all'inclusione nell'immagine del contenitore. Un'altra opzione consiste nell'usare volumi segreti, come descritto in [Montare un volume segreto in Istanze di Azure Container](container-instances-volume-secret.md).
 
 Le variabili di ambiente con valori sicuri non sono visibili nelle proprietà del contenitore: i relativi valori sono accessibili solo dall'interno del contenitore. Ad esempio, le proprietà del contenitore visualizzate nel portale di Azure o nell'interfaccia della riga di comando di Azure mostrano solo il nome della variabile sicura e non il suo valore.
 
@@ -239,7 +239,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono trarre vantaggio dalle variabili di ambiente personalizzate in fase di esecuzione. Per altre informazioni sull'esecuzione di contenitori basati su attività, vedere [Eseguire attività in contenitori in Istanze di contenitore di Azure](container-instances-restart-policy.md).
+Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono trarre vantaggio dalle variabili di ambiente personalizzate in fase di esecuzione. Per altre informazioni sull'esecuzione di contenitori basati su attività, vedere [Eseguire attività in contenitori in Istanze di Azure Container](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

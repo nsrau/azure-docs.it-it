@@ -1,5 +1,5 @@
 ---
-title: Montare un volume segreto in Istanze di contenitore di Azure
+title: Montare un volume segreto in Istanze di Azure Container
 description: Informazioni su come montare un volume segreto per archiviare informazioni sensibili per l'accesso da parte delle istanze di contenitore
 services: container-instances
 author: dlepow
@@ -14,14 +14,14 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/08/2018
 ms.locfileid: "48856752"
 ---
-# <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montare un volume segreto in Istanze di contenitore di Azure
+# <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montare un volume segreto in Istanze di Azure Container
 
 Usare un volume *segreto* per fornire informazioni sensibili ai contenitori di un gruppo di contenitori. Il volume *segreto* archivia i segreti nei file all'interno del volume a cui i contenitori del gruppo di contenitori possono accedere. Archiviando segreti in un volume *segreto* è possibile evitare di aggiungere dati sensibili, quali chiavi SSH o credenziali del database, al codice dell'applicazione.
 
 Tutti i volumi *segreti* sono supportati da [tmpfs][tmpfs], un file system supportato da RAM; i relativi contenuti non vengono mai scritti in risorse di archiviazione non volatili.
 
 > [!NOTE]
-> I volumi *segreti* attualmente sono limitati ai contenitori Linux. Per informazioni su come passare variabili di ambiente sicure per i contenitori Windows e Linux, vedere [Impostare variabili di ambiente](container-instances-environment-variables.md). Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di contenitore di Azure).
+> I volumi *segreti* attualmente sono limitati ai contenitori Linux. Per informazioni su come passare variabili di ambiente sicure per i contenitori Windows e Linux, vedere [Impostare variabili di ambiente](container-instances-environment-variables.md). Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di Azure Container).
 
 ## <a name="mount-secret-volume---azure-cli"></a>Montare un volume segreto - Interfaccia della riga di comando di Azure
 
@@ -118,7 +118,7 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 ### <a name="volumes"></a>Volumi
 
-Informazioni su come montare altri tipi di volume in Istanze di contenitore di Azure:
+Informazioni su come montare altri tipi di volume in Istanze di Azure Container:
 
 * [Mount an Azure file share in Azure Container Instances](container-instances-volume-azure-files.md) (Montare una condivisione file di Azure in Istanze di contenitore di Azure)
 * [Mount an emptyDir volume in Azure Container Instances](container-instances-volume-emptydir.md) (Montare un volume emptyDir in Istanze di contenitore di Azure)

@@ -33,9 +33,9 @@ Per motivi di tempo, scarichiamo il codice di esempio da un repository GitHub. P
 
 ### <a name="run-mywebapi"></a>Eseguire *mywebapi*
 1. Aprire il progetto `mywebapi` in una *finestra di Visual Studio separata*.
-1. Selezionare **Azure Dev Spaces** nell'elenco a discesa delle impostazioni di avvio, come in precedenza per il progetto `webfrontend`. Anziché creare un nuovo cluster AKS ora, selezionare lo stesso già creato. Come in precedenza, lasciare lo spazio impostato sul valore predefinito `default` e fare clic su **OK**. Nella finestra Output si nota che Visual Studio inizia a riscaldare il nuovo servizio nello spazio di sviluppo per velocizzare le operazioni quando si avvia il debug.
+1. Selezionare **Azure Dev Spaces** nell'elenco a discesa delle impostazioni di avvio, come in precedenza per il progetto `webfrontend`. Anziché creare un nuovo cluster servizio Azure Kubernetes ora, selezionare lo stesso già creato. Come in precedenza, lasciare lo spazio impostato sul valore predefinito `default` e fare clic su **OK**. Nella finestra Output si nota che Visual Studio inizia a riscaldare il nuovo servizio nello spazio di sviluppo per velocizzare le operazioni quando si avvia il debug.
 1. Premere F5 e attendere la compilazione e la distribuzione del servizio. Il servizio è pronto quando la barra di stato di Visual Studio diventa arancione
-1. Prendere nota dell'URL dell'endpoint visualizzato nel riquadro **Azure Dev Spaces per AKS** nella finestra **Output**. Sarà simile a http://localhost:\<portnumber\>. Potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito nello spazio di sviluppo in Azure.
+1. Prendere nota dell'URL dell'endpoint visualizzato nel riquadro **Azure Dev Spaces per servizio Azure Kubernetes** nella finestra **Output**. Sarà simile a http://localhost:\<portnumber\>. Potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito nello spazio di sviluppo in Azure.
 2. Quando `mywebapi` è pronto, aprire il browser all'indirizzo localhost e aggiungere `/api/values` all'URL per richiamare l'API GET predefinita per `ValuesController`. 
 3. Se tutte le operazioni hanno avuto esito positivo, dovrebbe venire visualizzata una risposta da parte del servizio `mywebapi` simile a quanto segue.
 
@@ -132,7 +132,7 @@ Per creare un nuovo spazio, eseguire questa operazione:
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 
-7. Verrà ora visualizzato il cluster AKS e il nuovo spazio selezionato nella pagina delle proprietà del progetto.
+7. Verrà ora visualizzato il cluster servizio Azure Kubernetes e il nuovo spazio selezionato nella pagina delle proprietà del progetto.
 
     ![](media/get-started-netcore-visualstudio/Settings2.png)
 
@@ -176,7 +176,7 @@ Ora che si è preso visione di Azure Dev Spaces, [condividere lo spazio di svilu
 ## <a name="clean-up"></a>Eseguire la pulizia
 Per eliminare completamente un'istanza di Azure Dev Spaces in un cluster, inclusi tutti gli spazi di sviluppo e i servizi in esecuzione al suo interno, usare il comando `az aks remove-dev-spaces`. Tenere presente che questa operazione è irreversibile. È possibile aggiungere di nuovo il supporto per Azure Dev Spaces nel cluster, ma sarà come iniziare da zero. I vecchi spazi e servizi non verranno ripristinati.
 
-L'esempio seguente elenca i controller Azure Dev Spaces nella sottoscrizione attiva e quindi elimina il controller Azure Dev Spaces associato al cluster AKS "myaks" nel gruppo di risorse "myaks-rg".
+L'esempio seguente elenca i controller Azure Dev Spaces nella sottoscrizione attiva e quindi elimina il controller Azure Dev Spaces associato al cluster servizio Azure Kubernetes "myservizio Azure Kubernetes" nel gruppo di risorse "myservizio Azure Kubernetes-rg".
 
 ```cmd
     azds controller list

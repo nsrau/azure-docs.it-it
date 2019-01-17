@@ -28,9 +28,9 @@ Questo articolo descrive come distribuire il ridimensionamento automatico del cl
 
 ## <a name="prerequisites-and-considerations"></a>Prerequisiti e considerazioni
 
-Questo documento presuppone che si abbia già un cluster AKS di RBAC abilitato. Se è necessario un cluster del servizio Azure Kubernetes, vedere la [guida introduttiva al servizio Azure Kubernetes][aks-quick-start].
+Questo documento presuppone che si abbia già un cluster servizio Azure Kubernetes di RBAC abilitato. Se è necessario un cluster del servizio Azure Kubernetes, vedere la [guida introduttiva al servizio Azure Kubernetes][aks-quick-start].
 
- Per sfruttare il ridimensionamento automatico del cluster, il cluster deve usare Kubernetes v1.10.X o versione successiva e deve essere abilitato per RBAC. Per aggiornare il cluster, vedere l'articolo sull'[aggiornamento di un cluster AKS][aks-upgrade].
+ Per sfruttare il ridimensionamento automatico del cluster, il cluster deve usare Kubernetes v1.10.X o versione successiva e deve essere abilitato per RBAC. Per aggiornare il cluster, vedere l'articolo sull'[aggiornamento di un cluster servizio Azure Kubernetes][aks-upgrade].
 
 Definire le richieste di risorse per i pod. La funzione di ridimensionamento automatico del cluster esamina le richieste di risorse create dai pod, non le risorse effettivamente in uso, come invece fa la funzione di ridimensionamento automatico orizzontale dei pod. All'interno della sezione `spec: containers` della definizione di distribuzione, definire i requisiti di CPU e memoria. Il frammento di codice di esempio seguente richiede 0,5 vCPU e 64 Mb di memoria nel nodo:
 
@@ -316,7 +316,7 @@ Copiare e incollare il segreto creato nel passaggio precedente e inserirlo all'i
 
 Successivamente, per impostare l'intervallo di nodi, compilare l'argomento per `--nodes` sotto `command` nel modulo MIN:MAX:NODE_POOL_NAME. Ad esempio: `--nodes=3:10:nodepool1` imposta il numero minimo di nodi a 3, il numero massimo di nodi a 10 e il nome del pool di nodi a nodepool1.
 
-Quindi, compilare il campo immagine sotto **contenitori** con la versione della scalabilità automatica del cluster che si desidera usare. Servizio Kubernetes di Azure richiede v1.2.2 o versione successiva. In questo esempio usa v1.2.2.
+Quindi, compilare il campo immagine sotto **contenitori** con la versione della scalabilità automatica del cluster che si desidera usare. servizio Azure Kubernetes richiede v1.2.2 o versione successiva. In questo esempio usa v1.2.2.
 
 ## <a name="deployment"></a>Distribuzione
 
@@ -379,7 +379,7 @@ NodeGroups:
 Events:  <none>
 ```
 
-Lo stato di ridimensionamento automatico del cluster può essere visualizzato in due livelli diversi: a livello di cluster e all'interno di ogni gruppo di nodi. Poiché AKS attualmente supporta solo un pool di nodi, queste metriche sono identiche.
+Lo stato di ridimensionamento automatico del cluster può essere visualizzato in due livelli diversi: a livello di cluster e all'interno di ogni gruppo di nodi. Poiché servizio Azure Kubernetes attualmente supporta solo un pool di nodi, queste metriche sono identiche.
 
 * Stato indica lo stato complessivo dei nodi. Se il ridimensionamento automatico del cluster cerca di creare o rimuovere nodi nel cluster, lo stato passa a "Unhealthy". Viene anche presentata un'analisi dello stato dei diversi nodi:
     * "Ready" significa che un nodo è pronto per includere pod pianificati.
@@ -404,7 +404,7 @@ Alla voce Events, infine, è possibile visualizzare qualsiasi evento di aumento 
 
 Per utilizzare il ridimensionamento automatico del cluster con il ridimensionamento automatico orizzontale dei pod, consultare [scalabilità dell'applicazione di Kubernetes e infrastruttura][aks-tutorial-scale].
 
-Altre informazioni sulla distribuzione e la gestione del servizio contenitore di Azure sono disponibili nelle relative esercitazioni.
+Esercitazioni sul servizio Azure Container che ne illustrano la distribuzione e la gestione.
 
 > [!div class="nextstepaction"]
 > [Esercitazione sul servizio contenitore di Azure][aks-tutorial-prepare-app]

@@ -46,7 +46,7 @@ I metadati dello SKU contengono informazioni di visualizzazione vetrina per l'el
 
 ### <a name="container-metadata"></a>Metadati del contenitore
 
-I metadati del contenitore includono informazioni di riferimento dei dettagli del repository di immagini all'interno del Registro contenitori di Azure. Azure Marketplace copia questa immagine in un registro pubblico specifico del Marketplace e quindi la rende disponibile per i clienti dopo la certificazione. Tutte le richieste dell'utente di Azure per l'utilizzo di un'immagine del contenitore di Azure Marketplace vengono rese disponibili dal registro pubblico del Marketplace e non dal Registro contenitori di Azure.
+I metadati del contenitore includono informazioni di riferimento dei dettagli del repository di immagini all'interno di Registro Azure Container. Azure Marketplace copia questa immagine in un registro pubblico specifico del Marketplace e quindi la rende disponibile per i clienti dopo la certificazione. Tutte le richieste dell'utente di Azure per l'utilizzo di un'immagine del contenitore di Azure Marketplace vengono rese disponibili dal registro pubblico del Marketplace e non da Registro Azure Container.
 
 ![Metadati del contenitore](./media/containers-image-repository.png)
     
@@ -60,7 +60,7 @@ I **dettagli del repository di immagini** illustrati nella precedente acquisizio
 -   **Password**: la password associata al Registro contenitori di Azure.
 
     >[!NOTE]
-    >Il nome utente e la password sono necessari per garantire che i partner abbiano accesso al Registro contenitori di Azure indicato nel processo di pubblicazione.
+    >Il nome utente e la password sono necessari per garantire che i partner abbiano accesso al Registro Azure Container indicato nel processo di pubblicazione.
 
 ### <a name="image-version"></a>Versione dell'immagine
 

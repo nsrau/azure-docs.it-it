@@ -1,6 +1,6 @@
 ---
 title: Riferimenti ad Attività del Registro contenitori di Azure - YAML
-description: Riferimento per la definizione di attività in YAML per Attività del Registro contenitori di Azure, incluse le proprietà delle attività, i tipi e le proprietà dei passaggi e le variabili predefinite.
+description: Riferimento per la definizione di attività in YAML per Attività di Registro Azure Container, incluse le proprietà delle attività, i tipi e le proprietà dei passaggi e le variabili predefinite.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -14,18 +14,18 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/27/2018
 ms.locfileid: "52334483"
 ---
-# <a name="acr-tasks-reference-yaml"></a>Riferimenti ad Attività del Registro contenitori di Azure: YAML
+# <a name="acr-tasks-reference-yaml"></a>Riferimenti ad Attività di Registro Azure Container: YAML
 
-La definizione di attività in più passaggi in Attività del Registro contenitori di Azure offre una primitiva di calcolo specifica per contenitori e basata su compilazione, test e applicazione di patch sui contenitori. Questo articolo illustra i comandi, i parametri, le proprietà e la sintassi per i file YAML che definiscono le attività in più passaggi.
+La definizione di attività in più passaggi in Attività di Registro Azure Container offre una primitiva di calcolo specifica per contenitori e basata su compilazione, test e applicazione di patch sui contenitori. Questo articolo illustra i comandi, i parametri, le proprietà e la sintassi per i file YAML che definiscono le attività in più passaggi.
 
-L'articolo contiene informazioni di riferimento per la creazione di file YAML di attività in più passaggi per Attività del Registro contenitori di Azure. Per un'introduzione ad Attività del Registro contenitori di Azure, vedere [ACR Tasks overview](container-registry-tasks-overview.md) (Panoramica di Attività del Registro contenitori di Azure).
+L'articolo contiene informazioni di riferimento per la creazione di file YAML di attività in più passaggi per Attività di Registro Azure Container. Per un'introduzione ad Attività di Registro Azure Container, vedere [ACR Tasks overview](container-registry-tasks-overview.md) (Panoramica di Attività di Registro Azure Container).
 
 > [!IMPORTANT]
-> La funzionalità di attività in più passaggi del Registro contenitori di Azure è attualmente in anteprima. Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> La funzionalità di attività in più passaggi di Registro Azure Container è attualmente in anteprima. Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
 ## <a name="acr-taskyaml-file-format"></a>Formato del file acr-task.yaml
 
-Attività del Registro contenitori di Azure supporta la dichiarazione di attività in più passaggi nella sintassi YAML standard. I passaggi di un'attività vengono definiti in un file YAML che è possibile eseguire manualmente o sono generati automaticamente quando viene eseguito il commit del codice in Git o quando l'immagine di base del contenitore viene aggiornata. Sebbene questo articolo si riferisca a `acr-task.yaml` come file che contiene i passaggi, Attività del Registro contenitori di Azure può usare qualsiasi nome di file valido con un'[estensione supportata](#supported-task-filename-extensions).
+Attività di Registro Azure Container supporta la dichiarazione di attività in più passaggi nella sintassi YAML standard. I passaggi di un'attività vengono definiti in un file YAML che è possibile eseguire manualmente o sono generati automaticamente quando viene eseguito il commit del codice in Git o quando l'immagine di base del contenitore viene aggiornata. Sebbene questo articolo si riferisca a `acr-task.yaml` come file che contiene i passaggi, Attività di Registro Azure Container può usare qualsiasi nome di file valido con un'[estensione supportata](#supported-task-filename-extensions).
 
 Le primitive `acr-task.yaml` di livello superiore sono le **proprietà delle attività**, i **tipi di passaggi** e le **proprietà dei passaggi**.
 
@@ -59,9 +59,9 @@ steps: # A collection of image or container actions.
 
 ### <a name="supported-task-filename-extensions"></a>Estensioni del nome di file di attività supportate
 
-Per Attività del Registro contenitori di Azure sono presenti diverse estensioni del nome di file, ad esempio `.yaml`, che viene elaborato come un file delle attività. Qualsiasi estensione *non* presente nell'elenco seguente viene considerata da Attività del Registro contenitori di Azure come un file Docker: .yaml, .yml, .toml, .json, .sh, .bash, .zsh, .ps1, .ps, .cmd, .bat, .ts, .js, .php, .py, .rb, .lua
+Per Attività di Registro Azure Container sono presenti diverse estensioni del nome di file, ad esempio `.yaml`, che viene elaborato come un file delle attività. Qualsiasi estensione *non* presente nell'elenco seguente viene considerata da Attività di Registro Azure Container come un file Docker: .yaml, .yml, .toml, .json, .sh, .bash, .zsh, .ps1, .ps, .cmd, .bat, .ts, .js, .php, .py, .rb, .lua
 
-YAML è l'unico formato di file attualmente supportato da Attività del Registro contenitori di Azure. Le altre estensioni del nome di file sono riservate per un possibile supporto futuro.
+YAML è l'unico formato di file attualmente supportato da Attività di Registro Azure Container. Le altre estensioni del nome di file sono riservate per un possibile supporto futuro.
 
 ## <a name="run-the-sample-tasks"></a>Eseguire le attività di esempio
 
@@ -85,13 +85,13 @@ Le proprietà delle attività vengono in genere visualizzate nella parte superio
 
 | Proprietà | type | Facoltativo | DESCRIZIONE | Override supportato | Valore predefinito |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | stringa | No  | Versione del file `acr-task.yaml` come analizzato dal servizio Attività del Registro contenitori di Azure. Attività del Registro contenitori di Azure cerca di mantenere la compatibilità con le versioni precedenti e questo valore consente di mantenere la compatibilità in una versione definita. | No  | Nessuna |
+| `version` | stringa | No  | Versione del file `acr-task.yaml` come analizzato dal servizio Attività di Registro Azure Container. Attività di Registro Azure Container cerca di mantenere la compatibilità con le versioni precedenti e questo valore consente di mantenere la compatibilità in una versione definita. | No  | Nessuna |
 | `stepTimeout` | intero (secondi) | Yes | Numero massimo di secondi per l'esecuzione di un passaggio. Questa proprietà può essere sottoposta a override in un passaggio impostando la proprietà [timeout](#timeout) del passaggio. | Yes | 600 (10 minuti) |
 | `totalTimeout` | intero (secondi) | Yes | Numero massimo di secondi per l'esecuzione di un'attività. Un'esecuzione include l'elaborazione e il completamento di tutti i passaggi dell'attività, sia con esito positivo che negativo. L'esecuzione include anche la stampa dell'output dell'attività, ad esempio le dipendenze delle immagini rilevato e lo stato di esecuzione dell'attività. | No  | 3600 (1 ora) |
 
 ## <a name="task-step-types"></a>Tipi di passaggi delle attività
 
-Attività del Registro contenitori di Azure supporta tre tipi di passaggi. Ogni tipo di passaggio supporta diverse proprietà, indicate in dettaglio nella sezione per ogni tipo.
+Attività di Registro Azure Container supporta tre tipi di passaggi. Ogni tipo di passaggio supporta diverse proprietà, indicate in dettaglio nella sezione per ogni tipo.
 
 | Tipo di passaggio | DESCRIZIONE |
 | --------- | ----------- |
@@ -116,7 +116,7 @@ Il tipo di passaggio `build` supporta i parametri nella tabella seguente. Il tip
 
 | Parametro | DESCRIZIONE | Facoltativo |
 | --------- | ----------- | :-------: |
-| `-t` &#124; `--image` | Definisce il percorso completo `image:tag` dell'immagine compilata.<br /><br />Poiché le immagini possono essere usate per le convalide di attività interne, ad esempio test funzionali, non tutte le immagini richiedono l'operazione `push` in un registro contenitori. Per creare un'istanza di un'immagine nell'esecuzione di un'attività, tuttavia, è necessario che all'immagine sia associato un nome di riferimento.<br /><br />A differenza di `az acr build`, l'esecuzione di Attività del Registro contenitori di Azure non prevede un comportamento del passaggio push predefinito. Con Attività del Registro contenitori di Azure, lo scenario predefinito presuppone la possibilità di compilare e di convalidare un'immagine e quindi di eseguirne il push. Per informazioni su come eseguire il push facoltativo di immagini compilate, vedere [push](#push). | Yes |
+| `-t` &#124; `--image` | Definisce il percorso completo `image:tag` dell'immagine compilata.<br /><br />Poiché le immagini possono essere usate per le convalide di attività interne, ad esempio test funzionali, non tutte le immagini richiedono l'operazione `push` in un registro contenitori. Per creare un'istanza di un'immagine nell'esecuzione di un'attività, tuttavia, è necessario che all'immagine sia associato un nome di riferimento.<br /><br />A differenza di `az acr build`, l'esecuzione di Attività di Registro Azure Container non prevede un comportamento del passaggio push predefinito. Con Attività di Registro Azure Container, lo scenario predefinito presuppone la possibilità di compilare e di convalidare un'immagine e quindi di eseguirne il push. Per informazioni su come eseguire il push facoltativo di immagini compilate, vedere [push](#push). | Yes |
 | `-f` &#124; `--file` | Specifica l'elemento Dockerfile passato a `docker build`. Se non specificato, viene usato il valore predefinito Dockerfile nella directory radice del contesto. Per specificare un elemento Dockerfile alternativo, passare il nome del file relativo alla directory radice del contesto. | Yes |
 | `context` | Directory radice passata a `docker build`. La directory radice di ogni attività è impostata su un oggetto condiviso [workingDirectory](#task-step-properties) e include la radice della directory clonata Git associata. | No  |
 
@@ -287,7 +287,7 @@ steps:
     - cmd: docker.io/bash:3.0 echo hello world
 ```
 
-Se si usa la convenzione di riferimento alle immagini `docker run` standard, `cmd` può possibile eseguire immagini che si trovano in qualsiasi registro contenitori privato o nell'hub Docker pubblico. Se si fa riferimento a immagini nello stesso registro contenitori in cui è in esecuzione Attività del Registro contenitori di Azure, non è necessario specificare alcuna credenziale di registro.
+Se si usa la convenzione di riferimento alle immagini `docker run` standard, `cmd` può possibile eseguire immagini che si trovano in qualsiasi registro contenitori privato o nell'hub Docker pubblico. Se si fa riferimento a immagini nello stesso registro contenitori in cui è in esecuzione Attività di Registro Azure Container, non è necessario specificare alcuna credenziale di registro.
 
 * Eseguire un'immagine che si trova in un Registro contenitori di Azure
 
@@ -326,7 +326,7 @@ Ogni tipo di passaggio supporta diverse proprietà appropriate per il tipo stess
 | `startDelay` | intero (secondi) | Yes | Numero di secondi di ritardo per l'esecuzione di un passaggio. |
 | `timeout` | intero (secondi) | Yes | Numero massimo di secondi per l'esecuzione di un passaggio prima che venga terminato. |
 | [`when`](#example-when) | [stringa, stringa, ...] | Yes | Configura la dipendenza di un passaggio in uno o più passaggi nell'attività. |
-| `workingDirectory` | stringa | Yes | Imposta la directory di lavoro per un passaggio. Per impostazione predefinita, Attività del Registro contenitori di Azure crea una directory radice come directory di lavoro. Se la compilazione prevede diversi passaggi, tuttavia, i passaggi precedenti possono condividere artefatti con quelli successivi specificando la stessa directory di lavoro. |
+| `workingDirectory` | stringa | Yes | Imposta la directory di lavoro per un passaggio. Per impostazione predefinita, Attività di Registro Azure Container crea una directory radice come directory di lavoro. Se la compilazione prevede diversi passaggi, tuttavia, i passaggi precedenti possono condividere artefatti con quelli successivi specificando la stessa directory di lavoro. |
 
 ### <a name="examples-task-step-properties"></a>Esempi: proprietà dei passaggi delle attività
 
@@ -383,7 +383,7 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 
 ## <a name="run-variables"></a>Variabili di esecuzione
 
-Attività del Registro contenitori di Azure contiene un set predefinito di variabili disponibili per i passaggi delle attività quando vengono eseguiti. A tali variabili è possibile accedere usando il formato `{{.Run.VariableName}}`, dove l'elemento `VariableName` è uno dei seguenti:
+Attività di Registro Azure Container contiene un set predefinito di variabili disponibili per i passaggi delle attività quando vengono eseguiti. A tali variabili è possibile accedere usando il formato `{{.Run.VariableName}}`, dove l'elemento `VariableName` è uno dei seguenti:
 
 * `Run.ID`
 * `Run.Registry`
@@ -417,9 +417,9 @@ Ora UTC corrente in cui l'esecuzione è stata avviata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una panoramica delle attività in più passaggi, vedere [Run multi-step build, test, and patch tasks in ACR Tasks](container-registry-tasks-multi-step.md) (Eseguire attività di compilazione, test e applicazione di patch in più passaggi in Attività del Registro contenitori di Azure).
+Per una panoramica delle attività in più passaggi, vedere [Run multi-step build, test, and patch tasks in ACR Tasks](container-registry-tasks-multi-step.md) (Eseguire attività di compilazione, test e applicazione di patch in più passaggi in Attività di Registro Azure Container).
 
-Per le compilazioni in un singolo passaggio, vedere [ACR Tasks overview](container-registry-tasks-overview.md) (Panoramica di Attività del Registro contenitori di Azure).
+Per le compilazioni in un singolo passaggio, vedere [ACR Tasks overview](container-registry-tasks-overview.md) (Panoramica di Attività di Registro Azure Container).
 
 <!-- IMAGES -->
 

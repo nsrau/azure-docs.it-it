@@ -18,9 +18,9 @@ ms.locfileid: "54078780"
 
 Quando si usa Registro Azure Container con il servizio Azure Kubernetes, è necessario definire un meccanismo di autenticazione. Questo articolo illustra in dettaglio le configurazioni consigliate per l'autenticazione tra questi due servizi di Azure.
 
-## <a name="grant-aks-access-to-acr"></a>Concedere al servizio contenitore di Azure l'accesso a Registro contenitori di Azure
+## <a name="grant-aks-access-to-acr"></a>Concedere al servizio Azure Container l'accesso a Registro Azure Container
 
-Quando si crea un cluster AKS, Azure crea anche un'entità servizio per supportare il funzionamento del cluster con altre risorse di Azure. Questa entità servizio generata automaticamente può essere usata anche per l'autenticazione con un record di controllo di accesso. A tale scopo, è necessario creare un'[assegnazione di ruolo](../role-based-access-control/overview.md#role-assignments) di Azure Active Directory che conceda all'entità servizio del cluster l'accesso al registro contenitori.
+Quando si crea un cluster servizio Azure Kubernetes, Azure crea anche un'entità servizio per supportare il funzionamento del cluster con altre risorse di Azure. Questa entità servizio generata automaticamente può essere usata anche per l'autenticazione con un record di controllo di accesso. A tale scopo, è necessario creare un'[assegnazione di ruolo](../role-based-access-control/overview.md#role-assignments) di Azure Active Directory che conceda all'entità servizio del cluster l'accesso al registro contenitori.
 
 Usare lo script seguente per concedere all'entità servizio generata da AKS l'accesso pull a un registro contenitori di Azure. Modificare le variabili `AKS_*` e `ACR_*` per l'ambiente prima di eseguire lo script.
 
@@ -44,7 +44,7 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Accedere mediante un segreto Kubernetes
 
-In alcuni casi, potrebbe non essere possibile assegnare i ruoli necessari all'entità servizio AKS generata automaticamente per garantire l'accesso ad ACR. Ad esempio, a causa del modello di sicurezza dell'organizzazione, si potrebbe non disporre delle autorizzazioni sufficienti nella directory di Azure Active Directory per assegnare un ruolo all'entità servizio generata da servizio Azure Kubernetes. L'assegnazione di un ruolo a un'entità servizio richiede l'account di Azure AD per disporre dell'autorizzazione di scrittura al tenant di Azure AD. Se non si dispone dell'autorizzazione, è possibile creare una nuova entità servizio, quindi concedere l'accesso al registro contenitori tramite un segreto Kubernetes per il pull immagine.
+In alcuni casi, potrebbe non essere possibile assegnare i ruoli necessari all'entità servizio Azure Kubernetes generata automaticamente per garantire l'accesso ad ACR. Ad esempio, a causa del modello di sicurezza dell'organizzazione, si potrebbe non disporre delle autorizzazioni sufficienti nella directory di Azure Active Directory per assegnare un ruolo all'entità servizio generata da servizio Azure Kubernetes. L'assegnazione di un ruolo a un'entità servizio richiede l'account di Azure AD per disporre dell'autorizzazione di scrittura al tenant di Azure AD. Se non si dispone dell'autorizzazione, è possibile creare una nuova entità servizio, quindi concedere l'accesso al registro contenitori tramite un segreto Kubernetes per il pull immagine.
 
 Usare lo script seguente per creare una nuova entità servizio (si userà le credenziali per il segreto Kubernetes per il pull delle immagini). Modificare la variabile `ACR_NAME` per l'ambiente prima di eseguire lo script.
 
@@ -69,7 +69,7 @@ echo "Service principal ID: $CLIENT_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
 
-Le credenziali dell'entità servizio possono ora essere archiviate in un [segreto per il pull delle immagini][image-pull-secret] Kubernetes a cui il cluster AKS farà riferimento durante l'esecuzione di contenitori.
+Le credenziali dell'entità servizio possono ora essere archiviate in un [segreto per il pull delle immagini][image-pull-secret] Kubernetes a cui il cluster servizio Azure Kubernetes farà riferimento durante l'esecuzione di contenitori.
 
 Usare il comando **kubectl** seguente per creare un segreto Kubernetes. Sostituire `<acr-login-server>` con il nome completo del registro contenitori di Azure (con formato "acrname.azurecr.io"). Sostituire `<service-principal-ID>` e `<service-principal-password>` con i valori ottenuti dall'esecuzione dello script precedente. Sostituire `<email-address>` con qualsiasi indirizzo di posta elettronica valido.
 

@@ -1,6 +1,6 @@
 ---
 title: Usare i criteri di riavvio con le attività in contenitori in Istanze di Azure Container
-description: Informazioni su come usare Istanze di contenitore di Azure per eseguire attività eseguite fino al completamento, ad esempio nella compilazione, nei test o nei processi per il rendering di immagini.
+description: Informazioni su come usare Istanze di Azure Container per eseguire attività eseguite fino al completamento, ad esempio nella compilazione, nei test o nei processi per il rendering di immagini.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -16,7 +16,7 @@ ms.locfileid: "53321034"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Eseguire attività in contenitori con criteri di riavvio
 
-La semplicità e la velocità della distribuzione di contenitori in Istanze di contenitore di Azure offre una piattaforma interessante per l'esecuzione di attività eseguite una sola volta come la compilazione, il test e il rendering di immagini in un'istanza del contenitore.
+La semplicità e la velocità della distribuzione di contenitori in Istanze di Azure Container offre una piattaforma interessante per l'esecuzione di attività eseguite una sola volta come la compilazione, il test e il rendering di immagini in un'istanza del contenitore.
 
 Con un criterio di riavvio configurabile, è possibile specificare l'arresto dei contenitori al completamento dei processi. Poiché le istanze del contenitore vengono fatturate al secondo, vengono addebitate solo le risorse di calcolo usate mentre il contenitore che esegue l'attività è in esecuzione.
 
@@ -58,7 +58,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Istanze di contenitore di Azure avvia il contenitore e lo interrompe quindi quando la sua applicazione, o lo script in questo caso, esce. Quando Istanze di contenitore di Azure arresta un contenitore i cui criteri di riavvio sono `Never` o `OnFailure`, lo stato del contenitore viene impostato su **Terminato**. È possibile controllare lo stato del contenitore usando il comando [az container show][az-container-show]:
+Istanze di Azure Container avvia il contenitore e lo interrompe quindi quando la sua applicazione, o lo script in questo caso, esce. Quando Istanze di Azure Container arresta un contenitore i cui criteri di riavvio sono `Never` o `OnFailure`, lo stato del contenitore viene impostato su **Terminato**. È possibile controllare lo stato del contenitore usando il comando [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
@@ -186,7 +186,7 @@ Output:
 
 ### <a name="persist-task-output"></a>Mantenere l'output dell'attività
 
-Per informazioni dettagliate su come mantenere l'output dei contenitori che vengono eseguiti fino al completamento, vedere [Montaggio di una condivisione file di Azure con Istanze di contenitore di Azure](container-instances-mounting-azure-files-volume.md).
+Per informazioni dettagliate su come mantenere l'output dei contenitori che vengono eseguiti fino al completamento, vedere [Montaggio di una condivisione file di Azure con Istanze di Azure Container](container-instances-mounting-azure-files-volume.md).
 
 <!-- LINKS - External -->
 [aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/

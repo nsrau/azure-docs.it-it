@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi relativi a Istanze di contenitore di Azure
-description: Informazioni su come risolvere i problemi relativi a Istanze di contenitore di Azure
+title: Risoluzione dei problemi relativi a Istanze di Azure Container
+description: Informazioni su come risolvere i problemi relativi a Istanze di Azure Container
 services: container-instances
 author: seanmck
 manager: jeconnoc
@@ -16,9 +16,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54119051"
 ---
-# <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di contenitore di Azure
+# <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di Azure Container
 
-Questo articolo mostra come risolvere i problemi comuni per la gestione o la distribuzione di contenitori in Istanze di contenitore di Azure.
+Questo articolo mostra come risolvere i problemi comuni per la gestione o la distribuzione di contenitori in Istanze di Azure Container.
 
 ## <a name="naming-conventions"></a>Convenzioni di denominazione
 
@@ -35,7 +35,7 @@ Quando si definisce la specifica del contenitore, determinati parametri devono e
 
 ## <a name="os-version-of-image-not-supported"></a>Versione del sistema operativo dell'immagine non supportata
 
-Se si specifica un'immagine non supportata da Istanze di contenitore di Azure, viene restituito un errore `OsVersionNotSupported`. L'errore è simile al seguente, dove `{0}` è il nome dell'immagine che si è tentato di distribuire:
+Se si specifica un'immagine non supportata da Istanze di Azure Container, viene restituito un errore `OsVersionNotSupported`. L'errore è simile al seguente, dove `{0}` è il nome dell'immagine che si è tentato di distribuire:
 
 ```json
 {
@@ -54,7 +54,7 @@ Per informazioni dettagliate sulle versioni Long-Term Servicing Channel e Canale
 
 ## <a name="unable-to-pull-image"></a>Non è possibile eseguire il pull dell'immagine
 
-Se non è inizialmente in grado di eseguire il pull dell'immagine, Istanze di contenitore di Azure ripete il tentativo per un periodo di tempo. Se l'operazione di pull dell'immagine continua a non riuscire, Istanze di contenitore di Azure non esegue correttamente la distribuzione e potrebbe essere visualizzato un errore `Failed to pull image`.
+Se non è inizialmente in grado di eseguire il pull dell'immagine, Istanze di Azure Container ripete il tentativo per un periodo di tempo. Se l'operazione di pull dell'immagine continua a non riuscire, Istanze di contenitore di Azure non esegue correttamente la distribuzione e potrebbe essere visualizzato un errore `Failed to pull image`.
 
 Per risolvere questo problema, eliminare l'istanza di contenitore e ripetere la distribuzione. Verificare che l'immagine esista nel registro e che il nome dell'immagine sia stato digitato correttamente.
 
@@ -106,7 +106,7 @@ az container create -g myResourceGroup --name mywindowsapp --os-type Windows --i
  --command-line "ping -t localhost"
 ```
 
-L'API Istanze di contenitore e il portale di Azure includono una proprietà `restartCount`. Per controllare il numero di riavvii di un contenitore, è possibile usare il comando [az container show][az-container-show] nell'interfaccia della riga di comando di Azure. Nell'output di esempio seguente (troncato per brevità) la proprietà `restartCount` è visualizzata alla fine dell'output.
+L'API Istanze di Container e il portale di Azure includono una proprietà `restartCount`. Per controllare il numero di riavvii di un contenitore, è possibile usare il comando [az container show][az-container-show] nell'interfaccia della riga di comando di Azure. Nell'output di esempio seguente (troncato per brevità) la proprietà `restartCount` è visualizzata alla fine dell'output.
 
 ```json
 ...
@@ -151,7 +151,7 @@ L'API Istanze di contenitore e il portale di Azure includono una proprietà `res
 
 ## <a name="container-takes-a-long-time-to-start"></a>L'avvio di un contenitore richiede molto tempo
 
-I due principali fattori che contribuiscono al tempo di avvio di un contenitore in Istanze di contenitore di Azure sono:
+I due principali fattori che contribuiscono al tempo di avvio di un contenitore in Istanze di Azure Container sono:
 
 * [Dimensioni dell'immagine](#image-size)
 * [Posizione dell'immagine](#image-location)
@@ -160,7 +160,7 @@ Per le immagini Windows sono necessarie [altre considerazioni](#cached-windows-i
 
 ### <a name="image-size"></a>Dimensioni dell'immagine
 
-Se per avviare il contenitore è necessario molto tempo, ma alla fine l'operazione ha esito positivo, esaminare innanzitutto la dimensione dell'immagine del contenitore. Poiché Istanze di contenitore di Azure esegue il pull dell'immagine del contenitore su richiesta, il tempo di avvio indicato è direttamente correlato alla dimensione dell'immagine.
+Se per avviare il contenitore è necessario molto tempo, ma alla fine l'operazione ha esito positivo, esaminare innanzitutto la dimensione dell'immagine del contenitore. Poiché Istanze di Azure Container esegue il pull dell'immagine del contenitore su richiesta, il tempo di avvio indicato è direttamente correlato alla dimensione dell'immagine.
 
 Per visualizzare la dimensione dell'immagine del contenitore, è possibile usare il comando `docker images` nell'interfaccia della riga di comando di Docker:
 
@@ -174,11 +174,11 @@ Il modo migliore per limitare le dimensioni delle immagini è quello di evitare 
 
 ### <a name="image-location"></a>Posizione dell'immagine
 
-Un altro modo per ridurre l'impatto del pull dell'immagine sul tempo di avvio del contenitore è quello di ospitare l'immagine del contenitore nel [Registro contenitori di Azure](/azure/container-registry/) nella stessa area in cui si intende distribuire le istanze del contenitore. Ciò consente di ridurre il percorso dell'immagine del contenitore attraverso la rete e quindi di limitare notevolmente il tempo di download.
+Un altro modo per ridurre l'impatto del pull dell'immagine sul tempo di avvio del contenitore è quello di ospitare l'immagine del contenitore in [Registro Azure Container](/azure/container-registry/) nella stessa area in cui si intende distribuire le istanze del contenitore. Ciò consente di ridurre il percorso dell'immagine del contenitore attraverso la rete e quindi di limitare notevolmente il tempo di download.
 
 ### <a name="cached-windows-images"></a>Immagini di Windows memorizzate nella cache
 
-Istanze di contenitore di Azure usa un meccanismo di memorizzazione nella cache per velocizzare il tempo di avvio dei contenitori per le immagini basate su determinate immagini Windows.
+Istanze di Azure Container usa un meccanismo di memorizzazione nella cache per velocizzare il tempo di avvio dei contenitori per le immagini basate su determinate immagini Windows.
 
 Per garantire il tempo di avvio dei contenitori Windows più veloce, usare una delle **tre più recenti** versioni delle **due immagini** seguenti come immagine di base:
 
@@ -197,14 +197,14 @@ A causa del carico variabile delle risorse delle aree in Azure, quando si cerca 
 
 Questo errore indica che a causa di un carico elevato nell'area in cui si sta cercando di eseguire la distribuzione, le risorse specificate per il contenitore non possono essere al momento allocate. Usare uno o più dei passaggi seguenti per mitigare il problema.
 
-* Verificare che le impostazioni di distribuzione del contenitore rientrino nei parametri definiti in [Quote e aree disponibili per Istanze di contenitore di Azure](container-instances-quotas.md#region-availability)
+* Verificare che le impostazioni di distribuzione del contenitore rientrino nei parametri definiti in [Quote e aree disponibili per Istanze di Azure Container](container-instances-quotas.md#region-availability)
 * Specificare impostazioni di memoria e CPU inferiori per il contenitore
 * Eseguire la distribuzione in un'area di Azure diversa
 * Eseguire la distribuzione in un secondo momento
 
 ## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Non è possibile connettersi all'API Docker sottostante o eseguire contenitori con privilegi
 
-Istanze di contenitore di Azure non espone l'accesso diretto all'infrastruttura sottostante che ospita i gruppi di contenitori. È incluso l'accesso all'API Docker in esecuzione nell'host del contenitore e che esegue contenitori con privilegi. Se è necessaria l'interazione con Docker, vedere la [documentazione di riferimento su REST](https://aka.ms/aci/rest) per vedere cosa è supportato dall'API di Istanze di contenitore di Azure. Se mancano informazioni, inviare una richiesta al [forum di commenti e suggerimenti per Istanze di contenitore di Azure](https://aka.ms/aci/feedback).
+Istanze di Azure Container non espone l'accesso diretto all'infrastruttura sottostante che ospita i gruppi di contenitori. È incluso l'accesso all'API Docker in esecuzione nell'host del contenitore e che esegue contenitori con privilegi. Se è necessaria l'interazione con Docker, vedere la [documentazione di riferimento su REST](https://aka.ms/aci/rest) per vedere cosa è supportato dall'API di Istanze di contenitore di Azure. Se mancano informazioni, inviare una richiesta al [forum di commenti e suggerimenti per Istanze di contenitore di Azure](https://aka.ms/aci/feedback).
 
 ## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>Gli indirizzi IP potrebbero non essere accessibili a causa di porte non corrispondenti
 Istanze di Azure Container non supporta attualmente il mapping delle porte, come con la configurazione docker normale, tuttavia questa correzione è prevista nella roadmap. Se gli indirizzi IP risultano non accessibili quando si ritiene che dovrebbero esserlo, assicurarsi di aver configurato l'immagine del contenitore per l'ascolto sulle stesse porte esposte nel gruppo di contenitori con la proprietà `ports`.

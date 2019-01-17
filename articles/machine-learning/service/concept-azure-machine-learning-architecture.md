@@ -173,7 +173,7 @@ Una destinazione di calcolo è la risorsa di calcolo usata per eseguire lo scrip
 | Azure Databricks | ✓ | &nbsp; | &nbsp; |
 | Azure Data Lake Analytics. | ✓ | &nbsp; |
 | Apache Spark per HDInsight | ✓ | &nbsp; |
-| Istanze di contenitore di Azure | &nbsp; | ✓ |
+| Istanze di Azure Container | &nbsp; | ✓ |
 | Servizio Azure Kubernetes | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
 | Project Brainwave</br>(Field-programmable Gate Array) | &nbsp; | ✓ |

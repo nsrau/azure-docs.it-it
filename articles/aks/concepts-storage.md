@@ -1,5 +1,5 @@
 ---
-title: Concetti - Archiviazione nel servizio Kubernetes di Azure (AKS)
+title: Concetti - Archiviazione nel servizio Azure Kubernetes
 description: Informazioni sull'archiviazione nel servizio Azure Kubernetes, inclusi volumi, volumi permanenti, classi di archiviazione e attestazioni
 services: container-service
 author: iainfoulds
@@ -18,9 +18,9 @@ ms.locfileid: "49380766"
 
 Le applicazioni eseguite nel servizio Azure Kubernetes potrebbero richiedere l'archiviazione e il recupero dei dati. Per alcuni carichi di lavoro delle applicazioni, l'archiviazione dei dati può usare risorse di archiviazione locali e veloci sul nodo, che non sono più necessarie quando vengono eliminati i pod. Per altri carichi di lavoro potrebbe essere richiesta l'archiviazione permanente su volumi di dati più regolari all'interno della piattaforma di Azure. Più pod potrebbero dover condividere gli stessi volumi di dati oppure potrebbe essere necessario ricollegare i volumi di dati se il pod viene ripianificato su un nodo diverso. Infine, potrebbe essere necessario inserire i dati sensibili o le informazioni di configurazione delle applicazioni nei pod.
 
-![Opzioni di archiviazione per le applicazioni in un cluster del servizio Kubernetes di Azure (AKS)](media/concepts-storage/aks-storage-options.png)
+![Opzioni di archiviazione per le applicazioni in un cluster del servizio Azure Kubernetes](media/concepts-storage/aks-storage-options.png)
 
-Questo articolo introduce i concetti di base per rendere disponibili risorse di archiviazione per le applicazioni nel servizio Kubernetes di Azure:
+Questo articolo introduce i concetti di base per rendere disponibili risorse di archiviazione per le applicazioni nel servizio Azure Kubernetes:
 
 - [Volumi](#volumes)
 - [Volumi permanenti](#persistent-volumes)
@@ -48,7 +48,7 @@ I volumi vengono definiti e creati come parte del ciclo di vita del pod ed esist
 
 Per rendere disponibile un volume persistente si usano Dischi di Azure o File di Azure. Come indicato nella sezione precedente sui volumi, la scelta di dischi o file dipende spesso dalla necessità di accedere contemporaneamente ai dati o al livello di prestazioni.
 
-![Volumi permanenti in un cluster del servizio Kubernetes di Azure (AKS)](media/concepts-storage/persistent-volumes.png)
+![Volumi permanenti in un cluster del servizio Azure Kubernetes](media/concepts-storage/persistent-volumes.png)
 
 Un volume permanente può essere creato *staticamente* da un amministratore del cluster oppure *dinamicamente* dal server dell'API di Kubernetes. Se un pod viene pianificato e richiede risorse di archiviazione non attualmente disponibili, Kubernetes può creare la risorsa di archiviazione sottostante Dischi di Azure o File di Azure e collegarla al pod. Il provisioning dinamico usa una *StorageClass* per identificare il tipo di archiviazione di Azure da creare.
 
@@ -56,7 +56,7 @@ Un volume permanente può essere creato *staticamente* da un amministratore del 
 
 Per definire livelli di archiviazione diversi, ad esempio Premium e Standard, è possibile creare una *StorageClass*. La StorageClass definisce anche i *reclaimPolicy*. I criteri reclaimPolicy controllano il comportamento della risorsa di archiviazione di Azure sottostante quando il pod viene eliminato e il volume permanente potrebbe non essere più necessario. La risorsa di archiviazione sottostante può essere eliminata o conservata per l'uso con un pod futuro.
 
-Nel servizio Kubernetes di Azure vengono create due StorageClass iniziali:
+Nel servizio Azure Kubernetes vengono create due StorageClass iniziali:
 
 - *default* - Usa l'archiviazione Standard di Azure per creare un disco gestito. I criteri di recupero indicano che il disco di Azure sottostante deve essere eliminato quando viene eliminato il pod che lo ha usato.
 - *managed-premium* - Usa l'archiviazione Premium di Azure per creare un disco gestito. Anche in questo caso, i criteri di recupero indicano che il disco di Azure sottostante deve essere eliminato quando viene eliminato il pod che lo ha usato.
@@ -79,7 +79,7 @@ parameters:
 
 Una PersistentVolumeClaim richiede risorse di archiviazione su disco o file con StorageClass, modalità di accesso e dimensioni particolari. Il server dell'API di Kubernetes può effettuare in modo dinamico il provisioning della risorsa di archiviazione sottostante in Azure se non è presente alcuna risorsa esistente per soddisfare l'attestazione in base alla StorageClass definita. La definizione del pod include il montaggio del volume dopo la connessione del volume al pod.
 
-![Attestazioni di volume permanente in un cluster del servizio Kubernetes di Azure (AKS)](media/concepts-storage/persistent-volume-claims.png)
+![Attestazioni di volume permanente in un cluster del servizio Azure Kubernetes](media/concepts-storage/persistent-volume-claims.png)
 
 Un volume permanente viene *associato* a un PersistentVolumeClaim dopo l'assegnazione di una risorsa di archiviazione disponibile al pod che la richiede. Esiste un mapping 1:1 tra volumi permanenti e attestazioni.
 
@@ -128,7 +128,7 @@ Per informazioni su come creare i volumi dinamici e statici che usano Dischi di 
 - [Creare un volume dinamico usando Dischi di Azure][aks-dynamic-disks]
 - [Creare un volume dinamico usando File di Azure][aks-dynamic-files]
 
-Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Kubernetes di Azure, vedere gli articoli seguenti:
+Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
 - [Kubernetes / Cluster AKS e carichi di lavoro][aks-concepts-clusters-workloads]
 - [Kubernetes / Identità di AKS][aks-concepts-identity]

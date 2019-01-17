@@ -1,6 +1,6 @@
 ---
-title: Usare istanze di contenitore di Azure come agente di compilazione Jenkins
-description: Informazioni su come usare istanze di contenitore di Azure come agente di compilazione Jenkins.
+title: Usare Istanze di Azure Container come agente di compilazione Jenkins
+description: Informazioni su come usare Istanze di Azure Container come agente di compilazione Jenkins.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -14,11 +14,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/16/2018
 ms.locfileid: "49354190"
 ---
-# <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usare istanze di contenitore di Azure come agente di compilazione Jenkins
+# <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usare Istanze di Azure Container come agente di compilazione Jenkins
 
-Le istanze di contenitore di Azure offrono un ambiente isolato on demand utilizzabile in modalità burst per eseguire carichi di lavoro in contenitori. Grazie a questi attributi, le istanze di contenitore di Azure sono un'ottima piattaforma per l'esecuzione di processi di compilazione di Jenkins su vasta scala. Questo articolo descrive in modo dettagliato come distribuire e usare un server Jenkins preconfigurato con istanze di contenitore di Azure come destinazione di compilazione.
+Istanze di Azure Container offre un ambiente isolato on demand utilizzabile in modalità burst per eseguire carichi di lavoro in contenitori. Grazie a questi attributi, le istanze di contenitore di Azure sono un'ottima piattaforma per l'esecuzione di processi di compilazione di Jenkins su vasta scala. Questo articolo descrive in modo dettagliato come distribuire e usare un server Jenkins preconfigurato con istanze di contenitore di Azure come destinazione di compilazione.
 
-Per altre informazioni sulle istanze di contenitore di Azure, vedere [Informazioni sulle istanze di contenitore di Azure][about-aci].
+Per altre informazioni su Istanze di Azure Container, vedere [Informazioni su Istanze di Azure Container][about-aci].
 
 ## <a name="deploy-a-jenkins-server"></a>Distribuire un server Jenkins
 
@@ -87,7 +87,7 @@ Per altre informazioni sulle istanze di contenitore di Azure, vedere [Informazio
 
 8. Selezionare **Save and Finish** (Salva e completa) e quindi **Start using Jenkins** (Inizia a usare Jenkins) per completare la configurazione.
 
-Jenkins è ora configurato e pronto per compilare e distribuire codice. Per questo esempio, viene usata una semplice applicazione Java per mostrare una compilazione di Jenkins su istanze di contenitore di Azure.
+Jenkins è ora configurato e pronto per compilare e distribuire codice. Per questo esempio, viene usata una semplice applicazione Java per mostrare una compilazione di Jenkins su Istanze di Azure Container.
 
 ## <a name="create-a-build-job"></a>Creare un'attività di compilazione
 
@@ -109,7 +109,7 @@ A questo punto, viene creato un processo di compilazione Jenkins per illustrare 
 
 ## <a name="run-the-build-job"></a>Eseguire il processo di compilazione
 
-Per testare il processo di compilazione e osservare le istanze di contenitore di Azure come piattaforma di compilazione, avviare manualmente una compilazione.
+Per testare il processo di compilazione e osservare Istanze di Azure Container come piattaforma di compilazione, avviare manualmente una compilazione.
 
 1. Selezionare **Build Now** (Compila) per avviare un processo di compilazione. Per avviare il processo sono necessari alcuni minuti. Verrà visualizzato uno stato simile all'immagine seguente:
 

@@ -1,5 +1,5 @@
 ---
-title: Monitorare le prestazioni del cluster AKS con Monitoraggio di Azure per contenitori | Microsoft Docs
+title: Monitorare le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori | Microsoft Docs
 description: Questo articolo descrive come è possibile visualizzare e analizzare i dati di log e prestazioni con Monitoraggio di Azure per contenitori.
 services: azure-monitor
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54159656"
 ---
-# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Conoscere le prestazioni del cluster AKS con Monitoraggio di Azure per contenitori 
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Conoscere le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori 
 Con Monitoraggio di Azure per i contenitori è possibile usare i grafici delle prestazioni e lo stato di integrità per monitorare il carico di lavoro dei cluster del servizio Azure Kubernetes (AKS) da due prospettive, direttamente da un cluster AKS o visualizzando tutti i cluster AKS in una sottoscrizione da Monitoraggio di Azure. Quando si monitora uno specifico cluster AKS è anche possibile visualizzare Istanze di Azure Container (ACI).
 
 Questo articolo illustra l'esperienza tra le due prospettive e spiega come valutare, analizzare e risolvere rapidamente i problemi rilevati.
@@ -33,7 +33,7 @@ Monitoraggio di Azure offre una visualizzazione multicluster che mostra lo stato
 Accedere al [portale di Azure](https://portal.azure.com). 
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Visualizzazione multicluster da Monitoraggio di Azure 
-Per visualizzare lo stato di integrità di tutti i cluster di AKS distribuiti, selezionare **Monitor** nel riquadro a sinistra nel portale di Azure.  Nella sezione **Informazioni dettagliate** selezionare **Contenitori**.  
+Per visualizzare lo stato di integrità di tutti i cluster di servizio Azure Kubernetes distribuiti, selezionare **Monitor** nel riquadro a sinistra nel portale di Azure.  Nella sezione **Informazioni dettagliate** selezionare **Contenitori**.  
 
 ![Esempio di dashboard multicluster di Monitoraggio di Azure](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
 
@@ -79,8 +79,8 @@ La tabella seguente fornisce i dettagli del calcolo controllando gli stati di in
 
 Dall'elenco dei cluster, è possibile eseguire il drill-down alla pagina **Cluster** facendo clic sul nome del cluster, alla pagina delle prestazioni **Nodi** facendo clic sul rollup dei nodi nella colonna **Nodi** per il cluster specifico o alla pagina delle prestazioni **Controller** facendo clic sul rollup della colonna **Pod utente** o **Pod sistema**.   
 
-## <a name="view-performance-directly-from-an-aks-cluster"></a>Visualizzare le prestazioni direttamente da un cluster di AKS
-L'accesso a Monitoraggio di Azure per i contenitori è disponibile direttamente da un cluster AKS selezionando **Informazioni dettagliate** dal riquadro a sinistra. La visualizzazione delle informazioni sul cluster AKS è organizzata in base a quattro prospettive:
+## <a name="view-performance-directly-from-an-aks-cluster"></a>Visualizzare le prestazioni direttamente da un cluster di servizio Azure Kubernetes
+L'accesso a Monitoraggio di Azure per i contenitori è disponibile direttamente da un cluster AKS selezionando **Informazioni dettagliate** dal riquadro a sinistra. La visualizzazione delle informazioni sul cluster servizio Azure Kubernetes è organizzata in base a quattro prospettive:
 
 - HDInsight
 - Nodi 
@@ -262,7 +262,7 @@ Log Analytics consente di individuare tendenze, diagnosticare i colli di bottigl
 
 ![Analizzare i dati in Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
 
-L'output dei log dei contenitori inoltrato a Log Analytics è costituito da STDOUT e STDERR. Poiché Monitoraggio di Azure monitora il servizio Kubernetes gestito da Azure (AKS), i dati di Kube-system non vengono attualmente raccolti a causa della grande quantità di dati generati. 
+L'output dei log dei contenitori inoltrato a Log Analytics è costituito da STDOUT e STDERR. Poiché Monitoraggio di Azure monitora il servizio Kubernetes gestito da Azure, i dati di Kube-system non vengono attualmente raccolti a causa della grande quantità di dati generati. 
 
 ### <a name="example-log-search-queries"></a>Esempio di query di ricerca log
 Spesso è utile creare una query a partire da qualche esempio e quindi modificarla in base ai propri requisiti. Per creare query più avanzate, è possibile provare a usare le query di esempio seguenti:

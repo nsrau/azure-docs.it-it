@@ -1,6 +1,6 @@
 ---
-title: "Guida introduttiva: eseguire un'applicazione in Istanze di contenitore di Azure - PowerShell"
-description: In questa guida introduttiva si userà Azure PowerShell per distribuire un'applicazione in esecuzione in un contenitore Docker in Istanze di contenitore di Azure con Azure PowerShell
+title: "Guida introduttiva: eseguire un'applicazione in Istanze di Azure Container - PowerShell"
+description: In questa guida introduttiva si userà Azure PowerShell per distribuire un'applicazione in esecuzione in un contenitore Docker in Istanze di Azure Container con Azure PowerShell
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -15,11 +15,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/10/2018
 ms.locfileid: "53183948"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Guida introduttiva: Eseguire un'applicazione in esecuzione in un contenitore in Istanze di contenitore di Azure con Azure PowerShell
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Guida introduttiva: Eseguire un'applicazione in esecuzione in un contenitore in Istanze di Azure Container con Azure PowerShell
 
-Le Istanze di contenitore di Azure consentono di eseguire i contenitori Docker in Azure in modo semplice e rapido, senza la necessità di distribuire macchine virtuali o usare una piattaforma di orchestrazione di contenitori completa come Kubernetes. In questa guida introduttiva viene usato il portale di Azure per creare un contenitore Windows in Azure e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Pochi secondi dopo aver eseguito un comando di distribuzione singola, è possibile passare all'applicazione in esecuzione:
+Istanze di Azure Container consente di eseguire i contenitori Docker in Azure in modo semplice e rapido, senza la necessità di distribuire macchine virtuali o usare una piattaforma di orchestrazione di contenitori completa come Kubernetes. In questa guida introduttiva viene usato il portale di Azure per creare un contenitore Windows in Azure e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Pochi secondi dopo aver eseguito un comando di distribuzione singola, è possibile passare all'applicazione in esecuzione:
 
-![App distribuita in Istanze di contenitore di Azure visualizzata nel browser][qs-powershell-01]
+![App distribuita in Istanze di Azure Container visualizzata nel browser][qs-powershell-01]
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -29,7 +29,7 @@ Se si sceglie di installare e usare PowerShell in locale, per questa esercitazio
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Le Istanze di contenitore di Azure, analogamente a tutte le risorse di Azure, devono essere distribuite in un gruppo di risorse. I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.
+Le istanze di contenitore di Azure, analogamente a tutte le risorse di Azure, devono essere distribuite in un gruppo di risorse. I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.
 
 Per iniziare, creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* con il comando [New-AzureRmResourceGroup][New-AzureRmResourceGroup] seguente:
 
@@ -81,7 +81,7 @@ Events                   : {}
 
 Quando il valore `ProvisioningState` del contenitore è **Operazione completata**, passare al relativo indirizzo `Fqdn` nel browser. Se viene visualizzata una pagina Web simile all'immagine seguente, congratulazioni! È stata completata la distribuzione di un'applicazione in esecuzione in un contenitore Docker in Azure.
 
-![IIS distribuito con Istanze di contenitore di Azure visualizzato nel browser][qs-powershell-01]
+![IIS distribuito con Istanze di Azure Container visualizzato nel browser][qs-powershell-01]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -93,7 +93,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata creata un'istanza di contenitore di Azure da un'immagine nel registro nell'hub Docker pubblico. Per provare a creare un'immagine del contenitore e a distribuirla da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di contenitore di Azure.
+In questa guida introduttiva è stata creata un'istanza di contenitore di Azure da un'immagine nel registro nell'hub Docker pubblico. Per provare a creare un'immagine del contenitore e a distribuirla da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di Azure Container.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)

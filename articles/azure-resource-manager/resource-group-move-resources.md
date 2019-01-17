@@ -130,7 +130,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Firewall di Azure
 * Azure Migrate
 * Certificati: i certificati del servizio app possono essere spostati, ma i certificati caricati presentano alcune [limitazioni](#app-service-limitations).
-* Istanze di contenitore
+* Istanze di Container
 * Servizio contenitore
 * Data Box
 * Dev Spaces

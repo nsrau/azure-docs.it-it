@@ -139,7 +139,7 @@ I partner devono aggiornare i moduli e ripetere la certificazione usando lo stru
 
 ## <a name="host-your-iot-edge-module-in-an-azure-container-registry"></a>Ospitare il modulo IoT Edge in un Registro contenitori di Azure
 
-Per caricare il modulo IoT Edge nel portale Cloud Partner, è innanzitutto necessario ospitarlo in un [Registro contenitori di Azure](https://azure.microsoft.com/services/container-registry/). Il modulo deve includere tutti i tag che si intende pubblicare, compresi i tag di immagine referenziati da un tag di manifesto.
+Per caricare il modulo IoT Edge nel portale Cloud Partner, è innanzitutto necessario ospitarlo in un'istanza di [Registro Azure Container](https://azure.microsoft.com/services/container-registry/). Il modulo deve includere tutti i tag che si intende pubblicare, compresi i tag di immagine referenziati da un tag di manifesto.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -51,7 +51,7 @@ Usare la procedura seguente per pubblicare una nuova immagine del contenitore.
 
     ![Metadati dello SKU](media/cpp-containers-guide/containers-sku-details.png)
 
-    I metadati del contenitore includono informazioni di riferimento dei dettagli del repository di immagini all'interno del Registro contenitori di Azure. Azure Marketplace copia quindi l'immagine nel registro marketplace pubblico rendendola disponibile per i clienti dopo la certificazione. Tutte le richieste dell'utente di Azure per il consumo di un'immagine del contenitore vengono servite dal registro contenitori di Marketplace.
+    I metadati del contenitore includono informazioni di riferimento dei dettagli del repository di immagini all'interno di Registro Azure Container. Azure Marketplace copia quindi l'immagine nel registro marketplace pubblico rendendola disponibile per i clienti dopo la certificazione. Tutte le richieste dell'utente di Azure per il consumo di un'immagine del contenitore vengono servite dal registro contenitori di Marketplace.
 
    ![Metadati del contenitore](media/cpp-containers-guide/containers-image-repository.png)
 
@@ -65,7 +65,7 @@ Usare la procedura seguente per pubblicare una nuova immagine del contenitore.
     -   **Password**: la password associata al Registro contenitori di Azure.
 
     >[!NOTE]
-    >Il nome utente e la password sono necessari per garantire che i partner abbiano accesso al Registro contenitori di Azure indicato nel processo di pubblicazione.
+    >Il nome utente e la password sono necessari per garantire che i partner abbiano accesso al Registro Azure Container indicato nel processo di pubblicazione.
 
     Durante la pubblicazione di un'immagine del contenitore è possibile specificare anche uno o più tag immagine. Oltre a un tag immagine, i partner possono specificare anche digest SHA. Assicurarsi di aggiungere un **tag di test** all'immagine in modo da poterla identificare durante i test.
 

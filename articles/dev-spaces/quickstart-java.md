@@ -43,7 +43,7 @@ In questa guida si apprenderà come:
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurare Azure Dev Spaces
 
-1. Configurare Dev Spaces nel cluster AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
+1. Configurare Dev Spaces nel cluster servizio Azure Kubernetes: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Scaricare l'[estensione Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) per Visual Studio Code. Fare clic su Installa nella pagina del Marketplace dell'estensione e di nuovo in VS Code.
 1. Scaricare l'estensione [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) per Visual Studio Code. Fare clic su Installa nella pagina del Marketplace dell'estensione e di nuovo in VS Code.
 
@@ -52,7 +52,7 @@ In questa guida si apprenderà come:
 1. Scaricare il codice di esempio da GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
 1. Passare alla cartella webfrontend: `cd dev-spaces/samples/java/getting-started/webfrontend`
 1. Generare gli asset dei chart Docker e Helm: `azds prep --public`
-1. Compilare ed eseguire il codice in AKS. Dalla **cartella webfrontend** nella finestra del terminale eseguire questo comando: `azds up`
+1. Compilare ed eseguire il codice in servizio Azure Kubernetes. Dalla **cartella webfrontend** nella finestra del terminale eseguire questo comando: `azds up`
 1. Analizzare l'output della console per informazioni sull'URL che è stato creato con il comando `up`. Sarà nel formato:
 
    ```output
@@ -63,7 +63,7 @@ In questa guida si apprenderà come:
    Aprire l'URL in una finestra del browser; si dovrebbe visualizzare il caricamento dell'applicazione Web.
 
    > [!Note]
-   > Alla prima esecuzione, possono essere necessari alcuni minuti prima che il DNS pubblico sia pronto. Se l'URL pubblico non viene risolto, è possibile usare l'URL http://localhost:<portnumber> alternativo visualizzato nell'output della console. Se si usa l'URL localhost, potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito in AKS. Per motivi di praticità e per semplificare l'interazione con il servizio nel computer locale, Azure Dev Spaces crea un tunnel SSH temporaneo al contenitore in esecuzione in Azure. È possibile tornare in seguito per tentare di usare l'URL pubblico quando il record DNS sarà pronto.
+   > Alla prima esecuzione, possono essere necessari alcuni minuti prima che il DNS pubblico sia pronto. Se l'URL pubblico non viene risolto, è possibile usare l'URL http://localhost:<portnumber> alternativo visualizzato nell'output della console. Se si usa l'URL localhost, potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito in servizio Azure Kubernetes. Per motivi di praticità e per semplificare l'interazione con il servizio nel computer locale, Azure Dev Spaces crea un tunnel SSH temporaneo al contenitore in esecuzione in Azure. È possibile tornare in seguito per tentare di usare l'URL pubblico quando il record DNS sarà pronto.
 
 ### <a name="update-a-code-file"></a>Aggiornare un file di codice
 

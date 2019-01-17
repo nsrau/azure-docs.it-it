@@ -56,7 +56,7 @@ L'uso della funzionalità di replica geografica del Registro contenitori di Azur
 
 * Gestione di un unico registro per tutte le aree: `contoso.azurecr.io`
 * Gestione di un'unica configurazione per le distribuzioni delle immagini in quanto tutte le aree usano lo stesso URL immagine: `contoso.azurecr.io/public/products/web:1.2`
-* Esecuzione del push in un unico registro, mentre il servizio Registro contenitori di Azure gestisce la replica geografica, compresi gli webhook internazionali per le notifiche locali
+* Esecuzione del push in un unico registro, mentre il servizio Registro Azure Container gestisce la replica geografica, compresi gli webhook internazionali per le notifiche locali
 
 ## <a name="configure-geo-replication"></a>Configurare la replica geografica
 La configurazione della replica geografica è un'operazione semplice basata sulla selezione delle aree mediante clic su una mappa.
@@ -85,7 +85,7 @@ Per configurare una replica, selezionare un esagono verde e quindi fare clic su 
 
 Per configurare repliche aggiuntive, selezionare gli esagoni verdi per le altre aree e quindi fare clic su **Crea**.
 
-Il servizio Registro contenitori di Azure inizia a sincronizzare le immagine tra le repliche configurate. Al termine dell'operazione, nel portale viene visualizzata la dicitura *Pronto*. Lo stato della replica nel portale non viene aggiornato automaticamente. Usare il pulsante Aggiorna per visualizzare lo stato aggiornato.
+Il servizio Registro Azure Container inizia a sincronizzare le immagine tra le repliche configurate. Al termine dell'operazione, nel portale viene visualizzata la dicitura *Pronto*. Lo stato della replica nel portale non viene aggiornato automaticamente. Usare il pulsante Aggiorna per visualizzare lo stato aggiornato.
 
 ## <a name="geo-replication-pricing"></a>Prezzi della replica geografica
 

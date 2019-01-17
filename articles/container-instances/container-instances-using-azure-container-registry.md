@@ -1,6 +1,6 @@
 ---
-title: Eseguire la distribuzione in Istanze di contenitore di Azure da Registro contenitori di Azure
-description: Informazioni su come distribuire i contenitori nelle istanze di contenitore di Azure usando le immagini contenitore in un registro contenitori di Azure.
+title: Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
+description: Informazioni su come distribuire i contenitori in Istanze di Azure Container usando le immagini contenitore in un registro contenitori di Azure.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -15,9 +15,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/07/2019
 ms.locfileid: "54064645"
 ---
-# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di contenitore di Azure da Registro contenitori di Azure
+# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
 
-[Registro Azure Container](../container-registry/container-registry-intro.md) è un servizio gestito di registro contenitori usato per archiviare immagini di un contenitore Docker privato. Questo articolo illustra come distribuire in Istanze di contenitore di Azure immagini del contenitore archiviate in un registro contenitori di Azure.
+[Registro Azure Container](../container-registry/container-registry-intro.md) è un servizio gestito di registro contenitori usato per archiviare immagini di un contenitore Docker privato. Questo articolo illustra come distribuire in Istanze di Azure Container immagini del contenitore archiviate in un registro contenitori di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -134,7 +134,7 @@ Per informazioni dettagliate sul riferimento ai segreti di Azure Key Vault in un
 
 ## <a name="deploy-with-azure-portal"></a>Distribuire con il portale di Azure
 
-Se si conservano le immagini del contenitore in Registro contenitori di Azure, è possibile creare facilmente un contenitore in Istanze di contenitore di Azure usando il portale di Azure.
+Se si conservano le immagini del contenitore in Registro Azure Container, è possibile creare facilmente un contenitore in Istanze di Azure Container usando il portale di Azure.
 
 1. Nel portale di Azure passare al registro contenitori.
 
@@ -144,11 +144,11 @@ Se si conservano le immagini del contenitore in Registro contenitori di Azure, �
 
 1. Immettere un nome per il contenitore e un nome per il gruppo di risorse. Se si vuole, è anche possibile cambiare i valori predefiniti.
 
-    ![Menu di creazione per Istanze di contenitore di Azure][acr-create-deeplink]
+    ![Menu di creazione per Istanze di Azure Container][acr-create-deeplink]
 
 1. Al termine della distribuzione, è possibile passare al gruppo di contenitori dal riquadro delle notifiche per trovare l'indirizzo IP e le altre proprietà.
 
-    ![Visualizzazione dei dettagli del gruppo di contenitori in Istanze di contenitore di Azure][aci-detailsview]
+    ![Visualizzazione dei dettagli del gruppo di contenitori in Istanze di Azure Container][aci-detailsview]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

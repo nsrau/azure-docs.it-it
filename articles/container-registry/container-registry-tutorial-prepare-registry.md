@@ -87,7 +87,7 @@ Dopo aver completato la replica, nel portale viene visualizzato *Pronta* per ent
 
 ## <a name="container-registry-login"></a>Accesso al registro contenitori
 
-Dopo aver configurato la replica geografica, generare un'immagine del contenitore ed eseguirne il push nel registro. È necessario accedere all'istanza di Registro contenitori di Azure prima di eseguirvi il push delle immagini.
+Dopo aver configurato la replica geografica, generare un'immagine del contenitore ed eseguirne il push nel registro. È necessario accedere all'istanza di Registro Azure Container prima di eseguirvi il push delle immagini.
 
 Usare il comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) per autenticare e memorizzare nella cache le credenziali del registro. Sostituire `<acrName>` con il nome del registro creato in precedenza.
 

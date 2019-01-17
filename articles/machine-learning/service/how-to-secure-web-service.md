@@ -64,7 +64,7 @@ Per distribuire (o ridistribuire) il servizio con SSL abilitato, impostare il pa
 
 + **Distribuire nel servizio Kubernetes di Azure (AKS)**
   
-  Durante il provisioning del cluster AKS, fornire i valori per i parametri associate a SSL come illustrato nel frammento di codice:
+  Durante il provisioning del cluster servizio Azure Kubernetes, fornire i valori per i parametri associate a SSL come illustrato nel frammento di codice:
 
     ```python
     from azureml.core.compute import AksCompute
@@ -118,7 +118,7 @@ Successivamente, è necessario aggiornare il DNS in modo che punti al servizio W
 
 + **Per AKS**: 
 
-  Aggiornare il DNS nella scheda "Configurazione" di "Indirizzo IP pubblico" del cluster AKS come illustrato nell'immagine. È possibile trovare l'indirizzo IP pubblico come uno dei tipi di risorse create nel gruppo di risorse che contiene i nodi agente AKS e altre risorse di rete.
+  Aggiornare il DNS nella scheda "Configurazione" di "Indirizzo IP pubblico" del cluster servizio Azure Kubernetes come illustrato nell'immagine. È possibile trovare l'indirizzo IP pubblico come uno dei tipi di risorse create nel gruppo di risorse che contiene i nodi agente servizio Azure Kubernetes e altre risorse di rete.
 
   ![Servizio Azure Machine Learning: Protezione del servizio Web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
 

@@ -29,9 +29,9 @@ DevOps Projects permette anche di:
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Usare DevOps Projects per distribuire un'app ASP.NET Core in AKS
+> * Usare DevOps Projects per distribuire un'app ASP.NET Core in servizio Azure Kubernetes
 > * Configurare Azure DevOps e una sottoscrizione di Azure 
-> * Esaminare il cluster del servizio Kubernetes di Azure
+> * Esaminare il cluster del servizio Azure Kubernetes
 > * Esaminare la pipeline di integrazione continua
 > * Esaminare la pipeline di distribuzione continua
 > * Eseguire il commit delle modifiche in Git e la distribuzione automatica in Azure
@@ -41,9 +41,9 @@ In questa esercitazione si apprenderà come:
 
 * Una sottoscrizione di Azure. È possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="use-devops-projects-to-deploy-an-aspnet-core-app-to-aks"></a>Usare DevOps Projects per distribuire un'app ASP.NET Core in AKS
+## <a name="use-devops-projects-to-deploy-an-aspnet-core-app-to-aks"></a>Usare DevOps Projects per distribuire un'app ASP.NET Core in servizio Azure Kubernetes
 
-DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Projects crea anche risorse di Azure, ad esempio un cluster AKS, nella sottoscrizione di Azure di propria scelta.
+DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Projects crea anche risorse di Azure, ad esempio un cluster servizio Azure Kubernetes, nella sottoscrizione di Azure di propria scelta.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -67,24 +67,24 @@ DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare 
 
 1. Selezionare la sottoscrizione di Azure.
 
-1. Per visualizzare le impostazioni di configurazione aggiuntive di Azure e identificare il numero di nodi per il cluster AKS, selezionare **Modifica**.  
+1. Per visualizzare le impostazioni di configurazione aggiuntive di Azure e identificare il numero di nodi per il cluster servizio Azure Kubernetes, selezionare **Modifica**.  
     Questo riquadro mostra diverse opzioni per la configurazione del tipo e della posizione dei servizi di Azure.
  
 1. Chiudere l'area di configurazione di Azure e selezionare **Fine**.  
-    Il processo verrà completato dopo alcuni minuti. Viene configurata un'app di esempio ASP.NET Core in un repository Git nell'organizzazione di Azure DevOps, viene creato un cluster AKS, viene eseguita una pipeline CI/CD e l'applicazione viene distribuita in Azure. 
+    Il processo verrà completato dopo alcuni minuti. Viene configurata un'app di esempio ASP.NET Core in un repository Git nell'organizzazione di Azure DevOps, viene creato un cluster servizio Azure Kubernetes, viene eseguita una pipeline CI/CD e l'applicazione viene distribuita in Azure. 
 
     Al termine, il dashboard di Azure DevOps Projects viene visualizzato nel portale di Azure. È anche possibile passare al dashboard di DevOps Projects direttamente da **Tutte le risorse** nel portale di Azure. 
 
-    Questo dashboard fornisce visibilità su repository di codice di Azure DevOps, pipeline CI/CD e cluster AKS. È possibile configurare le opzioni aggiuntive di CI/CD nella pipeline di Azure DevOps. A destra, selezionare **Sfoglia** per visualizzare l'app in esecuzione.
+    Questo dashboard fornisce visibilità su repository di codice di Azure DevOps, pipeline CI/CD e cluster servizio Azure Kubernetes. È possibile configurare le opzioni aggiuntive di CI/CD nella pipeline di Azure DevOps. A destra, selezionare **Sfoglia** per visualizzare l'app in esecuzione.
 
-## <a name="examine-the-aks-cluster"></a>Esaminare il cluster del servizio Kubernetes di Azure
+## <a name="examine-the-aks-cluster"></a>Esaminare il cluster del servizio Azure Kubernetes
 
-DevOps Projects configura automaticamente un cluster AKS, che è possibile esplorare e personalizzare. Per acquisire familiarità con il cluster AKS, eseguire questa procedura:
+DevOps Projects configura automaticamente un cluster servizio Azure Kubernetes, che è possibile esplorare e personalizzare. Per acquisire familiarità con il cluster servizio Azure Kubernetes, eseguire questa procedura:
 
 1. Passare al dashboard di DevOps Projects.
 
-1. A destra, selezionare il servizio AKS.  
-    Viene visualizzato un riquadro per il cluster AKS. Da questa visualizzazione è possibile eseguire varie azioni, ad esempio monitorare l'integrità dei contenitori, eseguire ricerche nei log e aprire il dashboard di Kubernetes.
+1. A destra, selezionare il servizio servizio Azure Kubernetes.  
+    Viene visualizzato un riquadro per il cluster servizio Azure Kubernetes. Da questa visualizzazione è possibile eseguire varie azioni, ad esempio monitorare l'integrità dei contenitori, eseguire ricerche nei log e aprire il dashboard di Kubernetes.
 
 1. A destra, selezionare **Visualizza dashboard di Kubernetes**.  
     Facoltativamente, seguire i passaggi per aprire il dashboard di Kubernetes.
@@ -166,7 +166,7 @@ A questo punto, si è pronti per collaborare con un team a un'app usando un proc
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si stanno eseguendo test, è possibile pulire le risorse per evitare che vengano addebitati costi. Quando non sono più necessari, è possibile eliminare il cluster AKS e le risorse correlate create in questa esercitazione. A tale scopo, usare la funzionalità **Elimina** nel dashboard di DevOps Projects.
+Se si stanno eseguendo test, è possibile pulire le risorse per evitare che vengano addebitati costi. Quando non sono più necessari, è possibile eliminare il cluster servizio Azure Kubernetes e le risorse correlate create in questa esercitazione. A tale scopo, usare la funzionalità **Elimina** nel dashboard di DevOps Projects.
 
 > [!IMPORTANT]
 > La procedura seguente elimina definitivamente le risorse. La funzionalità di *eliminazione* cancella definitivamente i dati creati dal progetto in DevOps Projects sia in Azure che in Azure DevOps e non sarà più possibile recuperarli. Usare questa procedura solo dopo aver letto attentamente le istruzioni visualizzate.
@@ -180,9 +180,9 @@ Se si stanno eseguendo test, è possibile pulire le risorse per evitare che veng
 Facoltativamente, è possibile modificare queste pipeline di compilazione e di versione in base alle esigenze del team. È anche possibile usare questo modello di CI/CD come modello per altre pipeline. Questa esercitazione illustra come:
 
 > [!div class="checklist"]
-> * Usare DevOps Projects per distribuire un'app ASP.NET Core in AKS
+> * Usare DevOps Projects per distribuire un'app ASP.NET Core in servizio Azure Kubernetes
 > * Configurare Azure DevOps e una sottoscrizione di Azure 
-> * Esaminare il cluster del servizio Kubernetes di Azure
+> * Esaminare il cluster del servizio Azure Kubernetes
 > * Esaminare la pipeline di integrazione continua
 > * Esaminare la pipeline di distribuzione continua
 > * Eseguire il commit delle modifiche in Git e la distribuzione automatica in Azure

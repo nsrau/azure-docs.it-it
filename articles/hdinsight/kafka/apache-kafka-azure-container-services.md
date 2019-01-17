@@ -18,7 +18,7 @@ ms.locfileid: "53602070"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usare il servizio Azure Kubernetes con Apache Kafka in HDInsight
 
-Informazioni su come usare il servizio Azure Kubernetes con [Apache Kafka](https://kafka.apache.org/) nel cluster HDInsight. I passaggi illustrati in questo documento usano un'applicazione Node.js ospitata nel servizio contenitore di Azure per verificare la connettività con Kafka. Questa applicazione usa il pacchetto [kafka-node](https://www.npmjs.com/package/kafka-node) per comunicare con Kafka. Usa [Socket.io](https://socket.io/) per la messaggistica basata su eventi tra il client browser e il back-end ospitato nel servizio contenitore di Azure.
+Informazioni su come usare il servizio Azure Kubernetes con [Apache Kafka](https://kafka.apache.org/) nel cluster HDInsight. I passaggi illustrati in questo documento usano un'applicazione Node.js ospitata nel servizio Azure Container per verificare la connettività con Kafka. Questa applicazione usa il pacchetto [kafka-node](https://www.npmjs.com/package/kafka-node) per comunicare con Kafka. Usa [Socket.io](https://socket.io/) per la messaggistica basata su eventi tra il client browser e il back-end ospitato nel servizio Azure Container.
 
 [Apache Kafka](https://kafka.apache.org) è una piattaforma di streaming open source distribuita che può essere usata per compilare applicazioni e pipeline di dati in streaming in tempo reale. Il servizio Azure Kubernetes gestisce l'ambiente Kubernetes ospitato e semplifica e velocizza la distribuzione delle applicazioni in contenitori. Usando una rete virtuale di Azure, è possibile connettere i due servizi.
 
@@ -42,29 +42,29 @@ Questo documento presuppone anche che sia stata eseguita l'[esercitazione sul se
 
 ### <a name="network-topology"></a>Topologia di rete
 
-Sia HDInsight che il servizio contenitore di Azure usano una rete virtuale di Azure come contenitore per le risorse di calcolo. Per abilitare la comunicazione tra HDInsight e il servizio contenitore di Azure, è necessario abilitare la comunicazione tra le rispettive reti. I passaggi illustrati in questo documento usano il peering reti virtuali per le reti. Funzioneranno anche altre connessioni, ad esempio VPN. Per altre informazioni sul peering, vedere il documento [Peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md).
+Sia HDInsight che il servizio Azure Container usano una rete virtuale di Azure come contenitore per le risorse di calcolo. Per abilitare la comunicazione tra HDInsight e il servizio Azure Container, è necessario abilitare la comunicazione tra le rispettive reti. I passaggi illustrati in questo documento usano il peering reti virtuali per le reti. Funzioneranno anche altre connessioni, ad esempio VPN. Per altre informazioni sul peering, vedere il documento [Peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md).
 
 
 Il diagramma seguente illustra la topologia di rete usata in questo documento:
 
-![HDInsight in una rete virtuale, il servizio contenitore di Azure in un'altra e le reti connesse tramite peering](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
+![HDInsight in una rete virtuale, il servizio Azure Container in un'altra e le reti connesse tramite peering](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
 
 > [!IMPORTANT]  
 > Poiché la risoluzione dei nomi non è abilitata tra le reti con peering, vengono usati gli indirizzi IP. Per impostazione predefinita, Kafka in HDInsight è configurato per restituire i nomi host invece degli indirizzi IP quando i client si connettono. I passaggi illustrati in questo documento modificano Kafka per poter usare invece la pubblicità IP.
 
 ## <a name="create-an-azure-kubernetes-service-aks"></a>Creare un'istanza del servizio Azure Kubernetes
 
-Se non si ha già un cluster del servizio contenitore di Azure, vedere uno dei documenti seguenti per informazioni su come crearne uno:
+Se non si ha già un cluster del servizio Azure Container, vedere uno dei documenti seguenti per informazioni su come crearne uno:
 
 * [Distribuire un cluster Azure Kubernetes Service (AKS) - Portale](../../aks/kubernetes-walkthrough-portal.md)
 * [Distribuire un cluster Azure Kubernetes Service (AKS) - Interfaccia della riga di comando](../../aks/kubernetes-walkthrough.md)
 
 > [!NOTE]  
-> Il servizio contenitore di Azure crea una rete virtuale durante l'installazione. Viene eseguito il peering di questa rete a quella creata per HDInsight nella sezione successiva.
+> Il servizio Azure Container crea una rete virtuale durante l'installazione. Viene eseguito il peering di questa rete a quella creata per HDInsight nella sezione successiva.
 
 ## <a name="configure-virtual-network-peering"></a>Configurare il peering reti virtuali
 
-1. Dal [portale di Azure](https://portal.azure.com) selezionare __Gruppi di risorse__ e quindi trovare il gruppo di risorse contenente la rete virtuale per il cluster del servizio contenitore di Azure. Il nome del gruppo di risorse è `MC_<resourcegroup>_<akscluster>_<location>`. Le voci `resourcegroup` e `akscluster` sono il nome del gruppo di risorse in cui si è creato il cluster e il nome del cluster. `location` è la posizione in cui il cluster è stato creato.
+1. Dal [portale di Azure](https://portal.azure.com) selezionare __Gruppi di risorse__ e quindi trovare il gruppo di risorse contenente la rete virtuale per il cluster del servizio Azure Container. Il nome del gruppo di risorse è `MC_<resourcegroup>_<akscluster>_<location>`. Le voci `resourcegroup` e `akscluster` sono il nome del gruppo di risorse in cui si è creato il cluster e il nome del cluster. `location` è la posizione in cui il cluster è stato creato.
 
 2. Nel gruppo di risorse selezionare la risorsa __Rete virtuale__.
 
@@ -73,20 +73,20 @@ Se non si ha già un cluster del servizio contenitore di Azure, vedere uno dei d
 4. Per creare una rete virtuale per HDInsight, selezionare __+ Crea una risorsa__, __Rete__ e quindi __Rete virtuale__.
 
     > [!IMPORTANT]  
-    > Quando si immettono i valori per la nuova rete virtuale, è necessario usare uno spazio indirizzi che non si sovrapponga a quello usato dalla rete di cluster del servizio contenitore di Azure.
+    > Quando si immettono i valori per la nuova rete virtuale, è necessario usare uno spazio indirizzi che non si sovrapponga a quello usato dalla rete di cluster del servizio Azure Container.
 
-    Usare per la rete virtuale la stessa __posizione__ usata per il cluster del servizio contenitore di Azure.
+    Usare per la rete virtuale la stessa __posizione__ usata per il cluster del servizio Azure Container.
 
     Attendere che la rete virtuale sia stata creata prima di andare al passaggio successivo.
 
-5. Per configurare il peering tra la rete di HDInsight e la rete di cluster del servizio contenitore di Azure, selezionare la rete virtuale e quindi selezionare __Peer__. Selezionare __+ Aggiungi__ e usare i valori seguenti per popolare il modulo:
+5. Per configurare il peering tra la rete di HDInsight e la rete di cluster del servizio Azure Container, selezionare la rete virtuale e quindi selezionare __Peer__. Selezionare __+ Aggiungi__ e usare i valori seguenti per popolare il modulo:
 
     * __Nome__: immettere un nome univoco per questa configurazione peering.
     * __Rete virtuale__: usare questo campo per selezionare la rete di cluster per il **cluster del servizio Azure Kubernetes**.
 
     Lasciare tutti gli altri campi impostati sul valore predefinito, quindi fare clic su __OK__ per configurare il peering.
 
-6. Per configurare il peering tra la rete di cluster del servizio contenitore di Azure e la rete di HDInsight, selezionare la __rete virtuale del cluster del servizio contenitore di Azure__ e quindi selezionare __Peer__. Selezionare __+ Aggiungi__ e usare i valori seguenti per popolare il modulo:
+6. Per configurare il peering tra la rete di cluster del servizio Azure Container e la rete di HDInsight, selezionare la __rete virtuale del cluster del servizio Azure Container__ e quindi selezionare __Peer__. Selezionare __+ Aggiungi__ e usare i valori seguenti per popolare il modulo:
 
     * __Nome__: immettere un nome univoco per questa configurazione peering.
     * __Rete virtuale__: usare questo campo per selezionare la rete di cluster per il __cluster HDInsight__.
@@ -172,7 +172,7 @@ A questo punto, Kafka e il servizio Azure Kubernetes sono in comunicazione trami
     > [!NOTE]  
     > I pacchetti necessari per questa applicazione vengono archiviati nel repository, quindi non è necessario usare l'utilità `npm` per installarli.
 
-5. Accedere al Registro contenitori di Azure e trovare il nome loginServer:
+5. Accedere al Registro Azure Container e trovare il nome loginServer:
 
     ```bash
     az acr login --name <acrName>
@@ -182,7 +182,7 @@ A questo punto, Kafka e il servizio Azure Kubernetes sono in comunicazione trami
     > [!NOTE]  
     > Se non si conosce il nome dell'istanza di Registro Azure Container o non si ha familiarità con l'uso dell'interfaccia della riga di comando di Azure per interagire con il servizio Azure Kubernetes, vedere le [esercitazioni sul servizio Azure Kubernetes](../../aks/tutorial-kubernetes-prepare-app.md).
 
-6. Contrassegnare l'immagine `kafka-aks-test` locale con il server di accesso del Registro contenitori di Azure. Aggiungere anche `:v1` alla fine per indicare la versione dell'immagine:
+6. Contrassegnare l'immagine `kafka-aks-test` locale con il server di accesso di Registro Azure Container. Aggiungere anche `:v1` alla fine per indicare la versione dell'immagine:
 
     ```bash
     docker tag kafka-aks-test <acrLoginServer>/kafka-aks-test:v1
@@ -195,7 +195,7 @@ A questo punto, Kafka e il servizio Azure Kubernetes sono in comunicazione trami
     ```
     Il completamento dell'operazione richiede diversi minuti.
 
-8. Modificare il file manifesto di Kubernetes (`kafka-aks-test.yaml`) e sostituire `microsoft` con il nome del server di accesso del Registro contenitori di Azure recuperato nel passaggio 4.
+8. Modificare il file manifesto di Kubernetes (`kafka-aks-test.yaml`) e sostituire `microsoft` con il nome del server di accesso di Registro Azure Container recuperato nel passaggio 4.
 
 9. Usare il comando seguente per distribuire le impostazioni applicazione dal manifesto:
 

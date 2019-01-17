@@ -26,7 +26,7 @@ Registro contenitori di Azure è il registro Docker privato in Azure. In questa 
 > * Assegnare un tag all'immagine del contenitore per il Registro contenitori di Azure
 > * Caricare l'immagine nel registro
 
-Nell'articolo successivo, che corrisponde all'ultimo della serie, il contenitore viene distribuito dal registro privato a Istanze di contenitore di Azure.
+Nell'articolo successivo, che corrisponde all'ultimo della serie, il contenitore viene distribuito dal registro privato a Istanze di Azure Container.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -42,7 +42,7 @@ Creare un gruppo di risorse con il comando [az group create][az-group-create]. N
 az group create --name myResourceGroup --location eastus
 ```
 
-Dopo aver creato il gruppo di risorse, creare un'istanza di Registro contenitori di Azure con il comando [az acr create][az-acr-create]. Il nome del registro contenitori deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Sostituire `<acrName>` con un nome univoco per il registro:
+Dopo aver creato il gruppo di risorse, creare un'istanza di Registro Azure Container con il comando [az acr create][az-acr-create]. Il nome del registro contenitori deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Sostituire `<acrName>` con un nome univoco per il registro:
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
@@ -162,7 +162,7 @@ v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05
 
 ## <a name="list-images-in-azure-container-registry"></a>Elencare le immagini in Registro contenitori di Azure
 
-Per verificare che l'immagine di cui è appena stato eseguito il push si trovi effettivamente nell'istanza di Registro contenitori di Azure, visualizzare l'elenco delle immagini nel registro con il comando [az acr repository list][az-acr-repository-list]. Sostituire `<acrName>` con il nome del registro contenitori.
+Per verificare che l'immagine di cui è appena stato eseguito il push si trovi effettivamente nell'istanza di Registro Azure Container, visualizzare l'elenco delle immagini nel registro con il comando [az acr repository list][az-acr-repository-list]. Sostituire `<acrName>` con il nome del registro contenitori.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -194,14 +194,14 @@ v1
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata preparata un'istanza di Registro contenitori di Azure da usare con Istanze di contenitore di Azure ed è stato eseguito il push di un'immagine del contenitore nel registro. Sono stati completati i passaggi seguenti:
+In questa esercitazione è stata preparata un'istanza di Registro Azure Container da usare con Istanze di Azure Container ed è stato eseguito il push di un'immagine del contenitore nel registro. Sono stati completati i passaggi seguenti:
 
 > [!div class="checklist"]
 > * Distribuzione di un'istanza di Registro contenitori di Azure
 > * Assegnazione di un tag all'immagine del contenitore per il Registro contenitori di Azure
 > * Caricamento di un'immagine nel Registro contenitori di Azure
 
-Passare all'esercitazione successiva per apprendere come distribuire il contenitore in Azure usando Istanze di contenitore di Azure:
+Passare all'esercitazione successiva per apprendere come distribuire il contenitore in Azure usando Istanze di Azure Container:
 
 > [!div class="nextstepaction"]
 > [Distribuire un contenitore in Istanze di contenitore di Azure](container-instances-tutorial-deploy-app.md)

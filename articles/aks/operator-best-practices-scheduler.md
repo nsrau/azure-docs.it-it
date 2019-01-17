@@ -76,7 +76,7 @@ Esistono due eventi che comportano interruzioni che causano la rimozione dei pod
 * Le *interruzioni volontarie* sono eventi richiesti dall'operatore del cluster o dal proprietario dell'applicazione.
   * Queste interruzioni volontarie includono gli aggiornamenti del cluster, un modello di distribuzione aggiornato o l'eliminazione accidentale di un pod.
 
-L'impatto delle interruzioni involontarie può essere attenuato usando più repliche dei pod in una distribuzione. L'esecuzione di più nodi nel cluster AKS risulta utile anche nel caso di queste interruzioni involontarie. Per le interruzioni volontarie, Kubernetes offre *budget di interruzione dei pod* che consentono all'operatore del cluster di definire un conteggio risorse minimo disponibile o massimo non disponibile. Questi budget di interruzione dei pod consentono di pianificare la modalità di risposta delle distribuzioni o dei set di repliche quando si verifica un evento di interruzione volontaria.
+L'impatto delle interruzioni involontarie può essere attenuato usando più repliche dei pod in una distribuzione. L'esecuzione di più nodi nel cluster servizio Azure Kubernetes risulta utile anche nel caso di queste interruzioni involontarie. Per le interruzioni volontarie, Kubernetes offre *budget di interruzione dei pod* che consentono all'operatore del cluster di definire un conteggio risorse minimo disponibile o massimo non disponibile. Questi budget di interruzione dei pod consentono di pianificare la modalità di risposta delle distribuzioni o dei set di repliche quando si verifica un evento di interruzione volontaria.
 
 Se è necessario aggiornare un cluster o un modello di distribuzione, l'utilità di pianificazione di Kubernetes verifica che vengano pianificati ulteriori pod su altri nodi prima che gli eventi di interruzione volontaria possano continuare. L'utilità di pianificazione attende prima che un nodo sia riavviato finché il numero definito di pod non viene pianificato correttamente su altri nodi nel cluster.
 
@@ -110,7 +110,7 @@ spec:
       app: nginx-frontend
 ```
 
-Dopo che il budget di interruzione dei pod è stato definito, viene creato nel cluster AKS come qualsiasi altro oggetto di Kubernetes:
+Dopo che il budget di interruzione dei pod è stato definito, viene creato nel cluster servizio Azure Kubernetes come qualsiasi altro oggetto di Kubernetes:
 
 ```console
 kubectl apply -f nginx-pdb.yaml
@@ -122,15 +122,15 @@ Per altre informazioni sull'uso dei budget di interruzione dei pod, vedere [Spec
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Verificare regolarmente la presenza di problemi del cluster con kube-advisor
 
-**Indicazioni sulle procedure consigliate**. Eseguire regolarmente la versione più recente di `kube-advisor` per rilevare eventuali problemi nel cluster. Se si applicano le quote di risorse in un cluster AKS esistente, eseguire per prima cosa `kube-advisor` per trovare i pod che non hanno richieste di risorse e limiti definiti.
+**Indicazioni sulle procedure consigliate**. Eseguire regolarmente la versione più recente di `kube-advisor` per rilevare eventuali problemi nel cluster. Se si applicano le quote di risorse in un cluster servizio Azure Kubernetes esistente, eseguire per prima cosa `kube-advisor` per trovare i pod che non hanno richieste di risorse e limiti definiti.
 
 Lo strumento [kube-advisor][kube-advisor] analizza un cluster Kubernetes e segnala gli eventuali problemi rilevati. Un controllo utile consiste nell'identificare i pod che non hanno richieste di risorse e limiti applicati.
 
-In un cluster AKS che ospita più team di sviluppo e applicazioni può essere difficile tenere traccia dei pod senza questi limiti e richieste di risorse impostati. Come procedura consigliata, eseguire regolarmente `kube-advisor` nei cluster AKS, soprattutto se non si assegnano quote di risorse agli spazi dei nomi.
+In un cluster servizio Azure Kubernetes che ospita più team di sviluppo e applicazioni può essere difficile tenere traccia dei pod senza questi limiti e richieste di risorse impostati. Come procedura consigliata, eseguire regolarmente `kube-advisor` nei cluster servizio Azure Kubernetes, soprattutto se non si assegnano quote di risorse agli spazi dei nomi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato le funzionalità di base dell'utilità di pianificazione di Kubernetes. Per altre informazioni sulle operazioni cluster in AKS, vedere le procedure consigliate seguenti:
+Questo articolo ha illustrato le funzionalità di base dell'utilità di pianificazione di Kubernetes. Per altre informazioni sulle operazioni cluster in servizio Azure Kubernetes, vedere le procedure consigliate seguenti:
 
 * [Isolamento cluster e multi-tenant][aks-best-practices-cluster-isolation]
 * [Funzionalità avanzate dell'utilità di pianificazione di Kubernetes][aks-best-practices-advanced-scheduler]

@@ -303,10 +303,10 @@ items:
   - name: Connettori
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
-  - name: Istanze di contenitore
+  - name: Istanze di Container
     tocHref: /azure/container-instances/
     topicHref: /azure/container-instances/
-  - name: Servizio contenitore di Azure
+  - name: servizio Azure Container
     tocHref: /azure/aks/
     topicHref: /azure/aks/
   - name: Servizio contenitore

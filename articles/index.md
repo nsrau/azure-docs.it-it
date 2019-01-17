@@ -380,7 +380,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                         <li>
                                             <a href="/azure/container-instances/">
                                                 <img src="media/index/ContainerInstances.svg" alt="" />
-                                                <p>Istanze di contenitore di Azure</p>
+                                                <p>Istanze di Azure Container</p>
                                             </a>
                                         </li>
                                         <li>
@@ -524,7 +524,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                         <li>
                                             <a href="/azure/container-instances/">
                                                 <img src="media/index/ContainerInstances.svg" alt="" />
-                                                <p>Istanze di contenitore</p>
+                                                <p>Istanze di Container</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1885,7 +1885,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Istanze di contenitore</h3>
+                                                    <h3>Istanze di Container</h3>
                                                     <p>Eseguire facilmente i contenitori con un unico comando</p>
                                                 </div>
                                             </div>
@@ -2898,7 +2898,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Istanze di contenitore</h3>
+                                                    <h3>Istanze di Container</h3>
                                                     <p>Eseguire facilmente i contenitori con un unico comando</p>
                                                 </div>
                                             </div>

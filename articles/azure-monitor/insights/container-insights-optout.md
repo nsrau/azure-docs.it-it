@@ -1,6 +1,6 @@
 ---
 title: Come arrestare il monitoraggio del cluster del servizio Azure Kubernetes | Microsoft Docs
-description: Questo articolo descrive come interrompere il monitoraggio del cluster del servizio Kubernetes di Azure con Monitoraggio di Azure per contenitori.
+description: Questo articolo descrive come interrompere il monitoraggio del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -26,7 +26,7 @@ Dopo aver abilitato il monitoraggio di un cluster AKS, è possibile interrompere
 
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-Usare il comando [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) per disabilitare Monitoraggio di Azure per contenitori. Il comando rimuove l'agente dai nodi del cluster, non rimuove la soluzione o i dati già raccolti e archiviati nella risorsa Log Analytics.  
+Usare il comando [az servizio Azure Kubernetes disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) per disabilitare Monitoraggio di Azure per contenitori. Il comando rimuove l'agente dai nodi del cluster, non rimuove la soluzione o i dati già raccolti e archiviati nella risorsa Log Analytics.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -108,7 +108,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
     }
     ```
 
-4. Sostituire i valori di **aksResourceId** e **aksResourceLocation** con i valori del cluster AKS, indicati nella pagina **Proprietà** per il cluster selezionato.
+4. Sostituire i valori di **servizio Azure KubernetesResourceId** e **servizio Azure KubernetesResourceLocation** con i valori del cluster servizio Azure Kubernetes, indicati nella pagina **Proprietà** per il cluster selezionato.
 
     ![Pagina delle proprietà del contenitore](media/container-insights-optout/container-properties-page.png)
 
@@ -118,7 +118,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
 6. A questo punto è possibile distribuire il modello. 
 
 ### <a name="remove-the-solution-using-azure-cli"></a>Rimuovere la soluzione tramite l'interfaccia della riga di comando di Azure
-Eseguire il comando seguente con l'interfaccia della riga di comando di Azure in Linux per rimuovere la soluzione ed eseguire la pulizia della configurazione nel cluster del servizio Kubernetes di Azure.
+Eseguire il comando seguente con l'interfaccia della riga di comando di Azure in Linux per rimuovere la soluzione ed eseguire la pulizia della configurazione nel cluster del servizio Azure Kubernetes.
 
 ```azurecli
 az login   
@@ -134,7 +134,7 @@ ProvisioningState       : Succeeded
 
 ### <a name="remove-the-solution-using-powershell"></a>Rimuovere la soluzione tramite PowerShell
 
-Eseguire i comandi di PowerShell seguenti nella cartella che contiene il modello per rimuovere la soluzione ed eseguire la pulizia della configurazione nel cluster del servizio Kubernetes di Azure.    
+Eseguire i comandi di PowerShell seguenti nella cartella che contiene il modello per rimuovere la soluzione ed eseguire la pulizia della configurazione nel cluster del servizio Azure Kubernetes.    
 
 ```powershell
 Connect-AzureRmAccount

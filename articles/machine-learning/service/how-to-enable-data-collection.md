@@ -94,7 +94,7 @@ Per abilitarla, è necessario:
     prediction_dc.collect(result) #this call is saving our input data into Azure Blob
     ```
 
-4. La raccolta dei dati **non** è automaticamente impostata su **true** quando si distribuisce un servizio in AKS, pertanto è necessario aggiornare il file di configurazione, ad esempio: 
+4. La raccolta dei dati **non** è automaticamente impostata su **true** quando si distribuisce un servizio in servizio Azure Kubernetes, pertanto è necessario aggiornare il file di configurazione, ad esempio: 
 
     ```python
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True)

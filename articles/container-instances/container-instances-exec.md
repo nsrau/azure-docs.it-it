@@ -1,6 +1,6 @@
 ---
-title: Eseguire i comandi in contenitori in esecuzione in Istanze di contenitore di Azure
-description: Informazioni su come eseguire un comando in un contenitore attualmente in esecuzione in Istanze di contenitore di Azure
+title: Eseguire i comandi in contenitori in esecuzione in Istanze di Azure Container
+description: Informazioni su come eseguire un comando in un contenitore attualmente in esecuzione in Istanze di Azure Container
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -16,7 +16,7 @@ ms.locfileid: "48854089"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Eseguire un comando in un'istanza di contenitore di Azure in esecuzione
 
-Istanze di contenitore di Azure supporta l'esecuzione di un comando in un contenitore in esecuzione. Eseguire un comando in un contenitore già avviato è particolarmente utile durante lo sviluppo e la risoluzione dei problemi di un'applicazione. L'uso più comune di questa funzionalità consiste nell'avviare una shell interattiva in modo che sia possibile eseguire il debug di problemi in un contenitore in esecuzione.
+Istanze di Azure Container supporta l'esecuzione di un comando in un contenitore in esecuzione. Eseguire un comando in un contenitore già avviato è particolarmente utile durante lo sviluppo e la risoluzione dei problemi di un'applicazione. L'uso più comune di questa funzionalità consiste nell'avviare una shell interattiva in modo che sia possibile eseguire il debug di problemi in un contenitore in esecuzione.
 
 ## <a name="run-a-command-with-azure-cli"></a>Eseguire un comando con l'interfaccia della riga di comando di Azure
 
@@ -84,11 +84,11 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 ## <a name="restrictions"></a>Restrizioni
 
-Istanze di contenitore di Azure attualmente supporta l'avvio di un singolo processo con [az container exec][az-container-exec] e non è possibile passare gli argomenti del comando. Ad esempio, non è possibile concatenare i comandi, come in `sh -c "echo FOO && echo BAR"`, o eseguire `echo FOO`.
+Istanze di Azure Container attualmente supporta l'avvio di un singolo processo con [az container exec][az-container-exec] e non è possibile passare gli argomenti del comando. Ad esempio, non è possibile concatenare i comandi, come in `sh -c "echo FOO && echo BAR"`, o eseguire `echo FOO`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su altri strumenti di risoluzione dei problemi e problemi di distribuzione comuni in [Risolvere i problemi di distribuzione in Istanze di contenitore di Azure](container-instances-troubleshooting.md).
+Informazioni su altri strumenti di risoluzione dei problemi e problemi di distribuzione comuni in [Risolvere i problemi di distribuzione in Istanze di Azure Container](container-instances-troubleshooting.md).
 
 <!-- LINKS - internal -->
 [az-container-create]: /cli/azure/container#az-container-create

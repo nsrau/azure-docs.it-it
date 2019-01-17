@@ -20,7 +20,7 @@ ms.locfileid: "42141996"
 
 Il servizio Azure Kubernetes semplifica l'esecuzione di attività di gestione comuni, ad esempio l'aggiornamento dei cluster Kubernetes.
 
-## <a name="upgrade-an-aks-cluster"></a>Aggiornare un cluster del servizio contenitore di Azure
+## <a name="upgrade-an-aks-cluster"></a>Aggiornare un cluster del servizio Azure Container
 
 Prima di aggiornare un cluster, usare il comando `az aks get-upgrades` per verificare quali versioni di Kubernetes sono disponibili per l'aggiornamento.
 
@@ -36,10 +36,10 @@ Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.6
 ```
 
-Sono disponibili tre versioni per l'aggiornamento: 1.9.1, 1.9.2 e 1.9.6. È possibile usare il comando `az aks upgrade` per eseguire l'aggiornamento all'ultima versione disponibile.  Durante il processo di aggiornamento, il servizio contenitore di Azure aggiungerà un nuovo nodo al cluster, quindi [bloccherà e svuoterà][kubernetes-drain] attentamente un nodo alla volta per ridurre al minimo le interruzioni delle applicazioni in esecuzione.
+Sono disponibili tre versioni per l'aggiornamento: 1.9.1, 1.9.2 e 1.9.6. È possibile usare il comando `az aks upgrade` per eseguire l'aggiornamento all'ultima versione disponibile.  Durante il processo di aggiornamento, il servizio Azure Container aggiungerà un nuovo nodo al cluster, quindi [bloccherà e svuoterà][kubernetes-drain] attentamente un nodo alla volta per ridurre al minimo le interruzioni delle applicazioni in esecuzione.
 
 > [!NOTE]
-> Quando si aggiorna un cluster AKS, le versioni secondarie di Kubernetes non possono essere ignorate. Sono consentiti, ad esempio, aggiornamenti da 1.8.x a 1.9.x o da 1.9.x a 1.10.x, ma non da 1.8 a 1.10. Per eseguire l'aggiornamento da 1.8 a 1.10, eseguirlo prima da 1.8 a 1.9, quindi eseguire un altro aggiornamento da 1.9 a 1.10
+> Quando si aggiorna un cluster servizio Azure Kubernetes, le versioni secondarie di Kubernetes non possono essere ignorate. Sono consentiti, ad esempio, aggiornamenti da 1.8.x a 1.9.x o da 1.9.x a 1.10.x, ma non da 1.8 a 1.10. Per eseguire l'aggiornamento da 1.8 a 1.10, eseguirlo prima da 1.8 a 1.9, quindi eseguire un altro aggiornamento da 1.9 a 1.10
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6
@@ -117,7 +117,7 @@ myAKSCluster  eastus     myResourceGroup  1.9.6                 Succeeded       
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla distribuzione e la gestione del servizio contenitore di Azure sono disponibili nelle relative esercitazioni.
+Esercitazioni sul servizio Azure Container che ne illustrano la distribuzione e la gestione.
 
 > [!div class="nextstepaction"]
 > [Esercitazione sul servizio contenitore di Azure][aks-tutorial-prepare-app]

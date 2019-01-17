@@ -30,9 +30,9 @@ Questa esercitazione è la prima parte di una serie di esercitazioni in cui vien
 > [!div class="checklist"]
 > * Clonare l'origine applicazione da GitHub
 > * Creare un'immagine del contenitore dall'origine applicazione
-> * Distribuire un'istanza di Registro contenitori di Azure (ACR)
-> * Assegnare tag a un'immagine del contenitore per Registro contenitori di Azure
-> * Caricare l'immagine in Registro contenitori di Azure
+> * Distribuire un'istanza di Registro Azure Container
+> * Assegnare tag a un'immagine del contenitore per Registro Azure Container
+> * Caricare l'immagine in Registro Azure Container
 
 In questa serie di esercitazioni si apprenderà come:
 
@@ -108,7 +108,7 @@ Creare un gruppo di risorse con il comando **az group create**. In questo esempi
 az group create --name <myResourceGroup> --location westus
 ```
 
-Creare un Registro contenitori di Azure con il comando **az acr create**. Sostituire \<acrName> con il nome del registro contenitori da creare nella sottoscrizione. Questo nome deve essere alfanumerico e univoco.
+Creare un'istanza di Registro Azure Container con il comando **az acr create**. Sostituire \<acrName> con il nome del registro contenitori da creare nella sottoscrizione. Questo nome deve essere alfanumerico e univoco.
 
 ```bash
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
@@ -118,7 +118,7 @@ Nella parte restante di questa esercitazione si usa "acrName" come segnaposto pe
 
 ## <a name="log-in-to-your-container-registry"></a>Accedere al registro contenitori
 
-Accedere all'istanza Registro contenitori di Azure prima di eseguire il push di immagini in essa. Usare il comando **az acr login** per completare l'operazione. Specificare il nome univoco assegnato al registro contenitori al momento della creazione.
+Accedere all'istanza di Registro Azure Container prima di eseguire il push di immagini in essa. Usare il comando **az acr login** per completare l'operazione. Specificare il nome univoco assegnato al registro contenitori al momento della creazione.
 
 ```bash
 az acr login --name <acrName>
@@ -180,7 +180,7 @@ tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5
 
 Eseguire il push dell'immagine *azure-vote-front* nel registro. 
 
-Nell'esempio seguente sostituire il nome del loginServer del Registro contenitori di Azure con il loginServer dell'ambiente in uso.
+Nell'esempio seguente sostituire il nome del loginServer di Registro Azure Container con il loginServer dell'ambiente in uso.
 
 ```bash
 docker push <acrName>.azurecr.io/azure-vote-front:v1
@@ -190,7 +190,7 @@ I comandi di esecuzione del push di docker richiedono un paio di minuti per il c
 
 ## <a name="list-images-in-registry"></a>Elencare le immagini nel registro
 
-Per restituire un elenco di immagini di cui è stato eseguito il push nel Registro contenitori di Azure, usare il comando [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Aggiornare il comando con il nome dell'istanza del Registro contenitori di Azure.
+Per restituire un elenco di immagini di cui è stato eseguito il push in Registro Azure Container, usare il comando [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Aggiornare il comando con il nome dell'istanza di Registro Azure Container.
 
 ```bash
 az acr repository list --name <acrName> --output table
@@ -204,7 +204,7 @@ Result
 azure-vote-front
 ```
 
-Al termine dell'esercitazione, l'immagine del contenitore sarà stata archiviata in un'istanza privata di Registro contenitori di Azure. Questa immagine verrà distribuita da Registro contenitori di Azure a un cluster Service Fabric nelle esercitazioni successive.
+Al termine dell'esercitazione, l'immagine del contenitore sarà stata archiviata in un'istanza privata di Registro contenitori di Azure. Questa immagine verrà distribuita da Registro Azure Container a un cluster Service Fabric nelle esercitazioni successive.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -213,9 +213,9 @@ In questa esercitazione, è stato effettuato il pull di un'applicazione da Githu
 > [!div class="checklist"]
 > * Clonare l'origine applicazione da GitHub
 > * Creare un'immagine del contenitore dall'origine applicazione
-> * Distribuire un'istanza di Registro contenitori di Azure (ACR)
-> * Assegnare tag a un'immagine del contenitore per Registro contenitori di Azure
-> * Caricare l'immagine in Registro contenitori di Azure
+> * Distribuire un'istanza di Registro Azure Container
+> * Assegnare tag a un'immagine del contenitore per Registro Azure Container
+> * Caricare l'immagine in Registro Azure Container
 
 Passare all'esercitazione successiva per ulteriori informazioni sulla creazione di pacchetti di contenitori in un'applicazione di Service Fabric usando Yeoman.
 

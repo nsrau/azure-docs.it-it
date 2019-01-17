@@ -19,7 +19,7 @@ ms.locfileid: "54052258"
 
 Il [gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/) è un servizio di bilanciamento del carico del traffico Web che consente di gestire il traffico verso le applicazioni Web.
 
-Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. Questo articolo illustra come usare Ansible per creare un gateway applicazione. Descrive inoltre come usare il gateway per gestire il traffico verso due server Web in esecuzione nelle istanze di contenitore di Azure.
+Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. Questo articolo illustra come usare Ansible per creare un gateway applicazione. Descrive inoltre come usare il gateway per gestire il traffico verso due server Web in esecuzione in Istanze di Azure Container.
 
 Questa esercitazione illustra come:
 

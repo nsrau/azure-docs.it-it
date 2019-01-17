@@ -44,7 +44,7 @@ Per informazioni dettagliate sulle richieste di webhook, vedere le [informazioni
 
 Modulo di webhook di esempio:
 
-![Interfaccia utente per la creazione di webhook del Registro contenitori di Azure nel portale di Azure](./media/container-registry-webhook/webhook.png)
+![Interfaccia utente per la creazione di webhook di Registro Azure Container nel portale di Azure](./media/container-registry-webhook/webhook.png)
 
 ## <a name="create-webhook-azure-cli"></a>Creare un webhook usando l'interfaccia della riga di comando di Azure
 
@@ -64,11 +64,11 @@ Prima di usare il webhook in azioni di push o eliminazione di un'immagine del co
 2. Nella barra degli strumenti superiore selezionare l'azione **Ping**.
 3. Controllare la risposta dell'endpoint nella colonna **Stato HTTP**.
 
-![Interfaccia utente per la creazione di webhook del Registro contenitori di Azure nel portale di Azure](./media/container-registry-webhook/webhook-02.png)
+![Interfaccia utente per la creazione di webhook di Registro Azure Container nel portale di Azure](./media/container-registry-webhook/webhook-02.png)
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per testare un webhook del registro contenitori di Azure con l'interfaccia della riga di comando di Azure, usare il comando [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping).
+Per testare un webhook di Registro Azure Container con l'interfaccia della riga di comando di Azure, usare il comando [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping).
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01

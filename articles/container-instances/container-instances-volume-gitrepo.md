@@ -1,6 +1,6 @@
 ---
-title: Montare un volume gitRepo in Istanze di contenitore di Azure
-description: Informazioni su come montare un volume gitRepo per clonare un repository Git nelle istanze di contenitore
+title: Montare un volume gitRepo in Istanze di Azure Container
+description: Informazioni su come montare un volume gitRepo per clonare un repository Git in Istanze di Container
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -14,16 +14,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2018
 ms.locfileid: "49388273"
 ---
-# <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montare un volume gitRepo in Istanze di contenitore di Azure
+# <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montare un volume gitRepo in Istanze di Azure Container
 
-Informazioni su come montare un volume *gitRepo* per clonare un repository Git nelle istanze di contenitore.
+Informazioni su come montare un volume *gitRepo* per clonare un repository Git in Istanze di Container.
 
 > [!NOTE]
-> Il montaggio di un volume *gitRepo* è attualmente limitato ai contenitori di Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di contenitore di Azure).
+> Il montaggio di un volume *gitRepo* è attualmente limitato ai contenitori di Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di Azure Container).
 
 ## <a name="gitrepo-volume"></a>Volume gitRepo
 
-Il volume *gitRepo* monta una directory e clona il repository Git specificato al suo interno all'avvio del contenitore. Usando un volume *gitRepo* nelle istanze di contenitore, è possibile evitare di aggiungere il codice per eseguire questa operazione nelle applicazioni.
+Il volume *gitRepo* monta una directory e clona il repository Git specificato al suo interno all'avvio del contenitore. Usando un volume *gitRepo* in Istanze di Container, è possibile evitare di aggiungere il codice per eseguire questa operazione nelle applicazioni.
 
 Quando si monta un volume *gitRepo*, è possibile impostare tre proprietà per configurare il volume:
 
@@ -77,7 +77,7 @@ La struttura della directory risultante dei due repository clonati definiti nel 
 /mnt/repo2/my-custom-clone-directory
 ```
 
-Per un esempio di distribuzione di istanze di contenitore con un modello di Azure Resource Manager, vedere [Deploy multi-container groups in Azure Container Instances](container-instances-multi-container-group.md) (Distribuire gruppi multicontenitore in istanze di contenitore Azure).
+Per un esempio di distribuzione di Istanze di Container con un modello di Azure Resource Manager, vedere [Deploy multi-container groups in Azure Container Instances](container-instances-multi-container-group.md) (Distribuire gruppi multicontenitore in Istanze di Container Azure).
 
 ## <a name="private-git-repo-authentication"></a>Autenticazione del repository privato
 
@@ -103,7 +103,7 @@ Azure Repos: [Create personal access tokens to authenticate access][pat-repos] (
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come montare altri tipi di volume in Istanze di contenitore di Azure:
+Informazioni su come montare altri tipi di volume in Istanze di Azure Container:
 
 * [Mount an Azure file share in Azure Container Instances](container-instances-volume-azure-files.md) (Montare una condivisione file di Azure in Istanze di contenitore di Azure)
 * [Mount an emptyDir volume in Azure Container Instances](container-instances-volume-emptydir.md) (Montare un volume emptyDir in Istanze di contenitore di Azure)

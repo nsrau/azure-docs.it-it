@@ -29,14 +29,14 @@ Questo articolo sulle procedure consigliate è incentrato sulle funzionalità di
 
 **Indicazioni sulle procedure consigliate**. Limitare l'accesso a nodi specifici per le applicazioni a elevato utilizzo di risorse, come i controller di ingresso. Mantenere le risorse dei nodi disponibili per i carichi di lavoro che le richiedono e non consentire la pianificazione di altri carichi di lavoro sui nodi.
 
-Quando si crea il cluster AKS, è possibile distribuire i nodi con supporto GPU o un numero elevato di potenti CPU. Questi nodi vengono spesso usati per i carichi di lavoro di elaborazione dati di grandi dimensioni, ad esempio Machine Learning (ML) o intelligenza artificiale. Poiché questo tipo di hardware è in genere una risorsa nodo costosa da distribuire, limitare i carichi di lavoro che possono essere pianificati su questi nodi. È invece consigliabile dedicare alcuni nodi del cluster per eseguire i servizi in ingresso e impedire altri carichi di lavoro.
+Quando si crea il cluster servizio Azure Kubernetes, è possibile distribuire i nodi con supporto GPU o un numero elevato di potenti CPU. Questi nodi vengono spesso usati per i carichi di lavoro di elaborazione dati di grandi dimensioni, ad esempio Machine Learning (ML) o intelligenza artificiale. Poiché questo tipo di hardware è in genere una risorsa nodo costosa da distribuire, limitare i carichi di lavoro che possono essere pianificati su questi nodi. È invece consigliabile dedicare alcuni nodi del cluster per eseguire i servizi in ingresso e impedire altri carichi di lavoro.
 
 L'utilità di pianificazione di Kubernetes può usare taint e tolleranze per limitare i carichi di lavoro che possono essere eseguiti sui nodi.
 
 * Un **taint** viene applicato a un nodo per indicare che possono essere pianificati solo pod specifici.
 * Una **tolleranza** viene quindi applicata a un pod per *tollerare* un taint di un nodo.
 
-Quando si distribuisce un pod in un cluster AKS, Kubernetes pianifica solo i pod sui nodi in cui una tolleranza è allineata con un taint. Si supponga ad esempio di avere un pool di nodi nel cluster AKS per i nodi con supporto GPU. Si definisce il nome, ad esempio *gpu*, quindi un valore per la pianificazione. Se si imposta questo valore su *NoSchedule*, l'utilità di pianificazione di Kubernetes non può pianificare i pod sul nodo se il pod non definisce la tolleranza appropriata.
+Quando si distribuisce un pod in un cluster servizio Azure Kubernetes, Kubernetes pianifica solo i pod sui nodi in cui una tolleranza è allineata con un taint. Si supponga ad esempio di avere un pool di nodi nel cluster servizio Azure Kubernetes per i nodi con supporto GPU. Si definisce il nome, ad esempio *gpu*, quindi un valore per la pianificazione. Se si imposta questo valore su *NoSchedule*, l'utilità di pianificazione di Kubernetes non può pianificare i pod sul nodo se il pod non definisce la tolleranza appropriata.
 
 ```console
 kubectl taint node aks-nodepool1 gpu:NoSchedule
@@ -162,7 +162,7 @@ Questo esempio è una distribuzione più complessa rispetto all'uso dei selettor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato le funzionalità avanzate dell'utilità di pianificazione di Kubernetes. Per altre informazioni sulle operazioni cluster in AKS, vedere le procedure consigliate seguenti:
+Questo articolo ha illustrato le funzionalità avanzate dell'utilità di pianificazione di Kubernetes. Per altre informazioni sulle operazioni cluster in servizio Azure Kubernetes, vedere le procedure consigliate seguenti:
 
 * [Isolamento cluster e multi-tenant][aks-best-practices-scheduler]
 * [Funzionalità di base dell'utilità di pianificazione di Kubernetes][aks-best-practices-scheduler]

@@ -18,7 +18,7 @@ ms.locfileid: "50093386"
 
 Un controller di ingresso è un componente software che fornisce proxy inverso, routing del traffico configurabile e terminazione TLS per i servizi Kubernetes. Le risorse di ingresso Kubernetes vengono usate per configurare le regole di ingresso e le route per i singoli servizi Kubernetes. Usando un controller di ingresso e regole di ingresso è possibile servirsi di un singolo indirizzo IP per instradare il traffico a più servizi in un cluster Kubernetes.
 
-Questo articolo illustra come distribuire il [controller di ingresso NGINX][nginx-ingress] in un cluster del servizio Azure Kubernetes. Due applicazioni vengono eseguite nel cluster AKS, ognuna delle quali è accessibile tramite un singolo indirizzo IP.
+Questo articolo illustra come distribuire il [controller di ingresso NGINX][nginx-ingress] in un cluster del servizio Azure Kubernetes. Due applicazioni vengono eseguite nel cluster servizio Azure Kubernetes, ognuna delle quali è accessibile tramite un singolo indirizzo IP.
 
 È anche possibile:
 
@@ -29,16 +29,16 @@ Questo articolo illustra come distribuire il [controller di ingresso NGINX][ngin
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo usa Helm per installare il controller di ingresso NGINX, il certificato cert-manager e un'app Web di esempio. È necessario disporre di Helm inizializzato nel cluster AKS e usare un account del servizio per Tiller. Per altre informazioni sulla configurazione e l'uso di Helm, vedere [Installare le applicazioni con Helm nel servizio Azure Kubernetes][use-helm].
+Questo articolo usa Helm per installare il controller di ingresso NGINX, il certificato cert-manager e un'app Web di esempio. È necessario disporre di Helm inizializzato nel cluster servizio Azure Kubernetes e usare un account del servizio per Tiller. Per altre informazioni sulla configurazione e l'uso di Helm, vedere [Installare le applicazioni con Helm nel servizio Azure Kubernetes][use-helm].
 
 Questo articolo richiede anche che sia in esecuzione l'interfaccia della riga di comando di Azure versione 2.0.41 o successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Creare un controller di ingresso
 
-Per creare il controller di ingresso, usare `Helm` per installare *Ingresso nginx*. Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster AKS siano presenti più nodi.
+Per creare il controller di ingresso, usare `Helm` per installare *Ingresso nginx*. Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster servizio Azure Kubernetes siano presenti più nodi.
 
 > [!TIP]
-> L'esempio seguente illustra come installare il controller di ingresso nello spazio dei nomi `kube-system`. Se lo si desidera, è possibile specificare uno spazio dei nomi diverso per il proprio ambiente. Se il cluster AKS non dispone dell'abilitazione RBAC, aggiungere `--set rbac.create=false` ai comandi.
+> L'esempio seguente illustra come installare il controller di ingresso nello spazio dei nomi `kube-system`. Se lo si desidera, è possibile specificare uno spazio dei nomi diverso per il proprio ambiente. Se il cluster servizio Azure Kubernetes non dispone dell'abilitazione RBAC, aggiungere `--set rbac.create=false` ai comandi.
 
 ```console
 helm install stable/nginx-ingress --namespace kube-system --set controller.replicaCount=2
@@ -58,7 +58,7 @@ Non sono state create regole di ingresso, pertanto si viene instradati alla pagi
 
 ## <a name="run-demo-applications"></a>Eseguire applicazioni demo
 
-Per visualizzare il controller di ingresso in azione, è possibile eseguire due applicazioni demo nel cluster AKS. In questo esempio Helm viene usato per distribuire due istanze di una semplice applicazione "Hello world".
+Per visualizzare il controller di ingresso in azione, è possibile eseguire due applicazioni demo nel cluster servizio Azure Kubernetes. In questo esempio Helm viene usato per distribuire due istanze di una semplice applicazione "Hello world".
 
 Prima di installare i grafici Helm di esempio, aggiungere il repository degli esempi di Azure all'ambiente Helm come indicato di seguito:
 
@@ -140,7 +140,7 @@ righteous-numbat    1           Tue Oct 16 16:53:53 2018    DEPLOYED    aks-hell
 looming-moth        1           Tue Oct 16 16:53:59 2018    DEPLOYED    aks-helloworld-0.1.0                default
 ```
 
-Eliminare le versioni con il comando `helm delete`. L'esempio seguente elimina la distribuzione di ingresso NGINX e le due app AKS hello world di esempio.
+Eliminare le versioni con il comando `helm delete`. L'esempio seguente elimina la distribuzione di ingresso NGINX e le due app servizio Azure Kubernetes hello world di esempio.
 
 ```
 $ helm delete gilded-duck righteous-numbat looming-moth
@@ -150,7 +150,7 @@ release "righteous-numbat" deleted
 release "looming-moth" deleted
 ```
 
-Rimuovere quindi il repository Helm per le app AKS hello world:
+Rimuovere quindi il repository Helm per le app servizio Azure Kubernetes hello world:
 
 ```console
 helm repo remove azure-samples
@@ -164,7 +164,7 @@ kubectl delete -f hello-world-ingress.yaml
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono stati inclusi alcuni componenti esterni ad AKS. Per altre informazioni su questi componenti, vedere le pagine di progetto seguenti:
+In questo articolo sono stati inclusi alcuni componenti esterni ad servizio Azure Kubernetes. Per altre informazioni su questi componenti, vedere le pagine di progetto seguenti:
 
 - [Interfaccia della riga di comando di Helm][helm-cli]
 - [Controller di ingresso NGINX][nginx-ingress]

@@ -1,6 +1,6 @@
 ---
-title: Esecuzione del montaggio di un volume di File di Azure in Istanze di contenitore di Azure
-description: Informazioni su come montare un volume di File di Azure per rendere persistente lo stato con Istanze di contenitore di Azure
+title: Esecuzione del montaggio di un volume di File di Azure in Istanze di Azure Container
+description: Informazioni su come montare un volume di File di Azure per rendere persistente lo stato con Istanze di Azure Container
 services: container-instances
 author: dlepow
 manager: jeconnoc
@@ -16,16 +16,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/08/2018
 ms.locfileid: "51281582"
 ---
-# <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montare una condivisione file di Azure in Istanze di contenitore di Azure
+# <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montare una condivisione file di Azure in Istanze di Azure Container
 
-Per impostazione predefinita, Istanze di contenitore di Azure è senza stato. Se il contenitore si blocca o si arresta, lo stato viene perso. Per rendere persistente lo stato oltre la durata del contenitore, è necessario montare un volume da un archivio esterno. Questo articolo illustra come montare una condivisione file di Azure creata con [File di Azure](../storage/files/storage-files-introduction.md) per l'uso con Istanze di contenitore di Azure. File di Azure offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB (Server Message Block) standard di settore. L'uso di una condivisione file di Azure con Istanze di contenitore di Azure offre funzionalità di condivisione di file simili all'uso di una condivisione file di Azure con macchine virtuali di Azure.
+Per impostazione predefinita, Istanze di Azure Container è senza stato. Se il contenitore si blocca o si arresta, lo stato viene perso. Per rendere persistente lo stato oltre la durata del contenitore, è necessario montare un volume da un archivio esterno. Questo articolo illustra come montare una condivisione file di Azure creata con [File di Azure](../storage/files/storage-files-introduction.md) per l'uso con Istanze di Azure Container. File di Azure offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB (Server Message Block) standard di settore. L'uso di una condivisione file di Azure con Istanze di Azure Container offre funzionalità di condivisione di file simili all'uso di una condivisione file di Azure con macchine virtuali di Azure.
 
 > [!NOTE]
-> Il montaggio di una condivisione File di Azure è attualmente limitato ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di contenitore di Azure).
+> Il montaggio di una condivisione File di Azure è attualmente limitato ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di Azure Container).
 
 ## <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 
-Prima di usare una condivisione file di Azure con Istanze di contenitore di Azure è necessario creare la condivisione. Eseguire questo script per creare un account di archiviazione per ospitare la condivisione file e la condivisione in sé. Il nome dell'account di archiviazione deve essere globalmente univoco, quindi lo script aggiunge un valore casuale alla stringa di base.
+Prima di usare una condivisione file di Azure con Istanze di Azure Container è necessario creare la condivisione. Eseguire questo script per creare un account di archiviazione per ospitare la condivisione file e la condivisione in sé. Il nome dell'account di archiviazione deve essere globalmente univoco, quindi lo script aggiunge un valore casuale alla stringa di base.
 
 ```azurecli-interactive
 # Change these four parameters as needed
@@ -47,7 +47,7 @@ az storage share create --name $ACI_PERS_SHARE_NAME --account-name $ACI_PERS_STO
 
 ## <a name="get-storage-credentials"></a>Ottenere le credenziali di archiviazione
 
-Per montare una condivisione file di Azure come volume in Istanze di contenitore di Azure sono necessari tre valori: il nome dell'account di archiviazione, il nome della condivisione e la chiave di accesso alle risorse di archiviazione.
+Per montare una condivisione file di Azure come volume in Istanze di Azure Container sono necessari tre valori: il nome dell'account di archiviazione, il nome della condivisione e la chiave di accesso alle risorse di archiviazione.
 
 Se si usa lo script precedente, il nome dell'account di archiviazione è stato archiviato nella variabile $ACI_PERS_STORAGE_ACCOUNT_NAME. Per visualizzare il nome dell'account, digitare:
 
@@ -133,7 +133,7 @@ Per un esempio di distribuzione di istanze di contenitore con un modello di Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come montare altri tipi di volume in Istanze di contenitore di Azure:
+Informazioni su come montare altri tipi di volume in Istanze di Azure Container:
 
 * [Mount an emptyDir volume in Azure Container Instances](container-instances-volume-emptydir.md) (Montare un volume emptyDir in Istanze di contenitore di Azure)
 * [Mount a gitRepo volume in Azure Container Instances](container-instances-volume-gitrepo.md) (Montare un volume gitRepo in Istanze di contenitore di Azure)

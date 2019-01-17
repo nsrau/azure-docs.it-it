@@ -27,7 +27,7 @@ Questo articolo descrive i passaggi e i requisiti per configurare un'offerta per
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Rivedere la documentazione sulle [istanze di contenitori di Azure](https://docs.microsoft.com/azure/container-instances) che include guide introduttive, esercitazioni ed esempi.
+Rivedere la documentazione su [Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances) che include guide introduttive, esercitazioni ed esempi.
 
 ## <a name="fundamental-technical-knowledge"></a>Conoscenze tecniche fondamentali
 

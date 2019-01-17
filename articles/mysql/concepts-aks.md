@@ -15,7 +15,7 @@ ms.locfileid: "53538175"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Connessione del servizio Azure Kubernetes e del Database di Azure per MySQL
 
-Il servizio Azure Kubernetes fornisce un cluster Kubernetes gestito che è possibile usare in Azure. Di seguito sono riportate alcune opzioni da prendere in considerazione quando si usano insieme il servizio Kubernetes di Azure e il Database di Azure per MySQL per creare un'applicazione.
+Il servizio Azure Kubernetes fornisce un cluster Kubernetes gestito che è possibile usare in Azure. Di seguito sono riportate alcune opzioni da prendere in considerazione quando si usano insieme il servizio Azure Kubernetes e il Database di Azure per MySQL per creare un'applicazione.
 
 
 ## <a name="accelerated-networking"></a>Rete accelerata
@@ -36,7 +36,7 @@ Da novembre 2018 il servizio Azure Kubernetes supporta la funzionalità di rete 
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) consente di effettuare il provisioning dei servizi di Azure direttamente da Kubernetes o Cloud Foundry. Si tratta di un'implementazione dell'[API di Open Service Broker](https://www.openservicebrokerapi.org/) per Azure.
 
-Con OSBA è possibile creare un'istanza del Database di Azure per MySQL e associarla al cluster del servizio Kubernetes di Azure usando il linguaggio nativo di Kubernetes. Informazioni su come usare OSBA e il Database di Azure per MySQL insieme nella [pagina GitHub per OSBA](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
+Con OSBA è possibile creare un'istanza del Database di Azure per MySQL e associarla al cluster del servizio Azure Kubernetes usando il linguaggio nativo di Kubernetes. Informazioni su come usare OSBA e il Database di Azure per MySQL insieme nella [pagina GitHub per OSBA](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
 
 
 

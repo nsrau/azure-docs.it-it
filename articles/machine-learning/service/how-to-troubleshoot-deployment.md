@@ -130,7 +130,7 @@ print(image.image_location)
 
 Il percorso dell'immagine ha questo formato: `<acr-name>.azurecr.io/<image-name>:<version-number>`, ad esempio `myworkpaceacr.azurecr.io/myimage:3`. 
 
-Ora passare alla finestra della riga di comando. Se l'interfaccia della riga di comando di Azure è installata, è possibile digitare i comandi seguenti per accedere al Registro contenitori di Azure associato all'area di lavoro in cui è archiviata l'immagine. 
+Ora passare alla finestra della riga di comando. Se l'interfaccia della riga di comando di Azure è installata, è possibile digitare i comandi seguenti per accedere al Registro Azure Container associato all'area di lavoro in cui è archiviata l'immagine. 
 
 ```sh
 # log on to Azure first if you haven't done so before
@@ -144,9 +144,9 @@ $ az account set -s <subscription_name_or_id>
 # e.g.: az acr login -n myworkpaceacr
 $ az acr login -n <acr-name>
 ```
-Se l'interfaccia della riga di comando di Azure non è installata, è possibile usare il comando `docker login` per accedere al Registro contenitori di Azure. Prima però occorre recuperare il nome utente e la password di tale registro dal portale di Azure.
+Se l'interfaccia della riga di comando di Azure non è installata, è possibile usare il comando `docker login` per accedere al Registro Azure Container. Prima però occorre recuperare il nome utente e la password di tale registro dal portale di Azure.
 
-Dopo aver eseguito l'accesso al Registro contenitori di Azure, è possibile recuperare l'immagine di Docker e avviare un contenitore localmente, quindi avviare una sessione di Bash per il debug usando il comando `docker run`:
+Dopo aver eseguito l'accesso al Registro Azure Container, è possibile recuperare l'immagine di Docker e avviare un contenitore localmente, quindi avviare una sessione di Bash per il debug usando il comando `docker run`:
 
 ```sh
 # note the image_id is <acr-name>.azurecr.io/<image-name>:<version-number>

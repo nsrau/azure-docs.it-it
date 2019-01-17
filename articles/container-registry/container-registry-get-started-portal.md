@@ -17,7 +17,7 @@ ms.locfileid: "53255364"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Guida introduttiva: creare un registro contenitori privato usando il portale di Azure
 
-Un Registro contenitori di Azure è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. In questa guida introduttiva si crea un registro contenitori con il portale di Azure, si esegue il push di un'immagine del contenitore nel registro e infine si distribuisce il contenitore dal registro a Istanze di contenitore di Azure.
+Un Registro contenitori di Azure è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. In questa guida introduttiva si crea un registro contenitori con il portale di Azure, si esegue il push di un'immagine del contenitore nel registro e infine si distribuisce il contenitore dal registro a Istanze di Azure Container.
 
 Per completare questa Guida introduttiva, è necessario che Docker sia installato in locale. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
@@ -55,7 +55,7 @@ Questi valori vengono usati nei passaggi seguenti quando si usa il registro con 
 
 ## <a name="log-in-to-acr"></a>Accedere al record di controllo di accesso
 
-Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere all'istanza di Registro contenitori di Azure. A tale scopo usare il comando [docker login][docker-login]. Sostituire i valori di *username*, *password* e del *login server* con quelli annotati nel passaggio precedente.
+Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere all'istanza di Registro Azure Container. A tale scopo usare il comando [docker login][docker-login]. Sostituire i valori di *username*, *password* e del *login server* con quelli annotati nel passaggio precedente.
 
 ```bash
 docker login --username <username> --password <password> <login server>
@@ -77,7 +77,7 @@ Prima di eseguire il push dell'immagine nel registro, è necessario contrassegna
 docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
 ```
 
-Infine, usare [docker push][docker-push] per eseguire il push dell'immagine nell'istanza del record di controllo di accesso. Sostituire *login server* con il nome del server di accesso dell'istanza del Registro contenitori di Azure e sostituire *repository name* con il nome del repository usato nel comando precedente.
+Infine, usare [docker push][docker-push] per eseguire il push dell'immagine nell'istanza del record di controllo di accesso. Sostituire *login server* con il nome del server di accesso dell'istanza di Registro Azure Container e sostituire *repository name* con il nome del repository usato nel comando precedente.
 
 ```bash
 docker push <login server>/<repository name>/aci-helloworld:v1
@@ -134,13 +134,13 @@ Quando il contenitore si trova nello stato **In esecuzione**, usare un browser a
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per rimuovere le risorse passare al gruppo di risorse **myResourceGroup** nel portale. Dopo aver caricato il gruppo di risorse, fare clic su **Elimina gruppo di risorse** per rimuovere il gruppo di risorse, il registro contenitori di Azure e tutte le istanze di contenitore di Azure.
+Per rimuovere le risorse passare al gruppo di risorse **myResourceGroup** nel portale. Dopo aver caricato il gruppo di risorse, fare clic su **Elimina gruppo di risorse** per rimuovere il gruppo di risorse, il Registro Azure Container e tutte le Istanze di Azure Container.
 
 ![Eliminare il gruppo di risorse nel portale di Azure][qs-portal-08]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato creato un registro contenitori di Azure con l'interfaccia della riga di comando di Azure e ne è stata avviata un'istanza tramite Istanze di contenitore di Azure. Passare all'esercitazione su Istanze di contenitore di Azure per maggiori informazioni.
+In questa guida introduttiva è stata creata un'istanza di Registro Azure Container con l'interfaccia della riga di comando di Azure e ne è stata avviata un'istanza tramite Istanze di Azure Container. Passare all'esercitazione su Istanze di Azure Container per maggiori informazioni.
 
 > [!div class="nextstepaction"]
 > [Esercitazioni su Istanze di contenitore di Azure][container-instances-tutorial-prepare-app]

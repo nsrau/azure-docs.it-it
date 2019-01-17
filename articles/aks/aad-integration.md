@@ -16,23 +16,23 @@ ms.locfileid: "53437607"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes
 
-Il servizio Azure Kubernetes può essere configurato per usare Azure Active Directory (AD) per l'autenticazione utente. In questa configurazione, è possibile accedere a un cluster AKS tramite il token di autenticazione di Azure Active Directory. Inoltre, gli amministratori di cluster possono configurare il controllo degli accessi (RBAC) in base al ruolo di Kubernetes sulla base delle identità utente o dell'appartenenza a un gruppo della directory.
+Il servizio Azure Kubernetes può essere configurato per usare Azure Active Directory (AD) per l'autenticazione utente. In questa configurazione, è possibile accedere a un cluster servizio Azure Kubernetes tramite il token di autenticazione di Azure Active Directory. Inoltre, gli amministratori di cluster possono configurare il controllo degli accessi (RBAC) in base al ruolo di Kubernetes sulla base delle identità utente o dell'appartenenza a un gruppo della directory.
 
-Questo documento illustra la distribuzione di tutti i prerequisiti necessari per AKS e Azure AD, la distribuzione di un cluster abilitato per Azure AD e la creazione di un semplice ruolo RBAC nel cluster AKS.
+Questo documento illustra la distribuzione di tutti i prerequisiti necessari per servizio Azure Kubernetes e Azure AD, la distribuzione di un cluster abilitato per Azure AD e la creazione di un semplice ruolo RBAC nel cluster servizio Azure Kubernetes.
 
 Si applicano le limitazioni seguenti:
 
-- I cluster AKS non abilitati RBAC esistenti non possono essere attualmente aggiornati per usare un ruolo RBAC.
+- I cluster servizio Azure Kubernetes non abilitati RBAC esistenti non possono essere attualmente aggiornati per usare un ruolo RBAC.
 - Gli utenti *Guest* di Azure AD, se si usa, ad esempio, un account di accesso federato da una directory diversa, non sono supportati.
 
 ## <a name="authentication-details"></a>Dettagli di autenticazione
 
-L'autenticazione di Azure AD è disponibile per i cluster di AKS con OpenID Connect. OpenID Connect è un livello di gestione delle identità basato sul protocollo OAuth 2.0. Per altre informazioni su OpenID Connect, consulta [documentazione di OpenID Connect][open-id-connect].
+L'autenticazione di Azure AD è disponibile per i cluster di servizio Azure Kubernetes con OpenID Connect. OpenID Connect è un livello di gestione delle identità basato sul protocollo OAuth 2.0. Per altre informazioni su OpenID Connect, consulta [documentazione di OpenID Connect][open-id-connect].
 
-Dall'interno del cluster Kubernetes viene usata l'autenticazione del token del webhook per verificare i token di autenticazione. L'autenticazione del token del webhook viene configurata e gestita come parte del cluster AKS. Per altre informazioni sull'autenticazione del token del webhook, consulta [documentazione dell'autenticazione del webhook][kubernetes-webhook].
+Dall'interno del cluster Kubernetes viene usata l'autenticazione del token del webhook per verificare i token di autenticazione. L'autenticazione del token del webhook viene configurata e gestita come parte del cluster servizio Azure Kubernetes. Per altre informazioni sull'autenticazione del token del webhook, consulta [documentazione dell'autenticazione del webhook][kubernetes-webhook].
 
 > [!NOTE]
-> Quando si configura Azure AD per l'autenticazione AKS, vengono configurate due applicazioni di Azure AD. Questa operazione deve essere completata da un amministratore tenant di Azure.
+> Quando si configura Azure AD per l'autenticazione servizio Azure Kubernetes, vengono configurate due applicazioni di Azure AD. Questa operazione deve essere completata da un amministratore tenant di Azure.
 
 ## <a name="create-server-application"></a>Creare l'applicazione server
 
@@ -52,7 +52,7 @@ La prima applicazione di Azure AD viene usata per ottenere l'appartenenza ai gru
 
 3. Tornare all'applicazione Azure AD e selezionare **Impostazioni** > **Chiavi**.
 
-  Aggiungere una descrizione della chiave, selezionare una scadenza e selezionare **Salva**. Prendere nota del valore della chiave. Quando si distribuisce un cluster AKS abilitato per Azure AD, questo valore viene definito `Server application secret`.
+  Aggiungere una descrizione della chiave, selezionare una scadenza e selezionare **Salva**. Prendere nota del valore della chiave. Quando si distribuisce un cluster servizio Azure Kubernetes abilitato per Azure AD, questo valore viene definito `Server application secret`.
 
   ![Ottenere la chiave privata dell'applicazione](media/aad-integration/application-key.png)
 
@@ -78,7 +78,7 @@ La prima applicazione di Azure AD viene usata per ottenere l'appartenenza ai gru
 
   ![Notifica di esito positivo delle autorizzazioni concesse](media/aad-integration/permissions-granted.png)
 
-8. Tornare all'applicazione e prendere nota di **ID applicazione**. Quando si distribuisce un cluster AKS abilitato per Azure AD, questo valore viene definito `Server application ID`.
+8. Tornare all'applicazione e prendere nota di **ID applicazione**. Quando si distribuisce un cluster servizio Azure Kubernetes abilitato per Azure AD, questo valore viene definito `Server application ID`.
 
   ![Ottenere l'ID applicazione](media/aad-integration/application-id.png)
 
@@ -98,7 +98,7 @@ La seconda applicazione di Azure AD viene usata per l'accesso con l'interfaccia 
 
 3. Inserire un segno di spunta accanto all'applicazione e fare clic su **Seleziona**.
 
-  ![Selezionare l'endpoint dell'applicazione server AAD AKS](media/aad-integration/select-server-app.png)
+  ![Selezionare l'endpoint dell'applicazione server AAD servizio Azure Kubernetes](media/aad-integration/select-server-app.png)
 
   Selezionare **Operazione completata**
 
@@ -106,27 +106,27 @@ La seconda applicazione di Azure AD viene usata per l'accesso con l'interfaccia 
 
   ![Concedere le autorizzazioni](media/aad-integration/grant-permissions-client.png)
 
-5. Tornare all'applicazione AD e prendere nota di **ID applicazione**. Quando si distribuisce un cluster AKS abilitato per Azure AD, questo valore viene definito `Client application ID`.
+5. Tornare all'applicazione AD e prendere nota di **ID applicazione**. Quando si distribuisce un cluster servizio Azure Kubernetes abilitato per Azure AD, questo valore viene definito `Client application ID`.
 
   ![Ottenere l'ID dell'applicazione](media/aad-integration/application-id-client.png)
 
 ## <a name="get-tenant-id"></a>Ottenere l'ID tenant
 
-Infine, ottenere l'ID del tenant di Azure. Questo valore viene usato anche quando si distribuisce il cluster AKS.
+Infine, ottenere l'ID del tenant di Azure. Questo valore viene usato anche quando si distribuisce il cluster servizio Azure Kubernetes.
 
-Dal portale di Azure selezionare **Azure Active Directory** > **Proprietà** e prendere nota di **ID directory**. Quando si distribuisce un cluster AKS abilitato per Azure AD, questo valore viene definito `Tenant ID`.
+Dal portale di Azure selezionare **Azure Active Directory** > **Proprietà** e prendere nota di **ID directory**. Quando si distribuisce un cluster servizio Azure Kubernetes abilitato per Azure AD, questo valore viene definito `Tenant ID`.
 
 ![Ottenere l'ID del tenant di Azure](media/aad-integration/tenant-id.png)
 
 ## <a name="deploy-cluster"></a>Distribuire il cluster
 
-Usare il comando [az group create][az-group-create] per creare un gruppo di risorse per il cluster AKS.
+Usare il comando [az group create][az-group-create] per creare un gruppo di risorse per il cluster servizio Azure Kubernetes.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuire il cluster con il comando [az aks create][az-aks-create]. Sostituire i valori nel comando di esempio seguente con i valori raccolti durante la creazione delle applicazioni Azure AD.
+Distribuire il cluster con il comando [az servizio Azure Kubernetes create][az-aks-create]. Sostituire i valori nel comando di esempio seguente con i valori raccolti durante la creazione delle applicazioni Azure AD.
 
 ```azurecli
 az aks create \
@@ -141,9 +141,9 @@ az aks create \
 
 ## <a name="create-rbac-binding"></a>Creare l'associazione RBAC
 
-Prima di poter usare un account di Azure Active Directory con il cluster AKS, è necessario creare un'associazione di ruolo o un'associazione di ruolo del cluster. I *ruoli* definiscono le autorizzazioni da concedere e le *associazioni* le applicano agli utenti desiderati. Queste assegnazioni possono essere applicate a uno spazio dei nomi specifico o all'intero cluster. Per altre informazioni, vedere [Uso di autorizzazioni del controllo degli accessi in base al ruolo][rbac-authorization].
+Prima di poter usare un account di Azure Active Directory con il cluster servizio Azure Kubernetes, è necessario creare un'associazione di ruolo o un'associazione di ruolo del cluster. I *ruoli* definiscono le autorizzazioni da concedere e le *associazioni* le applicano agli utenti desiderati. Queste assegnazioni possono essere applicate a uno spazio dei nomi specifico o all'intero cluster. Per altre informazioni, vedere [Uso di autorizzazioni del controllo degli accessi in base al ruolo][rbac-authorization].
 
-Prima di tutto, usare il comando [az aks get-credentials][az-aks-get-credentials] con l'argomento `--admin` per accedere al cluster con l'accesso amministrativo.
+Prima di tutto, usare il comando [az servizio Azure Kubernetes get-credentials][az-aks-get-credentials] con l'argomento `--admin` per accedere al cluster con l'accesso amministrativo.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
@@ -199,7 +199,7 @@ Per altre informazioni sulla protezione di un cluster Kubernetes con RBAC, veder
 
 ## <a name="access-cluster-with-azure-ad"></a>Accedere al cluster con Azure AD
 
-Successivamente, effettuare il pull del contesto per l'utente non amministratore con il comando [az aks get-credentials][az-aks-get-credentials].
+Successivamente, effettuare il pull del contesto per l'utente non amministratore con il comando [az servizio Azure Kubernetes get-credentials][az-aks-get-credentials].
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster

@@ -28,7 +28,7 @@ Insieme al [catalogo di servizi di Kubernetes][kubernetes-service-catalog], Open
 
 * Autorizzazioni per creare un'entità servizio con il ruolo Collaboratore nella sottoscrizione di Azure
 
-* Cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio contenitore di Azure consultare la guida introduttiva [Creare un cluster del servizio contenitore di Azure][create-aks-cluster].
+* Cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Container consultare la guida introduttiva [Creare un cluster del servizio Azure Container][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Installare il catalogo di servizi
 

@@ -19,11 +19,11 @@ ms.locfileid: "54078950"
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Creare un cluster Kubernetes con il servizio Azure Kubernetes e Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) gestisce l'ambiente Kubernetes ospitato consentendo di distribuire e gestire applicazioni in contenitori in modo semplice e rapido senza competenze nell'orchestrazione di contenitori. Elimina anche l'impegno delle operazioni in corso e della manutenzione effettuando il provisioning, l'aggiornamento e il ridimensionamento delle risorse su richiesta, senza portare le applicazioni offline.
 
-Questa esercitazione illustra come eseguire le attività seguenti nella creazione di un cluster [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) usando [Terraform](http://terraform.io) e AKS:
+Questa esercitazione illustra come eseguire le attività seguenti nella creazione di un cluster [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) usando [Terraform](http://terraform.io) e servizio Azure Kubernetes:
 
 > [!div class="checklist"]
 > * Usare HCL (linguaggio HashiCorp) per definire un cluster Kubernetes
-> * Usare Terraform e AKS per creare un cluster Kubernetes
+> * Usare Terraform e servizio Azure Kubernetes per creare un cluster Kubernetes
 > * Usare lo strumento kubectl per verificare la disponibilità di un cluster Kubernetes
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -175,7 +175,7 @@ Creare il file di configurazione Terraform che dichiara le risorse per il cluste
 
     Il record **linux_profile** consente di configurare le impostazioni che consentono di accedere ai nodi di lavoro con SSH.
 
-    Con AKS si pagano solo i nodi di lavoro. Il record **agent_pool_profile** configura i dettagli di questi nodi di lavoro. Il record **agent_pool_profile** include il numero e il tipo di nodi di lavoro da creare. Se in futuro sarà necessario ridimensionare il cluster, modificare il valore **count** di questo record.
+    Con servizio Azure Kubernetes si pagano solo i nodi di lavoro. Il record **agent_pool_profile** configura i dettagli di questi nodi di lavoro. Il record **agent_pool_profile** include il numero e il tipo di nodi di lavoro da creare. Se in futuro sarà necessario ridimensionare il cluster, modificare il valore **count** di questo record.
 
 1. Premere **ESC** per disattivare la modalità di inserimento.
 
@@ -409,10 +409,10 @@ In caso di timeout della sessione di Cloud Shell, è possibile eseguire questi p
     ![Lo strumento kubectl consente di verificare l'integrità del cluster Kubernetes](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 
 ## <a name="monitor-health-and-logs"></a>Monitoraggio di stato e registri
-Quando è stato creato il cluster del servizio Kubernetes di Azure, è stato abilitato il monitoraggio per acquisire le metriche di integrità sia per i nodi del cluster che per i pod. Queste metriche di integrità sono disponibili nel portale di Azure. Per altre informazioni sul monitoraggio dell'integrità dei contenitori, vedere [Monitorare l'integrità del servizio Azure Kubernetes](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+Quando è stato creato il cluster del servizio Azure Kubernetes, è stato abilitato il monitoraggio per acquisire le metriche di integrità sia per i nodi del cluster che per i pod. Queste metriche di integrità sono disponibili nel portale di Azure. Per altre informazioni sul monitoraggio dell'integrità dei contenitori, vedere [Monitorare l'integrità del servizio Azure Kubernetes](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo si è appreso come usare Terraform e AKS per creare un cluster Kubernetes. Di seguito sono segnalate altre risorse di approfondimento su Terraform di Azure: 
+In questo articolo si è appreso come usare Terraform e servizio Azure Kubernetes per creare un cluster Kubernetes. Di seguito sono segnalate altre risorse di approfondimento su Terraform di Azure: 
 
  [Hub Terraform in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
  [Terraform Azure provider documentation (Documentazione sul provider Terraform in Azure)](https://aka.ms/terraform)  

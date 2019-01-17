@@ -1,9 +1,9 @@
 items:
-- name: Istanze di contenitore
+- name: Istanze di Container
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni su Istanze di contenitore di Azure
+  - name: Informazioni su Istanze di Azure Container
     href: container-instances-overview.md
 - name: Guide introduttive
   items:

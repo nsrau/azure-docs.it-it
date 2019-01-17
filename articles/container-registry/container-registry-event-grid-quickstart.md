@@ -141,7 +141,7 @@ Al termine della sottoscrizione, l'output dovrebbe essere simile al seguente:
 
 ## <a name="trigger-registry-events"></a>Attivare gli eventi del registro
 
-Ora che l'app di esempio è attiva e si è eseguita la sottoscrizione al registro con Griglia di eventi, si è pronti per generare alcuni eventi. In questa sezione si usa ACR Tasks per compilare un'immagine di contenitore ed eseguirne il push nel registro. ACR Tasks è una funzionalità di Registro contenitori di Azure che consente di compilare immagini dei contenitori nel cloud, senza che sia necessario installare il motore Docker nel computer locale.
+Ora che l'app di esempio è attiva e si è eseguita la sottoscrizione al registro con Griglia di eventi, si è pronti per generare alcuni eventi. In questa sezione si usa ACR Tasks per compilare un'immagine di contenitore ed eseguirne il push nel registro. ACR Tasks è una funzionalità di Registro Azure Container che consente di compilare immagini dei contenitori nel cloud, senza che sia necessario installare il motore Docker nel computer locale.
 
 ### <a name="build-and-push-image"></a>Compilare l'immagine ed eseguirne il push
 

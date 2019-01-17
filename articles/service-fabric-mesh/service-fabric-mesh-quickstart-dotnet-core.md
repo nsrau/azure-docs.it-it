@@ -86,7 +86,7 @@ Nella finestra di dialogo **Pubblica applicazione di Service Fabric**, in **Regi
 
 Nella finestra di dialogo per la pubblicazione fare clic sul pulsante **Pubblica** per distribuire l'applicazione Service Fabric Mesh in Azure.
 
-Quando si pubblica in Azure per la prima volta, viene eseguito il push dell'immagine Docker per il Registro contenitori di Azure (ACR). Questa operazione richiede del tempo, che varia a seconda delle dimensioni dell'immagine. Le successive pubblicazioni dello stesso progetto saranno più rapide. È possibile monitorare lo stato di avanzamento del processo di distribuzione selezionando **Strumenti di Service Fabric** dal menu a discesa della finestra **Output**. Al termine della distribuzione, nell'output di **Strumenti di Service Fabric** verranno visualizzati l'indirizzo IP e la porta dell'applicazione sotto forma di URL.
+Quando si pubblica in Azure per la prima volta, viene eseguito il push dell'immagine Docker per il Registro Azure Container. Questa operazione richiede tempo a seconda delle dimensioni dell'immagine. Le successive pubblicazioni dello stesso progetto saranno più rapide. È possibile monitorare lo stato di avanzamento del processo di distribuzione selezionando **Strumenti di Service Fabric** dal menu a discesa della finestra **Output**. Al termine della distribuzione, nell'output di **Strumenti di Service Fabric** verranno visualizzati l'indirizzo IP e la porta dell'applicazione sotto forma di URL.
 
 ```
 Packaging Application...

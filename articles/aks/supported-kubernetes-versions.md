@@ -18,20 +18,20 @@ ms.locfileid: "53001816"
 
 La community di Kubernetes rilascia le versioni secondarie all'incirca ogni tre mesi. Queste versioni includono miglioramenti e nuove funzionalità. Le versioni delle patch sono più frequenti (in alcuni casi settimanali) e sono destinate esclusivamente a correzioni di bug importanti in una versione secondaria. Le versioni delle patch consentono di risolvere le vulnerabilità della sicurezza o i bug rilevanti con impatto su un numero elevato di clienti e prodotti in esecuzione in ambienti di produzione basati su Kubernetes.
 
-Una versione secondaria di Kubernetes è resa disponibile in [aks-engine][aks-engine] dal primo giorno. L'obiettivo del livello di servizio (SLO) del servizio Kubernetes di Azure è quello di rilasciare la versione secondaria per i cluster AKS entro 30 giorni, fermo restando la stabilità della versione.
+Una versione secondaria di Kubernetes è resa disponibile in [aks-engine][aks-engine] dal primo giorno. L'obiettivo del livello di servizio (SLO) del servizio Azure Kubernetes è quello di rilasciare la versione secondaria per i cluster servizio Azure Kubernetes entro 30 giorni, fermo restando la stabilità della versione.
 
 ## <a name="kubernetes-version-support-policy"></a>Criteri di supporto della versione di Kubernetes
 
-Il servizio Kubernetes di Azure supporta quattro versioni secondarie di Kubernetes:
+Il servizio Azure Kubernetes supporta quattro versioni secondarie di Kubernetes:
 
 - La versione secondaria corrente che viene rilasciata upstream (n)
 - Tre versioni secondarie precedenti. Ogni versione secondaria supportata supporta anche due patch stabili.
 
-Se, ad esempio, il servizio Kubernetes di Azure introduce oggi *1.11.x*, il supporto viene fornito anche per *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8F* (in cui le versioni delle patch sono le due build stabili più recenti).
+Se, ad esempio, il servizio Azure Kubernetes introduce oggi *1.11.x*, il supporto viene fornito anche per *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8F* (in cui le versioni delle patch sono le due build stabili più recenti).
 
 Quando viene introdotta una nuova versione secondaria, vengono ritirate la versioni secondaria precedente e le versioni delle patch supportate. 15 giorni prima del rilascio della nuova versione secondaria e il futuro ritiro della versione, viene fatto un annuncio tramite i [canali di aggiornamento di Azure][azure-update-channel]. Nell'esempio precedente in cui viene rilasciata la versione *1.11.x*, le versioni ritirate sono *1.7.g* + *1.7.h*.
 
-Quando si distribuisce un cluster del servizio Kubernetes di Azure nel portale o con l'interfaccia della riga di comando di Azure, il cluster è sempre impostato sulla versione secondaria n-1 e la patch più recente. Se, ad esempio, il servizio Kubernetes di Azure supporta *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8F*, la versione predefinita per i nuovi cluster è *1.10.b*.
+Quando si distribuisce un cluster del servizio Azure Kubernetes nel portale o con l'interfaccia della riga di comando di Azure, il cluster è sempre impostato sulla versione secondaria n-1 e la patch più recente. Se, ad esempio, il servizio Azure Kubernetes supporta *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8F*, la versione predefinita per i nuovi cluster è *1.10.b*.
 
 ## <a name="list-currently-supported-versions"></a>Elencare le versioni attualmente supportate
 
@@ -62,18 +62,18 @@ KubernetesVersion    Upgrades
 
 Se si usa la versione *n-4*, si è all'esterno dello SLO. Se l'aggiornamento dalla versione n-4 a n-3 ha esito positivo, si è nuovamente dello SLO. Ad esempio: 
 
-- Se le versioni supportate del servizio Kubernetes di Azure sono *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8F* e si usa *1.7.g* o *1.7.h*, si è all'esterno dello SLO.
+- Se le versioni supportate del servizio Azure Kubernetes sono *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8F* e si usa *1.7.g* o *1.7.h*, si è all'esterno dello SLO.
 - Se l'aggiornamento da *1.7.g* o *1.7.h* a *1.8.e* o *1.8.f* ha esito positivo, si è nuovamente dello SLO.
 
-Gli aggiornamenti alle versioni precedenti a *n-4* non sono supportati. In questi casi, è consigliabile creare nuovi cluster del servizio Kubernetes di Azure e ridistribuire i carichi di lavoro.
+Gli aggiornamenti alle versioni precedenti a *n-4* non sono supportati. In questi casi, è consigliabile creare nuovi cluster del servizio Azure Kubernetes e ridistribuire i carichi di lavoro.
 
 **Cosa accade quando un cliente ridimensiona un cluster Kubernetes con una versione secondaria che non è supportata?**
 
-Per le versioni secondarie non supportate dal servizio Kubernetes di Azure, il ridimensionamento o la scalabilità orizzontale continuano a funzionare senza problemi.
+Per le versioni secondarie non supportate dal servizio Azure Kubernetes, il ridimensionamento o la scalabilità orizzontale continuano a funzionare senza problemi.
 
 **Un cliente può usare permanentemente una versione di Kubernetes?**
 
-Sì. Tuttavia, se il cluster non è in una delle versioni supportate dal servizio Kubernetes di Azure, esso è all'esterno dello SLO AKS. Azure non aggiorna o elimina automaticamente il cluster.
+Sì. Tuttavia, se il cluster non è in una delle versioni supportate dal servizio Azure Kubernetes, esso è all'esterno dello SLO servizio Azure Kubernetes. Azure non aggiorna o elimina automaticamente il cluster.
 
 **Quale versione effettua il supporto del master se il cluster agente non è presente in una delle versioni supportate del servizio Kubernetes di Azure?**
 

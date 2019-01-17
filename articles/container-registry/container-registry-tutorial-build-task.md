@@ -273,7 +273,7 @@ Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
 
-Dopo aver eseguito il push di un commit nel repository, il webhook creato da ACR Tasks viene attivato e avvia una compilazione in Registro contenitori di Azure. Visualizzare i log dell'attività attualmente in esecuzione per verificarne e monitorarne lo stato di avanzamento:
+Dopo aver eseguito il push di un commit nel repository, il webhook creato da ACR Tasks viene attivato e avvia una compilazione in Registro Azure Container. Visualizzare i log dell'attività attualmente in esecuzione per verificarne e monitorarne lo stato di avanzamento:
 
 ```azurecli-interactive
 az acr task logs --registry $ACR_NAME

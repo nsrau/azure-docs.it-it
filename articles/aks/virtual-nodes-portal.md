@@ -24,15 +24,15 @@ Per distribuire rapidamente i carichi di lavoro in un cluster del servizio Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio contenitore di Azure
+## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
 Nell'angolo superiore sinistro del portale di Azure, selezionare **Crea una risorsa** > **Servizio Kubernetes**.
 
 Nella pagina **Informazioni di base** configurare le opzioni seguenti:
 
 - *DETTAGLI DEL PROGETTO*: Selezionare una sottoscrizione di Azure, quindi selezionare o creare un gruppo di risorse di Azure, ad esempio *myResourceGroup*. Immettere un **nome cluster Kubernetes**, ad esempio *myAKSCluster*.
-- *DETTAGLI DEI CLUSTER*: Selezionare un'area, una versione di Kubernetes e il prefisso di nome DNS per il cluster del servizio Kubernetes di Azure.
-- *SCALABILITÀ*: Selezionare le dimensioni di macchina virtuale per i nodi del servizio Kubernetes di Azure. Le dimensioni della macchina virtuale **non possono** essere modificate dopo che un cluster del servizio contenitore di Azure è stato distribuito.
+- *DETTAGLI DEI CLUSTER*: Selezionare un'area, una versione di Kubernetes e il prefisso di nome DNS per il cluster del servizio Azure Kubernetes.
+- *SCALABILITÀ*: Selezionare le dimensioni di macchina virtuale per i nodi del servizio Azure Kubernetes. Le dimensioni della macchina virtuale **non possono** essere modificate dopo che un cluster del servizio Azure Container è stato distribuito.
     - Selezionare il numero di nodi da distribuire nel cluster. Per questo articolo, impostare **Conteggio dei nodi** su *1*. Il numero di nodi **può** essere modificato dopo che il cluster è stato distribuito.
     - In **Nodi virtuali** selezionare *Abilitato*.
 
@@ -44,7 +44,7 @@ Il cluster è configurato anche per le funzionalità di rete avanzate. I nodi vi
 
 Selezionare **Rivedi e crea**. Dopo aver completato la convalida, selezionare **Crea**.
 
-Sono necessari alcuni minuti perché il cluster del servizio Kubernetes di Azure venga creato e sia pronto per l'uso.
+Sono necessari alcuni minuti perché il cluster del servizio Azure Kubernetes venga creato e sia pronto per l'uso.
 
 ## <a name="connect-to-the-cluster"></a>Connettersi al cluster
 
@@ -52,7 +52,7 @@ Azure Cloud Shell è una shell interattiva gratuita che può essere usata per es
 
 Per aprire Cloud Shell, selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/bash](https://shell.azure.com/bash). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
 
-Per configurare [ per la connessione al cluster Kubernetes, usare il comando ]az aks get-credentials[az-aks-get-credentials]`kubectl`. L'esempio seguente ottiene le credenziali per il nome cluster *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*:
+Per configurare [ per la connessione al cluster Kubernetes, usare il comando ]az servizio Azure Kubernetes get-credentials[az-aks-get-credentials]`kubectl`. L'esempio seguente ottiene le credenziali per il nome cluster *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -162,7 +162,7 @@ Chiudere la sessione del terminale nel pod del test con `exit`. Quando viene ter
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato pianificato un pod nel nodo virtuale ed è stato assegnato un indirizzo IP interno privato. In alternativa, è possibile creare una distribuzione di servizio e instradare il traffico al pod attraverso un bilanciamento del carico o un controller in ingresso. Per altre informazioni, vedere l'argomento relativo alla [creazione di un controller di ingresso di base in AKS][aks-basic-ingress].
+In questo articolo è stato pianificato un pod nel nodo virtuale ed è stato assegnato un indirizzo IP interno privato. In alternativa, è possibile creare una distribuzione di servizio e instradare il traffico al pod attraverso un bilanciamento del carico o un controller in ingresso. Per altre informazioni, vedere l'argomento relativo alla [creazione di un controller di ingresso di base in servizio Azure Kubernetes][aks-basic-ingress].
 
 I nodi virtuali sono un componente di una soluzione di scalabilità nel servizio Azure Kubernetes. Per altre informazioni sulle soluzioni di scalabilità, vedere gli articoli seguenti:
 

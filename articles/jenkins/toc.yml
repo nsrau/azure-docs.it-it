@@ -25,10 +25,10 @@ items:
     href: /azure/jenkins/execute-cli-jenkins-pipeline
   - name: Scalabilità con gli agenti di macchine virtuali di Azure
     href: /azure/jenkins/jenkins-azure-vm-agents
-  - name: Compilare con Istanze di contenitore di Azure
+  - name: Compilare con Istanze di Azure Container
     href: /azure/container-instances/container-instances-jenkins
     maintainContext: true
-  - name: Eseguire la distribuzione nel servizio Kubernetes di Azure con un modello di tipo blu-verde
+  - name: Eseguire la distribuzione nel servizio Azure Kubernetes con un modello di tipo blu-verde
     href: /azure/jenkins/jenkins-aks-blue-green-deployment
 - name: Procedura
   items:

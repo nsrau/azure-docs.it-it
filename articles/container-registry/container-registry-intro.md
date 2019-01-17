@@ -19,7 +19,7 @@ ms.locfileid: "53253239"
 
 Registro contenitori di Azure è un servizio gestito di [registri Docker](https://docs.docker.com/registry/) basato sull'applicazione open source Docker Registry 2.0. Creare e gestire registri contenitori di Azure per archiviare e gestire immagini [contenitore Docker](https://www.docker.com/what-docker) private.
 
-È possibile usare i registri contenitori in Azure con le pipeline di sviluppo e distribuzione del contenitore esistente. Compilare immagini dei contenitori in Azure con la build del Registro contenitori di Azure. La build su richiesta o le build completamente automatizzate con commit del codice sorgente e immagine di base aggiornano i trigger della build.
+È possibile usare i registri contenitori in Azure con le pipeline di sviluppo e distribuzione del contenitore esistente. Compilare immagini dei contenitori in Azure con la build di Registro Azure Container. La build su richiesta o le build completamente automatizzate con commit del codice sorgente e immagine di base aggiornano i trigger della build.
 
 Per informazioni su Docker e sui contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).
 
@@ -32,7 +32,7 @@ Effettuare il pull di immagini da un registro contenitori di Azure a varie desti
 
 Gli sviluppatori possono anche effettuare il push in un registro contenitori nell'ambito di un flusso di lavoro di sviluppo di contenitori, ad esempio specificando come destinazione un Registro di sistema del contenitore da uno strumento di distribuzione e integrazione continua, quale [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) o [Jenkins](https://jenkins.io/).
 
-Configurare [attività del Registro contenitori di Azure](#azure-container-registry-build) per ricompilare automaticamente le immagini delle applicazioni quando vengono aggiornate le immagini di base. Usare le attività del Registro contenitori di Azure per automatizzare le build delle immagini quando il team esegue il commit del codice in un repository GIT.
+Configurare [attività di Registro Azure Container](#azure-container-registry-build) per ricompilare automaticamente le immagini delle applicazioni quando vengono aggiornate le immagini di base. Usare le attività di Registro Azure Container per automatizzare le build delle immagini quando il team esegue il commit del codice in un repository GIT.
 
 ## <a name="key-concepts"></a>Concetti chiave
 
@@ -52,7 +52,7 @@ Configurare [attività del Registro contenitori di Azure](#azure-container-regis
 
 ## <a name="azure-container-registry-tasks"></a>Attività del Registro contenitori di Azure
 
-Le [attività del Registro contenitori di Azure](container-registry-tasks-overview.md) sono un gruppo di funzionalità del Registro contenitori di Azure che consente una compilazione efficiente e semplificata delle immagini del contenitore Docker in Azure. Usare le attività del Registro contenitori di Azure per estendere il ciclo interno di sviluppo nel cloud usando le operazioni di offload `docker build` in Azure. Configurare le attività di compilazione per automatizzare la pipeline di applicazione delle patch al sistema operativo e al framework del contenitore e compilare automaticamente le immagini quando il team esegue il commit del codice nel controllo dell'origine.
+Le [attività del Registro contenitori di Azure](container-registry-tasks-overview.md) sono un gruppo di funzionalità del Registro contenitori di Azure che consente una compilazione efficiente e semplificata delle immagini del contenitore Docker in Azure. Usare le attività di Registro Azure Container per estendere il ciclo interno di sviluppo nel cloud usando le operazioni di offload `docker build` in Azure. Configurare le attività di compilazione per automatizzare la pipeline di applicazione delle patch al sistema operativo e al framework del contenitore e compilare automaticamente le immagini quando il team esegue il commit del codice nel controllo dell'origine.
 
 [Attività a più passaggi](container-registry-tasks-overview.md#multi-step-tasks-preview), una funzionalità in anteprima delle attività del Registro contenitori di Azure, consente di definire ed eseguire attività in più passaggi per compilare, testare e correggere immagini contenitore nel cloud. I passaggi dell'attività definiscono singole operazioni di compilazione e push dell'immagine contenitore. Possono anche definire l'esecuzione di uno o più contenitori, in cui ogni passaggio usa il contenitore come ambiente di esecuzione.
 

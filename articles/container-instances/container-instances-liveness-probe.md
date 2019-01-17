@@ -1,6 +1,6 @@
 ---
-title: Configurare probe di attività in Istanze di contenitore di Azure
-description: Informazioni su come configurare probe di attività per riavviare i contenitori non integri in Istanze di contenitore di Azure
+title: Configurare probe di attività in Istanze di Azure Container
+description: Informazioni su come configurare probe di attività per riavviare i contenitori non integri in Istanze di Azure Container
 services: container-instances
 author: jluk
 manager: jeconnoc
@@ -17,7 +17,7 @@ ms.locfileid: "39213072"
 ---
 # <a name="configure-liveness-probes"></a>Configurare probe di attività
 
-Le applicazioni nei contenitori possono essere eseguite per periodi prolungati di tempo e ciò può causare stati interrotti che potrebbe risultare necessario ripristinare riavviando il contenitore. Istanze di contenitore di Azure supporta l'inclusione di configurazioni nei probe di attività, in modo che il contenitore possa essere riavviato se una funzionalità cruciale non è disponibile.
+Le applicazioni nei contenitori possono essere eseguite per periodi prolungati di tempo e ciò può causare stati interrotti che potrebbe risultare necessario ripristinare riavviando il contenitore. Istanze di Azure Container supporta l'inclusione di configurazioni nei probe di attività, in modo che il contenitore possa essere riavviato se una funzionalità cruciale non è disponibile.
 
 Questo articolo illustra come distribuire un gruppo di contenitori che include un probe di attività, per dimostrare il riavvio automatico di un contenitore non integro simulato.
 
@@ -101,7 +101,7 @@ I criteri di riavvio sostituiscono il comportamento di riavvio attivato dai prob
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per gli scenari basati su attività potrebbe essere necessario che un probe di attività abiliti i riavvii automatici se una funzione prerequisito non funziona correttamente. Per altre informazioni sull'esecuzione di contenitori basati su attività, vedere [Eseguire attività in contenitori in Istanze di contenitore di Azure](container-instances-restart-policy.md).
+Per gli scenari basati su attività potrebbe essere necessario che un probe di attività abiliti i riavvii automatici se una funzione prerequisito non funziona correttamente. Per altre informazioni sull'esecuzione di contenitori basati su attività, vedere [Eseguire attività in contenitori in Istanze di Azure Container](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png

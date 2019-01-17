@@ -17,7 +17,7 @@ ms.locfileid: "53255286"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Guida introduttiva: creare un registro contenitori privato usando Azure PowerShell
 
-Registro contenitori di Azure è un servizio gestito e privato di registri contenitori Docker usato per compilare, archiviare e servire immagini del contenitore Docker. In questa guida introduttiva si apprenderà a creare un registro contenitori di Azure usando PowerShell. Dopo aver creato il registro, eseguire il push di un'immagine del contenitore in esso, quindi distribuire il contenitore dal registro in Istanze di contenitore di Azure.
+Registro contenitori di Azure è un servizio gestito e privato di registri contenitori Docker usato per compilare, archiviare e servire immagini del contenitore Docker. In questa guida introduttiva si apprenderà a creare un registro contenitori di Azure usando PowerShell. Dopo aver creato il registro, eseguire il push di un'immagine del contenitore in esso, quindi distribuire il contenitore dal registro in Istanze di Azure Container.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -76,7 +76,7 @@ Login Succeeded
 
 ## <a name="push-image-to-registry"></a>Eseguire il push dell'immagine nel registro
 
-Dopo aver effettuato l'accesso al registro, è possibile eseguire il push delle immagini del contenitore in esso. Per ottenere un'immagine è possibile eseguire il push nel registro e il pull dell'immagine pubblica [aci-helloworld][aci-helloworld-image] dall'hub Docker. L'immagine [aci-helloworld][aci-helloworld-github] è una piccola applicazione Node.js che serve una pagina HTML statica che mostra il logo di Istanze di contenitore di Azure.
+Dopo aver effettuato l'accesso al registro, è possibile eseguire il push delle immagini del contenitore in esso. Per ottenere un'immagine è possibile eseguire il push nel registro e il pull dell'immagine pubblica [aci-helloworld][aci-helloworld-image] dall'hub Docker. L'immagine [aci-helloworld][aci-helloworld-github] è una piccola applicazione Node.js che serve una pagina HTML statica che mostra il logo di Istanze di Azure Container.
 
 ```powershell
 docker pull microsoft/aci-helloworld
@@ -136,7 +136,7 @@ Congratulazioni! È stato appena eseguito il push dell'immagine del contenitore 
 
 ## <a name="deploy-image-to-aci"></a>Distribuire l'immagine in Istanze di contenitore di Azure
 
-Ora che l'immagine si trova nel registro, distribuire il contenitore direttamente in Istanze di contenitore di Azure per visualizzarlo in esecuzione in Azure.
+Ora che l'immagine si trova nel registro, distribuire il contenitore direttamente in Istanze di Azure Container per visualizzarlo in esecuzione in Azure.
 
 Convertire innanzitutto le credenziale del registro in *PSCredential*. Per il comando `New-AzureRmContainerGroup`, che consente di creare l'istanza del contenitore, è necessario usare questo formato.
 
@@ -230,7 +230,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato creato un registro contenitori di Azure con l'interfaccia della riga di comando di Azure e ne è stata avviata un'istanza in Istanze di contenitore di Azure. Passare all'esercitazione su Istanze di contenitore di Azure per maggiori informazioni.
+In questa guida introduttiva è stata creata un'istanza di Registro Azure Container con l'interfaccia della riga di comando di Azure e ne è stata avviata un'istanza in Istanze di Azure Container. Passare all'esercitazione su Istanze di Azure Container per maggiori informazioni.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure](../container-instances/container-instances-tutorial-prepare-app.md)

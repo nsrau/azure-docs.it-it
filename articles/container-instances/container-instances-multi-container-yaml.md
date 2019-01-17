@@ -1,6 +1,6 @@
 ---
-title: Distribuire gruppi di più contenitori in Istanze di contenitore di Azure con l'interfaccia della riga di comando di Azure e YAML
-description: Informazioni su come distribuire un gruppo di contenitori con più contenitori in Istanze di contenitore di Azure con l'interfaccia della riga di comando di Azure e un file YAML.
+title: Distribuire gruppi di più contenitori in Istanze di Azure Container con l'interfaccia della riga di comando di Azure e YAML
+description: Informazioni su come distribuire un gruppo di contenitori con più contenitori in Istanze di Azure Container con l'interfaccia della riga di comando di Azure e un file YAML.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -16,7 +16,7 @@ ms.locfileid: "48854712"
 ---
 # <a name="deploy-a-multi-container-container-group-with-yaml"></a>Distribuire un gruppo di contenitori con più contenitori con YAML
 
-Istanze di contenitore di Azure supporta la distribuzione di più contenitori in un singolo host usando un [gruppo di contenitori](container-instances-container-groups.md). I gruppi di contenitori con più contenitori sono utili quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato.
+Istanze di Azure Container supporta la distribuzione di più contenitori in un singolo host usando un [gruppo di contenitori](container-instances-container-groups.md). I gruppi di contenitori con più contenitori sono utili quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato.
 
 Esistono due metodi per la distribuzione di gruppi di contenitori con più contenitori usando l'interfaccia della riga di comando di Azure:
 
@@ -26,7 +26,7 @@ Esistono due metodi per la distribuzione di gruppi di contenitori con più conte
 A causa della natura più concisa del formato YAML, la distribuzione con un file YAML è consigliata quando la distribuzione include *solo* istanze di contenitore. Se è necessario distribuire ulteriori risorse del servizio di Azure (ad esempio, una condivisione di File di Azure) al momento della distribuzione delle istanze di contenitore, è consigliabile la distribuzione del modello di Resource Manager.
 
 > [!NOTE]
-> I gruppi multicontenitore sono attualmente limitati ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di contenitore di Azure).
+> I gruppi multicontenitore sono attualmente limitati ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di Azure Container).
 
 ## <a name="configure-the-yaml-file"></a>Configurare il file YAML
 
@@ -220,7 +220,7 @@ properties:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato i passaggi necessari per la distribuzione di un'istanza multicontenitore di Azure. Per un'esperienza completa di Istanze di contenitore di Azure, incluse informazioni sull'uso del registro contenitori di Azure privato, vedere l'esercitazione su Istanze di contenitore di Azure.
+Questo articolo ha illustrato i passaggi necessari per la distribuzione di un'istanza multicontenitore di Azure. Per un'esperienza completa di Istanze di Azure Container, incluse informazioni sull'uso di Registro Azure Container privato, vedere l'esercitazione su Istanze di Azure Container.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure][aci-tutorial]

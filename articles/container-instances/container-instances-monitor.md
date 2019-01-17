@@ -1,6 +1,6 @@
 ---
-title: Monitorare i contenitori in Istanze di contenitore di Azure
-description: Informazioni dettagliate su come monitorare il consumo delle risorse di calcolo, ad esempio CPU e memoria da parte dei contenitori in Istanze di contenitore di Azure.
+title: Monitorare i contenitori in Istanze di Azure Container
+description: Informazioni dettagliate su come monitorare il consumo delle risorse di calcolo, ad esempio CPU e memoria da parte dei contenitori in Istanze di Azure Container.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/16/2018
 ms.locfileid: "51822501"
 ---
-# <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorare le risorse dei contenitori in Istanze di contenitore di Azure
+# <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorare le risorse dei contenitori in Istanze di Azure Container
 
 Monitoraggio di Azure offre informazioni approfondite sulle risorse di calcolo usate dalle istanze di contenitori. Usare Monitoraggio di Azure per tenere traccia dell'uso della CPU e della memoria dei gruppi di contenitori e dei relativi contenitori. I dati sull'uso delle risorse consentono di determinare le migliori impostazioni della CPU e della memoria per i gruppi di contenitori.
 
@@ -26,7 +26,7 @@ Questo documento illustra in dettaglio la raccolta dei dati sull'uso della CPU e
 
 ## <a name="available-metrics"></a>Metriche disponibili
 
-Monitoraggio di Azure offre le metriche sull'uso della **CPU** e della **memoria** per Istanze di contenitore di Azure. Entrambe le metriche sono disponibili per un gruppo di contenitori e per i singoli contenitori.
+Monitoraggio di Azure offre le metriche sull'uso della **CPU** e della **memoria** per Istanze di Azure Container. Entrambe le metriche sono disponibili per un gruppo di contenitori e per i singoli contenitori.
 
 Le metriche della CPU sono espresse in **millicore**. Un millicore equivale a 1/1.000 di un core della CPU, quindi 500 millicore, o 500 m, rappresentano il 50% dell'uso di un core della CPU.
 
@@ -48,7 +48,7 @@ Se un gruppo di contenitori contiene più contenitori, usare una [dimensione][mo
 
 ## <a name="get-metrics---azure-cli"></a>Ottenere le metriche: interfaccia della riga di comando di Azure
 
-I dati sull'uso della CPU e della memoria delle istanze di contenitore possono essere raccolti usando anche l'interfaccia della riga di comando di Azure. Recuperare innanzitutto l'ID del gruppo di contenitori usando il comando seguente. Sostituire `<resource-group>` con il nome del gruppo di risorse e `<container-group>` con il nome del gruppo di contenitori.
+I dati sull'uso della CPU e della memoria delle Istanze di Container possono essere raccolti usando anche l'interfaccia della riga di comando di Azure. Recuperare innanzitutto l'ID del gruppo di contenitori usando il comando seguente. Sostituire `<resource-group>` con il nome del gruppo di risorse e `<container-group>` con il nome del gruppo di contenitori.
 
 
 ```console

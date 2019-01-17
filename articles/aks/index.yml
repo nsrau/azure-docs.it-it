@@ -26,7 +26,7 @@ sections:
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
-    text: 'Informazioni su come distribuire un cluster del servizio contenitore di Azure:'
+    text: 'Informazioni su come distribuire un cluster del servizio Azure Container:'
   - type: list
     style: icon48
     items:
@@ -39,7 +39,7 @@ sections:
       text: Portale di Azure
       href: /azure/aks/kubernetes-walkthrough-portal
   - type: paragraph
-    text: 'Informazioni su come sviluppare applicazioni ed eseguirne il debug con AKS:'
+    text: 'Informazioni su come sviluppare applicazioni ed eseguirne il debug con servizio Azure Kubernetes:'
   - type: list
     style: icon48
     items:
@@ -62,7 +62,7 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Informazioni su come distribuire, gestire e aggiornare le applicazioni in un cluster del servizio contenitore di Azure.
+    text: Informazioni su come distribuire, gestire e aggiornare le applicazioni in un cluster del servizio Azure Container.
   - type: list
     style: ordered
     items:
@@ -84,7 +84,7 @@ sections:
       image:
         src: /learn/achievements/intro-to-containers.svg
         href: /learn/modules/intro-to-containers/
-    - title: Eseguire contenitori Docker con Istanze di contenitore di Azure
+    - title: Eseguire contenitori Docker con Istanze di Azure Container
       href: /learn/modules/run-docker-with-azure-container-instances/
       image:
         src: /learn/achievements/run-docker-with-azure-container-instances.svg

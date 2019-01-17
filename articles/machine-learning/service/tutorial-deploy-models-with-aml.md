@@ -33,7 +33,7 @@ In questa parte dell'esercitazione si usa il servizio Azure Machine Learning per
 > * Distribuire il modello in Istanze di Container.
 > * Testare il modello distribuito.
 
-Le istanze di contenitore non sono ideali per le distribuzioni di produzione, ma lo sono per i test e per comprendere il flusso di lavoro. Per le distribuzioni di produzione scalabili, è consigliabile usare il servizio Azure Kubernetes. Per altre informazioni, vedere l'articolo su [come e dove eseguire la distribuzione](how-to-deploy-and-where.md).
+Istanze di Container non è ideale per le distribuzioni di produzione, ma lo è per i test e per comprendere il flusso di lavoro. Per le distribuzioni di produzione scalabili, è consigliabile usare il servizio Azure Kubernetes. Per altre informazioni, vedere l'articolo su [come e dove eseguire la distribuzione](how-to-deploy-and-where.md).
 
 ## <a name="get-the-notebook"></a>Ottenere il notebook
 
@@ -252,7 +252,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                description='Predict MNIST with sklearn')
 ```
 
-### <a name="deploy-in-container-instances"></a>Distribuire istanze di contenitore
+### <a name="deploy-in-container-instances"></a>Distribuire in Istanze di Container
 Il tempo stimato per completare la distribuzione è di **circa sette o otto minuti**.
 
 Configurare l'immagine e distribuire. Il codice seguente esegue questi passaggi:
@@ -262,8 +262,8 @@ Configurare l'immagine e distribuire. Il codice seguente esegue questi passaggi:
    * Il file di ambiente, `myenv.yml`.
    * file di modello.
 1. Registrare l'immagine nell'area di lavoro. 
-1. Inviare l'immagine nel contenitore di istanze di Azure Container.
-1. Avviare un contenitore in Azure Container usando l'immagine.
+1. Inviare l'immagine nel contenitore di Istanze di Container.
+1. Avviare un contenitore in Istanze di Container usando l'immagine.
 1. Ottenere l'endpoint HTTP del servizio Web.
 
 
@@ -298,7 +298,7 @@ print(service.scoring_uri)
 In precedenza è stato assegnato un punteggio a tutti i dati di test con la versione locale del modello. È ora possibile testare il modello distribuito con un campione casuale di 30 immagini ottenute dai dati di test.  
 
 Il codice seguente esegue questi passaggi:
-1. Inviare i dati come matrice JSON per il servizio Web ospitato nelle istanza di contenitore. 
+1. Inviare i dati come matrice JSON per il servizio Web ospitato in Istanze di Container. 
 
 1. Usare l'API `run` di SDK per chiamare il servizio. È anche possibile eseguire chiamate non elaborate usando qualsiasi strumento HTTP, ad esempio **curl**.
 
@@ -369,7 +369,7 @@ print("prediction:", resp.text)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per mantenere il gruppo di risorse e l'area di lavoro per altre esercitazioni ed esplorazioni, è possibile eliminare solo la distribuzione delle istanza di contenitore tramite questa chiamata API:
+Per mantenere il gruppo di risorse e l'area di lavoro per altre esercitazioni ed esplorazioni, è possibile eliminare solo la distribuzione di Istanze di Container tramite questa chiamata API:
 
 ```python
 service.delete()

@@ -40,7 +40,7 @@ items:
   - name: 3 - Distribuire in un database SQL di Azure
     href: azure-devops-project-sql-database.md
     maintainContext: true
-  - name: 4 - Distribuire nel servizio contenitore di Azure
+  - name: 4 - Distribuire nel servizio Azure Container
     href: azure-devops-project-aks.md
     maintainContext: true
   - name: 5 - Distribuire in Azure Service Fabric

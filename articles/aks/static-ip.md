@@ -16,13 +16,13 @@ ms.locfileid: "53994488"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usare un indirizzo IP pubblico statico con il bilanciamento del carico del servizio Azure Kubernetes
 
-Per impostazione predefinita, l'indirizzo IP pubblico assegnato a una risorsa di bilanciamento del carico creata da un cluster AKS vale solo per la durata di tale risorsa. Se si elimina il servizio Kubernetes, vengono eliminati anche il bilanciamento del carico e l'indirizzo IP associati. Se si vuole assegnare un indirizzo IP specifico o mantenere un indirizzo IP per i servizi Kubernetes ridistribuiti, è possibile creare e usare un indirizzo IP pubblico statico.
+Per impostazione predefinita, l'indirizzo IP pubblico assegnato a una risorsa di bilanciamento del carico creata da un cluster servizio Azure Kubernetes vale solo per la durata di tale risorsa. Se si elimina il servizio Kubernetes, vengono eliminati anche il bilanciamento del carico e l'indirizzo IP associati. Se si vuole assegnare un indirizzo IP specifico o mantenere un indirizzo IP per i servizi Kubernetes ridistribuiti, è possibile creare e usare un indirizzo IP pubblico statico.
 
 Questo articolo illustra come creare un indirizzo IP pubblico statico e assegnarlo al servizio Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva su AKS [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure versione 2.0.46 o successiva. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
@@ -30,9 +30,9 @@ Attualmente è supportato solo lo SKU IP Basic. Sono in corso interventi per sup
 
 ## <a name="create-a-static-ip-address"></a>Creare un indirizzo IP statico
 
-Quando si crea un indirizzo IP pubblico statico per l'uso con AKS, è necessario creare la risorsa indirizzo IP nel gruppo di risorse del **nodo**. Se si vuole separare le risorse, vedere [Usare un indirizzo IP statico all'esterno del gruppo di risorse del nodo](#use-a-static-ip-address-outside-of-the-node-resource-group).
+Quando si crea un indirizzo IP pubblico statico per l'uso con servizio Azure Kubernetes, è necessario creare la risorsa indirizzo IP nel gruppo di risorse del **nodo**. Se si vuole separare le risorse, vedere [Usare un indirizzo IP statico all'esterno del gruppo di risorse del nodo](#use-a-static-ip-address-outside-of-the-node-resource-group).
 
-Ottenere il nome del gruppo di risorse del nodo con il comando [az aks show][az-aks-show] e aggiungere il parametro di query `--query nodeResourceGroup`. L'esempio seguente ottiene il gruppo di risorse del nodo per il nome del cluster AKS *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*:
+Ottenere il nome del gruppo di risorse del nodo con il comando [az servizio Azure Kubernetes show][az-aks-show] e aggiungere il parametro di query `--query nodeResourceGroup`. L'esempio seguente ottiene il gruppo di risorse del nodo per il nome del cluster servizio Azure Kubernetes *myservizio Azure KubernetesCluster* nel gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -97,7 +97,7 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Usare un indirizzo IP statico all'esterno del gruppo di risorse del nodo
 
-Con Kubernetes 1.10 o versione successiva è possibile usare un indirizzo IP statico che viene creato all'esterno del gruppo di risorse del nodo. L'entità servizio usata dal cluster AKS deve avere autorizzazioni delegate per l'accesso all'altro gruppo di risorse, come illustrato nell'esempio seguente:
+Con Kubernetes 1.10 o versione successiva è possibile usare un indirizzo IP statico che viene creato all'esterno del gruppo di risorse del nodo. L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere autorizzazioni delegate per l'accesso all'altro gruppo di risorse, come illustrato nell'esempio seguente:
 
 ```azurecli
 az role assignment create\

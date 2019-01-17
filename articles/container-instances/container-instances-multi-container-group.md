@@ -1,6 +1,6 @@
 ---
-title: Distribuire gruppi di più contenitori in Istanze di contenitore di Azure
-description: Informazioni su come distribuire un gruppo di contenitori con più contenitori in Istanze di contenitore di Azure.
+title: Distribuire gruppi di più contenitori in Istanze di Azure Container
+description: Informazioni su come distribuire un gruppo di contenitori con più contenitori in Istanze di Azure Container.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -17,7 +17,7 @@ ms.locfileid: "48856480"
 ---
 # <a name="deploy-a-container-group"></a>Distribuire un gruppo di contenitori
 
-Istanze di contenitore di Azure supporta la distribuzione di più contenitori in un singolo host usando un [gruppo di contenitori](container-instances-container-groups.md). Ciò è utile quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato.
+Istanze di Azure Container supporta la distribuzione di più contenitori in un singolo host usando un [gruppo di contenitori](container-instances-container-groups.md). Ciò è utile quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato.
 
 Esistono due metodi per la distribuzione di gruppi di contenitori con più contenitori usando l'interfaccia della riga di comando di Azure:
 
@@ -27,7 +27,7 @@ Esistono due metodi per la distribuzione di gruppi di contenitori con più conte
 La distribuzione con un modello di Resource Manager è consigliata quando è necessario distribuire risorse del servizio di Azure aggiuntive (ad esempio, una condivisione di File di Azure) al momento della distribuzione di istanze di contenitore. A causa della natura più concisa del formato YAML, la distribuzione con un file YAML è consigliata quando la distribuzione include *solo* istanze di contenitore.
 
 > [!NOTE]
-> I gruppi multicontenitore sono attualmente limitati ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di contenitore di Azure).
+> I gruppi multicontenitore sono attualmente limitati ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di Azure Container).
 
 ## <a name="configure-the-template"></a>Configurare il modello
 
@@ -214,7 +214,7 @@ Come si può notare, il contenitore collaterale invia periodicamente una richies
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato i passaggi necessari per la distribuzione di un'istanza multicontenitore di Azure. Per un'esperienza end-to-end di Istanze di contenitore di Azure, vedere l'apposita esercitazione.
+Questo articolo ha illustrato i passaggi necessari per la distribuzione di un'istanza multicontenitore di Azure. Per un'esperienza end-to-end di Istanze di Azure Container, vedere l'apposita esercitazione.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure][aci-tutorial]

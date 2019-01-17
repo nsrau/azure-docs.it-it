@@ -135,7 +135,7 @@ In questa esercitazione si è visto come aggiornare il contenitore dell'applicaz
 
 ### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: patch e build delle immagini automatizzate
 
-Oltre alla replica geografica, ACR Build è un'altra caratteristica del Registro contenitori di Azure che può aiutare a ottimizzare la pipeline di distribuzione di contenitore. Per avere un'idea delle funzionalità, è consigliabile iniziare con una panoramica di ACR Build:
+Oltre alla replica geografica, ACR Build è un'altra caratteristica di Registro Azure Container che può aiutare a ottimizzare la pipeline di distribuzione di contenitore. Per avere un'idea delle funzionalità, è consigliabile iniziare con una panoramica di ACR Build:
 
 [Automate OS and framework patching with ACR Build](container-registry-tasks-overview.md) (Automatizzare l'applicazione di patch al sistema operativo e al framework con ACR Build)
 

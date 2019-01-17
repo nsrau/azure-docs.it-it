@@ -17,9 +17,9 @@ ms.locfileid: "53190289"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Avvio rapido: Eseguire un'applicazione in esecuzione in Istanze di Azure Container nel portale di Azure
 
-Le Istanze di contenitore di Azure consentono di eseguire i contenitori Docker in Azure in modo semplice e rapido, senza la necessità di distribuire macchine virtuali o usare una piattaforma di orchestrazione di contenitori completa come Kubernetes. In questa guida introduttiva viene usato il portale di Azure per creare un contenitore in Azure e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Dopo la configurazione di alcune impostazioni e la distribuzione del contenitore, è possibile passare all'applicazione in esecuzione:
+Istanze di Azure Container consente di eseguire i contenitori Docker in Azure in modo semplice e rapido, senza la necessità di distribuire macchine virtuali o usare una piattaforma di orchestrazione di contenitori completa come Kubernetes. In questa guida introduttiva viene usato il portale di Azure per creare un contenitore in Azure e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Dopo la configurazione di alcune impostazioni e la distribuzione del contenitore, è possibile passare all'applicazione in esecuzione:
 
-![App distribuita in Istanze di contenitore di Azure visualizzata nel browser][aci-portal-07]
+![App distribuita in Istanze di Azure Container visualizzata nel browser][aci-portal-07]
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -29,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito][azure-fre
 
 ## <a name="create-a-container-instance"></a>Creare un'istanza di contenitore
 
-Selezionare **Crea una risorsa** > **Contenitori** > **Istanze di contenitore**.
+Selezionare **Crea una risorsa** > **Contenitori** > **Istanze di Container**.
 
 ![Iniziare a creare una nuova istanza di contenitore nel portale di Azure][aci-portal-01]
 
@@ -41,7 +41,7 @@ Immettere i valori seguenti nelle caselle di testo **Nome contenitore**, **Immag
 
 ![Configurazione delle impostazioni di base per una nuova istanza di contenitore nel portale di Azure][aci-portal-03]
 
-Istanze di contenitore di Azure permette di creare contenitori Windows e Linux. Per questa guida introduttiva, lasciare l'impostazione predefinita **Linux** per distribuire l'immagine `microsoft/aci-helloworld` basata su Linux.
+Istanze di Azure Container permette di creare contenitori Windows e Linux. Per questa guida introduttiva, lasciare l'impostazione predefinita **Linux** per distribuire l'immagine `microsoft/aci-helloworld` basata su Linux.
 
 In **Configurazione** specificare un'**Etichetta del nome DNS** per il contenitore. Il nome deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Il contenitore sarà pubblicamente raggiungibile in `<dns-name-label>.<region>.azurecontainer.io`.
 
@@ -63,9 +63,9 @@ Aprire la panoramica per il gruppo di contenitori passando a **Gruppi di risorse
 
 Quando lo **Stato** è *In esecuzione*, passare al nome di dominio completo del contenitore nel browser.
 
-![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][aci-portal-07]
+![App distribuita usando Istanze di Azure Container visualizzata nel browser][aci-portal-07]
 
-Congratulazioni! Configurando poche impostazioni è stata distribuita un'applicazione accessibile pubblicamente in Istanze di contenitore di Azure.
+Congratulazioni! Configurando poche impostazioni è stata distribuita un'applicazione accessibile pubblicamente in Istanze di Azure Container.
 
 ## <a name="view-container-logs"></a>Visualizzare i log dei contenitori
 
@@ -87,7 +87,7 @@ Selezionare **Sì** quando viene visualizzata la finestra di dialogo di conferma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata creata un'istanza di contenitore di Azure da un'immagine nel registro nell'hub Docker pubblico. Per provare a creare un'immagine del contenitore e a distribuirla da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di contenitore di Azure.
+In questa guida introduttiva è stata creata un'istanza di contenitore di Azure da un'immagine nel registro nell'hub Docker pubblico. Per provare a creare un'immagine del contenitore e a distribuirla da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di Azure Container.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)

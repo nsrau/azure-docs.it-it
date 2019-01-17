@@ -1,6 +1,6 @@
 ---
-title: Usare Draft con il servizio contenitore di Azure e con Registro contenitori di Azure
-description: Usare Draft con il servizio contenitore di Azure e con Registro contenitori di Azure
+title: Usare Draft con il servizio Azure Container e con Registro Azure Container
+description: Usare Draft con il servizio Azure Container e con Registro Azure Container
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -18,15 +18,15 @@ ms.locfileid: "53164773"
 
 Draft è uno strumento open source che consente di includere e distribuire questi contenitori in un cluster Kubernetes, permettendo all'utente di concentrarsi sulla fase centrale del ciclo di sviluppo. Draft viene eseguito mentre è in corso lo sviluppo del codice, ma prima del commit nel controllo della versione. Con Draft è possibile ridistribuire rapidamente un'applicazione in Kubernetes quando il codice viene modificato. Per altre informazioni su Draft, vedere la [documentazione di Draft su GitHub][draft-documentation].
 
-Questo articolo illustra come usare Draft in un cluster Kubernetes nel servizio Kubernetes di Azure.
+Questo articolo illustra come usare Draft in un cluster Kubernetes nel servizio Azure Kubernetes.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-I passaggi dettagliati contenuti in questo articolo presuppongono che sia stato creato un cluster del servizio Kubernetes di Azure e che sia stata stabilita una connessione `kubectl` al cluster. Se sono necessari questi elementi, vedere la [guida introduttiva al servizio contenitore di Azure][aks-quickstart].
+I passaggi dettagliati contenuti in questo articolo presuppongono che sia stato creato un cluster del servizio Azure Kubernetes e che sia stata stabilita una connessione `kubectl` al cluster. Se sono necessari questi elementi, vedere la [guida introduttiva al servizio Azure Container][aks-quickstart].
 
-È necessario un registro Docker privato in Registro contenitori di Azure. Per la procedura di creazione di un'istanza di Registro contenitori di Azure, vedere la [guida introduttiva al Registro contenitori di Azure][acr-quickstart].
+È necessario un registro Docker privato in Registro Azure Container. Per la procedura di creazione di un'istanza di Registro Azure Container, vedere la [guida introduttiva al Registro Azure Container][acr-quickstart].
 
-Anche Helm deve essere installato nel cluster AKS. Per altre informazioni sull'installazione e la configurazione di Helm, vedere [Usare Helm con il servizio Azure Kubernetes][aks-helm].
+Anche Helm deve essere installato nel cluster servizio Azure Kubernetes. Per altre informazioni sull'installazione e la configurazione di Helm, vedere [Usare Helm con il servizio Azure Kubernetes][aks-helm].
 
 È infine necessario installare [Docker](https://www.docker.com).
 
@@ -50,11 +50,11 @@ draft init
 
 ## <a name="configure-draft"></a>Configurare Draft
 
-Draft compila le immagini dei contenitori in locale e quindi le distribuisce dal registro locale (come nel caso di Minikube). In alternativa, è necessario specificare il registro delle immagini da usare. Questo articolo usa Registro contenitori di Azure. È pertanto necessario stabilire una relazione di trust tra il cluster del servizio contenitore di Azure e l'istanza di Registro contenitori di Azure e configurare Draft in modo da eseguire il push delle immagini del contenitore in Registro contenitori di Azure.
+Draft compila le immagini dei contenitori in locale e quindi le distribuisce dal registro locale (come nel caso di Minikube). In alternativa, è necessario specificare il registro delle immagini da usare. Questo articolo usa Registro Azure Container. È pertanto necessario stabilire una relazione di trust tra il cluster del servizio Azure Container e l'istanza di Registro Azure Container e configurare Draft in modo da eseguire il push delle immagini del contenitore in Registro Azure Container.
 
-### <a name="create-trust-between-aks-cluster-and-acr"></a>Creare una relazione di trust tra il cluster del servizio contenitore di Azure e Registro contenitori di Azure
+### <a name="create-trust-between-aks-cluster-and-acr"></a>Creare una relazione di trust tra il cluster del servizio Azure Container e Registro Azure Container
 
-Per stabilire l'attendibilità tra un cluster del servizio contenitore di AZURE e un registro contenitori di AZURE, concedere le autorizzazioni necessarie perché l'entità servizio di Azure Active Directory usata dal cluster del servizio contenitore di AZURE possa accedere al registro contenitori di AZURE. Nei comandi seguenti, specificare il proprio `<resourceGroupName>`, sostituire `<aksName>` con il nome del cluster del servizio contenitore di Azure e sostituire `<acrName>` con il nome del registro contenitori di AZURE:
+Per stabilire l'attendibilità tra un cluster del servizio Azure Container e un'istanza di Registro Azure Container, concedere le autorizzazioni necessarie perché l'entità servizio di Azure Active Directory usata dal cluster del servizio Azure Container possa accedere all'istanza di Registro Azure Container. Nei comandi seguenti, specificare il proprio `<resourceGroupName>`, sostituire `<aksName>` con il nome del cluster del servizio Azure Container e sostituire `<acrName>` con il nome dell'istanza di Registro Azure Container:
 
 ```azurecli
 # Get the service principal ID of your AKS cluster
@@ -67,25 +67,25 @@ ACR_RESOURCE_ID=$(az acr show --resource-group <resourceGroupName> --name <acrNa
 az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 
-Per altre informazioni sulla procedura di accesso al registro contenitori di AZURE, vedere [Autenticazione con registro contenitori di AZURE](../container-registry/container-registry-auth-aks.md).
+Per altre informazioni sulla procedura di accesso a Registro Azure Container, vedere [Autenticazione con Registro Azure Container](../container-registry/container-registry-auth-aks.md).
 
-### <a name="configure-draft-to-push-to-and-deploy-from-acr"></a>Configurare Draft per il push in Registro contenitori di Azure e la distribuzione da tale registro
+### <a name="configure-draft-to-push-to-and-deploy-from-acr"></a>Configurare Draft per il push in Registro Azure Container e la distribuzione da tale registro
 
-Dopo aver stabilito una relazione di trust tra il servizio contenitore di Azure e Registro contenitori di Azure, abilitare l'utilizzo del Registro contenitori di Azure dal cluster del servizio contenitore di Azure.
+Dopo aver stabilito una relazione di trust tra il servizio Azure Container e Registro Azure Container, abilitare l'utilizzo di Registro Azure Container dal cluster del servizio Azure Container.
 
-1. Impostare il valore del *registro* di configurazione di Draft. Nei comandi seguenti, sostituire `<acrName>` con il nome del registro contenitori di AZURE:
+1. Impostare il valore del *registro* di configurazione di Draft. Nei comandi seguenti, sostituire `<acrName>` con il nome dell'istanza di Registro Azure Container:
 
     ```console
     draft config set registry <acrName>.azurecr.io
     ```
 
-1. Accedere al registro contenitori di AZURE con l'[account di accesso di az acr][az-acr-login]:
+1. Accedere all'istanza di Registro Azure Container con l'[account di accesso di az acr][az-acr-login]:
 
     ```azurecli
     az acr login --name <acrName>
     ```
 
-Dato che è stato creato un trust tra il servizio contenitore di Azure e il registro contenitori di AZURE, non sono necessari password o segreti per eseguire il push o il pull dal registro contenitori di Azure. L'autenticazione viene eseguita a livello di Azure Resource Manager, tramite Azure Active Directory.
+Dato che è stato creato un trust tra il servizio Azure Container e Registro Azure Container, non sono necessari password o segreti per eseguire il push o il pull da Registro Azure Container. L'autenticazione viene eseguita a livello di Azure Resource Manager, tramite Azure Active Directory.
 
 ## <a name="run-an-application"></a>Eseguire un'applicazione
 
@@ -110,7 +110,7 @@ $ draft create
 --> Ready to sail
 ```
 
-Per eseguire l'applicazione di esempio nel cluster di servizio contenitore di Azure, usare il comando `draft up`. Questo comando compila il Dockerfile per creare un'immagine del contenitore, esegue il push dell'immagine in Registro contenitori di Azure e infine installa il grafico Helm per avviare l'applicazione nel servizio contenitore di Azure.
+Per eseguire l'applicazione di esempio nel cluster di servizio Azure Container, usare il comando `draft up`. Questo comando compila il Dockerfile per creare un'immagine del contenitore, esegue il push dell'immagine in Registro Azure Container e infine installa il grafico Helm per avviare l'applicazione nel servizio Azure Container.
 
 La prima volta che viene eseguito questo comando, l'esecuzione del push e del pull dell'immagine del contenitore potrebbe richiedere alcuni minuti. Una volta che vengono memorizzati nella cache i livelli di base, viene ridotto drasticamente il tempo impiegato per distribuire l'applicazione.
 
@@ -124,7 +124,7 @@ example-java: Releasing Application: SUCCESS ⚓  (4.6979s)
 Inspect the logs with `draft logs 01CMZAR1F4T1TJZ8SWJQ70HCNH`
 ```
 
-Se si verificano problemi con il push dell'immagine Docker, assicurarsi di avere eseguito l'accesso al registro contenitori di AZURE con l'[account di accesso di az acr][az-acr-login], quindi ripetere di nuovo il comando `draft up`.
+Se si verificano problemi con il push dell'immagine Docker, assicurarsi di avere eseguito l'accesso all'istanza di Registro Azure Container con l'[account di accesso di az acr][az-acr-login], quindi ripetere di nuovo il comando `draft up`.
 
 ## <a name="test-the-application-locally"></a>Testare l'applicazione in locale
 
@@ -155,7 +155,7 @@ Usare `Control+C` per interrompere la connessione proxy.
 
 ## <a name="access-the-application-on-the-internet"></a>Accedere all'applicazione in Internet
 
-Il passaggio precedente ha creato una connessione proxy al pod dell'applicazione nel cluster del servizio contenitore di Azure. Durante lo sviluppo e il test di un'applicazione, è possibile rendere disponibile l'applicazione in Internet. Per esporre un'applicazione in internet, creare un servizio Kubernetes di tipo [LoadBalancer][kubernetes-service-loadbalancer], o creare un [controller di ingresso] [ kubernetes-ingress]. Verrà qui creato un servizio *LoadBalancer*.
+Il passaggio precedente ha creato una connessione proxy al pod dell'applicazione nel cluster del servizio Azure Container. Durante lo sviluppo e il test di un'applicazione, è possibile rendere disponibile l'applicazione in Internet. Per esporre un'applicazione in internet, creare un servizio Kubernetes di tipo [LoadBalancer][kubernetes-service-loadbalancer], o creare un [controller di ingresso] [ kubernetes-ingress]. Verrà qui creato un servizio *LoadBalancer*.
 
 In primo luogo, aggiornare il pacchetto Draft *values.yaml* per specificare che un servizio con tipo *LoadBalancer* deve essere creato:
 
@@ -219,7 +219,7 @@ In questo esempio, aggiornare l'applicazione di esempio Java per modificare il t
 vi src/main/java/helloworld/Hello.java
 ```
 
-Aggiornare il testo di output da visualizzare con *Hello World, I'm Java in AKS!*:
+Aggiornare il testo di output da visualizzare con *Hello World, I'm Java in servizio Azure Kubernetes!*:
 
 ```java
 package helloworld;

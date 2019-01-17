@@ -93,7 +93,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
 
 Nella finestra di dialogo per la pubblicazione fare clic sul pulsante **Pubblica** per distribuire l'applicazione Service Fabric in Azure.
 
-Quando si pubblica in Azure per la prima volta, viene eseguito il push dell'immagine Docker per il Registro contenitori di Azure. Questa operazione richiede tempo a seconda delle dimensioni dell'immagine. Le successive pubblicazioni dello stesso progetto saranno più rapide. È possibile monitorare lo stato di avanzamento del processo di distribuzione selezionando il riquadro **Strumenti di Service Fabric** nella finestra **Output** di Visual Studio. Al termine della distribuzione, nell'output di **Strumenti di Service Fabric** verranno visualizzati l'indirizzo IP e la porta dell'applicazione sotto forma di URL.
+Quando si pubblica in Azure per la prima volta, viene eseguito il push dell'immagine Docker per il Registro Azure Container. Questa operazione richiede tempo a seconda delle dimensioni dell'immagine. Le successive pubblicazioni dello stesso progetto saranno più rapide. È possibile monitorare lo stato di avanzamento del processo di distribuzione selezionando il riquadro **Strumenti di Service Fabric** nella finestra **Output** di Visual Studio. Al termine della distribuzione, nell'output di **Strumenti di Service Fabric** verranno visualizzati l'indirizzo IP e la porta dell'applicazione sotto forma di URL.
 
 ```json
 Packaging Application...

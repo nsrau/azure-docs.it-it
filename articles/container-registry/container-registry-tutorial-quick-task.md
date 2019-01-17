@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Compilare immagini dei contenitori nel cloud - Attività del Registro Azure Container'
-description: Questa esercitazione illustra come compilare un'immagine del contenitore Docker in Azure con ACR Tasks e quindi distribuire tale immagine nelle istanze di contenitore di Azure.
+description: Questa esercitazione illustra come compilare un'immagine del contenitore Docker in Azure con ACR Tasks e quindi distribuire tale immagine in Istanze di Azure Container.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -28,7 +28,7 @@ In questa esercitazione, che è la prima parte di una serie, si apprenderà come
 > [!div class="checklist"]
 > * Ottenere il codice sorgente dell'applicazione di esempio
 > * Compilare un'immagine del contenitore in Azure
-> * Distribuire un contenitore in Istanze di contenitore di Azure
+> * Distribuire un contenitore in Istanze di Azure Container
 
 Le esercitazioni successive illustrano come usare ACR Tasks per automatizzare la compilazione delle immagini dei contenitori in caso di commit del codice e di aggiornamento delle immagini di base.
 
@@ -167,11 +167,11 @@ Run ID: da1 was successful after 1m9.970148252s
 
 Nella parte finale dell'output, ACR Tasks mostra le dipendenze individuate per l'immagine. ACR Tasks può così automatizzare la compilazione di immagini in caso di aggiornamenti dell'immagine di base, ad esempio quando un'immagine di base viene aggiornata con patch del sistema operativo o del framework. Il supporto di ACR Tasks per gli aggiornamenti delle immagini di base verrà illustrato più avanti in questa serie di esercitazioni.
 
-## <a name="deploy-to-azure-container-instances"></a>Eseguire la distribuzione in Istanze di contenitore di Azure
+## <a name="deploy-to-azure-container-instances"></a>Eseguire la distribuzione in Istanze di Azure Container
 
 Per impostazione predefinita, ACR Tasks esegue automaticamente il push delle immagini compilate correttamente nel registro, dal quale possono essere distribuite immediatamente.
 
-In questa sezione si creano un'istanza di Azure Key Vault e un'entità servizio e quindi si distribuisce il contenitore in Istanze di contenitore di Azure usando le credenziali dell'entità servizio.
+In questa sezione si creano un'istanza di Azure Key Vault e un'entità servizio e quindi si distribuisce il contenitore in Istanze di Azure Container usando le credenziali dell'entità servizio.
 
 ### <a name="configure-registry-authentication"></a>Configurare l'autenticazione del registro
 

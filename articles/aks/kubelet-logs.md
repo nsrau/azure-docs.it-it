@@ -58,7 +58,7 @@ I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname fr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se sono necessarie informazioni aggiuntive sulla risoluzione dei problemi dallo schema di Kubernetes, vedere [Visualizzare i log di nodi nello schema di servizio Kubernetes di Azure][aks-master-logs].
+Se sono necessarie informazioni aggiuntive sulla risoluzione dei problemi dallo schema di Kubernetes, vedere [Visualizzare i log di nodi nello schema di servizio Azure Kubernetes][aks-master-logs].
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md

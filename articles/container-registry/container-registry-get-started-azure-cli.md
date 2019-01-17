@@ -17,7 +17,7 @@ ms.locfileid: "53255925"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Guida introduttiva: Creare un registro contenitori privato usando l'interfaccia della riga di comando di Azure
 
-Registro contenitori di Azure è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro contenitori di Azure tramite l'interfaccia della riga di comando di Azure, l'inserimento di un'immagine del contenitore nel registro e infine la distribuzione del contenitore dal registro in Istanze di contenitore di Azure.
+Registro contenitori di Azure è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro Azure Container tramite l'interfaccia della riga di comando di Azure, l'inserimento di un'immagine del contenitore nel registro e infine la distribuzione del contenitore dal registro in Istanze di Azure Container.
 
 Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.27 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
@@ -39,7 +39,7 @@ In questa guida introduttiva viene creato un registro contenitori di *base*. Reg
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-Creare un'istanza di Registro contenitori di Azure usando il comando [az acr create][az-acr-create]. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nell'esempio seguente viene usato il nome *myContainerRegistry007*. Aggiornarlo a un valore univoco.
+Creare un'istanza di Registro Azure Container usando il comando [az acr create][az-acr-create]. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nell'esempio seguente viene usato il nome *myContainerRegistry007*. Aggiornarlo a un valore univoco.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -72,7 +72,7 @@ Nella parte restante di questa guida introduttiva, `<acrName>` è un segnaposto 
 
 ## <a name="log-in-to-acr"></a>Accedere al record di controllo di accesso
 
-Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere all'istanza di Registro contenitori di Azure. A tale scopo usare il comando [az acr login][az-acr-login].
+Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere all'istanza di Registro Azure Container. A tale scopo usare il comando [az acr login][az-acr-login].
 
 ```azurecli
 az acr login --name <acrName>
@@ -186,7 +186,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato creato un registro contenitori di Azure con l'interfaccia della riga di comando di Azure, è stato eseguito il push di un'immagine del contenitore nel registro e ne è stata avviata un'istanza tramite Istanze di contenitore di Azure. Passare all'esercitazione su Istanze di contenitore di Azure per maggiori informazioni.
+In questa guida introduttiva è stata creata un'istanza di Registro Azure Container con l'interfaccia della riga di comando di Azure, è stato eseguito il push di un'immagine del contenitore nel registro e ne è stata avviata un'istanza tramite Istanze di Azure Container. Passare all'esercitazione su Istanze di Azure Container per maggiori informazioni.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure][container-instances-tutorial-prepare-app]

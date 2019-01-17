@@ -150,15 +150,15 @@ No, la piattaforma gestisce l'interruzione HTTPS a livello dei server front-end 
 
 **Come si configura Registro contenitori di Azure da usare con più contenitori?**
 
-Per usare Registro contenitori di AZURE con più contenitori, **tutte le immagini del contenitore** devono essere ospitate nello stesso server di Registro contenitori di Azure. Quando sono nello stesso server del registro contenitori, è necessario creare le impostazioni dell'applicazione e quindi aggiornare il file di configurazione di Kubernetes o Docker Compose per includere il nome dell'immagine di Registro contenitori di AZURE.
+Per usare Registro Azure Container con più contenitori, **tutte le immagini del contenitore** devono essere ospitate nello stesso server di Registro Azure Container. Quando sono nello stesso server del registro contenitori, è necessario creare le impostazioni dell'applicazione e quindi aggiornare il file di configurazione di Kubernetes o Docker Compose per includere il nome dell'immagine di Registro Azure Container.
 
 Definire le impostazioni dell'applicazione seguenti:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
 - DOCKER_REGISTRY_SERVER_URL (URL completo, ad esempio: https://<nome-server>.azurecr.io)
-- DOCKER_REGISTRY_SERVER_PASSWORD (abilitare l'accesso di amministratore nelle impostazioni di Registro contenitori di Azure)
+- DOCKER_REGISTRY_SERVER_PASSWORD (abilitare l'accesso di amministratore nelle impostazioni di Registro Azure Container)
 
-Nel file di configurazione fare riferimento all'immagine di Registro contenitori di Azure come nell'esempio seguente:
+Nel file di configurazione fare riferimento all'immagine di Registro Azure Container come nell'esempio seguente:
 
 ```yaml
 image: <server-name>.azurecr.io/<image-name>:<tag>

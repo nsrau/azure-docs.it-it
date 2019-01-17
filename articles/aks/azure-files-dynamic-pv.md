@@ -22,13 +22,13 @@ Per altre informazioni sui volumi Kubernetes permanenti, vedere [Kubernetes pers
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva su AKS [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure versione 2.0.46 o successiva. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Quando si crea in modo dinamico una condivisione di file di Azure come volume Kubernetes, è possibile usare qualsiasi account di archiviazione purché si trovi nel gruppo di risorse del **nodo** AKS. Questo gruppo corrisponde a quello con il prefisso *MC_*, creato con il provisioning delle risorse per il cluster AKS. Ottenere il nome del gruppo di risorse con il comando [az aks show][az-aks-show].
+Quando si crea in modo dinamico una condivisione di file di Azure come volume Kubernetes, è possibile usare qualsiasi account di archiviazione purché si trovi nel gruppo di risorse del **nodo** servizio Azure Kubernetes. Questo gruppo corrisponde a quello con il prefisso *MC_*, creato con il provisioning delle risorse per il cluster servizio Azure Kubernetes. Ottenere il nome del gruppo di risorse con il comando [az servizio Azure Kubernetes show][az-aks-show].
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -77,7 +77,7 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-cluster-role-and-binding"></a>Creare un ruolo e un'associazione del cluster
 
-I cluster AKS usano il controllo degli accessi in base al ruolo Kubernetes per limitare le azioni che possono essere eseguite. I *ruoli* definiscono le autorizzazioni da concedere e le *associazioni* le applicano agli utenti desiderati. Queste assegnazioni possono essere applicate a uno spazio dei nomi specifico o all'intero cluster. Per altre informazioni, vedere [Uso di autorizzazioni del controllo degli accessi in base al ruolo][kubernetes-rbac].
+I cluster servizio Azure Kubernetes usano il controllo degli accessi in base al ruolo Kubernetes per limitare le azioni che possono essere eseguite. I *ruoli* definiscono le autorizzazioni da concedere e le *associazioni* le applicano agli utenti desiderati. Queste assegnazioni possono essere applicate a uno spazio dei nomi specifico o all'intero cluster. Per altre informazioni, vedere [Uso di autorizzazioni del controllo degli accessi in base al ruolo][kubernetes-rbac].
 
 Per consentire alla piattaforma Azure di creare le risorse di archiviazione necessarie, creare un *clusterrole* e un *clusterrolebinding*. Creare un file denominato `azure-pvc-roles.yaml` e copiarlo nel codice YAML seguente:
 

@@ -129,7 +129,7 @@ Non esiste attualmente alcuna implementazione nativa di Kubernetes per la replic
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato alcune considerazioni in materia di continuità aziendale e ripristino di emergenza nei cluster del servizio Azure Kubernetes. Per altre informazioni sulle operazioni cluster in AKS, vedere le procedure consigliate seguenti:
+Questo articolo ha illustrato alcune considerazioni in materia di continuità aziendale e ripristino di emergenza nei cluster del servizio Azure Kubernetes. Per altre informazioni sulle operazioni cluster in servizio Azure Kubernetes, vedere le procedure consigliate seguenti:
 
 * [Isolamento cluster e multi-tenant][aks-best-practices-cluster-isolation]
 * [Funzionalità di base dell'utilità di pianificazione di Kubernetes][aks-best-practices-scheduler]

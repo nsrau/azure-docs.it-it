@@ -3,13 +3,13 @@ items:
   href: ./index.yml
 - name: Panoramica
   items:
-  - name: Informazioni sul servizio contenitore di Azure
+  - name: Informazioni sul servizio Azure Container
     href: intro-kubernetes.md
 - name: Guide introduttive
   items:
-  - name: 'Creare un cluster del servizio contenitore di Azure: interfaccia della riga di comando'
+  - name: 'Creare un cluster del servizio Azure Container: interfaccia della riga di comando'
     href: kubernetes-walkthrough.md
-  - name: 'Creare un cluster del servizio contenitore di Azure: portale'
+  - name: 'Creare un cluster del servizio Azure Container: portale'
     href: kubernetes-walkthrough-portal.md
   - name: Sviluppare applicazioni
     items:
@@ -29,7 +29,7 @@ items:
   expanded: true
 - name: Esercitazioni
   items:
-  - name: "1: Preparare l'applicazione per il servizio contenitore di Azure"
+  - name: "1: Preparare l'applicazione per il servizio Azure Container"
     href: tutorial-kubernetes-prepare-app.md
   - name: '2: Creare un registro contenitori'
     href: tutorial-kubernetes-prepare-acr.md
@@ -88,7 +88,7 @@ items:
         href: developer-best-practices-pod-security.md
   - name: Quote e limiti a livello di area
     href: container-service-quotas.md
-  - name: Eseguire la migrazione dal servizio contenitore di Azure ad AKS
+  - name: Eseguire la migrazione dal servizio Azure Container ad servizio Azure Kubernetes
     href: acs-aks-migration.md
   - name: Versione di Kubernetes supportata
     href: supported-kubernetes-versions.md
@@ -96,19 +96,19 @@ items:
   items:
   - name: Operazioni del cluster
     items:
-    - name: Creare un cluster del servizio contenitore di Azure
+    - name: Creare un cluster del servizio Azure Container
       href: /cli/azure/aks#az-aks-create
       maintainContext: true
-    - name: Ridimensionare un cluster del servizio contenitore di Azure
+    - name: Ridimensionare un cluster del servizio Azure Container
       href: scale-cluster.md
-    - name: Aggiornare un cluster del servizio contenitore di Azure
+    - name: Aggiornare un cluster del servizio Azure Container
       href: upgrade-cluster.md
     - name: Elaborare gli aggiornamenti del sistema operativo del nodo
       href: node-updates-kured.md
-    - name: Eliminare un cluster del servizio contenitore di Azure
+    - name: Eliminare un cluster del servizio Azure Container
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
-    - name: AKS abilitato per Azure AD
+    - name: servizio Azure Kubernetes abilitato per Azure AD
       href: aad-integration.md
     - name: Creare nodi virtuali (anteprima)
       items:
@@ -120,7 +120,7 @@ items:
       href: virtual-kubelet.md
     - name: Usare il ridimensionamento automatico del cluster
       href: autoscaler.md
-    - name: Distribuire AKS con Terraform
+    - name: Distribuire servizio Azure Kubernetes con Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
       maintainContext: true
   - name: Configurare i volumi di dati
@@ -164,7 +164,7 @@ items:
       href: kubernetes-service-principal.md
     - name: Limitare l'accesso al file di configurazione del cluster
       href: control-kubeconfig-access.md
-    - name: Eseguire l'autenticazione con Registro contenitori di Azure
+    - name: Eseguire l'autenticazione con Registro Azure Container
       href: ../container-registry/container-registry-auth-aks.md
       maintainContext: true
   - name: Monitoraggio e registrazione
@@ -240,7 +240,7 @@ items:
       maintainContext: true
   - name: DevOps
     items:
-    - name: Usare Ansible per creare cluster AKS
+    - name: Usare Ansible per creare cluster servizio Azure Kubernetes
       href: /azure/ansible/ansible-create-configure-aks
       maintainContext: true
     - name: Distribuzione continua di Jenkins

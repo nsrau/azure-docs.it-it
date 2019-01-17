@@ -25,18 +25,18 @@ ms.locfileid: "52996495"
 
 [Draft](https://aka.ms/draft) è un nuovo strumento open source che semplifica lo sviluppo di applicazioni basate su contenitori e la loro distribuzione in cluster Kubernetes senza necessità di conoscere a fondo Docker e Kubernetes, né di installarli. Con strumenti come Draft, gli sviluppatori e i loro team possono concentrarsi sulla compilazione dell'applicazione con Kubernetes, senza fare molta attenzione all'infrastruttura.
 
-È possibile usare Draft con qualsiasi registro di immagini Docker e cluster Kubernetes, anche in locale. Questa esercitazione illustra come usare il servizio contenitore di Azure con Kubernetes e Registro contenitori di Azure per creare una pipeline di sviluppo attiva ma protetta in Kubernetes usando Draft e come usare il servizio DNS di Azure per consentire la visualizzazione di tale pipeline di sviluppo agli altri utenti in un dominio.
+È possibile usare Draft con qualsiasi registro di immagini Docker e cluster Kubernetes, anche in locale. Questa esercitazione illustra come usare il servizio Azure Container con Kubernetes e Registro Azure Container per creare una pipeline di sviluppo attiva ma protetta in Kubernetes usando Draft e come usare il servizio DNS di Azure per consentire la visualizzazione di tale pipeline di sviluppo agli altri utenti in un dominio.
 
 
 ## <a name="create-an-azure-container-registry"></a>Creare un Registro contenitori di Azure
 È possibile [creare un nuovo Registro contenitori di Azure](../../container-registry/container-registry-get-started-azure-cli.md) facilmente, ma i passaggi sono i seguenti:
 
-1. Creare un gruppo di risorse di Azure per gestire il Registro contenitori di Azure e il cluster Kubernetes nel servizio contenitore di Azure.
+1. Creare un gruppo di risorse di Azure per gestire il Registro Azure Container e il cluster Kubernetes nel servizio Azure Container.
       ```azurecli
       az group create --name draft --location eastus
       ```
 
-2. Creare un registro di immagini del Registro contenitori di Azure usando [az acr create](/cli/azure/acr#az-acr-create) e verificare che l'opzione `--admin-enabled` sia impostata su `true`.
+2. Creare un registro di immagini di Registro Azure Container usando [az acr create](/cli/azure/acr#az-acr-create) e verificare che l'opzione `--admin-enabled` sia impostata su `true`.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```

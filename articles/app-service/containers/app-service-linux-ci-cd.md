@@ -27,9 +27,9 @@ ms.locfileid: "53315532"
 
 In questa esercitazione verrà configurata la distribuzione continua per un'immagine personalizzata del contenitore da repository gestite del [Registro contenitori di Azure](https://azure.microsoft.com/services/container-registry/) o dall'[hub Docker](https://hub.docker.com).
 
-## <a name="enable-continuous-deployment-with-acr"></a>Abilitare la distribuzione continua con il Registro contenitori di Azure
+## <a name="enable-continuous-deployment-with-acr"></a>Abilitare la distribuzione continua con il Registro Azure Container
 
-![Screenshot del webhook del Registro contenitori di Azure](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
+![Screenshot del webhook di Registro Azure Container](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare l'opzione **Servizio app** a sinistra nella pagina.
@@ -39,11 +39,11 @@ In questa esercitazione verrà configurata la distribuzione continua per un'imma
 6. Selezionare **Distribuzione continua > On**
 7. Selezionare **Salva** per abilitare la distribuzione continua.
 
-## <a name="use-the-acr-webhook"></a>Usare il webhook del Registro contenitori di Azure
+## <a name="use-the-acr-webhook"></a>Usare il webhook di Registro Azure Container
 
 Quando la distribuzione continua viene abilitata, è possibile visualizzare il webhook appena creato nella pagina dei webhook del Registro contenitori di Azure.
 
-![Screenshot del webhook del Registro contenitori di Azure](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
+![Screenshot del webhook di Registro Azure Container](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
 
 Nel Registro contenitori fare clic su Webhook per visualizzare i webhook correnti.
 

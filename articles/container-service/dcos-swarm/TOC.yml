@@ -20,7 +20,7 @@ items:
     href: container-service-load-balancing.md
   - name: '3: Gestire i volumi di dati'
     href: container-service-dcos-fileshare.md
-  - name: "4: Eseguire l'integrazione con Registro contenitori di Azure"
+  - name: "4: Eseguire l'integrazione con Registro Azure Container"
     href: container-service-dcos-acr.md
 - name: Concetti
   items:

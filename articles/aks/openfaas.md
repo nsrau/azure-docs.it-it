@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/13/2018
 ms.locfileid: "45542532"
 ---
-# <a name="using-openfaas-on-aks"></a>Uso di OpenFaaS in AKS
+# <a name="using-openfaas-on-aks"></a>Uso di OpenFaaS in servizio Azure Kubernetes
 
 [OpenFaaS][open-faas] è un framework per la compilazione di funzioni serverless su contenitori. Il fatto che si tratti di un progetto Open Source ne ha favorito l'adozione su larga scala all'interno della community. Questo documento descrive l'installazione e l'uso di OpenFaaS in un cluster del servizio Azure Kubernetes.
 
@@ -59,7 +59,7 @@ Creare un secondo spazio dei nomi per le funzioni di OpenFaaS.
 kubectl create namespace openfaas-fn
 ```
 
-Il repository clonato include un grafico Helm per OpenFaaS. Usare questo grafico per distribuire OpenFaaS nel cluster del servizio contenitore di Azure.
+Il repository clonato include un grafico Helm per OpenFaaS. Usare questo grafico per distribuire OpenFaaS nel cluster del servizio Azure Container.
 
 ```azurecli-interactive
 helm install --namespace openfaas -n openfaas \

@@ -125,7 +125,7 @@ I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gru
 ### <a name="virtual-machine-scale-sets-limits"></a>Limiti dei set di scalabilità delle macchine virtuali
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-### <a name="container-instances-limits"></a>Limiti per Istanze di contenitore
+### <a name="container-instances-limits"></a>Limiti per Istanze di Container
 [!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
 
 ### <a name="container-registry-limits"></a>Limiti per Registro contenitori

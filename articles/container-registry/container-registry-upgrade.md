@@ -16,7 +16,7 @@ ms.locfileid: "52969108"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Aggiornamento del registro contenitori classico
 
-Il Registro contenitori di Azure (ACR) è disponibile su più livelli di servizio, noti come [SKU](container-registry-skus.md). La versione iniziale di ACR offriva un singolo SKU, classico, che non disponeva di numerose funzionalità incluse negli SKU di base, standard e premium (noti collettivamente come registri*gestiti*).
+Il Registro Azure Container (ACR) è disponibile su più livelli di servizio, noti come [SKU](container-registry-skus.md). La versione iniziale di ACR offriva un singolo SKU, classico, che non disponeva di numerose funzionalità incluse negli SKU di base, standard e premium (noti collettivamente come registri*gestiti*).
 
 Il valore SKU classico è deprecato e non sarà disponibile dopo il mese di marzo 2019. Questo articolo descrive in dettaglio come eseguire la migrazione del registro classico non gestito a uno degli SKU gestiti in modo da poterne sfruttare il set di funzionalità avanzate.
 
@@ -39,10 +39,10 @@ Un archivio di registro gestito è caratterizzato dai vantaggi seguenti:
 
 * Le immagini di contenitori sono [crittografati a riposo](container-registry-storage.md#encryption-at-rest).
 * Le immagini vengono archiviate usando l'[archiviazione con ridondanza geografica](container-registry-storage.md#geo-redundant-storage), garantendo un backup delle immagini con la replica su più aree.
-* Possibilità di [cambiare SKU](container-registry-skus.md#changing-skus) liberamente, consentendo una maggiore velocità effettiva, quando si sceglie uno SKU di livello superiore. Con ogni SKU, il Registro contenitori di Azure può soddisfare i requisiti di velocità effettiva man mano che aumentano le esigenze.
+* Possibilità di [cambiare SKU](container-registry-skus.md#changing-skus) liberamente, consentendo una maggiore velocità effettiva, quando si sceglie uno SKU di livello superiore. Con ogni SKU, il Registro Azure Container può soddisfare i requisiti di velocità effettiva man mano che aumentano le esigenze.
 * Il modello di sicurezza unificata per il registro e il relativo archivio consente la gestione semplificata dei diritti. È necessario gestire solo le autorizzazioni per il registro di contenitori, evitando la necessità di gestire anche le autorizzazioni per un account di archiviazione separato.
 
-Per altri dettagli sull'archiviazione di immagini nel Registro contenitori di Azure, vedere [Archiviazione di immagini del contenitore nel Registro contenitori di Azure](container-registry-storage.md).
+Per altri dettagli sull'archiviazione di immagini in Registro Azure Container, vedere [Archiviazione di immagini del contenitore in Registro Azure Container](container-registry-storage.md).
 
 ## <a name="migration-considerations"></a>Considerazioni sulla migrazione
 

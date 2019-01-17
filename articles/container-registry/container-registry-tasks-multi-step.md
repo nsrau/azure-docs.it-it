@@ -1,6 +1,6 @@
 ---
 title: Automatizzare la creazione, i test e l'applicazione di patch a un'immagine con le attività in più passaggi di Registro contenitori di Azure
-description: Introduzione alle attività in più passaggi, una funzionalità di Attività del Registro contenitori di Azure che fornisce flussi di lavoro basati su attività per la compilazione, i test e l'applicazione di patch di immagini dei contenitori nel cloud.
+description: Introduzione alle attività in più passaggi, una funzionalità di Attività di Registro Azure Container che fornisce flussi di lavoro basati su attività per la compilazione, i test e l'applicazione di patch di immagini dei contenitori nel cloud.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/17/2018
 ms.locfileid: "51854323"
 ---
-# <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Eseguire attività di creazione, test e applicazione di patch in più passaggi in Attività di Registro contenitori di Azure
+# <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Eseguire attività di creazione, test e applicazione di patch in più passaggi in Attività di Registro Azure Container
 
-Le attività in più passaggi estendono la singola funzionalità di creazione ed esecuzione del push di Attività di Registro contenitori di Azure con flussi di lavoro basati su più contenitori e più passaggi. Usare le attività in più passaggi per compilare ed eseguire il push di più immagini, in serie o in parallelo. Eseguire quindi queste immagini come comandi all'interno di una singola esecuzione di attività. Ogni passaggio definisce l'operazione di compilazione o push di un'immagine contenitore e può anche definire l'esecuzione di un contenitore. Ogni passaggio in un'attività in più passaggi usa un contenitore come ambiente di esecuzione.
+Le attività in più passaggi estendono la singola funzionalità di creazione ed esecuzione del push di Attività di Registro Azure Container con flussi di lavoro basati su più contenitori e più passaggi. Usare le attività in più passaggi per compilare ed eseguire il push di più immagini, in serie o in parallelo. Eseguire quindi queste immagini come comandi all'interno di una singola esecuzione di attività. Ogni passaggio definisce l'operazione di compilazione o push di un'immagine contenitore e può anche definire l'esecuzione di un contenitore. Ogni passaggio in un'attività in più passaggi usa un contenitore come ambiente di esecuzione.
 
 > [!IMPORTANT]
 > Se in precedenza sono state create attività durante l'anteprima con il comando `az acr build-task`, tali attività devono essere ricreate con il comando [az acr task][az-acr-task].
@@ -47,7 +47,7 @@ Le attività in più passaggi rendono possibili scenari come la logica seguente:
 
 ## <a name="multi-step-task-definition"></a>Definizione di attività in più passaggi
 
-Un'attività in più passaggi in Attività di Registro contenitori di Azure viene definita come una serie di passaggi all'interno di un file YAML. Ogni passaggio può specificare le dipendenze dal completamento di uno o più passaggi precedenti. Sono disponibili i tipi di passaggi di attività seguenti:
+Un'attività in più passaggi in Attività di Registro Azure Container viene definita come una serie di passaggi all'interno di un file YAML. Ogni passaggio può specificare le dipendenze dal completamento di uno o più passaggi precedenti. Sono disponibili i tipi di passaggi di attività seguenti:
 
 * [`build`](container-registry-tasks-reference-yaml.md#build): creare una o più immagini del contenitore usando la nota sintassi `docker build`, in serie o in parallelo.
 * [`push`](container-registry-tasks-reference-yaml.md#push): eseguire il push di immagini create a un registro contenitori. Sono supportati i registri privati, ad esempio Registro contenitori di Azure, nonché l'hub Docker pubblico.
@@ -153,7 +153,7 @@ Per altre informazioni sulle creazioni automatiche su commit GIT o in caso di ag
 
 ## <a name="preview-feedback"></a>Feedback sull'anteprima
 
-Sebbene la funzionalità dell'attività in più passaggi di Attività del Registro contenitori di Azure sia disponibile in anteprima, invitiamo a inviarci commenti e suggerimenti. Sono disponibili diversi canali per i commenti e suggerimenti:
+Sebbene la funzionalità dell'attività in più passaggi di Attività di Registro Azure Container sia disponibile in anteprima, invitiamo a inviarci commenti e suggerimenti. Sono disponibili diversi canali per i commenti e suggerimenti:
 
 * [Problemi](https://aka.ms/acr/issues): visualizzare i bug e i problemi esistenti e registrarne di nuovi
 * [UserVoice](https://aka.ms/acr/uservoice): votare richieste di funzionalità esistenti o creare nuove richieste

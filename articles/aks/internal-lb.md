@@ -19,7 +19,7 @@ ms.locfileid: "53001227"
 Per limitare l'accesso alle applicazioni nel servizio Azure Kubernetes, è possibile creare e usare un bilanciamento del carico interno. Un bilanciamento del carico interno rende accessibile un servizio Kubernetes solo alle applicazioni in esecuzione nella stessa rete virtuale del cluster Kubernetes. Questo articolo descrive come usare un servizio di bilanciamento del carico interno con il servizio Azure Kubernetes.
 
 > [!NOTE]
-> Azure Load Balancer è disponibile in due SKU: *Basic* e *Standard*. Per altre informazioni, vedere [Confronto tra SKU di Load Balancer][azure-lb-comparison]. Servizio Kubernetes di Azure supporta attualmente la SKU *Basic*. Se si vuole usare la SKU *Standard*, è possibile usare [aks-engine][aks-engine] upstream.
+> Azure Load Balancer è disponibile in due SKU: *Basic* e *Standard*. Per altre informazioni, vedere [Confronto tra SKU di Load Balancer][azure-lb-comparison]. servizio Azure Kubernetes supporta attualmente la SKU *Basic*. Se si vuole usare la SKU *Standard*, è possibile usare [aks-engine][aks-engine] upstream.
 
 ## <a name="create-an-internal-load-balancer"></a>Creare un bilanciamento del carico interno
 
@@ -40,7 +40,7 @@ spec:
     app: internal-app
 ```
 
-Dopo la distribuzione con `kubectl apply -f internal-lb.yaml`, un servizio di bilanciamento del carico di Azure viene creato e reso disponibile nella stessa rete virtuale del cluster AKS.
+Dopo la distribuzione con `kubectl apply -f internal-lb.yaml`, un servizio di bilanciamento del carico di Azure viene creato e reso disponibile nella stessa rete virtuale del cluster servizio Azure Kubernetes.
 
 Quando si visualizzano i dettagli del servizio, l'indirizzo IP del bilanciamento del carico interno viene visualizzato nella colonna *EXTERNAL-IP*. Potrebbero essere richiesti un paio di minuti affinché l'indirizzo IP diventi un effettivo indirizzo IP interno dallo stato *\<in sospeso\>*, come mostrato nell'esempio seguente:
 
@@ -53,7 +53,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## <a name="specify-an-ip-address"></a>Specificare un indirizzo IP
 
-Se si vuole usare un indirizzo IP specifico con il bilanciamento del carico interno, aggiungere la proprietà *loadBalancerIP* nel manifesto YAML del bilanciamento del carico. L'indirizzo IP specificato deve trovarsi nella stessa subnet del cluster del servizio contenitore di Azure e non deve essere già assegnato a una risorsa.
+Se si vuole usare un indirizzo IP specifico con il bilanciamento del carico interno, aggiungere la proprietà *loadBalancerIP* nel manifesto YAML del bilanciamento del carico. L'indirizzo IP specificato deve trovarsi nella stessa subnet del cluster del servizio Azure Container e non deve essere già assegnato a una risorsa.
 
 ```yaml
 apiVersion: v1
@@ -82,9 +82,9 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 ## <a name="use-private-networks"></a>Usare le reti private
 
-Quando si crea il cluster AKS è possibile specificare impostazioni di rete avanzate. Questo approccio consente di distribuire il cluster in una rete virtuale di Azure esistente e nelle subnet. Uno scenario consiste nella distribuzione del cluster AKS in una rete privata connessa all'ambiente locale e nell'esecuzione dei servizi accessibili solo internamente. Per altre informazioni, vedere l'articolo sulle [configurazioni di rete avanzate in AKS][advanced-networking].
+Quando si crea il cluster servizio Azure Kubernetes è possibile specificare impostazioni di rete avanzate. Questo approccio consente di distribuire il cluster in una rete virtuale di Azure esistente e nelle subnet. Uno scenario consiste nella distribuzione del cluster servizio Azure Kubernetes in una rete privata connessa all'ambiente locale e nell'esecuzione dei servizi accessibili solo internamente. Per altre informazioni, vedere l'articolo sulle [configurazioni di rete avanzate in servizio Azure Kubernetes][advanced-networking].
 
-Non sono necessarie modifiche dei passaggi precedenti per distribuire un servizio di bilanciamento del carico interno in un cluster AKS che usa una rete privata. Il servizio di bilanciamento del carico viene creato nello stesso gruppo di risorse del cluster AKS ma è connesso alla rete virtuale e alla subnet private, come illustrato nell'esempio seguente:
+Non sono necessarie modifiche dei passaggi precedenti per distribuire un servizio di bilanciamento del carico interno in un cluster servizio Azure Kubernetes che usa una rete privata. Il servizio di bilanciamento del carico viene creato nello stesso gruppo di risorse del cluster servizio Azure Kubernetes ma è connesso alla rete virtuale e alla subnet private, come illustrato nell'esempio seguente:
 
 ```
 $ kubectl get service internal-app
@@ -94,11 +94,11 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Può essere necessario concedere all'entità servizio per il cluster AKS il ruolo *Collaboratore di rete* per il gruppo di risorse in cui vengono distribuite le risorse della rete virtuale di Azure. Visualizzare l'entità servizio con [az aks show][az-aks-show], ad esempio `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Per creare un'assegnazione di ruolo, usare il comando [az role assignment create][az-role-assignment-create].
+> Può essere necessario concedere all'entità servizio per il cluster servizio Azure Kubernetes il ruolo *Collaboratore di rete* per il gruppo di risorse in cui vengono distribuite le risorse della rete virtuale di Azure. Visualizzare l'entità servizio con [az servizio Azure Kubernetes show][az-aks-show], ad esempio `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Per creare un'assegnazione di ruolo, usare il comando [az role assignment create][az-role-assignment-create].
 
 ## <a name="specify-a-different-subnet"></a>Specificare una subnet diversa
 
-Per specificare una subnet per il bilanciamento del carico, aggiungere l'annotazione *azure-load-balancer-internal-subnet* al servizio. La subnet specificata deve essere nella stessa rete virtuale del cluster AKS. Quando viene distribuito, l'indirizzo *EXTERNAL-IP* del servizio di bilanciamento del carico fa parte della subnet specificata.
+Per specificare una subnet per il bilanciamento del carico, aggiungere l'annotazione *azure-load-balancer-internal-subnet* al servizio. La subnet specificata deve essere nella stessa rete virtuale del cluster servizio Azure Kubernetes. Quando viene distribuito, l'indirizzo *EXTERNAL-IP* del servizio di bilanciamento del carico fa parte della subnet specificata.
 
 ```yaml
 apiVersion: v1

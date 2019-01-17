@@ -36,7 +36,7 @@ Registro contenitori di Azure può anche ospitare i repository per i [grafici He
 
 * Leggere le informazioni su come [eseguire il push e il pull](container-registry-get-started-docker-cli.md) delle immagini con Registro contenitori di Azure.
 
-* Usare [Attività del Registro contenitori di Azure](container-registry-tasks-overview.md) per creare e testare immagini dei contenitori. 
+* Usare [Attività di Registro Azure Container](container-registry-tasks-overview.md) per creare e testare immagini dei contenitori. 
 
 * Usare [Moby BuildKit](https://github.com/moby/buildkit) per la compilazione e la creazione di pacchetti dei contenitori in formato OCI.
 

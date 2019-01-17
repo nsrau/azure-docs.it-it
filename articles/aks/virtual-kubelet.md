@@ -17,9 +17,9 @@ ms.locfileid: "54054013"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usare Virtual Kubelet con il servizio Azure Kubernetes
 
-Istanze di contenitore di Azure offre un ambiente ospitato per l'esecuzione di contenitori in Azure. Quando si usa Istanze di contenitore di Azure, non è necessario gestire l'infrastruttura di calcolo sottostante, che viene gestita da Azure. Quando si eseguono i contenitori in Istanze di contenitore di Azure, ogni contenitore in esecuzione viene addebitato in base ai secondi effettivi.
+Istanze di Azure Container offre un ambiente ospitato per l'esecuzione di contenitori in Azure. Quando si usa Istanze di contenitore di Azure, non è necessario gestire l'infrastruttura di calcolo sottostante, che viene gestita da Azure. Quando si eseguono i contenitori in Istanze di contenitore di Azure, ogni contenitore in esecuzione viene addebitato in base ai secondi effettivi.
 
-Quando si usa il provider Virtual Kubelet per Istanze di contenitore di Azure, è possibile pianificare contenitori sia Linux che Windows in un'istanza di contenitore come se si trattasse di un nodo Kubernetes standard. Questa configurazione consente di sfruttare sia le funzionalità di Kubernetes che il vantaggio in termini di valore e costo di gestione delle istanze di contenitore.
+Quando si usa il provider Virtual Kubelet per Istanze di Azure Container, è possibile pianificare contenitori sia Linux che Windows in un'istanza di contenitore come se si trattasse di un nodo Kubernetes standard. Questa configurazione consente di sfruttare sia le funzionalità di Kubernetes che il vantaggio in termini di valore e costo di gestione delle istanze di contenitore.
 
 > [!NOTE]
 > Il servizio Azure Kubernetes dispone ora del supporto incorporato per la pianificazione dei contenitori in ACI, detti *nodi virtuali*. Questi nodi virtuali supportano attualmente le istanze di contenitore di Linux. Se si ha l'esigenza di pianificare istanze di contenitore Windows, è possibile continuare a usare Virtual Kubelet. In caso contrario, è consigliabile usare i nodi virtuali invece delle istruzioni manuali di Virtual Kubelet indicate in questo articolo. Per imparare a usare i nodi virtuali, è possibile usare l'[interfaccia della riga di comando di Azure][virtual-nodes-cli] o il [portale di Azure][virtual-nodes-portal].
@@ -28,7 +28,7 @@ Quando si usa il provider Virtual Kubelet per Istanze di contenitore di Azure, �
 
 ## <a name="prerequisite"></a>Prerequisito
 
-Questo documento presuppone che si abbia già un cluster AKS. Se è necessario un cluster del servizio Azure Kubernetes, vedere la [guida introduttiva al servizio Azure Kubernetes][aks-quick-start].
+Questo documento presuppone che si abbia già un cluster servizio Azure Kubernetes. Se è necessario un cluster del servizio Azure Kubernetes, vedere la [guida introduttiva al servizio Azure Kubernetes][aks-quick-start].
 
 È anche necessaria l'interfaccia della riga di comando di Azure versione **2.0.33**. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -36,7 +36,7 @@ Per installare Virtual Kubelet, è anche necessario [Helm](https://docs.helm.sh/
 
 ### <a name="for-rbac-enabled-clusters"></a>Per i cluster che dispongono dell’abilitazione RBAC
 
-Se il cluster AKS è abilitato per RBAC, è necessario creare un account del servizio e un'associazione di ruolo per l'uso con Tiller. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo di Helm][helm-rbac]. Per creare un account del servizio e un'associazione di ruolo, creare un file denominato *rbac-virtualkubelet.yaml* e incollare la definizione seguente:
+Se il cluster servizio Azure Kubernetes è abilitato per RBAC, è necessario creare un account del servizio e un'associazione di ruolo per l'uso con Tiller. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo di Helm][helm-rbac]. Per creare un account del servizio e un'associazione di ruolo, creare un file denominato *rbac-virtualkubelet.yaml* e incollare la definizione seguente:
 
 ```yaml
 apiVersion: v1
@@ -73,11 +73,11 @@ Configurare Helm per l'uso dell'account del servizio Tiller:
 helm init --service-account tiller
 ```
 
-È ora possibile procedere con l'installazione di Virtual Kubelet nel cluster AKS.
+È ora possibile procedere con l'installazione di Virtual Kubelet nel cluster servizio Azure Kubernetes.
 
 ## <a name="installation"></a>Installazione
 
-Usare il comando [az aks install-connector][aks-install-connector] per installare Virtual Kubelet. L'esempio seguente distribuisce il connettore sia Linux che Windows.
+Usare il comando [az servizio Azure Kubernetes install-connector][aks-install-connector] per installare Virtual Kubelet. L'esempio seguente distribuisce il connettore sia Linux che Windows.
 
 ```azurecli-interactive
 az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet --os-type Both
@@ -90,7 +90,7 @@ Per il comando `aks install-connector` sono disponibili questi argomenti.
 | `--connector-name` | Nome del connettore di Istanze di contenitore di Azure.| Yes |
 | `--name` `-n` | Nome del cluster gestito. | Yes |
 | `--resource-group` `-g` | Nome del gruppo di risorse. | Yes |
-| `--os-type` | Tipo del sistema operativo delle istanze di contenitore. Valori consentiti: Entrambi, Linux, Windows. Predefinito: Linux. | No  |
+| `--os-type` | Tipo di sistema operativo delle istanze di contenitore. Valori consentiti: Entrambi, Linux, Windows. Predefinito: Linux. | No  |
 | `--aci-resource-group` | Gruppo di risorse in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No  |
 | `--location` `-l` | Posizione in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No  |
 | `--service-principal` | Entità servizio usata per l'autenticazione alle API di Azure. | No  |
@@ -215,7 +215,7 @@ nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.
 
 ## <a name="remove-virtual-kubelet"></a>Rimuovere Virtual Kubelet
 
-Usare il comando [az aks remove-connector][aks-remove-connector] per rimuovere Virtual Kubelet. Sostituire i valori dell'argomento con il nome del connettore, il cluster AKS e il gruppo di risorse cluster AKS.
+Usare il comando [az servizio Azure Kubernetes remove-connector][aks-remove-connector] per rimuovere Virtual Kubelet. Sostituire i valori dell'argomento con il nome del connettore, il cluster servizio Azure Kubernetes e il gruppo di risorse cluster servizio Azure Kubernetes.
 
 ```azurecli-interactive
 az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet

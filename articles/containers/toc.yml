@@ -2,15 +2,15 @@ items:
 - name: Azure per contenitori
   href: index.yml
   items:
-  - name: Kubernetes Service (AKS)
+  - name: Servizio Kubernetes
     href: https://docs.microsoft.com/azure/aks/
     items:
-    - name: Introduzione al servizio contenitore di Azure
+    - name: Introduzione al servizio Azure Container
       href: ../aks/intro-kubernetes.md
-    - name: Distribuire un cluster del servizio contenitore di Azure
+    - name: Distribuire un cluster del servizio Azure Container
       href: ../aks/kubernetes-walkthrough.md
     expanded: true
-  - name: Istanze di contenitore
+  - name: Istanze di Container
     href: https://docs.microsoft.com/azure/container-instances/
     items:
     - name: Guida introduttiva - Creare l'istanza di contenitore
@@ -23,7 +23,7 @@ items:
         href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr
       - name: "3: Distribuire l'app"
         href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-deploy-app
-  - name: Registro contenitori
+  - name: Registro Container
     href: https://docs.microsoft.com/azure/container-registry/
     items:
     - name: Creare un registro - Interfaccia della riga di comando
@@ -67,11 +67,11 @@ items:
       href: https://docs.microsoft.com/virtualization/windowscontainers/about/index
   - name: Riferimenti
     items:
-    - name: Istanze di contenitore di Azure (az container)
+    - name: Istanze di Azure Container (az container)
       href: https://docs.microsoft.com/cli/azure/container
     - name: servizio Azure Container (az acs)
       href: https://docs.microsoft.com/cli/azure/acs
-    - name: Registro contenitori di Azure (az acr)
+    - name: Registro Azure Container (az acr)
       href: https://docs.microsoft.com/cli/azure/acr
     - name: App Web per contenitori (az appservice)
       href: https://docs.microsoft.com/cli/azure/appservice

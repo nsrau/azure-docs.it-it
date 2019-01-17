@@ -18,17 +18,17 @@ ms.locfileid: "52993247"
 
 [Helm][helm] è uno strumento per la creazione di pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente agli strumenti di gestione pacchetti di Linux, come *APT* e *Yum*, Helm viene usato per gestire i grafici per Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurate.
 
-Questo articolo illustra come configurare e usare Helm in un cluster Kubernetes nel servizio Kubernetes di Azure.
+Questo articolo illustra come configurare e usare Helm in un cluster Kubernetes nel servizio Azure Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-I passaggi dettagliati contenuti in questo documento presuppongono che sia stato creato un cluster del servizio Kubernetes di Azure e che sia stata stabilita una connessione `kubectl` al cluster. Se sono necessari questi elementi, vedere la [guida introduttiva al servizio Kubernetes di Azure][aks-quickstart].
+I passaggi dettagliati contenuti in questo documento presuppongono che sia stato creato un cluster del servizio Azure Kubernetes e che sia stata stabilita una connessione `kubectl` al cluster. Se sono necessari questi elementi, vedere la [guida introduttiva al servizio Azure Container][aks-quickstart].
 
 È necessario installare l'interfaccia della riga di comando di Helm, un client eseguito nel sistema di sviluppo che consente di avviare, arrestare e gestire applicazioni con Helm. Se si usa Azure Cloud Shell, l'interfaccia della riga di comando di Helm è già installata. Per le istruzioni di installazione nella piattaforma locale, vedere [Installing Helm][helm-install] (Installazione di Helm).
 
 ## <a name="create-a-service-account"></a>Creare un account del servizio
 
-Prima di poter distribuire Helm in un cluster AKS abilitato per il controllo degli accessi in base al ruolo, sono necessari un account del servizio e un'associazione di ruolo per il servizio Tiller. Per altre informazioni sulla sicurezza di Helm/Tiller in un cluster abilitato per il controllo degli accessi in base al ruolo, vedere [Tiller, Namespaces, and RBAC][tiller-rbac] (Tiller, spazi dei nomi ed RBAC). Se il cluster AKS non è abilitato per il controllo degli accessi in base al ruolo, ignorare questo passaggio.
+Prima di poter distribuire Helm in un cluster servizio Azure Kubernetes abilitato per il controllo degli accessi in base al ruolo, sono necessari un account del servizio e un'associazione di ruolo per il servizio Tiller. Per altre informazioni sulla sicurezza di Helm/Tiller in un cluster abilitato per il controllo degli accessi in base al ruolo, vedere [Tiller, Namespaces, and RBAC][tiller-rbac] (Tiller, spazi dei nomi ed RBAC). Se il cluster del servizio Azure Kubernetes non è abilitato per il controllo degli accessi in base al ruolo, ignorare questo passaggio.
 
 Creare un file denominato `helm-rbac.yaml` e copiarlo nel codice YAML seguente:
 
