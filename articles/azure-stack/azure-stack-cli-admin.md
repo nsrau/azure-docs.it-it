@@ -6,36 +6,37 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: CLI
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 01/15/2019
 ms.author: mabrigg
-ms.openlocfilehash: ba8bed71d24c1b4ed71611b5cd2dfeb7800408b8
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 1da23337b6a23f713eaadefbc4cee4aca07f56de
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304024"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351549"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Abilitare la CLI di Azure per gli utenti di Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-È possibile fornire il certificato radice CA agli utenti di Azure Stack, in modo da poter usare Azure CLI nei computer di sviluppo. Gli utenti saranno necessario il certificato per gestire le risorse tramite CLI.
+È possibile fornire il certificato radice CA agli utenti di Azure Stack, in modo da poter usare Azure CLI nei computer di sviluppo. Gli utenti devono il certificato per gestire le risorse tramite CLI.
 
-* **Il certificato radice CA Azure Stack** è obbligatorio se gli utenti usano della riga di comando da una workstation all'esterno di Azure Stack Development Kit.  
+ - **Il certificato radice CA Azure Stack** è obbligatorio se gli utenti usano della riga di comando da una workstation all'esterno di Azure Stack Development Kit.  
 
-* **L'endpoint di macchina virtuale gli alias** fornisce un alias, ad esempio "UbuntuLTS" o "Win2012Datacenter", che fa riferimento a un editore di immagini, offerta, SKU e versione come parametro singolo quando si distribuiscono le macchine virtuali.  
+ - **L'endpoint di macchina virtuale gli alias** fornisce un alias, ad esempio "UbuntuLTS" o "Win2012Datacenter", che fa riferimento a un editore di immagini, offerta, SKU e versione come parametro singolo quando si distribuiscono le macchine virtuali.  
 
 Le sezioni seguenti descrivono come ottenere questi valori.
 
 ## <a name="export-the-azure-stack-ca-root-certificate"></a>Esportare il certificato di autorità di certificazione di Azure Stack radice
 
-È possibile trovare il certificato radice CA Azure Stack nel kit di sviluppo e in una macchina virtuale tenant in cui è in esecuzione all'interno dell'ambiente kit di sviluppo. Per esportare il certificato radice di Azure Stack in formato PEM, accedere al kit di sviluppo o la macchina virtuale tenant ed eseguire lo script seguente:
+Se si usa un sistema integrato, non è necessario esportare il certificato di autorità di certificazione radice. È necessario esportare il certificato radice CA in un Azure Stack Development Kit (ASDK).
+
+Per esportare il certificato radice ASDK nel formato PEM, accedere ed eseguire lo script seguente:
 
 ```powershell
 $label = "<Your Azure Stack CA root certificate name>"
@@ -56,15 +57,15 @@ certutil -encode root.cer root.pem
 
 ## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Configurare l'endpoint di alias di macchina virtuale
 
-Operatori di Azure Stack devono essere configurata da un endpoint accessibile pubblicamente che ospita un file di alias di macchina virtuale. Il file di alias di macchina virtuale è un file JSON che fornisce un nome comune per un'immagine. Tale nome viene successivamente specificato quando una macchina virtuale viene distribuita come parametro di comando di Azure.  
+Operatori di Azure Stack devono essere configurata da un endpoint accessibile pubblicamente che ospita un file di alias di macchina virtuale. Il file di alias di macchina virtuale è un file JSON che fornisce un nome comune per un'immagine. Si userà il nome quando si distribuisce una macchina virtuale come parametro di comando di Azure.  
 
-Prima di aggiungere una voce in un file alias, assicurarsi che si [scaricare immagini da Azure Marketplace](azure-stack-download-azure-marketplace-item.md), o avere [pubblicata un'immagine personalizzata](azure-stack-add-vm-image.md). Se si pubblica un'immagine personalizzata, prendere nota delle informazioni server di pubblicazione, offerta, SKU e versione specificati durante la pubblicazione. Se è un'immagine del marketplace, è possibile visualizzare le informazioni usando il ```Get-AzureVMImage``` cmdlet.  
+Prima di aggiungere una voce in un file alias, assicurarsi che si [scaricare immagini da Azure Marketplace](azure-stack-download-azure-marketplace-item.md) o avere [pubblicata un'immagine personalizzata](azure-stack-add-vm-image.md). Se si pubblica un'immagine personalizzata, prendere nota delle informazioni server di pubblicazione, offerta, SKU e versione specificati durante la pubblicazione. Se è un'immagine del marketplace, è possibile visualizzare le informazioni usando il ```Get-AzureVMImage``` cmdlet.  
 
 Oggetto [file di esempio alias](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) con molte immagini comuni alias è disponibile. È possibile utilizzarlo come punto di partenza. Ospitare questo file in uno spazio in cui i client della riga di comando possono raggiungerlo. Uno consiste nell'ospitare i file in un account di archiviazione blob e condividerne l'URL con gli utenti:
 
 1. Scaricare il [file di esempio](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) da GitHub.
-2. Creare un nuovo account di archiviazione in Azure Stack. Al termine, creare un nuovo contenitore blob. Impostare i criteri di accesso per "pubblico".  
-3. Caricare il file JSON nel nuovo contenitore. Al termine, è possibile visualizzare l'URL del blob selezionando il nome del blob e quindi selezionando l'URL dalle proprietà del blob.
+2. Creare un account di archiviazione in Azure Stack. Al termine, creare un contenitore blob. Impostare i criteri di accesso per "pubblico".  
+3. Caricare il file JSON nel nuovo contenitore. Al termine, è possibile visualizzare l'URL del blob. Selezionare il nome del blob e quindi selezionando l'URL dalle proprietà del blob.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

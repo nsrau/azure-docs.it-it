@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087284"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351850"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Distribuire un cluster di Service Fabric in Azure Stack
 
@@ -118,7 +118,7 @@ Usare lo script seguente per creare l'insieme di credenziali e aggiungere il *ce
    ``` 
 
 
-Per altre informazioni, vedere [gestire Key Vault in Azure Stack con PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
+Per altre informazioni, vedere [gestire Key Vault in Azure Stack con PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-key-vault-manage-powershell).
 
 ## <a name="deploy-the-marketplace-item"></a>Distribuire l'elemento del Marketplace
 
@@ -138,9 +138,9 @@ Per altre informazioni, vedere [gestire Key Vault in Azure Stack con PowerShell]
 
    Per il *identificazione personale del certificato Client amministratore*, immettere l'identificazione personale del *certificato Client amministratore*. (Vedere la [prerequisiti](#prerequisites).)
    
-   - Insieme di credenziali delle chiavi di origine: Specificare intera *keyVault id* stringa dai risultati dello script. 
+   - Origine chiave dell'insieme di credenziali:  Specificare intera *keyVault id* stringa dai risultati dello script. 
    - URL del certificato del cluster: Specificare l'intero URL dal *Id segreto* dai risultati dello script. 
-   - Identificazione personale del certificato del cluster: specificare il *identificazione personale del certificato Cluster* dai risultati dello script.
+   - Identificazione personale del certificato del cluster: Specificare il *identificazione personale del certificato Cluster* dai risultati dello script.
    - Identificazioni personali del certificato Client amministratore: Specificare il *identificazione personale del certificato Client amministratore* creato nei prerequisiti. 
 
    ![Output dello script](media/azure-stack-solution-template-service-fabric-cluster/image5.png)

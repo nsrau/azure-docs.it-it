@@ -11,18 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 00c4d750d0617d36ab476719ce31c8038065511c
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d8c4d28d6f5fdcc66e512375448f4b1d5fc9b8ed
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807211"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359171"
 ---
 # <a name="azure-stack-registration"></a>Registrazione con Azure Stack
-È possibile registrare l'installazione di Azure Stack Development Kit (ASDK) con Azure per scaricare elementi di marketplace di Azure e per impostare i dati di e-commerce segnalazioni a Microsoft. È necessario eseguire la registrazione per supportare la funzionalità di Azure Stack completa, tra cui diffusione di marketplace. La registrazione è consigliata perché consente di testare le funzionalità di Azure Stack importanti come la diffusione di marketplace e report sull'utilizzo. Dopo la registrazione di Azure Stack, sull'utilizzo viene segnalato ad Azure commerce. È possibile visualizzarlo nella sottoscrizione che è usata per la registrazione. Tuttavia, gli utenti ASDK non vengono addebitate spese per qualsiasi utilizzo che generano report.
+È possibile registrare l'installazione di Azure Stack Development Kit (ASDK) con Azure per scaricare elementi di marketplace di Azure e per impostare i dati di e-commerce segnalazioni a Microsoft. È necessario eseguire la registrazione per supportare la funzionalità di Azure Stack completa, tra cui diffusione di marketplace. È necessario eseguire la registrazione per poter testare le funzionalità di Azure Stack importanti come la diffusione di marketplace e report sull'utilizzo. Dopo la registrazione di Azure Stack, sull'utilizzo viene segnalato ad Azure commerce. È possibile visualizzarlo nella sottoscrizione che è usata per la registrazione. Tuttavia, gli utenti ASDK non vengono addebitate spese per qualsiasi utilizzo che generano report.
 
 Se non si registrano i ASDK, è possibile visualizzare un **attivazione obbligatoria** messaggio di avviso che richiede di eseguire la registrazione di Azure Stack Development Kit. Si tratta di un comportamento previsto.
 
@@ -37,6 +37,8 @@ $ExecutionContext.SessionState.LanguageMode
 
 Verificare che l'output restituisce **FullLanguageMode**. Se viene restituita qualsiasi altra modalità di linguaggio, registrazione dovrà essere eseguito in un altro computer o la modalità di linguaggio dovrà essere impostata su **FullLanguageMode** prima di continuare.
 
+L'account di Azure AD usato per la registrazione deve avere accesso alla sottoscrizione di Azure e disporre delle autorizzazioni per creare applicazioni a identità ed entità servizio nella directory associata alla sottoscrizione. È consigliabile registrare Azure Stack con Azure tramite Amministrazione privilegi minimi da [creazione di un account di servizio da usare per la registrazione](..\azure-stack-registration-role.md) invece di usare le credenziali di amministratore globale.
+
 ## <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 Seguire questi passaggi per registrare il ASDK con Azure.
 
@@ -45,7 +47,7 @@ Seguire questi passaggi per registrare il ASDK con Azure.
 
 1. Aprire una console PowerShell come amministratore.  
 
-2. Eseguire i comandi di PowerShell seguenti per registrare l'installazione ASDK con Azure. È necessario accedere a sia la sottoscrizione di Azure e l'installazione ASDK locale. Se non hai una sottoscrizione di Azure, è possibile [crea qui un account Azure gratuito](https://azure.microsoft.com/free/?b=17.06). La registrazione di Azure Stack viene addebitata alcuna tariffa nella sottoscrizione di Azure.<br><br>Se si esegue lo script di registrazione in più di un'istanza di Azure Stack usando lo stesso ID di sottoscrizione di Azure, impostare un nome univoco per la registrazione quando si esegue la **Set-AzsRegistration** cmdlet. Il **RegistrationName** parametro ha valore predefinito è **AzureStackRegistration**. Tuttavia, se si usa lo stesso nome in più di un'istanza di Azure Stack, lo script avrà esito negativo.
+2. Eseguire i comandi di PowerShell seguenti per registrare l'installazione ASDK con Azure. È necessario accedere a sia la sottoscrizione di Azure e l'installazione ASDK locale. Se non hai una sottoscrizione di Azure, è possibile [crea qui un account Azure gratuito](https://azure.microsoft.com/free/?b=17.06). La registrazione di Azure Stack viene addebitata alcuna tariffa nella sottoscrizione di Azure.<br><br>Impostare un nome univoco per la registrazione quando si esegue la **Set-AzsRegistration** cmdlet. Il **RegistrationName** parametro ha valore predefinito è **AzureStackRegistration**. Tuttavia, se si usa lo stesso nome in più di un'istanza di Azure Stack, lo script avrà esito negativo.
 
     ```PowerShell  
     # Add the Azure cloud subscription environment name. 

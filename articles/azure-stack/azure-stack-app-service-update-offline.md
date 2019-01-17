@@ -12,23 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/16/2019
 ms.author: anwestg
-ms.openlocfilehash: 740a3ce36dde953cb92c52a10cbebf12544adae0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 21c43bdd9f872841c3adaf5293177efe23fc3021
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968153"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358967"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Aggiornamento offline del servizio App di Azure in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1809 al sistema integrato Azure Stack o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire Azure App Service 1.4.
->
->
+> Applicare l'aggiornamento 1809 o in un secondo momento per Azure Stack integrato system o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire Azure App Service 1.4. Prima di aggiornare il provider di risorse, esaminare le note sulla versione per informazioni sulle nuove funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
 
 Seguendo le istruzioni riportate in questo articolo, è possibile aggiornare il [provider di risorse del servizio App](azure-stack-app-service-overview.md) distribuito in un ambiente Azure Stack:
 

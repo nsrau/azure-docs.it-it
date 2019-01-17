@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 89552bc568ce38c6153683e9c3b0f3f26f569083
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 530bb7b164ec7d7b31e6d4a58bca97aa17dc62fa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959541"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357879"
 ---
 # <a name="what-is-azure-stack"></a>Cos'è Azure Stack?
 
@@ -29,8 +29,6 @@ Microsoft Azure Stack è una piattaforma di cloud ibrido che consente di offrire
 
 Azure Stack è disponibile in due opzioni di distribuzione per le diverse esigenze.
 
-## <a name="azure-stack-integrated-systems"></a>Sistemi integrati di Azure Stack
-I sistemi integrati di Azure Stack vengono offerti grazie alla collaborazione tra Microsoft e [partner hardware](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), creando una soluzione che offre innovazione per il cloud e semplicità della gestione del calcolo. Poiché Azure Stack viene offerto come sistema di software e hardware integrato, si hanno la flessibilità e il controllo necessari, nonché la possibilità di apportare innovazione dal cloud. Sistemi Azure Stack integrati dimensioni variano da 4 a 16 nodi e congiuntamente supportati dai partner hardware e Microsoft.  Usare i sistemi integrati di Azure Stack per creare nuovi scenari e distribuire nuove soluzioni per i carichi di lavoro di produzione.
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Development Kit
 
@@ -45,8 +43,11 @@ Il ASDK presenta le limitazioni seguenti:
 * Poiché i componenti di Azure Stack vengono distribuiti in un computer host, sono disponibili risorse fisiche limitate per le risorse tenant. Questa configurazione non è la valutazione di scalabilità o prestazioni.
 * Scenari di rete sono limitati a causa il singolo host e i requisiti di distribuzione di interfaccia di rete.
 
+## <a name="azure-stack-integrated-systems"></a>Sistemi integrati di Azure Stack
+I sistemi integrati di Azure Stack vengono offerti grazie alla collaborazione tra Microsoft e [partner hardware](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), creando una soluzione che offre innovazione per il cloud e semplicità della gestione del calcolo. Poiché Azure Stack viene offerto come sistema di software e hardware integrato, si hanno la flessibilità e il controllo necessari, nonché la possibilità di apportare innovazione dal cloud. Sistemi Azure Stack integrati dimensioni variano da 4 a 16 nodi e congiuntamente supportati dai partner hardware e Microsoft.  Usare i sistemi integrati di Azure Stack per creare nuovi scenari e distribuire nuove soluzioni per i carichi di lavoro di produzione.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Funzionalità e concetti principali](azure-stack-key-features.md)
 
-[Azure Stack: un'estensione di Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+[Azure Stack: Un'estensione di Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
