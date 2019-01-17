@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: d1d65d02059f312b116cfb33b13fb98471b3b2f6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
+ms.locfileid: "23068407"
 documentType: LandingData
-title: Documentazione del servizio contenitore di Azure con DC/OS e Swarm
+title: Documentazione del servizio Azure Container con DC/OS e Swarm
 metadata:
   document_id: 
-  title: Documentazione del servizio contenitore di Azure con DC/OS e Swarm - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
+  title: Documentazione del servizio Azure Container con DC/OS e Swarm - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
   meta.description: Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
@@ -14,19 +20,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: d1d65d02059f312b116cfb33b13fb98471b3b2f6
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 10/11/2017
-  ms.locfileid: "23068407"
 abstract:
-  description: Il servizio contenitore di Azure consente di distribuire rapidamente un cluster DC/OS o Docker Swarm pronto per l'ambiente di produzione. Informazioni su come usare il servizio contenitore di Azure grazie a guide introduttive, esercitazioni ed esempi.
+  description: Il servizio Azure Container consente di distribuire rapidamente un cluster DC/OS o Docker Swarm pronto per l'ambiente di produzione. Informazioni su come usare il servizio Azure Container grazie a guide introduttive, esercitazioni ed esempi.
 sections:
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
-    text: 'Informazioni su come distribuire cluster DC/OS tramite il servizio contenitore di Azure:'
+    text: 'Informazioni su come distribuire cluster DC/OS tramite il servizio Azure Container:'
   - type: list
     style: icon48
     items:
@@ -41,7 +41,7 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Informazioni su come distribuire, gestire e aggiornare le applicazioni in un cluster DC/OS del servizio contenitore di Azure.
+    text: Informazioni su come distribuire, gestire e aggiornare le applicazioni in un cluster DC/OS del servizio Azure Container.
   - type: list
     style: ordered
     items:

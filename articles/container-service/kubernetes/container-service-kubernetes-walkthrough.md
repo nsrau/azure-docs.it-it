@@ -1,6 +1,6 @@
 ---
 title: '(DEPRECATO) Avvio rapido: cluster Kubernetes di Azure per Linux'
-description: Informazioni per creare in modo rapido un cluster Kubernetes per contenitori Linux nel servizio contenitore di Azure con l'interfaccia della riga di comando di Azure.
+description: Informazioni per creare in modo rapido un cluster Kubernetes per contenitori Linux nel servizio Azure Container con l'interfaccia della riga di comando di Azure.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -64,7 +64,7 @@ Output:
 
 ## <a name="create-kubernetes-cluster"></a>Creare un cluster Kubernetes
 
-Creare un cluster Kubernetes nel servizio contenitore di Azure con il comando [az acs create](/cli/azure/acs#az-acs-create). L'esempio seguente crea un cluster denominato *myK8sCluster* con un nodo master Linux e tre nodi agente Linux.
+Creare un cluster Kubernetes nel servizio Azure Container con il comando [az acs create](/cli/azure/acs#az-acs-create). L'esempio seguente crea un cluster denominato *myK8sCluster* con un nodo master Linux e tre nodi agente Linux.
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
@@ -222,7 +222,7 @@ In questa guida introduttiva sono state usate immagini del contenitore già crea
 
 In questa guida introduttiva è stato distribuito un cluster Kubernetes in cui è stata quindi distribuita un'applicazione multicontenitore. 
 
-Per altre informazioni sul servizio contenitore di Azure e l'analisi di un codice completo per la distribuzione dell'esempio, passare all'esercitazione sul cluster Kubernetes.
+Per altre informazioni sul servizio Azure Container e l'analisi di un codice completo per la distribuzione dell'esempio, passare all'esercitazione sul cluster Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Gestire un cluster Kubernetes ACS](./container-service-tutorial-kubernetes-prepare-app.md)

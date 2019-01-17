@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Versione canary con Vamp nel cluster DC/OS di Azure
-description: Come usare Vamp per i servizi della versione canary e applicare filtri intelligenti al traffico in un cluster Azure DC/OS del servizio contenitore di Azure
+description: Come usare Vamp per i servizi della versione canary e applicare filtri intelligenti al traffico in un cluster Azure DC/OS del servizio Azure Container
 services: container-service
 author: gggina
 manager: jeconnoc
@@ -20,7 +20,7 @@ ms.locfileid: "53002064"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-In questa procedura dettagliata viene configurato Vamp nel servizio contenitore di Azure con un cluster DC/OS. Viene rilasciata la versione canary del servizio demo "sava" di Vamp che risolvere un problema di incompatibilità del servizio con Firefox applicando filtri intelligenti al traffico. 
+In questa procedura dettagliata viene configurato Vamp nel servizio Azure Container con un cluster DC/OS. Viene rilasciata la versione canary del servizio demo "sava" di Vamp che risolvere un problema di incompatibilità del servizio con Firefox applicando filtri intelligenti al traffico. 
 
 > [!TIP] 
 > In questa procedura dettagliata Vamp viene eseguito in un cluster DC/OS, ma è anche possibile usarlo con Kubernetes come agente di orchestrazione.
@@ -33,7 +33,7 @@ La [versione canary](https://martinfowler.com/bliki/CanaryRelease.html) è una s
 
 [Vamp](http://vamp.io/) è un sistema open source progettato per facilitare la transizione e portare le funzioni della versione canary all'utilità di pianificazione del contenitore preferita. La funzionalità canary di Vamp va oltre le implementazioni basate su percentuale. È possibile filtrare il traffico e dividerlo in base a una vasta gamma di condizioni, ad esempio in base a destinatari specifici, intervalli di indirizzi IP o dispositivi. Vamp tiene traccia e analizza le metriche delle prestazioni, consentendo l'automazione in base a dati reali. È possibile configurare il ripristino automatico dello stato precedente in caso di errori o aumentare le prestazioni delle varianti dei singoli servizi in base al carico o alla latenza.
 
-## <a name="set-up-azure-container-service-with-dcos"></a>Configurare il servizio contenitore di Azure con DC/OS
+## <a name="set-up-azure-container-service-with-dcos"></a>Configurare il servizio Azure Container con DC/OS
 
 
 
@@ -180,7 +180,7 @@ Vamp ha distribuito il servizio sava nei nodi dell'agente DC/OS, esponendo un en
 
 2. **Aggiornare il gruppo di sicurezza di rete** per gli agenti pubblici, la risorsa denominata **XXXX-agent-public-nsg-XXXX**, per consentire il traffico sulla porta 9050.
 
-Per istruzioni dettagliate su come completare queste attività tramite il portale di Azure, vedere [Abilitare l'accesso pubblico a un'applicazione del servizio contenitore di Azure](container-service-enable-public-access.md). Specificare la porta 9050 per tutte le impostazioni della porta.
+Per istruzioni dettagliate su come completare queste attività tramite il portale di Azure, vedere [Abilitare l'accesso pubblico a un'applicazione del servizio Azure Container](container-service-enable-public-access.md). Specificare la porta 9050 per tutte le impostazioni della porta.
 
 
 Dopo aver creato tutti gli elementi, andare nel pannello **Panoramica** del servizio di bilanciamento del carico dell'agente DC/OS, ovvero la risorsa denominata **dcos-agent-lb-xxxx**. Trovare l'**indirizzo IP pubblico** e usarlo per far accedere sava alla porta 9050.
@@ -284,7 +284,7 @@ Vamp usa le **condizioni** per filtrare il traffico tra le route in un gateway. 
 
 ## <a name="summing-up"></a>Riepilogo
 
-Questo articolo contiene una rapida introduzione a Vamp in un cluster DC/OS. Per i principianti, Vamp è stato messo in esecuzione nel cluster DC/OS del servizio contenitore di Azure, è stato distribuito un servizio con un progetto Vamp ed è stato effettuato l'accesso all'endpoint esposto, ovvero il gateway.
+Questo articolo contiene una rapida introduzione a Vamp in un cluster DC/OS. Per i principianti, Vamp è stato messo in esecuzione nel cluster DC/OS del servizio Azure Container, è stato distribuito un servizio con un progetto Vamp ed è stato effettuato l'accesso all'endpoint esposto, ovvero il gateway.
 
 Sono state trattate anche alcune funzioni importanti di Vamp: l'unione di una nuova variante di servizio alla distribuzione in esecuzione e l'introduzione incrementale, quindi il filtraggio del traffico per risolvere un'incompatibilità nota.
 

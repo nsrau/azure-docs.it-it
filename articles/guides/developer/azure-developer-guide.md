@@ -138,7 +138,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
     >**Come iniziare**: [creare un ambiente Docker in Azure usando l'estensione della macchina virtuale Docker](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
--   **Servizio Azure Container**: consente di creare, configurare e gestire un cluster di macchine virtuali preconfigurate per l'esecuzione delle applicazioni all'interno di contenitori. Per altre informazioni sul servizio contenitore, vedere [Azure Container Service introduction](../../container-service/container-service-intro.md) (Introduzione al servizio contenitore di Azure).
+-   **Servizio Azure Container**: consente di creare, configurare e gestire un cluster di macchine virtuali preconfigurate per l'esecuzione delle applicazioni all'interno di contenitori. Per altre informazioni sul servizio contenitore, vedere [Azure Container Service introduction](../../container-service/container-service-intro.md) (Introduzione al servizio Azure Container).
 
     >**Uso consigliato**: quando è necessario creare ambienti scalabili e pronti per la produzione che offrano strumenti di pianificazione e gestione aggiuntivi o quando si vuole distribuire un cluster Docker Swarm.
 

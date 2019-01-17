@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Monitorare un cluster Azure Kubernetes con Datadog
-description: Monitoraggio di un cluster Kubernetes nel servizio contenitore di Azure con Datadog
+description: Monitoraggio di un cluster Kubernetes nel servizio Azure Container con Datadog
 services: container-service
 author: bburns
 manager: jeconnoc
@@ -21,7 +21,7 @@ ms.locfileid: "52995346"
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
-Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio contenitore di Azure](container-service-kubernetes-walkthrough.md).
+Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio Azure Container](container-service-kubernetes-walkthrough.md).
 
 Si presume anche che gli strumenti dell'interfaccia della riga di comando di Azure `az` e `kubectl` siano installati.
 
@@ -46,7 +46,7 @@ $ az acs kubernetes install-cli
 ```
 
 ## <a name="datadog"></a>DataDog
-Datadog è un servizio che raccoglie dati di monitoraggio dai contenitori all'interno del cluster del servizio contenitore di Azure. Datadog è dotato di un dashboard di integrazione Docker in cui è possibile visualizzare metriche specifiche all'interno dei propri contenitori. Le metriche raccolte dai contenitori sono organizzate per CPU, memoria, rete e I/O. Datadog suddivide le metriche in contenitori e immagini.
+Datadog è un servizio che raccoglie dati di monitoraggio dai contenitori all'interno del cluster del servizio Azure Container. Datadog è dotato di un dashboard di integrazione Docker in cui è possibile visualizzare metriche specifiche all'interno dei propri contenitori. Le metriche raccolte dai contenitori sono organizzate per CPU, memoria, rete e I/O. Datadog suddivide le metriche in contenitori e immagini.
 
 Prima è necessario [creare un account](https://www.datadoghq.com/lpg/)
 

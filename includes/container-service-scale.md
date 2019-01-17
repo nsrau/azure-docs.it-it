@@ -13,7 +13,7 @@ ms.locfileid: "53002255"
 ---
 [!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
-Dopo aver [distribuito un cluster del servizio contenitore di Azure](../articles/container-service/dcos-swarm/container-service-deployment.md), potrebbe essere necessario modificare il numero di nodi agente. Ad esempio, potrebbero essere necessari più agenti in modo da eseguire più applicazioni o istanze contenitore. 
+Dopo aver [distribuito un cluster del servizio Azure Container](../articles/container-service/dcos-swarm/container-service-deployment.md), potrebbe essere necessario modificare il numero di nodi agente. Ad esempio, potrebbero essere necessari più agenti in modo da eseguire più applicazioni o istanze contenitore. 
 
 È possibile modificare il numero di nodi agente in un cluster DC/OS, Docker Swarm o Kubernetes tramite il portale di Azure o l'interfaccia della riga di comando di Azure. 
 
@@ -65,6 +65,6 @@ Per ulteriori opzioni di comandi, eseguire `az acs scale --help`.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Vedere [altri esempi](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) dell'uso dei comandi dell'interfaccia della riga di comando di Azure con il servizio contenitore di Azure.
-* Ulteriori informazioni sui [pool di agenti DC/OS](../articles/container-service/dcos-swarm/container-service-dcos-agents.md) del servizio contenitore di Azure.
+* Vedere [altri esempi](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) dell'uso dei comandi dell'interfaccia della riga di comando di Azure con il servizio Azure Container.
+* Ulteriori informazioni sui [pool di agenti DC/OS](../articles/container-service/dcos-swarm/container-service-dcos-agents.md) del servizio Azure Container.
 

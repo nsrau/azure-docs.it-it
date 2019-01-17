@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Gestire un cluster DC/OS di Azure con l'API REST Marathon
-description: Distribuire contenitori in un cluster DC/OS del servizio contenitore di Azure usando l'API REST di Marathon.
+description: Distribuire contenitori in un cluster DC/OS del servizio Azure Container usando l'API REST di Marathon.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -24,13 +24,13 @@ DC/OS offre un ambiente di distribuzione e ridimensionamento dei carichi di lavo
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di eseguire questi esempi, è necessario avere un cluster DC/OS configurato nel servizio contenitore di Azure. È necessaria anche la connettività remota a questo cluster. Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito:
+Prima di eseguire questi esempi, è necessario avere un cluster DC/OS configurato nel servizio Azure Container. È necessaria anche la connettività remota a questo cluster. Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito:
 
 * [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md)
 * [Connettersi a un cluster del servizio contenitore di Azure](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>Accedere alle API di DC/OS
-Dopo essersi connessi al cluster del servizio contenitore di Azure, è possibile accedere alle API di DC/OS e alle API REST correlate tramite http://localhost:local-port. Gli esempi riportati in questo documento presuppongono il tunneling sulla porta 80. Ad esempio, gli endpoint Marathon sono raggiungibili usando gli URI che iniziano con `http://localhost/marathon/v2/`. 
+Dopo essersi connessi al cluster del servizio Azure Container, è possibile accedere alle API di DC/OS e alle API REST correlate tramite http://localhost:local-port. Gli esempi riportati in questo documento presuppongono il tunneling sulla porta 80. Ad esempio, gli endpoint Marathon sono raggiungibili usando gli URI che iniziano con `http://localhost/marathon/v2/`. 
 
 Per altre informazioni sulle varie API, vedere la documentazione di Mesosphere per l'[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e l'[API Chronos](https://mesos.github.io/chronos/docs/api.html), nonché la documentazione di Apache per l'[API dell'utilità di pianificazione Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 2299dd6c723aa3059c293170c655918e5236ca0e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138161"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213451"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Non è possibile stabilire una connessione RDP a Macchine virtuali di Azure perché il servizio Client DHCP è disabilitato
 
@@ -62,7 +62,7 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
 
 ### <a name="use-serial-control"></a>Usare il controllo seriale
 
-1. Connettersi alla [console seriale e aprire un'istanza CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+1. Connettersi alla [console seriale e aprire un'istanza CMD](serial-console-windows.md#use-cmd-or-powershell-in-serial-console).
 ). Se la console seriale non è abilitata nella macchina virtuale, vedere [Come reimpostare l'interfaccia di rete per la VM Windows di Azure](reset-network-interface.md).
 2. Verificare se il DHCP è disabilitato nell'interfaccia di rete:
 
@@ -95,7 +95,7 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>Il servizio Client DHCP è arrestato a causa di un errore di accesso negato
 
-1. Connettersi alla [console seriale](serial-console-windows.md#) e aprire un'istanza di PowerShell.
+1. Connettersi alla [console seriale](serial-console-windows.md) e aprire un'istanza di PowerShell.
 2. Scaricare lo strumento di monitoraggio del processo eseguendo lo script seguente:
 
    ```

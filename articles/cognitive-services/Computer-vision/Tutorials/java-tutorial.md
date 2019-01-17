@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: ef1180a8e8c833648e3b61705abf354cb4dfaed3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d0bc4f5877a09380a2c7053134ae0505b31ae685
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117487"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330943"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>Esercitazione: API Visione artificiale in Java
 
@@ -456,7 +456,7 @@ Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione
 
 ### <a name="intelligently-generate-a-thumbnail"></a>Generare un'anteprima intelligente
 
-La funzionalità di anteprima di Visione artificiale genera un'anteprima da un'immagine. Usando la funzionalità **Smart Crop** (Ritaglio intelligente), la funzionalità di anteprima identifica l'area di interesse in un'immagine e focalizza l'anteprima su quest'area, per generare immagini di anteprima esteticamente più gradevoli.
+La funzionalità di anteprima di Visione artificiale genera un'anteprima da un'immagine. Usando la funzionalità **Smart Crop** (Ritaglio intelligente), la funzionalità di anteprima identifica l'area di interesse in un'immagine e centra l'anteprima su quest'area, per generare immagini di anteprima più gradevoli.
 
 Per completare la funzionalità di anteprima dell'applicazione dell'esercitazione, procedere come segue:
 

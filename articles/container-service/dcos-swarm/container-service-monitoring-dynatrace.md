@@ -1,6 +1,6 @@
 ---
 title: '(DEPRECATO) Monitorare un cluster del controller di dominio/sistema operativo di Azure: Dynatrace'
-description: Monitorare un cluster DC/OS del servizio contenitore di Azure con Dynatrace. Distribuire Dynatrace OneAgent tramite il dashboard di DC/OS.
+description: Monitorare un cluster DC/OS del servizio Azure Container con Dynatrace. Distribuire Dynatrace OneAgent tramite il dashboard di DC/OS.
 services: container-service
 author: MartinGoodwell
 manager: jeconnoc
@@ -20,7 +20,7 @@ ms.locfileid: "53001985"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Questo articolo mostra come distribuire [Dynatrace](https://www.dynatrace.com/) OneAgent per monitorare tutti i nodi dell'agente nel cluster del servizio contenitore di Azure. Per questa configurazione, è necessario un account con Dynatrace SaaS/Managed. 
+Questo articolo mostra come distribuire [Dynatrace](https://www.dynatrace.com/) OneAgent per monitorare tutti i nodi dell'agente nel cluster del servizio Azure Container. Per questa configurazione, è necessario un account con Dynatrace SaaS/Managed. 
 
 ## <a name="dynatrace-saasmanaged"></a>Dynatrace SaaS/Managed
 Dynatrace è una soluzione di monitoraggio nativa del cloud per gli ambienti cluster e dei contenitori altamente dinamici. Consente di ottimizzare le distribuzioni dei contenitori e le allocazioni di memoria usando i dati di utilizzo in tempo reale. È in grado di individuare automaticamente problemi a livello di applicazioni e infrastruttura fornendo una baseline automatizzata, oltre alla correlazione dei problemi e al rilevamento delle cause principali.

@@ -23,11 +23,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "53001578"
 ---
-# <a name="deprecated-create-an-azure-container-service-kubernetes-windows-cluster"></a>(DEPRECATO) Creare un cluster Kubernetes Windows del servizio contenitore di Azure
+# <a name="deprecated-create-an-azure-container-service-kubernetes-windows-cluster"></a>(DEPRECATO) Creare un cluster Kubernetes Windows del servizio Azure Container
 
 [!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
-Questo esempio consente di creare un cluster del servizio contenitore di Azure che esegue Kubernetes per Windows.
+Questo esempio consente di creare un cluster del servizio Azure Container che esegue Kubernetes per Windows.
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -69,4 +69,4 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
 
-Altri esempi di script dell'interfaccia della riga di comando del servizio contenitore di Azure sono disponibili nella [documentazione del servizio contenitore di Azure](../cli-samples.md).
+Altri esempi di script dell'interfaccia della riga di comando del servizio Azure Container sono disponibili nella [documentazione del servizio Azure Container](../cli-samples.md).

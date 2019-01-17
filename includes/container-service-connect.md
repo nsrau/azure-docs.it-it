@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: 03f44c016fbc84c978a680dd5256c5e48bdd8617
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2017
+ms.locfileid: "22663129"
+---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Stabilire una connessione remota a un cluster Kubernetes, DC/OS o Docker Swarm
-Dopo aver creato un cluster del servizio contenitore di Azure è necessario connettersi al cluster per distribuire e gestire i carichi di lavoro. Questo articolo descrive come connettersi alla VM master del cluster da un computer remoto. 
+Dopo aver creato un cluster del servizio Azure Container è necessario connettersi al cluster per distribuire e gestire i carichi di lavoro. Questo articolo descrive come connettersi alla VM master del cluster da un computer remoto. 
 
 I cluster Kubernetes, DC/OS e Docker Swarm forniscono localmente endpoint HTTP. Per Kubernetes, questo endpoint viene esposto in modo sicuro in Internet ed è possibile accedervi eseguendo lo strumento da riga di comando `kubectl` da qualsiasi computer connesso a Internet. 
 
@@ -7,7 +15,7 @@ Per DC/OS e Docker Swarm, è consigliabile creare un tunnel Secure Shell (SSH) d
 
 ## <a name="prerequisites"></a>prerequisiti
 
-* Un cluster Kubernetes, DC/OS o Docker Swarm [distribuito nel servizio contenitore di Azure](../articles/container-service/dcos-swarm/container-service-deployment.md).
+* Un cluster Kubernetes, DC/OS o Docker Swarm [distribuito nel servizio Azure Container](../articles/container-service/dcos-swarm/container-service-deployment.md).
 * File di chiave privata SSH RSA, corrispondente alla chiave pubblica aggiunta al cluster durante la distribuzione. Questi comandi presuppongono che la chiave privata SSH si trovi in `$HOME/.ssh/id_rsa` nel computer. Per altre informazioni, vedere le istruzioni per [macOS e Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) o per [Windows](../articles/virtual-machines/linux/ssh-from-windows.md). Se la connessione SSH non funziona, potrebbe essere necessario [reimpostare le chiavi SSH](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Connettersi a un cluster Kubernetes
@@ -69,7 +77,7 @@ Per altre informazioni, vedere la [Guida rapida di Kubernetes](http://kubernetes
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>Connettersi a un cluster DC/OS o Swarm
 
-Per usare i cluster DC/OS e Docker Swarm distribuiti dal servizio contenitore di Azure, seguire queste istruzioni per creare un tunnel SSH dal sistema Linux, macOS o Windows locale. 
+Per usare i cluster DC/OS e Docker Swarm distribuiti dal servizio Azure Container, seguire queste istruzioni per creare un tunnel SSH dal sistema Linux, macOS o Windows locale. 
 
 > [!NOTE]
 > Queste istruzioni sono incentrate sul tunneling del traffico TCP su SSH. È anche possibile avviare una sessione SSH interattiva con uno dei sistemi interni di gestione dei cluster, ma questa opzione non è consigliabile. L'intervento diretto su un sistema interno comporta il rischio di modifiche accidentali alla configurazione.  

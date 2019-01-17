@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Servizio contenitore di Azure - Domande frequenti
-description: Risposte alle domande frequenti sul servizio contenitore di Azure, che semplifica la creazione, la configurazione e la gestione di un cluster di macchine virtuali per l'esecuzione di app contenitore Docker.
+description: Risposte alle domande frequenti sul servizio Azure Container, che semplifica la creazione, la configurazione e la gestione di un cluster di macchine virtuali per l'esecuzione di app contenitore Docker.
 services: container-service
 author: iainfoulds
 manager: jeconnoc

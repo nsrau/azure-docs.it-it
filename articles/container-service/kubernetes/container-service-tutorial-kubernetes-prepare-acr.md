@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Esercitazione sul servizio Azure Container - Preparare il Registro Azure Container
-description: Esercitazione sul servizio contenitore di Azure - Preparare il Registro contenitori di Azure
+description: Esercitazione sul servizio Azure Container - Preparare il Registro Azure Container
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -30,7 +30,7 @@ Il Registro contenitori di Azure è un registro privato basato su Azure per le i
 > * Assegnazione di tag a un'immagine del contenitore per Registro contenitori di Azure
 > * Caricamento dell'immagine in Registro contenitori di Azure
 
-Nelle esercitazioni successive, questa istanza del Registro contenitori di Azure viene integrata con un cluster Kubernetes del servizio contenitore di Azure. 
+Nelle esercitazioni successive, questa istanza di Registro Azure Container viene integrata con un cluster Kubernetes del servizio Azure Container. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

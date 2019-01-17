@@ -1,9 +1,9 @@
 ---
-title: Gestire efficacemente i costi per SQL Server nelle macchine virtuali di Azure | Microsoft Docs
+title: Gestire efficacemente i costi per SQL Server nelle macchine virtuali di Azure | Documentazione Microsoft
 description: Fornisce le procedure consigliate per la scelta del modello di prezzo giusto per la macchina virtuale di SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
-ms.author: jroth
-ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496470"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330791"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Guida ai prezzi per le VM di SQL Server in Azure
 
@@ -68,7 +69,7 @@ Sono disponibili due possibilità per il pagamento delle licenze di SQL Server p
 
 Il costo è lo stesso per tutte le versioni di SQL Server, dalla 2012 SP3 alla 2017. Il costo della licenza al secondo dipende dal numero di CPU virtuali della macchina virtuale.
 
-Il pagamento delle licenze di SQL Server in base all'utilizzo è consigliato per:
+Il pagamento della licenze di SQL Server in base all'utilizzo è consigliato per:
 
 - **Carichi di lavoro temporanei o periodici**. Ad esempio un'app che deve supportare un evento per un paio di mesi all'anno o analisi di business il lunedì.
 

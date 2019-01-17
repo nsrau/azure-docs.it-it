@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Gestire un cluster Azure Kubernetes con l'interfaccia utente Web
-description: Uso dell'interfaccia utente Web Kubernetes nel servizio contenitore di Azure
+description: Uso dell'interfaccia utente Web Kubernetes nel servizio Azure Container
 services: container-service
 author: bburns
 manager: jeconnoc
@@ -24,7 +24,7 @@ ms.locfileid: "52996128"
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
-Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio contenitore di Azure](container-service-kubernetes-walkthrough.md).
+Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio Azure Container](container-service-kubernetes-walkthrough.md).
 
 
 Si presume inoltre che l'interfaccia della riga di comando di Azure e gli strumenti `kubectl` siano installati.

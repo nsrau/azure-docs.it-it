@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9c163ddf7859246fcdaa28edfd4b598a24a32be2
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 48be60a7ba5770f8c329cb6323a5caa8fcf7f961
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195797"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265057"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Distribuire una macchina virtuale di Azure dal disco rigido virtuale di un utente
 
@@ -41,7 +41,7 @@ Copiare il modello di Azure Resource Manager per la [distribuzione del disco rig
 | vmName                     | Nome della macchina virtuale                                                    |
 | vaultName                  | Nome dell'insieme di credenziali delle chiavi                                                          |
 | vaultResourceGroup         | Gruppo di risorse dell'insieme di credenziali delle chiavi
-| certificateUrl             | URL del certificato, inclusa la versione archiviata nell'insieme di credenziali delle chiavi, ad esempio: https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7 |
+| certificateUrl             | URL del certificato, inclusa la versione archiviata nell'insieme di credenziali delle chiavi, ad esempio: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 | vhdUrl                     | URL del disco rigido virtuale                                                   |
 | vmSize                     | Dimensione dell'istanza di macchina virtuale                                           |
 | publicIPAddressName        | Nome dell'indirizzo IP pubblico                                                  |

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 977c464e0c172a25d069fa7db55d8aefb78d89d9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f6267bd2d97dabd71c007bcb8112936093124f74
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339094"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267029"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari.  Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali, risorse di rete, SQL, dati e applicazioni.
 
-Questo articolo illustra le raccomandazioni applicabili al servizio SQL di Azure e ai dati e relative all'abilitazione del controllo per i database SQL Azure e della crittografia per i database SQL e dell'account di archiviazione di Azure.  Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili per il servizio SQL e per i dati e i relativi effetti se vengono applicate.
+
 ### <a name="monitor-data-security"></a>Monitorare la sicurezza dei dati
 
 Quando si fa clic su **Sicurezza dei dati** nella sezione **Prevenzione**, si apre il pannello **Risorse dati** con consigli relativi a SQL e all'archiviazione. Il pannello include anche [raccomandazioni](security-center-sql-service-recommendations.md) sullo stato di integrità generale del database. Per altre informazioni sulla crittografia per l'archiviazione, vedere [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md) (Abilitare la crittografia per l'account di archiviazione di Azure nel Centro sicurezza di Azure).
@@ -60,7 +60,6 @@ Per abilitare il controllo, selezionare semplicemente **SÌ** nell'opzione **Con
 |SQL|15|Abilitare il controllo sui database SQL|Abilitare il controllo per i database SQL di Azure. (Solo servizio Azure SQL. Non include istanze di SQL in esecuzione nelle macchine virtuali.)|
 |Data Lake Analytics|15|Abilita la crittografia dei dati inattivi di Data Lake Analytics|Abilitare Transparent Data Encryption per proteggere i dati inattivi in Data Lake Analytics. La crittografia dei dati inattivi è trasparente. In altre parole, Data Lake Analytics crittografa automaticamente i dati prima di renderli persistenti e li decrittografa prima di recuperarli. Non sono necessarie modifiche nelle applicazioni e nei servizi che interagiscono con Data Lake Analytics a causa della crittografia. La crittografia dei dati inattivi riduce al minimo il rischio di perdita di dati in caso di furto ed è anche utile per rispettare i requisiti di conformità alle normative.|
 |Data Lake Store|15|Abilita la crittografia dei dati inattivi per Data Lake Store|Abilitare Transparent Data Encryption per proteggere i dati inattivi in Data Lake Store. La crittografia dei dati inattivi è trasparente. In altre parole, Data Lake Store crittografa automaticamente i dati prima di renderli persistenti e li decrittografa prima di recuperarli. Per supportare la crittografia non è necessario apportare modifiche nelle applicazioni e nei servizi che interagiscono con Data Lake Store. La crittografia dei dati inattivi riduce al minimo il rischio di perdita di dati in caso di furto ed è anche utile per rispettare i requisiti di conformità alle normative.|
-|Account di archiviazione|15|Abilita la crittografia per l'account di archiviazione di Azure|Abilitare la crittografia del servizio di archiviazione di Azure per i dati inattivi che applica la crittografia ai dati quando vengono scritti nell'archiviazione di Azure e li decrittografa prima del recupero. La crittografia del servizio Archiviazione di Azure è attualmente disponibile solo per il servizio BLOB di Azure e può essere usata per BLOB in blocchi, BLOB di pagine e BLOB di aggiunta.|
 |Data Lake Analytics|5|Abilita i log di diagnostica in Data Lake Analytics|Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Data Lake Store|5|Abilita i log di diagnostica in Azure Data Lake Store|Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |SQL|30|Risolvi le vulnerabilità nei database SQL|La funzionalità di valutazione della vulnerabilità di SQL analizza il database per individuare vulnerabilità a livello di sicurezza ed espone eventuali scostamenti dalle procedure consigliate, ad esempio configurazioni errate, autorizzazioni eccessive e dati sensibili non protetti. La risoluzione delle vulnerabilità rilevate può migliorare significativamente il livello di sicurezza del database.|

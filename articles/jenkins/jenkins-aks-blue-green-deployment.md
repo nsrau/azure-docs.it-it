@@ -216,7 +216,7 @@ In questa sezione verrà illustrato come preparare il server Jenkins per eseguir
 1. Installare i plug-in Jenkins eseguendo la procedura seguente nel dashboard di Jenkins:
 
     1. Selezionare **Manage Jenkins (Gestisci Jenkins) > Manage plugins (Gestisci plug-in) > Available (Disponibili)**.
-    1. Cercare e installare il plug-in del servizio contenitore di Azure.
+    1. Cercare e installare il plug-in del servizio Azure Container.
 
 1. Aggiungere le credenziali per gestire le risorse in Azure. Installare il plug-in per le **credenziali di Azure**, se non è già disponibile.
 

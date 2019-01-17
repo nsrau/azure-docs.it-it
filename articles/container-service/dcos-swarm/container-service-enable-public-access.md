@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Abilitare l'accesso a un'applicazione del contenitore DC/OS di Azure
-description: Come abilitare l'accesso pubblico ai contenitori DC/OS in un servizio contenitore di Azure.
+description: Come abilitare l'accesso pubblico ai contenitori DC/OS in un servizio Azure Container.
 services: container-service
 author: sauryadas
 manager: madhana
@@ -20,19 +20,19 @@ ms.locfileid: "52996586"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Qualsiasi contenitore DC/OS nel [pool di agenti pubblico](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) del servizio contenitore di Azure viene esposto automaticamente a Internet. Per impostazione predefinita, le porte **80**, **443**, **8080** sono aperte e qualsiasi contenitore (pubblico) in ascolto su queste porte è accessibile. Questo articolo descrive come aprire altre porte per le applicazioni nel servizio contenitore di Azure.
+Qualsiasi contenitore DC/OS nel [pool di agenti pubblico](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) del servizio contenitore di Azure viene esposto automaticamente a Internet. Per impostazione predefinita, le porte **80**, **443**, **8080** sono aperte e qualsiasi contenitore (pubblico) in ascolto su queste porte è accessibile. Questo articolo descrive come aprire altre porte per le applicazioni nel servizio Azure Container.
 
 ## <a name="open-a-port-portal"></a>Aprire una porta (portale)
 Prima di tutto è necessario aprire la porta desiderata.
 
 1. Accedere al portale.
-2. Trovare il gruppo di risorse in cui è stato distribuito il servizio contenitore di Azure.
+2. Trovare il gruppo di risorse in cui è stato distribuito il servizio Azure Container.
 3. Selezionare il servizio di bilanciamento del carico dell'agente, che ha un nome simile a **XXXX-agent-lb-XXXX**.
    
-    ![Servizio di bilanciamento del carico del servizio contenitore di Azure](./media/container-service-enable-public-access/agent-load-balancer.png)
+    ![Servizio di bilanciamento del carico del servizio Azure Container](./media/container-service-enable-public-access/agent-load-balancer.png)
 4. Fare clic su **Probe** e quindi su **Aggiungi**.
    
-    ![Probe del servizio di bilanciamento del carico del servizio contenitore di Azure](./media/container-service-enable-public-access/add-probe.png)
+    ![Probe del servizio di bilanciamento del carico del servizio Azure Container](./media/container-service-enable-public-access/add-probe.png)
 5. Compilare il form dei probe e fare clic su **OK**.
    
    | Campo | DESCRIZIONE |
@@ -44,7 +44,7 @@ Prima di tutto è necessario aprire la porta desiderata.
    | Soglia non integra |Numero di tentativi consecutivi del probe prima che il contenitore sia considerato non integro. |
 6. Tornare alle proprietà del servizio di bilanciamento del carico dell'agente, fare clic su **Regole di bilanciamento del carico** e quindi su **Aggiungi**.
    
-    ![Regole del servizio di bilanciamento del carico del servizio contenitore di Azure](./media/container-service-enable-public-access/add-balancer-rule.png)
+    ![Regole del servizio di bilanciamento del carico del servizio Azure Container](./media/container-service-enable-public-access/add-balancer-rule.png)
 7. Compilare il modulo del servizio di bilanciamento del carico e fare clic su **OK**.
    
    | Campo | DESCRIZIONE |
@@ -61,13 +61,13 @@ Prima di tutto è necessario aprire la porta desiderata.
 Successivamente, è necessario aggiungere una regola di sicurezza che instradi il traffico dalla porta aperta tramite il firewall.
 
 1. Accedere al portale.
-2. Trovare il gruppo di risorse in cui è stato distribuito il servizio contenitore di Azure.
+2. Trovare il gruppo di risorse in cui è stato distribuito il servizio Azure Container.
 3. Selezionare il gruppo di sicurezza di rete dell'agente **pubblico**, che ha un nome simile a **XXXX-agent-public-nsg-XXXX**.
    
-    ![Gruppo di sicurezza di rete del servizio contenitore di Azure](./media/container-service-enable-public-access/agent-nsg.png)
+    ![Gruppo di sicurezza di rete del servizio Azure Container](./media/container-service-enable-public-access/agent-nsg.png)
 4. Selezionare **Regole di sicurezza in ingresso** e quindi fare clic su **Aggiungi**.
    
-    ![Regole del gruppo di sicurezza di rete del servizio contenitore di Azure](./media/container-service-enable-public-access/add-firewall-rule.png)
+    ![Regole del gruppo di sicurezza di rete del servizio Azure Container](./media/container-service-enable-public-access/add-firewall-rule.png)
 5. Compilare la regola del firewall per consentire la porta pubblica e fare clic su **OK**.
    
    | Campo | DESCRIZIONE |

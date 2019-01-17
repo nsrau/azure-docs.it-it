@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Pool di agenti DC/OS per il servizio Azure Container
-description: Informazioni sul funzionamento dei pool di agenti pubblici e privati con un cluster DC/OS del servizio contenitore di Azure
+description: Informazioni sul funzionamento dei pool di agenti pubblici e privati con un cluster DC/OS del servizio Azure Container
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -20,7 +20,7 @@ ms.locfileid: "52994949"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-I cluster DC/OS nel servizio contenitore di Azure contengono nodi di agenti in due pool, uno pubblico e uno privato. Un'applicazione può essere distribuita indifferentemente in uno dei due pool, ma ciò influisce sull'accessibilità tra i computer nel servizio contenitore. I computer possono essere esposti a Internet (pubblico) o rimanere interni (privato). Questo articolo descrive brevemente il motivo per cui esistono i pool pubblici e i pool privati.
+I cluster DC/OS nel servizio Azure Container contengono nodi di agenti in due pool, uno pubblico e uno privato. Un'applicazione può essere distribuita indifferentemente in uno dei due pool, ma ciò influisce sull'accessibilità tra i computer nel servizio contenitore. I computer possono essere esposti a Internet (pubblico) o rimanere interni (privato). Questo articolo descrive brevemente il motivo per cui esistono i pool pubblici e i pool privati.
 
 
 * **Agenti privati**: I nodi di agenti privati vengono eseguiti tramite una rete non instradabile, accessibile unicamente dalla zona di amministrazione o attraverso il router perimetrale della zona pubblica. Per impostazione predefinita, il DC/OS avvia le applicazioni in nodi di agenti privati. 
@@ -31,7 +31,7 @@ Per altre informazioni sulla sicurezza della rete DC/OS, vedere la [documentazio
 
 ## <a name="deploy-agent-pools"></a>Distribuire pool di agenti
 
-I pool di agenti DC/OS del servizio contenitore di Azure vengono creati come segue:
+I pool di agenti DC/OS del servizio Azure Container vengono creati come segue:
 
 * Il **pool privato** contiene il numero di nodi di agenti che si specifica quando si [distribuisce il cluster DC/OS](container-service-deployment.md). 
 

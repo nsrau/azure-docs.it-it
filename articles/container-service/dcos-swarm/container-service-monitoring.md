@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Monitorare un cluster del controller di dominio/sistema operativo di Azure - Datadog
-description: Monitorare un cluster del servizio contenitore di Azure con Datadog. Usare l'interfaccia utente Web del controller di dominio/sistema operativo per distribuire gli agenti Datadog al cluster.
+description: Monitorare un cluster del servizio Azure Container con Datadog. Usare l'interfaccia utente Web del controller di dominio/sistema operativo per distribuire gli agenti Datadog al cluster.
 services: container-service
 author: sauryadas
 manager: jeconnoc
@@ -20,13 +20,13 @@ ms.locfileid: "52996148"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-In questo articolo verranno distribuiti agenti di Datadog in tutti i nodi agente nel cluster del servizio contenitore di Azure. Per questa configurazione, sarà necessario un account con Datadog. 
+In questo articolo verranno distribuiti agenti di Datadog in tutti i nodi agente nel cluster del servizio Azure Container. Per questa configurazione, sarà necessario un account con Datadog. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 [Distribuire](container-service-deployment.md) e [connettere](../container-service-connect.md) un cluster configurato dal servizio contenitore di Azure. Esplorare l' [interfaccia utente](container-service-mesos-marathon-ui.md)di Marathon. Passare a [http://datadoghq.com](http://datadoghq.com) per configurare un account Datadog. 
 
 ## <a name="datadog"></a>Datadog
-Datadog è un servizio che raccoglie dati di monitoraggio dai contenitori all'interno del cluster del servizio contenitore di Azure. Datadog è dotato di un dashboard di integrazione Docker in cui è possibile visualizzare metriche specifiche all'interno dei propri contenitori. Le metriche raccolte dai contenitori sono organizzate per CPU, memoria, rete e I/O. Datadog suddivide le metriche in contenitori e immagini. Un esempio dell'aspetto dell'interfaccia utente per l'utilizzo della CPU è riportato di seguito.
+Datadog è un servizio che raccoglie dati di monitoraggio dai contenitori all'interno del cluster del servizio Azure Container. Datadog è dotato di un dashboard di integrazione Docker in cui è possibile visualizzare metriche specifiche all'interno dei propri contenitori. Le metriche raccolte dai contenitori sono organizzate per CPU, memoria, rete e I/O. Datadog suddivide le metriche in contenitori e immagini. Un esempio dell'aspetto dell'interfaccia utente per l'utilizzo della CPU è riportato di seguito.
 
 ![Interfaccia utente Datadog](./media/container-service-monitoring/datadog4.png)
 

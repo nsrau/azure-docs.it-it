@@ -10,7 +10,7 @@ ms.date: 07/03/2018
 ms.topic: article
 ms.technology: azds-kubernetes
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
-keywords: Docker, Kubernetes, Azure, AKS, servizio contenitore di Azure, contenitori
+keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
 ms.openlocfilehash: 3d7e82903400d8aab0d33628af2b404583cb42a7
 ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT

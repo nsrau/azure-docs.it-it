@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Monitorare un cluster Azure Kubernetes - Sysdig
-description: Monitoraggio di cluster Kubernetes nel servizio contenitore di Azure con Sysdig
+description: Monitoraggio di cluster Kubernetes nel servizio Azure Container con Sysdig
 services: container-service
 author: bburns
 manager: jeconnoc
@@ -21,7 +21,7 @@ ms.locfileid: "52998711"
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
-Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio contenitore di Azure](container-service-kubernetes-walkthrough.md).
+Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio Azure Container](container-service-kubernetes-walkthrough.md).
 
 Si presume inoltre che gli strumenti azure cli e kubectl siano installati.
 

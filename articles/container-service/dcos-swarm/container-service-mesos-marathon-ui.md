@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Gestire un cluster DC/OS di Azure con l'interfaccia utente Marathon
-description: Distribuire contenitori in un cluster del servizio contenitore di Azure usando l'interfaccia utente Web di Marathon.
+description: Distribuire contenitori in un cluster del servizio Azure Container usando l'interfaccia utente Web di Marathon.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -26,7 +26,7 @@ Sono disponibili framework per molti dei carichi di lavoro più comuni. Questo d
 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di eseguire questi esempi, è necessario avere un cluster DC/OS configurato nel servizio contenitore di Azure. È necessaria anche la connettività remota a questo cluster. Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito:
+Prima di eseguire questi esempi, è necessario avere un cluster DC/OS configurato nel servizio Azure Container. È necessaria anche la connettività remota a questo cluster. Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito:
 
 * [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md)
 * [Connettersi a un cluster del servizio contenitore di Azure](../container-service-connect.md)
@@ -41,7 +41,7 @@ Dopo aver [stabilito](../container-service-connect.md) un tunnel Secure Shell (S
 ![Interfaccia utente di DC/OS](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Esplorare l'interfaccia utente di Marathon
-Per visualizzare l'interfaccia utente di Marathon, passare a http://localhost/marathon. In questa schermata è possibile avviare un nuovo contenitore o un'altra applicazione nel cluster DC/OS del servizio contenitore di Azure. È anche possibile visualizzare le informazioni sull'esecuzione di contenitori e applicazioni.  
+Per visualizzare l'interfaccia utente di Marathon, passare a http://localhost/marathon. In questa schermata è possibile avviare un nuovo contenitore o un'altra applicazione nel cluster DC/OS del servizio Azure Container. È anche possibile visualizzare le informazioni sull'esecuzione di contenitori e applicazioni.  
 
 ![Interfaccia utente di Marathon](./media/container-service-mesos-marathon-ui/dcos3.png)
 
@@ -106,7 +106,7 @@ In questo esempio l'applicazione è in esecuzione su un nodo dell'agente pubblic
 ## <a name="next-steps"></a>Passaggi successivi
 * [Usare DC/OS e l'API Marathon](container-service-mesos-marathon-rest.md)
 
-* Approfondimento sul servizio contenitore di Azure con Mesos
+* Approfondimento sul servizio Azure Container con Mesos
 
     > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203/player]
     > 

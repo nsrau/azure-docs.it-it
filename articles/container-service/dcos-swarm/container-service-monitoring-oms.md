@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Monitorare il cluster DC/OS di Azure - Gestione operazioni
-description: Monitorare un cluster DC/OS del servizio contenitore di Azure con Log Analytics.
+description: Monitorare un cluster DC/OS del servizio Azure Container con Log Analytics.
 services: container-service
 author: keikhara
 manager: jeconnoc

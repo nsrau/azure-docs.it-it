@@ -104,11 +104,11 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
     - In Windows Server 2016 e Windows 10, installare il motore e il client Docker, quindi connettere un agente per raccogliere informazioni da inviare a Log Analytics. Se si dispone di un ambiente Windows, consultare [Install and configure Windows container hosts](#install-and-configure-windows-container-hosts) (installare e configurare gli host contenitore di Windows).
   - Per l'orchestrazione di multi-host Docker:
     - Se si opera in un ambiente Red Hat OpenShift, vedere [Configurare un agente di Log Analytics per Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
-    - Se si dispone di un cluster Kubernetes con il servizio contenitore di Azure:
+    - Se si dispone di un cluster Kubernetes con il servizio Azure Container:
        - Vedere [Configurare un agente Linux di Log Analytics per Kubernetes](#configure-an-oms-linux-agent-for-kubernetes).
        - Vedere [Configurare un agente Windows di Log Analytics per Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
        - Vedere [Usare Helm per distribuire l'agente di Log Analytics in Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
-    - Se si ha un cluster DC/OS del servizio contenitore di Azure, vedere [Monitorare un cluster DC/OS del servizio contenitore di Azure con Log Analytics](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+    - Se si ha un cluster DC/OS del servizio Azure Container, vedere [Monitorare un cluster DC/OS del servizio Azure Container con Log Analytics](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Se è presente un ambiente in modalità Docker Swarm, per altre informazioni vedere [Configurare un agente di Log Analytics per Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
     - Se si dispone di un cluster di Service Fabric, sono disponibili altre informazioni in [Monitorare i contenitori con Log Analytics](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 

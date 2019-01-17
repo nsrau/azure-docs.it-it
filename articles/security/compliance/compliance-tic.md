@@ -256,7 +256,7 @@ Le reti nelle aree monitorate da Network Watcher possono eseguire test di hop su
 | Web e dispositivi mobili | Applicazione Web interna | | Ambiente del servizio app| |
 | Web e dispositivi mobili | Applicazione mobile interna | | Ambiente del servizio app | |
 | Web e dispositivi mobili | Applicazioni per le API | | Ambiente del servizio app | |
-| Contenitori | Servizio contenitore di Azure | | | Yes |
+| Contenitori | Servizio Azure Container | | | Yes |
 | Contenitori | Servizio Azure Kubernetes \* | | | Yes |
 | Database | Database SQL di Azure | | Istanza gestita di database SQL di Azure \* | SQL di Azure |
 | Database | Database di Azure per MySQL | | | Yes |

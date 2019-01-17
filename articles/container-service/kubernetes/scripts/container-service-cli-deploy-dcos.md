@@ -23,11 +23,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "53001622"
 ---
-# <a name="deprecated-create-an-azure-container-service-dcos-cluster"></a>(DEPRECATO) Creare un cluster DC/OS del servizio contenitore di Azure
+# <a name="deprecated-create-an-azure-container-service-dcos-cluster"></a>(DEPRECATO) Creare un cluster DC/OS del servizio Azure Container
 
 [!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
-Questo esempio consente di creare un cluster del servizio contenitore di Azure che esegue DC/OS.
+Questo esempio consente di creare un cluster del servizio Azure Container che esegue DC/OS.
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -66,4 +66,4 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
 
-Altri esempi di script dell'interfaccia della riga di comando del servizio contenitore di Azure sono disponibili nella [documentazione del servizio contenitore di Azure](../cli-samples.md).
+Altri esempi di script dell'interfaccia della riga di comando del servizio Azure Container sono disponibili nella [documentazione del servizio Azure Container](../cli-samples.md).

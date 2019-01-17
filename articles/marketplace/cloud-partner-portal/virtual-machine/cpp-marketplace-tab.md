@@ -91,9 +91,9 @@ Il logo Hero (Banner) è facoltativo. Una volta caricata, tuttavia, l'icona del 
 *  Evitare di usare testo mentre si progetta il logo del banner.  Il nome dell'editore, il titolo del piano, il riepilogo lungo dell'offerta e un pulsante di creazione vengono incorporati a livello di codice all'interno dell'icona del banner quando l'offerta viene presentata. 
 * Includere un rettangolo vuoto a destra dell'icona del banner, con dimensioni 415x100 pixel e uno scostamento di 370 pixel da sinistra.  
 
-L'icona del banner di esempio riportata di seguito è per il servizio contenitore di Azure.  <!-- TD: It would be nice to have the raw bitmap, e.g.before and after embedding. -->
+L'icona del banner di esempio riportata di seguito è per il servizio Azure Container.  <!-- TD: It would be nice to have the raw bitmap, e.g.before and after embedding. -->
 
-![Icona del banner di esempio per il servizio contenitore di Azure](./media/publishvm_010.png)
+![Icona del banner di esempio per il servizio Azure Container](./media/publishvm_010.png)
 
 
 ### <a name="marketing-information-example"></a>Esempio di informazioni di marketing 

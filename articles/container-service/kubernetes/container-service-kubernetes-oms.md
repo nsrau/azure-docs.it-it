@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Monitorare il cluster Kubernetes di Azure - Operations Management
-description: Monitoraggio di un cluster Kubernetes nel servizio contenitore di Azure con Log Analytics
+description: Monitoraggio di un cluster Kubernetes nel servizio Azure Container con Log Analytics
 services: container-service
 author: bburns
 manager: jeconnoc
@@ -24,7 +24,7 @@ ms.locfileid: "52997209"
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
-Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio contenitore di Azure](container-service-kubernetes-walkthrough.md).
+Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio Azure Container](container-service-kubernetes-walkthrough.md).
 
 Si presume anche che gli strumenti dell'interfaccia della riga di comando di Azure `az` e `kubectl` siano installati.
 

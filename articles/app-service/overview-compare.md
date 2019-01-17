@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2cf73607f0cb286f06a5aa043fd8b30816e6a80f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729693"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322028"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud
 
@@ -53,7 +53,7 @@ Nella tabella seguente vengono confrontate le funzionalità del Servizio app, di
 | Scalabilità orizzontale a più istanze senza ridistribuzione |X |X |X |X |Macchine virtuali consente la scalabilità orizzontale su più istanze; tuttavia, i servizi in esecuzione nelle macchine devono essere scritti per gestire tale scalabilità. È necessario configurare un bilanciamento del carico per instradare le richieste tra i computer e verificare che sia disponibile più di un'istanza di macchina virtuale nel [set di disponibilità](../virtual-machines/windows/manage-availability.md). |
 | Supporto per SSL |X |X |X |X |Per App Web del servizio app, SSL per i nomi di dominio personalizzati è supportato solo nella modalità Basic e Standard. Per informazioni sull'uso di SSL con app Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](app-service-web-tutorial-custom-ssl.md). |
 | Integrazione di Visual Studio |X |X |X |X | |
-| Debug remoto |X |X |X | | |
+| Debug remoto |X |X |X |X | |
 | Distribuzione codice con TFS |X |X |X |X | |
 | Isolamento rete con la [rete virtuale di Azure](/azure/virtual-network/) |X |X |X |X |Vedere anche [Integrazione della rete virtuale di Siti Web di Azure](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | Supporto per [Gestione traffico di Azure](/azure/traffic-manager/) |X |X |X |X | |

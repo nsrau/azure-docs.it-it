@@ -8,19 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: tutorial
-ms.date: 10/30/2017
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 311abe4583d29098ebd26dfcf2214553aa1fe1c9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 02cfd00b8ab1f51c46e745dae480e39dee2ed710
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262045"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262337"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Esercitazione: Creare app Web a pagina singola
 
-L'API Ricerca notizie Bing consente di eseguire ricerche sul Web e di ottenere risultati relativi al tipo di notizie corrispondenti a una query di ricerca. In questa esercitazione viene compilata un'applicazione Web a pagina singola che usa l'API Ricerca notizie Bing per visualizzare i risultati della ricerca nella pagina. L'applicazione include componenti HTML, CSS e JavaScript.
+L'API Ricerca notizie Bing consente di eseguire ricerche sul Web e di ottenere risultati relativi al tipo di notizie corrispondenti a una query di ricerca. In questa esercitazione viene compilata un'applicazione Web a pagina singola che usa l'API Ricerca notizie Bing per visualizzare i risultati della ricerca nella pagina. L'applicazione include componenti HTML, CSS e JavaScript. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 
 <!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
@@ -39,8 +39,6 @@ L'applicazione di esercitazione illustra come:
 > * Gestire gli errori che potrebbero verificarsi
 
 La pagina dell'esercitazione è autonoma, non usa framework, fogli di stile o file di immagine esterni. Usa solo funzionalità del linguaggio JavaScript ampiamente supportate e funziona con le versioni correnti di tutti i Web browser principali.
-
-Questa esercitazione illustra parti selezionate del codice sorgente. È disponibile il [codice sorgente](tutorial-bing-news-search-single-page-app-source.md) completo. Per eseguire l'esempio, copiare e incollare il codice sorgente in un editor di testo e salvarlo come `bing.html`.
 
 ## <a name="app-components"></a>Componenti dell'app
 Come qualsiasi applicazione Web a pagina singola, questa applicazione di esercitazione include tre parti:

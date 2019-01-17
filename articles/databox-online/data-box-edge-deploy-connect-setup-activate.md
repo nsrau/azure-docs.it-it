@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5f2ecd2cdff0ae5f3f5f086bde0741f7f6d2dbb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e5477807e4cff6dc745ccfd0383fd216719a7aa5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121618"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259613"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>Esercitazione: connettere, configurare e attivare Azure Data Box Edge (anteprima) 
 
@@ -87,7 +87,7 @@ Il dashboard visualizza le diverse impostazioni necessarie per configurare e reg
     - È possibile configurare l'interfaccia di rete come IPv4.
 
     >[!NOTE] 
-    > È consigliabile non cambiare l'indirizzo IP locale dell'interfaccia di rete da statico a DHCP, a meno che non si disponga di un altro indirizzo IP per la connessione al dispositivo. Se si usa un'interfaccia di rete e si passa a DHCP, non sarà possibile determinare l'indirizzo DHCP. Se si vuole passare a un indirizzo DHCP, attendere fino al termine della registrazione del dispositivo con il servizio e quindi eseguire il passaggio. È possibile visualizzare gli indirizzi IP di tutti gli adattatori in **Proprietà dispositivo** nel portale di Azure per il proprio servizio.
+    > È consigliabile non cambiare l'indirizzo IP locale dell'interfaccia di rete da statico a DHCP, a meno che non si abbia un altro indirizzo IP per la connessione al dispositivo. Se si usa un'interfaccia di rete e si passa a DHCP, non sarà possibile determinare l'indirizzo DHCP. Se si vuole passare a un indirizzo DHCP, attendere fino al termine della registrazione del dispositivo con il servizio e quindi eseguire il passaggio. È possibile visualizzare gli indirizzi IP di tutti gli adattatori in **Proprietà dispositivo** nel portale di Azure per il proprio servizio.
 
 1. (Facoltativo) Nel riquadro sinistro selezionare **Impostazioni proxy Web**e quindi configurare il server proxy Web. Sebbene la configurazione del proxy Web sia facoltativa, se si usa un proxy Web è possibile configurarlo solo in questa pagina.
    
@@ -95,7 +95,7 @@ Il dashboard visualizza le diverse impostazioni necessarie per configurare e reg
    
    Nella pagina **Impostazioni proxy Web** eseguire queste operazioni:
    
-   a. Nella casella **URL proxy Web** immettere l'URL in questo formato: `http://host-IP address or FDQN:Port number`. Gli URL HTTPS non sono supportati.
+   a. Nella casella **URL proxy Web** immettere l'URL in questo formato: `http://host-IP address or FQDN:Port number`. Gli URL HTTPS non sono supportati.
 
    b. In **Autenticazione** selezionare **Nessuna** o **NTLM**.
 

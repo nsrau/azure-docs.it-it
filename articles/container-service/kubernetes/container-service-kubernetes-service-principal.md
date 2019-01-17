@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Entità servizio per il cluster Azure Kubernetes
-description: Creare e gestire un'entità servizio di Azure Active Directory per un cluster Kubernetes nel servizio contenitore di Azure
+description: Creare e gestire un'entità servizio di Azure Active Directory per un cluster Kubernetes nel servizio Azure Container
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -23,7 +23,7 @@ ms.locfileid: "52992152"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-Un cluster Kubernetes richiede un'[entità servizio di Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) nel servizio contenitore di Azure per l'interazione con le API di Azure. L'entità servizio è necessaria per la gestione dinamica di risorse quali le [route definite dall'utente](../../virtual-network/virtual-networks-udr-overview.md) e [Azure Load Balancer di livello 4](../../load-balancer/load-balancer-overview.md).
+Un cluster Kubernetes richiede un'[entità servizio di Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) nel servizio Azure Container per l'interazione con le API di Azure. L'entità servizio è necessaria per la gestione dinamica di risorse quali le [route definite dall'utente](../../virtual-network/virtual-networks-udr-overview.md) e [Azure Load Balancer di livello 4](../../load-balancer/load-balancer-overview.md).
 
 
 Questo articolo illustra le diverse opzioni disponibili per configurare un'entità servizio per il cluster Kubernetes. Se, ad esempio, l'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) è già stata installata e configurata, è possibile eseguire il comando [`az acs create`](/cli/azure/acs#az_acs_create) per creare il cluster Kubernetes e l'entità servizio contemporaneamente.
@@ -115,7 +115,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 ## <a name="additional-considerations"></a>Ulteriori considerazioni
 
-* Se non si hanno le autorizzazioni per creare un'entità servizio nella sottoscrizione, potrebbe essere necessario chiedere all'amministratore di Azure AD o della sottoscrizione di assegnare le autorizzazioni necessarie oppure chiedere che venga creata un'entità servizio da usare con il servizio contenitore di Azure.
+* Se non si hanno le autorizzazioni per creare un'entità servizio nella sottoscrizione, potrebbe essere necessario chiedere all'amministratore di Azure AD o della sottoscrizione di assegnare le autorizzazioni necessarie oppure chiedere che venga creata un'entità servizio da usare con il servizio Azure Container.
 
 * L'entità servizio per Kubernetes fa parte della configurazione del cluster. Non usare tuttavia l'identità per distribuire il cluster.
 

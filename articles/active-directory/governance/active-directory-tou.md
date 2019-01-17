@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/20/2018
+ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 341565bf621fa63ad578489cd04bcfff3510265b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188426"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229473"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare con Condizioni per l'utilizzo.
@@ -87,9 +87,7 @@ Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per
 
 1. Per richiedere agli utenti finali di visualizzare le Condizioni per l'utilizzo prima di accettarle, impostare **Richiedere agli utenti di espandere le condizioni d'utilizzo** su **On**.
 
-1. Per richiedere agli utenti finali di accettare le Condizioni per l'utilizzo in ogni dispositivo da cui accedono, impostare **Richiedere agli utenti di fornire il consenso in tutti i dispositivi** su **On**.
-
-    Se l’impostazione **Richiedi il consenso degli utenti in ogni dispositivo** non è presente, la funzione non è ancora stata distribuita nella regione dell’utente. La distribuzione completa di questa funzione è prevista per l’inizio di gennaio 2019. Per altre informazioni, vedere le [Condizioni per l'utilizzo per ogni dispositivo](#per-device-terms-of-use).
+1. Per richiedere agli utenti finali di accettare le Condizioni per l'utilizzo in ogni dispositivo da cui accedono, impostare **Richiedere agli utenti di fornire il consenso in tutti i dispositivi** su **On**. Per altre informazioni, vedere le [Condizioni per l'utilizzo per ogni dispositivo](#per-device-terms-of-use).
 
 1. Se si desidera impostare come scaduti i consensi alle Condizioni per l'utilizzo in una pianificazione, impostare **Scadenza consensi** su **On**. Se si imposta su On, vengono visualizzate due impostazioni aggiuntive di pianificazione.
 
@@ -253,9 +251,6 @@ La procedura seguente descrive come aggiungere una lingua delle condizioni per l
 ## <a name="per-device-terms-of-use"></a>Condizioni per l'utilizzo per ogni dispositivo
 
 L'impostazione **Richiedere agli utenti di fornire il consenso in tutti i dispositivi** consente di richiedere agli utenti finali di accettare le Condizioni per l'utilizzo in ogni dispositivo da cui accedono. All'utente finale verrà richiesto di aggiungere il dispositivo in Azure AD. Quando il dispositivo è stato aggiunto, l'ID del dispositivo consente di applicare le Condizioni per l'utilizzo in ogni dispositivo.
-
-> [!NOTE]
-> Se l’impostazione **Richiedi il consenso degli utenti in ogni dispositivo** non è presente quando si creano nuove Condizioni per l’utilizzo, la funzione non è ancora stata distribuita nella regione dell’utente. La distribuzione completa di questa funzione è prevista per l’inizio di gennaio 2019.
 
 Ecco un elenco dei software e delle piattaforme supportate.
 

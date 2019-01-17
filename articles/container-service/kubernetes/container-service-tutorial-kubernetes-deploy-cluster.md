@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Esercitazione sul servizio Azure Container - Distribuire un cluster
-description: Esercitazione sul servizio contenitore di Azure - Distribuire un cluster
+description: Esercitazione sul servizio Azure Container - Distribuire un cluster
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -23,7 +23,7 @@ ms.locfileid: "52997851"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori. Con il servizio contenitore di Azure, il provisioning di un cluster Kubernetes pronto per la produzione è semplice e rapido. In questa esercitazione, parte 3 di 7, viene distribuito un cluster Kubernetes del servizio contenitore di Azure. I passaggi completati comprendono:
+Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori. Con il servizio Azure Container, il provisioning di un cluster Kubernetes pronto per la produzione è semplice e rapido. In questa esercitazione, parte 3 di 7, viene distribuito un cluster Kubernetes del servizio Azure Container. I passaggi completati comprendono:
 
 > [!div class="checklist"]
 > * Distribuzione di un cluster del servizio contenitore di Azure Kubernetes
@@ -38,7 +38,7 @@ Nelle esercitazioni precedenti, un'immagine del contenitore è stata creata e ca
 
 ## <a name="create-kubernetes-cluster"></a>Creare un cluster Kubernetes
 
-Creare un cluster Kubernetes nel servizio contenitore di Azure con il comando [az acs create](/cli/azure/acs#az-acs-create). 
+Creare un cluster Kubernetes nel servizio Azure Container con il comando [az acs create](/cli/azure/acs#az-acs-create). 
 
 Nell'esempio seguente viene creato un cluster denominato `myK8sCluster` nel gruppo di risorse denominato `myResourceGroup`. Nell'[esercitazione precedente](./container-service-tutorial-kubernetes-prepare-acr.md) è stato creato questo gruppo di risorse.
 
@@ -92,7 +92,7 @@ Al termine dell'esercitazione, sarà disponibile un cluster Kubernetes del servi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato distribuito un cluster Kubernetes del servizio contenitore di Azure. Sono stati completati i passaggi seguenti:
+In questa esercitazione è stato distribuito un cluster Kubernetes del servizio Azure Container. Sono stati completati i passaggi seguenti:
 
 > [!div class="checklist"]
 > * Distribuzione di un cluster Kubernets del servizio contenitore di Azure

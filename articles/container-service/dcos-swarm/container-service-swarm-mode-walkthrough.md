@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Guida introduttiva - Cluster Docker CE di Azure per Linux
-description: Informazioni per creare rapidamente un cluster Docker CE per contenitori Linux nel servizio contenitore di Azure con l'interfaccia della riga di comando di Azure.
+description: Informazioni per creare rapidamente un cluster Docker CE per contenitori Linux nel servizio Azure Container con l'interfaccia della riga di comando di Azure.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -22,7 +22,7 @@ ms.locfileid: "52994303"
 
 In questa guida introduttiva viene distribuito un cluster Docker CE usando l'interfaccia della riga di comando di Azure. Un'applicazione multicontenitore costituita dal front-end Web e da un'istanza di Redis viene quindi distribuita ed eseguita nel cluster. Al termine, l'applicazione è accessibile tramite Internet.
 
-Docker CE nel servizio contenitore di Azure è in anteprima e **non deve essere usato per carichi di lavoro di produzione**.
+Docker CE nel servizio Azure Container è in anteprima e **non deve essere usato per carichi di lavoro di produzione**.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -55,7 +55,7 @@ Output:
 
 ## <a name="create-docker-swarm-cluster"></a>Creare un cluster Docker Swarm
 
-Creare un cluster Docker CE nel servizio contenitore di Azure con il comando [az acs create](/cli/azure/acs#az-acs-create). Per informazioni sulla disponibilità di area per Docker CE, vedere [aree del servizio contenitore di Azure per Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
+Creare un cluster Docker CE nel servizio Azure Container con il comando [az acs create](/cli/azure/acs#az-acs-create). Per informazioni sulla disponibilità di area per Docker CE, vedere [aree del servizio contenitore di Azure per Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 L'esempio seguente crea un cluster denominato *mySwarmCluster* con un nodo master Linux e tre nodi agente Linux.
 

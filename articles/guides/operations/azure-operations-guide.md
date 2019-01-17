@@ -63,7 +63,7 @@ Un fornitore di cloud IaaS (Infrastructure as a Service, infrastruttura distribu
 
 Azure include diverse soluzioni IaaS, ad esempio macchine virtuali e set di scalabilità di macchine virtuali, nonché la relativa infrastruttura di rete. Le macchine virtuali sono una scelta frequente per la migrazione iniziale dei servizi in Azure, poiché consentono di applicare il modello di migrazione "lift-and-shift". È possibile configurare una VM in base all'infrastruttura di esecuzione dei servizi nel centro dati attuale e quindi eseguire la migrazione del software nella nuova VM. Può essere necessario eseguire aggiornamenti di configurazione, ad esempio inserendo gli URL di altri servizi o di altre risorse di archiviazione, ma in questo modo è possibile eseguire la migrazione di molte applicazioni.
 
-I set di scalabilità di macchine virtuali, definiti a un livello superiore rispetto a quello delle macchine virtuali di Azure, rappresentano un modo semplice per distribuire cluster di VM identiche. I set di scalabilità di macchine virtuali supportano anche il ridimensionamento automatico. È quindi possibile distribuire automaticamente nuove VM quando necessario. I set di scalabilità di macchine virtuali rappresentano pertanto la piattaforma ideale per l'hosting di cluster di elaborazione di microservizi di livello superiore, come Azure Service Fabric e il servizio contenitore di Azure.
+I set di scalabilità di macchine virtuali, definiti a un livello superiore rispetto a quello delle macchine virtuali di Azure, rappresentano un modo semplice per distribuire cluster di VM identiche. I set di scalabilità di macchine virtuali supportano anche il ridimensionamento automatico. È quindi possibile distribuire automaticamente nuove VM quando necessario. I set di scalabilità di macchine virtuali rappresentano pertanto la piattaforma ideale per l'hosting di cluster di elaborazione di microservizi di livello superiore, come Azure Service Fabric e il servizio Azure Container.
 
 #### <a name="paas-platform-as-a-service"></a>PaaS: Piattaforma distribuita come servizio
 
@@ -93,7 +93,7 @@ Servizi di hosting ed esecuzione di carichi di lavoro delle applicazioni:
 
 - Azure Service Fabric
 
-- Servizio contenitore di Azure
+- Servizio Azure Container
 
 ### <a name="data-services"></a>Servizi dati
 

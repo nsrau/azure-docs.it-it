@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c26f9c319a8260f4c19933d640310923b9c36db7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 768a9d930314882f88eab630365475d69aa5f83b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134829"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213723"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Errore "Can't Access this Corporate Application" (Impossibile accedere all'applicazione aziendale) quando si usa un'applicazione Proxy di applicazione
 
@@ -62,7 +62,7 @@ Un errore di gateway non valido indica che il connettore non è in grado di ragg
 
 Se viene visualizzato un errore di accesso non consentito, l'utente non è stato assegnato all'applicazione. Questo errore può riferirsi ad Azure Active Directory o all'applicazione back-end.
 
-Per informazioni su come assegnare utenti all'applicazione in Azure, vedere la [documentazione di configurazione](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user).
+Per informazioni su come assegnare utenti all'applicazione in Azure, vedere la [documentazione di configurazione](application-proxy-add-on-premises-application.md#test-the-application).
 
 Se l'utente risulta assegnato all'applicazione in Azure, controllare la configurazione dell'utente nell'applicazione back-end. Se si usa la delega vincolata Kerberos o l'autenticazione integrata di Windows, vedere la pagina di risoluzione dei problemi KCD per le linee guida.
 

@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Esercitazione sul servizio contenitore di Azure - Distribuire un'applicazione
-description: Esercitazione sul servizio contenitore di Azure - Distribuire un'applicazione
+description: Esercitazione sul servizio Azure Container - Distribuire un'applicazione
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -109,7 +109,7 @@ Per vedere l'applicazione, passare all'indirizzo IP esterno.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata distribuita un'applicazione Azure Vote in un cluster Kubernetes del servizio contenitore di Azure. Le attività completate comprendono:  
+In questa esercitazione è stata distribuita un'applicazione Azure Vote in un cluster Kubernetes del servizio Azure Container. Le attività completate comprendono:  
 
 > [!div class="checklist"]
 > * Scaricare i file manifesto Kubernetes

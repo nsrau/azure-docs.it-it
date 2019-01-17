@@ -42,7 +42,7 @@ Si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. È possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
-* Accedere a GitHub o a un repository Git esterno contenente codice .NET, Java, PHP, Nodo, Python o Web statico.
+* Accedere a GitHub o a un repository Git esterno contenente codice .NET, Java, PHP, Node, Python o Web statico.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 

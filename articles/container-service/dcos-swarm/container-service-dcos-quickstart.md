@@ -20,7 +20,7 @@ ms.locfileid: "53000526"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS fornisce una piattaforma distribuita per l'esecuzione di applicazioni in contenitori e moderne. Con il servizio contenitore di Azure, il provisioning di un cluster DC/OS pronto per la produzione è semplice e rapido. Questa guida rapida illustra in dettaglio i passaggi di base necessari per distribuire un cluster DC/OS ed eseguire un carico di lavoro di base.
+DC/OS fornisce una piattaforma distribuita per l'esecuzione di applicazioni in contenitori e moderne. Con il servizio Azure Container, il provisioning di un cluster DC/OS pronto per la produzione è semplice e rapido. Questa guida rapida illustra in dettaglio i passaggi di base necessari per distribuire un cluster DC/OS ed eseguire un carico di lavoro di base.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -167,7 +167,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida rapida è stato distribuito un cluster DC/OS ed è stato eseguito un contenitore Docker semplice nel cluster. Per altre informazioni sul servizio contenitore di Azure, continuare con le esercitazioni relative a questo servizio.
+In questa guida rapida è stato distribuito un cluster DC/OS ed è stato eseguito un contenitore Docker semplice nel cluster. Per altre informazioni sul servizio Azure Container, continuare con le esercitazioni relative a questo servizio.
 
 > [!div class="nextstepaction"]
 > [Gestire un cluster DC/OS del servizio contenitore di Azure](container-service-dcos-manage-tutorial.md)

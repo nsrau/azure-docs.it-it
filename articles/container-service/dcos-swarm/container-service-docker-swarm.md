@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Gestire un cluster Azure Swarm con l'API Docker
-description: Distribuire contenitori in un cluster Docker Swarm nel servizio contenitore di Azure
+description: Distribuire contenitori in un cluster Docker Swarm nel servizio Azure Container
 services: container-service
 author: rgardler
 manager: madhana
@@ -20,7 +20,7 @@ ms.locfileid: "52997957"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Docker Swarm offre un ambiente per la distribuzione di carichi di lavoro in contenitori in un set di host Docker in pool. Docker Swarm usa l'API Docker nativa. Il flusso di lavoro per la gestione dei contenitori in Docker Swarm è quasi identico a quello di un host con un singolo contenitore. Questo documento fornisce semplici esempi di distribuzione di carichi di lavoro in contenitori, in un'istanza del servizio contenitore di Azure di Docker Swarm. Per una documentazione più dettagliata su Docker Swarm, vedere [Docker Swarm in Docker.com](https://docs.docker.com/swarm/).
+Docker Swarm offre un ambiente per la distribuzione di carichi di lavoro in contenitori in un set di host Docker in pool. Docker Swarm usa l'API Docker nativa. Il flusso di lavoro per la gestione dei contenitori in Docker Swarm è quasi identico a quello di un host con un singolo contenitore. Questo documento fornisce semplici esempi di distribuzione di carichi di lavoro in contenitori, in un'istanza del servizio Azure Container di Docker Swarm. Per una documentazione più dettagliata su Docker Swarm, vedere [Docker Swarm in Docker.com](https://docs.docker.com/swarm/).
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]
 

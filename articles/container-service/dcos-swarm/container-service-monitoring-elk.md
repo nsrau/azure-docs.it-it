@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Monitorare un cluster DC/OS di Azure - Stack ELK
-description: Monitorare un cluster DC/OS nel cluster del servizio contenitore di Azure con ELK (Elasticsearch, Logstash e Kibana).
+description: Monitorare un cluster DC/OS nel cluster del servizio Azure Container con ELK (Elasticsearch, Logstash e Kibana).
 services: container-service
 author: sauryadas
 manager: jeconnoc
@@ -20,7 +20,7 @@ ms.locfileid: "52998116"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Questo articolo descrive come distribuire lo stack ELK (Elasticsearch, Logstash, Kibana) in un cluster DC/OS nel servizio contenitore di Azure. 
+Questo articolo descrive come distribuire lo stack ELK (Elasticsearch, Logstash, Kibana) in un cluster DC/OS nel servizio Azure Container. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 [Distribuire](container-service-deployment.md) e [connettere](../container-service-connect.md) un cluster DC/OS configurato dal servizio contenitore di Azure. Esplorare il dashboard di DC/OS e i servizi Marathon [qui](container-service-mesos-marathon-ui.md). Installare anche il [servizio di bilanciamento del carico Marathon](container-service-load-balancing.md).

@@ -374,7 +374,7 @@ items:
         href: storage-how-to-mount-container-linux.md
       - name: Domande frequenti sulla migrazione di Archiviazione
         href: ../common/storage-migration-faq.md
-  - name: Informazioni di riferimento
+  - name: riferimento
     items:
     - name: PowerShell
       href: /powershell/module/azure.storage
@@ -416,6 +416,8 @@ items:
         href: /rest/api/storagerp
       - name: Importazione/Esportazione
         href: /rest/api/storageimportexport
+    - name: Modello di Resource Manager
+      href: /azure/templates/microsoft.storage/allversions
   - name: Risorse
     items:
     - name: Roadmap per Azure
@@ -576,7 +578,7 @@ items:
       href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
     - name: Connettersi ad Azure SQL Data Warehouse
       href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase
-  - name: Informazioni di riferimento
+  - name: riferimento
     items:
     - name: REST
       href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
@@ -600,9 +602,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Video
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: bba5e3bf1081d3141b3e754eb8c06e54f6528234
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0246e8af3b52efb5e5acb51bbcc4b237b4211f31
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261656"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354400"

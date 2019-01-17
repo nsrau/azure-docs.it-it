@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Sicurezza del contenitore nel servizio Azure Container
-description: Considerazioni sulla protezione dei contenitori Docker distribuiti nel servizio contenitore di Azure e nei servizi di Azure correlati.
+description: Considerazioni sulla protezione dei contenitori Docker distribuiti nel servizio Azure Container e nei servizi di Azure correlati.
 services: container-service
 author: sauryadas
 manager: jeconnoc

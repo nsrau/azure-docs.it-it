@@ -40,7 +40,7 @@ sections:
         src: https://docs.microsoft.com/media/common/i_get-started.svg
       title: Attività iniziali
     - href: https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples
-      html: <p>Esempi dell'interfaccia della riga di comando di Azure per il servizio contenitore di Azure</p>
+      html: <p>Esempi dell'interfaccia della riga di comando di Azure per il servizio Azure Container</p>
       image:
         src: https://docs.microsoft.com/media/common/i_code-samples.svg
       title: Esempi di codice

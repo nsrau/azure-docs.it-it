@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Ridimensionare un cluster del servizio Azure Container
-description: È possibile ridimensionare il numero di nodi agente in un cluster DC/OS, Docker Swarm o Kubernetes nel servizio contenitore di Azure tramite l'interfaccia della riga di comando o il Portale di Azure.
+description: È possibile ridimensionare il numero di nodi agente in un cluster DC/OS, Docker Swarm o Kubernetes nel servizio Azure Container tramite l'interfaccia della riga di comando o il portale di Azure.
 services: container-service
 author: sauryadas
 manager: jeconnoc

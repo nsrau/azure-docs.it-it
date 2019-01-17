@@ -26,7 +26,7 @@ ms.locfileid: "53601084"
 
 È possibile distribuire gli acceleratori di soluzioni nelle configurazioni seguenti:
 
-* **Standard**: una distribuzione di infrastruttura estesa per lo sviluppo di un ambiente di produzione. Il servizio contenitore di Azure distribuisce i microservizi in diverse macchine virtuali di Azure. Kubernetes orchestra i contenitori Docker che ospitano i singoli microservizi.
+* **Standard**: una distribuzione di infrastruttura estesa per lo sviluppo di un ambiente di produzione. Il servizio Azure Container distribuisce i microservizi in diverse macchine virtuali di Azure. Kubernetes orchestra i contenitori Docker che ospitano i singoli microservizi.
 * **Basic**: una versione a costo ridotto a scopo di dimostrazione o per testare una distribuzione. Tutti i microservizi vengono distribuiti in un'unica macchina virtuale di Azure.
 * **Locale**: una distribuzione nel computer locale a scopo di test e sviluppo. Questo approccio prevede la distribuzione dei microservizi in un contenitore Docker locale e la connessione a Hub IoT, Azure Cosmos DB e ai servizi di archiviazione di Azure nel cloud.
 

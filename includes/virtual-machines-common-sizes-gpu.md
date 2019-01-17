@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: db37515926bf3872a1183467e0449035f7bf6097
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fd37c0c118812bb3554b19fec9bf5ae3f33a2fdc
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122837"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54314100"
 ---
 Le dimensioni delle macchine virtuali ottimizzate per la GPU sono macchine virtuali specializzate disponibili con una o più GPU NVIDIA. Queste dimensioni sono progettate per carichi di lavoro di visualizzazione oppure a elevato utilizzo di calcolo o di grafica. Questo articolo fornisce informazioni relative a numero e tipo di GPU, vCPU, dischi dati e schede di rete. Anche velocità effettiva di archiviazione e larghezza di banda della rete sono incluse per ogni dimensione di questo raggruppamento. 
 
@@ -109,8 +109,8 @@ Le macchine virtuali della serie NDv2 sono una novità della famiglia di GPU e s
 
 
 | Dimensione              | vCPU | GPU              | Memoria  | NIC (Max) | Max. Dimensioni disco           | Max. (1023 GB ciascuno) | Larghezza di banda di rete massima | 
-|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
-| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 GiB | 8          | Temporanea 1344 / 2948XIO | 32    | 24.000 Mbps             | 
+|-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
+| Standard_ND40s_v2 | 40   | 8 V100 (NVlilnk) | 672 GiB | 8          | Temporanea 1344 / 2948XIO | 32                             | 24.000 Mbps           |
 
 ## <a name="nd-series"></a>Serie ND
 

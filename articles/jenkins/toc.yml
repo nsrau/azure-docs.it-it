@@ -58,7 +58,7 @@ items:
       href: https://plugins.jenkins.io/azure-ad
     - name: Plug-in degli Agenti del servizio contenitore di Azure
       href: https://plugins.jenkins.io/azure-container-agents
-    - name: Plug-in del servizio contenitore di Azure
+    - name: Plug-in del servizio Azure Container
       href: https://plugins.jenkins.io/azure-acs
     - name: Plug-in di Credenziali di Azure
       href: https://plugins.jenkins.io/azure-credentials

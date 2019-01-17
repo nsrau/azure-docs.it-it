@@ -42,7 +42,7 @@ ms.locfileid: "52996495"
       ```
 
 
-## <a name="create-an-azure-container-service-with-kubernetes"></a>Creare un servizio contenitore di Azure con Kubernetes
+## <a name="create-an-azure-container-service-with-kubernetes"></a>Creare un servizio Azure Container con Kubernetes
 
 A questo punto, è possibile usare [az acs create](/cli/azure/acs#az-acs-create) per creare un cluster ACS usando Kubernetes come valore `--orchestrator-type`.
 ```azurecli

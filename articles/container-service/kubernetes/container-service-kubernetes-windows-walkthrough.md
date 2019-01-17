@@ -1,6 +1,6 @@
 ---
 title: '(DEPRECATO) Quickstart: cluster Kubernetes Azure per Windows'
-description: Informazioni per creare in modo rapido un cluster Kubernetes per contenitori Windows nel servizio contenitore di Azure con l'interfaccia della riga di comando di Azure.
+description: Informazioni per creare in modo rapido un cluster Kubernetes per contenitori Windows nel servizio Azure Container con l'interfaccia della riga di comando di Azure.
 services: container-service
 author: dlepow
 manager: jeconnoc
@@ -20,7 +20,7 @@ ms.locfileid: "53000611"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida illustra in modo dettagliato come usare l'interfaccia della riga di comando di Azure per distribuire un cluster [Kubernetes](https://kubernetes.io/docs/home/) nel [servizio contenitore di Azure](../container-service-intro.md). Dopo aver distribuito il cluster, è possibile connettersi a esso con lo strumento da riga di comando `kubectl` di Kubernetes e distribuire il primo contenitore Windows.
+L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida illustra in modo dettagliato come usare l'interfaccia della riga di comando di Azure per distribuire un cluster [Kubernetes](https://kubernetes.io/docs/home/) nel [servizio Azure Container](../container-service-intro.md). Dopo aver distribuito il cluster, è possibile connettersi a esso con lo strumento da riga di comando `kubectl` di Kubernetes e distribuire il primo contenitore Windows.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -29,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
-> Il supporto per i contenitori Windows in Kubernetes nel servizio contenitore di Azure è disponibile in versione di anteprima. 
+> Il supporto per i contenitori Windows in Kubernetes nel servizio Azure Container è disponibile in versione di anteprima. 
 >
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-kubernetes-cluster"></a>Creare un cluster Kubernetes
-Creare un cluster Kubernetes nel servizio contenitore di Azure con il comando [az acs create](/cli/azure/acs#az-acs-create). 
+Creare un cluster Kubernetes nel servizio Azure Container con il comando [az acs create](/cli/azure/acs#az-acs-create). 
 
 L'esempio seguente crea un cluster denominato *myK8sCluster* con un nodo master Linux e due nodi agente Windows. Questo esempio crea le chiavi SSH necessarie per la connessione al nodo master Linux. L'esempio usa *azureuser* come nome utente amministrativo e *myPassword12* come password nei nodi Windows. Aggiornare i valori in modo che siano appropriati all'ambiente. 
 
@@ -193,7 +193,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato distribuito un cluster Kubernetes, è stata eseguita la connessione con `kubectl` ed è stato distribuito un pod con un contenitore IIS. Per altre informazioni sul servizio contenitore di Azure, continuare con l'esercitazione su Kubernetes.
+In questa guida introduttiva è stato distribuito un cluster Kubernetes, è stata eseguita la connessione con `kubectl` ed è stato distribuito un pod con un contenitore IIS. Per altre informazioni sul servizio Azure Container, continuare con l'esercitazione su Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Gestire un cluster Kubernetes ACS](container-service-tutorial-kubernetes-prepare-app.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f7d5fcf1905200bc214a3ff42db9b7b511768dd0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628341"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214896"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestione dell'archiviazione nei cloud indipendenti di Azure con PowerShell
 
@@ -37,7 +37,7 @@ Questi esempi richiedono il modulo Azure PowerShell Az 0.7 o versioni successive
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
-Eseguire il cmdlet [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) per visualizzare gli ambienti Azure disponibili:
+Eseguire il cmdlet [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) per visualizzare gli ambienti Azure disponibili:
    
 ```powershell
 Get-AzEnvironment
@@ -71,7 +71,7 @@ Il suffisso dell'endpoint per ognuno di questi ambienti è diverso dall'endpoint
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Ottenere l'endpoint tramite Get-AzEnvironment 
 
-Recuperare il suffisso dell'endpoint con [Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment). L'endpoint è la proprietà *StorageEndpointSuffix* dell'ambiente. I frammenti di codice seguenti mostrano come eseguire questa operazione. Tutti questi comandi restituiscono un valore "core.cloudapp.net" o "core.cloudapi.de" e così via. Aggiungere tale valore al servizio di archiviazione per accedere al servizio. Ad esempio, "queue.core.cloudapi.de" accede al servizio di accodamento del cloud per la Germania.
+Recuperare il suffisso dell'endpoint con [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). L'endpoint è la proprietà *StorageEndpointSuffix* dell'ambiente. I frammenti di codice seguenti mostrano come eseguire questa operazione. Tutti questi comandi restituiscono un valore "core.cloudapp.net" o "core.cloudapi.de" e così via. Aggiungere tale valore al servizio di archiviazione per accedere al servizio. Ad esempio, "queue.core.cloudapi.de" accede al servizio di accodamento del cloud per la Germania.
 
 Questo frammento di codice recupera tutti gli ambienti e il suffisso dell'endpoint per ognuno di essi.
 

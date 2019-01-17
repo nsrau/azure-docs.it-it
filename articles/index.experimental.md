@@ -338,7 +338,7 @@ ms.locfileid: "53017788"
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Servizio contenitore di Azure</p>
+                                                <p>Servizio Azure Container</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1670,7 +1670,7 @@ ms.locfileid: "53017788"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Servizio contenitore di Azure</h3>
+                                                    <h3>Servizio Azure Container</h3>
                                                     <p>Ridimensionare e orchestrare i contenitori con Kubernetes, DC/OS o Docker Swarm</p>
                                                 </div>
                                             </div>

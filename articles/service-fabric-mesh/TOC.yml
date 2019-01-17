@@ -74,7 +74,7 @@ items:
     href: service-fabric-mesh-howto-manage-secrets.md
   - name: Trovare esempi
     href: service-fabric-mesh-howto-find-samples.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: API REST del provider di risorse di Service Fabric Mesh
     href: /rest/api/servicefabric/sfmeshrp-index
@@ -82,6 +82,8 @@ items:
     href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
   - name: Informazioni di riferimento sull'interfaccia della riga di comando Maven di Service Fabric
     href: service-fabric-mesh-reference-maven.md
+  - name: Modello di Resource Manager
+    href: /azure/templates/microsoft.servicefabricmesh/allversions
 - name: Risorse
   items:
   - name: Domande frequenti
@@ -98,9 +100,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric-mesh
   - name: Disponibilità internazionale
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: a510d3eeace6125e25faf4088cee16389001b3d9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: dc098445928ca07eb29260c650321e17f00c7dfe
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888444"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353975"

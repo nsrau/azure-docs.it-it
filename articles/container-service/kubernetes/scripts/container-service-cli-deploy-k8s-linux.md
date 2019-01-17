@@ -27,7 +27,7 @@ ms.locfileid: "52996279"
 
 [!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
-Questo esempio consente di creare un cluster del servizio contenitore di Azure che esegue contenitori basati su Kubernetes per Linux.
+Questo esempio consente di creare un cluster del servizio Azure Container che esegue contenitori basati su Kubernetes per Linux.
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -66,5 +66,5 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
 
-Altri esempi di script dell'interfaccia della riga di comando del servizio contenitore di Azure sono disponibili nella [documentazione del servizio contenitore di Azure](../cli-samples.md).
+Altri esempi di script dell'interfaccia della riga di comando del servizio Azure Container sono disponibili nella [documentazione del servizio Azure Container](../cli-samples.md).
 

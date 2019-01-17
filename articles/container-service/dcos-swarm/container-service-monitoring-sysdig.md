@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Monitorare un cluster del servizio Azure Container con Sysdig
-description: Monitorare un cluster del servizio contenitore di Azure con Sysdig.
+description: Monitorare un cluster del servizio Azure Container con Sysdig.
 services: container-service
 author: sauryadas
 manager: jeconnoc
@@ -20,7 +20,7 @@ ms.locfileid: "52992188"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-In questo articolo verranno distribuiti agenti di Sysdig in tutti i nodi agente nel cluster del servizio contenitore di Azure. Per questa configurazione, è necessario un account con Sysdig. 
+In questo articolo verranno distribuiti agenti di Sysdig in tutti i nodi agente nel cluster del servizio Azure Container. Per questa configurazione, è necessario un account con Sysdig. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 [Distribuire](container-service-deployment.md) e [connettere](../container-service-connect.md) un cluster configurato dal servizio contenitore di Azure. Esplorare l' [interfaccia utente](container-service-mesos-marathon-ui.md)di Marathon. Passare a [http://app.sysdigcloud.com](http://app.sysdigcloud.com) per configurare un account cloud Sysdig. 

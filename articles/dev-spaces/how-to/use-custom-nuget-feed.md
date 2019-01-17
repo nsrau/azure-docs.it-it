@@ -9,14 +9,14 @@ ms.author: johnsta
 ms.date: 05/11/2018
 ms.topic: article
 description: Usare un feed NuGet personalizzato per accedere ai pacchetti NuGet e usarli in uno spazio Azure Dev Spaces.
-keywords: Docker, Kubernetes, Azure, AKS, servizio contenitore di Azure, contenitori
+keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
 manager: ghogen
-ms.openlocfilehash: 3badd15bcfd09c97b43744a20c5df05f4ff57e84
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04b89f6d12c58e2f4915a84d3e0a7988d0e3192f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199110"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579214"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Usare un feed NuGet personalizzato in uno spazio Azure Dev Spaces
 
@@ -25,7 +25,7 @@ Un feed NuGet costituisce un modo semplice per includere le origini dei pacchett
 ## <a name="set-up-a-nuget-feed"></a>Configurare un feed NuGet
 
 Per configurare un feed NuGet:
-1. Aggiungere un [riferimento al pacchetto](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files) nel file `*.csproj` nel nodo `PackageReference`.
+1. Aggiungere un [riferimento al pacchetto](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) nel file `*.csproj` nel nodo `PackageReference`.
 
    ```xml
    <ItemGroup>
@@ -35,7 +35,7 @@ Per configurare un feed NuGet:
    </ItemGroup>
    ```
 
-2. Creare un file [NuGet.Config](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file) nella cartella di progetto.
+2. Creare un file [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) nella cartella di progetto.
      * Usare la sezione `packageSources` per fare riferimento al percorso del feed NuGet. Importante: il feed NuGet deve essere accessibile pubblicamente.
      * Usare la sezione `packageSourceCredentials` per configurare le credenziali di nome utente e password. 
 

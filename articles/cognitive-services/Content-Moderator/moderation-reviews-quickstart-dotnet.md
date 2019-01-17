@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6409011c1a7c125dd03bb706f49ccad1a1fd49a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8a5c11df1b6353a100dd5f1cf388308b9c048932
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538872"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258885"
 ---
-# <a name="quickstart-create-reviews-using-net"></a>Avvio rapido: Creare revisioni usando .NET
+# <a name="quickstart-create-reviews-using-net"></a>Guida introduttiva: Creare revisioni usando .NET
 
 Questo articolo contiene informazioni ed esempi di codice per iniziare a usare l'[SDK di Content Moderator per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) allo scopo di:
  
@@ -30,8 +30,7 @@ Questo articolo presuppone che si abbia già familiarità con Visual Studio e C#
 
 ## <a name="sign-up-for-content-moderator"></a>Iscriversi a Content Moderator
 
-Per usare i servizi Content Moderator tramite l'API REST o l'SDK, è necessaria una chiave di sottoscrizione.
-Vedere la [guida introduttiva](quick-start.md) per informazioni su come ottenere la chiave.
+Per usare i servizi Content Moderator tramite l'API REST o l'SDK, è necessaria una chiave di sottoscrizione. Seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione a Content Moderator e ottenere la chiave.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Effettuare l'iscrizione per un account dello strumento di revisione se non è stata effettuata nel passaggio precedente
 

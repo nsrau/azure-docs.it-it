@@ -23,7 +23,7 @@ ms.locfileid: "52993082"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-Se sono state eseguite le esercitazioni, si ha un cluster Kubernetes in funzione nel servizio contenitore di Azure ed è stata distribuita l'app Azure Voting. 
+Se sono state eseguite le esercitazioni, si dispone di un cluster Kubernetes in funzione nel servizio Azure Container ed è stata distribuita l'app Azure Voting. 
 
 In questa esercitazione, la quinta di sette, si aumenterà il numero di istanze dei pod nell'app e si proverà la scalabilità automatica dei pod. Si apprenderà anche come ridimensionare il numero di nodi agente delle VM di Azure per modificare la capacità del cluster per l'hosting dei carichi di lavoro. Le attività completate comprendono:
 

@@ -27,7 +27,7 @@ Le offerte di contenitori consentono di pubblicare l'immagine del contenitore in
 
 Sono offerte di transazioni che vengono distribuite e fatturate attraverso il Marketplace. L'utente viene invitato all'azione tramite "Scarica adesso".
 
-Usare il tipo di offerta Contenitore quando la soluzione è un'immagine del contenitore Docker di cui è stato effettuato il provisioning come un servizio contenitore di Azure basato su Kubernetes.
+Usare il tipo di offerta Contenitore quando la soluzione è un'immagine del contenitore Docker di cui è stato effettuato il provisioning come un servizio Azure Container basato su Kubernetes.
 
 >[!NOTE]
 >Ad esempio, un servizio Azure Container basato su Kubernetes come servizio Azure Kubernetes o Istanze di Azure Container, la scelta dei clienti di Azure per un runtime del contenitore basato su Kubernetes.  

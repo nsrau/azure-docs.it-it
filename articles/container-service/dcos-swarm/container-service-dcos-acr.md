@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Uso di Registro Azure Container con un cluster DC/OS
-description: Usare Registro contenitori di Azure con un cluster DC/OS nel servizio contenitore di Azure
+description: Usare Registro Azure Container con un cluster DC/OS nel servizio Azure Container
 services: container-service
 author: julienstroheker
 manager: dcaro

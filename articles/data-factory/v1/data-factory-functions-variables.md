@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 48a0bf2a7209812af23c3dd9eec9703ec5826fa9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a82d871ea232b31b31cfc24585af672141617d88
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019572"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353011"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funzioni e variabili di sistema
 > [!NOTE]
@@ -153,7 +153,7 @@ Nell'esempio seguente, il parametro DateTime per l'attività Stored Procedure vi
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample",
+                    "storedProcedureName": "usp_sample",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                     }

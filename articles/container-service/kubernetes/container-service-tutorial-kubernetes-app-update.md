@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Esercitazione per il servizio contenitore di Azure - Aggiornare un'applicazione
-description: Esercitazione per il servizio contenitore di Azure - Aggiornare un'applicazione
+description: Esercitazione per il servizio Azure Container - Aggiornare un'applicazione
 services: container-service
 author: iainfoulds
 manager: jeconnoc
