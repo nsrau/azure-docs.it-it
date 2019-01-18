@@ -662,6 +662,8 @@ items:
         href: log-query/query-language.md
       - name: Differenze di lingua
         href: log-query/data-explorer-difference.md
+      - name: Eseguire la transizione dalla ricerca log
+        href: log-query/log-search-transition.md
       - name: Attività iniziali
         items:
         - name: Introduzione al portale di Analytics
@@ -702,6 +704,8 @@ items:
         items:
         - name: Esempi
           href: log-query/examples.md
+        - name: Scrivere query efficaci
+          href: log-query/log-query-performance.md
         - name: Funzioni di analisi avanzate
           href: log-query/smart-analytics.md
         - name: Ricerche in più risorse
@@ -904,7 +908,7 @@ items:
         href: insights/solutions-best-practices.md
       - name: Raccogliere i dati di monitoraggio da un runbook
         href: platform/runbook-datacollect.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Application Insights
     items:
@@ -1017,9 +1021,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: a0dc6965328ed73059342f36d89d5fdd405bfc9d
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5cb859501356213289c674e3bfa689095c9b28e1
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352615"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390720"

@@ -45,6 +45,8 @@ items:
         href: iot-accelerators-remote-monitoring-deploy-cli.md
       - name: Eseguire la distribuzione in locale con Visual Studio
         href: iot-accelerators-remote-monitoring-deploy-local.md
+      - name: Eseguire la distribuzione in locale con Visual Studio Code
+        href: iot-accelerators-remote-monitoring-deploy-local-vscode.md
       - name: Eseguire la distribuzione in locale con Docker
         href: iot-accelerators-remote-monitoring-deploy-local-docker.md
     - name: Connettere un dispositivo fisico
@@ -255,9 +257,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Monitoraggio remoto V1
     href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
-ms.openlocfilehash: 6d3683c125959281f4580de3a5180394a8482cd9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 0b95b2efed51db0d43b618e76fbe24a13d35b6ed
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603583"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390862"
