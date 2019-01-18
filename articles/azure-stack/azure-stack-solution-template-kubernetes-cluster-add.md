@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e11db0cacb14ab94c40ebbf6cac356a08cc016f1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 81a47a730978a9ecdda7a09bbad0707d436fb116
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352683"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388480"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Aggiungere Kubernetes per il Marketplace di Azure Stack
 
@@ -60,9 +60,9 @@ Creare un piano, un'offerta e una sottoscrizione per l'elemento del Marketplace 
 
     e. Selezionare **offrono**. Selezionare il nome dell'offerta, è stato creato. Assicurarsi di annotare l'ID sottoscrizione.
 
-## <a name="create-a-service-principle-and-credentials-in-ad-fs"></a>Creare un'entità servizio e le credenziali in AD FS
+## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>Creare un'entità servizio e le credenziali in AD FS
 
-Se si usa Active Directory Federated Services (ADFS) per il servizio di gestione di identità, è necessario creare un'entità servizio per utenti che distribuiscono un cluster Kubernetes.
+Se si usa Active Directory Federated Services (ADFS) per il servizio di gestione di identità, è necessario creare un servizio principale per gli utenti di distribuire un cluster Kubernetes.
 
 1. Creare ed esportare un certificato da usare per creare l'entità servizio. Il seguente frammento di codice seguente viene illustrato come creare un certificato autofirmato. 
 
@@ -104,20 +104,20 @@ Se si usa Active Directory Federated Services (ADFS) per il servizio di gestione
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. Creare un'entità servizio usando il certificato.
+2. Creare un'entità utilizzando il certificato del servizio.
 
     - Sono necessarie le seguenti informazioni:
 
        | Valore | DESCRIZIONE                     |
        | ---   | ---                             |
        | IP ERCS | In ASDK, l'endpoint con privilegi è in genere `AzS-ERCS01`. |
-       | Nome dell'applicazione | Nome semplice dell'entità servizio dell'applicazione. |
+       | Nome dell'applicazione | Un nome semplice dell'entità servizio dell'applicazione. |
        | Percorso dell'archivio certificati | Il percorso nel computer in cui è memorizzato il certificato. Ad esempio: `Cert:\LocalMachine\My\<someuid>` |
 
     - Aprire PowerShell con privilegi elevati. Eseguire lo script seguente con i parametri aggiornati ai valori di:
 
         ```PowerShell  
-        #Create service principle using the certificate
+        #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
         #certificate store location. Eg. Cert:\LocalMachine\My
@@ -132,7 +132,7 @@ Se si usa Active Directory Federated Services (ADFS) per il servizio di gestione
         # Creating a PSSession to the ERCS PrivilegedEndpoint
         $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-        # Get Service Principle Information
+        # Get Service principal Information
         $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
 
         # Get Stamp information
@@ -167,7 +167,7 @@ Se si usa Active Directory Federated Services (ADFS) per il servizio di gestione
         $ServicePrincipal
         ```
 
-    - Esaminare i dettagli dell'entità servizio, ad esempio il frammento di codice seguente
+    - I dettagli dell'entità servizio di ricerca, ad esempio il frammento di codice seguente
 
         ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

@@ -140,16 +140,16 @@ items:
       href: filters-dynamic-manifest-rest-howto.md
     - name: Con l'interfaccia della riga di comando
       href: filters-dynamic-manifest-cli-howto.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Specifica OpenAPI (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
-  - name: SDK/Strumenti
+  - name: REST
+    href: https://aka.ms/ams-v3-rest-ref
+  - name: Interfaccia della riga di comando di Azure
+    href: https://aka.ms/ams-v3-cli-ref
+  - name: SDK
     items:
-    - name: REST
-      href: https://aka.ms/ams-v3-rest-ref
-    - name: Interfaccia della riga di comando di Azure
-      href: https://aka.ms/ams-v3-cli-ref
     - name: .NET
       href: https://aka.ms/ams-v3-dotnet-ref
     - name: Java
@@ -160,8 +160,8 @@ items:
       href: https://aka.ms/ams-v3-nodejs-ref
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
-    - name: Modello di Resource Manager
-      href: /azure/templates/microsoft.media/allversions
+  - name: Modello di Resource Manager
+    href: /azure/templates/microsoft.media/allversions
   - name: Schemi di Griglia di eventi
     href: media-services-event-schemas.md
   - name: Licenze DRM
@@ -204,9 +204,9 @@ items:
     href: frequently-asked-questions.md
   - name: Aree e cloud di Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 72c57397a4c79aceec62b279d0f19cd20295eca9
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ca6afadf1141e60d4436178ef45fccfdc48f97a5
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321348"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382108"

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: 05f198aa869bbff121d438688aaee89a292516c1
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d5538ce94428f189fc83cfa1107c52b9d57a3d13
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807972"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381553"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Impostazioni di configurazione di gateway VPN di Azure Stack
 
@@ -51,9 +51,9 @@ Azure Stack offre il gateway VPN SKU illustrati nella tabella seguente.
 
 |   | Velocità effettiva del gateway VPN |Tunnel IPsec massimo di gateway VPN |
 |-------|-------|-------|
-|**SKU Basic**  | 100 Mbps  | 10    |
-|**SKU standard**           | 100 Mbps  | 10    |
-|**SKU con prestazioni elevate** | 200 Mbps    | 5 |
+|**SKU Basic**  | 100 Mbps  | 20    |
+|**SKU standard**           | 100 Mbps  | 20    |
+|**SKU con prestazioni elevate** | 200 Mbps    | 10    |
 
 ### <a name="resizing-gateway-skus"></a>Ridimensionamento di SKU del gateway
 
@@ -123,7 +123,7 @@ Nella tabella seguente elenca i requisiti per i gateway VPN.
 |--|--|--|--|--|
 | **Site-to-Site connectivity (connettività S2S)** | Non supportato | Configurazione VPN RouteBased | Configurazione VPN RouteBased | Configurazione VPN RouteBased |
 | **Metodo di autenticazione**  | Non supportato | Chiave precondivisa per la connettività S2S  | Chiave precondivisa per la connettività S2S  | Chiave precondivisa per la connettività S2S  |   
-| **Numero massimo di connessioni Site-to-Site**  | Non supportato | 10 | 10| 5|
+| **Numero massimo di connessioni Site-to-Site**  | Non supportato | 20 | 20| 10|
 |**Supporto routing attivo (BGP)** | Non supportate | Non supportate | Supportato | Supportato |
 
 ### <a name="gateway-subnet"></a>Subnet gateway

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3262720f52bc75ba5d430e941da25568a105fe0d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276251"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391254"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>I sistemi integrati di Azure distribuzione disconnessa pianificazione decisioni per Azure Stack
 Dopo aver deciso [modo in cui si integrerà Azure Stack nell'ambiente cloud ibrido](azure-stack-connection-models.md), è quindi possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
@@ -49,7 +49,7 @@ Azure Stack è stato progettato per funzionare meglio quando si è connessi ad A
 |Marketplace: la possibilità di selezionare e aggiungere i pacchetti di raccolta direttamente da Azure Marketplace|Con difficoltà: quando si distribuisce Azure Stack in modalità disconnessa (senza connettività di Internet), non è possibile scaricare elementi del marketplace tramite il portale di Azure Stack. Tuttavia, è possibile usare la [dello strumento di diffusione di marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) per scaricare gli elementi del marketplace in un computer con connettività internet e quindi di trasferirle all'ambiente Azure Stack.|
 |Uso di account di Azure Active Directory federation per gestire una distribuzione di Azure Stack|Non disponibile: questa funzionalità richiede la connettività ad Azure. Invece è necessario utilizzare AD FS con un'istanza di Active Directory locale.|
 |Servizi app|Vista - App Web può richiedere l'accesso a Internet per contenuto aggiornato.|
-|Interfaccia della riga di comando|Con difficoltà – CLI offre funzionalità ridotte in termini di autenticazione e il provisioning delle entità servizio.|
+|Interfaccia della riga di comando|Con difficoltà – CLI offre funzionalità ridotte in termini di provisioning delle entità servizio e autenticazione.|
 |Visual Studio: Cloud discovery|Cloud Discovery con difficoltà – individueranno sia cloud diversi o non funzionerà affatto.|
 |Visual Studio: AD FS|Con difficoltà – solo Visual Studio Enterprise supporta AD FS.
 Telemetria|Non disponibile a causa dei dati di telemetria per Azure Stack come pacchetti oltre a una raccolta di terze parti che dipendono da dati di telemetria.|

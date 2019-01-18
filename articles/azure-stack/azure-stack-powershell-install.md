@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 01/17/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: fe64011991732c7493d8efd06516efc664b674a4
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 9c99de88ee1e3054a04512c72b9f9f41886663da
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752776"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391068"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installare PowerShell per Azure Stack
 
@@ -84,7 +84,7 @@ Prima di installare la versione richiesta, assicurarsi di disinstallare tutti i 
 
 ## <a name="4-connected-install-powershell-for-azure-stack-with-internet-connectivity"></a>4. Connessione: Installare PowerShell per Azure Stack con connettività Internet
 
-Azure Stack richiede i **2018-03-01-hybrid** profilo di versione API per la versione di Azure Stack 1808. Il profilo è disponibile tramite l'installazione di **AzureRM.Bootstrapper** modulo. Inoltre, per i moduli AzureRM, è anche necessario installare i moduli di PowerShell di Azure Stack-specifici. Il profilo di versione API e i moduli di PowerShell per Azure Stack è necessario verranno dipendono dalla versione di Azure Stack si è in esecuzione.
+Azure Stack richiede i **2018-03-01-hybrid** profilo versione API per Azure Stack 1808 o versione successiva. Il profilo è disponibile tramite l'installazione di **AzureRM.Bootstrapper** modulo. Inoltre, per i moduli AzureRM, è anche necessario installare i moduli di PowerShell di Azure Stack-specifici. Il profilo di versione API e i moduli di PowerShell per Azure Stack è necessario verranno dipendono dalla versione di Azure Stack si è in esecuzione.
 
 Eseguire lo script di PowerShell seguente per installare i moduli nella workstation di sviluppo:
 
@@ -120,8 +120,19 @@ Eseguire lo script di PowerShell seguente per installare i moduli nella workstat
 > [!Note]
 > Per eseguire l'aggiornamento di Azure PowerShell dal **2017-03-09-profilo** per **2018-03-01-hybrid**, vedere il [Guida alla migrazione](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
 
+- Azure Stack 1811 o versione successivo.
 
-- Azure Stack 1808 o versione successivo.
+    ```PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRm.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+
+    Install-Module -Name AzureStack -RequiredVersion 1.6.0
+    ```
+
+- Azure Stack 1809 o versioni precedenti.
 
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
@@ -132,14 +143,6 @@ Eseguire lo script di PowerShell seguente per installare i moduli nella workstat
 
     Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
-
-- Azure Stack 1807 o versioni precedenti.
-
-  ```PowerShell
-  Install-Module -Name AzureRm.BootStrapper
-  Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-  Install-Module -Name AzureStack -RequiredVersion 1.4.0
-  ```
 
 Confermare l'installazione eseguendo il comando seguente:
 
@@ -175,7 +178,18 @@ Accedere a un computer con connettività Internet e usare gli script seguenti pe
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
     ```
 
-  - Azure Stack 1808 o versione successivo.
+  - Azure Stack 1811 o versione successivo.
+
+    ```PowerShell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+    ```
+
+  - Azure Stack 1809 o versioni precedenti.
 
     ```PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -184,20 +198,6 @@ Accedere a un computer con connettività Internet e usare gli script seguenti pe
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
-    ```
-
-  - Azure Stack 1807 o versioni precedenti.
-
-    > [!Note]
-    Eseguire l'aggiornamento dal 1.2.11 versione, vedere la [Guida alla migrazione](https://aka.ms/azspowershellmigration).
-
-    ```PowerShell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
-
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0
     ```
 
 2. Copiare i pacchetti scaricati in un dispositivo USB.
