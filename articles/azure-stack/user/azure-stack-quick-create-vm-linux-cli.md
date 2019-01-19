@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 1/14/2019
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: fdf9ecd9b6133f05c1b2bda9c32d763d067a0243
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 77194de0b175ae66c0a119a816f32b152f269e56
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304585"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413346"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Guida introduttiva: creare una macchina virtuale di server Linux con CLI di Azure in Azure Stack
 
@@ -73,7 +73,7 @@ L'indirizzo IP pubblico viene restituito nel **PublicIpAddress** parametro. Anno
 
 ## <a name="open-port-80-for-web-traffic"></a>Aprire la porta 80 per il traffico Web
 
-Perché questa macchina virtuale verrà eseguito il server web IIS, è necessario aprire la porta 80 al traffico Internet. Usare il comando [az vm open-port](/cli/azure/vm#open-port) per aprire la porta.
+Perché questa macchina virtuale verrà eseguito il server web IIS, è necessario aprire la porta 80 al traffico Internet. Usare il comando [az vm open-port](/cli/azure/vm) per aprire la porta.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
