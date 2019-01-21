@@ -1,5 +1,6 @@
 ---
-title: Usare tag in Azure Content Moderator | Microsoft Docs
+title: Usare tag personalizzati per la moderazione dei contenuti - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Content Moderator include tag predefiniti ed è possibile creare tag personalizzati per moderare contenuto specifico dell'azienda.
 services: cognitive-services
 author: sanjeev3
@@ -7,20 +8,20 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: c462ff2937453f942db7fdd5b751f3356b6fe715
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: c1a547f99995d25d19dafb03276306c50a544c9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310080"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264717"
 ---
-# <a name="about-tags"></a>Informazioni sui tag #
+# <a name="create-and-use-moderation-tags"></a>Creare e usare i tag di moderazione
 
 Oltre ai due tag predefiniti, **isadult** (**a**) e **isracy** (**r**), è possibile creare tag personalizzati per un'analisi più mirata. I tag personalizzati potranno quindi essere assegnati a immagini o testo da revisori umani.
 
-## <a name="create-tags"></a>Creare tag ##
+## <a name="create-tags"></a>Creare tag
 
 1.  Selezionare Tag nella scheda Impostazioni.
 
@@ -34,7 +35,7 @@ Oltre ai due tag predefiniti, **isadult** (**a**) e **isracy** (**r**), è possi
 
 ![Definizione di tag di moderazione del contenuto](images/tags-2-define.png)
 
-## <a name="using-custom-tags"></a>Usare tag personalizzati ##
+## <a name="using-custom-tags"></a>Usare tag personalizzati
 
 I tag personalizzati vengono usati durante la revisione umana. I tag vengono visualizzati nell'anteprima e i revisori possono selezionarli con un clic.
 
@@ -48,6 +49,6 @@ Non è possibile eliminare i due tag predefiniti, **isadult** e **isracy**, ma �
 
 ![Eliminazione di tag di moderazione del contenuto](images/tags-5-delete.png)
 
-## <a name="next-steps"></a>Passaggi successivi ##
+## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come usare i tag per la moderazione delle immagini, vedere [Rivedere le immagini moderate](Review-Moderated-Images.md).

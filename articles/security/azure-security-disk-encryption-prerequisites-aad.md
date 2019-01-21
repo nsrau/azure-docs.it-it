@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/09/2019
+ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 071f07e9d485a5fab5f2ce3d23a383e974001143
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: f992b4539711d66c51e423eae94c40a325842241
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158022"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267165"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Prerequisiti di Crittografia dischi di Azure (versione precedente)
 
@@ -147,7 +147,7 @@ L'[interfaccia della riga di comando di Azure 2.0](/cli/azure) è uno strumento 
 
 ## <a name="prerequisite-workflow-for-key-vault-and-the-azure-ad-app"></a>Flusso di lavoro dei prerequisiti per Key Vault e l'app Azure AD
 
-Se si ha già familiarità con i prerequisiti di Key Vault e Azure AD per Crittografia dischi di Azure, è possibile usare lo [script di PowerShell per i prerequisiti di Crittografia dischi di Azure](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Per altre informazioni sull'uso degli script dei prerequisiti, vedere [Codifica di una macchina virtuale a avvio rapido](quick-encrypt-vm-powershell.md) e l'[Appendice Crittografia dischi di Azure](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+Se si ha già familiarità con i prerequisiti di Key Vault e Azure AD per Crittografia dischi di Azure, è possibile usare lo [script di PowerShell per i prerequisiti di Crittografia dischi di Azure](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Per altre informazioni sull'uso degli script dei prerequisiti, vedere [Codifica di una macchina virtuale a avvio rapido](quick-encrypt-vm-powershell.md) e l'[Appendice Crittografia dischi di Azure](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Creare un insieme di credenziali delle chiavi. 
 2. Configurare un'applicazione Azure AD e un'entità servizio.

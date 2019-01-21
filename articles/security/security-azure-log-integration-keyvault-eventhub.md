@@ -8,20 +8,20 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 790f49f0fae98162b3443c78d813b1070e4514a0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063914"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303888"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Esercitazione su Integrazione log di Azure: Elaborare gli eventi di Azure Key Vault tramite Hub eventi
 
 >[!IMPORTANT]
-> La funzionalità di integrazione dei log di Azure verrà dichiarata deprecata entro il 01/06/2019. Il download dei log di Azure verrà disabilitato entro il 27 giugno 2018. Per materiale sussidiario su cosa fare dopo, vedere il post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Usare Monitoraggio di Azure per eseguire l'integrazione con gli strumenti per le informazioni di sicurezza e gestione degli eventi) 
+> La funzionalità di integrazione dei log di Azure verrà dichiarata deprecata entro il 01/06/2019. Il download di AzLog è stato disabilitato il 27 giugno 2018. Per materiale sussidiario su cosa fare dopo, vedere il post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Usare Monitoraggio di Azure per eseguire l'integrazione con gli strumenti per le informazioni di sicurezza e gestione degli eventi) 
 
 È possibili usare l'integrazione dei log di Azure per recuperare gli eventi registrati e renderli disponibili per il sistema di gestione delle informazioni e degli eventi di sicurezza (SIEM). Questa esercitazione illustra un esempio di come usare l'integrazione dei log di Azure per elaborare i log acquisiti tramite Hub eventi di Azure.
 
@@ -56,21 +56,21 @@ Per poter completare la procedura descritta in questo articolo, è necessario qu
  
 1. Un sistema con accesso a Internet che soddisfi i requisiti per l'installazione del servizio di integrazione dei log di Azure. Il sistema può trovarsi su un servizio cloud o essere ospitato in locale.
 
-1. [Integrazione dei log di Azure](https://www.microsoft.com/download/details.aspx?id=53324) installato. Per l'installazione:
+1. Integrazione log di Azure installato. Per l'installazione:
 
    a. Usare il desktop remoto per connettersi al sistema citato nel passaggio 2.   
-   b. Copiarvi il programma di installazione di Integrazione dei Log di Azure nel sistema. È possibile [scaricare i file di installazione](https://www.microsoft.com/download/details.aspx?id=53324).   
-   c. Avviare il programma di installazione e accettare le Condizioni di licenza software Microsoft.   
-   d. Se si intende inserire informazioni di telemetria, lasciare selezionata la casella di controllo. Se invece si preferisce non inviare le informazioni sull'uso a Microsoft, deselezionare la casella di controllo.
-   
+   b. Copiarvi il programma di installazione di Integrazione dei Log di Azure nel sistema. c. Avviare il programma di installazione e accettare le Condizioni di licenza software Microsoft.
+
+1. Se si intende inserire informazioni di telemetria, lasciare selezionata la casella di controllo. Se invece si preferisce non inviare le informazioni sull'uso a Microsoft, deselezionare la casella di controllo.
+
    Per altre informazioni sul servizio di integrazione dei log di Azure e su come installarlo, vedere [Integrazione dei log di Azure con la registrazione di Diagnostica di Azure e l'inoltro di eventi di Windows](security-azure-log-integration-get-started.md).
 
 1. Versione più recente di PowerShell.
- 
+
    Se è installato Windows Server 2016 e la versione disponibile di PowerShell è almeno la versione 5.0. Se si usa qualsiasi altra versione di Windows Server, l'utente potrebbe aver installato una versione precedente di PowerShell. È possibile controllare la versione immettendo ```get-host``` in una finestra di PowerShell. Se PowerShell 5.0 non è installato, è possibile [scaricarlo](https://www.microsoft.com/download/details.aspx?id=50395).
 
    Dopo aver installato almeno la versione di PowerShell 5.0, è possibile procedere con l'installazione della versione più recente:
-   
+
    a. In una finestra di PowerShell immettere il comando ```Install-Module Azure```. Completare la procedura d'installazione.    
    b. Immettere il comando ```Install-Module AzureRM```. Completare la procedura d'installazione.
 

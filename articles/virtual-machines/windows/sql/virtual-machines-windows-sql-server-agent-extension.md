@@ -3,7 +3,7 @@ title: Automatizzare le attività di gestione in macchine virtuali SQL (Resource
 description: Questo articolo descrive come gestire l'estensione SQL Server Agent, che automatizza attività di amministrazione specifiche di SQL Server. Queste includono il backup automatizzato, l'applicazione automatica delle patch e l'integrazione dell'insieme di credenziali delle chiavi di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
-ms.author: jroth
-ms.openlocfilehash: 5ffee3bb5cbeff4e2222307e2a1afb4691ae93d5
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 1b5c32d79e3664caf18cfc81fca563b295574cf4
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053041"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329318"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizzare le attività di gestione in macchine virtuali SQL con l'estensione SQL Server Agent (Resource Manager)
 > [!div class="op_single_selector"]
@@ -74,7 +75,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 ```
 
 > [!IMPORTANT]
-> Se non è già stata eseguita, l'installazione dell'estensione riavvia il servizio SQL Server.
+> Se non è già stata eseguita, l'installazione dell'estensione riavvia il servizio SQL Server. Tuttavia l'aggiornamento dell'estensione SQL IaaS non riavvia il servizio SQL Server. 
 
 > [!NOTE]
 > L'estensione SQL Server IaaS Agent è supportata solo nelle [immagini della raccolta di macchine virtuali di SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (con pagamento in base al consumo o Bring Your Own License). Non è supportata se si installa manualmente SQL Server in una macchina virtuale di Windows Server con solo sistema operativo o se si distribuisce un disco rigido virtuale personalizzato della VM di SQL Server. In questi casi, potrebbe essere possibile installare e gestire l'estensione manualmente usando PowerShell, ma non si ottengono le impostazioni di configurazione di SQL Server nel portale di Azure. Tuttavia, è consigliabile invece installare un'immagine dalla raccolta della VM di SQL Server e quindi personalizzarla.

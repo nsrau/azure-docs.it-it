@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c37ed908b61ca54957affed3f81526353bc3f53b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c8056bd4912605a4cd3ee333b1be87d4f3a6d5ba
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389565"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198049"
 ---
 # <a name="the-iot-edge-module-certification-process"></a>Processo di certificazione del modulo IoT Edge
 
@@ -42,7 +42,7 @@ I moduli possono includere anche l'SDK dei moduli IoT, che usa la terminologia s
 
 -   Un **modulo gemello** è un documento JSON archiviato nell'hub IoT, che contiene informazioni sullo stato di un'istanza del modulo, inclusi i metadati, le configurazioni e le condizioni.
 
--   Gli **SDK** vengono usati per sviluppare moduli personalizzati in più linguaggi, come C\#, C, Python, Java e Node.JS.
+-   Gli **SDK** vengono usati per sviluppare moduli personalizzati in più linguaggi, come: C\#, C, Python, Java e Node.js.
 
 ## <a name="the-onboarding-process-for-an-iot-edge-module"></a>Processo di onboarding per un modulo IoT Edge
 
@@ -118,7 +118,7 @@ Di seguito sono illustrati i requisiti principali che devono essere soddisfatti 
     - [C\#](https://hub.docker.com/_/mysql/)
     - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
     - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-    - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._product_info?view=azure-java-stable)
+    - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
 
 -   Per i moduli che non usano l'SDK dei moduli IoT sono disponibili informazioni dettagliate meno precise nel portale Cloud Partner, ad esempio il numero di download.
 

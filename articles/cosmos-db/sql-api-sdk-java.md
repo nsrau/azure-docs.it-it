@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: e62276debf121cc39fc5642ed8e5a9faf6b876ed
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cf011558ab984ecaf8181a4dc4ffcb80851f24fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039640"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352955"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java di Azure Cosmos DB per API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -137,7 +137,7 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
 * Risoluzione di un bug nella gestione della connessione per impedire perdite di connessione nella modalità di connettività diretta.
-* Risoluzione di un bug nella query TOP in cui è possibile che venga generata un'eccezione NullReferenece.
+* Risoluzione di un bug nella query TOP, dove è possibile che venga generata un'eccezione NullReference.
 * Miglioramento delle prestazioni tramite la riduzione del numero di chiamate di rete per le cache interne.
 * Aggiunta del codice di stato, di ActivityID e dell'URI della richiesta in DocumentClientException per una migliore risoluzione dei problemi.
 
