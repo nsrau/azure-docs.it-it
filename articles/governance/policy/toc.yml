@@ -23,6 +23,9 @@ items:
   - name: Creare e gestire i criteri di Azure
     displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
+  - name: Esercitazioni pratiche - Esplorazione di Criteri di Azure
+    displayName: create, policy, training, learn
+    href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
 - name: Esempi
   items:
   - name: Indice
@@ -256,7 +259,7 @@ items:
   - name: Correggere le risorse non conformi
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
     href: /cli/azure/policy
@@ -316,9 +319,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: d063061e190f22a1ba79d559c267ed728b8aaed1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: b4dd12a4428813d506dbb036afea397c824ccfcf
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319240"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401012"
