@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e118249cf2aaf07aeb4f337636a46d088102bca8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620133"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261180"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Autorizzazioni e consenso nell'endpoint v2.0 di Azure Active Directory
 
@@ -164,7 +164,7 @@ Per configurare l'elenco delle autorizzazioni richieste in modo statico per un'a
 2. Individuare la sezione **Autorizzazioni di Microsoft Graph**  e aggiungere le autorizzazioni richieste dall'applicazione.
 3. **Salvare** la registrazione dell'app.
 
-### <a name="recommended-sign-the-user-in-to-your-app"></a>Consigliato: connettere l'utente dall'applicazione
+### <a name="recommended-sign-the-user-in-to-your-app"></a>Consigliato: Connettere l'utente all'applicazione
 
 In genere, durante la compilazione di un'applicazione che usa l'endpoint di consenso dell'amministratore, l'app necessita di una pagina o vista che consenta all'amministratore di approvare le autorizzazioni dell'applicazione. Questa pagina può essere parte del flusso di iscrizione all'app, delle impostazioni dell'applicazione o di un flusso di "connessione" dedicato. In molti casi, è utile per l'applicazione visualizzare la pagina di "connessione" solo dopo che un utente ha eseguito l'accesso con un account di lavoro o dell'istituto di istruzione Microsoft.
 
@@ -254,4 +254,4 @@ Per altre informazioni sul protocollo OAuth 2.0 e su come ottenere i token di ac
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Se gli utenti dell'applicazione visualizzano messaggi di errore imprevisti durante il processo di consenso, per la risoluzione dei problemi fare riferimento all'articolo [Errore imprevisto durante la richiesta di consenso per un'applicazione](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+Se gli utenti dell'applicazione visualizzano messaggi di errore imprevisti durante il processo di consenso, per la risoluzione dei problemi fare riferimento al seguente articolo: [Errore imprevisto durante la richiesta di consenso a un'applicazione](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

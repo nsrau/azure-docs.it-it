@@ -1,26 +1,21 @@
 ---
-title: Analisi della varianza dei clienti - Azure Machine Learning Studio | Microsoft Docs
+title: Analisi della varianza dei clienti
+titleSuffix: Azure Machine Learning Studio
 description: Casi di studio sullo sviluppo di un modello integrato per l'analisi e l'assegnazione dei punteggi di varianza del cliente con Azure Machine Learning Studio.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
 ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: dbe853172c0f0e49408bd4a2dd630a69659421d3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272168"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260602"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analisi della varianza dei clienti con Azure Machine Learning Studio
 ## <a name="overview"></a>Panoramica

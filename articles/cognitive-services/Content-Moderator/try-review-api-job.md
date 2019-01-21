@@ -1,21 +1,21 @@
 ---
 title: Eseguire processi di moderazione del contenuto con la console per le API - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Informazioni su come eseguire processi di regolazione del contenuto nella console per le API.
+description: Usare le operazioni per il processo dell'API di revisione per avviare i processi end-to-end di moderazione del contenuto di immagine o testo in Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 240b26cd86a6985825e3145c5bc43ef31524d7b7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4d1f96cbf7a94c59476f077cc4e72a26ee9c8296
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227110"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259122"
 ---
 # <a name="start-a-moderation-job-from-the-api-console"></a>Avviare un processo di moderazione dalla console per le API
 
@@ -32,9 +32,9 @@ Passare allo [strumento di revisione](https://contentmoderator.cognitive.microso
 ## <a name="use-the-api-console"></a>Usare la console dell'API
 Per eseguire il test drive dell'API usando la console online, sono necessari alcuni valori da immettere nella console:
     
-- `teamName`: usare il campo `Id` della schermata delle credenziali dello strumento di revisione. 
-- `ContentId`: questa stringa viene passata all'API e restituita tramite il callback. **ContentId** è utile per associare i metadati o gli identificatori interni ai risultati di un processo di moderazione. `Workflowname`: nome del [flusso di lavoro creato](Review-Tool-User-Guide/Workflows.md) nella sezione precedente.
-- `Ocp-Apim-Subscription-Key`: disponibile nella scheda **Impostazioni**. Per altre informazioni, vedere la [panoramica](overview.md).
+- `teamName`: Usare il campo `Id` della schermata delle credenziali dello strumento di revisione. 
+- `ContentId`: Questa stringa viene trasmessa all'API e restituita tramite il callback. **ContentId** è utile per associare i metadati o gli identificatori interni ai risultati di un processo di moderazione.- `Workflowname`: Immettere il nome del [flusso di lavoro creato](Review-Tool-User-Guide/Workflows.md) nella sezione precedente.
+- `Ocp-Apim-Subscription-Key`: Disponibile nella scheda **Impostazioni**. Per altre informazioni, vedere la [panoramica](overview.md).
 
 Accedere alla console per le API dalla finestra **Credenziali**.
 
