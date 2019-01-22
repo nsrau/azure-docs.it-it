@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un server di Database di Azure per MariaDB - Interfaccia della riga di comando di Azure'
+title: 'Guida introduttiva: Creare un server di Database di Azure per MariaDB - Interfaccia della riga di comando di Azure'
 description: Questa guida introduttiva descrive come usare l'interfaccia della riga di comando di Azure per creare un server di Database di Azure per MariaDB in un gruppo di risorse di Azure.
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 0a629b9b068694960178c1c5727ba2f38b0e8af7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190339"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359324"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Creare un server di Database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure
 
@@ -59,10 +59,10 @@ version | **10.2** | La versione principale del motore MariaDB.
 admin-user | **myadmin** | Nome utente per l'account di accesso amministratore. Il parametro **admin-user** non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**.
 admin-password | *password* | Password dell'utente amministratore. La password deve contenere da 8 a 128 caratteri. Deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri e caratteri non alfanumerici.
 
-Il valore del parametro **sku-name** segue la convenzione *piano tariffario*\_*generazione calcolo*\_*vCore* come illustrato negli esempi seguenti:
-+ `--sku-name B_Gen5_4` esegue il mapping a piano tariffario Basic, generazione di calcolo Generazione 5 e 4 vCore.
-+ `--sku-name GP_Gen5_32` esegue il mapping a piano tariffario Utilizzo generico, generazione di calcolo Generazione 5 e 32 vCore.
-+ `--sku-name MO_Gen5_2` esegue il mapping a piano tariffario Con ottimizzazione per la memoria, generazione di calcolo Generazione 5 e 2 vCore.
+Il valore del parametro sku-name segue la convenzione {piano tariffario}\_{generazione calcolo}\_{vCore} come illustrato nell'esempio seguente:
++ `--sku-name B_Gen5_1` esegue il mapping a Basic, Gen 5 e 1 vCore. Questa opzione corrisponde allo SKU più piccolo disponibile.
++ `--sku-name GP_Gen5_32` esegue il mapping a utilizzo generico, Gen 5 e 32 vCore.
++ `--sku-name MO_Gen5_2` esegue il mapping a ottimizzazione per la memoria, Gen 5 e 2 vCore.
 
 Per informazioni sui valori validi per aree e livelli, vedere [Piani tariffari](./concepts-pricing-tiers.md).
 

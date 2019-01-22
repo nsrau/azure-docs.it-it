@@ -1,6 +1,6 @@
 ---
 title: Eseguire lo streaming nell'hub eventi abilitato per Kafka - Hub eventi di Azure | Microsoft Docs
-description: Questo articolo fornisce informazioni su come eseguire lo striming negli hub eventi di Azure con il protocollo Kafka e le API.
+description: Questo articolo fornisce informazioni su come eseguire lo streaming in Hub eventi di Azure tramite il protocollo e le API Kafka.
 services: event-hubs
 author: basilhariri
 ms.author: bahariri
@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: d6e293b80df1ab227a3100040a54b189f48d8027
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19d903a4083c432ac3932189ad8a6890be9014fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102810"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354230"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Eseguire lo streaming in Hub eventi per Apache Kafka
 Questa guida introduttiva illustra come eseguire lo streaming in un'istanza di Hub eventi abilitata per Kafka senza modificare i client di protocollo o eseguire cluster personalizzati. Si apprenderà come usare i producer e i consumer per comunicare con un'istanza di Hub eventi abilitata per Kafka con solo una modifica della configurazione nelle applicazioni. Hub eventi di Azure supporta [Apache Kafka versione 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -34,13 +34,13 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi con supporto per Kafka
 
-1. Accedere al [portale di Azure][portale di Azure] e fare clic su **Crea una risorsa** nella parte superiore sinistra della schermata.
+1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Crea una risorsa** nella parte superiore sinistra della schermata.
 
 2. Eseguire la ricerca per gli Hub eventi e selezionare le opzioni illustrate di seguito:
     
     ![Cercare Hub eventi nel portale](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Specificare un nome univoco e abilitare Kafka nello spazio dei nomi. Fare clic su **Create**(Crea).
+3. Specificare un nome univoco e abilitare Kafka nello spazio dei nomi. Fare clic su **Create**(Crea). Note: Hub eventi per Kafka è supportato solo nei livelli Standard e Dedicato. Hub eventi Di base restituirà un errore di autorizzazione dell'argomento in risposta a qualsiasi operazione Kafka.
     
     ![Creare uno spazio dei nomi](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  

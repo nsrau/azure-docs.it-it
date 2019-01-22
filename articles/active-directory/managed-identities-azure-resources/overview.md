@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 3b9c8ea3dba5fdbd3e25293873ab1ae6854b3b83
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5397ab76afa8c28623f1522ffa773b0895e19f02
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728109"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303939"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure
 
@@ -38,9 +38,9 @@ La funzionalità delle identità gestite per le risorse di Azure è gratuita con
 
 I termini seguenti vengono usati in tutta la documentazione relativa alle identità gestite per le risorse di Azure:
 
-- **ID client**: identificatore univoco generato da Azure AD che viene associato a un'entità servizio e a un'applicazione durante il provisioning iniziale.
-- **ID entità servizio**: ID dell'oggetto entità servizio per l'identità gestita che viene usato per concedere l'accesso basato sul ruolo a una risorsa di Azure.
-- **Servizio metadati dell'istanza di Azure**: endpoint REST accessibile a tutte le macchine virtuali IaaS create tramite Azure Resource Manager. L'endpoint è disponibile a un indirizzo IP non instradabile noto (169.254.169.254) a cui è possibile accedere solo dalla macchina virtuale.
+- **ID client**: un identificatore univoco generato da Azure AD che viene associato a un'entità servizio e applicazione durante il provisioning iniziale.
+- **ID entità servizio**: l'ID dell'oggetto entità servizio per l'identità gestita che viene usato per concedere l'accesso basato sul ruolo a una risorsa di Azure.
+- **Servizio metadati dell'istanza di Azure**: un endpoint REST accessibile a tutte le macchine virtuali IaaS create tramite Azure Resource Manager. L'endpoint è disponibile a un indirizzo IP non instradabile noto (169.254.169.254) a cui è possibile accedere solo dalla macchina virtuale.
 
 ## Funzionamento delle identità gestite per le risorse di Azure<a name="how-does-it-work"></a>
 

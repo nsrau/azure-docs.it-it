@@ -1,27 +1,7 @@
 ---
-title: Uso della regressione lineare in Machine Learning Studio - Azure | Microsoft Docs
-description: Confronto tra i modelli di regressione lineare in Excel e in Azure Machine Learning Studio
-metakeywords: ''
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276680"
+title: Uso della regressione lineare Azure Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Un confronto dei modelli di regressione lineare in Excel e nei servizi di Azure Machine Learning Studio: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Uso della regressione lineare Azure Machine Learning Studio
 > *Kate Baroni* e *Ben Boatman* sono architetti di soluzioni aziendali in Microsoft Data Insights Center of Excellence. In questo articolo descrivono la propria esperienza durante la migrazione di una suite esistente per l'analisi di regressione a una soluzione basata sul cloud tramite Azure Machine Learning. 
@@ -85,8 +65,8 @@ Dopo aver applicato i suggerimenti, in Machine Learning Studio sono state raggiu
 | Strumento di apprendimento |Excel -> Analisi dati -> Regressione |Regressione lineare. |Linear Regression |
 | Opzioni strumento di apprendimento |N/D |Valori predefiniti |Ordinary Least Squares<br />L2 = 0,005 |
 | Set di dati |26 righe, 3 funzionalità, 1 etichetta. Tutti valori numerici. |uguale |uguale |
-| Divisione: training |Excel con training sulle prime 18 righe, con test delle ultime 8 righe. |uguale |uguale |
-| Divisione: test |Formula di regressione Excel applicata alle ultime 8 righe |uguale |uguale |
+| Divisione: Eseguire il training |Excel con training sulle prime 18 righe, con test delle ultime 8 righe. |uguale |uguale |
+| Divisione: Test |Formula di regressione Excel applicata alle ultime 8 righe |uguale |uguale |
 | **Prestazioni** | | | |
 | R-quadrato corretto |0,96 |N/D | |
 | Coefficiente di determinazione |N/D |0,78 |0,952049 |

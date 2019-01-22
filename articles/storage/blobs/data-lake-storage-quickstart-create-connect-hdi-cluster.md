@@ -6,14 +6,14 @@ author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 791598da593c25a135c05d72b6846053af3ff344
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792890"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353856"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Guida introduttiva: Configurare i cluster in HDInsight
 
@@ -25,6 +25,10 @@ Un cluster Hadoop è costituito da alcune macchine virtuali (nodi) che vengono u
 >La fatturazione del cluster HDInsight inizia dopo la creazione del cluster e si interrompe solo quando questo viene eliminato. La fatturazione avviene con tariffa oraria, perciò si deve sempre eliminare il cluster in uso quando non lo si usa più. Informazioni su come [eliminare un cluster](../../hdinsight/hdinsight-delete-cluster.md)
 
 In questa guida introduttiva viene usato un account di archiviazione con le funzionalità di Data Lake Storage Gen2. Con il suo servizio di spazio dei nomi gerarchico e il [driver Hadoop](data-lake-storage-abfs-driver.md), Data Lake Storage Gen2 è ottimizzato per l'elaborazione e l'analisi distribuita. I dati archiviati in un account di archiviazione nel quale è abilitato Data Lake Storage Gen2 persistono anche dopo l'eliminazione di un cluster HDInsight.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+- È necessario creare un'identità gestita assegnata dall'utente e assegnare il **ruolo di collaboratore di Archiviazione BLOB di Azure** all'identità. Vedere [Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente mediante il portale di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
 ## <a name="cluster-setup-methods"></a>Metodi di installazione del cluster
 
@@ -104,8 +108,7 @@ Durante la configurazione, come endpoint di archiviazione predefinito viene indi
 
 ![Impostazioni dell'archiviazione cluster: Endpoint di archiviazione compatibili con Hadoop Distributed File System](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
-> [!IMPORTANT]
-> Assicurarsi di **disattivare l'accesso al Data Lake Store**. Questa impostazione si riferisce alla funzionalità obsoleta di *Data Lake Store* e deve essere disattivata per consentire il corretto funzionamento delle funzioni di *Archiviazione di Azure Data Lake*.
+In **Identità gestita assegnata dall'utente**, assicurarsi di selezionare identità gestita assegnata dall'utente gestita dall'utente che è stata create come prerequisito di questo articolo.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 

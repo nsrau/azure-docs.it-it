@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f617be79cb61932f79728feef76f056ce72ae0ab
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: d27cc555a8cf96a07818e83b342cf145d9e98a96
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891130"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265908"
 ---
-# <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Esercitazione: Aggiornare un'applicazione di Service Fabric in esecuzione in Service Fabric Mesh
+# <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Esercitazione: Aggiornare un'applicazione di Service Fabric in esecuzione in Azure Service Fabric Mesh
 
 Questa è la terza di una serie di esercitazioni. Si apprenderà come eseguire l'aggiornamento di un'applicazione di Service Fabric che è stata [distribuita in precedenza in Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) aumentando le risorse della CPU allocate.  Al termine si avrà un servizio front-end Web in esecuzione con maggiori risorse della CPU.
 

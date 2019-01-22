@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: jegeib
-ms.openlocfilehash: 8b0700e76bbcc0913b376e607f706f540b1df2bb
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4e08491ae898fef16af1e199a76a4c07a6c226b9
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307076"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358661"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft Threat Modeling Tool
 
@@ -35,7 +35,7 @@ Ecco alcune funzionalità degli strumenti e innovazioni, solo per citarne alcune
 
 * **Automazione:** linee guida e feedback sulla definizione di un modello
 * **STRIDE per ogni elemento:** analisi guidata di minacce e soluzioni di prevenzione
-* **Creazione di report:** attività di protezione e test in fase di verifica
+* **Reporting:** attività di sicurezza and testing nella fase di verifica
 * **Metodologia univoca:** consente agli utenti di visualizzare meglio e conoscere le minacce
 * **Progettato per gli sviluppatori e incentrato sul software:** molti approcci sono incentrati su risorse o utenti malintenzionati. Noi ci siamo concentrati sul software. Facciamo leva sulle attività con cui tutti gli sviluppatori di software e i progettisti hanno familiarità, ad esempio il disegno di immagini per l'architettura software
 * **Concentrazione sull'analisi della progettazione:** il termine "modellazione delle minacce" può fare riferimento a un requisito o una tecnica di analisi della progettazione. In alcuni casi, si riferisce a una combinazione complessa dei due. L'approccio Microsoft SDL alla modellazione delle minacce è una tecnica di analisi di progettazione focalizzata
@@ -46,7 +46,7 @@ La tabella seguente contiene collegamenti importanti per iniziare a usare Threat
 
 | Passaggio  | DESCRIZIONE                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
-| **1** | [Scaricare Threat Modeling Tool](https://aka.ms/tmtpreview)                                |
+| **1** | [Scaricare Threat Modeling Tool](https://aka.ms/threatmodelingtool)                                |
 | **2** | [Vedere la Guida introduttiva](./azure-security-threat-modeling-tool-getting-started.md)    |
 | **3** | [Acquisire familiarità con le funzionalità](./azure-security-threat-modeling-tool-feature-overview.md)   |
 | **4** | [Informazioni sulle categorie di minacce generate](./azure-security-threat-modeling-tool-threats.md)   |

@@ -3,7 +3,7 @@ title: Creare una macchina virtuale Windows con SQL Server tramite Azure PowerSh
 description: Questa esercitazione illustra come creare una macchina virtuale Windows di SQL Server 2017 con Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
-ms.author: jroth
-ms.openlocfilehash: 228d2852d9554d378dc663e74460da7ab80d4b24
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 12/21/2018
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: aa4ea4e724ec383fc9f22bd56572d2fd0e844abc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31602723"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332439"
 ---
-# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Guida introduttiva: Creare una macchina virtuale Windows con SQL Server tramite Azure PowerShell
+# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Avvio rapido: Creare una macchina virtuale Windows di SQL Server con Azure PowerShell
 
 Questa guida introduttiva illustra la creazione di una macchina virtuale di SQL Server con Azure PowerShell.
 
@@ -47,7 +48,7 @@ Per questa guida introduttiva è richiesto il modulo Azure PowerShell versione 3
    Connect-AzureRmAccount
    ```
 
-1. Viene visualizzata una schermata di accesso per l'immissione delle credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
+1. Viene visualizzata una schermata per l'immissione delle credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -83,7 +84,7 @@ Per questa guida introduttiva è richiesto il modulo Azure PowerShell versione 3
 
    # Create a virtual network
    $Vnet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
-      -Name VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
+      -Name $VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
 
    # Create a public IP address and specify a DNS name
    $Pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `
@@ -122,11 +123,11 @@ Per questa guida introduttiva è richiesto il modulo Azure PowerShell versione 3
 
 ## <a name="create-the-sql-vm"></a>Creare la macchina virtuale SQL
 
-1. Definire le credenziali per l'accesso alla macchina virtuale. Il nome utente è "azureadmin". Assicurarsi di cambiare la password prima di eseguire il comando.
+1. Definire le credenziali per l'accesso alla macchina virtuale. Il nome utente è "azureadmin". Assicurarsi di cambiare il valore di \<password> prima di eseguire il comando.
 
    ``` PowerShell
    # Define a credential object
-   $SecurePassword = ConvertTo-SecureString 'Change.This!000' `
+   $SecurePassword = ConvertTo-SecureString '<password>' `
       -AsPlainText -Force
    $Cred = New-Object System.Management.Automation.PSCredential ("azureadmin", $securePassword)
    ```
@@ -136,7 +137,7 @@ Per questa guida introduttiva è richiesto il modulo Azure PowerShell versione 3
    ```PowerShell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
-   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13 | `
+   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
       Set-AzureRmVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate | `
       Set-AzureRmVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" | `
       Add-AzureRmVMNetworkInterface -Id $Interface.Id
@@ -148,9 +149,9 @@ Per questa guida introduttiva è richiesto il modulo Azure PowerShell versione 3
    > [!TIP]
    > La creazione della macchina virtuale richiede alcuni minuti.
 
-## <a name="install-the-sql-iaas-agent"></a>Installare SQL Iaas Agent
+## <a name="install-the-sql-iaas-agent"></a>Installare SQL Server Iaas Agent
 
-Per ottenere l'integrazione del portale e le funzionalità della macchina virtuale SQL, è necessario installare l'[estensione SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md). Per installare l'agente sulla nuova VM, eseguire il comando seguente dopo la creazione.
+Per ottenere l'integrazione del portale e le funzionalità della macchina virtuale SQL, è necessario installare l'[estensione SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md). Per installare l'agente nella nuova VM, eseguire il comando seguente dopo averla creata.
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -164,21 +165,21 @@ Per ottenere l'integrazione del portale e le funzionalità della macchina virtua
    Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
-1. Accettare quindi l'indirizzo IP restituito e passarlo come parametro della riga di comando a **mstsc** per avviare una sessione di Desktop remoto nella nuova VM.
+1. Passare l'indirizzo IP restituito come parametro della riga di comando a **mstsc** per avviare una sessione di Desktop remoto nella nuova VM.
 
    ```
    mstsc /v:<publicIpAddress>
    ```
 
-1. Quando vengono richieste le credenziali, scegliere di immettere le credenziali per un account diverso. Immettere il nome utente preceduto da una barra rovesciata, ad esempio `\azureadmin`, e la password configurata in precedenza in questa guida introduttiva.
+1. Quando vengono richieste le credenziali, scegliere di immettere le credenziali per un account diverso. Immettere il nome utente preceduto da una barra rovesciata, ad esempio `\azureadmin`, e la password impostata in precedenza in questa guida introduttiva.
 
 ## <a name="connect-to-sql-server"></a>Connettersi a SQL Server
 
-1. Dopo l'accesso a una sessione di Desktop remoto, avviare **SQL Server Management Studio 2017** dal menu Start.
+1. Dopo aver eseguito l'accesso a una sessione di Desktop remoto, avviare **SQL Server Management Studio 2017** dal menu Start.
 
-1. Nella finestra di dialogo **Connetti al server** mantenere i valori predefiniti. Il nome del server è il nome della VM. L'autenticazione è impostata su **Autenticazione di Windows**. Fare clic su **Connetti**.
+1. Nella finestra di dialogo **Connetti al server** mantenere i valori predefiniti. Il nome del server è il nome della VM. L'autenticazione è impostata su **Autenticazione di Windows**. Selezionare **Connessione**.
 
-Si è ora connessi localmente a SQL Server. Se ci si vuole connettere in modalità remota, è necessario [configurare la connettività](virtual-machines-windows-sql-connect.md) dal portale o manualmente.
+Si è ora connessi localmente a SQL Server. Se ci si vuole connettere in remoto, è necessario [configurare la connettività](virtual-machines-windows-sql-connect.md) dal portale o manualmente.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -4,17 +4,17 @@ description: Usare Azure Blueprint per creare, definire e distribuire elementi.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9e44a44b76e79375076f71cf808d6d30eebc5cdb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311423"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320685"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definire e assegnare un progetto Azure Blueprint con l'API REST
 
@@ -68,7 +68,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
 In ogni URI dell'API REST vengono usate variabili che è necessario sostituire con i propri valori:
 
-- `{YourMG}`: sostituire con il nome del gruppo di gestione
+- `{YourMG}`: sostituire con l'ID del gruppo di gestione
 - `{subscriptionId}`: sostituire con l'ID sottoscrizione
 
 1. Creare l'oggetto _progetto_ iniziale. Il **corpo della richiesta** include proprietà relative al progetto, tutti i gruppi di risorse da creare e tutti i parametri a livello di progetto. I parametri vengono impostati durante l'assegnazione e usati dagli elementi aggiunti nei passaggi successivi.
@@ -130,7 +130,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
      }
      ```
 
-1. Aggiungere un'assegnazione di ruolo nella sottoscrizione. Il **corpo della richiesta** definisce il _tipo_ di elemento, le proprietà allineate all'identificatore della definizione del ruolo e le identità dell'entità passate come matrice di valori. Nell'esempio seguente vengono configurate le identità delle entità cui è concesso il ruolo specificato in base a un parametro impostato durante l'assegnazione del progetto.
+1. Aggiungere un'assegnazione di ruolo nella sottoscrizione. Il **corpo della richiesta** definisce il _tipo_ di elemento, le proprietà allineate all'identificatore della definizione del ruolo e le identità dell'entità passate come matrice di valori. Nell'esempio seguente vengono configurate le identità delle entità cui è concesso il ruolo specificato in base a un parametro impostato durante l'assegnazione del progetto. Questo esempio usa il ruolo predefinito _Collaboratore_ con GUID `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - URI DELL'API REST
 
@@ -150,7 +150,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
      }
      ```
 
-1. Aggiungere un'assegnazione di criteri nella sottoscrizione. Il **corpo della richiesta** definisce il _tipo_ di elemento e le proprietà allineate alla definizione di un'iniziativa o di criteri e configura l'assegnazione di criteri per l'uso dei parametri del progetto definiti da configurare durante l'assegnazione del progetto.
+1. Aggiungere un'assegnazione di criteri nella sottoscrizione. Il **corpo della richiesta** definisce il _tipo_ di elemento e le proprietà allineate alla definizione di un'iniziativa o di criteri e configura l'assegnazione di criteri per l'uso dei parametri del progetto definiti da configurare durante l'assegnazione del progetto. Questo esempio usa il criterio predefinito _Applica tag e relativo valore predefinito ai gruppi di risorse_ con GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - URI DELL'API REST
 
@@ -178,7 +178,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
      }
      ```
 
-1. Aggiungere un'altra assegnazione di criteri per il tag di archiviazione (riutilizzando il parametro _storageAccountType_) nella sottoscrizione. Questo elemento di assegnazione di criteri aggiuntivo indica che un parametro definito nel progetto può essere usato da più di un elemento. Nell'esempio **storageAccountType** viene usato per impostare un tag nel gruppo di risorse. Questo valore fornisce informazioni sull'account di archiviazione che verrà creato nel passaggio successivo.
+1. Aggiungere un'altra assegnazione di criteri per il tag di archiviazione (riutilizzando il parametro _storageAccountType_) nella sottoscrizione. Questo elemento di assegnazione di criteri aggiuntivo indica che un parametro definito nel progetto può essere usato da più di un elemento. Nell'esempio **storageAccountType** viene usato per impostare un tag nel gruppo di risorse. Questo valore fornisce informazioni sull'account di archiviazione che verrà creato nel passaggio successivo. Questo esempio usa il criterio predefinito _Applica tag e relativo valore predefinito ai gruppi di risorse_ con GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - URI DELL'API REST
 
@@ -292,7 +292,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
      }
      ```
 
-1. Aggiungere un'assegnazione di ruolo nel gruppo di risorse. Analogamente all'immissione dell'assegnazione di ruolo precedente, l'esempio seguente usa l'identificatore della definizione per il ruolo **Proprietario** e fornisce un parametro diverso del progetto.
+1. Aggiungere un'assegnazione di ruolo nel gruppo di risorse. Analogamente all'immissione dell'assegnazione di ruolo precedente, l'esempio seguente usa l'identificatore della definizione per il ruolo **Proprietario** e fornisce un parametro diverso del progetto. Questo esempio usa il ruolo predefinito _Proprietario_ con GUID `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 
    - URI DELL'API REST
 

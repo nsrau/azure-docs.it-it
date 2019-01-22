@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 8084f32ac8cc2184d93796468ad66fb73398e876
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e3a3a9946c3352be0409d1a773408e17302911fc
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783780"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304806"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizzare il codificatore NewTek TriCaster per inviare un flusso live a velocità in bit singola.
 > [!div class="op_single_selector"]
@@ -39,19 +39,22 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 >
 >
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
+
 * [Creare un account Servizi multimediali di Azure](media-services-portal-create-account.md)
 * Verificare che sia presente un endpoint di streaming in esecuzione. Per altre informazioni, vedere [Gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md)
 * Installare la versione più recente dello strumento [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Avviare lo strumento e connettersi al proprio account AMS.
 
 ## <a name="tips"></a>Suggerimenti
+
 * Se possibile, usare una connessione a Internet con cablaggio fisico.
 * È buona norma raddoppiare le velocità in bit di streaming in fase di determinazione dei requisiti di larghezza di banda. Anche se non si tratta di un requisito obbligatorio, contribuirà a ridurre l'impatto della congestione della rete.
 * Se si usano codificatori basati su software, chiudere tutti i programmi non necessari.
 
 ## <a name="create-a-channel"></a>Creare un canale
-1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
+
+1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel**  dal menu.
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
@@ -75,24 +78,26 @@ Durante l'avvio del canale è possibile [configurare il codificatore](media-serv
 >
 >
 
-## <a id=configure_tricaster_rtmp></a>Configurare il codificatore NewTek TriCaster
+## <a name="a-idconfiguretricasterrtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>Configurare il codificatore NewTek TriCaster
+
 In questa esercitazione vengono usate le seguenti impostazioni di output. Nel resto di questa sezione vengono descritti in maggiore dettaglio i passaggi di configurazione.
 
 **Video**:
 
 * Codec: H.264
 * Profilo: alto (livello 4.0)
-* Velocità in bit: 5000 kbps
+* Velocità in bit: 5000 Kbps
 * Fotogramma chiave: 2 secondi (60 secondi)
 * Frequenza dei fotogrammi: 30
 
 **Audio**:
 
 * Codec: AAC (LC)
-* Velocità in bit: 192 kbps
+* Velocità in bit: 192 Kbps
 * Frequenza di campionamento: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Procedura di configurazione
+
 1. Creare un nuovo progetto **NewTek TriCaster** in base a quale origine di input del video si sta utilizzando.
 2. Una volta all'interno di tale progetto, cercare il pulsante **Flusso** e scegliere l'icona raffigurante un ingranaggio per accedere al menu di configurazione del flusso.
 
@@ -131,6 +136,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 >
 
 ## <a name="test-playback"></a>Testare la riproduzione
+
 Passare allo strumento AMSE e fare clic con il pulsante destro del mouse sul canale da testare. Nel menu passare il mouse su **Playback the Preview** (Riproduci anteprima) e scegliere **with Azure Media Player** (Con Azure Media Player).  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
@@ -140,6 +146,7 @@ Se il flusso viene visualizzato nel lettore, ciò indica che il codificatore è 
 In caso di errore, sarà necessario reimpostare il canale e regolare le impostazioni del codificatore. Come materiale sussidiario, vedere l'[articolo sulla risoluzione dei problemi](media-services-troubleshooting-live-streaming.md).  
 
 ## <a name="create-a-program"></a>Creare un programma.
+
 1. Una volta che viene confermata la riproduzione del canale, creare un programma. Nella scheda **Live** nello strumento AMSE fare clic con il pulsante destro del mouse all'interno dell'area del programma e selezionare **Create New Program** (Crea nuovo programma).  
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
@@ -156,12 +163,15 @@ In caso di errore, sarà necessario reimpostare il canale e regolare le impostaz
 Il flusso è ora pronto per essere incorporato in un lettore o distribuito per la visualizzazione pubblica live.  
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
+
 Come materiale sussidiario, vedere l'[articolo sulla risoluzione dei problemi](media-services-troubleshooting-live-streaming.md).
 
 ## <a name="next-step"></a>Passaggio successivo
+
 Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

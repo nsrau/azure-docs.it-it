@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/05/2018
+ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 11bcfa1b4719d6def5bfc4a6a189bd2b58896b5b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729340"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334375"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Guide introduttive ed esercitazioni
 
@@ -48,5 +48,6 @@ Usare le seguenti guide introduttive ed esercitazioni per imparare a sviluppare 
     |[Distribuire estensioni SQL](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|Eseguire le attività successive alla distribuzione usando le estensioni. Nell'esercitazione viene distribuita un'estensione di script personalizzata per installare un server Web nella macchina virtuale. |
     |[Proteggere gli artefatti](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|Proteggere gli artefatti necessari per completare le distribuzioni. L'esercitazione descrive come proteggere gli artefatti usati nell'esercitazione Distribuire estensioni SQL. |
     |[Usare procedure di distribuzione sicure](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Usare Azure Deployment Manager. |
+    |[Esercitazione: Risolvere i problemi delle distribuzioni dei modelli di Resource Manager](../articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md)|Risoluzione dei problemi relativi alla distribuzione di modelli.|
 
 Queste esercitazioni possono essere usate singolarmente o in serie per apprendere i principali concetti di sviluppo del modello di Resource Manager.

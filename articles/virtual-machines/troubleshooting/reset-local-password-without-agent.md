@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 31e675b101d903af5dd4a07fee3bc56fbc3353d9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bb5d7306558f46f84d1f4a1b7a61332bf767479f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412789"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267046"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Reimpostare una password di Windows locale per una VM di Azure offline
 È possibile reimpostare la password di Windows locale di una VM in Azure tramite il [portale di Azure o Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a condizione che l'agente guest di Azure sia installato. Questo è il metodo principale per reimpostare una password per una VM di Azure. In mancanza di risposta da parte dell'agente guest di Azure, o in caso di errore di installazione dopo il caricamento di un'immagine personalizzata, è possibile reimpostare la password di Windows manualmente. Questo articolo illustra come reimpostare la password di un account locale collegando il disco virtuale del sistema operativo di origine a un'altra VM. I passaggi descritti in questo articolo non si applicano ai controller di dominio Windows. 
@@ -37,6 +37,19 @@ Di seguito sono elencati i passaggi fondamentali della reimpostazione di una pas
 * Scollegare il disco del sistema operativo della VM dalla VM per la risoluzione dei problemi.
 * Usare un modello di Resource Manager per creare una VM tramite il disco virtuale originale.
 * All'avvio della nuova VM, i file di configurazione creati aggiornano la password dell'utente richiesto.
+
+> [!NOTE]
+> È possibile automatizzare i processi seguenti:
+>
+> - Creare la macchina virtuale usata per la risoluzione dei problemi
+> - Collegamento del disco del sistema operativo
+> - Ricreare la macchina virtuale originale
+> 
+> A questo scopo, usare gli [Azure VM Recovery Scripts](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md) (script di ripristino della macchina virtuale di Azure). Se si sceglie di usare gli script di ripristino della macchina virtuale di Azure, è possibile seguire la procedura seguente nella sezione "Procedura dettagliata":
+> 1. Ignorare il passaggio 1 e 2 usando gli script per collegare il disco del sistema operativo della VM interessata a una macchina virtuale di ripristino.
+> 2. Seguire i passaggi da 3 a 6 per applicare le mitigazioni.
+> 3. Ignorare i passaggi da 7 a 9 usando gli script per ricreare la macchina virtuale.
+> 4. Seguire i passaggi 10 e 11.
 
 ## <a name="detailed-steps"></a>Procedura dettagliata
 

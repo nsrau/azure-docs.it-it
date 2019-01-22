@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 1e51d55fcc20230dff20ca18d58a13e6ed32905b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecac7216582fa07e9c25492ddeb25e9f155da563
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192737"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305160"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>Anteprima: Creare una raccolta di immagini condivise con Azure PowerShell 
 
@@ -31,7 +31,7 @@ La raccolta di immagini condivise consente di condividere le immagini personaliz
 
 La raccolta è una risorsa di primo livello che offre un completo controllo degli accessi in base al ruolo (RBAC). Le immagini possono essere con versioni ed è possibile scegliere di eseguire la replica di ogni versione dell'immagine in un diverso set di aree di Azure. La raccolta funziona solo con le immagini gestite.
 
-La funzionalità di raccolta di immagini condivise presenta più tipi di risorse. Verranno usate le seguenti contenute in questo articolo:
+La funzionalità di raccolta di immagini condivise presenta più tipi di risorse. Verranno usate o compilate le seguenti contenute in questo articolo:
 
 | Risorsa | DESCRIZIONE|
 |----------|------------|
@@ -49,7 +49,7 @@ Per completare l'esempio in questo articolo, è necessario disporre di un'immagi
  
 ## <a name="create-vms-from-an-image"></a>Creare macchine virtuali da un'immagine
 
-Dopo aver completato la versione dell'immagine, è possibile creare una o più nuove macchine virtuali. Se si usa il parametro semplificato impostato per il cmdlet [New-AzureRMVM]() è sufficiente fornire l'ID immagine della versione dell'immagine. 
+Dopo aver completato la versione dell'immagine, è possibile creare una o più nuove macchine virtuali. Se si usa il parametro semplificato impostato per il cmdlet [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) è sufficiente fornire l'ID immagine della versione dell'immagine. 
 
 Questo esempio crea una VM denominata *myVMfromImage* in *myResourceGroup* nel datacenter *Stati Uniti orientali*.
 
@@ -78,7 +78,7 @@ Remove-AzureRmResourceGroup -Name myGalleryRG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È anche possibile creare una risorsa della raccolta di immagini condivise usando i modelli. Sono disponibili diversi modelli di avvio rapido di Azure: 
+È anche possibile creare una risorsa di raccolta di immagini condivise usando i modelli. Sono disponibili diversi modelli di avvio rapido di Azure: 
 
 - [Creare una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
