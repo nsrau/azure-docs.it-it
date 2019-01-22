@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714203"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246552"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -84,6 +84,14 @@ Il sistema deve usare la finalità di punteggio più elevata, indipendentemente 
 Le occorrenze totali dell'endpoint nel dashboard dell'app vengono aggiornate periodicamente, ma le metriche associate alla chiave endpoint a LUIS nel portale di Azure vengono aggiornate più di frequente.
 
 Se non sono presenti occorrenze sull'endpoint aggiornato nel dashboard, accedere al portale di Azure e trovare la risorsa associata alla chiave endpoint a LUIS, quindi aprire **Metriche** per selezionare la metrica **Chiamate totali**. Se la chiave endpoint viene usata per più di un'app LUIS, la metrica nel portale di Azure mostra il numero aggregato di chiamate da tutte le app LUIS che la usano.
+
+### <a name="is-there-a-powershell-command-to-the-endpoint-quota"></a>È disponibile un comando di PowerShell per la quota di endpoint?
+
+È possibile usare un comando di PowerShell per visualizzare la quota di endpoint:
+
+```powershell
+Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Ieri l'app LUIS funzionava, mentre oggi si ricevono errori 403. L'app non è stata modificata. Risoluzione
 Seguire le [istruzioni](#how-do-i-create-and-assign-a-luis-endpoint-key) nella prossima domanda per creare una chiave di endpoint LUIS e assegnarla all'app. È necessario quindi modificare la richiesta HTTP all'endpoint per fare in modo che [usi la nuova chiave dell'endpoint](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -194,6 +202,12 @@ Se si seleziona un modello LUIS e quindi il pulsante **Seleziona** nel riquadro 
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Quali aree geografiche LUIS supportano il priming del riconoscimento vocale di Bot Framework?
 Il [priming del riconoscimento vocale](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) è supportato solo per le app LUIS nell'istanza Stati Uniti centrali.
+
+## <a name="api-programming-strategies"></a>Strategie di programmazione di API
+
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Come si ottiene l'area di LUIS di una risorsa a livello di codice? 
+
+Usare il sample di LUIS per [trovare l'area](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) a livello di codice usando C# o Node. Js. 
 
 ## <a name="luis-service"></a>Servizio LUIS
 

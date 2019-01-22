@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 44f5ea606efafbb310e4740d75cbf86b7069e7ca
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f2c9385e55559e53c9118e047bdddbe178a10770
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722516"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359562"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Creare un'app Node.js e MongoDB nel servizio app di Azure in Linux
 
@@ -28,14 +28,14 @@ ms.locfileid: "53722516"
 > Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app Node.js e MongoDB in Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
 >
 
-Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. In questa esercitazione viene illustrato come creare un'app Node.js, connetterla localmente a un database MongoDB e quindi distribuirla come database dell'API Azure Cosmos DB per MongoDB. Al termine, si avrà un'applicazione MEAN (MongoDB, Express, AngularJS e Node.js) in esecuzione nel Servizio app in Linux. Per semplicità, l'applicazione di esempio usa il [framework Web MEAN.js](https://meanjs.org/).
+Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. In questa esercitazione viene illustrato come creare un'app Node.js, connetterla localmente a un database MongoDB e quindi distribuirla in un database nell'API di Azure Cosmos DB per MongoDB. Al termine, si avrà un'applicazione MEAN (MongoDB, Express, AngularJS e Node.js) in esecuzione nel Servizio app in Linux. Per semplicità, l'applicazione di esempio usa il [framework Web MEAN.js](https://meanjs.org/).
 
 ![App MEAN.js in esecuzione nel Servizio app di Azure](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 Si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un database usando l'API Azure Cosmos DB per MongoDB
+> * Creare un database usando l'API di Azure Cosmos DB per MongoDB
 > * Connettere un'app Node.js a MongoDB
 > * Distribuire l'app in Azure
 > * Aggiornare il modello di dati e ridistribuire l'app
@@ -121,7 +121,7 @@ Per arrestare Node.js in qualsiasi momento, premere `Ctrl+C` nel terminale.
 
 ## <a name="create-production-mongodb"></a>Creare MongoDB di produzione
 
-In questo passaggio viene creato un database Cosmos configurato con l'API MongoDB in Azure. Quando viene distribuita in Azure, l'app usa questo database basato sul cloud.
+In questo passaggio si crea un account database usando l'API di Azure Cosmos DB per MongoDB. Quando viene distribuita in Azure, l'app usa questo database basato sul cloud.
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -157,7 +157,7 @@ Dopo la creazione dell'account Cosmos DB, l'interfaccia della riga di comando di
 }
 ```
 
-## <a name="connect-app-to-production-cosmos-db-configured-with-mongodb-api"></a>Connettere l'app al database Cosmos DB di produzione configurato con l'API MongoDB
+## <a name="connect-app-to-production-configured-with-azure-cosmos-dbs-api-for-mongodb"></a>Connettere l'app all'ambiente di produzione configurato con l'API di Azure Cosmos DB per MongoDB
 
 In questo passaggio si usa una stringa di connessione MongoDB per connettere l'applicazione di esempio MEAN.js al database Cosmos DB appena creato.
 
@@ -317,7 +317,7 @@ http://<app_name>.azurewebsites.net
 
 Fare clic su **Registrati** nel menu in alto e creare un utente fittizio.
 
-Se l'operazione riesce e l'app accede automaticamente all'utente creato, l'app MEAN.js in Azure sarà connessa all'API Azure Cosmos DB per MongoDB.
+Se l'operazione riesce e l'app accede automaticamente all'utente creato, l'app MEAN.js in Azure sarà connessa all'API di Azure Cosmos DB per MongoDB.
 
 ![App MEAN.js in esecuzione nel Servizio app di Azure](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -472,7 +472,7 @@ Per impostazione predefinita, il portale visualizza la pagina **Panoramica** del
 Contenuto dell'esercitazione:
 
 > [!div class="checklist"]
-> * Creare un database usando l'API Azure Cosmos DB per MongoDB
+> * Creare un database usando l'API di Azure Cosmos DB per MongoDB
 > * Connettere un'app Node.js a un database
 > * Distribuire l'app in Azure
 > * Aggiornare il modello di dati e ridistribuire l'app

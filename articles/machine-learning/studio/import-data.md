@@ -1,27 +1,8 @@
 ---
-title: Importare dati in Machine Learning Studio - Azure | Microsoft Docs
-description: Come importare dati in Azure Machine Learning Studio da varie origini dati. Informazioni sui tipi di dati e i formati di dati supportati.
-keywords: dati di importazione,formato dati,tipi di dati,origini dati,dati di training
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: 2f8c1eb43fddb21a59d4f00fd86b08d3fb3608f4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269958"
+title: Importare dati in Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Come importare dati in Azure Machine Learning Studio da varie origini dati. Informazioni sui tipi di dati e i formati di dati supportati.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 29/11/2017
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importare dati di training in Azure Machine Learning Studio da varie origini dati
 
@@ -72,12 +53,12 @@ Se si importano dati in un formato quale TSV o CSV che non include metadati, Mac
 
 I seguenti **tipi di dati** vengono riconosciuti da Machine Learning Studio:
 
-* string
+* String
 * Integer
 * Double
-* boolean
-* Datetime
-* Intervallo di tempo
+* Boolean
+* DateTime
+* TimeSpan
 
 Machine Learning Studio usa un tipo di dati interno denominato ***Tabella dati*** per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati in formato Tabella dati tramite il modulo [Convertire in set di dati][convert-to-dataset].
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/17/2018
-ms.openlocfilehash: 5d7a16ebda088d0ed42021e9def20a398e914ad9
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 29672a75408e42fb9239e5d826784b46e7280805
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158127"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332269"
 ---
 # <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Creare, modificare o eliminare una tabella di route di Azure tramite Ansible
 Azure effettua il routing automatico del traffico tra subnet di Azure, reti virtuali e reti locali. Per modificare il routing predefinito di Azure è necessario creare una [tabella di route](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
@@ -51,7 +51,7 @@ ansible-playbook route_table_create.yml
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associare una route a una subnet
 A una subnet può essere associata una o nessuna tabella di route. Una tabella di route può essere associata a nessuna o a più subnet. Poiché le tabelle di route non sono associate a reti virtuali, è necessario associare una tabella di route a ogni subnet a cui si vuole associare la tabella di route. Tutto il traffico in uscita dalla subnet viene instradato in base alle route create all'interno delle tabelle di route, alle [route predefinite](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#default) e alle route propagate da una rete locale, se la rete virtuale è connessa a un gateway di rete virtuale di Azure (ExpressRoute o VPN se si usa il BGP con un gateway VPN). È possibile associare solo una tabella di route alle subnet delle reti virtuali presenti nella stessa località e sottoscrizione di Azure della tabella di route.
 
-In questa sezione viene presentato un playbook Ansible di esempio che crea una rete virtuale e un invio e quindi associa una tabella di route alla subnet.
+In questa sezione viene presentato un playbook Ansible di esempio che crea una rete virtuale e una subnet e quindi associa una tabella di route alla subnet.
 
 ```yml
 - hosts: localhost

@@ -1,59 +1,33 @@
 ---
-title: Replica con Istanza gestita di database SQL di Azure | Microsoft Docs
-description: Informazioni sull'uso della replica di SQL Server con Istanza gestita di database SQL di Azure
+title: Configurare la replica nell'istanza gestita di database SQL di Azure | Microsoft Docs
+description: Informazioni sulla configurazione della replica transazionale nell'istanza gestita di database SQL di Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/16/2019
+ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547595"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360089"
 ---
-# <a name="replication-with-sql-database-managed-instance"></a>Replica con Istanza gestita di database SQL
+# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configurare la replica nell'istanza gestita di database SQL di Azure
 
-La replica è disponibile in anteprima pubblica in [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md). Un'istanza gestita può ospitare database di pubblicazione, di distribuzione e sottoscrittore.
-
-## <a name="common-configurations"></a>Configurazioni comuni
-
-In generale, il database di pubblicazione e quello di distribuzione devono entrambi essere nel cloud o in locale. Le configurazioni seguenti sono supportate:
-
-- **Database di pubblicazione con database di distribuzione locale in un'istanza gestita**
-
-   ![Replica con database di pubblicazione e database di distribuzione in una singola istanza gestita del database SQL di Azure](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
-
-   I database di pubblicazione e distribuzione sono configurati in una singola istanza gestita.
-
-- **Database di pubblicazione con database di distribuzione remoto in un'istanza gestita**
-
-   ![Replica con database di pubblicazione e database di distribuzione in istanze gestite separate del database SQL di Azure](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
-
-   I database di pubblicazione e distribuzione sono configurati in due istanze gestite. In questa configurazione:
-
-  - Le due istanze gestite sono nella stessa rete virtuale.
-
-  - Le due istanze gestite sono nella stessa posizione.
-
-- **Database di pubblicazione e database di distribuzione locali con database sottoscrittore in un'istanza gestita**
-
-   ![Replica da database locali a database SQL di Azure sottoscrittore](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
-
-   In questa configurazione, un database SQL di Azure è un database sottoscrittore. Questa configurazione supporta la migrazione dal database locale al database di Azure. Nel ruolo di sottoscrittore, il database SQL non richiede Istanza gestita, ma è comunque possibile usare Istanza gestita di database SQL come fase della migrazione dal database locale al database di Azure. Per altre informazioni sui sottoscrittori di database SQL di Azure, vedere [Replica in database SQL singoli e in pool](replication-to-sql-database.md).
+La replica transazionale consente di replicare i dati dai database SQL Server o istanza gestita di database SQL di Azure nell'istanza gestita, o di eseguire il push delle modifiche apportate nei database in istanza gestita ad altri SQL Server, database singoli di Azure o istanze gestite. La replica è disponibile in anteprima pubblica in [iIstanza gestita di database SQL di Azure](sql-database-managed-instance.md). Un'istanza gestita può ospitare database di pubblicazione, di distribuzione e sottoscrittore. Visualizzare [Configurazioni di replica transazionale](sql-database-managed-instance-transactional-replication.md#common-configurations) per le configurazioni disponibili.
 
 ## <a name="requirements"></a>Requisiti
 
 Il database di pubblicazione e il database di distribuzione nel database SQL di Azure richiedono:
 
-- Istanza gestita di database SQL di Azure.
+- Istanza gestita di database SQL di Azure non presente nella configurazione Geo-DR.
 
    >[!NOTE]
    >I database SQL di Azure non configurati con Istanza gestita possono essere solo sottoscrittori.
@@ -74,7 +48,13 @@ Supporta:
 
 - I sottoscrittori possono essere database singoli locali nel database SQL di Azure o database in pool elastici del database SQL di Azure.
 
-- Replica unidirezionale o bidirezionale
+- Replica unidirezionale o bidirezionale.
+
+Le funzionalità seguenti non sono supportate:
+
+- Sottoscrizioni aggiornabili.
+
+- Replica geografica attiva.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Esempio di configurazione dei database di pubblicazione e distribuzione
 
@@ -87,7 +67,7 @@ Supporta:
 
    Negli script di esempio seguenti sostituire `<Publishing_DB>` con il nome del database.
 
-4. Creare un utente del database con autenticazione SQL per il database di distribuzione. Vedere [Creazione degli utenti del database](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Usare una password di protezione.
+4. Creare un utente del database con autenticazione SQL per il database di distribuzione. Usare una password di protezione.
 
    Negli script di esempio seguenti usare `<SQL_USER>` e `<PASSWORD>` per l'utente del database e la password dell'account di SQL Server.
 
@@ -188,15 +168,8 @@ Supporta:
                 @job_password = N'<PASSWORD>'
    GO
    ```
-
-## <a name="limitations"></a>Limitazioni
-
-Le funzionalità seguenti non sono supportate:
-
-- Sottoscrizioni aggiornabili
-
-- Replica geografica attiva
-
+   
 ## <a name="see-also"></a>Vedere anche
 
+- [Replica transazionale](sql-database-managed-instance-transactional-replication.md)
 - [Informazioni su Istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

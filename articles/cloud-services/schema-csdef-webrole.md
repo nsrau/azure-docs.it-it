@@ -13,12 +13,12 @@ caps.latest.revision: 60
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: e548841f334705aa71ada92c43ccde207a1f6318
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0bb0946ea48a4c206d6bfe683da0835aca9b198b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002314"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331946"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Schema WebRole di definizione di Servizi cloud di Azure
 Il ruolo Web di Azure è un ruolo che viene personalizzato per la programmazione di applicazioni Web supportata da IIS 7, ad esempio ASP.NET, PHP, Windows Communication Foundation e FastCGI.
@@ -44,11 +44,11 @@ Il formato di base di un file di definizione del servizio contenente un ruolo We
       <InputEndpoint certificate="<certificate-name>" ignoreRoleInstanceStatus="[true|false]" name="<input-endpoint-name>" protocol="[http|https|tcp|udp]" localPort="<port-number>" port="<port-number>" loadBalancerProbe="<load-balancer-probe-name>" />  
       <InternalEndpoint name="<internal-endpoint-name>" protocol="[http|tcp|udp|any]" port="<port-number>">  
          <FixedPort port="<port-number>"/>  
-         <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>  
+         <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>  
       </InternalEndpoint>  
      <InstanceInputEndpoint name="<instance-input-endpoint-name>" localPort="<port-number>" protocol="[udp|tcp]">  
          <AllocatePublicPortFrom>  
-            <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>  
+            <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>  
          </AllocatePublicPortFrom>  
       </InstanceInputEndpoint>  
     </Endpoints>  
@@ -224,7 +224,7 @@ La tabella seguente descrive gli attributi dell'elemento `InputEndpoint`.
 |port|int|Richiesto. Porta per l'endpoint esterno. È possibile specificare qualsiasi numero di porta scelto, ma i numeri di porta specificati per ogni ruolo nel servizio devono essere univoci.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|  
 |certificato|stringa|Obbligatorio per un endpoint HTTPS. Nome di un certificato definito da un elemento `Certificate`.|  
 |localPort|int|facoltativo. Specifica una porta usata per le connessioni interne nell'endpoint. L'attributo `localPort` esegue il mapping della porta esterna nell'endpoint a una porta interna in un ruolo. È utile negli scenari in cui un ruolo deve comunicare con un componente interno su una porta diversa da quella esposta esternamente.<br /><br /> Se non specificato, il valore di `localPort` è lo stesso dell'attributo `port`. Impostare il valore di `localPort` su "*" per assegnare automaticamente una porta non allocata individuabile usando l'API di runtime.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).<br /><br /> L'attributo `localPort` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.|  
-|ignoreRoleInstanceStatus|boolean|facoltativo. Quando il valore di questo attributo è impostato su `true`, lo stato di un servizio viene ignorato e l'endpoint non verrà rimosso dal servizio di bilanciamento del carico. Impostare questo valore su `true` è utile per il eseguire il debug delle istanze occupate di un servizio. Il valore predefinito è `false`. **Nota:** un endpoint può continuare a ricevere traffico anche quando il ruolo non è pronto.|  
+|ignoreRoleInstanceStatus|boolean|facoltativo. Quando il valore di questo attributo è impostato su `true`, lo stato di un servizio viene ignorato e l'endpoint non verrà rimosso dal servizio di bilanciamento del carico. Impostare questo valore su `true` è utile per il eseguire il debug delle istanze occupate di un servizio. Il valore predefinito è `false`. **Nota:**  Un endpoint può continuare a ricevere traffico anche quando il ruolo non è pronto.|  
 |loadBalancerProbe|stringa|facoltativo. Nome del probe di bilanciamento del carico associato all'endpoint di input. Per altre informazioni, vedere [Schema LoadBalancerProbe](schema-csdef-loadbalancerprobe.md).|  
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint  
@@ -364,7 +364,7 @@ La tabella seguente descrive gli attributi dell'elemento `NetFxEntryPoint`.
 | Attributo | type | DESCRIZIONE |  
 | --------- | ---- | ----------- |  
 |assemblyName|stringa|Richiesto. Percorso e nome file dell'assembly contenente il punto di ingresso. Il percorso è relativo alla cartella **\\%ROLEROOT%\Approot**. Non specificare **\\%ROLEROOT%\Approot** in `commandLine` perché è dato per scontato. **%ROLEROOT%** è una variabile di ambiente gestita da Azure e rappresenta la posizione della cartella radice per il ruolo. La cartella **\\%ROLEROOT%\Approot** rappresenta la cartella dell'applicazione per il ruolo.<br /><br /> Per i ruoli HWC il percorso è sempre relativo alla cartella **\\%ROLEROOT%\Approot\bin**.<br /><br /> Per i ruoli Web IIS e IIS Express completi, se non è possibile trovare l'assembly relativo alla cartella **\\%ROLEROOT%\Approot**, viene eseguita una ricerca per **\\%ROLEROOT%\Approot\bin**.<br /><br /> Questo comportamento di fallback per IIS completo non è una procedura consigliata e potrebbe essere rimosso nelle versioni future.|  
-|targetFrameworkVersion|stringa|Richiesto. Versione di .NET Framework in cui è stato compilato l'assembly, Ad esempio, `targetFrameworkVersion="v4.0"`.|  
+|targetFrameworkVersion|stringa|Richiesto. Versione di .NET Framework in cui è stato compilato l'assembly, Ad esempio: `targetFrameworkVersion="v4.0"`.|  
 
 ##  <a name="Sites"></a> Sites  
 L'elemento `Sites` descrive una raccolta dei siti Web e delle applicazioni Web ospitati in un ruolo Web. Questo è l'elemento padre dell'elemento `Site`. Se non si specifica un elemento `Sites`, il ruolo Web viene ospitato come ruolo Web legacy ed è possibile avere un solo sito Web ospitato nel ruolo Web. Questo elemento è facoltativo e un ruolo può avere un solo blocco di siti.

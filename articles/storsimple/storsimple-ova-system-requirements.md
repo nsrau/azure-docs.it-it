@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7e5cf79613bdbd62427e99a0d1f2aa29ed8f85be
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24815229"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245192"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisiti di sistema StorSimple Virtual Array
 ## <a name="overview"></a>Panoramica
@@ -42,7 +42,7 @@ I requisiti software includono le informazioni su Web browser supportati, versio
 | **Hypervisor** | **Versione** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 e versioni successive |
-| VMware ESXi |5.0, 5.5 e 6.0 <br> (la versione 6.5 non è supportata) |
+| VMware ESXi |5.0, 5.5, 6.0 e 6.5. |
 
 > [!IMPORTANT]
 > Non installare gli strumenti VMware nell'array virtuale StorSimple. In caso contrario, il risultato sarà una configurazione non supportata.
@@ -95,11 +95,11 @@ La tabella seguente elenca le porte che devono essere aperte nel firewall per co
 | **Numero porta<sup>1</sup>** | **In ingresso/In uscita** | **Ambito porta** | **Obbligatorio** | **Note** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |In uscita |WAN |No  |La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti. <br></br>Il proxy Web in uscita è configurabile dall'utente. |
-| TCP 443 (HTTPS) |In uscita |WAN |Sì |La porta in uscita viene usata per accedere ai dati nel cloud. <br></br>Il proxy Web in uscita è configurabile dall'utente. |
+| TCP 443 (HTTPS) |In uscita |WAN |Yes |La porta in uscita viene usata per accedere ai dati nel cloud. <br></br>Il proxy Web in uscita è configurabile dall'utente. |
 | UDP 53 (DNS) |In uscita |WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server DNS basato su Internet. <br></br> Nota: se si distribuisce un file server, si consiglia l'uso del server DNS locale. |
 | UDP 123 (NTP) |In uscita |WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server NTP basato su Internet.<br></br> Nota: se si distribuisce un file server, si consiglia di sincronizzare l'ora con i controller di dominio di Active Directory. |
-| TCP 80 (HTTP) |In ingresso |LAN |Sì |Questa è la porta in ingresso per l'interfaccia utente locale nel dispositivo StorSimple per la gestione locale. <br></br> Nota: l'accesso all'interfaccia utente locale tramite HTTP esegue il reindirizzamento automatico a HTTPS. |
-| TCP 443 (HTTPS) |In ingresso |LAN |Sì |Questa è la porta in ingresso per l'interfaccia utente locale nel dispositivo StorSimple per la gestione locale. |
+| TCP 80 (HTTP) |In ingresso |LAN |Yes |Questa è la porta in ingresso per l'interfaccia utente locale nel dispositivo StorSimple per la gestione locale. <br></br> Nota: l'accesso all'interfaccia utente locale tramite HTTP esegue il reindirizzamento automatico a HTTPS. |
+| TCP 443 (HTTPS) |In ingresso |LAN |Yes |Questa è la porta in ingresso per l'interfaccia utente locale nel dispositivo StorSimple per la gestione locale. |
 | TCP 3260 (iSCSI) |In ingresso |LAN |No  |Questa porta viene usata per accedere ai dati tramite iSCSI. |
 
 <sup>1</sup> Nessuna porta in ingresso deve essere aperta sulla rete Internet pubblica.

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716107"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332065"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -64,7 +64,7 @@ L'app archivia inserzioni pubblicitarie in un database SQL usando Code First di 
 
 ![Tabella di inserzioni](./media/cloud-services-dotnet-get-started/adtable.png)
 
-Quando un utente carica un'immagine, il front-end in esecuzione in un ruolo Web archivia l'immagine in un [BLOB di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), quindi archivia le informazioni sulle inserzioni nel database con un URL che fa riferimento al BLOB. e, al tempo stesso, scrive un messaggio in una coda di Azure. Un processo back-end in esecuzione in un ruolo di lavoro esegue periodicamente il polling della coda alla ricerca di nuovi messaggi. Quando compare un nuovo messaggio, il ruolo di lavoro crea un'anteprima per quell'immagine e aggiorna il campo di database relativo all'URL dell'anteprima per quell'inserzione. Il diagramma seguente mostra l'interazione tra le parti dell'applicazione.
+Quando un utente carica un'immagine, il front-end in esecuzione in un ruolo Web archivia l'immagine in un [BLOB di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), quindi archivia le informazioni sulle inserzioni nel database con un URL che fa riferimento al BLOB e, al tempo stesso, scrive un messaggio in una coda di Azure. Un processo back-end in esecuzione in un ruolo di lavoro esegue periodicamente il polling della coda alla ricerca di nuovi messaggi. Quando compare un nuovo messaggio, il ruolo di lavoro crea un'anteprima per quell'immagine e aggiorna il campo di database relativo all'URL dell'anteprima per quell'inserzione. Il diagramma seguente mostra l'interazione tra le parti dell'applicazione.
 
 ![Architettura di Contoso Ads](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
@@ -219,7 +219,7 @@ Sarà necessario usare una [trasformazione Web.config](http://www.asp.net/mvc/tu
 7. In **Esplora soluzioni**, in **Ruoli** nel progetto di servizio cloud fare clic con il pulsante destro del mouse su **ContosoAdsWorker**, quindi scegliere **Proprietà**.
 
     ![Proprietà del ruolo](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
-8. Fare clic sulla scheda **Impostazioni** .
+8. Fare clic sulla scheda **Impostazioni**.
 9. Impostare **Configurazione servizio** su **Cloud**.
 10. Selezionare il campo **Valore** per l'impostazione `ContosoAdsDbConnectionString` e quindi incollare la stringa di connessione copiata dalla sezione precedente dell'esercitazione.
 
@@ -232,7 +232,7 @@ Le stringhe di connessione per l'account di archiviazione di Azure per il proget
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **ContosoAdsWeb** nella sezione **Ruoli** del progetto **ContosoAdsCloudService**, quindi scegliere **Proprietà**.
 
     ![Proprietà del ruolo](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Fare clic sulla scheda **Impostazioni** . Nella casella di riepilogo **Configurazione servizio** selezionare **Cloud**.
+2. Fare clic sulla scheda **Impostazioni**. Nella casella di riepilogo **Configurazione servizio** selezionare **Cloud**.
 
     ![Configurazione del cloud](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Se si seleziona la voce **StorageConnectionString**, verrà visualizzato un pulsante con puntini di sospensione (**...**) all'estremità destra della riga. Fare clic su tale pulsante per aprire la finestra di dialogo **Crea Stringa di connessione all'account di archiviazione** .
@@ -249,9 +249,9 @@ Le stringhe di connessione per l'account di archiviazione di Azure per il proget
 
 Le impostazioni dell'ambiente di ruolo configurate tramite l'interfaccia utente di Visual Studio sono archiviate nei seguenti file del progetto ContosoAdsCloudService:
 
-* *ServiceDefinition.csdef* : definisce i nomi delle impostazioni.
-* *ServiceConfiguration.Cloud.cscfg* : fornisce valori per l'esecuzione dell'app nel cloud.
-* *ServiceConfiguration.Local.cscfg* : fornisce valori per l'esecuzione locale dell'app.
+* *ServiceDefinition.csdef*: definisce i nomi delle impostazioni.
+* *ServiceConfiguration.Cloud.cscfg*: fornisce valori per l'esecuzione dell'app nel cloud.
+* *ServiceConfiguration.Local.cscfg*: fornisce valori per l'esecuzione locale dell'app.
 
 Il file ServiceDefinition.csdef include ad esempio le definizioni seguenti:
 
@@ -324,7 +324,7 @@ Per creare l'applicazione Contoso Ads sono necessari i passaggi seguenti:
 Dopo la creazione della soluzione, esaminare il codice univoco per i progetti di servizio cloud e per i BLOB e le code di Azure.
 
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>Creare una soluzione servizio cloud di Visual Studio
-1. In Visual Studio scegliere **Nuovo progetto** from the **File** .
+1. In Visual Studio scegliere **Nuovo progetto** from the **File**.
 2. Nel riquadro sinistro della finestra di dialogo **Nuovo progetto** espandere **Visual C#**, scegliere i modelli **Cloud**, quindi selezionare il modello **Servizio cloud di Azure**.
 3. Assegnare al progetto e alla soluzione il nome ContosoAdsCloudService, quindi fare clic su **OK**.
 
@@ -337,7 +337,7 @@ Dopo la creazione della soluzione, esaminare il codice univoco per i progetti di
     ![Modifica autenticazione](./media/cloud-services-dotnet-get-started/chgauth.png)
 6. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione**, quindi fare clic su **OK**.
 
-    ![No Authentication](./media/cloud-services-dotnet-get-started/noauth.png)
+    ![Nessuna autenticazione](./media/cloud-services-dotnet-get-started/noauth.png)
 7. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **OK**.
 8. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione, non su uno dei progetti, quindi scegliere **Aggiungi - Nuovo progetto**.
 9. Nella finestra di dialogo **Aggiungi nuovo progetto** scegliere **Windows** in **Visual C#** nel riquadro sinistro e quindi fare clic sul modello **Libreria di classi**.  
@@ -380,7 +380,7 @@ In questa sezione verranno configurate le stringhe di connessione di Archiviazio
 3. Nel progetto ContosoAdsCloudService fare clic con il pulsante destro del mouse su ContosoAdsWeb in **Ruoli**, quindi scegliere **Proprietà**.
 
     ![Proprietà del ruolo](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. Nella finestra delle proprietà di **ContosAdsWeb [Role]** fare clic sulla scheda **Impostazioni**, quindi su **Aggiungi impostazione**.
+4. Nella finestra delle proprietà di **ContosoAdsWeb [Role]** fare clic sulla scheda **Impostazioni**, quindi su **Aggiungi impostazione**.
 
     Lasciare l'opzione **Configurazione servizio** impostata su **Tutte le configurazioni**.
 5. Aggiungere un'impostazione denominata *StorageConnectionString*. Impostare il **Tipo** su *ConnectionString*, quindi impostare il **Valore** su *UseDevelopmentStorage=true*.
@@ -391,7 +391,7 @@ In questa sezione verranno configurate le stringhe di connessione di Archiviazio
 8. Nella finestra delle proprietà di **ContosoAdsWorker [Ruolo]** aggiungere un'altra stringa di connessione:
 
    * Nome: ContosoAdsDbConnectionString
-   * Tipo: String
+   * Digitare: string
    * Valore: incollare la stessa stringa di connessione usata per il progetto di ruolo Web. L'esempio seguente si riferisce a Visual Studio 2013, quindi se si copia questo esempio e si usa Visual Studio 2015 o versione successiva è necessario modificare l'origine dati.
 
        ```
@@ -541,7 +541,7 @@ blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeco
 imagesBlobContainer = blobClient.GetContainerReference("images");
 ```
 
-Tramite codice analogo si ottiene un riferimento alla coda *images* .
+Tramite codice analogo si ottiene un riferimento alla coda *images*.
 
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -569,7 +569,7 @@ if (imageFile != null && imageFile.ContentLength != 0)
 }
 ```
 
-Il codice che esegue il caricamento si trova nel metodo `UploadAndSaveBlobAsync` . Crea un nome GUID per il BLOB, aggiorna e salva il file, quindi restituisce un riferimento al BLOB salvato.
+Il codice che esegue il caricamento si trova nel metodo `UploadAndSaveBlobAsync`. Crea un nome GUID per il BLOB, aggiorna e salva il file, quindi restituisce un riferimento al BLOB salvato.
 
 ```csharp
 private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
@@ -603,7 +603,7 @@ if (imageFile != null && imageFile.ContentLength != 0)
 }
 ```
 
-L'esempio successivo riporta il codice per l'eliminazione dei BLOB in caso di eliminazione di un'inserzione.
+L’esempio successivo riporta il codice per l'eliminazione dei BLOB in caso di eliminazione di un'inserzione.
 
 ```csharp
 private async Task DeleteAdBlobsAsync(Ad ad)
@@ -775,7 +775,7 @@ Per un video introduttivo relativo alle procedure consigliate e ai modelli per A
 
 Per altre informazioni, vedere le seguenti risorse:
 
-* [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/) (Servizi cloud di Azure parte 1: Introduzione)
+* [Azure Cloud Services Part 1: Introduzione](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md)
 * [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/)
 * [Come scegliere un provider di servizi cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
