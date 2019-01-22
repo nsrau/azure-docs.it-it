@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: ae7eba9997c4f567eb7b07e23ab42c9ac7740698
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 70305468ca20c48bdc26e7e000a0e5edb63508cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388110"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261571"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partizionare Reliable Services di Service Fabric
 Questo articolo offre un'introduzione ai concetti di base del partizionamento di Reliable Services di Azure Service Fabric. Il codice sorgente usato nell'articolo è disponibile anche in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -234,7 +234,7 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
             return String.Format(
                 "User {0} {1}",
                 user,
-                addResult ? "sucessfully added" : "already exists");
+                addResult ? "successfully added" : "already exists");
         }
     }
     ```
@@ -365,7 +365,7 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
 L'intero codice sorgente dell'esempio è disponibile in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services e sottoprocessi di fork dell’attore
-Service Fabric non supporta servizi reliable services e di conseguenza i sottoprocessi di fork degli attori. Un esempio del motivo per cui non è supportato è che [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) non può essere usato per registrare un sottoprocesso non supportato e i token di annullamento vengono inviati solo per i processi registrati. Questo comporta diversi tipi di problemi, ad esempio errori di aggiornamento, quando i sottoprocessi non vengono chiusi dopo che il processo padre ha ricevuto un token di annullamento. 
+Service Fabric non supporta servizi reliable services e di conseguenza i sottoprocessi di fork degli attori. Un esempio del motivo per cui non è supportato è che [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) non può essere usato per registrare un sottoprocesso non supportato e i token di annullamento vengono inviati solo per i processi registrati; questo comporta diversi tipi di problemi, ad esempio errori di aggiornamento, quando i sottoprocessi non vengono chiusi dopo che il processo padre ha ricevuto un token di annullamento. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sui concetti relativi a Service Fabric, vedere gli articoli seguenti:
