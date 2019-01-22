@@ -7,9 +7,9 @@ items:
     href: pim-configure.md
 - name: Concetti
   items:
-  - name: Requisiti di sottoscrizione
+  - name: Requisiti relativi alle licenze
     href: subscription-requirements.md
-  - name: Ruoli della directory che è possibile gestire
+  - name: Ruoli che non possono essere gestiti dall'utente
     href: pim-roles.md
   - name: Accesso sicuro con privilegi
     href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
@@ -19,8 +19,6 @@ items:
     href: pim-resource-roles-overview-dashboards.md
   - name: Notifiche tramite posta elettronica
     href: pim-email-notifications.md
-  - name: Tipi di assegnazione
-    href: pim-resource-roles-eligible-visibility.md
   - name: API Microsoft Graph
     href: pim-apis.md
 - name: Guide alle procedure
@@ -41,8 +39,8 @@ items:
       href: pim-resource-roles-discover-resources.md
     - name: Concedere l'accesso ad altri utenti per la gestione di PIM
       href: pim-how-to-give-access-to-pim.md
-    - name: Abilitare la gestione delle sottoscrizioni
-      href: pim-resource-roles-enable-subscription-management.md
+    - name: Eseguire l'accesso con privilegi elevati per gestire tutte le sottoscrizioni
+      href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
   - name: Gestire i ruoli della directory
     items:
     - name: Assegnare ruoli
@@ -94,9 +92,9 @@ items:
       - name: Completare una verifica di accesso
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 235d0444428072aa10558989904b92222e6fdbd1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2f68fbbf3ad2a8e2aa39d74a69c2bda12c5ec97a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723364"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433204"
