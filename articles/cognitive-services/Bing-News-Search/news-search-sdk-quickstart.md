@@ -8,263 +8,87 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 01/30/2018
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 5b3e68765fbcff12dcb5337aec38623b8994882c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 66f743273f9937902c3d39a0fc4dd2f034ab8d10
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156800"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260245"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Avvio rapido: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per C#
 
-L'SDK di Ricerca notizie Bing contiene la funzionalità dell'API REST per query di notizie e analisi dei risultati. 
+Usare questa guida introduttiva per iniziare a cercare notizie con l'SDK di Ricerca notizie Bing per C#. Mentre Ricerca notizie Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK fornisce un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch).
 
-Il [codice sorgente per gli esempi dell'SDK di Ricerca notizie Bing per C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) è disponibile su GitHub.
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="application-dependencies"></a>Dipendenze dell'applicazione
-Ottenere una [chiave di accesso di Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/) in **Ricerca**.  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).  
+* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
+* Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](http://www.mono-project.com/).
+
+* Pacchetto [NuGet SDK di Ricerca notizie Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0). Installando questo pacchetto vengono anche installati gli elementi seguenti:
+    * Microsoft.Rest.ClientRuntime
+    * Microsoft.Rest.ClientRuntime.Azure
+    * Newtonsoft.Json
 
 Per configurare un'applicazione console tramite l'SDK di Ricerca notizie Bing, passare all'opzione `Manage NuGet Packages` da Esplora soluzioni in Visual Studio.  Aggiungere il pacchetto `Microsoft.Azure.CognitiveServices.Search.NewsSearch`.
 
-L'installazione del [pacchetto SDK di Ricerca notizie NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0) determina anche l'installazione di dipendenze, tra cui:
-* Microsoft.Rest.ClientRuntime
-* Microsoft.Rest.ClientRuntime.Azure
-* Newtonsoft.Json
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-## <a name="news-search-client"></a>Client di Ricerca notizie
-Per creare un'istanza di `NewsSearchClient`, aggiungere la direttiva using:
-```
-using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
+Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-```
-Creare quindi un'istanza del client:
-```
-var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 
+1. creare una nuova soluzione di console C# in Visual Studio. Aggiungere quindi quanto segue nel file di codice principale.
+    
+    ```csharp
+    using System;
+    using System.Linq;
+    using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
+    ```
 
-```
-Usare il client per eseguire una ricerca con un testo di query:
-```
-var newsResults = client.News.SearchAsync(query: "Quantum  Computing", market: "en-us", count: 10).Result;
-Console.WriteLine("Search news for query \"Quantum  Computing\" with market and count");
+2. Creare una variabile per la chiave API, un termine di ricerca e quindi creare contemporaneamente un'istanza del client di ricerca notizie.
 
-```
-Analizzare le notizie restituite nei risultati della query precedente:
-```
-if (newsResults.Value.Count > 0)
-{
-    var firstNewsResult = newsResults.Value[0];
+    ```csharp
+    var key = "YOUR-ACCESS-KEY";
+    var searchTerm = "Quantum Computing";
+    var client = new NewsSearchClient(new ApiKeyServiceClientCredentials(key));
+    ```
 
-    Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
-    Console.WriteLine($"News result count: {newsResults.Value.Count}");
-    Console.WriteLine($"First news name: {firstNewsResult.Name}");
-    Console.WriteLine($"First news url: {firstNewsResult.Url}");
-    Console.WriteLine($"First news description: {firstNewsResult.Description}");
-    Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-    Console.WriteLine($"First news provider: {firstNewsResult.Provider[0].Name}");
-}
+## <a name="send-a-request-and-parse-the-result"></a>Inviare una richiesta e analizzare il risultato
 
-else
-{
-    Console.WriteLine("Couldn't find news results!");
-}
+1. Usare il client per inviare una richiesta di ricerca al servizio Ricerca notizie Bing:
+    ```csharp
+    var newsResults = client.News.SearchAsync(query: searchTerm, market: "en-us", count: 10).Result;
+    ```
 
-```
-## <a name="complete-console-application"></a>Applicazione console completa
+2. Analizzare gli eventuali risultati restituiti:
 
-Questa applicazione console esegue la query definita in precedenza e cerca le notizie per "Quantum Computing". La richiesta include i parametri `market` e `count`. Il codice verifica il numero di risultati e visualizza `totalEstimatedMatches`, `name`, `url`, `description`, `published time` e `name` di `provider` per il primo risultato delle notizie.
-
-```
-using System;
-using System.Linq;
-using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
-
-namespace NewsSrchSDK
-{
-    class Program
+    ```csharp
+    if (newsResults.Value.Count > 0)
     {
-        static void Main(string[] args)
-        {
-            var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-
-            try
-            {
-                var newsResults = client.News.SearchAsync(query: "Quantum  Computing", market: "en-us", count: 10).Result;
-                Console.WriteLine("Search news for query \"Quantum  Computing\" with market and count");
-
-                if (newsResults == null)
-                {
-                    Console.WriteLine("Didn't see any news result data..");
-                }
-                else
-                {
-                    if (newsResults.Value.Count > 0)
-                    {
-                        var firstNewsResult = newsResults.Value.First();
-
-                        Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
-                        Console.WriteLine($"News result count: {newsResults.Value.Count}");
-                        Console.WriteLine($"First news name: {firstNewsResult.Name}");
-                        Console.WriteLine($"First news url: {firstNewsResult.Url}");
-                        Console.WriteLine($"First news description: {firstNewsResult.Description}");
-                        Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-                        Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find news results!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-
-            // Include these methods to run queries explained under headings following.
-            // NewsSearchWithFilters(client);
-            // NewsCategory(client);
-            // TrendingTopics(client);
-
-            Console.WriteLine("Any key to exit...");
-            Console.ReadKey();
-        }
-
+        var firstNewsResult = newsResults.Value[0];
+    
+        Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
+        Console.WriteLine($"News result count: {newsResults.Value.Count}");
+        Console.WriteLine($"First news name: {firstNewsResult.Name}");
+        Console.WriteLine($"First news url: {firstNewsResult.Url}");
+        Console.WriteLine($"First news description: {firstNewsResult.Description}");
+        Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
+        Console.WriteLine($"First news provider: {firstNewsResult.Provider[0].Name}");
     }
-}
-
-```
-## <a name="recent-news-freshness-and-sortby-parameters"></a>Notizie recenti e parametri freshness e sortBy
-Il codice seguente cerca le notizie più recenti per "Artificial Intelligence" con i parametri `freshness` e `sortBy`. Verifica il numero di risultati e visualizza `totalEstimatedMatches`, `name`, `url`, `description`, `published time` e `name` del provider del primo risultato delle notizie.
-```
-        public static void NewsSearchWithFilters(NewsSearchClient client)
-        {
-            try
-            {
-                var newsResults = client.News.SearchAsync(query: "Artificial Intelligence", market: "en-us", freshness: "Week", sortBy: "Date").Result;
-                Console.WriteLine("Search most recent news for query \"Artificial Intelligence\" with freshness and sortBy");
-
-                if (newsResults == null)
-                {
-                    Console.WriteLine("Didn't see any news result data..");
-                }
-                else
-                {
-                    if (newsResults.Value.Count > 0)
-                    {
-                        var firstNewsResult = newsResults.Value.First();
-
-                        Console.WriteLine($"\r\nTotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
-                        Console.WriteLine($"News result count: {newsResults.Value.Count}");
-                        Console.WriteLine($"First news name: {firstNewsResult.Name}");
-                        Console.WriteLine($"First news url: {firstNewsResult.Url}");
-                        Console.WriteLine($"First news description: {firstNewsResult.Description}");
-                        Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-                        Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find news results!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-        }
-
-```
-
-## <a name="category-news-safe-search"></a>Notizie di categoria, ricerca sicura
-Il codice seguente cerca le notizie relative a intrattenimento film e TV nelle notizie di categoria e usa la funzionalità di ricerca sicura.  Verifica il numero di risultati e visualizza `category`, `name`, `url`, `description`, `published time` e `name` del provider del primo risultato delle notizie.
-```
-        public static void NewsCategory(NewsSearchClient client)
-        {
-            try
-            {
-                var newsResults = client.News.CategoryAsync(category: "Entertainment_MovieAndTV", market: "en-us", safeSearch: "strict").Result;
-                Console.WriteLine("Search category news for movie and TV entertainment with safe search");
-
-                if (newsResults == null)
-                {
-                    Console.WriteLine("Didn't see any news result data..");
-                }
-                else
-                {
-                    if (newsResults.Value.Count > 0)
-                    {
-                        var firstNewsResult = newsResults.Value.First();
-
-                        Console.WriteLine($"\r\nNews result count: {newsResults.Value.Count}");
-                        Console.WriteLine($"First news category: {firstNewsResult.Category}");
-                        Console.WriteLine($"First news name: {firstNewsResult.Name}");
-                        Console.WriteLine($"First news url: {firstNewsResult.Url}");
-                        Console.WriteLine($"First news description: {firstNewsResult.Description}");
-                        Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-                        Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find news results!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-        }
-
-```
-## <a name="trending-topics"></a>Argomenti di tendenza
-Il codice seguente cerca gli argomenti di tendenza delle notizie in Bing. Verifica il numero di risultati e visualizza `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` e `image.Url` del primo risultato delle notizie.
-```
-        public static void TrendingTopics(NewsSearchClient client)
-        {
-            try
-            {
-                var trendingTopics = client.News.TrendingAsync(market: "en-us").Result;
-                Console.WriteLine("Search news trending topics in Bing");
-
-                if (trendingTopics == null)
-                {
-                    Console.WriteLine("Didn't see any news trending topics..");
-                }
-                else
-                {
-                    if (trendingTopics.Value.Count > 0)
-                    {
-                        var firstTopic = trendingTopics.Value.First();
-
-                        Console.WriteLine($"\r\nTrending topics count: {trendingTopics.Value.Count}");
-                        Console.WriteLine($"First topic name: {firstTopic.Name}");
-                        Console.WriteLine($"First topic query: {firstTopic.Query.Text}");
-                        Console.WriteLine($"First topic image url: {firstTopic.Image.Url}");
-                        Console.WriteLine($"First topic webSearchUrl: {firstTopic.WebSearchUrl}");
-                        Console.WriteLine($"First topic newsSearchUrl: {firstTopic.NewsSearchUrl}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find news trending topics!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-        }
-
-```
+    
+    else
+    {
+        Console.WriteLine("Couldn't find news results!");
+    }
+    Console.WriteLine("Enter any key to exit...");
+    Console.ReadKey();
+    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esempi di .NET SDK per Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+> [!div class="nextstepaction"]
+[Creare app Web a pagina singola](tutorial-bing-news-search-single-page-app.md)

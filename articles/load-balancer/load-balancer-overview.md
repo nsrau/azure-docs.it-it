@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 7b0a837bf23145c5ac5e5775d4324582fa3a6b20
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e66acd6a94b891ac3f727fddb7a88a9c56f465d3
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120836"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246569"
 ---
 # <a name="what-is-azure-load-balancer"></a>Informazioni su Azure Load Balancer
 
@@ -153,7 +153,13 @@ Il servizio Load Balancer interno consente di bilanciare i tipi di carico seguen
 *Figura: bilanciamento del carico di applicazioni multilivello tramite servizi Load Balancer sia pubblico che interno*
 
 ## <a name="pricing"></a>Prezzi
-L'uso di Load Balancer Standard viene addebitato in base al numero di regole di bilanciamento del carico configurate e alla quantità di dati elaborati in ingresso e in uscita. Per informazioni sui prezzi di Load Balancer Standard, visitare la pagina [Prezzi del servizio Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+
+Il costo dell'utilizzo del servizio Load Balancer Standard viene addebitato in base ai criteri seguenti.
+
+- Numero di regole di bilanciamento del carico e in uscita configurate (le regole NAT in ingresso non vengono conteggiate ai fini del numero totale di regole)
+- Quantità di dati elaborati in ingresso e in uscita indipendentemente dalla regola. 
+
+Per informazioni sui prezzi di Load Balancer Standard, visitare la pagina [Prezzi del servizio Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 Load Balancer Basic è disponibile senza alcun addebito.
 

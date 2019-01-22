@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva - Usare il portale di Azure per inviare e ricevere messaggi dal bus di servizio di Azure | Microsoft Docs
-description: In questa guida introduttiva viene illustrato come inviare e ricevere i messaggi del bus di servizio usando il portale di Azure
+title: Guida introduttiva - Usare il portale di Azure per creare una coda del bus di servizio | Microsoft Docs
+description: Questa guida introduttiva illustra come creare una coda del bus di servizio tramite il portale di Azure. Quindi si userà un'applicazione client di esempio per inviare e ricevere messaggi dalla coda.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: bfe6c48b2e83c1ebbbad446f79cebd1f513db57e
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 69c9a6d2d059ffbac5fe3e0ddb103eaec51123c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002672"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264021"
 ---
-# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Avvio rapido: Inviare e ricevere messaggi usando il portale di Azure e .NET
-
+# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Avvio rapido: Usare il portale di Azure per creare una coda del bus di servizio
 Il bus di servizio di Microsoft Azure è un broker di messaggi di integrazione aziendale che garantisce la sicurezza della messaggistica e completa affidabilità. Uno scenario tipico del bus di servizio comporta in genere il disaccoppiamento di due o più applicazioni, servizi o processi e il trasferimento delle modifiche apportate ai dati o allo stato. Scenari di questo tipo potrebbero comportare la pianificazione di più processi batch in un'altra applicazione o servizio oppure l'attivazione dell'evasione degli ordini. Una società di vendita al dettaglio, ad esempio, potrebbe inviare i dati dei punti vendita a un back office o al centro di distribuzione locale per gli aggiornamenti di rifornimento e inventario. In questo scenario l'app client invia e riceve messaggi verso e da una coda del bus di servizio.  
 
 ![coda](./media/service-bus-quickstart-portal/quick-start-queue.png)

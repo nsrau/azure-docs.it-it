@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: moderazione del contenuto di Facebook - Content Moderator di Azure'
 titlesuffix: Azure Cognitive Services
-description: Moderare le pagine di Facebook con Content Moderator.
+description: Questa esercitazione illustra come usare Content Moderator basato su Machine Learning per moderare post e commenti di Facebook.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 09/18/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 085ddaf757f2a11b4db4aadb22ad16009d29231e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255432"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260446"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Esercitazione: Moderazione del contenuto di Facebook con Content Moderator
 
@@ -35,7 +35,7 @@ La figura seguente illustra i principali componenti della soluzione.
 
 ## <a name="create-a-content-moderator-team"></a>Creare un team di Content Moderator
 
-Fare riferimento alla pagina [Introduzione](quick-start.md) per iscriversi a Content Moderator e creare un team.
+Fare riferimento alla guida introduttiva [Acquisire familiarità con Content Moderator](quick-start.md) per iscriversi a Content Moderator e creare un team.
 
 ## <a name="configure-image-moderation-workflow-threshold"></a>Configurare il flusso di lavoro di moderazione per le immagini (soglia)
 
@@ -152,10 +152,6 @@ La soluzione invia tutte le immagini e il testo pubblicati nella pagina di Faceb
 ## <a name="license"></a>Licenza
 
 Tutti gli SDK e gli esempi di Servizi cognitivi Microsoft sono concessi su licenza con la licenza MIT. Per altre informazioni, vedere la [licenza](https://microsoft.mit-license.org/).
-
-## <a name="developer-code-of-conduct"></a>Codice di comportamento per gli sviluppatori
-
-Gli sviluppatori che usano Servizi cognitivi, compresi questo esempio e questa libreria client, sono tenuti a rispettare il "Codice di comportamento per lo sviluppatore per Servizi cognitivi Microsoft", disponibile alla pagina http://go.microsoft.com/fwlink/?LinkId=698895.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

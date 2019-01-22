@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427064"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231173"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guida tecnica per il modello di soluzione di Cortana Intelligence per la previsione della domanda nel settore energetico
 ## <a name="overview"></a>**Panoramica**
@@ -163,8 +163,8 @@ La procedura seguente mostra come visualizzare l'output dei dati in tempo reale 
 
 1. Aggiungere l'output di Power BI ad Analisi di flusso di Azure.
 
-   * Per impostare l'output del processo di Analisi di flusso di Azure come dashboard di Power BI, seguire le istruzioni in [Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati](stream-analytics/stream-analytics-power-bi-dashboard.md).
-   * Trovare il processo di Analisi di flusso nel [portale di Azure](https://portal.azure.com). Il nome del processo deve essere nel formato seguente: NomeSoluzione+"streamingjob"+numero casuale+"asapbi", ad esempio demostreamingjob123456asapbi.
+   * È necessario seguire le istruzioni in [Analisi di flusso di Azure e Power BI: Dashboard di analisi in tempo reale per lo streaming dei dati in tempo reale](stream-analytics/stream-analytics-power-bi-dashboard.md) per configurare l'output del processo di Analisi di flusso di Azure come dashboard di Power BI.
+   * Trovare il processo di Analisi di flusso nel [portale di Azure](https://portal.azure.com). Il nome del processo deve essere: NomeSoluzione+"streamingjob"+numero casuale+"asapbi" (ad esempio demostreamingjob123456asapbi).
    * Aggiungere un output di PowerBI per il processo ASA. Impostare il valore di **Alias di output** su **"PBIoutput"**. Impostare il valore di **Nome del set di dati** e di **Nome tabella** su **"EnergyStreamData"**. Dopo aver aggiunto l'output, fare clic su **"Avvia"** nella parte inferiore della pagina per avviare il processo di Analisi di flusso. Verrà visualizzato un messaggio di conferma simile al seguente: "L'avvio del processo di Analisi di flusso myteststreamingjob12345asablob è stato completato".
 2. Accedere a [Power BI online](https://www.powerbi.com)
 
@@ -185,7 +185,7 @@ La procedura seguente mostra come visualizzare l'output dei dati in tempo reale 
 Nella pipeline di dati del percorso non critico l'obiettivo principale consiste nell'ottenere la previsione della domanda di ogni area. Power BI si connette a un database SQL di Azure come origine dati, in cui sono archiviati i risultati della stima.
 
 > [!NOTE]
-> 1) Per raccogliere risultati di previsione sufficienti per il dashboard, è necessaria qualche ora. Si consiglia di iniziare questo processo 2-3 ore dopo l'avvio del generatore di dati. 2) In questo passaggio, il download e l'installazione del software gratuito [Power BI Desktop](https://powerbi.microsoft.com/desktop)sono un prerequisito.
+> 1) Per raccogliere risultati di previsione sufficienti per il dashboard, è necessaria qualche ora. Si consiglia di iniziare questo processo 2-3 ore dopo l'avvio del generatore di dati. 2) In questo passaggio, il download e l'installazione del software gratuito [Power BI Desktop](https://powerbi.microsoft.com/desktop)sono un prerequisito.
 >
 >
 
@@ -200,7 +200,7 @@ Nella pipeline di dati del percorso non critico l'obiettivo principale consiste 
 2. Aggiornare l'origine dati del file percorso non critico di Power BI
 
    * Verificare che sia installata la versione più recente di [Power BI Desktop](https://powerbi.microsoft.com/desktop).
-   * Nella cartella **"DemandForecastingDataGeneratorv1.0"** scaricata fare doppio clic sul file **"Power BI Template\DemandForecastPowerBI.pbix"**. Le visualizzazioni iniziali sono basate su dati fittizi. **Nota:** se viene visualizzato un messaggio di errore, verificare che sia installata la versione più recente di Power BI Desktop.
+   * Nella cartella **"DemandForecastingDataGeneratorv1.0"** scaricata fare doppio clic sul file **"Power BI Template\DemandForecastPowerBI.pbix"**. Le visualizzazioni iniziali sono basate su dati fittizi. **Nota:** Se viene visualizzato un messaggio di errore, verificare che sia installata la versione più recente di Power BI Desktop.
 
      Dopo averlo aperto, fare clic su **'Modifica query'** nella parte superiore del file. Nella finestra popup fare doppio clic su **'Origine'** nel pannello di destra.
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
@@ -218,7 +218,7 @@ Nella pipeline di dati del percorso non critico l'obiettivo principale consiste 
 4. (Facoltativo) Pianificare l'aggiornamento dell'origine dati.
 
    * Per pianificare l'aggiornamento dei dati, passare il puntatore del mouse sul set di dati **EnergyBPI-Final**, fare clic su ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png) e quindi scegliere **Pianifica aggiornamenti**.
-     **Nota**: se viene visualizzato un messaggio di avviso, fare clic su **Modifica credenziali** e verificare che le credenziali del database siano identiche a quelle illustrate nel passaggio 1.
+     **Nota:** se viene visualizzato un messaggio di avviso, fare clic su **Modifica credenziali** e verificare che le credenziali del database siano identiche a quelle illustrate nel passaggio 1.
 
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic4.png)
    * Espandere la sezione **Pianifica aggiornamento** . Attivare l'opzione "Mantieni aggiornati i dati".

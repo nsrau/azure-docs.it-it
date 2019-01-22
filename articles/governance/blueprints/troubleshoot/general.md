@@ -4,17 +4,17 @@ description: Informazioni su come risolvere i problemi di creazione e assegnazio
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 04c038eb11cc40cec3552feff183bea55b22bb57
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315527"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261928"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Risoluzione errori con Azure Blueprint
 
@@ -52,6 +52,20 @@ I criteri possono entrare in conflitto con la distribuzione per diversi motivi:
 #### <a name="resolution"></a>Risoluzione
 
 Modificare il progetto in modo che non entri in conflitto con i criteri nei dettagli dell'errore. Nel caso in cui la modifica non sia possibile, l'alternativa consiste nel modificare l'ambito di assegnazione dei criteri in modo che il progetto non entri più in conflitto con i criteri.
+
+### <a name="escape-function-parameter"></a>Scenario: Il parametro del progetto è una funzione
+
+#### <a name="issue"></a>Problema
+
+I parametri del progetto che sono funzioni vengono elaborati prima di essere trasmessi agli artefatti.
+
+#### <a name="cause"></a>Causa
+
+Il passaggio di un parametro del progetto che usa una funzione, ad esempio `[resourceGroup().tags.myTag]`, a un artefatto comporta che il risultato dell'elaborazione della funzione sia impostato sull'artefatto invece che sulla funzione dinamica.
+
+#### <a name="resolution"></a>Risoluzione
+
+Per passare a una funzione come parametro, l'intera stringa con carattere di escape `[` tale che il parametro del progetto è simile a `[[resourceGroup().tags.myTag]`. Il carattere di escape fa sì che i progetti trattino il valore come una stringa durante l'elaborazione di progetto. I progetti inseriscono quindi la funzione sull'artefatto in modo che possa essere dinamica come previsto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

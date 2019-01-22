@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: aaf9fba7b3a2667577c26ade9cd88bcc87c60f61
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0258bf34e57a0acad1e5fef061a1cf961be9d2f0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243846"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262422"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con .NET
 > [!div class="op_single_selector"]
@@ -363,8 +363,8 @@ namespace EncodeLiveStreamWithAmsClear
             assetFile.Update();
 
             Log("Showing slate");
-            var showSlateOpeartion = channel.SendShowSlateOperation(TimeSpan.FromMinutes(1), slateAsset.Id);
-            TrackOperation(showSlateOpeartion, "Show slate");
+            var showSlateOperation = channel.SendShowSlateOperation(TimeSpan.FromMinutes(1), slateAsset.Id);
+            TrackOperation(showSlateOperation, "Show slate");
 
             Log("Hiding slate");
             var hideSlateOperation = channel.SendHideSlateOperation();

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6188b141ec1a514d999f290366cd9ffbafc1d96c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 0ed23c8efcf43213b288945c2910edf4c97bb63e
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753133"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214471"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Criteri di conservazione dei report di Azure Active Directory
 
@@ -40,6 +40,18 @@ In questo articolo vengono illustrati i criteri di conservazione dei dati per i 
 
 - **Immediatamente**: se si usano già i report nel portale di Azure.
 - **Entro 2 ore**: se non si è attivata la creazione di report nel portale di Azure.
+
+---
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>In quanto tempo è possibile visualizzare i dati di attività dopo aver acquistato una licenza Premium?
+
+Se si dispone già di dati sulle attività con la licenza gratuita, è possibile visualizzarli immediatamente su aggiornamento. Se non si dispone di dati, questi verranno visualizzati nei report dopo uno o due giorni dall'acquisto della licenza Premium.
+
+---
+
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>È possibile visualizzare i dati del mese precedente dopo avere acquistato una licenza Azure AD Premium?
+
+Se si è passati recentemente a una versione premium (inclusa una versione di prova), è possibile vedere inizialmente dati fino a 7 giorni. Man mano che i dati si accumulano, è possibile visualizzare quelli degli ultimi 30 giorni.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: metodo Helper di Content Moderator SDK per .NET'
+title: 'Avvio rapido: Creare un client di moderazione per .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Come restituire un client di Content Moderator usando Azure Content Moderator SDK per .NET
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0c167de3af8aea6820962e7cc8d0c21f5ba61807
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: aa3c2d5c408969aa3127562607ca8d4e89f44f2e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223271"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262269"
 ---
-# <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>Guida Introduttiva: codice Helper per restituire un client di Content Moderator
+# <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>Avvio rapido: Codice Helper per restituire un client di Content Moderator
 
 Questo articolo contiene informazioni ed esempi di codice per iniziare a usare Content Moderator SDK per .NET per creare un client di Content Moderator per la sottoscrizione.
 
@@ -32,7 +32,7 @@ Questo articolo presuppone che si abbia già familiarità con Visual Studio e C#
 ## <a name="sign-up-for-content-moderator-services"></a>Eseguire la registrazione per i servizi Content Moderator
 
 Per usare i servizi Content Moderator tramite l'API REST o l'SDK, è necessaria una chiave di sottoscrizione.
-Vedere la [guida introduttiva](quick-start.md) per informazioni su come ottenere la chiave.
+Vedere la guida introduttiva [Acquisire familiarità con Content Moderator](quick-start.md) per informazioni su come ottenere la chiave.
 
 ## <a name="create-your-visual-studio-project"></a>Creare il progetto di Visual Studio
 

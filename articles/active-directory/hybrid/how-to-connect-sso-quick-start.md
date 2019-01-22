@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/10/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a842646d2696c0d7d26ad7218d298d2df0be1a1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 2aab7929539fb4a4b9001da89770730d8afbe286
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187639"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244670"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: Avvio rapido
 
@@ -192,7 +192,7 @@ Verificare che il computer che esegue macOS sia stato aggiunto ad AD. Le istruzi
 
 Se nell'ambiente in uso si è scelto di ignorare le impostazioni dei criteri [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist), aggiungere a tali impostazioni anche l'URL di Azure AD (`https://autologon.microsoftazuread-sso.com`).
 
-#### <a name="google-chrome-macos-only"></a>Google Chrome (solo macOS)
+#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS e altre piattaforme non Windows)
 
 Per Google Chrome su Mac OS e altre piattaforme non Windows, vedere l'[elenco dei criteri dei progetti Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) per informazioni su come aggiungere l'URL di Azure AD all'elenco elementi consentiti per l'autenticazione integrata.
 

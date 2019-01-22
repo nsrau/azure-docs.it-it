@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8b9097a62ca4bfa67fb5eb35e06f7834df6691e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 07239e3411bc8df06cdff731343649867b59a3c9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622806"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213095"
 ---
-# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Come scaricare e usare uno script per accedere ai log di accesso
+# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Esercitazione: Come scaricare e usare uno script per accedere ai log di accesso
 
 Se occorre usare i dati delle attività di accesso all'esterno del portale di Azure, è possibile scaricarli. L'opzione **Download** del portale di Azure crea un file CSV dei 5000 record più recenti. Se è necessaria maggiore flessibilità, ad esempio, per scaricare più di 5000 record alla volta oppure per scaricare i log in base a intervalli pianificati, è possibile usare il pulsante **Script** per generare uno script PowerShell per scaricare i dati.
 
@@ -33,7 +33,7 @@ In questa esercitazione viene illustrato come generare uno script per scaricare 
 
 Elementi necessari
 
-* Un tenant di Azure Active Directory con una licenza Premium (P1/P2). 
+* Un tenant di Azure Active Directory con una licenza Premium (P1/P2). Si noti che se i dati sulle attività non erano disponibili prima dell'aggiornamento, ci vorranno un paio di giorni per visualizzare i dati nei report dopo aver eseguito l'aggiornamento a una licenza premium. 
 * Un utente con ruolo **Amministratore globale**, **Amministratore della sicurezza**, **Ruolo con autorizzazioni di lettura per la sicurezza** o **Ruolo con autorizzazioni di lettura per i report** per il tenant. Qualsiasi utente, inoltre, può visualizzare i propri accessi. 
 * Se si vuole eseguire lo script scaricato nel computer Windows 10, [configurare il modulo AzureRM e configurare i criteri di esecuzione](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 

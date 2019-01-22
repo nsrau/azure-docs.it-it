@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/5/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 88aa9a9003363f86db9214c62adff962bbd345cf
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1c948527c919ed8f81f16cf30a986591b414662
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344160"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263563"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -52,9 +52,11 @@ Inoltre, Centro sicurezza protegge i server e le macchine virtuali non di Azure 
 
 Gli eventi raccolti dagli agenti e da Azure sono correlati nel motore di analisi della sicurezza per fornire raccomandazioni su misura (attività di protezione avanzata), che è necessario seguire per assicurarsi che i carichi di lavoro siano protetti, e avvisi di rilevamento delle minacce. È necessario esaminare gli avvisi appena possibile per assicurarsi che non siano in corso attacchi dannosi ai carichi di lavoro.
 
+Se si abilita Centro sicurezza, i criteri di sicurezza incorporati al suo interno si riflettono in Criteri di Azure come iniziativa predefinita nella categoria Centro sicurezza. L'iniziativa predefinita viene automaticamente assegnata a tutte le sottoscrizioni registrate di Centro sicurezza (livello Gratuito o Standard). L'iniziativa predefinita contiene solo criteri di controllo. Per altre informazioni sui criteri di Centro sicurezza in Criteri di Azure, vedere [Utilizzo dei criteri di sicurezza](tutorial-security-policy.md).
+
 ## <a name="strengthen-security-posture"></a>Migliorare il comportamento di sicurezza
 
-Centro sicurezza di Azure migliora il comportamento di sicurezza. Ciò significa che consente di identificare ed eseguire le attività di protezione avanzata come procedure consigliate di sicurezza e di implementarle su computer, servizi di dati e app. Ciò include la gestione e l'applicazione delle policy di sicurezza e la verifica della conformità di macchine virtuali Azure, server non Azure e servizi PaaS di Azure. Centro sicurezza offre gli strumenti necessari per avere una panoramica generale sui carichi di lavoro, con uno sguardo approfondito all’estate della sicurezza di rete.
+Centro sicurezza di Azure migliora il comportamento di sicurezza. Ciò significa che consente di identificare ed eseguire le attività di protezione avanzata come procedure consigliate di sicurezza e di implementarle su computer, servizi di dati e app. Ciò include la gestione e l'applicazione delle policy di sicurezza e la verifica della conformità di macchine virtuali Azure, server non Azure e servizi PaaS di Azure. Centro sicurezza offre gli strumenti necessari per avere una panoramica generale sui carichi di lavoro, con uno sguardo approfondito all’estate della sicurezza di rete. 
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Gestione delle policy di sicurezza dell’organizzazione e conformità
 

@@ -4,15 +4,15 @@ description: L'articolo contiene informazioni sull'appliance Agente di raccolta 
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104211"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262609"
 ---
 # <a name="about-the-collector-appliance"></a>Informazioni sull'appliance Agente di raccolta
 
@@ -126,12 +126,9 @@ La verifica della connettività viene eseguita tramite la connessione a un elenc
 
 Agente di raccolta si connette al server vCenter ed esegue query in relazione ai metadati e ai contatori delle prestazioni della macchina virtuale. Di seguito vengono indicati gli aspetti da tenere presenti per la connessione.
 
-- È supportato solo il server vCenter versioni 5.5, 6.0 e 6.5.
+- È supportato solo il server vCenter versioni 5.5, 6.0, 6.5 e 6.7.
 - È necessario un account di sola lettura con le autorizzazioni elencate di seguito per l'individuazione. Per l'individuazione, è possibile accedere solo ai data center per cui è necessario l'account.
 - Per impostazione predefinita la connessione al server vCenter viene eseguita con un indirizzo IP o un nome FQDN. Se il server vCenter è in ascolto su una porta diversa, connettersi al server usando la forma *IndirizzoIP:Numero_porta* o *FQDN:Numero_porta*.
-- Per raccogliere dati sulle prestazioni per archiviazione e rete, le statistiche del server vCenter Server devono essere impostate sul livello tre.
-- Se il livello è inferiore a tre, l'individuazione funziona, ma non vengono raccolti i dati sulle prestazioni. Alcuni contatori vengono raccolti, ma altri vengono impostati su zero.
-- Se non vengono raccolti dati sulle prestazioni per archiviazione e rete, i consigli per la valutazione delle dimensioni si basano sui dati delle prestazioni per CPU e memoria e sui dati di configurazione per dischi e schede di rete.
 - Agente di raccolta deve avere visibilità di rete sul server vCenter.
 
 #### <a name="account-permissions"></a>Autorizzazioni dell'account

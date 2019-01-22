@@ -1,6 +1,7 @@
 ---
-title: Panoramica - Azure Machine Learning Studio | Microsoft Docs
-description: Panoramica di Azure ML Studio, uno strumento di trascinamento per la creazione rapida di modelli da una libreria di algoritmi e moduli pronta per l'uso.
+title: Analisi di simulazione
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio è uno strumento di trascinamento della selezione per la creazione rapida di modelli da una libreria di algoritmi e moduli pronta per l'uso.
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: b1c0d3da6dba4bf56baaf583d89c58fdc13ef83f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250519"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264361"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Informazioni su Azure Machine Learning Studio
 Microsoft Azure Machine Learning Studio è uno strumento di trascinamento collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva ai dati. Machine Learning Studio pubblica i modelli come servizi Web che possono essere facilmente usati da applicazioni personalizzate o strumenti di Business Intelligence, ad esempio Excel.
@@ -44,7 +45,7 @@ Non sono necessarie operazioni di programmazione, è sufficiente collegare visiv
 ![Diagramma Azure ML Studio: Creare esperimenti, leggere dati per molte origini, scrivere dati con punteggio, scrivere modelli.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Introduzione a Machine Learning Studio
-Quando si apre [Machine Learning Studio](https://studio.azureml.net) per la prima volta, viene visualizzata la pagina **Home** . Da qui è possibile visualizzare documentazione, video e webinar, nonché trovare altre risorse utili.
+Quando si apre [Machine Learning Studio](https://studio.azureml.net) per la prima volta, viene visualizzata la pagina **Home**. Da qui è possibile visualizzare documentazione, video e webinar, nonché trovare altre risorse utili.
 
 Fare clic sul menu in alto a sinistra ![Menu](./media/what-is-ml-studio/menu.png) in cui sono disponibili numerose opzioni.
 
@@ -65,9 +66,9 @@ Se si fa clic su **Studio**, viene visualizzato **Azure Machine Learning Studio*
 * **SETTINGS** : insieme di impostazioni che è possibile usare per configurare l'account e le risorse.
 
 ### <a name="gallery"></a>Gallery
-Fare clic sulla scheda **Gallery**. Verrà visualizzata la **[raccolta per intelligenza artificiale di Azure](http://gallery.cortanaintelligence.com/)**. La raccolta è un'area in cui una community di sviluppatori e data scientist condivide le soluzioni create usando i componenti di Cortana Intelligence Suite.
+Fare clic sulla scheda **Gallery**. Verrà visualizzata la raccolta **[Azure AI Gallery](http://gallery.cortanaintelligence.com/)**. La raccolta è un'area in cui una community di sviluppatori e data scientist condivide le soluzioni create usando i componenti di Cortana Intelligence Suite.
 
-Per altre informazioni sulla raccolta, vedere [Condividere e trovare soluzioni nella raccolta per intelligenza artificiale di Azure](gallery-how-to-use-contribute-publish.md).
+Per altre informazioni sulla raccolta, vedere [Condividere e trovare soluzioni in Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 
 ## <a name="components-of-an-experiment"></a>Componenti di un esperimento
 Un esperimento è costituito da set di dati che forniscono i dati a moduli di analisi, che sono collegati tra loro per costruire un modello di analisi predittiva. In particolare, un esperimento valido ha le caratteristiche seguenti:
@@ -154,7 +155,7 @@ Dopo aver creato un modello con training, valutare il modello usando i rimanenti
 * **modulo**: parte funzionale in un modello di Machine Learning Studio, ad esempio il modulo Enter Data che consente di immettere e modificare piccoli set di dati. Anche un algoritmo è un tipo di modulo in Machine Learning Studio.
 * **modello**: un modello di apprendimento supervisionato è il prodotto di un esperimento di apprendimento automatico costituito da dati di training, un modulo di algoritmo e moduli funzionali, ad esempio il modulo Score Model.
 * **dati numerici**: dati indicanti misure (dati continui) o conteggi (dati discreti). Sono detti anche *dati quantitativi*.
-* **partizione**: metodo con cui si dividono i dati in campioni. Per altre informazioni, vedere [Partition and Sample](https://msdn.microsoft.com/library/azure/dn905960.aspx) .
+* **partizione**: metodo con cui si dividono i dati in campioni. Per altre informazioni, vedere [Partition and Sample](https://msdn.microsoft.com/library/azure/dn905960.aspx).
 * **stima**: una stima è una previsione di uno o più valori da un modello di Machine Learning. È anche possibile incontrare il termine "punteggio stimato". I punteggi stimati non sono tuttavia l'output finale di un modello. Il punteggio è seguito da una valutazione del modello.
 * **regressione**: modello per la stima di un valore basato su variabili indipendenti, ad esempio la stima del prezzo di un'auto basata sull'anno e sulla marca.
 * **punteggio**: valore stimato generato da un modello di classificazione o regressione con training, usando il [modulo Score Model](https://msdn.microsoft.com/library/azure/dn905995.aspx) in Machine Learning Studio. I modelli di classificazione restituiscono inoltre un punteggio relativo alla probabilità del valore stimato. Una volta generati i punteggi da un modello, è possibile valutare l'accuratezza del modello con il [modulo Evaluate Model](https://msdn.microsoft.com/library/azure/dn905915.aspx).

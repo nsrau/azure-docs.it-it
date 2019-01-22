@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1916aa94dcf7528ce898ef37eac29c1017f03f15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633462"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231887"
 ---
 # <a name="what-is-the-azure-face-api"></a>Informazioni sull'API Viso di Azure
 
@@ -75,7 +75,11 @@ Le applicazioni di esempio seguenti illustrano alcuni dei modi in cui si può us
 - [API Viso Microsoft: libreria client ed esempio Windows](https://github.com/Microsoft/Cognitive-Face-Windows). App WPF che illustra diversi scenari di rilevamento, analisi e identificazione del viso.
 - [App UWP FamilyNotes](https://github.com/Microsoft/Windows-appsample-familynotes). App della piattaforma UWP (Universal Windows Platform) che usa l'identificazione del viso insieme a riconoscimento vocale, Cortana, input penna e fotocamera in uno scenario di condivisione note in una famiglia.
 
+## <a name="data-privacy-and-security"></a>Sicurezza e privacy dei dati
+
+Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Viso devono conoscere i criteri di Microsoft sui dati dei clienti. Per altre informazioni, vedere la [pagina sui Servizi cognitivi](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices) nel Centro protezione di Microsoft.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Seguire una guida introduttiva per implementare un semplice scenario di rilevamento del viso nel codice.
-- [Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK con C#](quickstarts/csharp.md) (disponibile per altri linguaggi)
+- [Avvio rapido: Rilevare i visi in un'immagine usando .NET SDK con C#](quickstarts/csharp.md) (disponibile per altri linguaggi)

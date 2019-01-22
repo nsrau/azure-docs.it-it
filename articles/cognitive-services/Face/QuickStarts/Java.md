@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST di Azure e Java"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST di Azure e Java"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API REST Viso di Azure con Java per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 7656d8247cfb16df9989638b7e8ad2ffd3ff445f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2c035734d443eba01af6f167681ae289401dbcb4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851671"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212873"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Java
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Java
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con Java per rilevare i visi umani in un'immagine.
 
@@ -31,8 +31,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="create-the-java-project"></a>Creare il progetto Java
 
 Creare una nuova app Java della riga di comando nell'IDE e aggiungere una classe **Main** con un metodo **main**. Quindi, scaricare le librerie globali seguenti dal repository Maven nella directory `lib` del progetto:
-* `org.apache.httpcomponents:httpclient:4.2.4`
+* `org.apache.httpcomponents:httpclient:4.5.6`
+* `org.apache.httpcomponents:httpcore:4.4.10`
 * `org.json:json:20170516`
+* `commons-logging:commons-logging:1.1.2`
 
 ## <a name="add-face-detection-code"></a>Aggiungere codice di rilevamento volto
 
@@ -54,7 +56,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -92,7 +94,7 @@ private static final String faceAttributes =
 Al metodo **main** aggiungere il metodo seguente. Il metodo costruisce una chiamata REST all'API Viso per rilevare informazioni sul viso nell'immagine remota (la stringa `faceAttributes` specifica quali attributi del viso recuperare), quindi scrive i dati di output in una stringa JSON.
 
 ```Java
-HttpClient httpclient = new DefaultHttpClient();
+HttpClient httpclient = HttpClientBuilder.create().build();
 
 try
 {
