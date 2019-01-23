@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 7d451f7eae16426c85ed5540b35993cd9b218b83
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d209e1f6924e5c7d6bba7512606504b7165f0ed3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033163"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359426"
 ---
 # <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>Configurare un firewall IP per l'account Azure Cosmos DB
 
@@ -145,10 +145,10 @@ az cosmosdb update \
 Abilitando i criteri di controllo dell'accesso agli indirizzi IP per l'account di Azure Cosmos DB, viene bloccata qualsiasi richiesta all'account da computer non inclusi nell'elenco degli intervalli di indirizzi IP consentiti. Per abilitare operazioni sul piano dati del portale, ad esempio l'esplorazione di contenitori e le query nei documenti, è quindi necessario consentire esplicitamente l'accesso al portale di Azure usando il riquadro **Firewall** nel portale.
 
 ### <a name="sdks"></a>SDK 
-Quando si accede a risorse di Azure Cosmos DB usando gli SDK da computer che non sono presenti nell'elenco consentito, **viene restituito una risposta generica di tipo 404 Non trovato senza altri dettagli**. Verificare l'elenco di IP consentiti per l'account e assicurarsi che la configurazione corretta dei criteri venga applicata all'account Azure Cosmos DB. 
+Quando si accede a risorse di Azure Cosmos DB usando gli SDK da computer che non sono presenti nell'elenco consentito, viene restituita una risposta generica di tipo **403 Accesso negato** senza altri dettagli. Verificare l'elenco di IP consentiti per l'account e assicurarsi che la configurazione corretta dei criteri venga applicata all'account Azure Cosmos DB. 
 
 ### <a name="source-ips-in-blocked-requests"></a>IP di origine nelle richieste bloccate
-Abilitare la registrazione diagnostica nell'account Azure Cosmos DB. Questi log mostrano ogni richiesta e risposta. I messaggi relativi al firewall vengono registrati internamente con un codice di errore 403. Filtrando questi messaggi, è possibile visualizzare gli IP di origine per le richieste bloccate. Vedere [Registrazione diagnostica di Azure Cosmos DB](logging.md).
+Abilitare la registrazione diagnostica nell'account Azure Cosmos DB. Questi log mostrano ogni richiesta e risposta. I messaggi relativi al firewall vengono registrati con un codice di errore 403. Filtrando questi messaggi, è possibile visualizzare gli IP di origine per le richieste bloccate. Vedere [Registrazione diagnostica di Azure Cosmos DB](logging.md).
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Richieste provenienti da una subnet con endpoint di servizio per Azure Cosmos DB abilitato
 Le richieste provenienti da una subnet nella rete virtuale che dispone di un endpoint del servizio per Azure Cosmos DB abilitato invia la rete virtuale e l'identità del subnet per gli account Azure Cosmos DB. Queste richieste non dispongono dell'indirizzo IP pubblico dell'origine perciò vengono rifiutati dai filtri IP. Per consentire l'accesso da subnet specifiche nelle reti virtuali, aggiungere un elenco di controllo di accesso della rete virtuale descritta in [Come configurare la rete virtuale e l'accesso basato su subnet per l'account Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md). L'applicazione delle regole del firewall può richiedere fino a 15 minuti.

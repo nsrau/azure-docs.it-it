@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 1/16/2019
+ms.openlocfilehash: 2c022bd002700426eea2c6b38a667cd5a1381c02
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728126"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359851"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Usare gli endpoint e le regole del servizio Rete virtuale per SQL Azure
 
@@ -118,8 +118,9 @@ Per il database SQL di Azure, la funzionalità delle regole della rete virtuale 
 
 - Le regole della rete virtuale si applicano solo alle reti virtuali di Azure Resource Manager e non alle reti con un [modello di distribuzione classica][arm-deployment-model-568f].
 
-- L'attivazione degli endpoint di servizio di rete virtuale nel database SQL di Azure abilita anche gli endpoint per i servizi MySQL e PostgreSQL Azure. Tuttavia, con gli endpoint attivati i tentativi di connessione dagli endpoint alle istanze di MySQL o PostgreSQL avranno esito negativo.
-  - La causa principale è che MySQL e PostgreSQL attualmente non supportano ACLing.
+- L'attivazione degli endpoint di servizio di rete virtuale nel database SQL di Azure abilita anche gli endpoint per i servizi MySQL e PostgreSQL Azure. Tuttavia, con gli endpoint attivati i tentativi di connessione dagli endpoint alle istanze di MySQL o PostgreSQL potrebbero avere esito negativo.
+  - La causa principale è che MySQL e PostgreSQL probabilmente non possiedono una regola della rete virtuale configurata. Configurare una regola della rete virtuale per il Database di Azure per MySQL e PostgreSQL; in questo modo la connessione avrà esito positivo.
+
 - Nel firewall, gli intervalli di indirizzi IP si applicano ai seguenti elementi di rete, ma non le regole della rete virtuale:
   - [VPN (rete privata virtuale) da sito a sito (S2S)][vpn-gateway-indexmd-608y]
   - Ambiente locale tramite [ExpressRoute][expressroute-indexmd-744v]
