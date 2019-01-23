@@ -8,13 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
-ms.date: 08/19/2018
-ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 01/16/2019
+ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410154"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352513"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Inviare, ricevere ed elaborare in batch i messaggi nelle app per la logica di Azure
 
@@ -50,20 +50,27 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
 
 1. Nel [portale di Azure](https://portal.azure.com) o in Visual Studio creare un'app per la logica con questo nome: "BatchReceiver" 
 
-2. Nella finestra Progettazione app per la logica aggiungere il trigger **batch**, che avvia il flusso di lavoro dell'app per la logica. Nella casella di ricerca digitare "batch" come filtro. Selezionare il trigger: **Messaggi batch**
+2. Nella finestra Progettazione app per la logica aggiungere il trigger **batch**, che avvia il flusso di lavoro dell'app per la logica. Nella casella di ricerca digitare "batch" come filtro. Selezionare questo trigger: **Messaggi batch**
 
    ![Aggiungere il trigger "Messaggi batch"](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-3. Impostare le proprietà del ricevitore di batch: 
+3. Impostare queste proprietà per il ricevitore di batch: 
 
    | Proprietà | DESCRIZIONE | 
    |----------|-------------|
    | **Modalità batch** | - **Inline**: per la definizione di criteri di rilascio all'interno del trigger batch <br>- **Account di integrazione**: per la definizione di più configurazioni di criteri di rilascio tramite un'[account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Con un account di integrazione, è possibile gestire queste configurazioni in un'unica posizione invece che nell'App per la logica separata. | 
    | **Nome batch** | Il nome per il batch, che è "TestBatch" in questo esempio, si applica solo al **Inline** modalità batch |  
-   | **Criteri di rilascio** | Si applica solo alla modalità batch **Inline** e seleziona i criteri da soddisfare prima di elaborare ogni batch: <p>- **Il numero di base del messaggio**: il numero di messaggi da raccogliere nel batch, ad esempio, 10 messaggi <br>- **Basato sulle dimensioni**: le dimensioni massime dei batch in byte, ad esempio, 100 MB <br>- **Basato sulla programmazione**: intervallo e frequenza tra i rilasci di batch, ad esempio, 10 minuti. La ricorrenza minima è di 60 secondi o 1 minuto. I valori frazionari di minuto vengono arrotondati in eccesso a 1 minuto. Per specificare una data e un'ora di inizio, scegliere **Mostra opzioni avanzate**. <br>- **Seleziona tutto**: usare tutti i criteri specificati. | 
+   | **Criteri di rilascio** | Si applica solo alla modalità batch **Inline** e seleziona i criteri da soddisfare prima di elaborare ogni batch: <p>- **In base al numero di messaggi**: il batch viene rilasciato in base al numero di messaggi raccolti. <br>- **In base alle dimensioni**: il batch viene rilasciato in base alla dimensione totale in byte per tutti i messaggi raccolti. <br>- **Pianificazione**: il batch viene rilasciato in base a una pianificazione della ricorrenza, che specifica un intervallo e la frequenza. Nelle opzioni avanzate è anche possibile selezionare un fuso orario e specificare una data e un'ora di inizio. <br>- **Seleziona tutto**: vengono usati tutti i criteri specificati. | 
+   | **Numero di messaggi** | Il numero di messaggi da raccogliere nel batch, ad esempio 10 messaggi. Per un batch è previsto un limite di 8000 messaggi. | 
+   | **Dimensioni del batch** | Dimensione totale in byte per i messaggi raccolti nel batch, ad esempio 10 MB. Per un batch è prevista una dimensione massima di 80 MB. | 
+   | **Pianificazione** | Intervallo e frequenza tra i rilasci di batch, ad esempio 10 minuti. La ricorrenza minima è di 60 secondi o 1 minuto. I valori frazionari dei minuti vengono arrotondati per eccesso a 1 minuto. Per specificare un fuso orario e una data e un'ora di inizio, scegliere **Mostra opzioni avanzate**. | 
    ||| 
-   
-   Questo esempio seleziona tutti i criteri:
+
+   > [!NOTE]
+   > 
+   > Se si modificano i criteri di rilascio quando il trigger ha elaborato i messaggi in batch ma non li ha ancora inviati, il trigger usa i criteri di rilascio aggiornati per gestire i messaggi non inviati. 
+
+   Questo esempio mostra tutti i criteri, ma è sufficiente provarne uno solo a scopo di test:
 
    ![Specificare i dettagli del trigger Batch](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 
@@ -76,12 +83,12 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
 
    2. Nella casella di ricerca immettere "invia messaggio di posta elettronica" come filtro.
    In base al provider di posta elettronica in uso, selezionare un connettore di posta elettronica.
-      
+
       Ad esempio, se hai un account personale, ad esempio @outlook.com o @hotmail.com, selezionare il connettore Outlook.com. 
       Se si dispone di un account Gmail, selezionare il connettore Gmail. 
       Questo esempio usa Outlook per Office 365. 
 
-   3. Selezionare questa azione: **inviare un messaggio di posta elettronica - <*provider di posta elettronica*>**
+   3. Selezionare questa azione: **Invia un messaggio di posta elettronica - <*provider di posta elettronica*>**
 
       Ad esempio: 
 
@@ -98,7 +105,7 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
 
      ![Nell'elenco contenuto dinamico selezionare "Nome partizione"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
-     In una sezione più avanti si specificherà una chiave di partizione univoca che divide il batch di destinazione in subset logici a cui inviare i messaggi. 
+     Più avanti, per il mittente del batch, si specificherà una chiave di partizione univoca che divide il batch di destinazione in subset logici a cui è possibile inviare i messaggi. 
      Ogni set è associato a un numero univoco che viene generato dall'app per la logica mittente del batch. 
      Questa funzionalità consente di usare un unico batch con più subset e di assegnare a ogni subset il nome desiderato.
 
@@ -143,7 +150,7 @@ A questo punto creare una o più app per la logica mittenti del batch che invian
    1. Nel trigger ricorrenza scegliere **Nuovo passaggio**.
 
    2. Nella casella di ricerca digitare "batch" come filtro. 
-   Selezionare l’elenco delle **Azioni**, quindi selezionare questa azione: **Scegliere un flusso di lavoro delle app per la logica con un trigger batch - Inviare un messaggio al batch**
+   Selezionare l'elenco **Azioni** e quindi questa azione: **Scegliere un flusso di lavoro delle app per la logica con un trigger batch - Invia messaggi al batch**
 
       ![Selezionare “Scegliere un flusso di lavoro delle app per la logica con un trigger batch”](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
@@ -156,9 +163,9 @@ A questo punto creare una o più app per la logica mittenti del batch che invian
       > 
       > Se si usa Visual Studio e non viene visualizzato nessun ricevitore di batch da selezionare, verificare che il ricevitore di batch sia distribuito in Azure. Se non è distribuito, vedere l'articolo su come [distribuire l'app per la logica ricevitore di batch in Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). 
 
-   4. Selezionare questa azione: **Batch_messages - <*your-batch-receiver*>**
+   4. Selezionare questa azione: **Batch_messages - <*ricevitore-batch*>**
 
-      ![Selezionare questa azione: "Batch_messages - <your-logic-app>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
+      ![Selezionare questa azione: "Batch_messages - <app-per-logica>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 3. Impostare le proprietà del mittente del batch:
 

@@ -4,14 +4,14 @@ description: Questo articolo offre una panoramica dei problemi noti relativi al 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189497"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261231"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -28,6 +28,18 @@ L'appliance per l'individuazione continua si limita a raccogliere i dati sulle p
    ![Arresta individuazione](./media/troubleshooting-general/stop-discovery.png)
 
 - Eliminazione di macchine virtuali: a causa del modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
+
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Eliminazione dei progetti Azure Migrate e dell'area di lavoro di Log Analytics associata
+
+Quando si elimina un progetto Azure Migrate, questo viene eliminato insieme a tutti i gruppi e a tutte le valutazioni. Se tuttavia si è collegata un'area di lavoro di Log Analytics al progetto, l'area di lavoro non viene eliminata automaticamente. Questo avviene perché la stessa area di lavoro di Log Analytics è applicabile a più casi d'uso. Se si vuole eliminare anche l'area di lavoro di Log Analytics, è necessario eseguire questa operazione manualmente.
+
+1. Passare all'area di lavoro di Log Analytics collegata al progetto.
+   a. Se non si è ancora eliminato il progetto di migrazione, è possibile trovare il collegamento all'area di lavoro dalla pagina di panoramica del progetto nella sezione Informazioni di base.
+
+   ![Area di lavoro di Log Analytics](./media/troubleshooting-general/LA-workspace.png)
+
+   b. Se si è già eliminato il progetto di migrazione, fare clic su **Gruppi di risorse** nel riquadro a sinistra del portale di Azure, passare al gruppo di risorse in cui è stata creata l'area di lavoro e quindi selezionarla.
+2. Per eliminare l'area di lavoro, seguire le istruzioni riportate [in questo articolo](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace).
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>La creazione del progetto di migrazione non è riuscita con errore *Requests must contain user identity headers* (Le richieste devono contenere le intestazioni di identità dell'utente)
 
@@ -80,13 +92,13 @@ Per abilitare la raccolta dei dati sulle prestazioni di dischi e reti, impostare
 
    ![Posizione del progetto](./media/troubleshooting-general/geography-location.png)
 
-## <a name="collector-errors"></a>Errori dell'agente di raccolta
+## <a name="collector-issues"></a>Problemi relativi all'agente di raccolta
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>La distribuzione del servizio Agente di raccolta di Azure Migrate non è riuscita con l'errore: The provided manifest file is invalid: Invalid OVF manifest entry. (Il file manifesto specificato non è valido: voce del manifesto OVF non valida.)
 
 1. Verificare se il file OVA del servizio Agente di raccolta di Azure Migrate viene scaricato correttamente controllando il relativo valore hash. Per verificare il valore hash, vedere questo [articolo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance). Se il valore hash non corrisponde, scaricare nuovamente il file OVA e ripetere il tentativo di distribuzione.
 2. Se ancora non riesce e si usa VMware vSphere Client per distribuire il file OVF, provare a eseguire la distribuzione con vSphere Web Client. Se il problema persiste, provare a usare un Web browser diverso.
-3. Se si usa vSphere Web Client e si prova a distribuirlo in vCenter Server 6.5, provare a distribuire il file OVA direttamente nell'host ESXi seguendo questi passaggi:
+3. Se si usa vSphere Web Client e si prova a distribuirlo in un server vCenter 6.5 o 6.7, provare a distribuire il file OVA direttamente nell'host ESXi seguendo questi passaggi:
   - Connettersi direttamente all'host ESXi (anziché vCenter Server) usando il client Web (https://<*indirizzo IP dell'host*>/ui)
   - Passare a Home > Inventory (Pagina iniziale > Inventario)
   - Fare clic sul File > Deploy OVF template (Distribuisci modello OVF) > individuare il file OVA e completare la distribuzione
@@ -130,7 +142,7 @@ Verificare di aver copiato e incollato le informazioni corrette. Per risolvere i
 
 ### <a name="vmware-powercli-installation-failed"></a>L'installazione di VMware PowerCLI non è riuscita.
 
-L'agente di raccolta di Azure Migrate scarica PowerCLI ed esegue l'installazione nel dispositivo. L'errore di installazione di PowerCLI potrebbe essere a causa di un endpoint non raggiungibile per il repository PowerCLI. Per risolvere il problema, provare a installare PowerCLI manualmente nella macchina virtuale dell'agente di raccolta usando il passaggio seguente:
+L'agente di raccolta di Azure Migrate scarica PowerCLI ed esegue l'installazione nell'appliance. L'errore di installazione di PowerCLI potrebbe essere a causa di un endpoint non raggiungibile per il repository PowerCLI. Per risolvere il problema, provare a installare PowerCLI manualmente nella macchina virtuale dell'agente di raccolta usando il passaggio seguente:
 
 1. Aprire Windows PowerShell in modalità amministratore.
 2. Andare alla directory C:\ProgramFiles\ProfilerService\VMWare\Scripts\
@@ -156,6 +168,17 @@ Se l'errore si verifica anche con la versione più recente, è possibile che com
 2. Se il passaggio 1 ha esito negativo, provare a connettersi al server vCenter sull'indirizzo IP.
 3. Identificare il numero di porta corretto per connettersi al server vCenter.
 4. Infine controllare che il server vCenter sia attivo e in esecuzione.
+
+### <a name="antivirus-exclusions"></a>Esclusioni dalla scansione antivirus
+
+Per la protezione avanzata dell'appliance di Azure Migrate, è necessario escludere le cartelle seguenti dell'appliance dalla scansione antivirus:
+
+- Cartella che contiene i file binari per il servizio Azure Migrate. Escludere tutte le sottocartelle.
+  %ProgramFiles%\ProfilerService  
+- Applicazione Web Azure Migrate. Escludere tutte le sottocartelle.
+  %SystemDrive%\inetpub\wwwroot
+- Cache locale per i file di database e log. Il servizio Azure Migrate necessita dell'accesso in lettura/scrittura a questa cartella.
+  %SystemDrive%\Profiler
 
 ## <a name="dependency-visualization-issues"></a>Problemi di visualizzazione delle dipendenze
 

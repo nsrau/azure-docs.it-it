@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871334"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261503"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
@@ -221,22 +221,22 @@ Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne e
 È possibile visualizzare tutte le operazioni o un'operazione. Non è possibile selezionare due o tre operazioni. Le operazioni disponibili sono:
 
 * Tutte le operazioni
-* Register 
+* Register
 * Configurare il backup
 * Backup
 * Restore
 * Disabilitare il backup
 * Elimina dati di backup
 
-#### <a name="status"></a>Status
+#### <a name="status"></a>Stato
 
 È possibile visualizzare tutti gli stati o uno. Non è possibile selezionare due o tre stati. Gli stati disponibili sono:
 
 * Tutti gli stati
-* Completed
+* Completi
 * In corso
 * Operazione non riuscita
-* Canceled
+* Cancellati
 * Completato con avvisi
 
 #### <a name="start-time"></a>Ora di inizio
@@ -255,7 +255,7 @@ Per esportare le informazioni sui processi in un foglio di calcolo, fare clic su
 
 ## <a name="monitor-backup-usage"></a>Monitorare l'utilizzo del backup
 
-Il riquadro Utilizzo del backup del dashboard indica lo spazio di archiviazione utilizzato in Azure. L'utilizzo dello spazio di archiviazione viene fornito per:
+Il riquadro Archivio di backup del dashboard indica lo spazio di archiviazione utilizzato in Azure. L'utilizzo dello spazio di archiviazione viene fornito per:
 
 * Utilizzo dello spazio di archiviazione con ridondanza locale nel cloud associato all'insieme di credenziali
 * Utilizzo dello spazio di archiviazione con ridondanza geografica nel cloud associato all'insieme di credenziali

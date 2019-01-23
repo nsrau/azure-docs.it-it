@@ -1,10 +1,10 @@
 ---
-title: Come eseguire in modo sicuro la migrazione degli utenti tra le licenze dei prodotti usando la gestione delle licenze basate su gruppo in Azure Active Directory | Microsoft Docs
-description: Viene descritto il processo consigliato per la migrazione degli utenti tra licenze dei prodotti diverse (Office 365 Enterprise E1 ed E3) usando la gestione delle licenze basate su gruppo
+title: Come eseguire la migrazione degli utenti tra licenze di prodotti diverse con gruppi in Azure Active Directory | Microsoft Docs
+description: Descrive il processo consigliato per la migrazione degli utenti tra licenze dei prodotti diverse (Office 365 Enterprise E1 ed E3) usando la gestione delle licenze basate su gruppo
 services: active-directory
 keywords: Licenze di Azure AD
 documentationcenter: ''
-author: piotrci
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/29/2018
-ms.author: piotrci
-ms.openlocfilehash: 643339545dac6ec35ab44f2a05fbe417dea2bb71
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 01/14/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.openlocfilehash: 68d4cdf3c7ba08f7cf37132936c6769c99c177cc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211792"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319419"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Come eseguire in modo sicuro la migrazione degli utenti tra le licenze dei prodotti usando la gestione delle licenze basate su gruppo
 
@@ -47,7 +48,7 @@ Prima di iniziare la migrazione, è importante verificare che alcuni presupposti
 -   Comprendere la modalità di gestione dei gruppi nell'ambiente. Ad esempio, se si gestiscono gruppi locali e si sincronizzano in Azure Active Directory (Azure AD) tramite Azure AD Connect, è necessario aggiungere/rimuovere gli utenti usando il sistema locale. La sincronizzazione delle modifiche in Azure AD e il loro prelievo da parte della gestione delle licenze basate su gruppo potrebbero richiedere tempo. Se si usano le appartenenze a gruppi dinamici di Azure AD, gli utenti vengono invece aggiunti/rimossi modificandone gli attributi. Il processo di migrazione generale rimane tuttavia lo stesso. La sola differenza consiste nella modalità di aggiunta/rimozione degli utenti dai gruppi.
 
 ## <a name="migrate-users-between-products-that-dont-have-conflicting-service-plans"></a>Migrare gli utenti tra prodotti senza piani di servizio in conflitto
-L'obiettivo della migrazione consiste nell'usare la gestione delle licenze basate su gruppo per modificare le licenze utente da una *licenza di origine* (in questo esempio Office 365 Enterprise E3) a una *licenza di destinazione* (in questo esempio Office 365 Enterprise E5). I due prodotti in questo scenario non includono piani di servizio in conflitto, pertanto possono essere interamente assegnati nello stesso momento senza conflitti. Durante la migrazione gli utenti non dovrebbero perdere mai l'accesso ai servizi o ai dati. La migrazione viene eseguita in piccoli "batch". È possibile convalidare il risultato per ogni batch e ridurre al minimo l'ambito di eventuali problemi che potrebbero verificarsi durante il processo. A livello generale, il processo è il seguente:
+L'obiettivo della migrazione consiste nell'usare licenze basate su gruppo per modificare le licenze utente da una *licenza di origine* (in questo esempio: Office 365 Enterprise E3) a una *licenza di destinazione* (in questo esempio: Office 365 Enterprise E5). I due prodotti in questo scenario non includono piani di servizio in conflitto, pertanto possono essere interamente assegnati nello stesso momento senza conflitti. Durante la migrazione gli utenti non dovrebbero perdere mai l'accesso ai servizi o ai dati. La migrazione viene eseguita in piccoli "batch". È possibile convalidare il risultato per ogni batch e ridurre al minimo l'ambito di eventuali problemi che potrebbero verificarsi durante il processo. A livello generale, il processo è il seguente:
 
 1.  Gli utenti sono membri di un gruppo di origine ed ereditano la *licenza di origine* da questo gruppo.
 
@@ -66,15 +67,15 @@ L'obiettivo della migrazione consiste nell'usare la gestione delle licenze basat
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migrare un singolo utente usando il portale di Azure
 Di seguito è riportata una semplice procedura dettagliata per la migrazione di un singolo utente.
 
-**PASSAGGIO 1**: l'utente dispone di una *licenza di origine* ereditata dal gruppo. Non ci sono assegnazioni dirette per la licenza:
+**PASSAGGIO 1**: L'utente dispone di una *licenza di origine* ereditata dal gruppo. Non ci sono assegnazioni dirette per la licenza:
 
 ![Utente con una licenza di origine ereditata dal gruppo](./media/licensing-groups-change-licenses/UserWithSourceLicenseInherited.png)
 
-**PASSAGGIO 2**: l'utente viene aggiunto al gruppo di destinazione e la gestione delle licenze basate su gruppo elabora la modifica. L'utente dispone ora della *licenza di origine* e della *licenza di destinazione* che ha ereditato dai gruppi:
+**PASSAGGIO 2**: L'utente viene aggiunto al gruppo di destinazione e la gestione delle licenze basate su gruppo elabora la modifica. L'utente dispone ora della *licenza di origine* e della *licenza di destinazione* che ha ereditato dai gruppi:
 
 ![Utente con licenza di origine e di destinazione ereditate dai gruppi](./media/licensing-groups-change-licenses/UserWithBothSourceAndTargetLicense.png)
 
-**PASSAGGIO 3**: l'utente viene rimosso dal gruppo di origine e la gestione delle licenze basate su gruppo elabora la modifica. L'utente ora dispone solo della *licenza di destinazione*:
+**PASSAGGIO 3**: L'utente viene rimosso dal gruppo di origine e la gestione delle licenze basate su gruppo elabora la modifica. L'utente ora dispone solo della *licenza di destinazione*:
 
 ![Utente con una licenza di destinazione ereditata dal gruppo](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssigned.png)
 
@@ -176,7 +177,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Migrare gli utenti tra prodotti con piani di servizio in conflitto
-L'obiettivo della migrazione consiste nell'usare la gestione delle licenze basate su gruppo per modificare le licenze utente da una *licenza di origine* (in questo esempio Office 365 Enterprise E1) a una *licenza di destinazione* (in questo esempio Office 365 Enterprise E3). I due prodotti in questo scenario contengono piani di servizio in conflitto, pertanto sarà necessario trovare una soluzione alternativa per migrare gli utenti. Per altre informazioni su questi conflitti, vedere [Risoluzione dei problemi relativi a un gruppo di licenze in Active Directory - Piani di servizio in conflitto](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Durante la migrazione gli utenti non dovrebbero perdere mai l'accesso ai servizi o ai dati. La migrazione viene eseguita in piccoli "batch". È possibile convalidare il risultato per ogni batch e ridurre al minimo l'ambito di eventuali problemi che potrebbero verificarsi durante il processo. A livello generale, il processo è il seguente:
+L'obiettivo della migrazione consiste nell'usare licenze basate su gruppo per modificare le licenze utente da una *licenza di origine* (in questo esempio: Office 365 Enterprise E1) a una *licenza di destinazione* (in questo esempio: Office 365 Enterprise E3). I due prodotti in questo scenario contengono piani di servizio in conflitto, pertanto sarà necessario trovare una soluzione alternativa per migrare gli utenti. Per altre informazioni sui conflitti, vedere [Risoluzione dei problemi relativi a un gruppo di licenze in Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Piani di servizio in conflitto](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Durante la migrazione gli utenti non dovrebbero perdere mai l'accesso ai servizi o ai dati. La migrazione viene eseguita in piccoli "batch". È possibile convalidare il risultato per ogni batch e ridurre al minimo l'ambito di eventuali problemi che potrebbero verificarsi durante il processo. A livello generale, il processo è il seguente:
 
 1.  Gli utenti sono membri di un gruppo di origine ed ereditano la *licenza di origine* da questo gruppo.
 
@@ -195,15 +196,15 @@ L'obiettivo della migrazione consiste nell'usare la gestione delle licenze basat
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migrare un singolo utente usando il portale di Azure
 Di seguito è riportata una semplice procedura dettagliata per la migrazione di un singolo utente.
 
-**PASSAGGIO 1**: l'utente dispone di una *licenza di origine* ereditata dal gruppo. Non ci sono assegnazioni dirette per la licenza:
+**PASSAGGIO 1**: L'utente dispone di una *licenza di origine* ereditata dal gruppo. Non ci sono assegnazioni dirette per la licenza:
 
 ![Utente con una licenza di origine ereditata dal gruppo](./media/licensing-groups-change-licenses/UserWithSourceLicenseInheritedConflictScenario.png)
 
-**PASSAGGIO 2**: l'utente viene aggiunto al gruppo di destinazione e la gestione delle licenze basate su gruppo elabora la modifica. Dal momento che l'utente ha ancora la *licenza di origine*, la *licenza di destinazione* è in stato di errore a causa del conflitto:
+**PASSAGGIO 2**: L'utente viene aggiunto al gruppo di destinazione e la gestione delle licenze basate su gruppo elabora la modifica. Dal momento che l'utente ha ancora la *licenza di origine*, la *licenza di destinazione* è in stato di errore a causa del conflitto:
 
 ![Utente con una licenza di origine ereditata dal gruppo e una licenza di destinazione in stato di errore](./media/licensing-groups-change-licenses/UserWithSourceLicenseAndTargetLicenseInConflict.png)
 
-**PASSAGGIO 3**: l'utente viene rimosso dal gruppo di origine e la gestione delle licenze basate su gruppo elabora la modifica. La *licenza di destinazione* viene applicata all'utente:
+**PASSAGGIO 3**: L'utente viene rimosso dal gruppo di origine e la gestione delle licenze basate su gruppo elabora la modifica. La *licenza di destinazione* viene applicata all'utente:
 
 ![Utente con una licenza di destinazione ereditata dal gruppo](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssignedConflictScenario.png)
 
