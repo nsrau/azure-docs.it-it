@@ -1,5 +1,5 @@
 ---
-title: Istanza del cluster di failover di SQL Server - Macchine virtuali di Azure| Documentazione Microsoft
+title: Istanza del cluster di failover di SQL Server - Macchine virtuali di Azure| Microsoft Docs
 description: Questo articolo illustra come creare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure.
 services: virtual-machines
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237965"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359936"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
@@ -71,10 +71,12 @@ Prima di procedere, è necessario conoscere alcuni aspetti ed essere in possesso
 ### <a name="what-to-know"></a>Conoscenze necessarie
 È necessario avere una conoscenza operativa delle tecnologie seguenti:
 
-- [Tecnologie cluster di Windows](https://technet.microsoft.com/library/hh831579.aspx)
-- [Istanze del cluster di failover di SQL Server](https://msdn.microsoft.com/library/ms189134.aspx)
+- [Tecnologie cluster di Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [Istanze del cluster di failover di SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
-È anche necessario avere una conoscenza generale delle tecnologie seguenti:
+Una differenza importante è che in un cluster di failover guest di macchine virtuali IaaS di Azure è consigliabile usare una sola scheda di rete per ogni server (nodo del cluster) e una sola subnet. La ridondanza fisica della rete di Azure rende superfluo l'uso di altre schede di rete e subnet in un cluster guest di macchine virtuali IaaS di Azure. Anche se il report di convalida del cluster avviserà che i nodi sono raggiungibili solo in una rete, tale avviso potrà essere tranquillamente ignorato per i cluster di failover guest delle macchine virtuali IaaS di Azure. 
+
+Inoltre, è necessario avere una conoscenza generale delle tecnologie seguenti:
 
 - [Soluzione iperconvergente che usa Spazi di archiviazione diretta in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Gruppi di risorse di Azure](../../../azure-resource-manager/resource-group-portal.md)
@@ -97,7 +99,7 @@ Prima di seguire le istruzioni di questo articolo, è necessario avere gli eleme
 
 Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazione del cluster di failover. Il primo passaggio consiste nel creare le macchine virtuali.
 
-## <a name="step-1-create-virtual-machines"></a>Passaggio 1: Creare le macchine virtuali
+## <a name="step-1-create-virtual-machines"></a>Passaggio 1: Creare macchine virtuali
 
 1. Accedere al [portale di Azure](http://portal.azure.com) con la propria sottoscrizione.
 
@@ -111,12 +113,12 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
    - Fare clic su **Set di disponibilità**.
    - Fare clic su **Create**(Crea).
    - Nel pannello **Crea set di disponibilità** impostare i valori seguenti.
-      - **Nome**: nome del set di disponibilità.
-      - **Sottoscrizione**: sottoscrizione di Azure.
+      - **Nome**: un nome per il set di disponibilità.
+      - **Sottoscrizione** La sottoscrizione di Azure.
       - **Gruppo di risorse**: se si vuole usare un gruppo esistente, fare clic su **Usa esistente** e selezionare il gruppo nell'elenco a discesa. In caso contrario, scegliere **Crea nuovo** e digitare un nome per il gruppo.
       - **Località**: impostare la località in cui si intende creare le macchine virtuali.
       - **Domini di errore**: usare il valore predefinito (3).
-      - **Domini di aggiornamento**: usare il valore predefinito (5).
+      - **Domini di aggiornamento**: Usare il valore predefinito (5).
    - Fare clic su **Crea** per creare il set di disponibilità.
 
 1. Creare le macchine virtuali nel set di disponibilità.
@@ -139,7 +141,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
 
    Scegliere l'immagine appropriata in base alla modalità di pagamento della licenza di SQL Server che si preferisce.
 
-   - **Licenza con pagamento in base all'uso**. Il costo al secondo di queste immagini include la licenza di SQL Server:
+   - **Licenza con pagamento in base all'utilizzo**: il costo al secondo di queste immagini include la licenza di SQL Server:
       - **SQL Server 2016 Enterprise in Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard in Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer in Windows Server Datacenter 2016**
@@ -345,7 +347,7 @@ Dopo aver configurato il cluster di failover e tutti i componenti del cluster in
    >[!NOTE]
    >Se è stata usata un'immagine della raccolta di Azure Marketplace con SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Vedere [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="step-5-create-azure-load-balancer"></a>Passaggio 5: Creare un servizio di bilanciamento del carico di Azure
+## <a name="step-5-create-azure-load-balancer"></a>Passaggio 5: Creare un Azure Load Balancer
 
 Nelle macchine virtuali di Azure, per contenere un indirizzo IP che deve trovarsi in un nodo del cluster alla volta viene usato nei cluster un servizio di bilanciamento del carico. In questa soluzione, il servizio di bilanciamento del carico contiene l'indirizzo IP per l'istanza del cluster di failover di SQL Server.
 
@@ -368,7 +370,7 @@ Per creare il servizio di bilanciamento del carico:
    - **Rete virtuale**: la stessa rete delle macchine virtuali.
    - **Subnet**: la stessa subnet delle macchine virtuali.
    - **Indirizzo IP privato**: lo stesso indirizzo IP assegnato alla risorsa di rete cluster dell'istanza del cluster di failover di SQL Server.
-   - **Sottoscrizione**: sottoscrizione di Azure.
+   - **Sottoscrizione**: La sottoscrizione di Azure.
    - **Gruppo di risorse**: usare lo stesso gruppo di risorse delle macchine virtuali.
    - **Località**: usare la stessa località di Azure delle macchine virtuali.
    Vedere l'immagine seguente:
@@ -395,11 +397,11 @@ Per creare il servizio di bilanciamento del carico:
 
 1. Nel pannello **Aggiungi probe integrità** <a name="probe"></a>impostare i parametri del probe di integrità.
 
-   - **Nome**: nome del probe di integrità.
+   - **Nome**: un nome per il probe di integrità.
    - **Protocollo**: TCP.
    - **Porta**: impostare una porta TCP disponibile. È necessaria una porta del firewall aperta. Usare la [stessa porta](#ports) impostata per il probe di integrità nel firewall.
    - **Intervallo**: 5 secondi.
-   - **Soglia di non integrità**: 2 errori consecutivi.
+   - **Soglia non integra**: 2 errori consecutivi.
 
 1. Fare clic su OK.
 
@@ -411,15 +413,15 @@ Per creare il servizio di bilanciamento del carico:
 
 1. Impostare i parametri delle regole di bilanciamento del carico.
 
-   - **Nome**: nome delle regole di bilanciamento del carico.
+   - **Nome**: un nome per le regole di bilanciamento del carico.
    - **Indirizzo IP front-end**: usare l'indirizzo IP per la risorsa di rete cluster dell'istanza del cluster di failover di SQL Server.
    - **Porta**: impostare la porta TCP dell'istanza del cluster di failover di SQL Server. La porta predefinita dell'istanza è 1433.
-   - **Porta back-end**: per questo valore viene usata la stessa porta inserita come valore in **Porta** quando si abilita **IP mobile (Direct Server Return)**.
+   - **Porta back-end**: viene usata la stessa porta specificata nel campo **Porta** quando si abilita **IP mobile (Direct Server Return)**.
    - **Pool back-end**: usare il nome del pool back-end configurato in precedenza.
-   - **Probe integrità**: usare il probe di integrità configurato in precedenza.
-   - **Salvataggio permanente sessione**: Nessuno.
+   - **Probe di integrità**: usare il probe di integrità configurato in precedenza.
+   - **Salvataggio permanente sessione**: No.
    - **Timeout di inattività (minuti)**: 4.
-   - **IP mobile (Direct Server Return)**: Abilitato.
+   - **IP mobile (Direct Server Return)**: Attivato
 
 1. Fare clic su **OK**.
 
@@ -459,7 +461,7 @@ Dopo aver configurato il probe del cluster, è possibile visualizzare tutti i pa
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 
-## <a name="step-7-test-fci-failover"></a>Passaggio 7: Eseguire il failover dell'istanza del cluster di failover
+## <a name="step-7-test-fci-failover"></a>Passaggio 7: Testare il failover dell'istanza del cluster di failover
 
 Testare il failover dell'istanza del cluster di failover per convalidare le funzionalità del cluster. Seguire anche questa procedura:
 

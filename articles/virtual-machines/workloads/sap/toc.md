@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: a9e46bdb97899957f09a847f0fef03a6fec5dc6a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452897"
----
 # Panoramica
 ## [Introduzione](get-started.md)
 ## [Certificazioni](sap-certifications.md)
