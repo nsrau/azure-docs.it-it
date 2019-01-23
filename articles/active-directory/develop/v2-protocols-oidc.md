@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 756d00786005fb6de26ff363d4e233fc28b48687
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 01d73d9c42f99dde02a801af9967430c9735932d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426843"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320957"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 e il protocollo OpenID Connect
 
@@ -33,11 +33,11 @@ OpenID Connect è un protocollo di autenticazione basato su OAuth 2.0 che può e
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) estende il protocollo di *autorizzazione* OAuth 2.0 da usare come protocollo di *autenticazione* per consentire di eseguire l'accesso Single Sign-On tramite OAuth. OpenID Connect introduce il concetto di *token ID*, ovvero un token di sicurezza che consente al client di verificare l'identità dell'utente. Il token ID consente anche di ottenere informazioni di base sul profilo dell'utente. Poiché OpenID Connect estende OAuth 2.0, le app potranno acquisire in modo sicuro *token di accesso* che possono essere usati per accedere alle risorse protette da un [server di autorizzazione](active-directory-v2-protocols.md#the-basics). L'endpoint v2.0 consente inoltre alle app di terze parti registrate in Azure AD di rilasciare token di accesso per le risorse protette, ad esempio le API Web. Per altre informazioni su come configurare un'applicazione per rilasciare token di accesso, vedere [Come registrare un'app con l'endpoint 2.0](quickstart-v2-register-an-app.md). È consigliabile usare OpenID Connect per la compilazione di un'[applicazione Web](v2-app-types.md#web-apps) ospitata su un server e accessibile tramite browser.
 
-## <a name="protocol-diagram-sign-in"></a>Diagramma di protocollo: accesso
+## <a name="protocol-diagram-sign-in"></a>Diagramma di protocollo: Accesso
 
 Il flusso di accesso di base include i passaggi illustrati nella figura seguente. Questo articolo descrive dettagliatamente i singoli passaggi.
 
-![Protocollo OpenID Connect: accesso](./media/v2-protocols-oidc/convergence_scenarios_webapp.png)
+![Protocollo OpenID Connect: Accesso](./media/v2-protocols-oidc/convergence_scenarios_webapp.png)
 
 ## <a name="fetch-the-openid-connect-metadata-document"></a>Recuperare il documento di metadati OpenID Connect
 
@@ -86,7 +86,7 @@ Quando l'app Web deve autenticare l'utente, può indirizzarlo all'endpoint `/aut
 * La richiesta deve includere il parametro `nonce` .
 
 > [!IMPORTANT]
-> Per poter richiedere un token ID, nella registrazione dell'app all'interno del [portale di registrazione](https://apps.dev.microsoft.com) l'opzione **[Concessione implicita](v2-oauth2-implicit-grant-flow.md)** deve essere abilitata per il client Web. Se non è abilitata, viene restituito un errore: `unsupported_response` "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" (Il valore fornito per il parametro di input 'response_type' non è consentito per questo client. Il valore previsto è 'code')
+> Per poter richiedere un token ID, nella registrazione dell'app all'interno del [portale di registrazione](https://apps.dev.microsoft.com) l'opzione **[Concessione implicita](v2-oauth2-implicit-grant-flow.md)** deve essere abilitata per il client Web. Se non è abilitato, verrà restituito un errore `unsupported_response`: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" (Il valore fornito per il parametro di input 'response_type' non è consentito per questo client. Il valore previsto è 'code')
 
 Ad esempio: 
 
@@ -207,13 +207,13 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 Quando si reindirizza l'utente a `end_session_endpoint`, l'endpoint v2.0 cancella la sessione dell'utente dal browser. L'utente può tuttavia essere ancora connesso ad altre applicazioni che usano account Microsoft per l'autenticazione. Per consentire che tutte le applicazioni eseguano la disconnessione dell'utente simultaneamente, l'endpoint v2.0 invia una richiesta HTTP GET all'oggetto `LogoutUrl` registrato di tutte le applicazioni a cui l'utente è attualmente connesso. Le applicazioni devono rispondere a questa richiesta cancellando qualsiasi sessione che identifica l'utente e restituendo una risposta `200`. Se si vuole supportare Single Sign-Out nell'applicazione, è necessario implementare questo tipo di oggetto `LogoutUrl` nel codice dell'applicazione. È possibile impostare `LogoutUrl` dal portale di registrazione delle app.
 
-## <a name="protocol-diagram-access-token-acquisition"></a>Diagramma di protocollo: acquisizione dei token di accesso
+## <a name="protocol-diagram-access-token-acquisition"></a>Diagramma di protocollo: Acquisizione dei token di accesso
 
 Molte app Web non richiedono soltanto l'accesso dell'utente, ma necessitano anche di accedere a un servizio Web per conto dell'utente tramite OAuth. In questo scenario viene usato OpenID Connect per l'autenticazione utente e contemporaneamente viene acquisito un codice di autorizzazione che può essere usato per ottenere i token di accesso quando si usa il flusso del codice di autorizzazione di OAuth.
 
 Il flusso completo di accesso OpenID Connect e di acquisizione dei token è simile a quello illustrato nella figura seguente. Le sezioni seguenti dell'articolo descrivono i singoli passaggi.
 
-![Protocollo OpenID Connect: acquisizione dei token](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
+![Protocollo OpenID Connect: Acquisizione dei token](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
 
 ## <a name="get-access-tokens"></a>Ottenere i token di accesso
 Per acquisire i token di accesso, modificare la richiesta di accesso:

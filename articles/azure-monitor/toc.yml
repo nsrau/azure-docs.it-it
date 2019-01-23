@@ -263,7 +263,7 @@ items:
       - name: App Azure
         items:
         - name: Servizio app di Azure
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Servizi cloud di Azure
           href: app/cloudservices.md
         - name: Aggiungere il monitoraggio continuo
@@ -742,7 +742,7 @@ items:
           href: platform/alerts-metric.md
         - name: Creare, visualizzare e gestire avvisi delle metriche della versione classica in Monitoraggio di Azure
           href: platform/alerts-classic-portal.md
-        - name: Avvisi con soglie dinamiche
+        - name: Avvisi delle metriche con soglie dinamiche
           href: platform/alerts-dynamic-thresholds.md
         - name: Configurare avvisi delle metriche per i log
           href: platform/alerts-metric-logs.md
@@ -1021,9 +1021,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 5cb859501356213289c674e3bfa689095c9b28e1
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: adf92fafe1c1c0fa855d3658c41dd3563d4b26b2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390720"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448687"

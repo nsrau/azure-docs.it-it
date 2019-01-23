@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049963"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264411"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -32,7 +32,7 @@ I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecno
 ### <a name="advantages"></a>Vantaggi
 - Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard da più pagine di Azure, tra cui analisi delle metriche, Log Analytics e Application Insights.
 - Supporto sia per le metriche sia per i log.
-- Combinazione dei provenienti da più origini, tra cui l'output da [Esplora metriche](../azure-monitor/platform/metrics-charts.md), [query di Log Analytics](../azure-monitor/log-query/log-query-overview.md), [mappe](../azure-monitor/app/app-map.md) e [disponibilità]() in Application Insights.
+- Combinazione dei dati provenienti da più origini, tra cui l'output da [Esplora metriche](../azure-monitor/platform/metrics-charts.md), [query di Log Analytics](../azure-monitor/log-query/log-query-overview.md), [mappe](../azure-monitor/app/app-map.md) e disponibilità in Application Insights.
 - Opzione per dashboard personali o condivisi, integrati con l'[autenticazione basata su ruoli (RBAC)](../role-based-access-control/overview.md) di Azure.
 - Aggiornamento automatico delle metriche in base a un intervallo di tempo con un valore minimo di cinque minuti e dei log con intervallo di un minuto.
 - Dashboard delle metriche con parametri con timestamp e parametri personalizzati.
