@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 170cf458496d91a28260296e2aba803d76fbc06b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 90910580fd7fc766376569de3ce43fc5ce297e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388839"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469203"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Unità nodo azioni di ridimensionamento in Azure Stack
 
@@ -148,9 +148,25 @@ Quando si esegue l'azione di ripristino, è necessario specificare l'indirizzo I
 
 Per eseguire l'azione di ripristino, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
 
-  ````PowerShell
+  ```PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
-  ````
+  ```
+
+## <a name="shutdown"></a>Shutdown
+
+Il **arresto** fist azione Sposta tutti i carichi di lavoro attivi per i restanti nodi nella stessa unità di scala. Quindi l'azione normalmente per interrompere l'esecuzione del nodo di unità di scala.
+
+Dopo l'avvio di un nodo che è stato arrestato, è necessario eseguire la [riprendere](#resume) azione. I carichi di lavoro precedenti che erano in esecuzione nel nodo di non eseguire il failback.
+
+Se l'operazione di arresto ha esito negativo, provare il [svuotare](#drain) operazione seguita dall'operazione di arresto.
+
+Per eseguire l'azione di arresto, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
+
+  ```PowerShell
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
+  ```
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

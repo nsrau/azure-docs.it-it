@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a9e46bdb97899957f09a847f0fef03a6fec5dc6a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452897"
+---
 # Panoramica
 ## [Introduzione](get-started.md)
 ## [Certificazioni](sap-certifications.md)
@@ -68,7 +76,6 @@
 ### [Disponibilità di SAP HANA tra aree di Azure](sap-hana-availability-across-regions.md)
 ## [SAP Business One nelle macchine virtuali di Azure](business-one-azure.md)
 ## [Guida alla distribuzione di SAP IDES in Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
-## [SAP NetWeaver nelle VM Linux di Azure](suse-quickstart.md)
 ## [Connettore SAP LaMa per Azure](lama-installation.md)
 ## Disponibilità elevata in Windows e Linux
 ### [Overview](sap-high-availability-guide-start.md)
