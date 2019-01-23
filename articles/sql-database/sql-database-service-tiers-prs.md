@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 98b1072dc560de79e40fc4f802203459633dda28
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6ce99e70d57fd8d29b0f5cb2bd1084accfc4757
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440158"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262966"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Ritiro del livello di servizio Premium RS (anteprima) del database SQL di Azure - Opzioni per la migrazione
 

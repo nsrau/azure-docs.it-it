@@ -1,5 +1,5 @@
 ---
-title: Novità Note sulla versione - Servizi multimediali di Azure v3 | Microsoft Docs
+title: Note sulla versione di Servizi multimediali v3 | Microsoft Docs
 description: Per stare al passo con gli sviluppi più recenti, questo articolo fornisce gli ultimi aggiornamenti relativi a Servizi multimediali di Azure v3.
 services: media-services
 documentationcenter: ''
@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4db84deb344921d329e81e0f0c9c3a97923430f3
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156494"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229957"
 ---
-# <a name="whats-new-in-azure-media-services-v3"></a>Novità di Servizi multimediali di Azure v3
+# <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
 Per stare al passo con gli sviluppi più recenti, questo articolo fornisce informazioni sugli argomenti seguenti:
 
@@ -33,6 +33,15 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 > Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-sdk), l'interfaccia della riga di comando o uno degli SDK supportati.
 
 Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="december-2018"></a>Dicembre 2018
+
+Gli aggiornamenti dalla versione disponibile a livello generale dell'API V3 includono:
+       
+* Le proprietà **PresentationTimeRange** non sono più "obbligatorie" per **Assetfilter** e **AccountFilters**. 
+* Sono state rimosse le opzioni di query $top e $skip per **Processi** e **Trasformazioni** ed è stata aggiunta $orderby. Come parte dell'aggiunta della nuova funzionalità di ordinamento, è stato rilevato che le opzioni $top e $skip sono state accidentalmente esposte in precedenza anche se non sono implementate.
+* L'estendibilità di enumerazione è stata riabilitata. Questa funzionalità è stata abilitata nelle versioni di anteprima di SDK ed è stata disattivata accidentalmente nella versione disponibile a livello generale.
+* Due criteri di streaming predefiniti sono stati rinominati. **SecureStreaming** è ora **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** è ora **Predefined_MultiDrmStreaming**.
 
 ## <a name="november-2018"></a>Novembre 2018
 
