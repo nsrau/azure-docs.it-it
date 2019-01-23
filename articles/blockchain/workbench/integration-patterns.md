@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0b0307d167485712e06966dd36fa94e24ef33aa1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 11e0e1436e3f640c30fec5e8d6fd9ca10adbd707
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241526"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330468"
 ---
 # <a name="smart-contract-integration-patterns"></a>Modelli di integrazione dei contratti intelligenti
 
@@ -23,11 +23,11 @@ I contratti intelligenti spesso rappresentano un flusso di lavoro aziendale che 
 
 I requisiti di questi flussi di lavoro comprendono l'esigenza di avviare transazioni in un libro mastro distribuito che includono dati da un sistema, un servizio o un dispositivo esterno. I sistemi esterni devono inoltre rispondere agli eventi originati dai contratti intelligenti in un libro mastro distribuito.
 
-L'API REST e l'integrazione della messaggistica offrono la possibilità di inviare le transazioni provenienti da sistemi esterni ai contratti intelligenti inclusi in un'applicazione Azure Blockchain Workbench, nonché di inviare notifiche degli eventi ai sistemi esterni in base alle modifiche che hanno luogo all'interno di un'applicazione.
+L'integrazione della messaggistica e dell'API REST invia le transazioni dai sistemi esterni ai contratti intelligenti inclusi in un'applicazione Azure Blockchain Workbench. Invia anche le notifiche degli eventi ai sistemi esterni in base alle modifiche che hanno luogo all'interno di un'applicazione.
 
 Per scenari di integrazione dei dati, Azure Blockchain Workbench include un set di viste di database che uniscono una combinazione di dati transazionali dalla blockchain e di metadati sulle applicazioni e i contratti intelligenti.
 
-Inoltre, alcuni scenari, come quelli correlati alla supply chain o ai media, potrebbero richiedere anche l'integrazione di documenti. Anche se Azure Blockchain Workbench non fornisce chiamate API per la gestione diretta dei documenti, i documenti possono essere incorporati in un'applicazione di Azure Blockchain. Questa sezione include anche tale modello.
+Inoltre, alcuni scenari, come quelli correlati alla supply chain o ai media, potrebbero richiedere anche l'integrazione di documenti. Anche se Azure Blockchain Workbench non fornisce chiamate API per la gestione diretta dei documenti, i documenti possono essere incorporati in un'applicazione blockchain. Questa sezione include anche tale modello.
 
 In questa sezione sono inclusi i modelli identificati per l'implementazione di ognuno di questi tipi di integrazioni nelle proprie soluzioni end-to-end.
 
@@ -37,30 +37,30 @@ Le funzionalità nell'applicazione Web generata da Azure Blockchain Workbench ve
 
 L'API REST viene usata principalmente per i client interattivi, come le applicazioni Web, per dispositivi mobili e bot.
 
-In questa sezione vengono esaminati i modelli focalizzati sugli aspetti dell'API REST che inviano le transazioni a un libro mastro distribuito e quelli che eseguono query sui dati sulle transazioni dal database SQL *fuori dalla catena* di Azure Blockchain Workbench.
+In questa sezione vengono esaminati i modelli focalizzati sugli aspetti dell'API REST che inviano le transazioni a un libro mastro distribuito e i modelli che eseguono query sui dati sulle transazioni dal database SQL *fuori dalla catena* di Azure Blockchain Workbench.
 
 ### <a name="sending-transactions-to-a-distributed-ledger-from-an-external-system"></a>Invio di transazioni a un libro mastro distribuito da un sistema esterno
 
-L'API REST di Azure Blockchain Workbench offre la possibilità di inviare richieste autenticate per l'esecuzione di transazioni in un libro mastro distribuito.
+L'API REST di Azure Blockchain Workbench invia richieste autenticate per l'esecuzione di transazioni in un libro mastro distribuito.
 
 ![Invio di transazioni a un libro mastro distribuito](./media/integration-patterns/send-transactions-ledger.png)
 
-Questa operazione viene eseguita usando il processo illustrato in precedenza, in base al quale:
+L'esecuzione di transazioni segue la procedura illustrata in precedenza, dove:
 
 -   L'applicazione esterna esegue l'autenticazione in Azure Active Directory, di cui è stato eseguito il provisioning nell'ambito della distribuzione di Azure Blockchain Workbench.
 -   Gli utenti autorizzati ricevono un token di connessione che può essere inviato all'API con le richieste.
 -   Le applicazioni esterne effettuano chiamate all'API REST tramite il token di connessione.
--   L'API REST crea un pacchetto della richiesta come un messaggio e lo invia al bus di servizio. Da qui, il messaggio verrà recuperato, firmato e inviato al libro mastro distribuito appropriato.
+-   L'API REST crea un pacchetto della richiesta come un messaggio e lo invia al bus di servizio. Da qui, il messaggio viene recuperato, firmato e inviato al libro mastro distribuito appropriato.
 -   L'API REST effettua una richiesta al database SQL di Azure Blockchain Workbench per la registrazione della richiesta e la determinazione dello stato di provisioning corrente.
 -   Il database SQL restituisce lo stato di provisioning e la chiamata API restituisce l'ID all'applicazione esterna che lo ha richiesto.
 
 ### <a name="querying-blockchain-workbench-metadata-and-distributed-ledger-transactions"></a>Esecuzione di query sui metadati di Blockchain Workbench e le transazioni del libro mastro distribuito
 
-L'API REST di Azure Blockchain Workbench offre la possibilità di inviare richieste autenticate per l'esecuzione di query sui dettagli relativi all'esecuzione dei contratti intelligenti in un libro mastro distribuito.
+L'API REST di Azure Blockchain Workbench invia richieste autenticate per l'esecuzione di query sui dettagli relativi all'esecuzione dei contratti intelligenti in un libro mastro distribuito.
 
 ![Query dei metadati](./media/integration-patterns/querying-metadata.png)
 
-Questa operazione viene eseguita usando il processo illustrato in precedenza, in base al quale:
+Le query vengono eseguite in base alla procedura illustrata in precedenza, dove:
 
 1. L'applicazione esterna esegue l'autenticazione in Azure Active Directory, di cui è stato eseguito il provisioning nell'ambito della distribuzione di Azure Blockchain Workbench.
 2. Gli utenti autorizzati ricevono un token di connessione che può essere inviato all'API con le richieste.
@@ -69,23 +69,23 @@ Questa operazione viene eseguita usando il processo illustrato in precedenza, in
 
 ## <a name="messaging-integration"></a>Integrazione della messaggistica
 
-L'integrazione della messaggistica facilita l'interazione con i sistemi, i servizi e i dispositivi in cui non è possibile o consigliabile usare un accesso interattivo. L'integrazione della messaggistica si concentra su due tipi di messaggi: quelli che richiedono l'esecuzione di transazioni in un libro mastro distribuito e gli eventi esposti da tale libro mastro quando le transazioni hanno avuto luogo.
+L'integrazione della messaggistica facilita l'interazione con i sistemi, i servizi e i dispositivi in cui non è possibile o consigliabile usare un accesso interattivo. L'integrazione della messaggistica si concentra su due tipi di messaggi: i messaggi che richiedono l'esecuzione di transazioni in un libro mastro distribuito e gli eventi esposti da tale libro mastro quando le transazioni hanno avuto luogo.
 
 L'integrazione della messaggistica, che è incentrata sull'esecuzione e sul monitoraggio di transazioni correlate alla creazione di utenti, alla creazione di contratti e all'esecuzione di transazioni sui contratti, viene usata principalmente dai sistemi back-end *headless*.
 
-In questa sezione vengono esaminati i modelli focalizzati sugli aspetti dell'API basata su messaggi che inviano le transazioni a un libro mastro distribuito e quelli che rappresentano i messaggi di evento esposti dal libro mastro distribuito sottostante.
+In questa sezione vengono esaminati i modelli focalizzati sugli aspetti dell'API basata su messaggi che inviano le transazioni a un libro mastro distribuito e i modelli che rappresentano i messaggi di evento esposti dal libro mastro distribuito sottostante.
 
 ### <a name="one-way-event-delivery-from-a-smart-contract-to-an-event-consumer"></a>Recapito di eventi unidirezionale da un contratto intelligente a un consumer eventi 
 
 In questo scenario, si verifica un evento in un contratto intelligente, ad esempio una modifica dello stato o l'esecuzione di un tipo specifico di transazione. Questo evento viene trasmesso tramite una griglia di eventi ai consumer downstream e tali consumer eseguono quindi le azioni appropriate.
 
-In uno scenario di questo tipo, quando si verifica una transazione, un consumer riceve un avviso ed esegue un'azione, ad esempio registrando le informazioni in un database SQL o in Common Data Service. Questo è lo stesso modello che segue Workbench per popolare il database SQL *fuori dalla catena*.
+In uno scenario di questo tipo, quando si verifica una transazione, un consumer riceve un avviso ed esegue un'azione, ad esempio registrando le informazioni in un database SQL o in Common Data Service. Questo scenario è lo stesso modello che segue Workbench per popolare il database SQL *fuori dalla catena*.
 
 Un altro esempio è costituito da transazioni su contratti intelligenti che passano a uno stato specifico, ad esempio quando un contratto diventa *OutOfCompliance*. Quando si verifica questa modifica dello stato, potrebbe essere attivato l'invio di un avviso al cellulare di un amministratore.
 
 ![Recapito di eventi unidirezionale](./media/integration-patterns/one-way-event-delivery.png)
 
-Questa operazione viene eseguita usando il processo illustrato in precedenza, in base al quale:
+Questo scenario si basa sulla procedura illustrata in precedenza, dove:
 
 -   Il contratto intelligente passa a un nuovo stato e invia un evento al libro mastro.
 -   Il libro mastro riceve l'evento e lo recapita ad Azure Blockchain Workbench.
@@ -105,7 +105,7 @@ Alcune applicazioni sono progettate per l'integrazione con Azure Blockchain Work
 
 ![Recapito diretto](./media/integration-patterns/direct-delivery.png)
 
-Questa operazione viene eseguita usando il processo illustrato in precedenza, in base al quale:
+Questo recapito si basa sulla procedura illustrata in precedenza, dove:
 
 -   Si verifica un evento in un sistema esterno che attiva la creazione di un messaggio per Azure Blockchain Workbench.
 -   Il sistema esterno include codice per la creazione del messaggio in un formato noto e lo invia direttamente al bus di servizio.
@@ -119,7 +119,7 @@ Alcuni sistemi non possono essere modificati per recapitare i messaggi nei forma
 
 ![Formato del messaggio sconosciuto](./media/integration-patterns/unknown-message-format.png)
 
-Questa operazione viene eseguita usando il processo illustrato in precedenza, in base al quale:
+Si basa sulla procedura illustrata in precedenza, dove:
 
 -   Si verifica un evento in un sistema esterno che attiva la creazione di un messaggio.
 -   Tramite un'app per la logica o codice personalizzato, il messaggio viene ricevuto e trasformato in un messaggio formattato standard di Azure Blockchain Workbench.
@@ -144,19 +144,19 @@ Questo modello viene in genere implementato usando l'approccio seguente:
 
 #### <a name="return-of-control-from-the-smart-contract"></a>Restituzione del controllo dal contratto intelligente
 
-A seconda della possibilità di personalizzare il sistema esterno, si potrebbe o meno essere in grado di recapitare i messaggi in uno dei formati standard previsti da Azure Blockchain Workbench. La capacità dei sistemi esterni di generare uno di questi messaggi determina quale dei due percorsi di ritorno seguenti verrà intrapreso.
+A seconda della possibilità di personalizzare il sistema esterno, potrebbe essere possibile o meno recapitare i messaggi in uno dei formati standard previsti da Azure Blockchain Workbench. La capacità dei sistemi esterni di generare uno di questi messaggi determina quale dei due percorsi di ritorno seguenti viene intrapreso.
 
 ##### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Recapito diretto da Azure Blockchain Workbench nel formato previsto
 
 ![](./media/integration-patterns/direct-delivery.png)
 
-In questo modello, la comunicazione con il contratto e la successiva modifica dello stato hanno luogo secondo il processo illustrato in precedenza, in base al quale:
+In questo modello la comunicazione con il contratto e la successiva modifica dello stato hanno luogo secondo il processo precedente, in base al quale:
 
 -   Al raggiungimento del completamento o di un'attività cardine specifica nell'esecuzione del codice esterno, viene inviato un evento al bus di servizio connesso ad Azure Blockchain Workbench.
 
--   Per i sistemi che non possono essere adattati direttamente per la scrittura di un messaggio conforme a quanto previsto dall'API, il messaggio verrà trasformato.
+-   Per i sistemi che non possono essere adattati direttamente per la scrittura di un messaggio conforme a quanto previsto dall'API, il messaggio viene trasformato.
 
--   Il contenuto del messaggio è incluso in un pacchetto e inviato a una funzione specifica nel contratto intelligente. Questa operazione viene eseguita per conto dell'utente associato al sistema esterno.
+-   Il contenuto del messaggio è incluso in un pacchetto e inviato a una funzione specifica nel contratto intelligente. Questo recapito viene eseguito per conto dell'utente associato al sistema esterno.
 
 -   La funzione viene eseguita e in genere modifica lo stato. La modifica dello stato fa avanzare il flusso di lavoro aziendale che corrisponde al contratto intelligente, consentendo l'esecuzione di altre funzioni in base alle esigenze.
 
@@ -166,14 +166,14 @@ In questo modello, la comunicazione con il contratto e la successiva modifica de
 
 ![Formato del messaggio sconosciuto](./media/integration-patterns/unknown-message-format.png)
 
-In questo modello in cui non è possibile inviare direttamente un messaggio in un formato standard, la comunicazione con il contratto e la successiva modifica dello stato hanno luogo secondo il processo illustrato in precedenza, in base al quale:
+In questo modello in cui non è possibile inviare direttamente un messaggio in un formato standard, la comunicazione con il contratto e la successiva modifica dello stato hanno luogo secondo il processo precedente, in base al quale:
 
 1.  Al raggiungimento del completamento o di un'attività cardine specifica nell'esecuzione del codice esterno, viene inviato un evento al bus di servizio connesso ad Azure Blockchain Workbench.
 2.  Tramite un'app per la logica o codice personalizzato, il messaggio viene ricevuto e trasformato in un messaggio formattato standard di Azure Blockchain Workbench.
 3.  L'app per la logica invia il messaggio trasformato direttamente al bus di servizio.
 4.  Azure Blockchain Workbench è sottoscritto agli eventi del bus di servizio e recupera il messaggio.
 5.  Azure Blockchain Workbench avvia una chiamata al libro mastro, inviando i dati dal sistema esterno a un contratto specifico.
-6. Il contenuto del messaggio è incluso in un pacchetto e inviato a una funzione specifica nel contratto intelligente. Questa operazione viene eseguita per conto dell'utente associato al sistema esterno.
+6. Il contenuto del messaggio è incluso in un pacchetto e inviato a una funzione specifica nel contratto intelligente. Questo recapito viene eseguito per conto dell'utente associato al sistema esterno.
 7.  La funzione viene eseguita e in genere modifica lo stato. La modifica dello stato fa avanzare il flusso di lavoro aziendale che corrisponde al contratto intelligente, consentendo l'esecuzione di altre funzioni in base alle esigenze.
 
 ## <a name="iot-integration"></a>Integrazione IoT
@@ -184,11 +184,11 @@ Ad esempio, l'aumento della temperatura oltre i 40 gradi in un veicolo usato per
 
 La difficolta sta nel fatto che questi sensori possono inviare costantemente dati e non è appropriato inviare tutti questi dati a un contratto intelligente. Un approccio tipico consiste nel limitare il numero di messaggi inviati alla blockchain, recapitando allo stesso tempo tutti i messaggi a un archivio secondario. Ad esempio, possono essere recapitati solo i messaggi ricevuti a intervalli fissi, ad esempio una volta all'ora, e quando un valore contenuto non rientra nell'intervallo previsto per un contratto intelligente. Il controllo dei valori che non rientrano nelle tolleranze assicura che i dati rilevanti per la logica di business dei contratti vengano ricevuti ed eseguiti. Il controllo del valore in base all'intervallo conferma che il sensore sta ancora inviando dati. Tutti i dati vengono inviati a un archivio di reporting secondario per consentire la creazione di report, l'analisi e l'apprendimento automatico. Ad esempio, se acquisire ogni minuto le letture dei sensori di un sistema GPS potrebbe non essere necessario per un contratto intelligente, ciò potrebbe fornire dati interessanti da usare nei report o per la rappresentazione degli itinerari su una mappa.
 
-Nella piattaforma Azure l'integrazione con i dispositivi in genere viene eseguita tramite l'hub IoT. L'hub IoT offre la possibilità di instradare i messaggi in base al contenuto e consente il tipo di funzionalità descritte in precedenza.
+Nella piattaforma Azure l'integrazione con i dispositivi in genere viene eseguita tramite l'hub IoT. L'hub IoT offre il routing dei messaggi in base al contenuto e consente il tipo di funzionalità descritte in precedenza.
 
 ![Messaggi IoT](./media/integration-patterns/iot.png)
 
-Il processo precedente illustra un modello in cui sono implementate queste funzionalità:
+Il processo illustra un modello:
 
 -   Un dispositivo comunica direttamente o tramite un gateway sul campo con l'hub IoT.
 -   L'hub IoT riceve i messaggi e li valuta, ad esempio rispetto alle route stabilite per il controllo del contenuto del messaggio. *Il sensore segnala una temperatura superiore a 10 gradi?*
@@ -214,7 +214,7 @@ L'integrazione dei dati è ben nota:
 
 ## <a name="storage-integration"></a>Integrazione dell'archiviazione
 
-Molti scenari possono richiedere la necessità di incorporare file attestabili. Per diversi motivi, potrebbe non essere appropriato inserire file in una blockchain. Al contrario, un approccio comune è quello di eseguire un hash crittografico (ad esempio SHA-256) su un file e condividere tale hash in un libro mastro distribuito. L'esecuzione dell'hash in un secondo momento deve restituire lo stesso risultato. Se il file viene modificato, anche solo con la modifica di un pixel in un'immagine, l'hash restituirà un valore diverso.
+Molti scenari possono richiedere la necessità di incorporare file attestabili. Per diversi motivi, non è appropriato inserire file in una blockchain. Al contrario, un approccio comune è quello di eseguire un hash crittografico (ad esempio SHA-256) su un file e condividere tale hash in un libro mastro distribuito. L'esecuzione dell'hash in un secondo momento deve restituire lo stesso risultato. Se il file viene modificato, anche solo con la modifica di un pixel in un'immagine, l'hash restituisce un valore diverso.
 
 ![Integrazione dell'archiviazione](./media/integration-patterns/storage-integration.png)
 
@@ -230,15 +230,15 @@ Il modello può essere implementato quando:
 Per facilitare l'interazione di un sistema o un dispositivo esterno con il contratto intelligente tramite l'API REST o basata su messaggi, devono essere soddisfatte le condizioni seguenti:
 
 1. In Azure Active Directory per il consorzio, viene creato un account che rappresenta il sistema o il dispositivo esterno.
-2. I contratti intelligenti appropriati per l'applicazione Azure Blockchain Workbench dispongono di funzioni definite per accettare gli eventi dal sistema o dispositivo esterno.
-3. Il file di configurazione dell'applicazione per il contratto intelligente contiene il ruolo a cui sarà assegnato il sistema o il dispositivo.
-4. Il file di configurazione dell'applicazione per il contratto intelligente identifica gli stati in cui questa funzione può essere chiamata dal ruolo definito.
+2. Uno o più contratti intelligenti appropriati per l'applicazione Azure Blockchain Workbench hanno funzioni definite per accettare gli eventi dal sistema o dispositivo esterno.
+3. Il file di configurazione dell'applicazione per il contratto intelligente contiene il ruolo a cui è assegnato il sistema o il dispositivo.
+4. Il file di configurazione dell'applicazione per il contratto intelligente identifica gli stati in cui questa funzione viene chiamata dal ruolo definito.
 5. Il file di configurazione dell'applicazione e i relativi contratti intelligenti vengono caricati in Azure Blockchain Workbench.
 
 Dopo il caricamento dell'applicazione, l'account di Azure Active Directory per il sistema esterno viene assegnato al contratto e al ruolo associato.
 
 ## <a name="testing-external-system-integration-flows-prior-to-writing-integration-code"></a>Test dei flussi di integrazione dei sistemi esterni prima di scrivere il codice di integrazione 
 
-Offrire la possibilità di eseguire l'integrazione con sistemi esterni è un requisito essenziale in numerosi scenari. È consigliabile essere in grado di convalidare la progettazione dei contratti intelligenti prima dello sviluppo del codice per l'integrazione con i sistemi esterni o in parallelo con questa attività.
+L'integrazione con sistemi esterni è un requisito essenziale in numerosi scenari. È consigliabile essere in grado di convalidare la progettazione dei contratti intelligenti prima dello sviluppo del codice per l'integrazione con i sistemi esterni o in parallelo con questa attività.
 
-L'uso di Azure Active Directory (Azure AD) può accelerare notevolmente la produttività degli sviluppatori e il time-to-value. In particolare, l'integrazione del codice con un sistema esterno può richiedere una considerevole quantità di tempo. Grazie ad Azure AD e alla generazione automatica dell'esperienza utente tramite Azure Blockchain Workbench, questo può consentire agli sviluppatori di accedere a Workbench come tale sistema esterno e popolare i valori previsti dal sistema esterno tramite l'esperienza utente. In questo modo è possibile sviluppare e convalidare rapidamente le idee in un ambiente per il modello di verifica prima della scrittura del codice di integrazione per i sistemi esterni o in parallelo con tale attività.
+L'uso di Azure Active Directory (Azure AD) può accelerare notevolmente la produttività degli sviluppatori e il time-to-value. In particolare, l'integrazione del codice con un sistema esterno può richiedere una considerevole quantità di tempo. Grazie ad Azure AD e alla generazione automatica dell'esperienza utente tramite Azure Blockchain Workbench, è possibile consentire agli sviluppatori di accedere a Blockchain Workbench come sistema esterno e di popolare i valori dal sistema esterno tramite l'esperienza utente. È possibile sviluppare e testare rapidamente le idee in un ambiente per il modello di verifica prima che venga scritto il codice di integrazione per i sistemi esterni.

@@ -8,12 +8,12 @@ ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 07323f1b0541555ef71919e026ecaf2494056dad
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ec646ad1e9e1330a7e0b3f3f0576cee9d58c08e1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406499"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353261"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approccio e processo per l'adozione di Azure Data Catalog
 Questo articolo illustra come iniziare ad adottare **Azure Data Catalog** nell'organizzazione. Per adottare **Azure Data Catalog**, è opportuno tenere presenti tre elementi chiave: definire il proprio punto di vista, identificare i principali casi d'uso di business nell'organizzazione e scegliere un progetto pilota.
@@ -66,7 +66,7 @@ Ecco alcuni suggerimenti per identificare i casi d'uso:
 * **Definire gli obiettivi del team** : in che modo il team raggiunge i propri obiettivi? Non concentrarsi ancora su Catalogo dati, perché in questa fase è importante essere obiettivi. Si ricordi che si sta parlando dei risultati di business, non della tecnologia.
 * **Definire il problema di business** : quali sono le problematiche affrontate dal team relativamente alla ricerca e alla comprensione degli asset di dati? Ad esempio, le informazioni sulle origini dati importanti possono trovarsi in cartelle di lavoro di Excel in una cartella di rete e il team può impiegare molto tempo per individuare le cartelle di lavoro.
 * **Comprendere il pensiero del team relativamente al cambiamento** : molte difficoltà dell'adozione riguardano la resistenza al cambiamento più che l'implementazione di un nuovo strumento. La risposta di un team al cambiamento è importante quando si identificano i casi d'uso perché il processo esistente potrebbe essere in atto perché "si è sempre fatto così" o perché "se funziona, non serve cambiarlo". L'adozione di un nuovo strumento o processo è sempre molto facile quando le persone capiscono il valore derivante dal cambiamento e sanno valutare l'importanza dei problemi da risolvere.
-* **Mantenere l'attenzione sugli asset di dati** : quando si illustrano i problemi di business affrontati da un team, è necessario andare dritti al punto e concentrarsi su ciò che conta per sfruttare in modo più efficiente gli asset di dati aziendali.
+* **Mantenere l'attenzione sugli asset di dati**: quando si illustrano i problemi di business affrontati da un team, è necessario andare dritti al punto e concentrarsi su ciò che conta per sfruttare in modo più efficiente gli asset di dati aziendali.
 
 Ecco alcuni casi d'uso di esempio correlati a Catalogo dati:
 

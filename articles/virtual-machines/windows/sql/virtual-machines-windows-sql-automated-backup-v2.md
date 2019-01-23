@@ -3,7 +3,7 @@ title: Backup automatico v2 per macchine virtuali SQL Server 2016/2017 in Azure 
 description: Viene illustrata la funzionalità di backup automatico per macchine virtuali SQL Server 2016/2017 in esecuzione in Azure. Questo articolo si applica alle macchine virtuali che usano Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: jroth
-ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 432df6d73b2eaa42645fe25ad9c743b7fcef06a8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246821"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331656"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Backup automatico v2 per macchine virtuali in Azure (Resource Manager)
 
@@ -91,7 +92,7 @@ Il lunedì si abilita Backup automatico v2 con le seguenti impostazioni:
 - Pianificazione backup: **Manuale**
 - Frequenza backup completo: **Settimanale**
 - Ora di inizio backup completo: **01:00**
-- Intervallo di tempo dei backup completi: **1 ora**
+- Intervallo di tempo per il backup completo: **1 ora**
 
 Ciò significa che l'intervallo di tempo disponibile successivo per il backup sarà martedì alle ore 01:00 per 1 ora. In quel momento, Backup automatico inizia a eseguire il backup dei database, uno alla volta. In questo scenario, date le dimensioni dei database, il tempo è sufficiente per eseguire il backup dei primi due. Passata l'ora, tuttavia, il backup non è stato eseguito per tutti i database.
 
@@ -107,9 +108,9 @@ Si dispone di una macchina virtuale di SQL Server che contiene una serie di data
 Il lunedì si abilita Backup automatico v2 con le seguenti impostazioni:
 
 - Pianificazione backup: Manuale
-- Frequenza backup completo: Ogni giorno
+- Frequenza backup completo: Giornaliera
 - Ora di inizio backup completo: 22:00
-- Intervallo di tempo dei backup completi: 6 ore
+- Intervallo di tempo per il backup completo: 6 ore
 
 Ciò significa che l'intervallo di tempo disponibile successivo per il backup sarà lunedì alle ore 22:00 per 6 ore. In quel momento, Backup automatico inizia a eseguire il backup dei database, uno alla volta.
 

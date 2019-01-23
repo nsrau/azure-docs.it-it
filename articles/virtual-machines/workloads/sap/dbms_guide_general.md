@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e514f35567f4be0932c7bcc591cbd0f05cd9814
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606759"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246875"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -133,7 +133,11 @@ Azure applica una quota di operazioni di I/O al secondo per disco dati. I dischi
 
 > [!NOTE]
 > Per trarre vantaggio dall'unico [contratto di servizio per macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) tutti i dischi collegati devono essere di tipo Archiviazione Premium di Azure, incluso il disco rigido virtuale di base.
->
+
+
+> [!NOTE]
+> Non può ospitare i file principali di database (file di log e dati) dei database SAP su hardware di archiviazione situati in data center di terze parti con risorse condivise adiacenti ai data center di Azure. Per il carico di lavoro SAP solo l'archiviazione che è rappresentata come servizio nativo di Azure è supportata per i file di log delle transazioni e dei dati dei database SAP.
+> 
 
 La posizione dei file di database, dei file registro e di rollforward e il tipo di Archiviazione di Azure usati devono essere definiti in base ai requisiti di operazioni di I/O al secondo, latenza e velocità effettiva. Per avere un numero di operazioni di I/O al secondo sufficiente, potrebbe essere necessario sfruttare più dischi oppure usare un disco di Archiviazione Premium di dimensioni maggiori. In caso di uso di più dischi, si creerebbe una striscia software tra i dischi che contengono i file di dati o i file registro/di rollforward. In questi casi, i contratti di servizio per le operazioni di I/O al secondo e la velocità effettiva dei dischi di Archiviazione Premium sottostanti o il numero massimo raggiungibile di operazioni di I/O al secondo di Archiviazione Standard di Azure sono cumulativi per il set di striping risultante.
 

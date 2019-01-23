@@ -12,118 +12,66 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 1/2/2019
 ms.author: rkarlin
-ms.openlocfilehash: d496f3f28cee711109c5c200102d48482bf6cd9c
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b973bb0e5cd9504725be385ab8505adbb140c950
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340695"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261860"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso delle raccomandazioni del Centro sicurezza di Azure per migliorare la sicurezza
 Configurando i criteri di sicurezza e implementando le raccomandazioni offerte dal Centro sicurezza di Azure, è possibile ridurre le probabilità di un importante evento di sicurezza. Questo articolo illustra come usare i criteri di sicurezza e le raccomandazioni nel Centro sicurezza di Azure per attenuare un attacco alla sicurezza.
 
-> [!NOTE]
-> Questo articolo si basa sui ruoli e i concetti introdotti nella [guida alla pianificazione e gestione](security-center-planning-and-operations-guide.md) del Centro sicurezza. Prima di continuare è consigliabile esaminare la guida alla pianificazione.
->
->
-
-## <a name="managing-security-recommendations"></a>Gestione delle raccomandazioni sulla sicurezza
-I criteri di sicurezza definiscono il set di controlli consigliati per le risorse nell'ambito della sottoscrizione o del gruppo di risorse specificato. Nel Centro sicurezza è possibile definire i criteri in base ai requisiti di sicurezza della società. Per altre informazioni, vedere [Impostare i criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md).
-
-I criteri di sicurezza per i gruppi di risorse vengono ereditati dal livello della sottoscrizione.
-
-![Ereditarietà dei criteri di sicurezza][1]
-
-Se sono necessari criteri personalizzati in gruppi di risorse specifici, è possibile disabilitare l'ereditarietà nel gruppo di risorse. Per disabilitare, impostare Ereditarietà su Univoca nel pannello di criteri di sicurezza e personalizzare i controlli per cui il Centro sicurezza mostra le raccomandazioni.
-
-Ad esempio, se alcuni carichi di lavoro non richiedono il criterio Transparent Data Encryption (TDE) del database SQL, occorre disabilitarlo al livello di sottoscrizione e abilitarlo solo nei gruppi di risorse in cui è richiesto.
-
-> [!NOTE]
-> In caso di conflitto tra criteri definiti a livello di sottoscrizione e quelli a livello di gruppo di risorse, i criteri a livello di gruppo di risorse avranno la precedenza.
->
->
-
-Il Centro sicurezza analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni in base ai controlli impostati nel criterio di sicurezza. Queste raccomandazioni illustrano in dettaglio il processo di configurazione dei controlli di sicurezza necessari.
-
-Le raccomandazioni correnti dei criteri nel Centro sicurezza sono incentrate sugli aggiornamenti di sistema, sulla configurazione del sistema operativo, sui gruppi di sicurezza di rete su subnet e sulle macchine virtuali (VM), sul controllo del Database SQL, sul criterio TDE del Database SQL e sui firewall dell'applicazione web. Per informazioni più aggiornate sulle raccomandazioni del Centro sicurezza, vedere [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
+Il Centro sicurezza analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli di sicurezza necessari.
 
 ## <a name="scenario"></a>Scenario
-In questo scenario viene illustrato come utilizzare il Centro sicurezza per ridurre il rischio di importanti problemi di sicurezza monitorando e intervenendo sulle raccomandazioni del Centro sicurezza. Si fa riferimento a una società fittizia, Contoso, e ai ruoli presentati nella [guida alla pianificazione e gestione](security-center-planning-and-operations-guide.md#security-roles-and-access-controls) del Centro sicurezza. I ruoli rappresentano singoli utenti e gruppi che usano il Centro sicurezza per eseguire diverse attività correlate alla sicurezza. I ruoli sono:
+In questo scenario viene illustrato come usare il Centro sicurezza per ridurre il rischio di eventi imprevisti della sicurezza monitorando e intervenendo sulle raccomandazioni del Centro sicurezza. Si fa riferimento a una società fittizia, Contoso, e ai ruoli presentati nella [guida alla pianificazione e gestione](security-center-planning-and-operations-guide.md#security-roles-and-access-controls) del Centro sicurezza. Lo scenario si concentra sui ruoli degli utenti tipo seguenti:
 
-![Ruoli dello scenario][2]
+![Ruoli dello scenario](./media/security-center-using-recommendations/scenario-roles.png)
 
-Contoso di recente ha eseguito la migrazione di alcune delle proprie risorse locali in Azure. Contoso desidera implementare e applicare protezioni che riducano le vulnerabilità dell'azienda in caso di un attacco alle proprie risorse nel cloud.
+Contoso di recente ha eseguito la migrazione di alcune delle proprie risorse locali in Azure. Contoso vuole proteggere le risorse e ridurre la vulnerabilità delle risorse nel cloud.
 
-## <a name="recommended-solution"></a>Soluzione consigliata
-Una soluzione consiste nell'utilizzare il Centro sicurezza per prevenire e rilevare vulnerabilità della sicurezza. Contoso ha accesso al Centro sicurezza grazie alla sottoscrizione di Azure. In tutte le sottoscrizioni di Azure viene abilitato automaticamente il [livello gratuito](security-center-pricing.md) del Centro sicurezza e su tutte le macchine virtuali della propria sottoscrizione viene abilitata la raccolta dei dati.
+## <a name="use-azure-security-center"></a>Usare il Centro sicurezza di Azure
+David, del reparto sicurezza IT di Contoso, ha già scelto di eseguire l'onboarding del Centro sicurezza nelle sottoscrizioni di Contoso al Centro sicurezza di Azure per prevenire e rilevare le vulnerabilità di sicurezza. 
 
-David, del reparto di sicurezza informatica di Contoso, configura i **criteri di sicurezza** con il Centro sicurezza. Il Centro sicurezza analizza lo stato di sicurezza delle risorse di Azure di Contoso. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea **raccomandazioni** in base ai controlli impostati nel criterio di sicurezza.
+Il Centro sicurezza analizza automaticamente lo stato di sicurezza delle risorse di Azure di Contoso e applica i criteri di sicurezza predefiniti. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea **raccomandazioni** in base ai controlli impostati nel criterio di sicurezza. 
 
-Jeff, un proprietario del carico di lavoro su cloud, è responsabile delle attività di implementazione e gestione della protezione secondo i criteri di sicurezza di Contoso. Jeff può monitorare le raccomandazioni create dal Centro sicurezza per applicare le protezioni. Queste raccomandazioni guidano Jeff nel processo di configurazione dei controlli di sicurezza necessari.
+David esegue il livello standard del Centro sicurezza di Azure in tutte le sottoscrizioni per ottenere la suite completa di raccomandazioni e funzionalità di sicurezza disponibili. Anche Jeff esegue l'onboarding di tutti i server locali esistenti di cui non è ancora stata eseguita la migrazione al cloud, in modo da poter usufruire del supporto ibrido del Centro sicurezza per i server [Windows](quick-onboard-windows-computer.md) e [Linux](quick-onboard-linux-computer.md).
 
-Affinché Jeff implementi e gestisca le protezioni ed elimini le vulnerabilità di sicurezza, deve:
+Jeff è un proprietario del carico di lavoro cloud. È responsabile dell'applicazione dei controlli di sicurezza in conformità con i criteri di sicurezza di Contoso. 
+
+Jeff esegue queste attività:
 
 - monitorare le raccomandazioni di sicurezza presenti nel Centro sicurezza
 - valutare le raccomandazioni sulla sicurezza e decidere se applicarle o ignorarle
 - applicare le raccomandazioni sulla sicurezza
 
-Seguiamo la procedura di Jeff per vedere come usa le raccomandazioni del Centro sicurezza per configurare i controlli al fine di eliminare le vulnerabilità della sicurezza.
+### <a name="remediate-threats-using-recommendations"></a>Correggere le minacce usando le raccomandazioni
+Come parte delle sue attività di monitoraggio quotidiane, Jeff accede ad Azure e apre il Centro sicurezza. 
 
-## <a name="how-to-implement-this-solution"></a>Come implementare questa soluzione
-Jeff effettua l'accesso al [Portale di Azure](https://azure.microsoft.com/features/azure-portal/) e apre la console del Centro sicurezza. Come parte delle sue attività di monitoraggio giornaliere, controlla se ci sono raccomandazioni sulla sicurezza eseguendo la procedura seguente:
+1. Jeff seleziona le sottoscrizioni del suo carico di lavoro.
 
-1. Jeff seleziona il riquadro **Raccomandazioni** per aprire **Raccomandazioni**.
-   ![Selezionare il riquadro Raccomandazioni][3]
-2. Jeff esamina l'elenco delle raccomandazioni. Nota che il Centro sicurezza presenta l'elenco delle raccomandazioni in ordine di priorità, dalla priorità più alta a quella più bassa. Decide di risolvere una raccomandazioni con priorità elevata nell'elenco. In **Raccomandazioni** seleziona **Installa Endpoint Protection**.
-3. Viene visualizzato **Installa Endpoint Protection** che mostra un elenco di macchine virtuali per cui non è abilitato l'antimalware. Jeff controlla l'elenco delle macchine virtuali, seleziona tutte le macchine virtuali e quindi seleziona **Installa nelle VM 3**.
-   ![Installare Endpoint Protection][4]
-4. Viene visualizzato **Seleziona Endpoint Protection** che offre a Jeff due soluzioni antimalware. Jeff seleziona la soluzione **Microsoft Antimalware**.
-5. Vengono visualizzate altre informazioni sulla soluzione antimalware selezionata. Jeff seleziona **Crea**.
-   ![Microsoft antimalware][5]
-6. Jeff inserisce le impostazioni di configurazione richieste in **Installazione** e seleziona **OK**.
+2. Jeff controlla il **punteggio di sicurezza** per ottenere un quadro generale della sicurezza delle sottoscrizioni e vede che il suo punteggio è 548.
 
-[Microsoft Antimalware](../security/azure-security-antimalware.md) è ora attivo nelle VM selezionate.
+3. Jeff deve decidere quali raccomandazioni gestire per prime. Quindi, Jeff fa clic sul punteggio di sicurezza e inizia a gestire raccomandazioni in base a quanto migliorano l'[impatto di punteggio di sicurezza](security-center-secure-score.md).
 
-Jeff continua sfoglia le raccomandazioni con priorità alta e media, decidendo di volta in volta sull'implementazione. Jeff fa riferimento all'articolo sulla [gestione delle raccomandazioni sulla sicurezza](security-center-recommendations.md) per capire cosa sono le raccomandazioni e la funzione di ognuna di esse se applicate.
+4. Poiché ha un numero elevato di server e macchine virtuali connesse, Jeff decide di concentrarsi su **Risorse di calcolo e app**.
 
-Jeff scopre che il [Microsoft Security Response Center (MSRC)](../security/azure-security-response-center.md) esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni su minacce e segnalazioni di violazioni da terzi. Se Jeff inserisce il contatto per la sicurezza di Contoso per la sottoscrizione di Azure, Microsoft contatta Contoso se MSRC rileva che i dati dei clienti di Contoso sono stati violati da altri utenti non autorizzati in modo illegale. Vediamo come Jeff applica la raccomandazione **Provide security contact details** (Inserisci i dettagli dei contatti per la sicurezza) (una raccomandazione con livello di gravità medio nell'elenco delle raccomandazioni sopra indicato).
+5. Quando Jeff fa clic sul **Risorse di calcolo e app**, visualizza un elenco di raccomandazioni e le gestisce in base all'impatto di punteggio di sicurezza.
 
-1. Jeff seleziona **Specificare i dettagli dei contatti di sicurezza** in **Raccomandazioni**, che consente di aprire **Specificare i dettagli dei contatti di sicurezza**.
-2. Jeff seleziona la sottoscrizione di Azure per cui specifica le informazioni di contatto. Viene visualizzato un altro pannello **Specificare i dettagli dei contatti di sicurezza** .
-   ![Dettagli del contatto per la sicurezza][6]
-3. In **Specificare i dettagli dei contatti di sicurezza** Jeff immette:
+6. Jeff ha numerose macchine virtuali con connessione Internet e poiché le relative porte sono esposte, teme che un utente malintenzionato possa ottenere il controllo dei server. Di conseguenza, sceglie di usare l'**accesso JIT alle macchine virtuali** [security-center-just-in-time.md].
 
-  - gli indirizzi di posta elettronica dei contatti per la sicurezza separati da virgole (non c'è un limite al numero di indirizzi di posta elettronica che è possibile inserire)
-  - un numero di telefono del contatto per la sicurezza
-
-4. Per ricevere messaggi di posta elettronica relativi agli avvisi di elevata gravità, Jeff inoltre attiva l'opzione **Send me emails about alerts**(Invia messaggi di posta elettronica relativi agli avvisi).
-5. Jeff seleziona **OK** per applicare le informazioni di contatto di sicurezza alla sottoscrizione di Contoso.
-
-Infine, Jeff esamina le raccomandazioni con priorità bassa **Remediate OS vulnerabilities** (Correggi le vulnerabilità del sistema operativo) e decide che questa raccomandazione non è applicabile. Vuole ignorare la raccomandazione. Jeff seleziona i tre puntini che appaiono a destra, quindi seleziona **Ignora**.
-   ![Ignorare la raccomandazione][7]
+Jeff continua a sfogliare le raccomandazioni con priorità alta e media, decidendo di volta in volta sull'implementazione. Per ogni raccomandazione, Jeff esamina le informazioni dettagliate fornite dal Centro sicurezza per comprendere quali risorse sono interessate, qual è l'impatto di punteggio sicuro, il significato di ogni raccomandazione e la procedura di correzione per attenuare i problemi.
 
 ## <a name="conclusion"></a>Conclusioni
-Il monitoraggio delle raccomandazioni nel Centro sicurezza PC può contribuire a eliminare le vulnerabilità di sicurezza prima che si verifichi un attacco. È possibile evitare problemi di sicurezza applicando e gestendo le protezioni con i criteri di protezione nel Centro sicurezza.
+Il monitoraggio delle raccomandazioni nel Centro sicurezza contribuisce a eliminare le vulnerabilità di sicurezza prima che si verifichi un attacco. Quando si fanno correzioni in base alle raccomandazioni, il punteggio di sicurezza e le condizioni di sicurezza dei carichi di lavoro migliorano. Il Centro sicurezza individua automaticamente le nuove risorse distribuite, le valuta in base ai criteri di sicurezza e offre nuove raccomandazioni per proteggerle.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
+Assicurarsi che sia implementato un processo di monitoraggio in cui controllare regolarmente le raccomandazioni nel Centro sicurezza, per assicurarsi di mantenere le risorse protette nel tempo.
+
 Questo scenario ha illustrato come usare i criteri di sicurezza e le raccomandazioni nel Centro sicurezza di Azure per attenuare un attacco alla sicurezza. Vedere lo [scenario di risposta agli eventi imprevisti](security-center-incident-response.md) per informazioni su come implementare un piano di risposta agli eventi imprevisti prima di un attacco.
 
-Per altre informazioni sul Centro sicurezza, vedere:
-
-* [Monitoraggio dell'integrità della sicurezza](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-* [Gestione e risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* [Monitoraggio ed elaborazione degli eventi di sicurezza](security-center-events-dashboard.md): informazioni su come monitorare ed elaborare gli eventi di sicurezza raccolti nel tempo.
-* [Monitoraggio delle soluzioni dei partner](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : informazioni e notizie aggiornate sulla sicurezza di Azure.
-
-<!--Image references-->
-[1]: ./media/security-center-using-recommendations/security-center-policy-inheritance.png
-[2]: ./media/security-center-using-recommendations/scenario-roles.png
-[3]: ./media/security-center-using-recommendations/select-recommendations-tile.png
-[4]: ./media/security-center-using-recommendations/install-endpoint-protection.png
-[5]:./media/security-center-using-recommendations/microsoft-antimalware.png
-[6]: ./media/security-center-using-recommendations/provide-security-contact-details.png
-[7]: ./media/security-center-using-recommendations/dismiss-recommendation.png
+Informazioni su come rispondere alle minacce con la [risposta agli eventi imprevisti](security-center-incident-response.md).

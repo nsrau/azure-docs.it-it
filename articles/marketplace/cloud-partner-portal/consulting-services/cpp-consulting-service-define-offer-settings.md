@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9cb52aea56e9c1183af9ca76201ab65c62a58f22
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972172"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231938"
 ---
 # <a name="offer-settings-tab"></a>Scheda Impostazioni dell'offerta
 
@@ -27,35 +27,36 @@ Nella schermata **Nuova offerta**, il primo passaggio consiste nel creare l'iden
 
 ![Creare una nuova offerta di servizi di consulenza - scheda Impostazioni dell'offerta](media/consultingoffer-settings-tab.png)
 
-*ID offerta*
+### <a name="offer-id"></a>ID offerta
 
-Questo identificatore è un nome univoco che viene creato quando si invia l'offerta per la prima volta. Deve contenere solo caratteri alfanumerici minuscoli, trattini o caratteri di sottolineatura. L'**ID offerta** sarà visibile nell'URL e avrà effetto sui risultati dei motori di ricerca. Ad esempio, *yourcompanyname_exampleservice*
+Questo identificatore è un nome univoco che viene creato quando si invia l'offerta per la prima volta. Deve contenere solo caratteri alfanumerici minuscoli, trattini o caratteri di sottolineatura. L'**ID offerta** è visibile nell'URL e ha effetto sui risultati dei motori di ricerca. Ad esempio, *nomeazienda_servizioesempio*.
 
-Come mostrato nell'esempio, l'**ID offerta** viene accodato all'ID editore per creare un identificatore univoco. Questo viene esposto come collegamento permanente che può essere prenotato ed è indicizzato dai motori di ricerca.
+Come mostrato nell'esempio, l'**ID offerta** viene accodato all'ID editore per creare un identificatore univoco. Quest'ultimo viene esposto come collegamento permanente che può essere prenotato ed è indicizzato dai motori di ricerca.
 
-*Dopo che un'offerta è diventata attiva, il relativo identificatore non può essere aggiornato*
+>[!Note]
+>Dopo che un'offerta è diventata attiva, il relativo identificatore non può essere aggiornato.
 
-*ID editore*
+### <a name="publisher-id"></a>ID editore
 
-Questo identificatore è correlato all'account. Una volta effettuato l'accesso con l'account dell'organizzazione, l'ID **editore** verrà visualizzato nel menu a discesa.
+Questo identificatore è correlato all'account. Dopo che si è eseguito l'accesso con l'account dell'organizzazione, l'**ID editore** viene visualizzato nel menu a discesa.
 
-*Nome*
+### <a name="name"></a>Nome
 
-Questa stringa è il testo che verrà visualizzato come nome dell'offerta in AppSource o in Azure Marketplace. Il campo *Nome* prevede un limite di 50 caratteri.  Il revisore potrebbe dover modificare il titolo per consentire l'accodamento del nome dell'offerta con la durata e il tipo di offerta.
+Questa stringa è il testo che viene visualizzato come nome dell'offerta in AppSource o in Azure Marketplace. La casella **Nome** prevede un limite di 50 caratteri. Il revisore potrebbe avere la necessità di modificare il titolo per aggiungere informazioni sulla durata e sul tipo di offerta.
 
-Nell'esempio seguente di Edgewater Fullscope viene visualizzata la modalità di assemblaggio del nome dell'offerta. Il nome dell'offerta viene visualizzato nel modo seguente:
+L'esempio seguente mostra come viene assemblato il nome dell'offerta. 
 
 ![Creare una nuova offerta di servizi di consulenza](media/cppsampleconsultingoffer.png)
 
 Il nome dell'offerta è costituito da quattro parti:
 
--   **Durata:** viene definita nella scheda **Dettagli vetrina** dell'editore. La durata può essere espressa in ore, giorni o settimane.
--   **Tipo di servizio**: viene definito nella scheda **Dettagli vetrina** dell'editore. I tipi di servizio sono `Assessment`, `Briefing`, `Implementation`, `Proof of concept` e `Workshop`.
--   **Preposizione:** inserita dal revisore.
--   **Nome:** definito nella pagina **Impostazioni dell'offerta**.
+-   **Durata:** parte definita nella scheda **Dettagli vetrina** dell'editor. La durata può essere espressa in ore, giorni o settimane.
+-   **Tipo di servizio:** parte definita nella scheda **Dettagli vetrina** dell'editor. I tipi di servizio sono `Assessment`, `Briefing`, `Implementation`, `Proof of concept` e `Workshop`.
+-   **Proposta:** parte inserita dal revisore.
+-   **Nome:** parte definita nella pagina **Impostazioni dell'offerta**.
 
 >[!Note]
->Il campo del nome prevede un limite di 50 caratteri. Il nome inviato potrebbe essere modificato dal revisore per consentirne l'accodamento della durata e del tipo di offerta al nome.
+>La casella **Nome** prevede un limite di 50 caratteri. Il revisore potrebbe avere la necessità di modificare il titolo per aggiungere informazioni sulla durata e sul tipo di offerta.
 
 L'elenco seguente propone diversi nomi di offerta appropriati:
 
@@ -68,11 +69,11 @@ L'elenco seguente propone diversi nomi di offerta appropriati:
 -   Analisi cloud: workshop di 3 giorni
 -   Training di Power BI: workshop di 3 giorni
 -   Soluzione di gestione delle vendite: implementazione di 1 settimana
--   Avvio rapido CRM: workshop di 1 giorno
+-   Avvio rapido su CRM: workshop di 1 giorno
 -   Dynamics 365 for Sales: valutazione di 2 giorni
 
-Dopo aver compilato la scheda **Impostazioni dell'offerta**, è possibile salvare l'invio. Il nome dell'offerta verrà visualizzato sopra all'editor e sarà possibile trovarlo in Tutte le offerte.
+Dopo aver completato la scheda **Impostazioni dell'offerta**, salvare l'offerta da inviare. Il nome dell'offerta viene ora visualizzato al di sopra dell'editor ed è possibile trovarlo in **Tutte le offerte**.
 
-**Passaggi successivi**
+## <a name="next-steps"></a>Passaggi successivi
 
-Immettere i [dati da visualizzare nella vetrina e la preferenza in merito alla pubblicazione in Azure Marketplace o in AppSource](./cpp-consulting-service-storefront-details.md).
+È ora possibile immettere i [dati da visualizzare nella vetrina e decidere se pubblicare in Azure Marketplace o in AppSource](./cpp-consulting-service-storefront-details.md).

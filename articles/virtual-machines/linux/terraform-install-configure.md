@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: echuvyrov
-ms.openlocfilehash: 1af96b686a1502d638b4335e22259b79169d1065
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 71cf07b227a75e53119f2f35e79ccd7926b551e7
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173248"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200701"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installare e configurare Terraform per eseguire il provisioning di macchine virtuali e altra infrastruttura in Azure
  
@@ -59,23 +59,23 @@ Per usare una sottoscrizione selezionata, impostare la sottoscrizione per questa
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-A questo punto è possibile creare un'entità servizio per l'uso con Terraform. Usare [az ad sp create-for-rbac]/cli/azure/ad/sp#az-ad-sp-create-for-rbac) e impostare l'*ambito* alla sottoscrizione come indicato di seguito:
+A questo punto è possibile creare un'entità servizio per l'uso con Terraform. Usare [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) e impostare l'*ambito* alla sottoscrizione come indicato di seguito:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-Vengono restituiti *appId*, *password*, *sp_name* e *tenant*. Prendere nota di *appId* e *password*.
+Vengono restituiti i valori `appId`, `password`, `sp_name` e `tenant`. Prendere nota di `appId` e `password`.
 
 ## <a name="configure-terraform-environment-variables"></a>Configurare le variabili di ambiente di Terraform
 
 Per configurare Terraform per l'uso dell'entità servizio di Azure AD, impostare le variabili di ambiente seguenti che saranno quindi usate dai [moduli Terraform per Azure](https://registry.terraform.io/modules/Azure). È anche possibile impostare l'ambiente se si usa un cloud di Azure diverso da Azure pubblico.
 
-- ARM_SUBSCRIPTION_ID
-- ARM_CLIENT_ID
-- ARM_CLIENT_SECRET
-- ARM_TENANT_ID
-- ARM_ENVIRONMENT
+- `ARM_SUBSCRIPTION_ID`
+- `ARM_CLIENT_ID`
+- `ARM_CLIENT_SECRET`
+- `ARM_TENANT_ID`
+- `ARM_ENVIRONMENT`
 
 Di seguito è riportato uno script della shell di esempio che è possibile usare per impostare tali variabili:
 

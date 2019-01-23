@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5607dd0f3c682915f1a64edcc5e946491bab5279
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653357"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245090"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -44,7 +44,7 @@ Questo articolo fornisce una panoramica del report degli accessi.
 * Qualsiasi utente (non amministratore) può inoltre visualizzare i propri accessi 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Quale licenza di Azure AD è necessaria per visualizzare le attività di accesso?
-* Per visualizzare il report completo delle attività di accesso, è necessario che al tenant sia associata una licenza di Azure AD Premium. vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso.
+* Per visualizzare il report completo delle attività di accesso, è necessario che al tenant sia associata una licenza di Azure AD Premium. vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso. Si noti che se i dati sulle attività non fosseso disponibili prima dell'aggiornamento, saranno necessari un paio di giorni per visualizzare i dati nei report dopo aver eseguito l'aggiornamento a una licenza Premium.
 
 ## <a name="sign-ins-report"></a>Report sugli accessi
 
@@ -54,7 +54,7 @@ Il report relativo agli accessi utente fornisce le risposte alle domande seguent
 * Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
 * Qual è lo stato di questi accessi?
 
-Per accedere al report degli accessi, selezionare **Accessi** nella sezione **Attività** del pannello **Azure Active Directory** nel [portale di Azure](https://portal.azure.com).
+Per accedere al report degli accessi, selezionare **Accessi** nella sezione **Attività** del pannello **Azure Active Directory** nel [portale di Azure](https://portal.azure.com). Si noti che la visualizzazione di alcuni record di accesso nel portale potrebbe richiedere fino a due ore.
 
 ![Attività di accesso](./media/concept-sign-ins/61.png "Attività di accesso")
 
@@ -233,6 +233,12 @@ Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un
 L'opzione **Accessi** offre una panoramica completa di tutti gli eventi di accesso nell'applicazione.
 
 ![Attività di accesso](./media/concept-sign-ins/11.png "Attività di accesso")
+
+## <a name="office-365-activity-logs"></a>Log attività di Office 365
+
+È possibile visualizzare i log attività di Office 365 dall'[interfaccia di amministrazione di Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Sebbene i log attività di Office 365 e di Azure AD condividano numerose risorse della directory, solo l'interfaccia di amministrazione di Office 365 consente una visualizzazione completa dei log attività di Office 365. 
+
+È possibile accedere ai log attività di Office 365 anche a livello di codice tramite le [API di gestione di Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

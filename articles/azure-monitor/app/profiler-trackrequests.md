@@ -1,6 +1,6 @@
 ---
 title: Scrivere codice per tenere traccia delle richieste con Azure Application Insights | Microsoft Docs
-description: Scrivere codice per tenere traccia delle richieste con Application Insights in modo da ottenere i profili per le richieste
+description: Scrivere codice per tenere traccia delle richieste con Application Insights in modo da ottenere i profili per le richieste.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,19 +12,20 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 20f408d9dd32c3fd7a0e319e4051483e3aa54dd9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 978f9a341eec2f16b9f6fe3d164e97805d7a8e93
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082028"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359640"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Scrivere codice per tenere traccia delle richieste con Application Insights
 
-Per visualizzare i profili per l'applicazione nella pagina delle prestazioni, Application Insights deve rilevare le richieste per l'applicazione. Application Insights può rilevare automaticamente le richieste per le applicazioni compilate su framework già instrumentati, ad esempio ASP.Net e ASP.Net Core. Tuttavia per le altre applicazioni, ad esempio i ruoli di lavoro del servizio cloud di Azure e le API senza stato di Service Fabric, è necessario scrivere il codice in modo da indicare ad Application Insights dove iniziano e finiscono le richieste. Dopo aver scritto questo codice, i dati di telemetria delle richieste verranno inviati ad Application Insights e visualizzati nella pagina Prestazioni e i profili verranno raccolti per queste richieste. 
+Per visualizzare i profili per l'applicazione nella pagina delle prestazioni, Azure Application Insights deve rilevare le richieste per l'applicazione. Application Insights può rilevare automaticamente le richieste per le applicazioni basate su framework già instrumentati. Due esempi sono ASP.NET e ASP.NET Core. 
 
-Ecco i passaggi da seguire per tenere traccia delle richieste manualmente:
+Per altre applicazioni, ad esempio i ruoli di lavoro dei Servizi cloud di Azure e le API senza stato di Service Fabric, è necessario scrivere il codice in modo da indicare ad Application Insights dove iniziano e finiscono le richieste. Dopo avere scritto questo codice, i dati di telemetria delle richieste vengono inviati ad Application Insights. È possibile visualizzare i dati di telemetria nella pagina delle prestazioni; inoltre vengono raccolti i profili per tali richieste. 
 
+Per tenere manualmente traccia delle richieste, seguire questa procedura:
 
   1. Aggiungere il codice seguente in un punto iniziale della durata dell'applicazione:  
 
@@ -36,7 +37,7 @@ Ecco i passaggi da seguire per tenere traccia delle richieste manualmente:
         ```
       Per altre informazioni sulla configurazione della chiave di strumentazione globale, vedere [Using Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md) (Usare Service Fabric con Application Insights).  
 
-  1. Aggiungere un'istruzione `StartOperation<RequestTelemetry>` **USING** intorno a ogni parte del codice che si vuole instrumentare, come nell'esempio seguente:
+  1. Aggiungere un'istruzione **using** `StartOperation<RequestTelemetry>` intorno a ogni parte del codice che si vuole instrumentare, come nell'esempio seguente:
 
         ```csharp
         using Microsoft.ApplicationInsights;

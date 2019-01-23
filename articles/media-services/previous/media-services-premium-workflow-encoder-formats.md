@@ -6,22 +6,22 @@ documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 337ee0edc3d6e644415b2b3f7524d829d0e3c692
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 5059e4c00fc3bcbee76f8f5a3746b4d8783d901b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246467"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359273"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codec e formati del flusso di lavoro Premium del codificatore multimediale
+
 > [!NOTE]
 > Per domande relative al codificatore Premium, inviare un messaggio di posta elettronica a mepd@microsoft.com.
 > 
@@ -29,18 +29,20 @@ ms.locfileid: "50246467"
 > 
 > 
 
-Questo documento include un elenco dei codec e dei formati di file di input e output supportati nella versione di anteprima pubblica del codificatore per il **flusso di lavoro Premium del codificatore multimediale** .
+Questo documento include un elenco dei codec e dei formati di file di input e output supportati nella versione di anteprima pubblica del codificatore per il **flusso di lavoro Premium del codificatore multimediale**.
 
 [Codec e formati di input del flusso di lavoro Premium del codificatore multimediale](#input_formats)
 
 [Codec e formati di output del flusso di lavoro Premium del codificatore multimediale](#output_formats)
 
-**flusso di lavoro Premium del codificatore multimediale** supporta i sottotitoli codificati descritti in [questa](#closed_captioning) sezione. 
+**Flusso di lavoro Premium del codificatore multimediale** supporta i sottotitoli codificati descritti in [questa](#closed_captioning) sezione. 
 
 ## <a id="input_formats"></a>Codec e formati di input del flusso di lavoro Premium del codificatore multimediale
+
 La seguente sezione include l'elenco dei codec e dei formati di file supportati come input da questo processore di contenuti multimediali.
 
 ### <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
+
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -51,6 +53,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 * AVI (non compresso 8 bit/10 bit)
 
 ### <a name="input-video-codecs"></a>Codec video di input
+
 * AVC 8 bit/10 bit, fino a 4:2:2, incluso AVCIntra
 * Avid DNxHD (in MXF)
 * DVCPro/DVCProHD (in MXF)
@@ -61,6 +64,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 * Windows Media Video/VC-1
 
 ### <a name="input-audio-codecs"></a>Codec audio di input
+
 * AES (SMPTE 331M e 302M, AES3-2003)
 * Dolby® E
 * Dolby® Digital (AC3)
@@ -71,9 +75,11 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 * WAV/PCM
 
 ## <a id="output_format"></a>Codec e formati di output del flusso di lavoro Premium del codificatore multimediale
+
 La seguente sezione include l'elenco dei codec e dei formati di file supportati come output da questo processore di contenuti multimediali.
 
 ### <a name="output-containerfile-formats"></a>Contenitore di output/formati di file
+
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM e AS02)
 * DPP (incluso AS11)
@@ -85,6 +91,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 * MPEG-TS 
 
 ### <a name="output-video-codecs"></a>Codec video di output
+
 * AVC (H.264; 8 bit; fino a High Profile, Level 5.2; 4K Ultra HD; AVC Intra)
 * Avid DNxHD (in MXF)
 * DVCPro/DVCProHD (in MXF)
@@ -92,8 +99,13 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 * MPEG-1
 * Windows Media Video/VC-1
 * Creazione anteprime JPEG
+* HEVC (H.265; 8 bit e 10 bit, Main e Main 10 Profile)
+
+  Il supporto per HDR 10 è disponibile solo in determinati scenari, contattare mepd@microsoft.com per altre informazioni
+
 
 ### <a name="output-audio-codecs"></a>Codec audio di output
+
 * AES (SMPTE 331M e 302M, AES3-2003)
 * Dolby® Digital (AC3)
 * Dolby® Digital Plus (E-AC3) fino a 7.1
@@ -106,6 +118,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 >Se si codifica per Dolby® Digital (AC3), l'output può essere scritto solo in un file ISO MP4.
 
 ## <a id="closed_captioning"></a>Supporto per sottotitoli codificati
+
 In ingresso, il **flusso di lavoro Premium del codificatore multimediale** supporta:
 
 1. File SCC
@@ -122,14 +135,18 @@ In uscita, sono disponibili le seguenti opzioni:
 5. File di sottotitoli SRT
 6. Flussi di sottotitoli DVB
 
-Nota: non tutti i formati di output precedenti sono supportati per il recapito tramite streaming in Servizi multimediali di Azure.
+> [!NOTE]
+> Non tutti i formati di output precedenti sono supportati per il recapito tramite streaming in Servizi multimediali di Azure.
 
 ## <a name="known-issues"></a>Problemi noti
+
 Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto. 
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

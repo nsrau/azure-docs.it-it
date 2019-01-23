@@ -1,27 +1,8 @@
 ---
-title: Copiare gli esempi di data science di altre persone - Azure Machine Learning Studio | Microsoft Docs
-description: 'Segreto commerciale della data science: Fare svolgere ad altri il proprio lavoro. Esempi di Machine Learning dalla raccolta di intelligenza artificiale per Azure.'
-keywords: esempi di analisi scientifica dei dati, esempio di Machine Learning, algoritmo di clustering
-services: machine-learning
-documentationcenter: na
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cjgronlund
-ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/05/2018
-ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260379"
+title: Copiare gli esempi di data science altrui titleSuffix: Descrizione di Azure Machine Learning Studio: "Segreto commerciale della data science: Fare svolgere ad altri il proprio lavoro. Esempi di machine learning dalla Azure AI Gallery".
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 05/01/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Data science per principianti
@@ -42,7 +23,7 @@ Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'ele
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
 * Video 1: [5 domande a cui può rispondere la data science](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
-* Video 2: [Sono pronti i dati per la data science?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
+* Video 2: [I dati sono pronti per la data science?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
 * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min e 17 sec)*
 * Video 4: [Prevedere una risposta con un modello semplice](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min e 42 sec)*
 * Video 5: Copiare il lavoro di altre persone per l'analisi scientifica dei dati

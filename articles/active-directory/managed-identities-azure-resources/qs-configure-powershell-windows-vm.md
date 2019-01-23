@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: a29980da64775ca39f103b7430239f38c98a43fc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 4d4775169c40190e4cffb7b93c04abd58babc928
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578457"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320928"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite PowerShell
 
@@ -88,6 +88,34 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
    ```
     > [!NOTE]
     > Questo passaggio è facoltativo in quanto è possibile usare anche l'endpoint dell'identità del servizio metadati dell'istanza di Azure per recuperare i token.
+
+### <a name="add-vm-system-assigned-identity-to-a-group"></a>Aggiungere l'identità assegnata dal sistema della macchina virtuale a un gruppo
+
+Dopo aver abilitato l'identità assegnata dal sistema in una macchina virtuale, è possibile aggiungerla a un gruppo.  La procedura seguente consente di aggiungere un'identità assegnata dal sistema della macchina virtuale a un gruppo.
+
+1. Accedere al portale di Azure con `Login-AzureRmAccount`. Usare un account associato alla sottoscrizione di Azure che contiene la VM.
+
+   ```powershell
+   Login-AzureRmAccount
+   ```
+
+2. Recuperare e prendere nota dell'`ObjectID` (come specificato nel campo `Id` dei valori restituiti) dell'entità servizio della macchina virtuale:
+
+   ```powerhshell
+   Get-AzureRmADServicePrincipal -displayname "myVM"
+   ```
+
+3. Recuperare e prendere nota dell'`ObjectID` (come specificato nel campo `Id` dei valori restituiti) del gruppo:
+
+   ```powershell
+   Get-AzureRmADGroup -searchstring "myGroup"
+   ```
+
+4. Aggiungere l'entità servizio della macchina virtuale al gruppo:
+
+   ```powershell
+   Add-AzureADGroupMember -ObjectId "<objectID of group>" -RefObjectId "<object id of VM service principal>"
+   ```
 
 ## <a name="disable-system-assigned-managed-identity-from-an-azure-vm"></a>Disabilitare un'identità gestita assegnata dal sistema in una macchina virtuale di Azure
 

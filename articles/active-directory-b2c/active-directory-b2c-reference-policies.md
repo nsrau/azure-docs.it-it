@@ -1,6 +1,6 @@
 ---
 title: Flussi utente in Azure Active Directory B2C | Microsoft Docs
-description: Argomento che descrive il framework di criteri estendibile di Azure Active Directory B2C e che illustra come creare vari tipi di flussi utente.
+description: Altre informazioni sul framework di criteri estendibile di Azure Active Directory B2C e su come creare vari tipi di flussi utente.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,30 +10,32 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d4a93b04b8ad86a6a6d36a5bdaf3209b49e7a9dc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bcbd26c8e78e29daa78a7e50f2f49b095103f696
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877083"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351782"
 ---
-# <a name="azure-active-directory-b2c-user-flows"></a>Azure Active Directory B2C: Flussi degli utenti
+# <a name="user-flows-in-azure-active-directory-b2c"></a>Flussi utente in Azure Active Directory B2C
 
+Il framework di criteri estendibile di Azure Active Directory (Azure AD) B2C è il punto di forza del servizio. I criteri descrivono in modo completo le esperienze per le identità, ad esempio iscrizione, accesso o modifica del profilo. Per poter configurare le attività di gestione delle identità più comuni, il portale di Azure AD B2C include criteri predefiniti configurabili chiamati **flussi utente**. 
 
-Il framework di criteri estendibile di Azure Active Directory (Azure AD) B2C è il punto di forza del servizio. I criteri descrivono le esperienze di identità, ad esempio iscrizione, accesso o modifica del profilo. Per poter configurare le attività di gestione delle identità più comuni, il portale di Azure AD B2C include criteri predefiniti configurabili chiamati **flussi utente**. Ad esempio, i flussi utente di iscrizione consentono di controllare i comportamenti configurando le impostazioni seguenti:
+## <a name="what-are-user-flows"></a>Cosa sono i flussi utente?
 
-* Tipi di account (account di social network come Facebook o account locali come un indirizzo di posta elettronica) che gli utenti possono usare per effettuare l'iscrizione all'applicazione
-* Attributi (ad esempio nome, codice postale, numero di scarpe) da raccogliere dall'utente durante la procedura di iscrizione
-* Uso di Azure Multi-Factor Authentication
-* Aspetto di tutte le pagine di iscrizione
-* Informazioni (visualizzate come attestazioni in un token) che l'applicazione riceve al termine dell'esecuzione del flusso utente
+Un flusso utente consente di controllare i comportamenti nelle applicazioni configurando le impostazioni seguenti:
 
-È possibile creare più flussi utente di tipi diversi nel proprio tenant e usarli nelle applicazioni in base alle esigenze. I flussi utente possono essere usati per più applicazioni. Gli sviluppatori possono in questo modo definire e modificare le esperienze delle identità degli utenti con modifiche minime al codice o anche senza alcuna modifica al codice.
+- I tipi di account usati per l'accesso, ad esempio account di social networking, come Facebook o account locali
+- Gli attributi da raccogliere dall'utente, ad esempio nome, codice postale e misura del piede
+- Azure Multi-Factor Authentication
+- Personalizzazione dell'interfaccia utente
+- Informazioni che l'applicazione riceve come attestazioni nei token 
 
-Per usare i flussi utente è disponibile una semplice interfaccia per sviluppatori. L'applicazione attiva un flusso utente tramite una richiesta di autenticazione HTTP standard (passando un parametro di flusso utente nella richiesta) e riceve un token personalizzato come risposta. Ad esempio, l'unica differenza tra le richieste che richiamano un flusso utente di iscrizione e le richieste che richiamano un flusso utente di accesso risiede nel nome del flusso utente usato nel parametro della stringa di query "p":
+È possibile creare molti flussi utente di tipi diversi nel proprio tenant e usarli nelle applicazioni in base alle esigenze. I flussi utente possono essere usati per più applicazioni. Questa flessibilità consente di definire e modificare le esperienze per le identità con modifiche minime al codice o anche senza alcuna modifica al codice. L'applicazione attiva un flusso utente usando una richiesta di autenticazione HTTP standard che include un parametro di flusso utente. Come risposta viene ricevuto un oggetto [token](active-directory-b2c-reference-tokens.md) personalizzato. 
+
+Gli esempi seguenti mostrano il parametro di stringa di query "p" che specifica il flusso utente da usare:
 
 ```
-
 https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
@@ -43,11 +45,9 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
 &p=b2c_1_siup                                       // Your sign-up user flow
-
 ```
 
 ```
-
 https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
@@ -57,50 +57,34 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
 &p=b2c_1_siin                                       // Your sign-in user flow
-
 ```
 
-## <a name="create-a-sign-up-or-sign-in-user-flow"></a>Creare un flusso utente di iscrizione o accesso
+## <a name="user-flow-versions"></a>Versioni del flusso utente
 
-Il flusso utente consente di gestire le esperienze di iscrizione e accesso dei consumatori tramite una singola configurazione. I consumatori vengono indirizzati sul percorso corretto (iscrizione o accesso) a seconda del contesto. Vengono inoltre descritti i contenuti dei token che l'applicazione riceverà al completamento dell'iscrizione o dell'accesso.  Il codice di esempio per il flusso utente di **iscrizione o di accesso** è [disponibile qui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  È consigliabile usare questo flusso utente anziché un flusso utente di **iscrizione** o di **accesso**.  
+Nel portale di Azure vengono aggiunte continuamente nuove [versioni dei flussi utente](user-flow-versions.md). Quando si inizia con Azure AD B2C, è consigliabile usare flussi utente testati. Quando si crea un nuovo flusso utente, è possibile scegliere il flusso utente necessario nella scheda **Consigliati**.
 
-[!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
+Sono attualmente consigliati i flussi utente seguenti:
 
-## <a name="create-a-sign-up-user-flow"></a>Creare un flusso utente di iscrizione
+- **Iscrizione e accesso** - Consente di gestire le esperienze di iscrizione e accesso tramite una singola configurazione. Gli utenti vengono indirizzati al percorso corretto in base al contesto. È consigliabile usare questo flusso utente anziché un flusso utente di **iscrizione** o di **accesso**.
+- **Modifica del profilo** - Consente agli utenti di modificare le informazioni del profilo personale.
+- **Reimpostazione password** - Consente di configurare se e come gli utenti possono reimpostare le password.
 
-[!INCLUDE [active-directory-b2c-create-sign-up-policy](../../includes/active-directory-b2c-create-sign-up-policy.md)]
+## <a name="linking-user-flows"></a>Collegamento dei flussi utente
 
-## <a name="create-a-sign-in-user-flow"></a>Creare un flusso utente di accesso
+Un flusso utente di **iscrizione o di accesso** con gli account locali include un collegamento **Password dimenticata?** nella prima pagina dell'esperienza. Facendo clic su questo collegamento non viene attivato automaticamente un flusso utente di reimpostazione della password. 
 
-[!INCLUDE [active-directory-b2c-create-sign-in-policy](../../includes/active-directory-b2c-create-sign-in-policy.md)]
+Viene invece restituito il codice di errore `AADB2C90118` all'applicazione. L'applicazione deve gestire questo codice di errore eseguendo un flusso utente specifico che reimposta la password. Per un esempio, vedere un [semplice esempio di ASP.NET](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) che illustra il collegamento di flussi utente.
 
-## <a name="create-a-profile-editing-user-flow"></a>Creare un flusso utente di modifica del profilo
+## <a name="email-address-storage"></a>Archiviazione di indirizzi di posta elettronica
 
-[!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
-
-## <a name="create-a-password-reset-user-flow"></a>Creare un flusso utente di reimpostazione delle password
-
-[!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
-
-## <a name="preview-user-flows"></a>Visualizzare i flussi utente in anteprima
-
-Al momento del rilascio di nuove funzionalità, alcune di queste potrebbero non essere disponibili nei criteri o flussi utente esistenti.  È prevista la sostituzione delle versioni precedenti con la versione più recente dello stesso tipo dopo l'inserimento dei flussi utente nel GA.  I criteri o flussi utente esistenti non cambieranno e per sfruttare queste nuove funzionalità sarà necessario creare nuovi flussi utente.
-
-## <a name="frequently-asked-questions"></a>Domande frequenti
-
-### <a name="how-do-i-link-a-sign-up-or-sign-in-user-flow-with-a-password-reset-user-flow"></a>Come si collegano un flusso utente di iscrizione o di accesso al flusso utente di reimpostazione della password?
-Quando si crea il flusso utente di **iscrizione o di accesso** (con gli account locali), l'utente visualizza un collegamento **Password dimenticata?** nella prima pagina. Facendo clic su questo collegamento non viene attivato automaticamente un flusso utente di reimpostazione della password. 
-
-Viene invece restituito il codice di errore **`AADB2C90118`** all'app. L'app deve gestire questo codice di errore e richiamare un flusso utente di reimpostazione della password specifico. Per altre informazioni, vedere un [esempio che illustra come collegare i flussi utente](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
-
-### <a name="should-i-use-a-sign-up-or-sign-in-user-flow-or-a-sign-up-user-flow-and-a-sign-in-user-flow"></a>È necessario usare un flusso utente di iscrizione o di accesso oppure un flusso utente di iscrizione e un flusso utente di accesso?
-È consigliabile usare un flusso utente **di iscrizione o di accesso** anziché un flusso utente di **iscrizione** e un flusso utente di **accesso**.  
-
-Il flusso utente di **iscrizione o di accesso** offre più funzionalità rispetto a un flusso utente di **accesso**. Consentono anche di usare la personalizzazione dell'interfaccia utente di pagina e sono meglio supportati nella localizzazione. 
-
-Il flusso utente di **accesso** è consigliato quando non è necessario localizzare i flussi utente, quando servono solo funzionalità di personalizzazione secondarie per il marchio e quando si vuole che la funzionalità di reimpostazione della password sia integrata.
+Un indirizzo di posta elettronica può essere richiesto come parte di un flusso utente. Se l'utente viene autenticato con un provider di identità di social networking, l'indirizzo di posta elettronica viene archiviato nella proprietà **otherMails**. Se un account locale è basato su un nome utente, l'indirizzo di posta elettronica viene archiviato in una proprietà con i dettagli dell'autenticazione avanzata. Se un account locale è basato su un indirizzo di posta elettronica, l'indirizzo di posta elettronica viene archiviato nella proprietà **signInNames**.
+ 
+In questi casi non è garantita la verifica dell'indirizzo di posta elettronica. Un amministratore tenant può disabilitare la verifica degli indirizzi di posta elettronica nei criteri di base per gli account locali. Anche se la verifica degli indirizzi di posta elettronica è abilitata, gli indirizzi non vengono verificati se provengono da un provider di identità di social networking e non sono stati modificati.
+ 
+Solo le proprietà **otherMails** e **signInNames** vengono esposte tramite l'API Graph di Active Directory. L'indirizzo di posta elettronica nella proprietà con i dettagli dell'autenticazione avanzata non è disponibile.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Configurazione di token, sessione e accesso Single Sign-On](active-directory-b2c-token-session-sso.md)
-* [Disabilitare la verifica della posta elettronica durante l'iscrizione dell'utente](active-directory-b2c-reference-disable-ev.md)
+
+Per creare i flussi utente consigliati, seguire le istruzioni riportate in [Esercitazione: Creare un flusso utente](tutorial-create-tenant.md).
+
 

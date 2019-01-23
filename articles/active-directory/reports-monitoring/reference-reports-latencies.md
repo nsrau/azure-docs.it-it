@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: c6d36f3e1cef4fffbe38b0a70d42069577590627
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623180"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212261"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
 
@@ -40,10 +40,14 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per i report 
 > **Latenza (95° percentile)** si riferisce al tempo entro il quale verrà segnalato il 95% dei log e **Latenza (99° percentile)** si riferisce al tempo entro il quale verrà segnalato il 99% dei log. 
 >
 
-| Report | Latenza (95° percentile) |Latenza (99° percentile)|
-| :-- | --- | --- | 
-| Log di controllo | 2 min  | 5 min  |
-| Accessi | 2 min  | 5 min |
+| Report | Latenza (95° percentile) |Latenza (99° percentile)|Intervallo di tempo entro il quale verranno segnalati i log|
+| :-- | --- | --- | --- |
+| Log di controllo | 2 min  | 5 min  | 2-60 min |
+| Accessi | 2 min  | 5 min | 2-120 min |
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>In quanto tempo è possibile visualizzare i dati di attività dopo aver acquistato una licenza Premium?
+
+Se si dispone già di dati di attività con la licenza gratuita, è possibile visualizzarli immediatamente dopo l'aggiornamento. Se non si dispone di dati, questi verranno visualizzati nei report dopo uno o due giorni dall'acquisto della licenza Premium.
 
 ## <a name="security-reports"></a>Report sulla sicurezza
 

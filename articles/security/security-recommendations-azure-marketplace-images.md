@@ -9,20 +9,20 @@ ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 9c02dc386852a32814669d38df6260822a5e4f99
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 17372076f06cbaa833c437121a01f0dcaaf0e757
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308795"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243634"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Raccomandazioni sulla sicurezza per le immagini di Azure Marketplace
 
-È consigliabile che ogni soluzione sia conforme alle seguenti raccomandazioni per la configurazione di sicurezza. Ciò consente di mantenere un livello elevato di sicurezza per le immagini delle soluzioni di partner in Azure Marketplace.
+È consigliabile che ogni soluzione sia conforme alle raccomandazioni per la configurazione di sicurezza seguenti. Ciò consente di mantenere un livello elevato di sicurezza per le immagini delle soluzioni di partner in Azure Marketplace.
 
-Queste raccomandazioni possono anche essere utili per le organizzazioni che non dispongono di immagini in Azure Marketplace. È consigliabile controllare le configurazioni delle immagini Windows e Linux dell'azienda rispetto alle linee guida riportate nelle tabelle seguenti.
+Queste raccomandazioni possono anche essere utili per le organizzazioni che non dispongono di immagini in Azure Marketplace. È consigliabile controllare le configurazioni delle immagini Windows e Linux dell'azienda rispetto alle linee guida riportate nelle tabelle seguenti:
 
 ## <a name="open-source-based-images"></a>Immagini basate su open source
 
@@ -31,7 +31,7 @@ Queste raccomandazioni possono anche essere utili per le organizzazioni che non 
 | **Categoria**                                                 | **Controllo**                                                                                                                                                                                                                                                                              |
 | Sicurezza                                                     | Vengono installate tutte le patch di protezione più recenti per la distribuzione Linux.                                                                                                                                                                                                              |
 | Sicurezza                                                     | Sono state seguite le linee guida del settore per proteggere l'immagine di macchine virtuali per la distribuzione Linux specifica.                                                                                                                                                                                     |
-| Sicurezza                                                     | Limitare la superficie di attacco mantenendo il footprint minimo soltanto con ruoli, funzionalità, servizi e porte di rete Windows Server necessari.                                                                                                                                               |
+| Sicurezza                                                     | Limitare la superficie di attacco mantenendo un footprint minimo soltanto con ruoli, funzionalità, servizi e porte di rete Windows Server necessari.                                                                                                                                               |
 | Sicurezza                                                     | Analizzare il codice sorgente e l'immagine di macchine virtuali risultante per ricercare eventuale malware.                                                                                                                                                                                                                                   |
 | Sicurezza                                                     | L'immagine del disco rigido virtuale include solo gli account bloccati necessari, che non dispongono di password predefinite che potrebbero consentire l'accesso interattivo; nessun backdoor.                                                                                                                                           |
 | Sicurezza                                                     | Le regole del firewall vengono disabilitate, a meno che l'applicazione non si basi a livello funzionale su di esse, ad esempio un'appliance firewall.                                                                                                                                                                             |
@@ -41,7 +41,7 @@ Queste raccomandazioni possono anche essere utili per le organizzazioni che non 
 | Sicurezza                                                     | Le voci della cronologia Bash/Shell devono essere cancellate                                                                                                                                                                                                                                             |
 | Rete                                                   | Il server SSH deve essere incluso per impostazione predefinita. Impostare SSH keep alive sulla configurazione per mantenere attive le sessioni SSH con l'opzione seguente: ClientAliveInterval 180                                                                                                                                                        |
 | Rete                                                   | L'immagine non deve contenere configurazioni di rete personalizzate. Eliminare resolv.conf:`rm /etc/resolv.conf`                                                                                                                                                                                |
-| Distribuzione                                                   | Deve essere installato l'agente Linux di Azure più recente </br> - L'agente deve essere installato mediante il pacchetto Deb o RPM.  </br> - È possibile anche usare il processo di installazione manuale, ma è consigliabile e preferibile usare i pacchetti di installazione. </br> - Se si esegue l'installazione manuale dell'agente dal repository GitHub, copiare prima il file `waagent` in `/usr/sbin` ed eseguirlo (come radice): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>Il file di configurazione dell'agente verrà inserito in `/etc/waagent.conf`.    |
+| Distribuzione                                                   | Deve essere installato l'agente Linux di Azure più recente </br> - L'agente deve essere installato mediante il pacchetto Deb o RPM.  </br> - È possibile anche usare il processo di installazione manuale, ma è consigliabile e preferibile usare i pacchetti di installazione. </br> - Se si esegue l'installazione manuale dell'agente dal repository GitHub, copiare prima il file `waagent` in `/usr/sbin` ed eseguirlo (come radice): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>Il file di configurazione dell'agente viene inserito in `/etc/waagent.conf`.    |
 | Distribuzione                                                   | Assicura che il supporto di Azure possa fornire ai partner l'output della console seriale quando è necessario e possa consentire il timeout adeguato per il montaggio del disco del sistema operativo dall'archiviazione cloud. L'immagine deve essere aggiunta ai parametri seguenti alla riga di comando per l'avvio del kernel: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` |
 | Distribuzione                                                   | Nessuna partizione swap nel disco del sistema operativo. Lo swap può essere richiesto per la creazione del disco delle risorse locali dall'agente Linux.         |
 | Distribuzione                                                   | È consigliabile che venga creata una singola partizione radice per il disco del sistema operativo.      |
@@ -56,7 +56,7 @@ Queste raccomandazioni possono anche essere utili per le organizzazioni che non 
 | Sicurezza                                                         | Installare tutti gli aggiornamenti della sicurezza più recenti.                                                                                                                                     |
 | Sicurezza                                                         | Le applicazioni non devono avere una dipendenza dai nomi utente con restrizioni, ad esempio Administrator, radice e amministratore.                                                                |
 | Sicurezza                                                         | Crittografia unità BitLocker non è supportata sul disco rigido del sistema operativo. È possibile usare BitLocker nei dischi di dati.                                                            |
-| Sicurezza                                                         | Limitare la superficie di attacco mantenendo il footprint minimo abilitando soltanto ruoli, funzionalità, servizi e porte di rete Windows Server necessari.                         |
+| Sicurezza                                                         | Limitare la superficie di attacco mantenendo un footprint minimo abilitando soltanto ruoli, funzionalità, servizi e porte di rete Windows Server necessari.                         |
 | Sicurezza                                                         | Analizzare il codice sorgente e l'immagine di macchine virtuali risultante per ricercare eventuale malware.                                                                                                                     |
 | Sicurezza                                                         | Impostare l'aggiornamento automatico degli aggiornamenti di sicurezza delle immagini Windows Server.                                                                                                                |
 | Sicurezza                                                         | L'immagine del disco rigido virtuale include solo gli account bloccati necessari, che non dispongono di password predefinite che potrebbero consentire l'accesso interattivo; nessun backdoor.                             |

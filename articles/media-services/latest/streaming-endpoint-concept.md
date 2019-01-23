@@ -9,20 +9,26 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 8f3bcc3c631f17880c66e482234effcc4ea6424d
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e286617897ecc9201c3880affd0a974f7330305a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744549"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359637"
 ---
 # <a name="streaming-endpoints"></a>Endpoint di streaming
 
 In Servizi multimediali di Azure un'entità [endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Il flusso in uscita da un servizio endpoint di streaming può essere costituito da un flusso live o da una risorsa video on demand associata all'account di Servizi multimediali. Quando si crea un account di Servizi multimediali viene creato un endpoint di streaming **predefinito** nello stato Arrestato. L'endpoint di streaming **predefinito** non può essere eliminato. Nell'account è possibile creare altri endpoint di streaming. Per avviare lo streaming di video, è necessario avviare l'endpoint di streaming da cui si desidera trasmettere il video. 
 
-## <a name="streamingendpoint-types"></a>Tipi di StreamingEndpoint  
+## <a name="naming-convention"></a>Convenzione di denominazione
+
+Per l'endpoint predefinito: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+
+Per qualsiasi altro endpoint: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+
+## <a name="types"></a>Tipi  
 
 Sono disponibili due tipi di entità **StreamingEndpoint**: **Standard** e **Premium**. Il tipo è definito in base al numero di unità di scala (`scaleUnits`) allocate per l'endpoint di streaming. 
 
@@ -37,13 +43,16 @@ La tabella seguente descrive i tipi:
 
 Nella maggior parte dei casi, la rete per la distribuzione di contenuti è abilitata. Se, tuttavia, si prevede che la concorrenza massima sia inferiore a 500 visualizzatori, è consigliabile disabilitare la rete CDN perché la modalità di concorrenza consente un miglior ridimensionamento della rete.
 
+> [!NOTE]
+> L'endpoint di streaming `hostname` e l'URL di streaming rimangono invariati indipendentemente dal fatto che venga abilitata o meno la rete CDN.
+
 ### <a name="detailed-explanation-of-how-caching-works"></a>Spiegazione dettagliata del funzionamento della memorizzazione nella cache
 
 Quando si aggiunge una rete CDN non è presente alcun valore specifico relativo alla larghezza di banda, perché la larghezza di banda necessaria per un endpoint di streaming abilitato per la rete CDN è variabile e dipende molto dal tipo di contenuto, dalla richiesta, dal bitrate e dai protocolli. La rete CDN memorizza nella cache soltanto ciò che viene richiesto. Ciò significa che il contenuto più diffuso viene gestito direttamente dalla rete CDN, a condizione che il frammento video sia memorizzato nella cache. Il contenuto live viene in genere memorizzato nella cache perché molte persone guardano la stessa cosa. Il contenuto su richiesta può risultare più complesso perché può essere in parte molto richiesto e in parte no. Se si hanno milioni di risorse video con richieste saltuarie, ad esempio con solo 1 o 2 visualizzatori a settimana, a fronte di migliaia di persone che guardano video tutti diversi, la rete CDN perde di efficacia. In presenza di questi mancati riscontri nella cache è consigliabile aumentare il carico sull'endpoint di streaming.
  
 È anche necessario valutare il funzionamento del flusso adattivo. Ogni singolo frammento video viene memorizzato nella cache come entità in sé. Ad esempio, nel caso di un video che viene guardato per la prima volta da un utente che ne osserva solo alcuni secondi qua e là, nella rete CDN vengono memorizzati solo i frammenti video associati a ciò che è stato guardato. Con il flusso adattivo, si hanno in genere da 5 a 7 bitrate del video diversi. I video guardati con bitrate diversi da utenti diversi vengono memorizzati separatamente nella cache della rete CDN. Anche se due utenti usano lo stesso bitrate, potrebbero eseguire lo streaming usando protocolli diversi. Ogni protocollo (HLS, MPEG-DASH, Smooth Streaming) viene memorizzato nella cache separatamente. In conclusione, ogni bitrate e ogni protocollo vengono memorizzati nella cache separatamente; inoltre, vengono memorizzati nella cache solo i frammenti video che sono stati richiesti.
  
-## <a name="streamingendpoint-properties"></a>Proprietà di StreamingEndpoint 
+## <a name="properties"></a>Properties 
 
 Questa sezione fornisce informazioni dettagliate su alcune proprietà dell'entità StreamingEndpoint. Per esempi di come creare un nuovo endpoint di streaming e per le descrizioni di tutte le proprietà, vedere [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create) (Endpoint di streaming). 
 

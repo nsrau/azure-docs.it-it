@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0066a4ea5d91369bf6724dbaea4743a10bd8db0b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d8df48511f2bfd2500dbc0a1dfaa95e488fad63b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631856"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214998"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -125,6 +125,15 @@ Per altre informazioni sulla modalità di aggiornamento dei Management Pack, ved
 > [!NOTE]
 > Nei sistemi con l'agente di Operations Manager, quest'ultimo deve essere aggiornato a Microsoft Monitoring Agent per essere gestito completamente da Gestione aggiornamenti. Per informazioni su come aggiornare l'agente, vedere [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents) (Come aggiornare un agente di Operations Manager).
 
+## <a name="onboard"></a>Abilitare Gestione aggiornamenti
+
+Per avviare l'applicazione di patch ai sistemi, è necessario abilitare la soluzione Gestione aggiornamenti. Esistono molti modi per eseguire l'onboarding dei computer in Gestione aggiornamenti. Per eseguire l'onboarding della soluzione si consigliano i metodi supportati seguenti:
+
+* [Da una macchina virtuale](automation-onboard-solutions-from-vm.md)
+* [Dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md)
+* [Dall'account di Automazione](automation-onboard-solutions-from-automation-account.md)
+* [Con un runbook di Automazione di Azure](automation-onboard-solutions.md)
+  
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Verificare l'onboarding di computer non di Azure
 
 Per verificare che i computer direttamente connessi comunichino con Log Analytics, dopo alcuni minuti è possibile eseguire una delle seguenti ricerche log.

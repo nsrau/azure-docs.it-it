@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 01/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4d6060c1774b2ad09c3b813bc107b73309dae801
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 05f6208788060459e67a787507a56adeed980e2d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020218"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318995"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Requisiti di sistema di Azure Data Box Edge (anteprima)
 
@@ -59,11 +59,11 @@ Azure IoT Edge consente la comunicazione in uscita da un dispositivo Edge locale
 
 Usare la tabella seguente per la configurazione delle porte per i server che ospitano il runtime di Azure IoT Edge:
 
-| N. porta | In ingresso/In uscita | Ambito porta | Obbligatoria | Indicazioni |
+| N. porta | In ingresso/In uscita | Ambito porta | Obbligatoria | Materiale sussidiario |
 |----------|-----------|------------|----------|----------|
 | TCP 5671 (AMQP)| In uscita       | WAN        | Yes      | Protocollo di comunicazione predefinito per IoT Edge. Deve essere aperto se Azure IoT Edge non è configurato per altri protocolli supportati o se il protocollo di comunicazione desiderato è AMQP. <br>5672 per AMQP non è supportato da IoT Edge. <br>Bloccare questa porta quando Azure IoT Edge usa un protocollo supportato dall'hub IoT diverso. |
-| TCP 443 (HTTPS)| In uscita       | WAN        | Yes      | Aperto in uscita per il provisioning di IoT Edge. Se si dispone di un gateway trasparente con dispositivi foglia che possono inviare richieste di metodo. In questo caso, non occorre che la porta 443 sia aperta a reti esterne per connettersi all'hub IoT o implementare servizi hub IoT tramite Azure IoT Edge. La regola in ingresso potrebbe pertanto essere limitata all'apertura solo in ingresso dalla rete interna. |
-| TCP 5671 (AMQP) | In ingresso        |            | No        | Le connessioni in ingresso devono essere bloccate.|
+| TCP 443 (HTTPS)| In uscita       | WAN        | Sì      | Aperto in uscita per il provisioning di IoT Edge. Se si dispone di un gateway trasparente con dispositivi foglia che possono inviare richieste di metodo. In questo caso, non occorre che la porta 443 sia aperta a reti esterne per connettersi all'hub IoT o implementare servizi hub IoT tramite Azure IoT Edge. La regola in ingresso potrebbe pertanto essere limitata all'apertura solo in ingresso dalla rete interna. |
+| TCP 5671 (AMQP) | In ingresso        |            | No       | Le connessioni in ingresso devono essere bloccate.|
 | TCP 443 (HTTPS) | In ingresso        |            | In alcuni casi, vedere i commenti | Le connessioni in ingresso devono essere aperte solo per scenari specifici. Se i protocolli non HTTP (ad esempio AMQP, MQTT) non possono essere configurati, i messaggi possono essere inviati tramite WebSockets usando la porta 443. |
 
 Per informazioni complete, vedere [Regole di configurazione di firewall e porte per la distribuzione di IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
@@ -78,6 +78,8 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 > - Gli indirizzi IP di origine del dispositivo devono essere sempre impostati su tutte le interfacce di rete abilitate per il cloud.
 > - Gli indirizzi IP di destinazione devono essere impostati sugli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
+### <a name="url-patterns-for-gateway-feature"></a>Modelli URL per la funzionalità di gateway
+
 |    Modello URL                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Componente o funzionalità                                                                           |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 |    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Servizio Azure Data Box Edge<br>Bus di servizio di Azure<br>Servizio di autenticazione                           |
@@ -89,6 +91,15 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 |    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Pacchetto di supporto                                                                                      |
 |    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Servizio Telemetria in Windows; vedere Aggiornamento per la soddisfazione dei clienti e di telemetria diagnostica      |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
+
+
+### <a name="url-patterns-for-compute-feature"></a>Modelli URL per la funzionalità di calcolo
+
+| Modello URL                      | Componente o funzionalità                     |   |
+|----------------------------------|---------------------------------------------|---|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registro contenitori Microsoft (obbligatorio)               |   |
+| https://\*.azurecr.io                     | Registri contenitori personali e di terze parti (facoltativo) |   |
+| https://\*.azure-devices.net              | Criteri di accesso dell'hub IoT (obbligatorio)                             |   |
 
 ## <a name="internet-bandwidth"></a>Larghezza di banda Internet
 
