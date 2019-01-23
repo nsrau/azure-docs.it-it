@@ -10,18 +10,18 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0d2cca335206ee59b922a31ed3cf3ba24ef4ecd7
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 63d13235ec7244978193ed97aac8d11b2ff65eeb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790776"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198134"
 ---
 # <a name="what-is-conversation-learner"></a>Informazioni su Conversation Learner
 
 Conversation Learner consente la creazione e il training di interfacce di conversazione in grado di apprendere da interazioni di esempio. 
 
-A differenza degli approcci tradizionali, Conversation Learner considera il contesto end-to-end di un dialogo per migliorare le risposte e offrire esperienze utente più avanzate. Coprendo un'ampia gamma di casi d'uso orientati alle attività, Conversation Learner applica l'apprendimento automatico in background per ridurre le probabilità che bot e agenti intelligenti risultino frustranti per gli utenti o generino costi aggiuntivi a livello di servizio clienti e per rendere l'interazione più intuitiva.
+A differenza degli approcci tradizionali, Conversation Learner considera il contesto end-to-end di un dialogo per migliorare le risposte e offrire esperienze utente più avanzate. Coprendo un'ampia gamma di casi d'uso orientati alle attività, Conversation Learner applica l'apprendimento automatico in background per rendere l'interazione più intuitiva e per ridurre le probabilità che bot e agenti intelligenti risultino frustranti per gli utenti o generino costi aggiuntivi a livello di servizio clienti.
 
 Lo sviluppatore inizia immettendo i dialoghi prototipo che vuole imitare. Il modello apprende mentre i dialoghi vengono immessi. Quando il modello funziona correttamente, il bot può essere distribuito agli utenti finali. Conversation Learner registra le conversazioni con gli utenti, che possono così essere esaminate dallo sviluppatore. Se vengono individuati errori, lo sviluppatore può apportare una correzione mirata. Il modello verrà sottoposto di nuovo a training e sarà immediatamente disponibile per l'uso.
 

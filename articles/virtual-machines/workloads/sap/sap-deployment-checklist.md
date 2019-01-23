@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 01/07/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29ec56f3b360a4a19269555c1504ae7ff6446f8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 901dfc502470e52600e3a0fafe3f6b91b7686197
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189151"
+ms.locfileid: "54201330"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Elenco di controllo per la pianificazione e la distribuzione di carichi di lavoro SAP in Azure 
 
 Questo elenco di controllo è stato progettato per i clienti che eseguono la migrazione delle proprie applicazioni SAP NetWeaver, S/4HANA e Hybris all'infrastruttura di Azure distribuita come servizio.  L'elenco dovrebbe essere esaminato da un cliente e/o da un partner SAP nel corso del progetto. È importante che molti dei controlli siano eseguiti all'inizio del progetto e nella fase di pianificazione. Al termine della distribuzione, alcune modifiche elementari all'infrastruttura di Azure o alle versioni di software SAP distribuite possono diventare complesse. Esaminare questo elenco di controllo quando si eseguono attività cardine nel corso di un progetto.  In questo modo è possibile rilevare lievi problemi prima che diventino più gravi e si ha tempo sufficiente per riprogettare e testare le modifiche necessarie. L'elenco di controllo non ha la pretesa di essere esauriente. In base alle singole situazioni, può essere necessario eseguire molti più controlli. 
 
-L'elenco di controllo non include le attività che sono indipendenti da Azure.  Ad esempio, le interfacce delle applicazioni SAP cambiano durante il passaggio al cloud pubblico di Azure o a un provider di hosting.    
+L'elenco di controllo non include le attività che sono indipendenti da Azure.  Esempio: le interfacce delle applicazioni SAP cambiano durante il passaggio al cloud pubblico di Azure o a un provider di hosting.    
 
 Questo elenco di controllo può essere usato anche per i sistemi già distribuiti. Dopo la distribuzione possono essere state aggiunte nuove funzionalità, ad esempio l'acceleratore di scrittura, le zone di disponibilità e nuovi tipi di macchina virtuale.  È pertanto utile esaminare l'elenco di controllo periodicamente per essere sicuri di essere a conoscenza delle nuove funzionalità della piattaforma Azure. 
 
@@ -83,7 +83,7 @@ In questa fase viene pianificata una migrazione del carico di lavoro SAP nel clo
 La fase pilota può essere eseguita prima della fase di pianificazione e preparazione del progetto o in parallelo con essa. Questa fase può anche usata per testare approcci e scelte di progettazione adottati durante la fase di pianificazione e preparazione. La fase pilota può essere estesa fino a diventare un vero e proprio modello di verifica. Durante una distribuzione pilota è consigliabile configurare e convalidare una soluzione completa di disponibilità elevata e ripristino di emergenza e la progettazione di un sistema di sicurezza. In alcuni casi, i clienti possono eseguire anche test di scalabilità in questa fase. Altri clienti usano la distribuzione dei sistemi sandbox SAP come fase pilota. Si presuppone quindi che sia stato identificato un sistema di cui eseguire la migrazione in Azure allo scopo di implementare una fase pilota.
 
 1.  Ottimizzare il trasferimento dei dati in Azure. In base a quanto segnalato da alcuni clienti, il trasferimento attraverso [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) dal sistema locale è più rapido se il circuito Express dispone di larghezza di banda sufficiente. Per altri clienti, il passaggio attraverso Internet risulta più veloce
-2.  Nel caso di una migrazione di piattaforme SAP eterogenee, che implica un'esportazione e un'importazione dei dati del database, testare e ottimizzare le fasi di esportazione e importazione. Per le migrazioni di grandi dimensioni, con SQL Server come piattaforma di destinazione, sono disponibili consigli in [questo post di blog](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). È possibile adottare l'approccio di Migration Monitor/SWPM nel caso in cui non sia necessario un aggiornamento combinato delle versioni oppure usare il processo di [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) quando si combina la migrazione con un aggiornamento delle versioni SAP rispettando determinate combinazioni delle piattaforme DBMS di origine e destinazione, come descritto ad esempio in [Database Migration Option (DMO) of SUM 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872) (Opzione di migrazione del database di SUM 2.0 SP04). 
+2.  Nel caso di una migrazione di piattaforme SAP eterogenee, che implica un'esportazione e un'importazione dei dati del database, testare e ottimizzare le fasi di esportazione e importazione. Per le migrazioni di grandi dimensioni, con SQL Server come piattaforma di destinazione, sono disponibili consigli in [questo post di blog](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). È possibile adottare l'approccio di Migration Monitor/SWPM nel caso in cui non sia necessario un aggiornamento combinato delle versioni oppure usare il processo di [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) quando si combina la migrazione con un aggiornamento delle versioni SAP rispettando determinate combinazioni delle piattaforme DBMS di origine e destinazione, come descritto ad esempio in [Database Migration Option (DMO) of SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152) (Opzione di migrazione del database di SUM 2.0 SP03). 
     1.  Esportazione nell'origine, caricamento dei file di esportazione in Azure e prestazioni dell'importazione.  Ottimizzare la sovrapposizione tra esportazione e importazione
     2.  Valutare il volume del database tra la piattaforma di destinazione e quella di origine in modo da usare questa valutazione per il dimensionamento dell'infrastruttura    
     3.  Verificare e ottimizzare la tempistica 

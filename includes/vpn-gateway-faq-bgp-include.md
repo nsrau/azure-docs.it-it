@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 01/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c6c67f6f1500ee90a1e0e4a04309f3f7aa2f6d05
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 894724b08876e96119bf72ce65e22c6ae884d8da
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36338323"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306880"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP è supportato in tutti gli SKU del gateway VPN di Azure?
 No, BGP è supportato nei gateway VPN **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** e **HighPerformance** di Azure. **Basic** NON è supportato.
@@ -68,7 +68,7 @@ Sì, è possibile usare BGP sia per connessioni cross-premise che per connession
 Sì, è possibile combinare connessioni BGP e connessioni non BGP per lo stesso gateway VPN di Azure.
 
 ### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>Il gateway VPN di Azure supporta il routing di transito BGP?
-Sì, il routing di transito BGP è supportato, con l'eccezione che i gateway VPN di Azure **NON** segnalano le route predefinite agli altri peer BGP. Per abilitare il routing di transito tra più gateway VPN di Azure, è necessario abilitare BGP su tutte le connessioni tra reti virtuali intermedie.
+Sì, il routing di transito BGP è supportato, con l'eccezione che i gateway VPN di Azure **NON** segnalano le route predefinite agli altri peer BGP. Per abilitare il routing di transito tra più gateway VPN di Azure, è necessario abilitare BGP su tutte le connessioni tra reti virtuali intermedie. Per altre informazioni, vedere [About BGP](../articles/vpn-gateway/vpn-gateway-bgp-overview.md) (Informazioni su BGP).
 
 ### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>È possibile stabilire più di un tunnel tra il gateway VPN di Azure e la rete locale?
 Sì, è possibile stabilire più di un tunnel VPN S2S tra un gateway VPN di Azure e la rete locale. Si noti che tutti i tunnel verranno conteggiati rispetto al numero totale di tunnel per i gateway VPN di Azure ed è necessario abilitare BGP in entrambi i tunnel.

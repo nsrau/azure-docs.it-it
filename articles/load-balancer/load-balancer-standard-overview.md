@@ -5,22 +5,23 @@ description: Panoramica delle funzionalità di Azure Load Balancer Standard
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438762"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352581"
 ---
-# <a name="azure-load-balancer-standard-overview"></a>Panoramica di Azure Load Balancer Standard
+# <a name="azure-standard-load-balancer-overview"></a>Panoramica di Azure Load Balancer Standard
 
 Azure Load Balancer consente di ridimensionare le applicazioni e di creare disponibilità elevata per i servizi. Load Balancer supporta scenari in ingresso e in uscita, offre bassa latenza, elevata produttività e una scalabilità fino a milioni di flussi per tutte le applicazioni TCP e UDP. 
 
@@ -91,7 +92,7 @@ Load Balancer Standard fornisce le metriche multidimensionali tramite il Monitor
 | --- | --- |
 | Disponibilità IP virtuale | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.|
 | Disponibilità DIP | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni singolo endpoint dell'istanza nel pool di Load Balancer.  In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità.
-| Pacchetti SYN | Load Balancer Standard non termina le connessioni TCP né interagisce con i flussi di pacchetti TCP o UDP. I flussi e i relativi handshake sono sempre tra l'origine e l'istanza VM. Per risolvere meglio i problemi degli scenari del protocollo TCP, è possibile usare contatori di pacchetti SYN per determinare quanti tentativi di connessione TCP vengono eseguiti. La metrica indica il numero di pacchetti SYN TCP ricevuti.|
+| Pacchetti SYN | Load Balancer Standard non termina le connessioni TCP, né interagisce con i flussi di pacchetti TCP o UDP. I flussi e i relativi handshake sono sempre tra l'origine e l'istanza VM. Per risolvere meglio i problemi degli scenari del protocollo TCP, è possibile usare contatori di pacchetti SYN per determinare quanti tentativi di connessione TCP vengono eseguiti. La metrica indica il numero di pacchetti SYN TCP ricevuti.|
 | Connessioni SNAT | Load Balancer Standard segnala il numero di flussi in uscita mascherati per il front-end dell'indirizzo IP pubblico. Le porte SNAT sono una risorsa esauribile. Questa metrica può indicare l'uso che l'applicazione fa di SNAT per i flussi originati in uscita.  Vengono segnalati i contatori per i flussi SNAT con esito positivo e negativo, che è possibile usare per risolvere i problemi e comprendere l'integrità dei flussi in uscita.|
 | Contatori di byte | Load Balancer Standard restituisce i dati elaborati per ogni front-end.|
 | Contatori di pacchetti | Load Balancer Standard restituisce i pacchetti elaborati per ogni front-end.|
@@ -100,7 +101,7 @@ Consultare [per ulteriori dettagli sulla diagnostica di Load Balancer Standard](
 
 ### <a name="haports"></a>Porte a disponibilità elevata
 
-Load Balancer Standard supporta un nuovo tipo di regola.  
+Load Balancer Standard supporta un nuovo tipo di norma.  
 
 È possibile configurare regole di bilanciamento del carico per ridimensionare l'applicazione e aumentarne l'affidabilità. Quando si usa una regola di bilanciamento del carico con porte a disponibilità elevata, Load Balancer Standard fornisce il bilanciamento del carico per ogni flusso su tutte le porte temporanee dell'indirizzo IP di un front-end interno di Load Balancer Standard.  La funzionalità è utile per altri scenari in cui specificare le singole porte è poco pratico o non opportuno.
 
@@ -210,7 +211,12 @@ I Load Balancer Standard sono disponibili con un contratto di servizio del 99,99
 
 ## <a name="pricing"></a>Prezzi
 
-Per Load Balancer Standard viene applicato un addebito in base al numero di regole di bilanciamento del carico configurate e a tutti i dati in ingresso e in uscita elaborati. Per informazioni sul prezzo di Load Balancer Standard, visitare la pagina [Prezzi di Loard Balancer](https://aka.ms/lbpricing).
+Il costo dell'utilizzo del servizio Load Balancer Standard viene addebitato in base ai criteri seguenti.
+
+- Numero di regole di bilanciamento del carico e in uscita configurate (le regole NAT in ingresso non vengono conteggiate ai fini del numero totale di regole)
+- Quantità di dati elaborati in ingresso e in uscita indipendentemente dalla regola. 
+
+Per informazioni sui prezzi di Load Balancer Standard, visitare la pagina [Prezzi del servizio Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## <a name="limitations"></a>Limitazioni
 

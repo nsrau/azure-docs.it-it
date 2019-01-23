@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3968b05f119227552f88a50e96d3acbce6a19143
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063642"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199120"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Risoluzione dei problemi relativi ai runbook
 
@@ -397,7 +397,7 @@ Di seguito sono elencati alcuni motivi comuni che possono causare un'importazion
 * La struttura non corrisponde a quella in cui Automazione dovrebbe trovarsi.
 * Il modulo è dipendente da un altro modulo che non è stato distribuito nel proprio account di automazione.
 * Le dipendenze del modulo non si trovano nella cartella.
-* Il cmdlet `New-AzureRmAutomationModule` viene usato per caricare il modulo e non è stato specificato il percorso di archiviazione completo oppure il modulo non è stato caricato con un URL accessibile pubblicamente.
+* Il `New-AzureRmAutomationModule` cmdlet viene usato per caricare il modulo e non è stato specificato il percorso di archiviazione completo oppure il modulo non è stato caricato con un URL accessibile pubblicamente.
 
 #### <a name="resolution"></a>Risoluzione
 

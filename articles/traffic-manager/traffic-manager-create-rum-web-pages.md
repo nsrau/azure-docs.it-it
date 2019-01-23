@@ -4,6 +4,7 @@ description: Configurare le pagine Web per inviare le Misurazioni utente reale a
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 19a641ba86333047b90c36cef242d524ccad5fe1
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138178"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232006"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Come inviare le Misurazioni utente reale a Gestione traffico di Azure usando le pagine Web
 
@@ -35,13 +36,13 @@ Per ottenere la chiave RUM tramite il portale di Azure:
  
   ![Generare una chiave delle Misurazioni utente reale](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: Generazione della chiave per le Misurazioni utente reale**
+   **Figura 1: Generazione della chiave per le misurazioni utente reale**
 
 5. Il pannello visualizzato include ora la chiave RUM generata e un frammento di codice JavaScript che deve essere incorporato nella pagina HTML.
  
     ![Codice JavaScript per la chiave delle Misurazioni utente reale](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)
 
-    **Figura 2: Chiave delle Misurazioni utente reale e JavaScript per le misurazioni**
+    **Figura 2: Chiave delle misurazioni utente reale e JavaScript per le misurazioni**
  
 6.  Fare clic sul pulsante **Copia** per copiare il codice JavaScript. 
 
@@ -57,7 +58,7 @@ Dopo aver ottenuto la chiave RUM, il passaggio successivo consiste nell'incorpor
  
     ![Incorporare il codice JavaScript nella pagina Web per le Misurazioni utente reale](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
-    **Figura 3: HTML semplice con codice JavaScript delle Misurazioni utente reale incorporato**
+    **Figura 3: HTML semplice con codice JavaScript delle misurazioni utente reale incorporato**
 
 3.  Salvare il file HTML e ospitarlo in un server Web connesso a Internet. 
 4. La volta successiva che verrà eseguito il rendering di questa pagina su un Web browser, il codice JavaScript a cui fa riferimento verrà scaricato e lo script eseguirà le operazioni di misurazione e reporting.

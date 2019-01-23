@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: f135281ad8bfe8222fd799e3d18c4022c627d23c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 470813b1a51db183476dd046dc102eb89d73debd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051952"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354579"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>.NET SDK di Azure Cosmos DB per l'API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ ms.locfileid: "54051952"
 
 * Per la diagnostica di trasporto diretto/TCP, è stata aggiunta TransportException, un tipo di eccezione interna dell'SDK. Quando è presente nei messaggi di eccezione, questo tipo consente di stampare informazioni aggiuntive per la risoluzione dei problemi di connettività client.
 
-* È stato aggiunto un nuovo overload di costruttori che usa HttpMessageHandler, uno stack del gestore HTTP da usare per inviare le richieste HttpClient (ad esempio, HttpClientHandler).
+* È stato aggiunto un nuovo overload di costruttore che usa HttpMessageHandler, uno stack del gestore HTTP da usare per inviare le richieste HttpClient (ad esempio HttpClientHandler).
 
 * Correzione di bug in cui l'intestazione con i valori Null non viene gestita correttamente.
 
@@ -265,7 +265,7 @@ ms.locfileid: "54051952"
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * Aggiunta del supporto per gli account di database con più aree.
 * Aggiunta del supporto per la ripetizione dei tentativi delle richieste limitate.  L'utente può personalizzare il numero di tentativi e il tempo di attesa massimo configurando la proprietà ConnectionPolicy.RetryOptions.
-* Aggiunta di una nuova interfaccia IDocumentClient che definisce le firme di tutti i metodi e di tutte le proprietà DocumenClient.  Come parte di questa modifica, anche i metodi di estensione che creano IQueryable e IOrderedQueryable sono stati modificati in metodi sulla stessa classe DocumentClient.
+* Aggiunta di una nuova interfaccia IDocumentClient che definisce le firme di tutti i metodi e proprietà DocumentClient.  Come parte di questa modifica, anche i metodi di estensione che creano IQueryable e IOrderedQueryable sono stati modificati in metodi sulla stessa classe DocumentClient.
 * Aggiunta dell'opzione di configurazione per impostare ServicePoint.ConnectionLimit per un URI dell'endpoint di Azure Cosmos DB specifico.  Usare ConnectionPolicy.MaxConnectionLimit per modificare il valore predefinito, impostato su 50.
 * IPartitionResolver e la relativa implementazione sono stati deprecati.  Il supporto per IPartitionResolver è ora obsoleto. È consigliabile usare le raccolte partizionate per un'archiviazione e una velocità effettiva superiori.
 

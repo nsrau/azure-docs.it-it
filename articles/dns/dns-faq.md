@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 12/4/2018
+ms.date: 1/16/2019
 ms.author: victorh
-ms.openlocfilehash: 663ba97ce96244aa890bef45d1229c12ca170802
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d4182f491dae9597add4b688b89faa9dd291429
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880149"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352926"
 ---
 # <a name="azure-dns-faq"></a>Domande frequenti su DNS di Azure
 
@@ -68,25 +68,25 @@ DNS di Azure supporta solo domini DNS di hosting statici, in cui ogni query DNS 
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>DNS di Azure supporta la registrazione del nome di dominio?
 
- No. DNS di Azure non supporta attualmente la possibilità di acquistare i nomi di dominio. Per acquistare domini, è necessario rivolgersi a un registrar di nomi di dominio di terze parti, che addebita in genere una tariffa annuale contenuta. I domini possono quindi essere ospitati in DNS di Azure per gestire i record DNS. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md).
+No. DNS di Azure non supporta attualmente la possibilità di acquistare i nomi di dominio. Per acquistare domini, è necessario rivolgersi a un registrar di nomi di dominio di terze parti, che addebita in genere una tariffa annuale contenuta. I domini possono quindi essere ospitati in DNS di Azure per gestire i record DNS. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md).
 
 La funzionalità per l'acquisto dei nomi di domini è disponibile nel backlog di Azure. Usare il sito dei commenti e suggerimenti per [registrare il supporto per questa funzionalità](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
 ### <a name="does-azure-dns-support-dnssec"></a>DNS di Azure supporta DNSSEC?
 
- No. DNS di Azure non supporta attualmente la funzionalità DNSSEC (Domain Name System Security Extensions).
+No. DNS di Azure non supporta attualmente la funzionalità DNSSEC (Domain Name System Security Extensions).
 
 La funzionalità DNSSEC è disponibile nel backlog di DNS di Azure. Usare il sito dei commenti e suggerimenti per [registrare il supporto per questa funzionalità](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support).
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>DNS di Azure supporta i trasferimenti di zona (AXFR/IXFR)?
 
- No. DNS di Azure attualmente non supporta i trasferimenti di zona. Le zone DNS possono essere [importate in DNS di Azure tramite l'interfaccia della riga di comando di Azure](dns-import-export.md). I record DNS vengono gestiti tramite il [portale di gestione di DNS di Azure](dns-operations-recordsets-portal.md), l'[API REST](https://docs.microsoft.com/powershell/module/azurerm.dns), l'[SDK](dns-sdk.md), i [cmdlet di PowerShell](dns-operations-recordsets.md) o lo [strumento di interfaccia della riga di comando](dns-operations-recordsets-cli.md).
+No. DNS di Azure attualmente non supporta i trasferimenti di zona. Le zone DNS possono essere [importate in DNS di Azure tramite l'interfaccia della riga di comando di Azure](dns-import-export.md). I record DNS vengono gestiti tramite il [portale di gestione di DNS di Azure](dns-operations-recordsets-portal.md), l'[API REST](https://docs.microsoft.com/powershell/module/azurerm.dns), l'[SDK](dns-sdk.md), i [cmdlet di PowerShell](dns-operations-recordsets.md) o lo [strumento di interfaccia della riga di comando](dns-operations-recordsets-cli.md).
 
 La funzionalità di trasferimento di zona è disponibile nel backlog di DNS Azure. Usare il sito dei commenti e suggerimenti per [registrare il supporto per questa funzionalità](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
 ### <a name="does-azure-dns-support-url-redirects"></a>DNS di Azure supporta i reindirizzamenti URL?
 
- No. Il reindirizzamento URL non è un servizio DNS perché opera a livello HTTP anziché a livello di DNS. Alcuni provider DNS offrono un servizio di reindirizzamento URL nell'ambito dell'offerta complessiva. Tale servizio non è attualmente supportato da DNS di Azure.
+No. Il reindirizzamento URL non è un servizio DNS perché opera a livello HTTP anziché a livello di DNS. Alcuni provider DNS offrono un servizio di reindirizzamento URL nell'ambito dell'offerta complessiva. Tale servizio non è attualmente supportato da DNS di Azure.
 
 La funzionalità di reindirizzamento URL è disponibile nel backlog di DNS di Azure. Usare il sito dei commenti e suggerimenti per [registrare il supporto per questa funzionalità](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
 
@@ -195,7 +195,7 @@ I nomi IDN (Internationalized Domain Name) usano [punycode](https://en.wikipedia
 
 Il supporto per i domini privati viene implementato usando la funzionalità Zone private. Questa funzionalità è attualmente disponibile in anteprima pubblica. Le zone private vengono gestite tramite gli stessi strumenti usati per le zone DNS di Azure con connessione Internet, ma sono risolvibili solo all'interno di reti virtuali specificate. Per altre informazioni, vedere l'articolo sulla [panoramica](private-dns-overview.md).
 
-La funzionalità Zone private non è attualmente supportata nel portale di Azure. 
+La funzionalità Zone private non è attualmente supportata nel portale di Azure.
 
 Per informazioni sulle altre opzioni DNS in Azure, vedere [Risoluzione dei nomi per le risorse in reti virtuali di Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -209,7 +209,7 @@ Sì. Il servizio Zone private è supportato per la risoluzione DNS tra reti virt
 
 ### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>Per le zone private è necessario che le reti virtuali siano connesse a Internet?
 
- No. Le zone private interagiscono con le reti virtuali e consentono ai clienti di gestire i domini per le macchine virtuali o per altre risorse all'interno o tra le reti virtuali. La connettività a Internet non è necessaria per la risoluzione dei nomi. 
+No. Le zone private interagiscono con le reti virtuali e consentono ai clienti di gestire i domini per le macchine virtuali o per altre risorse all'interno o tra le reti virtuali. La connettività a Internet non è necessaria per la risoluzione dei nomi. 
 
 ### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>È possibile usare la stessa zona privata per più reti virtuali di risoluzione?
 
@@ -225,7 +225,7 @@ Sì. Se si elimina una macchina virtuale all'interno di una rete virtuale di reg
 
 ### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>Un record di macchina virtuale registrato automaticamente in una zona privata da una rete virtuale di registrazione può essere eliminato manualmente?
 
- No. I record DNS di macchina virtuale registrati automaticamente in una zona privata da una rete virtuale di registrazione non sono visibili e non possono essere modificati dai clienti. È tuttavia possibile sovrascrivere i record DNS registrati automaticamente con un record DNS creato manualmente nella zona. La domanda e la risposta seguenti sono correlate a questa operazione.
+No. I record DNS di macchina virtuale registrati automaticamente in una zona privata da una rete virtuale di registrazione non sono visibili e non possono essere modificati dai clienti. È tuttavia possibile sovrascrivere i record DNS registrati automaticamente con un record DNS creato manualmente nella zona. La domanda e la risposta seguenti sono correlate a questa operazione.
 
 ### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>Cosa accade quando si prova a creare manualmente un nuovo record DNS in una zona privata con lo stesso nome host di una macchina virtuale esistente e registrata automaticamente in una rete virtuale di registrazione?
 
@@ -245,7 +245,7 @@ Sì. La funzionalità Zone private non sostituisce le risoluzioni DNS predefinit
 
 ### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Il suffisso DNS sulle macchine virtuali all'interno di una rete virtuale collegata deve essere sostituito con quello della zona privata?
 
- No. Il suffisso DNS sulle macchine virtuali nella rete virtuale collegata continua a essere quello predefinito di Azure ("*.internal.cloudapp.net"). È possibile sostituire manualmente questo suffisso nelle macchine virtuali con quello della zona privata. 
+No. Il suffisso DNS sulle macchine virtuali nella rete virtuale collegata continua a essere quello predefinito di Azure ("*.internal.cloudapp.net"). È possibile sostituire manualmente questo suffisso nelle macchine virtuali con quello della zona privata. 
 
 ### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>In questa versione di anteprima sono presenti limitazioni per le zone private?
 
@@ -257,7 +257,7 @@ Sì. Nell'anteprima pubblica sono presenti le limitazioni seguenti:
 * Se viene specificata una rete virtuale di registrazione, i record DNS per le macchine virtuali di tale rete registrati nella zona privata non sono visualizzabili né recuperabili tramite PowerShell, l'interfaccia della riga di comando o le API. I record di macchina virtuale sono registrati e vengono risolti in modo corretto.
 * Il DNS inverso funziona solo per lo spazio IP privato nella rete virtuale di registrazione.
 * Il DNS inverso per un indirizzo IP privato non registrato nella zona privata restituisce "internal.cloudapp.net" come suffisso DNS. Tale suffisso non può essere risolto. Un esempio è un indirizzo IP privato per una macchina virtuale in una rete virtuale collegata come rete virtuale di risoluzione in una zona privata.
-* Quando viene collegata per la prima volta a una zona privata come rete virtuale di registrazione o di risoluzione, una rete virtuale deve essere priva di macchine virtuali con scheda di interfaccia di rete. In altre parole, la rete virtuale deve essere vuota. Questo requisito non si applica quando la rete virtuale viene successivamente collegata come rete virtuale di registrazione o di risoluzione ad altre zone private. 
+* Quando viene collegata per la prima volta a una zona privata come rete virtuale di registrazione o di risoluzione, una rete virtuale deve essere vuota. Questo requisito non si applica quando la rete virtuale viene successivamente collegata come rete virtuale di registrazione o di risoluzione ad altre zone private.
 * L'inoltro condizionale non è supportato, ad esempio, per abilitare la risoluzione tra reti di Azure e locali. Per informazioni su come i clienti possono sfruttare questo scenario tramite altri meccanismi, vedere [Risoluzione dei nomi per le risorse in reti virtuali di Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Sono presenti quote o limiti relativi al numero di zone o di record per le zone private?

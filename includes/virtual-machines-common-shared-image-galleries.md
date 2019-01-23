@@ -5,20 +5,17 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 48404c8b6f45ab79a9136154c44c7fd44572a3e6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: c65fb1f0f635e79d594a7f080124827e3218f612
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678196"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193407"
 ---
-Raccolta di immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini di VM personalizzate. Raccolta di immagini condivise fornisce tre principali proposte di valore:
-- Gestione semplificata
-- Ridimensionamento delle immagini dei clienti
-- Condivisione delle immagini: condivisione di immagini con utenti diversi, entità servizio o gruppi AD all'interno dell'organizzazione, nonché in aree diverse usando la replica per più aree
+Raccolta di immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini di macchine virtuali gestite e personalizzate. Usando una raccolta di immagini condivise è possibile condividere le immagini con utenti diversi, entità servizio o gruppi di Active Directory all'interno dell'organizzazione. Le immagini condivise possono essere replicate in più aree, per un ridimensionamento più rapido delle distribuzioni.
 
 Un'immagine gestita è una copia di una macchina virtuale completa (inclusi eventuali dischi dati allegati) o solo del disco del sistema operativo, a seconda del modo in cui si crea l'immagine. Quando si crea una macchina virtuale dall'immagine, la copia dei dischi rigidi virtuali dell'immagine viene usata per creare i dischi per la nuova macchina virtuale. L'immagine gestita rimane nella risorsa di archiviazione e può essere usata ripetutamente per creare nuove macchine virtuali.
 
@@ -28,10 +25,10 @@ La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
 | Risorsa | DESCRIZIONE|
 |----------|------------|
-| **Immagine gestita** | Si tratta di un'immagine di base che può essere usata da sola o per creare più **versioni di immagini condivise** in una raccolta di immagini.|
+| **Immagine gestita** | Si tratta di un'immagine di base che può essere usata da sola o per creare una **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da macchine virtuali generalizzate. Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
 | **Raccolta di immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
-| **Immagine della raccolta** | Le immagini vengono definite all'interno di una raccolta e forniscono informazioni sull'immagine e sui requisiti per il suo uso interno. Questa include il fatto che l'immagine è per Windows o Linux, le note sulla versione e i requisiti minimi e massimi di memoria. Questo tipo di immagine è una risorsa all'interno del modello di distribuzione Gestione risorse, ma non viene usato direttamente per la creazione di macchine virtuali. Si tratta della definizione di un tipo di immagine. |
-| **Versione di immagini condivise** | La **versione dell'immagine** è ciò che si usa per creare una macchina virtuale quando si usa una raccolta. È possibile avere più versioni di un'immagine in base alle necessità del proprio ambiente. Come un'immagine gestita, quando si usa una **versione dell'immagine** per creare una macchina virtuale, la versione dell'immagine viene usata per creare nuovi dischi per la macchina virtuale. Le versioni delle immagini possono essere usate più volte. |
+| **Definizione delle immagini** | Le immagini vengono definite all'interno di una raccolta e forniscono informazioni sull'immagine e sui requisiti per il suo uso interno. Questa include il fatto che l'immagine è per Windows o Linux, le note sulla versione e i requisiti minimi e massimi di memoria. Si tratta della definizione di un tipo di immagine. |
+| **Versione dell'immagine** | La **versione dell'immagine** è ciò che si usa per creare una macchina virtuale quando si usa una raccolta. È possibile avere più versioni di un'immagine in base alle necessità del proprio ambiente. Come un'immagine gestita, quando si usa una **versione dell'immagine** per creare una macchina virtuale, la versione dell'immagine viene usata per creare nuovi dischi per la macchina virtuale. Le versioni delle immagini possono essere usate più volte. |
 
 <br>
 
@@ -44,21 +41,19 @@ Il supporto a livello di area per le raccolte di immagini condivise è disponibi
 
 | Crea raccolta in  | Replica versione in |
 |--------------------|----------------------|
-| Stati Uniti centro-occidentali    |Stati Uniti centro-meridionali|
-| Stati Uniti orientali 2          |Stati Uniti orientali|
-| Stati Uniti centro-meridionali   |Stati Uniti orientali 2|
-| Asia sud-orientale     |Stati Uniti occidentali|
-| Europa occidentale        |Stati Uniti occidentali 2|
-|                    |Stati Uniti centrali|
-|                    |Stati Uniti centro-settentrionali|
-|                    |Canada centrale|
-|                    |Canada orientale|
-|                    |Europa settentrionale|
-|                    |Europa occidentale|
-|                    |India meridionale|
-|                    |Asia sud-orientale|
+| Stati Uniti centro-occidentali    |Tutte le aree pubbliche &#42;|
+| Stati Uniti orientali 2          ||
+| Stati Uniti centro-meridionali   ||
+| Asia sud-orientale     ||
+| Europa occidentale        ||
+| Stati Uniti occidentali            ||
+| Stati Uniti orientali            ||
+| Canada centrale     ||
+|                    ||
 
 
+
+&#42; Per la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia inserita nell'elenco elementi consentiti. Per richiedere l'inserimento nella whitelist, passare a: https://www.microsoft.com/en-au/central-regions-eligibility/
 
 ## <a name="scaling"></a>Ridimensionamento
 Raccolta di immagini condivise consente di specificare il numero di repliche delle immagini che si desidera vengano conservate da Azure. Questa possibilità è particolarmente utile in scenari di distribuzione di più macchine virtuali, poiché le distribuzioni di macchine virtuali possono essere estese a diverse repliche, riducendo le possibilità che il processo di creazione di istanze venga limitato a causa dell'overload di una singola replica.
@@ -67,7 +62,9 @@ Raccolta di immagini condivise consente di specificare il numero di repliche del
 
 
 ## <a name="replication"></a>Replica
-Raccolta di immagini condivise consente inoltre di replicare automaticamente le immagini in altre aree di Azure. Ogni versione di immagini condivise può essere replicata in diverse aree a seconda delle esigenze della propria organizzazione. Ad esempio, è possibile replicare sempre l'immagine più recente in più aree, mentre tutte le versioni precedenti sono disponibili solo in un'area. Questo permette di risparmiare sui costi di archiviazione per le versioni di immagini condivise. Le aree in cui la versione di immagini condivise viene replicata possono essere aggiornate dopo l'ora di creazione. Il tempo necessario per la replica in aree diverse dipende dalla quantità di dati da copiare e dal numero di aree in cui viene replicata la versione. In alcuni casi, questa operazione può richiedere alcune ore. Mentre le replica è in corso, è possibile visualizzare lo stato della replica per area. Al termine della replica di un'immagine in un'area, è quindi possibile distribuire una macchina virtuale o un set di scalabilità di macchine virtuali usando la versione dell'immagine disponibile nell'area.
+Raccolta di immagini condivise consente inoltre di replicare automaticamente le immagini in altre aree di Azure. Ogni versione di immagini condivise può essere replicata in diverse aree a seconda delle esigenze della propria organizzazione. Ad esempio, è possibile replicare sempre l'immagine più recente in più aree, mentre tutte le versioni precedenti sono disponibili solo in un'area. Questo permette di risparmiare sui costi di archiviazione per le versioni di immagini condivise. 
+
+Le aree in cui la versione di immagini condivise viene replicata possono essere aggiornate dopo l'ora di creazione. Il tempo necessario per la replica in aree diverse dipende dalla quantità di dati da copiare e dal numero di aree in cui viene replicata la versione. In alcuni casi, questa operazione può richiedere alcune ore. Mentre le replica è in corso, è possibile visualizzare lo stato della replica per area. Al termine della replica di un'immagine in un'area, è quindi possibile distribuire una macchina virtuale o un set di scalabilità di macchine virtuali usando la versione dell'immagine disponibile nell'area.
 
 ![Immagine che mostra come replicare le immagini](./media/shared-image-galleries/replication.png)
 
@@ -87,6 +84,25 @@ Poiché la raccolta di immagini condivise, l'immagine condivisa e la versione de
 Non sono previsti addebiti aggiuntivi per l'uso del servizio Raccolta di immagini condivise. Vengono addebitate le risorse seguenti:
 - Costi di archiviazione per le versioni di immagini condivise. Dipende dal numero di repliche della versione e dal numero di aree in cui la versione viene replicata.
 - Addebiti in uscita di rete per la replica dall'area di origine della versione alle aree replicate.
+
+## <a name="sdk-support"></a>Supporto SDK
+
+Gli SDK seguenti supportano la creazione di raccolte di immagini condivise:
+
+- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
+- [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](https://docs.microsoft.com/go/azure/)
+
+## <a name="templates"></a>Modelli
+
+È possibile creare una risorsa di raccolta di immagini condivise usando i modelli. Sono disponibili diversi modelli di avvio rapido di Azure: 
+
+- [Creare una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Creare una versione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Creare una macchina virtuale dalla versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti 
 
@@ -139,7 +155,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
  Scenario 2: se si dispone di un'immagine generalizzata non gestita, è possibile creare un'immagine gestita da quest'ultima e quindi creare una definizione di immagine e la versione dell'immagine da essa. 
 
- Scenario 3: se si dispone di un disco rigido virtuale nel file system locale, è necessario caricare il disco rigido virtuale, creare un'immagine gestita, quindi è possibile creare una definizione di immagine e una versione dell'immagine da quest'ultima. 
+ Scenario 3: se si dispone di un disco rigido virtuale nel file system locale, è necessario caricare il disco rigido virtuale e creare un'immagine gestita; quindi è possibile creare una definizione di immagine e una versione dell'immagine da quest'ultima. 
     - Se il disco rigido virtuale è di una macchina virtuale Windows, vedere [Caricare un disco rigido virtuale generalizzato](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
     - Se il disco rigido virtuale è per una macchina virtuale Linux, vedere [Caricare un disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
@@ -221,7 +237,7 @@ Versione immagine:
 1. Il conteggio delle repliche a livello di area che specifica il numero di repliche che si desidera creare per ogni area. 
 2. Il conteggio comune delle repliche, che è il conteggio predefinito per area nel caso in cui non sia specificato il conteggio di repliche a livello di area. 
 
-Per specificare il conteggio di repliche a livello di area, trasmettere la posizione e il numero di repliche che si desidera creare in quell'area in questo modo: "Stati Uniti centro-meridionali = 2". 
+Per specificare il conteggio di repliche a livello di area, trasmettere la posizione e il numero di repliche che si vuole creare in quell'area in questo modo: "Stati Uniti centro-meridionali=2". 
 
 Se il conteggio delle repliche a livello di area non è specificato per ogni posizione, il numero predefinito di repliche sarà il conteggio comune delle repliche comuni che è stato specificato. 
 

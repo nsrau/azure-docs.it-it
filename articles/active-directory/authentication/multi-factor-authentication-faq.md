@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: eb0fa1edaadddfe055f3fc53a6d232e5a1293490
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 46d8a26398ed63bef4fa101fbaf0be9087880109
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424936"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214148"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
@@ -64,7 +64,7 @@ Microsoft non garantisce l'invio coerente di prompt Multi-Factor Authentication 
 
 È possibile rispondere alla maggior parte delle domande sulla fatturazione facendo riferimento alla pagina [Multi-Factor Authentication Prezzi](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) o alla documentazione relativa a [Come ottenere Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
-**D: Alla mia organizzazione vengono addebitati i costi delle telefonate e degli SMS utilizzati per l'autenticazione?**
+**D: Alla mia organizzazione vengono addebitati i costi delle telefonate e degli SMS usati per l'autenticazione?**
 
 No, alle aziende non vengono addebitati i costi delle singole telefonate o SMS inviati agli utenti tramite Azure Multi-Factor Authentication. Se si usa un provider di autenticazione MFA con un accordo basato sul numero di autenticazioni, verrà fatturata ciascuna autenticazione ma non il metodo utilizzato.
 
@@ -74,7 +74,7 @@ Potrebbero essere addebitate agli utenti le chiamate telefoniche o gli SMS che r
 
 La fatturazione si basa sul numero di utenti configurati per usare Multi-Factor Authentication, indipendentemente dal fatto che abbiano eseguito la verifica in due passaggi in quel mese.
 
-**D: Come funziona la fatturazione per Multi-Factor Authentication?**
+**D: Come funziona la modalità di fatturazione di autenticazione a più fattori?**
 
 Quando si crea un provider di MFA per utente o per autenticazione, la sottoscrizione di Azure dell'organizzazione viene fatturata mensilmente in base all'utilizzo. Questo modello di fatturazione è simile a quello applicato da Azure per l'uso delle macchine virtuali e dei siti Web.
 
@@ -100,7 +100,7 @@ Se invece il provider di MFA *non* è collegato a un tenant di Azure AD o si col
 
 Per altre informazioni sui provider di MFA, vedere [Introduzione all'uso di un provider di Azure Multi-Factor Authentication](concept-mfa-authprovider.md).
 
-**D: L'organizzazione può passare dal modello di fatturazione in base al consumo e la sottoscrizione (modello basato su licenza) in qualsiasi momento?**
+**D: L'organizzazione può passare dal modello di fatturazione in base al consumo alla sottoscrizione (modello basato su licenza) in qualsiasi momento?**
 
 In alcuni casi, sì.
 
@@ -116,9 +116,11 @@ Quando si usa il modello di licenza, è necessario usare Azure Active Directory 
 
 ## <a name="manage-and-support-user-accounts"></a>Gestire e supportare gli account utente
 
-**D: Cosa dire agli utenti di fare se non ricevono una risposta al telefono o non hanno il telefono con loro?**
+**D: Cosa dire agli utenti di fare se non ricevono una risposta al telefono?**
 
-È auspicabile che tutti gli utenti abbiano configurato più metodi di verifica. Dire loro di tentare nuovamente l'accesso, ma selezionando un altro metodo di verifica nella pagina di accesso.
+Chiedere agli utenti di provare fino a 5 volte in 5 minuti per ottenere una telefonata o un SMS per l'autenticazione. Microsoft usa più provider per la distribuzione di chiamate e messaggi SMS. Se il problema persiste, aprire un caso di supporto con Microsoft per altre informazioni sulla risoluzione dei problemi.
+
+Se i passaggi precedenti non restituiscono i risultati sperati, è auspicabile che tutti gli utenti abbiano configurato più metodi di verifica. Dire loro di tentare nuovamente l'accesso, ma selezionando un altro metodo di verifica nella pagina di accesso.
 
 È possibile invitare gli utenti a leggere l'articolo [Problemi con la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
@@ -126,7 +128,7 @@ Quando si usa il modello di licenza, è necessario usare Azure Active Directory 
 
 È possibile reimpostare l'account utente chiedendo all'utente stesso di ripetere il processo di registrazione. Altre informazioni sulla [gestione delle impostazioni utente e dispositivo con Azure Multi-Factor Authentication nel cloud](howto-mfa-userdevicesettings.md).
 
-**D: Cosa fare se uno degli utenti perde un telefono che usa le password di app?**
+**D: Cosa fare se uno degli utenti perde un telefono che usa le password dell'app?**
 
 L'amministratore può eliminare tutte le password di app dell'utente per impedire eventuali accessi non autorizzati. Dopo aver sostituito il dispositivo, l'utente potrà ricrearle. Altre informazioni sulla [gestione delle impostazioni utente e dispositivo con Azure Multi-Factor Authentication nel cloud](howto-mfa-userdevicesettings.md).
 
@@ -141,7 +143,7 @@ Se l'organizzazione non ha client legacy, non è consigliabile consentire agli u
 >
 > Le password di app sono necessarie solo per le app che non supportano l'autenticazione moderna. I client Office 2013 supportano i protocolli dell'autenticazione moderna, ma devono essere configurati. I client Office più recenti supportano automaticamente i protocolli dell'autenticazione moderna. Per altre informazioni, vedere l' [annuncio dell'anteprima pubblica dell'autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-**D: Gli utenti sostengono che talvolta non ricevono l'SMS o che rispondono agli SMS bidirezionale ma la verifica scade.**
+**D: Gli utenti sostengono che talvolta non ricevono l'SMS o che rispondono agli SMS bidirezionali ma la verifica scade.**
 
 Il recapito degli SMS e la ricezione di risposte SMS bidirezionale non sono garantiti in quanto sussistono fattori non controllabili che possono influire sull'affidabilità del servizio. Questi fattori includono il paese di destinazione, il gestore di telefonia mobile e la qualità del segnale.
 

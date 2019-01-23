@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 5b302be582bd22a7b38601c90f5fe475062afb26
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0d9d10214f8bc61a914de3f72ddae13679f2811e
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239672"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358508"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>Integrare altri servizi con SQL Data Warehouse
 Oltre alle funzionalità di base, SQL Data Warehouse assicura agli utenti l'integrazione con molti altri servizi in Azure. Alcuni di questi servizi includono:
@@ -30,31 +30,31 @@ SQL Data Warehouse garantisce l'integrazione con sempre più servizi di Azure e 
 ## <a name="power-bi"></a>Power BI
 L'integrazione di Power BI consente di combinare la potenza di calcolo di SQL Data Warehouse con le funzionalità di creazione di report dinamici e visualizzazione di Power BI. L’integrazione di Power BI include attualmente:
 
-* **Connessione diretta**: una connessione più avanzata con caratteristiche logiche SQL Data Warehouse. Questa funzionalità fornisce un'analisi più rapida su vasta scala.
-* **Apri in Power BI**: il pulsante "Apri in Power BI" passa informazioni sull'istanza a Power BI per una modalità di connessione semplificata.
+* **Connessione diretta**: Una connessione più avanzata con distribuzione logica su SQL Data Warehouse. Questa funzionalità fornisce un'analisi più rapida su vasta scala.
+* **Apri in Power BI**: Il pulsante "Apri in Power BI" passa informazioni sull'istanza a Power BI per una modalità di connessione semplificata.
 
 Per altre informazioni, vedere [Integrazione con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) o fare riferimento alla [documentazione di Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
 
 ## <a name="azure-data-factory"></a>Data factory di Azure
 Azure Data Factory offre agli utenti una piattaforma gestita per creare pipeline di estrazione e caricamento complesse. L'integrazione di SQL Data Warehouse con Azure Data Factory include:
 
-* **Procedure di archiviazione**: orchestrare l'esecuzione delle procedure di archiviazione in SQL Data Warehouse.
-* **Copia**: usare ADF per spostare dati in SQL Data Warehouse. Questa operazione può usare un meccanismo di spostamento dati ADF standard oppure PolyBase in background. 
+* **Procedure di archiviazione**: Orchestrare l'esecuzione delle procedure di archiviazione in SQL Data Warehouse.
+* **Copia**: Usare ADF per spostare dati in SQL Data Warehouse. Questa operazione può usare un meccanismo di spostamento dati ADF standard oppure PolyBase in background. 
 
-Per altre informazioni, vedere [Integrazione con Azure Data Factory](sql-data-warehouse-get-started-visualize-with-power-bi.md).
+Per altre informazioni, vedere [Integrazione con Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 Azure Machine Learning è un servizio di analisi completamente gestito, che consente di creare modelli complessi usando un ampio set di strumenti di previsione. SQL Data Warehouse è supportato come origine e destinazione per questi modelli con le funzionalità seguenti:
 
-* **Lettura dati:** Guida i modelli su larga scala mediante T-SQL su SQL Data Warehouse.
-* **Scrittura dati:** registra le modifiche da qualsiasi modello a SQL Data Warehouse.
+* **Lettura dei dati**: Guida i modelli su larga scala mediante T-SQL su SQL Data Warehouse.
+* **Scrittura dei dati**: Registra le modifiche da qualsiasi modello a SQL Data Warehouse.
 
 Per altre informazioni, vedere [Integrazione con Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md).
 
 ## <a name="azure-stream-analytics"></a>Analisi di flusso di Azure
 L’Analisi dei flussi di Azure è un'infrastruttura complessa, completamente gestita per l'elaborazione e l'utilizzo di dati degli eventi generati da Hub eventi di Azure.  L’integrazione con SQL Data Warehouse consente la trasmissione di dati in modo efficace da elaborare e archiviare insieme ai dati relazionali permettendo un’analisi più approfondita, più avanzata.  
 
-* **Output del processo:** inviare l'output da processi di analisi di flusso direttamente a SQL Data Warehouse.
+* **Output del processo:** Inviare l'output da processi di analisi di flusso direttamente a SQL Data Warehouse.
 
 Per altre informazioni, vedere [Integrazione con Analisi di flusso di Azure](sql-data-warehouse-integrate-azure-stream-analytics.md).
 

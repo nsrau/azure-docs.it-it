@@ -1,5 +1,5 @@
 ---
-title: Configurare Apache Tomcat su una macchina virtuale Linux | Microsoft Docs
+title: Configurare Apache Tomcat su una macchina virtuale Linux | Documentazione Microsoft
 description: Informazioni su come configurare Apache Tomcat7 usando macchine virtuali di Azure che eseguono Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: 8c04c9fffbb85bb4db7a369b0dbbad6279f5d6f6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5a5d052052be447ea2ccbd9231d3b03d38c7615c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420082"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266944"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurare Tomcat7 in una macchina virtuale Linux con Azure
 Apache Tomcat (o semplicemente Tomcat, precedentemente chiamato anche Jakarta Tomcat) è un server Web e contenitore di servlet open source sviluppato da Apache Software Foundation (ASF). Tomcat implementa le specifiche Java Servlet e Java Server Pages (JSP) di Sun Microsystems. Tomcat fornisce un ambiente server Web HTTP Java puro in cui eseguire codice Java. Nella configurazione più semplice, Tomcat viene eseguito in un singolo processo del sistema operativo. Questo processo esegue una macchina virtuale Java (JVM). Ogni richiesta HTTP da un browser a Tomcat viene elaborata nel processo di Tomcat come un thread separato.  
 
 > [!IMPORTANT]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e classico](../../../resource-manager-deployment-model.md). Questo articolo descrive come usare il modello di distribuzione classica. Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager. Per informazioni su come usare un modello di Resource Manager per distribuire una VM Ubuntu con Openjdk e Tomcat, vedere [questo articolo](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Azure Resource Manager e distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo descrive come usare il modello di distribuzione classica. Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager. Per informazioni su come usare un modello di Resource Manager per distribuire una VM Ubuntu con Openjdk e Tomcat, vedere [questo articolo](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 In questo articolo si installerà Tomcat7 su un'immagine Linux e la si distribuirà in Azure.  
@@ -37,14 +37,14 @@ Si acquisiranno le nozioni seguenti:
 * Come preparare la macchina virtuale per Tomcat7.
 * Come installare Tomcat7.
 
-La procedura presuppone che l'utente disponga già di una sottoscrizione di Azure.  In caso contrario è possibile registrarsi per una versione di valutazione gratuita sul [sito Web di Azure](https://azure.microsoft.com/). Se si ha un abbonamento MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Per altre informazioni su Azure, vedere [Cos'è Microsoft Azure?](https://azure.microsoft.com/overview/what-is-azure/).
+La procedura presuppone che l'utente disponga già di una sottoscrizione di Azure.  In caso contrario è possibile registrarsi per una versione di valutazione gratuita sul [sito Web di Azure](https://azure.microsoft.com/). Se si ha un abbonamento MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e BizSpark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Per altre informazioni su Azure, vedere [Cos'è Microsoft Azure?](https://azure.microsoft.com/overview/what-is-azure/).
 
 Questo articolo presuppone che l'utente abbia una conoscenza pratica di base di Tomcat e Linux.  
 
-## <a name="phase-1-create-an-image"></a>Fase 1: creare un'immagine.
+## <a name="phase-1-create-an-image"></a>Fase 1: Creare un'immagine
 In questa fase si creerà una macchina virtuale usando un'immagine Linux in Azure.  
 
-### <a name="step-1-generate-an-ssh-authentication-key"></a>Passaggio 1: generare una chiave di autenticazione SSH
+### <a name="step-1-generate-an-ssh-authentication-key"></a>Passaggio 1: Generare una chiave di autenticazione SSH
 SSH è uno strumento importante per gli amministratori di sistema. Non è consigliabile tuttavia configurare la protezione di accesso in base a una password stabilita da una persona fisica. Con un nome utente e una password debole, il sistema può essere esposto all'attacco da parte di utenti malintenzionati.
 
 L'aspetto positivo è che esiste un modo per lasciare aperto l'accesso remoto e non doversi preoccupare delle password. Il metodo consiste nell'autenticazione con crittografia asimmetrica. La chiave privata dell'utente è quella che concede l'autenticazione. È anche possibile bloccare l'account dell'utente per impedire l'autenticazione tramite password.
@@ -64,7 +64,7 @@ Attenersi a questa procedura per generare la chiave di autenticazione SSH.
 5. Selezionare e copiare la chiave pubblica e salvarla in un file denominato publicKey.pem. Non fare clic su **Save public key**, poiché il formato di file della chiave pubblica salvata è diverso dalla chiave pubblica richiesta.
 6. Fare clic su **Save private key** e salvarla in un file denominato privateKey.ppk.
 
-### <a name="step-2-create-the-image-in-the-azure-portal"></a>Passaggio 2: creare l'immagine nel portale di Azure
+### <a name="step-2-create-the-image-in-the-azure-portal"></a>Passaggio 2: Creare l'immagine nel portale di Azure
 1. Nel [portale](https://portal.azure.com/) fare clic su **Crea una risorsa** nella barra delle applicazioni per creare un'immagine. Scegliere quindi l'immagine Linux in base alle esigenze. Il seguente esempio usa l'immagine Ubuntu 14.04.
 ![Schermata del portale che mostra il pulsante Nuovo][3]
 
@@ -75,10 +75,10 @@ Attenersi a questa procedura per generare la chiave di autenticazione SSH.
 
 4. Configurare altre impostazioni in base alle esigenze, quindi fare clic su **Crea**.  
 
-## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>Fase 2: preparare la macchina virtuale per Tomcat7
+## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>Fase 2: Preparare la macchina virtuale per Tomcat7
 In questa fase si configurerà un endpoint per il traffico in Tomcat e ci si connetterà alla nuova macchina virtuale.
 
-### <a name="step-1-open-the-http-port-to-allow-web-access"></a>Passaggio 1: aprire la porta HTTP per consentire l'accesso web
+### <a name="step-1-open-the-http-port-to-allow-web-access"></a>Passaggio 1: Aprire la porta HTTP per consentire l'accesso Web
 Gli endpoint di Azure sono costituiti da un protocollo TCP o UDP, insieme a una porta pubblica e privata. La porta privata è la porta ascoltata dal servizio sulla macchina virtuale. La porta pubblica è la porta ascoltata esternamente dal servizio cloud di Azure per il traffico in ingresso basato su Internet.  
 
 La porta TCP 8080 è la porta predefinita su cui Tomcat è in ascolto. Se si apre questa porta con un endpoint di Azure, l'utente e altri client Internet potranno accedere alle pagine Tomcat.  
@@ -98,7 +98,7 @@ La porta TCP 8080 è la porta predefinita su cui Tomcat è in ascolto. Se si apr
       ![Schermata dell'interfaccia utente che mostra il comando Aggiungi, Porta pubblica e Porta privata][7]
 4. Fare clic su **OK** per aggiungere l'endpoint alla macchina virtuale.
 
-### <a name="step-2-connect-to-the-image-you-created"></a>Passaggio 2: effettuare la connessione all'immagine creata
+### <a name="step-2-connect-to-the-image-you-created"></a>Passaggio 2: Effettuare la connessione all'immagine creata
 È possibile scegliere qualsiasi strumento SSH per connettersi alla macchina virtuale. In questo esempio viene usato PuTTY.  
 
 1. Ottenere il nome DNS della macchina virtuale dal portale.
@@ -114,7 +114,7 @@ La porta TCP 8080 è la porta predefinita su cui Tomcat è in ascolto. Se si apr
 4. Dopo il download fare clic sul file eseguibile Putty.exe. Nella configurazione di PuTTY impostare le opzioni di base con il nome host e il numero di porta ottenuto dalle proprietà della macchina virtuale.   
 ![Schermata che mostra le opzioni di configurazione di PuTTY relative a nome host e porta][9]
 
-5. Nel riquadro a sinistra fare clic su **Connessione** > **SSH** > **Autenticazione** e quindi fare clic su **Sfoglia** per specificare il percorso del file privateKey.ppk. Il file PrivateKey contiene la chiave privata generata da PuTTYgen in precedenza nella sezione "Fase 1: creare un'immagine" di questo articolo.  
+5. Nel riquadro a sinistra fare clic su **Connessione** > **SSH** > **Autenticazione** e quindi fare clic su **Sfoglia** per specificare il percorso del file privateKey.ppk. Il file PrivateKey contiene la chiave privata generata da PuTTYgen in precedenza nella sezione "Fase 1: Creare un'immagine" di questo articolo.  
 ![Schermata che mostra la gerarchia di directory di connessione e il pulsante Sfoglia][10]
 
 6. Fare clic su **Apri**. Si potrebbe ricevere un avviso da una finestra di messaggio. Se il nome DNS e il numero di porta sono stati configurati correttamente, fare clic su **Yes**.
@@ -123,10 +123,10 @@ La porta TCP 8080 è la porta predefinita su cui Tomcat è in ascolto. Se si apr
 7. Viene chiesto di inserire il nome utente.  
 ![Schermata che mostra dove inserite il nome utente][12]
 
-8. Inserire il nome utente utilizzato per creare la macchina virtuale nella sezione "Fase 1: creare un'immagine" di questo articolo. Verrà visualizzata una schermata simile alla seguente:   
+8. Inserire il nome utente utilizzato per creare la macchina virtuale nella sezione "Fase 1: Creare un'immagine" di questo articolo. Verrà visualizzata una schermata simile alla seguente:   
 ![Schermata che mostra la conferma dell'autenticazione][13]
 
-## <a name="phase-3-install-software"></a>Fase 3: installare il software
+## <a name="phase-3-install-software"></a>Fase 3: Installazione del software
 In questa fase saranno installati l'ambiente di runtime Java, Tomcat7 e altri componenti di Tomcat7.  
 
 ### <a name="java-runtime-environment"></a>Ambiente di runtime Java
@@ -141,7 +141,7 @@ Seguire le istruzioni di installazione di `apt-get` riportate nel sito Web [Azul
 Per verificare se l'ambiente di runtime Java è stato installato correttamente, è possibile usare un comando simile al seguente:  
     java -version  
 
-Si dovrebbe vedere un messaggio simile al seguente: ![Messaggio di installazione di OpenJDK riuscita][14]
+Verrà visualizzato un messaggio simile al seguente: ![Messaggio con l'avviso che l'installazione di OpenJDK è riuscita][14]
 
 
 ### <a name="install-tomcat7"></a>Installare Tomcat7
@@ -164,7 +164,7 @@ Usare il comando **sudo apt-cache search tomcat7** per visualizzare tutti i comp
 
     sudo apt-get install tomcat7-user         #tools to create user instances  
 
-## <a name="phase-4-configure-tomcat7"></a>Fase 4: configurare Tomcat7
+## <a name="phase-4-configure-tomcat7"></a>Fase 4: Configurare Tomcat7
 In questa fase si amministra Tomcat.
 
 ### <a name="start-and-stop-tomcat7"></a>Avviare e arrestare Tomcat7
@@ -212,7 +212,7 @@ Dopo la connessione, si dovrebbe visualizzare una schermata simile alla seguente
 
   * La porta di ascolto di Tomcat non corrisponde alla porta privata dell'endpoint della macchina virtuale per il traffico in Tomcat.  
 
-     Controllare le impostazioni dell'endpoint della porta pubblica e privata e assicurarsi che la porta privata corrisponda alla porta di ascolto di Tomcat. Per istruzioni sulla configurazione degli endpoint per la macchina virtuale vedere la sezione di questo articolo "Fase 1: creare un'immagine".  
+     Controllare le impostazioni dell'endpoint della porta pubblica e privata e assicurarsi che la porta privata corrisponda alla porta di ascolto di Tomcat. Vedere "fase 1: Creare un'immagine", per istruzioni sulla configurazione degli endpoint per la macchina virtuale.  
 
      Per determinare la porta di ascolto di Tomcat, aprire /etc/httpd/conf/httpd.conf (versione Red Hat) o /etc/tomcat7/server.xml (versione Debian). Per impostazione predefinita la porta di ascolto di Tomcat è 8080. Di seguito è fornito un esempio:   
 

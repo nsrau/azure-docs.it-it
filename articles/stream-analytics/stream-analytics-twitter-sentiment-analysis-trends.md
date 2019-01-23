@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: de0ddbc041d6f177e5bfcd24d593b8d63a8e1e23
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248728"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231139"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure
 
@@ -36,7 +36,7 @@ In questa esercitazione si usa un'applicazione client che si connette a Twitter 
 * Una sottoscrizione di Azure.
 * Un account Twitter 
 * Un'applicazione Twitter e il [token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) per tale applicazione. Più avanti sono riportate istruzioni dettagliate per creare un'applicazione Twitter.
-* L'applicazione TwitterWPFClient, che legge il feed di Twitter. Per ottenere questa applicazione, scaricare il file [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) da GitHub e decomprimere il pacchetto in una cartella nel computer. Per visualizzare il codice sorgente ed eseguire l'applicazione in un debugger, è possibile ottenere il codice sorgente da [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* L'applicazione TwitterWPFClient, che legge il feed di Twitter. Per ottenere questa applicazione, scaricare il file [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) da GitHub e decomprimere il pacchetto in una cartella nel computer. Per visualizzare il codice sorgente ed eseguire l'applicazione in un debugger, è possibile ottenere il codice sorgente da [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Creare un hub eventi per l'input di Analisi di flusso
 
@@ -214,10 +214,10 @@ Ora che gli eventi tweet vengono trasmessi in flusso in tempo reale da Twitter, 
 
 2. Nel pannello **Input** fare clic su **+&nbsp;Aggiungi** e quindi compilare il pannello con questi valori:
 
-    * **Alias di input**: usare il nome `TwitterStream`. Se si usa un nome diverso, tenerne traccia, poiché sarà necessario in un secondo momento.
+    * **Alias di input**: Usare il nome `TwitterStream`. Se si usa un nome diverso, tenerne traccia, poiché sarà necessario in un secondo momento.
     * **Tipo di origine**: selezionare **Flusso dati**.
     * **Origine**: selezionare **Hub eventi**.
-    * **Opzioni di importazione**: selezionare **Usa l'hub eventi della sottoscrizione corrente**. 
+    * **Opzione di importazione**: selezionare **Usa l'hub eventi della sottoscrizione corrente**. 
     * **Spazio dei nomi del bus di servizio**: selezionare lo spazio dei nomi dell'hub eventi creato in precedenza (`<yourname>-socialtwitter-eh-ns`).
     * **Hub eventi**: selezionare l'hub eventi creato in precedenza (`socialtwitter-eh`).
     * **Nome criteri hub eventi**: selezionare i criteri di accesso creati in precedenza (`socialtwitter-access`).
@@ -297,8 +297,8 @@ In questa esercitazione gli eventi tweet aggregati ottenuti dalla query del proc
 
 2. Nel pannello **Output** fare clic su **+&nbsp;Aggiungi** e quindi compilare il pannello con questi valori:
 
-    * **Alias di output**: usare il nome `TwitterStream-Output`. 
-    * **Sink**: selezionare **Archivio BLOB**.
+    * **Alias di output**: Usare il nome `TwitterStream-Output`. 
+    * **Sink**: Selezionare **Archivio BLOB**.
     * **Opzioni di importazione**: selezionare **Usa l'archiviazione BLOB della sottoscrizione corrente**.
     * **Account di archiviazione**. Selezionare **Crea un nuovo account di archiviazione**.
     * **Account di archiviazione** (seconda casella). Immettere `YOURNAMEsa`, dove `YOURNAME` rappresenta il nome o un'altra stringa univoca. Il nome può contenere solo lettere minuscole e numeri e deve essere univoco in Azure. 

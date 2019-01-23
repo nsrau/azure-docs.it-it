@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426255"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306489"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Studio del modello di soluzione Cortana Intelligence per la previsione della domanda di energia
 ## <a name="executive-summary"></a>Sunto
@@ -172,7 +172,7 @@ In molti casi il cliente può essere interessato a una motivazione aziendale per
 
 È importante avere una buona conoscenza del valore commerciale di una previsione della domanda di energia, che sia a breve o a lungo termine. Di fatto, è importante conoscere il valore commerciale di ogni operazione di previsione. Ad esempio, la previsione accurata del carico elettrico per le 24 ore successive può evitare la sovrapproduzione e contribuire a prevenire i sovraccarichi della rete. Tutto questo può essere quantificato in termini di risparmio economico su base giornaliera.
 
-Di seguito è riportata una formula di base per il calcolo del vantaggio economico della soluzione di previsione della domanda: ![Formula di base per il calcolo del vantaggio economico della soluzione di previsione della domanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Di seguito è riportata una formula di base per il calcolo del vantaggio economico della soluzione di previsione della domanda:  ![Formula di base per il calcolo del vantaggio economico della soluzione di previsione della domanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Dal momento che la suite Cortana Intelligence offre un modello tariffario con pagamento in base al consumo, non è necessario inserire una componente di costo fisso in questa formula. La formula può essere calcolata su base giornaliera, mensile o annuale.
 
@@ -269,14 +269,14 @@ Cortana Intelligence Suite supporta i formati di dati più comuni come CSV, TSV,
 ### <a name="data-ingestion"></a>Inserimento di dati
 Dal momento che la previsione della domanda di energia viene eseguita in modo frequente e costante, è necessario garantire il flusso dei dati non elaborati attraverso un processo di inserimento dati solido e affidabile. Il processo di inserimento deve garantire la disponibilità dei dati non elaborati per la previsione quando richiesto. Ciò significa che la frequenza di inserimento dati deve essere maggiore della frequenza di previsione.
 
-Ad esempio: se la soluzione di previsione della domanda genera una nuova previsione ogni mattina alle 8.00, è necessario assicurarsi che tutti i dati raccolti durante le 24 ore precedenti siano stati inseriti fino a quel momento, inclusi i dati dell'ultima ora.
+Ad esempio:  se la soluzione di previsione della domanda genera una nuova previsione ogni mattina alle ore 8.00, è necessario assicurarsi che tutti i dati raccolti durante le 24 ore precedenti siano stati inseriti fino a quel momento, inclusi i dati dell'ultima ora.
 
 A questo scopo, la suite Cortana Intelligence offre diversi modi per supportare un processo di inserimento dati affidabile. Questo punto verrà approfondito nella sezione **Distribuzione** di questo documento.
 
 ### <a name="data-quality"></a>Qualità dei dati
 L'origine dei dati non elaborati necessaria per eseguire previsioni della domanda affidabili e accurate deve soddisfare alcuni criteri di base relativi alla qualità dei dati. Anche se è possibile usare metodi statistici avanzati per compensare un eventuale problema di qualità dei dati, è necessario assicurarsi che la qualità dei nuovi dati inseriti sia superiore a una certa soglia di base. Di seguito sono riportate alcune considerazioni sulla qualità dei dati non elaborati:
 
-* **Valore mancante** : si riferisce a una situazione in cui non sono state raccolte misurazioni specifiche. Il requisito di base in questo caso è che il tasso di valori mancanti non superi il 10% per un determinato periodo di tempo. Un singolo valore mancante dovrà essere indicato usando un valore predefinito, ad esempio "9999", e non "0" che può essere una misurazione valida.
+* **Valore mancante** : si riferisce a una situazione in cui non sono state raccolte misurazioni specifiche. Il requisito di base in questo caso è che il tasso di valori mancanti non superi il 10% per un determinato periodo di tempo. Un singolo valore mancante deve essere indicato usando un valore predefinito (ad esempio: "9999") e non "0", che può essere una misurazione valida.
 * **Precisione della misurazione** : è necessario registrare in modo accurato il valore effettivo del consumo o della temperatura. Misurazioni poco accurate generano previsioni imprecise. In genere, l'errore di misurazione deve essere inferiore all'1% rispetto al valore reale.
 * **Ora della misurazione** : la differenza tra il timestamp effettivo dei dati raccolti e l'ora della effettiva della misurazione non deve superare i 10 secondi.
 * **Sincronizzazione** : quando si usano più origini dati,*ad esempio*il consumo e la temperatura, è necessario assicurarsi che non presentino problemi di sincronizzazione. Ciò significa che la differenza tra il timestamp raccolto da due origini dati indipendenti qualsiasi non deve superare i 10 secondi.
@@ -287,7 +287,7 @@ Dopo aver inserito i dati non elaborati come indicato nella sezione **Inseriment
 
 Questa sezione illustra alcune delle funzionalità dei dati più comuni incluse nei modelli di previsione della domanda di energia.
 
-**Funzionalità basate sul tempo:** queste funzionalità vengono derivate dai dati relativi a data e timestamp. Tali dati vengono estratti e convertiti in funzionalità categoriche quali:
+**Funzionalità basate sul tempo**: queste funzionalità vengono derivate dai dati date/timestamp. Tali dati vengono estratti e convertiti in funzionalità categoriche quali:
 
 * Ora del giorno: rappresenta l'ora del giorno, accetta valori compresi tra 0 e 23.
 * Giorno della settimana: rappresenta il giorno della settimana, accetta valori compresi tra 1 (domenica) e 7 (sabato).
@@ -297,16 +297,16 @@ Questa sezione illustra alcune delle funzionalità dei dati più comuni incluse 
 * Festivo: funzionalità con valore binario che accetta i valori 0 (giorni feriali) o 1 (giorni festivi).
 * Termini di Fourier: i termini di Fourier sono pesi derivati dal timestamp e vengono usati per acquisire la stagionalità, vale a dire i cicli, nei dati. Dato che nei dati sono presenti più stagioni, possono essere necessari più termini di Fourier. Ad esempio, se i valori della domanda hanno stagioni/cicli annuali, settimanali e giornalieri saranno necessari tre termini di Fourier.
 
-**Funzionalità di misurazione indipendenti:** le funzionalità indipendenti includono tutti gli elementi di dati da usare come predittori nel modello. Qui viene esclusa la funzionalità dipendente di cui deve essere eseguita la previsione.
+**Funzionalità di misurazione indipendenti**: le funzionalità indipendenti includono tutti gli elementi di dati da usare come predittori nel modello. Qui viene esclusa la funzionalità dipendente di cui deve essere eseguita la previsione.
 
 * Funzione Lag: esegue lo spostamento temporale dei valori della domanda effettivi. Ad esempio, in caso di dati con cadenza oraria, la funzione Lag 1 conserva il valore della domanda nell'ora precedente rispetto al timestamp corrente. Analogamente è possibile aggiungere le funzioni Lag 2, Lag 3 *e così via*. La combinazione effettiva delle funzioni Lag usate viene stabilita durante la fase di modellazione attraverso la valutazione dei risultati del modello.
 * Tendenza a lungo termine: rappresenta la crescita lineare della domanda negli anni.
 
-**Funzionalità dipendente:** la funzionalità dipendente è la colonna di dati di cui il modello deve eseguire la previsione. Con l' [apprendimento supervisionato](https://en.wikipedia.org/wiki/Supervised_learning)è necessario prima di tutto eseguire il training del modello usando le funzionalità dipendenti, anche dette etichette. In questo modo il modello può apprendere gli schemi contenuti nei dati associati alla funzionalità dipendente. Nella previsione della domanda di energia in genere si cerca di prevedere la domanda effettiva, che viene quindi usata come funzionalità dipendente.
+**Funzionalità dipendente**: la funzionalità dipendente è la colonna di dati di cui il modello deve eseguire la previsione. Con l' [apprendimento supervisionato](https://en.wikipedia.org/wiki/Supervised_learning)è necessario prima di tutto eseguire il training del modello usando le funzionalità dipendenti, anche dette etichette. In questo modo il modello può apprendere gli schemi contenuti nei dati associati alla funzionalità dipendente. Nella previsione della domanda di energia in genere si cerca di prevedere la domanda effettiva, che viene quindi usata come funzionalità dipendente.
 
-**Gestione dei valori mancanti:** durante la fase di preparazione dei dati è necessario stabilire quale sia la strategia migliore per gestire i valori mancanti. Nella maggior parte dei casi questi vengono gestiti usando vari [metodi statistici di imputazione dei dati](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). Nella previsione della domanda di energia, in genere l'imputazione dei valori mancanti viene eseguita usando la media mobile calcolata sui punti dati precedenti disponibili.
+**Gestione dei valori mancanti**: durante la fase di preparazione dei dati è necessario stabilire quale sia la strategia migliore per gestire i valori mancanti. Nella maggior parte dei casi questi vengono gestiti usando vari [metodi statistici di imputazione dei dati](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). Nella previsione della domanda di energia, in genere l'imputazione dei valori mancanti viene eseguita usando la media mobile calcolata sui punti dati precedenti disponibili.
 
-**Normalizzazione dei dati:** la normalizzazione dei dati è un altro tipo di trasformazione che viene usato per uniformare i dati numerici, come quelli usati nella previsione della domanda. Questo permette di migliorare l'accuratezza e la precisione del modello. In genere questa operazione viene eseguita dividendo il valore effettivo per l'intervallo dei dati.
+**Normalizzazione dei dati**: la normalizzazione dei dati è un altro tipo di trasformazione che viene usato per uniformare i dati numerici, come quelli usati nella previsione della domanda. Questo permette di migliorare l'accuratezza e la precisione del modello. In genere questa operazione viene eseguita dividendo il valore effettivo per l'intervallo dei dati.
 Il valore originale risulta quindi ridotto a un intervallo più piccolo, in genere compreso tra -1 e 1.
 
 ## <a name="modeling"></a>Modellazione
@@ -320,21 +320,21 @@ Nella previsione della domanda si usano i dati storici in ordine cronologico. I 
 Negli ultimi anni sono stati sviluppati algoritmi avanzati per la previsione basata sulle serie storiche e per migliorare l'accuratezza delle previsioni. Alcuni di questi vengono illustrati brevemente in questa sezione,
 
 > [!NOTE]
-> che non intende fornire una panoramica dell'apprendimento automatico e delle previsioni ma piuttosto un breve sguardo sulle tecniche di modellazione comunemente usate per la previsione della domanda. Per altre informazioni e materiale didattico sulla previsione basata sulle serie storiche, vedere il libro online [Forecasting: principles and practice](https://www.otexts.org/book/fpp).
+> che non intende fornire una panoramica dell'apprendimento automatico e delle previsioni ma piuttosto un breve sguardo sulle tecniche di modellazione comunemente usate per la previsione della domanda. Per altre informazioni e materiale didattico sulla previsione basata sulle serie storiche, vedere il libro online [Forecasting: principles and practice](https://www.otexts.org/).
 > 
 > 
 
-#### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**Media mobile**](https://www.otexts.org/fpp/6/2)
+#### <a name="ma-moving-average"></a>**Media mobile**
 La media mobile è una delle prime tecniche di analisi usate per la previsione basata sulle serie storiche ed è ancora oggi una delle più diffuse. È anche la base di tecniche di previsione più avanzate. Con la media mobile viene previsto il punto dati successivo calcolando la media dei K punti più recenti, dove K indica l'ordine della media mobile.
 
 La tecnica della media mobile ha un effetto di smorzamento sulla previsione e potrebbe non gestire bene una grande volatilità dei dati.
 
-#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**Smorzamento esponenziale**](https://www.otexts.org/fpp/7/5)
-Lo smorzamento esponenziale raggruppa una famiglia di metodi che usano la media ponderata dei punti dati recenti per prevedere il punto dati successivo. Ai valori più recenti viene assegnato un peso maggiore che diminuisce gradualmente man mano che i valori misurati si fanno meno recenti. I metodi di questa famiglia sono diversi e alcuni includono la gestione della stagionalità nei dati, ad esempio il [modello con stagionalità Holt Winters](https://www.otexts.org/fpp/7/5).
+#### <a name="ets-exponential-smoothing"></a>**Smorzamento esponenziale**
+Lo smorzamento esponenziale raggruppa una famiglia di metodi che usano la media ponderata dei punti dati recenti per prevedere il punto dati successivo. Ai valori più recenti viene assegnato un peso maggiore che diminuisce gradualmente man mano che i valori misurati si fanno meno recenti. I metodi di questa famiglia sono diversi e alcuni includono la gestione della stagionalità nei dati, ad esempio il modello con stagionalità Holt-Winters.
 
 Alcuni di questi metodi tengono anche conto della stagionalità dei dati.
 
-#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**Modello autoregressivo integrato a media mobile (ARIMA)**](https://www.otexts.org/fpp/8)
+#### <a name="arima-auto-regression-integrated-moving-average"></a>**Modello autoregressivo integrato a media mobile (ARIMA)**
 Il modello autoregressivo integrato a media mobile (ARIMA) raggruppa un'altra famiglia di metodi comunemente usati per la previsione basata sulle serie storiche. Unisce i metodi autoregressivi alla media mobile. I metodi autoregressivi usano i modelli regressivi prendendo i valori delle serie storiche precedenti per calcolare il punto dati successivo. I metodi ARIMA applicano anche metodi di differenziazione che prevedono il calcolo della differenza tra i punti dati e l'uso di questi anziché del valore misurato originale. Il modello ARIMA fa anche uso delle tecniche con media mobile illustrate in precedenza. La combinazione in vari modi di tutti questi metodi costituisce la famiglia di metodi ARIMA.
 
 ARIMA e smorzamento esponenziale sono ampiamente usati per la previsione della domanda di energia e per molti altri problemi di previsione. In molti casi questi metodi vengono combinati per fornire una maggiore accuratezza dei risultati.

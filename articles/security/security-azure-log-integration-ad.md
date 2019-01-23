@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0b27cd314dd03375b2d2e6ba537cda74e2ec4310
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c01d911a59647956914518aa62a616823241ab3b
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313242"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304925"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrare i log di controllo di Azure Active Directory
 
@@ -28,7 +28,7 @@ Gli eventi di controllo di Azure Active Directory (Azure AD) aiutano i clienti a
 
 
 >[!IMPORTANT]
-> La funzionalità di integrazione dei log di Azure verrà dichiarata deprecata entro il 01/06/2019. Il download dei log di Azure verrà disabilitato entro il 27 giugno 2018. Per materiale sussidiario su cosa fare dopo, vedere il post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Usare Monitoraggio di Azure per eseguire l'integrazione con gli strumenti per le informazioni di sicurezza e gestione degli eventi) 
+> La funzionalità di integrazione dei log di Azure verrà dichiarata deprecata entro il 01/06/2019. Il download di AzLog è stato disabilitato il 27 giugno 2018. Per materiale sussidiario su cosa fare dopo, vedere il post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Usare Monitoraggio di Azure per eseguire l'integrazione con gli strumenti per le informazioni di sicurezza e gestione degli eventi) 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Passaggi necessari per integrare i log di controllo di Azure Active Directory
 
@@ -73,7 +73,7 @@ Si può anche aprire un [richiesta di supporto](../azure-supportability/how-to-c
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'integrazione dei log di Azure, vedere:
 
-* [Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) (Integrazione log di Microsoft Azure): pagina di Area download con informazioni dettagliate, requisiti di sistema e istruzioni di installazione per l'integrazione dei log di Azure.
-* [Introduzione all'integrazione dei log di Azure](security-azure-log-integration-overview.md): questo articolo presenta l'integrazione dei log di Azure, le funzionalità chiave e il funzionamento.
-* [Domande frequenti sull'integrazione dei log di Azure](security-azure-log-integration-faq.md): questo articolo contiene le risponde alle domande sull'integrazione dei log di Azure.
-* [New features for Azure Diagnostics and Azure audit logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) (Nuove funzionalità per Diagnostica di Azure e i log di controllo di Azure): questo post di blog presenta i log di controllo di Azure e altre funzionalità che consentono di ottenere informazioni dettagliate sulle operazioni delle risorse di Azure.
+* [Integrazione log di Microsoft Azure per i log di Azure](https://www.microsoft.com/download/details.aspx?id=53324): la pagina dell'Area download include informazioni dettagliate, requisiti di sistema e istruzioni di installazione per Integrazione log di Azure.
+* [Introduzione a Integrazione log di Azure](security-azure-log-integration-overview.md): Questo articolo presenta Integrazione log di Azure, le funzionalità chiave e il funzionamento.
+* [Domande frequenti su Integrazione log di Azure](security-azure-log-integration-faq.md): Questo articolo contiene le risponde alle domande sull'integrazione dei log di Azure.
+* [New features for Azure Diagnostics and Azure audit logs (Nuove funzionalità per Diagnostica di Azure e i log di controllo di Azure)](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): questo post del blog presenta i log di controllo di Azure e altre funzionalità che consentono di ottenere informazioni dettagliate sulle operazioni delle risorse di Azure.

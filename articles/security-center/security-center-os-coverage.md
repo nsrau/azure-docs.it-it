@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 1/9/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 98d2d29e7822d9ca97ba488fcf67298a0b40efbf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608835"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265465"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Funzionalità e piattaforme supportate dal Centro sicurezza di Azure
 
@@ -69,15 +69,15 @@ Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. V
 > [!div class="mx-tableFixed"]
 > 
 
-|Server| Windows||Linux||
+|Server|Windows||Linux||
 |----|----|----|----|----|
 |Environment|Azure|Non Azure|Azure|Non Azure|
 |Avvisi di rilevamento minacce VMBA|✔|✔|✔ (nelle versioni supportate)|✔|
 |Avvisi di rilevamento delle minacce di rete|✔|X|✔|X|
-|Integrazione con Windows Defender ATP*|✔ (nelle versioni supportate)|✔|X|X|
+|Integrazione con Windows Defender ATP|✔ (nelle versioni supportate)|✔|X|X|
 |Patch mancanti|✔|✔|✔|✔|
 |Configurazioni di sicurezza|✔|✔|✔|✔|
-|Programmi antimalware|✔|✔|X|X|
+|Endpoint Protection|✔|✔|X|X|
 |Accesso JIT alle VM|✔|X|✔|X|
 |Controlli delle applicazioni adattivi|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
@@ -88,8 +88,27 @@ Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. V
 |Mappa di rete|✔|X|✔|X|
 |Controlli adattivi della rete|✔|X|✔|X|
 
-\* Queste funzionalità sono attualmente supportate in anteprima pubblica.
 
+### <a name="supported-endpoint-protection-solutions"></a>Soluzioni di protezione endpoint supportate
+
+La tabella seguente contiene una matrice che indica:
+ - Se è possibile usare Centro sicurezza di Azure per l'installazione ogni soluzione.
+ - Quali soluzioni di protezione endpoint può fornire Centro sicurezza. In caso venga individuata una di queste soluzioni di protezione endpoint, il Centro sicurezza consiglierà di non installarne nessuna.
+
+| Endpoint Protection| Piattaforme | Installazione del Centro sicurezza | Individuazione del Centro sicurezza |
+|------|------|-----|-----|
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, predefinito nel sistema operativo| Yes |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione | Yes |
+| Trend Micro – Tutte le versioni | Famiglia Windows Server  | No  | Yes |
+| Symantec v12.1.1100+| Famiglia Windows Server  | No  | Yes |
+| McAfee v10+ | Famiglia Windows Server  | No  | Yes |
+| Kaspersky| Famiglia Windows Server  | No  | No   |
+| Sophos| Famiglia Windows Server  | No  | No   |
+
+> [!NOTE]
+> - Per poter rilevare System Center Endpoint Protection (SCEP) in una macchina virtuale Windows Server 2008 R2, SCEP deve essere installato dopo PowerShell 3.0 (o versione successiva).
+>
+>
 
 ## <a name="supported-paas-features"></a>Funzionalità PaaS supportate 
 
@@ -109,6 +128,8 @@ Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. V
 |Sottoscrizione|✔| ✔|
 
 \* Queste funzionalità sono attualmente supportate in anteprima pubblica. 
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

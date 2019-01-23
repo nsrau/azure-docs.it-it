@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con KnowledgeOwl | Microsoft Docs'
+title: 'Esercitazione: Esercitazione: Integrazione di Azure Active Directory con KnowledgeOwl | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e KnowledgeOwl.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: e902f5969611dd3b1074e899003abe5067857c04
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80d8d1664100cdfbbf6d537b41823c2db0204040
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446141"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318918"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Esercitazione: Integrazione di Azure Active Directory con KnowledgeOwl
 
@@ -254,7 +254,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in KnowledgeOwl. KnowledgeOwl supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se ancora non esiste un nuovo utente, viene creato durante un tentativo di accesso a KnowledgeOwl.
 >[!Note]
->Se è necessario creare un utente manualmente, contattare il [team di supporto di KnowledgeOwl](mailto:support@knowledgeowl.com).
+>Per creare un utente manualmente, è necessario contattare il  [team di supporto di KnowledgeOwl](mailto:support@knowledgeowl.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -291,7 +291,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro KnowledgeOwl nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione KnowledgeOwl.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 809d892c6238441f5a0bd93382acd7a783a4f0e9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2bc6f14eeb974ded462b8dcaf65d5401cc35291d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260719"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262218"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
@@ -19,8 +19,8 @@ Azure Migrate ha un limite di 1500 computer per progetto; questo articolo descri
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **VMware**: le macchine virtuali di cui si intende eseguire la migrazione devono essere gestite dal server vCenter versione 5.5, 6.0 o 6.5. È inoltre necessario disporre di un unico host ESXi versione 5.0 o successiva per distribuire la macchina virtuale che funge da agente di raccolta.
-- **Account vCenter**: è necessario un account di sola lettura per accedere al server vCenter. Azure Migrate usa questo account per individuare le macchine virtuali.
+- **VMware**: Le macchine virtuali di cui si intende eseguire la migrazione devono essere gestite dal server vCenter versione 5.5, 6.0, 6.5 o 6.7. È inoltre necessario disporre di un unico host ESXi versione 5.0 o successiva per distribuire la macchina virtuale che funge da agente di raccolta.
+- **Account vCenter**: è necessario un account di sola lettura per accedere al server vCenter. Azure Migrate usa questo account per individuare le macchine virtuali.Azure Migrate usa questo account per individuare le macchine virtuali locali.
 - **Autorizzazioni**: nel server vCenter è necessario avere le autorizzazioni per creare una macchina virtuale importando un file con estensione ova.
 - **Impostazioni delle statistiche**: questo requisito è applicabile solo al modello di [individuazione una tantum](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) (ora deprecato). Per il modello di individuazione una tantum, le impostazioni delle statistiche del server vCenter devono essere impostate sul livello 3 prima di iniziare la distribuzione. Il livello delle statistiche deve essere impostato su 3 per ogni intervallo di raccolta giornaliero, settimanale e mensile. Se si imposta un livello inferiore a 3 per uno dei tre intervalli di raccolta, viene eseguita la valutazione, ma non vengono raccolti i dati sulle prestazioni per l'archiviazione e la rete. I consigli relativi alle dimensioni si baseranno quindi sui dati delle prestazioni per la CPU e la memoria e sui dati di configurazione per le schede del disco e di rete.
 
@@ -282,7 +282,7 @@ L'appliance dell'agente di raccolta individua i dati di configurazione seguenti 
 6. Dimensione della memoria, dimensioni dei dischi
 7. Contatori delle prestazioni per macchina virtuale, disco e rete, come indicato nella tabella di seguito.
 
-L'appliance dell'agente di raccolta raccoglie i contatori delle prestazioni seguenti per ogni macchina virtuale dall'host ESXi a intervalli di 20 secondi. Questi contatori sono i contatori di vCenter e, anche se il termine usato è Media, i campioni raccolti ogni 20 secondi sono di fatto contatori in tempo reale. L'appliance quindi esegue il rollup degli esempi di 20 secondi per creare un singolo punto dati per ogni 15 minuti selezionando il valore di picco dagli esempi di 20 secondi e li invia ad Azure. I dati sulle prestazioni per le macchine virtuali sono disponibili nel portale a partire da due ore dopo l'avvio dell'individuazione. Per ottenere elementi consigliati affidabili relativi alle dimensioni, è consigliabile attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni. Per risultati immediati, è possibile creare valutazioni usando il criterio di determinazione delle dimensioni *Come in locale*, che non considera i dati sulle prestazioni per determinare le dimensioni corrette.
+L'appliance dell'agente di raccolta raccoglie i contatori delle prestazioni seguenti per ogni macchina virtuale dall'host ESXi a intervalli di 20 secondi. Questi contatori sono i contatori di vCenter e, anche se il termine usato è Media, i campioni raccolti ogni 20 secondi sono di fatto contatori in tempo reale. L'appliance quindi esegue il rollup degli esempi di 20 secondi per creare un singolo punto dati per ogni 15 minuti selezionando il valore di picco dagli esempi di 20 secondi e li invia ad Azure. I dati sulle prestazioni per le macchine virtuali sono disponibili nel portale a partire da due ore dopo l'avvio dell'individuazione. Per ottenere elementi consigliati affidabili relativi alle dimensioni, è consigliabile attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni. Per risultati immediati, è possibile creare valutazioni con un criterio di determinazione delle dimensioni *come in locale*, che non considera i dati sulle prestazioni per il dimensionamento corretto.
 
 **Contatore** |  **Impatto sulla valutazione**
 --- | ---

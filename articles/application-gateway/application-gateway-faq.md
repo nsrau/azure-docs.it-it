@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/6/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994859"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247504"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -25,7 +25,7 @@ Il gateway applicazione di Azure è un servizio di controller per la distribuzio
 
 ### <a name="what-features-does-application-gateway-support"></a>Quali funzionalità supporta il gateway applicazione?
 
-Il gateway applicazione supporta la scalabilità automatica, l'offload SSL e SSL end-to-end, Web application firewall, affinità della sessione basata su cookie, routing basato su percorso URL, hosting multisito e altro. Per un elenco completo delle funzionalità supportate, vedere [Cos'è il gateway applicazione di Azure?](application-gateway-introduction.md)
+Il gateway applicazione supporta scalabilità automatica, offload SSL e SSL end-to-end, Web application firewall, affinità della sessione basata su cookie, routing basato su percorso URL, hosting multisito e altro. Per un elenco completo delle funzionalità supportate, vedere [Cos'è il gateway applicazione di Azure?](application-gateway-introduction.md)
 
 ### <a name="what-is-the-difference-between-application-gateway-and-azure-load-balancer"></a>Qual è la differenza tra gateway applicazione e Azure Load Balancer?
 
@@ -53,7 +53,7 @@ I pool back-end possono essere costituiti da schede di interfaccia di rete, set 
 
 ### <a name="what-regions-is-the-service-available-in"></a>In quale aree è disponibile il servizio?
 
-Il gateway applicazione è disponibile in tutte le aree di Azure globale. È anche disponibile in [Azure Cina](https://www.azure.cn/) e [Azure per enti pubblici](https://azure.microsoft.com/overview/clouds/government/)
+Il gateway applicazione è disponibile in tutte le aree di Azure globale. È anche disponibile in [Azure Cina 21Vianet](https://www.azure.cn/) e [Azure per enti pubblici](https://azure.microsoft.com/overview/clouds/government/)
 
 ### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>Si tratta di una distribuzione dedicata per la sottoscrizione o è condivisa tra clienti?
 
@@ -138,6 +138,8 @@ Le route definite dall'utente (Udr) sono supportate nella subnet del gateway app
 
 Ad esempio, è possibile configurare una route UDR nella subnet del gateway applicazione in modo che punti a un'appliance firewall per l'ispezione dei pacchetti, ma è necessario assicurarsi che il pacchetto possa raggiungere l'ispezione dei post relativa alla destinazione prevista. In caso contrario, potrebbe tradursi in probe di integrità o comportamento di instradamento del traffico non corretti. Sono incluse route o route 0.0.0.0/0 predefinite propagate dal gateway VPN o ExpressRoute nella rete virtuale.
 
+Le route definite dall'utente nella subnet del gateway **non** sono supportate nello SKU v2. Per altre informazioni, vedere [Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations).
+
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quali sono i limiti del gateway applicazione? È possibile aumentare questi limiti?
 
 Vedere [Limiti del gateway applicazione](../azure-subscription-service-limits.md#application-gateway-limits) per informazioni sui limiti.
@@ -164,7 +166,7 @@ I probe personalizzati non supportano caratteri jolly o regex nei dati di rispos
 
 ### <a name="how-are-rules-processed"></a>Come vengono elaborate le regole?
 
-Le regole vengono elaborate nell'ordine in cui sono configurate. È consigliabile che le regole multisito siano configurate prima delle regole di base per ridurre le probabilità che il traffico sia indirizzato a un back-end inappropriato, in quanto la regola di base selezionarebbe il traffico in base alla porta prima che venga valutata la regola multisito.
+Le regole vengono elaborate nell'ordine in cui sono configurate. È consigliabile che le regole multisito siano configurate prima delle regole di base per ridurre le probabilità che il traffico sia indirizzato a un back-end inappropriato, in quanto la regola di base corrisponderebbe al traffico in base alla porta prima che venga valutata la regola multisito.
 
 ### <a name="what-does-the-host-field-for-custom-probes-signify"></a>Cosa indica il campo Host per i probe personalizzati?
 
@@ -206,7 +208,7 @@ Sì, lo SKU versione 2 del gateway applicazione supporta la scalabilità automat
 
 ### <a name="does-manual-scale-updown-cause-downtime"></a>Il ridimensionamento manuale causa tempi di inattività?
 
-Non si verificano tempi di inattività, le istanze vengono distribuite tra domini di aggiornamento e domini di errore.
+Non si verificano tempi di inattività. Le istanze vengono distribuite tra domini di aggiornamento e domini di errore.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Il gateway applicazione supporta l'esaurimento delle connessioni?
 
@@ -292,7 +294,7 @@ Sì, la [configurazione dei pacchetti di crittografia](application-gateway-ssl-p
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>Quanti certificati SSL sono supportati?
 
-Sono supportati fino a 20 certificati SSL.
+Sono supportati fino a 100 certificati SSL.
 
 ### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>Quanti certificati di autenticazione sono supportati per la ripetizione della crittografia nel back-end?
 
@@ -380,7 +382,7 @@ Sì, il gateway applicazione supporta gli avvisi. Gli avvisi vengono configurati
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>L'integrità back-end restituisce uno stato sconosciuto. Quale potrebbe essere la causa?
 
-Nella maggior parte dei casi, l'accesso al back-end è bloccato da un gruppo di sicurezza di rete o un DNS personalizzato. Vedere [Integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md) per altre informazioni.
+Nella maggior parte dei casi, l'accesso al back-end è bloccato da un gruppo di sicurezza di rete o da un DNS personalizzato. Vedere [Integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md) per altre informazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

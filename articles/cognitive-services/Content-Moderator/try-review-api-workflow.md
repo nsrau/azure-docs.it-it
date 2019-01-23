@@ -1,21 +1,21 @@
 ---
 title: Flussi di lavoro di moderazione del contenuto dalla console per le API - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Informazioni su come usare i flussi di lavoro di moderazione del contenuto dalla console per le API.
+description: Usare le operazioni di flusso di lavoro in Azure Content Moderator per creare o aggiornare un flusso di lavoro oppure ottenere i dettagli del flusso di lavoro tramite l'API di revisione.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 4ef8951b30fa7aede08a1af3c834192b5ed18649
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 24c451dda398cfa65dd24a4500871c67943b79bf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223851"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259460"
 ---
 # <a name="workflows-from-the-api-console"></a>Flussi di lavoro dalla console per le API
 
@@ -80,9 +80,9 @@ Per **Open API testing console** (Apri console di test dell'API) selezionare l'a
 
 Immettere i valori per **team**, **workflowname** e **Ocp-Apim-Subscription-Key** (la chiave di sottoscrizione):
 
-- **team**: l'ID del team creato quando è stato configurato l'[account dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: nome del flusso di lavoro. Usare `default`.
-- **Ocp-Apim-Subscription-Key**: disponibile nella scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
+- **team**: l'ID team creato quando è stato configurato l'[account dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: il nome del flusso di lavoro. Usare `default`.
+- **Ocp-Apim-Subscription-Key**: disponibile nella scheda **Impostazioni**. Per altre informazioni, vedere la [panoramica](overview.md).
 
   ![Ottenere parametri di query e intestazioni](images/workflow-get-default.PNG)
 
@@ -138,9 +138,9 @@ Per **Open API testing console** (Apri console di test dell'API) selezionare l'a
 
 Immettere i valori per **team**, **workflowname** e **Ocp-Apim-Subscription-Key** (la chiave di sottoscrizione):
 
-- **team**: l'ID del team creato quando è stato configurato l'[account dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: nome del nuovo flusso di lavoro.
-- **Ocp-Apim-Subscription-Key**: disponibile nella scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
+- **team**: l'ID team creato quando è stato configurato l'[account dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: il nome del nuovo flusso di lavoro.
+- **Ocp-Apim-Subscription-Key**: disponibile nella scheda **Impostazioni**. Per altre informazioni, vedere la [panoramica](overview.md).
 
   ![Parametri di query e intestazioni nella console Workflow - Create Or Update (Flusso di lavoro - Creazione o aggiornamento)](images/workflow-console-parameters.PNG)
 

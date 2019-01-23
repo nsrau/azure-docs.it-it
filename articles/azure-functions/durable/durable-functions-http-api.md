@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c2ffa623ad7a6c6da5b799d2c7d5f35c9f65e503
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340780"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215406"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP in Funzioni permanenti (Funzioni di Azure)
 
@@ -96,9 +96,9 @@ Tutte le API HTTP implementate dall'estensione richiedono i parametri seguenti. 
 | taskHub    | Stringa di query    | Nome dell'[hub attività](durable-functions-task-hubs.md). Se non specificato, viene usato il nome dell'hub attività dell'app per le funzioni corrente. |
 | connessione | Stringa di query    | **Nome** della stringa di connessione per l'account di archiviazione. Se non specificato, viene usata la stringa di connessione predefinita dell'app per le funzioni. |
 | systemKey  | Stringa di query    | Chiave di autorizzazione necessaria per richiamare l'API. |
-| showInput  | Stringa di query    | Parametro facoltativo. Se impostato su `false`, l’input di esecuzione non verrà incluso nel payload della risposta.|
-| showHistory| Stringa di query    | Parametro facoltativo. Se impostato su `true`, la cronologia di esecuzione dell'orchestrazione verrà inclusa nel payload della risposta.|
-| showHistoryOutput| Stringa di query    | Parametro facoltativo. Se impostato su `true`, gli output delle attività verranno inclusi nella cronologia di esecuzione dell'orchestrazione.|
+| showInput  | Stringa di query    | Parametro facoltativo; solo richieste a istanza singola. Se impostato su `false`, l’input di esecuzione non verrà incluso nel payload della risposta.|
+| showHistory| Stringa di query    | Parametro facoltativo; solo richieste a istanza singola. Se impostato su `true`, la cronologia di esecuzione dell'orchestrazione verrà inclusa nel payload della risposta.|
+| showHistoryOutput| Stringa di query    | Parametro facoltativo; solo richieste a istanza singola. Se impostato su `true`, gli output delle attività verranno inclusi nella cronologia di esecuzione dell'orchestrazione.|
 | createdTimeFrom  | Stringa di query    | Parametro facoltativo. Se specificato, filtra l'elenco delle istanze restituite che sono state create nel timestamp ISO8601 specificato o dopo.|
 | createdTimeTo    | Stringa di query    | Parametro facoltativo. Se specificato, filtra l'elenco delle istanze restituite che sono state create nel timestamp ISO8601 specificato o prima.|
 | runtimeStatus    | Stringa di query    | Parametro facoltativo. Se specificato, filtra l'elenco delle istanze restituite in base allo stato del runtime. Per un elenco dei valori possibili di stato del runtime, vedere l'argomento [Esecuzione di query sulle istanze](durable-functions-instance-management.md). |
@@ -146,7 +146,7 @@ Il payload di risposta per i casi **HTTP 200** e **HTTP 202** è un oggetto JSON
 | output          | JSON      | Output JSON dell'istanza. Questo campo è `null` se l'istanza non è in stato completato. |
 | createdTime     | stringa    | Data e ora di creazione dell'istanza. Usa la notazione estesa ISO 8601. |
 | lastUpdatedTime | stringa    | Data e ora dell'ultimo stato persistente dell'istanza. Usa la notazione estesa ISO 8601. |
-| historyEvents   | JSON      | Matrice JSON contenente la cronologia di esecuzione dell'orchestrazione. Questo campo è `null` a meno che il parametro della stringa di query `showHistory` non sia impostato su `true`.  |
+| historyEvents   | JSON      | Matrice JSON contenente la cronologia di esecuzione dell'orchestrazione. Questo campo è `null` a meno che il parametro della stringa di query `showHistory` non sia impostato su `true`. |
 
 Ecco un payload di risposta di esempio che include la cronologia di esecuzione dell'orchestrazione e gli output delle attività (formattato per migliorarne la leggibilità):
 

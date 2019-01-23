@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 298d4a7a003963e3466b595243c294679f581346
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b8051ea7f8e7c188e4ed287db626f2a989def619
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582192"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231752"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Log attività di Azure AD in Monitoraggio di Azure (anteprima)
 
@@ -116,6 +116,12 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 **D: Quanto tempo dopo un'azione i log corrispondenti vengono visualizzati nell'account di archiviazione?**
 
 **R**: Per gli account di archiviazione di Azure, la latenza è compresa tra 5 e 15 minuti dopo l'esecuzione dell'azione.
+
+---
+
+**D: Cosa accade se un amministratore modifica il periodo di memorizzazione di un'impostazione di diagnostica?**
+
+**R**: Verrà applicato il nuovo criterio di conservazione ai log raccolti dopo la modifica. I log raccolti prima della modifica dei criteri non saranno interessati.
 
 ---
 

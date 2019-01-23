@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 03206baf0e70e7be247e9848bfd5a80a1a1e1b35
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624659"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247759"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
@@ -45,7 +45,7 @@ Questo articolo fornisce una panoramica del report di controllo.
 
 ## <a name="audit-logs"></a>Log di controllo
 
-I log di controllo di Azure AD forniscono i record delle attività di sistema per la conformità. Per accedere ai log di controllo, selezionare **Log di controllo** nella sezione **Attività** di **Azure Active Directory**. 
+I log di controllo di Azure AD forniscono i record delle attività di sistema per la conformità. Per accedere ai log di controllo, selezionare **Log di controllo** nella sezione **Attività** di **Azure Active Directory**. Si noti che i log di controllo possono avere una latenza fino a un'ora, pertanto la visualizzazione dei dati di attività di controllo nel portale potrebbe richiedere un tempo di attesa simile dopo aver completato l'attività.
 
 ![Log di controllo](./media/concept-audit-logs/61.png "Log di controllo")
 
@@ -178,6 +178,11 @@ Per esaminare i dati di controllo relativi alle applicazioni, è disponibile una
 
 ![Log di controllo](./media/concept-audit-logs/25.png "Log di controllo")
 
+## <a name="office-365-activity-logs"></a>Log attività di Office 365
+
+È possibile visualizzare i log attività di Office 365 dall'[interfaccia di amministrazione di Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Sebbene i log attività di Office 365 e di Azure AD condividano numerose risorse della directory, solo l'interfaccia di amministrazione di Office 365 consente una visualizzazione completa dei log attività di Office 365. 
+
+È possibile accedere ai log attività di Office 365 anche a livello programmatico tramite le [API di gestione di Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

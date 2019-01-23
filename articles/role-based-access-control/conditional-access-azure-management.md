@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 4cfd3c38631778373e99872fd305d8316cdadb75
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b824d122a5d26c17c41a0e2ea1c595c9e2dd7206
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274739"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354349"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Gestire l'accesso alla gestione di Azure con accesso condizionale
 
@@ -32,7 +32,7 @@ Per creare un criterio per la gestione di Azure, selezionare **Gestione di Micro
 
 ![Accesso condizionale per la gestione di Azure](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-Il criterio creato si applica a tutti gli endpoint di gestione di Azure, tra cui il portale di Azure classico, il portale di Azure, il provider di Azure Resource Manager, le API Gestione dei servizi classiche e Azure PowerShell. Si noti che il criterio si applica ad Azure PowerShell che chiama l'API di Azure Resource Manager. Non si applica ad [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2) che chiama Microsoft Graph.
+Il criterio creato si applica a tutti gli endpoint di gestione di Azure, tra cui il portale di Azure, il provider di Azure Resource Manager, le API Gestione dei servizi classiche, Azure PowerShell e il portale di amministrazione delle sottoscrizioni di Visual Studio. Si noti che il criterio si applica ad Azure PowerShell che chiama l'API di Azure Resource Manager. Non si applica ad [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2) che chiama Microsoft Graph.
 
 > [!CAUTION]
 > È importante comprendere il funzionamento dell'accesso condizionale prima di configurare un criterio per gestire l'accesso alla gestione di Azure. Assicurarsi di non creare condizioni che potrebbero bloccare il proprio accesso al portale.
