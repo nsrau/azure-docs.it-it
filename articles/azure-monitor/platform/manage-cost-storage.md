@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a20e4d713440ca6fe1adaf5b89bff347a8fd0bde
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744089"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332320"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gestire l'utilizzo e i costi per Log Analytics
 
@@ -67,7 +66,7 @@ Di seguito viene descritto come configurare un limite per gestire il volume di d
 
 1. Nell'area di lavoro selezionare **Utilizzo e costi stimati** nel riquadro a sinistra.
 2. Nella pagina **Utilizzo e costi stimati** per l'area di lavoro selezionata fare clic su **Gestione del volume dati** nella parte superiore. 
-5. Per impostazione predefinita, il limite giornaliero è impostato su **DISATTIVA**. Fare clic su **ATTIVA** per abilitarlo e quindi impostare il volume di dati in GB/giorno.<br><br> ![Configurazione della soglia dei dati in Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. Per impostazione predefinita, il limite giornaliero è impostato su **DISATTIVA**. Fare clic su **ATTIVA** per abilitarlo e quindi impostare il volume di dati in GB/giorno.<br><br> ![Configurazione della soglia dei dati in Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>Avvisa al raggiungimento del limite giornaliero
 Anche se nel portale di Azure viene visualizzato un segnale visivo quando viene raggiunta la soglia dei dati, questo comportamento potrebbe non soddisfare le esigenze aziendali per la gestione di problemi operativi che richiedono attenzione immediata.  Per ricevere una notifica di avviso, è possibile creare una nuova regola di avviso in Monitoraggio di Azure.  Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](alerts-metric.md).      
@@ -98,6 +97,25 @@ La procedura seguente descrive come configurare il periodo di conservazione dei 
 ## <a name="legacy-pricing-tiers"></a>Piani tariffari legacy
 
 I clienti con un contratto Enterprise sottoscritto prima del 1 luglio 2018 o che hanno già creato un'area di lavoro di Log Analytics in una sottoscrizione potranno comunque accedere al piano *Gratuito*. Se la sottoscrizione non è associata a una registrazione EA esistente, il livello *Gratuito* non è disponibile quando si crea un'area di lavoro in una nuova sottoscrizione dopo il 2 aprile 2018.  I dati possono essere conservati per un massimo di 7 giorni per il livello *Gratuito*.  Per i livelli legacy *Autonomo* o *Per nodo*, nonché per il piano tariffario unico 2018 corrente, i dati raccolti sono disponibili per gli ultimi 31 giorni. Il livello *Gratuito* prevede un limite di inserimento giornaliero di 500 MB. Se si supera costantemente il volume consentito, è possibile convertire l'area di lavoro in un altro piano per raccogliere dati oltre questo limite. 
+
+> [!NOTE]
+> Per usare i diritti che derivano dall'acquisto di OMS E1 Suite, OMS E2 Suite o un componente aggiuntivo di OMS per System Center, scegliere il piano tariffario *Per nodo* di Log Analytics.
+
+## <a name="changing-pricing-tier"></a>Modifica del piano tariffario
+
+Se l'area di lavoro di Log Analytics ha accesso ai piani tariffari esistenti, modificare i piani tariffari esistenti:
+
+1. Nel riquadro delle sottoscrizioni di Log Analytics del portale di Azure selezionare un'area di lavoro.
+
+2. Nel riquadro dell'area di lavoro selezionare **Piano tariffario** in **Generale**.  
+
+3. In **Piano tariffario** selezionare un piano tariffario e quindi fare clic su **Seleziona**.  
+    ![Piano tariffario selezionato](media/manage-cost-storage/workspace-pricing-tier-info.png)
+
+Se si desidera spostare l'area di lavoro nel piano tariffario corrente, è necessario [modificare il modello di prezzi di monitoraggio dell’abbonamento in Monitoraggio di Azure](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) che modificherà il piano tariffario di tutte le aree di lavoro in tale abbonamento.
+
+> [!NOTE]
+> Se l'area di lavoro è collegata a un account di Automazione, prima di poter selezionare il piano tariffario *Standalone (Per GB)* (Autonomo - per GB), è necessario eliminare eventuali soluzioni di **Automazione e controllo** e scollegare l'account di Automazione. Nel pannello dell'area di lavoro in **Generale** fare clic su **Soluzioni** per visualizzare ed eliminare le soluzioni. Per scollegare l'account di Automazione, fare clic sul nome dell'account di Automazione nel pannello **Piano tariffario**.
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Risoluzione dei problemi se Log Analytics non sta più raccogliendo dati
@@ -136,22 +154,55 @@ Si noti che la clausola "where IsBillable = true" esclude i tipi di dati da dete
 
 ### <a name="nodes-sending-data"></a>Nodi che inviano dati
 
-Per conoscere il numero di nodi che hanno segnalato dati nell'ultimo mese, usare
+Per conoscere il numero di computer (nodi) che hanno segnalato dati ogni giorno nell'ultimo mese, usare
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Per visualizzare il numero di eventi inseriti per computer, usare
+Per ottenere un elenco di computer che inviano **tipi di dati fatturati** (alcuni tipi di dati sono gratuiti), sfruttare la proprietà [_IsBillable](log-standard-properties.md#isbillable):
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+
+Usare queste `union withsource = tt *` query solo se necessario, poiché le analisi tra tipi di dati sono costose. 
+
+Questo processo può essere esteso per restituire il conteggio orario dei computer che inviano tipi di dati fatturati:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+
+Per vedere le **dimensioni** degli eventi fatturabili inseriti per computer, usare la proprietà `_BilledSize` che fornisce la dimensione in byte:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+Questa query sostituisce il modo precedente di eseguire query con il tipo di dati Utilizzo. 
+
+Per visualizzare il **numero** di eventi inseriti per computer, usare
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-Usare questa query con parsimonia in quanto la sua esecuzione è dispendiosa. Per sapere quali tipi di dati inviano dati a uno specifico computer, usare:
+Per visualizzare il numero di eventi fatturabili inseriti per computer, usare 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+Per sapere il numero di tipi dati fatturabili che inviano dati a uno specifico computer, usare:
 
 `union withsource = tt *
-| where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 > [!NOTE]
 > Benché siano ancora inclusi nello schema, alcuni campi del tipo di dati Utilizzo sono stati deprecati e i rispettivi valori non verranno più popolati. Si tratta del campo **Computer** e dei campi correlati all'inserimento, ossia **TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.

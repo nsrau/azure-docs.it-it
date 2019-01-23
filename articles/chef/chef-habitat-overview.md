@@ -8,35 +8,30 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 4847d9ce551c9acf1e4fb6325c770187b2cfd89f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2bdcd4c504822a2e60156b0ac565465e0cf23a85
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052292"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358525"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Usare Habitat per distribuire l'applicazione in Azure
-[Habitat](https://www.habitat.sh/) è un progetto open source innovativo, che offre un approccio completamente nuovo alla gestione delle applicazioni. In Habitat l'applicazione e la sua automazione diventano l'unità di sviluppo. Quando le applicazioni vengono incapsulate in un "habitat" leggero, l'ambiente di runtime, sia esso un contenitore, un ambiente bare-metal o PaaS, non è più l'elemento determinante e non vincola l'applicazione. 
+[Habitat](https://www.habitat.sh/) è un sistema di runtime e creazione di pacchetti di applicazione che raggruppa l'applicazione e la sua automazione come unità di distribuzione. Viene così creata la massima portabilità per l'applicazione, in modo che possa essere distribuita a contenitori, macchine virtuali, computer, bare metal o PaaS senza riscrittura o riassemblaggio.
 
-Questo articolo descrive i vantaggi dell'uso di Habitat.
+Questo articolo descrive i vantaggi principali dell'uso di Habitat.
 
-## <a name="support-for-the-modern-application"></a>Supporto per le applicazioni moderne
-I pacchetti di Habitat includono tutto ciò di cui un'applicazione ha bisogno per essere eseguita durante l'intero ciclo di vita. I componenti di base di Habitat sono:
-- Formato di creazione pacchetto: le applicazioni in un pacchetto Habitat sono atomiche, non modificabili e controllabili.
-- Il supervisore di Habitat esegue pacchetti di applicazioni con riconoscimento delle relazioni peer, della strategia di aggiornamento e dei criteri di sicurezza di tali pacchetti. Il supervisore di Habitat configura e gestisce l'applicazione per qualsiasi ambiente presente.
-- L'ecosistema Habitat offre anche un servizio di compilazione che accetta un piano di compilazione Habitat, crea il pacchetto Habitat e lo pubblica in una destinazione.
+## <a name="modernize-and-move-legacy-applications"></a>Eseguire lo spostamento e la modernizzazione delle applicazioni legacy
+Con Habitat è possibile creare nuovi pacchetti per le applicazioni legacy, così che non sia più necessario usarle con sistemi operativi o middleware meno recenti. L'elemento ottenuto risulta sia portabile che facilmente riprogrammabile in infrastrutture più recenti, come le macchine virtuali o i contenitori in esecuzione nel cloud.
+
+## <a name="accelerate-container-adoption"></a>Accelerare l'adozione di contenitore
+Habitat risolve la distribuzione continua di applicazioni complesse e orientate ai microservizi rappresentando accuratamente le dipendenze di runtime. Permette inoltre di andare oltre la semplice distribuzione blu/verde dei singoli componenti e di progettare comportamenti di distribuzione sofisticati senza generare flussi di orchestrazione complessa.
 
 ## <a name="run-any-application-anywhere"></a>Eseguire qualsiasi applicazione da qualsiasi posizione
-Con Habitat le applicazioni possono essere eseguite senza modifiche in qualsiasi ambiente di runtime. L'applicazione può spaziare da macchine virtuali e ambienti bare metal a contenitori (ad esempio Docker), sistemi di gestione cluster (ad esempio Mesosphere o Kubernetes) e sistemi PaaS (ad esempio Pivotal Cloud Foundry).
-
-## <a name="easily-port-legacy-applications"></a>Portabilità facile per le applicazioni legacy
-Quando le applicazioni legacy vengono incapsulate in un pacchetto Habitat, sono indipendenti dell'ambiente per il quale sono state create in origine. I pacchetti possono essere trasferiti rapidamente ad ambienti più moderni, come il cloud o i contenitori. Dato che i pacchetti Habitat hanno un'interfaccia standard e rivolta verso l'esterno, anche la gestione delle applicazioni legacy diventa molto più semplice.
-
-## <a name="improve-the-container-experience"></a>Migliorare l'esperienza con i contenitori
-Habitat riduce la complessità della gestione dei contenitori negli ambienti di produzione. Dato che automatizza la configurazione dell'applicazione in un contenitore, Habitat aiuta gli sviluppatori a superare le sfide che si presentano con la migrazione delle applicazioni basate su contenitori dagli ambienti di sviluppo alla produzione.
+Con Habitat le applicazioni possono essere eseguite senza modifiche in qualsiasi ambiente di runtime. Sono supportati tutti gli ambienti, da macchine virtuali e ambienti bare metal a contenitori (ad esempio Docker), sistemi di gestione cluster (ad esempio Mesosphere o Kubernetes) e sistemi PaaS (ad esempio Pivotal Cloud Foundry).
 
 ## <a name="integrate-into-the-chef-devops-workflow"></a>Integrazione nel flusso di lavoro DevOps di Chef
-Il progetto Habitat è sponsorizzato da Chef. Habitat si avvale dell'esperienza di Chef nell'automazione di infrastrutture per offrire alle applicazioni funzionalità di automazione senza precedenti. Chef gestisce il supporto commerciale per Habitat e garantisce un'integrazione uniforme tra Habitat e Chef Delivery per l'automatizzazione del ciclo di rilascio dell'applicazione, dallo sviluppo alla distribuzione.
+Il progetto Habitat è parte di un progetto open source del software Chef, che vanta una forte community di supporto. Habitat si avvale dell'esperienza di Chef nell'automazione di infrastrutture per offrire alle applicazioni funzionalità di automazione senza precedenti. Chef gestisce il supporto commerciale per Habitat e garantisce un'integrazione uniforme tra Habitat e Chef Automate per l'automatizzazione completa del ciclo di rilascio dell'applicazione, dallo sviluppo alla distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare una macchina virtuale Windows in Azure usando Chef](/azure/virtual-machines/windows/chef-automation)
+
+* [Provare Habitat](https://www.habitat.sh/learn/)

@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: d3cc5f5a7642ba827a46ab5cbc2b0da2cda38731
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4d1a9696587ae128b35970414c6c8753179c3f81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385126"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332575"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con le verifiche di accesso di Azure AD
 
@@ -43,11 +43,11 @@ Le verifiche di accesso sono disponibili con Azure AD edizione Premium P2, inclu
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Creare ed eseguire una verifica di accesso per i guest
 
-Abilitare prima la visualizzazione delle verifiche di accesso nei pannelli di accesso dei revisori. Come amministratore globale o amministratore account utente accedere alla [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
+Innanzitutto, come amministratore globale o amministratore dell'account utente, vedere la [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) per garantire che le stesse siano pronte per l'organizzazione. 
 
 Azure AD consente diversi scenari per la verifica degli utenti guest.
 
-Selezionare uno degli elementi seguenti:
+È possibile esaminare:
 
  - Un gruppo in Azure AD con uno o più guest come membri.
  - Un'applicazione connessa ad Azure AD a cui sono assegnati uno o più utenti guest. 
@@ -86,7 +86,7 @@ Selezionare uno degli elementi seguenti:
 
 1. Per iniziare una verifica di accesso per l'applicazione, selezionare la verifica in modo da includere solo i guest e in modo che gli utenti verifichino il proprio accesso. Per altre informazioni, vedere l'articolo su come [creare una verifica di accesso](create-access-review.md).
 
-2. Chiedere a ogni guest di verificare il proprio accesso all'applicazione. Per impostazione predefinita, ogni guest che ha accettato un invito riceverà un messaggio di posta elettronica da Azure AD con un collegamento alla verifica di accesso nel pannello di accesso dell'organizzazione. Azure AD include istruzioni per i guest su [come verificare l'accesso](perform-access-review.md).
+2. Chiedere a ogni guest di verificare il proprio accesso all'applicazione. Per impostazione predefinita, ogni guest che ha accettato un invito riceverà un messaggio di posta elettronica da Azure AD. Quel messaggio di posta elettronica conterrà un collegamento alla verifica di accesso nel pannello di accesso dell'organizzazione. Azure AD include istruzioni per i guest su [come verificare l'accesso](perform-access-review.md).
 
 3. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per altre informazioni, vedere l'articolo su come [completare una verifica di accesso](complete-access-review.md).
 
@@ -109,7 +109,7 @@ In alcune organizzazioni i guest potrebbero non essere consapevoli delle proprie
 > [!NOTE]
 > Le versioni precedenti del portale di Azure non consentivano l'accesso amministrativo da parte degli utenti con l'attributo UserType impostato su Guest. In alcuni casi, un amministratore nella directory potrebbe avere modificato il valore dell'attributo UserType del guest su membro tramite PowerShell. Se questa modifica è avvenuta in precedenza nella directory, la query precedente potrebbe non includere tutti gli utenti guest che avevano diritti di accesso amministrativo. In questo caso è necessario modificare l'attributo UserType del guest o includere manualmente il guest nell'appartenenza al gruppo.
 
-1. Creare un gruppo di sicurezza di Azure AD con i guest come membri, se non ne esiste già un gruppo appropriato. Ad esempio, è possibile creare un gruppo con un'appartenenza gestita manualmente di guest. In alternativa, è possibile creare un gruppo dinamico con un nome, ad esempio "Guest di Contoso" per gli utenti nel tenant Contoso con l'attributo UserType impostato su valore Guest.  Per una maggiore efficienza, verificare che il gruppo sia composto essenzialmente da membri guest: non selezionare un gruppo composto da utenti che non devono essere sottoposti a verifica.
+1. Creare un gruppo di sicurezza di Azure AD con i guest come membri, se non ne esiste già un gruppo appropriato. Ad esempio, è possibile creare un gruppo con un'appartenenza gestita manualmente di guest. In alternativa, è possibile creare un gruppo dinamico con un nome, ad esempio "Guest di Contoso" per gli utenti nel tenant Contoso con l'attributo UserType impostato su valore Guest.  Per una maggiore efficienza, verificare che il gruppo sia composto essenzialmente da membri guest: non selezionare un gruppo composto da utenti membri, in quanto questi ultimi non devono essere sottoposti a verifica.  Inoltre, tenere presente che un utente guest membro del gruppo può visualizzare gli altri membri dello stesso gruppo.
 
 2. Per iniziare una verifica di accesso per questo gruppo, selezionare come revisori i membri stessi. Per altre informazioni, vedere l'articolo su come [creare una verifica di accesso](create-access-review.md).
 
