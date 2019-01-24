@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 2143ebdddc71973b64b8b77be55b4d0c2b84df64
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: ''
+ms.openlocfilehash: 1ef779e64995c6996538b68b892cb45f11788067
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53578989"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477465"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Trasmettere log di diagnostica di Azure a un hub eventi
 I **[log di diagnostica di Azure](diagnostic-logs-overview.md)** possono essere trasmessi quasi in tempo reale a qualsiasi applicazione con l'opzione "Esporta in hub eventi" incorporata nel portale oppure abilitando l'ID della regola di autorizzazione dell'hub eventi in un'impostazione di diagnostica tramite i cmdlet di Azure PowerShell o l'interfaccia della riga di comando di Azure.
@@ -182,7 +182,7 @@ Di seguito è riportato un esempio di dati di output da Hub eventi:
 | records |Matrice di tutti gli eventi di log nel payload. |
 | time |Ora in cui si è verificato l'evento. |
 | category |Categoria di log per l'evento. |
-| ResourceId |ID risorsa della risorsa che ha generato l'evento. |
+| resourceId |ID risorsa della risorsa che ha generato l'evento. |
 | operationName |Nome dell'operazione. |
 | level |facoltativo. Indica il livello dell'evento di log. |
 | properties |Proprietà dell'evento. |
@@ -198,3 +198,4 @@ Per un elenco di tutti i provider di risorse che supportano la trasmissione a Hu
 * [Stream Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) (Trasmettere log di Azure Active Directory tramite Monitoraggio di Azure)
 * [Altre informazioni sui log di diagnostica di Azure](diagnostic-logs-overview.md)
 * [Introduzione all'Hub eventi](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+

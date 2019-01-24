@@ -4,7 +4,7 @@ description: Introduzione ai log attività di Azure Active Directory in Monitora
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b8051ea7f8e7c188e4ed287db626f2a989def619
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 8b3e1aec21f3829e32a4be5775858b3aa8d5e70e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231752"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811917"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Log attività di Azure AD in Monitoraggio di Azure (anteprima)
 
@@ -73,10 +73,10 @@ La tabella seguente contiene una stima del costo, a seconda delle dimensioni del
 
 | Categoria di log | Numero di utenti | Eventi al giorno | Volume di dati mensile (stima) | Costo mensile (stima) | Costo annuale (stima) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Audit | 100.000 | 1,5&nbsp;milioni | 90 GB | $1,93 | $23,12 |
+| Audit | 100,000 | 1,5&nbsp;milioni | 90 GB | $1,93 | $23,12 |
 | Audit | 1.000 | 15.000 | 900 MB | $0,02 | $0,24 |
 | Accessi | 1.000 | 34.800 | 4 GB | $0,13 | $1,56 |
-| Accessi | 100.000 | 15&nbsp;milioni | 1,7 TB | $35,41 | $424,92 | 
+| Accessi | 100,000 | 15&nbsp;milioni | 1,7 TB | $35,41 | $424,92 | 
 
 
 ### <a name="event-hub-messages-for-activity-logs"></a>Messaggi dell'hub eventi per i log attività
@@ -89,7 +89,7 @@ La tabella seguente contiene una stima del costo mensile per un hub eventi di ba
 
 | Categoria di log | Numero di utenti | Eventi al secondo | Eventi per intervallo di cinque minuti | Volume per intervallo | Messaggi per intervallo | Messaggi al mese | Costo mensile (stima) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Audit | 100.000 | 18 | 5.400 | 10,8 MB | 43 | 371.520 | $10,83 |
+| Audit | 100,000 | 18 | 5.400 | 10,8 MB | 43 | 371.520 | $10,83 |
 | Audit | 1.000 | 0,1 | 52 | 104 KB | 1 | 8.640 | $10,80 |
 | Accessi | 1.000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
 

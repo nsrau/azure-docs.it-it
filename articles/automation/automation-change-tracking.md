@@ -3,19 +3,19 @@ title: Rilevare le modifiche con Automazione di Azure
 description: La soluzione Rilevamento modifiche consente di identificare le modifiche al software e al servizio Windows che si verificano nell'ambiente in uso.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d08471a3e0faa99cb245709cf72f9af097bc495
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213213"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433017"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -77,7 +77,7 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Lin
 |Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata.        |
-|Item Name     | Nome descrittivo del file da rilevare.        |
+|Nome elemento     | Nome descrittivo del file da rilevare.        |
 |Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
 |Immettere il percorso     | Percorso in cui cercare il file. Ad esempio: "/etc/*.conf"       |
 |Tipo di percorso     | Tipo di elemento da rilevare, i valori possibili sono File e Directory.        |
@@ -100,7 +100,7 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Win
 |Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata.        |
-|Item Name     | Nome descrittivo del file da rilevare.        |
+|Nome elemento     | Nome descrittivo del file da rilevare.        |
 |Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\\\*.txt"<br>È anche possibile usare le variabili di ambiente, ad esempio "%winDir%\System32\\\*.*"       |
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
@@ -279,3 +279,4 @@ Vedere l'esercitazione su Rilevamento modifiche per altre informazioni sull'uso 
 > [Risolvere i problemi delle modifiche nell'ambiente](automation-tutorial-troubleshoot-changes.md)
 
 * Per visualizzare dati dettagliati di monitoraggio delle modifiche, usare [Ricerche nei log in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+

@@ -12,24 +12,24 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 18b2b3df2748392b12b60517604478b120871754
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 8ea8f225941a8b859a5cc8d9c7accbc631a75842
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256061"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447531"
 ---
-# <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Eseguire il training di modelli con Machine Learning automatizzato nel cloud
+# <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Eseguire il training di modelli di apprendimento automatico nel cloud
 
 In Azure Machine Learning è possibile eseguire il training di un modello su diversi tipi di risorse di calcolo gestite. La destinazione di calcolo può essere un computer locale o un computer nel cloud.
 
-È possibile aumentare facilmente le prestazioni o l'estensione dell'esperimento di Machine Learning aggiungendo altre destinazioni di calcolo. Le opzioni di destinazione di calcolo disponibili includono una Data Science Virtual Machine (DSVM) basata su Ubuntu e l'ambiente di calcolo di Azure Machine Learning. La DSVM è un'immagine di VM personalizzata sul cloud di Microsoft Azure creata in modo specifico per data science. Include molti strumenti di data science comuni e altri strumenti preinstallati e preconfigurati.  
+È possibile aumentare facilmente le prestazioni o l'estensione dell'esperimento di Machine Learning aggiungendo altre destinazioni di calcolo. Le opzioni di destinazione di calcolo disponibili includono una Data Science Virtual Machine (DSVM) basata su Ubuntu e l'ambiente di calcolo di Azure Machine Learning. La DSVM è un'immagine di VM personalizzata sul cloud di Microsoft Azure creata in modo specifico per data science. Include molti data science comuni e altri strumenti preinstallati e preconfigurati.  
 
-Questo articolo descrive come creare un modello usando Machine Learning automatizzato nella DSVM.
+Questo articolo descrive come compilare un modello usando una ML automatizzata in DSVM.
 
-## <a name="how-does-remote-differ-from-local"></a>Qual è la differenza tra modalità remota e modalità locale?
+## <a name="how-does-remote-differ-from-local"></a>In che modo il remote e il locale sono diversi?
 
-L'esercitazione "[Eseguire il training di un modello di classificazione con Machine Learning automatizzato](tutorial-auto-train-models.md)" illustra come usare un computer locale per eseguire il training del modello con Machine Learning automatizzato.  Il flusso di lavoro del training in locale si applica anche alle destinazioni remote. Tuttavia, con il calcolo remoto, le iterazioni dell'esperimento di Machine Learning automatizzato vengono eseguite in modo asincrono. Questa funzionalità consente di annullare un'iterazione specifica, controllare lo stato dell'esecuzione o continuare a lavorare su altre celle nel notebook di Jupyter. Per eseguire il training in modalità remota, è innanzitutto necessario creare una destinazione di calcolo remoto, ad esempio una DSVM di Azure.  È quindi possibile configurare la risorsa remota e inviare il codice.
+L'esercitazione "[Eseguire il training di un modello di classificazione con machine learning automatizzata](tutorial-auto-train-models.md)" illustra come usare un computer locale per eseguire il training del modello con una machine learning automatizzata.  Il flusso di lavoro durante il training in locale si applica anche nelle destinazioni remoto. Tuttavia, con il calcolo remoto, le iterazioni dell'esperimento ML automatizzate vengono eseguite in modo asincrono. Questa funzionalità consente di annullare un'iterazione specifica, controllare lo stato dell'esecuzione o continuare a lavorare su altre celle nel notebook di Jupyter. Per eseguire il training in modalità remota, è innanzitutto necessario creare una destinazione di calcolo remoto, ad esempio una DSVM di Azure.  È quindi possibile configurare la risorsa remota e inviare il codice.
 
 Questo articolo illustra i passaggi aggiuntivi necessari per eseguire un esperimento di ML automatizzato in una DSVM remota.  L'oggetto dell'area di lavoro, `ws`, creato nell'esercitazione viene usato in tutto il codice qui.
 
@@ -37,7 +37,7 @@ Questo articolo illustra i passaggi aggiuntivi necessari per eseguire un esperim
 ws = Workspace.from_config()
 ```
 
-## <a name="create-resource"></a>Creare la risorsa
+## <a name="create-resource"></a>Crea risorsa
 
 Creare la DSVM nell'area di lavoro (`ws`) se non esiste già. Se la DSVM è stato creata in precedenza, questo codice ignora il processo di creazione e carica i dettagli di risorse esistente nell'oggetto `dsvm_compute`.  
 
@@ -89,7 +89,7 @@ Eseguire il codice seguente per creare la destinazione di calcolo da una DSVM Li
 from azureml.core.compute import ComputeTarget, RemoteCompute 
 
 attach_config = RemoteCompute.attach_configuration(username='<username>',
-                                                   address='<ip_adress_or_fqdn>',
+                                                   address='<ip_address_or_fqdn>',
                                                    ssh_port=22,
                                                    private_key_file='./.ssh/id_rsa')
 compute_target = ComputeTarget.attach(workspace=ws,
@@ -297,4 +297,4 @@ Il notebook [how-to-use-azureml/automated-machine-learning/remote-execution/auto
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su [come configurare le impostazioni per il training automatico](how-to-configure-auto-train.md).
+Informazioni su [How to configure settings for automatic training](how-to-configure-auto-train.md) (Come configurare le impostazioni per il training automatico).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716617"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808732"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -43,15 +43,16 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 
 ### <a name="new-features"></a>Nuove funzionalità
 
-* Per l'elaborazione di processi basata su file è possibile usare un URL HTTP(S) come input.
-    Non è necessario avere contenuto già archiviato in Azure né creare asset.
+* Per l'elaborazione di processi basata su file è possibile usare un URL HTTP(S) come input.<br/>Non è necessario avere contenuto già archiviato in Azure né creare asset.
 * Introduce il concetto di [trasformazioni](transforms-jobs-concept.md) per l'elaborazione di processi basata su file. Una trasformazione consente di creare configurazioni riutilizzabili, creare modelli di Azure Resource Manager e isolare le impostazioni di elaborazione tra più clienti o tenant.
 * Un asset può avere [più StreamingLocator](streaming-locators-concept.md) con diverse impostazioni di creazione dinamica dei pacchetti e crittografia dinamica.
 * La [protezione del contenuto](content-key-policy-concept.md) supporta le funzionalità con più chiavi.
 * È possibile trasmettere eventi live per una durata massima di 24 ore quando si usa Servizi multimediali per la transcodifica di un feed di contributi a bitrate singolo in un flusso di output a bitrate multipli.
-* Nuovo supporto per streaming live a bassa latenza nelle entità LiveEvent.
+* Nuovo supporto per streaming live a bassa latenza nelle entità LiveEvent. Per altre informazioni, vedere [Latenza](live-event-latency.md).
 * L'anteprima di LiveEvent supporta la creazione dinamica dei pacchetti e la crittografia dinamica. Questo consente la protezione del contenuto nell'anteprima, nonché la creazione di pacchetti DASH e HLS.
 * L'entità LiveOuput è più semplice da usare rispetto all'entità Program nelle API v2. 
+* Supporto RTMP migliorato (maggiore stabilità e più supporto per i codificatori di origine).
+* Inserimento RTMPS sicuro.<br/>Quando si crea un LiveEvent, si ottengono 4 URL di inserimento. pressoché identici: hanno lo stesso token di streaming (AppId) e solo la parte del numero di porta è diversa. Due URL sono primari e due sono di backup per RTMPS.   
 * Controllo degli accessi in base al ruolo sulle entità. 
 
 ## <a name="changes-from-v2"></a>Modifiche rispetto a v2

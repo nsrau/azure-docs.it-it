@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: fd65d6a5d210b4b0549236ec39844e36480b10c9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5b3746a1e29f436c277fd238e13fd46010941824
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790259"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Esercitazione: Integrazione di Azure Active Directory con YouEarnedIt
 
@@ -78,8 +78,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con YouEarnedIt, 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di YouEarnedIt](#configure-youearnedit-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creare un utente di test di YouEarnedIt](#create-youearnedit-test-user)**: per avere una controparte di Britta Simon in YouEarnedIt collegata alla rappresentazione dell'utente in Azure AD.
-5. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di YouEarnedIt](#create-youearnedit-test-user)**: per avere una controparte di Britta Simon in YouEarnedIt collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -104,22 +104,24 @@ Per configurare l'accesso Single Sign-On di Azure AD con YouEarnedIt, seguire qu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di YouEarnedIt](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando i criteri seguenti: 
+    a. Nella casella di testo **URL di accesso** digitare un URL usando i criteri seguenti:
+
     | Environment  | Modello  |
     |:--- |:--- |
     | Produzione | `https://<company name>.youearnedit.com/users/sign_in` |
     | Sandbox  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. Nella casella di testo **Identificatore** digitare un URL usando i criteri seguenti:
+
     | Environment  | Modello  |
     |:--- |:--- |
     | Produzione | `<company name>.youearnedit.com` |
     | Sandbox  |`<company name>.sandbox.youearnedit.com` |
 
-    > [!NOTE] 
+    > [!NOTE]
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il manager del reparto Customer Success di YouEarnedIt assegnato.
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -192,11 +194,10 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 In questa sezione viene creato un utente di nome Britta Simon in YouEarnedIt. Per aggiungere gli utenti alla piattaforma YouEarnedIt, è necessario collaborare con il manager del reparto Customer Success di YouEarnedIt assegnato.
 
->[!NOTE]
->YouEarnedIt prevede che il provider di identità fornisca un indirizzo di posta elettronica o un nome utente nell'attributo NameID. Se non viene trovato un indirizzo di posta elettronica o un nome utente perfettamente corrispondente, l'autenticazione avrà esito negativo. È quindi necessario importare gli account nel sistema YouEarnedIt prima dell'integrazione SSO, in genere tramite importazione API o CSV.
+> [!NOTE]
+> YouEarnedIt prevede che il provider di identità fornisca un indirizzo di posta elettronica o un nome utente nell'attributo NameID. Se non viene trovato un indirizzo di posta elettronica o un nome utente perfettamente corrispondente, l'autenticazione avrà esito negativo. È quindi necessario importare gli account nel sistema YouEarnedIt prima dell'integrazione SSO, in genere tramite importazione API o CSV.
 
-
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
@@ -209,4 +210,3 @@ Quando si fa clic sul riquadro di YouEarnedIt nel pannello di accesso, si dovreb
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

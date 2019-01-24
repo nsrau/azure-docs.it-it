@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: eab9970915e3c20eb6b0a7a4bff48490bdca83b8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 3cd57c276ff5e5e5fed9db2f55ac2fc0e1443b3a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976478"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Esercitazione: Integrazione di Azure Active Directory con Citrix ShareFile
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Citrix ShareFile, segui
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<tenant-name>.sharefile.com/saml/login`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente:
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il criterio seguente:
 
     | |
     |---|

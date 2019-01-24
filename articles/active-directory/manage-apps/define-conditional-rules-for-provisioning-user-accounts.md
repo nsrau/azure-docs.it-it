@@ -4,22 +4,22 @@ description: Informazioni su come usare i filtri di ambito per evitare che venga
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e9616b39491aac01427ee34fb23db556c5c9b9
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 84c4939a93adbb8983cae87fdaa2727904010b03
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355868"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461247"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
 Questo articolo spiega come usare i filtri di ambito per definire regole basate su attributi per determinare gli utenti per i quali viene eseguito il provisioning per un'applicazione.
@@ -111,7 +111,6 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
 * [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS](user-provisioning.md)
 * [Personalizzare i mapping degli attributi per il provisioning degli utenti](customize-application-attributes.md)
 * [Scrivere espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)

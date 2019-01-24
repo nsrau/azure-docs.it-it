@@ -5,7 +5,7 @@ services: active-directory
 keywords: informazioni su Enterprise State Roaming, sincronizzazione aziendale, cloud windows
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 69cc1ab09c5c0462503b4d72961ac46df542738d
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 82e3a4c43b008a70e8078297dc32777c4ec0b810
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50129016"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450065"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>Informazioni su Enterprise State Roaming
 
@@ -33,7 +33,7 @@ Con Windows 10 gli utenti di [Azure Active Directory (Azure AD)](../fundamentals
 
 Enterprise State Roaming è disponibile in più aree di Azure. L'elenco aggiornato delle aree disponibili è riportato nella pagina [Servizi di Azure in base all'area](https://azure.microsoft.com/regions/#services) in Azure Active Directory.
 
-| Articolo | Descrizione |
+| Articolo | DESCRIZIONE |
 | --- | --- |
 | [Abilitare Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md) |Il servizio Enterprise State Roaming è disponibile per qualsiasi organizzazione con una sottoscrizione Premium di Azure Active Directory (Azure AD). Per altre informazioni su come ottenere una sottoscrizione di Azure AD, vedere la pagina del [prodotto Azure AD](https://azure.microsoft.com/services/active-directory) . |
 | [Domande frequenti su impostazioni e dati in roaming](enterprise-state-roaming-faqs.md) |Questo argomento fornisce le risposte ad alcune possibili domande degli amministratori IT in merito alle impostazioni e alla sincronizzazione dei dati delle app. |

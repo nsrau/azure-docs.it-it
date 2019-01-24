@@ -2,22 +2,23 @@
 title: Schema di eventi degli hub eventi di Griglia di eventi di Azure
 description: Descrive le proprietà disponibili per gli eventi degli hub eventi con Griglia di eventi di Azure
 services: event-grid
-author: tfitzmac
-manager: timlt
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
-ms.author: tomfitz
-ms.openlocfilehash: 6fac70a8837245e6d60a5a61db8a22ab718d4b49
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302662"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475408"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Schema di eventi di Griglia di eventi di Azure per gli hub eventi
 
-Questo articolo illustra le proprietà e lo schema per gli eventi degli hub eventi. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
+Questo articolo illustra le proprietà e lo schema per gli eventi degli hub eventi. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
+
+Per un elenco di esercitazioni e script di esempio, vedere [Origine evento di Hub eventi](event-sources.md#event-hubs).
 
 ### <a name="available-event-types"></a>Tipi di evento disponibili
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: bbed197eb78e34c6e53802dfcfdcc192f780df33
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 84e01c319ab058c9abb05cd9882f4c25bea5cffb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465660"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462033"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gestione di un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. Si potrebbe anche voler creare script per automatizzare le attività di ciclo di vita. Questo articolo descrive alcuni comandi comuni dell'interfaccia della riga di comando di Azure che consentono di eseguire queste attività.
@@ -37,7 +37,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Visualizzare le macchine virtuali in un set di scalabilità
-Per visualizzare l'elenco delle istanze di VM in un set di scalabilità, usare [az vmss list-instances](/cli/azure/vmss#list-instances). L'esempio seguente elenca tutte le istanze di VM presenti nel set di scalabilità denominato *myScaleSet* nel gruppo di risorse *myResourceGroup*. Specificare valori personalizzati per questi nomi:
+Per visualizzare l'elenco delle istanze di VM in un set di scalabilità, usare [az vmss list-instances](/cli/azure/vmss). L'esempio seguente elenca tutte le istanze di VM presenti nel set di scalabilità denominato *myScaleSet* nel gruppo di risorse *myResourceGroup*. Specificare valori personalizzati per questi nomi:
 
 ```azurecli
 az vmss list-instances \
@@ -46,7 +46,7 @@ az vmss list-instances \
     --output table
 ```
 
-Per visualizzare altre informazioni su un'istanza di VM specifica, aggiungere il parametro `--instance-id` a [az vmss get-instance-view](/cli/azure/vmss#get-instance-view) e specificare un'istanza da visualizzare. L'esempio seguente visualizza informazioni su un'istanza di VM *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Immettere i nomi personalizzati nel modo seguente:
+Per visualizzare altre informazioni su un'istanza di VM specifica, aggiungere il parametro `--instance-id` a [az vmss get-instance-view](/cli/azure/vmss) e specificare un'istanza da visualizzare. L'esempio seguente visualizza informazioni su un'istanza di VM *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Immettere i nomi personalizzati nel modo seguente:
 
 ```azurecli
 az vmss get-instance-view \
@@ -108,7 +108,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Avviare le macchine virtuali in un set di scalabilità
-Per avviare una o più macchine virtuali in un set di scalabilità, usare [az vmss start](/cli/azure/vmss#az_vmss_start). Il parametro `--instance-ids` consente di specificare una o più macchine virtuali da avviare. Se non si specifica un ID istanza, vengono avviate tutte le macchine virtuali del set di scalabilità. Per avviare più macchine virtuali, separare gli ID istanza con uno spazio.
+Per avviare una o più macchine virtuali in un set di scalabilità, usare [az vmss start](/cli/azure/vmss). Il parametro `--instance-ids` consente di specificare una o più macchine virtuali da avviare. Se non si specifica un ID istanza, vengono avviate tutte le macchine virtuali del set di scalabilità. Per avviare più macchine virtuali, separare gli ID istanza con uno spazio.
 
 L'esempio seguente avvia l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 

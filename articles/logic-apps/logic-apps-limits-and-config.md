@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: ef3d26112c631ee0ed3c754394339092020add53
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332541"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469740"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -34,7 +34,7 @@ Ecco i limiti per una singola definizione di app per la logica:
 | Trigger per flusso di lavoro | 10 | Quando si usa la visualizzazione codice e non la finestra di progettazione | 
 | Limite ambito switch-case | 25 | | 
 | Variabili per flusso di lavoro | 250 | | 
-| Caratteri per espressione | 8.192 | | 
+| Caratteri per espressione | 8,192 | | 
 | Dimensioni massime per `trackedProperties` | 16.000 caratteri | 
 | Nome per `action` o `trigger` | 80 caratteri | | 
 | Lunghezza di `description` | 256 caratteri | | 
@@ -87,9 +87,9 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 | ---- | ----- | ----- | 
 | Concorrenza di trigger | 50 quando si limita la concorrenza | Quando si attiva il controllo della concorrenza per un trigger, il limite predefinito è 25. Questo limite descrive il numero massimo di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
 | Numero massimo di esecuzioni in attesa | 100 quando si limita la concorrenza | Quando si attiva il controllo della concorrenza per un trigger, il limite predefinito è 10. Questo limite descrive il numero massimo di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 0 e 100, estremi inclusi, vedere [Modifica del limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Elementi della matrice foreach | 100.000 | Questo limite descrive il numero massimo di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](../connectors/connectors-native-query.md). | 
+| Elementi della matrice foreach | 100,000 | Questo limite descrive il numero massimo di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](../connectors/connectors-native-query.md). | 
 | Concorrenza foreach | 50 quando si limita la concorrenza | Quando si attiva il controllo della concorrenza per questo ciclo, il limite predefinito è 20. Questo limite descrive il numero massimo di iterazioni "for each" che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Eseguire i cicli "for each" in modo sequenziale](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
-| Elementi SplitOn | 100.000 | | 
+| Elementi SplitOn | 100,000 | | 
 | Iterazioni Until | 5.000 | | 
 |||| 
 
@@ -265,7 +265,7 @@ Tutte le app per la logica nella stessa area usano gli stessi intervalli di indi
 
 Per supportare le chiamate effettuate dai [connettori gestiti da Microsoft](../connectors/apis-list.md), impostare le configurazioni del firewall in modo che includano *tutti* gli indirizzi IP [in uscita](#outbound) usati da questi connettori, in base alle aree in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto l'intestazione **In uscita** in questa sezione e vengono ordinati in base all'area. 
 
-Per [Azure per enti pubblici](/azure-government/documentation-government-welcome) e [Azure Cina 21Vianet](/azure/china/china-welcome), gli indirizzi IP riservati per i connettori non sono attualmente disponibili.
+Per [Azure per enti pubblici](../azure-government/documentation-government-overview.md) e [Azure Cina 21Vianet](/azure/china/china-welcome), gli indirizzi IP riservati per i connettori non sono attualmente disponibili.
 
 > [!IMPORTANT]
 > 

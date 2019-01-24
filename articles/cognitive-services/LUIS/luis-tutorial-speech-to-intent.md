@@ -1,7 +1,7 @@
 ---
 title: Usare Speech SDK per C#
 titleSuffix: Azure Cognitive Services
-description: Il servizio Voce consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS.
+description: Il Servizio di riconoscimento vocale consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2d212ae8f5a12c06f40e025a7a8d786a44194a92
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714581"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438731"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integrare il servizio Voce con l'app Language Understanding
 Il [Servizio di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS. Il progetto usa il pacchetto Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) già incluso come riferimento. 
@@ -24,7 +24,7 @@ Il [Servizio di riconoscimento vocale](https://docs.microsoft.com/azure/cognitiv
 Per questo articolo è necessario un account del sito Web [LUIS][LUIS] gratuito per importare l'applicazione.
 
 ## <a name="create-luis-endpoint-key"></a>Creare la chiave di endpoint LUIS
-Nel portale di Azure [creare](luis-how-to-azure-subscription.md#create-luis-endpoint-key) una chiave **Language Understanding** (LUIS). 
+Nel portale di Azure [creare](luis-how-to-azure-subscription.md) una chiave **Language Understanding** (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importare l'app LUIS per le risorse umane
 Le finalità e le espressioni usate in questo articolo derivano dall'app LUIS per le risorse umane disponibile nel repository GitHub [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Scaricare il file [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json), salvarlo con l'estensione `.json` e [importarlo](luis-how-to-start-new-app.md#import-new-app) in LUIS. 

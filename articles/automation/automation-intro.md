@@ -3,19 +3,19 @@ title: Panoramica di Automazione di Azure
 description: Informazioni su come usare Automazione di Azure per automatizzare il ciclo di vita dell'infrastruttura e delle applicazioni.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: f91464ebdd29c082fd721e9e4b2e029de991cc1e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958704"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434054"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introduzione ad Automazione di Azure
 
@@ -87,3 +87,4 @@ Il prezzo di Automazione di Azure è disponibile nella pagina dei [prezzi](https
 
 > [!div class="nextstepaction"]
 > [Creare un account di Automazione](automation-quickstart-create-account.md)
+

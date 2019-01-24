@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 725e03ded6d6f2e3b5d7a41d2053f418a5933ef8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ade8329e6e42fae9f3232617488a6d4a69f8ef1f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023244"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437386"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Guida introduttiva: Creare una rete virtuale usando PowerShell
 
@@ -29,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Se si decide invece di installare e usare PowerShell in locale, questa guida introduttiva richiede l'uso del modulo AzureRM PowerShell, versione 5.4.1 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable AzureRM`. Consultare [Installazione del modulo Azure PowerShell](/powershell/azure/install-azurerm-ps) per informazioni relative a installazione e aggiornamento.
+Se si decide invece di installare e usare PowerShell in locale, questa guida introduttiva richiede l'uso del modulo AzureRM PowerShell, versione 5.4.1 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable AzureRM`. Consultare [Installazione del modulo Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) per informazioni relative a installazione e aggiornamento.
 
 Infine, se si esegue PowerShell in locale, sarà necessario eseguire anche `Connect-AzureRmAccount`. Questo comando crea una connessione con Azure.
 
@@ -37,7 +37,7 @@ Infine, se si esegue PowerShell in locale, sarà necessario eseguire anche `Conn
 
 Esiste un numero limitato di passaggi da esaminare nei dettagli per configurare il gruppo di risorse e la rete virtuale.
 
-### <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
+### <a name="create-the-resource-group"></a>Creare il gruppo di risorse
 
 Per poter creare una rete virtuale, è prima necessario creare un gruppo di risorse per l'hosting della rete virtuale. Creare un gruppo di risorse con [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). Questo esempio crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 6b3f862acd5aba39a7ad6eb0ce2f0a9b4a9e5307
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27cef0287156d4cf76914704b849cb646c21dd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973658"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467486"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Creare una macchina virtuale Linux completa con l'interfaccia della riga di comando di Azure
 Per creare rapidamente una macchina virtuale in Azure, è possibile usare un singolo comando dell'interfaccia della riga di comando di Azure che si serve dei valori predefiniti per creare tutte le risorse di supporto richieste. Le risorse, ad esempio una rete virtuale, l'indirizzo IP pubblico e regole del gruppo di sicurezza di rete, vengono create automaticamente. Per un maggiore controllo dell'ambiente di produzione è possibile creare queste risorse in anticipo e quindi aggiungervi le macchine virtuali. In questo articolo descrive come creare una macchina virtuale e tutte le risorse di supporto, una alla volta.
@@ -333,7 +333,7 @@ Output:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Creare una scheda di rete virtuale
-Le schede di interfaccia di rete virtuale sono disponibili a livello di programmazione in quanto è possibile applicare delle regole di uso. In base alle [dimensioni della macchina virtuale](sizes.md), è possibile associare alla macchina virtuale più schede di interfaccia di rete virtuale. Nel comando seguente [az network nic create](/cli/azure/network/nic#az_network_nic_create) si crea una scheda di interfaccia di rete denominata *myNic* e la si associa al gruppo di sicurezza di rete. L'indirizzo IP pubblico *myPublicIP* è associato anche a una scheda di interfaccia di rete virtuale.
+Le schede di interfaccia di rete virtuale sono disponibili a livello di programmazione in quanto è possibile applicare delle regole di uso. In base alle [dimensioni della macchina virtuale](sizes.md), è possibile associare alla macchina virtuale più schede di interfaccia di rete virtuale. Nel comando seguente [az network nic create](/cli/azure/network/nic) si crea una scheda di interfaccia di rete denominata *myNic* e la si associa al gruppo di sicurezza di rete. L'indirizzo IP pubblico *myPublicIP* è associato anche a una scheda di interfaccia di rete virtuale.
 
 ```azurecli
 az network nic create \

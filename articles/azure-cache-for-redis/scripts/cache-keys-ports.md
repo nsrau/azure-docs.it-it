@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 0c6f7b637e56d2bf39d8f03122ccb28bd7b1c773
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f9a963ec81b78cfcc6ded7d8f35f4066f931e53e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096746"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847317"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Recuperare il nome host, le porte e le chiavi per Cache Redis di Azure
 
@@ -39,7 +39,7 @@ Questo script usa i comandi seguenti per recuperare il nome host, le chiavi e le
 
 | Comando | Note |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Recupera i dettagli di un'istanza di Cache Redis di Azure. |
+| [az redis show](https://docs.microsoft.com/cli/azure/redis) | Recupera i dettagli di un'istanza di Cache Redis di Azure. |
 | [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Recupera le chiavi di accesso per un'istanza di Cache Redis di Azure. |
 
 
@@ -47,4 +47,4 @@ Questo script usa i comandi seguenti per recuperare il nome host, le chiavi e le
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
 
-Altri esempi di script dell'interfaccia della riga di comando della Cache Redis di Azure sono disponibili nella [documentazione della Cache Redis di Azure](../cli-samples.md).
+Altri esempi di script dell'interfaccia della riga di comando di Cache Redis di Azure sono disponibili nella [documentazione di Cache Redis di Azure](../cli-samples.md).

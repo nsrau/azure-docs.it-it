@@ -3,19 +3,19 @@ title: Personalizzazione della lingua in Azure Active Directory B2C | Microsoft 
 description: Informazioni sulla personalizzazione dell'esperienza per la lingua.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e115db18770ef304d823ff9c35d7d2cf302d5ccf
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0eee98ebb449cd1b96ae9805010e55499e006474
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187763"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845037"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalizzazione della lingua in Azure AD B2C
 
@@ -179,7 +179,7 @@ Chrome e Firefox richiedono entrambi la relativa lingua preimpostata. Se è supp
 
 ### <a name="supported-languages"></a>Lingue supportate
 
-| Lingua              | Codice lingua |
+| Linguaggio              | Codice lingua |
 |-----------------------|---------------|
 | Bengalese                | bn            |
 | Ceco                 | cs            |

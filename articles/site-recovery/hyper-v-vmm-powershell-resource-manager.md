@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f0ce189ebbec6991a1ec316219d45b96cc85f202
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8d0e00223fcd55a1049900b502b52745837bf8fc
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845944"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462557"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V in un sito secondario con PowerShell (Resource Manager)
 
@@ -276,4 +276,4 @@ Usare i comandi seguenti per monitorare l'attività di failover. Attendere la fi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Altre informazioni](/powershell/module/azurerm.recoveryservices.backup/#recovery) su Site Recovery con i cmdlet di PowerShell per Resource Manager.
+[Altre informazioni](/powershell/module/azurerm.recoveryservices.backup/) su Site Recovery con i cmdlet di PowerShell per Resource Manager.

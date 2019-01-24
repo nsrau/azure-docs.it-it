@@ -3,19 +3,19 @@ title: Definire un profilo tecnico OAuth2 nei criteri personalizzati di Azure Ac
 description: Definire un profilo tecnico OAuth2 nei criteri personalizzati di Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cc09998a982f319cfc1d60924d2175a3c17c8465
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 972a8c6a40561a1337e401aaa7d4574bc4a3fe1a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836680"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846915"
 ---
 # <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 nei criteri personalizzati di Azure Active Directory B2C
 

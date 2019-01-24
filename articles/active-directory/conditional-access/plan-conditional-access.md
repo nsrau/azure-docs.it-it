@@ -3,7 +3,7 @@ title: Pianificare i criteri di accesso condizionale in Azure Active Directory |
 description: Questo articolo descrive come pianificare i criteri di accesso condizionale per Azure Active Directory.
 services: active-directory
 author: MarkusVi
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.component: conditional-access
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: 1c483b7f3fcb22aa617ff55699cb8f4d4da95912
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1911dd189e21a6d29b2bf1ba3d179b41e948f469
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355241"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450508"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedura: Pianificare la distribuzione dell'accesso condizionale in Azure Active Directory
 
@@ -178,7 +178,7 @@ Alcune organizzazioni hanno tenant di test a questo scopo. Tuttavia, può essere
 
 Il piano di test è importante per disporre di un confronto tra i risultati previsti e i risultati effettivi. È sempre necessario definire il risultato atteso prima di eseguire un test. Nella tabella seguente vengono descritti alcuni test case di esempio. Modificare gli scenari e i risultati previsti in base al modo in cui sono configurati i criteri di accesso condizionale.
 
-|Criterio |Scenario |Risultato previsto | Risultato |
+|Policy |Scenario |Risultato previsto | Risultato |
 |---|---|---|---|
 |[Richiedi autenticazione a più fattori quando non al lavoro](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Un utente autorizzato accede ad *App* da un percorso attendibile/dal posto di lavoro|All'utente non viene richiesta l'autenticazione a più fattori| |
 |[Richiedi autenticazione a più fattori quando non al lavoro](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Un utente autorizzato accede ad *App* da un percorso non attendibile/non dal posto di lavoro|All'utente viene richiesta l'autenticazione a più fattori e può eseguire correttamente l'accesso| |

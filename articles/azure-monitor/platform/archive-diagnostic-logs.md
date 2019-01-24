@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: bc3ee549a4219441b657b89bef56d35dfac6626a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.subservice: logs
+ms.openlocfilehash: b01afe1626fe27a20e7b7103ccb020e4414f774f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547491"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476463"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archiviare i log di diagnostica di Azure
 
@@ -165,3 +165,4 @@ Nel file PT1H.json ogni evento viene archiviato nella matrice "records", con que
 * [Trasmettere log di diagnostica di Azure a uno spazio di nomi di Hub eventi](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Archiviare i log di Azure Active Directory tramite Monitoraggio di Azure](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Altre informazioni sui log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md)
+

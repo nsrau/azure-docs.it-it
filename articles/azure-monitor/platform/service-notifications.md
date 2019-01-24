@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: logs
-ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.subservice: logs
+ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190698"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474031"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure
 
@@ -39,14 +39,14 @@ eventName | Titolo di un evento.
 level | Livello di un evento.
 resourceProviderName | Nome del provider di risorse della risorsa interessata.
 resourceType| Tipo della risorsa interessata.
-subStatus | In genere il codice di stato HTTP della chiamata REST corrispondente, ma può includere anche altre stringhe che descrivono uno stato secondario. Ad esempio:  OK (codice di stato HTTP: 200), Creata (codice di stato HTTP: 201), Accettata (codice di stato HTTP: 202) Nessun contenuto (codice di stato HTTP: 204), Richiesta non valida (codice di stato HTTP: 400), Non trovata (codice di stato HTTP: 404), Conflitto (codice di stato HTTP: 409), Errore interno del server (codice di stato HTTP: 500), Servizio non disponibile (codice di stato HTTP: 503), Timeout del gateway (codice di stato HTTP: 504).
+subStatus | In genere il codice di stato HTTP della chiamata REST corrispondente, ma può includere anche altre stringhe che descrivono uno stato secondario. Ad esempio:  OK (codice di stato HTTP: 200), Creata (codice di stato HTTP: 201), Accettata (codice di stato HTTP: 202), Nessun contenuto (codice di stato HTTP: 204), Richiesta non valida (codice di stato HTTP: 400), Non trovata (codice di stato HTTP: 404), Conflitto (codice di stato HTTP: 409), Errore interno del server (codice di stato HTTP: 500), Servizio non disponibile (codice di stato HTTP: 503), Timeout del gateway (codice di stato HTTP: 504).
 eventTimestamp | Timestamp del momento in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento.
 submissionTimestamp | Timestamp del momento in cui l'evento è diventato disponibile per l'esecuzione di query.
 subscriptionId | Sottoscrizione di Azure in cui è stato registrato l'evento.
 status | Stringa che descrive lo stato dell'operazione. Alcuni valori comuni sono: **Started**, **In Progress**, **Succeeded**, **Failed**, **Active** e **Resolved**.
 operationName | Nome dell'operazione.
 category | Questa proprietà è sempre **ServiceHealth**.
-ResourceId | ID risorsa della risorsa interessata.
+resourceId | ID risorsa della risorsa interessata.
 Properties.title | Titolo della comunicazione localizzato. L'inglese è la lingua predefinita.
 Properties.communication | Dettagli localizzati della comunicazione con markup HTML. L'inglese è la lingua predefinita.
 Properties.incidentType | Uno dei valori seguenti: **ActionRequired**, **Informational**, **Incident**, **Maintenance** o **Security**.
@@ -95,3 +95,4 @@ Properties.communicationId | La comunicazione a cui è associato l'evento.
 ## <a name="next-steps"></a>Passaggi successivi
 Ricevere [notifiche di avviso per ogni notifica sull'integrità del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  
 Altre informazioni sugli [avvisi del log attività](../../azure-monitor/platform/activity-log-alerts.md).
+

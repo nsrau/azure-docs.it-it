@@ -5,7 +5,7 @@ services: active-directory
 keywords: enterprise state roaming, cloud windows
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 45bf554e457e48704684fe8ac3b32c29f3f646b2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 351a982fa9ca3c0975c425137220ec9872f0de04
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189284"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448126"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Riferimento alle impostazioni di roaming di Windows 10
 Di seguito è riportato un elenco completo di tutte le impostazioni di cui verrà effettuato il roaming o il backup in Windows 10. 
@@ -66,7 +66,7 @@ Nella tabella seguente, la voce Altre nella colonna Gruppo di impostazioni fa ri
 La voce Interne nella colonna Gruppo di impostazioni fa riferimento alle impostazioni e alle app che possono essere disabilitate soltanto tramite la sincronizzazione dall'interno dell'app stessa o disabilitando la sincronizzazione per l'intero dispositivo con la gestione dei dispositivi mobili (software MDM) o le impostazioni dei Criteri di gruppo.
 Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non appartengono a un gruppo.
 
-| Impostazioni | Desktop | Mobile | Group |
+| Impostazioni | Desktop | Mobile | Gruppo |
 | --- | --- | --- | --- |
 | **Account**: immagine dell'account |sync |X |Tema |
 | **Account**: altre impostazioni account |X |X | |

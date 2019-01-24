@@ -3,19 +3,19 @@ title: "Esercitazione:  Integrare una singola foresta Active Directory in Azure 
 description: Viene illustrato come configurare un ambiente ibrido di gestione delle identità tramite l'autenticazione pass-through.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 140161e88ee572d728a7f9c923c9528ea6755cc1
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6bbf9cbea0671aaa73ddc5402f3102eea3154e6c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165455"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467911"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Esercitazione:  Integrare una singola foresta di AD mediante l'autenticazione pass-through
 

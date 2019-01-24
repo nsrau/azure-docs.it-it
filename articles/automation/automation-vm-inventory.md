@@ -3,19 +3,19 @@ title: Gestire una macchina virtuale di Azure con la raccolta dell'inventario | 
 description: Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: inventario, automazione, modifica, gestione
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9fabaa2be850e5b15f10fc78adb14dfd5c112906
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403611"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426047"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 
@@ -60,29 +60,29 @@ Le tabelle seguenti forniscono informazioni sulle proprietà che possono essere 
 
 ### <a name="windows-registry"></a>Registro di sistema di Windows
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata        |
-|Item Name     | Nome descrittivo del file da rilevare        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file        |
-|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Nome elemento     | Nome descrittivo del file da rilevare        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
+|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="windows-files"></a>File Windows
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata        |
-|Item Name     | Nome descrittivo del file da rilevare        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file        |
+|Nome elemento     | Nome descrittivo del file da rilevare        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\myfile.txt"
 
 ### <a name="linux-files"></a>File di Linux
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata        |
-|Item Name     | Nome descrittivo del file da rilevare        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file        |
+|Nome elemento     | Nome descrittivo del file da rilevare        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "/etc/*.conf"       |
 |Tipo di percorso     | Tipo di elemento da rilevare. I valori possibili sono File e Directory        |
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
@@ -116,7 +116,7 @@ Per rimuovere la macchina virtuale dalla gestione dell'inventario:
 3. Nell'elenco selezionare la macchina virtuale che si vuole disconnettere. La macchina virtuale avrà un segno di spunta verde accanto alla voce **Questa area di lavoro** nella colonna **Connessione OMS**.
 
    >[!NOTE]
-   >OMS è ora denominato Log Analytics.
+   >OMS viene a questo punto indicato come Log Analytics.
    
 4. Nella parte superiore della pagina successiva selezionare **Disconnetti**.
 5. Nella finestra di conferma fare clic su **Sì**.
@@ -126,3 +126,4 @@ Per rimuovere la macchina virtuale dalla gestione dell'inventario:
 
 * Per informazioni sulla gestione delle modifiche nelle impostazioni dei file e del Registro di sistema nelle macchine virtuali, vedere [Rilevare le modifiche software nell'ambiente in uso con la soluzione di rilevamento modifiche](../log-analytics/log-analytics-change-tracking.md).
 * Per informazioni sulla gestione degli aggiornamenti di Windows e dei pacchetti nelle macchine virtuali, vedere [Soluzione Gestione aggiornamenti in Azure](../operations-management-suite/oms-solution-update-management.md).
+

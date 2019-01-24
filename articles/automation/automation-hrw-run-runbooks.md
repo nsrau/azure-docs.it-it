@@ -3,18 +3,18 @@ title: Eseguire runbook nel ruolo di lavoro ibrido per runbook di Automazione di
 description: Questo articolo fornisce informazioni sull'esecuzione di runbook su computer presenti nel data center locale o in un provider di servizi cloud con il ruolo di lavoro ibrido per runbook.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 89f8b4a842c9a632c661d9770d17c1ec01d4211e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0d622f6f03f9d132f3c57910d8a60c5731ad7c94
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582253"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425782"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Esecuzione di runbook in un ruolo di lavoro ibrido per runbook
 
@@ -24,7 +24,7 @@ Quando si creano runbook da eseguire in un ruolo di lavoro ibrido per runbook, �
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Avvio di un runbook in un ruolo di lavoro ibrido per runbook
 
-[Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md) illustra diversi modi in cui è possibile eseguire l'avvio dei runbook. Ruolo di lavoro ibrido per runbook aggiunge un'opzione **RunOn** in cui è possibile specificare il nome di un gruppo di ruoli di lavoro ibridi per runbook. Quando si specifica un gruppo, il runbook verrà recuperato ed eseguito da uno dei ruoli di lavoro inclusi in tale gruppo. Se non si specifica l'opzione, il runbook verrà eseguito come di consueto in Automazione di Azure.
+[avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md) illustra diversi modi in cui è possibile eseguire l'avvio dei runbook. Hybrid Runbook Workers aggiunge un'opzione **RunOn** in cui è possibile specificare il nome di un gruppo di computer di lavoro runbook ibridi. Quando si specifica un gruppo, il runbook verrà recuperato ed eseguito da uno dei ruoli di lavoro inclusi in tale gruppo. Se non si specifica l'opzione, il runbook verrà eseguito come di consueto in Automazione di Azure.
 
 Quando si avvia un runbook nel portale di Azure, viene visualizzata l'opzione **Esegui in**, che consente di scegliere tra **Azure** o **Ruolo di lavoro ibrido**. Se si seleziona **Computer di lavoro ibrido**, sarà quindi possibile selezionare il gruppo da un elenco a discesa.
 
@@ -255,3 +255,4 @@ Se i runbook non vengono completati correttamente, vedere l'articolo sulla risol
 
 * Per altre informazioni sui vari modi per avviare un runbook, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md).
 * Per comprendere le diverse modalità di utilizzo dei runbook di PowerShell in Automazione di Azure con l'editor di testo, vedere [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md).
+

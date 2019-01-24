@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6bdb319eb89c3dad8b3602b0ec4561b962fcc868
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 36a84618a998dd2e06f5563fb8706a1dc8400e59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608699"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823352"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migrazione di Contoso: Rehosting di un'app locale in macchine virtuali di Azure
 
@@ -453,7 +453,7 @@ Ora Contoso deve eseguire le operazioni di pulizia seguenti:
 
 Ora che l'app è in esecuzione, Contoso deve operazionalizzarla e proteggerla completamente in Azure.
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 Il team di sicurezza Contoso esamina le VM di Azure per determinare eventuali problemi di sicurezza.
 

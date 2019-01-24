@@ -2,21 +2,21 @@
 title: Schema di eventi della sottoscrizione per Griglia di eventi di Azure
 description: Descrive le proprietà disponibili per gli eventi della sottoscrizione con Griglia di eventi di Azure
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 10/12/2018
-ms.author: tomfitz
-ms.openlocfilehash: ae6513c503b930d9c953f5245a9c98ea096109bb
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 01/12/2019
+ms.author: spelluru
+ms.openlocfilehash: 04bb19c074edff08677d759fb386608f6905e979
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310235"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473436"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Schema di eventi di Griglia di eventi di Azure per le sottoscrizioni
 
-Questo articolo illustra le proprietà e lo schema per gli eventi della sottoscrizione di Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
+Questo articolo illustra le proprietà e lo schema per gli eventi della sottoscrizione di Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
 I gruppi di risorse e le sottoscrizioni di Azure generano gli stessi tipi di evento. I tipi di evento sono correlati ad azioni o modifiche nelle risorse. La differenza principale è che i gruppi di risorse generano eventi per le risorse all'interno del gruppo di risorse, mentre le sottoscrizioni di Azure generano eventi per le risorse all'interno della sottoscrizione.
 
@@ -249,7 +249,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| autorizzazione | object | L'autorizzazione richiesta per l'operazione. |
+| authorization | object | L'autorizzazione richiesta per l'operazione. |
 | claims | object | Le proprietà delle attestazioni. Per altre informazioni, vedere [specifiche dei token JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | stringa | Un ID operazione per la risoluzione dei problemi. |
 | httpRequest | object | I dettagli dell'operazione. Questo oggetto è incluso soltanto quando si aggiorna una risorsa esistente o la si elimina. |

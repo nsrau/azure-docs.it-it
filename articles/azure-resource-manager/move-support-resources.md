@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 253cfd7ddeb04a12a3609ab5e14a37365015a568
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c16a0eeb674e712ec1c3678a2e0002a8ddcfc329
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790878"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464707"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 
@@ -371,6 +371,11 @@ Dopo aver trovato il provider di risorse e il tipo di risorsa usare le tabelle i
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | -------------- | ------------ |
 | insiemi di credenziali | Yes | Yes |
+
+## <a name="microsoftkusto"></a>Microsoft.Kusto
+| Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+| ------------- | -------------- | ------------ |
+| clusters | Yes | Yes |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |

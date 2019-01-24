@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c2a3e5aa-7b5a-4fe4-9285-45dbe6e8efcc
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
-ms.openlocfilehash: bdfe06c52a6fd4afa513821923581cd28713d872
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f8f47201149ce2384eb0adcef86936dc9d017c85
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063065"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813593"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Esercitazione: Integrazione di Azure Active Directory con FreshDesk
 
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-freshdesk-from-the-gallery"></a>Aggiunta di FreshDesk dalla raccolta
 
-Per configurare l'integrazione di FreshDesk in Azure AD, è necessario aggiungere FreshDesk dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di FreshDesk in Azure AD, è necessario aggiungerla dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere FreshDesk dalla raccolta, seguire questa procedura:**
 
@@ -78,9 +78,9 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con FreshDesk, è
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di FreshDesk](#configure-freshdesk-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di FreshDesk](#create-freshdesk-test-user)**: per avere una controparte di Britta Simon in FreshDesk collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -109,7 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FreshDesk, seguire ques
     b. Nella casella di testo **Identificatore (ID entità)** digitare l'URL usando il modello `https://<tenant-name>.freshdesk.com` o qualsiasi altro valore suggerito da FreshDesk.
 
     > [!NOTE]
-    > Questi valori non sono reali. È necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. L'applicazione FreshDesk prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra un esempio relativo a questa operazione. Il valore predefinito di **Identificatore univoco dell'utente** è **user.userprincipalname** ma FreshDesk presuppone che ne sia stato eseguito il mapping all'indirizzo di posta elettronica dell'utente. A tale scopo è possibile usare l'attributo **user.mail** dall'elenco oppure usare il valore di attributo appropriato in base alla configurazione dell'organizzazione. 
 
@@ -117,7 +117,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FreshDesk, seguire ques
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
     
-    | Nome | Attributo di origine |
+    | NOME | Source Attribute |
     | ---------------| --------------- |
     | Identificatore univoco dell'utente | user.mail |
 
@@ -135,7 +135,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FreshDesk, seguire ques
 
     e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
 
-    f. Fare clic su **OK**.
+    f. Fare clic su **Ok**
 
     g. Fare clic su **Save**.
 
@@ -160,11 +160,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con FreshDesk, seguire ques
 
     b. Identificatore Azure AD
 
-    c. URL disconnessione
+    c. URL di chiusura sessione
 
 ### <a name="configure-freshdesk-single-sign-on"></a>Configurare l'accesso Single Sign-On per FreshDesk
 
-1. In un'altra finestra del Web browser accedere al sito aziendale di FreshDesk come amministratore.
+1. In un'altra finestra del Web browser accedere al sito aziendale di Freshdesk come amministratore.
 
 2. Selezionare l'**icona Impostazioni** e nella sezione **Sicurezza** seguire questa procedura:
 
@@ -182,9 +182,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con FreshDesk, seguire ques
   
     f. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -207,13 +207,13 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a FreshDesk.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a FreshDesk.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **FreshDesk**.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
 2. Nell'elenco delle applicazioni digitare e selezionare **FreshDesk**.
 
@@ -240,7 +240,7 @@ Nel caso di FreshDesk, il provisioning è un'attività manuale.
 
 **Per effettuare il provisioning di un account utente, seguire questa procedura:**
 
-1. Accedere al tenant di **FreshDesk**.
+1. Accedere al tenant di **Freshdesk** .
 
 2. Nel menu in alto fare clic su **Admin**.
 
@@ -258,11 +258,11 @@ Nel caso di FreshDesk, il provisioning è un'attività manuale.
 
     ![Agent Information](./media/freshdesk-tutorial/IC776775.png "Agent Information")
 
-    a. Nella casella di testo **Email** digitare l'indirizzo di posta elettronica dell'account Azure AD di cui si vuole eseguire il provisioning.
+    a. Nella casella di testo **Email** , digitare l’indirizzo di posta elettronica dell'account Azure AD di cui si vuole eseguire il provisioning.
 
-    b. Nella casella di testo **Full Name** digitare il nome dell'account Azure AD di cui si vuole eseguire il provisioning.
+    b. Nella casella di testo **Full Name** , digitare il nome dell'account Azure AD di cui si vuole eseguire il provisioning.
 
-    c. Nella casella di testo **Title** digitare il titolo dell'account Azure AD di cui si vuole eseguire il provisioning.
+    c. Nella casella di testo **Title** , digitare il titolo dell'account Azure AD di cui si vuole eseguire il provisioning.
 
     d. Fare clic su **Save**.
 
@@ -270,7 +270,7 @@ Nel caso di FreshDesk, il provisioning è un'attività manuale.
     >Il titolare dell'account AD riceverà un messaggio di posta elettronica contenente un collegamento da selezionare per confermare e attivare l'account.
     >
     >[!NOTE]
-    >È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da FreshDesk per eseguire il provisioning degli account utente di AAD in FreshDesk.
+    >È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Freshdesk per eseguire il provisioning degli account utente di AAD in FreshDesk.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

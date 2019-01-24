@@ -3,7 +3,7 @@ title: Panoramica della verifica in due passaggi - Azure Active Directory | Micr
 description: Altre informazioni su come configurare e usare la verifica in due passaggi.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,17 +11,17 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: e61c96d754c240df89607db0cf84dca0e0ccd17e
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 047c2af2626c9efca05dc3d3e554d57b4d559add
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347427"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809106"
 ---
 # <a name="two-step-verification-overview"></a>Panoramica della verifica in due passaggi
 
 >[!Important]
->Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory).
+>Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Si riceve una e-mail da un referente IT o dal proprio capo in cui si afferma che l'organizzazione ha aggiunto altre verifiche di sicurezza all'account. Cosa significa? Significa che l'organizzazione sta prendendo altri provvedimenti per accertare l'identità dell'utente al momento dell'accesso. Questa verifica aggiuntiva, nota anche come verifica in due passaggi, viene eseguita con una combinazione di nome utente, password e dispositivo mobile o telefono.
 

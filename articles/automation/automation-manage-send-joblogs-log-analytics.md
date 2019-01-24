@@ -3,18 +3,18 @@ title: Inoltrare dati dei processi di Automazione di Azure a Log Analytics
 description: Questo articolo illustra come inviare lo stato e i flussi del processo del runbook a Log Analytics di Azure per fornire informazioni e funzionalità di gestione aggiuntive.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8a1f7e367b3f8f06e33bbcd11f8090c9578c1d30
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269567"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432966"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Inoltrare lo stato e i flussi del processo da Automazione a Log Analytics
 
@@ -84,7 +84,7 @@ Nell'output verificare quanto segue:
 La diagnostica di Automazione di Azure crea due tipi di record in Log Analytics che vengono contrassegnati con il tag **AzureDiagnostics**. Le query seguenti usano il linguaggio di query aggiornato per Log Analytics. Per informazioni sulle query comuni tra il linguaggio di query legacy e il nuovo linguaggio di query di Azure Log Analytics, vedere [Legacy to new Azure Log Analytics Query Language cheat sheet](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language) (Scheda di riferimento rapido per il passaggio dal linguaggio di query legacy al nuovo linguaggio di query di Azure Log Analytics)
 
 ### <a name="job-logs"></a>Log del processo
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | TimeGenerated |Data e ora di esecuzione del processo del runbook. |
 | RunbookName_s |Il nome del runbook. |
@@ -106,7 +106,7 @@ La diagnostica di Automazione di Azure crea due tipi di record in Log Analytics 
 
 
 ### <a name="job-streams"></a>Flussi del processo
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | TimeGenerated |Data e ora di esecuzione del processo del runbook. |
 | RunbookName_s |Il nome del runbook. |
@@ -183,3 +183,4 @@ Log Analytics offre maggiore visibilità operativa ai processi di Automazione e 
 * Per informazioni su come creare e recuperare l'output e i messaggi di errore da runbook, vedere [Output di runbook e messaggi](automation-runbook-output-and-messages.md).
 * Per altre informazioni sull'esecuzione dei runbook, su come monitorare i processi dei runbook e su altri dettagli tecnici, vedere [Verifica di un processo di runbook](automation-runbook-execution.md).
 * Per altre informazioni su Log Analytics e sulle origini di raccolta dati, vedere [Panoramica della raccolta di dati di archiviazione di Azure in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).
+

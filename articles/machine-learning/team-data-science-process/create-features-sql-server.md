@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf6f27b7720cf4a30aa08ca02f9150aebe564244
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f427ce2df8a83a3fb43291fcb375a1e01b32060d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135941"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447021"
 ---
-# <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creare caratteristiche per i dati in SQL Server tramite SQL e Python
-Questo documento illustra come creare caratteristiche per i dati archiviati in una VM di SQL Server in Azure che consentono agli algoritmi di apprendere in modo più efficiente dai dati. A tale scopo, è possibile usare SQL o un linguaggio di programmazione come Python. Entrambi gli approcci sono illustrati di seguito.
+# <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creare funzionalità per i dati in SQL Server tramite SQL e Python
+Questo documento illustra come creare funzionalità per i dati archiviati in una VM di SQL Server in Azure che consentono agli algoritmi di apprendere in modo più efficiente dai dati. A tale scopo, è possibile usare SQL o un linguaggio di programmazione come Python. Entrambi gli approcci sono illustrati di seguito.
 
-Questa attività è un passaggio del [Processo di data science per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Questa attività è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 > [!NOTE]
 > Per un esempio pratico, è possibile consultare il [set di dati dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) e fare riferimento all'IPNB intitolato [Gestione dei dati di NYC usando IPython Notebook e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) per una procedura dettagliata end-to-end.
@@ -35,35 +35,35 @@ Questo articolo presuppone che l'utente abbia:
 * I dati vengono archiviati in SQL Server. In caso contrario, consultare [Spostamento dei dati in un database di SQL Azure per Azure Machine Learning](move-sql-azure.md) per istruzioni su come spostare i dati disponibili.
 
 ## <a name="sql-featuregen"></a>Creazione di funzionalità con SQL
-In questa sezione viene descritto come creare caratteristiche tramite SQL:  
+In questa sezione viene descritto come creare funzionalità tramite SQL:  
 
-1. [Creazione di caratteristiche basate sul conteggio](#sql-countfeature)
-2. [Creazione di contenitori per la generazione di caratteristiche](#sql-binningfeature)
-3. [Implementazione delle caratteristiche da una singola colonna](#sql-featurerollout)
+1. [Creazione di funzionalità basate sul conteggio](#sql-countfeature)
+2. [Creazione di contenitori per la creazione di funzionalità](#sql-binningfeature)
+3. [Implementazione delle funzionalità da una singola colonna](#sql-featurerollout)
 
 > [!NOTE]
-> Dopo aver creato le caratteristiche aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le caratteristiche aggiuntive e la chiave primaria, che può essere unita alla tabella originale.
+> Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che può essere unita alla tabella originale.
 > 
 > 
 
-### <a name="sql-countfeature"></a>Creazione di caratteristiche basate sul conteggio
-In questo documento vengono descritte due modalità per creare caratteristiche di conteggio. Nel primo metodo viene utilizzata la somma condizionale, mentre nel secondo la clausola "where". Tali metodi possono essere uniti alla tabella originale (tramite le colonne della chiave primaria) al fine di visualizzare le caratteristiche di conteggio insieme ai dati originali.
+### <a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
+In questo documento vengono descritte due modalità per creare funzionalità di conteggio. Nel primo metodo viene utilizzata la somma condizionale, mentre nel secondo la clausola "where". Tali metodi possono essere uniti alla tabella originale (tramite le colonne della chiave primaria) al fine di visualizzare le funzionalità di conteggio insieme ai dati originali.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="sql-binningfeature"></a>Creazione di contenitori per la generazione di caratteristiche
-Nell'esempio seguente viene descritto come creare caratteristiche categorizzate, inserendo una colonna numerica (usando 5 contenitori) che può essere usata come caratteristica:
+### <a name="sql-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
+Nell'esempio seguente viene descritto come creare funzionalità categorizzate, inserendo una colonna numerico (usando 5 contenitori) che può essere utilizzata come funzionalità:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="sql-featurerollout"></a>Implementazione delle caratteristiche da una singola colonna
-In questa sezione viene illustrato come implementare una singola colonna in una tabella per generare caratteristiche aggiuntive. In questo esempio si presuppone che nella tabella dalla quale si tenta di creare la caratteristica sia presente una colonna relativa alla latitudine o alla longitudine.
+### <a name="sql-featurerollout"></a>Implementazione delle funzionalità da una singola colonna
+In questa sezione viene illustrato come implementare una singola colonna in una tabella per generare funzionalità aggiuntive. In questo esempio si presuppone che nella tabella dalla quale si tenta di creare la funzionalità sia presente una colonna relativa alla latitudine o alla longitudine.
 
-Di seguito, viene riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Ecco alcuni concetti utili da conoscere sui dati di posizione prima di creare caratteristiche dal campo:
+Di seguito, viene riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Ecco alcuni concetti utili da conoscere sui dati di posizione prima di creare funzionalità dal campo:
 
 * Il segno indica se l'utente si trova a Nord, Sud, Ovest o Est del globo.
 * Una cifra dell'ordine delle centinaia diversa da zero indica la longitudine, non la latitudine in uso.
@@ -76,7 +76,7 @@ Di seguito, viene riportata una breve introduzione sui dati di posizione relativ
 * La quinta posizione decimale è caratterizzata da un valore massimo di 1,1 m e consente di distinguere un albero da un altro. Un'accuratezza di questo tipo, con le unità GPS commerciali, può essere raggiunta soltanto con una correzione differenziale.
 * La sesta posizione decimale è caratterizzata da un valore massimo di 0,11 m: è possibile usarla per visualizzare i dettagli delle strutture, per progettare panorami e costruire strade. È più che sufficiente per rilevare i movimenti dei ghiacciai e dei fiumi. È possibile ottenere questa accuratezza eseguendo misurazioni accurate con il GPS, quale quello corretto in modo differenziale.
 
-Le informazioni sulla posizione possono essere inserite nelle caratteristiche separando le informazioni su regioni, posizioni e città. Tenere presente che è possibile chiamare anche un endpoint REST come l'API di Bing Maps, disponibile in `https://msdn.microsoft.com/library/ff701710.aspx` per visualizzare informazioni sull'area/quartiere.
+Le informazioni sulla posizione possono essere inserite nelle funzionalità separando le informazioni su regioni, posizioni e città. Tenere presente che è possibile chiamare anche un endpoint REST come l'API di Bing Maps, disponibile in `https://msdn.microsoft.com/library/ff701710.aspx` per visualizzare informazioni sull'area/quartiere.
 
     select
         <location_columnname>
@@ -89,7 +89,7 @@ Le informazioni sulla posizione possono essere inserite nelle caratteristiche se
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Queste caratteristiche basate sulla posizione possono essere usate anche per generate altre caratteristiche di conteggio, come descritto in precedenza.
+Queste funzionalità basate sulla posizione possono essere usate anche per generate altre funzionalità di conteggio, come descritto in precedenza.
 
 > [!TIP]
 > A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura. [Ecco un esempio di come procedere usando pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
@@ -98,12 +98,12 @@ Queste caratteristiche basate sulla posizione possono essere usate anche per gen
 > 
 
 ### <a name="sql-aml"></a>Connessione ad Azure Machine Learning
-La caratteristica appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile creare o accedere alle caratteristiche già create utilizzando il modulo [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) (Importa dati) in Azure ML, come descritto di seguito:
+La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile creare o accedere alle funzionalità già create utilizzando il modulo [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) in Azure ML, come descritto di seguito:
 
 ![Lettori di Azure ML](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
 ## <a name="python"></a>Utilizzo di un linguaggio di programmazione quale Python
-L'uso di Python per creare caratteristiche quando i dati si trovano in SQL Server funziona in modo analogo all'elaborazione dei dati nei BLOB di Azure tramite Python. Per il confronto, vedere [Elaborare i dati BLOB di Azure nell'ambiente data science](data-blob.md). Caricare i dati dal database in un frame di dati pandas per elaborarli più approfonditamente. In questa sezione, è stato descritto il processo di connessione al database e di caricamento dati all'interno di un frame di dati.
+L'uso di Python per creare funzionalità quando i dati si trovano in SQL Server funziona in modo analogo all'elaborazione dei dati nei BLOB di Azure tramite Python. Per il confronto, vedere [Elaborare i dati BLOB di Azure nell'ambiente data science](data-blob.md). Caricare i dati dal database in un frame di dati pandas per elaborarli più approfonditamente. In questa sezione, è stato descritto il processo di connessione al database e di caricamento dati all'interno di un frame di dati.
 
 Il seguente formato della stringa di connessione può essere usato per connettersi a un database di SQL Server da Pyhton usando pyodbc (sostituire il nome del server, quello del database, il nome utente e la password con i valori personalizzati):
 
@@ -114,7 +114,7 @@ Il seguente formato della stringa di connessione può essere usato per connetter
 La [libreria Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Il codice seguente consente di leggere i risultati restituiti da un database di SQL Server all'interno di un frame di dati di Pandas:
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
+    data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
-A questo punto è possibile usare il frame di dati di Pandas, come descritto nell'argomento relativo alla [creazione di caratteristiche per i dati di archiviazione BLOB di Azure tramite Panda](create-features-blob.md).
+A questo punto è possibile usare il frame di dati di Pandas, come descritto nell'argomento relativo alla [creazione di funzionalità per i dati di archiviazione BLOB di Azure tramite Panda](create-features-blob.md).
 

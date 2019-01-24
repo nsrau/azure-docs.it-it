@@ -4,7 +4,7 @@ description: Introduzione ai report delle attività di controllo nel portale di 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 03206baf0e70e7be247e9848bfd5a80a1a1e1b35
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 37c733a595285311b05bb420697c190ecabedc9b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247759"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811520"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
@@ -111,11 +111,11 @@ Il filtro **Categoria** permette di selezionare uno dei filtri seguenti:
 Il filtro **Tipo di risorsa attività** permette di selezionare uno dei filtri seguenti:
 
 - Tutti 
-- Group
+- Gruppo
 - Directory
 - Utente
 - Applicazione
-- Criterio
+- Policy
 - Dispositivo
 - Altri
 
@@ -182,7 +182,7 @@ Per esaminare i dati di controllo relativi alle applicazioni, è disponibile una
 
 È possibile visualizzare i log attività di Office 365 dall'[interfaccia di amministrazione di Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Sebbene i log attività di Office 365 e di Azure AD condividano numerose risorse della directory, solo l'interfaccia di amministrazione di Office 365 consente una visualizzazione completa dei log attività di Office 365. 
 
-È possibile accedere ai log attività di Office 365 anche a livello programmatico tramite le [API di gestione di Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+È possibile accedere ai log attività di Office 365 anche a livello di codice tramite le [API di gestione di Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

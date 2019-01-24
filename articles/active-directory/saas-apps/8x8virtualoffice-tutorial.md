@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9afd1f75f997070428466b82d48624fb4ac3e835
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 11e316d2dc0811faaf3a9daab219386441fb3bb8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065374"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823641"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Esercitazione: Integrazione di Azure Active Directory con 8x8 Virtual Office
 
@@ -51,7 +51,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-8x8-virtual-office-from-the-gallery"></a>Aggiunta di 8x8 Virtual Office dalla raccolta
 
-Per configurare l'integrazione di 8x8 Virtual Office in Azure AD, è necessario aggiungere 8x8 Virtual Office dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di 8x8 Virtual Office in Azure AD, è necessario aggiungere 8x8 Virtual Office dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere 8x8 Virtual Office dalla raccolta, seguire questa procedura:**
 
@@ -69,7 +69,7 @@ Per configurare l'integrazione di 8x8 Virtual Office in Azure AD, è necessario 
 
 4. Nella casella di ricerca digitare **8x8 Virtual Office**, selezionare **8x8 Virtual Office** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![8x8 Virtual Office nell'elenco risultati](common/search-new-app.png)
+     ![8x8 Virtual Office nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -81,9 +81,9 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con 8x8 Virtual O
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di 8x8 Virtual Office](#configure-8x8-virtual-office-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di 8x8 Virtual Office](#create-8x8-virtual-office-test-user)**: per avere una controparte di Britta Simon in 8x8 Virtual Office collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con 8x8 Virtual Office, seg
 
 4. Nella finestra di dialogo **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di 8x8 Virtual Office](common/idp-intiated.png)
+    ![Informazioni sull'accesso Single Sign-On per URL e dominio di 8x8 Virtual Office](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://sso.8x8.com/saml2`
 
@@ -123,7 +123,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con 8x8 Virtual Office, seg
 
     b. Identificatore Azure AD
 
-    c. URL disconnessione
+    c. URL di chiusura sessione
 
 ### <a name="configure-8x8-virtual-office-single-sign-on"></a>Configurare l'accesso Single Sign-On per 8x8 Virtual Office
 
@@ -161,11 +161,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con 8x8 Virtual Office, seg
 
     d. Fare clic sul pulsante **Sfoglia** per caricare il certificato scaricato dal portale di Azure.
 
-    e. Fare clic sul pulsante **Salva**.
+    e. Fare clic sul pulsante **Salva** .
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -188,13 +188,13 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a 8x8 Virtual Office.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a 8x8 Virtual Office.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **8x8 Virtual Office**.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
 2. Nell'elenco delle applicazioni digitare e selezionare **8x8 Virtual Office**.
 

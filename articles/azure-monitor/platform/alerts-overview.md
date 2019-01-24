@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
-ms.component: alerts
-ms.openlocfilehash: b24b98760e276c207bb360687f32ae902b3306fb
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.subservice: alerts
+ms.openlocfilehash: 18a63497cb0df2ade495dfb721aaa881aa4e6ff7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976954"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464112"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -130,7 +130,7 @@ Nelle versioni precedenti dei servizi Monitoraggio di Azure, Application Insight
 
 | **Origine di monitoraggio** | **Tipo di segnale**  | **Descrizione** | 
 |-------------|----------------|-------------|
-| Integrità del servizio | Log attività  | Non supportati. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Service Health | Log attività  | Non supportati. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
 | Application Insights | Test di disponibilità Web | Non supportati. Vedere [Avvisi di test Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
 
 
@@ -183,6 +183,7 @@ Per altre informazioni, vedere [Avvisi classici](./../../azure-monitor/platform/
 - [Informazioni sui gruppi di azioni](../../azure-monitor/platform/action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances) (Gestione delle istanze di avvio in Azure)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups) (Gestione dei gruppi intelligenti)
+
 
 
 

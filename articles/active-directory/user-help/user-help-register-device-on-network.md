@@ -3,7 +3,7 @@ title: Registrare il dispositivo personale nella rete dell'organizzazione - Azur
 description: Informazioni su come registrare il dispositivo personale nella rete dell'organizzazione in modo da poter accedere alle risorse protette dell'organizzazione.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.component: user-help
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: dc3a0974eed7b044e137b45ec367c56d7534cee6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1f321ea3a7fffd4d54887fb41aee25b17d391e67
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054079"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825405"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registrare il dispositivo personale nella rete dell'organizzazione
 Registrare il dispositivo personale, in genere un telefono o tablet, nella rete dell'organizzazione. Dopo aver registrato il dispositivo, sarà possibile accedere alle risorse limitate della propria organizzazione.

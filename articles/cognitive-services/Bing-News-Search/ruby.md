@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ebb1e61c832ab60d95a1e8a5938410ebdc7a4a0c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e5939e54a3ad10d12a8a7bfa23e50c3a250540b9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54258865"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437369"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Guida introduttiva: Eseguire una ricerca di notizie usando Ruby e l'API REST Ricerca notizie Bing
 
@@ -26,7 +26,7 @@ L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compati
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Ruby [2.4 o versione successiva](https://www.ruby-lang.org/downloads/)
+* Ruby [2.4 o versione successiva](https://www.ruby-lang.org/en/downloads/)
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 

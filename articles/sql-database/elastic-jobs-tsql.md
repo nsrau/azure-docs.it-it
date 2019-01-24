@@ -12,18 +12,18 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: eda71351b0375789d41808f9351cf000945b5f4c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606810"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449402"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
 
 Questo articolo fornisce numerosi scenari di esempio per iniziare a usare i processi elastici tramite T-SQL.
 
-Gli esempi usano le [stored procedure](#job-stored-procedures) e le [viste](#job-views) disponibili nel [*database dei processi*](elastic-jobs-overview.md#job-database).
+Gli esempi usano le [stored procedure](#job-stored-procedures) e le [viste](#job-views) disponibili nel [*database dei processi*](sql-database-job-automation-overview.md#job-database).
 
 Transact-SQL (T-SQL) viene usato per creare, configurare, eseguire e gestire i processi. La creazione dell'agente di processo elastico non è supportata in T-SQL, pertanto è innanzitutto necessario creare un *agente di processo elastico* usando il portale o [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
@@ -53,7 +53,7 @@ GO
 ## <a name="create-a-target-group-servers"></a>Creare un gruppo di destinazione (server)
 
 L'esempio seguente mostra come eseguire un processo in tutti i database in un server.  
-Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire il comando seguente:
+Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire il comando seguente:
 
 
 ```sql
@@ -78,7 +78,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## <a name="exclude-a-single-database"></a>Escludere un singolo database
 
 L'esempio seguente mostra come eseguire un processo in tutti i database in un server, ad eccezione del database denominato *MappingDB*.  
-Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire il comando seguente:
+Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire il comando seguente:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -121,7 +121,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## <a name="create-a-target-group-pools"></a>Creare un gruppo di destinazione (pool)
 
 L'esempio seguente mostra come specificare come destinazione tutti i database in uno o più pool elastici.  
-Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire il comando seguente:
+Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire il comando seguente:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -146,7 +146,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## <a name="deploy-new-schema-to-many-databases"></a>Distribuire un nuovo schema a più database
 
 L'esempio seguente mostra come distribuire un nuovo schema a tutti i database.  
-Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire il comando seguente:
+Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire il comando seguente:
 
 
 ```sql
@@ -195,7 +195,7 @@ Per impostazione predefinita l'agente processo cercherà di creare la tabella in
 2. Colonna aggiuntiva per internal_execution_id con il tipo di dati uniqueidentifier.
 3. Un indice non cluster denominato "IX_<TableName>_Internal_Execution_ID" nella colonna internal_execution_id.
 
-Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire i comandi seguenti:
+Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire i comandi seguenti:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -266,7 +266,7 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 ## <a name="view-job-definitions"></a>Visualizzare le definizioni dei processi
 
 L'esempio seguente mostra come visualizzare le definizioni del processo corrente.  
-Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire il comando seguente:
+Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire il comando seguente:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -287,7 +287,7 @@ select * from jobs.jobsteps
 ## <a name="begin-ad-hoc-execution-of-a-job"></a>Avviare l'esecuzione ad hoc di un processo
 
 L'esempio seguente mostra come avviare immediatamente un processo.  
-Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire il comando seguente:
+Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire il comando seguente:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -310,7 +310,7 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 ## <a name="schedule-execution-of-a-job"></a>Pianificare l'esecuzione di un processo
 
 L'esempio seguente mostra come pianificare un processo per l'esecuzione futura.  
-Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire il comando seguente:
+Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire il comando seguente:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -325,7 +325,7 @@ EXEC jobs.sp_update_job
 ## <a name="monitor-job-execution-status"></a>Monitorare lo stato di esecuzione di un processo
 
 L'esempio seguente mostra come visualizzare i dettagli dello stato di esecuzione per tutti i processi.  
-Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire il comando seguente:
+Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire il comando seguente:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -354,7 +354,7 @@ ORDER BY start_time DESC
 ## <a name="cancel-a-job"></a>Annullare un processo
 
 L'esempio seguente mostra come annullare un processo.  
-Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire il comando seguente:
+Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire il comando seguente:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -373,7 +373,7 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ## <a name="delete-old-job-history"></a>Eliminare la cronologia dei processi meno recente
 
 L'esempio seguente mostra come eliminare la cronologia dei processi precedente a una data specifica.  
-Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire il comando seguente:
+Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire il comando seguente:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -387,7 +387,7 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## <a name="delete-a-job-and-all-its-job-history"></a>Eliminare un processo e tutta la relativa cronologia
 
 L'esempio seguente mostra come eliminare un processo e tutta la cronologia correlata.  
-Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire il comando seguente:
+Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire il comando seguente:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -402,7 +402,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 ## <a name="job-stored-procedures"></a>Stored procedure per i processi
 
-Le stored procedure seguenti sono disponibili nel [database dei processi](elastic-jobs-overview.md#job-database).
+Le stored procedure seguenti sono disponibili nel [database dei processi](sql-database-job-automation-overview.md#job-database).
 
 
 
@@ -1190,7 +1190,7 @@ GO
 
 ## <a name="job-views"></a>Viste dei processi
 
-Le viste seguenti sono disponibili nel [database dei processi](elastic-jobs-overview.md#job-database).
+Le viste seguenti sono disponibili nel [database dei processi](sql-database-job-automation-overview.md#job-database).
 
 
 |Visualizza  |DESCRIZIONE  |

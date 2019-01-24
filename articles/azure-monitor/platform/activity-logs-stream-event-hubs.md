@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: b58b7c7ebc3547153f805f762c4caf3511a5a709
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: logs
+ms.openlocfilehash: aaaec6e02c9280801fbf7e3b5a8eaa1ae4a1ff43
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717502"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429770"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Trasmettere il log attività di Azure a Hub eventi
 È possibile trasmettere il [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md) quasi in tempo reale a qualsiasi applicazione:
@@ -102,4 +102,5 @@ Lo schema del log attività è disponibile in [Monitorare l'attività di sottosc
 * [Archive the Activity Log to a storage account](../../azure-monitor/platform/archive-activity-log.md) (Archiviare il log attività in un account di archiviazione)
 * Leggere la [panoramica sul log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md)
 * [Set up an alert based on an Activity Log event](../../azure-monitor/platform/alerts-log-webhook.md) (Configurare un avviso in base a un evento del log attività)
+
 

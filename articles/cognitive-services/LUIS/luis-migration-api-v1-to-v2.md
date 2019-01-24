@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9542fe14cc262731ca0f2ade65e6e4dfafbc34d7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138824"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427509"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guida alla migrazione delle API da v1 a v2 per le app LUIS
 La versione 1 delle API dell'[endpoint](https://aka.ms/v1-endpoint-api-docs) e di [creazione](https://aka.ms/v1-authoring-api-docs) è deprecata. Usare questa guida per imparare a migrare le API [endpoint](https://aka.ms/luis-endpoint-apis) e [creazione](https://aka.ms/luis-authoring-apis) alla versione 2. 
@@ -112,7 +112,7 @@ Le API chiavi endpoint di sottoscrizione sono deprecate e viene restituito l'err
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Le [chiavi endpoint](luis-how-to-azure-subscription.md) di Azure vengono generate nel portale di Azure. Si assegna la chiave a un'app LUIS nella pagina **[Publish](luis-how-to-manage-keys.md)** (Pubblica). Non è necessario conoscere il valore effettivo della chiave. LUIS usa il nome della sottoscrizione per effettuare l'assegnazione. 
+Le [chiavi endpoint](luis-how-to-azure-subscription.md) di Azure vengono generate nel portale di Azure. Si assegna la chiave a un'app LUIS nella pagina **[Publish](luis-how-to-azure-subscription.md)** (Pubblica). Non è necessario conoscere il valore effettivo della chiave. LUIS usa il nome della sottoscrizione per effettuare l'assegnazione. 
 
 ## <a name="new-versioning-route"></a>Nuova route controllo versioni
 Il modello v2 è ora contenuto in una [versione](luis-how-to-manage-versions.md). Il nome di una versione è dato da 10 caratteri nella route. La versione predefinita è "0.1".

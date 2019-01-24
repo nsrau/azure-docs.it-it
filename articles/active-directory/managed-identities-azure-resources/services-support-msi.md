@@ -8,13 +8,13 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
-manager: mtillman
-ms.openlocfilehash: ca7ce29adb0b83215b64065ef83ff476025b8e81
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+manager: daveba
+ms.openlocfilehash: 7591860d36a3d6472411321c60c608411ab4eb8b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199715"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437675"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -31,8 +31,8 @@ I servizi di Azure seguenti supportano le identità gestite per le risorse di Az
 
 |Tipo di identità gestita |  Disponibile a livello generale<br>Aree globali di Azure | Azure Government|Azure Germania|21Vianet per Azure Cina|
 | --- | --- | --- | --- | --- |
-| Assegnata dal sistema | Disponibile | Preview | Preview | Preview | Preview |
-| Assegnata dall'utente | Preview | Preview | Preview | Preview | Preview
+| Assegnata dal sistema | Disponibile | Anteprima | Anteprima | Anteprima | Anteprima |
+| Assegnata dall'utente | Anteprima | Anteprima | Anteprima | Anteprima | Anteprima
 
 Vedere l'elenco seguente per configurare l'identità gestita per le macchine virtuali di Azure (nelle aree in cui è disponibile):
 
@@ -46,8 +46,8 @@ Vedere l'elenco seguente per configurare l'identità gestita per le macchine vir
 
 |Tipo di identità gestita |  Disponibile a livello generale<br>Aree globali di Azure | Azure Government|Azure Germania|21Vianet per Azure Cina|
 | --- | --- | --- | --- | --- |
-| Assegnata dal sistema | Disponibile | Preview | Preview | Preview |
-| Assegnata dall'utente | Preview | Preview | Preview | Preview
+| Assegnata dal sistema | Disponibile | Anteprima | Anteprima | Anteprima |
+| Assegnata dall'utente | Anteprima | Anteprima | Anteprima | Anteprima
 
 Vedere l'elenco seguente per configurare l'identità gestita per il set di scalabilità di macchine virtuali di Azure (nelle aree in cui è disponibile):
 
@@ -62,7 +62,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per il set di scala
 |Tipo di identità gestita |  Disponibile a livello generale<br>Aree globali di Azure | Azure Government|Azure Germania|21Vianet per Azure Cina|
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Disponibile | Disponibile | Disponibile | Disponibile |
-| Assegnata dall'utente | Preview | Non disponibile | Non disponibile | Non disponibile
+| Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile
 
 Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app di Azure (nelle aree in cui è disponibile):
 
@@ -76,7 +76,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app
 Tipo di identità gestita |  Disponibile a livello generale<br>Aree globali di Azure | Azure Government|Azure Germania|21Vianet per Azure Cina|
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Disponibile | Disponibile | Disponibile | Disponibile |
-| Assegnata dall'utente | Preview | Non disponibile | Non disponibile | Non disponibile
+| Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile
 
 Vedere l'elenco seguente per configurare l'identità gestita per Funzioni di Azure (nelle aree in cui è disponibile):
 
@@ -122,12 +122,12 @@ Vedere l'elenco seguente per configurare l'identità gestita per Gestione API di
 
 - [Modello di Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
 
-### <a name="azure-container-instances"></a>Istanze di contenitore di Azure
+### <a name="azure-container-instances"></a>Istanze di Azure Container
 
 Tipo di identità gestita |  Disponibile a livello generale<br>Aree globali di Azure | Azure Government|Azure Germania|21Vianet per Azure Cina|
 | --- | --- | --- | --- | --- |
-| Assegnata dal sistema | Linux: Preview<br>Windows: Non disponibile | Non disponibile | Non disponibile | Non disponibile |
-| Assegnata dall'utente | Linux: Preview<br>Windows: Non disponibile | Non disponibile | Non disponibile | Non disponibile
+| Assegnata dal sistema | Linux: Anteprima<br>Windows: Non disponibile | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | Linux: Anteprima<br>Windows: Non disponibile | Non disponibile | Non disponibile | Non disponibile
 
 Vedere l'elenco seguente per configurare l'identità gestita per Istanze di Azure Container (nelle aree in cui è disponibile):
 
@@ -140,12 +140,12 @@ Vedere l'elenco seguente per configurare l'identità gestita per Istanze di Azur
 
 I servizi seguenti supportano l'autenticazione di Azure AD e sono stati testati con i servizi client che usano le identità gestite per le risorse di Azure.
 
-| Service | ID risorsa | Status | Assegnare l'accesso |
+| Service | ID risorsa | Stato | Assegnare l'accesso |
 | ------- | ----------- | ------ | ---- | ------------- |
 | Azure Resource Manager | `https://management.azure.com/` | Disponibile | [Portale di Azure](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Interfaccia della riga di comando di Azure](howto-assign-access-CLI.md) <br>[Modello di Azure Resource Manager](../../role-based-access-control/role-assignments-template.md) |
 | Azure Key Vault | `https://vault.azure.net` | Disponibile |  
 | Azure Data Lake | `https://datalake.azure.net/` | Disponibile |
 | SQL di Azure | `https://database.windows.net/` | Disponibile |
-| Hub eventi di Azure | `https://eventhubs.azure.net` | Preview |
-| Bus di servizio di Azure | `https://servicebus.azure.net` | Preview |
-| Archiviazione di Azure | `https://storage.azure.com/` | Preview |
+| Hub eventi di Azure | `https://eventhubs.azure.net` | Anteprima |
+| Bus di servizio di Azure | `https://servicebus.azure.net` | Anteprima |
+| Archiviazione di Azure | `https://storage.azure.com/` | Anteprima |
