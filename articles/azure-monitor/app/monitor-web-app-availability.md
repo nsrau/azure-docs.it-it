@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 480edbb508b875d53d972e9ac93fd4d119c7e54a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ca266df563cb7e50463548dd0e786cec8e886ec4
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119663"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359698"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorare la disponibilità e la velocità di risposta dei siti Web
 Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile configurare alcuni test per monitorarne la disponibilità e la velocità di risposta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Invia avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
@@ -208,7 +208,7 @@ Questa regola di avviso è abilitata per impostazione predefinita nell'[esperien
 ![Esperienza di creazione](./media/monitor-web-app-availability/appinsights-71webtestUpload.png)
 
 > [!NOTE]
->  con i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), la gravità delle regole di avviso e le preferenze di notifica con **gruppi di azioni** devono essere configurate nell'esperienza degli avvisi. Se non si esegue la procedura seguente, non si riceveranno notifiche all'interno del portale.
+>  con i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), la gravità delle regole di avviso e le preferenze di notifica con [gruppi di azioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **devono essere** configurate nell'esperienza degli avvisi. Se non si esegue la procedura seguente, non si riceveranno notifiche all'interno del portale.
 
 1. Dopo il salvataggio del test di disponibilità, nella scheda Dettagli fare clic sui puntini di sospensione accanto al test appena creato. Fare clic su "Modifica avviso".
 ![Modifica dopo il salvataggio](./media/monitor-web-app-availability/9editalert.png)
@@ -258,7 +258,7 @@ Ecco un test Web di esempio di un'app Web di Azure che usa una chiave dell'app:
 2. Estrarre il token di connessione dalla risposta.
 3. Chiamare l'API usando il token di connessione nell'intestazione dell'autorizzazione.
 
-Verificare che il test Web sia effettivamente un client, ovvero che abbia una propria app in AAD, e usare i relativi valori ClientId e AppKey. Anche il servizio sottoposto a test ha una propria app in AAD, il cui URI ID app è riportato nel campo �resource� del test Web.
+Verificare che il test Web sia effettivamente un client, ovvero che abbia una propria app in AAD, e usare i relativi valori ClientId e AppKey. Anche il servizio sottoposto a test ha una propria app in AAD, il cui URI ID app è riportato nel campo risorsa del test Web.
 
 ### <a name="open-authentication"></a>Autenticazione aperta
 Un esempio di autenticazione aperta è l'accesso con il proprio account Microsoft o Google. Molte app che usano OAuth offrono l'alternativa del segreto client ed è quindi consigliabile ricercare prima di tutto tale possibilità.
@@ -295,7 +295,7 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 
 * *Il sito sembra funzionare correttamente, ma i test segnalano errori. Perché Application Insights invia avvisi?*
 
-    * Se nel test è abilitata l'opzione "Analizza richieste dipendenti", viene eseguito un controllo rigoroso sulle risorse, ad esempio script, immagini e così via. Questi tipi di errori possono non essere evidenti in un browser.  Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. In caso di errore in uno di essi, il test verrà segnalato come non superato, anche se la pagina HTML principale viene caricata correttamente. Per eliminare la sensibilità del test a errori delle risorse di questo tipo, è sufficiente deselezionare "Analizza richieste dipendenti" nella configurazione di test. 
+    * Se nel test è abilitata l'opzione "Analizza richieste dipendenti", viene eseguito un controllo rigoroso sulle risorse, ad esempio script, immagini e così via. Questi tipi di errori possono non essere evidenti in un browser. Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. In caso di errore in uno di essi, il test verrà segnalato come non superato, anche se la pagina HTML principale viene caricata correttamente. Per eliminare la sensibilità del test a errori delle risorse di questo tipo, è sufficiente deselezionare "Analizza richieste dipendenti" nella configurazione di test. 
 
     * Per ridurre le probabilità di risultati non significativi causati da problemi di rete temporanei e così via, verificare che sia selezionata l'opzione di configurazione che abilita nuovi tentativi in caso di test non superati. È anche possibile eseguire test da più posizioni e gestire la soglia delle regole di avviso di conseguenza per evitare che problemi specifici della posizione causino avvisi non dovuti.
 
@@ -325,7 +325,7 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 
 * *È possibile chiamare codice da un test Web?*
 
-     No. I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono diversi plug-in che potrebbero risultare utili.
+    No. I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono diversi plug-in che potrebbero risultare utili.
 
 * *HTTPS è supportato?*
 
