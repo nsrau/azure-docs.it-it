@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 12/07/2018
+ms.date: 01/17/2019
 ms.author: diberry
-ms.openlocfilehash: 3a16c87e96a94fcf95694d3cbfd6f8f07adedb74
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a60528aba88b2bef10c5a4962507e72907f76509
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717076"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382343"
 ---
-# <a name="quickstart-get-intent-using-nodejs"></a>Guida introduttiva: Ottenere la finalità tramite Node.js
+# <a name="quickstart-get-intent-using-nodejs"></a>Avvio rapido: Ottenere la finalità tramite Node.js
 
 In questa guida introduttiva si passano le espressioni a un endpoint LUIS per ottenere la restituzione di finalità ed entità.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 5856824ba4aec2998ad38ac73cc5acc0840584cd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: efd645faf3bf85f181b086fea8e55b0ab78be412
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023839"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412853"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
@@ -162,7 +162,7 @@ La versione dell'API specificata nel modello influisce sulle proprietà che è p
 
 Per ottenere le versioni dell'API più aggiornate:
 
-- API REST: [Elencare tutti i provider di risorse](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
+- API REST: [Elencare tutti i provider di risorse](https://docs.microsoft.com/rest/api/resources/providers)
 - PowerShell: [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
 - Interfaccia della riga di comando di Azure: [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 

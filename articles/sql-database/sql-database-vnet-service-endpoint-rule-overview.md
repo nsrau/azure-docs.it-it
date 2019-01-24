@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 1/16/2019
-ms.openlocfilehash: 2c022bd002700426eea2c6b38a667cd5a1381c02
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/17/2019
+ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359851"
+ms.locfileid: "54390382"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Usare gli endpoint e le regole del servizio Rete virtuale per SQL Azure
 
@@ -173,7 +173,7 @@ Archiviazione di Azure ha implementato la stessa funzionalità che consente di l
 PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse dagli account di archiviazione di Azure. Se l'account di archiviazione di Azure da cui si caricano i dati limita l'accesso solo a un set di subnet della rete virtuale, la connettività da PolyBase all'account verrà interrotta. Per poter usare scenari sia di importazione che di esportazione di PolyBase con Azure SQL Data Warehouse che si connette ad Archiviazione di Azure protetta con la rete virtuale, seguire la procedura descritta di seguito.
 
 #### <a name="prerequisites"></a>Prerequisiti
-1.  Installare Azure PowerShell usando questa [guida](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+1.  Installare Azure PowerShell usando questa [guida](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, prima è necessario eseguire l'aggiornamento all'utilizzo generico v2 usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  È necessario avere attivato l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**  nel menu delle impostazioni **Firewall e reti virtuali** di tale account. Per altre informazioni, fare riferimento a [questa guida](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
  

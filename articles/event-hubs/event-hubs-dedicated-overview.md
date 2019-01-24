@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091027"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402337"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Panoramica di Hub eventi dedicato
 
@@ -32,7 +32,7 @@ La tabella seguente confronta i livelli di servizio disponibili per Hub eventi. 
 | --- |:---:|:---:|:---:|
 | Eventi in ingresso | Pagamento per ogni milione di eventi | Incluso |
 | Unità di velocità effettiva (in entrata 1 MB/secondo, in uscita di 2 MB/secondo) | Pagamento per ogni ora | Incluso |
-| Dimensioni del messaggio | 256 KB | 1 MB |
+| Dimensioni del messaggio | 1 MB | 1 MB |
 | Criteri per i server di pubblicazione | Yes | Yes |   
 | Gruppi di consumer | 20 | 20 |
 | Risposta a messaggi | Yes | Yes |
@@ -47,7 +47,6 @@ La tabella seguente confronta i livelli di servizio disponibili per Hub eventi. 
 Quando si usa Hub eventi dedicato sono disponibili i vantaggi seguenti:
 
 * Hosting a tenant singolo senza interferenze da altri tenant.
-* Incremento delle dimensioni dei messaggi fino a 1 MB rispetto a 256 KB per il livello Standard.
 * Prestazioni sempre ripetibili.
 * Capacità garantita per soddisfare le esigenze a livello di burst.
 * Include la funzionalità [Acquisizione](event-hubs-capture-overview.md) di Hub eventi per fornire l'integrazione con micro batch e conservazione a lungo termine.

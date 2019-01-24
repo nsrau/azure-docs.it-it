@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bbc9ad4f15bdffa2c0f9b6f4b56f8b1701c83c47
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: d4b706a088769530e3994d8813b28f99d5a56df5
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636618"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411969"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Prerequisiti comuni per la distribuzione di OpenShift in Azure
 
@@ -101,7 +101,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio 
 OpenShift comunica con Azure usando un nome utente e una password o un'entità servizio. Un'entità servizio di Azure è un'identità di sicurezza che è possibile usare con le app, con i servizi e con strumenti di automazione come OpenShift. Le autorizzazioni per le operazioni che l'entità servizio può eseguire in Azure vengono controllate e definite dall'utente. È preferibile limitare l'ambito delle autorizzazioni dell'entità servizio a un gruppo di risorse specifico piuttosto che estenderlo all'intera sottoscrizione.
 
-Creare un'entità servizio con [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) e generare l'output delle credenziali necessarie per OpenShift.
+Creare un'entità servizio con [az ad sp create-for-rbac](/cli/azure/ad/sp) e generare l'output delle credenziali necessarie per OpenShift.
 
 Nell'esempio seguente viene creata un'entità servizio a cui vengono assegnate le autorizzazioni di Collaboratore per un gruppo di risorse denominato openshiftrg.
 

@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 85f02acf05e89db3e22dd24ecd0e100a9ec4af6f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c35e4253858d6820d86d7d3e0763a3dcc577d09d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311729"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54387929"
 ---
-#    <a name="deprecated-cognitive-search-skills"></a>Competenze di ricerca cognitiva deprecate
+# <a name="deprecated-cognitive-search-skills"></a>Competenze di ricerca cognitiva deprecate
 
 Questo documento descrive le competenze cognitive considerate deprecate. Usare la guida seguente per il contenuto:
 

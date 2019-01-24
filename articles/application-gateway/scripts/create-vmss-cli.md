@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a2046c6d4bbaf91db6a6c4de2023717eaf13fadb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 638aa3bf0e278ce00c124d8217a1bf9104e878fb
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442361"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413781"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Gestire il traffico Web con l'interfaccia della riga di comando di Azure
 
@@ -50,10 +50,10 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-net) | Crea una rete virtuale. |
 | [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create) | Crea una subnet in una rete virtuale. |
-| [az network public-ip create](https://docs.microsoft.com/en-us/cli/azure/network/public-ip?view=azure-cli-latest) | Crea l'indirizzo IP pubblico per il gateway applicazione. |
-| [az network application-gateway create](https://docs.microsoft.com/en-us/cli/azure/network/application-gateway?view=azure-cli-latest) | Creare un gateway applicazione. |
+| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | Crea l'indirizzo IP pubblico per il gateway applicazione. |
+| [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | Creare un gateway applicazione. |
 | [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az-vmss-create) | Crea un set di scalabilità di macchine virtuali. |
-| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network_public_ip_show) | Ottiene l'indirizzo IP pubblico del gateway applicazione. |
+| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip) | Ottiene l'indirizzo IP pubblico del gateway applicazione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

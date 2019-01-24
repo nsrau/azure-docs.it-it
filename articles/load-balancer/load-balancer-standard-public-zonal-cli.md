@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: f1a6777a99c2237fc4d201fa5c87eaea88117866
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 813f11dae31261b4211480570a4801de19e74437
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185631"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199206"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Creare un servizio Load Balancer Standard pubblico con un front-end di zona usando l'interfaccia della riga di comando di Azure
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Creare un Load Balancer Standard con un front-end di zona usando l'interfaccia della riga di comando di Azure
 
-Questo articolo illustra la creazione di un servizio [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) pubblico con un front-end di zona tramite un indirizzo IP pubblico Standard. In questo scenario, specificare una zona particolare per le istanze front-end e back-end, per allineare il percorso dati e le risorse a una zona specifica.
+Questo articolo illustra la creazione di un [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) pubblico con un front-end di zona usando un indirizzo IP pubblico Standard. In questo scenario, specificare una zona particolare per le istanze front-end e back-end, per allineare il percorso dati e le risorse a una zona specifica.
 
 Per altre informazioni sull'uso delle zone di disponibilità con Load Balancer Standard, vedere [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md).
 
@@ -61,7 +61,7 @@ az network public-ip create \
 --zone 1
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Creare un servizio Azure Load Balancer Standard
+## <a name="create-azure-standard-load-balancer"></a>Creare un servizio Azure Load Balancer Standard
 Questa sezione descrive dettagliatamente come creare e configurare i componenti seguenti del servizio di bilanciamento del carico:
 - Un pool IP front-end che riceve il traffico di rete in ingresso sul servizio di bilanciamento del carico.
 - Un pool IP back-end a cui il pool front-end invia il traffico di rete con carico bilanciato.

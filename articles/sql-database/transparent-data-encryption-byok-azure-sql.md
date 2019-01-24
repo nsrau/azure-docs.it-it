@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 0c819e4efb158baa2150b00368c618c5467a01e0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/17/2019
+ms.openlocfilehash: 60c7483e698a07fcf86438798f6bb5013a7417ce
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966780"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391149"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Transparent Data Encryption con SQL di Azure: supporto BYOK (Bring Your Own Key).
 
@@ -116,7 +116,7 @@ La sezione seguente esaminerà i passaggi di installazione e configurazione in m
 
 ### <a name="azure-key-vault-configuration-steps"></a>Passaggi per la configurazione di Azure Key Vault
 
-- Installare [PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)
+- Installare [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-5.6.0)
 - Creare due Azure Key Vault in due aree differenti tramite [PowerShell per abilitare la proprietà "eliminazione temporanea"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) nell'insieme di credenziali delle chiavi (questa opzione non è disponibile dal portale di Azure Key Vault, ma è richiesta da SQL).
 - Entrambe gli Azure Key Vault devono trovarsi in due aree disponibili nella stessa area geografica di Azure per l'esecuzione del backup e il ripristino delle chiavi.  Se è necessario che i due insiemi di credenziali delle chiavi siano posizionati in aree geografiche diverse per rispettare i requisiti di ripristino di emergenza geografico di SQL, seguire la [procedura BYOK](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) che consente l'importazione da un modulo HSM locale delle chiavi.
 - Creare una nuova chiave nell'insieme di credenziali delle chiavi:  

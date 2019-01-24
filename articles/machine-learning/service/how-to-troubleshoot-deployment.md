@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 71b4cf5d44ec6cb3fb8b70975193320a4eabfc3f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100515"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401317"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Risoluzione dei problemi di distribuzione del servizio Azure Kubernetes e di Istanze di Azure Container con il servizio Azure Machine Learning
 
@@ -33,7 +33,7 @@ Durante la distribuzione di un modello nel servizio Azure Machine Learning, il s
     4. Creare una nuova immagine Docker usando il Dockerfile.
     5. Registrare l'immagine Docker con il Registro Azure Container associato all'area di lavoro.
 
-3. Distribuire l'immagine Docker al servizio Istanze di Azure Container o Azure Kubernetes.
+3. Distribuire l'immagine Docker al servizio Istanze di Azure Container o al servizio Azure Kubernetes.
 
 4. Avviare uno o più nuovi contenitori in uno di questi due servizi. 
 
@@ -93,17 +93,17 @@ Se il sistema non è in grado di compilare l'immagine Docker, la chiamata a `ima
 print(image.image_build_log_uri)
 
 # if you only know the name of the image (note there might be multiple images with the same name but different version number)
-print(ws.images()['myimg'].image_build_log_uri)
+print(ws.images['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
-for name, img in ws.images().items():
+for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
 L'URI del log è un URL SAS che punta a un file di log archiviato nell'Archivio BLOB di Azure. Basta copiare e incollare l'URI in una finestra del browser per poter scaricare e visualizzare il file di log.
 
 
 ## <a name="service-launch-fails"></a>Errore di avvio del servizio
-Dopo aver creato correttamente l'immagine, il sistema tenta di avviare un contenitore nel servizio Istanze di Azure Container o Azure Kubernetes, a seconda della configurazione della distribuzione. È generalmente consigliabile provare prima con la distribuzione nel servizio Istanze di Azure Container in quanto, coinvolgendo un solo contenitore, risulta più semplice. In questo modo è possibile escludere qualsiasi problema specifico del servizio Azure Kubernetes.
+Dopo aver creato correttamente l'immagine, il sistema tenta di avviare un contenitore nel servizio Istanza di contenitore di Azure o nel servizio Azure Kubernetes, a seconda della configurazione della distribuzione. È generalmente consigliabile provare prima con la distribuzione nel servizio Istanza di contenitore di Azure in quanto, coinvolgendo un solo contenitore, risulta più semplice. In questo modo è possibile escludere qualsiasi problema specifico del servizio AKS.
 
 Nell'ambito del processo di avvio del contenitore, il sistema richiama la funzione `init()` nello script di assegnazione dei punteggi. Se la funzione `init()` contiene eccezioni non rilevate, nel messaggio di errore potrebbe essere visualizzato l'errore **CrashLoopBackOff**. Ecco alcuni suggerimenti utili per risolvere il problema.
 
@@ -115,7 +115,7 @@ Nell'ambito del processo di avvio del contenitore, il sistema richiama la funzio
 print(service.get_logs())
 
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices()['mysvc'].get_logs())
+print(ws.webservices['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Eseguire il debug dell'immagine di Docker in locale

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: 4ef611965382906e933f8d50b5dbdb3969d0b45f
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ce031b5c0dba96ab1a51532ad771eebeafb5d599
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979047"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413261"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
 Per tutto il ciclo di vita delle applicazioni, potrebbe essere necessario modificare o aggiornare il set di scalabilità di macchine virtuali. Questi aggiornamenti possono includere come aggiornare la configurazione del set di scalabilità o modificare la configurazione dell'applicazione. Questo articolo descrive come modificare un set di scalabilità esistente con le API REST, Azure PowerShell o l'interfaccia della riga di comando di Azure.
@@ -86,7 +86,7 @@ Un set di scalabilità ha anche una "visualizzazione dell'istanza" che acquisisc
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Interfaccia della riga di comando di Azure con [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
+- Interfaccia della riga di comando di Azure con [az vmss get-instance-view](/cli/azure/vmss):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -180,7 +180,7 @@ Come un set di scalabilità ha una visualizzazione istanza, così anche ogni ist
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Interfaccia della riga di comando di Azure con [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
+- Interfaccia della riga di comando di Azure con [az vmss get-instance-view](/cli/azure/vmss)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId

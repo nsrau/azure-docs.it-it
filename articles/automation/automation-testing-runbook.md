@@ -3,18 +3,18 @@ title: Test di un runbook in Automazione di Azure
 description: Prima di pubblicare un runbook in automazione di Azure, è possibile eseguirne il test per assicurarsi che funzioni come previsto.  In questo articolo viene descritto come verificare un runbook e visualizzarne l'output.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ebeaa8eb75373fc94f7e4e714e36d1167fd7f060
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 95e3f4426fab8ed3ff28877607dee8694962e79f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192099"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422474"
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Test di un runbook in Automazione di Azure
 Quando si testa un Runbook, viene eseguita la [Versione bozza](automation-creating-importing-runbook.md#publishing-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia dei processi, ma nel pannello di output del test vengono visualizzati i flussi di [output](automation-runbook-output-and-messages.md#output-stream) e di [avviso ed errore](automation-runbook-output-and-messages.md#message-streams). I messaggi per il [flusso dettagliato](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati solo se nel pannello di output la [variabile $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) è impostata su Continua.
@@ -39,4 +39,5 @@ La procedura per verificare ogni [tipo di runbook](automation-runbook-types.md) 
 * Per altre informazioni sulla creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
 * Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
 * Per altre informazioni sulla configurazione dei runbook per restituire messaggi di stato ed errori e per conoscere le operazioni consigliate, vedere [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
+
 

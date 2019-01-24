@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 45751af66b1b050d4d36d1b8aee52dc6a5d8cc7b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247504"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382401"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -213,22 +213,6 @@ Non si verificano tempi di inattività. Le istanze vengono distribuite tra domin
 ### <a name="does-application-gateway-support-connection-draining"></a>Il gateway applicazione supporta l'esaurimento delle connessioni?
 
 Sì. È possibile configurare l'esaurimento delle connessioni per modificare i membri all'interno di un pool back-end senza interruzioni. In questo modo le connessioni esistenti continuano a essere inviate alla relativa destinazione precedente fino a quando tale connessione viene chiusa o un timeout configurabile scade. L'esaurimento delle connessioni attende solo il completamento delle connessioni correnti in corso. Gateway applicazione non rileva lo stato della sessione applicazione.
-
-### <a name="what-are-application-gateway-sizes"></a>Quali sono le dimensioni del gateway applicazione?
-
-Il gateway applicazione è attualmente disponibile in tre dimensioni: **Small**, **Medium** e **Large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
-
-Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del servizio Gateway applicazione](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
-
-La tabella seguente illustra una velocità effettiva media delle prestazioni per ogni istanza del gateway applicazione con offload SSL abilitato:
-
-| Dimensioni medie risposta della pagina di back-end | Piccolo | Media | Grande |
-| --- | --- | --- | --- |
-| 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
-| 100 KB |35 Mbps |100 Mbps |200 Mbps |
-
-> [!NOTE]
-> Questi valori sono indicazioni approssimative della velocità effettiva di un gateway applicazione. La velocità effettiva dipende da vari dettagli ambientali come le dimensioni medie delle pagine, la posizione delle istanze back-end e il tempo di elaborazione per gestire una pagina. Per dati esatti sulle prestazioni, è consigliabile eseguire propri test. Questi valori vengono forniti solo come indicazioni per la pianificazione della capacità.
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>È possibile modificare le dimensioni di un'istanza da medie a grandi senza interruzioni?
 

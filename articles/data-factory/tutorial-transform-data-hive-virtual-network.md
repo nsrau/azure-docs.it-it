@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: e062495b9a16474cef70e9a19bdd62b6e9e13752
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e643dc2167457b9dc3183e101e816b3a1eb8f052
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013900"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422458"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Trasformare dati nella rete virtuale di Azure usando l'attività Hive in Azure Data Factory
 In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data Factory che trasforma i dati con un'attività Hive in un cluster HDInsight che si trova in una rete virtuale di Azure. In questa esercitazione vengono completati i passaggi seguenti:
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 - **Cluster HDInsight.** Creare un cluster HDInsight e aggiungerlo alla rete virtuale creata nel passaggio precedente seguendo questo articolo: [Estendere Azure HDInsight usando Rete virtuale di Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Ecco una configurazione di esempio di HDInsight in una rete virtuale. 
 
     ![HDInsight in una rete virtuale](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
-- **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Caricare lo script Hive nell'account di archiviazione BLOB
 
@@ -105,7 +105,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
-3. Creare il gruppo di risorse ADFTutorialResourceGroup se non esiste già nella sottoscrizione. 
+3. Creare il gruppo di risorse: ADFTutorialResourceGroup se non esiste già nella sottoscrizione. 
 
     ```powershell
     New-AzureRmResourceGroup -Name $resourceGroupName -Location "East Us" 
