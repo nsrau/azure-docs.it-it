@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: f15b2154c1bac4d699af91980a4bc2a7192bb0c9
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 5d92aa78b132b661af3cdc53b47c0340a0758dd8
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740876"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855313"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Comprendere gli ID istanza per le macchine virtuali dei set di scalabilità della macchina virtuale di Azure
 Questo articolo descrive gli ID istanza per i set di scalabilità e le diverse modalità di esplorazione.
@@ -41,7 +41,7 @@ API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resou
 
 PowerShell: `Get-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
 
-Interfaccia della riga di comando: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (per altre informazioni, vedere la [documentazione dell'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instances))
+Interfaccia della riga di comando: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (per altre informazioni, vedere la [documentazione dell'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest))
 
 Si può anche usare [resources.azure.com](https://resources.azure.com) o gli [Azure SDK](https://azure.microsoft.com/downloads/) per elencare le macchine virtuali in un set di scalabilità.
 

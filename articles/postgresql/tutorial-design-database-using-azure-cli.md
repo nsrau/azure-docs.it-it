@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: 03c9d647c98122b63b81baa453e0cccdf951901a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 1782aa2a29bc2cf2593aa5bb1c356d4176196055
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547321"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854412"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure 
 In questa esercitazione, si usano l'interfaccia della riga di comando di Azure e altre utilità per informazioni su come:
@@ -65,9 +65,9 @@ Per impostazione predefinita, il database **postgres** viene creato al di sotto 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurare una regola del firewall a livello di server
 
-Creare una regola del firewall a livello di server per PostgreSQL Azure tramite il comando [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create). Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) o [PgAdmin](https://www.pgadmin.org/), di connettersi al server tramite il firewall del servizio PostgreSQL Azure. 
+Creare una regola del firewall a livello di server per PostgreSQL Azure tramite il comando [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule). Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) o [PgAdmin](https://www.pgadmin.org/), di connettersi al server tramite il firewall del servizio PostgreSQL Azure. 
 
-È possibile impostare una regola del firewall che copra un intervallo di indirizzi IP per consentire la connessione dalla rete in uso. L'esempio seguente usa [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) per creare una regola del firewall `AllowMyIP` che consenta la connessione da un singolo indirizzo IP.
+È possibile impostare una regola del firewall che copra un intervallo di indirizzi IP per consentire la connessione dalla rete in uso. L'esempio seguente usa [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) per creare una regola del firewall `AllowMyIP` che consenta la connessione da un singolo indirizzo IP.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
@@ -192,7 +192,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 Il comando `az postgres server restore` richiede i parametri seguenti:
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | DESCRIZIONE  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |

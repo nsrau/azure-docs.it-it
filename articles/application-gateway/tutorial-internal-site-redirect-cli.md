@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 8a4016a227f4f464d839c01cea38965aa06932c8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c707b6465761d2ebc7ddb3296d0ccd3fb9394fd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963714"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851012"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento interno tramite l'interfaccia della riga di comando di Azure
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Creare risorse di rete 
 
-Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az-net). Successivamente, aggiungere la subnet denominata *myBackendSubnet* necessaria per i pool back-end dei server tramite [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* tramite [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet). Successivamente, aggiungere la subnet denominata *myBackendSubnet* necessaria per i pool back-end dei server tramite [az network vnet subnet create](/cli/azure/network/vnet/subnet). Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* tramite [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -103,7 +103,7 @@ Il processo di creazione del gateway applicazione può richiedere alcuni minuti.
 
 È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. In questa esercitazione vengono creati due listener per i due domini. In questo esempio vengono creati i listener per i domini *www.contoso.com* e *www.contoso.org*.
 
-Aggiungere i listener back-end necessari per instradare il traffico usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
+Aggiungere i listener back-end necessari per instradare il traffico usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Aggiungere la configurazione di reindirizzamento
 
-Aggiungere la configurazione di reindirizzamento che invia il traffico da *www.consoto.org* al listener per *www.contoso.com* nel gateway applicazione usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create).
+Aggiungere la configurazione di reindirizzamento che invia il traffico da *www.consoto.org* al listener per *www.contoso.com* nel gateway applicazione usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -139,7 +139,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-routing-rules"></a>Aggiungere le regole di routing
 
-Le regole vengono elaborate nell'ordine in cui sono state create e il traffico viene indirizzato usando la prima regola corrispondente all'URL inviato al gateway applicazione. In questa esercitazione non è necessaria la regola di base predefinita che è stata creata. In questo esempio si creano due nuove regole denominate *contosoComRule* e *contosoOrgRule* e si elimina la regola predefinita che è stata creata.  È possibile aggiungere le regole usando [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
+Le regole vengono elaborate nell'ordine in cui sono state create e il traffico viene indirizzato usando la prima regola corrispondente all'URL inviato al gateway applicazione. In questa esercitazione non è necessaria la regola di base predefinita che è stata creata. In questo esempio si creano due nuove regole denominate *contosoComRule* e *contosoOrgRule* e si elimina la regola predefinita che è stata creata.  È possibile aggiungere le regole usando [az network application-gateway rule create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -197,7 +197,7 @@ az vmss extension set \
 
 ## <a name="create-cname-record-in-your-domain"></a>Creare un record CNAME nel dominio
 
-Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibile ottenere l'indirizzo DNS e usarlo per creare un record CNAME nel dominio. Per ottenere l'indirizzo DNS del gateway applicazione è possibile usare [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copiare il valore *fqdn* di DNSSettings e usarlo come valore del record CNAME creato. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare quando il gateway applicazione viene riavviato.
+Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibile ottenere l'indirizzo DNS e usarlo per creare un record CNAME nel dominio. Per ottenere l'indirizzo DNS del gateway applicazione è possibile usare [az network public-ip show](/cli/azure/network/public-ip). Copiare il valore *fqdn* di DNSSettings e usarlo come valore del record CNAME creato. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare quando il gateway applicazione viene riavviato.
 
 ```azurecli-interactive
 az network public-ip show \

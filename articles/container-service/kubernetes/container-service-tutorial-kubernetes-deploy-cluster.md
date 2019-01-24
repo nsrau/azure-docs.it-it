@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d77396cdcaa3f2f291aff52dfd1e6793aee4039c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 666e2e63b4e61f5a44fdff9175ff696e72d86138
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997851"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856528"
 ---
 # <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(DEPRECATO) Distribuire un cluster Kubernetes nel servizio Azure Container
 
@@ -66,7 +66,7 @@ In Windows l'installazione predefinita è *c:\program files (x86)\kubectl.exe*. 
 
 ## <a name="connect-with-kubectl"></a>Connettersi con kubectl
 
-Per configurare kubectl per connettersi al cluster Kubernetes, eseguire il comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials).
+Per configurare kubectl per connettersi al cluster Kubernetes, eseguire il comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes).
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster

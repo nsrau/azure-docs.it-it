@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: zarhoads
-ms.openlocfilehash: 024cf099dd65db036ae0b68d7094a60427ffa69c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 300391d9a5079eefc90ba06ba819fc6d8a91ca05
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119885"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851692"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Come creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
 
@@ -67,7 +67,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Creare e configurare più schede di interfaccia di rete
-Creare due schede di interfaccia di rete con il comando [az network nic create](/cli/azure/network/nic#az_network_nic_create). L'esempio seguente crea due schede di interfaccia di rete, denominate *myNic1* e *myNic2*, connesse al gruppo di sicurezza di rete, con una scheda che si connette a ogni subnet:
+Creare due schede di interfaccia di rete con il comando [az network nic create](/cli/azure/network/nic). L'esempio seguente crea due schede di interfaccia di rete, denominate *myNic1* e *myNic2*, connesse al gruppo di sicurezza di rete, con una scheda che si connette a ogni subnet:
 
 ```azurecli
 az network nic create \
@@ -105,7 +105,7 @@ Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, compl
 ## <a name="add-a-nic-to-a-vm"></a>Aggiungere una scheda di interfaccia di rete a una VM
 I passaggi precedenti hanno consentito di creare una VM con più schede di interfaccia di rete. È anche possibile aggiungere schede di interfaccia di rete a una macchina virtuale esistente con l'interfaccia della riga di comando di Azure. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza. Se necessario, è possibile [ridimensionare una VM](change-vm-size.md).
 
-Creare un'altra scheda di interfaccia di rete con [az network nic create](/cli/azure/network/nic#az_network_nic_create). L'esempio seguente crea una scheda di interfaccia rete denominata *myNic3* connessa alla subnet back-end e al gruppo di sicurezza di rete creato nei passaggi precedenti:
+Creare un'altra scheda di interfaccia di rete con [az network nic create](/cli/azure/network/nic). L'esempio seguente crea una scheda di interfaccia rete denominata *myNic3* connessa alla subnet back-end e al gruppo di sicurezza di rete creato nei passaggi precedenti:
 
 ```azurecli
 az network nic create \
@@ -132,7 +132,7 @@ az vm nic add \
     --nics myNic3
 ```
 
-Avviare la VM con [az vm start](/cli/azure/vm#az_vm_start):
+Avviare la VM con [az vm start](/cli/azure/vm):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -156,7 +156,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-Avviare la VM con [az vm start](/cli/azure/vm#az_vm_start):
+Avviare la VM con [az vm start](/cli/azure/vm):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM

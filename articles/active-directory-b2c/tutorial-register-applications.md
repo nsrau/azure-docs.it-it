@@ -3,18 +3,18 @@ title: 'Esercitazione: Registrare le applicazioni in Azure Active Directory B2C 
 description: Informazioni su come registrare le applicazioni in Azure Active Directory B2C usando il portale di Azure.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: davidmu
-ms.openlocfilehash: 511e1e9f29e6ae7602a977819f5295f76236595d
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 99ad1bbaa732b1207ead9da8da36f345d4978241
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248723"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856027"
 ---
 # <a name="tutorial-register-your-applications-in-azure-active-directory-b2c"></a>Esercitazione: Registrare le applicazioni in Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Se non è ancora stato creato un [tenant Azure AD B2C](tutorial-create-tenant.md
 
     L'URL di risposta deve iniziare con lo schema `https` e tutti i valori degli URL di risposta devono condividere un singolo dominio DNS. Se ad esempio l'applicazione ha un URL di risposta `https://login.contoso.com`, è possibile aggiungerne altri, come questo URL: `https://login.contoso.com/new`. In alternativa, è possibile fare riferimento a un sottodominio DNS di `login.contoso.com`, ad esempio `https://new.login.contoso.com`. Se si vuole avere un'applicazione con `login-east.contoso.com` e `login-west.contoso.com` come URL di risposta, è necessario aggiungere tali URL nell'ordine seguente: `https://contoso.com`, `https://login-east.contoso.com`, `https://login-west.contoso.com`. Gli ultimi due URL possono essere aggiunti perché sono sottodomini del primo, ovvero `contoso.com`.
 
-7. Fare clic su **Crea**.
+7. Fare clic su **Create**(Crea).
 
     ![Impostare le proprietà dell'applicazione](./media/tutorial-register-applications/application-properties.png)
 
@@ -77,7 +77,7 @@ Se l'applicazione scambia un codice con un token, è necessario creare un segret
 4. Per **Includi app Web/API Web** e **Consenti il flusso implicito**, selezionare **Sì**.
 5. Per **URL di risposta**, immettere un endpoint a cui Azure AD B2C deve restituire eventuali token richiesti dall'applicazione. È ad esempio possibile impostarlo per essere in ascolto localmente di `https://localhost:44316`. Se non si conosce ancora il numero di porta, è possibile immettere un valore segnaposto e modificarlo in un secondo momento.
 6. Per **URI ID app** immettere l'identificatore usato per l'API Web. L'URI completo dell'identificatore, incluso il dominio, viene generato automaticamente. Ad esempio: `https://contosotenant.onmicrosoft.com/api`.
-7. Fare clic su **Crea**.
+7. Fare clic su **Create**(Crea).
 8. Selezionare l'applicazione *webapi1* creata e quindi selezionare **Ambiti pubblicati** per aggiungere altri ambiti in base alle esigenze. Per impostazione predefinita, è definito l'ambito `user_impersonation`. L'ambito `user_impersonation` consente ad altre applicazioni di accedere a questa API per conto dell'utente connesso. Se necessario, l'ambito `user_impersonation` può essere rimosso.
 
     ![Impostare gli ambiti pubblicati](./media/tutorial-register-applications/published-scopes.png)
@@ -94,7 +94,7 @@ Se l'applicazione scambia un codice con un token, è necessario creare un segret
     - **Univocità**: lo schema dell'URI di reindirizzamento deve essere univoco per ogni applicazione. Nell'esempio `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` è lo schema. È necessario seguire questo modello. Se due applicazioni usano lo stesso schema, l'utente ha la possibilità di scegliere una delle due. Se la scelta dell'utente non è corretta, il tentativo di accesso ha esito negativo.
     - **Completezza**: l'URI di reindirizzamento deve avere uno schema e un percorso. Il percorso deve contenere almeno una barra rovesciata dopo il dominio. Ad esempio, `//contoso/` funziona e `//contoso` ha esito negativo. Verificare che l'URI di reindirizzamento non includa caratteri speciali, come quello di sottolineatura.
 
-6. Fare clic su **Crea**.
+6. Fare clic su **Create**(Crea).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

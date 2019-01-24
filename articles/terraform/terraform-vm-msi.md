@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 6c9bef108c2f272c678879124ae2cd4f9ae093ba
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076228"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852542"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con identità gestite per risorse di Azure
 
@@ -85,7 +85,7 @@ L'autorizzazione di collaboratore consente all'identità del servizio gestito ne
 
 `. ~/tfEnv.sh`
 
-Questo script usa il meccanismo di [accesso interattivo all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) per eseguire l'autenticazione con Azure e assegnare all'identità gestita della macchina virtuale l'autorizzazione di collaboratore per l'intera sottoscrizione. 
+Questo script usa il meccanismo di [accesso interattivo all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) per eseguire l'autenticazione con Azure e assegnare all'identità gestita della macchina virtuale l'autorizzazione di collaboratore per l'intera sottoscrizione. 
 
  La macchina virtuale ha un back-end di stato remoto Terraform. Per abilitarlo nella distribuzione di Terraform, copiare il file remoteState.tf dalla directory tfTemplate alla radice degli script di Terraform.  
 

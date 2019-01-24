@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9fed56746f5b26269f6a70aeedd06ba9b19548f
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 2ff08b0f155be54ee57d2d9999c47aa56a366d09
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018826"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852202"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Come trovare immagini di macchine virtuali Linux in Azure Marketplace con l'interfaccia della riga di comando di Azure
 Questo argomento descrive come usare l'interfaccia della riga di comando di Azure per trovare immagini di macchine virtuali in Azure Marketplace. Usare queste informazioni per specificare un'immagine del Marketplace quando si crea una macchina virtuale a livello di codice mediante l'interfaccia della riga di comando, modelli di Resource Manager o altri strumenti.
@@ -128,7 +128,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Esplorare le immagini 
-Un altro modo per trovare un'immagine in una posizione è l'esecuzione in sequenza dei comandi [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image#az_vm_image_list_offers) e [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) . Con questi comandi si determinano questi valori:
+Un altro modo per trovare un'immagine in una posizione è l'esecuzione in sequenza dei comandi [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image) e [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) . Con questi comandi si determinano questi valori:
 
 1. Elencando gli editori di immagini.
 2. Elencando le offerte di un determinato editore.

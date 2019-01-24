@@ -3,19 +3,19 @@ title: Configurare l'accesso per un provider di identità di Azure AD multi-tena
 description: Aggiungere un provider di identità di Azure AD multi-tenant tramite criteri personalizzati - Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ef0becd55df43d7ae648a4cbaa5e1a2358fc1910
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e5e3af95dc0a28207d9c95c66bc729b9255115de
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636935"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857183"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso per Azure Active Directory multi-tenant usando criteri personalizzati in Azure Active Directory B2C
 

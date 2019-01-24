@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a58644deb8d1325fd466d2a4d3a1fc927c83b685
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: bc9907930283e07ef8df826d2e7653b96f116518
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720255"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852049"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Panoramica delle macchine virtuali Windows in Azure
 
@@ -49,7 +49,7 @@ Quando si compila l'infrastruttura di un'applicazione in Azure, ci sono sempre n
 * Risorse correlate richieste dalla VM
 
 ### <a name="naming"></a>Denominazione
-Una macchina virtuale dispone di un [nome](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) assegnato e di un nome computer configurato come parte del sistema operativo. Il nome di una VM può essere composto da un massimo di 15 caratteri.
+Una macchina virtuale dispone di un [nome](/azure/architecture/best-practices/naming-conventions) assegnato e di un nome computer configurato come parte del sistema operativo. Il nome di una VM può essere composto da un massimo di 15 caratteri.
 
 Se si usa Azure per creare il disco del sistema operativo, il nome del computer e il nome della macchina virtuale sono uguali. Se si [carica la propria immagine](upload-generalized-managed.md) contenente un sistema operativo configurato in precedenza e la si usa per creare una macchina virtuale, i nomi possono differire. Quando si carica il proprio file di immagine, è consigliabile far coincidere il nome computer nel sistema operativo con il nome della macchina virtuale.
 
@@ -63,7 +63,7 @@ Questa tabella illustra alcuni dei metodi con cui è possibile ottenere un elenc
 | Portale di Azure |Quando si crea una VM, selezionare una località nell'elenco. |
 | Azure PowerShell |Usare il comando [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
 | API REST |Usare l'operazione [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
-| Interfaccia della riga di comando di Azure |Usare l'operazione [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_list_locations). |
+| Interfaccia della riga di comando di Azure |Usare l'operazione [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
 ### <a name="vm-size"></a>Dimensioni macchina virtuale
 Le [dimensioni](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) della VM usata sono determinate dal carico di lavoro che si desidera eseguire. Le dimensioni scelte determinano quindi fattori quali potenza di elaborazione, memoria e capacità di archiviazione. Azure offre una vasta gamma di dimensioni per supportare molti tipi di uso.

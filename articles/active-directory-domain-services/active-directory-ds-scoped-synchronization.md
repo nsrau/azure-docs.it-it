@@ -4,7 +4,7 @@ description: Configurare la sincronizzazione con ambito da Azure AD nei domini g
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: ae51151bd20d2c715d868e916f7bc633040efa40
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: b26fd93ae4a06f66281e25302d02ad25920e97b4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121531"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856435"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurare la sincronizzazione con ambito da Azure AD nel dominio gestito
 Questo articolo illustra come configurare solo account utente specifici per sincronizzarli dalla directory di Azure AD nel dominio gestito di Azure AD Domain Services.

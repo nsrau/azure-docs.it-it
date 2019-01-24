@@ -3,20 +3,20 @@ title: Panoramica della messaggistica del bus di servizio di Azure | Microsoft D
 description: Descrizione della messaggistica del bus di servizio
 services: service-bus-messaging
 documentationcenter: ''
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
-ms.author: spelluru
-ms.openlocfilehash: 55a651080c4ed1d22901681317046f0853e257f0
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.author: aschhab
+ms.openlocfilehash: ab1b68b8ca8339389a27d1c09aa8752cfdaec0d5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163107"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851786"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 
@@ -103,7 +103,7 @@ Il bus di servizio supporta i protocolli di sicurezza, ad esempio [firme di acce
 
 Quando le aree o i data center di Azure riscontrano tempo di inattività, il [ripristino di emergenza geografico](service-bus-geo-dr.md) fa in modo che l'elaborazione dei dati continui a funzionare in un'area o in un data center diverso.
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 Il bus di servizio supporta i protocolli [AMQP 1.0](service-bus-amqp-overview.md) e [HTTP/REST](/rest/api/servicebus/) standard.
 

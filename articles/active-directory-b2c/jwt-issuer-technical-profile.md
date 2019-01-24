@@ -3,19 +3,19 @@ title: Definire un profilo tecnico per un'autorità di certificazione del token 
 description: Definire un profilo tecnico per un'autorità di certificazione del token JWT nei criteri personalizzati di Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 25352d12e578c289ccb4ab8aab60dc55a444762e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ae9f55943d4b178096230269215ac771ee1d20a1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413503"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856108"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per un'autorità di certificazione del token JWT nei criteri personalizzati di Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Gli elementi **InputClaims**, **OutputClaims** e **PersistClaims** sono vuoti o 
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Yes | L'attestazione da usare come attestazione dell'identità dell'utente all'interno dei codici di autorizzazione OAuth2 e dei token di aggiornamento. Per impostazione predefinita, è necessario impostare su `objectId`, a meno che non si specifichi un tipo di attestazione SubjectNamingInfo diverso. | 
 | SendTokenResponseBodyWithJsonNumbers | No  | Sempre impostato su `true`. Per il formato legacy in cui i valori numerici vengono forniti sotto forma di stringhe anziché di numeri JSON, impostare su `false`. Questo attributo è necessario per i client che hanno acquisito una dipendenza su un'implementazione precedente che ha restituito tali proprietà sotto forma di stringhe. | 

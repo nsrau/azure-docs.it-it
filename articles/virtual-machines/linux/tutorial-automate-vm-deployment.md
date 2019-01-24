@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a023d9f600f63d1ead4cf7c7e2a3cceec794d28b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f4456ed81fba4648f5bc3efaa415b1e44e5e415
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972598"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852117"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Esercitazione: Come usare cloud-init per personalizzare una macchina virtuale Linux in Azure al primo avvio
 
@@ -45,7 +45,7 @@ Cloud-init funziona anche fra distribuzioni. Ad esempio, non si usa **apt-get in
 
 Microsoft collabora con i partner per promuovere l'inclusione e il funzionamento di cloud-init con le immagini da essi fornite per Azure. La tabella seguente illustra l'attuale disponibilità di cloud-init nelle immagini della piattaforma Azure:
 
-| Alias | Editore | Offerta | SKU | Version |
+| Alias | Editore | Offerta | SKU | Versione |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |più recenti |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |più recenti |
@@ -171,7 +171,7 @@ az keyvault certificate create \
 
 
 ### <a name="prepare-certificate-for-use-with-vm"></a>Preparare i certificati per l'uso con macchine virtuali
-Per usare il certificato durante il processo di creazione della macchina virtuale, ottenere l'ID del certificato con il comando [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). La macchina virtuale richiede che il certificato abbia un formato specifico per inserirlo all'avvio, quindi è necessario convertire il certificato con il comando [az vm secret format](/cli/azure/vm#az-vm-secret-format). L'esempio seguente assegna l'output di questi comandi a delle variabili per semplificarne l'uso nei passaggi successivi:
+Per usare il certificato durante il processo di creazione della macchina virtuale, ottenere l'ID del certificato con il comando [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). La macchina virtuale richiede che il certificato abbia un formato specifico per inserirlo all'avvio, quindi è necessario convertire il certificato con il comando [az vm secret format](/cli/azure/vm). L'esempio seguente assegna l'output di questi comandi a delle variabili per semplificarne l'uso nei passaggi successivi:
 
 ```azurecli-interactive
 secret=$(az keyvault secret list-versions \
