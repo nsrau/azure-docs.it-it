@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: dc1de1bb43295d2ff9f260613ae568cdd2fbe6ae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103501"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198780"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log personalizzati in Log Analytics
 L'origine dati dei log personalizzati in Log Analytics consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog. Al termine della raccolta, è possibile analizzare i dati nei singoli campi nelle query o estrarli durante la raccolta in singoli campi.
@@ -164,6 +164,18 @@ Viene usata una query *Type=MyApp_CL* per restituire tutti i record dal log racc
 Viene usato Campi personalizzati per definire i campi *EventTime*, *Code*, *Status* e *Message* ed è possibile osservare la differenza nei record restituiti dalla query.
 
 ![Query di log con campi personalizzati](media/data-sources-custom-logs/query-02.png)
+
+## <a name="alternatives-to-custom-logs"></a>Alternative per i log personalizzati
+Anche se i log personalizzati sono utili se i dati soddisfano i criteri summenzionati, vi sono tuttavia casi come il seguente in cui è necessario adottare un'altra strategia:
+
+- I dati non rientrano nella struttura richiesta, ad esempio la presenza di timestamp in un formato diverso.
+- Il file di log non rispetta i requisiti, ad esempio la codifica dei file o una struttura di cartelle non supportata.
+- I dati richiedono una pre-elaborazione o l'applicazione di filtri prima della raccolta. 
+
+Nei casi in cui non è possibile raccogliere i dati con i log personalizzati, prendere in considerazione le seguenti strategie alternative:
+
+- Usare uno script personalizzato o un altro metodo per scrivere i dati in [Eventi Windows](data-sources-windows-events.md) oppure [Syslog](data-sources-syslog.md), che vengano raccolti da Log Analytics. 
+- Inviare i dati direttamente a Log Analytics usando [API di raccolta dati HTTP](data-collector-api.md). Un esempio con i runbook in automazione di Azure è disponibile nell'articolo [Raccogliere dati in Log Analytics con un runbook di Automazione di Azure](runbook-datacollect.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere [Analizzare i dati di testo in Log Analytics](../log-query/parse-text.md) per i metodi per analizzare ogni voce di log importata in più proprietà.

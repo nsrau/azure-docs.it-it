@@ -1,22 +1,17 @@
 ---
 layout: LandingPage
-title: Guida dell'utente per l'autenticazione, le app e la gestione dei dispositivi - Azure Active Directory | Microsoft Docs
-description: La guida dell'utente è destinata a coloro che necessitano di assistenza nella configurazione e nell'uso di informazioni di sicurezza, verifica in due passaggi, reimpostazione di password self-service, gestione dei dispositivi, app Microsoft Authenticator e portale delle app personali.
+title: 'Guida dell''utente per l''autenticazione, le app e la gestione dei dispositivi - Azure Active Directory | Microsoft Docs'
+description: 'La guida dell''utente è destinata a coloro che necessitano di assistenza nella configurazione e nell''uso di informazioni di sicurezza, verifica in due passaggi, reimpostazione di password self-service, gestione dei dispositivi, app Microsoft Authenticator e portale delle app personali.'
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41929389"
 ---
+
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Guida dell'utente per l'autenticazione, le app e la gestione dei dispositivi
 
 Questo contenuto è utile per configurare e usare le informazioni di sicurezza e la verifica in due passaggi, apprendere come reimpostare le proprie password, configurare e aggiungere i dispositivi di Azure Active Directory e configurare e usare l'app Microsoft Authenticator e il portale delle app personali.

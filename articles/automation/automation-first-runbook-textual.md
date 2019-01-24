@@ -4,18 +4,18 @@ description: Esercitazione in cui viene illustrata la creazione, il test e la pu
 keywords: PowerShell flusso di lavoro, esempi di flusso di lavoro PowerShell, flusso di lavoro PowerShell
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90d2dcb81a6b54d1a8437f0d3ae01aa96cdac3db
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 137518aadaf2f1cd38dd18184992c8723a7da5c0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165400"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435228"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Il primo runbook del flusso di lavoro PowerShell
 
@@ -61,7 +61,7 @@ Si inizia creando un runbook semplice che restituisce il testo *Hello World*.
    }
    ```
 
-1. Digitare *Write-Output "Hello World".* tra parentesi graffe.
+1. Digitare *Write-Output "Hello World".*  tra parentesi graffe.
 
    ```powershell-interactive
    Workflow MyFirstRunbook-Workflow
@@ -205,3 +205,4 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
 * Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md)
 * Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
 * Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [supporto di script PowerShell nativi in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+

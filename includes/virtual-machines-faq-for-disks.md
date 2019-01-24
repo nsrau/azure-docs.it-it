@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553425"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841426"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -101,6 +101,10 @@ I clienti possono eseguire uno snapshot dei relativi dischi gestiti e usarlo per
 
 Sì, sono supportati sia i dischi non gestiti che quelli gestiti. È consigliabile usare i dischi gestiti per i nuovi carichi di lavoro ed eseguire la migrazione dei carichi di lavoro correnti a dischi gestiti.
 
+**È possibile condividere il percorso dei dischi gestiti e non gestiti nella stessa macchina virtuale?**
+
+ No.
+
 **Se si crea un disco da 128 GB e si aumentano le dimensioni a 130 GiB, verranno addebitati i costi relativi al livello di dimensioni successivo (256 GiB)?**
 
 Sì.
@@ -124,10 +128,6 @@ Attualmente Azure Managed Disks supporta solo dischi gestiti per l'archiviazione
 **Dove si possono trovare modelli di Azure Resource Manager di esempio per creare macchine virtuali con dischi gestiti?**
 * [Elenco di modelli che usano Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
-
-**È possibile condividere il percorso dei dischi gestiti e non gestiti nella stessa macchina virtuale?**
-
- No.
 
 **Quando si crea un disco da un BLOB, è presente una relazione continua con il BLOB di origine?**
 

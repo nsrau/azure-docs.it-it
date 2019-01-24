@@ -3,23 +3,23 @@ title: Guida al protocollo AMQP 1.0 in Hub eventi e nel bus di servizio di Azure
 description: Guida al protocollo per le espressioni e descrizione di AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: clemensv
-ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 88f586fac4392e880efc3ef611a7c03177582bff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542510"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856707"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -134,7 +134,7 @@ Una chiamata di "ricezione" a livello di API viene convertita in una performativ
 
 Il blocco di un messaggio viene rilasciato quando il trasferimento viene finalizzato in uno degli stati terminali, ovvero *accepted*, *rejected* o *released*. Il messaggio viene rimosso dal bus di servizio quando lo stato terminale è *accepted*. Il messaggio rimane nel bus di servizio e viene recapitato al ricevitore successivo quando il trasferimento raggiunge uno degli altri stati. Il bus di servizio sposta automaticamente il messaggio nella coda di messaggi non recapitabili dell'entità quando raggiunge il numero massimo di recapiti consentiti per l'entità a causa di rifiuti o rilasci ripetuti.
 
-Anche se attualmente le API del bus di servizio non presentano direttamente un'opzione di questo tipo, un client di protocollo AMQP di livello inferiore può usare il modello del credito di collegamento per trasformare l'interazione di "tipo pull" che emette un'unità di credito per ogni richiesta di ricezione in un modello di "tipo push", che emette un numero elevato di crediti di collegamento e quindi può ricevere i messaggi non appena disponibili e senza altre interazioni. La modalità push è supportata tramite le impostazioni delle proprietà [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) o [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount). Quando sono diverse da zero, il client AMQP le usa come credito di collegamento.
+Anche se attualmente le API del bus di servizio non presentano direttamente un'opzione di questo tipo, un client di protocollo AMQP di livello inferiore può usare il modello del credito di collegamento per trasformare l'interazione di "tipo pull" che emette un'unità di credito per ogni richiesta di ricezione in un modello di "tipo push", che emette un numero elevato di crediti di collegamento e quindi può ricevere i messaggi non appena disponibili e senza altre interazioni. La modalità push è supportata tramite le impostazioni delle proprietà [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) o [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount). Quando sono diverse da zero, il client AMQP le usa come credito di collegamento.
 
 In questo contesto è importante notare che il clock per la scadenza del blocco sul messaggio nell'entità viene avviato quando il messaggio viene accettato dall'entità e non all'inizio della fase di trasmissione. Quando il client indica che è pronto per ricevere messaggi emettendo un credito di collegamento, si prevede quindi che esegua attivamente il pull dei messaggi sulla rete che sia pronto a gestirli. In caso contrario, è possibile che il blocco del messaggio scada prima che il messaggio venga recapitato. L'uso del controllo di flusso del credito di collegamento deve riflettere in modo diretto la capacità immediata di gestire i messaggi disponibili inviati al ricevitore.
 
@@ -227,14 +227,14 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 | to |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
 | subject |Identificatore dello scopo del messaggio definito dall'applicazione, non interpretato dal bus di servizio. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | reply-to |Indicatore del percorso di risposta definito dall'applicazione, non interpretato dal bus di servizio. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| correlation-id |Identificatore della correlazione definito dall'applicazione, non interpretato dal bus di servizio. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
-| content-type |Indicatore del tipo di contenuto definito dall'applicazione per il corpo, non interpretato dal bus di servizio. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| correlation-id |Identificatore della correlazione definito dall'applicazione, non interpretato dal bus di servizio. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| content-type |Indicatore del tipo di contenuto definito dall'applicazione per il corpo, non interpretato dal bus di servizio. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |Indicatore della codifica del contenuto definito dall'applicazione per il corpo, non interpretato dal bus di servizio. |Non è accessibile tramite l'API del bus di servizio. |
 | absolute-expiry-time |Indica l'istante assoluto in cui scadrà il messaggio. Viene ignorato nell'input (viene osservato il valore TTL dell'intestazione), viene considerato autorevole nell'output. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | creation-time |Dichiara l'ora di creazione del messaggio. Non usato dal bus di servizio |Non è accessibile tramite l'API del bus di servizio. |
 | group-id |Identificatore definito dall'applicazione per un set correlato di messaggi. Usato per le sessioni del bus di servizio. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |Contatore che identifica il numero di sequenza relativo al messaggio in una sessione. Ignorato dal bus di servizio. |Non è accessibile tramite l'API del bus di servizio. |
-| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="message-annotations"></a>Annotazioni di messaggio
 
@@ -364,7 +364,7 @@ Ecco le proprietà dell'applicazione per il messaggio di richiesta:
 | operation |No  |stringa |**put-token** |
 | type |No  |stringa |Tipo di token inserito. |
 | name |No  |stringa |"Destinatari" a cui è applicabile il token. |
-| expiration |Sì | timestamp |Ora di scadenza del token. |
+| expiration |Yes | timestamp |Ora di scadenza del token. |
 
 La proprietà *name* identifica l'entità a cui deve essere associato il token. Nel bus di servizio corrisponde al percorso della coda o dell'argomento/sottoscrizione. La proprietà *type* identifica il tipo di token:
 
@@ -381,7 +381,7 @@ Il messaggio di risposta ha i valori *application-properties* seguenti:
 | Chiave | Facoltativo | Tipo di valore | Contenuti del valore |
 | --- | --- | --- | --- |
 | status-code |No  |int |Codice di risposta HTTP **[RFC2616]**. |
-| status-description |Sì |stringa |Descrizione dello stato. |
+| status-description |Yes |stringa |Descrizione dello stato. |
 
 Il client può chiamare *put-token* ripetutamente e per qualsiasi entità nell'infrastruttura di messaggistica. I token hanno come ambito il client corrente e sono ancorati alla connessione corrente, quindi il server elimina eventuali token conservati al termine della connessione.
 
