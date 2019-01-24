@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 2a2d5f9c85a881dad8f53f81a39c84d4a34b632e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360191"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440521"
 ---
 Le organizzazioni hanno esigenze di elaborazione su vasta scala. Questi carichi di lavoro di Big Compute includono progettazione tecnica e analisi, calcoli di valutazione dei rischi finanziari, rendering delle immagini, modellazione complessa, simulazioni Monte Carlo e altri ancora. 
 
@@ -95,7 +95,7 @@ Gestisci in modo semplice ed efficace i carichi di lavoro comuni, creando e otti
 
 * [Installare e configurare CycleCloud con un modello di Resource Manager](https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud)
 
-* [Configurare manualmente CycleCloud](https://docs.microsoft.com/azure/cyclecloud/quickstart-installation)
+* [Configurare manualmente CycleCloud](https://docs.microsoft.com/azure/cyclecloud/installation)
 
 ## <a name="azure-batch"></a>Azure Batch
 
@@ -160,9 +160,9 @@ Le macchine virtuali di Azure, i set di scalabilità di macchine virtuali, Batch
 
 ### <a name="containers"></a>Contenitori
 
-* [servizio Kubernetes di Azure](../articles/aks/intro-kubernetes.md)
-* [Registro contenitori](../articles/container-registry/container-registry-intro.md)
-* [Istanze di contenitore](../articles/container-instances/container-instances-overview.md)
+* [Servizio Azure Kubernetes](../articles/aks/intro-kubernetes.md)
+* [Registro Container](../articles/container-registry/container-registry-intro.md)
+* [Istanze di Container](../articles/container-instances/container-instances-overview.md)
 
 ## <a name="customer-stories"></a>Casi di successo dei clienti
 
