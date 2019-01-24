@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339400"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358984"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Domande frequenti su SQL Server in esecuzione in macchine virtuali Windows in Azure
 
@@ -49,13 +49,19 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
    Sì. Azure mantiene solo un'immagine per ogni versione e per ogni edizione principale. Ad esempio, quando viene rilasciato un nuovo Service Pack di SQL Server, Azure aggiunge una nuova immagine alla raccolta per quel Service Pack. L'immagine di SQL Server del Service Pack precedente viene immediatamente rimossa dal portale di Azure. Tuttavia è ancora disponibile per il provisioning di PowerShell per i successivi tre mesi. Dopo tre mesi, l'immagine del Service Pack precedente non è più disponibile. Questi criteri di rimozione sono applicabili anche se una versione di SQL Server non è più supportata perché raggiunge la fine del ciclo di vita.
 
+
+1. **È possibile distribuire un'immagine meno recente di SQL Server che non è visibile nel portale di Azure?**
+
+   Sì, con PowerShell. Per altre informazioni sulla distribuzione di macchine virtuali di SQL Server usando PowerShell, consultare [Come eseguire il provisioning di macchine virtuali di SQL Server con Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+
 1. **È possibile creare un'immagine di disco rigido virtuale da una VM di SQL Server?**
 
    Sì, ma ci sono alcune considerazioni di cui tenere conto. Se si distribuisce questo disco rigido virtuale in una nuova VM in Azure, non è possibile accedere alla sezione Configurazione di SQL Server nel portale. Per gestire le opzioni di configurazione di SQL Server sarà quindi necessario usare PowerShell. Inoltre, verrà addebitato un costo alla tariffa della VM di SQL su cui si basava originariamente l'immagine. Questo vale anche se si rimuove SQL Server dal disco rigido virtuale prima della distribuzione. 
 
 1. **È possibile impostare configurazioni non visualizzate nella raccolta di macchine virtuali, ad esempio Windows 2008 R2 + SQL Server 2012?**
 
-    No. Per le raccolte di macchine virtuali che includono SQL Server è necessario selezionare una delle immagini disponibili.
+   No. Per le raccolte di macchine virtuali che includono SQL Server è necessario selezionare una delle immagini disponibili sia dal portale di Azure che tramite [PowerShell](virtual-machines-windows-ps-sql-create.md). 
+
 
 ## <a name="creation"></a>Creazione
 
@@ -88,7 +94,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **Per cambiare modello di licenza sono necessari tempi di inattività di SQL Server?**
 
-    No. Per [modificare il modello di licenza](virtual-machines-windows-sql-ahb.md) non è necessario alcun tempo di inattività di SQL Server perché la modifica ha effetto immediato e non richiede un riavvio della macchina virtuale. 
+   No. Per [modificare il modello di licenza](virtual-machines-windows-sql-ahb.md) non è necessario alcun tempo di inattività di SQL Server perché la modifica ha effetto immediato e non richiede un riavvio della macchina virtuale. 
 
 1. **Le sottoscrizioni CSP possono attivare Vantaggio Azure Hybrid?**
 
@@ -96,7 +102,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **La registrazione di una macchina virtuale con il nuovo provider di risorse di macchine virtuali SQL comporta costi aggiuntivi?**
 
-    No. Il provider di risorse di macchine virtuali SQL consente di migliorare la gestione di SQL Server in macchine virtuali di Azure senza spese aggiuntive. 
+   No. Il provider di risorse di macchine virtuali SQL consente di migliorare la gestione di SQL Server in macchine virtuali di Azure senza spese aggiuntive. 
 
 1. **Il provider di risorse di macchine virtuali SQL è disponibile per tutti i clienti?**
  
