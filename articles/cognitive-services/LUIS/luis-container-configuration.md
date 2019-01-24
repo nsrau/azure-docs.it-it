@@ -32,10 +32,10 @@ Questo contenitore ha le impostazioni di configurazione seguenti:
 |--|--|--|
 |Yes|[ApiKey](#apikey-setting)|Si usa per rilevare le informazioni di fatturazione.|
 |No |[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
-|Yes|[Fatturazione](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
+|Yes|[Billing](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
 |Yes|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
 |No |[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
-|No |[registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
+|No |[Logging](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
 |Yes|[Mounts](#mount-settings)|Leggere e scrivere dati dal computer host al contenitore e dal contenitore al computer host.|
 
 > [!IMPORTANT]
