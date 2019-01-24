@@ -1,26 +1,8 @@
 ---
-title: 'Passaggio 3: Creare un nuovo esperimento di Machine Learning Studio - Azure | Microsoft Docs'
-description: 'Passaggio 3 della procedura dettagliata sullo sviluppo di una soluzione predittiva: Creare un nuovo esperimento di training in Azure Machine Learning Studio.'
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cgronlun
-ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: 5f3f73e2c2cb281887e795d974403a17cffd5978
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260787"
+title: Passaggio 3: Creare un nuovo esperimento di Azure Machine Learning Studio titleSuffix: Descrizione di Azure Machine Learning Studio: Passaggio 3 della procedura dettagliata sullo sviluppo di una soluzione predittiva: Creare un nuovo esperimento di training in Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Passaggio 3 della procedura dettagliata: Creare un nuovo esperimento di Azure Machine Learning Studio
 Questo è il terzo passaggio della procedura dettagliata [Sviluppare una soluzione di analisi predittiva in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
